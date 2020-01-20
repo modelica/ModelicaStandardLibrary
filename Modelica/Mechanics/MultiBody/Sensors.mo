@@ -88,9 +88,6 @@ package Sensors "Sensors to measure variables"
       "If get_angles=true: Select angles[1] such that abs(angles[1] - guessAngle1) is a minimum"
       annotation (HideResult=true,Dialog(group="3 angles to rotate the world frame into frame_a along the axes defined in \"sequence\"", enable=get_angles));
 
-    input SI.Diameter arrowDiameter=world.defaultArrowDiameter
-      "Diameter of absolute arrow from world frame to frame_a"
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
       "Color of absolute arrow from world frame to frame_b"
       annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
@@ -153,7 +150,6 @@ package Sensors "Sensors to measure variables"
 
     Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow arrow(
       r_head=frame_a.r_0,
-      diameter=arrowDiameter,
       color=arrowColor,
       specularCoefficient) if world.enableAnimation and animation;
 
@@ -470,9 +466,6 @@ and sequence[2] &ne; sequence[3]. Often used values are:
       "If get_angles=true: Select angles[1] such that abs(angles[1] - guessAngle1) is a minimum"
       annotation (HideResult=true,Dialog(group="3 angles to rotate frame_a into frame_b along the axes defined in \"sequence\"", enable=get_angles));
 
-    input SI.Diameter arrowDiameter=world.defaultArrowDiameter
-      "Diameter of relative arrow from frame_a to frame_b"
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
       "Color of relative arrow from frame_a to frame_b"
       annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
@@ -579,7 +572,6 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow arrow(
       r=frame_a.r_0,
       r_head=frame_b.r_0 - frame_a.r_0,
-      diameter=arrowDiameter,
       color=arrowColor,
       specularCoefficient) if world.enableAnimation and animation;
   equation
@@ -1760,9 +1752,6 @@ w_rel = MultiBody.Frames.angularVelocity1(R_rel);
 
     parameter Boolean animation=true
       "= true, if animation shall be enabled (show arrow)";
-    input SI.Diameter arrowDiameter=world.defaultArrowDiameter
-      "Diameter of relative arrow from frame_a to frame_b"
-      annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
       "Color of relative arrow from frame_a to frame_b"
       annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
@@ -1776,7 +1765,6 @@ w_rel = MultiBody.Frames.angularVelocity1(R_rel);
     Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow arrow(
       r=frame_a.r_0,
       r_head=frame_b.r_0 - frame_a.r_0,
-      diameter=arrowDiameter,
       color=arrowColor,
       specularCoefficient=specularCoefficient) if world.enableAnimation and animation;
 
@@ -1870,11 +1858,6 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
     parameter Boolean positiveSign=true
       "= true, if force with positive sign is returned (= frame_a.f), otherwise with negative sign (= frame_b.f)";
 
-    input Real N_to_m(unit="N/m") = 1000
-      "Force arrow scaling (length = force/N_to_m)"
-      annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter forceDiameter=world.defaultArrowDiameter
-      "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         ForceColor "Color of force arrow"
       annotation (Dialog(colorSelector=true, group="if animation or vectorAnimation = true", enable=animation or vectorAnimation));
@@ -1886,7 +1869,6 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
 
   protected
     Visualizers.Advanced.Arrow forceArrow(
-      diameter=forceDiameter,
       color=forceColor,
       specularCoefficient=specularCoefficient,
       R=frame_b.R,
@@ -1985,11 +1967,6 @@ with negative sign at frame_a.
       "= true, if animation shall be enabled (show arrow)";
     parameter Boolean positiveSign=true
       "= true, if torque with positive sign is returned (= frame_a.t), otherwise with negative sign (= frame_b.t)";
-    input Real Nm_to_m(unit="N.m/m") = 1000
-      "Torque arrow scaling (length = torque/Nm_to_m)"
-      annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter torqueDiameter=world.defaultArrowDiameter
-      "Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
       "Color of torque arrow"
       annotation (Dialog(colorSelector=true, group="if animation or vectorAnimation = true", enable=animation or vectorAnimation));
@@ -2001,7 +1978,6 @@ with negative sign at frame_a.
 
   protected
     Visualizers.Advanced.Arrow torqueArrow(
-      diameter=torqueDiameter,
       color=torqueColor,
       specularCoefficient=specularCoefficient,
 	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
@@ -2108,16 +2084,6 @@ with negative sign at frame_a.
       "= true, if animation vector shall be enabled";
     parameter Boolean positiveSign=true
       "= true, if force and torque with positive sign is returned (= frame_a.f/.t), otherwise with negative sign (= frame_b.f/.t)";
-    input Real N_to_m(unit="N/m") = 1000
-      "Force arrow scaling (length = force/N_to_m)"
-      annotation (Dialog(group="if animation = true", enable=animation));
-    input Real Nm_to_m(unit="N.m/m") = 1000
-      "Torque arrow scaling (length = torque/Nm_to_m)"
-      annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter forceDiameter=world.defaultArrowDiameter
-      "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter torqueDiameter=forceDiameter "Diameter of torque arrow"
-                                  annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
       "Color of force arrow"
       annotation (Dialog(colorSelector=true, group="if animation or vectorAnimation = true", enable=animation or vectorAnimation));
@@ -2133,7 +2099,6 @@ with negative sign at frame_a.
   protected
     parameter Integer csign=if positiveSign then +1 else -1;
     Visualizers.Advanced.Arrow forceArrow(
-      diameter=forceDiameter,
       color=forceColor,
       specularCoefficient=specularCoefficient,
       R=frame_b.R,
@@ -2142,7 +2107,6 @@ with negative sign at frame_a.
 	  pushing=true,
       r_head=frame_a.f*csign) if world.enableAnimation and animation;
     Visualizers.Advanced.Arrow torqueArrow(
-      diameter=torqueDiameter,
       color=torqueColor,
       specularCoefficient=specularCoefficient,
 	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,

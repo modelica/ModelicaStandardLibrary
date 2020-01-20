@@ -20,11 +20,6 @@ package Forces "Components that exert forces and/or torques between frames"
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
       "Frame in which input force is resolved (1: world, 2: frame_b, 3: frame_resolve)";
-    parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
-      "Force arrow scaling (length = force/N_to_m)"
-      annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter diameter=world.defaultArrowDiameter
-      "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
       "Color of arrow"
       annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
@@ -34,7 +29,6 @@ package Forces "Components that exert forces and/or torques between frames"
 
   protected
     Visualizers.Advanced.Arrow arrow(
-      diameter=diameter,
       color=color,
       specularCoefficient=specularCoefficient,
       R=frame_b.R,
@@ -132,9 +126,7 @@ and color of the arrow can be defined via
 variables <strong>diameter</strong> and <strong>color</strong>. The arrow
 points in the direction defined by the
 force signal. The length of the arrow is proportional
-to the length of the force vector using parameter
-<strong>N_to_m</strong> as scaling factor. For example, if N_to_m = 100 N/m,
-then a force of 350 N is displayed as an arrow of length 3.5 m.
+to the length of the force vector using a global force scaling in a tool-dependent way.
 </p>
 <p>
 An example how to use this model is given in the
@@ -175,11 +167,6 @@ This leads to the following animation
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
       "Frame in which input torque is resolved (1: world, 2: frame_b, 3: frame_resolve)";
-    parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m
-      "Torque arrow scaling (length = torque/Nm_to_m)"
-      annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter diameter=world.defaultArrowDiameter
-      "Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
       "Color of arrow"
       annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
@@ -189,7 +176,6 @@ This leads to the following animation
 
   protected
     Visualizers.Advanced.Arrow arrow(
-      diameter=diameter,
       color=color,
       specularCoefficient=specularCoefficient,
       R=frame_b.R,
@@ -268,9 +254,7 @@ and color of the arrow can be defined via
 variables <strong>diameter</strong> and <strong>color</strong>. The double arrow points
 in the direction defined by the
 torque vector. The length of the double arrow is proportional
-to the length of the torque vector using parameter
-<strong>Nm_to_m</strong> as scaling factor. For example, if Nm_to_m = 100 Nm/m,
-then a torque of 350 Nm is displayed as an arrow of length 3.5 m.
+to the length of the torque vector using a global tool-dependent scaling factor.
 </p>
 <p>
 An example how to use this model is given in the
@@ -340,16 +324,6 @@ This leads to the following animation
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
       "Frame in which input force and torque are resolved (1: world, 2: frame_b, 3: frame_resolve)";
 
-    parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
-      "Force arrow scaling (length = force/N_to_m)"
-      annotation (Dialog(group="if animation = true", enable=animation));
-    parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m
-      "Torque arrow scaling (length = torque/Nm_to_m)"
-      annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter forceDiameter=world.defaultArrowDiameter
-      "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter torqueDiameter=forceDiameter "Diameter of torque arrow"
-                                  annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
       "Color of force arrow" annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
@@ -360,7 +334,6 @@ This leads to the following animation
 
   protected
     Visualizers.Advanced.Arrow forceArrow(
-      diameter=forceDiameter,
       color=forceColor,
       specularCoefficient=specularCoefficient,
 	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
@@ -369,7 +342,6 @@ This leads to the following animation
       r_head=frame_b.f,
 	  pushing=true) if world.enableAnimation and animation;
     Visualizers.Advanced.Arrow torqueArrow(
-      diameter=torqueDiameter,
       color=torqueColor,
       specularCoefficient=specularCoefficient,
 	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
@@ -496,15 +468,12 @@ For efficiency reasons, this reaction torque is, however, not computed.
 <p>
 The force and torque are by default visualized as an arrow (force)
 and as a double arrow (torque) acting at the connector to which
-they are connected. The diameters
-and colors of the arrows can be defined via
-variables <strong>forceDiameter</strong>, <strong>torqueDiameter</strong>,
+they are connected. The colors of the arrows can be defined via
 <strong>forceColor</strong> and <strong>torqueColor</strong>. The arrows
 point in the directions defined by the
 force and torque vectors. The lengths of the arrows are proportional
-to the length of the force and torque vectors, respectively, using parameters
-<strong>N_to_m</strong> and <strong>Nm_to_m</strong> as scaling factors. For example, if N_to_m = 100 N/m,
-then a force of 350 N is displayed as an arrow of length 3.5 m.
+to the length of the force and torque vectors, respectively, using tool-dependent
+scaling factors.
 </p>
 <p>
 An example how to use this model is given in the
@@ -548,12 +517,7 @@ This leads to the following animation
       resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b
       "Frame in which input force is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
-    parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
-      "Force arrow scaling (length = force/N_to_m)"
-      annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter forceDiameter=world.defaultArrowDiameter
-      "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter connectionLineDiameter=forceDiameter
+    input SI.Diameter connectionLineDiameter=world.defaultArrowDiameter
       "Diameter of line connecting frame_a and frame_b"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
@@ -567,7 +531,6 @@ This leads to the following animation
 
   protected
     Visualizers.Advanced.Arrow forceArrow(
-      diameter=forceDiameter,
       color=forceColor,
       specularCoefficient=specularCoefficient,
 	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
@@ -733,12 +696,7 @@ clarity this is not shown in the animation):
       resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b
       "Frame in which input force is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
-    parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m
-      "Torque arrow scaling (length = torque/Nm_to_m)"
-      annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter torqueDiameter=world.defaultArrowDiameter
-      "Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter connectionLineDiameter=torqueDiameter
+    input SI.Diameter connectionLineDiameter=world.defaultArrowDiameter
       "Diameter of line connecting frame_a and frame_b"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
@@ -752,7 +710,6 @@ clarity this is not shown in the animation):
 
   protected
     Visualizers.Advanced.Arrow torqueArrow(
-      diameter=torqueDiameter,
       color=torqueColor,
       specularCoefficient=specularCoefficient,
       R=frame_b.R,
@@ -931,17 +888,7 @@ clarity this is not shown in the animation):
       resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b
       "Frame in which input force and torque are resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
-    parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
-      "Force arrow scaling (length = force/N_to_m)"
-      annotation (Dialog(group="if animation = true", enable=animation));
-    parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m
-      "Torque arrow scaling (length = torque/Nm_to_m)"
-      annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter forceDiameter=world.defaultArrowDiameter
-      "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter torqueDiameter=forceDiameter "Diameter of torque arrow"
-                                  annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter connectionLineDiameter=forceDiameter
+    input SI.Diameter connectionLineDiameter=world.defaultArrowDiameter
       "Diameter of line connecting frame_a and frame_b"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
@@ -957,8 +904,6 @@ clarity this is not shown in the animation):
 
   protected
     Visualizers.Advanced.Arrow forceArrow(
-      diameter=forceDiameter,
-      color=forceColor,
       specularCoefficient=specularCoefficient,
 	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
       R=frame_b.R,
@@ -966,7 +911,6 @@ clarity this is not shown in the animation):
       pushing=true,
       r_head=frame_b.f) if world.enableAnimation and animation;
     Visualizers.Advanced.Arrow torqueArrow(
-      diameter=torqueDiameter,
       color=torqueColor,
       specularCoefficient=specularCoefficient,
 	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
