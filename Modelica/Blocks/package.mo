@@ -1170,7 +1170,6 @@ As expected, one can see the 11<sup>th</sup>, 13<sup>th</sup>, 23<sup>th</sup>, 
   end Rectifier12pulseFFT;
 
   model TotalHarmonicDistortion "Calculation of total harmonic distortion of voltage"
-    import Modelica;
     extends Modelica.Icons.Example;
     parameter Modelica.SIunits.Frequency f1 = 50 "Fundamental wave frequency";
     parameter Modelica.SIunits.Voltage V1 = 100 "Fundamental wave RMS voltage";
