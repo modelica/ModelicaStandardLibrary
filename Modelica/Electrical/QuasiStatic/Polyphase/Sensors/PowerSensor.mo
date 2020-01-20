@@ -40,8 +40,8 @@ model PowerSensor "Power sensor"
         extent={{-10,-10},{10,10}},
         rotation=270)));
 
-  Modelica.SIunits.ApparentPower abs_y=Modelica.ComplexMath.abs(apparentPower) "Magnitude of complex apparent power";
-  Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(apparentPower) "Argument of complex apparent power";
+  Modelica.SIunits.ApparentPower abs_apparentPower=Modelica.ComplexMath.abs(apparentPower) "Magnitude of complex apparent power";
+  Modelica.SIunits.Angle arg_apparentPower=Modelica.ComplexMath.arg(apparentPower) "Argument of complex apparent power";
 
 equation
   connect(plugToPinsCurrentP.plug_p, currentP) annotation (Line(points={{-72,

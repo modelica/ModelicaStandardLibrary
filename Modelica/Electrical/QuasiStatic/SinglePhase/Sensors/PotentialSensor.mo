@@ -3,8 +3,8 @@ model PotentialSensor "Potential sensor"
   extends Interfaces.AbsoluteSensor;
   Modelica.ComplexBlocks.Interfaces.ComplexOutput v "Complex potential"
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-  Modelica.SIunits.Voltage abs_y=Modelica.ComplexMath.abs(v) "Magnitude of complex potential";
-  Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(v) "Argument of complex potential";
+  Modelica.SIunits.Voltage abs_v=Modelica.ComplexMath.abs(v) "Magnitude of complex potential";
+  Modelica.SIunits.Angle arg_v=Modelica.ComplexMath.arg(v) "Argument of complex potential";
 equation
   v = pin.v;
   annotation (Documentation(info="<html>
