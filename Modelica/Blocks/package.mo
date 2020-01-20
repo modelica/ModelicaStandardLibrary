@@ -1139,9 +1139,10 @@ calculating the harmonics with the <a href=\"modelica://Modelica.Blocks.Math.Rea
 </p>
 <p>
 Sampling starts after the initial transients are settled - waiting for
-<code>2&nbsp;periods&nbsp;=&nbsp;0.04&nbsp;s</code>.
+<code>2&nbsp;periods&nbsp;= 2/f&nbsp;= 0.04&nbsp;s&nbsp;= realFFT.startTime</code>.
 Choosing a&nbsp;maximum frequency <code>f_max&nbsp;=&nbsp;2000&nbsp;Hz</code>,
-a&nbsp;frequency resolution <code>f_res&nbsp;=&nbsp;5&nbsp;Hz</code> and
+a&nbsp;frequency resolution <code>f_res&nbsp;=&nbsp;5&nbsp;Hz</code>
+(both given in the block <code>realFFT</code>) and
 the default oversampling factor <code>f_max_factor&nbsp;=&nbsp;5</code>,
 we have to acquire <code>n&nbsp;= 2*f_max/f_res*f_max_factor&nbsp;=&nbsp;4000</code>
 sampling intervals.
@@ -1184,9 +1185,10 @@ calculating the harmonics with the <a href=\"modelica://Modelica.Blocks.Math.Rea
 </p>
 <p>
 Sampling starts after the initial transients are settled - waiting for
-<code>2&nbsp;periods&nbsp;=&nbsp;0.04&nbsp;s</code>. 
+<code>2&nbsp;periods&nbsp;= 2/f&nbsp;= 0.04&nbsp;s&nbsp;= realFFT.startTime</code>.
 Choosing a&nbsp;maximum frequency <code>f_max&nbsp;=&nbsp;2000&nbsp;Hz</code>,
-a&nbsp;frequency resolution <code>f_res&nbsp;=&nbsp;5&nbsp;Hz</code> and
+a&nbsp;frequency resolution <code>f_res&nbsp;=&nbsp;5&nbsp;Hz</code>
+(both given in the block <code>realFFT</code>) and
 the default oversampling factor <code>f_max_factor&nbsp;=&nbsp;5</code>, 
 we have to acquire <code>n&nbsp;= 2*f_max/f_res*f_max_factor&nbsp;=&nbsp;4000</code>
 sampling intervals. 
