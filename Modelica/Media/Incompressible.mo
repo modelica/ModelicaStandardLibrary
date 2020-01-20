@@ -490,7 +490,7 @@ which is only exactly true for a fluid with constant density d=d0.
 
     algorithm
       T := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
-        function f_nonlinear(p=p, h=h), T_min, T_max);
+        function f_nonlinear(p=p, h=h), T_min, T_max+100*Modelica.Constants.eps);
       annotation(Inline=false, LateInline=true, inverse(h=h_pT(p,T)));
     end T_ph;
 
@@ -510,7 +510,7 @@ which is only exactly true for a fluid with constant density d=d0.
 
     algorithm
       T := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
-        function f_nonlinear(s=s), T_min, T_max);
+        function f_nonlinear(s=s), T_min, T_max+100*Modelica.Constants.eps);
     end T_ps;
 
   annotation(Documentation(info="<html>
