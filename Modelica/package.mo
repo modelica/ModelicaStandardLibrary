@@ -8084,7 +8084,7 @@ class Contact "Contact"
 <dd>email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a></dd>
 </dl>
 <p>Since end of 2007, the development of the sublibraries of package Modelica is organized by personal and/or organizational <strong>library officers</strong> assigned by the Modelica Association. They are responsible for the maintenance and for the further organization of the development. Other persons may also contribute, but the final decision for library improvements and/or changes is performed by the responsible library officer(s). In order that a new sublibrary or a new version of a sublibrary is ready to be released, the responsible library officers report the changes to the members of the Modelica Association and the library is made available for beta testing to interested parties before a final decision. A new release of a sublibrary is formally decided by voting of the Modelica Association members.</p>
-<p>As of April 1st, 2019, the following library officers are assigned:</p>
+<p>As of January 20th, 2020, the following library officers are assigned:</p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><strong>Sublibraries</strong> </td>
@@ -8100,6 +8100,10 @@ class Contact "Contact"
 <td align=\"left\">Martin Otter, Anton Haumer</td>
 </tr>
 <tr>
+<td align=\"left\">Clocked</td>
+<td align=\"left\">Christoff B&uuml;rger, Bernhard Thiele</td>
+</tr>
+<tr>
 <td align=\"left\">ComplexBlocks</td>
 <td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
@@ -8109,11 +8113,15 @@ class Contact "Contact"
 </tr>
 <tr>
 <td align=\"left\">StateGraph</td>
-<td align=\"left\">Martin Otter, Hans Olsson</td>
+<td align=\"left\">Hans Olsson, Martin Otter</td>
 </tr>
 <tr>
 <td align=\"left\">Electrical.Analog</td>
-<td align=\"left\">Christoph Clauss, Kristin Majetta, Christian Kral</td>
+<td align=\"left\">Christoph Clauss, Anton Haumer, Christian Kral, Kristin Majetta</td>
+</tr>
+<tr>
+<td align=\"left\">Electrical.Batteries</td>
+<td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
 <td align=\"left\">Electrical.Digital</td>
@@ -8141,39 +8149,39 @@ class Contact "Contact"
 </tr>
 <tr>
 <td align=\"left\">Magnetic.FluxTubes</td>
-<td align=\"left\">Thomas B&ouml;drich, Johannes Ziske</td>
+<td align=\"left\">Thomas B&ouml;drich, Anton Haumer, Christian Kral, Johannes Ziske</td>
 </tr>
 <tr>
 <td align=\"left\">Magnetic.FundamentalWave</td>
-<td align=\"left\">Christian Kral, Anton Haumer</td>
+<td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
 <td align=\"left\">Magnetic.QuasiStatic</td>
-<td align=\"left\">Christian Kral, Anton Haumer</td>
+<td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
 <td align=\"left\">Mechanics.MultiBody</td>
-<td align=\"left\">Jakub Tobolar, Martin Otter</td>
+<td align=\"left\">Martin Otter, Jakub Tobolar</td>
 </tr>
 <tr>
 <td align=\"left\">Mechanics.Rotational</td>
-<td align=\"left\">Jakub Tobolar, Martin Otter, Anton Haumer, Christian Kral</td>
+<td align=\"left\">Anton Haumer, Christian Kral, Martin Otter, Jakub Tobolar</td>
 </tr>
 <tr>
 <td align=\"left\">Mechanics.Translational</td>
-<td align=\"left\">Anton Haumer, Jakub Tobolar, Martin Otter, Christian Kral</td>
+<td align=\"left\">Anton Haumer, Christian Kral, Martin Otter, Jakub Tobolar</td>
 </tr>
 <tr>
 <td align=\"left\">Fluid</td>
-<td align=\"left\">R&uuml;diger Franke, Francesco Casella, Hubertus Tummescheit</td>
+<td align=\"left\">Francesco Casella, R&uuml;diger Franke, Hubertus Tummescheit</td>
 </tr>
 <tr>
 <td align=\"left\">Fluid.Dissipation</td>
-<td align=\"left\">Stefan Wischhusen, Francesco Casella</td>
+<td align=\"left\">Francesco Casella, Stefan Wischhusen</td>
 </tr>
 <tr>
 <td align=\"left\">Media</td>
-<td align=\"left\">Hubertus Tummescheit, Francesco Casella, R&uuml;diger Franke</td>
+<td align=\"left\">Francesco Casella, R&uuml;diger Franke, Hubertus Tummescheit</td>
 </tr>
 <tr>
 <td align=\"left\">Thermal.FluidHeatFlow</td>
@@ -8185,19 +8193,19 @@ class Contact "Contact"
 </tr>
 <tr>
 <td align=\"left\">Math</td>
-<td align=\"left\">Martin Otter, Hans Olsson</td>
+<td align=\"left\">Hans Olsson, Martin Otter</td>
 </tr>
 <tr>
 <td align=\"left\">ComplexMath</td>
-<td align=\"left\">Anton Haumer, Martin Otter, Christian Kral</td>
+<td align=\"left\">Anton Haumer, Christian Kral, Martin Otter</td>
 </tr>
 <tr>
 <td align=\"left\">Utilities</td>
-<td align=\"left\">Martin Otter, Hans Olsson, Dag Br&uuml;ck</td>
+<td align=\"left\">Dag Br&uuml;ck, Hans Olsson, Martin Otter</td>
 </tr>
 <tr>
 <td align=\"left\">Constants</td>
-<td align=\"left\">Martin Otter, Hans Olsson</td>
+<td align=\"left\">Hans Olsson, Martin Otter</td>
 </tr>
 <tr>
 <td align=\"left\">Icons</td>
@@ -8205,7 +8213,7 @@ class Contact "Contact"
 </tr>
 <tr>
 <td align=\"left\">SIunits</td>
-<td align=\"left\">Martin Otter, Christian Kral</td>
+<td align=\"left\">Christian Kral, Martin Otter</td>
 </tr>
 <tr>
 <td align=\"left\">C-Sources</td>
@@ -8213,7 +8221,7 @@ class Contact "Contact"
 </tr>
 <tr>
 <td align=\"left\">Reference</td>
-<td align=\"left\">Dietmar Winkler, Hans Olsson</td>
+<td align=\"left\">Hans Olsson, Dietmar Winkler</td>
 </tr>
 <tr>
 <td align=\"left\">Services</td>
