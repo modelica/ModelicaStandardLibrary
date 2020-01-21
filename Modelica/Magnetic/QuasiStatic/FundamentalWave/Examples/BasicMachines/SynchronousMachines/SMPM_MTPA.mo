@@ -2,7 +2,7 @@ within Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.Sync
 model SMPM_MTPA "Test example: PermanentMagnetSynchronousMachine, investigating maximum torque per Amps"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Voltage VNominal=100 "Nominal RMS voltage per phase";
   parameter SI.Frequency fNominal=50 "Nominal frequency";
   parameter SI.Frequency f=50 "Actual frequency";

@@ -19,7 +19,7 @@ model PolyphaseElectroMagneticConverter
   FundamentalWave.Interfaces.NegativeMagneticPort port_n
     "Negative complex magnetic port" annotation (Placement(transformation(
           extent={{90,-110},{110,-90}})));
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter Real effectiveTurns "Effective number of turns";
   constant SI.Angle orientation=0
     "Orientation of the first winding axis";

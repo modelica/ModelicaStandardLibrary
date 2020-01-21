@@ -1,7 +1,7 @@
 within Modelica.Magnetic.FundamentalWave.Examples.Components;
 model PolyphaseInductance "Polyphase inductance"
   extends Modelica.Icons.Example;
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Frequency f=1 "Supply frequency";
   parameter SI.Voltage VRMS=100 "RMS supply voltage";
   parameter SI.Resistance R=0.1 "Leader cable resistance";

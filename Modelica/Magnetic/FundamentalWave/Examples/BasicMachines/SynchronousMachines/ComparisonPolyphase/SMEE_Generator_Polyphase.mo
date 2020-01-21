@@ -5,7 +5,7 @@ model SMEE_Generator_Polyphase
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   constant Integer m3=3 "Number of stator phases of three-phase system";
-  parameter Integer m=5 "Number of stator phases";
+  parameter Integer m=5 "Number of stator phases" annotation(Evaluate=true);
   parameter SI.Voltage VsNominal=100
     "Nominal RMS voltage per phase";
   parameter SI.Frequency fsNominal=smeeData.fsNominal "Nominal frequency";

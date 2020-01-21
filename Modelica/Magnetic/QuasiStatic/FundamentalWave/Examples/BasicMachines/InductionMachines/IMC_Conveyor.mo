@@ -2,7 +2,7 @@ within Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.Indu
 model IMC_Conveyor "Induction machine with squirrel cage and inverter driving a conveyor"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   constant SI.Frequency unitFrequency=1 annotation(HideResult=true);
   parameter SI.Voltage VNominal=100
     "Nominal RMS voltage per phase";

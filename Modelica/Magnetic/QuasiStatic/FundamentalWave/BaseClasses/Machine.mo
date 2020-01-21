@@ -2,7 +2,7 @@ within Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses;
 partial model Machine "Base model of machines"
   constant SI.Angle pi = Modelica.Constants.pi;
   extends Modelica.Electrical.Machines.Icons.QuasiStaticFundamentalWaveMachine;
-  parameter Integer m(min=3) = 3 "Number of stator phases";
+  parameter Integer m(min=3) = 3 "Number of stator phases" annotation(Evaluate=true);
   // Mechanical parameters
   parameter SI.Inertia Jr(start=0.29) "Rotor inertia";
   parameter Boolean useSupport=false

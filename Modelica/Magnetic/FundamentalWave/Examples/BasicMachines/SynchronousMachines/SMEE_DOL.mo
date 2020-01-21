@@ -2,7 +2,7 @@ within Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachi
 model SMEE_DOL
   "ElectricalExcitedSynchronousMachine starting direct on line"
   extends Modelica.Icons.Example;
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Voltage VNominal=100 "Nominal RMS voltage per phase";
   parameter SI.Frequency fNominal=50 "Nominal frequency";
   parameter SI.Voltage Ve=smeeData.Re*smeeData.IeOpenCircuit "Excitation current";

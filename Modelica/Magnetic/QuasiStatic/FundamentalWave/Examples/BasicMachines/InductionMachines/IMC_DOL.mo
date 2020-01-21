@@ -3,7 +3,7 @@ model IMC_DOL
   "Induction machine with squirrel cage started directly on line (DOL)"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Voltage VsNominal=100
     "Nominal RMS voltage per phase";
   parameter SI.Frequency fNominal=imc.fsNominal "Nominal frequency";

@@ -2,8 +2,8 @@ within Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.Indu
 model IMS_Characteristics "Characteristic curves of induction machine with slip rings"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Integer m=3 "Number of stator phases";
-  parameter Integer mr=3 "Number of rotor phases";
+  parameter Integer m=3 "Number of stator phases" annotation(Evaluate=true);
+  parameter Integer mr=3 "Number of rotor phases" annotation(Evaluate=true);
   parameter SI.Voltage VsNominal=100
     "Nominal RMS voltage per phase";
   parameter SI.Frequency fNominal=imsData.fsNominal "Nominal frequency";

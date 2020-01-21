@@ -4,7 +4,7 @@ model SMPM_Inverter_Polyphase
 
   extends Modelica.Icons.Example;
   constant Integer m3=3 "Number of stator phases of three-phase system";
-  parameter Integer m=5 "Number of stator phases";
+  parameter Integer m=5 "Number of stator phases" annotation(Evaluate=true);
   parameter SI.Voltage VsNominal=100
     "Nominal RMS voltage per phase";
   parameter SI.Frequency fsNominal=smpmData.fsNominal "Nominal frequency";

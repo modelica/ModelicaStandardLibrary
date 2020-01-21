@@ -1,6 +1,6 @@
 within Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities;
 model CurrentController "Current controller"
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter Integer p "Number of pole pairs";
   parameter SI.Angle gamma0=0
     "Offset added to electrical rotor angle";

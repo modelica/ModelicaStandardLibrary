@@ -1,6 +1,6 @@
 within Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines;
 model IM_SlipRing "Induction machine with slip ring rotor"
-  parameter Integer mr(min=3) = m "Number of rotor phases";
+  parameter Integer mr(min=3) = m "Number of rotor phases" annotation(Evaluate=true);
   extends BaseClasses.Machine(
     Rs(start=0.03),
     Lssigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal)),

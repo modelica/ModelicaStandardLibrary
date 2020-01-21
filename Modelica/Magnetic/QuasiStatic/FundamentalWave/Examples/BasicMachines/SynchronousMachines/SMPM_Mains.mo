@@ -3,7 +3,7 @@ model SMPM_Mains
   "Permanent magnet synchronous machine operated at mains with step torque load"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Frequency f=50 "Supply frequency";
   parameter SI.Voltage V=112.3 "Supply voltage";
   parameter SI.Torque T_Load=181.4 "Nominal load torque";

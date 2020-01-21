@@ -1,7 +1,7 @@
 within Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities;
 block VfController "Voltage-Frequency-Controller"
   import Modelica.Constants.pi;
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Angle orientation[m]=-
       Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m)
     "Orientation of phases";

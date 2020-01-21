@@ -3,7 +3,7 @@ model IMC_DOL_Polyphase
   "Direct on line start of polyphase induction machine with squirrel cage"
   extends Modelica.Icons.Example;
   constant Integer m3=3 "Number of stator phases of three-phase system";
-  parameter Integer m=5 "Number of stator phases";
+  parameter Integer m=5 "Number of stator phases" annotation(Evaluate=true);
   parameter SI.Voltage VsNominal=100
     "Nominal RMS voltage per phase";
   parameter SI.Frequency fNominal=aimcData.fsNominal "Nominal frequency";

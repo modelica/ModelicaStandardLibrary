@@ -18,7 +18,7 @@ model SymmetricPolyphaseWinding
     annotation (Placement(transformation(extent={{90,-110},{110,-90}})));
   Interfaces.PositiveMagneticPort port_p "Positive complex magnetic port"
     annotation (Placement(transformation(extent={{90,90},{110,110}})));
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter Boolean useHeatPort=false
     "Enable / disable (=fixed temperatures) thermal port"
     annotation (Evaluate=true);
