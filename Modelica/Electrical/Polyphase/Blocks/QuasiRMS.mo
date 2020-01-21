@@ -1,7 +1,7 @@
 within Modelica.Electrical.Polyphase.Blocks;
 block QuasiRMS
   extends Modelica.Blocks.Interfaces.SO;
-  parameter Integer m(min=2) = 3 "Number of phases";
+  parameter Integer m(min=2) = 3 "Number of phases" annotation(Evaluate=true);
   Modelica.Blocks.Interfaces.RealInput u[m]
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
 equation

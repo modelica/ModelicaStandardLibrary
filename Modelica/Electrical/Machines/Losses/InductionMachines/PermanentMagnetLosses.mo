@@ -3,7 +3,7 @@ model PermanentMagnetLosses
   "Model of permanent magnet losses dependent on current and speed"
   extends Machines.Interfaces.FlangeSupport;
   import Modelica.Electrical.Polyphase.Functions.quasiRMS;
-  parameter Integer m(min=1) = 3 "Number of phases";
+  parameter Integer m(min=1) = 3 "Number of phases" annotation(Evaluate=true);
   parameter Machines.Losses.PermanentMagnetLossParameters permanentMagnetLossParameters
     "Permanent magnet loss parameters";
   extends

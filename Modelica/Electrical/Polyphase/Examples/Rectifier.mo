@@ -2,7 +2,7 @@ within Modelica.Electrical.Polyphase.Examples;
 model Rectifier "Test example with polyphase components"
   extends Modelica.Icons.Example;
   import Modelica.Electrical.Polyphase.Functions.factorY2DC;
-  final parameter Integer m=3 "Number of phases";
+  final parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Voltage V=100 "RMS of Star-Voltage";
   parameter SI.Frequency f=50 "Frequency";
   parameter SI.Inductance L=0.0001 "Line Inductance";

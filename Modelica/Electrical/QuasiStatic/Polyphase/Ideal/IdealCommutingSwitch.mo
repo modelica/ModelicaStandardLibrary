@@ -1,6 +1,6 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Ideal;
 model IdealCommutingSwitch "Polyphase ideal commuting switch"
-  parameter Integer m(final min=1) = 3 "Number of phases";
+  parameter Integer m(final min=1) = 3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Resistance Ron[m](final min=zeros(m), start=
         fill(1e-5, m)) "Closed switch resistance";
   parameter SI.Conductance Goff[m](final min=zeros(m), start=

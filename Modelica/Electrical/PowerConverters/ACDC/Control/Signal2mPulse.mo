@@ -2,7 +2,7 @@ within Modelica.Electrical.PowerConverters.ACDC.Control;
 block Signal2mPulse "Generic control of 2*m pulse rectifiers"
   import Modelica.Constants.pi;
   extends PowerConverters.Icons.Control;
-  parameter Integer m(final min=1) = 3 "Number of phases";
+  parameter Integer m(final min=1) = 3 "Number of phases" annotation(Evaluate=true);
   parameter Boolean useConstantFiringAngle=true
     "Use constant firing angle instead of signal input";
   parameter SI.Angle constantFiringAngle=0 "Firing angle"

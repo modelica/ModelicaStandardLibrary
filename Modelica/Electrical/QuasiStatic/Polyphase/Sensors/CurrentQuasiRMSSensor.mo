@@ -3,7 +3,7 @@ model CurrentQuasiRMSSensor
   "Continuous quasi current RMS sensor for polyphase system"
   extends Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.RelativeSensorElementary;
 
-  parameter Integer m(min=1) = 3 "Number of phases";
+  parameter Integer m(min=1) = 3 "Number of phases" annotation(Evaluate=true);
   Modelica.Blocks.Interfaces.RealOutput I(unit="A")
     "Continuous quasi average RMS of current" annotation (Placement(
         transformation(

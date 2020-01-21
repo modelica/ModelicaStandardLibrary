@@ -3,7 +3,7 @@ partial model ThyristorBridge2mPulse
   "Template of 2*m pulse bridge thyristor rectifier"
   extends Icons.ExampleTemplate;
   import Modelica.Constants.pi;
-  parameter Integer m(final min=3) = 3 "Number of phases";
+  parameter Integer m(final min=3) = 3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Voltage Vrms=110 "RMS supply voltage";
   parameter SI.Frequency f=50 "Frequency";
 

@@ -2,7 +2,7 @@ within Modelica.Electrical.QuasiStatic.Polyphase.Basic;
 model MultiStar
   "Star connection of polyphase systems consisting of multiple base systems"
   import Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems;
-  parameter Integer m(final min=1) = 3 "Number of phases";
+  parameter Integer m(final min=1) = 3 "Number of phases" annotation(Evaluate=true);
   final parameter Integer mSystems=numberOfSymmetricBaseSystems(m) "Number of base systems";
   final parameter Integer mBasic=integer(m/mSystems) "Phase number of base systems";
   QuasiStatic.Polyphase.Interfaces.PositivePlug plug_p(final m=m)

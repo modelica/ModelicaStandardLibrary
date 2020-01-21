@@ -1,7 +1,7 @@
 within Modelica.Electrical.Machines.Interfaces.InductionMachines;
 connector PartialThermalPortInductionMachines
   "Partial thermal port of induction machines"
-  parameter Integer m=3 "Number of stator phases";
+  parameter Integer m=3 "Number of stator phases" annotation(Evaluate=true);
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a
     heatPortStatorWinding[m] "Heat port of stator windings"
     annotation (Placement(transformation(extent={{-20,10},{0,30}})));

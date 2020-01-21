@@ -1,6 +1,6 @@
 within Modelica.Electrical.Machines.Utilities;
 model RampedRheostat "Rheostat with linearly decreasing resistance"
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_p(final m=m)
     "To positive rotor plug" annotation (Placement(transformation(extent={{
             90,70},{110,50}})));

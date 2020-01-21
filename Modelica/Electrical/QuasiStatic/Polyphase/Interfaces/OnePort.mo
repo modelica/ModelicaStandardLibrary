@@ -1,6 +1,6 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Interfaces;
 partial model OnePort "Two plugs, reference connection and declaration of voltage and current"
-  parameter Integer m(min=1) = 3 "Number of phases";
+  parameter Integer m(min=1) = 3 "Number of phases" annotation(Evaluate=true);
   SI.ComplexVoltage v[m] "Complex voltage";
   SI.Voltage abs_v[m]=Modelica.ComplexMath.abs(v)
     "Magnitude of complex voltage";

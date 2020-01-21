@@ -1,6 +1,6 @@
 within Modelica.Electrical.Polyphase.Basic;
 model PlugToPins_n "Connect all (negative) Pins"
-  parameter Integer m(final min=1) = 3 "Number of phases";
+  parameter Integer m(final min=1) = 3 "Number of phases" annotation(Evaluate=true);
   Interfaces.NegativePlug plug_n(final m=m) annotation (Placement(
         transformation(extent={{-30,-10},{-10,10}})));
   Modelica.Electrical.Analog.Interfaces.NegativePin pin_n[m] annotation (

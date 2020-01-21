@@ -1,6 +1,6 @@
 within Modelica.Electrical.Machines.Interfaces;
 connector ThermalPortTransformer "Thermal port of transformers"
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort1[m]
     "Heat port of primary windings"
     annotation (Placement(transformation(extent={{-20,10},{0,30}})));

@@ -3,7 +3,7 @@ model ThyristorBridge2mPulse_DC_Drive
   "2*m pulse thyristor bridge feeding a DC drive"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Integer m(final min=3) = 3 "Number of phases";
+  parameter Integer m(final min=3) = 3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Voltage Vrms=dcpmData.VaNominal/
       Modelica.Electrical.Polyphase.Functions.factorY2DC(m)
     "RMS supply voltage";

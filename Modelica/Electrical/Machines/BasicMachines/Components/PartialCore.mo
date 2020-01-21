@@ -1,7 +1,7 @@
 within Modelica.Electrical.Machines.BasicMachines.Components;
 partial model PartialCore
   "Partial model of transformer core with 3 windings"
-  parameter Integer m(final min=1) = 3 "Number of phases";
+  parameter Integer m(final min=1) = 3 "Number of phases" annotation(Evaluate=true);
   parameter Real n12(start=1) "Turns ratio 1:2";
   parameter Real n13(start=1) "Turns ratio 1:3";
   SI.Voltage v1[m]=plug_p1.pin.v - plug_n1.pin.v;

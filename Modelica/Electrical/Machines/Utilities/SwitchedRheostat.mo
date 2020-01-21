@@ -1,6 +1,6 @@
 within Modelica.Electrical.Machines.Utilities;
 model SwitchedRheostat "Rheostat which is shortened after a given time"
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_p(final m=m)
     "To positive rotor plug" annotation (Placement(transformation(extent={{
             90,70},{110,50}})));

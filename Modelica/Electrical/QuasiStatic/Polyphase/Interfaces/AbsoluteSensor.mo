@@ -1,7 +1,7 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Interfaces;
 partial model AbsoluteSensor "Partial potential sensor"
   extends Modelica.Icons.RoundSensor;
-  parameter Integer m(min=1) = 3 "Number of phases";
+  parameter Integer m(min=1) = 3 "Number of phases" annotation(Evaluate=true);
   SI.AngularVelocity omega;
   PositivePlug plug_p(final m=m)
     "Positive quasi-static polyphase plug" annotation (Placement(

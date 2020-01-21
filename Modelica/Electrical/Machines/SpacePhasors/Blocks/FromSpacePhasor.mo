@@ -2,7 +2,7 @@ within Modelica.Electrical.Machines.SpacePhasors.Blocks;
 block FromSpacePhasor
   "Conversion of space phasors to polyphase instantaneous values"
   extends Modelica.Blocks.Interfaces.MIMO(final nin=2, final nout=m);
-  parameter Integer m(min=1) = 3 "Number of phases";
+  parameter Integer m(min=1) = 3 "Number of phases" annotation(Evaluate=true);
 protected
   parameter SI.Angle phi[m]=
       Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m);

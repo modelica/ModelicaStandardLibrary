@@ -2,7 +2,7 @@ within Modelica.Electrical.Machines.Utilities;
 block VfController "Voltage-Frequency-Controller"
   import Modelica.Constants.pi;
   extends Modelica.Blocks.Interfaces.SIMO(u(unit="Hz"), final nout=m);
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Angle orientation[m]=-
       Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m)
     "Orientation of phases";

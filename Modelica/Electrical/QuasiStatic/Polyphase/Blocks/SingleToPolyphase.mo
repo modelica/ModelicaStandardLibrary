@@ -2,7 +2,7 @@ within Modelica.Electrical.QuasiStatic.Polyphase.Blocks;
 block SingleToPolyphase
   "Extends complex phase signal to complex polyphase signals using symmetricOrientation"
   extends Modelica.ComplexBlocks.Interfaces.ComplexSIMO(final nout=m,final useConjugateInput=false);
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
 equation
   y = u*Modelica.ComplexMath.fromPolar(fill(1, m), -
     Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m));

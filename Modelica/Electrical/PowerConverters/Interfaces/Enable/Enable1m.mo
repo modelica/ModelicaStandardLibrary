@@ -7,7 +7,7 @@ partial model Enable1m
   parameter Boolean constantEnable=true
     "Constant enabling of firing signals"
     annotation (Dialog(tab="Enable", enable=useConstantEnable));
-  parameter Integer m(final min=3) = 3 "Number of phases";
+  parameter Integer m(final min=3) = 3 "Number of phases" annotation(Evaluate=true);
   Modelica.Blocks.Logical.And andCondition_p[m]
     "And condition for m positive firing signals" annotation (Placement(
         transformation(

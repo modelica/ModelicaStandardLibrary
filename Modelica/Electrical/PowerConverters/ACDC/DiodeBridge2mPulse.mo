@@ -2,7 +2,7 @@ within Modelica.Electrical.PowerConverters.ACDC;
 model DiodeBridge2mPulse "2*m pulse diode rectifier bridge"
   extends Icons.Converter;
   import Modelica.Constants.pi;
-  parameter Integer m(final min=3) = 3 "Number of phases";
+  parameter Integer m(final min=3) = 3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Resistance RonDiode(final min=0) = 1e-05
     "Closed diode resistance";
   parameter SI.Conductance GoffDiode(final min=0) = 1e-05

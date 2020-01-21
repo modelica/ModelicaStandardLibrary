@@ -2,7 +2,7 @@ within Modelica.Electrical.PowerConverters.ACDC.Control;
 model VoltageBridge2mPulse "Control of 2*m pulse bridge rectifier"
   import Modelica.Constants.pi;
   extends Icons.Control;
-  parameter Integer m(final min=3) = 3 "Number of phases";
+  parameter Integer m(final min=3) = 3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Frequency f=50 "Frequency";
   parameter Boolean useConstantFiringAngle=true
     "Use constant firing angle instead of signal input";
