@@ -67,8 +67,7 @@ equation
           -60},{8,-60},{8,-68}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={
-                               Line(points={{-70,0},{-90,0}}),
-          Line(points={{70,0},{90,0}}),Line(points={{0,-100},
+                                       Line(points={{0,-100},
           {0,-70}}, color={0,0,127}),
         Text(
           extent={{150,-100},{-150,-70}},
@@ -80,7 +79,8 @@ equation
         Text(
           extent={{-30,-10},{30,-70}},
           textColor={64,64,64},
-          textString="var")}),    Documentation(info="<html>
+          textString="var"),Line(points={{100,0},{-100,0}}, color={0,0,255})}),
+                                  Documentation(info="<html>
 <p>
 Contains 3 power meters (Modelica.Electrical.Analog.Sensors.PowerSensor) to measure total reactive power in a three-phase system.
 </p>
