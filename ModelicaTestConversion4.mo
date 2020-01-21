@@ -2199,7 +2199,6 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
 
       end Issue3177torusSurface;
->>>>>>> upstream/master
     end MultiBody;
 
     package Rotational
