@@ -1,4 +1,4 @@
-within Modelica.Fluid.Examples;
+﻿within Modelica.Fluid.Examples;
 package DrumBoiler
   "Drum boiler example, see Franke, Rode, Krüger: On-line Optimization of Drum Boiler Startup, 3rd International Modelica Conference, Linköping, 2003"
 
@@ -162,7 +162,7 @@ package DrumBoiler
       experiment(StopTime=5400),
       Documentation(info="<html>
 
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/DrumBoiler.png\" border=\"1\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/DrumBoiler/DrumBoiler.png\" border=\"1\"
      alt=\"DrumBoiler.png\">
 </html>"));
   end DrumBoiler;

@@ -94,7 +94,7 @@ package Tanks "Library demonstrating the usage of the tank model"
           "plot level and port.m_flow"),
       Documentation(info="<html>
 
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/ThreeTanks.png\" border=\"1\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/Tanks/ThreeTanks.png\" border=\"1\"
      alt=\"ThreeTanks.png\">
 </html>"));
   end ThreeTanks;
@@ -211,7 +211,7 @@ Otherwise the simulation may fail due to too large steps subject to events. Alte
 simulation accuracy could be increased in order to avoid errors.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/TanksWithOverflow.png\" border=\"1\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/Tanks/TanksWithOverflow.png\" border=\"1\"
      alt=\"TanksWithOverflow.png\">
 </html>"),
       Diagram(coordinateSystem(extent={{-160,-120},{100,100}})));
@@ -265,7 +265,7 @@ simulation accuracy could be increased in order to avoid errors.
       __Dymola_Commands(file="modelica://Modelica/Resources/Scripts/Dymola/Fluid/EmptyTanks/plot level and port.p.mos"
           "plot level and port.p"),
       Documentation(info="<html>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/EmptyTanks.png\" border=\"1\"
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/Tanks/EmptyTanks.png\" border=\"1\"
      alt=\"EmptyTanks.png\">
 </html>"));
   end EmptyTanks;
