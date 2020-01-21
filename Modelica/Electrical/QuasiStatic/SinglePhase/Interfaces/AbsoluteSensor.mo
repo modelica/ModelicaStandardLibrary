@@ -10,10 +10,9 @@ equation
   annotation (Icon(graphics={
         Line(points={{-70,0},{-94,0}}, color={85,170,255}),
         Text(
-          extent={{-160,120},{160,80}},
+          extent={{-150,120},{150,80}},
           textColor={0,0,255},
-          textString="%name"),
-        Line(points={{100,0},{70,0}})}), Documentation(info="<html>
+          textString="%name")}),         Documentation(info="<html>
 <p>
 The absolute sensor partial model provides a single
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin\">positive pin</a> 

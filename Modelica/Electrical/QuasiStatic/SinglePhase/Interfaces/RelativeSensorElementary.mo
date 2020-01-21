@@ -10,10 +10,10 @@ equation
         Line(points={{-70,0},{-94,0}}, color={85,170,255}),
         Line(points={{70,0},{94,0}}, color={85,170,255}),
         Text(
-          extent={{-150,130},{150,90}},
+          extent={{-150,120},{150,80}},
           textColor={0,0,255},
           textString="%name"),
-        Line(points={{0,-70},{0,-80},{0,-90},{0,-100}}, color={85,170,255})}),
+        Line(points={{0,-100},{0,-70}}, color={85,170,255})}),
       Documentation(info="<html>
 <p>
 The relative sensor partial model relies on the

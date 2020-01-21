@@ -46,7 +46,7 @@ equation
           extent={{-150,110},{150,150}},
           textString="%name",
           textColor={0,0,255}),
-      Line(points={{-100,-100},{-100,-80},{-58,-38}}, color = {0,0,127}),
+      Line(points={{-100,-100},{-100,-80},{-58,-38}}, color={85,170,255}),
         Text(
           extent={{-30,-10},{30,-70}},
           textColor={64,64,64},
