@@ -1,7 +1,7 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model ForceAndTorque "Demonstrate usage of ForceAndTorque element"
   extends Modelica.Icons.Example;
-  inner World world(animateGravity=false) annotation (Placement(transformation(
+  inner World world(animateGravity=false, defaultNm_to_m=120, defaultN_to_m=1200) annotation (Placement(transformation(
           extent={{-90,30},{-70,50}})));
   Parts.BodyCylinder body(r={1,0,0}) annotation (Placement(transformation(
           extent={{0,30},{20,50}})));
@@ -9,7 +9,7 @@ model ForceAndTorque "Demonstrate usage of ForceAndTorque element"
     annotation (Placement(transformation(extent={{-100,-10},{-80,10}})));
   Parts.FixedRotation fixedRotation(n={0,0,1}, angle=30)
     annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
-  Forces.ForceAndTorque forceAndTorque(Nm_to_m=120, N_to_m=1200,
+  Forces.ForceAndTorque forceAndTorque(
     resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
     annotation (Placement(transformation(extent={{60,50},{40,30}})));
   Joints.Revolute revolute2(n={0,1,0},
