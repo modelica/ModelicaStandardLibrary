@@ -27,5 +27,6 @@ equation
         Text(
           extent={{-30,-10},{30,-70}},
           textColor={64,64,64},
-          textString="Wb")}));
+          textString="Wb"),
+        Line(points={{100,0},{-100,0}},color={255,128,0})}));
 end MagneticFluxSensor;
