@@ -10,7 +10,6 @@ equation
   omega = der(plug_p.reference.gamma);
   annotation (Icon(graphics={
         Line(points={{-70,0},{-94,0}}, color={85,170,255}),
-        Line(points={{70,0},{80,0},{90,0},{100,0}}),
         Text(
           extent={{150,-100},{-150,-70}},
           textString="m=%m"),

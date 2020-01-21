@@ -65,8 +65,7 @@ equation
         points={{-68,0},{30,0},{30,-30}}, color={85,170,255}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={
-                            Line(points={{-70,0},{-90,0}}),
-          Line(points={{70,0},{90,0}}),Line(points={{0,-100},
+                                       Line(points={{0,-100},
           {0,-70}}, color={0,0,127}),
         Text(
           extent={{150,-100},{-150,-70}},
@@ -78,7 +77,9 @@ equation
         Text(
           extent={{-30,-10},{30,-70}},
           textColor={64,64,64},
-          textString="W")}),      Documentation(info="<html>
+          textString="W"),
+        Line(points={{-100,0},{100,0}}, color={85,170,255})}),
+                                  Documentation(info="<html>
 <p>Contains two <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor\">power meters</a> to measure total active power in a three-phase system.</p>
 <p>This device works only in three-phase systems without neutral.</p>
 <p>The rationale behind this sensor is that power exchanged between two parts of a circuit is the sum of the products of currents in the <em>m</em> wires connecting the two parts times wires&apos; potentials evaluated with reference to an arbitrary potential <em>v</em><sub>ref</sub>:</p>

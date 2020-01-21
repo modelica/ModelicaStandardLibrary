@@ -29,5 +29,5 @@ This sensor can be used to measure the reference angle.
         Text(
           extent={{-30,-10},{30,-70}},
           textColor={64,64,64},
-          textString="rad")}));
+          textString="rad"), Line(points={{70,0},{100,0}}, color={0,0,127})}));
 end ReferenceSensor;

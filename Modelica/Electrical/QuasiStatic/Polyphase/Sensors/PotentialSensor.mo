@@ -45,5 +45,5 @@ This sensor can be used to measure <em>m</em> complex potentials, using <em>m</e
         Text(
           extent={{-30,-10},{30,-70}},
           textColor={64,64,64},
-          textString="V")}));
+          textString="V"), Line(points={{70,0},{100,0}}, color={85,170,255})}));
 end PotentialSensor;

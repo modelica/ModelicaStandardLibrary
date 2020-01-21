@@ -16,12 +16,12 @@ equation
   connect(frequencySensor.f,f)  annotation (Line(
       points={{11,0},{110,0}}, color={0,0,127}));
   annotation (
-    Icon(graphics={Line(points={{70,0},{80,0},{90,0},{100,0}},
-            color={0,0,127}),
+    Icon(graphics={
         Text(
           extent={{-30,-10},{30,-70}},
           textColor={64,64,64},
-          textString="Hz")}),Documentation(info="<html>
+          textString="Hz"), Line(points={{70,0},{100,0}}, color={0,0,127})}),
+                             Documentation(info="<html>
 
 <p>
 This sensor can be used to measure the frequency of the reference system, using <em>one</em>
