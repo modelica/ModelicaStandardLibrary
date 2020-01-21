@@ -1860,10 +1860,10 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
 
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         ForceColor "Color of force arrow"
-      annotation (Dialog(colorSelector=true, group="if animation or vectorAnimation = true", enable=animation or vectorAnimation));
+      annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
-      annotation (Dialog(group="if animation or vectorAnimation = true", enable=animation or vectorAnimation));
+      annotation (Dialog(group="if animation = true", enable=animation));
 
     extends Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor;
 
@@ -1873,9 +1873,9 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
       specularCoefficient=specularCoefficient,
       R=frame_b.R,
       r=frame_b.r_0,
+	  pushing=true,
 	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
-      pushing=true,
-      r_head=frame_a.f*(if positiveSign then +1 else -1)) if world.enableAnimation and animation;
+      r_head=-frame_a.f*(if positiveSign then +1 else -1)) if world.enableAnimation and animation;
 	  
     Internal.BasicCutForce cutForce(resolveInFrame=resolveInFrame, positiveSign=
           positiveSign)
@@ -1969,10 +1969,10 @@ with negative sign at frame_a.
       "= true, if torque with positive sign is returned (= frame_a.t), otherwise with negative sign (= frame_b.t)";
     input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
       "Color of torque arrow"
-      annotation (Dialog(colorSelector=true, group="if animation or vectorAnimation = true", enable=animation or vectorAnimation));
+      annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
-      annotation (Dialog(group="if animation or vectorAnimation = true", enable=animation or vectorAnimation));
+      annotation (Dialog(group="if animation = true", enable=animation));
 
     extends Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor;
 
@@ -1983,8 +1983,8 @@ with negative sign at frame_a.
 	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
       R=frame_b.R,
       r=frame_b.r_0,
-      pushing=true,
-      r_head=frame_a.t*(if positiveSign then +1 else -1)) if world.enableAnimation and animation;
+	  pushing=true,
+      r_head=-frame_a.t*(if positiveSign then +1 else -1)) if world.enableAnimation and animation;
     Internal.BasicCutTorque cutTorque(resolveInFrame=resolveInFrame, positiveSign=
          positiveSign)
       annotation (Placement(transformation(extent={{-62,-10},{-42,10}})));
@@ -2080,19 +2080,17 @@ with negative sign at frame_a.
 
     parameter Boolean animation=true
       "= true, if animation shall be enabled (show force and torque arrow)";
-    parameter Boolean vectorAnimation=false
-      "= true, if animation vector shall be enabled";
     parameter Boolean positiveSign=true
       "= true, if force and torque with positive sign is returned (= frame_a.f/.t), otherwise with negative sign (= frame_b.f/.t)";
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
       "Color of force arrow"
-      annotation (Dialog(colorSelector=true, group="if animation or vectorAnimation = true", enable=animation or vectorAnimation));
+      annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
       "Color of torque arrow"
-      annotation (Dialog(colorSelector=true, group="if animation or vectorAnimation = true", enable=animation or vectorAnimation));
+      annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
-      annotation (Dialog(group="if animation or vectorAnimation = true", enable=animation or vectorAnimation));
+      annotation (Dialog(group="if animation = true", enable=animation));
 
     extends Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor;
 
@@ -2103,9 +2101,9 @@ with negative sign at frame_a.
       specularCoefficient=specularCoefficient,
       R=frame_b.R,
       r=frame_b.r_0,
-      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
 	  pushing=true,
-      r_head=frame_a.f*csign) if world.enableAnimation and animation;
+      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
+      r_head=-frame_a.f*csign) if world.enableAnimation and animation;
     Visualizers.Advanced.Arrow torqueArrow(
       color=torqueColor,
       specularCoefficient=specularCoefficient,
@@ -2113,7 +2111,7 @@ with negative sign at frame_a.
       R=frame_b.R,
       r=frame_b.r_0,
 	  pushing=true,
-      r_head=frame_a.t*csign) if world.enableAnimation and animation;
+      r_head=-frame_a.t*csign) if world.enableAnimation and animation;
     Internal.BasicCutForce cutForce(resolveInFrame=resolveInFrame, positiveSign=
           positiveSign)
       annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
