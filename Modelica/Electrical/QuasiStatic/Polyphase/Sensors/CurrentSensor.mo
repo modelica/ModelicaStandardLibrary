@@ -49,5 +49,6 @@ This sensor can be used to measure <em>m</em> complex currents, using <em>m</em>
           textColor={64,64,64},
           textString="A"),
         Line(points={{70,0},{90,0}}, color={85,170,255}),
-        Line(points={{-70,0},{-90,0}}, color={85,170,255})}));
+        Line(points={{-70,0},{-90,0}}, color={85,170,255}),
+        Line(points={{100,0},{-100,0}},color={85,170,255})}));
 end CurrentSensor;

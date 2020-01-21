@@ -42,8 +42,7 @@ equation
           extent={{-30,-10},{30,-70}},
           textColor={64,64,64},
           textString="A"),
-        Line(points={{70,0},{90,0}}, color={85,170,255}),
-        Line(points={{-70,0},{-90,0}}, color={85,170,255})}),
+        Line(points={{100,0},{-100,0}},color={85,170,255})}),
     Documentation(revisions="<html>
 </html>",
       info="<html>
