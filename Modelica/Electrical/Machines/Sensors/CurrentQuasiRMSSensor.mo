@@ -45,8 +45,8 @@ equation
       points={{0,-81},{0,-110}}, color={0,0,127}));
   annotation (defaultComponentName="currentRMSSensor",
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-            -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
-          color={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,255}),
+            -100},{100,100}}), graphics={Line(points={{-90,0},{90,0}},
+          color={0,0,255}),
           Line(points={{0,-70},{0,-100}}, color={0,0,127}),
                               Text(
                 extent={{-150,120},{150,80}},

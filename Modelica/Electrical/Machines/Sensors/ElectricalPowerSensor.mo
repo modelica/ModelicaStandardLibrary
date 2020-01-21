@@ -31,8 +31,8 @@ equation
   2/3*Q = -v_[1]*i_[2] + v_[2]*i_[1];
   annotation (defaultComponentName="powerSensor",
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-            -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
-          color={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,255}),
+            -100},{100,100}}), graphics={Line(points={{-90,0},{90,0}},
+          color={0,0,255}),
           Line(points={{0,-70},{0,-90}}, color={0,0,255}),Line(points={{-10,
           70},{-10,80},{-50,80},{-50,100}}, color={0,0,127}),Line(points={{
           10,70},{10,80},{50,80},{50,100}}, color={0,0,127}),
