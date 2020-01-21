@@ -23,8 +23,7 @@ equation
       points={{0,-11},{0,-110}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={
-                               Line(points={{-70,0},{-90,0}}),
-          Line(points={{70,0},{90,0}}),Line(points={{0,-100},
+                                       Line(points={{0,-100},
           {0,-70}}, color={0,0,127}),
         Text(
           extent={{150,-100},{-150,-70}},
@@ -36,7 +35,8 @@ equation
         Text(
           extent={{-30,-10},{30,-70}},
           textColor={64,64,64},
-          textString="A")}),      Documentation(info="<html>
+          textString="A"),  Line(points={{100,0},{-100,0}}, color={0,0,255})}),
+                                  Documentation(info="<html>
 <p>
 Contains m current sensors (Modelica.Electrical.Analog.Sensors.CurrentSensor),
 thus measuring the m currents <em>i[m]</em> flowing from the m pins of plug_p to the m pins of plug_n.

@@ -54,8 +54,8 @@ equation
           {6,-20},{6,-58}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={
-                            Line(points={{-70,0},{-90,0}}),
-          Line(points={{70,0},{90,0}}),Line(points={{0,-100},
+                            Line(points={{100,0},{-100,0}}, color={0,0,255}),
+                                       Line(points={{0,-100},
           {0,-70}}, color={0,0,127}),
         Text(
           extent={{150,-100},{-150,-70}},

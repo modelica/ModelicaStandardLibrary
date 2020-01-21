@@ -30,9 +30,8 @@ equation
   connect(quasiRMS.y, I) annotation (Line(
       points={{0,-61},{0,-100}}, color={0,0,127}));
   annotation (defaultComponentName="currentRMSSensor", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
-          color={0,0,255}),Line(points={{0,-70},{0,-100}}),
-                               Line(points={{70,0},{90,0}}, color={0,0,255}),
+            -100},{100,100}}), graphics={
+                           Line(points={{0,-70},{0,-100}}),
           Text(
           extent={{150,-100},{-150,-70}},
           textString="m=%m"),
@@ -43,7 +42,7 @@ equation
         Text(
           extent={{-30,-10},{30,-70}},
           textColor={64,64,64},
-          textString="A")}),
+          textString="A"),  Line(points={{100,0},{-100,0}}, color={0,0,255})}),
       Documentation(revisions="<html>
 </html>",
       info="<html>
