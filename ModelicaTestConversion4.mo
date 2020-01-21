@@ -1400,7 +1400,7 @@ based on <a href=\"Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendul
 
         model ForceAndTorque "Demonstrate usage of ForceAndTorque element with visualizations"
           extends Modelica.Icons.Example;
-          inner Modelica.Mechanics.MultiBody.World world(animateGravity=false,defaultNm_to_m=120, defaultN_to_m=1200)
+          inner Modelica.Mechanics.MultiBody.World world(animateGravity=false, defaultNm_to_m=120, defaultN_to_m=1200)
             annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
           Modelica.Mechanics.MultiBody.Parts.BodyCylinder body(r={1,0,0}, density=
                 77000)
@@ -1413,6 +1413,8 @@ based on <a href=\"Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendul
           Modelica.Mechanics.MultiBody.Forces.ForceAndTorque forceAndTorque(
             Nm_to_m=120,
             N_to_m=1200,
+            forceDiameter=0.07,
+            connectionLineDiameter=0.05,
             resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
             annotation (Placement(transformation(extent={{60,-8},{40,-28}})));
           Modelica.Mechanics.MultiBody.Joints.Revolute revolute2(
@@ -1474,6 +1476,7 @@ based on <a href=\"Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendul
                 rotation=180,
                 origin={44,80})));
           Modelica.Mechanics.MultiBody.Forces.Force force2(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve,
+              forceDiameter=0.05,
               N_to_m=1200) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=180,
@@ -1574,7 +1577,7 @@ but with denser material to slow down the visualization to human speed.
 
         model WorldForceAndTorque "Demonstrate usage of ForceAndTorque element"
           extends Modelica.Icons.Example;
-          inner Modelica.Mechanics.MultiBody.World world(animateGravity=false,defaultNm_to_m=120, defaultN_to_m=1200)
+          inner Modelica.Mechanics.MultiBody.World world(animateGravity=false, defaultNm_to_m=120, defaultN_to_m=1200)
             annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
           Modelica.Mechanics.MultiBody.Parts.BodyCylinder body(r={1,0,0}, density=
               77000)
