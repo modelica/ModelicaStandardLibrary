@@ -1,12 +1,7 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Interfaces;
-partial model RelativeSensor "Partial voltage / current sensor"
+partial model RelativeSensorElementary "Elementary partial voltage / current sensor"
   extends Modelica.Icons.RoundSensor;
-  extends TwoPlug;
-  Modelica.ComplexBlocks.Interfaces.ComplexOutput y[m] annotation (
-      Placement(transformation(
-        origin={0,-110},
-        extent={{-10,-10},{10,10}},
-        rotation=270)));
+  extends TwoPlugElementary;
   annotation (Icon(graphics={
         Line(points={{-70,0},{-94,0}}, color={85,170,255}),
         Line(points={{70,0},{94,0}}, color={85,170,255}),
@@ -16,7 +11,7 @@ partial model RelativeSensor "Partial voltage / current sensor"
           textString="m=%m"),
         Text(
           textColor={0,0,255},
-          extent={{-150,80},{150,120}},
+          extent={{-150,90},{150,130}},
           textString="%name")}), Documentation(info="<html>
 <p>
 The relative sensor partial model relies on the
@@ -33,4 +28,4 @@ The relative sensor partial model relies on the
 
 </html>"));
 
-end RelativeSensor;
+end RelativeSensorElementary;

@@ -64,11 +64,10 @@ equation
           -90,-10},{-90,60},{-100,60}}, color={85,170,255}));
   connect(voltageSensor.plug_n, plug_n) annotation (Line(points={{-90,-30},{
           -90,-60},{-100,-60}}, color={85,170,255}));
-  connect(referenceSensor.y, add3_1.u2) annotation (Line(points={{-59,20},{
-          -30,20},{-30,0},{-2,0}}, color={85,170,255}));
+  connect(referenceSensor.gamma, add3_1.u2) annotation (Line(points={{-59,20},{-30,20},{-30,0},{-2,0}}, color={85,170,255}));
   connect(add.y, add3_1.u1)
     annotation (Line(points={{-10,19},{-10,8},{-2,8}}, color={85,170,255}));
-  connect(toSpacePhasor.u, voltageSensor.y) annotation (Line(points={{-72,-20},
+  connect(toSpacePhasor.u,voltageSensor.v)  annotation (Line(points={{-72,-20},
           {-70,-20},{-79,-20}}, color={85,170,255}));
   connect(toSpacePhasor.y, toPolar.u)
     annotation (Line(points={{-49,-20},{-42,-20}}, color={85,170,255}));

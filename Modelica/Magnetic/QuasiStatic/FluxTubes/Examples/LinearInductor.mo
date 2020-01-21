@@ -144,7 +144,7 @@ equation
   connect(currentSensorQS.pin_n, rQS.pin_p) annotation (Line(
       points={{-50,-40},{-40,-40}},
       color={85,170,255}));
-  connect(currentSensorQS.y, complexToPolar.u) annotation (Line(
+  connect(currentSensorQS.i, complexToPolar.u) annotation (Line(
       points={{-60,-29},{-60,-10},{-52,-10}},
       color={85,170,255}));
   connect(source.p, currentSensor.p) annotation (Line(

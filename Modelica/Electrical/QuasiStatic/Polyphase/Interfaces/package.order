@@ -1,9 +1,10 @@
 Plug
 PositivePlug
 NegativePlug
+TwoPlugElementary
 TwoPlug
 OnePort
 AbsoluteSensor
-RelativeSensor
+RelativeSensorElementary
 Source
 ReferenceSource

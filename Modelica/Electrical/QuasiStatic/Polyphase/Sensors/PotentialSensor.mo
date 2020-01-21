@@ -5,15 +5,15 @@ model PotentialSensor "Potential sensor"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   Basic.PlugToPins_p plugToPins_p(final m=m) annotation (Placement(
         transformation(extent={{-80,-10},{-60,10}})));
-  Modelica.ComplexBlocks.Interfaces.ComplexOutput y[m]
+  Modelica.ComplexBlocks.Interfaces.ComplexOutput v[m] "Potential as complex output signal"
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-  Modelica.SIunits.Voltage abs_y[m]=Modelica.ComplexMath.abs(y)
+  Modelica.SIunits.Voltage abs_v[m]=Modelica.ComplexMath.abs(v)
     "Magnitude of complex potential";
-  Modelica.SIunits.Angle arg_y[m]=Modelica.ComplexMath.arg(y)
+  Modelica.SIunits.Angle arg_v[m]=Modelica.ComplexMath.arg(v)
     "Argument of complex potential";
 
 equation
-  connect(potentialSensor.y, y) annotation (Line(points={{11,0},{35.75,0},{
+  connect(potentialSensor.v,v)  annotation (Line(points={{11,0},{35.75,0},{
           35.75,0},{60.5,0},{60.5,0},{110,0}}, color={85,170,255}));
   connect(plug_p, plugToPins_p.plug_p) annotation (Line(
       points={{-100,0},{-72,0}}, color={85,170,255}));

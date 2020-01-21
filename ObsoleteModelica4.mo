@@ -359,6 +359,97 @@ Note: This block is replaced by the improved <a href=\"modelica://Modelica.Elect
               points={{36,50},{36,-52}},
               color={95,95,95})}));
     end PowerConverters;
+
+    package QuasiStationary "Library for quasi-stationary electrical singlephase and multiphase AC simulation"
+      extends Modelica.Icons.Package;
+      package SinglePhase "Single phase AC library"
+        extends Modelica.Icons.Package;
+        package Interfaces "Interfaces"
+          extends Modelica.Icons.InterfacesPackage;
+          partial model RelativeSensor "Obsolete model - use Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.RelativeSensorElementary instead"
+            extends Modelica.Icons.ObsoleteModel;
+            extends Modelica.Icons.RotationalSensor;
+            extends Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort;
+            Modelica.ComplexBlocks.Interfaces.ComplexOutput y annotation (Placement(
+                  transformation(
+                  origin={0,-110},
+                  extent={{-10,-10},{10,10}},
+                  rotation=270)));
+            annotation (obsolete="Obsolete block - use Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.RelativeSensorElementary instead",
+                Icon(graphics={
+                  Line(points={{-70,0},{-94,0}}, color={85,170,255}),
+                  Line(points={{70,0},{94,0}}, color={85,170,255}),
+                  Text(
+                    extent={{-160,120},{160,80}},
+                    lineColor={0,0,255},
+                    textString="%name"),
+                  Line(points={{0,-70},{0,-80},{0,-90},{0,-100}})}),
+                Documentation(info="<html>
+<p>
+The relative sensor partial model relies on the
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.OnePort\">OnePort</a> to measure the complex voltage or current. Additionally this model contains a proper icon and a definition of the angular velocity.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.AbsoluteSensor\">AbsoluteSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageSensor\">VoltageSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentSensor\">CurrentSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor\">PowerSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.AbsoluteSensor\">Polyphase.Interfaces.AbsoluteSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.RelativeSensorElementary\">Polyphase.Interfaces.RelativeSensorElementary</a>
+</p>
+
+</html>"));
+          end RelativeSensor;
+        end Interfaces;
+      end SinglePhase;
+
+      package MultiPhase "Polyphase AC library"
+        extends Modelica.Icons.Package;
+        package Interfaces "Interfaces"
+          extends Modelica.Icons.InterfacesPackage;
+          partial model RelativeSensor "Obsolete model - use Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.RelativeSensorElementary instead"
+            extends Modelica.Icons.ObsoleteModel;
+            extends Modelica.Icons.RotationalSensor;
+            extends Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug;
+            Modelica.ComplexBlocks.Interfaces.ComplexOutput y[m] annotation (
+                Placement(transformation(
+                  origin={0,-110},
+                  extent={{-10,-10},{10,10}},
+                  rotation=270)));
+            annotation (obsolete="Obsolete block - use Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.RelativeSensorElementary instead",
+                Icon(graphics={
+                  Line(points={{-70,0},{-94,0}}, color={85,170,255}),
+                  Line(points={{70,0},{94,0}}, color={85,170,255}),
+                  Line(points={{0,-70},{0,-80},{0,-90},{0,-100}}, color={85,170,255}),
+                  Text(
+                    extent={{150,-100},{-150,-70}},
+                    textString="m=%m"),
+                  Text(
+                    lineColor={0,0,255},
+                    extent={{-150,80},{150,120}},
+                    textString="%name")}), Documentation(info="<html>
+<p>
+The relative sensor partial model relies on the
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug\">TwoPlug</a> to measure the complex voltages and currents. Additionally this model contains a proper icon and a definition of the angular velocity.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.AbsoluteSensor\">AbsoluteSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.AbsoluteSensor\">SinglePhase.Interfaces.AbsoluteSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.RelativeSensorElementary\">SinglePhase.Interfaces.RelativeSensorElementary</a>
+</p>
+
+</html>"));
+
+          end RelativeSensor;
+        end Interfaces;
+      end MultiPhase;
+    end QuasiStationary;
     annotation (Icon(graphics={
       Rectangle(
         origin={20.3125,82.8571},

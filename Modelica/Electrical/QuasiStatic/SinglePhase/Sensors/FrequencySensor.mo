@@ -2,10 +2,10 @@ within Modelica.Electrical.QuasiStatic.SinglePhase.Sensors;
 model FrequencySensor "Frequency sensor"
   extends Interfaces.AbsoluteSensor;
   import Modelica.Constants.pi;
-  Modelica.Blocks.Interfaces.RealOutput y(unit="Hz")
+  Modelica.Blocks.Interfaces.RealOutput f(unit="Hz") "Frequency"
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 equation
-  2*pi*y = omega;
+  2*pi*f = omega;
   annotation (Documentation(info="<html>
 
 <p>

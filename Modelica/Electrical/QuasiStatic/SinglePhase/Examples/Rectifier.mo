@@ -86,14 +86,14 @@ equation
   connect(rectifierAC.pin_nDC, load2.n) annotation (Line(
       points={{10,-60},{50,-60}}, color={0,0,255}));
   connect(ramp.y, load1.G) annotation (Line(
-      points={{79,0},{70,0},{70,50},{61,50}}, color={0,0,127}));
+      points={{79,0},{70,0},{70,50},{62,50}}, color={0,0,127}));
   connect(ramp.y, load2.G) annotation (Line(
-      points={{79,0},{70,0},{70,-50},{61,-50}}, color={0,0,127}));
+      points={{79,0},{70,0},{70,-50},{62,-50}}, color={0,0,127}));
   connect(resistorQS.pin_n, currentSensorQS.pin_p) annotation (Line(
       points={{-52,60},{-40,60}}, color={85,170,255}));
   connect(currentSensorQS.pin_n, rectifierQS.pin_pQS) annotation (Line(
       points={{-20,60},{-10,60}}, color={85,170,255}));
-  connect(currentSensorQS.y, iQS.u) annotation (Line(
+  connect(currentSensorQS.i, iQS.u) annotation (Line(
       points={{-30,71},{-30,80},{-22,80}}, color={85,170,255}));
   connect(rectifierQS.pin_pDC, iDC1.p) annotation (Line(
       points={{10,60},{20,60}}, color={0,0,255}));
@@ -104,9 +104,9 @@ equation
   connect(currentSensorAC.n, rectifierAC.pin_pAC) annotation (Line(
       points={{-20,-40},{-10,-40}}, color={0,0,255}));
   connect(currentSensorAC.i, iAC.u) annotation (Line(
-      points={{-30,-30},{-30,-20},{-22,-20}}, color={0,0,127}));
+      points={{-30,-29},{-30,-20},{-22,-20}}, color={0,0,127}));
   connect(currentSensorDC2.i, iDC2.u) annotation (Line(
-      points={{30,-30},{30,-20},{38,-20}}, color={0,0,127}));
+      points={{30,-29},{30,-20},{38,-20}}, color={0,0,127}));
   connect(currentSensorDC2.p, rectifierAC.pin_pDC) annotation (Line(
       points={{20,-40},{10,-40}}, color={0,0,255}));
   connect(currentSensorDC2.n, load2.p) annotation (Line(

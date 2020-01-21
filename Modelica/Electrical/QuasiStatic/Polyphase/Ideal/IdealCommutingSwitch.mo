@@ -27,13 +27,13 @@ model IdealCommutingSwitch "Polyphase ideal commuting switch"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   QuasiStatic.Polyphase.Basic.PlugToPins_p plugToPins_p(final m=m)
     annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
-  QuasiStatic.Polyphase.Basic.PlugToPins_n plugToPins_n1(final m=m) annotation
-    (Placement(transformation(
+  QuasiStatic.Polyphase.Basic.PlugToPins_n plugToPins_n1(final m=m) annotation (
+     Placement(transformation(
         origin={80,60},
         extent={{-10,-10},{10,10}},
         rotation=180)));
-  QuasiStatic.Polyphase.Basic.PlugToPins_n plugToPins_n2(final m=m) annotation
-    (Placement(transformation(
+  QuasiStatic.Polyphase.Basic.PlugToPins_n plugToPins_n2(final m=m) annotation (
+     Placement(transformation(
         origin={80,0},
         extent={{-10,-10},{10,10}},
         rotation=180)));

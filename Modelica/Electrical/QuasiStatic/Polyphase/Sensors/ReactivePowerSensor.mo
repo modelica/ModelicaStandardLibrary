@@ -79,12 +79,9 @@ equation
   connect(powerSensor3.voltageN, plugToPins_n.pin_n[2]) annotation (Line(
         points={{40,-10},{40,-20},{60,-20},{60,30},{68,30}}, color={85,170,
           255}));
-  connect(powerSensor1.y, complexToReal1.u)
-    annotation (Line(points={{-40,49},{-40,-18}}, color={85,170,255}));
-  connect(complexToReal2.u, powerSensor2.y) annotation (Line(points={{0,-18},
-          {0,50},{10,50},{10,41}}, color={85,170,255}));
-  connect(powerSensor3.y, complexToReal3.u)
-    annotation (Line(points={{30,-11},{30,-18}}, color={85,170,255}));
+  connect(powerSensor1.apparentPower, complexToReal1.u) annotation (Line(points={{-40,49},{-40,-18}}, color={85,170,255}));
+  connect(complexToReal2.u, powerSensor2.apparentPower) annotation (Line(points={{0,-18},{0,50},{10,50},{10,41}}, color={85,170,255}));
+  connect(powerSensor3.apparentPower, complexToReal3.u) annotation (Line(points={{30,-11},{30,-18}}, color={85,170,255}));
   connect(complexToReal1.re, add.u1) annotation (Line(points={{-34,-42},{
           -34,-60},{-8,-60},{-8,-68}}, color={0,0,127}));
   connect(complexToReal2.re, add.u2) annotation (Line(points={{6,-42},{6,

@@ -107,13 +107,12 @@ model TransformerTestbench "Transformer test bench"
     L2sigma=transformerData.L2sigma,
     T1Ref=293.15,
     alpha20_1(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
     T2Ref=293.15,
     alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
     T1Operational=293.15,
     T2Operational=293.15)
     annotation (Placement(transformation(extent={{-20,0},{20,40}})));
+
   Polyphase.Blocks.SymmetricalComponents symmetricalComponentsIS(final m=m)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
@@ -180,19 +179,19 @@ equation
       points={{40,0},{40,-20}}, color={85,170,255}));
   connect(currentSensorL.plug_p, deltaL.plug_n) annotation (Line(
       points={{40,20},{40,0}}, color={85,170,255}));
-  connect(symmetricalComponentsIS.u, currentSensorS.y)
+  connect(symmetricalComponentsIS.u,currentSensorS.i)
     annotation (Line(points={{-50,38},{-50,31}}, color={85,170,255}));
-  connect(symmetricalComponentsIL.u, currentSensorL.y)
+  connect(symmetricalComponentsIL.u,currentSensorL.i)
     annotation (Line(points={{50,38},{50,31}}, color={85,170,255}));
   connect(symmetricalComponentsIS.y[1], polarIS.u) annotation (Line(points={{-50,
           61},{-50,64.5},{-50,68}}, color={85,170,255}));
   connect(symmetricalComponentsIL.y[1], polarIL.u)
     annotation (Line(points={{50,61},{50,68}}, color={85,170,255}));
-  connect(voltageSensorS.y, symmetricalComponentsVS.u)
+  connect(voltageSensorS.v, symmetricalComponentsVS.u)
     annotation (Line(points={{-50,-31},{-50,-38}}, color={85,170,255}));
   connect(symmetricalComponentsVS.y[1], polarVS.u)
     annotation (Line(points={{-50,-61},{-50,-68}}, color={85,170,255}));
-  connect(voltageSensorL.y, symmetricalComponentsVL.u) annotation (Line(points={
+  connect(voltageSensorL.v, symmetricalComponentsVL.u) annotation (Line(points={
           {50,-31},{50,-34.5},{50,-38}}, color={85,170,255}));
   connect(symmetricalComponentsVL.y[1], polarVL.u) annotation (Line(points={{50,
           -61},{50,-64.5},{50,-68}}, color={85,170,255}));

@@ -1,8 +1,9 @@
 Pin
 PositivePin
 NegativePin
+TwoPinElementary
 TwoPin
 OnePort
 AbsoluteSensor
-RelativeSensor
+RelativeSensorElementary
 Source

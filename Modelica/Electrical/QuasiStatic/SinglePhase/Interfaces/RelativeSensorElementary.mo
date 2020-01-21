@@ -1,24 +1,24 @@
 within Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces;
-partial model RelativeSensor "Partial voltage / current sensor"
+partial model RelativeSensorElementary "Elementary partial voltage / current sensor"
   extends Modelica.Icons.RoundSensor;
-  extends OnePort;
-  Modelica.ComplexBlocks.Interfaces.ComplexOutput y annotation (Placement(
-        transformation(
-        origin={0,-110},
-        extent={{-10,-10},{10,10}},
-        rotation=270)));
+  extends TwoPinElementary;
+
+equation
+  Complex(0,0) = pin_p.i + pin_n.i "Current balance";
+
   annotation (Icon(graphics={
         Line(points={{-70,0},{-94,0}}, color={85,170,255}),
         Line(points={{70,0},{94,0}}, color={85,170,255}),
         Text(
-          extent={{-160,120},{160,80}},
+          extent={{-150,130},{150,90}},
           textColor={0,0,255},
           textString="%name"),
-        Line(points={{0,-70},{0,-80},{0,-90},{0,-100}})}),
+        Line(points={{0,-70},{0,-80},{0,-90},{0,-100}}, color={85,170,255})}),
       Documentation(info="<html>
 <p>
 The relative sensor partial model relies on the
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.OnePort\">OnePort</a> to measure the complex voltage, current or power. Additionally this model contains a proper icon and a definition of the angular velocity.
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.TwoPinElementary\">TwoPinElementary</a> 
+to measure the complex voltage or current. Additionally this model contains a proper icon and a definition of the angular velocity.
 </p>
 
 <h4>See also</h4>
@@ -33,4 +33,4 @@ The relative sensor partial model relies on the
 </p>
 
 </html>"));
-end RelativeSensor;
+end RelativeSensorElementary;

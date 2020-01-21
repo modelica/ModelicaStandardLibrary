@@ -1,10 +1,9 @@
 within Modelica.Electrical.QuasiStatic.SinglePhase.Sensors;
 model ReferenceSensor "Sensor of reference angle gamma"
   extends QuasiStatic.SinglePhase.Interfaces.AbsoluteSensor;
-  Modelica.Blocks.Interfaces.RealOutput y(unit="rad") "Reference angle" annotation (
-      Placement(transformation(extent={{100,-10},{120,10}})));
+  Modelica.Blocks.Interfaces.RealOutput gamma(unit="rad") "Reference angle" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 equation
-  y = pin.reference.gamma;
+  gamma = pin.reference.gamma;
   annotation (Documentation(info="<html>
 
 <p>

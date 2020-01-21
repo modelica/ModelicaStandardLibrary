@@ -20,8 +20,8 @@ model IMC_withLosses "Induction machine with squirrel cage and losses"
     "Nominal torque";
   parameter Modelica.SIunits.Temperature TempNominal=from_degC(90)
     "Nominal temperature";
-  Modelica.SIunits.Power PelQS=electricalPowerSensorQS.y.re;
-  Modelica.SIunits.ReactivePower QelQS=electricalPowerSensorQS.y.im;
+  Modelica.SIunits.Power PelQS=electricalPowerSensorQS.apparentPower.re;
+  Modelica.SIunits.ReactivePower QelQS=electricalPowerSensorQS.apparentPower.im;
   Modelica.SIunits.ApparentPower SelQS=sqrt(PelQS^2 + QelQS^2);
 protected
   parameter Real Ptable[:]={1E-6,1845,3549,5325,7521,9372,11010,12930,
@@ -117,7 +117,6 @@ public
     Jr=0.12,
     Rs=0.56,
     alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
-
     Lssigma=1.52/(2*pi*fNominal),
     frictionParameters(PRef=180, wRef=wNominal),
     strayLoadParameters(
@@ -130,6 +129,7 @@ public
     alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium)
     "Induction machine data"
     annotation (Placement(transformation(extent={{-60,12},{-40,32}})));
+
 equation
   connect(starQS.pin_n, groundQS.pin) annotation (Line(points={{-90,30},{-90,20}}, color={85,170,255}));
   connect(sineVoltageQS.plug_n, starQS.plug_p) annotation (Line(points={{-90,60},{-90,50}}, color={85,170,255}));

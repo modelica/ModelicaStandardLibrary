@@ -1798,6 +1798,37 @@ convertElement({"Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Bas
                 "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet",
                 "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor"},
                 "stator.strayReluctance", "stator.stray");
+// Rename output connectors of quasi-static electric sensors, see #3022
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.ReferenceSensor", "y", "gamma")
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.FrequencySensor", "y", "f")
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PotentialSensor", "y", "v")
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PotentialSensor", "abs_y", "abs_v")
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PotentialSensor", "arg_y", "arg_v")
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.VoltageSensor","y","v")
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.VoltageSensor","abs_y","abs_v")
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.VoltageSensor","arg_y","arg_v")
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor", "y", "i")
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor", "abs_y", "abs_i")
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor", "arg_y", "arg_i")
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor", "y", "apparentPower")
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor", "abs_y", "abs_apparentPower")
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor", "arg_y", "arg_apparentPower")
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.ReferenceSensor", "y", "gamma")
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.FrequencySensor", "y", "f")
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PotentialSensor", "y", "v")
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PotentialSensor", "abs_y", "abs_v")
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PotentialSensor", "arg_y", "arg_v")
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageSensor", "y", "v")
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageSensor", "abs_y", "abs_v")
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageSensor", "arg_y", "arg_v")
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor", "y", "i")
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor", "abs_y", "abs_i")
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor", "arg_y", "arg_i")
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor", "y", "apparentPower")
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor", "abs_y", "abs_apparentPower")
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor", "arg_y", "arg_apparentPower")
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.AronSensor", "power", "activePower")
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.ReactivePowerSensor", "y", "reactivePower")
 // Automatically extended to handle derived classes
 convertElement("Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet", "quasiStationary", "quasiStatic");
 convertElement("Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited", "quasiStationary", "quasiStatic");

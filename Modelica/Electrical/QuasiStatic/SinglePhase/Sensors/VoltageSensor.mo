@@ -1,11 +1,21 @@
 within Modelica.Electrical.QuasiStatic.SinglePhase.Sensors;
 model VoltageSensor "Voltage sensor"
-  extends Interfaces.RelativeSensor;
-  Modelica.SIunits.Voltage abs_y=Modelica.ComplexMath.abs(y) "Magnitude of complex voltage";
-  Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(y) "Argument of complex voltage";
+  extends Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.RelativeSensorElementary;
+  Modelica.ComplexBlocks.Interfaces.ComplexOutput v(re(unit = "V"), im(unit = "V")) "Complex voltage" annotation (Placement(
+        transformation(
+        origin={0,-110},
+        extent={{-10,-10},{10,10}},
+        rotation=270), iconTransformation(
+        extent={{-10,-10},{10,10}},
+        rotation=270,
+        origin={0,-110})));
+  Modelica.SIunits.Voltage abs_v=Modelica.ComplexMath.abs(v) "Magnitude of complex voltage";
+  Modelica.SIunits.Angle arg_v=Modelica.ComplexMath.arg(v) "Argument of complex voltage";
+  Modelica.SIunits.ComplexCurrent i "Complex current";
 equation
-  i = Complex(0);
-  y = v;
+  v = pin_p.v - pin_n.v;
+  i = pin_p.i;
+  i = Complex(0,0);
   annotation (Documentation(info="<html>
 <p>
 This sensor can be used to measure the complex voltage.
@@ -27,5 +37,7 @@ This sensor can be used to measure the complex voltage.
         Text(
           extent={{-30,-10},{30,-70}},
           textColor={64,64,64},
-          textString="V")}));
+          textString="V"),
+        Line(points={{-100,0},{-70,0}}, color={85,170,255}),
+        Line(points={{70,0},{100,0}},   color={85,170,255})}));
 end VoltageSensor;

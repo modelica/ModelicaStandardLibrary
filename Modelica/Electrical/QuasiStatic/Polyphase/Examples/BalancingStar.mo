@@ -114,7 +114,7 @@ equation
     annotation (Line(points={{90,-60},{-20,-60}}, color={85,170,255}));
   connect(currentSensor0.pin_n, star.pin_n)
     annotation (Line(points={{-40,-60},{-80,-60}}, color={85,170,255}));
-  connect(currentSensor.y, complexToPolar.u)
+  connect(currentSensor.i, complexToPolar.u)
     annotation (Line(points={{-30,-1},{-30,-1},{-30,-8}}, color={85,170,255}));
   annotation (Documentation(info="<html>
 <p>

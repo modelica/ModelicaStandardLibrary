@@ -136,8 +136,7 @@ equation
     annotation (Line(points={{-20,-80},{-20,-90}}, color={85,170,255}));
   connect(sineVoltage.plug_n, star.plug_p)
     annotation (Line(points={{-20,-40},{-20,-60}},color={85,170,255}));
-  connect(powerSensor.y, complexToReal.u)
-    annotation (Line(points={{31,20},{38,20}}, color={85,170,255}));
+  connect(powerSensor.apparentPower, complexToReal.u) annotation (Line(points={{31,20},{38,20}}, color={85,170,255}));
   connect(complexToReal.re, feedbackP.u1) annotation (Line(points={{62,14},{70,14},
           {70,0},{82,0}},   color={0,0,127}));
   connect(feedbackI.u2, constI.y)
@@ -152,8 +151,7 @@ equation
     annotation (Line(points={{-20,50},{-20,80},{20,80}}, color={85,170,255}));
   connect(reactivePowerSensor.reactivePower, feedbackQ.u1)
     annotation (Line(points={{31,70},{42,70}}, color={0,0,127}));
-  connect(aronSensor.power, feedbackPAron.u1)
-    annotation (Line(points={{31,40},{82,40}}, color={0,0,127}));
+  connect(aronSensor.activePower, feedbackPAron.u1) annotation (Line(points={{31,40},{82,40}}, color={0,0,127}));
   connect(complexToReal.re, feedbackPAron.u2)
     annotation (Line(points={{62,14},{90,14},{90,32}}, color={0,0,127}));
   connect(complexToReal.im, feedbackQ.u2) annotation (Line(points={{62,26},{70,26},
