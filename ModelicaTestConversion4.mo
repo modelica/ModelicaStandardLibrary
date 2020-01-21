@@ -1820,7 +1820,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
             experiment(StopTime=3),
             Documentation(info="<html>
 Demonstrates sensors visualization in vectors - 
-based on <a href=\"Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulum\"DoublePendulum<a>.
+based on <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulum\">DoublePendulum<a>.
 </html>"));
         end DoublePendulum;
 
@@ -1996,7 +1996,7 @@ based on <a href=\"Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendul
           annotation (
             Documentation(info="<html>
 Demonstrates conversion of visualization for ForceAndTorque elements, as well as for Force and Torque elements.
-Based on <a href=\"Modelica.Mechanics.MultiBody.Examples.Elementary.ForceAndTorque\">ForceAndTorque</a>,
+Based on <a href=\"modelica:/Modelica.Mechanics.MultiBody.Examples.Elementary.ForceAndTorque\">ForceAndTorque</a>,
 but with denser material to slow down the visualization to human speed.
 </html>"),   experiment(StopTime=1.01));
         end ForceAndTorque;
@@ -2155,7 +2155,7 @@ but with denser material to slow down the visualization to human speed.
           annotation (
           Documentation(info="<html>
 Demonstrates conversion of visualization for WorldForceAndTorque elements, as well as for WorldForce and WorldTorque elements.
-Based on <a href=\"Modelica.Mechanics.MultiBody.Examples.Elementary.ForceAndTorque\">ForceAndTorque</a>,
+Based on <a href=\"modelica:/Modelica.Mechanics.MultiBody.Examples.Elementary.ForceAndTorque\">ForceAndTorque</a>,
 but using World-variants and with denser material to slow down the visualization to human speed.
 </html>"),   experiment(StopTime=1.01));
         end WorldForceAndTorque;
