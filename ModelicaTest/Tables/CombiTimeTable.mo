@@ -742,8 +742,9 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
   model Test66_usertab "Test utilizing the usertab.c interface"
     extends Modelica.Icons.Example;
     extends TestDer(t_new(tableOnFile=true, tableName="TestTable_1D_Time"));
+    parameter Real dummy(fixed=false) "Dummy parameter";
   protected
-    encapsulated function getUsertab
+    encapsulated impure function getUsertab
       import Modelica;
       extends Modelica.Icons.Function;
       input Real dummy_u[:];
@@ -756,9 +757,8 @@ double mydummyfunc(double* dummy_in) {
 }
 ");
     end getUsertab;
-  public
-    Modelica.Blocks.Sources.RealExpression realExpression(y=getUsertab(t_new.y))
-      annotation (Placement(transformation(extent={{-20,-40},{10,-20}})));
+  initial equation
+    dummy = getUsertab(t_new.y);
     annotation (experiment(StartTime=0, StopTime=4));
   end Test66_usertab;
 

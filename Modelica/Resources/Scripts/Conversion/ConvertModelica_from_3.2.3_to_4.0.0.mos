@@ -293,6 +293,12 @@ convertClass("Modelica.Electrical.Machines.Utilities.VoltageController",
               "Modelica.Electrical.Machines.Utilities.DQCurrentController");
 convertClass("Modelica.Media.Common.OneNonLinearEquation",
               "ObsoleteModelica4.Media.Common.OneNonLinearEquation");
+convertClass("Modelica.Blocks.Tables.Internal.readTimeTableData",
+              "ObsoleteModelica4.Blocks.Tables.Internal.readTimeTableData");
+convertClass("Modelica.Blocks.Tables.Internal.readTable1DData",
+              "ObsoleteModelica4.Blocks.Tables.Internal.readTable1DData");
+convertClass("Modelica.Blocks.Tables.Internal.readTable2DData",
+              "ObsoleteModelica4.Blocks.Tables.Internal.readTable2DData");
 
 // The Modelica_Synchronous library was integrated into the MSL as Modelica.Clocked
 convertElement({"Modelica_Synchronous.RealSignals.TimeBasedSources.Sin"},

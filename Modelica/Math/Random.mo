@@ -212,7 +212,7 @@ and the returned state is the one from the last iteration.
 </html>"));
       end initialState;
 
-      function random
+      pure function random
         "Returns a uniform random number with the xorshift64* algorithm"
         extends Modelica.Icons.Function;
         input Integer stateIn[nState]
@@ -385,7 +385,7 @@ random number generator is used to fill the internal state vector with 64 bit ra
 </html>"));
       end initialState;
 
-      function random
+      pure function random
         "Returns a uniform random number with the xorshift128+ algorithm"
         extends Modelica.Icons.Function;
         input Integer stateIn[nState]
@@ -562,7 +562,7 @@ random number generator is used to fill the internal state vector with 64 bit ra
 </html>"));
       end initialState;
 
-      function random
+      pure function random
         "Returns a uniform random number with the xorshift1024* algorithm"
         extends Modelica.Icons.Function;
         input Integer stateIn[nState]
@@ -930,15 +930,13 @@ If the same localSeed, globalSeed, nState is given, the same state vector is ret
 </html>"));
     end initialStateWithXorshift64star;
 
-    function automaticGlobalSeed
+    impure function automaticGlobalSeed
       "Creates an automatic integer seed (typically from the current time and process id; this is an impure function)"
       extends Modelica.Icons.Function;
       output Integer seed "Automatically generated seed";
 
       external "C" seed = ModelicaRandom_automaticGlobalSeed(0.0) annotation (Library="ModelicaExternalC");
-
-     annotation (__ModelicaAssociation_Impure=true,
-        Documentation(info="<html>
+     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 seed = Utilities.<strong>automaticGlobalSeed</strong>();
@@ -1069,7 +1067,7 @@ path is provided.
       Integer rngState[33]
         "The internal state vector of the impure random number generator";
 
-      function setInternalState
+      impure function setInternalState
         "Stores the given state vector in an external static variable"
         extends Modelica.Icons.Function;
         input Integer[33] rngState "The initial state";
@@ -1085,8 +1083,7 @@ path is provided.
 
       // Copy the internal state into the internal C static memory
       setInternalState(rngState, id);
-      annotation (
-      Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 id = <strong>initializeImpureRandom</strong>(seed;
@@ -1148,7 +1145,7 @@ random number generator to fill the internal state vector with 64 bit random num
 </html>"));
     end initializeImpureRandom;
 
-    function impureRandom
+    impure function impureRandom
       "Impure random number generator (with hidden state vector)"
       extends Modelica.Icons.Function;
       input Integer id
@@ -1157,9 +1154,7 @@ random number generator to fill the internal state vector with 64 bit random num
         "A random number with a uniform distribution on the interval (0,1]";
       external "C" y = ModelicaRandom_impureRandom_xorshift1024star(id)
         annotation (Library="ModelicaExternalC");
-      annotation(__ModelicaAssociation_Impure=true,
-        Documentation(info=
-                   "<html>
+      annotation(Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 r = <strong>impureRandom</strong>(id);
@@ -1222,7 +1217,7 @@ is returned, so the function is impure.
 </html>"));
     end impureRandom;
 
-    function impureRandomInteger
+    impure function impureRandomInteger
       "Impure random number generator for integer values (with hidden state vector)"
       extends Modelica.Icons.Function;
       input Integer id
@@ -1236,10 +1231,7 @@ is returned, so the function is impure.
     algorithm
       r  := impureRandom(id=id);
       y  := min(imax, integer(r*(imax-imin+1))+imin);
-
-      annotation (__ModelicaAssociation_Impure=true,
-        Documentation(info=
-                    "<html>
+      annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 r = <strong>impureRandomInteger</strong>(id, imin=1, imax=Modelica.Constants.Integer_inf);

@@ -1690,9 +1690,6 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
     discrete Real nextTimeEventScaled(start=0, fixed=true)
       "Next scaled time event instant";
     Real timeScaled "Scaled time";
-    function readTableData =
-      Modelica.Blocks.Tables.Internal.readTimeTableData "Read table data from text or MATLAB MAT-file";
-                             // No longer used, but kept for backward compatibility
   equation
     if tableOnFile then
       assert(tableName <> "NoName",

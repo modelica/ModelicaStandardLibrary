@@ -225,8 +225,9 @@ package CombiTable1Ds "Test models for Modelica.Blocks.Tables.CombiTable1Ds"
         tableOnFile=true,
         tableName="TestTable_1D_b",
         columns={2,3}));
+    parameter Real dummy(fixed=false) "Dummy parameter";
   protected
-    encapsulated function getUsertab
+    encapsulated impure function getUsertab
       import Modelica;
       extends Modelica.Icons.Function;
       input Real dummy_u[:];
@@ -239,9 +240,8 @@ double mydummyfunc(double* dummy_in) {
 }
 ");
     end getUsertab;
-  public
-    Modelica.Blocks.Sources.RealExpression realExpression(y=getUsertab(t_new.y))
-      annotation (Placement(transformation(extent={{-20,-42},{10,-22}})));
+  initial equation
+    dummy = getUsertab(t_new.y);
     annotation (experiment(StartTime=0, StopTime=4));
   end Test25_usertab;
 

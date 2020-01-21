@@ -200,6 +200,54 @@ for signal buses, see example
         end ReceiveInteger;
       end Adaptors;
     end Interfaces;
+
+    package Tables "Library of blocks to interpolate in one and two-dimensional tables"
+      extends Modelica.Icons.Package;
+      package Internal "Internal external object definitions for table functions that should not be directly utilized by the user"
+        extends Modelica.Icons.InternalPackage;
+        function readTimeTableData "Read table data from text or MATLAB MAT-file"
+          extends Modelica.Icons.Function;
+          extends Modelica.Icons.ObsoleteModel;
+          input Modelica.Blocks.Types.ExternalCombiTimeTable tableID "External table object";
+          input Boolean forceRead = false
+            "= true: Force reading of table data; = false: Only read, if not yet read.";
+          output Real readSuccess "Table read success";
+          input Boolean verboseRead = true
+            "= true: Print info message; = false: No info message";
+          external"C" readSuccess = ModelicaStandardTables_CombiTimeTable_read(tableID, forceRead, verboseRead)
+            annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+          annotation(__ModelicaAssociation_Impure=true);
+        end readTimeTableData;
+
+        function readTable1DData "Read table data from text or MATLAB MAT-file"
+          extends Modelica.Icons.Function;
+          extends Modelica.Icons.ObsoleteModel;
+          input Modelica.Blocks.Types.ExternalCombiTable1D tableID "External table object";
+          input Boolean forceRead = false
+            "= true: Force reading of table data; = false: Only read, if not yet read.";
+          input Boolean verboseRead = true
+            "= true: Print info message; = false: No info message";
+          output Real readSuccess "Table read success";
+          external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID, forceRead, verboseRead)
+            annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+          annotation(__ModelicaAssociation_Impure=true);
+        end readTable1DData;
+
+        function readTable2DData "Read table data from text or MATLAB MAT-file"
+          extends Modelica.Icons.Function;
+          extends Modelica.Icons.ObsoleteModel;
+          input Modelica.Blocks.Types.ExternalCombiTable2D tableID "External table object";
+          input Boolean forceRead = false
+            "= true: Force reading of table data; = false: Only read, if not yet read.";
+          input Boolean verboseRead = true
+            "= true: Print info message; = false: No info message";
+          output Real readSuccess "Table read success";
+          external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID, forceRead, verboseRead)
+            annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+          annotation(__ModelicaAssociation_Impure=true);
+        end readTable2DData;
+      end Internal;
+    end Tables;
   end Blocks;
 
   package Electrical "Library of electrical models (analog, digital, machines, polyphase)"
