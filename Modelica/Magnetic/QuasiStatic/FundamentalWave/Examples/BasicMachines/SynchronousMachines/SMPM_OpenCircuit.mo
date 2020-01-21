@@ -6,7 +6,7 @@ model SMPM_OpenCircuit
   parameter Integer m=3 "Number of phases";
   output Modelica.SIunits.Voltage Vtr=potentialSensor.phi[1]
     "Transient voltage";
-  output Modelica.SIunits.Voltage Vqs=potentialSensorQS.abs_y[1]
+  output Modelica.SIunits.Voltage Vqs=potentialSensorQS.abs_v[1]
     "QS voltage";
   FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet
     smpmQS(
