@@ -3,6 +3,7 @@ model HollowCylinderAxialFlux
   "(Hollow) cylinder with axial flux; fixed shape; linear or non-linear material characteristics"
 
   extends BaseClasses.FixedShape;
+  extends Modelica.Magnetic.FluxTubes.Icons.HollowCylinderAxialFlux;
 
   parameter SI.Length l=0.01 "Axial length (in direction of flux)"
     annotation (Dialog(group="Fixed geometry", groupImage=
@@ -25,5 +26,10 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
 <p>
 Set the inner radius r_i=0 for modelling of a solid cylindric flux tube.
 </p>
-</html>"));
+</html>"),
+    Icon(graphics={
+        Text(
+          extent={{-150,50},{150,90}},
+          textString="%name",
+          textColor={0,0,255})}));
 end HollowCylinderAxialFlux;

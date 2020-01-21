@@ -1,9 +1,11 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Blocks;
 block ToSpacePhasor "Conversion: m phase -> space phasor"
   extends Modelica.Blocks.Icons.Block;
-  import Modelica.ComplexMath.j;
-  import Modelica.ComplexMath.exp;
-  import Modelica.ComplexMath.'sum';
+  // import Modelica.ComplexMath.j;
+  // import Modelica.ComplexMath.exp;
+  // import Modelica.ComplexMath.sum;
+  // The import of sum goes along with the original complex equation:
+  // c = sqrt(2)/m*sum({u[k]*exp(j*phi[k]) for k in 1:m});
   parameter Integer m(min=1) = 3 "Number of phases";
   Modelica.ComplexBlocks.Interfaces.ComplexInput u[m]
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
@@ -11,11 +13,10 @@ block ToSpacePhasor "Conversion: m phase -> space phasor"
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 protected
   parameter Modelica.SIunits.Angle phi[m]=
-      Modelica.Electrical.Polyphase.Functions.symmetricOrientation(
-                                                          m);
+      Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m);
   Complex c;
 equation
-  // c = sqrt(2)/m*'sum'({u[k]*exp(j*phi[k]) for k in 1:m});
+  // c = sqrt(2)/m*sum({u[k]*exp(j*phi[k]) for k in 1:m});
   // Alternative implementation due to https://trac.openmodelica.org/OpenModelica/ticket/4496
   c.re = sqrt(2)/m*sum(u[k].re*cos(phi[k])-u[k].im*sin(phi[k]) for k in 1:m);
   c.im = sqrt(2)/m*sum(u[k].re*sin(phi[k])+u[k].im*cos(phi[k]) for k in 1:m);

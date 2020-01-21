@@ -209,7 +209,6 @@ density and heat capacity as functions of temperature.</li>
       T(start = T_start,
         stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default))
       "Base properties of T dependent medium"
-    //  redeclare parameter SpecificHeatCapacity R=Modelica.Constants.R,
 
       SI.SpecificHeatCapacity cp "Specific heat capacity";
       parameter SI.Temperature T_start = 298.15 "Initial temperature";
@@ -220,10 +219,10 @@ density and heat capacity as functions of temperature.</li>
              " K) is not in the allowed range (" + String(T_min) +
              " K <= T <= " + String(T_max) + " K) required from medium model \""
              + mediumName + "\".");
-      R = Modelica.Constants.R/MM_const;
+      R_s = Modelica.Constants.R/MM_const;
       cp = Polynomials.evaluate(poly_Cp,if TinK then T else T_degC);
       h = if enthalpyOfT then h_T(T) else  h_pT(p,T,densityOfT);
-      u = h - (if singleState then  reference_p/d else state.p/d);
+      u = h - (if singleState then reference_p/d else state.p/d);
       d = Polynomials.evaluate(poly_rho,if TinK then T else T_degC);
       state.T = T;
       state.p = p;
@@ -232,7 +231,7 @@ density and heat capacity as functions of temperature.</li>
 <p>
 Note that the inner energy neglects the pressure dependence, which is only
 true for an incompressible medium with d = constant. The neglected term is
-p-reference_p)/rho*(T/rho)*(partial rho /partial T). This is very small for
+(p-reference_p)/rho*(T/rho)*(&part;rho /&part;T). This is very small for
 liquids due to proportionality to 1/d^2, but can be problematic for gases that are
 modeled incompressible.
 </p>
@@ -250,9 +249,9 @@ non-linear systems are small and local as opposed to large and over all volumes.
 <p>
 Entropy is calculated as
 </p>
-<pre>
-  s = s0 + integral(Cp(T)/T,dt)
-</pre>
+<blockquote><pre>
+s = s0 + integral(Cp(T)/T,dt)
+</pre></blockquote>
 <p>
 which is only exactly true for a fluid with constant density d=d0.
 </p>
@@ -470,7 +469,7 @@ which is only exactly true for a fluid with constant density d=d0.
     redeclare function extends specificInternalEnergy
       "Return specific internal energy as a function of the thermodynamic state record"
     algorithm
-      u := (if enthalpyOfT then h_T(state.T) else h_pT(state.p,state.T)) - (if singleState then  reference_p else state.p)/density(state);
+      u := (if enthalpyOfT then h_T(state.T) else h_pT(state.p,state.T)) - (if singleState then reference_p else state.p)/density(state);
      annotation(Inline=true,smoothOrder=2);
     end specificInternalEnergy;
 
@@ -479,51 +478,39 @@ which is only exactly true for a fluid with constant density d=d0.
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
       output Temperature T "Temperature";
+
     protected
-      package Internal
-        "Solve h(T) for T with given h (use only indirectly via temperature_phX)"
-        extends Modelica.Media.Common.OneNonLinearEquation;
+      function f_nonlinear "Solve h_T(T) or h_pT(p,T) for T with given h"
+        extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
+        input AbsolutePressure p "Pressure";
+        input SpecificEnthalpy h "Specific enthalpy";
+      algorithm
+        y := (if singleState then h_T(T=u) else h_pT(p=p, T=u)) - h;
+      end f_nonlinear;
 
-        redeclare record extends f_nonlinear_Data
-          "Superfluous record, fix later when better structure of inverse functions exists"
-            constant Real[5] dummy = {1,2,3,4,5};
-        end f_nonlinear_Data;
-
-        redeclare function extends f_nonlinear "P is smuggled in via vector"
-        algorithm
-          y := if singleState then h_T(x) else h_pT(p,x);
-        end f_nonlinear;
-
-      end Internal;
     algorithm
-     T := Internal.solve(h, T_min, T_max, p, {1}, Internal.f_nonlinear_Data());
+      T := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
+        function f_nonlinear(p=p, h=h), T_min, T_max);
       annotation(Inline=false, LateInline=true, inverse(h=h_pT(p,T)));
     end T_ph;
 
     function T_ps "Compute temperature from pressure and specific enthalpy"
       extends Modelica.Icons.Function;
-
-      input AbsolutePressure p "Pressure";
+      input AbsolutePressure p "Pressure (unused)";
       input SpecificEntropy s "Specific entropy";
       output Temperature T "Temperature";
+
     protected
-      package Internal
-        "Solve h(T) for T with given h (use only indirectly via temperature_phX)"
-        extends Modelica.Media.Common.OneNonLinearEquation;
+      function f_nonlinear "Solve s_T(T) for T with given s"
+        extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
+        input SpecificEntropy s "Specific entropy";
+      algorithm
+        y := s_T(T=u) - s;
+      end f_nonlinear;
 
-        redeclare record extends f_nonlinear_Data
-          "Superfluous record, fix later when better structure of inverse functions exists"
-            constant Real[5] dummy = {1,2,3,4,5};
-        end f_nonlinear_Data;
-
-        redeclare function extends f_nonlinear "P is smuggled in via vector"
-        algorithm
-          y := s_T(x);
-        end f_nonlinear;
-
-      end Internal;
     algorithm
-     T := Internal.solve(s, T_min, T_max, p, {1}, Internal.f_nonlinear_Data());
+      T := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
+        function f_nonlinear(s=s), T_min, T_max);
     end T_ps;
 
   annotation(Documentation(info="<html>
@@ -536,7 +523,7 @@ of density and heat capacity as functions of temperature.
 <p>It should be noted that incompressible media only have 1 state per control volume (usually T),
 but have both T and p as inputs for fully correct properties. The error of using only T-dependent
 properties is small, therefore a Boolean flag enthalpyOfT exists. If it is true, the
-enumeration Choices.independentVariables  is set to  Choices.independentVariables.T otherwise
+enumeration Choices.independentVariables is set to Choices.independentVariables.T otherwise
 it is set to Choices.independentVariables.pT.</p>
 
 <h4>Using the package TableBased</h4>
@@ -545,13 +532,13 @@ To implement a new medium model, create a package that <strong>extends</strong> 
 and provides one or more of the constant tables:
 </p>
 
-<pre>
+<blockquote><pre>
 tableDensity        = [T, d];
 tableHeatCapacity   = [T, Cp];
 tableConductivity   = [T, lam];
 tableViscosity      = [T, eta];
 tableVaporPressure  = [T, pVap];
-</pre>
+</pre></blockquote>
 
 <p>
 The table data is used to fit constant polynomials of order <strong>npol</strong>, the
@@ -579,9 +566,9 @@ in terms of tables, functions or polynomial coefficients.
 The common meaning of <em>incompressible</em> is that properties like density
 and enthalpy are independent of pressure. Thus properties are conveniently
 described as functions of temperature, e.g., as polynomials density(T) and cp(T).
-However, enthalpy and inner energy can not both be independent of pressure since h = u + p/d. 
-(Normally when T is held constant dh/dp&ge;0 and du/dp&le;0.) 
-For liquids it is anyway common to neglect this dependence for 
+However, enthalpy and inner energy can not both be independent of pressure since h = u + p/d.
+(Normally when T is held constant dh/dp&ge;0 and du/dp&le;0.)
+For liquids it is anyway common to neglect this dependence for
 both of them since for constant density the neglected term is (p - p0)/d,
 which in comparison with cp is very small for most liquids. For
 water, the equivalent change of temperature to increasing pressure 1 bar is

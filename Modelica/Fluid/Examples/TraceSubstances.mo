@@ -134,10 +134,10 @@ of magnitude.
       C={100},
       nPorts=1) "CO2 emitted by room occupants."
       annotation (Placement(transformation(extent={{-38,-98},{-18,-78}})));
-    Modelica.Blocks.Sources.CombiTimeTable NumberOfPeople(table=[0,0; 9*3600,0;
-          9*3600,10; 11*3600,10; 11*3600,2; 13*3600,2; 13*3600,15; 15*3600,15;
-          15*3600,5; 18*3600,5; 18*3600,0; 24*3600,0])
-      "Time table for number of people in the room"
+    Modelica.Blocks.Sources.CombiTimeTable numberOfPeople(
+      table=[0,0; 9,10; 11,2; 13,15; 15,5; 18,0; 24,0],
+      smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
+      timeScale=3600) "Time table for number of people in the room"
       annotation (Placement(transformation(extent={{-100,-90},{-80,-70}})));
     Modelica.Blocks.Math.Gain gain(k=8.18E-6/100)
       "CO2 mass flow rate, released per 100 person (there is another 100 factor in peopleSource)"
@@ -173,12 +173,11 @@ of magnitude.
       "Trace substance at duct outlet"
       annotation (Placement(transformation(extent={{-20,0},{0,20}})));
   equation
-    connect(CAtm.y, freshAir.C_in[1])
-                                    annotation (Line(
+    connect(CAtm.y, freshAir.C_in[1]) annotation (Line(
         points={{-79,-38},{-70,-38}}, color={0,0,127}));
     connect(ductOut.port_b, boundary4.ports[1]) annotation (Line(
         points={{60,-30},{72,-30}}, color={0,127,255}));
-    connect(NumberOfPeople.y[1], gain.u) annotation (Line(
+    connect(numberOfPeople.y[1], gain.u) annotation (Line(
         points={{-79,-80},{-70,-80}}, color={0,0,127}));
     connect(gain.y, peopleSource.m_flow_in) annotation (Line(
         points={{-47,-80},{-38,-80}}, color={0,0,127}));
@@ -186,8 +185,7 @@ of magnitude.
         points={{41,10},{58,10}}, color={0,0,127}));
     connect(CO2Set.y, PID.u_s) annotation (Line(
         points={{-59,50},{-42,50}}, color={0,0,127}));
-    connect(gainSensor.y, PID.u_m)
-                              annotation (Line(
+    connect(gainSensor.y, PID.u_m) annotation (Line(
         points={{81,10},{90,10},{90,30},{-30,30},{-30,38}}, color={0,0,127}));
     connect(PID.y, gain1.u) annotation (Line(
         points={{-19,50},{-2,50}}, color={0,0,127}));
@@ -231,9 +229,9 @@ this mass flow rate should be kept small. Thus, in the source model, we set the
 CO2 concentration to <code>C={100} kg/kg</code>, and scaled the mass flow rate using
 </p>
 
-<pre>
-  m_flow = 1/100 * nPeo * 8.18E-6 kg/(s*person)
-</pre>
+<blockquote><pre>
+m_flow = 1/100 * nPeo * 8.18E-6 kg/(s*person)
+</pre></blockquote>
 
 <p>
 where <code>nPeo</code> is the number of people in the room.

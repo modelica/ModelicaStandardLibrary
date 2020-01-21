@@ -1,9 +1,9 @@
 within Modelica.Thermal.HeatTransfer.Sensors;
 model ConditionalFixedHeatFlowSensor
-  "HeatFlowSensor, conditional fixed Temperature"
+  "HeatFlowSensor, conditional fixed temperature"
   extends Modelica.Icons.RoundSensor;
   parameter Boolean useFixedTemperature(start=false)
-    "Fixed Temperature if true"
+    "Fixed temperature if true"
     annotation(Evaluate=true);
   HeatTransfer.Interfaces.HeatPort_a port_a
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
@@ -21,7 +21,7 @@ model ConditionalFixedHeatFlowSensor
     "Heat flow from port_a to port_b as output signal" annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={0,-100})));
+        origin={0,-110})));
 equation
   connect(heatFlowSensor.port_b, port_b) annotation (Line(
       points={{10,0},{100,0}}, color={191,0,0}));
@@ -30,10 +30,10 @@ equation
   connect(fixedTemperature.port, heatFlowSensor.port_a) annotation (Line(
       points={{-50,-20},{-50,0},{-10,0}}, color={191,0,0}));
   connect(heatFlowSensor.Q_flow, Q_flow) annotation (Line(
-      points={{0,-10},{0,-100}},color={0,0,127}));
+      points={{0,-11},{0,-110}},color={0,0,127}));
   annotation (defaultComponentName="heatFlowSensor",
     Icon(graphics={
-      Line(points = {{0,-70},{0,-90}}, color = {0,0,127}),
+      Line(points={{0,-70},{0,-100}},  color = {0,0,127}),
         Text(
           extent={{-150,120},{150,80}},
           textString="%name",

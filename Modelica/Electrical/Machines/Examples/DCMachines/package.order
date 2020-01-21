@@ -1,0 +1,10 @@
+DCPM_Start
+DCPM_CurrentControlled
+DCEE_Start
+DCSE_Start
+DCSE_SinglePhase
+DCPM_Temperature
+DCPM_Cooling
+DCPM_QuasiStatic
+DCPM_withLosses
+DC_CompareCharacteristics

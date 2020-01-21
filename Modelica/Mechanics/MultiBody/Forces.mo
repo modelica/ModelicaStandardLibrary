@@ -89,7 +89,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame thes
 coordinates shall be resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve input force in world frame (= default)</td></tr>
@@ -217,7 +217,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame thes
 coordinates shall be resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve input torque in world frame (= default)</td></tr>
@@ -434,7 +434,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame thes
 coordinates shall be resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve input force and torque in world frame (= default)</td></tr>
@@ -617,7 +617,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame thes
 coordinates shall be resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve input force in world frame</td></tr>
@@ -797,7 +797,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame thes
 coordinates shall be resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve input torque in world frame</td></tr>
@@ -1036,7 +1036,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame thes
 coordinates shall be resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve input force/torque in world frame</td></tr>
@@ -1752,7 +1752,7 @@ is displayed in the figure below.
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/LineForceWithTwoMasses1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/LineForceWithTwoMassesDiagram.png\">
 </p>
 
 <p>
@@ -1916,9 +1916,9 @@ A <strong>force f</strong> is exerted on the origin of frame_b and with opposite
 on the origin of frame_a along the line from the origin of frame_a to the origin
 of frame_b according to the equation:
 </p>
-<pre>
-   f = c*(s - s_unstretched);
-</pre>
+<blockquote><pre>
+f = c*(s - s_unstretched);
+</pre></blockquote>
 <p>
 where \"c\" and \"s_unstretched\" are parameters and \"s\" is the
 distance between the origin of frame_a and the origin of frame_b.
@@ -2004,9 +2004,9 @@ A <strong>force f</strong> is exerted on the origin of frame_b and with opposite
 on the origin of frame_a along the line from the origin of frame_a to the origin
 of frame_b according to the equation:
 </p>
-<pre>
-   f = d*<strong>der</strong>(s);
-</pre>
+<blockquote><pre>
+f = d*<strong>der</strong>(s);
+</pre></blockquote>
 <p>
 where \"d\" is a parameter, \"s\" is the
 distance between the origin of frame_a and the origin of frame_b
@@ -2156,9 +2156,9 @@ A <strong>force f</strong> is exerted on the origin of frame_b and with opposite
 on the origin of frame_a along the line from the origin of frame_a to the origin
 of frame_b according to the equation:
 </p>
-<pre>
-   f = c*(s - s_unstretched) + d*<strong>der</strong>(s);
-</pre>
+<blockquote><pre>
+f = c*(s - s_unstretched) + d*<strong>der</strong>(s);
+</pre></blockquote>
 <p>
 where \"c\", \"s_unstretched\" and \"d\" are parameters, \"s\" is the
 distance between the origin of frame_a and the origin of frame_b
@@ -2316,20 +2316,20 @@ and der(s) is the time derivative of s.
 <strong>Linear spring</strong> and <strong>linear damper</strong> in series connection
 acting as line force between frame_a and frame_b:
 </p>
-<pre>
-  frame_a --> damper ----> spring --> frame_b
-          |              |
-          |-- s_damper --|  (s_damper is the state variable of this system)
-</pre>
+<blockquote><pre>
+frame_a --> damper ----> spring --> frame_b
+        |              |
+        |-- s_damper --|  (s_damper is the state variable of this system)
+</pre></blockquote>
 <p>
 A <strong>force f</strong> is exerted on the origin of frame_b and with opposite sign
 on the origin of frame_a along the line from the origin of frame_a to the origin
 of frame_b according to the equations:
 </p>
-<pre>
-   f = c*(s - s_unstretched - s_damper);
-   f = d*der(s_damper);
-</pre>
+<blockquote><pre>
+f = c*(s - s_unstretched - s_damper);
+f = d*der(s_damper);
+</pre></blockquote>
 <p>
 where \"c\", \"s_unstretched\" and \"d\" are parameters, \"s\" is the
 distance between the origin of frame_a and the origin of frame_b.
@@ -2496,7 +2496,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame thes
 coordinates shall be resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve input force in world frame</td></tr>
@@ -2622,7 +2622,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame thes
 coordinates shall be resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve input torque in world frame</td></tr>
@@ -2722,7 +2722,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame thes
 coordinates shall be resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve input force in world frame (= default)</td></tr>
@@ -2830,7 +2830,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame thes
 coordinates shall be resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve input torque in world frame (= default)</td></tr>
@@ -2894,7 +2894,7 @@ values from the outside in order that the model remains balanced
 This function defines the standard gravity fields for the World object.
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><strong><em>gravityType</em></strong></td>
     <td><strong><em>gravity [m/s2]</em></strong></td>
     <td><strong><em>description</em></strong></td></tr>
@@ -2926,7 +2926,7 @@ This package contains components that exert forces and torques
 between two frame connectors, e.g., between two parts.
 </p>
 <h4>Content</h4>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><th><strong><em>Model</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.WorldForce\">WorldForce</a></td>
       <td> External force acting at the frame to which this component

@@ -64,7 +64,7 @@ package FastFourierTransform
 
       annotation (experiment(StopTime=6), preferredView="text",
         Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> Nov. 29, 2015 </td>
@@ -79,9 +79,9 @@ package FastFourierTransform
 In this example the signal y
 </p>
 
-<pre>
-   y = 5 + 3*sin(2*pi*f1) + 1.5*cos(2*pi*f2)
-</pre>
+<blockquote><pre>
+y = 5 + 3*sin(2*pi*f1) + 1.5*cos(2*pi*f2)
+</pre></blockquote>
 
 <p>
 is sampled and an FFT is computed from the sampled signal (default: f1 = 2 Hz, f2 = 3 Hz).
@@ -89,17 +89,18 @@ In the public part the FFT is stored up to f_max (internally in the protected pa
 With the default values for f_max (= 4 Hz) and f_resolution (= 0.2 Hz), the following results are achieved:
 </p>
 
-<pre>   fi[0]  = 0,  Ai[0]  = 5;   // mean value of signal
-   fi[11] = 2,  Ai[11] = 3;   // frequency/amplitude of sine
-   fi[16] = 3,  Ai[16] = 1.5; // frequency/amplitude of cosine
-</pre>
+<blockquote><pre>
+fi[0]  = 0,  Ai[0]  = 5;   // mean value of signal
+fi[11] = 2,  Ai[11] = 3;   // frequency/amplitude of sine
+fi[16] = 3,  Ai[16] = 1.5; // frequency/amplitude of cosine
+</pre></blockquote>
 
 <p>
 A plot of the resulting FFT is shown in the next image:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/FFT1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/FastFourierTransform/FFT1.png\">
 </blockquote>
 
 <p>
@@ -165,7 +166,7 @@ Furthermore, note that the FFT phases are with respect to a cos(..) signal.
 
       annotation (experiment(StopTime=6), preferredView="text",
         Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> Nov. 29, 2015 </td>
@@ -183,7 +184,7 @@ with the only difference that just the amplitudes of the FFT are stored on file 
 </html>"));
     end RealFFT2;
     annotation (Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> Nov. 29, 2015 </td>
@@ -231,7 +232,7 @@ with the only difference that just the amplitudes of the FFT are stored on file 
     print("    Number of frequency points = " + String(nf) + " (= " + String(ns) + "/2+1)");
     print("    Simulation time            = " + String(T) + " s");
     annotation (Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> Nov. 29, 2015 </td>
@@ -244,9 +245,9 @@ with the only difference that just the amplitudes of the FFT are stored on file 
         info="<html>
 <h4>Syntax</h4>
 
-<blockquote><p>
+<blockquote><pre>
 <strong>realFFTinfo</strong>(f_max, f_resolution, f_max_factor=5);
-</p></blockquote>
+</pre></blockquote>
 
 <h4>Description</h4>
 <p>
@@ -263,7 +264,7 @@ realFFTinfo(f_max=170, f_resolution=0.3)
 results in the following output:
 </p>
 
-<pre>
+<blockquote><pre>
 ... Real FFT properties
  Desired:
     f_max         = 170 Hz
@@ -276,7 +277,7 @@ results in the following output:
     Maximum FFT frequency      = 864 Hz (= 0.3*5760/2; f={0,0.3,0.6,...,864} Hz)
     Number of frequency points = 2881 (= 5760/2+1)
     Simulation time            = 3.33275 s
-</pre>
+</pre></blockquote>
 
 <h4>See also</h4>
 <p>
@@ -320,7 +321,7 @@ results in the following output:
         ns :=ns + 2;
      end while;
     annotation (Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> Nov. 29, 2015 </td>
@@ -333,9 +334,9 @@ results in the following output:
       info="<html>
 <h4>Syntax</h4>
 
-<blockquote><p>
+<blockquote><pre>
 ns = <strong>realFFTsamplePoints</strong>(f_max, f_resolution, f_max_factor=5);
-</p></blockquote>
+</pre></blockquote>
 
 <h4>Description</h4>
 <p>
@@ -393,8 +394,9 @@ ns = realFFTinfo(f_max=170, f_resolution=0.3)
 results in the following output:
 </p>
 
-<pre>   ns = 5760
-</pre>
+<blockquote><pre>
+ns = 5760
+</pre></blockquote>
 
 <h4>See also</h4>
 <p>
@@ -444,7 +446,7 @@ results in the following output:
     end for;
 
   annotation (Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> Nov. 29, 2015 </td>
@@ -457,9 +459,9 @@ results in the following output:
       info="<html>
 <h4>Syntax</h4>
 
-<blockquote><p>
+<blockquote><pre>
 (info, amplitudes, phases) = <strong>realFFT</strong>(u);
-</p></blockquote>
+</pre></blockquote>
 
 <h4>Description</h4>
 <p>
@@ -471,10 +473,11 @@ Function <strong>realFFT</strong> computes a real FFT (Fast Fourier Transform) o
 in form of the outputs amplitudes and phases. Argument info provides additional information:
 </p>
 
-<pre>   info = 0: Successful FFT computation.
-   info = 1: size(u,1) is not even.
-   info = 3: Another error.
-</pre>
+<blockquote><pre>
+info = 0: Successful FFT computation.
+info = 1: size(u,1) is not even.
+info = 3: Another error.
+</pre></blockquote>
 
 <p>
 Note, in the original publication about the efficient computation of FFT (Cooley and Tukey, 1965),
@@ -582,9 +585,9 @@ which is a complete example where an FFT is computed during simulation and store
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 
-<blockquote><p>
+<blockquote><pre>
 success = <strong>realFFTwriteToFile</strong>(t_computed, fileName, f_max, amplitudes, phases, format);
-</p></blockquote>
+</pre></blockquote>
 
 <h4>Description</h4>
 <p>
@@ -629,7 +632,7 @@ See detailed example model:
   package Internal
     "Internal library that should not be used directly by a user"
     extends Modelica.Icons.InternalPackage;
-    function rawRealFFT "Compute raw Fast Fourier Transform for real signal vector"
+    pure function rawRealFFT "Compute raw Fast Fourier Transform for real signal vector"
       extends Modelica.Icons.Function;
       input Real  u[:]
         "Signal for which FFT shall be computed (size(nu,1) MUST be EVEN and should be an integer multiple of 2,3,5, that is size(nu,1) = 2^a*3^b*5^c, with a,b,c Integer >= 0)";
@@ -642,7 +645,7 @@ See detailed example model:
       external "C" info = ModelicaFFT_kiss_fftr(u, size(u,1), work, size(work,1), amplitudes, phases)
                    annotation(Library="ModelicaExternalC");
       annotation (Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> Nov. 29, 2015 </td>
@@ -668,11 +671,12 @@ The function computes a real FFT (Fast Fourier Transform) of u and returns the r
 in form of the outputs amplitudes and phases. Argument info provides additional information:
 </p>
 
-<pre>   info = 0: Successful FFT computation.
-   info = 1: size(u,1) is not even.
-   info = 2: size(work,1) is not correct (= a protected utility array).
-   info = 3: Another error.
-</pre>
+<blockquote><pre>
+info = 0: Successful FFT computation.
+info = 1: size(u,1) is not even.
+info = 2: size(work,1) is not correct (= a protected utility array).
+info = 3: Another error.
+</pre></blockquote>
 
 <p>
 Note, in the original publication about the efficient computation of FFT (Cooley and Tukey, 1965),
@@ -744,7 +748,7 @@ used in this function.
 
       success :=ns1 <= 1;
       annotation (Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> Nov. 29, 2015 </td>
@@ -769,13 +773,14 @@ If this is not possible, success = false, and e2, e3, e5 are dummy values.
 </p>
 
 <h4>Example</h4>
-<blockquote><pre>(success, e2, e3, e5) = prime235Factorization(60)   // success=true, e2=2, e3=1, e5=1 (= 2^2*3^1*5^1)
+<blockquote><pre>
+(success, e2, e3, e5) = prime235Factorization(60)   // success=true, e2=2, e3=1, e5=1 (= 2^2*3^1*5^1)
 (success, e2, e3, e5) = prime235Factorization(7)    // success=false
 </pre></blockquote>
 </html>"));
     end prime235Factorization;
   annotation (Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> Nov. 29, 2015 </td>
@@ -795,9 +800,9 @@ For an example see <a href=\"modelica://Modelica.Math.FastFourierTransform.Examp
 where the following signal is computed during simulation
 </p>
 
-<pre>
-   y = 5 + 3*sin(2*pi*2) + 1.5*cos(2*pi*3)
-</pre>
+<blockquote><pre>
+y = 5 + 3*sin(2*pi*2) + 1.5*cos(2*pi*3)
+</pre></blockquote>
 
 <p>
 the continuous-time signal y is sampled and the FFT is computed with a call to realFFT(f_max=4, f_resolution=0.2),
@@ -805,7 +810,7 @@ resulting in:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/FFT1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/FastFourierTransform/FFT1.png\">
 </blockquote>
 
 
@@ -834,7 +839,7 @@ resulting in:
 </dl>
 </html>",
       revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> Nov. 29, 2015 </td>

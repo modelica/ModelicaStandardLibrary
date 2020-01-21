@@ -3,7 +3,7 @@ model CurrentSensor "Current Sensor"
   extends Interfaces.RelativeSensor;
   QuasiStatic.SinglePhase.Sensors.CurrentSensor currentSensor[m]
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  Modelica.SIunits.Current abs_y[m]=Modelica.ComplexMath.'abs'(y)
+  Modelica.SIunits.Current abs_y[m]=Modelica.ComplexMath.abs(y)
     "Magnitude of complex current";
   Modelica.SIunits.Angle arg_y[m]=Modelica.ComplexMath.arg(y)
     "Argument of complex current";

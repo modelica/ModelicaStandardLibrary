@@ -55,7 +55,7 @@ extends Modelica.Icons.Package;
 <table cellspacing=\"0\" cellpadding=\"0\" border=\"1\">
 <caption>Table 1: Translation of the SPICE3 netlist (left side) to Modelica (right side)</caption>
 <tr>
-<td><pre>
+<td><blockquote><pre>
 inverter
 
 Mp1 11 1 13 11 MPmos
@@ -67,8 +67,9 @@ Vdrain 11 0 PULSE(0 5 0s 1s)
 .model MPmos PMOS (gamma=0.37)
 .model MNmos NMOS (gamma=0.37 lambda=0.02)
 .tran 0.01 5
-.end</pre></td>
-<td><pre>
+.end
+</pre></blockquote></td>
+<td><blockquote><pre>
 model inverter
   Spice3.Basic.Ground g;
   Spice3&hellip;M Mp1(mtype=true, M(GAMMA=0.37));
@@ -93,7 +94,7 @@ equation
   connect(Mn2.B,n0);    connect(Mn2.D, n2);
   connect(Mn2.G, n13);  connect(Mn2.S, n0);
 end inverter;
-</pre></td>
+</pre></blockquote></td>
 </tr>
 </table>
 
@@ -104,17 +105,17 @@ end inverter;
 <li>The ground node has to be instantiated (i.e., <code>Spice3.Basic.Ground</code>).</li>
 <li>For each component of the netlist an instant has to be created. According to the first letter of the SPICE3 model identifier in the netlist, the needed component has to be chosen, instantiated and according to the given parameters parametrized, e.g., the SPICE lineVdrain 11 0 PULSE(0 5 0 1)becomes the following Modelica line: <code>Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1);</code></li>
 <li>For all node numbers an internal pin has to be created. For example the node number 2 from the SPICE3 netlist becomes
-<pre>
+<blockquote><pre>
 protected Spice3.Interfaces.Pin n2;
-</pre>
+</pre></blockquote>
 in Modelica. The code letter (here <code>n</code>) is needed because a single number is no name in Modelica.</li>
 <li>According to the netlist the internal pins have to be connected with the components, e.g., <code>connect(Mp1.D, n11)</code>.</li>
 <li>In the last step the external pins have to be allocated ant connected to the according internal pin. In Table&nbsp;1 this is done as follows:
-<pre>
+<blockquote><pre>
 Spice3.Interfaces.Pin p_in, p_out;
 connect(p_in, n1);
 connect(p_out, n2);
-</pre>
+</pre></blockquote>
 </li>
 </ol>
 </html>"));
@@ -146,7 +147,7 @@ connect(p_out, n2);
 <li>V_exp, I_exp</li>
 <li>V_pulse, I_pulse</li>
 <li>V_pwl, I_pwl</li>
-<li>V_sffm, I_sffm<br/><strong><br/></strong></li>
+<li>V_sffm, I_sffm<br><strong><br></strong></li>
 </ul>
 </html>"));
   end NamingPrinciple;
@@ -201,24 +202,24 @@ connect(p_out, n2);
 </ul>
 </html>", revisions="<html>
 <ul>
-<li><em>15th March 2012 by Kristin Majetta</em><br/>SPICE3 benchmark RTL Inverter</li>
-<li><em>14th March 2012 by Kristin Majetta</em><br/>SPICE3 benchmark Mosfet characterisation</li>
-<li><em>14th March 2012 by Kristin Majetta</em><br/>SPICE3 benchmark Differential Pair added</li>
-<li><em>12th March 2012 by Kristin Majetta</em><br/>BJT model improved</li>
-<li><em>09th March 2012 by Kristin Majetta</em><br/>MOS Level 2 model added</li>
-<li><em>24th February 2012 by Kristin Majetta</em><br/>JFET model added</li>
-<li><em>23rd February 2012 by Kristin Majetta</em><br/>Semiconductor Capacitor added</li>
-<li><em>21st February 2012</em> by Kristin Majetta<br/>CoupledInductors (K) added</li>
-<li><em>March 2010</em> by Kristin Majetta<br/>Guidelines applied, User&#39;s Guide added</li>
-<li><em>February 2010</em> by Kristin Majetta<br/>Spice3 library added to MSL and examples revised</li>
-<li><em>September 2009</em> by Kristin Majetta <br/>Bipolar transistor implemented</li>
-<li><em>August 2009</em> by Jonathan Kress <br/>default values in sources improved</li>
-<li><em>August 2009</em> by Kristin Majetta <br/>Bipolar transistor started</li>
-<li><em>April 2009</em> by Kristin Majetta <br/>Semiconductor Resistor implemented</li>
-<li><em>March 2009</em> by Kristin Majetta <br/>DIODE implemented</li>
-<li><em>25th February 2009</em> by Kristin Majetta <br/>MOS Level 2 implemented</li>
-<li><em>15th October 2008</em> by Kristin Majetta <br/>minor errors fixed in L_Inductor, I_Pulse and SpiceRoot</li>
-<li><em>April, 2008</em> by Sandra Boehme <br/>initially implemented<br/></li>
+<li><em>15th March 2012 by Kristin Majetta</em><br>SPICE3 benchmark RTL Inverter</li>
+<li><em>14th March 2012 by Kristin Majetta</em><br>SPICE3 benchmark Mosfet characterisation</li>
+<li><em>14th March 2012 by Kristin Majetta</em><br>SPICE3 benchmark Differential Pair added</li>
+<li><em>12th March 2012 by Kristin Majetta</em><br>BJT model improved</li>
+<li><em>09th March 2012 by Kristin Majetta</em><br>MOS Level 2 model added</li>
+<li><em>24th February 2012 by Kristin Majetta</em><br>JFET model added</li>
+<li><em>23rd February 2012 by Kristin Majetta</em><br>Semiconductor Capacitor added</li>
+<li><em>21st February 2012</em> by Kristin Majetta<br>CoupledInductors (K) added</li>
+<li><em>March 2010</em> by Kristin Majetta<br>Guidelines applied, User&#39;s Guide added</li>
+<li><em>February 2010</em> by Kristin Majetta<br>Spice3 library added to MSL and examples revised</li>
+<li><em>September 2009</em> by Kristin Majetta <br>Bipolar transistor implemented</li>
+<li><em>August 2009</em> by Jonathan Kress <br>default values in sources improved</li>
+<li><em>August 2009</em> by Kristin Majetta <br>Bipolar transistor started</li>
+<li><em>April 2009</em> by Kristin Majetta <br>Semiconductor Resistor implemented</li>
+<li><em>March 2009</em> by Kristin Majetta <br>DIODE implemented</li>
+<li><em>25th February 2009</em> by Kristin Majetta <br>MOS Level 2 implemented</li>
+<li><em>15th October 2008</em> by Kristin Majetta <br>minor errors fixed in L_Inductor, I_Pulse and SpiceRoot</li>
+<li><em>April, 2008</em> by Sandra Boehme <br>initially implemented<br></li>
 </ul>
 </html>"));
 
@@ -1278,7 +1279,7 @@ Zeunerstra&szlig;e 38<br />
           points={{-10,50},{-10,-6},{-44,-6}}, color={0,0,255}));
       annotation (Documentation(info="<html>
 <p>This model is a simple JFET cascode circuit. The J2 gate variation (v_sin.p.v) is transformed to the J2 drain variation (J2.D.v).</p>
-<p><br/>Simulate until 0.2s, and display the mentioned voltages.</p>
+<p><br>Simulate until 0.2s, and display the mentioned voltages.</p>
 </html>", revisions="<html>
 <ul>
 <li><em>Aug. 2011</em> by Kristin Majetta initially implemented</li>
@@ -1357,26 +1358,26 @@ Zeunerstra&szlig;e 38<br />
 is amplified. To comprehend this behavior the user is recommended to simulate from t=0 to t=1s and observe \"VIN.p.v\" which is the input voltage and \"Outputvoltage\" which is the
 amplified output voltage.</p>
 <p>Original SPICE3 netlist of the Differential pair:</p>
-<pre>
-SIMPLE DIFFERENTIAL PAIR<br/>
-VCC 7 0 12<br/>
-VEE 8 0 -12<br/>
-VIN 1 0 AC 1<br/>
-RS1 1 2 1K<br/>
-RS2 6 0 1K<br/>
-Q1 3 2 4 MOD1<br/>
-Q2 5 6 4 MOD1<br/>
-RC1 7 3 10K<br/>
-RC2 7 5 10K<br/>
-RE 4 8 10K<br/>
-.MODEL MOD1 NPN BF=50 VAF=50 IS=1.E-12 RB=100 CJC=.5PF TF=.6NS<br/>
-.TF V(5) VIN<br/>
-.AC DEC 10 1 100MEG<br/>
+<blockquote><pre>
+SIMPLE DIFFERENTIAL PAIR<br>
+VCC 7 0 12<br>
+VEE 8 0 -12<br>
+VIN 1 0 AC 1<br>
+RS1 1 2 1K<br>
+RS2 6 0 1K<br>
+Q1 3 2 4 MOD1<br>
+Q2 5 6 4 MOD1<br>
+RC1 7 3 10K<br>
+RC2 7 5 10K<br>
+RE 4 8 10K<br>
+.MODEL MOD1 NPN BF=50 VAF=50 IS=1.E-12 RB=100 CJC=.5PF TF=.6NS<br>
+.TF V(5) VIN<br>
+.AC DEC 10 1 100MEG<br>
 .END
-</pre>
+</pre></blockquote>
 <p>In the Modelica representation the tiny capacity CJC was set to 1e-9F to get a higher numerical
-robustness. In future the numerical behavior will be analysed to be able to apply the original value
-CJC=.5PF.</p>
+robustness. The numerical behavior needs to be analysed before the original value
+CJC=.5PF can be applied.</p>
 </html>"));
     end Spice3BenchmarkDifferentialPair;
 
@@ -1423,17 +1424,17 @@ CJC=.5PF.</p>
 operating voltage. The user is recommended to simulate from t=0 to t=1e-7s and observe the gate node voltage (\"VGS.p.v\") and the transistor current (\"M1.D.i\").
 It can be seen that the current is increasing with increasing gate voltage which means the conductivity of the transistor is increasing. The opposite case occurs for decreasing gate voltage.</p>
 <p>Original SPICE3 netlist of the MOSFET characterization circuit:</p>
-<pre>
-MOS OUTPUT CHARACTERISTICS<br/>
-.OPTIONS NODE NOPAGE<br/>
-VDS 3 0<br/>
-VGS 2 0<br/>
-M1 1 2 0 0 MOD1 L=4U W=6U AD=10P AS=10P<br/>
+<blockquote><pre>
+MOS OUTPUT CHARACTERISTICS<br>
+.OPTIONS NODE NOPAGE<br>
+VDS 3 0<br>
+VGS 2 0<br>
+M1 1 2 0 0 MOD1 L=4U W=6U AD=10P AS=10P<br>
 *VIDS MEASURES ID, WE COULD HAVE USED VDS, BUT IT WOULD BE NEGATIVE VIDS 3 1
-.MODEL MOD1 NMOS VTO=-2 NSUB=1.0E15 UO=550<br/>
-.DC VDS 0 10 .5 VGS 0 5 1<br/>
+.MODEL MOD1 NMOS VTO=-2 NSUB=1.0E15 UO=550<br>
+.DC VDS 0 10 .5 VGS 0 5 1<br>
 .END
-</pre>
+</pre></blockquote>
 </html>"));
     end Spice3BenchmarkMosfetCharacterization;
 
@@ -1478,18 +1479,18 @@ M1 1 2 0 0 MOD1 L=4U W=6U AD=10P AS=10P<br/>
 has low potential and the other way round. To comprehend this behaviour the user is recommended to simulate from t=0 to t=1e-7s and observe the input voltage (VIN.p.v)
 and the output voltage (Q1.C.v)</p>
 <p>Original SPICE3 netlist of the RTL inverter:</p>
-<pre>
-SIMPLE RTL INVERTER<br/>
-VCC 4 0 5<br/>
-VIN 1 0 PULSE 0 5 2NS 2NS 2NS 30NS<br/>
-RB 1 2 10K<br/>
-Q1 3 2 0 Q1<br/>
-RC 3 4 1K<br/>
-.MODEL Q1 NPN BF 20 RB 100 TF .1NS CJC 2PF<br/>
-.DC VIN 0 5 0.1<br/>
-.TRAN 1NS 100NS<br/>
+<blockquote><pre>
+SIMPLE RTL INVERTER<br>
+VCC 4 0 5<br>
+VIN 1 0 PULSE 0 5 2NS 2NS 2NS 30NS<br>
+RB 1 2 10K<br>
+Q1 3 2 0 Q1<br>
+RC 3 4 1K<br>
+.MODEL Q1 NPN BF 20 RB 100 TF .1NS CJC 2PF<br>
+.DC VIN 0 5 0.1<br>
+.TRAN 1NS 100NS<br>
 .END
-</pre>
+</pre></blockquote>
 </html>"));
     end Spice3BenchmarkRtlInverter;
 
@@ -2112,7 +2113,7 @@ RC 3 4 1K<br/>
 <p>The user is recommended to simulate from t=0 to t=1e-6s and observe the eight inputs (X1_p1_v, ..., X1_p8_v) and the four outputs (X1_p9_v, ..., X1_p12_v) and the carryout output (X1_p14_v).</p>
 <p><strong>The timing of the single transistors of the adder causes a delay which makes it hard to recognize the adder behaviour. Since the Four Bit Binary Adder is a SPICE3 benchmark, the circuit is not changed in order to see the adder behaviour in a better way.</strong></p>
 <p>Original SPICE3 netlist of the Four Bit Binary Adder:</p>
-<pre>
+<blockquote><pre>
 ADDER - 4 BIT ALL-NAND-GATE BINARY ADDER
 
 *** SUBCIRCUIT DEFINITIONS
@@ -2198,7 +2199,7 @@ print v(11) v(12) v(13)
 .endc
 
 .END
-</pre>
+</pre></blockquote>
 <p>The model is built out of several subcircuits which were described only ones and used several times.</p>
 </html>"));
     end Spice3BenchmarkFourBitBinaryAdder;
@@ -2285,14 +2286,17 @@ The Resistance <em>R</em> is allowed to be positive, zero, or negative.
 
     model C_Capacitor "Ideal linear electrical capacitor"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      parameter SI.Capacitance C(start=0) "Capacitance";
-      parameter SI.Voltage IC=0 "Initial value";
+      parameter Types.Capacitance C(start=0) "Capacitance";
+      parameter SI.Voltage IC=0 "Initial value of voltage" annotation(Dialog(enable=UIC));
       parameter Boolean UIC=false
         "Use initial conditions: true, if initial condition is used";
     protected
-      SI.Voltage vinternal;//(start=IC, fixed=UIC);
+      SI.Voltage vinternal "Capacitor voltage";
     initial equation
-      vinternal=IC;
+      if UIC then
+        vinternal = IC;
+      end if;
+
     equation
         vinternal = p.v - n.v;
         i = C*der(vinternal);
@@ -2323,13 +2327,12 @@ The Capacitance <em>C</em> is allowed to be positive, zero, or negative.
     model L_Inductor "Ideal linear electrical inductor"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter SI.Inductance L(start=0) "Inductance";
-      parameter SI.Current IC=0 "Initial value; used, if UIC is true";
+      parameter SI.Current IC=0 "Initial value; used, if UIC is true" annotation(Dialog(enable=UIC));
       parameter Boolean UIC=false "Use initial conditions";
       SI.Current iinternal;
 
-      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePinOut
-                                                               ICP
-        "Pin to couple inductances via K"
+      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePinOut ICP
+        "Pin to couple inductances"
         annotation (Placement(transformation(extent={{-20,-20},{20,20}},
             rotation=-90,
             origin={0,80}),
@@ -2373,14 +2376,12 @@ The Capacitance <em>C</em> is allowed to be positive, zero, or negative.
             Text(extent={{-136,36},{138,56}}, textString="%name")}));
     end L_Inductor;
 
-    model K_CoupledInductors "Inductive coupling via coupling factor K"
-      parameter Real k( start=0) "Coupling Factor";
-      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePinIn
-                                                               inductiveCouplePin1
+    model K_CoupledInductors "Inductive coupling via coupling factor"
+      parameter Real k(start=0, min=0, max=1) "Coupling factor";
+      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePinIn inductiveCouplePin1
         "Couple pin for inductances"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePinIn
-                                                               inductiveCouplePin2
+      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePinIn inductiveCouplePin2
         "Couple pin for inductances"
           annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=180,
@@ -2388,10 +2389,10 @@ The Capacitance <em>C</em> is allowed to be positive, zero, or negative.
             extent={{-10,-10},{10,10}},
             rotation=180,
             origin={100,0})));
-    SI.Inductance M "mutual inductance";
+    SI.Inductance M "Mutual inductance";
     equation
       assert(k>=0,"Coupling factor must be not negative");
-      assert(k<1,"coupling factor must be less than one");
+      assert(k<=1,"Coupling factor must be less than or equal to one");
       M = k*sqrt(inductiveCouplePin1.L*inductiveCouplePin2.L);
       inductiveCouplePin1.v = - M*inductiveCouplePin2.di;
       inductiveCouplePin2.v = - M*inductiveCouplePin1.di;
@@ -2418,7 +2419,7 @@ The Capacitance <em>C</em> is allowed to be positive, zero, or negative.
         Documentation(info="<html>
 <p>
 <code>K_CoupledInductors</code> is a component that allows the coupling of two inductors.
-<code>K</code> is the coefficient of coupling which must be greater than or equal to zero and less than one.
+<code>k</code> is the coefficient of coupling which must be in range [0,1].
 </p>
 <p>
 The usage is demonstrated in the example <a href=\"modelica://Modelica.Electrical.Spice3.Examples.CoupledInductors\">CoupledInductors</a>.
@@ -2439,26 +2440,28 @@ The linear voltage-controlled voltage source is a TwoPort.
 The right port voltage at pin p2 (=p2.v) is controlled by the left port voltage at pin p1 (=p1.v)
 via
 </p>
-<pre>
-    p2.v = p1.v * gain.
-</pre>
+<blockquote><pre>
+p2.v = p1.v * gain.
+</pre></blockquote>
 <p>
 The left port current is zero. Any voltage gain can be chosen.
 </p>
+<p>
 The corresponding SPICE description
-<pre>
-    Ename N+ N- NC+ NC- VALUE
-</pre>
+</p>
+<blockquote><pre>
+Ename N+ N- NC+ NC- VALUE
+</pre></blockquote>
 <p>is translated to Modelica:</p>
-<pre>
-    Ename -> Spice3.Basic.E_VCV Ename
-    (Ename is the name of the Modelica instance)
-    N+ -> p2.v
-    N- -> n2.v
-    NC+ -> p1.v
-    NC- -> n1.v
-    VALUE -> gain
-</pre>
+<blockquote><pre>
+Ename -> Spice3.Basic.E_VCV Ename
+(Ename is the name of the Modelica instance)
+N+ -> p2.v
+N- -> n2.v
+NC+ -> p1.v
+NC- -> n1.v
+VALUE -> gain
+</pre></blockquote>
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={
@@ -2493,27 +2496,26 @@ The linear voltage-controlled current source is a TwoPort.
 The right port current at pin p2 (=p2.i) is controlled by the left port voltage at pin p1 (p1.v)
 via
 </p>
-<pre>
-    p2.i = p1.v * transConductance.
-</pre>
+<blockquote><pre>
+p2.i = p1.v * transConductance.
+</pre></blockquote>
 <p>
 The left port current is zero. Any transConductance can be chosen.
 </p>
 The corresponding SPICE description
-<pre>
-    Gname N+ N- NC+ NC- VALUE
-</pre>
+<blockquote><pre>
+Gname N+ N- NC+ NC- VALUE
+</pre></blockquote>
 <p>is translated to Modelica:</p>
-<pre>
-
-    Gname -> Spice3.Basic.G_VCC Gname
-    (Gname is the name of the Modelica instance)
-    N+ -> p2.i
-    N- -> n2.i
-    NC+ -> p1 .v
-    NC- -> n1.v
-    VALUE -> transConductance
-</pre>
+<blockquote><pre>
+Gname -> Spice3.Basic.G_VCC Gname
+(Gname is the name of the Modelica instance)
+N+ -> p2.i
+N- -> n2.i
+NC+ -> p1 .v
+NC- -> n1.v
+VALUE -> transConductance
+</pre></blockquote>
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={
@@ -2547,23 +2549,36 @@ The corresponding SPICE description
       annotation (
         Documentation(info="<html>
 <p>The linear current-controlled voltage source is a TwoPort. The &quot;right&quot; port voltage at pin 2 (=p2.v) is controlled by the &quot;left&quot; port current at pin p1(=p1.i) via</p>
-<pre>    p2.v = p1.i * transResistance.</pre>
-<p>The controlling port voltage is zero. Any transResistance can be chosen.</p>
-<p>The corresponding SPICE description</p>
-<pre>    Hname N+ N- VNAM VALUE</pre>
+<blockquote><pre>
+p2.v = p1.i * transResistance.
+</pre></blockquote>
+<p>The controlling port voltage is zero. Any transResistance can be chosen.
+The corresponding SPICE description</p>
+<blockquote><pre>
+Hname N+ N- VNAM VALUE
+</pre></blockquote>
 <p>is translated to Modelica:</p>
-<pre>    Hname -&gt; Spice3.Basic.H_CCV Hname
-    (Hname is the name of the Modelica instance)
-    N+ -&gt; p2.v
-    N- -&gt; n2.v  </pre>
+<blockquote><pre>
+Hname -&gt; Spice3.Basic.H_CCV Hname
+(Hname is the name of the Modelica instance)
+N+ -&gt; p2.v
+N- -&gt; n2.v
+</pre></blockquote>
 <p>The voltage source VNAM has the two nodes NV+ and NV-:</p>
-<pre>                   VNAM VN+ VN- VALUE_V</pre>
-<p>The current through VNAM hast to be led through the CCV.</p><p>Therefore VNAM has to be disconnected and an additional</p><p>node NV_AD has to be added.</p>
-<pre>    NV_AD -&gt; p1.i
-    NV- -&gt; n1.i</pre>
+<blockquote><pre>
+VNAM VN+ VN- VALUE_V
+</pre></blockquote>
+<p>The current through VNAM hast to be led through the CCV.
+Therefore VNAM has to be disconnected and an additional
+node NV_AD has to be added.</p>
+<blockquote><pre>
+NV_AD -&gt; p1.i
+NV- -&gt; n1.i
+</pre></blockquote>
 <p>On this way the current, that flows through the voltage source VNAM, flows through the CCV.</p>
-<pre>
-    VALUE -&gt; transResistance </pre>
+<blockquote><pre>
+VALUE -&gt; transResistance
+</pre></blockquote>
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
@@ -2594,24 +2609,36 @@ The corresponding SPICE description
       annotation (
         Documentation(info="<html>
 <p>The linear current-controlled current source is a TwoPort. The &quot;right&quot; port current at pin 2 (=p2.i) is controlled by the &quot;left&quot; port current at pin p1(=p1.i) via</p>
-<pre>    p2.i = p1.i * gain.</pre>
+<blockquote><pre>
+p2.i = p1.i * gain.
+</pre></blockquote>
 <p>The controlling port voltage is zero. Any current gain can be chosen.</p>
 <p>The corresponding SPICE description</p>
-<pre>    Fname N+ N- VNAM VALUE</pre>
+<blockquote><pre>
+Fname N+ N- VNAM VALUE
+</pre></blockquote>
 <p>is translated to Modelica:</p>
-<pre>    Fname -&gt; Spice3.Basic.F_CCC Fname
-    (Fname is the name of the Modelica instance)
-    N+ -&gt; p2.i
-    N- -&gt; n2.i  </pre>
+<blockquote><pre>
+Fname -&gt; Spice3.Basic.F_CCC Fname
+(Fname is the name of the Modelica instance)
+N+ -&gt; p2.i
+N- -&gt; n2.i
+</pre></blockquote>
 <p>The voltage source VNAM has the two nodes NV+ and NV-:</p>
-<pre>                   VNAM NV+ NV- VALUE_V</pre>
+<blockquote><pre>
+VNAM NV+ NV- VALUE_V
+</pre></blockquote>
 <p>The current through VNAM hast to be led through the CCC.</p>
 <p>Therefore VNAM has to be disconnected and an additional</p>
 <p>node NV_AD has to be added.</p>
-<pre>    NV_AD -&gt; p1.i
-    NV- -&gt; n1.i</pre>
+<blockquote><pre>
+NV_AD -&gt; p1.i
+NV- -&gt; n1.i
+</pre></blockquote>
 <p>On this way the current, that flows through the voltage source VNAM, flows through the CCC.</p>
-<pre>    VALUE -&gt; gain </pre>
+<blockquote><pre>
+VALUE -&gt; gain
+</pre></blockquote>
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
@@ -2643,6 +2670,7 @@ The corresponding SPICE description
 <dl>
 <dt>
 <strong>Main Authors:</strong>
+</dt>
 <dd>
 Christoph Clau&szlig;
     &lt;<a href=\"mailto:christoph@clauss-it.com\">christoph@clauss-it.com</a>&gt;<br>
@@ -2674,7 +2702,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>March 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
     end M_PMOS;
@@ -2694,7 +2722,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>March 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
     end M_NMOS;
@@ -2723,7 +2751,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>March 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
     end M_NMOS2;
@@ -2743,7 +2771,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>March 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
     end M_PMOS2;
@@ -2774,7 +2802,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>August 2009</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>August 2009</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
 
@@ -2797,7 +2825,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>August 2009</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>August 2009</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
 
@@ -2822,8 +2850,8 @@ Christoph Clau&szlig;
 <p>The models from the package Semiconductors accesses to the package Internal where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>September 2011 </em>revised by Sandra B&ouml;hme</br/>
-<li><em>August 2009</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>September 2011 </em>revised by Sandra B&ouml;hme</li>
+<li><em>August 2009</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -2845,8 +2873,8 @@ Christoph Clau&szlig;
 <p>The models from the package Semiconductors accesses to the package Internal where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>September 2011 </em>revised by Sandra B&ouml;hme</br/>
-<li><em>August 2009</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>September 2011 </em>revised by Sandra B&ouml;hme</li>
+<li><em>August 2009</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
@@ -2878,7 +2906,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>Nov. 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>Nov. 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
 
@@ -2902,7 +2930,7 @@ Christoph Clau&szlig;
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>April 2009</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>April 2009</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
     end R_Resistor;
@@ -2926,8 +2954,8 @@ Christoph Clau&szlig;
 <p>The models from the package Semiconductors accesses to the package Repository where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>September 2011 </em>revised by Sandra B&ouml;hme</br/>
-<li><em>April 2009</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>September 2011 </em>revised by Sandra B&ouml;hme</li>
+<li><em>April 2009</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
     end C_Capacitor;
@@ -3029,7 +3057,7 @@ Christoph Clau&szlig;
               textColor={0,0,255},
               textString="%name")}),  Documentation(info="<html>
 <p>Damped sinusoidal source</p>
-<h4>Note:</h4>
+<h4>Note</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.<br></li>
@@ -3085,7 +3113,7 @@ Christoph Clau&szlig;
               textString="%name")}),
         Documentation(info="<html>
 <p>Rising and falling exponential source.</p>
-<h4>Note:</h4>
+<h4>Note</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.- it should be set all the parameters definitely<br>- normally, there exist differences between Dymola and Spice, because TSTEP and TSTOP are not available.<br></li>
@@ -3217,7 +3245,7 @@ Christoph Clau&szlig;
 <td><p>1</p></td>
 </tr>
 </table>
-<h4>Note:</h4>
+<h4>Note</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.</li>
@@ -3275,7 +3303,8 @@ Christoph Clau&szlig;
     This generates continuously differentiable values for the integrator.</li>
 </ul>
 <p>Example:</p>
-<pre>   table = [0  0
+<blockquote><pre>
+   table = [0  0
             1  0
             1  1
             2  4
@@ -3285,7 +3314,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the voltage v =  2.5,
     e.g., time = 2.0, the voltage v =  4.0,
     e.g., time = 5.0, the voltage v = 23.0 (i.e., extrapolation).
-</pre>
+</pre></blockquote>
 </html>"));
     end V_pwl;
 
@@ -3328,7 +3357,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="%name")}),
         Documentation(info="<html>
 <p>The single-frequency frequency modulation source generates a carrier signal of the frequency FC. This signal is modulated by the signal frequency FS. See the formula in the Modelica text.</p>
-<h4>Attention:</h4>
+<h4>Attention</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.</li>
@@ -3411,7 +3440,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="%name")}),
         Documentation(info="<html>
 <p>Damped sinusoidal source</p>
-<h4>Note:</h4>
+<h4>Note</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.</li>
@@ -3462,7 +3491,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               textString="%name")}),
         Documentation(info="<html>
 <p>Rising and falling exponential source.</p>
-<h4>Note:</h4>
+<h4>Note</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.</li>
@@ -3591,7 +3620,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 <td><p>1</p></td>
 </tr>
 </table>
-<h4>Note:</h4>
+<h4>Note</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.</li>
@@ -3649,7 +3678,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 </ul>
 
 <p>Example:</p>
-<pre>   table = [0  0
+<blockquote><pre>
+   table = [0  0
             1  0
             1  1
             2  4
@@ -3659,7 +3689,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the current i =  2.5,
     e.g., time = 2.0, the current i =  4.0,
     e.g., time = 5.0, the current i = 23.0 (i.e., extrapolation).
-</pre>
+</pre></blockquote>
 </html>"));
     end I_pwl;
 
@@ -3700,7 +3730,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
               textString="%name")}),
         Documentation(info="<html>
 <p>The single-frequency frequency modulation source generates a carrier signal of the frequency FC. This signal is modulated by the signal frequency FS. See the formula in the Modelica text.</p>
-<h4>Note:</h4>
+<h4>Note</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.</li>
@@ -3714,7 +3744,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
 <p><strong>Note:</strong> There are differences between SPICE3 and Modelica concerning the default values of the parameter. Therefore it is recommended to specify <strong>all</strong> parameters of the source.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>August 2009 </em>default values improved by Jonathan Kress<br/></li>
+<li><em>August 2009 </em>default values improved by Jonathan Kress<br></li>
 <li><em>October 2008</em> by Christoph Clauss initially implemented.</li>
 </ul>
 </html>"));
@@ -3729,9 +3759,9 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
       input Real a[:] "Coefficients";
       output Real v "Value of polynomial";
     protected
-      Integer n "number of polynomial variables, like POLY(n)";
-      Integer na "number of polynomial coefficients, like POLY(n)";
-      Integer ia "state of the usage of a";
+      Integer n "Number of polynomial variables, like POLY(n)";
+      Integer na "Number of polynomial coefficients, like POLY(n)";
+      Integer ia "State of the usage of a";
     algorithm
       n := size(s,1);
       na := size(a,1);
@@ -3739,8 +3769,12 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
       assert(na > 0,"poly: number of coefficients zero");
       ia := 0;
 
-    // case one coefficient
-      if (na == 1) then
+    // case one coefficient and one variable
+      if n == 1 and na == 1 then
+        /* Note: If the polynomial is one-dimensional and exactly one coefficient
+           is specified, then SPICE assumes it to be p1 (and p0 = 0.0), in order
+           to facilitate the input of linear controlled sources.
+         */
         v := a[1] * s[1];
         return;
       end if;
@@ -3753,8 +3787,8 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
       for i1 in 1:n loop
         ia := ia + 1;
         if ia > na then
-                        return;
-                                end if;
+          return;
+        end if;
         v := v + a[ia] * s[i1];
       end for;
 
@@ -3775,7 +3809,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
           for i3 in i2:n loop
             ia := ia + 1;
             if ia > na then
-               return;
+              return;
             end if;
             v := v + a[ia] * s[i1] * s[i2] * s[i3];
           end for;
@@ -3885,10 +3919,13 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivatives.</p>
 <p>Nonlinear voltage controlled voltage source. The &quot;right&quot; port voltage between pin p2 and n2 (=p2.v - n2.v) is controlled by the &quot;left&quot; port vector of voltages at the pin vector pc[:] via</p>
-<pre>    p2.v - n2.v = f(pc[1].v - pc[2].v, pc[3].v - pc[4].v,...)</pre>
+<blockquote><pre>
+p2.v - n2.v = f(pc[1].v - pc[2].v, pc[3].v - pc[4].v,...)
+</pre></blockquote>
 <p>The controlling port (left) current vector is zero.</p>
 <p>f is a polynomial in N variables s1...sN of the following form with M+1 coefficients a0, a1, a2,...aM.</p>
-<pre>f = a0 +
+<blockquote><pre>
+f = a0 +
     a1s1 + a2s2 + ... + aNsN +
     a(N+1)s1&sup2; + a(N+2)s1s2 + ... + a(.)s1sN +
     a(.)s2&sup2; + a(.)s2s3 + ... + a(.)s2sN +
@@ -3898,16 +3935,20 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
     a(.)s1&sup3; + a(.)s1&sup2;s2 + a(.)s1&sup2;s3 + ... + a(.)s1&sup2;sN +
     a(.)s1s2&sup2; + a(.)s1s2s3 + ... + a(.)s1s2sN +
     ... +
-    a(.)sN&sup3; + ... </pre>
+    a(.)sN&sup3; + ...
+</pre></blockquote>
 <p>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p>
 <p>In connection with the VCV, s1...sN are the voltages of the controlling side: s1=pc[1].v - pc[2].v, s2=pc[3].v - pc[4].v, s3=...</p>
 <p>The corresponding SPICE description of the VCV polynomial source is the following:</p>
-<pre>    Ename A1 A2 POLY(N) E11 E21 ... E1N E2N P0 P1...</pre>
+<blockquote><pre>
+Ename A1 A2 POLY(N) E11 E21 ... E1N E2N P0 P1...
+</pre></blockquote>
 <p>where Ename is the name of the instance, A1 and A2 are the nodes between them the controlled voltage is gripped,</p>
 <p>N is the number of the controlling voltages, E11 E12 ... E1N E2N are pairs of nodes between them the controlling voltages</p>
 <p>are gripped, and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above.</p>
 <p>To describe the SPICE line in Modelica, the following explanation would be useful:</p>
-<pre>Ename -&gt; E_VCV_POLY name
+<blockquote><pre>
+Ename -&gt; E_VCV_POLY name
 A1, A2 -&gt; pins name.p2, name.p1
 N -&gt; parameter N
 E11 -&gt; name.pc[2]
@@ -3915,10 +3956,11 @@ E12 -&gt; name.pc[1]
 ...
 E1N -&gt; name.pc[N]
 E2N -&gt; name.pc[N-1]
-P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
+P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
-<li><em>Sept 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>Sept 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
     end E_VCV_POLY;
@@ -3980,10 +4022,13 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivatives.</p>
 <p>Nonlinear voltage controlled current source. The right port current at pin p2 (=p2.i) is controlled by the left port vector of voltages at the pin vector pc[:] via</p>
-<pre>    p2.i = f(pc[1].v - pc[2].v, pc[3].v - pc[4].v,...)</pre>
+<blockquote><pre>
+p2.i = f(pc[1].v - pc[2].v, pc[3].v - pc[4].v,...)
+</pre></blockquote>
 <p>The controlling port (left) current vector is zero.</p>
 <p>f is a polynomial in N variables s1...sN of the following form with M+1 coefficients a0, a1, a2,...aM.</p>
-<pre>f = a0 +
+<blockquote><pre>
+f = a0 +
     a1s1 + a2s2 + ... + aNsN +
     a(N+1)s1&sup2; + a(N+2)s1s2 + ... + a(.)s1sN +
     a(.)s2&sup2; + a(.)s2s3 + ... + a(.)s2sN +
@@ -3993,16 +4038,20 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
     a(.)s1&sup3; + a(.)s1&sup2;s2 + a(.)s1&sup2;s3 + ... + a(.)s1&sup2;sN +
     a(.)s1s2&sup2; + a(.)s1s2s3 + ... + a(.)s1s2sN +
     ... +
-    a(.)sN&sup3; + ... </pre>
+    a(.)sN&sup3; + ...
+</pre></blockquote>
 <p>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p>
 <p>In connection with the VCC, s1...sN are the voltages of the controlling side: s1=pc[1].v - pc[2].v, s2=pc[3].v - pc[4].v, s3=...</p>
 <p>The corresponding SPICE description of the VCC polynomial source is the following:</p>
-<pre>    Gname A1 A2 POLY(N) E11 E21 ... E1N E2N P0 P1...</pre>
+<blockquote><pre>
+Gname A1 A2 POLY(N) E11 E21 ... E1N E2N P0 P1...
+</pre></blockquote>
 <p>where Gname is the name of the instance, A1 and A2 are the nodes between them the current source is arranged, whose current is calculated,</p>
 <p>N is the number of the controlling voltages, E11 E12 ... E1N E2N are pairs of nodes between them the controlling voltages</p>
 <p>are gripped, and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above.</p>
 <p>To describe the SPICE line in Modelica, the following explanation would be useful:</p>
-<pre>Gname -&gt; G_VCC_POLY name
+<blockquote><pre>
+Gname -&gt; G_VCC_POLY name
 A1, A2 -&gt; pins name.p2, name.p1
 N -&gt; parameter N
 E11 -&gt; name.pc[2]
@@ -4010,10 +4059,11 @@ E12 -&gt; name.pc[1]
 ...
 E1N -&gt; name.pc[N]
 E2N -&gt; name.pc[N-1]
-P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
+P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
-<li><em>Sept 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>Sept 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
     end G_VCC_POLY;
@@ -4076,12 +4126,17 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivatives.</p>
 <p>Nonlinear current controlled voltage source. The right port voltage between pin p2 and n2 (=p2.v - n2.v) is controlled by the left port vector of currents at pin pc (=pc.i) via</p>
-<pre>    p2.v - n2.v = f(pc[2].i, pc[4].i,...)</pre>
+<blockquote><pre>
+p2.v - n2.v = f(pc[2].i, pc[4].i,...)
+</pre></blockquote>
 <p>The controlling port (left) current vector is zero.</p>
 <p>The corresponding SPICE description</p>
-<pre>    Hname A1 A2 POLY(N) V1...VN P0 P1...</pre>
+<blockquote><pre>
+Hname A1 A2 POLY(N) V1...VN P0 P1...
+</pre></blockquote>
 <p>f is a polynomial in N variables s1...sN of the following form with M+1 coefficients a0, a1, a2,...aM.</p>
-<pre>f = a0 +
+<blockquote><pre>
+f = a0 +
     a1s1 + a2s2 + ... + aNsN +
     a(N+1)s1&sup2; + a(N+2)s1s2 + ... + a(.)s1sN +
     a(.)s2&sup2; + a(.)s2s3 + ... + a(.)s2sN +
@@ -4091,31 +4146,43 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
     a(.)s1&sup3; + a(.)s1&sup2;s2 + a(.)s1&sup2;s3 + ... + a(.)s1&sup2;sN +
     a(.)s1s2&sup2; + a(.)s1s2s3 + ... + a(.)s1s2sN +
     ... +
-    a(.)sN&sup3; + ... </pre>
+    a(.)sN&sup3; + ...
+</pre></blockquote>
 <p>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p><p>In Modelica the controlling pins have to be connected to the CCV in that way, that the required currents flow through the according pins of the CCV:</p><p>s1 = pc[2].i, s2 = pc[4].i, s3 = pc[6].i,...</p><p>The pairs pc[1].i and pc[2].i, pc[3].i and pc[4].i...form ports with pc[2].i + pc[1].i = 0, pc[4].i + pc[3].i = 0, ...</p><p>The corresponding SPICE description of the CCV polynomial source is the following:</p>
-<pre>    Hname A1 A2 POLY(N) V1...VN P0 P1...</pre>
+<blockquote><pre>
+Hname A1 A2 POLY(N) V1...VN P0 P1...
+</pre></blockquote>
 <p>where Hname is the name of the instance, A1 and A2 are the nodes between them the controlled voltage is gripped.</p><p>N is the number of the controlling currents, V1...VN are the voltage sources, that are necessary in SPICE to supply the controlling currents,</p><p>and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above.</p>
 <p>To describe the SPICE line in Modelica, the following explanation would be useful:</p>
-<pre>Hname -&gt; H_CCV_POLY name
+<blockquote><pre>
+Hname -&gt; H_CCV_POLY name
 A1, A2 -&gt; pins name.p2, name.p1
-N -&gt; parameter N</pre>
+N -&gt; parameter N
+</pre></blockquote>
 <p>V1 (...VN) is declared in SPICE:</p>
-<pre>   V1 V1+ V1- type of voltage source (constant, pulse, sin...)</pre>
+<blockquote><pre>
+V1 V1+ V1- type of voltage source (constant, pulse, sin...)
+</pre></blockquote>
 <p>In Modelica the currents through V1...VN has to be led through the CCV. Therefore V1...VN have to be disconnected and additional nodes</p>
-<pre>   V1_AD...VN_AD</pre>
+<blockquote><pre>
+V1_AD...VN_AD
+</pre></blockquote>
 <p>have to be added. In the case, that the SPICE source is</p>
-<pre>   V1 n+ n- 0,</pre>
+<blockquote><pre>
+V1 n+ n- 0,
+</pre></blockquote>
 <p>this source can be eliminated.</p>
-<pre>V1_AD -&gt; name.pc[2]
+<blockquote><pre>
+V1_AD -&gt; name.pc[2]
 V1- -&gt; name.pc[1]
 ...
 VN_AD -&gt; name.pc[N]
 VN- -&gt; name.pc[N-1]
 P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
-</pre>
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
-<li><em>Sept 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>Sept 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
     end H_CCV_POLY;
@@ -4178,10 +4245,13 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivatives.</p>
 <p>Nonlinear current controlled current source. The &quot;right&quot; port current at pin p2 (=p2.i) is controlled by the &quot;left&quot; port vector of currents at pin pc[:] via</p>
-<pre>    p2.i = f(pc[2].i, pc[4].i,...)</pre>
+<blockquote><pre>
+p2.i = f(pc[2].i, pc[4].i,...)
+</pre></blockquote>
 <p>The controlling port (left) voltage is zero for each pair: pc[2].v - pc[1].v = 0, ...</p><p>Furthermore the currents of each pair are pc[2].i + pc[1].i = 0, ...</p>
 <p>f is a polynomial in N variables s1...sN of the following form with M+1 coefficients a0, a1, a2,...aM.</p>
-<pre>f = a0 +
+<blockquote><pre>
+f = a0 +
     a1s1 + a2s2 + ... + aNsN +
     a(N+1)s1&sup2; + a(N+2)s1s2 + ... + a(.)s1sN +
     a(.)s2&sup2; + a(.)s2s3 + ... + a(.)s2sN +
@@ -4191,31 +4261,43 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
     a(.)s1&sup3; + a(.)s1&sup2;s2 + a(.)s1&sup2;s3 + ... + a(.)s1&sup2;sN +
     a(.)s1s2&sup2; + a(.)s1s2s3 + ... + a(.)s1s2sN +
     ... +
-    a(.)sN&sup3; + ... </pre>
+    a(.)sN&sup3; + ...
+</pre></blockquote>
 <p>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p><p>In Modelica the controlling pins have to be connected to the CCC in that way, that the required currents flow through the according pins of the CCC:</p><p>s1=pc[2].i, s2=pc[4].i, s3=pc[6].i,...</p><p>The pairs pc[1].i and pc[2].i, pc[3].i and pc[4].i...form ports with pc[2].i + pc[1].i = 0, pc[4].i + pc[3].i = 0, ...</p><p>The corresponding SPICE description of the CCC polynomial source is the following:</p>
-<pre>    Fname A1 A2 POLY(N) V1...VN P0 P1...</pre>
+<blockquote><pre>
+Fname A1 A2 POLY(N) V1...VN P0 P1...
+</pre></blockquote>
 <p>where Fname is the name of the instance, A1 and A2 are the nodes between them the current source is arranged, whose current is calculated.</p><p>N is the number of the controlling currents, V1...VN are the voltage sources, that are necessary in SPICE to supply the controlling currents,</p><p>and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above.</p>
 <p>To describe the SPICE line in Modelica, the following explanation would be useful:</p>
-<pre>Fname -&gt; F_CCC_POLY name
+<blockquote><pre>
+Fname -&gt; F_CCC_POLY name
 A1, A2 -&gt; pins name.p2, name.p1
-N -&gt; parameter N</pre>
+N -&gt; parameter N
+</pre></blockquote>
 <p>V1 (...VN) is declared in SPICE:</p>
-<pre>   V1 V1+ V1- type of voltage source (constant, pulse, sin...)</pre>
+<blockquote><pre>
+V1 V1+ V1- type of voltage source (constant, pulse, sin...)
+</pre></blockquote>
 <p>In Modelica the currents through V1...VN has to be led through the CCC. Therefore V1...VN have to be disconnected and additional nodes</p>
-<pre>   V1_AD...VN_AD</pre>
+<blockquote><pre>
+V1_AD...VN_AD
+</pre></blockquote>
 <p>have to be added. In the case, that the SPICE source is</p>
-<pre>   V1 n+ n- 0,</pre>
+<blockquote><pre>
+V1 n+ n- 0,
+</pre></blockquote>
 <p>this source can be eliminated.</p>
-<pre>V1_AD -&gt; name.pc[2]
+<blockquote><pre>
+V1_AD -&gt; name.pc[2]
 V1- -&gt; name.pc[1]
 ...
 VN_AD -&gt; name.pc[N]
 VN- -&gt; name.pc[N-1]
 P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
-</pre>
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
-<li><em>Sept 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>Sept 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
     end F_CCC_POLY;
@@ -4334,6 +4416,7 @@ on the model behaviour.
 
   package Types "Additional Spice3 type definitions"
     extends Modelica.Icons.TypesPackage;
+    type Capacitance = SI.Capacitance(min=-Modelica.Constants.inf) "Unbounded capacitance";
     type VoltageSquare = Real (final quantity="ElectricalPotential2", final unit="V2");
     type GapEnergyPerTemperature = Real (final quantity="Energy per Temperature", final unit="eV/K");
     type GapEnergyPerEnergy = Real (final quantity="Energy per Energy", final unit="eV/J");
@@ -4484,7 +4567,7 @@ on the model behaviour.
 <p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>March 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
@@ -4511,9 +4594,9 @@ on the model behaviour.
         "Channel-length modulation, default 0";
        parameter SI.Resistance RD=-1e40 "Drain ohmic resistance, default 0";
        parameter SI.Resistance RS=-1e40 "Source ohmic resistance, default 0";
-       parameter SI.Capacitance CBD=-1e40
+       parameter Types.Capacitance CBD=-1e40
         "Zero-bias B-D junction capacitance, default 0";
-       parameter SI.Capacitance CBS=-1e40
+       parameter Types.Capacitance CBS=-1e40
         "Zero-bias B-S junction capacitance, default 0";
        parameter SI.Current IS=1e-14 "Bulk junction saturation current";
        parameter SI.Voltage PB=0.8 "Bulk junction potential";
@@ -4581,9 +4664,7 @@ on the model behaviour.
     parameter Real NRD = 1 "Number of squares of the drain diffusions";
     parameter Real NRS = 1 "Number of squares of the source diffusions";
   //--------------------------------------------------------------------------------------
-  //need to be Boolean instead of integer, will be changed with the next Modelica version
-  //via converting script
-    parameter Integer OFF = 0
+    parameter Integer OFF(min=0, max=1) = 0
         "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
   //--------------------------------------------------------------------------------------
     parameter SI.Voltage IC_VDS = -1e40
@@ -4600,7 +4681,7 @@ on the model behaviour.
                             modelcard "MOSFET modelcard"
                 annotation(Evaluate=true);
 
-   final parameter Spice3.Internal.Mos2.Mos2ModelLineParams p=
+    final parameter Spice3.Internal.Mos2.Mos2ModelLineParams p=
           Spice3.Internal.Mos2.mos2RenameParametersRevised(
           modelcard) "Model line parameters"
                       annotation(Evaluate=true);
@@ -4668,14 +4749,6 @@ on the model behaviour.
     parameter SI.Voltage IC( start = -1e40)
         "Initial condition values, not implemented yet";
 
-    Real icqmGB;
-    Real icqmGS;
-    Real icqmGD;
-    SI.Voltage vDS "Drain - source voltage";
-
-    Spice3.Internal.Mos.DEVqmeyer qm;
-    Spice3.Internal.Mos.CurrrentsCapacitances cc_obsolete;
-
   //-------------------------------------------------------------------------------------------------------------------------------------
 
     final parameter Spice3.Internal.Mos2.Mos2Calc
@@ -4694,11 +4767,8 @@ on the model behaviour.
           modelcard) "Model line parameters"
                       annotation(Evaluate=true);
 
-     constant Spice3.Internal.SpiceConstants C
+    constant Spice3.Internal.SpiceConstants C
         "General constants of SPICE simulator";
-     Real MOScapgd = qm.qm_capgd;
-    Real MOScapgs = qm.qm_capgs;
-    Real MOScapgb = qm.qm_capgb;
   equation
     assert( NRD > 0, "NRD, length of drain in squares, must be greater than zero");
     assert( NRS > 0, "NRS, length of source in squares, must be greater than zero");
@@ -4721,7 +4791,7 @@ on the model behaviour.
     // drain- and sourceresistances
     // ----------------------------
     ird * c11.m_drainResistance  = (D.v - Dinternal);
-    irs * c11.m_sourceResistance =  (S.v - Sinternal);
+    irs * c11.m_sourceResistance = (S.v - Sinternal);
 
     // capacitances
     // ------------
@@ -4753,7 +4823,7 @@ on the model behaviour.
 <p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>January 2009</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>January 2009</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
@@ -4925,7 +4995,7 @@ on the model behaviour.
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>",     revisions="<html>
 <ul>
-<li><em>August 2009</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>August 2009</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
     end BJT2;
@@ -4955,7 +5025,7 @@ on the model behaviour.
       parameter SI.Current IRB=0.0 "Current for base resistance = (rb+rbm)/2";
       parameter SI.Resistance RB=0.0 "Zero bias base resistance";
       parameter SI.Resistance RBM=0.0 "Minimum base resistance, default = 0.0";
-      parameter SI.Capacitance CJE=0.0 "Zero bias B-E depletion capacitance";
+      parameter Types.Capacitance CJE=0.0 "Zero bias B-E depletion capacitance";
       parameter SI.Voltage VJE=0.75 "B-E built in potential";
       parameter Real MJE = 0.33 "B-E junction exponential factor";
       parameter SI.Time TF=0.0 "Ideal forward transit time";
@@ -4963,12 +5033,12 @@ on the model behaviour.
       parameter SI.Current ITF=0.0 "High current dependence of TF,";
       parameter SI.Voltage VTF=0.0 "Voltage giving VBC dependence of TF";
       parameter SI.Frequency PTF=0.0 "Excess phase at freq=1/(TF*2*Pi) Hz";
-      parameter SI.Capacitance CJC=0.0 "Zero bias B-C depletion capacitance";
+      parameter Types.Capacitance CJC=0.0 "Zero bias B-C depletion capacitance";
       parameter SI.Voltage VJC=0.75 "B-C built in potential";
       parameter Real MJC = 0.33 "B-C junction grading coefficient";
       parameter Real XCJC = 1.0 "Fraction of B-C cap to internal base";
       parameter SI.Time TR=0.0 "Ideal reverse transit time";
-      parameter SI.Capacitance CJS=0.0 "Zero bias C-S capacitance";
+      parameter Types.Capacitance CJS=0.0 "Zero bias C-S capacitance";
       parameter SI.Voltage VJS=0.75 "Substrate junction built-in potential";
       parameter Real MJS = 0.0 "Substrate junction grading coefficient";
       parameter Real XTB = 0.0 "Forward and reverse beta temperature exponent";
@@ -5094,7 +5164,7 @@ on the model behaviour.
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for modeling the semiconductor models of the package Semiconductors.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>March 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>March 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
@@ -5111,9 +5181,9 @@ on the model behaviour.
 
     record ModelcardJFET "Record with technology parameters (.model)"
     extends Modelica.Icons.Record;
-      parameter SI.Capacitance CGS=-1e40
+      parameter Types.Capacitance CGS=-1e40
         "Zero-bias G-S junction capacitance, default 0";
-      parameter SI.Capacitance CGD=-1e40
+      parameter Types.Capacitance CGD=-1e40
         "Zero-bias G-D junction capacitance, default 0";
       parameter SI.Current IS=1e-14 "Saturation current of pn junctions";
       parameter Real FC=0.5
@@ -5224,7 +5294,7 @@ on the model behaviour.
 <p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>Nov. 2008</em> by Kristin Majetta <br/>initially implemented</li>
+<li><em>Nov. 2008</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
    end DIODE;
@@ -5235,7 +5305,7 @@ on the model behaviour.
     parameter SI.Resistance RS=0.0 "Ohmic resistance";
     parameter Real N=1.0 "Emission coefficient";
     parameter SI.Time TT=0.0 "Transit time";
-    parameter SI.Capacitance CJO=0.0 "Junction capacitance";
+    parameter Types.Capacitance CJO=0.0 "Junction capacitance";
     parameter SI.Voltage VJ=1.0 "Junction Potential";
     parameter Real M=0.5 "Grading coefficient";
     parameter SI.ActivationEnergy EG=1.11 "Activation Energy";
@@ -5340,7 +5410,7 @@ on the model behaviour.
     model C_SEMI "Semiconductor capacitor"
 
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      parameter SI.Capacitance C = -1e40
+      parameter Types.Capacitance C = -1e40
         "Capacitance, if specified, geometrical information is overwritten";
       parameter SI.Temp_C TEMP = 27 "Temperature of capacitor";
       parameter SI.Length  L(start = 0) "Length of the capacitor";
@@ -5348,7 +5418,7 @@ on the model behaviour.
         "Width of the capacitor, default DEFW (modelcard)";
       parameter Boolean SENS_AREA = false
         "Parameter for sensitivity analyses, not implemented yet";
-      parameter SI.Voltage IC = 0 "Initial value";
+      parameter SI.Voltage IC = 0 "Initial value" annotation(Dialog(enable=UIC));
       parameter Boolean UIC = false
         "Use initial conditions: true, if initial condition is used";
       parameter Modelica.Electrical.Spice3.Internal.ModelcardC modelcard
@@ -5413,7 +5483,7 @@ on the model behaviour.
 </ul>
 </html>", info="<html>
 <p>Semiconductor capacitance model</p>
-<p><br/>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+<p><br>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
     end C_SEMI;
 
@@ -5427,7 +5497,7 @@ on the model behaviour.
       parameter SI.Length  NARROW=0 "Narrowing due to side etching";
       annotation (Documentation(info="<html>
 <p>Modelcard parameters for semiconductor capacitance model</p>
-<p><br/>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+<p><br>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
     end ModelcardC;
 
@@ -5702,7 +5772,7 @@ on the model behaviour.
 
     function junctionCapRevised "Junction capacity"
       extends Modelica.Icons.Function;
-      input SI.Capacitance capin "Input capacitance";
+      input Types.Capacitance capin "Input capacitance";
       input SI.Voltage voltage "Input voltage";
       input SI.Voltage depcap;
       input Real mj;
@@ -5711,7 +5781,7 @@ on the model behaviour.
       input Real f2;
       input Real f3;
 
-      output SI.Capacitance capout "Output capacitance";
+      output Types.Capacitance capout "Output capacitance";
       output SI.Charge charge "Output charge";
 
       protected
@@ -5878,7 +5948,7 @@ on the model behaviour.
     function junctionCapTransTime
       "Junction capacitance transittime calculation"
       extends Modelica.Icons.Function;
-      input SI.Capacitance capin "Input capacitance";
+      input Types.Capacitance capin "Input capacitance";
       input SI.Voltage voltage "Input voltage";
       input SI.Voltage depcap;
       input Real mj;
@@ -5890,7 +5960,7 @@ on the model behaviour.
       input SI.Conductance conduct "Input conductance";
       input SI.Current current "Input current";
 
-      output SI.Capacitance capout "Output capacitance";
+      output Types.Capacitance capout "Output capacitance";
       output SI.Charge charge "Output charge";
 
     algorithm
@@ -6031,7 +6101,7 @@ on the model behaviour.
       input SI.Length  length "Input capacitor length";
       input SI.Length  narrow "Input narrow";
 
-      output SI.Capacitance out "Output value";
+      output Types.Capacitance out "Output value";
 
     algorithm
       out := cap0 * (width - narrow) * (length - narrow)
@@ -6297,19 +6367,19 @@ on the model behaviour.
         SI.Conductance m_gds "Gds, Drain-Source conductance";
         SI.Transconductance m_gm "Gm, Transconductance";
         SI.Transconductance m_gmbs "Gmbs, Bulk-Source transconductance";
-        SI.Capacitance m_capbsb "Cbsb";
+        Types.Capacitance m_capbsb "Cbsb";
         SI.Charge m_chargebsb "Qbsb";
-        SI.Capacitance m_capbss "Cbss";
+        Types.Capacitance m_capbss "Cbss";
         SI.Charge m_chargebss "Qbss";
-        SI.Capacitance m_capbdb "Cbdb";
+        Types.Capacitance m_capbdb "Cbdb";
         SI.Charge m_chargebdb "Qbdb";
-        SI.Capacitance m_capbds "Cbds";
+        Types.Capacitance m_capbds "Cbds";
         SI.Charge m_chargebds "Qbds";
         Real m_Beta "Beta";
-        SI.Capacitance m_capGSovl "Cgso, Gate-source overlap cap.";
-        SI.Capacitance m_capGDovl "Cgdo, Gate-drain overlap cap.";
-        SI.Capacitance m_capGBovl "Cgbo, Gate-bulk overlap cap.";
-        SI.Capacitance m_capOx "Cox";
+        Types.Capacitance m_capGSovl "Cgso, Gate-source overlap cap.";
+        Types.Capacitance m_capGDovl "Cgdo, Gate-drain overlap cap.";
+        Types.Capacitance m_capGBovl "Cgbo, Gate-bulk overlap cap.";
+        Types.Capacitance m_capOx "Cox";
         SI.Voltage m_von "Von, Turn-on voltage";
         SI.Voltage m_vdsat "Vdsat";
         Integer m_mode(start = 1) "Mode";
@@ -6426,7 +6496,9 @@ on the model behaviour.
           "Device temperature";
 
         annotation (Documentation(info="<html>
-<pre>This function mosfetRenameParametersDev assigns the external (given by the user) device parameters to the internal parameters. It also does the analysis of the IsGiven values (level 1).</pre>
+<blockquote><pre>
+This function mosfetRenameParametersDev assigns the external (given by the user) device parameters to the internal parameters. It also does the analysis of the IsGiven values (level 1).
+</pre></blockquote>
 </html>"));
       end mosfetRenameParametersDev;
 
@@ -6446,10 +6518,10 @@ on the model behaviour.
          SI.Voltage m_vt0(                 start = 0.0)
           "VTO, Threshold voltage";
          Real m_vtOIsGiven "VTO IsGivenValue";
-         SI.Capacitance m_capBD(               start = 0.0)
+         Types.Capacitance m_capBD(               start = 0.0)
           "CBD, B-D junction capacitance";
          Real m_capBDIsGiven "CapBD IsGivenValue";
-         SI.Capacitance m_capBS(               start = 0.0)
+         Types.Capacitance m_capBS(               start = 0.0)
           "CBS, B-S junction capacitance";
          Real m_capBSIsGiven "CapBS IsGivenValue";
          SI.CapacitancePerArea m_bulkCapFactor(       start = 0.0)
@@ -6520,10 +6592,10 @@ on the model behaviour.
         SI.CurrentDensity m_tSatCurDens( start = 0.);
         SI.Current m_tDrainSatCur(start=0.);
         SI.Current m_tSourceSatCur(start=0.);
-        SI.Capacitance m_tCBDb(start=0.);
-        SI.Capacitance m_tCBDs(start=0.);
-        SI.Capacitance m_tCBSb(start=0.);
-        SI.Capacitance m_tCBSs(start=0.);
+        Types.Capacitance m_tCBDb(start=0.);
+        Types.Capacitance m_tCBDs(start=0.);
+        Types.Capacitance m_tCBSb(start=0.);
+        Types.Capacitance m_tCBSs(start=0.);
         SI.CapacitancePerArea m_tCj( start = 0.);
         SI.Permittivity m_tCjsw( start = 0.);
         SI.Voltage m_tBulkPot(start=0.7);
@@ -6539,23 +6611,25 @@ on the model behaviour.
         Real m_f3s( start = 0.);
         SI.Voltage m_dVt( start = 0.);
 
-        SI.Capacitance m_capgd(start=0.);
-        SI.Capacitance m_capgs(start=0.);
-        SI.Capacitance m_capgb(start=0.);
+        Types.Capacitance m_capgd(start=0.);
+        Types.Capacitance m_capgs(start=0.);
+        Types.Capacitance m_capgb(start=0.);
         SI.Charge m_qgs(start=0.);
         SI.Charge m_qgd(start=0.);
         SI.Charge m_qgb(start=0.);
 
         annotation (Documentation(info="<html>
-<pre>This record MosCalc contains further MOSFET variables (for level 1, 2, 3 and 6).</pre>
+<blockquote><pre>
+This record MosCalc contains further MOSFET variables (for level 1, 2, 3 and 6).
+</pre></blockquote>
 </html>"));
       end MosCalc;
 
       record DEVqmeyer "Meyer capacities and charge"
         extends Modelica.Icons.Record;
-        SI.Capacitance qm_capgb(  start = 0);
-        SI.Capacitance qm_capgs(  start = 0);
-        SI.Capacitance qm_capgd(  start = 0);
+        Types.Capacitance qm_capgb(  start = 0);
+        Types.Capacitance qm_capgs(  start = 0);
+        Types.Capacitance qm_capgd(  start = 0);
         SI.Charge qm_qgs(  start = 0);
         SI.Charge qm_qgb(  start = 0);
         SI.Charge qm_qgd(  start = 0);
@@ -6573,12 +6647,12 @@ on the model behaviour.
         SI.Current idrain( start = 0);
         SI.Current iBD( start = 0);
         SI.Current iBS( start = 0);
-        SI.Capacitance cGS( start = 0);
-        SI.Capacitance cGB( start = 0);
-        SI.Capacitance cGD( start = 0);
-        SI.Capacitance cBS( start = 0);
-        SI.Capacitance cBD( start = 0);
-        SI.Capacitance m_capgd;
+        Types.Capacitance cGS( start = 0);
+        Types.Capacitance cGB( start = 0);
+        Types.Capacitance cGD( start = 0);
+        Types.Capacitance cBS( start = 0);
+        Types.Capacitance cBD( start = 0);
+        Types.Capacitance m_capgd;
 
         annotation (Documentation(info="<html>
 <p>This record CurrentsCapacities contains values for the currents and the capacities inside the MOSFET models level 1, 2, 3 and 6.</p>
@@ -8566,7 +8640,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         SI.Resistance m_resist( start = 0.0) "RS, Ohmic resistance";
         Real m_emissionCoeff( start = 1.0) "N, Emission Coefficient";
         SI.Time m_transitTime( start = 0.0) "TT, Transit Time";
-        SI.Capacitance m_junctionCap( start = 0.0) "CJO, Junction capacitance";
+        Types.Capacitance m_junctionCap( start = 0.0) "CJO, Junction capacitance";
         SI.Voltage m_junctionPot( start = 1.0) "VJ, Junction potential";
         SI.LinearTemperatureCoefficient m_gradingCoeff( start = 0.5)
           "M, Grading coefficient";                                                                           //unit check by maj
@@ -8629,7 +8703,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
       record DiodeCalc "Diode variables"
         extends Modelica.Icons.Record;
         SI.Voltage m_tJctPot;
-        SI.Capacitance m_tJctCap;
+        Types.Capacitance m_tJctCap;
         Real m_tF1;
         Real m_f2;
         Real m_f3;
@@ -8770,7 +8844,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         output CurrentsCapacitances out_cc
           "Output record with calculated currents and capacitances";
 
-        output SI.Capacitance m_dCap "Output capacitance";
+        output Types.Capacitance m_dCap "Output capacitance";
 
       protected
         SI.Voltage m_dPNVoltage "Voltage";
@@ -9108,7 +9182,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Types.InverseElectricCurrent m_invRollOffF(start=0);
         Types.InverseElectricCurrent m_invRollOffR(start=0);
 
-        SI.Capacitance m_CScap(start=0);
+        Types.Capacitance m_CScap(start=0);
         annotation (Documentation(info="<html>
 <p>This record contains the device parameters that are used for the bipolar transistor bjt model in SPICE3.</p>
 </html>"));
@@ -9152,7 +9226,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         SI.Resistance m_baseResist(start=0.0) "RB, Zero bias base resistance";
         SI.Resistance m_minBaseResist(start=0.0) "RBM, Minimum base resistance";
         Real m_minBaseResistIsGiven;
-        SI.Capacitance m_depletionCapBE(start=0.0)
+        Types.Capacitance m_depletionCapBE(start=0.0)
           "CJE, Zero bias B-E depletion capacitance";
         SI.Voltage m_potentialBE(start=0.75) "VJE, B-E built in potential";
         Real m_junctionExpBE( start = 0.33) "MJE, B-E built in potential";
@@ -9164,7 +9238,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         SI.Voltage m_transitTimeFVBC(start=0.0)
           "VTF, Voltage giving VBC dependence of TF";
         SI.Frequency m_excessPhase(start=0.0) "PTF, Excess phase";
-        SI.Capacitance m_depletionCapBC(start=0.0)
+        Types.Capacitance m_depletionCapBC(start=0.0)
           "CJC, Zero bias B-C depletion capacitance";
         SI.Voltage m_potentialBC(start=0.75) "VJC, B-C built in potential";
         Real m_junctionExpBC( start = 0.33)
@@ -9172,7 +9246,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real m_baseFractionBCcap( start = 1.0)
           "XCJC, Fraction of B-C cap to internal base";
         SI.Time m_transitTimeR(start=0.0) "TR, Ideal reverse transit time";
-        SI.Capacitance m_capCS(start=0.0) "CJS, Zero bias C-S capacitance";
+        Types.Capacitance m_capCS(start=0.0) "CJS, Zero bias C-S capacitance";
         SI.Voltage m_potentialSubstrate(start=0.75)
           "VJS, Zero bias C-S capacitance";
         Real m_exponentialSubstrate( start = 0.0)
@@ -9220,9 +9294,9 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real m_tBetaR( start = 1);
         SI.Current m_tBEleakCur(start=1e-14);
         SI.Current m_tBCleakCur(start=1e-14);
-        SI.Capacitance m_tBEcap(start=0);
+        Types.Capacitance m_tBEcap(start=0);
         SI.Voltage m_tBEpot(start=0.7);
-        SI.Capacitance m_tBCcap(start=0);
+        Types.Capacitance m_tBCcap(start=0);
         SI.Voltage m_tBCpot(start=0.7);
         SI.Voltage m_tDepCapBE(start=0.7);
         SI.Voltage m_tDepCapBC(start=0.7);
@@ -9252,11 +9326,11 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
                                    //current through diode dC2 (non ideal part)
         SI.Current iCC(start=0.0);
                                    //channel current
-        SI.Capacitance capbc(start=0.0);
-        SI.Capacitance capbe(start=0.0);
-        SI.Capacitance capbx(start=0.0);
-        SI.Capacitance captt(start=0.0);
-        SI.Capacitance capcs(start=0.0);
+        Types.Capacitance capbc(start=0.0);
+        Types.Capacitance capbe(start=0.0);
+        Types.Capacitance capbx(start=0.0);
+        Types.Capacitance captt(start=0.0);
+        Types.Capacitance capcs(start=0.0);
         SI.Resistance rx(start=0.0);
 
         //obsolete
@@ -9490,7 +9564,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real xjrb;
         Real go;
         Real gm;
-        SI.Capacitance captt;
+        Types.Capacitance captt;
         SI.Charge chargebe;
         SI.Charge chargebc;
         SI.Charge chargebx;
@@ -9868,8 +9942,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
         SI.Current m_tSatCur(start = 0);
         SI.Voltage m_tGatePot(start = 0);
-        SI.Capacitance m_tCGS(start = 0);
-        SI.Capacitance m_tCGD(start = 0);
+        Types.Capacitance m_tCGS(start = 0);
+        Types.Capacitance m_tCGD(start = 0);
         SI.Voltage m_corDepCap(start = 0);
         SI.Voltage m_vcrit(start = 0);
         SI.Voltage m_f1(start = 0);
@@ -9885,9 +9959,9 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         SI.Current m_cgs "Igs";
         SI.Conductance m_ggs "Ggs";
         SI.Charge m_chargegd "Qgd";
-        SI.Capacitance m_capgd "Cgd, G-D junction cap";
+        Types.Capacitance m_capgd "Cgd, G-D junction cap";
         SI.Charge m_chargegs "Qgs";
-        SI.Capacitance m_capgs "Cgs, G-S junction capacitance";
+        Types.Capacitance m_capgs "Cgs, G-S junction capacitance";
         SI.Current m_cdrain "Idrain";
         SI.Conductance m_gm "Gm";
         SI.Conductance m_gds "Gds";
@@ -9901,8 +9975,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         SI.InversePotential m_lModulation(start = 0.0) "LAMBDA";
         SI.Resistance m_drainResist(start = 0.0) "RD";
         SI.Resistance m_sourceResist(start = 0) "RS";
-        SI.Capacitance m_capGS(start = 0) "CGS";
-        SI.Capacitance m_capGD(start = 0) "CGD";
+        Types.Capacitance m_capGS(start = 0) "CGS";
+        Types.Capacitance m_capGD(start = 0) "CGD";
         SI.Voltage m_gatePotential(start = 1.0) "PB";
         SI.Current m_gateSatCurrent(start = 1e-14) "IS";
         Real m_depletionCapCoeff(start = 0.5) "FC";
@@ -9921,8 +9995,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         SI.Current idrain(start=0);
         SI.Current iGD(start=0);
         SI.Current iGS(start=0);
-        SI.Capacitance cGS(start=0);
-        SI.Capacitance cGD(start=0);
+        Types.Capacitance cGS(start=0);
+        Types.Capacitance cGD(start=0);
 
         annotation (Documentation(info="<html>
 <p>This record CurrentsCapacities contains values for the currents and the capacities inside the model Jfet.</p>
@@ -10129,9 +10203,9 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
           input SI.Voltage vgs "Input voltage gate source";
           input SI.Voltage vgd "Input voltage gate drain";
 
-          output SI.Capacitance capgs "Output capacitance gate source";
+          output Types.Capacitance capgs "Output capacitance gate source";
           output SI.Charge chargegs "Output charge gate source";
-          output SI.Capacitance capgd "Output capacitance gate drain";
+          output Types.Capacitance capgd "Output capacitance gate drain";
           output SI.Charge chargegd "Output charge gate drain";
 
         algorithm
@@ -10345,7 +10419,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
         record Capacitor
           extends Modelica.Electrical.Spice3.Internal.Model.Model;
 
-            SI.Capacitance m_dCapac(start=1e-9) "Device is a Capacitor model";
+            Types.Capacitance m_dCapac(start=1e-9) "Device is a Capacitor model";
             Real m_dCapIsGiven "Capacitor is given value";
             SI.Length  m_dWidth(start=0) "Width";
             SI.Length  m_dLength(start=0) "Length";
@@ -10407,7 +10481,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
         function capacitorRenameParametersDev
         extends Modelica.Icons.Function;
-          input SI.Capacitance C "Capacitance";
+          input Types.Capacitance C "Capacitance";
           input SI.Length  W "Width";
           input SI.Length  L "Length";
           input SI.Temp_C TEMP "Temperature";

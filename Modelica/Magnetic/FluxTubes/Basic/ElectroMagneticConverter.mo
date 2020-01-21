@@ -45,37 +45,39 @@ equation
     Diagram(coordinateSystem(
         preserveAspectRatio=false,
         extent={{-100,-100},{100,100}}), graphics={Polygon(
-              points={{-134,63},{-124,60},{-134,57},{-134,63}},
+              points={{-136,103},{-126,100},{-136,97},{-136,103}},
               lineColor={160,160,164},
               fillColor={160,160,164},
-              fillPattern=FillPattern.Solid),Line(points={{-150,60},{-125,
-          60}}, color={160,160,164}),Polygon(
-              points={{141,-57},{151,-60},{141,-63},{141,-57}},
+              fillPattern=FillPattern.Solid),Line(points={{-152,100},{-127,100}},
+                color={160,160,164}),Polygon(
+              points={{143,-97},{153,-100},{143,-103},{143,-97}},
               lineColor={160,160,164},
               fillColor={160,160,164},
-              fillPattern=FillPattern.Solid),Line(points={{125,-60},{150,-60}},
+              fillPattern=FillPattern.Solid),Line(points={{127,-100},{152,-100}},
           color={160,160,164}),Text(
-              extent={{128,-56},{144,-41}},
+              extent={{130,-96},{146,-81}},
               textColor={160,160,164},
               textString="Phi"),Text(
-              extent={{128,64},{145,79}},
-              textString="Phi"),Line(points={{-150,-59},{-125,-59}}, color=
-          {160,160,164}),Polygon(
-              points={{-140,-56},{-150,-59},{-140,-62},{-140,-56}},
-              lineColor={160,160,164},
-              fillColor={160,160,164},
-              fillPattern=FillPattern.Solid),Text(
-              extent={{-141,-56},{-124,-41}},
+              extent={{130,102},{147,117}},
+          textString="Phi",
+          lineColor={160,160,164}),
+                                Line(points={{-152,-100},{-127,-100}}, color={160,160,164}),
+                         Polygon(
+          points={{-142,-97},{-152,-100},{-142,-103},{-142,-97}},
+          lineColor={160,160,164},
+          fillColor={160,160,164},
+          fillPattern=FillPattern.Solid),    Text(
+              extent={{-143,-96},{-126,-81}},
               textColor={160,160,164},
               textString="i"),Text(
-              extent={{-150,63},{-133,78}},
+              extent={{-152,103},{-135,118}},
               textColor={160,160,164},
-              textString="i"),Line(points={{124,61},{149,61}}, color={160,160,164}),
+              textString="i"),Line(points={{126,100},{151,100}}, color={160,160,164}),
           Polygon(
-              points={{134,64},{124,61},{134,58},{134,64}},
-              lineColor={160,160,164},
-              fillColor={160,160,164},
-              fillPattern=FillPattern.Solid)}),
+          points={{136,103},{126,100},{136,97},{136,103}},
+          lineColor={160,160,164},
+          fillColor={160,160,164},
+          fillPattern=FillPattern.Solid)}),
     Icon(coordinateSystem(
       preserveAspectRatio=false,
       extent={{-100,-100},{100,100}}), graphics={
@@ -87,35 +89,9 @@ equation
                                          color={0,0,255}),
         Line(points={{-30,-100},{-90,-100}},
                                            color={0,0,255}),
-        Line(
-          points={{0,80},{-100,80}},
-          color={0,0,255},
-          pattern=LinePattern.Dash),
-        Line(
-          points={{-100,80},{-100,-80}},
-          color={0,0,255},
-          pattern=LinePattern.Dash),
-        Line(
-          points={{0,-80},{-100,-80}},
-          color={0,0,255},
-          pattern=LinePattern.Dash),
-        Line(
-          points={{100,80},{0,80}},
-          color={255,127,0},
-          pattern=LinePattern.Dash),
-        Line(
-          points={{100,-80},{0,-80}},
-          color={255,127,0},
-          pattern=LinePattern.Dash),
-        Line(
-          points={{100,80},{100,-80}},
-          color={255,127,0},
-          pattern=LinePattern.Dash),
         Ellipse(extent={{-4,-34},{64,34}}, lineColor={255,127,0}),
-        Line(points={{30,-100},{30,-34}},color={255,127,0}),
-        Line(points={{18,0},{42,0}}, color={255,127,0}),
-        Line(points={{42,10},{42,-12}}, color={255,127,0}),
-        Line(points={{30,34},{30,100}},color={255,127,0}),
+        Line(points={{30,-100},{30,0}},  color={255,127,0}),
+        Line(points={{30,0},{30,100}}, color={255,127,0}),
         Line(points={{30,100},{90,100}},color={255,127,0}),
         Line(points={{30,-100},{90,-100}},
                                          color={255,127,0}),
@@ -123,20 +99,6 @@ equation
           extent={{-150,150},{150,110}},
           textColor={0,0,255},
           textString="%name"),
-        Line(points={{18,10},{18,-12}}, color={255,127,0}),
-        Line(points={{-110,30},{-110,-30}},
-                                          color={0,0,255}),
-        Polygon(
-          points={{-110,-30},{-104,-10},{-116,-10},{-110,-30}},
-          lineColor={0,0,255},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid),
-        Line(points={{110,32},{110,-28}}, color={255,128,0}),
-        Polygon(
-          points={{110,-28},{116,-8},{104,-8},{110,-28}},
-          lineColor={255,128,0},
-          fillColor={255,128,0},
-          fillPattern=FillPattern.Solid),
         Line(
           points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
           color={0,0,255},
@@ -168,13 +130,38 @@ equation
 The electromagnetic energy conversion is given by <em>Ampere</em>'s law and <em>Faraday</em>'s law respectively:
 </p>
 
-<pre>
-    V_m = i * N
-    N * d&Phi;/dt = -v
-</pre>
+<blockquote><pre>
+V<sub>m</sub> = N * i
+N * d&Phi;/dt = -v
+</pre></blockquote>
 
 <p>
-V_m is the magnetomotive force that is supplied to the connected magnetic circuit, &Phi; is the magnetic flux through the associated branch of this magnetic circuit. The negative sign of the induced voltage v is due to <em>Lenz</em>'s law.
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Basic/converter_signs.png\" alt=\"converter signs\">
+</p>
+
+<p>
+V<sub>m</sub> is the magnetic potential difference applied to the magnetic circuit due to the current i through the coil (Ampere's law). 
+There exists a left-hand assignment between the current i (Put your hand around the coil, fingers pointing in the direction of current flow.) 
+and the magnetic potential difference V<sub>m</sub> (thumb).<br> 
+<strong>Note:</strong> There exists a right-hand assignment between the current through the coil i (fingers) and the magnetomotive force mmf. 
+The mmf has the opposite direction compared with V<sub>m</sub>, it is not used in Modelica. 
+</p>
+
+<p>
+For the complete magnetic circuit the sum of all magnetic potential differences counted with the correct sign in a reference direction is equal to zero: sum(V<sub>m</sub>) = 0.<br>
+The magnetic flux &Phi; in each passive component is related to the magnetic potential difference V<sub>m</sub> by the equivalent of Ohms' law: V<sub>m</sub> = R<sub>m</sub> * &Phi;<br>
+<strong>Note:</strong> The magnetic resistance R<sub>m</sub> depends on geometry and material properties. For ferromagnetic materials R<sub>m</sub> is not constant due to saturation.
+</p>
+
+<p>
+Therefore the sign (actual direction) of &Phi; (magnetic flux through the converter) depends on the associated branch of the magnetic circuit.<br>
+v is the induced voltage in the coil due to the derivative of magnetic flux &Phi; (Faraday's law).<br>
+<strong>Note:</strong> The negative sign of the induced voltage v is due to <em>Lenz</em>'s law.
+</p>
+
+<p>
+<strong>Note:</strong> The image shows a coil wound counter-clockwise (positive mathematical direction). 
+If a coil wound clockwise has to be modeled instead, the parameter N (Number of turns) can be set to a negative value.
 </p>
 
 <p>

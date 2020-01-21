@@ -67,13 +67,13 @@ Below the major design decisions of this library are summarized.
      can replace (expensive) string copy operations by pointer
      copy operations. For example, when sorting a set of strings
      the following type of operations occur:
-     <pre>
-     String s[:], s_temp;
-      ...
-     s_temp := s[i];
-     s[i]   := s[j];
-     s[j]   := s_temp;
-     </pre>
+     <blockquote><pre>
+String s[:], s_temp;
+ ...
+s_temp := s[i];
+s[i]   := s[j];
+s[j]   := s_temp;
+     </pre></blockquote>
      Formally, three strings are copied. Due to the feature
      sketched above, a Modelica tool can replace this
      copy operation by pointer assignments, a very \"cheap\"
@@ -172,13 +172,9 @@ The User's Guide has currently the following chapters:
 In case of error, all functions in this library use a Modelica \"assert(..)\"
 to provide an error message and to cancel all actions. This means that
 functions do not return, if an error is triggered inside the function.
-In the near future, an exception handling mechanism will be introduced
-in Modelica that will allow to catch errors at a defined place.
 </p>
 </html>"));
 end UsersGuide;
-
-
     annotation (
 Documentation(info="<html>
 <p>
@@ -215,7 +211,7 @@ The following main sublibraries are available:
 </ul>
 
 <p>
-Copyright &copy; 1998-2019, Modelica Association and contributors
+Copyright &copy; 1998-2020, Modelica Association and contributors
 </p>
 </html>"));
 end Utilities;

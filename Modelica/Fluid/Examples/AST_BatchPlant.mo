@@ -8,7 +8,7 @@ package AST_BatchPlant
     replaceable package BatchMedium = Modelica.Media.Water.StandardWater constrainedby
       Modelica.Media.Interfaces.PartialTwoPhaseMedium "Component media";
 
-    parameter Modelica.SIunits.Length pipeDiameter = 0.01;
+    parameter Modelica.SIunits.Length pipeDiameter = 0.01 "Pipe diameter";
 
     BaseClasses.TankWith3InletOutletArraysWithEvaporatorCondensor B5(
       redeclare package Medium = BatchMedium,
@@ -248,18 +248,18 @@ package AST_BatchPlant
       nTopPorts=1,
       nPorts=1,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(
-                                                                 diameter=0.011,
-          height=0)},
+        diameter=0.011,
+        height=0)},
       stiffCharacteristicForEmptyPort=false)
                          annotation (Placement(transformation(extent={{-110,180},
               {-70,220}})));
     inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, dp_small=1000)
                           annotation (Placement(transformation(extent={{180,250},
               {200,270}})));
-    Modelica.Blocks.Logical.TriggeredTrapezoid P1_on(               rising=0,
+    Modelica.Blocks.Logical.TriggeredTrapezoid P1_on(rising=0,
         amplitude=200)
       annotation (Placement(transformation(extent={{-122,-230},{-142,-210}})));
-    Modelica.Blocks.Logical.TriggeredTrapezoid P2_on(              rising=0,
+    Modelica.Blocks.Logical.TriggeredTrapezoid P2_on(rising=0,
         amplitude=200)
       annotation (Placement(transformation(extent={{100,-230},{120,-210}})));
     Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts B2(
@@ -271,8 +271,8 @@ package AST_BatchPlant
       nTopPorts=1,
       nPorts=1,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(
-                                                                 diameter=0.011,
-          height=0)},
+        diameter=0.011,
+        height=0)},
       stiffCharacteristicForEmptyPort=false)
                          annotation (Placement(transformation(extent={{50,180},
               {90,220}})));
@@ -284,8 +284,8 @@ package AST_BatchPlant
       nTopPorts=2,
       nPorts=2,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(
-                                                                 diameter=0.011,
-          height=0),Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
+        diameter=0.011,
+        height=0),Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
            0.011, height=0)},
       level_start=0.02,
       stiffCharacteristicForEmptyPort=false)
@@ -300,8 +300,8 @@ package AST_BatchPlant
       nTopPorts=1,
       nPorts=1,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(
-                                                                 diameter=0.011,
-          height=0)},
+        diameter=0.011,
+        height=0)},
       stiffCharacteristicForEmptyPort=false)
                          annotation (Placement(transformation(extent={{-110,30},
               {-70,70}})));
@@ -311,8 +311,8 @@ package AST_BatchPlant
       nTopPorts=1,
       nPorts=1,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(
-                                                                 diameter=0.011,
-          height=0)},
+        diameter=0.011,
+        height=0)},
       level_start=0.009,
       height=0.5,
       crossArea=0.05,
@@ -397,8 +397,8 @@ package AST_BatchPlant
       level_start=0.02,
       nPorts=1,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(
-                                                                 diameter=0.011,
-          height=0)},
+        diameter=0.011,
+        height=0)},
       stiffCharacteristicForEmptyPort=false,
       use_HeatTransfer=true,
       T_start=298,
@@ -579,7 +579,7 @@ Documentation for this example can be found on the <a href=\"modelica://Modelica
     block setReal "Set output signal to a time varying Real expression"
 
       Modelica.Blocks.Interfaces.RealInput u "Set value of Real input"
-        annotation (                            Dialog(group=
+        annotation (Dialog(group=
               "Time varying input signal"), Placement(transformation(extent={{
                 -140,-20},{-100,20}})));
 
@@ -617,17 +617,17 @@ Documentation for this example can be found on the <a href=\"modelica://Modelica
       parameter SI.Height height = 10 "Height of Tank";
       parameter SI.Volume V0=0 "Volume of the liquid when the level is zero";
       constant SI.Acceleration g=Modelica.Constants.g_n;
-      parameter Real side_heights[n_SidePorts]=zeros(n_SidePorts);
-      parameter Real bottom_heights[n_BottomPorts]=zeros(n_BottomPorts);
-      parameter Real top_heights[n_TopPorts]=fill(height, n_TopPorts);
+      parameter SI.Height side_heights[n_SidePorts]=zeros(n_SidePorts) "Side heights";
+      parameter SI.Height bottom_heights[n_BottomPorts]=zeros(n_BottomPorts) "Bottom heights";
+      parameter SI.Height top_heights[n_TopPorts]=fill(height, n_TopPorts) "Top heights";
       parameter SI.Height level_start "Initial tank level"
         annotation(Dialog(tab="Initialization"));
       parameter Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.Init
-        initType =                                 Init.GuessValues
+        initType = Init.GuessValues
         "Initialization option"
         annotation(Dialog(tab = "Initialization"));
       parameter Boolean use_T_start=true
-        "Use T_start if true, otherwise h_start" annotation(Dialog(tab = "Initialization"), Evaluate = true);
+        "= true, if T_start is used, otherwise h_start" annotation(Dialog(tab = "Initialization"), Evaluate = true);
       parameter Medium.Temperature T_start=if use_T_start then 293.15 else
           Medium.temperature_phX(p_ambient, h_start, X_start)
         "Start value of temperature"
@@ -642,9 +642,9 @@ Documentation for this example can be found on the <a href=\"modelica://Modelica
       parameter Medium.AbsolutePressure p_ambient=101325
         "Tank surface pressure";
       parameter Medium.Temperature T_ambient=293.15 "Tank surface Temperature";
-      parameter Integer n_TopPorts=1 "number of Top connectors";
-      parameter Integer n_SidePorts=1 "number of side connectors";
-      parameter Integer n_BottomPorts=1 "number of bottom connectors";
+      parameter Integer n_TopPorts=1 "Number of Top connectors";
+      parameter Integer n_SidePorts=1 "Number of side connectors";
+      parameter Integer n_BottomPorts=1 "Number of bottom connectors";
       Medium.BaseProperties medium(
         preferredMediumStates=true,
         p(start=p_ambient),
@@ -701,7 +701,7 @@ Documentation for this example can be found on the <a href=\"modelica://Modelica
         redeclare package Medium = Medium)
           annotation (Placement(transformation(extent={{-140,60},{-120,80}})));
       Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.InnerTank
-        InnerTankSide[                                                           n_SidePorts](
+        InnerTankSide[n_SidePorts](
         each h=medium.h,
         each p_ambient=p_ambient,
         each d=medium.d,
@@ -711,7 +711,7 @@ Documentation for this example can be found on the <a href=\"modelica://Modelica
         redeclare package Medium = Medium)
           annotation (Placement(transformation(extent={{-20,0},{0,20}})));
       Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.InnerTank
-        InnerTankBottom[                                                           n_BottomPorts](
+        InnerTankBottom[n_BottomPorts](
         each h=medium.h,
         each p_ambient=p_ambient,
         each d=medium.d,
@@ -721,7 +721,7 @@ Documentation for this example can be found on the <a href=\"modelica://Modelica
         redeclare package Medium = Medium)
           annotation (Placement(transformation(extent={{-80,-80},{-60,-60}})));
       Modelica.Fluid.Interfaces.FluidPort_b Condensed(redeclare package Medium
-          =        Medium)
+          = Medium)
         annotation (Placement(transformation(extent={{192,50},{212,70}})));
 
       // Heat transfer through boundary
@@ -745,18 +745,18 @@ Documentation for this example can be found on the <a href=\"modelica://Modelica
         annotation (Placement(transformation(extent={{-210,-10},{-190,10}})));
 
     // parameter for Evaporator
-      parameter Real min_level_for_heating;
+      parameter Modelica.SIunits.Height min_level_for_heating "Minimum level for heating";
 
       Medium.SaturationProperties sat
         "State vector to compute saturation properties";
       Medium.SpecificEnthalpy h_v=Medium.dewEnthalpy(sat)
-        "specific enthalpy of vapour";
+        "Specific enthalpy of vapour";
       Medium.SpecificEnthalpy h_l=Medium.bubbleEnthalpy(sat)
-        "specific enthalpy of liquid";
-      Medium.SpecificEnthalpy h "'is'specific enthalpy of liquid";
-      Medium.Density rho_v=Medium.dewDensity(sat) "density in vapour phase";
-      Medium.Density rho_l=Medium.bubbleDensity(sat) "density in liquid phase";
-      Medium.Density rho "'is' density in liquid phase";
+        "Specific enthalpy of liquid";
+      Medium.SpecificEnthalpy h "Actual specific enthalpy of liquid";
+      Medium.Density rho_v=Medium.dewDensity(sat) "Density in vapour phase";
+      Medium.Density rho_l=Medium.bubbleDensity(sat) "Density in liquid phase";
+      Medium.Density rho "Actual density in liquid phase";
 
     equation
       H_flow_TopPorts   = InnerTankTop.H_flow;
@@ -851,13 +851,10 @@ Documentation for this example can be found on the <a href=\"modelica://Modelica
                          sum(mXi_flow_topPorts[:,i]);
       end for;
 
-      assert(level < height, "
-    Tank is overflowing.
-    ");
+      assert(level < height, "Tank is overflowing.");
 
-      assert(not (heatPort.Q_flow > 0.0 and level <= min_level_for_heating), "
-    Attempting to heat an empty tank
-  ");
+      assert(not (heatPort.Q_flow > 0.0 and level <= min_level_for_heating),
+        "Attempting to heat an empty tank.");
 
     initial equation
       if initType == Init.GuessValues then
@@ -993,10 +990,10 @@ Full steady state initialization is not supported, because the corresponding ini
         actuators
         annotation (Placement(transformation(extent={{200,-20},{240,20}})));
 
-      parameter Real w_dilution=0.003;
-      parameter Real w_concentrate=0.005;
-      parameter Real startTime=1;
-      parameter Real T5_batch_level=0.211;
+      parameter Real w_dilution=0.003 "Dilution";
+      parameter Real w_concentrate=0.005 "Concentrate";
+      parameter Real startTime=1 "Start time";
+      parameter Real T5_batch_level=0.211 "T5 batch level";
 
       Modelica.StateGraph.InitialStep InitialStep1(nIn=1, nOut=1)
         annotation (Placement(transformation(extent={{-180,90},{-160,110}})));
@@ -1228,11 +1225,11 @@ Full steady state initialization is not supported, because the corresponding ini
       end Adapter_Superposition;
 
       class Block_Recipe_TBD
-        parameter Real startTime;
-        parameter Real w_dilution=0.003;
-        parameter Real w_concentrat=0.005;
-        parameter Real T3_batch_level=0.1273;
-        parameter Real T5_batch_level=0.211;
+        parameter Real startTime "Start time";
+        parameter Real w_dilution=0.003 "Dilution";
+        parameter Real w_concentrate=0.005 "Concentrate";
+        parameter Real T3_batch_level=0.1273 "T5 batch level";
+        parameter Real T5_batch_level=0.211 "T3 batch level";
         Boolean trig;
         Boolean S0(start=true);
         Boolean S1;
@@ -1395,7 +1392,7 @@ Integer type that can have the following values
 (to be selected via choices menu):
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.Init.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>GuessValues</td>
     <td>GuessValues -- Guess values (not fixed) for p, T or h, X, C</td></tr>
@@ -1464,20 +1461,19 @@ Integer type that can have the following values
     parameter Integer nPorts = 0
         "Number of inlet/outlet ports (on bottom and on the side)"
        annotation(Dialog(connectorSizing=true));
-    parameter Modelica.Fluid.Vessels.BaseClasses.VesselPortsData portsData[
-                                                                        nPorts]
+    parameter Modelica.Fluid.Vessels.BaseClasses.VesselPortsData portsData[nPorts]
         "Data of inlet/outlet ports at side and bottom of tank";
 
     Vessels.BaseClasses.VesselFluidPorts_b ports[nPorts](redeclare package
           Medium = Medium, m_flow(each start=0))
-        "inlet/outlet ports at bottom or side of tank (fluid flows in to or out of port; a port might be above the fluid level)"
+        "Inlet/outlet ports at bottom or side of tank (fluid flows in to or out of port; a port might be above the fluid level)"
       annotation (Placement(transformation(
           extent={{-20,0},{20,-10}},
           origin={0,-100})));
 
     // Heat transfer through boundary
     parameter Boolean use_HeatTransfer = false
-        "= true to use the HeatTransfer model"
+        "= true, if HeatTransfer model is used"
         annotation (Dialog(tab="Assumptions", group="Heat transfer"));
     replaceable model HeatTransfer =
         Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer
@@ -1815,7 +1811,8 @@ Implemented trace substances and missing equation for outflow of multi substance
     model TwoTanks
       import Modelica.SIunits.Conversions.from_bar;
       extends Modelica.Icons.Example;
-      parameter Boolean stiffCharacteristicForEmptyPort=true;
+      parameter Boolean stiffCharacteristicForEmptyPort=true
+        "= true, if steep pressure loss characteristic for empty pipe port";
 
       inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
           massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
@@ -2094,11 +2091,12 @@ Implemented trace substances and missing equation for outflow of multi substance
 
     model TanksWithEmptyingPipe2
       "Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient"
-      parameter Boolean stiffCharacteristicForEmptyPort=true;
+      parameter Boolean stiffCharacteristicForEmptyPort=true
+        "= true, if steep pressure loss characteristic for empty pipe port";
       import Modelica.SIunits.Conversions.from_bar;
       extends Modelica.Icons.Example;
       replaceable package Medium =
-         Modelica.Media.Water.ConstantPropertyLiquidWater                    constrainedby
+         Modelica.Media.Water.ConstantPropertyLiquidWater constrainedby
         Modelica.Media.Interfaces.PartialMedium "Medium in the component"
           annotation (choicesAllMatching = true);
 
@@ -2132,8 +2130,8 @@ Implemented trace substances and missing equation for outflow of multi substance
         portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(
             diameter=0.05, height=0),
             Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(
-                                                            diameter=0.05,
-            height=6.5)},
+              diameter=0.05,
+              height=6.5)},
         level_start=6,
         nTopPorts=1,
         stiffCharacteristicForEmptyPort = stiffCharacteristicForEmptyPort)
@@ -2171,14 +2169,14 @@ Implemented trace substances and missing equation for outflow of multi substance
             origin={70,30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Pipes.StaticPipe pipe2(         redeclare package Medium = Medium,
+      Pipes.StaticPipe pipe2(redeclare package Medium = Medium,
           height_ab=2,
         length=2,
         diameter=0.1) annotation (Placement(transformation(
             origin={0,-22},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Pipes.StaticPipe pipe3(         redeclare package Medium = Medium,
+      Pipes.StaticPipe pipe3(redeclare package Medium = Medium,
           height_ab=2,
         length=2,
         diameter=0.1) annotation (Placement(transformation(

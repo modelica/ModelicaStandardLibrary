@@ -4,7 +4,7 @@ model CurrentQuasiRMSSensor
   extends Modelica.Icons.RoundSensor;
   extends QuasiStatic.Polyphase.Interfaces.TwoPlug;
   parameter Integer m(min=1) = 3 "Number of phases";
-  Modelica.Blocks.Interfaces.RealOutput I
+  Modelica.Blocks.Interfaces.RealOutput I(unit="A")
     "Continuous quasi average RMS of current" annotation (Placement(
         transformation(
         origin={0,-100},
@@ -54,7 +54,7 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
 value of a polyphase current system, by averaging the phase RMS current phasors <code>i</code>.
 </p>
 <pre>
-  I = sum({'abs'(i[k]) for k in 1:m})/m
+  I = sum({abs(i[k]) for k in 1:m})/m
 </pre>
 
 <h4>See also</h4>

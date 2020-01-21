@@ -1,6 +1,5 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Sensors;
 model ReactivePowerSensor "Three-phase sensor for reactive power"
-  import Modelica;
   extends Modelica.Icons.RoundSensor;
   final parameter Integer m(final min=1) = 3 "Number of phases";
   Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug plug_p(final m=m)
@@ -112,7 +111,7 @@ equation
 Contains 3 power meters (Modelica.Electrical.Analog.Sensors.PowerSensor) to measure total reactive power in a three-phase system.
 </p>
 <p>
-Thomas M&uuml;hl: Elektrische Messtechnik. Springer Vieweg.
+For more information see [<a href=\"modelica://Modelica.Electrical.Polyphase.UsersGuide.References\">M&uuml;hl2017</a>].
 </p>
 </html>"));
 end ReactivePowerSensor;

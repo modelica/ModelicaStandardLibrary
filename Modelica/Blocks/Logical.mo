@@ -604,9 +604,15 @@ u1, else it is set equal to u3.</p>
           Line(points={{41,-29},{41,-49}}, color={192,192,192})}),
       Documentation(info="<html>
 <p>
-This block transforms a <strong>Real</strong> input signal into a <strong>Boolean</strong>
-output signal:
+This block transforms a <strong>Real</strong> input signal <strong>u</strong> into a <strong>Boolean</strong>
+output signal <strong>y</strong>:
 </p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Logical/Hysteresis.png\"
+     alt=\"Hysteresis.png\"> 
+</p>
+
 <ul>
 <li> When the output was <strong>false</strong> and the input becomes
      <strong>greater</strong> than parameter <strong>uHigh</strong>, the output
@@ -719,69 +725,7 @@ signal <strong>u</strong> exceeds the <strong>reference</strong> signal plus hal
         Line(points={{-80,-70},{-60,-70},{-60,24},{8,24},{8,-70},{60,-70}},
           color={255,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-80,-20},{-60,-20},{-30,40},{
-            8,40},{40,-20},{60,-20}}, color={0,0,255}),Line(points={{-90,-70},{
-            82,-70}}),Line(points={{-80,68},{-80,-80}}),
-            Polygon(
-              points={{90,-70},{68,-62},{68,-78},{90,-70}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Polygon(
-              points={{-80,90},{-88,68},{-72,68},{-80,90}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(points={{-80,-68},{-60,-68},{
-            -60,-42},{8,-42},{8,-68},{60,-68}}, color={255,0,255}),Line(
-              points={{-60,40},{-60,-42}},
-              pattern=LinePattern.Dot),Line(
-              points={{8,-42},{8,40}},
-              pattern=LinePattern.Dot),Line(points={{-60,40},{-30,40}}, color={
-            0,0,0}),Line(points={{8,-20},{40,-20}}),Line(points=
-            {{-20,40},{-20,-20}}),Line(points={{-20,-20},{-20,-70}}),Text(
-              extent={{-44,50},{-44,40}},
-              textString="rising"),Text(
-              extent={{24,-10},{24,-20}},
-              textString="falling"),Polygon(
-              points={{-60,40},{-56,42},{-56,38},{-60,40}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Polygon(
-              points={{-30,40},{-34,42},{-34,38},{-30,40}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Polygon(
-              points={{8,-20},{12,-18},{12,-22},{8,-20}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Polygon(
-              points={{40,-20},{36,-18},{36,-22},{40,-20}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Polygon(
-              points={{-22,-24},{-20,-20},{-18,-24},{-22,-24}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Polygon(
-              points={{-18,-66},{-22,-66},{-20,-70},{-18,-66}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Polygon(
-              points={{-22,36},{-20,40},{-18,36},{-22,36}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Polygon(
-              points={{-18,-16},{-22,-16},{-20,-20},{-18,-16}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Rectangle(
-              extent={{-40,6},{0,-4}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Text(
-              extent={{-20,6},{-20,-4}},
-              textString="amplitude"),Rectangle(
-              extent={{-40,-48},{0,-58}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Text(
-              extent={{-20,-48},{-20,-58}},
-              textString="offset"),Text(
-              extent={{60,-82},{94,-92}},
-              textString="time"),Text(
-              extent={{-88,-4},{-54,-14}},
-              textString="y"),Text(
-              extent={{-88,-46},{-54,-56}},
-              textString="u")}),
+              100,100}})),
       Documentation(info="<html>
 <p>The block TriggeredTrapezoid has a Boolean input and a real
 output signal and requires the parameters <em>amplitude</em>,
@@ -789,6 +733,12 @@ output signal and requires the parameters <em>amplitude</em>,
 output signal <strong>y</strong> represents a trapezoidal signal dependent on the
 input signal <strong>u</strong>.
 </p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Logical/TriggeredTrapezoid.png\"
+     alt=\"TriggeredTrapezoid.png\"> 
+</p>
+
 <p>The behaviour is as follows: Assume the initial input to be false. In this
 case, the output will be <em>offset</em>. After a rising edge (i.e., the input
 changes from false to true), the output is rising during <em>rising</em> to the
@@ -841,28 +791,18 @@ handled properly.</p>
         Line(points={{-80,0},{-62,0},{40,90},{40,0},{68,0}},
           color={0,0,127})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-90,-70},{82,-70}}),
-            Line(points={{-80,68},{-80,-80}}),Polygon(
-              points={{90,-70},{68,-62},{68,-78},{90,-70}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Polygon(
-              points={{-80,90},{-88,68},{-72,68},{-80,90}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(points={{-80,-68},{-60,-68},{
-            -60,-40},{20,-40},{20,-68},{60,-68}}, color={255,0,255}),Line(
-            points={{-80,-20},{-60,-20},{20,60},{20,-20},{60,-20},{60,-20}},
-            color={0,0,255}),Text(
-              extent={{-88,6},{-54,-4}},
-              textString="y"),Text(
-              extent={{48,-80},{84,-88}},
-              textString="time"),Text(
-              extent={{-88,-36},{-54,-46}},
-              textString="u")}),
+              100,100}})),
       Documentation(info="<html>
-<p>When the Boolean input \"u\" becomes <strong>true</strong>, the timer starts
-and the output \"y\" is the time that has elapsed since \"u\" became <strong>true</strong>.
+<p>When the Boolean input <strong>u</strong> becomes <strong>true</strong>, the timer starts
+and the output <strong>y</strong> is the time that has elapsed since <strong>u</strong> became <strong>true</strong>.
 When the input becomes <strong>false</strong>, the timer stops and the output is reset to zero.
 </p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Logical/Timer.png\"
+     alt=\"Timer.png\">
+</p>
+
 </html>"));
   end Timer;
 
@@ -990,7 +930,7 @@ network built with package Logical is shown in the next figure:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/LogicalNetwork1.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Logical/LogicalNetwork1.png\"
      alt=\"LogicalNetwork1.png\">
 </p>
 

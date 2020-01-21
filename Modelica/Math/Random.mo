@@ -67,16 +67,16 @@ with a sample period of 0.05 s. Simulations results are shown in the figure belo
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Random/GenerateRandomNumbers.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/Random/Examples/GenerateRandomNumbers.png\">
 </blockquote>
 </html>",     revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -95,13 +95,13 @@ This package contains examples demonstrating the usage of the functions in packa
 <strong>Random</strong>.
 </p>
 </html>",   revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -192,13 +192,13 @@ and the returned state is the one from the last iteration.
 <a href=\"modelica://Modelica.Math.Random.Generators.Xorshift64star.random\">Random.Generators.Xorshift64star.random</a>.
 </p>
 </html>",     revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -212,7 +212,7 @@ and the returned state is the one from the last iteration.
 </html>"));
       end initialState;
 
-      function random
+      pure function random
         "Returns a uniform random number with the xorshift64* algorithm"
         extends Modelica.Icons.Function;
         input Integer stateIn[nState]
@@ -257,13 +257,13 @@ same random number r is returned.
 <a href=\"modelica://Modelica.Math.Random.Generators.Xorshift64star.initialState\">Random.Generators.Xorshift64star.initialState</a>.
 </p>
 </html>",     revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -284,13 +284,13 @@ For an overview, comparison with other random number generators, and links to ar
 <a href=\"modelica://Modelica.Math.Random.Generators\">Math.Random.Generators</a>.
 </p>
 </html>",     revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -365,13 +365,13 @@ random number generator is used to fill the internal state vector with 64 bit ra
 <a href=\"modelica://Modelica.Math.Random.Generators.Xorshift128plus.random\">Random.Generators.Xorshift128plus.random</a>.
 </p>
 </html>",     revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -385,7 +385,7 @@ random number generator is used to fill the internal state vector with 64 bit ra
 </html>"));
       end initialState;
 
-      function random
+      pure function random
         "Returns a uniform random number with the xorshift128+ algorithm"
         extends Modelica.Icons.Function;
         input Integer stateIn[nState]
@@ -430,13 +430,13 @@ same random number r is returned.
 <a href=\"modelica://Modelica.Math.Random.Generators.Xorshift128plus.initialState\">Random.Generators.Xorshift128plus.initialState</a>.
 </p>
 </html>",     revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -458,13 +458,13 @@ other random number generators, and links to articles, see
 <a href=\"modelica://Modelica.Math.Random.Generators\">Math.Random.Generators</a>.
 </p>
 </html>",     revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -542,13 +542,13 @@ random number generator is used to fill the internal state vector with 64 bit ra
 <a href=\"modelica://Modelica.Math.Random.Generators.Xorshift1024star.random\">Random.Generators.Xorshift1024star.random</a>.
 </p>
 </html>",     revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -562,7 +562,7 @@ random number generator is used to fill the internal state vector with 64 bit ra
 </html>"));
       end initialState;
 
-      function random
+      pure function random
         "Returns a uniform random number with the xorshift1024* algorithm"
         extends Modelica.Icons.Function;
         input Integer stateIn[nState]
@@ -607,13 +607,13 @@ same random number r is returned.
 <a href=\"modelica://Modelica.Math.Random.Generators.Xorshift1024star.initialState\">Random.Generators.Xorshift1024star.initialState</a>.
 </p>
 </html>",     revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -634,13 +634,13 @@ For an overview, comparison with other random number generators, and links to ar
 <a href=\"modelica://Modelica.Math.Random.Generators\">Math.Random.Generators</a>.
 </p>
 </html>",     revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -713,7 +713,7 @@ Summary of the properties of the random number generators:
 </p>
 
 <blockquote>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Property</th>
     <th>xorshift64*</th>
     <th>xorshift128+</th>
@@ -823,13 +823,13 @@ Note, the generators produce 64 bit random numbers.
 These numbers are mapped to the 52 bit mantissa of double numbers in the range 0.0 .. 1.0.
 </p>
 </html>",   revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -886,13 +886,13 @@ These numbers are mapped to the 52 bit mantissa of double numbers in the range 0
       end if;
 
       annotation (Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -930,15 +930,13 @@ If the same localSeed, globalSeed, nState is given, the same state vector is ret
 </html>"));
     end initialStateWithXorshift64star;
 
-    function automaticGlobalSeed
+    impure function automaticGlobalSeed
       "Creates an automatic integer seed (typically from the current time and process id; this is an impure function)"
       extends Modelica.Icons.Function;
       output Integer seed "Automatically generated seed";
 
       external "C" seed = ModelicaRandom_automaticGlobalSeed(0.0) annotation (Library="ModelicaExternalC");
-
-     annotation (__ModelicaAssociation_Impure=true,
-        Documentation(info="<html>
+     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 seed = Utilities.<strong>automaticGlobalSeed</strong>();
@@ -961,23 +959,27 @@ This function should be only called once during initialization.
 </p>
 
 <h4>Example</h4>
-<pre>
-     <strong>parameter</strong> Boolean useAutomaticSeed = false;
-     <strong>parameter</strong> Integer fixedSeed = 67867967;
-     <strong>final parameter</strong> Integer seed = <strong>if</strong> useAutomaticSeed <strong>then</strong>
-                                   Random.Utilities.automaticGlobalSeed() <strong>else</strong> fixedSeed;
-</pre>
+<blockquote><pre>
+<strong>parameter</strong> Boolean useAutomaticSeed = false;
+<strong>parameter</strong> Integer fixedSeed = 67867967;
+<strong>final parameter</strong> Integer seed = <strong>if</strong> useAutomaticSeed <strong>then</strong>
+                              Random.Utilities.automaticGlobalSeed() <strong>else</strong> fixedSeed;
+</pre></blockquote>
 
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Math.Random.Utilities.automaticLocalSeed\">automaticLocalSeed</a>.
+</p>
 <h4>Note</h4>
 <p>This function is impure!</p>
 </html>",     revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -990,6 +992,67 @@ This function should be only called once during initialization.
 </table>
 </html>"));
     end automaticGlobalSeed;
+
+    function automaticLocalSeed
+      "Creates an automatic local seed from the instance name"
+      extends Modelica.Icons.Function;
+      input String path
+        "Full path name of the instance (inquire with getInstanceName())";
+      output Integer seed "Automatically generated seed";
+    algorithm
+      // Generate a hash value from the instance name
+      seed := Modelica.Utilities.Strings.hashString(path);
+
+     annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+seed = Utilities.<strong>automaticLocalSeed</strong>(path);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns an automatically computed seed (Integer) from the hash value of
+the full path name of an instance (has to be inquired in the model or block
+where this function is called by the Modelica built-in operator <a href=\"https://specification.modelica.org/v3.4/Ch3.html#getinstancename\">getInstanceName()</a>).
+Contrary to <a href=\"modelica://Modelica.Math.Random.Utilities.automaticGlobalSeed\">automaticGlobalSeed()</a>,
+this is a pure function, that is, the same seed is returned, if an identical
+path is provided.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+<strong>parameter</strong> Boolean useAutomaticLocalSeed = true;
+<strong>parameter</strong> Integer fixedLocalSeed        = 10;
+<strong>final parameter</strong> Integer localSeed = <strong>if</strong> useAutomaticLocalSeed <strong>then</strong>
+                                   automaticLocalSeed(getInstanceName())
+                                 <strong>else</strong>
+                                   fixedLocalSeed;
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Math.Random.Utilities.automaticGlobalSeed\">automaticGlobalSeed</a>, <a href=\"modelica://Modelica.Utilities.Strings.hashString\">hashString</a> and <a href=\"https://specification.modelica.org/v3.4/Ch3.html#getinstancename\">getInstanceName</a>.
+</p>
+</html>",     revisions="<html>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+
+<tr><td> June 22, 2015 </td>
+    <td>
+
+<table border=\"0\">
+<tr><td>
+         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
+</td><td valign=\"bottom\">
+         Initial version implemented by
+         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
+         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+</td></tr></table>
+</td></tr>
+
+</table>
+</html>"));
+    end automaticLocalSeed;
 
     function initializeImpureRandom
       "Initializes the internal state of the impure random number generator"
@@ -1004,7 +1067,7 @@ This function should be only called once during initialization.
       Integer rngState[33]
         "The internal state vector of the impure random number generator";
 
-      function setInternalState
+      impure function setInternalState
         "Stores the given state vector in an external static variable"
         extends Modelica.Icons.Function;
         input Integer[33] rngState "The initial state";
@@ -1020,8 +1083,7 @@ This function should be only called once during initialization.
 
       // Copy the internal state into the internal C static memory
       setInternalState(rngState, id);
-      annotation (
-      Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 id = <strong>initializeImpureRandom</strong>(seed;
@@ -1063,13 +1125,13 @@ random number generator to fill the internal state vector with 64 bit random num
 <a href=\"modelica://Modelica.Math.Random.Generators\">Random.Generators</a>
 </p>
 </html>",     revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -1083,7 +1145,7 @@ random number generator to fill the internal state vector with 64 bit random num
 </html>"));
     end initializeImpureRandom;
 
-    function impureRandom
+    impure function impureRandom
       "Impure random number generator (with hidden state vector)"
       extends Modelica.Icons.Function;
       input Integer id
@@ -1092,9 +1154,7 @@ random number generator to fill the internal state vector with 64 bit random num
         "A random number with a uniform distribution on the interval (0,1]";
       external "C" y = ModelicaRandom_impureRandom_xorshift1024star(id)
         annotation (Library="ModelicaExternalC");
-      annotation(__ModelicaAssociation_Impure=true,
-        Documentation(info=
-                   "<html>
+      annotation(Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 r = <strong>impureRandom</strong>(id);
@@ -1137,13 +1197,13 @@ is returned, so the function is impure.
 <h4>Note</h4>
 <p>This function is impure!</p>
 </html>",     revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -1157,7 +1217,7 @@ is returned, so the function is impure.
 </html>"));
     end impureRandom;
 
-    function impureRandomInteger
+    impure function impureRandomInteger
       "Impure random number generator for integer values (with hidden state vector)"
       extends Modelica.Icons.Function;
       input Integer id
@@ -1171,10 +1231,7 @@ is returned, so the function is impure.
     algorithm
       r  := impureRandom(id=id);
       y  := min(imax, integer(r*(imax-imin+1))+imin);
-
-      annotation (__ModelicaAssociation_Impure=true,
-        Documentation(info=
-                    "<html>
+      annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 r = <strong>impureRandomInteger</strong>(id, imin=1, imax=Modelica.Constants.Integer_inf);
@@ -1200,13 +1257,13 @@ is returned, so the function is impure.
 <h4>Note</h4>
 <p>This function is impure!</p>
 </html>", revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 <tr><td>June 2, 2017</td><td>Correct probabilities - especially for small ranges, by Hans Olsson, <a href=\"https://www.3ds.com\">Dassault Syst&egrave;mes</a></td></tr>
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -1226,13 +1283,13 @@ that are usually of no interest for the user
 (they are, for example, used in package <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>).
 </p>
 </html>",   revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -1281,13 +1338,13 @@ that are usually of no interest for the user
 package <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>).
 </p>
 </html>", revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">

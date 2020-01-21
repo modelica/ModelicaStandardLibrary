@@ -29,19 +29,7 @@ equation
           extent={{-150,-80},{150,-110}},
           textString="R=%R")}),
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}}), graphics={
-        Line(
-          points={{-80,0},{80,0}},
-          color={255,0,0},
-          thickness=0.5,
-          arrow={Arrow.None,Arrow.Filled}),
-        Text(
-          extent={{-100,-20},{100,-40}},
-          textColor={255,0,0},
-          textString="Q_flow"),
-        Text(
-          extent={{-100,40},{100,20}},
-          textString="dT = port_a.T - port_b.T")}),
+            {100,100}})),
     Documentation(info="<html>
 <p>
 This is a model for transport of heat without storing it, same as the

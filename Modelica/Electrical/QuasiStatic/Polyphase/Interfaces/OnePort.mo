@@ -2,12 +2,12 @@ within Modelica.Electrical.QuasiStatic.Polyphase.Interfaces;
 partial model OnePort
   parameter Integer m(min=1) = 3 "Number of phases";
   Modelica.SIunits.ComplexVoltage v[m] "Complex voltage";
-  Modelica.SIunits.Voltage abs_v[m]=Modelica.ComplexMath.'abs'(v)
+  Modelica.SIunits.Voltage abs_v[m]=Modelica.ComplexMath.abs(v)
     "Magnitude of complex voltage";
   Modelica.SIunits.Angle arg_v[m]=Modelica.ComplexMath.arg(v)
     "Argument of complex voltage";
   Modelica.SIunits.ComplexCurrent i[m] "Complex current";
-  Modelica.SIunits.Current abs_i[m]=Modelica.ComplexMath.'abs'(i)
+  Modelica.SIunits.Current abs_i[m]=Modelica.ComplexMath.abs(i)
     "Magnitude of complex current";
   Modelica.SIunits.Angle arg_i[m]=Modelica.ComplexMath.arg(i)
     "Argument of complex current";
@@ -17,7 +17,7 @@ partial model OnePort
   Modelica.SIunits.ReactivePower Q[m]={Modelica.ComplexMath.imag(v[k]*
       Modelica.ComplexMath.conj(i[k])) for k in 1:m} "Reactive power";
   Modelica.SIunits.ReactivePower Q_total=sum(Q) "Total reactive power";
-  Modelica.SIunits.ApparentPower S[m]={Modelica.ComplexMath.'abs'(v[k]*
+  Modelica.SIunits.ApparentPower S[m]={Modelica.ComplexMath.abs(v[k]*
       Modelica.ComplexMath.conj(i[k])) for k in 1:m}
     "Magnitude of complex apparent power";
   Modelica.SIunits.ApparentPower S_total=sqrt(P_total^2 + Q_total^2)

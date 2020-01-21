@@ -61,7 +61,7 @@ is negative. It must be positive.
 <p>
 This function approximates sqrt(abs(x))*sgn(x), such that the derivative is finite and smooth in x=0.
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Function</th><th>Approximation</th><th>Range</th></tr>
 <tr><td>y = regRoot(x)</td><td>y ~= sqrt(abs(x))*sgn(x)</td><td>abs(x) &gt;&gt;delta</td></tr>
 <tr><td>y = regRoot(x)</td><td>y ~= x/sqrt(delta)</td><td>abs(x) &lt;&lt; delta</td></tr>
@@ -112,7 +112,7 @@ With the default value of delta=0.01, the difference between sqrt(x) and regRoot
 <p>
 This function approximates x^2*sgn(x), such that the derivative is non-zero in x=0.
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Function</th><th>Approximation</th><th>Range</th></tr>
 <tr><td>y = regSquare(x)</td><td>y ~= x^2*sgn(x)</td><td>abs(x) &gt;&gt;delta</td></tr>
 <tr><td>y = regSquare(x)</td><td>y ~= x*delta</td><td>abs(x) &lt;&lt; delta</td></tr>
@@ -144,7 +144,7 @@ With the default value of delta=0.01, the difference between x^2 and regSquare(x
 <p>
 This function approximates abs(x)^a*sign(x), such that the derivative is positive, finite and smooth in x=0.
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Function</th><th>Approximation</th><th>Range</th></tr>
 <tr><td>y = regPow(x)</td><td>y ~= abs(x)^a*sgn(x)</td><td>abs(x) &gt;&gt;delta</td></tr>
 <tr><td>y = regPow(x)</td><td>y ~= x*delta^(a-1)</td><td>abs(x) &lt;&lt; delta</td></tr>
@@ -163,27 +163,28 @@ This function approximates abs(x)^a*sign(x), such that the derivative is positiv
     "Anti-symmetric approximation of square root with discontinuous factor so that the first derivative is finite and continuous"
 
     extends Modelica.Icons.Function;
-    input Real x "abscissa value";
-    input Real x_small(min=0)=0.01
-      "approximation of function for |x| <= x_small";
+    input Real x "Abscissa value";
+    input Real x_small(min=0)=0.01 "Approximation of function for |x| <= x_small";
     input Real k1(min=0)=1 "y = if x>=0 then sqrt(k1*x) else -sqrt(k2*|x|)";
     input Real k2(min=0)=1 "y = if x>=0 then sqrt(k1*x) else -sqrt(k2*|x|)";
     input Boolean use_yd0 = false "= true, if yd0 shall be used";
     input Real yd0(min=0)=1 "Desired derivative at x=0: dy/dx = yd0";
-    output Real y "ordinate value";
+    output Real y "Ordinate value";
   protected
+    Real sqrt_k1 = if k1 > 0 then sqrt(k1) else 0;
+    Real sqrt_k2 = if k2 > 0 then sqrt(k2) else 0;
     encapsulated function regRoot2_utility
       "Interpolating with two 3-order polynomials with a prescribed derivative at x=0"
       import Modelica;
       extends Modelica.Icons.Function;
       import Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero;
-       input Real x;
-       input Real x1 "approximation of function abs(x) < x1";
-       input Real k1 "y = if x>=0 then sqrt(k1*x) else -sqrt(k2*|x|); k1 >= k2";
-       input Real k2 "y = if x>=0 then sqrt(k1*x) else -sqrt(k2*|x|))";
-       input Boolean use_yd0 "= true, if yd0 shall be used";
-       input Real yd0(min=0) "Desired derivative at x=0: dy/dx = yd0";
-       output Real y;
+      input Real x;
+      input Real x1 "Approximation of function abs(x) < x1";
+      input Real k1 "y = if x>=0 then sqrt(k1*x) else -sqrt(k2*|x|); k1 >= k2";
+      input Real k2 "y = if x>=0 then sqrt(k1*x) else -sqrt(k2*|x|))";
+      input Boolean use_yd0 "= true, if yd0 shall be used";
+      input Real yd0(min=0) "Desired derivative at x=0: dy/dx = yd0";
+      output Real y;
     protected
        Real x2;
        Real xsqrt1;
@@ -279,17 +280,17 @@ This function approximates abs(x)^a*sign(x), such that the derivative is positiv
        annotation(smoothOrder=2);
     end regRoot2_utility;
   algorithm
-    y := smooth(2, if x >= x_small then sqrt(k1*x) else
-                   if x <= -x_small then -sqrt(k2*abs(x)) else
+    y := smooth(2, if x >= x_small then sqrt_k1*sqrt(x) else
+                   if x <= -x_small then -sqrt_k2*sqrt(abs(x)) else
                    if k1 >= k2 then regRoot2_utility(x,x_small,k1,k2,use_yd0,yd0) else
                                    -regRoot2_utility(-x,x_small,k2,k1,use_yd0,yd0));
     annotation(smoothOrder=2, Documentation(info="<html>
 <p>
 Approximates the function
 </p>
-<pre>
-   y = <strong>if</strong> x &ge; 0 <strong>then</strong> <strong>sqrt</strong>(k1*x) <strong>else</strong> -<strong>sqrt</strong>(k2*<strong>abs</strong>(x)), with k1, k2 &ge; 0
-</pre>
+<blockquote><pre>
+y = <strong>if</strong> x &ge; 0 <strong>then</strong> <strong>sqrt</strong>(k1*x) <strong>else</strong> -<strong>sqrt</strong>(k2*<strong>abs</strong>(x)), with k1, k2 &ge; 0
+</pre></blockquote>
 <p>
 in such a way that within the region -x_small &le; x &le; x_small,
 the function is described by two polynomials of third order
@@ -343,7 +344,7 @@ k1=1, k2=3 is shown in the next figure:</p>
 </dl>
 </html>", revisions="<html>
 <ul>
-<li><em>Sept., 2019</em>
+<li><em>Sept., 2010</em>
     by <a href=\"mailto:Martin.Otter@DLR.de\">Martin Otter</a>:<br>
     Improved so that k1=0 and/or k2=0 is also possible.</li>
 <li><em>Nov., 2005</em>
@@ -434,9 +435,9 @@ k1=1, k2=3 is shown in the next figure:</p>
 <p>
 Approximates the function
 </p>
-<pre>
-   y = <strong>if</strong> x &ge; 0 <strong>then</strong> k1*x*x <strong>else</strong> -k2*x*x, with k1, k2 > 0
-</pre>
+<blockquote><pre>
+y = <strong>if</strong> x &ge; 0 <strong>then</strong> k1*x*x <strong>else</strong> -k2*x*x, with k1, k2 > 0
+</pre></blockquote>
 <p>
 in such a way that within the region -x_small &le; x &le; x_small,
 the function is described by two polynomials of third order
@@ -520,18 +521,18 @@ k1=1, k2=3 is shown in the next figure:
 <p>
 This function is used to approximate the equation
 </p>
-<pre>
-    y = <strong>if</strong> x &gt; 0 <strong>then</strong> y1 <strong>else</strong> y2;
-</pre>
+<blockquote><pre>
+y = <strong>if</strong> x &gt; 0 <strong>then</strong> y1 <strong>else</strong> y2;
+</pre></blockquote>
 
 <p>
 by a smooth characteristic, so that the expression is continuous and differentiable:
 </p>
 
-<pre>
-   y = <strong>smooth</strong>(1, <strong>if</strong> x &gt;  x_small <strong>then</strong> y1 <strong>else</strong>
-                 <strong>if</strong> x &lt; -x_small <strong>then</strong> y2 <strong>else</strong> f(y1, y2));
-</pre>
+<blockquote><pre>
+y = <strong>smooth</strong>(1, <strong>if</strong> x &gt;  x_small <strong>then</strong> y1 <strong>else</strong>
+              <strong>if</strong> x &lt; -x_small <strong>then</strong> y2 <strong>else</strong> f(y1, y2));
+</pre></blockquote>
 
 <p>
 In the region -x_small &lt; x &lt; x_small a 2nd order polynomial is used
@@ -723,9 +724,9 @@ for a smooth transition from y1 to y2.
 
     annotation (smoothOrder=1, Documentation(revisions="<html>
 <ul>
-<li><em>May 2008</em> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br/>Designed and implemented.</li>
-<li><em>February 2011</em> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br/>If the inflection point of the cubic S0 was at +/- infinity, the test criteria of <em>[Gasparo and Morandi, 1991]</em> result in division by zero. This case is handled properly now.</li>
-<li><em>March 2013</em> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br/>If the arguments prescribed a degenerate case with points <code>(x0,y0)</code> and <code>(x1,y1)</code> on horizontal line, then return value <code>c</code> was undefined. This was corrected. Furthermore, an additional term was included for the computation of <code>y</code> in this case to assist automatic differentiation.</li>
+<li><em>May 2008</em> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br>Designed and implemented.</li>
+<li><em>February 2011</em> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br>If the inflection point of the cubic S0 was at +/- infinity, the test criteria of <em>[Gasparo and Morandi, 1991]</em> result in division by zero. This case is handled properly now.</li>
+<li><em>March 2013</em> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br>If the arguments prescribed a degenerate case with points <code>(x0,y0)</code> and <code>(x1,y1)</code> on horizontal line, then return value <code>c</code> was undefined. This was corrected. Furthermore, an additional term was included for the computation of <code>y</code> in this case to assist automatic differentiation.</li>
 </ul>
 </html>",   info="<html>
 <p>

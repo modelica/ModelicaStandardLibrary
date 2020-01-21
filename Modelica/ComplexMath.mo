@@ -16,13 +16,13 @@ function norm "Returns the p-norm of a complex vector"
 
 algorithm
   if p == 2 then
-    result:= sqrt(sum(v[i].re^2 + v[i].im^2 for i in 1:size(v,1)));
+    result:= .sqrt(.sum(v[i].re^2 + v[i].im^2 for i in 1:size(v,1)));
   elseif p == Modelica.Constants.inf then
-    result:= ComplexMath.'abs'(ComplexMath.'max'(v));
+    result:= ComplexMath.abs(ComplexMath.max(v));
   elseif p == 1 then
-    result:= sum(ComplexMath.'abs'(v[i]) for i in 1:size(v,1));
+    result:= .sum(ComplexMath.abs(v[i]) for i in 1:size(v,1));
   else
-    result:=(sum(ComplexMath.'abs'(v[i])^p for i in 1:size(v, 1)))^(1/p);
+    result:=(.sum(ComplexMath.abs(v[i])^p for i in 1:size(v, 1)))^(1/p);
   end if;
 
   annotation (Documentation(info="<html>
@@ -46,7 +46,7 @@ second argument \"p\", any other p-norm can be computed:
 Besides the Euclidean norm (p=2), also the 1-norm and the
 infinity-norm are sometimes used:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>1-norm</strong></td>
       <td>= sum(abs(v))</td>
       <td><strong>norm</strong>(v,1)</td>
@@ -69,12 +69,12 @@ Note, for any vector norm the following inequality holds:
 
 <h4>Example</h4>
 <blockquote><pre>
-  v = {2, -4, -2, -1};
-  <strong>norm</strong>(v,1);    // = 9
-  <strong>norm</strong>(v,2);    // = 5
-  <strong>norm</strong>(v);      // = 5
-  <strong>norm</strong>(v,10.5); // = 4.00052597412635
-  <strong>norm</strong>(v,Modelica.Constants.inf);  // = 4
+v = {2, -4, -2, -1};
+<strong>norm</strong>(v,1);    // = 9
+<strong>norm</strong>(v,2);    // = 5
+<strong>norm</strong>(v);      // = 5
+<strong>norm</strong>(v,10.5); // = 4.00052597412635
+<strong>norm</strong>(v,Modelica.Constants.inf);  // = 4
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -90,7 +90,7 @@ function length "Return length of a complex vector"
   output Real result "Length of vector v";
 
 algorithm
-  result := sqrt(sum({v[i].re^2 + v[i].im^2 for i in 1:size(v,1)}));
+  result := .sqrt(.sum({v[i].re^2 + v[i].im^2 for i in 1:size(v,1)}));
   annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -111,8 +111,8 @@ not the case with function norm(..).
 
 <h4>Example</h4>
 <blockquote><pre>
-  v = {2, -4, -2, -1};
-  <strong>length</strong>(v);  // = 5
+v = {2, -4, -2, -1};
+<strong>length</strong>(v);  // = 5
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -167,8 +167,8 @@ possible.
 
 <h4>Example</h4>
 <blockquote><pre>
-  <strong>normalize</strong>({1,2,3});  // = {0.267, 0.534, 0.802}
-  <strong>normalize</strong>({0,0,0});  // = {0,0,0}
+<strong>normalize</strong>({1,2,3});  // = {0.267, 0.534, 0.802}
+<strong>normalize</strong>({0,0,0});  // = {0,0,0}
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -188,11 +188,16 @@ algorithm
   result := {v[end-i+1] for i in 1:size(v,1)};
 annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
-<blockquote><pre>Vectors.<strong>reverse</strong>(v);</pre></blockquote>
+<blockquote><pre>
+Vectors.<strong>reverse</strong>(v);
+</pre></blockquote>
 <h4>Description</h4>
 The function call &quot;<code>Vectors.<strong>reverse</strong>(v)</code>&quot; returns the complex vector elements in reverse order.
+
 <h4>Example</h4>
-<blockquote><pre>  <strong>reverse</strong>({1,2,3,4});  // = {4,3,2,1}</pre></blockquote>
+<blockquote><pre>
+<strong>reverse</strong>({1,2,3,4});  // = {4,3,2,1}
+</pre></blockquote>
 </html>"));
 end reverse;
 
@@ -229,21 +234,21 @@ algorithm
            k2 := j + gap + 1;
            if sortFrequency then
               if ascending then
-                 swap := abs(sorted_v[k1].im) >  abs(sorted_v[k2].im) or
-                         abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and
+                 swap := .abs(sorted_v[k1].im) >  .abs(sorted_v[k2].im) or
+                         .abs(sorted_v[k1].im) == .abs(sorted_v[k2].im) and
                          (sorted_v[k1].re  > sorted_v[k2].re or
                           sorted_v[k1].re  == sorted_v[k2].re and sorted_v[k1].im < sorted_v[k2].im);
               else
-                 swap := abs(sorted_v[k1].im) <  abs(sorted_v[k2].im) or
-                         abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and
+                 swap := .abs(sorted_v[k1].im) <  .abs(sorted_v[k2].im) or
+                         .abs(sorted_v[k1].im) == .abs(sorted_v[k2].im) and
                          (sorted_v[k1].re  < sorted_v[k2].re or
                           sorted_v[k1].re  == sorted_v[k2].re and sorted_v[k1].im < sorted_v[k2].im);
               end if;
            else
               if ascending then
-                 swap := ComplexMath.'abs'(sorted_v[k1]) > ComplexMath.'abs'(sorted_v[k2]);
+                 swap := ComplexMath.abs(sorted_v[k1]) > ComplexMath.abs(sorted_v[k2]);
               else
-                 swap := ComplexMath.'abs'(sorted_v[k1]) < ComplexMath.'abs'(sorted_v[k2]);
+                 swap := ComplexMath.abs(sorted_v[k1]) < ComplexMath.abs(sorted_v[k2]);
               end if;
            end if;
         else
@@ -263,21 +268,21 @@ algorithm
               k2 := j + gap + 1;
               if sortFrequency then
                  if ascending then
-                    swap := abs(sorted_v[k1].im) >  abs(sorted_v[k2].im) or
-                            abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and
+                    swap := .abs(sorted_v[k1].im) >  .abs(sorted_v[k2].im) or
+                            .abs(sorted_v[k1].im) == .abs(sorted_v[k2].im) and
                             (sorted_v[k1].re  > sorted_v[k2].re or
                              sorted_v[k1].re  == sorted_v[k2].re and sorted_v[k1].im < sorted_v[k2].im);
                  else
-                    swap := abs(sorted_v[k1].im) <  abs(sorted_v[k2].im) or
-                            abs(sorted_v[k1].im) == abs(sorted_v[k2].im) and
+                    swap := .abs(sorted_v[k1].im) <  .abs(sorted_v[k2].im) or
+                            .abs(sorted_v[k1].im) == .abs(sorted_v[k2].im) and
                             (sorted_v[k1].re  < sorted_v[k2].re or
                              sorted_v[k1].re  == sorted_v[k2].re and sorted_v[k1].im < sorted_v[k2].im);
                  end if;
               else
                  if ascending then
-                    swap := ComplexMath.'abs'(sorted_v[k1]) > ComplexMath.'abs'(sorted_v[k2]);
+                    swap := ComplexMath.abs(sorted_v[k1]) > ComplexMath.abs(sorted_v[k2]);
                  else
-                    swap := ComplexMath.'abs'(sorted_v[k1]) < ComplexMath.'abs'(sorted_v[k2]);
+                    swap := ComplexMath.abs(sorted_v[k1]) < ComplexMath.abs(sorted_v[k2]);
                  end if;
               end if;
            else
@@ -308,9 +313,9 @@ to the original vector are given, such that sorted_v = v[indices].
 
 <h4>Example</h4>
 <blockquote><pre>
-  (v2, i2) := Vectors.sort({-1, 8, 3, 6, 2});
-       -> v2 = {-1, 2, 3, 6, 8}
-          i2 = {1, 5, 3, 4, 2}
+(v2, i2) := Vectors.sort({-1, 8, 3, 6, 2});
+    -> v2 = {-1, 2, 3, 6, 8}
+       i2 = {1, 5, 3, 4, 2}
 </pre></blockquote>
 
 </html>"));
@@ -362,7 +367,7 @@ end Vectors;
     input Complex c1 "Complex number";
     output Complex c2 "arc_sin(c1)";
   algorithm
-    c2 := -j*log(j*c1 + 'sqrt'(1 - c1*c1));
+    c2 := -j*log(j*c1 + sqrt(1 - c1*c1));
     annotation(Inline=true, Documentation(info="<html>
 <p>This function returns the inverse Complex sine of the Complex input.</p>
 </html>"));
@@ -373,7 +378,7 @@ end Vectors;
     input Complex c1 "Complex number";
     output Complex c2 "= arc_cos(c1)";
   algorithm
-    c2 := -j*log(c1 + j*'sqrt'(1 - c1*c1));
+    c2 := -j*log(c1 + j*sqrt(1 - c1*c1));
     annotation(Inline=true, Documentation(info="<html>
 <p>This function returns the inverse Complex cosine of the Complex input.</p>
 </html>"));
@@ -428,7 +433,7 @@ end Vectors;
     input Complex c1 "Complex number";
     output Complex c2 "ar_sinh(c1)";
   algorithm
-    c2 := log(c1 + 'sqrt'(c1*c1 + 1));
+    c2 := log(c1 + sqrt(c1*c1 + 1));
     annotation(Inline=true, Documentation(info="<html>
 <p>This function returns the inverse Complex hyperbolic sine of the Complex input.</p>
 </html>"));
@@ -439,7 +444,7 @@ end Vectors;
     input Complex c1 "Complex number";
     output Complex c2 "= ar_cosh(c1)";
   algorithm
-    c2 := log(c1 + (c1 + 1)*'sqrt'((c1 - 1)/(c1 + 1)));
+    c2 := log(c1 + (c1 + 1)*sqrt((c1 - 1)/(c1 + 1)));
     annotation(Inline=true, Documentation(info="<html>
 <p>This function returns the inverse Complex hyperbolic cosine of the Complex input.</p>
 </html>"));
@@ -472,13 +477,13 @@ end Vectors;
     input Complex c1 "Complex number";
     output Complex c2 "= log(c1)";
   algorithm
-    c2 := Complex(Modelica.Math.log('abs'(c1)), arg(c1));
+    c2 := Complex(Modelica.Math.log(abs(c1)), arg(c1));
     annotation(Inline=true, Documentation(info="<html>
 <p>This function returns the Complex natural logarithm of the Complex input.</p>
 </html>"));
   end log;
 
-  function 'abs' "Absolute value of complex number"
+  function abs "Absolute value of complex number"
     extends Modelica.Icons.Function;
     input Complex c "Complex number";
     output Real result "= abs(c)";
@@ -487,7 +492,7 @@ end Vectors;
     annotation(Inline=true, Documentation(info="<html>
 <p>This function returns the Real absolute of the Complex input, i.e., its length.</p>
 </html>"));
-  end 'abs';
+  end abs;
 
   function arg "Phase angle of complex number"
     extends Modelica.Icons.Function;
@@ -550,18 +555,18 @@ end Vectors;
 </html>"));
   end fromPolar;
 
-  function 'sqrt' "Square root of complex number"
+  function sqrt "Square root of complex number"
     extends Modelica.Icons.Function;
     input Complex c1 "Complex number";
     output Complex c2 "= sqrt(c1)";
   algorithm
-    c2 := Complex(sqrt('abs'(c1))*Math.cos(arg(c1)/2), sqrt('abs'(c1))*Math.sin(arg(c1)/2));
+    c2 := Complex(.sqrt(abs(c1))*Math.cos(arg(c1)/2), .sqrt(abs(c1))*Math.sin(arg(c1)/2));
     annotation(Inline=true, Documentation(info="<html>
 <p>This function returns the Complex square root (principal square root) of the Complex input.</p>
 </html>"));
-  end 'sqrt';
+  end sqrt;
 
-  function 'max' "Return maximum element of complex vector"
+  function max "Return maximum element of complex vector"
     extends Modelica.Icons.Function;
     input Complex v[:] "Vector";
     output Complex result "Element of v with largest absolute value";
@@ -571,10 +576,10 @@ end Vectors;
     Real absres;
   algorithm
     if size(v,1) > 0 then
-      absres := 'abs'(v[1]);
+      absres := abs(v[1]);
       index  := 1;
       for i in 2:size(v,1) loop
-        absv_i := 'abs'(v[i]);
+        absv_i := abs(v[i]);
         if absv_i > absres then
           absres := absv_i;
           index := i;
@@ -588,9 +593,9 @@ end Vectors;
     annotation(Documentation(info="<html>
 <p>This function returns the largest element of the Complex input vector, defined by the Complex absolute.</p>
 </html>"));
-  end 'max';
+  end max;
 
-  function 'min' "Return minimum element of complex vector"
+  function min "Return minimum element of complex vector"
     extends Modelica.Icons.Function;
     input Complex v[:] "Vector";
     output Complex result "Element of v with smallest absolute value";
@@ -600,10 +605,10 @@ end Vectors;
     Real absres;
   algorithm
     if size(v,1) > 0 then
-      absres := 'abs'(v[1]);
+      absres := abs(v[1]);
       index  := 1;
       for i in 2:size(v,1) loop
-        absv_i := 'abs'(v[i]);
+        absv_i := abs(v[i]);
         if absv_i < absres then
           absres := absv_i;
           index := i;
@@ -617,20 +622,20 @@ end Vectors;
     annotation(Documentation(info="<html>
 <p>This function returns the smallest element of the Complex input vector, defined by the Complex absolute.</p>
 </html>"));
-  end 'min';
+  end min;
 
-  function 'sum' "Return sum of complex vector"
+  function sum "Return sum of complex vector"
     extends Modelica.Icons.Function;
     input Complex v[:] "Vector";
     output Complex result "Complex sum of vector elements";
   algorithm
-    result:=Complex(sum(v[:].re), sum(v[:].im));
+    result:=Complex(.sum(v[:].re), .sum(v[:].im));
     annotation(Inline=true, Documentation(info="<html>
 <p>This function returns the Complex sum of the Complex input vector</p>
 </html>"));
-  end 'sum';
+  end sum;
 
-  function 'product' "Return product of complex vector"
+  function product "Return product of complex vector"
     extends Modelica.Icons.Function;
     input Complex v[:] "Vector";
     output Complex result "Complex product of vector elements";
@@ -642,7 +647,7 @@ end Vectors;
     annotation(Documentation(info="<html>
 <p>This function returns the Complex product of the Complex input vector</p>
 </html>"));
-  end 'product';
+  end product;
 
   annotation (Documentation(info="<html>
 <p>

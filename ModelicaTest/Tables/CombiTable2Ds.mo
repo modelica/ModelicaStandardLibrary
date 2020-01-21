@@ -3,26 +3,27 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
   import Modelica.Utilities.Files.loadResource;
   extends Modelica.Icons.ExamplesPackage;
 
-  partial model Test0
-    Modelica.Blocks.Tables.CombiTable2Ds t_new
-      annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
-    Modelica.Blocks.Continuous.Der d_t_new
-      annotation (Placement(transformation(extent={{0,0},{20,20}})));
-  equation
-    connect(t_new.y, d_t_new.u) annotation (Line(
-        points={{-19,10},{-2,10}},
-        color={0,0,127},
-        thickness=0.0625));
-  end Test0;
+  partial model Test
+    Modelica.Blocks.Tables.CombiTable2Ds t_new annotation(Placement(transformation(extent={{-40,0},{-20,20}})));
+  end Test;
 
-  partial model Test0_noDer
-    Modelica.Blocks.Tables.CombiTable2Ds t_new
-      annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
-  end Test0_noDer;
+  partial model TestDer
+    extends Test;
+    Modelica.Blocks.Continuous.Der d_t_new annotation(Placement(transformation(extent={{0,0},{20,20}})));
+  equation
+    connect(t_new.y, d_t_new.u) annotation(Line(points={{-19,10},{-2,10}}, color={0,0,127}));
+  end TestDer;
+
+  partial model TestDer2
+    extends TestDer;
+    Modelica.Blocks.Continuous.Der d2_t_new annotation(Placement(transformation(extent={{40,0},{60,20}})));
+  equation
+    connect(d_t_new.y, d2_t_new.u) annotation(Line(points={{21,10},{26,10},{33,10},{38,10}}, color={0,0,127}));
+  end TestDer2;
 
   model Test1 "Akima, u1 extrapolation"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0, 58.2,
+    extends TestDer2(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0, 58.2,
             61.5, 47.9, 62.3, 34.6, 45.5, 38.2, 41.2, 41.7; 5, 37.2, 40, 27,
             41.3, 14.1, 24.5, 17.3, 20.2, 20.8; 10, 22.4, 22.5, 14.6, 22.5, 4.7,
             7.2, 1.8, 2.1, 2.1; 15, 21.8, 20.5, 12.8, 17.6, 5.8, 7.6, 0.8, 0.6,
@@ -45,7 +46,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
 
   model Test2 "Akima, u2 extrapolation"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0, 58.2,
+    extends TestDer2(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0, 58.2,
             61.5, 47.9, 62.3, 34.6, 45.5, 38.2, 41.2, 41.7; 5, 37.2, 40, 27,
             41.3, 14.1, 24.5, 17.3, 20.2, 20.8; 10, 22.4, 22.5, 14.6, 22.5, 4.7,
             7.2, 1.8, 2.1, 2.1; 15, 21.8, 20.5, 12.8, 17.6, 5.8, 7.6, 0.8, 0.6,
@@ -68,7 +69,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
 
   model Test3 "Akima, u1 and u2 extrapolation"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0, 58.2,
+    extends TestDer2(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0, 58.2,
             61.5, 47.9, 62.3, 34.6, 45.5, 38.2, 41.2, 41.7; 5, 37.2, 40, 27,
             41.3, 14.1, 24.5, 17.3, 20.2, 20.8; 10, 22.4, 22.5, 14.6, 22.5, 4.7,
             7.2, 1.8, 2.1, 2.1; 15, 21.8, 20.5, 12.8, 17.6, 5.8, 7.6, 0.8, 0.6,
@@ -91,7 +92,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
 
   model Test4 "Bilinear, u1 extrapolation"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0, 58.2,
+    extends TestDer(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0, 58.2,
             61.5, 47.9, 62.3, 34.6, 45.5, 38.2, 41.2, 41.7; 5, 37.2, 40, 27,
             41.3, 14.1, 24.5, 17.3, 20.2, 20.8; 10, 22.4, 22.5, 14.6, 22.5, 4.7,
             7.2, 1.8, 2.1, 2.1; 15, 21.8, 20.5, 12.8, 17.6, 5.8, 7.6, 0.8, 0.6,
@@ -113,7 +114,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
 
   model Test5 "Bilinear, u2 extrapolation"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0, 58.2,
+    extends TestDer(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0, 58.2,
             61.5, 47.9, 62.3, 34.6, 45.5, 38.2, 41.2, 41.7; 5, 37.2, 40, 27,
             41.3, 14.1, 24.5, 17.3, 20.2, 20.8; 10, 22.4, 22.5, 14.6, 22.5, 4.7,
             7.2, 1.8, 2.1, 2.1; 15, 21.8, 20.5, 12.8, 17.6, 5.8, 7.6, 0.8, 0.6,
@@ -135,7 +136,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
 
   model Test6 "Bilinear, u1 and u2 extrapolation"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0, 58.2,
+    extends TestDer(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0, 58.2,
             61.5, 47.9, 62.3, 34.6, 45.5, 38.2, 41.2, 41.7; 5, 37.2, 40, 27,
             41.3, 14.1, 24.5, 17.3, 20.2, 20.8; 10, 22.4, 22.5, 14.6, 22.5, 4.7,
             7.2, 1.8, 2.1, 2.1; 15, 21.8, 20.5, 12.8, 17.6, 5.8, 7.6, 0.8, 0.6,
@@ -157,7 +158,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
 
   model Test7 "Constant segments, u1 extrapolation"
     extends Modelica.Icons.Example;
-    extends Test0_noDer(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0,
+    extends Test(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0,
             58.2, 61.5, 47.9, 62.3, 34.6, 45.5, 38.2, 41.2, 41.7; 5, 37.2, 40,
             27, 41.3, 14.1, 24.5, 17.3, 20.2, 20.8; 10, 22.4, 22.5, 14.6, 22.5,
             4.7, 7.2, 1.8, 2.1, 2.1; 15, 21.8, 20.5, 12.8, 17.6, 5.8, 7.6, 0.8,
@@ -180,7 +181,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
 
   model Test8 "Constant segments, u2 extrapolation"
     extends Modelica.Icons.Example;
-    extends Test0_noDer(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0,
+    extends Test(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0,
             58.2, 61.5, 47.9, 62.3, 34.6, 45.5, 38.2, 41.2, 41.7; 5, 37.2, 40,
             27, 41.3, 14.1, 24.5, 17.3, 20.2, 20.8; 10, 22.4, 22.5, 14.6, 22.5,
             4.7, 7.2, 1.8, 2.1, 2.1; 15, 21.8, 20.5, 12.8, 17.6, 5.8, 7.6, 0.8,
@@ -203,7 +204,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
 
   model Test9 "Constant segments, u1 and u2 extrapolation"
     extends Modelica.Icons.Example;
-    extends Test0_noDer(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0,
+    extends Test(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0,
             58.2, 61.5, 47.9, 62.3, 34.6, 45.5, 38.2, 41.2, 41.7; 5, 37.2, 40,
             27, 41.3, 14.1, 24.5, 17.3, 20.2, 20.8; 10, 22.4, 22.5, 14.6, 22.5,
             4.7, 7.2, 1.8, 2.1, 2.1; 15, 21.8, 20.5, 12.8, 17.6, 5.8, 7.6, 0.8,
@@ -226,7 +227,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
 
   model Test10 "MAT-File v4"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         tableOnFile=true,
         tableName="akima2D",
         fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v4.mat")));
@@ -244,7 +245,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
 
   model Test11 "MAT-File v6"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         tableOnFile=true,
         tableName="akima2D",
         fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v6.mat")));
@@ -262,7 +263,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
 
   model Test12 "MAT-File v7"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         tableOnFile=true,
         tableName="akima2D",
         fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.mat")));
@@ -281,7 +282,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
   /*
   model Test13 "MAT-File v7.3"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         tableOnFile=true,
         tableName="akima2D",
         fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.3.mat")));
@@ -293,7 +294,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
 */
   model Test14 "ASCII Text file"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         tableOnFile=true,
         tableName="akima2D",
         fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test.txt")));
@@ -486,13 +487,14 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
 
   model Test18_usertab "Test utilizing the usertab.c interface"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(tableOnFile=true, tableName="TestTable_2D"));
+    extends TestDer(t_new(tableOnFile=true, tableName="TestTable_2D"));
+    parameter Real dummy(fixed=false) "Dummy parameter";
     Modelica.Blocks.Sources.Ramp ramp(height=2, duration=1)
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Sources.Ramp ramp1(duration=1, height=6)
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   protected
-    encapsulated function getUsertab
+    encapsulated impure function getUsertab
       import Modelica;
       extends Modelica.Icons.Function;
       input Real dummy_u;
@@ -505,9 +507,8 @@ double mydummyfunc(double dummy_in) {
 }
 ");
     end getUsertab;
-  public
-    Modelica.Blocks.Sources.RealExpression realExpression(y=getUsertab(t_new.y))
-      annotation (Placement(transformation(extent={{-20,-40},{10,-20}})));
+  initial equation
+    dummy = getUsertab(t_new.y);
   equation
     connect(ramp1.y, t_new.u2) annotation (Line(
         points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
@@ -941,7 +942,7 @@ double mydummyfunc(double dummy_in) {
 
   model Test24 "2x3 table, Akima (Ticket #1820)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer2(t_new(
       table=[0,0,1;0.5,1,2],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
     Modelica.Blocks.Sources.ContinuousClock clock1
@@ -958,7 +959,7 @@ double mydummyfunc(double dummy_in) {
 
   model Test25 "3x2 table, Akima (Ticket #1820)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer2(t_new(
       table=[0,0.5;0,1;1,2],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
     Modelica.Blocks.Sources.ContinuousClock clock1
@@ -975,7 +976,7 @@ double mydummyfunc(double dummy_in) {
 
   model Test26 "2x4 table, Akima (Ticket #1820)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer2(t_new(
       table=[0,0,0.5,1;0.5,1,2,1],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
     Modelica.Blocks.Sources.ContinuousClock clock1
@@ -992,7 +993,7 @@ double mydummyfunc(double dummy_in) {
 
   model Test27 "4x2 table, Akima (Ticket #1820)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer2(t_new(
       table=[0,0.5;0,1;0.5,2;1,1],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
     Modelica.Blocks.Sources.ContinuousClock clock1
@@ -1009,7 +1010,7 @@ double mydummyfunc(double dummy_in) {
 
   model Test28 "3x3 table, Akima (Ticket #1820)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer2(t_new(
       table=[0,0,1;0,0,1;1,1,1],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
     Modelica.Blocks.Sources.ContinuousClock clock1
@@ -1026,7 +1027,7 @@ double mydummyfunc(double dummy_in) {
 
   model Test29 "3x4 table, Akima (Ticket #1820)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer2(t_new(
       table=[0,0,0.5,1;0,1,2,1;1,1,1,1],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
     Modelica.Blocks.Sources.ContinuousClock clock1
@@ -1043,7 +1044,7 @@ double mydummyfunc(double dummy_in) {
 
   model Test30 "4x3 table, Akima (Ticket #1820)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer2(t_new(
       table=[0,0,1;0,1,1;0.5,2,1;1,1,1],
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
     Modelica.Blocks.Sources.ContinuousClock clock1
@@ -1060,7 +1061,7 @@ double mydummyfunc(double dummy_in) {
 
   model Test31 "Text file with UTF-8 BOM and comments (Ticket #2404)"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends TestDer(t_new(
         tableOnFile=true,
         tableName="akima2D",
         fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_utf8.txt")));

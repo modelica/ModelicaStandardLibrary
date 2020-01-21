@@ -5,7 +5,7 @@ model VoltageQuasiRMSSensor
   extends Polyphase.Interfaces.TwoPlug;
   parameter Integer m(min=1) = 3 "Number of phases";
 
-  Modelica.Blocks.Interfaces.RealOutput V "Continuous quasi RMS of voltage"
+  Modelica.Blocks.Interfaces.RealOutput V(unit="V") "Continuous quasi RMS of voltage"
     annotation (Placement(transformation(
         origin={-2,-110},
         extent={{-10,-10},{10,10}},
@@ -47,8 +47,8 @@ equation
 <p>
 This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a polyphase voltage system, representing an equivalent RMS voltage <code>V</code> vector or phasor. If the voltage waveform deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
 </p>
-<pre>
- V = sqrt(sum(v[k]^2 for k in 1:m)/m)
-</pre>
+<blockquote><pre>
+V = sqrt(sum(v[k]^2 for k in 1:m)/m)
+</pre></blockquote>
 </html>"));
 end VoltageQuasiRMSSensor;

@@ -48,14 +48,14 @@ model SinglePhaseWinding
   Modelica.SIunits.ComplexMagneticPotentialDifference V_m=port_p.V_m -
       port_n.V_m "Complex magnetic potential difference";
   Modelica.SIunits.MagneticPotentialDifference abs_V_m=
-      Modelica.ComplexMath.'abs'(V_m)
+      Modelica.ComplexMath.abs(V_m)
     "Magnitude of complex magnetic potential difference";
   Modelica.SIunits.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
     "Argument of complex magnetic potential difference";
   Modelica.SIunits.ComplexMagneticFlux Phi=port_p.Phi
     "Complex magnetic flux";
   Modelica.SIunits.MagneticFlux abs_Phi=
-      Modelica.ComplexMath.'abs'(Phi)
+      Modelica.ComplexMath.abs(Phi)
     "Magnitude of complex magnetic flux";
   Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
     "Argument of complex magnetic flux";
@@ -75,8 +75,8 @@ model SinglePhaseWinding
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortWinding if
     useHeatPort "Heat ports of winding resistor"
     annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-  Magnetic.FundamentalWave.Components.Reluctance reluctance(final R_m(d=
-          effectiveTurns^2/Lsigma, q=effectiveTurns^2/Lsigma)) annotation (
+  Modelica.Magnetic.FundamentalWave.Components.Permeance stray(final G_m(d=
+          Lsigma/effectiveTurns^2, q=Lsigma/effectiveTurns^2)) annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -94,12 +94,10 @@ equation
       points={{0,-100},{0,-60},{-40,-60},{-40,70},{-20,70}}, color={191,0,0}));
   connect(resistor.n, electroMagneticConverter.pin_p) annotation (Line(
       points={{-10,60},{-10,10}}, color={0,0,255}));
-  connect(electroMagneticConverter.port_p, reluctance.port_p) annotation (
-     Line(
-      points={{10,10},{30,10}}, color={255,128,0}));
-  connect(electroMagneticConverter.port_n, reluctance.port_n) annotation (
-     Line(
-      points={{10,-10},{30,-10}}, color={255,128,0}));
+  connect(electroMagneticConverter.port_p, stray.port_p)
+    annotation (Line(points={{10,10},{30,10}}, color={255,128,0}));
+  connect(electroMagneticConverter.port_n, stray.port_n)
+    annotation (Line(points={{10,-10},{30,-10}}, color={255,128,0}));
   annotation (defaultComponentName="winding", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={      Line(points={{100,-100},{
           94,-100},{84,-98},{76,-94},{64,-86},{50,-72},{42,-58},{36,-40},

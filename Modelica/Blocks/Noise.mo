@@ -57,13 +57,13 @@ into your model and specify the seed.
             textColor={255,0,0},
             textString="fixedSeed =")}),
       Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -81,9 +81,9 @@ on the same or a higher hierarchical level, Noise.GlobalSeed
 must be dragged resulting in a declaration
 </p>
 
-<pre>
-   <strong>inner</strong> Modelica.Blocks.Noise.GlobalSeed globalSeed;
-</pre>
+<blockquote><pre>
+<strong>inner</strong> Modelica.Blocks.Noise.GlobalSeed globalSeed;
+</pre></blockquote>
 
 <p>
 The GlobalSeed block provides global options for all Noise blocks of the same or a lower
@@ -91,7 +91,7 @@ hierarchical level. The following options can be selected:
 </p>
 
 <blockquote>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Icon</th>
     <th>Description</th></tr>
 
@@ -196,13 +196,13 @@ model <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.Globa
 is dragged to provide global settings for all instances.
 </p>
 </html>",   revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -257,13 +257,13 @@ model <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.Globa
 is dragged to provide global settings for all instances.
 </p>
 </html>",   revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -345,13 +345,13 @@ model <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.Globa
 is dragged to provide global settings for all instances.
 </p>
 </html>",   revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -483,9 +483,9 @@ block <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Noise.GlobalSeed</
 must be dragged resulting in a declaration
 </p>
 
-<pre>
-   <strong>inner</strong> Modelica.Blocks.Noise.GlobalSeed globalSeed;
-</pre>
+<blockquote><pre>
+<strong>inner</strong> Modelica.Blocks.Noise.GlobalSeed globalSeed;
+</pre></blockquote>
 
 <p>
 This block is used to define global options that hold for all Noise block
@@ -506,7 +506,7 @@ When using a noise block of this package, at a minimum the following parameters 
 </p>
 
 <blockquote>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Parameter</th>
     <th>Description</th></tr>
 
@@ -529,7 +529,7 @@ In the next diagram, a simulation result is shown for samplePeriod=0.02 s and un
 y_min=-1, y_max=3:
 </p>
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/UniformNoise.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/UniformNoise.png\">
 </blockquote>
 
 <h4>Advanced tab: General settings</h4>
@@ -539,7 +539,7 @@ as shown in the next table:
 </p>
 
 <blockquote>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Parameter</th>
     <th>Description</th></tr>
 
@@ -564,7 +564,7 @@ the desired situation. For this purpose the following parameters can be defined:
 </p>
 
 <blockquote>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Parameter</th>
     <th>Description</th></tr>
 
@@ -589,14 +589,9 @@ the desired situation. For this purpose the following parameters can be defined:
          produce exactly the same random number values (so the same noise, if the other settings
          of the instances are the same).<br>
          If <strong>useAutomaticLocalSeed = true</strong>, the
-         local seed is determined automatically from an impure random number generator that
-         produces Integer random values (<a href=\"modelica://Modelica.Math.Random.Utilities.impureRandomInteger\">impureRandomInteger</a>). This is the default.
-         Note, this means that the noise might change if function randomInteger() is called
-         more or less often in the overall model (e.g. because an additional noise block is
-         introduced or removed). It is planned to change the automatic local seed function
-         in a future version of package Modelica, once Modelica Language 3.3 language elements
-         can be used (by using a hash value of the instance name of the model that is
-         inquired with the Modelica Language 3.3 function getInstanceName()).<br>
+         local seed is determined automatically using a hash value of the instance name of the model that is
+         inquired with the Modelica built-in operator <a href=\"https://specification.modelica.org/v3.4/Ch3.html#getinstancename\">getInstanceName()</a>.
+         Note, this means that the noise changes if the component is renamed.<br>
          If <strong>useAutomaticLocalSeed = false</strong>, the local seed is defined
          explicitly by parameter fixedLocalSeed. It is then guaranteed that the generated noise
          remains always the same (provided the other parameter values are the same).</td></tr>
@@ -676,13 +671,13 @@ distributions are given in the documentation of package
 <a href=\"modelica://Modelica.Math.Distributions\">Math.Distributions</a>.
 </p>
 </html>", revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">

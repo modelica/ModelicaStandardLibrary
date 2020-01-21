@@ -17,12 +17,12 @@ equation
 Model of a polyphase inductor providing a mutual inductance matrix model.
 </p>
 <h4>Implementation</h4>
-<pre>
+<blockquote><pre>
   v[1] = L[1,1]*der(i[1]) + L[1,2]*der(i[2]) + ... + L[1,m]*der(i[m])
   v[2] = L[2,1]*der(i[1]) + L[2,2]*der(i[2]) + ... + L[2,m]*der(i[m])
     :              :                         :                                :
   v[m] = L[m,1]*der(i[1]) + L[m,2]*der(i[2]) + ... + L[m,m]*der(i[m])
-</pre>
+</pre></blockquote>
 
 </html>"),
        Icon(graphics={

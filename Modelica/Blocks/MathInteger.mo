@@ -69,11 +69,11 @@ false, y is set to parameter \"y_default\" or the last value is kept, if use_pre
 </p>
 
 <blockquote><pre>
-  // Conceptual equation (not valid Modelica)
-  i = 'first element of u[:] that is true';
-  y = <strong>if</strong> i==0 <strong>then</strong> (<strong>if</strong> use_pre_as_default <strong>then</strong> pre(y)
-                                          <strong>else</strong> y_default)
-      <strong>else</strong> expr[i];
+// Conceptual equation (not valid Modelica)
+i = 'first element of u[:] that is true';
+y = <strong>if</strong> i==0 <strong>then</strong> (<strong>if</strong> use_pre_as_default <strong>then</strong> pre(y)
+                                        <strong>else</strong> y_default)
+    <strong>else</strong> expr[i];
 </pre></blockquote>
 
 <p>

@@ -43,7 +43,7 @@ model IM_SquirrelCage "Induction machine with squirrel cage"
         group="Operational temperatures", enable=not useThermalPort));
   output Modelica.SIunits.ComplexCurrent ir[m]=rotorCage.i
     "Rotor current";
-  Modelica.SIunits.Current abs_ir[m]=Modelica.ComplexMath.'abs'(ir)
+  Modelica.SIunits.Current abs_ir[m]=Modelica.ComplexMath.abs(ir)
     "Magnitude of complex rotor current";
   Modelica.SIunits.Angle arg_ir[m]=Modelica.ComplexMath.arg(ir)
     "Argument of complex rotor current";

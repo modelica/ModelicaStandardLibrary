@@ -3,7 +3,7 @@ block ToSpacePhasor "Conversion: three-phase -> space phasor"
   extends Modelica.Blocks.Icons.Block;
   import Modelica.ComplexMath.j;
   import Modelica.ComplexMath.exp;
-  import Modelica.ComplexMath.'sum';
+  import Modelica.ComplexMath.sum;
   parameter Integer m(min=1) = 3 "Number of phases";
   Modelica.ComplexBlocks.Interfaces.ComplexInput u[m]
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
@@ -14,7 +14,7 @@ protected
       Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m);
   Complex c;
 equation
-  c = sqrt(2)/m*'sum'({u[k]*exp(j*phi[k]) for k in 1:m});
+  c = sqrt(2)/m*sum({u[k]*exp(j*phi[k]) for k in 1:m});
   y = {c.re,c.im};
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{

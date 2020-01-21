@@ -97,7 +97,7 @@ equation
     annotation (Line(points={{-40,-80},{40,-80},{40,-70}}, color={0,0,255}));
   connect(ramp.y, cosineCurrent.f) annotation (Line(points={{-69,0},{-60,0},{
           -60,-66},{-52,-66}}, color={0,0,127}));
-  annotation (experiment(Interval=0.0001), Documentation(info="<html>
+  annotation (experiment(StopTime=1.0, Interval=0.0001), Documentation(info="<html>
 <p>
 This model demonstrates the transient behaviour of a parallel resonant circuit:
 A sine or cosine current with variable frequency and constant amplitude is applied to a parallel connection of L, C and R. 

@@ -1,6 +1,6 @@
 /* ModelicaStrings.c - External functions for Modelica.Functions.Strings
 
-   Copyright (C) 2002-2019, Modelica Association and contributors
+   Copyright (C) 2002-2020, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -348,7 +348,7 @@ void ModelicaStrings_scanReal(_In_z_ const char* string, int startIndex,
     digit ::= '0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'
     */
 
-    int len = 0;
+    int len;
     /* Temporary variable for the length of a matched unsigned number. */
 
     int total_length = 0;
@@ -356,10 +356,6 @@ void ModelicaStrings_scanReal(_In_z_ const char* string, int startIndex,
 
     int token_start = ModelicaStrings_skipWhiteSpace(string, startIndex);
     /* Index of first char of token, after ws. */
-
-    int exp_len = 0;
-    /* Total number of characters recognized as part of the non-numeric parts
-     * of exponent (the 'e' and the sign). */
 
     /* Scan sign of decimal number */
 
@@ -388,8 +384,9 @@ void ModelicaStrings_scanReal(_In_z_ const char* string, int startIndex,
     /* Scan exponent part of mantissa. */
 
     if (string[token_start + total_length-1] == 'e' || string[token_start + total_length-1] == 'E') {
-        /* total_length += 1; */
-        exp_len = 1;
+        int exp_len = 1;
+        /* Total number of characters recognized as part of the non-numeric parts
+         * of exponent (the 'e' and the sign). */
 
         if (string[token_start + total_length] == '+' || string[token_start + total_length] == '-') {
             exp_len += 1;
@@ -460,7 +457,6 @@ void ModelicaStrings_scanString(_In_z_ const char* string, int startIndex,
                                 _Out_ int* nextIndex, _Out_ const char** result) {
     int i, token_start, past_token, token_length;
 
-    token_length = 0;
     token_start = ModelicaStrings_skipWhiteSpace(string, startIndex);
     i = token_start;
     if (string[token_start-1] != '"') {

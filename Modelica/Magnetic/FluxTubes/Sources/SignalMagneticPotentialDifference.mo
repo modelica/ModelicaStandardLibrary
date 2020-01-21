@@ -6,7 +6,7 @@ model SignalMagneticPotentialDifference
   Modelica.Blocks.Interfaces.RealInput V_m(unit="A")
     "Magnetic potential difference"
     annotation (Placement(transformation(
-        origin={0,90},
+        origin={0,110},
         extent={{10,-10},{-10,10}},
         rotation=90), iconTransformation(
         extent={{10,-10},{-10,10}},
@@ -42,9 +42,9 @@ equation
 <p>
 In electromagnetic devices, a change of a coil's magnetic flux linkage &Psi; reacts on the electrical subsystem in that a voltage v is induced due to <em>Faraday</em>'s law:
 </p>
-<pre>
-    v = - d&Psi;/dt
-</pre>
+<blockquote><pre>
+v = - d&Psi;/dt
+</pre></blockquote>
 <p>This reaction can possibly be neglected for</p>
 <ul>
 <li>modelling of electromagnetic actuators under quasi-static conditions (slow current change, slow armature motion),</li>

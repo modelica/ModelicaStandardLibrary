@@ -1,12 +1,12 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Basic;
 model MultiDelta
   "Delta (polygon) connection of polyphase systems consisting of multiple base systems"
+  import Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems;
+  import Modelica.Utilities.Streams.print;
   parameter Integer m(final min=2) = 3 "Number of phases";
-  final parameter Integer mSystems=
-      Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems(
-      m) "Number of base systems";
-  final parameter Integer mBasic=integer(m/mSystems)
-    "Phase number of base systems";
+  parameter Integer kPolygon=1 "Alternative of polygon";
+  final parameter Integer mSystems=numberOfSymmetricBaseSystems(m) "Number of base systems";
+  final parameter Integer mBasic=integer(m/mSystems) "Phase number of base systems";
   QuasiStatic.Polyphase.Interfaces.PositivePlug plug_p(final m=m)
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
   QuasiStatic.Polyphase.Interfaces.NegativePlug plug_n(final m=m)
@@ -15,14 +15,21 @@ model MultiDelta
     annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
   QuasiStatic.Polyphase.Basic.PlugToPins_n plugToPins_n(final m=m)
     annotation (Placement(transformation(extent={{80,-10},{60,10}})));
+protected
+  parameter Integer kP=if (mBasic<=2 or kPolygon<1 or kPolygon>integer(mBasic - 1)/2) then 1 else kPolygon;
 equation
+  when initial() then
+    if (mBasic<=2 or kPolygon<1 or kPolygon>integer(mBasic - 1)/2) then
+      print("MultiDelta: replaced erroneous kPolygon = "+String(kPolygon)+" by kPolygon = 1");
+    end if;
+  end when;
   for k in 1:mSystems loop
-    for j in 1:mBasic - 1 loop
-      connect(plugToPins_n.pin_n[(k - 1)*mBasic + j], plugToPins_p.pin_p[(k
-         - 1)*mBasic + j + 1]);
+    for j in 1:(mBasic - kP) loop
+      connect(plugToPins_n.pin_n[(k - 1)*mBasic + j], plugToPins_p.pin_p[(k - 1)*mBasic + j + kP]);
     end for;
-    connect(plugToPins_n.pin_n[k*mBasic], plugToPins_p.pin_p[(k - 1)*mBasic
-       + 1]);
+    for j in (mBasic - kP + 1):mBasic loop
+      connect(plugToPins_n.pin_n[(k - 1)*mBasic + j], plugToPins_p.pin_p[(k - 2)*mBasic + j + kP]);
+    end for;
   end for;
   connect(plug_p, plugToPins_p.plug_p) annotation (Line(points={{-100,0},{-93,
           0},{-86,0},{-72,0}}, color={85,170,255}));

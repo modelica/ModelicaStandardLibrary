@@ -25,13 +25,13 @@ model PolyphaseElectroMagneticConverter
     "Orientation of the first winding axis";
   // Local electric polyphase quantities
   Modelica.SIunits.ComplexVoltage v[m] "Complex voltage";
-  Modelica.SIunits.Voltage abs_v[m]=Modelica.ComplexMath.'abs'(v)
+  Modelica.SIunits.Voltage abs_v[m]=Modelica.ComplexMath.abs(v)
     "Magnitude of complex voltage";
   Modelica.SIunits.Angle arg_v[m]=Modelica.ComplexMath.arg(v)
     "Argument of complex voltage";
 
   Modelica.SIunits.ComplexCurrent i[m] "Complex current";
-  Modelica.SIunits.Current abs_i[m]=Modelica.ComplexMath.'abs'(i)
+  Modelica.SIunits.Current abs_i[m]=Modelica.ComplexMath.abs(i)
     "Magnitude of complex current";
   Modelica.SIunits.Angle arg_i[m]=Modelica.ComplexMath.arg(i)
     "Argument of complex current";
@@ -42,7 +42,7 @@ model PolyphaseElectroMagneticConverter
   Modelica.SIunits.ReactivePower Q[m]={Modelica.ComplexMath.imag(v[k]*
       Modelica.ComplexMath.conj(i[k])) for k in 1:m} "Reactive power";
   Modelica.SIunits.ReactivePower Q_total=sum(Q) "Total reactive power";
-  Modelica.SIunits.ApparentPower S[m]={Modelica.ComplexMath.'abs'(v[k]*
+  Modelica.SIunits.ApparentPower S[m]={Modelica.ComplexMath.abs(v[k]*
       Modelica.ComplexMath.conj(i[k])) for k in 1:m}
     "Magnitude of complex apparent power";
   Modelica.SIunits.ApparentPower S_total=sqrt(P_total^2 + Q_total^2)
@@ -54,14 +54,14 @@ model PolyphaseElectroMagneticConverter
   Modelica.SIunits.ComplexMagneticPotentialDifference V_m
     "Complex magnetic potential difference";
   Modelica.SIunits.MagneticPotentialDifference abs_V_m=
-      Modelica.ComplexMath.'abs'(V_m)
+      Modelica.ComplexMath.abs(V_m)
     "Magnitude of complex magnetic potential difference";
   Modelica.SIunits.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
     "Argument of complex magnetic potential difference";
 
   Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
   Modelica.SIunits.MagneticPotentialDifference abs_Phi=
-      Modelica.ComplexMath.'abs'(Phi) "Magnitude of complex magnetic flux";
+      Modelica.ComplexMath.abs(Phi) "Magnitude of complex magnetic flux";
   Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
     "Argument of complex magnetic flux";
 

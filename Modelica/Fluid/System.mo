@@ -124,7 +124,7 @@ to specify system properties.",
  <ul>
   <li>the gravity system.g,</li>
   <li>the global system.eps_m_flow, which is used to define a local m_flow_small for the local m_flow_nominal:
-      <pre>m_flow_small = system.eps_m_flow*m_flow_nominal</pre>
+      <blockquote><pre>m_flow_small = system.eps_m_flow*m_flow_nominal</pre></blockquote>
   </li>
  </ul>
 <p>

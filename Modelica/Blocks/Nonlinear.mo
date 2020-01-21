@@ -88,36 +88,7 @@ a lot by removing one strong nonlinearity from the initialization problem.
             color={255,0,0})}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{0,-60},{0,50}}, color={192,192,192}),
-          Polygon(
-            points={{0,60},{-5,50},{5,50},{0,60}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-60,0},{50,0}}, color={192,192,192}),
-          Polygon(
-            points={{60,0},{50,-5},{50,5},{60,0}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-50,-40},{-30,-40},{30,40},{50,40}}),
-          Text(
-            extent={{46,-6},{68,-18}},
-            textColor={128,128,128},
-            textString="u"),
-          Text(
-            extent={{-30,70},{-5,50}},
-            textColor={128,128,128},
-            textString="y"),
-          Text(
-            extent={{-58,-54},{-28,-42}},
-            textColor={128,128,128},
-            textString="uMin"),
-          Text(
-            extent={{26,40},{66,56}},
-            textColor={128,128,128},
-            textString="uMax")}));
+          extent={{-100,-100},{100,100}})));
       end Limiter;
 
   block VariableLimiter "Limit the range of a signal with variable limits"
@@ -208,41 +179,7 @@ a lot by removing one strong nonlinearity from the initialization problem.
             points={{-80,-70},{-50,-70}},
             color={255,0,0})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
-          Line(points={{0,-60},{0,50}}, color={192,192,192}),
-          Polygon(
-            points={{0,60},{-5,50},{5,50},{0,60}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-60,0},{50,0}}, color={192,192,192}),
-          Polygon(
-            points={{60,0},{50,-5},{50,5},{60,0}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-50,-40},{-30,-40},{30,40},{50,40}}),
-          Text(
-            extent={{46,-6},{68,-18}},
-            textColor={128,128,128},
-            textString="input"),
-          Text(
-            extent={{-30,70},{-5,50}},
-            textColor={128,128,128},
-            textString="output"),
-          Text(
-            extent={{-66,-40},{-26,-20}},
-            textColor={128,128,128},
-            textString="uMin"),
-          Text(
-            extent={{30,20},{70,40}},
-            textColor={128,128,128},
-            textString="uMax"),
-          Line(points={{-100,80},{40,80},{40,40}}, color={0,0,127}),
-          Line(points={{-100,-80},{-40,-80},{-40,-40}}, color={0,0,127}),
-          Polygon(points={{40,40},{35,50},{45,50},{40,40}}, lineColor={0,0,127}),
-          Polygon(points={{-40,-40},{-45,-50},{-35,-50},{-40,-40}}, lineColor={
-                0,0,127})}));
+              100,100}})));
   end VariableLimiter;
 
   block SlewRateLimiter "Limits the slew rate of a signal"
@@ -361,36 +298,7 @@ function of the input with a slope of 1.
             textString="uMax=%uMax")}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{0,-60},{0,50}}, color={192,192,192}),
-          Polygon(
-            points={{0,60},{-5,50},{5,50},{0,60}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-76,0},{74,0}}, color={192,192,192}),
-          Polygon(
-            points={{84,0},{74,-5},{74,5},{84,0}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-81,-40},{-38,0},{40,0},{80,40}}),
-          Text(
-            extent={{62,-7},{88,-25}},
-            textColor={128,128,128},
-            textString="u"),
-          Text(
-            extent={{-36,72},{-5,50}},
-            textColor={128,128,128},
-            textString="y"),
-          Text(
-            extent={{-51,1},{-28,19}},
-            textColor={128,128,128},
-            textString="uMin"),
-          Text(
-            extent={{27,21},{52,5}},
-            textColor={128,128,128},
-            textString="uMax")}));
+          extent={{-100,-100},{100,100}})));
       end DeadZone;
 
   block FixedDelay "Delay block with fixed DelayTime"
@@ -405,10 +313,10 @@ function of the input with a slope of 1.
 <p>
 The Input signal is delayed by a given time instant, or more precisely:
 </p>
-<pre>
-   y = u(time - delayTime) for time &gt; time.start + delayTime
-     = u(time.start)       for time &le; time.start + delayTime
-</pre>
+<blockquote><pre>
+y = u(time - delayTime) for time &gt; time.start + delayTime
+  = u(time.start)       for time &le; time.start + delayTime
+</pre></blockquote>
 </html>"), Icon(
       coordinateSystem(preserveAspectRatio=true,
         extent={{-100.0,-100.0},{100.0,100.0}}),
@@ -426,60 +334,7 @@ The Input signal is delayed by a given time instant, or more precisely:
         smooth=Smooth.Bezier)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-80,80},{-88,80}}, color={192,192,192}),
-          Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
-          Line(points={{-80,-88},{-80,86}}, color={192,192,192}),
-          Text(
-            extent={{-75,98},{-46,78}},
-            textColor={0,0,255},
-            textString="output"),
-          Polygon(
-            points={{-80,96},{-86,80},{-74,80},{-80,96}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-100,0},{84,0}}, color={192,192,192}),
-          Polygon(
-            points={{100,0},{84,6},{84,-6},{100,0}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-80,0},{-68.7,34.2},{-61.5,53.1},{-55.1,66.4},{-49.4,
-                74.6},{-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{-26.9,69.7},{-21.3,
-                59.4},{-14.9,44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},{23.7,
-                -64.2},{29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,-71.5},
-                {57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, color={0,0,127},
-                smooth=Smooth.Bezier),
-          Text(
-            extent={{-24,98},{-2,78}},
-            textString="input"),
-          Line(points={{-64,0},{-52.7,34.2},{-45.5,53.1},{-39.1,66.4},{-33.4,
-                74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,
-                59.4},{1.1,44.1},{9.17,21.2},{26.1,-30.8},{33.3,-50.2},{39.7,-64.2},
-                {45.3,-73.1},{51,-78.4},{56.6,-80},{62.2,-77.6},{67.9,-71.5},{
-                73.5,-61.9},{79.9,-47.2},{88,-24.8},{96,0}}, smooth=Smooth.Bezier),
-          Text(
-            extent={{67,22},{96,6}},
-            textColor={160,160,164},
-            textString="time"),
-          Line(points={{-64,-30},{-64,0}}, color={192,192,192}),
-          Text(
-            extent={{-58,-42},{-58,-32}},
-            textString="delayTime",
-            textColor={0,0,255}),
-          Line(points={{-94,-26},{-80,-26}}, color={192,192,192}),
-          Line(points={{-64,-26},{-50,-26}}, color={192,192,192}),
-          Polygon(
-            points={{-80,-26},{-88,-24},{-88,-28},{-80,-26}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{-56,-24},{-64,-26},{-56,-28},{-56,-24}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid)}));
+          extent={{-100,-100},{100,100}})));
   end FixedDelay;
 
   block PadeDelay
@@ -588,19 +443,19 @@ The Input signal is delayed by a given time instant, or more precisely:
 <p>
 The Input signal is delayed by a given time instant, or more precisely:
 </p>
-<pre>
-   y = u(time - delayTime) for time &gt; time.start + delayTime
-     = u(time.start)       for time &le; time.start + delayTime
-</pre>
+<blockquote><pre>
+y = u(time - delayTime) for time &gt; time.start + delayTime
+  = u(time.start)       for time &le; time.start + delayTime
+</pre></blockquote>
 <p>
 The delay is approximated by a Pade approximation, i.e., by
 a transfer function
 </p>
-<pre>
-           b[1]*s^m + b[2]*s^[m-1] + ... + b[m+1]
-   y(s) = --------------------------------------------- * u(s)
-           a[1]*s^n + a[2]*s^[n-1] + ... + a[n+1]
-</pre>
+<blockquote><pre>
+        b[1]*s^m + b[2]*s^[m-1] + ... + b[m+1]
+y(s) = --------------------------------------------- * u(s)
+        a[1]*s^n + a[2]*s^[n-1] + ... + a[n+1]
+</pre></blockquote>
 <p>
 where the coefficients b[:] and a[:] are calculated such that the
 coefficients of the Taylor expansion of the delay exp(-T*s) around s=0
@@ -642,7 +497,7 @@ As a result, both the simulation of the PadeDelay block, and especially
 its linearization becomes more reliable.
 </p>
 
-<h5>Literature:</h5>
+<h5>Literature</h5>
 <p>Otto Foellinger: Regelungstechnik, 8. Auflage,
 chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
 </p>
@@ -682,60 +537,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
             textString="balanced")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-80,80},{-88,80}}, color={192,192,192}),
-          Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
-          Line(points={{-80,-88},{-80,86}}, color={192,192,192}),
-          Text(
-            extent={{-75,98},{-46,78}},
-            textColor={0,0,255},
-            textString="output"),
-          Polygon(
-            points={{-80,96},{-86,80},{-74,80},{-80,96}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-100,0},{84,0}}, color={192,192,192}),
-          Polygon(
-            points={{100,0},{84,6},{84,-6},{100,0}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-80,0},{-68.7,34.2},{-61.5,53.1},{-55.1,66.4},{-49.4,
-                74.6},{-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{-26.9,69.7},{-21.3,
-                59.4},{-14.9,44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},{23.7,
-                -64.2},{29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,-71.5},
-                {57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, color={0,0,127},
-                smooth=Smooth.Bezier),
-          Text(
-            extent={{-24,98},{-2,78}},
-            textString="input"),
-          Line(points={{-64,0},{-52.7,34.2},{-45.5,53.1},{-39.1,66.4},{-33.4,
-                74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,
-                59.4},{1.1,44.1},{9.17,21.2},{26.1,-30.8},{33.3,-50.2},{39.7,-64.2},
-                {45.3,-73.1},{51,-78.4},{56.6,-80},{62.2,-77.6},{67.9,-71.5},{
-                73.5,-61.9},{79.9,-47.2},{88,-24.8},{96,0}}, smooth=Smooth.Bezier),
-          Text(
-            extent={{67,22},{96,6}},
-            textColor={160,160,164},
-            textString="time"),
-          Line(points={{-64,-30},{-64,0}}, color={192,192,192}),
-          Text(
-            extent={{-58,-42},{-58,-32}},
-            textString="delayTime",
-            textColor={0,0,255}),
-          Line(points={{-94,-26},{-80,-26}}, color={192,192,192}),
-          Line(points={{-64,-26},{-50,-26}}, color={192,192,192}),
-          Polygon(
-            points={{-80,-26},{-88,-24},{-88,-28},{-80,-26}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{-56,-24},{-64,-26},{-56,-28},{-56,-24}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid)}));
+          extent={{-100,-100},{100,100}})));
   end PadeDelay;
 
   block VariableDelay "Delay block with variable DelayTime"
@@ -751,16 +553,17 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
 <p>
 The Input signal is delayed by a given time instant, or more precisely:
 </p>
-<pre>
-   y = u(time - delayTime) for time &gt; time.start + delayTime
-     = u(time.start)       for time &le; time.start + delayTime
-</pre>
+<blockquote><pre>
+y = u(time - delayTime) for time &gt; time.start + delayTime
+  = u(time.start)       for time &le; time.start + delayTime
+</pre></blockquote>
 <p>
 where delayTime is an additional input signal which must follow
 the following relationship:
 </p>
-<pre>  0 &le; delayTime &le; delayMax
-</pre>
+<blockquote><pre>
+0 &le; delayTime &le; delayMax
+</pre></blockquote>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
       Text(extent={{-100.0,-148.0},{100.0,-108.0}},
@@ -776,67 +579,7 @@ the following relationship:
         points={{6.0,4.0},{-14.0,-2.0},{-6.0,-12.0},{6.0,4.0}}),
       Line(color={0,0,127},
         points={{-100.0,-60.0},{-76.0,-60.0},{-8.0,-6.0}})}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
-      Rectangle(
-        extent={{-100,-100},{100,100}},
-        lineColor={0,0,255},
-        fillColor={255,255,255},
-        fillPattern=FillPattern.Solid),
-      Polygon(
-        points={{-80,96},{-86,80},{-74,80},{-80,96}},
-        lineColor={192,192,192},
-        fillColor={192,192,192},
-        fillPattern=FillPattern.Solid),
-      Text(
-        extent={{-69,98},{-40,78}},
-        textColor={0,0,255},
-        textString="output"),
-      Line(points={{-64,0},{-52.7,34.2},{-45.5,53.1},{-39.1,66.4},{-33.4,
-            74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,
-            59.4},{1.1,44.1},{9.17,21.2},{26.1,-30.8},{33.3,-50.2},{39.7,-64.2},
-            {45.3,-73.1},{51,-78.4},{56.6,-80},{62.2,-77.6},{67.9,-71.5},{
-            73.5,-61.9},{79.9,-47.2},{88,-24.8},{96,0}}, smooth=Smooth.Bezier),
-      Line(points={{-80,0},{-68.7,34.2},{-61.5,53.1},{-55.1,66.4},{-49.4,
-            74.6},{-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{-26.9,69.7},{-21.3,
-            59.4},{-14.9,44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},{23.7,
-            -64.2},{29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,-71.5},
-            {57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, color={0,0,127},
-            smooth=Smooth.Bezier),
-      Line(points={{-100,0},{84,0}}, color={192,192,192}),
-      Polygon(
-        points={{100,0},{84,6},{84,-6},{100,0}},
-        lineColor={192,192,192},
-        fillColor={192,192,192},
-        fillPattern=FillPattern.Solid),
-      Text(
-        extent={{67,22},{96,6}},
-        textColor={160,160,164},
-        textString="time"),
-      Text(
-        extent={{-58,-42},{-58,-32}},
-        textString="delayTime",
-        textColor={0,0,255}),
-      Line(points={{-80,-88},{-80,86}}, color={192,192,192}),
-      Text(
-        extent={{-24,98},{-2,78}},
-        textString="input"),
-      Polygon(
-        points={{-80,-26},{-88,-24},{-88,-28},{-80,-26}},
-        lineColor={192,192,192},
-        fillColor={192,192,192},
-        fillPattern=FillPattern.Solid),
-      Polygon(
-        points={{-56,-24},{-64,-26},{-56,-28},{-56,-24}},
-        lineColor={192,192,192},
-        fillColor={192,192,192},
-        fillPattern=FillPattern.Solid),
-      Line(points={{-64,-26},{-50,-26}}, color={192,192,192}),
-      Line(points={{-94,-26},{-80,-26}}, color={192,192,192}),
-      Line(
-        points={{-100,-60},{-70,-60},{-64,-44}},
-        arrow={Arrow.None,Arrow.Filled},
-        color={0,0,127}),
-      Line(points={{-64,-30},{-64,0}}, color={192,192,192})}));
+    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}})));
   end VariableDelay;
 
       annotation (

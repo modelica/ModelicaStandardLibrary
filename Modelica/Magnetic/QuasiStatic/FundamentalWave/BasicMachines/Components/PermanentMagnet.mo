@@ -7,7 +7,7 @@ model PermanentMagnet
       Complex(re=1, im=0)
     "Complex magnetic potential difference w.r.t. the rotor fixed reference frame";
   Modelica.SIunits.MagneticPotentialDifference abs_V_m=
-      Modelica.ComplexMath.'abs'(V_m)
+      Modelica.ComplexMath.abs(V_m)
     "Magnitude of complex magnetic potential difference";
   Modelica.SIunits.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
     "Argument of complex magnetic potential difference w.r.t. reference frame";
@@ -15,7 +15,7 @@ model PermanentMagnet
   Modelica.SIunits.Angle gamma "Angle of V_m fixed reference frame";
   Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
   Modelica.SIunits.MagneticPotentialDifference abs_Phi=
-      Modelica.ComplexMath.'abs'(Phi)
+      Modelica.ComplexMath.abs(Phi)
     "Magnitude of complex magnetic flux";
   Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
     "Argument of complex magnetic flux";

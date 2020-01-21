@@ -46,12 +46,12 @@ model SymmetricPolyphaseWinding
 
   Modelica.SIunits.ComplexVoltage v[m]=plug_p.pin.v - plug_n.pin.v
     "Complex voltage";
-  Modelica.SIunits.Voltage abs_v[m]=Modelica.ComplexMath.'abs'(v)
+  Modelica.SIunits.Voltage abs_v[m]=Modelica.ComplexMath.abs(v)
     "Magnitude of complex voltage";
   Modelica.SIunits.Angle arg_v[m]=Modelica.ComplexMath.arg(v)
     "Argument of complex voltage";
   Modelica.SIunits.ComplexCurrent i[m]=plug_p.pin.i "Complex current";
-  Modelica.SIunits.Current abs_i[m]=Modelica.ComplexMath.'abs'(i)
+  Modelica.SIunits.Current abs_i[m]=Modelica.ComplexMath.abs(i)
     "Magnitude of complex current";
   Modelica.SIunits.Angle arg_i[m]=Modelica.ComplexMath.arg(i)
     "Argument of complex current";
@@ -61,7 +61,7 @@ model SymmetricPolyphaseWinding
   Modelica.SIunits.ReactivePower Q[m]={Modelica.ComplexMath.imag(v[k]*
       Modelica.ComplexMath.conj(i[k])) for k in 1:m} "Reactive power";
   Modelica.SIunits.ReactivePower Q_total=sum(Q) "Total reactive power";
-  Modelica.SIunits.ApparentPower S[m]={Modelica.ComplexMath.'abs'(v[k]*
+  Modelica.SIunits.ApparentPower S[m]={Modelica.ComplexMath.abs(v[k]*
       Modelica.ComplexMath.conj(i[k])) for k in 1:m}
     "Magnitude of complex apparent power";
   Modelica.SIunits.ApparentPower S_total=sqrt(P_total^2 + Q_total^2)
@@ -72,14 +72,14 @@ model SymmetricPolyphaseWinding
   Modelica.SIunits.ComplexMagneticPotentialDifference V_m=port_p.V_m -
       port_n.V_m "Complex magnetic potential difference";
   Modelica.SIunits.MagneticPotentialDifference abs_V_m=
-      Modelica.ComplexMath.'abs'(V_m)
+      Modelica.ComplexMath.abs(V_m)
     "Magnitude of complex magnetic potential difference";
   Modelica.SIunits.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
     "Argument of complex magnetic potential difference";
   Modelica.SIunits.ComplexMagneticFlux Phi=port_p.Phi
     "Complex magnetic flux";
   Modelica.SIunits.MagneticFlux abs_Phi=
-      Modelica.ComplexMath.'abs'(Phi)
+      Modelica.ComplexMath.abs(Phi)
     "Magnitude of complex magnetic flux";
   Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
     "Argument of complex magnetic flux";
@@ -109,9 +109,8 @@ model SymmetricPolyphaseWinding
       useHeatPort=useHeatPort, final G=(m/2)*GcRef*effectiveTurns^2)
     "Core loss model (currently eddy currents only)" annotation (Placement(
         transformation(extent={{-10,-10},{10,10}}, origin={50,-40})));
-  Magnetic.QuasiStatic.FundamentalWave.Components.Reluctance strayReluctance(final R_m(
-        d=m*effectiveTurns^2/2/Lsigma, q=m*effectiveTurns^2/2/Lsigma))
-    "Stray reluctance equivalent to ideally coupled stray inductances"
+  Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Permeance stray(final G_m(
+        d=2*Lsigma/m/effectiveTurns^2, q=2*Lsigma/m/effectiveTurns^2)) "Stray permeance equivalent to ideally coupled stray inductances"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -121,8 +120,8 @@ equation
       points={{-30,70},{-40,70},{-40,-100}}, color={191,0,0}));
   connect(core.heatPort, heatPortCore) annotation (Line(
       points={{40,-50},{40,-100}}, color={191,0,0}));
-  connect(strayReluctance.port_n, core.port_n) annotation (Line(
-      points={{80,20},{80,-40},{60,-40}}, color={255,170,85}));
+  connect(stray.port_n, core.port_n)
+    annotation (Line(points={{80,20},{80,-40},{60,-40}}, color={255,170,85}));
   connect(electroMagneticConverter.plug_p, resistor.plug_n) annotation (
       Line(
       points={{-10,-20},{-20,-20},{-20,60}}, color={85,170,255}));
@@ -132,8 +131,8 @@ equation
       points={{-100,100},{-20,100},{-20,80}}, color={85,170,255}));
   connect(port_p, electroMagneticConverter.port_p) annotation (Line(
       points={{100,100},{10,100},{10,-20}}, color={255,170,85}));
-  connect(strayReluctance.port_p, port_p) annotation (Line(
-      points={{80,40},{80,100},{100,100}}, color={255,170,85}));
+  connect(stray.port_p, port_p)
+    annotation (Line(points={{80,40},{80,100},{100,100}}, color={255,170,85}));
   connect(port_n, core.port_n) annotation (Line(
       points={{100,-100},{100,-40},{60,-40}}, color={255,170,85}));
   connect(electroMagneticConverter.port_n, core.port_p) annotation (Line(

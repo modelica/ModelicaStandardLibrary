@@ -79,9 +79,9 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
 
 <h4>Example</h4>
 <blockquote><pre>
-  erf(0)    // = 0
-  erf(10)   // = 1
-  erf(0.5)  // = 0.520499877813047
+erf(0)    // = 0
+erf(10)   // = 1
+erf(0.5)  // = 0.520499877813047
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -91,13 +91,13 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
 <a href=\"modelica://Modelica.Math.Special.erfcInv\">erfcInv</a>.
 </p>
 </html>",   revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -163,9 +163,9 @@ see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wikipedia</a>.
 
 <h4>Example</h4>
 <blockquote><pre>
-  erfc(0)    // = 1
-  erfc(10)   // = 0
-  erfc(0.5)  // = 0.4795001221869534
+erfc(0)    // = 1
+erfc(10)   // = 0
+erfc(0.5)  // = 0.4795001221869534
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -175,13 +175,13 @@ see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wikipedia</a>.
 <a href=\"modelica://Modelica.Math.Special.erfcInv\">erfcInv</a>.
 </p>
 </html>",   revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -248,10 +248,10 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
 
 <h4>Example</h4>
 <blockquote><pre>
-  erfInv(0)            // = 0
-  erfInv(0.5)          // = 0.4769362762044699
-  erfInv(0.999999)     // = 3.458910737275499
-  erfInv(0.9999999999) // = 4.572824958544925
+erfInv(0)            // = 0
+erfInv(0.5)          // = 0.4769362762044699
+erfInv(0.999999)     // = 3.458910737275499
+erfInv(0.9999999999) // = 4.572824958544925
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -261,13 +261,13 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
 <a href=\"modelica://Modelica.Math.Special.erfcInv\">erfcInv</a>.
 </p>
 </html>",   revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -340,9 +340,9 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
 
 <h4>Example</h4>
 <blockquote><pre>
-  erfcInv(1)         // = 0
-  erfcInv(0.5)       // = 0.4769362762044699
-  erfInv(1.999999)   // = -3.4589107372909473
+erfcInv(1)         // = 0
+erfcInv(0.5)       // = 0.4769362762044699
+erfInv(1.999999)   // = -3.4589107372909473
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -352,13 +352,13 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
 <a href=\"modelica://Modelica.Math.Special.erfInv\">erfInv</a>.
 </p>
 </html>",   revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -381,13 +381,13 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
     y := if abs(u) > 0.5e-4 then sin(u)/u else 1 - (u^2)/6 + (u^4)/120;
 
     annotation (Inline=true, Documentation(revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -421,8 +421,8 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Sinc_function\">Wik
 
 <h4>Example</h4>
 <blockquote><pre>
-  sinc(0)   // = 1
-  sinc(3)   // = 0.0470400026866224
+sinc(0)   // = 1
+sinc(3)   // = 0.0470400026866224
 </pre></blockquote>
 </html>"));
   end sinc;
@@ -446,13 +446,13 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Sinc_function\">Wik
 Evaluate a polynomial using Horner's scheme.
 </p>
 </html>",  revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -566,13 +566,13 @@ Evaluate a polynomial using Horner's scheme.
 Utility function in order to compute part of erf(..) and erfc(..).
 </p>
 </html>",  revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -821,13 +821,13 @@ Utility function in order to compute part of erf(..) and erfc(..).
 Utility function in order to compute erfInv(..) and erfcInv(..).
 </p>
 </html>",   revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -847,13 +847,13 @@ erf, erfc, erfInc and erfcInv. These functions should not be directly used
 by the user.
 </p>
 </html>",   revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -874,13 +874,13 @@ This sublibrary contains functions to compute often used mathematical operators 
 cannot be expressed analytically.
 </p>
 </html>", revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">

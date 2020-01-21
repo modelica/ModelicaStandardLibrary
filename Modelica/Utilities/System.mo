@@ -2,29 +2,27 @@ within Modelica.Utilities;
 package System "Interaction with environment"
   extends Modelica.Icons.FunctionsPackage;
 
-function getWorkDirectory "Get full path name of work directory"
+impure function getWorkDirectory "Get full path name of work directory"
   extends Modelica.Icons.Function;
   output String directory "Full path name of work directory";
 // POSIX function "getcwd"
   external "C" directory = ModelicaInternal_getcwd(0) annotation(Library="ModelicaExternalC");
-    annotation (__ModelicaAssociation_Impure=true,
-Documentation(info="<html>
+    annotation (Documentation(info="<html>
 
 </html>"));
 end getWorkDirectory;
 
-function setWorkDirectory "Set work directory"
+impure function setWorkDirectory "Set work directory"
   extends Modelica.Icons.Function;
   input String directory "New work directory";
 // POSIX function "chdir"
 external "C" ModelicaInternal_chdir(directory) annotation(Library="ModelicaExternalC");
-    annotation (__ModelicaAssociation_Impure=true,
-Documentation(info="<html>
+    annotation (Documentation(info="<html>
 
 </html>"));
 end setWorkDirectory;
 
-function getEnvironmentVariable "Get content of environment variable"
+impure function getEnvironmentVariable "Get content of environment variable"
   extends Modelica.Icons.Function;
   input String name "Name of environment variable";
   input Boolean convertToSlash =  false
@@ -34,26 +32,24 @@ function getEnvironmentVariable "Get content of environment variable"
   output Boolean exist
       "= true, if environment variable exists; = false, if it does not exist";
   external "C" ModelicaInternal_getenv(name, convertToSlash, content, exist) annotation(Library="ModelicaExternalC");
-    annotation (__ModelicaAssociation_Impure=true,
-Documentation(info="<html>
+    annotation (Documentation(info="<html>
 
 </html>"));
 end getEnvironmentVariable;
 
-function setEnvironmentVariable "Set content of local environment variable"
+impure function setEnvironmentVariable "Set content of local environment variable"
   extends Modelica.Icons.Function;
   input String name "Name of environment variable";
   input String content "Value of the environment variable";
   input Boolean convertFromSlash =  false
       "True, if '/' in environment variable shall be changed to native directory separators";
 external "C" ModelicaInternal_setenv(name, content, convertFromSlash) annotation(Library="ModelicaExternalC");
-    annotation (__ModelicaAssociation_Impure=true,
-Documentation(info="<html>
+    annotation (Documentation(info="<html>
 
 </html>"));
 end setEnvironmentVariable;
 
-  function getTime "Retrieve the local time (in the local time zone)"
+  impure function getTime "Retrieve the local time (in the local time zone)"
     extends Modelica.Icons.Function;
     output Integer ms "Millisecond";
     output Integer sec "Second";
@@ -64,8 +60,7 @@ end setEnvironmentVariable;
     output Integer year "Year";
     external "C" ModelicaInternal_getTime(ms,sec,min,hour,day,mon,year)
       annotation(Library="ModelicaExternalC");
-    annotation (__ModelicaAssociation_Impure=true,
-Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 (ms, sec, min, hour, day, mon, year) = System.<strong>getTime</strong>();
@@ -77,7 +72,7 @@ All returned values are of type Integer and have the following meaning:
 </p>
 
 <blockquote>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Argument</th>
     <th>Range</th>
     <th>Description</th></tr>
@@ -113,13 +108,13 @@ All returned values are of type Integer and have the following meaning:
 <h4>Note</h4>
 <p>This function is impure!</p>
 </html>",   revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -133,12 +128,11 @@ All returned values are of type Integer and have the following meaning:
 </html>"));
   end getTime;
 
-  function getPid "Retrieve the current process id"
+  impure function getPid "Retrieve the current process id"
     extends Modelica.Icons.Function;
     output Integer pid "Process ID";
-    external "C" pid=  ModelicaInternal_getpid() annotation(Library="ModelicaExternalC");
-    annotation (__ModelicaAssociation_Impure=true,
-Documentation(info="<html>
+    external "C" pid = ModelicaInternal_getpid() annotation(Library="ModelicaExternalC");
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 pid = System.<strong>getPid</strong>();
@@ -157,13 +151,13 @@ getPid()   // = 3044
 <h4>Note</h4>
 <p>This function is impure!</p>
 </html>",   revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -177,21 +171,19 @@ getPid()   // = 3044
 </html>"));
   end getPid;
 
-function command "Execute command in default shell"
+impure function command "Execute command in default shell"
   extends Modelica.Icons.Function;
   input String string "String to be passed to shell";
   output Integer result "Return value from command (depends on environment)";
   external "C" result = system(string) annotation(Include="#include <stdlib.h>", Library="ModelicaExternalC");
-    annotation (__ModelicaAssociation_Impure=true,
-Documentation(info="<html>
+    annotation (Documentation(info="<html>
 
 </html>"));
 end command;
 
-function exit "Terminate execution of Modelica environment"
+impure function exit "Terminate execution of Modelica environment"
   extends ModelicaServices.System.exit;
-    annotation (__ModelicaAssociation_Impure=true,
-Documentation(info="<html>
+    annotation (Documentation(info="<html>
 
 </html>"));
 end exit;

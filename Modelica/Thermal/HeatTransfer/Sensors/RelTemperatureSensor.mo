@@ -1,5 +1,5 @@
 within Modelica.Thermal.HeatTransfer.Sensors;
-model RelTemperatureSensor "Relative Temperature sensor"
+model RelTemperatureSensor "Relative temperature sensor"
   extends Modelica.Icons.RectangularSensor;
   Interfaces.HeatPort_a port_a annotation (Placement(transformation(extent={{
             -110,-10},{-90,10}})));
@@ -7,10 +7,13 @@ model RelTemperatureSensor "Relative Temperature sensor"
             90,-10},{110,10}})));
   Modelica.Blocks.Interfaces.RealOutput T_rel(unit="K", displayUnit="K")
     "Relative temperature as output signal"
-    annotation (Placement(transformation(
-        origin={0,-90},
+    annotation (absoluteValue=false, Placement(transformation(
+        origin={0,-110},
         extent={{10,-10},{-10,10}},
-        rotation=90)));
+        rotation=90), iconTransformation(
+        extent={{10,-10},{-10,10}},
+        rotation=90,
+        origin={0,-110})));
 equation
   T_rel = port_a.T - port_b.T;
   0 = port_a.Q_flow;
@@ -21,7 +24,7 @@ equation
         Line(points={{-90,0},{-70,0},{-70,0}}, color={191,0,0}),
         Line(points={{-90,0},{-70,0},{-70,0}}, color={191,0,0}),
         Line(points={{70,0},{90,0},{90,0}}, color={191,0,0}),
-        Line(points={{0,-38},{0,-80}}, color={0,0,127}),
+        Line(points={{0,-38},{0,-100}},color={0,0,127}),
         Text(
           extent={{-150,80},{150,40}},
           textString="%name",

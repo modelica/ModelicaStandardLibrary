@@ -23,7 +23,7 @@ model ThyristorCenterTapmPulse
     final Ron=fill(RonThyristor, m),
     final Goff=fill(GoffThyristor, m),
     final Vknee=fill(VkneeThyristor, m),
-    each final useHeatPort=useHeatPort,
+    final useHeatPort=useHeatPort,
     final idealThyristor(off(start=offStart, fixed=fill(true, m))))
     "Thyristors conducting AC potentials" annotation (Placement(transformation(
         origin={-10,0},

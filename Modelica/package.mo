@@ -14,7 +14,7 @@ The Modelica Standard Library consists of the following
 main sub-libraries:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Library Components</th> <th>Description</th></tr>
 
 <tr><td>
@@ -79,7 +79,7 @@ Based on magnetic flux tubes concepts. Especially to model electromagnetic actua
  </td>
 </tr>
 
-<tr><td width=100>
+<tr><td width=\"100\">
  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-MultiBody1.png\"><br>
  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-MultiBody2.png\">
  </td>
@@ -161,14 +161,14 @@ Based on magnetic flux tubes concepts. Especially to model electromagnetic actua
 </tr>
 
 <tr><td>
- <pre>
- A = [1,2,3;
-   3,4,5;
-   2,1,4];
- b = {10,22,12};
- x = Matrices.solve(A,b);
- Matrices.eigenValues(A);
- </pre>
+ <blockquote><pre>
+A = [1,2,3;
+     3,4,5;
+     2,1,4];
+b = {10,22,12};
+x = Matrices.solve(A,b);
+Matrices.eigenValues(A);
+ </pre></blockquote>
  </td>
  <td>
  <a href=\"modelica://Modelica.Math\">Math</a>,
@@ -201,7 +201,7 @@ The following elementary connectors are defined
 variables is explained in section \"Connector Equations\" below):
 </p>
 
-<table border=1 cellspacing=0 cellpadding=1>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"1\">
 <tr><td><strong>domain</strong></td>
    <td><strong>potential<br>variables</strong></td>
    <td><strong>flow<br>variables</strong></td>
@@ -373,15 +373,13 @@ As a result, it is, e.g., possible, to collect elementary connectors together.
 For example, an electrical plug consisting of two electrical pins can be defined as:
 </p>
 
-<blockquote>
-<pre>
+<blockquote><pre>
 <strong>connector</strong> Plug
    <strong>import</strong> Modelica.Electrical.Analog.Interfaces;
    Interfaces.PositivePin phase;
    Interfaces.NegativePin ground;
 <strong>end</strong> Plug;
-</pre>
-</blockquote>
+</pre></blockquote>
 
 <p>
 With one connect(..) equation, either two plugs can be connected
@@ -420,48 +418,48 @@ The Modelica connection semantics is sketched at hand
 of an example: Three connectors c1, c2, c3 with the definition
 </p>
 
-<pre>
+<blockquote><pre>
 <strong>connector</strong> Demo
   Real        p;  // potential variable
   <strong>flow</strong>   Real f;  // flow variable
   <strong>stream</strong> Real s;  // stream variable
 <strong>end</strong> Demo;
-</pre>
+</pre></blockquote>
 
 <p>
 are connected together with
 </p>
 
-<pre>
-   <strong>connect</strong>(c1,c2);
-   <strong>connect</strong>(c1,c3);
-</pre>
+<blockquote><pre>
+<strong>connect</strong>(c1,c2);
+<strong>connect</strong>(c1,c3);
+</pre></blockquote>
 
 <p>
 then this leads to the following equations:
 </p>
 
-<pre>
-  // Potential variables are identical
-  c1.p = c2.p;
-  c1.p = c3.p;
+<blockquote><pre>
+// Potential variables are identical
+c1.p = c2.p;
+c1.p = c3.p;
 
-  // The sum of the flow variables is zero
-  0 = c1.f + c2.f + c3.f;
+// The sum of the flow variables is zero
+0 = c1.f + c2.f + c3.f;
 
-  /* The sum of the product of flow variables and upstream stream variables is zero
-     (this implicit set of equations is explicitly solved when generating code;
-     the \"&lt;undefined&gt;\" parts are defined in such a way that
-     inStream(..) is continuous).
-  */
-  0 = c1.f*(<strong>if</strong> c1.f > 0 <strong>then</strong> s_mix <strong>else</strong> c1.s) +
-      c2.f*(<strong>if</strong> c2.f > 0 <strong>then</strong> s_mix <strong>else</strong> c2.s) +
-      c3.f*(<strong>if</strong> c3.f > 0 <strong>then</strong> s_mix <strong>else</strong> c3.s);
+/* The sum of the product of flow variables and upstream stream variables is zero
+   (this implicit set of equations is explicitly solved when generating code;
+   the \"&lt;undefined&gt;\" parts are defined in such a way that
+   inStream(..) is continuous).
+*/
+0 = c1.f*(<strong>if</strong> c1.f > 0 <strong>then</strong> s_mix <strong>else</strong> c1.s) +
+    c2.f*(<strong>if</strong> c2.f > 0 <strong>then</strong> s_mix <strong>else</strong> c2.s) +
+    c3.f*(<strong>if</strong> c3.f > 0 <strong>then</strong> s_mix <strong>else</strong> c3.s);
 
-  <strong>inStream</strong>(c1.s) = <strong>if</strong> c1.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
-  <strong>inStream</strong>(c2.s) = <strong>if</strong> c2.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
-  <strong>inStream</strong>(c3.s) = <strong>if</strong> c3.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
-</pre>
+<strong>inStream</strong>(c1.s) = <strong>if</strong> c1.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
+<strong>inStream</strong>(c2.s) = <strong>if</strong> c2.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
+<strong>inStream</strong>(c3.s) = <strong>if</strong> c3.f > 0 <strong>then</strong> s_mix <strong>else</strong> &lt;undefined&gt;;
+</pre></blockquote>
 
 </html>"));
 end Connectors;
@@ -498,12 +496,13 @@ For more complex case scenarios, an unordered list should be used. In this case 
 
 <h5>Example 2</h5>
 
-<pre>
+<blockquote><pre>
 &lt;ul&gt;
   &lt;li&gt; If &lt;code&gt;useCage == true&lt;/code&gt;, a damper cage is considered in the model.
        Cage parameters must be specified in this case.&lt;/li&gt;
   &lt;li&gt; If &lt;code&gt;useCage == false&lt;/code&gt;, the damper cage is omitted.&lt;/li&gt;
-&lt;/ul&gt;</pre>
+&lt;/ul&gt;
+</pre></blockquote>
 
 <p>appears as</p>
 
@@ -519,7 +518,7 @@ In a more equation oriented case, additional equations or code segments can be a
 
 <h5>Example 3</h5>
 
-<pre>
+<blockquote><pre>
 &lt;ul&gt;
   &lt;li&gt;if &lt;code&gt;usePolar == true&lt;/code&gt;, assign magnitude and angle to output &lt;br&gt;
   &lt;!-- insert graphical representation of equations --&gt;
@@ -531,7 +530,8 @@ In a more equation oriented case, additional equations or code segments can be a
   y[i,1] = a[i] &lt;br&gt;
   y[i,2] = b[i]
   &lt;/li&gt;
-&lt;/ul&gt;</pre>
+&lt;/ul&gt;
+</pre></blockquote>
 
 <p>appears as</p>
 
@@ -565,11 +565,12 @@ Modelica code in the HTML documentation.
 </p>
 
 <ol>
-<li> For constants, parameters and variables in code segments <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>
-     should to be used, e.g.,<br>
+<li> For constants, parameters and variables in code segments <code>&lt;code&gt;</code>
+     and <code>&lt;/code&gt;</code> should to be used, e.g.,<br>
      <code><strong>parameter</strong> Modelica.SIunits.Time tStart &quot;Start time&quot;</code></li>
-<li> Write multi or single line code segments using <code>&lt;pre&gt;</code> and <code>&lt;/pre&gt;</code>.</li>
-<li> Multi line or single line code shall not be indented.</li>
+<li> Write multi or single line code segments as quoted preformatted text, i.e., embedded within
+     <code>&lt;blockquote&gt;&lt;pre&gt;</code> and <code>&lt;/pre&gt;&lt;/blockquote&gt;</code> tags.</li>
+<li> Multi line or single line code shall not be additionally indented.</li>
 <li> Inline code segments may be typeset with <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>.</li>
 <li> In code segments use bold to emphasize Modelica keywords.</li>
 </ol>
@@ -578,36 +579,37 @@ Modelica code in the HTML documentation.
 
 <h5>Example 1</h5>
 
-<pre>
-&lt;pre&gt;
+<blockquote><pre>
+&lt;blockquote&gt;&lt;pre&gt;
 &lt;strong&gt;connector&lt;/strong&gt; Frame
    ...
    &lt;strong&gt;flow&lt;/strong&gt; SI.Force f[3] &lt;strong&gt;annotation&lt;/strong&gt;(unassignedMessage=&quot;...&quot;);
 &lt;strong&gt;end&lt;/strong&gt; Frame;
-&lt;/pre&gt;</pre>
+&lt;/pre&gt;&lt;/blockquote&gt;
+</pre></blockquote>
 
 <p>appears as</p>
 
-<pre>
+<blockquote><pre>
 <strong>connector</strong> Frame
    ...
    <strong>flow</strong> SI.Force f[3] <strong>annotation</strong>(unassignedMessage=&quot;...&quot;);
 <strong>end</strong> Frame;
-</pre>
+</pre></blockquote>
 
 <h5>Example 2</h5>
 
-<pre>
-&lt;pre&gt;
+<blockquote><pre>
+&lt;blockquote&gt;&lt;pre&gt;
 &lt;strong&gt;parameter&lt;/strong&gt; Modelica.SIunits.Conductance G=1 &quot;Conductance&quot;;
-&lt;/pre&gt;
-</pre>
+&lt;/pre&gt;&lt;/blockquote&gt;
+</pre></blockquote>
 
 <p>appears as</p>
 
-<pre>
+<blockquote><pre>
 <strong>parameter</strong> Modelica.SIunits.Conductance G=1 &quot;Conductance&quot;;
-</pre>
+</pre></blockquote>
 </html>"));
         end Code;
 
@@ -634,11 +636,11 @@ or<br>
  src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png\"
  alt=\"y=a_1+a_2\"><br>
 In an <code>alt</code> tag the original equation should be stored, e.g.,</p>
-<pre>
+<blockquote><pre>
 &lt;img
 &nbsp;src=&quot;modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
 &nbsp;alt=&quot;y=a_1+a_2&quot;&gt;
-</pre>
+</pre></blockquote>
 
 <p>
 If one wants to refer to particular variables and parameters in the documentation text, either a
@@ -658,7 +660,7 @@ Vector and array indices should be typeset as subscripts using the
 
 <p>For numbering equations a one row table with two columns should be used. The equation number should be placed in the right column:</p>
 
-<pre>
+<blockquote><pre>
 &lt;table border=&quot;0&quot; cellspacing=&quot;10&quot; cellpadding=&quot;2&quot;&gt;
   &lt;tr&gt;
     &lt;td&gt;&lt;img
@@ -667,7 +669,7 @@ Vector and array indices should be typeset as subscripts using the
     &lt;td&gt;(1)&lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
-</pre>
+</pre></blockquote>
 
 <p>appears as:</p>
 
@@ -713,16 +715,16 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <a href=\"modelica://Modelica.Blocks\">Blocks</a> package.
 </p>
 
-<pre>
+<blockquote><pre>
 &lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
      alt=&quot;PID_controller.png&quot;&gt;
-</pre>
+</pre></blockquote>
 
 <h5>Example 2</h5>
 
 <p>This is a simple example of a technical figure with caption.</p>
 
-<pre>
+<blockquote><pre>
 &lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
   &lt;caption align=&quot;bottom&quot;&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
@@ -732,7 +734,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
-</pre>
+</pre></blockquote>
 
 <h5>Example 3</h5>
 
@@ -740,7 +742,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <p>The figure name and enumeration should look like this: <strong>Fig. 1:</strong></p>
 <p>Figures have to be enumerated manually.</p>
 
-<pre>
+<blockquote><pre>
 &lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
   &lt;caption align=&quot;bottom&quot;&gt;&lt;strong&gt;Fig. 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
@@ -750,7 +752,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
-</pre>
+</pre></blockquote>
 </html>"));
         end Figures;
 
@@ -771,21 +773,23 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 
 <h5>Example 1</h5>
 
-<pre>
+<blockquote><pre>
 &lt;a href=&quot;modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&quot;&gt;
-         Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&lt;/a&gt;</pre>
+         Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&lt;/a&gt;
+</pre></blockquote>
 <p>appears as</p>
 <a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\">
          Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops</a>
 
 <h5>Example 2</h5>
 
-<pre>
+<blockquote><pre>
 &lt;p&gt;
   The feeder cables are connected to an
   &lt;a href=&quot;modelica://Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage&quot;&gt;
   induction machine&lt;/a&gt;.
-&lt;/p&gt;</pre>
+&lt;/p&gt;
+</pre></blockquote>
 <p>appears as</p>
 <p>
   The feeder cables are connected to an
@@ -814,12 +818,12 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 
 <p>This is a simple example of an enumerated (ordered) list</p>
 
-<pre>
+<blockquote><pre>
 &lt;ol&gt;
   &lt;li&gt;item 1&lt;/li&gt;
   &lt;li&gt;item 2&lt;/li&gt;
 &lt;/ol&gt;
-</pre>
+</pre></blockquote>
 <p>appears as</p>
 <ol>
   <li>item 1</li>
@@ -830,12 +834,12 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 
 <p>This is a simple example of an unnumbered list.</p>
 
-<pre>
+<blockquote><pre>
 &lt;ul&gt;
   &lt;li&gt;item 1&lt;/li&gt;
   &lt;li&gt;item 2&lt;/li&gt;
 &lt;/ul&gt;
-</pre>
+</pre></blockquote>
 <p>appears as</p>
 <ul>
   <li>item 1</li>
@@ -858,14 +862,20 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 
 <h5>Example 1</h5>
 
-<pre>
+<blockquote><pre>
 &lt;p&gt;
-More details about sensorless rotor temperature estimation
-can be found in &lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;[Gao2008]&lt;/a.&gt;
-&lt;/p&gt;</pre>
+More details about electric machine modeling
+can be found in [&lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;Gao2008&lt;/a&gt;]
+and
+[&lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.UsersGuide.References&quot;&gt;Kral2018&lt;/a&gt;, p. 149].
+&lt;/p&gt;
+</pre></blockquote>
 <p>appears as</p>
 <p>
-  More details about sensorless rotor temperature estimation can be found in <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">[Gao2008]</a>.
+More details about electric machine modeling
+can be found in [<a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">Gao2008</a>]
+and
+[<a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide.References\">Kral2018</a>, p. 149].
 </p>
 </html>"));
         end References;
@@ -888,7 +898,7 @@ can be found in &lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.User
 
 <p>This is a simple example of a table.</p>
 
-<pre>
+<blockquote><pre>
 &lt;table border=&quot;1&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
   &lt;caption align=&quot;bottom&quot;&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
@@ -904,7 +914,7 @@ can be found in &lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.User
     &lt;td&gt;Entry 4&lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
-</pre>
+</pre></blockquote>
 <p>appears as</p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\">Caption starts with a capital letter</caption>
@@ -928,7 +938,7 @@ can be found in &lt;a href=&quot;modelica://Modelica.UsersGuide.Conventions.User
 has to be displayed bold using <code>&lt;strong&gt;</code> and <code>&lt;/strong&gt;</code>. The table name
 and enumeration should look like this: <strong>Tab. 1:</strong> Tables have to be enumerated manually.</p>
 
-<pre>
+<blockquote><pre>
 &lt;table border=&quot;1&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
   &lt;caption align=&quot;bottom&quot;&gt;&lt;strong&gt;Tab 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
@@ -944,7 +954,7 @@ and enumeration should look like this: <strong>Tab. 1:</strong> Tables have to b
     &lt;td&gt;Entry 4&lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
-</pre>
+</pre></blockquote>
 <p>appears as</p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\"><strong>Tab. 2:</strong> Caption starts with a capital letter</caption>
@@ -1047,33 +1057,33 @@ These sections should appear in the listed order. The only exceptions are hierar
 This is an example of a single note.
 </p>
 
-<pre>
+<blockquote><pre>
 &lt;h5&gt;Note&lt;/h5&gt;
 &lt;p&gt;This is the note.&lt;/p&gt;
-</pre>
+</pre></blockquote>
 
 <h5>Example 2</h5>
 <p>
 This is an example of a very simple structure.
 </p>
 
-<pre>
+<blockquote><pre>
 &lt;h5&gt;Notes&lt;/h5&gt;
 &lt;p&gt;This is the first note.&lt;/p&gt;
 &lt;p&gt;This is the second note.&lt;/p&gt;
-</pre>
+</pre></blockquote>
 
 <h5>Example 3</h5>
 <p>
 This example shows a more complex structure with enumeration.
 </p>
 
-<pre>
+<blockquote><pre>
 &lt;h5&gt;Note 1&lt;/h5&gt;
 ...
 &lt;h5&gt;Note 2&lt;/h5&gt;
 ...
-</pre>
+</pre></blockquote>
 
 <h4>Automatically created documentation</h4>
 
@@ -1104,11 +1114,11 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
     <th>Not to be used</th>
   </tr>
   <tr>
-    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=151-13-54\">cut-off frequency</a></td>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=151-13-54\">cut-off frequency</a></td>
     <td>cut off frequency, cutoff frequency, cut-off-frequency, cutoff-frequency</td>
   </tr>
   <tr>
-    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=151-11-09\">electromagnetic</a></td>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=151-11-09\">electromagnetic</a></td>
     <td>electro magnetic, electro-magnetic</td>
   </tr>
   <tr>
@@ -1140,7 +1150,7 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
     <td>single phase, singlephase, one phase, one-phase, onephase, 1 phase, 1-phase</td>
   </tr>
   <tr>
-    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&ievref=141-02-10\">star point</a></td>
+    <td><a href=\"http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=141-02-10\">star point</a></td>
     <td>star-point, starpoint</td>
   </tr>
   <tr>
@@ -1395,12 +1405,101 @@ For Boolean parameters, the description string should start with &quot;= true, &
 </html>"));
       end Naming;
 
+    class ParameterDefaults "Parameter defaults"
+      extends Modelica.Icons.Information;
+
+     annotation (Documentation(info="<html>
+
+<p>
+In this section the convention is summarized how default parameters are
+handled in the Modelica Standard Library (since version 3.0).
+</p>
+
+<p>
+Many models in this library have parameter declarations to define
+constants of a model that might be changed before simulation starts.
+Example:
+</p>
+
+<blockquote><pre>
+<strong>model</strong> SpringDamper
+<strong>parameter</strong> Real c(final unit=\"N.m/rad\")    = 1e5 \"Spring constant\";
+<strong>parameter</strong> Real d(final unit=\"N.m.s/rad\")  = 0   \"Damping constant\";
+<strong>parameter</strong> Modelica.SIunits.Angle phi_rel0 = 0   \"Unstretched spring angle\";
+...
+<strong>end</strong> SpringDamper;
+</pre></blockquote>
+
+<p>
+In Modelica it is possible to define a default value of a parameter in
+the parameter declaration. In the example above, this is performed for
+all parameters. Providing default values for all parameters can lead to
+errors that are difficult to detect, since a modeler may have forgotten
+to provide a meaningful value (the model simulates but gives wrong
+results due to wrong parameter values). In general the following basic
+situations are present:
+</p>
+
+<ol>
+<li> The parameter value could be anything (e.g., a spring constant or
+  a resistance value) and therefore the user should provide a value in
+  all cases. A Modelica translator should warn, if no value is provided.
+</li>
+
+<li> The parameter value is not changed in &gt; 95 % of the cases
+  (e.g., initialization or visualization parameters, or parameter phi_rel0
+  in the example above). In this case a default parameter value should be
+  provided, in order that the model or function can be conveniently
+  used by a modeler.
+</li>
+
+<li> A modeler would like to quickly utilize a model, e.g.,
+  <ul>
+  <li> to automatically check that the model still translates and/or simulates
+    (after some changes in the library),</li>
+  <li> to make a quick demo of a library by drag-and-drop of components,</li>
+  <li> to implement a simple test model in order to get a better understanding
+    of the desired component.</li>
+  </ul>
+  In all these cases, it would be not practical, if the modeler would
+  have to provide explicit values for all parameters first.
+  </li>
+</ol>
+
+<p>
+To handle the conflicting goals of (1) and (3), the Modelica Standard Library
+uses two approaches to define default parameters, as demonstrated with the
+following example:
+</p>
+
+<blockquote><pre>
+<strong>model</strong> SpringDamper
+<strong>parameter</strong> Real c(final unit=\"N.m/rad\"  , start=1e5) \"Spring constant\";
+<strong>parameter</strong> Real d(final unit=\"N.m.s/rad\", start=  0) \"Damping constant\";
+<strong>parameter</strong> Modelica.SIunits.Angle phi_rel0 = 0       \"Unstretched spring angle\";
+...
+<strong>end</strong> SpringDamper;
+
+SpringDamper sp1;              // warning for \"c\" and \"d\"
+SpringDamper sp2(c=1e4, d=0);  // fine, no warning
+</pre></blockquote>
+
+<p>
+Both definition forms, using a \"start\" value (for \"c\" and \"d\") and providing
+a declaration equation (for \"phi_rel0\"), are valid Modelica and define the value
+of the parameter. By convention, it is expected that Modelica translators will
+trigger a warning message for parameters that are <strong>not</strong> defined by a declaration
+equation, by a modifier equation or in an initial equation/algorithm section.
+A Modelica translator might have options to change this behavior, especially,
+that no messages are printed in such cases and/or that an error is triggered
+instead of a warning.
+</p>
+
+</html>"));
+    end ParameterDefaults;
       annotation (Documentation(info="<html>
 
-<p>In this section the
-<a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode.Naming\">naming conventions</a> of class and instance names, parameters and variables are specified.
-Additional
-<a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode.Format\">format</a> guidelines are provided.</p>
+<p>In this section guidelines on creating Modelica code are provided.</p>
 
 </html>"));
     end ModelicaCode;
@@ -1437,7 +1536,7 @@ This class summarizes general information about the implementation which is not 
 
 <ul>
 <li> Journal (or conference) [Gao2008]</li>
-<li> Book [Andronov1973]</li>
+<li> Book [Kral2018]</li>
 <li> Master&apos;s thesis [Woehrnschimmel1998]</li>
 <li> PhD thesis [Farnleitner1999]</li>
 <li> Technical report [Marlino2005]</li>
@@ -1447,23 +1546,23 @@ This class summarizes general information about the implementation which is not 
 
 <h4>Example</h4>
 
-<pre>
+<blockquote><pre>
 &lt;table border=\"0\" cellspacing=\"0\" cellpadding=\"2\"&gt;
   &lt;tr&gt;
     &lt;td&gt;[Gao2008]&lt;/td&gt;
     &lt;td&gt;Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
-        &amp;quot;A sensorless rotor temperature estimator for induction
-        machines based on a current harmonic spectral
-        estimation scheme&amp;quot;,
+        &amp;quot;&lt;a href=&quot;https://ieeexplore.ieee.org/document/4401132&quot;&gt;A sensorless rotor temperature estimator for induction
+        machines based on a current harmonic spectral estimation scheme&lt;/a&gt;&amp;quot;,
         &lt;em&gt;IEEE Transactions on Industrial Electronics&lt;/em&gt;,
         vol. 55, no. 1, pp. 407-416, Jan. 2008.
     &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-    &lt;td&gt;[Andronov1973]&lt;/td&gt;
-    &lt;td&gt;A. Andronov, E. Leontovich, I. Gordon, and A. Maier,
-        &lt;em&gt;Theory of  Bifurcations of Dynamic Systems on a plane&lt;/em&gt;,
-        1st ed. New York: J. Wiley &amp;amp; Sons, 1973.
+    &lt;td&gt;[Kral2018]&lt;/td&gt;
+    &lt;td&gt;C. Kral,
+        &lt;em&gt;Modelica - object oriented modeling of polyphase electric machines&lt;/em&gt; (in German),
+        M&amp;uuml;nchen: Hanser Verlag, 2018, &lt;a href=&quot;https://doi.org/10.3139/9783446457331&quot;&gt;DOI 10.3139/9783446457331&lt;/a&gt;,
+        ISBN 978-3-446-45551-1.
     &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
@@ -1490,11 +1589,12 @@ This class summarizes general information about the implementation which is not 
       &amp;quot;Oak ridge national laboratory annual progress report for the
       power electronics and electric machinery program&amp;quot;,
       Oak Ridge National Laboratory, prepared for the U.S. Department of Energy,
-      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005.
+      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005,
+      &lt;a href=&quot;https://doi.org/10.2172/974618&quot;&gt;DOI 10.2172/974618&lt;/a&gt;.
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
-</pre>
+</pre></blockquote>
 
 <p>appears as</p>
 
@@ -1502,18 +1602,18 @@ This class summarizes general information about the implementation which is not 
   <tr>
     <td>[Gao2008]</td>
     <td>Z. Gao, T. G. Habetler, R. G. Harley, and R. S. Colby,
-        &quot;A sensorless rotor temperature estimator for induction
-        machines based on a current harmonic spectral
-        estimation scheme&quot;,
+        &quot;<a href=\"https://ieeexplore.ieee.org/document/4401132\">A sensorless rotor temperature estimator for induction
+        machines based on a current harmonic spectral estimation scheme</a>&quot;,
         <em>IEEE Transactions on Industrial Electronics</em>,
         vol. 55, no. 1, pp. 407-416, Jan. 2008.
     </td>
   </tr>
   <tr>
-    <td>[Andronov1973]</td>
-    <td>A. Andronov, E. Leontovich, I. Gordon, and A. Maier,
-        <em>Theory of  Bifurcations of Dynamic Systems on a plane</em>,
-        1st ed. New York: J. Wiley &amp; Sons, 1973.
+    <td>[Kral2018]</td>
+    <td>C. Kral,
+        <em>Modelica - object oriented modeling of polyphase electric machines</em> (in German),
+        M&uuml;nchen: Hanser Verlag, 2018, <a href=\"https://doi.org/10.3139/9783446457331\">DOI 10.3139/9783446457331</a>,
+        ISBN 978-3-446-45551-1.
     </td>
   </tr>
   <tr>
@@ -1540,10 +1640,12 @@ This class summarizes general information about the implementation which is not 
       &quot;Oak ridge national laboratory annual progress report for the
       power electronics and electric machinery program&quot;,
       Oak Ridge National Laboratory, prepared for the U.S. Department of Energy,
-      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005.
+      Tennessee, USA, Tech. Rep. FY2004 Progress Report, January 2005,
+      <a href=\"https://doi.org/10.2172/974618\">DOI 10.2172/974618</a>.
     </td>
   </tr>
 </table>
+
 </html>"));
       end References;
 
@@ -1558,7 +1660,7 @@ This class summarizes contact information of the contributing persons.
 
 <h4>Example</h4>
 
-<pre>
+<blockquote><pre>
 &lt;p&gt;
 Library officers responsible for the maintenance and for the
 organization of the development of this library are listed in
@@ -1609,7 +1711,7 @@ is highly appreciated.
 &lt;/p&gt;
 
 OR whatever
-</pre>
+</pre></blockquote>
 <p>appears as</p>
 <p>
 Library officers responsible for the maintenance and for the
@@ -1666,7 +1768,7 @@ The authors would like to thank following persons for their support ...
 
 <h5>Example</h5>
 
-<pre>
+<blockquote><pre>
 &lt;table border=\"1\" cellspacing=\"0\" cellpadding=\"2\"&gt;
     &lt;tr&gt;
       &lt;th&gt;Version&lt;/th&gt;
@@ -1687,7 +1789,8 @@ The authors would like to thank following persons for their support ...
       &lt;td&gt;A. Haumer&lt;/td&gt;
       &lt;td&gt;Initial version&lt;/td&gt;
     &lt;/tr&gt;
-&lt;/table&gt;</pre>
+&lt;/table&gt;
+</pre></blockquote>
 
 <p>This code appears then as in the \"Revisions\" section below.</p>
 
@@ -1787,6 +1890,11 @@ In the Modelica Standard Library the following color schemes apply:</p>
     <td>Modelica.ComplexBlocks</td>
     <td>{85,170,255}</td>
     <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleComplexBlocks.png\"></td>
+  </tr>
+  <tr>
+    <td>Modelica.Clocked</td>
+    <td>{95,95,95}</td>
+    <td><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icons/colorSampleClocked.png\"></td>
   </tr>
   <tr>
     <td>Modelica.StateGraph</td>
@@ -2022,23 +2130,23 @@ design of sensors apply:
     e.g. heat flow is indicated by <strong>W</strong>, torque is indicated by <strong>N.m</strong></li>
 <li>The text color of the SI units is {64,64,64} in RGB code</li>
 <li>For a sensor with a single output signal the SI unit shall be placed withing the sensor,
-    see <strong>Fig.&nbsp;6</strong> and <strong>7</strong></li>
+    see <strong>Fig.&nbsp;6</strong> and <strong>7</strong>
     <ul>
-    <li>In a <a href=\"modelica://Modelica.Icons.RoundSensor\">round sensor</a> the text size shall be</li>
+    <li>In a <a href=\"modelica://Modelica.Icons.RoundSensor\">round sensor</a> the text size shall be
         <ul>
         <li>either <code>{{-30,-10},{30,-70}}</code> (<strong>Fig.&nbsp;6(a)</strong>)</li>
         <li>or <code>{{-50,-12},{50,-48}}</code> (<strong>Fig.&nbsp;6(b)</strong>), depending on the better readability</li>
-        </ul>
+        </ul></li>
 
     <li>In a <a href=\"modelica://Modelica.Icons.RectangularSensor\">rectangular sensor</a> the text size shall be 
         <code>{{-24,20},{66,-40}}</code> (<strong>Fig.&nbsp;7</strong>)</li>
-    </ul>
+    </ul></li>
 <li>For a sensor with multiple output signals the SI unit shall be placed next to the output signal;
-    a signal connectors and the SI units may overlap, see <strong>Fig.&nbsp;8</strong></li>
+    a signal connectors and the SI units may overlap, see <strong>Fig.&nbsp;8</strong>
     <ul>
     <li>Text height: 40 units (or 30 units, minimum 20 units, if required)</li>
     <li>Text width: 40 units (or 30 units, minimum 20 units, if required)</li>
-    </ul>
+    </ul></li>
 </ul>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
@@ -2075,11 +2183,11 @@ design of sensors apply:
   </tr>
 </table>
 
-<h4>Diagram icons</h4>
+<h4>Diagram layer</h4>
 
-<p>Icons drawn in the Diagram layer shall be avoided. Particularly, icons of Diagram layer shall be avoided which are equal to the
-icons of the Icon layer. Any graphical illustrations shall be moved to the HTML documentation instead.</p>
-
+<p>The diagram layer is intended to contain the graphical components, and if there are no graphical components it shall be left empty. 
+In particular do not make the diagram layer a copy of the icon layer. 
+Graphical illustrations shall not be added in the diagram layer, but can be added in the HTML documentation.</p>
 </html>"));
     end Icons;
     annotation (DocumentationClass=true,Documentation(info="<html>
@@ -2102,103 +2210,6 @@ icons of the Icon layer. Any graphical illustrations shall be moved to the HTML 
 </ol>
 </html>"));
   end Conventions;
-
-class ParameterDefaults "Parameter defaults"
-  extends Modelica.Icons.Information;
-
- annotation (Documentation(info="<html>
-
-<p>
-In this section the convention is summarized how default parameters are
-handled in the Modelica Standard Library (since version 3.0).
-</p>
-
-<p>
-Many models in this library have parameter declarations to define
-constants of a model that might be changed before simulation starts.
-Example:
-</p>
-
-<blockquote>
-<pre>
-<strong>model</strong> SpringDamper
-<strong>parameter</strong> Real c(final unit=\"N.m/rad\")    = 1e5 \"Spring constant\";
-<strong>parameter</strong> Real d(final unit=\"N.m.s/rad\")  = 0   \"Damping constant\";
-<strong>parameter</strong> Modelica.SIunits.Angle phi_rel0 = 0   \"Unstretched spring angle\";
-...
-<strong>end</strong> SpringDamper;
-</pre>
-</blockquote>
-
-<p>
-In Modelica it is possible to define a default value of a parameter in
-the parameter declaration. In the example above, this is performed for
-all parameters. Providing default values for all parameters can lead to
-errors that are difficult to detect, since a modeler may have forgotten
-to provide a meaningful value (the model simulates but gives wrong
-results due to wrong parameter values). In general the following basic
-situations are present:
-</p>
-
-<ol>
-<li> The parameter value could be anything (e.g., a spring constant or
-  a resistance value) and therefore the user should provide a value in
-  all cases. A Modelica translator should warn, if no value is provided.
-</li>
-
-<li> The parameter value is not changed in &gt; 95 % of the cases
-  (e.g., initialization or visualization parameters, or parameter phi_rel0
-  in the example above). In this case a default parameter value should be
-  provided, in order that the model or function can be conveniently
-  used by a modeler.
-</li>
-
-<li> A modeler would like to quickly utilize a model, e.g.,
-  <ul>
-  <li> to automatically check that the model still translates and/or simulates
-    (after some changes in the library),</li>
-  <li> to make a quick demo of a library by drag-and-drop of components,</li>
-  <li> to implement a simple test model in order to get a better understanding
-    of the desired component.</li>
-  </ul>
-  In all these cases, it would be not practical, if the modeler would
-  have to provide explicit values for all parameters first.
-  </li>
-</ol>
-
-<p>
-To handle the conflicting goals of (1) and (3), the Modelica Standard Library
-uses two approaches to define default parameters, as demonstrated with the
-following example:
-</p>
-
-<blockquote>
-<pre>
-<strong>model</strong> SpringDamper
-<strong>parameter</strong> Real c(final unit=\"N.m/rad\"  , start=1e5) \"Spring constant\";
-<strong>parameter</strong> Real d(final unit=\"N.m.s/rad\", start=  0) \"Damping constant\";
-<strong>parameter</strong> Modelica.SIunits.Angle phi_rel0 = 0       \"Unstretched spring angle\";
-...
-<strong>end</strong> SpringDamper;
-
-SpringDamper sp1;              // warning for \"c\" and \"d\"
-SpringDamper sp2(c=1e4, d=0);  // fine, no warning
-</pre>
-</blockquote>
-
-<p>
-Both definition forms, using a \"start\" value (for \"c\" and \"d\") and providing
-a declaration equation (for \"phi_rel0\"), are valid Modelica and define the value
-of the parameter. By convention, it is expected that Modelica translators will
-trigger a warning message for parameters that are <strong>not</strong> defined by a declaration
-equation, by a modifier equation or in an initial equation/algorithm section.
-A Modelica translator might have options to change this behavior, especially,
-that no messages are printed in such cases and/or that an error is triggered
-instead of a warning.
-</p>
-
-</html>"));
-end ParameterDefaults;
 
 package ReleaseNotes "Release notes"
   extends Modelica.Icons.ReleaseNotes;
@@ -2252,19 +2263,18 @@ The general <a href=\"https://guides.github.com/activities/forking/\">contributi
 <li>Fork the repository to your account by
    <a href=\"https://help.github.com/articles/fork-a-repo/\">using the Fork button</a> of the GitHub repository site.</li>
 <li>Clone the forked repository to your computer. Make sure to checkout the maintenance branch if the bug fix is going to get merged to the maintenance branch.</li>
-<li>Create a new topic branch and give it a meaningful name,
-   like, e.g., \"issue2161-fix-formula\".</li>
-<li>Do your code changes and commit them, one change per commit.
-   Single commits can be copied to other branches.
+<li>Create a new topic branch and give it a meaningful name, like, e.g., \"issue2161-fix-formula\".</li>
+<li>Do your code changes and commit them, one change per commit.<br>
+   Single commits can be copied to other branches.<br>
    Multiple commits can be squashed into one, but splitting is difficult.</li>
 <li>Once you are done, push your topic branch to your forked repository.</li>
-<li>Go to the upstream <a href=\"https://github.com/modelica/ModelicaStandardLibrary.git\">https://github.com/modelica/ModelicaStandardLibrary.git</a> repository and submit a
-   <a href=\"https://help.github.com/articles/about-pull-requests/\">Pull Request</a> (PR).
-   If the PR is related to a certain issue, reference it by its number like this: #2161.
-   Once a pull request is opened, you can discuss and
-   <a href=\"https://help.github.com/articles/about-pull-request-reviews/\">review</a>
-   the potential changes with collaborators and add follow-up commits before
-   the changes are merged into the repository.</li>
+<li>Go to the upstream <a href=\"https://github.com/modelica/ModelicaStandardLibrary.git\">https://github.com/modelica/ModelicaStandardLibrary.git</a> repository and submit a <a href=\"https://help.github.com/articles/about-pull-requests/\">Pull Request</a> (PR).
+   <ul>
+   <li>If the PR is related to a certain issue, reference it by its number like this: #2161.</li>
+   <li>Once a pull request is opened, you can discuss and <a href=\"https://help.github.com/articles/about-pull-request-reviews/\">review</a> the potential changes with collaborators and add follow-up commits before the changes are merged into the repository.</li>
+   <li>If you have not already signed the Modelica Association Contributor License Agreement (CLA) you need to do so one-time.<br>
+   You can sign the CLA electronically using the CLA Assistant service and your GitHub account. There is no need to scan and send any documents by mail.</li>
+   </ul></li>
 <li>Update your branch with the requested changes. If necessary, merge the latest
    \"master\" branch into your topic branch and solve all merge conflicts in your topic branch.</li>
 </ol>
@@ -2284,17 +2294,19 @@ There are some special guidelines for changes to the maintenance branch.
      \"versionBuild\" number needs to be incremented by one. At the same time the \"dateModified\" field
      needs to be updated.<br>
      Example:
-         <pre>  annotation(version      = \"3.2.3\",
-             versionDate  = \"2019-01-23\",
-             versionBuild = 2,
-             dateModified = \"2019-01-23 07:40:19Z\",
-             revisionId   = \"$F&#8203;ormat:%h %ci$\")</pre>
+         <blockquote><pre>
+annotation(version      = \"3.2.3\",
+           versionDate  = \"2019-01-23\",
+           versionBuild = 2,
+           dateModified = \"2019-01-23 07:40:19Z\",
+           revisionId   = \"$F&#8203;ormat:%h %ci$\")
+         </pre></blockquote>
      The \"revisionId\" field is a special annotation to mark a properly released (maintenance) version from unreleased commits.<br>
      Example:
      <blockquote>
         Running the export command \"<code>git archive -o msl.zip v3.2.3</code>\" will
         expand the above \"revisionId\" place holder to something like:
-        <pre>revisionId = \"c04e23a0d 2019-01-23 12:00:00 +0200$\"</pre>
+        <blockquote><pre>revisionId = \"c04e23a0d 2019-01-23 12:00:00 +0200$\"</pre></blockquote>
      </blockquote>
      </li>
 </ul>
@@ -2342,7 +2354,7 @@ summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-4.
 The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td> </td>
     <td>
     </td></tr>
@@ -2352,8 +2364,8 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 The following <font color=\"blue\"><strong>new components</strong></font> have been added to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"> </td></tr>
 <tr><td> </td>
     <td> </td></tr>
 </table>
@@ -2362,8 +2374,8 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>improved</strong></font> in a <font color=\"blue\"><strong>backward compatible</strong></font> way:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"> </td></tr>
 <tr><td> </td>
     <td> </td></tr>
 </table>
@@ -2372,12 +2384,15 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>changed</strong></font> in a <font color=\"blue\"><strong>non-backward compatible</strong></font> way:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks</strong></td></tr>
 <tr><td>Nonlinear.Limiter<br>Nonlinear.VariableLimiter<br>Continuous.LimPID</td>
     <td>The superfluous parameter <code>limitsAtInit</code> has been removed.</td></tr>
 <tr><td>Nonlinear.DeadZone</td>
     <td>The superfluous parameter <code>deadZoneAtInit</code> has been removed.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Spice3</strong></td></tr>
+<tr><td>Internal.MOS2<br>Semiconductors.M_NMOS2<br>Semiconductors.M_PMOS2</td>
+    <td>The final parameter <code>vp</code> has been removed.<br>The obsolete variables <code>cc_obsolete</code>, <code>icqmGB</code>, <code>icqmGS</code>, <code>icqmGD</code>, <code>MOScapgd</code>, <code>MOScapgs</code>, <code>MOScapgb</code>, <code>qm</code> and <code>vDS</code> have been removed.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
 <tr><td>Joints.Prismatic</td>
     <td>The superfluous constant <code>s_offset</code> has been removed.</td></tr>
@@ -2398,8 +2413,8 @@ The following <font color=\"red\"><strong>critical errors</strong></font> have b
 that can lead to wrong simulation results):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><strong> </strong></td></tr>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"> </td></tr>
 <tr><td> </td>
     <td> </td></tr>
 </table>
@@ -2435,7 +2450,7 @@ summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-3.
 The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes\">Modelica.Magnetic.QuasiStatic.FluxTubes</a></td>
     <td>
     This library provides models for the investigation of quasi-static electromagnetic devices with lumped magnetic networks
@@ -2455,7 +2470,7 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Interfaces.Adaptors</strong></td></tr>
 <tr><td width=\"150\">FlowToPotentialAdaptor<br>PotentialToFlowAdaptor</td>
     <td> Partial adaptors for generation of FMUs, optionally taking first and second derivative into account,
@@ -2594,7 +2609,7 @@ have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and wi
 <font color=\"blue\"><strong>removed</strong></font> in a future release:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Interfaces.Adaptors</strong></td></tr>
 <tr><td>SendReal<br>SendBoolean<br>SendInteger<br>ReceiveReal<br>ReceiveBoolean<br>ReceiveInteger</td>
     <td>Use expandable connectors instead.</td></tr>
@@ -2659,7 +2674,7 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
 <font color=\"blue\"><strong>backward compatible</strong></font> way:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Continuous</strong></td></tr>
 <tr><td>Integrator<br>LimIntegrator</td>
     <td>Added optional reset and set value inputs.</td></tr>
@@ -2679,7 +2694,7 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
 The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>changed</strong></font> in a <font color=\"blue\"><strong>non-backward compatible</strong></font> way:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks</strong></td></tr>
 <tr><td>Interfaces.PartialNoise<br>Noise.UniformNoise<br>Noise.NormalNoise<br>Noise.TruncatedNormalNoise<br>Noise.BandLimitedWhiteNoise</td>
     <td>As a side-effect of the corrected computation in Modelica.Math.Random.Utilities.impureRandomInteger the <code>localSeed</code> parameter is computed differently if <code>useAutomaticLocalSeed</code> is set to true.</td></tr>
@@ -2701,7 +2716,7 @@ The following <font color=\"red\"><strong>critical errors</strong></font> have b
 that can lead to wrong simulation results):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources</strong></td></tr>
 <tr><td>TimeTable</td>
     <td>The derivative of the <code>TimeTable</code> output could no longer be determined. This has been corrected.</td></tr>
@@ -2893,7 +2908,7 @@ The following Modelica packages have been tested that they work together with th
 The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><a href=\"modelica://Modelica.Electrical.PowerConverters\">Modelica.Electrical.PowerConverters</a></td>
     <td>
     This library offers models for rectifiers, inverters and DC/DC-converters.<br>
@@ -2971,7 +2986,7 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Examples</strong></td></tr>
 <tr><td width=\"150\">NoiseExamples</td>
     <td> Several examples to demonstrate the usage of the blocks in the
@@ -3117,7 +3132,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 The following <font color=\"blue\"><strong>existing components</strong></font> have been <font color=\"blue\"><strong>changed</strong></font> in a <font color=\"blue\"><strong>non-backward compatible</strong></font> way:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Electrical.Analog.Semiconductors.</strong></td></tr>
 <tr><td> HeatingDiode </td>
           <td> Removed protected variable k \"Boltzmann's constant\".<br>
@@ -3289,7 +3304,7 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Logical.</strong></td></tr>
 <tr><td width=\"150\"> RSFlipFlop</td>
     <td> Basic RS flip flop</td></tr>
@@ -3538,7 +3553,7 @@ We highly appreciate this funding.
 The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><a href=\"modelica://Complex\">Complex</a></td>
     <td>
     This is a top-level record outside of the Modelica Standard Library.
@@ -3628,7 +3643,7 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.UsersGuide</strong></td></tr>
 <tr><td> Conventions
                       </td>
@@ -4118,7 +4133,7 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
 <font color=\"blue\"><strong>backward compatible</strong></font> way:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources.</strong></td></tr>
 <tr><td> Pulse<br>
                       SawTooth </td>
@@ -4220,7 +4235,7 @@ The following <font color=\"red\"><strong>critical errors</strong></font> have b
 that can lead to wrong simulation results):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Digital.Delay.</strong></td></tr>
 <tr><td> InertialDelaySensitive </td>
     <td> In order to decide whether the rising delay (tLH) or
@@ -4285,7 +4300,7 @@ The following <font color=\"red\"><strong>uncritical errors</strong></font> have
 that do <font color=\"red\"><strong>not</strong></font> lead to wrong simulation results, but, e.g.,
 units are wrong or errors in documentation):
 </p>
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Math.Matrices.LAPACK</strong></td></tr>
 <tr><td> dgesv_vec<br>
                         dgesv<br>
@@ -4303,12 +4318,10 @@ units are wrong or errors in documentation):
 </table>
 
 <p><br>
-The following
-<a href=\"http://trac.modelica.org/Modelica\">trac tickets</a>
-have been fixed:
+The following trac tickets have been fixed:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica</strong></td></tr>
 <tr><td>
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/155\">#155</a></td>
@@ -4747,7 +4760,7 @@ the following new language elements (compared to Modelica Specification 3.0):
 <p>
 The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
 </p>
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><a href=\"modelica://Modelica.Fluid\">Modelica.Fluid</a></td>
     <td>
      Components to model 1-dim. thermo-fluid flow in networks of vessels, pipes,
@@ -4782,7 +4795,7 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.</strong></td></tr>
 <tr><td> versionBuild<br>versionDate<br>dateModified<br>revisionId </td>
     <td> New annotations from Modelica 3.1 for version handling added.</td></tr>
@@ -4924,7 +4937,7 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
 <font color=\"blue\"><strong>backward compatible</strong></font> way:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.</strong></td></tr>
 <tr><td> Blocks<br>Mechanics<br>StateGraph </td>
     <td> Provided missing parameter values for examples
@@ -4979,7 +4992,7 @@ The following <font color=\"red\"><strong>uncritical errors</strong></font> have
 that do <font color=\"red\"><strong>not</strong></font> lead to wrong simulation results, but, e.g.,
 units are wrong or errors in documentation):
 </p>
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.</strong></td></tr>
 <tr><td> Many models</td>
     <td> Removed wrong usages of annotations fillColor and fillPattern
@@ -5052,7 +5065,7 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Electrical.Analog.Basic.</strong></td></tr>
 <tr><td>M_Transformer</td>
           <td> Transformer, with the possibility to
@@ -5103,7 +5116,7 @@ have been <font color=\"blue\"><strong>changed</strong></font> (in a
 <font color=\"blue\"><strong>backward compatible</strong></font> way):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Mechanics.Rotational.Interfaces.</strong></td></tr>
 <tr><td> PartialFriction </td>
           <td> Improvement of friction model so that in certain situations
@@ -5159,7 +5172,7 @@ The following <font color=\"red\"><strong>critical errors</strong></font> have b
 that can lead to wrong simulation results):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Mechanics.MultiBody.Forces</strong></td></tr>
 <tr><td> WorldTorque </td>
           <td> Parameter \"ResolveInFrame\" was not propagated and therefore
@@ -5236,7 +5249,7 @@ that do <font color=\"red\"><strong>not</strong></font> lead to wrong simulation
 units are wrong or errors in documentation):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Blocks.Math.</strong></td></tr>
 <tr><td> InverseBlockConstraint </td>
           <td> Changed annotation preserveAspectRatio from true to false.</td>
@@ -5386,7 +5399,7 @@ The following changes are present for the whole library:
 
 <li> Nearly all parameters defined in the Modelica Standard Library had been
          defined with a default equation, e.g.,
-         <pre>   <strong>parameter</strong> Modelica.SIunits.Resistance R=1; </pre>
+         <blockquote><pre><strong>parameter</strong> Modelica.SIunits.Resistance R=1; </pre></blockquote>
          Physical parameters, such as a resistance, mass, gear ratio, do not have a meaningful
          default and in nearly all cases, the user of the corresponding component has to
          provide values for such parameters. If the user forgets this, a tool
@@ -5396,7 +5409,7 @@ The following changes are present for the whole library:
          parameter declarations in the Modelica Standard Library have been changed, so
          that the previous default becomes a start value. For example, the above
          declaration is changed to:
-         <pre>   <strong>parameter</strong> Modelica.SIunits.Resistance R(start=1);  </pre>
+         <blockquote><pre><strong>parameter</strong> Modelica.SIunits.Resistance R(start=1);  </pre></blockquote>
          This is a backward compatible change and completely equivalent from the perspective
          of the Modelica language. It is, however, advised that tools will print a warning
          or optionally an error message, if the start value of a parameter is defined, but
@@ -5412,7 +5425,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries (note, the na
 are the new sublibrary names that are introduced in version 3.0):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Blocks.Examples.</strong></td></tr>
 <tr><td>InverseModel</td>
           <td> Demonstrates the construction of an inverse model.</td></tr>
@@ -5489,7 +5502,7 @@ of previous versions to the new version. Therefore, conversion
 should be automatic):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Blocks.Continuous.</strong></td></tr>
 <tr><td> CriticalDamping </td>
           <td> New parameter \"normalized\" to define whether filter is provided
@@ -5846,7 +5859,7 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
 <font color=\"blue\"><strong>backward compatible</strong></font> way:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td> <strong>Modelica.*</strong> </td>
           <td> Parameter declarations, input and output function arguments without description
                                                 strings improved<br> by providing meaningful description texts.
@@ -5921,7 +5934,7 @@ The following <font color=\"red\"><strong>critical errors</strong></font> have b
 that can lead to wrong simulation results):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Electrical.Analog.Examples.</strong></td></tr>
 <tr><td> CauerLowPassSC </td>
           <td> Wrong calculation of Capacitor1 both in Rn and Rp corrected
@@ -5980,7 +5993,7 @@ that do <font color=\"red\"><strong>not</strong></font> lead to wrong simulation
 units are wrong or errors in documentation):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Blocks.Tables.</strong></td></tr>
 <tr><td> CombiTable2D</td>
           <td> Documentation improved.</td>
@@ -6072,7 +6085,7 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 to <font color=\"blue\"><strong>existing</strong></font> libraries:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Blocks.Logical.</strong></td></tr>
 <tr><td> TerminateSimulation</td>
           <td> Terminate a simulation by a given condition.</td>
@@ -6295,7 +6308,7 @@ The following <font color=\"blue\"><strong>existing components</strong></font>
 have been <font color=\"blue\"><strong>improved</strong></font>:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Blocks.Examples.</strong></td></tr>
 <tr><td> BusUsage</td>
           <td> Example changed from the \"old\" to the \"new\" bus concept with
@@ -6608,7 +6621,7 @@ The following <font color=\"red\"><strong>critical errors</strong></font> have b
 that can lead to wrong simulation results):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Electrical.Machines.BasicMachines.Components.</strong></td></tr>
 <tr><td> ElectricalExcitation</td>
           <td> Excitation voltage ve is calculated as
@@ -6719,7 +6732,7 @@ that do <font color=\"red\"><strong>not</strong></font> lead to wrong simulation
 units are wrong or errors in documentation):
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Blocks.</strong></td></tr>
 <tr><td> Examples</td>
           <td> Corrected typos in description texts of bus example models.
@@ -7066,7 +7079,7 @@ The following major improvements have been made:
 The following <strong>new components</strong> have been added to <strong>existing</strong> libraries:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Examples.</strong></td></tr>
 <tr><td> PID_Controller</td>
           <td> Example to demonstrate the usage of the
@@ -7180,7 +7193,7 @@ The following <strong>new components</strong> have been added to <strong>existin
 The following <strong>components</strong> have been improved:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td colspan=\"2\"><strong>Modelica.</strong></td></tr>
 <tr><td> UsersGuide</td>
           <td> User's Guide and package description of Modelica Standard Library improved.</td></tr>
@@ -7343,7 +7356,7 @@ The following <strong>components</strong> have been improved:
 The following <strong>errors</strong> have been fixed:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Tables.</strong></td></tr>
 <tr><td>CombiTable1D<br>
                   CombiTable1Ds<br>
@@ -7405,7 +7418,7 @@ Version 2.2 is backward compatible to version 2.1.
 The following <strong>new libraries</strong> have been added:
 </p>
 
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><a href=\"modelica://Modelica.Media\">Modelica.Media</a></td>
           <td> Property models of liquids and gases, especially
                    <ul>
@@ -7501,7 +7514,7 @@ before automatic conversion is performed.
 <p>
 The following <strong>new libraries</strong> have been added:
 </p>
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><a href=\"modelica://Modelica.Electrical.Digital\">Modelica.Electrical.Digital</a></td>
           <td>Digital electrical components based on 2-,3-,4-, and 9-valued logic<br>
                   according to the VHDL standard</td></tr>
@@ -7531,7 +7544,7 @@ have been improved and added as <strong>new libraries</strong>
 (models using the previous libraries are automatically converted
 to the new sublibraries inside package Modelica):
 </p>
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><a href=\"modelica://Modelica.Blocks.Discrete\">Modelica.Blocks.Discrete</a></td>
           <td> Discrete input/output blocks with fixed sample period<br>
                    (from ModelicaAdditions.Blocks.Discrete)</td></tr>
@@ -7562,7 +7575,7 @@ powerful libraries (MultiBody, StateGraph).
 <p>
 The following <strong>new components</strong> have been added to <strong>existing</strong> libraries.
 </p>
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Logical.</strong></td></tr>
 <tr><td>Pre</td>
           <td>y = pre(u): Breaks algebraic loops by an infinitesimal small<br>
@@ -7618,7 +7631,7 @@ The following <strong>new components</strong> have been added to <strong>existin
 <p>
 The following <strong>bugs</strong> have been <strong>corrected</strong>:
 </p>
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Forces.</strong></td></tr>
 <tr><td>LineForceWithMass<br>
                   Spring</td>
@@ -7667,7 +7680,7 @@ class Version_1_6 "Version 1.6 (June 21, 2004)"
 <p>
 <strong>New components</strong>
 </p>
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Basic.</strong></td></tr>
 <tr><td>SaturatingInductor</td>
           <td>Simple model of an inductor with saturation</td></tr>
@@ -7720,7 +7733,7 @@ that the approximation of these ideal elements is improved
 with not much computational effort.</p>
 <p> In the Modelica.SIunits library, the following changes
         have been made:</p>
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td>Inductance</td>
           <td>min=0 removed</td></tr>
 <tr><td>SelfInductance</td>
@@ -7746,7 +7759,7 @@ class Version_1_5 "Version 1.5 (Dec. 16, 2002)"
 <p>
 <strong>New components</strong>
 </p>
-<table border=\"1\" cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.</strong></td></tr>
 <tr><td>Continuous.Der</td><td>Derivative of input (= analytic differentiations)</td></tr>
 <tr><td><strong><em>Examples</em></strong></td><td>Demonstration examples of the components of this package</td></tr>
@@ -7847,34 +7860,37 @@ class Version_1_5 "Version 1.5 (Dec. 16, 2002)"
 </p>
 <p>Implemented avoiding algorithm section, which would lead to expensive function calls.</p>
 <p><em>Modelica.Blocks.Sources.Step</em></p>
-<pre>
+<blockquote><pre>
 block Step \"Generate step signals of type Real\"
         parameter Real height[:]={1} \"Heights of steps\";
 <strong> // parameter Real offset[:]={0} \"Offsets of output signals\";
 // parameter SIunits.Time startTime[:]={0} \"Output = offset for time < startTime\";
 // extends Interfaces.MO          (final nout=max([size(height, 1); size(offset, 1); size(startTime, 1)]));
         extends Interfaces.SignalSource(final nout=max([size(height, 1); size(offset, 1); size(startTime, 1)]));</strong>
-</pre>
+</pre></blockquote>
 <p><em>Modelica.Blocks.Sources.Exponentials</em></p>
 <p>Replaced usage of built-in function <code>exp</code> by Modelica.Math.exp.</p>
 <p><em>Modelica.Blocks.Sources.TimeTable</em></p>
 <p>Interface definition changed from</p>
-<pre>    parameter Real table[:, :]=[0, 0; 1, 1; 2, 4] \"Table matrix (time = first column)\";
-</pre>
+<blockquote><pre>
+parameter Real table[:, :]=[0, 0; 1, 1; 2, 4] \"Table matrix (time = first column)\";
+</pre></blockquote>
 <p>to</p>
-<pre>    parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4] \"Table matrix (time = first column)\";
-</pre>
+<blockquote><pre>
+parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4] \"Table matrix (time = first column)\";
+</pre></blockquote>
 <p>Did the same for subfunction <em>getInterpolationCoefficients</em>.</p>
 <p>Bug in <em>getInterpolationCoefficients</em> for startTime <> 0 fixed:</p>
-<pre>        ...
-                end if;
-          end if;
-          <strong>// Take into account startTime \"a*(time - startTime) + b\"
-          b := b - a*startTime;</strong>
-        end getInterpolationCoefficients;
-</pre>
+<blockquote><pre>
+...
+        end if;
+  end if;
+  <strong>// Take into account startTime \"a*(time - startTime) + b\"
+  b := b - a*startTime;</strong>
+end getInterpolationCoefficients;
+</pre></blockquote>
 <p><em>Modelica.Blocks.Sources.BooleanStep</em></p>
-<pre>
+<blockquote><pre>
 block BooleanStep \"Generate step signals of type Boolean\"
         parameter SIunits.Time startTime[:]={0} \"Time instants of steps\";
         <strong>parameter Boolean startValue[size(startTime, 1)]=fill(false, size(startTime, 1)) \"Output before startTime\";</strong>
@@ -7885,7 +7901,7 @@ equation
           outPort.signal[i] = if time >= startTime[i] then not startValue[i] else startValue[i];</strong>
         end for;
 end BooleanStep;
-</pre>
+</pre></blockquote>
 <p>
 <em>Modelica.Electrical.Analog</em></p>
 <p>Corrected table of values and default for Beta by dividing them by 1000
@@ -7960,12 +7976,12 @@ annotation (Documentation(info="<html>
         <li>New subpackage Modelica.Mechanics.<strong>Translational</strong></li>
         <li>Changes to Modelica.Mechanics.<strong>Rotational</strong>:<br>
            New elements:
-<pre>
+<blockquote><pre>
 IdealGearR2T    Ideal gear transforming rotational in translational motion.
 Position        Forced movement of a flange with a reference angle
                                    given as input signal
 RelativeStates  Definition of relative state variables
-</pre>
+</pre></blockquote>
 </li>
         <li>Changes to Modelica.<strong>SIunits</strong>:<br>
           Introduced new types:<br>
@@ -7983,14 +7999,14 @@ RelativeStates  Definition of relative state variables
         <li>Changes to Modelica.<strong>Blocks.Interfaces</strong>:<br>
            Introduced a replaceable signal type into
            Blocks.Interfaces.RealInput/RealOutput:
-<pre>
+<blockquote><pre>
 replaceable type SignalType = Real
-</pre>
+</pre></blockquote>
            in order that the type of the signal of an input/output block
            can be changed to a physical type, for example:
-<pre>
+<blockquote><pre>
 Sine sin1(outPort(redeclare type SignalType=Modelica.SIunits.Torque))
-</pre>
+</pre></blockquote>
 </li>
 </ul>
 <hr>
@@ -8011,7 +8027,7 @@ This is especially important for maintenance (bug fix) releases where the
 main version number is not changed.
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_3\">Version 3.2.3</a></td><td>January 23, 2019</td></tr>
 <tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_2\">Version 3.2.2</a></td><td>April 3, 2016</td></tr>
 <tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_1\">Version 3.2.1</a></td><td>August 14, 2013</td></tr>
@@ -8068,9 +8084,9 @@ class Contact "Contact"
 <dd>email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a></dd>
 </dl>
 <p>Since end of 2007, the development of the sublibraries of package Modelica is organized by personal and/or organizational <strong>library officers</strong> assigned by the Modelica Association. They are responsible for the maintenance and for the further organization of the development. Other persons may also contribute, but the final decision for library improvements and/or changes is performed by the responsible library officer(s). In order that a new sublibrary or a new version of a sublibrary is ready to be released, the responsible library officers report the changes to the members of the Modelica Association and the library is made available for beta testing to interested parties before a final decision. A new release of a sublibrary is formally decided by voting of the Modelica Association members.</p>
-<p>As of April 1st, 2019, the following library officers are assigned:</p>
+<p>As of January 20th, 2020, the following library officers are assigned:</p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><strong>Sublibraries</strong> </td>
    <td><strong>Library officers</strong></td>
 </tr>
@@ -8084,6 +8100,10 @@ class Contact "Contact"
 <td align=\"left\">Martin Otter, Anton Haumer</td>
 </tr>
 <tr>
+<td align=\"left\">Clocked</td>
+<td align=\"left\">Christoff B&uuml;rger, Bernhard Thiele</td>
+</tr>
+<tr>
 <td align=\"left\">ComplexBlocks</td>
 <td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
@@ -8093,11 +8113,15 @@ class Contact "Contact"
 </tr>
 <tr>
 <td align=\"left\">StateGraph</td>
-<td align=\"left\">Martin Otter, Hans Olsson</td>
+<td align=\"left\">Hans Olsson, Martin Otter</td>
 </tr>
 <tr>
 <td align=\"left\">Electrical.Analog</td>
-<td align=\"left\">Christoph Clauss, Kristin Majetta, Christian Kral</td>
+<td align=\"left\">Christoph Clauss, Anton Haumer, Christian Kral, Kristin Majetta</td>
+</tr>
+<tr>
+<td align=\"left\">Electrical.Batteries</td>
+<td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
 <td align=\"left\">Electrical.Digital</td>
@@ -8125,39 +8149,39 @@ class Contact "Contact"
 </tr>
 <tr>
 <td align=\"left\">Magnetic.FluxTubes</td>
-<td align=\"left\">Thomas B&ouml;drich, Johannes Ziske</td>
+<td align=\"left\">Thomas B&ouml;drich, Anton Haumer, Christian Kral, Johannes Ziske</td>
 </tr>
 <tr>
 <td align=\"left\">Magnetic.FundamentalWave</td>
-<td align=\"left\">Christian Kral, Anton Haumer</td>
+<td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
 <td align=\"left\">Magnetic.QuasiStatic</td>
-<td align=\"left\">Christian Kral, Anton Haumer</td>
+<td align=\"left\">Anton Haumer, Christian Kral</td>
 </tr>
 <tr>
 <td align=\"left\">Mechanics.MultiBody</td>
-<td align=\"left\">Jakub Tobolar, Martin Otter</td>
+<td align=\"left\">Martin Otter, Jakub Tobolar</td>
 </tr>
 <tr>
 <td align=\"left\">Mechanics.Rotational</td>
-<td align=\"left\">Jakub Tobolar, Martin Otter, Anton Haumer, Christian Kral</td>
+<td align=\"left\">Anton Haumer, Christian Kral, Martin Otter, Jakub Tobolar</td>
 </tr>
 <tr>
 <td align=\"left\">Mechanics.Translational</td>
-<td align=\"left\">Anton Haumer, Jakub Tobolar, Martin Otter, Christian Kral</td>
+<td align=\"left\">Anton Haumer, Christian Kral, Martin Otter, Jakub Tobolar</td>
 </tr>
 <tr>
 <td align=\"left\">Fluid</td>
-<td align=\"left\">R&uuml;diger Franke, Francesco Casella, Hubertus Tummescheit</td>
+<td align=\"left\">Francesco Casella, R&uuml;diger Franke, Hubertus Tummescheit</td>
 </tr>
 <tr>
 <td align=\"left\">Fluid.Dissipation</td>
-<td align=\"left\">Stefan Wischhusen, Francesco Casella</td>
+<td align=\"left\">Francesco Casella, Stefan Wischhusen</td>
 </tr>
 <tr>
 <td align=\"left\">Media</td>
-<td align=\"left\">Hubertus Tummescheit, Francesco Casella, R&uuml;diger Franke</td>
+<td align=\"left\">Francesco Casella, R&uuml;diger Franke, Hubertus Tummescheit</td>
 </tr>
 <tr>
 <td align=\"left\">Thermal.FluidHeatFlow</td>
@@ -8169,19 +8193,19 @@ class Contact "Contact"
 </tr>
 <tr>
 <td align=\"left\">Math</td>
-<td align=\"left\">Martin Otter, Hans Olsson</td>
+<td align=\"left\">Hans Olsson, Martin Otter</td>
 </tr>
 <tr>
 <td align=\"left\">ComplexMath</td>
-<td align=\"left\">Anton Haumer, Martin Otter, Christian Kral</td>
+<td align=\"left\">Anton Haumer, Christian Kral, Martin Otter</td>
 </tr>
 <tr>
 <td align=\"left\">Utilities</td>
-<td align=\"left\">Martin Otter, Hans Olsson, Dag Br&uuml;ck</td>
+<td align=\"left\">Dag Br&uuml;ck, Hans Olsson, Martin Otter</td>
 </tr>
 <tr>
 <td align=\"left\">Constants</td>
-<td align=\"left\">Martin Otter, Hans Olsson</td>
+<td align=\"left\">Hans Olsson, Martin Otter</td>
 </tr>
 <tr>
 <td align=\"left\">Icons</td>
@@ -8189,7 +8213,7 @@ class Contact "Contact"
 </tr>
 <tr>
 <td align=\"left\">SIunits</td>
-<td align=\"left\">Martin Otter, Christian Kral</td>
+<td align=\"left\">Christian Kral, Martin Otter</td>
 </tr>
 <tr>
 <td align=\"left\">C-Sources</td>
@@ -8197,7 +8221,7 @@ class Contact "Contact"
 </tr>
 <tr>
 <td align=\"left\">Reference</td>
-<td align=\"left\">Dietmar Winkler, Hans Olsson</td>
+<td align=\"left\">Hans Olsson, Dietmar Winkler</td>
 </tr>
 <tr>
 <td align=\"left\">Services</td>
@@ -8226,9 +8250,9 @@ The following people have directly contributed to the implementation
 of the Modelica package (many more people have contributed to the design):
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><strong>Marcus Baur</strong></td>
-   <td>Institute of System Dynamics and Control<br>
+   <td>previously at:<br>Institute of System Dynamics and Control<br>
      DLR, German Aerospace Center,<br>
      Oberpfaffenhofen, Germany</td>
    <td>Complex<br>
@@ -8318,7 +8342,7 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td><strong>Hans-Dieter Joos</strong></td>
-   <td>Institute of System Dynamics and Control<br>
+   <td>previously at:<br>Institute of System Dynamics and Control<br>
      DLR, German Aerospace Center,<br>
      Oberpfaffenhofen, Germany</td>
    <td>Modelica.Math.Matrices</td>
@@ -8378,7 +8402,7 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td><strong>Katrin Pr&ouml;l&szlig;</strong></td>
-   <td>Modelon Deutschland GmbH, Hamburg, Germany<br>
+   <td>previously at:<br>Modelon Deutschland GmbH, Hamburg, Germany<br>
      until 2008:<br>
      Department of Technical Thermodynamics,<br>
      Technical University Hamburg-Harburg,<br>Germany</td>
@@ -8486,7 +8510,7 @@ the overall library. Some of the main sublibraries have their own
 User's Guides that can be accessed by the following links:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr>
   <td><a href=\"modelica://Modelica.ComplexBlocks.UsersGuide\">ComplexBlocks</a></td>
   <td>Library of basic input/output control blocks with Complex signals</td>
@@ -8589,6 +8613,7 @@ User's Guides that can be accessed by the following links:
 
 </html>"));
 end UsersGuide;
+
 annotation (
 preferredView="info",
 version="4.0.0-dev",
@@ -8653,13 +8678,13 @@ This version of the Modelica Standard Library consists of
 </ul>
 <p>
 that are directly usable (= number of public, non-partial, non-internal and non-obsolete classes). It is fully compliant
-to <a href=\"https://www.modelica.org/documents/ModelicaSpec32Revision2.pdf\">Modelica Specification Version 3.2 Revision 2</a>
+to <a href=\"https://modelica.org/documents/ModelicaSpec34.pdf\">Modelica Specification version 3.4</a>
 and it has been tested with Modelica tools from different vendors.
 </p>
 
 <p>
 <strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
-Copyright &copy; 1998-2019, Modelica Association and <a href=\"modelica://Modelica.UsersGuide.Contact\">contributors</a>.
+Copyright &copy; 1998-2020, Modelica Association and <a href=\"modelica://Modelica.UsersGuide.Contact\">contributors</a>.
 </p>
 
 <p>

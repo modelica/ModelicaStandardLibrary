@@ -1,6 +1,6 @@
 /* ModelicaInternal.c - External functions for Modelica.Utilities
 
-   Copyright (C) 2002-2019, Modelica Association and contributors
+   Copyright (C) 2002-2020, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -30,6 +30,14 @@
 */
 
 /* Release Notes:
+      Nov. 13, 2019: by Thomas Beutlich
+                     Utilized blockwise I/O in ModelicaInternal_copyFile
+                     (ticket #3229)
+
+      Oct. 10, 2019: by Thomas Beutlich
+                     Fixed month and year correction in ModelicaInternal_getTime
+                     (ticket #3143)
+
       Jun. 24, 2019: by Thomas Beutlich
                      Fixed uninitialized memory and realpath behaviour in
                      ModelicaInternal_fullPathName (ticket #3003)
@@ -117,18 +125,7 @@
 */
 
 #include "ModelicaInternal.h"
-#include <string.h>
 #include "ModelicaUtilities.h"
-
-/* The standard way to detect POSIX is to check _POSIX_VERSION,
- * which is defined in <unistd.h>
- */
-#if defined(__unix__) || defined(__linux__) || defined(__APPLE_CC__)
-  #include <unistd.h>
-#endif
-#if !defined(_POSIX_) && defined(_POSIX_VERSION)
-  #define _POSIX_ 1
-#endif
 
 MODELICA_NORETURN static void ModelicaNotExistError(const char* name) MODELICA_NORETURNATTR;
 static void ModelicaNotExistError(const char* name) {
@@ -192,10 +189,21 @@ void ModelicaInternal_setenv(_In_z_ const char* name,
     ModelicaNotExistError("ModelicaInternal_setenv"); }
 #else
 
+/* The standard way to detect POSIX is to check _POSIX_VERSION,
+ * which is defined in <unistd.h>
+ */
+#if defined(__unix__) || defined(__linux__) || defined(__APPLE_CC__)
+  #include <unistd.h>
+#endif
+#if !defined(_POSIX_) && defined(_POSIX_VERSION)
+  #define _POSIX_ 1
+#endif
+
 #define HASH_NONFATAL_OOM 1
 #include "uthash.h"
 #include "gconstructor.h"
 
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -308,7 +316,7 @@ void ModelicaInternal_rmdir(_In_z_ const char* directoryName) {
 
 static ModelicaFileType Internal_stat(_In_z_ const char* name) {
     /* Inquire type of file */
-    ModelicaFileType type = FileType_NoFile;
+    ModelicaFileType type;
 #if defined(_WIN32)
     struct _stat fileInfo;
     int statReturn = _stat(name, &fileInfo);
@@ -369,6 +377,8 @@ static ModelicaFileType Internal_stat(_In_z_ const char* name) {
     else {
         type = FileType_SpecialFile;
     }
+#else
+    type = FileType_NoFile;
 #endif
     return type;
 }
@@ -403,17 +413,11 @@ void ModelicaInternal_removeFile(_In_z_ const char* file) {
 void ModelicaInternal_copyFile(_In_z_ const char* oldFile,
                                _In_z_ const char* newFile) {
     /* Copy file */
-#ifdef _WIN32
     const char* modeOld = "rb";
     const char* modeNew = "wb";
-#else
-    const char* modeOld = "r";
-    const char* modeNew = "w";
-#endif
     FILE* fpOld;
     FILE* fpNew;
     ModelicaFileType type;
-    int c;
 
     /* Check file existence */
     type = Internal_stat(oldFile);
@@ -450,8 +454,18 @@ void ModelicaInternal_copyFile(_In_z_ const char* oldFile,
             oldFile, newFile, strerror(errno));
         return;
     }
-    while ( (c = getc(fpOld)) != EOF ) {
-        putc(c, fpNew);
+    {
+        size_t len;
+        char buf[BUFSIZ] = {'\0'};
+
+        while ( (len = fread(buf, sizeof(char), BUFSIZ, fpOld)) > 0 ) {
+            if ( len != fwrite(buf, sizeof(char), len, fpNew) ) {
+                fclose(fpOld);
+                fclose(fpNew);
+                ModelicaFormatError("Error writing to file \"%s\".", newFile);
+                return;
+            }
+        }
     }
     fclose(fpOld);
     fclose(fpNew);
@@ -1279,14 +1293,14 @@ void ModelicaInternal_getTime(_Out_ int* ms, _Out_ int* sec, _Out_ int* min, _Ou
     struct tm tres;
 #endif
 
-    time( &calendarTime );               /* Retrieve sec time */
+    time(&calendarTime);                        /* Retrieve sec time */
 #if defined(_POSIX_)
     tlocal = localtime_r(&calendarTime, &tres); /* Time fields in local time zone */
 #elif defined(_MSC_VER) && _MSC_VER >= 1400
     localtime_s(&tres, &calendarTime);          /* Time fields in local time zone */
     tlocal = &tres;
 #else
-    tlocal = localtime( &calendarTime );        /* Time fields in local time zone */
+    tlocal = localtime(&calendarTime);          /* Time fields in local time zone */
 #endif
 
     /* Get millisecond resolution depending on platform */
@@ -1302,9 +1316,7 @@ void ModelicaInternal_getTime(_Out_ int* ms, _Out_ int* sec, _Out_ int* min, _Ou
 #else
         _ftime( &timebuffer );                    /* Retrieve ms time */
 #endif
-        ms0 = (int)(timebuffer.millitm);          /* Convert unsigned int to int */
-        tlocal->tm_mon  = tlocal->tm_mon + 1;     /* Correct for month starting at 1 */
-        tlocal->tm_year = tlocal->tm_year + 1900; /* Correct for 4-digit year */
+        ms0 = (int)(timebuffer.millitm);        /* Convert unsigned int to int */
     }
 #else
     {
@@ -1320,7 +1332,7 @@ void ModelicaInternal_getTime(_Out_ int* ms, _Out_ int* sec, _Out_ int* min, _Ou
     *min = tlocal->tm_min;
     *hour = tlocal->tm_hour;
     *mday = tlocal->tm_mday;
-    *mon = tlocal->tm_mon;
-    *year = tlocal->tm_year;
+    *mon = 1 + tlocal->tm_mon;      /* Correct for month starting at 1 */
+    *year = 1900 + tlocal->tm_year; /* Correct for 4-digit year */
 #endif
 }

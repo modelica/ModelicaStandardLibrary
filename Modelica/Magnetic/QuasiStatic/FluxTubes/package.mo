@@ -6,12 +6,13 @@ package FluxTubes "Library for modelling of quasi-static electromagnetic devices
   import Modelica.Constants.mu_0;
 
   extends Modelica.Icons.Package;
+
   annotation (Documentation(info="<html>
 <p>
 This library is intended to provide models for the investigation of
 quasi-static electromagnetic devices with lumped magnetic networks.
 </p>
-</html>", revisions="<html></html>"),
+</html>"),
            Icon(coordinateSystem(preserveAspectRatio=false), graphics={
     Polygon(
         origin={-3.75,0.0},

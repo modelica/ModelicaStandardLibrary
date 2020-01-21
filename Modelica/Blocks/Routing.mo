@@ -184,86 +184,7 @@ equation
             textString="extract=%extract")}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(
-            extent={{-90,50},{-50,-50}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{50,50},{90,-50}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{-94.4104,1.90792},{-94.4104,-2.09208},{-90.4104,-0.0920762},
-                {-94.4104,1.90792}},
-            lineColor={0,0,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-72,2},{-60.1395,12.907},{-49.1395,12.907}}, color={0,0,255}),
-          Line(points={{-73,4},{-59,40},{-49,40}}, color={0,0,255}),
-          Line(points={{-112,0},{-75.0373,-0.0180176}}, color={0,0,255}),
-          Ellipse(
-            extent={{-80.0437,4.59255},{-70.0437,-4.90745}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-73,-5},{-60,-40},{-49,-40}}, color={0,0,255}),
-          Line(points={{-72,-2},{-60.0698,-12.907},{-49.0698,-12.907}}, color={
-                0,0,255}),
-          Polygon(
-            points={{-48.8808,-11},{-48.8808,-15},{-44.8808,-13},{-48.8808,-11}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-46,13},{-35,13},{35,-30},{45,-30}}, color={0,0,255}),
-          Line(points={{-45,40},{-35,40},{35,0},{44,0}}, color={0,0,255}),
-          Line(points={{-45,-40},{-34,-40},{35,30},{44,30}}, color={0,0,255}),
-          Polygon(
-            points={{-49,42},{-49,38},{-45,40},{-49,42}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{-48.8728,-38.0295},{-48.8728,-42.0295},{-44.8728,-40.0295},
-                {-48.8728,-38.0295}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{-48.9983,14.8801},{-48.9983,10.8801},{-44.9983,12.8801},{-48.9983,
-                14.8801}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{70.3052,4.12743},{80.3052,-5.37257}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{80,0},{105,0}}, color={0,0,255}),
-          Polygon(
-            points={{44.1618,32.3085},{44.1618,28.3085},{48.1618,30.3085},{
-                44.1618,32.3085}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{44.2575,1.80443},{44.2575,-2.19557},{48.2575,-0.195573},{
-                44.2575,1.80443}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{44.8805,-28.1745},{44.8805,-32.1745},{48.8805,-30.1745},{
-                44.8805,-28.1745}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{48,0},{70,0}}, color={0,0,255}),
-          Line(points={{47,30},{60,30},{73,3}}, color={0,0,255}),
-          Line(points={{49,-30},{60,-30},{74,-4}}, color={0,0,255}),
-          Rectangle(extent={{-100,80},{100,-81}}, lineColor={0,0,255})}),
+          extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>Extract signals from the input connector and transfer them
 to the output connector.</p>
@@ -275,17 +196,19 @@ Additionally, the dimensions of the input connector signals and
 the output connector signals have to be explicitly defined via the
 parameters 'nin' and 'nout'.</p>
 <p>Example:</p>
-<pre>     nin = 7 \"Number of inputs\";
-     nout = 4 \"Number of outputs\";
-     extract[nout] = {6,3,3,2} \"Extracting vector\";
-</pre>
+<blockquote><pre>
+nin  = 7 \"Number of inputs\";
+nout = 4 \"Number of outputs\";
+extract[nout] = {6,3,3,2} \"Extracting vector\";
+</pre></blockquote>
 <p>extracts four output signals (nout=4) from the seven elements of the
 input vector (nin=7):</p>
-<pre>   output no. 1 is set equal to input no. 6
-   output no. 2 is set equal to input no. 3
-   output no. 3 is set equal to input no. 3
-   output no. 4 is set equal to input no. 2
-</pre>
+<blockquote><pre>
+output no. 1 is set equal to input no. 6
+output no. 2 is set equal to input no. 3
+output no. 3 is set equal to input no. 3
+output no. 4 is set equal to input no. 2
+</pre></blockquote>
 </html>"));
 end ExtractSignal;
 
@@ -385,8 +308,9 @@ equation
 <p>This block extracts a scalar output signal out the
 vector of input signals dependent on the Integer
 value of the additional u index:</p>
-<pre>    y = u [ index ] ;
-</pre>
+<blockquote><pre>
+y = u [ index ] ;
+</pre></blockquote>
 <p>where index is an additional Integer input signal.</p>
 </html>"));
 end Extractor;
@@ -399,9 +323,9 @@ end Extractor;
     Modelica.Blocks.Interfaces.RealOutput y[n+0]
       "Connector of Real output signals" annotation(Placement(transformation(extent={{100,-10},{120,10}})));
 
-    equation
+  equation
       y = u;
-    annotation(
+    annotation (
       defaultComponentName="mux",
       Documentation(info="<html>
 <p>
@@ -429,15 +353,7 @@ The output connector is the <strong>concatenation</strong> of the input connecto
       Diagram(
         coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}),
-        graphics={
-          Line(points={{8,0},{102,0}}, color={0,0,127}),
-          Ellipse(
-            extent={{-15,15},{15,-15}},
-            fillColor={0,0,127},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,127}),
-          Line(points={{-100,0},{-6,0}},color={0,0,127})}));
+          extent={{-100,-100},{100,100}})));
   end Multiplex;
 
   block Multiplex2 "Multiplexer block for two input connectors"
@@ -476,15 +392,7 @@ explicitly defined via parameters n1 and n2.
           Line(points={{-100,-60},{-60,-60},{0,0}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-100,60},{-60,60},{0,0}}, color={0,0,127}),
-          Line(points={{-100,-60},{-60,-60},{0,0}}, color={0,0,127}),
-          Line(points={{8,0},{102,0}}, color={0,0,127}),
-          Ellipse(
-            extent={{-15,15},{15,-15}},
-            fillColor={0,0,127},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,127})}));
+          extent={{-100,-100},{100,100}})));
   end Multiplex2;
 
   block Multiplex3 "Multiplexer block for three input connectors"
@@ -527,16 +435,7 @@ explicitly defined via parameters n1, n2 and n3.</p>
             lineColor={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-100,70},{-60,70},{0,0}}, color={0,0,127}),
-          Line(points={{-100,-70},{-60,-70},{0,0}}, color={0,0,127}),
-          Line(points={{8,0},{102,0}}, color={0,0,127}),
-          Ellipse(
-            extent={{-15,15},{15,-15}},
-            fillColor={0,0,127},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,127}),
-          Line(points={{-100,0},{-12,0}}, color={0,0,127})}));
+          extent={{-100,-100},{100,100}})));
   end Multiplex3;
 
   block Multiplex4 "Multiplexer block for four input connectors"
@@ -585,17 +484,7 @@ explicitly defined via parameters n1, n2, n3 and n4.
             lineColor={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-100,90},{-60,90},{0,0}}, color={0,0,127}),
-          Line(points={{-100,-90},{-60,-90},{0,0}}, color={0,0,127}),
-          Line(points={{8,0},{102,0}}, color={0,0,127}),
-          Ellipse(
-            extent={{-15,15},{15,-15}},
-            fillColor={0,0,127},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,127}),
-          Line(points={{-100,30},{-60,30},{0,0}}, color={0,0,127}),
-          Line(points={{-100,-30},{-59,-30},{0,0}}, color={0,0,127})}));
+          extent={{-100,-100},{100,100}})));
   end Multiplex4;
 
   block Multiplex5 "Multiplexer block for five input connectors"
@@ -649,18 +538,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
             lineColor={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-100,100},{-60,100},{0,0}}, color={0,0,127}),
-          Line(points={{-100,-100},{-60,-100},{0,0}}, color={0,0,127}),
-          Line(points={{8,0},{102,0}}, color={0,0,127}),
-          Ellipse(
-            extent={{-15,15},{15,-15}},
-            fillColor={0,0,127},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,127}),
-          Line(points={{-100,50},{-60,50},{-4,0}}, color={0,0,127}),
-          Line(points={{-100,0},{-7,0}}, color={0,0,127}),
-          Line(points={{-100,-50},{-60,-50},{-4,0}}, color={0,0,127})}));
+          extent={{-100,-100},{100,100}})));
   end Multiplex5;
 
   block Multiplex6 "Multiplexer block for six input connectors"
@@ -720,19 +598,7 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
           Line(points={{-100,-85},{-60,-85},{-3,-10}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-100,85},{-60,85},{-3,10}}, color={0,0,127}),
-          Line(points={{-100,-85},{-60,-85},{-3,-10}}, color={0,0,127}),
-          Line(points={{8,0},{102,0}}, color={0,0,127}),
-          Ellipse(
-            extent={{-15,15},{15,-15}},
-            fillColor={0,0,127},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,127}),
-          Line(points={{-100,51},{-60,51},{-7,6}}, color={0,0,127}),
-          Line(points={{-100,-51},{-60,-51},{-7,-6}}, color={0,0,127}),
-          Line(points={{-100,17},{-60,17},{-10,2}}, color={0,0,127}),
-          Line(points={{-100,-17},{-60,-17},{-10,-2}}, color={0,0,127})}));
+          extent={{-100,-100},{100,100}})));
   end Multiplex6;
 
   block DeMultiplex "DeMultiplexer block for arbitrary number of output connectors"
@@ -741,11 +607,12 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
     Modelica.Blocks.Interfaces.RealInput u[n+0]
       "Connector of Real input signals" annotation(Placement(transformation(extent={{-140,-20},{-100,20}})));
     Modelica.Blocks.Interfaces.RealVectorOutput y[n]
-      "Connector of Real output signals"annotation(Placement(transformation(extent={{80,70},{120,-70}})));
+      "Connector of Real output signals"
+                                        annotation(Placement(transformation(extent={{80,70},{120,-70}})));
 
-    equation
+  equation
       y = u;
-    annotation(
+    annotation (
       defaultComponentName="demux",
       Documentation(info="<html>
 <p>
@@ -773,15 +640,7 @@ The input connector is <strong>split</strong> up into output connectors.
       Diagram(
         coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}),
-        graphics={
-          Line(points={{8,0},{102,0}}, color={0,0,127}),
-          Ellipse(
-            extent={{-15,15},{15,-15}},
-            fillColor={0,0,127},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,127}),
-          Line(points={{-100,0},{-6,0}},color={0,0,127})}));
+          extent={{-100,-100},{100,100}})));
   end DeMultiplex;
 
   block DeMultiplex2 "DeMultiplexer block for two output connectors"
@@ -821,15 +680,7 @@ explicitly defined via parameters n1 and n2.
           Line(points={{-100,0},{-6,0}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{100,60},{60,60},{0,0}}, color={0,0,127}),
-          Line(points={{100,-60},{60,-60},{0,0}}, color={0,0,127}),
-          Line(points={{-100,0},{-6,0}}, color={0,0,127}),
-          Ellipse(
-            extent={{-15,15},{15,-15}},
-            fillColor={0,0,127},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,127})}));
+          extent={{-100,-100},{100,100}})));
   end DeMultiplex2;
 
   block DeMultiplex3 "DeMultiplexer block for three output connectors"
@@ -873,16 +724,7 @@ explicitly defined via parameters n1, n2 and n3.
           Line(points={{100,-70},{60,-70},{0,0}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{100,70},{60,70},{0,0}}, color={0,0,127}),
-          Line(points={{100,-70},{60,-70},{0,0}}, color={0,0,127}),
-          Line(points={{-100,0},{-6,0}}, color={0,0,127}),
-          Ellipse(
-            extent={{-15,15},{15,-15}},
-            fillColor={0,0,127},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,127}),
-          Line(points={{0,0},{100,0}}, color={0,0,127})}));
+          extent={{-100,-100},{100,100}})));
   end DeMultiplex3;
 
   block DeMultiplex4 "DeMultiplexer block for four output connectors"
@@ -931,17 +773,7 @@ explicitly defined via parameters n1, n2, n3 and n4.</p>
           Line(points={{100,-90},{60,-90},{0,0}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{100,90},{60,90},{0,0}}, color={0,0,127}),
-          Line(points={{100,-90},{60,-90},{0,0}}, color={0,0,127}),
-          Line(points={{-100,0},{-6,0}}, color={0,0,127}),
-          Line(points={{100,30},{60,30},{0,0}}, color={0,0,127}),
-          Line(points={{100,-30},{60,-30},{0,0}}, color={0,0,127}),
-          Ellipse(
-            extent={{-15,15},{15,-15}},
-            fillColor={0,0,127},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,127})}));
+          extent={{-100,-100},{100,100}})));
   end DeMultiplex4;
 
   block DeMultiplex5 "DeMultiplexer block for five output connectors"
@@ -995,18 +827,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.</p>
           Line(points={{100,-80},{60,-80},{0,0}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{100,80},{60,80},{0,0}}, color={0,0,127}),
-          Line(points={{100,-80},{60,-80},{0,0}},  color={0,0,127}),
-          Line(points={{-100,0},{-6,0}}, color={0,0,127}),
-          Ellipse(
-            extent={{-15,15},{15,-15}},
-            fillColor={0,0,127},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,127}),
-          Line(points={{100,40},{60,40},{8,4}}, color={0,0,127}),
-          Line(points={{100,0},{10,0}}, color={0,0,127}),
-          Line(points={{100,-40},{60,-40},{8,-4}}, color={0,0,127})}));
+          extent={{-100,-100},{100,100}})));
   end DeMultiplex5;
 
   block DeMultiplex6 "DeMultiplexer block for six output connectors"
@@ -1064,19 +885,7 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.</p>
           Line(points={{100,-90},{60,-90},{0,-4}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{100,90},{60,90},{0,4}}, color={0,0,127}),
-          Line(points={{100,-90},{60,-90},{0,-4}}, color={0,0,127}),
-          Line(points={{-100,0},{-6,0}}, color={0,0,127}),
-          Ellipse(
-            extent={{-15,15},{15,-15}},
-            fillColor={0,0,127},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,127}),
-          Line(points={{100,54},{60,54},{8,6}}, color={0,0,127}),
-          Line(points={{100,-54},{60,-54},{8,-6}}, color={0,0,127}),
-          Line(points={{100,18},{60,18},{10,2}}, color={0,0,127}),
-          Line(points={{100,-18},{60,-18},{10,-2}}, color={0,0,127})}));
+          extent={{-100,-100},{100,100}})));
   end DeMultiplex6;
 
   model RealPassThrough "Pass a Real signal through without modification"

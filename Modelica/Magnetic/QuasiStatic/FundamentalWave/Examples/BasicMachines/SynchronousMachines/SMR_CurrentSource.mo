@@ -323,7 +323,7 @@ equation
   connect(starMachine.plug_p, terminalBox.starpoint) annotation (Line(points={{-20,-80},{-20,-68},{-10,-68}},color={0,0,255}));
   annotation (
     experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6),
-    Documentation(info="<html><html>
+    Documentation(info="<html>
 <p>
 This example compares a time transient and a quasi-static model of a synchronous reluctance machine.
 The machines are fed by a current source. The current components are oriented at the magnetic field

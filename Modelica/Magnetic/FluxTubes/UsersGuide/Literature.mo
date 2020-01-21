@@ -91,7 +91,7 @@ class Literature "Literature"
       <td>[Va01]</td>
       <td>VAC Vacuumschmelze:
         <em>Soft Magnetic Cobalt-Iron-Alloys</em>, 2001.
-        Download from: <a  href=\"http://www.vacuumschmelze.com/fileadmin/docroot/medialib/documents/broschueren/htbrosch/Pht-004_e.pdf\">http://www.vacuumschmelze.com/fileadmin/&shy;docroot/medialib/documents/&shy;broschueren/htbrosch/Pht-004_e.pdf</a></td>
+        Download from: <a href=\"http://www.vacuumschmelze.com/fileadmin/docroot/medialib/documents/broschueren/htbrosch/Pht-004_e.pdf\">http://www.vacuumschmelze.com/fileadmin/&shy;docroot/medialib/documents/&shy;broschueren/htbrosch/Pht-004_e.pdf</a></td>
     </tr>
     <tr>
       <td>[YUY89]</td>
@@ -103,13 +103,13 @@ class Literature "Literature"
       <td>[ZB12]</td>
       <td>Ziske, J.; B&ouml;drich, T.:
         <em>Magnetic Hysteresis Models for Modelica</em>,
-        Proc. of the 9th Modelica Conference, Munich, Germany, pp. 151-158, September 3-5, 2012. Download from: <a  href=\"http://www.ep.liu.se/ecp/076/014/ecp12076014.pdf\">http://www.ep.liu.se/ecp/&shy;076/014/ecp12076014.pdf</a></td>
+        Proc. of the 9th Modelica Conference, Munich, Germany, pp. 151-158, September 3-5, 2012. Download from: <a href=\"http://www.ep.liu.se/ecp/076/014/ecp12076014.pdf\">http://www.ep.liu.se/ecp/&shy;076/014/ecp12076014.pdf</a></td>
     </tr>
     <tr>
       <td>[ZB14]</td>
       <td>Ziske, J.; B&ouml;drich, T.:
         <em>http://www.ep.liu.se/ecp/096/017/ecp14096017.pdf</em>,
-        Proc. of the 10th Modelica Conference, Lund, Sweden, pp. 165-172, March 10-12, 2014. Download from: <a  href=\"http://www.ep.liu.se/ecp/096/017/ecp14096017.pdf\">http://www.ep.liu.se/ecp/&shy;096/017/ecp14096017.pdf</a></td>
+        Proc. of the 10th Modelica Conference, Lund, Sweden, pp. 165-172, March 10-12, 2014. Download from: <a href=\"http://www.ep.liu.se/ecp/096/017/ecp14096017.pdf\">http://www.ep.liu.se/ecp/&shy;096/017/ecp14096017.pdf</a></td>
     </tr>
 
 </table><br>

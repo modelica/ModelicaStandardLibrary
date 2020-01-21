@@ -155,7 +155,7 @@ Modelica composition diagram, resulting in:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/FirstExample/PenulumSchematic1.png\"
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/PendulumSchematic1.png\"
 alt=\"Modelica composition diagram of simple pendulum\">
 </p>
 
@@ -166,7 +166,7 @@ and connect them according to the figure:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/FirstExample/PenulumSchematic2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/PendulumSchematic2.png\">
 </p>
 
 <p>
@@ -203,9 +203,9 @@ is shown in the parameter menus of the revolute joint and the body:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/FirstExample/ActuatedRevolute.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/ActuatedRevoluteParameters.png\">
 <br>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/FirstExample/Body.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/BodyParameters.png\">
 </p>
 
 <p>
@@ -265,7 +265,7 @@ red box on the lower right side.
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/Fourbar1b.png\" width=300>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/Fourbar1b.png\" width=\"300\">
 </blockquote>
 
 <p>
@@ -380,12 +380,12 @@ use the RevolutePlanarLoopConstraint joint.
 This error message is due to an annotation in
 the Frame connector.
 </p>
-<pre>
-  <strong>connector</strong> Frame
-     ...
-     <strong>flow</strong> SI.Force f[3] <strong>annotation</strong>(unassignedMessage=\"...\");
-  <strong>end</strong> Frame;
-</pre>
+<blockquote><pre>
+<strong>connector</strong> Frame
+   ...
+   <strong>flow</strong> SI.Force f[3] <strong>annotation</strong>(unassignedMessage=\"...\");
+<strong>end</strong> Frame;
+</pre></blockquote>
 <p>
 If no assignment can be found for some
 forces in a connector, the \"unassignedMessage\" is displayed. In most cases the
@@ -739,7 +739,7 @@ This is shown in the next figure, where this option is selected for spring3.fram
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/ThreeSpringsDiagramLayer.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/ThreeSpringsDiagramLayer.png\">
 </p>
 
 <p>
@@ -761,7 +761,7 @@ A typical example is shown in the next figure:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/ThreeSprings2DiagramLayer.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/ThreeSprings2DiagramLayer.png\">
 </p>
 
 <p>
@@ -1404,7 +1404,7 @@ For an introduction, have especially a look at:
 </ul>
 
 <p>
-Copyright &copy; 1998-2019, Modelica Association and contributors
+Copyright &copy; 1998-2020, Modelica Association and contributors
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
             {100,100}}), graphics={

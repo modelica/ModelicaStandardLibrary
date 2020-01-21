@@ -2845,8 +2845,7 @@ that the distance between the origin of frame_a and the origin of frame_b is con
 </ul>
 <p>
 The definition of axis 2 of the universal joint is performed according
-to the most often occurring case. In a future release, axis 2 might
-be explicitly definable via a parameter. However, the treatment is much more
+to the most often occurring case for the sake of simplicity. Otherwise, the treatment is much more
 complicated and the number of operations is considerably higher,
 if axis 2 is not orthogonal to axis 1 and to the connecting rod.
 </p>
@@ -2891,26 +2890,26 @@ has the advantage that it does not have a singular configuration.
 In the public interface of the UniversalSpherical joint, the following
 (final) <strong>parameters</strong> are provided:
 </p>
-<pre>
-  <strong>parameter</strong> Real rodLength(unit=\"m\")  \"Length of rod\";
-  <strong>parameter</strong> Real eRod_ia[3] \"Unit vector along rod, resolved in frame_ia\";
-  <strong>parameter</strong> Real e2_ia  [3] \"Unit vector along axis 2, resolved in frame_ia\";
-</pre>
+<blockquote><pre>
+<strong>parameter</strong> Real rodLength(unit=\"m\")  \"Length of rod\";
+<strong>parameter</strong> Real eRod_ia[3] \"Unit vector along rod, resolved in frame_ia\";
+<strong>parameter</strong> Real e2_ia  [3] \"Unit vector along axis 2, resolved in frame_ia\";
+</pre></blockquote>
 <p>
 This allows a more convenient definition of data which is related to the rod.
 For example, if a box shall be connected at frame_ia directing from
 the origin of frame_a to the middle of the rod, this might be defined as:
 </p>
-<pre>
-    Modelica.Mechanics.MultiBody.Joints.UniversalSpherical jointUS(rRod_ia={1.2, 1, 0.2});
-    Modelica.Mechanics.MultiBody.Visualizers.FixedShape    shape(shapeType       = \"box\",
-                                              lengthDirection = jointUS.eRod_ia,
-                                              widthDirection  = jointUS.e2_ia,
-                                              length          = jointUS.rodLength/2,
-                                              width           = jointUS.rodLength/10);
-  <strong>equation</strong>
-    <strong>connect</strong>(jointUS.frame_ia, shape.frame_a);
-</pre>
+<blockquote><pre>
+  Modelica.Mechanics.MultiBody.Joints.UniversalSpherical jointUS(rRod_ia={1.2, 1, 0.2});
+  Modelica.Mechanics.MultiBody.Visualizers.FixedShape    shape(shapeType       = \"box\",
+                                            lengthDirection = jointUS.eRod_ia,
+                                            widthDirection  = jointUS.e2_ia,
+                                            length          = jointUS.rodLength/2,
+                                            width           = jointUS.rodLength/10);
+<strong>equation</strong>
+  <strong>connect</strong>(jointUS.frame_ia, shape.frame_a);
+</pre></blockquote>
 </html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -4092,7 +4091,7 @@ are not part of the default animation):
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointUPS.png\" alt=\"model Joints.Assemblies.JointUPS\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointUPS.png\" alt=\"model Joints.Assemblies.JointUPS\">
 </p>
 
 <p>
@@ -4113,8 +4112,7 @@ The universal joint is defined in the following way:
 </ul>
 <p>
 The definition of axis 2 of the universal joint is performed according
-to the most often occurring case. In a future release, axis 2 might
-be explicitly definable via a parameter. However, the treatment is much more
+to the most often occurring case for the sake of simplicity. Otherwise, the treatment is much more
 complicated and the number of operations is considerably higher,
 if axis 2 is not orthogonal to axis 1 and to the connecting rod.
 </p>
@@ -4701,7 +4699,7 @@ default animation):
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointUSR.png\" alt=\"model Joints.Assemblies.JointUSR\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointUSR.png\" alt=\"model Joints.Assemblies.JointUSR\">
 </p>
 
 <p>
@@ -4724,8 +4722,7 @@ The universal joint is defined in the following way:
 </ul>
 <p>
 The definition of axis 2 of the universal joint is performed according
-to the most often occurring case. In a future release, axis 2 might
-be explicitly definable via a parameter. However, the treatment is much more
+to the most often occurring case for the sake of simplicity. Otherwise, the treatment is much more
 complicated and the number of operations is considerably higher,
 if axis 2 is not orthogonal to axis 1 and to the connecting rod.
 </p>
@@ -4787,26 +4784,26 @@ component).
 In the public interface of the JointUSR joint, the following
 (final) <strong>parameters</strong> are provided:
 </p>
-<pre>
-  <strong>parameter</strong> Real rod1Length(unit=\"m\")  \"Length of rod 1\";
-  <strong>parameter</strong> Real eRod1_ia[3] \"Unit vector along rod 1, resolved in frame_ia\";
-  <strong>parameter</strong> Real e2_ia  [3]  \"Unit vector along axis 2, resolved in frame_ia\";
-</pre>
+<blockquote><pre>
+<strong>parameter</strong> Real rod1Length(unit=\"m\")  \"Length of rod 1\";
+<strong>parameter</strong> Real eRod1_ia[3] \"Unit vector along rod 1, resolved in frame_ia\";
+<strong>parameter</strong> Real e2_ia  [3]  \"Unit vector along axis 2, resolved in frame_ia\";
+</pre></blockquote>
 <p>
 This allows a more convenient definition of data which is related to rod 1.
 For example, if a box shall be connected at frame_ia directing from
 the origin of frame_a to the middle of rod 1, this might be defined as:
 </p>
-<pre>
-    Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP jointUSR(rRod1_ia={1.2, 1, 0.2});
-    Modelica.Mechanics.MultiBody.Visualizers.FixedShape     shape(shapeType       = \"box\",
-                                               lengthDirection = jointUSR.eRod1_ia,
-                                               widthDirection  = jointUSR.e2_ia,
-                                               length          = jointUSR.rod1Length/2,
-                                               width           = jointUSR.rod1Length/10);
-  <strong>equation</strong>
-    <strong>connect</strong>(jointUSP.frame_ia, shape.frame_a);
-</pre>
+<blockquote><pre>
+  Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP jointUSR(rRod1_ia={1.2, 1, 0.2});
+  Modelica.Mechanics.MultiBody.Visualizers.FixedShape     shape(shapeType       = \"box\",
+                                             lengthDirection = jointUSR.eRod1_ia,
+                                             widthDirection  = jointUSR.e2_ia,
+                                             length          = jointUSR.rod1Length/2,
+                                             width           = jointUSR.rod1Length/10);
+<strong>equation</strong>
+  <strong>connect</strong>(jointUSP.frame_ia, shape.frame_a);
+</pre></blockquote>
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -5184,7 +5181,7 @@ default animation):
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointUSP.png\" alt=\"model Joints.Assemblies.JointUSP\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointUSP.png\" alt=\"model Joints.Assemblies.JointUSP\">
 </p>
 
 <p>
@@ -5207,8 +5204,7 @@ The universal joint is defined in the following way:
 </ul>
 <p>
 The definition of axis 2 of the universal joint is performed according
-to the most often occurring case. In a future release, axis 2 might
-be explicitly definable via a parameter. However, the treatment is much more
+to the most often occurring case for the sake of simplicity. Otherwise, the treatment is much more
 complicated and the number of operations is considerably higher,
 if axis 2 is not orthogonal to axis 1 and to the connecting rod.
 </p>
@@ -5278,26 +5274,26 @@ component).
 In the public interface of the JointUSP joint, the following
 (final) <strong>parameters</strong> are provided:
 </p>
-<pre>
-  <strong>parameter</strong> Real rod1Length(unit=\"m\")  \"Length of rod 1\";
-  <strong>parameter</strong> Real eRod1_ia[3] \"Unit vector along rod 1, resolved in frame_ia\";
-  <strong>parameter</strong> Real e2_ia  [3]  \"Unit vector along axis 2, resolved in frame_ia\";
-</pre>
+<blockquote><pre>
+<strong>parameter</strong> Real rod1Length(unit=\"m\")  \"Length of rod 1\";
+<strong>parameter</strong> Real eRod1_ia[3] \"Unit vector along rod 1, resolved in frame_ia\";
+<strong>parameter</strong> Real e2_ia  [3]  \"Unit vector along axis 2, resolved in frame_ia\";
+</pre></blockquote>
 <p>
 This allows a more convenient definition of data which is related to rod 1.
 For example, if a box shall be connected at frame_ia directing from
 the origin of frame_a to the middle of rod 1, this might be defined as:
 </p>
-<pre>
-    Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP jointUSP(rRod1_ia={1.2, 1, 0.2});
-    Modelica.Mechanics.MultiBody.Visualizers.FixedShape     shape(shapeType       = \"box\",
-                                               lengthDirection = jointUSP.eRod1_ia,
-                                               widthDirection  = jointUSP.e2_ia,
-                                               length          = jointUSP.rod1Length/2,
-                                               width           = jointUSP.rod1Length/10);
-  <strong>equation</strong>
-    <strong>connect</strong>(jointUSP.frame_ia, shape.frame_a);
-</pre>
+<blockquote><pre>
+  Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP jointUSP(rRod1_ia={1.2, 1, 0.2});
+  Modelica.Mechanics.MultiBody.Visualizers.FixedShape     shape(shapeType       = \"box\",
+                                             lengthDirection = jointUSP.eRod1_ia,
+                                             widthDirection  = jointUSP.e2_ia,
+                                             length          = jointUSP.rod1Length/2,
+                                             width           = jointUSP.rod1Length/10);
+<strong>equation</strong>
+  <strong>connect</strong>(jointUSP.frame_ia, shape.frame_a);
+</pre></blockquote>
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -5665,7 +5661,7 @@ default animation):
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointSSR.png\" alt=\"model Joints.Assemblies.JointSSR\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointSSR.png\" alt=\"model Joints.Assemblies.JointSSR\">
 </p>
 
 <p>
@@ -6008,7 +6004,7 @@ default animation):
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointSSP.png\" alt=\"model Joints.Assemblies.JointSSP\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointSSP.png\" alt=\"model Joints.Assemblies.JointSSP\">
 </p>
 
 <p>
@@ -6328,7 +6324,7 @@ default animation):
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointRRR.png\" alt=\"model Joints.Assemblies.JointRRR\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointRRR.png\" alt=\"model Joints.Assemblies.JointRRR\">
 </p>
 
 <p>
@@ -6648,7 +6644,7 @@ default animation):
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointRRP.png\" alt=\"model Joints.Assemblies.JointRRP\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointRRP.png\" alt=\"model Joints.Assemblies.JointRRP\">
 </p>
 
 <p>
@@ -6790,7 +6786,7 @@ The assembly joints in this package are named <strong>JointXYZ</strong> where
 <strong>XYZ</strong> are the first letters of the elementary joints used in the
 component, in particular:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>P</strong></td><td>Prismatic joint</td></tr>
   <tr><td><strong>R</strong></td><td>Revolute joint</td></tr>
   <tr><td><strong>S</strong></td><td>Spherical joint</td></tr>
@@ -6803,45 +6799,45 @@ of a universal, a spherical and a revolute joint.
 <p> This package contains the following models:
 </p>
 <h4>Content</h4>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><th><strong><em>Model</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS\">JointUPS</a></td>
       <td> Universal - prismatic - spherical joint aggregation<br>
-     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointUPS.png\">
+     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointUPS.png\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR\">JointUSR</a></td>
       <td> Universal - spherical - revolute joint aggregation<br>
-     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointUSR.png\">
+     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointUSR.png\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP\">JointUSP</a></td>
       <td> Universal - spherical - prismatic joint aggregation<br>
-     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointUSP.png\">
+     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointUSP.png\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR\">JointSSR</a></td>
       <td> Spherical - spherical - revolute joint aggregation
            with an optional mass point at the rod connecting
            the two spherical joints<br>
-     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointSSR.png\">
+     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointSSR.png\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP\">JointSSP</a></td>
       <td> Spherical - spherical - prismatic joint aggregation
            with an optional mass point at the rod connecting
            the two spherical joints<br>
-     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointSSP.png\">
+     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointSSP.png\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR\">JointRRR</a></td>
       <td> Revolute - revolute - revolute joint aggregation for planar loops<br>
-     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointRRR.png\">
+     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointRRR.png\">
       </td>
   </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP\">JointRRP</a></td>
       <td> Revolute - revolute - prismatic joint aggregation for planar loops<br>
-     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/JointRRP.png\">
+     <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointRRP.png\">
       </td>
   </tr>
 </table>
@@ -7975,9 +7971,9 @@ Joints.UniversalSpherical) must be calculated such that the driving torque
 in direction of the rotation
 axis is (RC shall be the name of the instance of RevoluteWithLengthConstraint):
 </p>
-<pre>
-    0 = RC.axis.tau + RC.e*RC.frame_b.t;
-</pre>
+<blockquote><pre>
+0 = RC.axis.tau + RC.e*RC.frame_b.t;
+</pre></blockquote>
 <p>
 If this equation is used, usually the force in the length constraint
 and the second derivative of the revolute angle will be part of a linear
@@ -8336,9 +8332,9 @@ Joints.UniversalSpherical) must be calculated such that the driving force
 in direction of the translation
 axis is (RC shall be the name of the instance of PrismaticWithLengthConstraint):
 </p>
-<pre>
-    0 = RC.axis.f + RC.e*RC.frame_b.f;
-</pre>
+<blockquote><pre>
+0 = RC.axis.f + RC.e*RC.frame_b.f;
+</pre></blockquote>
 <p>
 If this equation is used, usually the force in the length constraint
 and the second derivative of the prismatic distance will be part of a linear
@@ -8616,7 +8612,7 @@ of equations occurring in these joint aggregations are analytically
 solved, i.e., robustly and efficiently).
 </p>
 <h4>Content</h4>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><th><strong><em>Model</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Prismatic\">Prismatic</a></td>
       <td>Prismatic joint and actuated prismatic joint

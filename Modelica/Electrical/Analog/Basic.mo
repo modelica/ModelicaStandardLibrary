@@ -227,7 +227,12 @@ package Basic "Basic electrical components"
 
   model SaturatingInductor "Simple model of an inductor with saturation"
     extends Modelica.Electrical.Analog.Interfaces.OnePort(i(start=0));
-    parameter SI.Current Inom(start=1) "Nominal current";
+    import Modelica.Constants.pi;
+    import Modelica.Constants.eps;
+    import Modelica.Constants.small;
+    import Modelica.Math.atan;
+    parameter SI.Current Inom(start=1) "Nominal current" annotation(Dialog(
+      groupImage="modelica://Modelica/Resources/Images/Electrical/Analog/Basic/SaturatingInductor_Lact_i_tight.png"));
     parameter SI.Inductance Lnom(start=1)
       "Nominal inductance at Nominal current";
     parameter SI.Inductance Lzer(start=2*Lnom)
@@ -239,25 +244,20 @@ package Basic "Basic electrical components"
   protected
     parameter SI.Current Ipar(start=Inom/10, fixed=false);
   initial equation
-    (Lnom - Linf) = (Lzer - Linf)*Ipar/Inom*(Modelica.Constants.pi/2 -
-      Modelica.Math.atan(Ipar/Inom));
+    (Lnom - Linf)/(Lzer - Linf)=Ipar/Inom*(pi/2 - atan(Ipar/Inom));
   equation
-    assert(Lzer > Lnom + Modelica.Constants.eps, "Lzer (= " + String(Lzer) +
+    assert(Lzer > Lnom*(1 + eps), "Lzer (= " + String(Lzer) +
       ") has to be > Lnom (= " + String(Lnom) + ")");
-    assert(Linf < Lnom - Modelica.Constants.eps, "Linf (= " + String(Linf) +
+    assert(Linf < Lnom*(1 - eps), "Linf (= " + String(Linf) +
       ") has to be < Lnom (= " + String(Lnom) + ")");
-    (Lact - Linf)*i/Ipar = (Lzer - Linf)*noEvent(Modelica.Math.atan(i/Ipar));
-    Psi = Lact*i;
+    Lact = Linf + (Lzer - Linf)*(if noEvent(abs(i)/Ipar<small) then 1 else atan(i/Ipar)/(i/Ipar));
+    Psi = Linf*i + (Lzer - Linf)*Ipar*atan(i/Ipar);
     v = der(Psi);
     annotation (defaultComponentName="inductor",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{60,0},{90,0}}, color={0,0,255}),
           Line(points={{-90,0},{-60,0}}, color={0,0,255}),
-          Rectangle(
-            extent={{-60,-10},{60,-20}},
-            fillPattern=FillPattern.Sphere,
-            fillColor={0,0,255}),
           Text(
             extent={{-150,-40},{150,-80}},
             textString="Lnom=%Lnom"),
@@ -280,15 +280,79 @@ package Basic "Basic electrical components"
           Text(
             extent={{-150,90},{150,50}},
             textString="%name",
-            textColor={0,0,255})}),
+            textColor={0,0,255}),
+          Line(points={{-60,-20},{60,-20}}, color={0,0,255})}),
       Documentation(info="<html>
-<p>This model approximates the behaviour of an inductor with the influence of saturation, i.e., the value of the inductance depends on the current flowing through the inductor. The inductance decreases as current increases.</p><p>The parameters are:</p>
-<ul>
-<li>Inom...nominal current</li>
-<li>Lnom...nominal inductance at nominal current</li>
-<li>Lzer...inductance near current = 0; Lzer has to be greater than Lnom</li>
-<li>Linf...inductance at large currents; Linf has to be less than Lnom</li>
-</ul>
+<p>This model approximates the behaviour of an inductor with the influence of saturation, i.e.,
+the value of the inductance depends on the current flowing through the inductor (<strong>Fig.&nbsp;1</strong>).
+The inductance decreases as current increases. Note, that hysteresis is not taken into account.
+</p>
+
+<p>
+The approximation of the flux linkage is based on the <code>atan</code> function with an additional linear term,
+as shown in <strong>Fig.&nbsp;2</strong>:</p>
+
+<blockquote><pre>
+Psi = Linf*i + (Lzer - Linf)*Ipar*atan(i/Ipar)
+L = Psi/i = Linf + (Lzer - Linf)*atan(i/Ipar)/(i/Ipar)
+</pre></blockquote>
+
+<p>
+This approximation is with good performance and easy to adjust to a given characteristic with only four parameters (<strong>Tab.&nbsp;1</strong>).
+</p>
+
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Tab.&nbsp;1:</strong> Characteristic parameters of the saturating inductor model</caption>
+  <tr>
+    <th>Variable</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>Inom</code>.</td>
+    <td>Nominal current</td>
+  </tr>
+  <tr>
+    <td><code>Lnom</code></td>
+    <td>Nominal inductance at nominal current</td>
+  </tr>
+  <tr>
+    <td><code>Lzer</code></td>
+    <td>Inductance near current = 0; <code>Lzer</code> has to be greater than <code>Lnom</code></td>
+  </tr>
+  <tr>
+    <td><code>Linf</code></td>
+    <td>Inductance at large currents; <code>Linf</code> has to be less than <code>Lnom</code></td>
+  </tr>
+</table>
+
+<p>
+The parameter <code>Ipar</code> is calculated internally from the relationship:</p>
+<blockquote><pre>
+Lnom = Linf + (Lzer - Linf)*atan(Inom/Ipar)/(Inom/Ipar)
+</pre></blockquote>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig.&nbsp;1:</strong> Actual inductance <code>Lact</code> versus current <code>i</code></caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Basic/SaturatingInductor_Lact_i.png\" alt=\"Lact vs. i\">
+    </td>
+  </tr>
+</table>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig.&nbsp;2:</strong> Actual flux linkage <code>Psi</code> versus current <code>i</code></caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Basic/SaturatingInductor_Psi_i.png\" alt=\"Psi vs. i\">
+    </td>
+  </tr>
+</table>
+
+<p>The flux slope in <strong>Fig.&nbsp;2</strong> is equal to <code>Lzer</code> for small currents.
+The limit of the flux slope is <code>Linf</code> as the current <code>i</code> approaches infinity.
+The nominal flux is indicated by the product of the nominal inductance <code>Lnom</code> and the nominal current <code>Inom</code>.
+</p>
 </html>", revisions="<html>
 <dl>
   <dt><strong>Main Author:</strong></dt>
@@ -299,6 +363,7 @@ package Basic "Basic electrical components"
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><strong>Release Notes:</strong></dt>
+  <dd>Jul 23, 2019: Improved by Anton Haumer</dd>
   <dd>May 27, 2004: Implemented by Anton Haumer</dd>
  </dl>
 </html>"));
@@ -325,9 +390,11 @@ package Basic "Basic electrical components"
     annotation (
       Documentation(info="<html>
 <p>The transformer is a two port. The left port voltage <em>v1</em>, left port current <em>i1</em>, right port voltage <em>v2</em> and right port current <em>i2</em> are connected by the following relation:</p>
-<pre>         | v1 |         | L1   M  |  | i1&#39; |
-         |    |    =    |         |  |     |
-         | v2 |         | M    L2 |  | i2&#39; |</pre>
+<blockquote><pre>
+| v1 |         | L1   M  |  | i1&#39; |
+|    |    =    |         |  |     |
+| v2 |         | M    L2 |  | i2&#39; |
+</pre></blockquote>
 <p><em>L1</em>, <em>L2</em>, and <em>M</em> are the primary, secondary, and coupling inductances respectively.</p>
 </html>", revisions="<html>
 <ul>
@@ -589,8 +656,10 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     annotation (
       Documentation(info="<html>
 <p>A gyrator is a two-port element defined by the following equations:</p>
-<pre>    i1 =  G2 * v2
-    i2 = -G1 * v1</pre>
+<blockquote><pre>
+i1 =  G2 * v2
+i2 = -G1 * v1
+</pre></blockquote>
 <p>where the constants <em>G1</em>, <em>G2</em> are called the gyration conductance.</p>
 </html>", revisions="<html>
 <ul>
@@ -923,7 +992,9 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     annotation (defaultComponentName="vcv",
       Documentation(info="<html>
 <p>The linear voltage-controlled voltage source is a TwoPort. The right port voltage v2 is controlled by the left port voltage v1 via</p>
-<pre>    v2 = v1 * gain. </pre>
+<blockquote><pre>
+v2 = v1 * gain.
+</pre></blockquote>
 <p>The left port current is zero. Any voltage gain can be chosen.</p>
 </html>", revisions="<html>
 <ul>
@@ -965,7 +1036,9 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     annotation (defaultComponentName="vcc",
       Documentation(info="<html>
 <p>The linear voltage-controlled current source is a TwoPort. The right port current i2 is controlled by the left port voltage v1 via</p>
-<pre>    i2 = v1 * transConductance. </pre>
+<blockquote><pre>
+i2 = v1 * transConductance.
+</pre></blockquote>
 <p>The left port current is zero. Any transConductance can be chosen.</p>
 </html>", revisions="<html>
 <ul>
@@ -1016,7 +1089,9 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     annotation (defaultComponentName="ccv",
       Documentation(info="<html>
 <p>The linear current-controlled voltage source is a TwoPort. The right port voltage v2 is controlled by the left port current i1 via</p>
-<pre>    v2 = i1 * transResistance. </pre>
+<blockquote><pre>
+v2 = i1 * transResistance.
+</pre></blockquote>
 <p>The left port voltage is zero. Any transResistance can be chosen.</p>
 </html>", revisions="<html>
 <ul>
@@ -1059,7 +1134,9 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
     annotation (defaultComponentName="ccc",
       Documentation(info="<html>
 <p>The linear current-controlled current source is a TwoPort. The right port current i2 is controlled by the left port current i1 via</p>
-<pre>    i2 = i1 * gain. </pre>
+<blockquote><pre>
+i2 = i1 * gain.
+</pre></blockquote>
 <p>The left port voltage is zero. Any current gain can be chosen.</p>
 </html>", revisions="<html>
 <ul>
@@ -1375,11 +1452,9 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
 
     annotation (defaultComponentName="opAmp",
       Documentation(info="<html>
-<p>The OpAmpDetailed model is a general operational amplifier model. The emphasis is on separating each important data sheet parameter into a sub-circuit independent of the other parameters. The model is broken down into five functional stages <strong>input</strong>, <strong>frequency response</strong>, <strong>gain</strong>, <strong>slew rate</strong> and an <strong>output</strong> stage. Each stage contains data sheet parameters to be modeled. This partitioning and the modelling of the separate submodels are based on the description in <strong>[CP92]</strong>.</p>
-<p>Using <strong>[CP92]</strong> Joachim Haase (Fraunhofer Institute for Integrated Circuits, Design Automation Division) transferred 2001 operational amplifier models into VHDL-AMS. Now one of these models, the model &quot;amp(macro)&quot; was transferred into Modelica.</p>
-<dl><dt><strong>Reference:</strong> </dt>
-<dd><strong>[CP92]</strong> Conelly, J.A.; Choi, P.: Macromodelling with SPICE. Englewood Cliffs: Prentice-Hall, 1992 </dd>
-</dl></html>", revisions="<html>
+<p>The OpAmpDetailed model is a general operational amplifier model. The emphasis is on separating each important data sheet parameter into a sub-circuit independent of the other parameters. The model is broken down into five functional stages <strong>input</strong>, <strong>frequency response</strong>, <strong>gain</strong>, <strong>slew rate</strong> and an <strong>output</strong> stage. Each stage contains data sheet parameters to be modeled. This partitioning and the modelling of the separate submodels are based on the description in [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Conelly1992</a>].</p>
+<p>Using [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Conelly1992</a>] Joachim Haase (Fraunhofer Institute for Integrated Circuits, Design Automation Division) transferred 2001 operational amplifier models into VHDL-AMS. Now one of these models, the model &quot;amp(macro)&quot; was transferred into Modelica.</p>
+</html>",      revisions="<html>
 <dl>
 <dt><em>June 17, 2009</em></dt>
 <dd>by Susann Wolf initially implemented</dd>
@@ -1550,9 +1625,9 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
 <br>The capacitance <em>C</em> is given as input signal.
 It is required that C &ge; 0, otherwise an assertion is raised. To avoid a variable index system,
 C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Modelica.Constants.eps.</p>
-<p><br/>Besides the Cmin parameter the capacitor model has got the two parameters IC and UIC that belong together. With the IC parameter the user can specify an initial value of the voltage over the capacitor, which is defined from positive pin p to negative pin n (v=p.v - n.v).</p>
-<p><br/>Hence the capacitor is charged at the beginning of the simulation. The other parameter UIC is of type Boolean. If UIC is true, the simulation tool uses</p>
-<p><br/>the IC value at the initial calculation by adding the equation v= IC. If UIC is false, the IC value can be used (but it does not need to!) to calculate the initial values in order to simplify the numerical algorithms of initial calculation.</p>
+<p><br>Besides the Cmin parameter the capacitor model has got the two parameters IC and UIC that belong together. With the IC parameter the user can specify an initial value of the voltage over the capacitor, which is defined from positive pin p to negative pin n (v=p.v - n.v).</p>
+<p><br>Hence the capacitor is charged at the beginning of the simulation. The other parameter UIC is of type Boolean. If UIC is true, the simulation tool uses</p>
+<p><br>the IC value at the initial calculation by adding the equation v= IC. If UIC is false, the IC value can be used (but it does not need to!) to calculate the initial values in order to simplify the numerical algorithms of initial calculation.</p>
 </html>", revisions="<html>
 <ul>
 <li><em>June 7, 2004   </em>
@@ -1607,8 +1682,8 @@ C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Mo
 <br>The inductance <em>L</em> is as input signal.
 It is required that L &ge; 0, otherwise an assertion is raised. To avoid a variable index system, L = Lmin, if 0 &le; L &lt; Lmin, where Lmin is a parameter with default value Modelica.Constants.eps.</p>
 <p>Besides the Lmin parameter the inductor model has got the two parameters IC and UIC that belong together. With the IC parameter the user can specify an initial value of the current that flows through the inductor.</p>
-<p><br/>Hence the inductor has an initial current at the beginning of the simulation. The other parameter UIC is of type Boolean. If UIC is true, the simulation tool uses</p>
-<p><br/>the IC value at the initial calculation by adding the equation i= IC. If UIC is false, the IC value can be used (but it does not need to!) to calculate the initial values in order to simplify the numerical algorithms of initial calculation.</p>
+<p><br>Hence the inductor has an initial current at the beginning of the simulation. The other parameter UIC is of type Boolean. If UIC is true, the simulation tool uses</p>
+<p><br>the IC value at the initial calculation by adding the equation i= IC. If UIC is false, the IC value can be used (but it does not need to!) to calculate the initial values in order to simplify the numerical algorithms of initial calculation.</p>
 </html>", revisions="<html>
 <ul>
 <li><em>June 7, 2004   </em>
@@ -1877,7 +1952,7 @@ Christoph Clau&szlig;
 </dl>
 
 <p>
-Copyright &copy; 1998-2019, Modelica Association and contributors
+Copyright &copy; 1998-2020, Modelica Association and contributors
 </p>
 </html>"), Icon(graphics={
         Line(points={{-12,60},{-12,-60}}),

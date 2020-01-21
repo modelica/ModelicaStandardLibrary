@@ -2,11 +2,11 @@ within Modelica.Utilities;
 package Strings "Operations on strings"
   extends Modelica.Icons.FunctionsPackage;
 
-  function length "Return length of string"
+  pure function length "Return length of string"
     extends Modelica.Icons.Function;
     input String string;
     output Integer result "Number of characters of string";
-  external "C" result=  ModelicaStrings_length(string) annotation(Library="ModelicaExternalC");
+  external "C" result = ModelicaStrings_length(string) annotation(Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -19,8 +19,7 @@ Returns the number of characters of \"string\".
 </html>"));
   end length;
 
-  function substring "Return a substring defined by start and end index"
-
+  pure function substring "Return a substring defined by start and end index"
     extends Modelica.Icons.Function;
     input String string "String from which a substring is inquired";
     input Integer startIndex(min=1)
@@ -28,8 +27,7 @@ Returns the number of characters of \"string\".
     input Integer endIndex(min=1) "Character position of substring end";
     output String result
       "String containing substring string[startIndex:endIndex]";
-  external "C" result =
-                      ModelicaStrings_substring(string,startIndex,endIndex) annotation(Library="ModelicaExternalC");
+  external "C" result = ModelicaStrings_substring(string,startIndex,endIndex) annotation(Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -47,8 +45,8 @@ if endIndex &gt; length(string), an assert is triggered.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  string1 := \"This is line 111\";
-  string2 := Strings.substring(string1,9,12); // string2 = \"line\"
+string1 := \"This is line 111\";
+string2 := Strings.substring(string1,9,12); // string2 = \"line\"
 </pre></blockquote>
 </html>"));
   end substring;
@@ -81,13 +79,13 @@ defined by the optional argument \"string\".
 </html>"));
   end repeat;
 
-  function compare "Compare two strings lexicographically"
+  pure function compare "Compare two strings lexicographically"
     extends Modelica.Icons.Function;
     input String string1;
     input String string2;
     input Boolean caseSensitive=true "= false, if case of letters is ignored";
     output Modelica.Utilities.Types.Compare result "Result of comparison";
-  external "C" result=  ModelicaStrings_compare(string1, string2, caseSensitive) annotation(Library="ModelicaExternalC");
+  external "C" result = ModelicaStrings_compare(string1, string2, caseSensitive) annotation(Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -100,11 +98,11 @@ Compares two strings. If the optional argument caseSensitive=false,
 upper case letters are treated as if they would be lower case letters.
 The result of the comparison is returned as:
 </p>
-<pre>
-  result = Modelica.Utilities.Types.Compare.Less     // string1 &lt; string2
-         = Modelica.Utilities.Types.Compare.Equal    // string1 = string2
-         = Modelica.Utilities.Types.Compare.Greater  // string1 &gt; string2
-</pre>
+<blockquote><pre>
+result = Modelica.Utilities.Types.Compare.Less     // string1 &lt; string2
+       = Modelica.Utilities.Types.Compare.Equal    // string1 = string2
+       = Modelica.Utilities.Types.Compare.Greater  // string1 &gt; string2
+</pre></blockquote>
 <p>
 Comparison is with regards to lexicographical order,
 e.g., \"a\" &lt; \"b\";
@@ -166,10 +164,10 @@ only of white space characters. Otherwise, false is returned.
 
 <h4>Example</h4>
 <blockquote><pre>
-  isEmpty(\"\");       // returns true
-  isEmpty(\"   \");    // returns true
-  isEmpty(\"  abc\");  // returns false
-  isEmpty(\"a\");      // returns false
+isEmpty(\"\");       // returns true
+isEmpty(\"   \");    // returns true
+isEmpty(\"  abc\");  // returns false
+isEmpty(\"a\");      // returns false
 </pre></blockquote>
 </html>"));
   end isEmpty;
@@ -444,14 +442,14 @@ and upper case letters are not distinguished.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  s1 = {\"force\", \"angle\", \"pressure\"};
-  s2 = Strings.sort(s1);
-       -> s2 = {\"angle\", \"force\", \"pressure\"};
+s1 = {\"force\", \"angle\", \"pressure\"};
+s2 = Strings.sort(s1);
+     -> s2 = {\"angle\", \"force\", \"pressure\"};
 </pre></blockquote>
 </html>"));
   end sort;
 
-  function hashString "Create a hash value of a string"
+  pure function hashString "Create a hash value of a string"
     extends Modelica.Icons.Function;
     input String string "The string to create a hash from";
     output Integer hash "The hash value of string";
@@ -470,17 +468,17 @@ Returns an Integer hash value of the provided string
 
 <h4>Example</h4>
 <blockquote><pre>
-  hashString(\"this is a test\")     // =  1827717433
-  hashString(\"Controller.noise1\")  // = -1025762750
+hashString(\"this is a test\")     // =  1827717433
+hashString(\"Controller.noise1\")  // = -1025762750
 </pre></blockquote>
 </html>",   revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -572,7 +570,7 @@ Function <strong>scanToken</strong> scans the string starting at index
 index directly after the token. The returned token is a record
 that holds the type of the token and the value of the token:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td>token.tokenType</td>
       <td>Type of the token, see below</td></tr>
   <tr><td>token.real</td>
@@ -588,10 +586,10 @@ that holds the type of the token and the value of the token:
 Variable token.tokenType is an enumeration (emulated as a package
 with constants) that can have the following values:
 </p>
-<pre>
-   import T = Modelica.Utilities.Types.TokenType;
-</pre>
-<table border=1 cellspacing=0 cellpadding=2>
+<blockquote><pre>
+import T = Modelica.Utilities.Types.TokenType;
+</pre></blockquote>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td>T.RealToken</td>
       <td>Modelica Real literal (e.g., 1.23e-4)</td></tr>
   <tr><td>T.IntegerToken</td>
@@ -617,20 +615,20 @@ is not allowed to start with a \"+\" or \"-\" sign.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  import Modelica.Utilities.Strings;
-  import T = Modelica.Utilities.Types.TokenType;
-  (token, index) := Strings.scanToken(string);
-  <strong>if</strong> token.tokenType == T.RealToken <strong>then</strong>
-     realValue := token.real;
-  <strong>elseif</strong> token.tokenType == T.IntegerToken <strong>then</strong>
-     integerValue := token.integer;
-  <strong>elseif</strong> token.tokenType == T.BooleanToken <strong>then</strong>
-     booleanValue := token.boolean;
-  <strong>elseif</strong> token.tokenType == T.Identifier <strong>then</strong>
-     name := token.string;
-  <strong>else</strong>
-     Strings.syntaxError(string,index,\"Expected Real, Integer, Boolean or identifier token\");
-  <strong>end if</strong>;
+import Modelica.Utilities.Strings;
+import T = Modelica.Utilities.Types.TokenType;
+(token, index) := Strings.scanToken(string);
+<strong>if</strong> token.tokenType == T.RealToken <strong>then</strong>
+   realValue := token.real;
+<strong>elseif</strong> token.tokenType == T.IntegerToken <strong>then</strong>
+   integerValue := token.integer;
+<strong>elseif</strong> token.tokenType == T.BooleanToken <strong>then</strong>
+   booleanValue := token.boolean;
+<strong>elseif</strong> token.tokenType == T.Identifier <strong>then</strong>
+   name := token.string;
+<strong>else</strong>
+   Strings.syntaxError(string,index,\"Expected Real, Integer, Boolean or identifier token\");
+<strong>end if</strong>;
 </pre></blockquote>
 </html>"));
   end scanToken;
@@ -1003,12 +1001,12 @@ Strings.<strong>syntaxError</strong>(string, index, message);
 Function <strong>syntaxError</strong> prints an error message in the
 following form:
 </p>
-<pre>
-   Syntax error at column &lt;index&gt; of
-   &lt;string&gt;
-       ^       // shows character that is wrong
-   &lt;message&gt;
-</pre>
+<blockquote><pre>
+Syntax error at column &lt;index&gt; of
+&lt;string&gt;
+    ^       // shows character that is wrong
+&lt;message&gt;
+</pre></blockquote>
 <p>
 where the strings within &lt;..&gt; are the actual values of the
 input arguments of the function.
@@ -1023,7 +1021,7 @@ part of the string is printed.
   package Advanced "Advanced scanning functions"
     extends Modelica.Icons.FunctionsPackage;
 
-    function scanReal "Scan a signed real number"
+    pure function scanReal "Scan a signed real number"
       extends Modelica.Icons.Function;
       input String string;
       input Integer startIndex(min=1)=1 "Index where scanning starts";
@@ -1044,14 +1042,14 @@ Starts scanning of \"string\" at position \"startIndex\".
 First skips white space and scans afterwards a number
 of type Real with an optional sign according to the Modelica grammar:
 </p>
-<pre>
-    real     ::= [sign] unsigned [fraction] [exponent]
-    sign     ::= '+' | '-'
-    unsigned ::= digit [unsigned]
-    fraction ::= '.' [unsigned]
-    exponent ::= ('e' | 'E') [sign] unsigned
-    digit    ::= '0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'
-</pre>
+<blockquote><pre>
+real     ::= [sign] unsigned [fraction] [exponent]
+sign     ::= '+' | '-'
+unsigned ::= digit [unsigned]
+fraction ::= '.' [unsigned]
+exponent ::= ('e' | 'E') [sign] unsigned
+digit    ::= '0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'
+</pre></blockquote>
 <p>
 If successful, the function returns nextIndex = index of character
 directly after the found real number, as well as the value
@@ -1070,7 +1068,7 @@ shall not start with '+' or '-'. The default of \"unsigned\" is <strong>false</s
 </html>"));
     end scanReal;
 
-    function scanInteger "Scan signed integer number"
+    pure function scanInteger "Scan signed integer number"
       extends Modelica.Icons.Function;
       input String string;
       input Integer startIndex(min=1)=1;
@@ -1116,7 +1114,7 @@ shall not start with '+' or '-'. The default of \"unsigned\" is <strong>false</s
 </html>"));
     end scanInteger;
 
-    function scanString "Scan string"
+    pure function scanString "Scan string"
       extends Modelica.Icons.Function;
       input String string;
       input Integer startIndex(min=1)=1 "Index where scanning starts";
@@ -1150,7 +1148,7 @@ the second output argument is an empty string.
 </html>"));
     end scanString;
 
-    function scanIdentifier "Scan simple identifiers"
+    pure function scanIdentifier "Scan simple identifiers"
       extends Modelica.Icons.Function;
       input String string;
       input Integer startIndex(min=1)=1 "Index where scanning starts";
@@ -1186,7 +1184,7 @@ the second output argument is an empty string.
 </html>"));
     end scanIdentifier;
 
-    function skipWhiteSpace "Scan white space"
+    pure function skipWhiteSpace "Scan white space"
       extends Modelica.Icons.Function;
       input String string;
       input Integer startIndex(min=1)=1;
@@ -1288,14 +1286,14 @@ functions in package \"Strings\".
 <p>
 Library \"Advanced\" provides the following functions:
 </p>
-<pre>
-  (nextIndex, realNumber)    = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.scanReal\">scanReal</a>        (string, startIndex, unsigned=false);
-  (nextIndex, integerNumber) = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.scanInteger\">scanInteger</a>     (string, startIndex, unsigned=false);
-  (nextIndex, string2)       = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.scanString\">scanString</a>      (string, startIndex);
-  (nextIndex, identifier)    = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.scanIdentifier\">scanIdentifier</a>  (string, startIndex);
-   nextIndex                 = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.skipWhiteSpace\">skipWhiteSpace</a>  (string, startIndex);
-   nextIndex                 = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.skipLineComments\">skipLineComments</a>(string, startIndex);
-</pre>
+<blockquote><pre>
+(nextIndex, realNumber)    = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.scanReal\">scanReal</a>        (string, startIndex, unsigned=false);
+(nextIndex, integerNumber) = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.scanInteger\">scanInteger</a>     (string, startIndex, unsigned=false);
+(nextIndex, string2)       = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.scanString\">scanString</a>      (string, startIndex);
+(nextIndex, identifier)    = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.scanIdentifier\">scanIdentifier</a>  (string, startIndex);
+ nextIndex                 = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.skipWhiteSpace\">skipWhiteSpace</a>  (string, startIndex);
+ nextIndex                 = <a href=\"modelica://Modelica.Utilities.Strings.Advanced.skipLineComments\">skipLineComments</a>(string, startIndex);
+</pre></blockquote>
 <p>
 All functions perform the following actions:
 </p>
@@ -1349,7 +1347,7 @@ Package <strong>Strings</strong> contains functions to manipulate strings.
 In the table below an example
 call to every function is given using the <strong>default</strong> options.
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><th><strong><em>Function</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td>len = <a href=\"modelica://Modelica.Utilities.Strings.length\">length</a>(string)</td>
       <td>Returns length of string</td></tr>

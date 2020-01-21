@@ -5,7 +5,7 @@ block SoftStartControl
     Modelica.Electrical.PowerConverters.Types.SoftStarterModeOfOperation;
   parameter Modelica.SIunits.Time tRampUp "Start ramp duration";
   parameter Real vStart=0 "Start voltage / nominal voltage";
-  parameter Real iMax "Maximum current / Nominal current";
+  parameter Real iMax "Maximum current / nominal current";
   parameter Real iMin=0.9*iMax "Lower threshold of current control";
   parameter Modelica.SIunits.Current INominal "Nominal current";
 parameter Modelica.SIunits.Time tRampDown "Stop ramp duration";

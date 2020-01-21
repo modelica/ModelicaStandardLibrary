@@ -56,14 +56,14 @@ model SymmetricPolyphaseWinding
   Modelica.SIunits.ComplexMagneticPotentialDifference V_m=port_p.V_m -
       port_n.V_m "Complex magnetic potential difference";
   Modelica.SIunits.MagneticPotentialDifference abs_V_m=
-      Modelica.ComplexMath.'abs'(V_m)
+      Modelica.ComplexMath.abs(V_m)
     "Magnitude of complex magnetic potential difference";
   Modelica.SIunits.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
     "Argument of complex magnetic potential difference";
   Modelica.SIunits.ComplexMagneticFlux Phi=port_p.Phi
     "Complex magnetic flux";
   Modelica.SIunits.MagneticFlux abs_Phi=
-      Modelica.ComplexMath.'abs'(Phi)
+      Modelica.ComplexMath.abs(Phi)
     "Magnitude of complex magnetic flux";
   Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
     "Argument of complex magnetic flux";
@@ -107,10 +107,9 @@ model SymmetricPolyphaseWinding
         useHeatPort, final G=(m/2)*GcRef*effectiveTurns^2)
     "Core loss model (currently eddy currents only)" annotation (Placement(
         transformation(extent={{-10,-10},{10,10}}, origin={50,-40})));
-  Magnetic.FundamentalWave.Components.Reluctance strayReluctance(final R_m(d=m*
-          effectiveTurns^2/2/Lsigma, q=m*effectiveTurns^2/2/Lsigma))
-    "Stray reluctance equivalent to ideally coupled stray inductances"
-    annotation (Placement(transformation(
+  Modelica.Magnetic.FundamentalWave.Components.Permeance stray(
+    final G_m(d=2*Lsigma/m/effectiveTurns^2, q=2*Lsigma/m/effectiveTurns^2))
+    "Stray permeance equivalent to ideally coupled stray inductances" annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={80,30})));
@@ -133,11 +132,8 @@ equation
       points={{60,-40},{100,-40},{100,-100}}, color={255,128,0}));
   connect(core.heatPort, heatPortCore) annotation (Line(
       points={{40,-50},{40,-100}}, color={191,0,0}));
-  connect(strayReluctance.port_n, core.port_n) annotation (Line(
-      points={{80,20},{80,-40},{60,-40}}, color={255,128,0}));
-  connect(strayReluctance.port_p, electroMagneticConverter.port_p)
-    annotation (Line(
-      points={{80,40},{80,100},{10,100},{10,-20}}, color={255,128,0}));
+  connect(stray.port_n, core.port_n) annotation (Line(points={{80,20},{80,-40},{60,-40}}, color={255,128,0}));
+  connect(stray.port_p, electroMagneticConverter.port_p) annotation (Line(points={{80,40},{80,100},{10,100},{10,-20}}, color={255,128,0}));
   connect(zeroInductor.plug_n, electroMagneticConverter.plug_p) annotation (
       Line(points={{-30,20},{-20,20},{-20,-20},{-10,-20}}, color={0,0,255}));
   connect(resistor.plug_n, short.plug_p)

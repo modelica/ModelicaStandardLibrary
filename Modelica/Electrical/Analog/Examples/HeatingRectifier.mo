@@ -1,8 +1,8 @@
 within Modelica.Electrical.Analog.Examples;
 model HeatingRectifier "Heating rectifier"
   extends Modelica.Icons.Example;
-  Modelica.Electrical.Analog.Semiconductors.HeatingDiode HeatingDiode1(
-      useHeatPort=true)
+  Modelica.Electrical.Analog.Semiconductors.Diode HeatingDiode1(
+      useTemperatureDependency=true, useHeatPort=true)
                 annotation (Placement(transformation(extent={{-20,40},{0,60}})));
   Modelica.Electrical.Analog.Basic.Ground G
   annotation (Placement(transformation(extent={{-80,0},{-60,20}})));

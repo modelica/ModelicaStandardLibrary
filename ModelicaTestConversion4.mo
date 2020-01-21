@@ -85,6 +85,10 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
       extends Modelica.Icons.Example;
       Modelica.Blocks.Tables.CombiTable1D table1(table=[0,0;0,1]);
       Modelica.Blocks.Tables.CombiTable2D table2(table=[0,0;0,1]);
+    equation
+      table1.u[1] = time;
+      table2.u1 = time;
+      table2.u2 = time;
       annotation(experiment(StopTime=1), Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2441\">#2441</a>.
@@ -349,6 +353,54 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue197;
 
+      model Issue778 "Conversion test for #778"
+        extends Modelica.Icons.Example;
+        Modelica.Electrical.Analog.Basic.Ground ground
+          annotation(Placement(transformation(extent={{-20,-100},{0,-80}})));
+        Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=1) annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-80,0})));
+        Modelica.Electrical.Analog.Basic.Resistor r1(R=2)
+          annotation(Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={20,20})));
+        Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch twoWay annotation (Placement(transformation(extent={{-40,50},{-20,30}})));
+        Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch controlledTwoWay annotation (Placement(transformation(extent={{40,70},{60,50}})));
+        Modelica.Electrical.Analog.Basic.Resistor r2(R=1)
+          annotation(Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={20,-20})));
+        Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=0.5) annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+        Modelica.Electrical.Analog.Basic.Resistor r3(R=1)
+          annotation(Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={80,20})));
+        Modelica.Electrical.Analog.Basic.Resistor r4(R=2)
+          annotation(Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={80,-20})));
+      equation
+        connect(ground.p, constantVoltage.n) annotation (Line(points={{-10,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
+        connect(r1.n, r2.p) annotation (Line(points={{20,10},{20,-10}}, color={0,0,255}));
+        connect(r2.n, constantVoltage.n) annotation (Line(points={{20,-30},{20,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
+        connect(constantVoltage.p, twoWay.p) annotation (Line(points={{-80,10},{-80,40},{-40,40}}, color={0,0,255}));
+        connect(twoWay.n2, r1.p) annotation (Line(points={{-20,40},{20,40},{20,30}}, color={0,0,255}));
+        connect(twoWay.n1, r2.p) annotation (Line(points={{-20,36},{-16,36},{-16,0},{20,0},{20,-10}}, color={0,0,255}));
+        connect(booleanStep.y, twoWay.control) annotation (Line(points={{-39,0},{-30,0},{-30,28}}, color={255,0,255}));
+        connect(controlledTwoWay.p, twoWay.p) annotation (Line(points={{40,60},{-80,60},{-80,40},{-40,40}}, color={0,0,255}));
+        connect(controlledTwoWay.control, r2.p) annotation (Line(points={{50,50},{50,0},{20,0},{20,-10}}, color={0,0,255}));
+        connect(controlledTwoWay.n2, r3.p) annotation (Line(points={{60,60},{80,60},{80,30}}, color={0,0,255}));
+        connect(controlledTwoWay.n1, r4.p) annotation (Line(points={{60,56},{68,56},{68,0},{80,0},{80,-10}}, color={0,0,255}));
+        connect(r3.n, r4.p) annotation (Line(points={{80,10},{80,-10}}, color={0,0,255}));
+        connect(r4.n, constantVoltage.n) annotation (Line(points={{80,-30},{80,-80},{-80,-80},{-80,-10}}, color={0,0,255}));
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/778\">#778</a>.
+</p>
+</html>"));
+      end Issue778;
+
       model Issue2361 "Conversion test for #2361"
         extends Modelica.Icons.Example;
         Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
@@ -390,7 +442,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue2361;
 
-      model Issue2899 "Conversion test for #2899"
+      model Issue2899Resistor "Conversion test for #2899"
         extends Modelica.Icons.Example;
         Modelica.Electrical.Analog.Basic.Ground ground
           annotation(Placement(transformation(extent={{-30,-20},{-10,0}})));
@@ -405,7 +457,126 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2899\">#2899</a>.
 </p>
 </html>"));
-      end Issue2899;
+      end Issue2899Resistor;
+
+      model Issue2899Diode "Conversion test for #2899"
+        extends Modelica.Icons.Example;
+        Modelica.Electrical.Analog.Semiconductors.HeatingDiode diode1(useHeatPort=false, N=1.5) annotation(Placement(transformation(extent={{-95,40},{-75,60}})));
+        Modelica.Electrical.Analog.Basic.Ground ground1 annotation(Placement(transformation(extent={{-130,-5},{-110,15}})));
+        Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage1(
+          V=1, freqHz=1) annotation(Placement(transformation(origin={-120,35}, extent={{-10,-10},{10,10}}, rotation=270)));
+        Modelica.Electrical.Analog.Basic.Capacitor capacitor1(
+          v(start=0, fixed=true), C=1) annotation(Placement(transformation(extent={{-55,40},{-35,60}})));
+        Modelica.Electrical.Analog.Basic.Resistor resistor1(R=1) annotation(Placement(transformation(extent={{-55,70},{-35,90}})));
+        Modelica.Electrical.Analog.Semiconductors.Diode diode2(useHeatPort=false, Vt=0.05) annotation(Placement(transformation(extent={{15,40},{35,60}})));
+        Modelica.Electrical.Analog.Basic.Ground ground2 annotation(Placement(transformation(extent={{-20,-5},{0,15}})));
+        Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage2(
+          V=1, freqHz=1) annotation(Placement(transformation(origin={-10,35}, extent={{-10,-10},{10,10}}, rotation=270)));
+        Modelica.Electrical.Analog.Basic.Capacitor capacitor2(
+          v(start=0, fixed=true), C=1) annotation(Placement(transformation(extent={{55,40},{75,60}})));
+        Modelica.Electrical.Analog.Basic.Resistor resistor2(R=1) annotation(Placement(transformation(extent={{55,70},{75,90}})));
+      equation
+        connect(sineVoltage1.p,diode1.p) annotation(Line(points={{-120,45},{-120,50},{-100,50},{-95,50}}, color={0,0,255}));
+        connect(sineVoltage1.n,ground1.p) annotation(Line(points={{-120,25},{-120,15}}, color={0,0,255}));
+        connect(diode1.n,capacitor1.p) annotation(Line(points={{-75,50},{-70,50},{-60,50},{-55,50}}, color={0,0,255}));
+        connect(resistor1.p,capacitor1.p) annotation(Line(points={{-55,80},{-60,80},{-60,50},{-55,50}}, color={0,0,255}));
+        connect(resistor1.n,capacitor1.n) annotation(Line(points={{-35,80},{-30,80},{-30,50},{-35,50}}, color={0,0,255}));
+        connect(sineVoltage1.n,capacitor1.n) annotation(Line(points={{-120,25},{-120,20},{-30,20},{-30,50},{-35,50}}, color={0,0,255}));
+        connect(sineVoltage2.n,capacitor2.n) annotation(Line(points={{-10,25},{-10,20},{80,20},{80,50},{75,50}}, color={0,0,255}));
+        connect(resistor2.n,capacitor2.n) annotation(Line(points={{75,80},{80,80},{80,50},{75,50}}, color={0,0,255}));
+        connect(resistor2.p,capacitor2.p) annotation(Line(points={{55,80},{50,80},{50,50},{55,50}}, color={0,0,255}));
+        connect(diode2.n,capacitor2.p) annotation(Line(points={{35,50},{40,50},{50,50},{55,50}}, color={0,0,255}));
+        connect(sineVoltage2.n,ground2.p) annotation(Line(points={{-10,25},{-10,15}}, color={0,0,255}));
+        connect(sineVoltage2.p,diode2.p) annotation(Line(points={{-10,45},{-10,50},{10,50},{15,50}}, color={0,0,255}));
+        annotation(experiment(StopTime=5), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2899\">#2899</a>.
+</p>
+</html>"));
+      end Issue2899Diode;
+
+      model Issue2899MOS "Conversion test for #2899"
+        extends Modelica.Icons.Example;
+        Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
+        Modelica.Electrical.Analog.Sources.SineVoltage sinV(V=5, freqHz=1) annotation (Placement(transformation(origin={-70,0}, extent={{-10,-10},{10,10}}, rotation=270)));
+        Modelica.Electrical.Analog.Basic.Capacitor capacitor(C=0.00001, v(start=0, fixed=true)) annotation (Placement(transformation(origin={30,10}, extent={{-10,-10},{10,10}}, rotation=270)));
+        Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(C=0.01) annotation (Placement(transformation(origin={70,-60}, extent={{-10,-10},{10,10}}, rotation=270)));
+        Modelica.Thermal.HeatTransfer.Components.ThermalConductor tc1(G=0.01) annotation (Placement(transformation(extent={{0,-50},{20,-30}})));
+        Modelica.Electrical.Analog.Semiconductors.HeatingPMOS pMOS(useHeatPort=true) annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
+        Modelica.Electrical.Analog.Semiconductors.HeatingNMOS nMOS(useHeatPort=true) annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
+        Modelica.Electrical.Analog.Sources.RampVoltage rampV(V=5, duration=1e-2) annotation (Placement(transformation(origin={50,50}, extent={{-10,-10},{10,10}}, rotation=270)));
+        Modelica.Thermal.HeatTransfer.Components.ThermalConductor tc2(G=0.01) annotation (Placement(transformation(extent={{0,-90},{20,-70}})));
+        Modelica.Thermal.HeatTransfer.Sources.FixedTemperature fixedT(T=300) annotation (Placement(transformation(origin={90,-30}, extent={{-10,-10},{10,10}}, rotation=180)));
+        Modelica.Thermal.HeatTransfer.Components.ThermalConductor tc3(G=0.01) annotation (Placement(transformation(extent={{50,-40},{70,-20}})));
+      initial equation
+        heatCapacitor.T= 293.15;
+      equation
+        connect(sinV.n, ground.p) annotation (Line(points={{-70,-10},{-70,-20}}, color={0,0,255}));
+        connect(capacitor.n, ground.p) annotation (Line(points={{30,0},{30,-20},{-70,-20}}, color={0,0,255}));
+        connect(pMOS.S, nMOS.D) annotation (Line(points={{-20,44},{-20,16}}, color={0,0,255}));
+        connect(nMOS.D, capacitor.p) annotation (Line(points={{-20,16},{-20,20},{30,20}}, color={0,0,255}));
+        connect(nMOS.B, nMOS.S) annotation (Line(points={{-20,10},{-20,4}}, color={0,0,255}));
+        connect(nMOS.S, ground.p) annotation (Line(points={{-20,4},{-20,-20},{-70,-20}}, color={0,0,255}));
+        connect(pMOS.B, pMOS.D) annotation (Line(points={{-20,50},{-20,56}}, color={0,0,255}));
+        connect(rampV.p, pMOS.D) annotation (Line(points={{50,60},{-20,60},{-20,56}}, color={0,0,255}));
+        connect(rampV.n, ground.p) annotation (Line(points={{50,40},{50,-20},{-70,-20}}, color={0,0,255}));
+        connect(tc1.port_b, heatCapacitor.port) annotation (Line(points={{20,-40},{40,-40},{40,-60},{60,-60}}, color={191,0,0}));
+        connect(tc2.port_b, heatCapacitor.port) annotation (Line(points={{20,-80},{40,-80},{40,-60},{60,-60}}, color={191,0,0}));
+        connect(tc1.port_a, pMOS.heatPort) annotation (Line(points={{0,-40},{-10,-40},{-10,40},{-30,40}}, color={191,0,0}));
+        connect(tc2.port_a, nMOS.heatPort) annotation (Line(points={{0,-80},{-30,-80},{-30,0}}, color={191,0,0}));
+        connect(tc3.port_b, fixedT.port) annotation (Line(points={{70,-30},{80,-30}}, color={191,0,0}));
+        connect(tc3.port_a, heatCapacitor.port) annotation (Line(points={{50,-30},{40,-30},{40,-60},{60,-60}}, color={191,0,0}));
+        connect(sinV.p, nMOS.G) annotation (Line(points={{-70,10},{-54,10},{-54,4},{-40,4}}, color={0,0,255}));
+        connect(pMOS.G, sinV.p) annotation (Line(points={{-40,44},{-48,44},{-48,44},{-54,44},{-54,10},{-70,10}}, color={0,0,255}));
+        annotation(experiment(StopTime=5), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2899\">#2899</a>.
+</p>
+</html>"));
+      end Issue2899MOS;
+
+
+      model Issue2899NPN "Conversion test for #2899"
+        extends Modelica.Icons.Example;
+        Modelica.Electrical.Analog.Semiconductors.HeatingNPN npn(useHeatPort=true) annotation (Placement(transformation(extent={{-2,40},{18,60}})));
+        Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(transformation(extent={{-42,12},{-22,32}})));
+        Modelica.Thermal.HeatTransfer.Components.ThermalConductor tc(G=0.01) annotation (Placement(transformation(origin={8,22}, extent={{-10,-10},{10,10}}, rotation=270)));
+        Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(C=0.1) annotation (Placement(transformation(origin={8,-6}, extent={{-10,-10},{10,10}}, rotation=180)));
+      initial equation
+        heatCapacitor.T= 293.15;
+      equation
+        connect(npn.B, ground.p) annotation (Line(points={{-2,50},{-26,50},{-26,32},{-32,32}}, color={0,0,255}));
+        connect(npn.E, ground.p) annotation (Line(points={{18,44},{-14,44},{-14,32},{-32,32}}, color={0,0,255}));
+        connect(npn.C, ground.p) annotation (Line(points={{18,56},{-16,56},{-16,32},{-32,32}}, color={0,0,255}));
+        connect(npn.heatPort, tc.port_a) annotation (Line(points={{8,40},{8,32}}, color={191,0,0}));
+        connect(tc.port_b, heatCapacitor.port) annotation (Line(points={{8,12},{8,4}}, color={191,0,0}));
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2899\">#2899</a>.
+</p>
+</html>"));
+      end Issue2899NPN;
+
+      model Issue2899PNP "Conversion test for #2899"
+        extends Modelica.Icons.Example;
+        Modelica.Electrical.Analog.Semiconductors.HeatingPNP pnp annotation (Placement(transformation(extent={{-2,40},{18,60}})));
+        Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(transformation(extent={{-42,12},{-22,32}})));
+        Modelica.Thermal.HeatTransfer.Components.ThermalConductor tc(G=0.01) annotation (Placement(transformation(origin={8,22}, extent={{-10,-10},{10,10}}, rotation=270)));
+        Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(C=0.1) annotation (Placement(transformation(origin={8,-6}, extent={{-10,-10},{10,10}}, rotation=180)));
+      initial equation
+        heatCapacitor.T= 293.15;
+      equation
+        connect(pnp.B, ground.p) annotation (Line(points={{-2,50},{-26,50},{-26,32},{-32,32}}, color={0,0,255}));
+        connect(pnp.E, ground.p) annotation (Line(points={{18,44},{-14,44},{-14,32},{-32,32}}, color={0,0,255}));
+        connect(pnp.C, ground.p) annotation (Line(points={{18,56},{-16,56},{-16,32},{-32,32}}, color={0,0,255}));
+        connect(pnp.heatPort, tc.port_a) annotation (Line(points={{8,40},{8,32}}, color={191,0,0}));
+        connect(tc.port_b, heatCapacitor.port) annotation (Line(points={{8,12},{8,4}}, color={191,0,0}));
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2899\">#2899</a>.
+</p>
+</html>"));
+      end Issue2899PNP;
 
       model Issue3024 "Conversion test for #3024"
         extends Modelica.Icons.Example;
@@ -842,26 +1013,6 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue3035;
     end MultiPhase;
-
-    package Spice3
-      extends Modelica.Icons.ExamplesPackage;
-      model Issue940 "Conversion test for #940"
-        function f
-          extends Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3;
-          output Real dummy = jucntioncap*2;
-        end f;
-        Real y;
-        parameter Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet r1 = Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, true);
-        parameter Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet r2 = Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, m_drainPerimiter=19, m_sourcePerimiter=20, m_uic=true);
-      equation
-        (, y) = f(1, 2, 3, 4, 5);
-      annotation(experiment(StopTime=1), Documentation(info="<html>
-<p>
-Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/940\">#940</a>.
-</p>
-</html>"));
-      end Issue940;
-    end Spice3;
   end Electrical;
 
   package Magnetic
@@ -969,6 +1120,281 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue3030;
+
+      model Issue3075 "Conversion test for #3075"
+        Modelica.SIunits.MagneticPotentialDifference V_m1 = smee.stator.strayReluctance.abs_V_m;
+        Modelica.SIunits.MagneticPotentialDifference V_m2 = smee.excitation.reluctance.abs_V_m;
+        Modelica.SIunits.MagneticPotentialDifference V_m3 = smeeQS.stator.strayReluctance.abs_V_m;
+        extends Modelica.Icons.Example;
+        import Modelica.Constants.pi;
+        parameter Integer m=3 "Number of stator phases";
+        parameter Modelica.SIunits.Voltage VsNominal=100 "Nominal RMS voltage per phase";
+        parameter Modelica.SIunits.Frequency fsNominal=smeeData.fsNominal "Nominal frequency";
+        parameter Modelica.SIunits.AngularVelocity w=Modelica.SIunits.Conversions.from_rpm(1499) "Nominal speed";
+        parameter Modelica.SIunits.Current Ie=19 "Excitation current";
+        parameter Modelica.SIunits.Current Ie0=10 "Initial excitation current";
+        parameter Modelica.SIunits.Angle gamma0(displayUnit="deg")=0 "Initial rotor displacement angle";
+        Modelica.SIunits.Angle thetaQS=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi static";
+        Modelica.SIunits.Angle theta=rotorAngle.rotorDisplacementAngle "Rotor displacement angle, transient";
+
+        output Modelica.SIunits.Power Ptr=powerSensor.power "Transient power";
+        output Modelica.SIunits.Power Pqs=powerSensorQS.y.re "QS power";
+        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
+          annotation (Placement(transformation(extent={{-50,-30},{-70,-10}})));
+        Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
+              transformation(
+              origin={-90,-20},
+              extent={{-10,-10},{10,10}},
+              rotation=270)));
+        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+          final m=m,
+          final V=fill(VsNominal*sqrt(2), m),
+          final freqHz=fill(fsNominal, m))
+          annotation (Placement(transformation(extent={{-20,-30},{-40,-10}})));
+        Modelica.Electrical.MultiPhase.Sensors.PowerSensor powerSensor(m=m)
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={0,-34})));
+        Modelica.Electrical.Machines.Utilities.MultiTerminalBox terminalBoxM(
+            terminalConnection="Y", m=m)
+          annotation (Placement(transformation(extent={{-10,-64},{10,-44}})));
+        Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
+          smee(
+          phiMechanical(start=-(pi + gamma0)/smee.p, fixed=
+                true),
+          Jr=0.29,
+          Js=0.29,
+          p=2,
+          fsNominal=smeeData.fsNominal,
+          TsRef=smeeData.TsRef,
+          alpha20s(displayUnit="1/K") = smeeData.alpha20s,
+          Lrsigmad=smeeData.Lrsigmad,
+          Lrsigmaq=smeeData.Lrsigmaq,
+          Rrd=smeeData.Rrd,
+          Rrq=smeeData.Rrq,
+          TrRef=smeeData.TrRef,
+          alpha20r(displayUnit="1/K") = smeeData.alpha20r,
+          VsNominal=smeeData.VsNominal,
+          IeOpenCircuit=smeeData.IeOpenCircuit,
+          Re=smeeData.Re,
+          TeRef=smeeData.TeRef,
+          alpha20e(displayUnit="1/K") = smeeData.alpha20e,
+          statorCoreParameters(VRef=100),
+          strayLoadParameters(IRef=100),
+          brushParameters(ILinear=0.01),
+          ir(each fixed=true),
+          useDamperCage=false,
+          m=m,
+          frictionParameters(PRef=0),
+          Rs=smeeData.Rs*m/3,
+          Lssigma=smeeData.Lssigma*m/3,
+          Lmd=smeeData.Lmd*m/3,
+          Lmq=smeeData.Lmq*m/3,
+          effectiveStatorTurns=smeeData.effectiveStatorTurns,
+          TsOperational=293.15,
+          TrOperational=293.15,
+          TeOperational=293.15,
+          sigmae=smeeData.sigmae*m/3)
+          annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
+        Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited
+          smeeQS(
+          p=2,
+          fsNominal=smeeData.fsNominal,
+          TsRef=smeeData.TsRef,
+          alpha20s(displayUnit="1/K") = smeeData.alpha20s,
+          Jr=0.29,
+          Js=0.29,
+          frictionParameters(PRef=0),
+          statorCoreParameters(PRef=0, VRef=100),
+          strayLoadParameters(PRef=0, IRef=100),
+          Lrsigmad=smeeData.Lrsigmad,
+          Rrd=smeeData.Rrd,
+          Rrq=smeeData.Rrq,
+          alpha20r(displayUnit="1/K") = smeeData.alpha20r,
+          VsNominal=smeeData.VsNominal,
+          IeOpenCircuit=smeeData.IeOpenCircuit,
+          Re=smeeData.Re,
+          TeRef=smeeData.TeRef,
+          alpha20e(displayUnit="1/K") = smeeData.alpha20e,
+          brushParameters(V=0, ILinear=0.01),
+          Lrsigmaq=smeeData.Lrsigmaq,
+          TrRef=smeeData.TrRef,
+          useDamperCage=false,
+          m=m,
+          gammar(fixed=true, start=pi/2),
+          gamma(fixed=true, start=-pi/2),
+          Rs=smeeData.Rs*m/3,
+          Lssigma=smeeData.Lssigma*m/3,
+          Lmd=smeeData.Lmd*m/3,
+          Lmq=smeeData.Lmq*m/3,
+          TsOperational=293.15,
+          effectiveStatorTurns=smeeData.effectiveStatorTurns,
+          TrOperational=293.15,
+          TeOperational=293.15)
+          annotation (Placement(transformation(extent={{-10,20},{10,40}})));
+        Modelica.Electrical.Analog.Basic.Ground groundr annotation (Placement(
+              transformation(
+              origin={-50,-88},
+              extent={{-10,-10},{10,10}},
+              rotation=270)));
+        Modelica.Electrical.Analog.Basic.Ground groundrQS annotation (
+            Placement(transformation(
+              origin={-50,12},
+              extent={{-10,-10},{10,10}},
+              rotation=270)));
+        Modelica.Electrical.Analog.Sources.RampCurrent rampCurrent(
+          duration=0.1,
+          I=Ie - Ie0,
+          offset=Ie0) annotation (Placement(transformation(
+              origin={-30,-70},
+              extent={{-10,-10},{10,10}},
+              rotation=90)));
+        Modelica.Electrical.Analog.Sources.RampCurrent rampCurrentQS(
+          duration=0.1,
+          I=Ie - Ie0,
+          offset=Ie0) annotation (Placement(transformation(
+              origin={-28,30},
+              extent={{-10,-10},{10,10}},
+              rotation=90)));
+        Modelica.Electrical.Machines.Sensors.MechanicalPowerSensor
+          mechanicalPowerSensor annotation (Placement(transformation(extent={{50,-80},{70,-60}})));
+        Modelica.Electrical.Machines.Sensors.MechanicalPowerSensor
+          mechanicalPowerSensorQS annotation (Placement(transformation(extent={{50,20},{70,40}})));
+        Modelica.Mechanics.Rotational.Sources.ConstantSpeed constantSpeed(
+            final w_fixed=w, useSupport=false) annotation (Placement(
+              transformation(extent={{100,-80},{80,-60}})));
+        Modelica.Mechanics.Rotational.Sources.ConstantSpeed constantSpeedQS(
+            final w_fixed=w, useSupport=false) annotation (Placement(
+              transformation(extent={{100,20},{80,40}})));
+        parameter
+          Modelica.Electrical.Machines.Utilities.SynchronousMachineData
+          smeeData(
+          SNominal=30e3,
+          VsNominal=100,
+          fsNominal=50,
+          IeOpenCircuit=10,
+          x0=0.1,
+          xd=1.6,
+          xdTransient=0.1375,
+          xdSubtransient=0.121428571,
+          xqSubtransient=0.148387097,
+          Ta=0.014171268,
+          Td0Transient=0.261177343,
+          Td0Subtransient=0.006963029,
+          Tq0Subtransient=0.123345081,
+          alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          xq=1.1,
+          TsSpecification=293.15,
+          TsRef=293.15,
+          TrSpecification=293.15,
+          TrRef=293.15,
+          TeSpecification=293.15,
+          TeRef=293.15) "Machine data"
+          annotation (Placement(transformation(extent={{70,70},{90,90}})));
+
+        Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource
+          voltageSourceQS(
+          m=m,
+          phi=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+          V=fill(VsNominal, m),
+          f=fsNominal) annotation (Placement(transformation(
+              origin={-30,80},
+              extent={{-10,-10},{10,10}},
+              rotation=180)));
+
+        Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star starQS(m=m)
+          annotation (Placement(transformation(
+              origin={-60,80},
+              extent={{-10,-10},{10,10}},
+              rotation=180)));
+        Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundeQS
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-90,80})));
+        Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor
+          powerSensorQS(m=m) annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={0,66})));
+        Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.MultiTerminalBox terminalBoxQS(m=m,
+            terminalConnection="Y")
+          annotation (Placement(transformation(extent={{-10,36},{10,56}})));
+        Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star starMachineQS(m=
+              Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
+              m)) annotation (Placement(transformation(
+              extent={{-10,10},{10,-10}},
+              rotation=180,
+              origin={-20,50})));
+        Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground
+          groundMachineQS annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-50,50})));
+        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngle(m=m, p=
+              smee.p) annotation (Placement(transformation(
+              origin={30,-70},
+              extent={{-10,10},{10,-10}},
+              rotation=270)));
+        Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors.RotorDisplacementAngle rotorAngleQS(m=m, p=
+              smeeQS.p) annotation (Placement(transformation(
+              extent={{10,-10},{-10,10}},
+              rotation=90,
+              origin={30,30})));
+        Modelica.Electrical.Analog.Basic.Ground groundMachine annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              origin={-50,-50},
+              rotation=270)));
+        Modelica.Electrical.MultiPhase.Basic.Star starMachine(final m=
+              Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
+              m)) annotation (Placement(transformation(extent={{10,-10},{-10,10}},
+                origin={-20,-50})));
+      initial equation
+        sum(smee.is) = 0;
+        smee.is[1:2] = zeros(2);
+      equation
+        connect(star.pin_n, ground.p) annotation (Line(points={{-70,-20},{-80,-20}}, color={0,0,255}));
+        connect(star.plug_p, sineVoltage.plug_n) annotation (Line(points={{-50,-20},{-40,-20}}, color={0,0,255}));
+        connect(mechanicalPowerSensorQS.flange_b, constantSpeedQS.flange) annotation (Line(points={{70,30},{80,30}}));
+        connect(rampCurrentQS.p, groundrQS.p) annotation (Line(points={{-28,20},{-34,20},{-34,12},{-40,12}}, color={0,0,255}));
+        connect(rampCurrentQS.p, smeeQS.pin_en) annotation (Line(points={{-28,20},{-20,20},{-20,24},{-10,24}}, color={0,0,255}));
+        connect(rampCurrentQS.n, smeeQS.pin_ep) annotation (Line(points={{-28,40},{-20,40},{-20,36},{-10,36}}, color={0,0,255}));
+        connect(smee.flange, mechanicalPowerSensor.flange_a) annotation (Line(points={{10,-70},{50,-70}}));
+        connect(mechanicalPowerSensor.flange_b, constantSpeed.flange) annotation (Line(points={{70,-70},{80,-70}}));
+        connect(rampCurrent.p, groundr.p) annotation (Line(points={{-30,-80},{-36,-80},{-36,-88},{-38,-88},{-38,-88},{-40,-88},{-40,-88}}, color={0,0,255}));
+        connect(rampCurrent.p, smee.pin_en) annotation (Line(points={{-30,-80},{-20,-80},{-20,-76},{-10,-76}}, color={0,0,255}));
+        connect(rampCurrent.n, smee.pin_ep) annotation (Line(points={{-30,-60},{-20,-60},{-20,-64},{-10,-64}}, color={0,0,255}));
+        connect(smee.plug_sn, terminalBoxM.plug_sn) annotation (Line(points={{-6,-60},{-6,-60}}, color={0,0,255}));
+        connect(smee.plug_sp, terminalBoxM.plug_sp) annotation (Line(points={{6,-60},{6,-60}}, color={0,0,255}));
+        connect(groundeQS.pin, starQS.pin_n) annotation (Line(points={{-80,80},{-80,80},{-70,80}}, color={85,170,255}));
+        connect(starQS.plug_p, voltageSourceQS.plug_n) annotation (Line(points={{-50,80},{-50,80},{-40,80}}, color={85,170,255}));
+        connect(voltageSourceQS.plug_p, powerSensorQS.currentP) annotation (Line(points={{-20,80},{-20,80},{0,80},{0,76}}, color={85,170,255}));
+        connect(powerSensorQS.voltageP, powerSensorQS.currentP) annotation (Line(points={{10,66},{10,76},{0,76}}, color={85,170,255}));
+        connect(powerSensorQS.voltageN, starQS.plug_p) annotation (Line(points={{-10,66},{-10,66},{-42,66},{-50,66},{-50,80}}, color={85,170,255}));
+        connect(sineVoltage.plug_p, powerSensor.pc) annotation (Line(points={{-20,-20},{0,-20},{0,-24}}, color={0,0,255}));
+        connect(powerSensor.pc, powerSensor.pv) annotation (Line(points={{0,-24},{10,-24},{10,-34}}, color={0,0,255}));
+        connect(powerSensor.nv, star.plug_p) annotation (Line(points={{-10,-34},{-50,-34},{-50,-20}}, color={0,0,255}));
+        connect(powerSensor.nc, terminalBoxM.plugSupply) annotation (Line(points={{0,-44},{0,-58}}, color={0,0,255}));
+        connect(terminalBoxQS.plug_sn, smeeQS.plug_sn) annotation (Line(points={{-6,40},{-6,40}}, color={85,170,255}));
+        connect(terminalBoxQS.plug_sp, smeeQS.plug_sp) annotation (Line(points={{6,40},{6,40}}, color={85,170,255}));
+        connect(powerSensorQS.currentN, terminalBoxQS.plugSupply) annotation (Line(points={{0,56},{0,42}}, color={85,170,255}));
+        connect(starMachineQS.pin_n, groundMachineQS.pin) annotation (Line(points={{-30,50},{-40,50}}, color={85,170,255}));
+        connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (Line(points={{-10,50},{-10,42},{-10,42}}, color={85,170,255}));
+        connect(smee.flange, rotorAngle.flange) annotation (Line(points={{10,-70},{20,-70}}));
+        connect(rotorAngle.plug_p, smee.plug_sp) annotation (Line(points={{24,-60},{6,-60}}, color={0,0,255}));
+        connect(smee.plug_sn, rotorAngle.plug_n) annotation (Line(points={{-6,-60},{-6,-54},{36,-54},{36,-60}}, color={0,0,255}));
+        connect(terminalBoxQS.plug_sp, rotorAngleQS.plug_p) annotation (Line(points={{6,40},{24,40}}, color={85,170,255}));
+        connect(rotorAngleQS.plug_n, terminalBoxQS.plug_sn) annotation (Line(points={{36,40},{36,46},{-6,46},{-6,40}}, color={85,170,255}));
+        connect(smeeQS.flange, rotorAngleQS.flange) annotation (Line(points={{10,30},{20,30}}));
+        connect(smeeQS.flange, mechanicalPowerSensorQS.flange_a) annotation (Line(points={{10,30},{50,30}}));
+        connect(starMachine.pin_n,groundMachine. p) annotation (Line(points={{-30,-50},{-40,-50}}, color={0,0,255}));
+        connect(starMachine.plug_p, terminalBoxM.starpoint) annotation (Line(points={{-10,-50},{-10,-54},{-10,-58},{-10,-58}},color={0,0,255}));
+        annotation (experiment(StopTime=30,Interval=1E-3,Tolerance=1e-06));
+      end Issue3075;
     end FundamentalWave;
 
     package QuasiStatic
@@ -1733,7 +2159,47 @@ Based on <a href=\"Modelica.Mechanics.MultiBody.Examples.Elementary.ForceAndTorq
 but using World-variants and with denser material to slow down the visualization to human speed.
 </html>"),   experiment(StopTime=1.01));
         end WorldForceAndTorque;
-      end 2501Vector;
+      end Issue2501Vector;
+
+      model Issue3177torus "Conversion test for #3177 - Visualizers.Torus"
+        extends Modelica.Icons.Example;
+
+        inner Modelica.Mechanics.MultiBody.World world;
+        Modelica.Mechanics.MultiBody.Visualizers.Torus torus(
+          ri=0.5,
+          ro=0.1,
+          n_ri=40,
+          n_ro=20);
+      equation
+        connect(world.frame_b, torus.frame_a);
+
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3177\">#3177</a>.
+</p>
+</html>"));
+      end Issue3177torus;
+
+      model Issue3177torusSurface "Conversion test for #3177 - Visualizers.Advanced.SurfaceCharacteristics.torus"
+        extends Modelica.Icons.Example;
+
+        Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface surface(
+          redeclare function surfaceCharacteristic =
+            Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus (
+              ri=0.6,
+              ro=0.2,
+              opening=0),
+              nu=10,
+              nv=10);
+
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3177\">#3177</a>.
+</p>
+</html>"));
+
+      end Issue3177torusSurface;
+>>>>>>> upstream/master
     end MultiBody;
 
     package Rotational
@@ -1888,7 +2354,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
     end Issue2857;
 
-    model Issue3002 "Conversion test for #3002"
+    model Issue3002_roots "Conversion test for #3002"
       extends Modelica.Icons.Example;
       Real r[2,2];
     algorithm
@@ -1898,8 +2364,43 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3002\">#3002</a>.
 </p>
 </html>"));
-    end Issue3002;
+    end Issue3002_roots;
+
+    model Issue3002_householder "Conversion test for #3002"
+      extends Modelica.Icons.Example;
+      function f1 = Modelica.Math.Matrices.Utilities.householderReflection;
+      function f2 = Modelica.Math.Matrices.Utilities.householderSimilarityTransformation;
+      function f3 = Modelica.Math.Vectors.Utilities.householderReflection;
+      function f4 = Modelica.Math.Vectors.Utilities.householderVector;
+    annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3002\">#3002</a>.
+</p>
+</html>"));
+    end Issue3002_householder;
   end Math;
+
+  package ComplexMath
+    extends Modelica.Icons.ExamplesPackage;
+    model Issue883 "Conversion test for #883"
+      extends Modelica.Icons.Example;
+      import Modelica.ComplexMath.'abs';
+      parameter Complex c1 = Complex(sqrt(2)/2, sqrt(2)/2);
+      parameter Complex c2 = Complex(-sqrt(2)/2, -sqrt(2)/2);
+      Real r = 'abs'(c1);
+      Complex c3 = Modelica.ComplexMath.'sqrt'(c1);
+      Complex c4 = Modelica.ComplexMath.'max'({c1, c2});
+      Complex c5 = Modelica.ComplexMath.'min'({c1, c2});
+      Complex c6 = Modelica.ComplexMath.'sum'({c1, c2});
+      Complex c7 = Modelica.ComplexMath.'product'({c1, c2});
+      Real n = Modelica.ComplexMath.Vectors.norm({c1, c2});
+    annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/883\">#883</a>.
+</p>
+</html>"));
+    end Issue883;
+  end ComplexMath;
 
   package Media
     extends Modelica.Icons.ExamplesPackage;
@@ -1927,6 +2428,46 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
     end Issue3037;
+
+    model Issue3205 "Conversion test for #3205"
+      extends Modelica.Icons.Example;
+
+      parameter Real y_zero=0.5 "Desired value of A*sin(w*x)";
+      parameter Real x_min=-1.7 "Minimum value of x_zero";
+      parameter Real x_max=1.7 "Maximum value of x_zero";
+      parameter Real A=1 "Amplitude of sine";
+      parameter Real w=1 "Angular frequency of sine";
+      parameter Inverse_sine_definition.f_nonlinear_Data data=
+        Inverse_sine_definition.f_nonlinear_Data(A=A, w=w) "Data record";
+      Real x_zero "y_zero = A*sin(w*x_zero)";
+
+      package Inverse_sine_definition "Define sine as non-linear equation to be solved"
+        extends Modelica.Media.Common.OneNonLinearEquation;
+
+        redeclare record extends f_nonlinear_Data "Data for non-linear equation"
+          Real A "Amplitude";
+          Real w "Angular frequency";
+        end f_nonlinear_Data;
+
+        redeclare function extends f_nonlinear "Non-linear equation to be solved"
+        algorithm
+          y := f_nonlinear_data.A*Modelica.Math.sin(f_nonlinear_data.w*x);
+        end f_nonlinear;
+
+        // Dummy definition had to be added for older Dymola
+        redeclare function extends solve "Solution algorithm of non-linear equation"
+        end solve;
+      end Inverse_sine_definition;
+
+    equation
+      x_zero = Inverse_sine_definition.solve(y_zero, x_min, x_max, f_nonlinear_data=data);
+
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3205\">#3205</a>.
+</p>
+</html>"));
+    end Issue3205;
   end Media;
 
   package Thermal
@@ -1967,6 +2508,21 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue194;
+
+      model Issue194_Derived "Conversion test for #194 for derived classes"
+        extends Modelica.Icons.Example;
+        parameter Modelica.Thermal.FluidHeatFlow.Media.Air_30degC r1 = Modelica.Thermal.FluidHeatFlow.Media.Air_30degC(nue=2);
+        record R
+          extends Modelica.Thermal.FluidHeatFlow.Media.Air_30degC(nue=3);
+        end R;
+        parameter R r2(nue=4); // This tests that user-defined inheritance works
+        Real y[:] = {r1.nue, r2.nue};
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/194\">#194</a>.
+</p>
+</html>"));
+      end Issue194_Derived;
 
       model Issue813 "Conversion test for #813"
         extends Modelica.Icons.Example;
@@ -2131,9 +2687,11 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
       package P6
         extends Modelica.Mechanics.MultiBody.Icons.MotorIcon;
       end P6;
+
       package P7
         extends Modelica.Icons.RotationalSensor;
       end P7;
+
       package P8
         extends Modelica.Icons.TranslationalSensor;
       end P8;
@@ -2216,5 +2774,18 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
     end Issue2944;
   end SIunits;
-  annotation(uses(Modelica(version="3.2.3")));
+  annotation(uses(Modelica(version="3.2.3")), Documentation(info="<html>
+<p>
+This library provides models and functions to test the MSL v4.0.0 conversion script \"ConvertModelica_from_3.2.3_to_4.0.0.mos\"
+for conversion of Modelica libraries using MSL v3.x.y to MSL v4.0.0. These models are not meant to be meaningful otherwise.
+</p>
+
+<p>
+Copyright &copy; 2019-2020, Modelica Association and contributors
+</p>
+
+<p>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+</p>
+</html>"));
 end ModelicaTestConversion4;

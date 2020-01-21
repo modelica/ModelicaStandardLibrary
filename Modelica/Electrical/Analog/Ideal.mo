@@ -13,7 +13,7 @@ package Ideal
 <p>
 This is an ideal diode, for details see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSemiconductor\">IdealSemiconductor</a><br>
 The diode is conducting if voltage &gt; Vknee.<br>
-The diode is locking if current &lt; Vknee/Goff.
+The diode is locking if current &lt; Vknee*Goff.
 </p>
 </html>", revisions="<html>
 <ul>
@@ -69,14 +69,16 @@ If fire gets false, the current has to fall below Vknee*Goff, then the thyristor
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{40,50},{60,30}}, color={0,0,255}),
           Line(
             visible=useHeatPort,
             points={{0,-100},{0,-20}},
             color={127,0,0},
             pattern=LinePattern.Dot),
-          Line(points={{30,20},{58,48}}, color={0,0,255}),
-          Line(points={{100,90},{100,100}}, color={0,0,255})}),
+          Line(points={{30,20},{60,50}}, color={0,0,255}),
+          Line(
+            points={{100,100},{100,90},{60,50}},
+            color={255,0,255},
+            pattern=LinePattern.Dash)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
                                    Line(
@@ -121,14 +123,14 @@ Otherwise, the GTO thyristor is locking.
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{48,52},{68,32}}, color={0,0,255}),
+          Line(points={{48,52},{64,36}}, color={0,0,255}),
           Line(
             visible=useHeatPort,
             points={{0,-100},{0,-20}},
             color={127,0,0},
             pattern=LinePattern.Dot),
           Polygon(
-            points={{44,43},{44,36},{51,36},{44,43}},
+            points={{42,45},{42,38},{49,38},{42,45}},
             lineColor={0,0,255},
             fillPattern=FillPattern.Solid,
             fillColor={0,0,255}),
@@ -137,9 +139,17 @@ Otherwise, the GTO thyristor is locking.
             lineColor={0,0,255},
             fillPattern=FillPattern.Solid,
             fillColor={0,0,255}),
-          Line(points={{30,10},{68,48}}, color={0,0,255}),
-          Line(points={{100,90},{100,100}}, color={0,0,255}),
-          Line(points={{30,22},{56,48}}, color={0,0,255})}),
+          Line(points={{30,10},{60,40}}, color={0,0,255}),
+          Line(points={{30,26},{52,48}}, color={0,0,255}),
+          Line(
+            points={{100,100},{100,88},{62,50}},
+            color={255,0,255},
+            pattern=LinePattern.Dash),
+          Line(
+            points={{58,44}},
+            color={255,0,255},
+            pattern=LinePattern.Dash),
+          Line(points={{62,50},{56,44}}, color={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
                                    Line(
@@ -147,7 +157,7 @@ Otherwise, the GTO thyristor is locking.
               thickness=0.5)}));
   end IdealGTOThyristor;
 
-  model IdealCommutingSwitch "Ideal commuting switch"
+  model IdealTwoWaySwitch "Ideal two-way switch"
     parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1e-5
       "Opened switch conductance";
@@ -183,7 +193,7 @@ Otherwise, the GTO thyristor is locking.
     annotation (defaultComponentName="switch",
       Documentation(info="<html>
 <p>
-The commuting switch has a positive pin p and two negative pins n1 and n2.
+The two-way switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
 by the input signal control. If control is true, the pin p is connected
 with the negative pin n2. Otherwise, the pin p is connected to the negative pin n1.
@@ -227,7 +237,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
             extent={{-150,90},{150,50}},
             textString="%name",
             textColor={0,0,255})}));
-  end IdealCommutingSwitch;
+  end IdealTwoWaySwitch;
 
   model IdealIntermediateSwitch "Ideal intermediate switch"
     parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
@@ -315,7 +325,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
               100,100}})));
   end IdealIntermediateSwitch;
 
-  model ControlledIdealCommutingSwitch "Controlled ideal commuting switch"
+  model ControlledIdealTwoWaySwitch "Controlled ideal two-way switch"
     parameter SI.Voltage level=0.5 "Switch level";
     parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1e-5
@@ -350,7 +360,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
     annotation (defaultComponentName="switch",
       Documentation(info="<html>
 <p>
-The commuting switch has a positive pin p and two negative pins n1 and n2.
+The two-way switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
 by the control pin. If its voltage exceeds the value of the parameter level,
 the pin p is connected with the negative pin n2. Otherwise, the pin p is
@@ -395,7 +405,7 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
             extent={{-150,90},{150,50}},
             textString="%name",
             textColor={0,0,255})}));
-  end ControlledIdealCommutingSwitch;
+  end ControlledIdealTwoWaySwitch;
 
   model ControlledIdealIntermediateSwitch
     "Controlled ideal intermediate switch"
@@ -792,9 +802,10 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
 The ideal transformer is a two-port circuit element;
 in case of Boolean parameter <code>considerMagnetization = false</code> it is characterized by the following equations:
 </p>
-<pre> i2 = -i1*n;
- v2 =  v1/n;
-</pre>
+<blockquote><pre>
+i2 = -i1*n;
+v2 =  v1/n;
+</pre></blockquote>
 <p>
 where <code>n</code> is a real number called the turns ratio.
 Due to this equations, also DC voltages and currents are transformed - which is not the case for technical transformers.
@@ -802,12 +813,12 @@ Due to this equations, also DC voltages and currents are transformed - which is 
 <p>
 In case of Boolean parameter <code>considerMagnetization = true</code> it is characterized by the following equations:
 </p>
-<pre>
- im1  = i1 + i2/n \"Magnetizing current w.r.t. primary side\";
- psim1= Lm1*im1   \"Magnetic flux w.r.t. primary side\";
- v1 = der(psim1)  \"Primary voltage\";
- v2 = v1/n        \"Secondary voltage\";
-</pre>
+<blockquote><pre>
+im1  = i1 + i2/n \"Magnetizing current w.r.t. primary side\";
+psim1= Lm1*im1   \"Magnetic flux w.r.t. primary side\";
+v1 = der(psim1)  \"Primary voltage\";
+v2 = v1/n        \"Secondary voltage\";
+</pre></blockquote>
 <p>
 where <code>Lm</code> denotes the magnetizing inductance.
 Due to this equations, the DC offset of secondary voltages and currents decrement according to the time constant defined by the connected circuit.
@@ -817,11 +828,11 @@ Taking primary <code>L1sigma</code> and secondary <code>L2ssigma</code> leakage 
 compared with the <a href=\"modelica://Modelica.Electrical.Analog.Basic.Transformer\">basic transformer</a>
 the following parameter conversion can be applied (which leads to identical results):
 </p>
-<pre>
- L1 = L1sigma + M*n \"Primary inductance at secondary no-load\";
- L2 = L2sigma + M/n \"Secondary inductance at primary no-load\";
-  M  = Lm1/n         \"Mutual inductance\";
-</pre>
+<blockquote><pre>
+L1 = L1sigma + M*n \"Primary inductance at secondary no-load\";
+L2 = L2sigma + M/n \"Secondary inductance at primary no-load\";
+M  = Lm1/n         \"Mutual inductance\";
+</pre></blockquote>
 <p>
 For the backward conversion, one has to decide about the partitioning of the leakage to primary and secondary side.
 </p>
@@ -1411,7 +1422,10 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
             extent={{-150,150},{150,110}},
             textString="%name",
             textColor={0,0,255}),
-          Line(points={{-100,-100},{-100,-80}}, color={0,0,255})}),
+          Line(
+            points={{-100,-100},{-100,-80}},
+            color={255,0,255},
+            pattern=LinePattern.Dash)}),
                                     Documentation(info="<html>
 <p>This is an ideal triac model based on an ideal thyristor model.</p>
 
@@ -1582,10 +1596,11 @@ Hence the output will change instantaneously when the trigger signal rises.
     annotation (defaultComponentName="converter", Documentation(info="<html>
 <p>Simple digital to analog converter with a variable input signal width of N bits. The input signal is an N-vector of type Logic (9-valued logic according to IEEE 1164 STD_ULOGIC). The output voltage of value <code>y</code> is generated by an ideal voltage source. The output can only change if the trigger signal <code>trig</code> of type Logic changes to &#39;1&#39; (forced or weak). In this case, the output voltage is calculated in the following way:
 </p>
-<pre>       N
-  y = SUM ( x[i]*2^(i-1) )*Vref/(2^N-1),
-      i=1
-</pre>
+<blockquote><pre>
+     N
+y = SUM ( x[i]*2^(i-1) )*Vref/(2^N-1),
+    i=1
+</pre></blockquote>
 <p>where x[i], i=1,...,N is 1 or 0. and Vref is the reference value. Therefore, the first bit in the input vector x[1] is the least significant one (LSB) and x[N] is the most significant bit (MSB).</p>
 <p>This is an abstract model of a DAC. Hence, it can not cover the dynamic behaviour of the converter. Therefore the output will change instantaneously when the trigger signal rises.</p>
 </html>", revisions="<html>
@@ -1632,7 +1647,7 @@ Christoph Clau&szlig;
 </dl>
 
 <p>
-Copyright &copy; 1998-2019, Modelica Association and contributors
+Copyright &copy; 1998-2020, Modelica Association and contributors
 </p>
 </html>"), Icon(graphics={
         Line(points={{-90,0},{-40,0}}),

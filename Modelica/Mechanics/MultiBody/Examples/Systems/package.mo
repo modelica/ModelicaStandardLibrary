@@ -7,7 +7,7 @@ This package contains complete <strong>system models</strong> where components
 from different domains are used, including 3-dimensional mechanics.
 </p>
 <h4>Content</h4>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><th><strong><em>Model</em></strong></th><th><strong><em>Description</em></strong></th></tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3\">RobotR3</a><br>
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.OneAxis\">RobotR3.OneAxis</a><br>

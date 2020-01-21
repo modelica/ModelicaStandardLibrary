@@ -327,14 +327,14 @@ And and to Xor in the final sum.</p>
 <strong>a</strong> * <strong>b</strong> + <strong>a</strong> * <strong>b</strong> = <strong>a</strong> Xor <strong>b</strong> = <strong>c</strong>
 <br>(It is an interconnection to Xor.)
 <br>
-<pre>
-   <strong>a</strong>     <strong>b</strong>     <strong>c</strong>      <strong>s</strong>     <strong>t</strong>
+<blockquote><pre>
+<strong>a</strong>     <strong>b</strong>     <strong>c</strong>      <strong>s</strong>     <strong>t</strong>
 
-   1     0     1      0     1
-   0     1     1      0     2
-   1     1     0      1     3
-   0     0     0      0     4
-</pre>
+1     0     1      0     1
+0     1     1      0     2
+1     1     0      1     3
+0     0     0      0     4
+</pre></blockquote>
 <p>
 <strong>t</strong> is the pick-up instant of the next bit(s) in the simulation.
 The simulation stop time should be 5 seconds.
@@ -389,18 +389,18 @@ The simulation stop time should be 5 seconds.
 <br>
 <br>
 <strong>t</strong> is the pick-up instant of the next bit(s) in the simulation.</p>
-<pre>   <strong>a</strong>.y      <strong>b</strong>.y      <strong>c</strong>.y     <strong>c</strong>out        <strong>h</strong>.s        <strong>t</strong> </pre>
+<blockquote><pre>
+<strong>a</strong>.y      <strong>b</strong>.y     <strong>c</strong>.y      <strong>c</strong>out       <strong>h</strong>.s        <strong>t</strong>
 
-<pre>
-     1        0        0        0          1        1
-     0        1        0        0          1        2
-     0        0        1        0          1        3
-     1        1        0        1          0        4
-     0        1        1        1          0        5
-     1        0        1        1          0        6
-     1        1        1        1          1        7
-     0        0        0        0          0        8
-</pre>
+1        0        0        0          1        1
+0        1        0        0          1        2
+0        0        1        0          1        3
+1        1        0        1          0        4
+0        1        1        1          0        5
+1        0        1        1          0        6
+1        1        1        1          1        7
+0        0        0        0          0        8
+</pre></blockquote>
 <p>
 The simulation stop time should be 10 seconds.
 </p>
@@ -507,7 +507,7 @@ Four FullAdders are combined to built a four bit adder unit.
 <br>
 In dependence on time five additions are carried out:
 <br>
-<pre>
+<blockquote><pre>
 at t = 0                            at t = 1
  a       0 0 0 0                       a      1 1 1 0
  b    +  0 0 0 0                       b   +  1 0 1 1
@@ -521,18 +521,18 @@ at t = 4
  a      1 1 0 0
  b   +  1 1 1 0
  <strong>s    0 0 1 0 1</strong>
- </pre>
+</pre></blockquote>
 <p>
 To show the influence of delay a large delay time of 0.1s is chosen.
 Furthermore, all signals are initialized with U, the uninitialized value.
 Please remember, that the nine logic values are coded by the numbers 1,...,9.
 The summands a and b can be found at the output signals of the taba and tabb sources.
 The result can be seen in the output signals of the FullAdders according to:</p>
-<pre>
-      a                       <strong>a4</strong>.y      <strong>a3</strong>.y      <strong>a2</strong>.y      <strong>a1</strong>.y
-      b                       <strong>b4</strong>.y      <strong>b3</strong>.y      <strong>b2</strong>.y      <strong>b1</strong>.y
-      sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s</strong>  <strong>Adder2.s</strong>  <strong>Adder1.s</strong>
-</pre>
+<blockquote><pre>
+a                    <strong>a4</strong>.y      <strong>a3</strong>.y      <strong>a2</strong>.y      <strong>a1</strong>.y
+b                    <strong>b4</strong>.y      <strong>b3</strong>.y      <strong>b2</strong>.y      <strong>b1</strong>.y
+sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s</strong>  <strong>Adder2.s</strong>  <strong>Adder1.s</strong>
+</pre></blockquote>
 <p>The simulation stop time has to be 5s.</p>
 </html>"),            experiment(StopTime=5));
         end Adder4;
@@ -2115,7 +2115,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               annotation (Documentation(info="<html>
 <p><strong>Code Table:</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Logic value</strong></td>
       <td><strong>Meaning</strong></td>
   </tr>
@@ -2141,7 +2141,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           annotation (Documentation(info="<html>
 <p><strong>Code Table:</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Logic value</strong></td>
       <td><strong>Meaning</strong></td>
   </tr>
@@ -2167,7 +2167,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
 <p><strong>Strength Table:</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Strength</strong></td>
       <td><strong>Output conversion to</strong></td>
   </tr>
@@ -3584,7 +3584,7 @@ To specify <em>setval</em>, the integer code has to be used.
 </p>
 <p><strong>Code Table</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Logic value</strong></td>
       <td><strong>Integer code</strong></td>
       <td><strong>Meaning</strong></td>
@@ -3657,7 +3657,7 @@ at the time <em>stepTime</em>.
 To specify the logic value parameters, the integer code has to be used.
 </p>
 <p><strong>Code Table</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Logic value</strong></td>
       <td><strong>Integer code</strong></td>
       <td><strong>Meaning</strong></td>
@@ -3732,7 +3732,7 @@ timepoints in the <em>t</em> table.<br>The initial value is specified by <em>y0<
 To specify the logic value parameters, the integer code has to be used.
 </p>
 <p><strong>Code Table</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Logic value</strong></td>
       <td><strong>Integer code</strong></td>
       <td><strong>Meaning</strong></td>
@@ -3829,7 +3829,7 @@ the number of periods is unlimited.
 To specify the logic value parameters, the integer code has to be used.
 </p>
 <p><strong>Code Table</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Logic value</strong></td>
       <td><strong>Integer code</strong></td>
       <td><strong>Meaning</strong></td>
@@ -3952,18 +3952,18 @@ Conversion of a nine valued digital input into a X01 digital output without
 any delay according to IEEE 1164 To_X01 function.
 </p>
 <p><strong>Conversion Table:</strong></p>
-<pre>
-  input                  output
-  'U' (coded by 1)       'X'  (coded by 2)
-  'X' (coded by 2)       'X'  (coded by 2)
-  '0' (coded by 3)       '0'  (coded by 3)
-  '1' (coded by 4)       '1'  (coded by 4)
-  'Z' (coded by 5)       'X'  (coded by 2)
-  'W' (coded by 6)       'X'  (coded by 2)
-  'L' (coded by 7)       '0'  (coded by 3)
-  'H' (coded by 8)       '1'  (coded by 4)
-  '-' (coded by 9)       'X'  (coded by 2)
-</pre>
+<blockquote><pre>
+input                  output
+'U' (coded by 1)       'X'  (coded by 2)
+'X' (coded by 2)       'X'  (coded by 2)
+'0' (coded by 3)       '0'  (coded by 3)
+'1' (coded by 4)       '1'  (coded by 4)
+'Z' (coded by 5)       'X'  (coded by 2)
+'W' (coded by 6)       'X'  (coded by 2)
+'L' (coded by 7)       '0'  (coded by 3)
+'H' (coded by 8)       '1'  (coded by 4)
+'-' (coded by 9)       'X'  (coded by 2)
+</pre></blockquote>
 <p>
 If the signal width is greater than 1 this conversion is done for each signal.
 </p>
@@ -4022,18 +4022,18 @@ Conversion of a nine valued digital input into a X01Z digital output without
 any delay according to IEEE 1164 To_X01Z function.
 </p>
 <p><strong>Conversion Table:</strong></p>
-<pre>
- input                  output
- 'U' (coded by 1)       'X'  (coded by 2)
- 'X' (coded by 2)       'X'  (coded by 2)
- '0' (coded by 3)       '0'  (coded by 3)
- '1' (coded by 4)       '1'  (coded by 4)
- 'Z' (coded by 5)       'Z'  (coded by 5)
- 'W' (coded by 6)       'X'  (coded by 2)
- 'L' (coded by 7)       '0'  (coded by 3)
- 'H' (coded by 8)       '1'  (coded by 4)
- '-' (coded by 9)       'X'  (coded by 2)
-</pre>
+<blockquote><pre>
+input                  output
+'U' (coded by 1)       'X'  (coded by 2)
+'X' (coded by 2)       'X'  (coded by 2)
+'0' (coded by 3)       '0'  (coded by 3)
+'1' (coded by 4)       '1'  (coded by 4)
+'Z' (coded by 5)       'Z'  (coded by 5)
+'W' (coded by 6)       'X'  (coded by 2)
+'L' (coded by 7)       '0'  (coded by 3)
+'H' (coded by 8)       '1'  (coded by 4)
+'-' (coded by 9)       'X'  (coded by 2)
+</pre></blockquote>
 <p>
 If the signal width is greater than 1 this conversion is done for each signal.
 </p>
@@ -4092,18 +4092,18 @@ Conversion of a nine valued digital input into a UX01 digital output without
 any delay according to IEEE 1164 To_UX01 function.
 </p>
 <p><strong>Conversion Table:</strong></p>
-<pre>
- input                  output
- 'U' (coded by 1)       'U'  (coded by 1)
- 'X' (coded by 2)       'X'  (coded by 2)
- '0' (coded by 3)       '0'  (coded by 3)
- '1' (coded by 4)       '1'  (coded by 4)
- 'Z' (coded by 5)       'X'  (coded by 2)
- 'W' (coded by 6)       'X'  (coded by 2)
- 'L' (coded by 7)       '0'  (coded by 3)
- 'H' (coded by 8)       '1'  (coded by 4)
- '-' (coded by 9)       'X'  (coded by 2)
-</pre>
+<blockquote><pre>
+input                  output
+'U' (coded by 1)       'U'  (coded by 1)
+'X' (coded by 2)       'X'  (coded by 2)
+'0' (coded by 3)       '0'  (coded by 3)
+'1' (coded by 4)       '1'  (coded by 4)
+'Z' (coded by 5)       'X'  (coded by 2)
+'W' (coded by 6)       'X'  (coded by 2)
+'L' (coded by 7)       '0'  (coded by 3)
+'H' (coded by 8)       '1'  (coded by 4)
+'-' (coded by 9)       'X'  (coded by 2)
+</pre></blockquote>
 <p>
 If the signal width is greater than 1 this conversion is done for each signal.
 </p>
@@ -4157,11 +4157,11 @@ If the signal width is greater than 1 this conversion is done for each signal.
 <p>
 Conversion of a Boolean input into a digital output without any delay according to:
 </p>
-<pre>
- input      output
- true       '1'  (coded by 4)
- false      '0'  (coded by 3)
-</pre>
+<blockquote><pre>
+input      output
+true       '1'  (coded by 4)
+false      '0'  (coded by 3)
+</pre></blockquote>
 <p>
 If the signal width is greater than 1 this conversion is done for each signal.
 </p>
@@ -4210,18 +4210,18 @@ If the signal width is greater than 1 this conversion is done for each signal.
 <p>
 Conversion of a digital input into a Boolean output without any delay according to:
 </p>
-<pre>
- input                 output
- 'U'  (coded by 1)     false
- 'X'  (coded by 2)     false
- '0'  (coded by 3)     false
- '1'  (coded by 4)     true
- 'Z'  (coded by 5)     false
- 'W'  (coded by 6)     false
- 'L'  (coded by 7)     false
- 'H'  (coded by 8)     true
- '-'  (coded by 9)     false
-</pre>
+<blockquote><pre>
+input                 output
+'U'  (coded by 1)     false
+'X'  (coded by 2)     false
+'0'  (coded by 3)     false
+'1'  (coded by 4)     true
+'Z'  (coded by 5)     false
+'W'  (coded by 6)     false
+'L'  (coded by 7)     false
+'H'  (coded by 8)     true
+'-'  (coded by 9)     false
+</pre></blockquote>
 <p>
 If the signal width is greater than 1 this conversion is done for each signal.
 </p>
@@ -4278,12 +4278,12 @@ If the signal width is greater than 1 this conversion is done for each signal.
 <p>
 Conversion of a real input into a digital output without any delay according to:
 </p>
-<pre>
-                                 condition            output
-      first check:               input greater upp    lupp
-      second check:              input larger low     llow
-                                 else                 lmid
-</pre>
+<blockquote><pre>
+                           condition            output
+first check:               input greater upp    lupp
+second check:              input larger low     llow
+                           else                 lmid
+</pre></blockquote>
 <p>
 If the signal width is greater than 1 this conversion is done for each signal.
 </p>
@@ -4348,18 +4348,18 @@ If the signal width is greater than 1 this conversion is done for each signal.
 <p>
 Conversion of a digital input into a Real output without any delay according to:
 </p>
-<pre>
-  input                 output
-  'U'  (coded by 1)     val_U
-  'X'  (coded by 2)     val_X
-  '0'  (coded by 3)     val_0
-  '1'  (coded by 4)     val_1
-  'Z'  (coded by 5)     val_Z
-  'W'  (coded by 6)     val_W
-  'L'  (coded by 7)     val_L
-  'H'  (coded by 8)     val_H
-  '-'  (coded by 9)     val_m
-</pre>
+<blockquote><pre>
+input                 output
+'U'  (coded by 1)     val_U
+'X'  (coded by 2)     val_X
+'0'  (coded by 3)     val_0
+'1'  (coded by 4)     val_1
+'Z'  (coded by 5)     val_Z
+'W'  (coded by 6)     val_W
+'L'  (coded by 7)     val_L
+'H'  (coded by 8)     val_H
+'-'  (coded by 9)     val_m
+</pre></blockquote>
 <p>
 The values val... are given by parameters.</p>
 <p>If the signal width is greater than 1 this conversion is done for each signal.
@@ -4528,7 +4528,7 @@ The values val... are given by parameters.</p>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities</p>
 <p><strong>Truth Table for high active reset:</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Clock</strong></td>
       <td><strong>Reset</strong></td>
@@ -4536,7 +4536,7 @@ The values val... are given by parameters.</p>
       <td>Map</td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>U</td > <td>U</td> <td>1</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>U</td>  <td>U</td> <td>1</td> </tr>
   <tr><td>*</td> <td>*</td> <td>1</td>  <td>0</td> <td>2</td> </tr>
   <tr><td>*</td> <td>0-Trns</td> <td>0</td>  <td>NC</td> <td>3</td> </tr>
   <tr><td>*</td> <td>1-Trns</td> <td>0</td>  <td>DataIn</td> <td>3</td> </tr>
@@ -4546,7 +4546,7 @@ The values val... are given by parameters.</p>
 
 <p><strong>Truth Table for low active reset:</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Clock</strong></td>
       <td><strong>Reset</strong></td>
@@ -4554,7 +4554,7 @@ The values val... are given by parameters.</p>
       <td>Map</td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>U</td > <td>U</td> <td>1</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>U</td>  <td>U</td> <td>1</td> </tr>
   <tr><td>*</td> <td>*</td> <td>0</td>  <td>0</td> <td>2</td> </tr>
   <tr><td>*</td> <td>0-Trns</td> <td>1</td>  <td>NC</td> <td>3</td> </tr>
   <tr><td>*</td> <td>1-Trns</td> <td>1</td>  <td>DataIn</td> <td>3</td> </tr>
@@ -4562,8 +4562,7 @@ The values val... are given by parameters.</p>
   <tr><td>*</td> <td>*</td> <td>X</td> <td>X or U or 0 or NC</td> <td>4</td> </tr>
 </table>
 
-<pre>
-
+<blockquote><pre>
   *  = do not care
   U  = L.'U'
   0  = L.'0' or L.'L'
@@ -4575,7 +4574,7 @@ Clock transition definitions:
   1-Trns: 0 -> 1
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
-</pre>
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -4686,14 +4685,14 @@ Clock transition definitions:
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Clock</strong></td>
       <td><strong>Reset</strong></td>
       <td><strong>DataOut</strong></td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>U</td > <td>U</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>U</td>  <td>U</td> </tr>
   <tr><td>*</td> <td>*</td> <td>1</td>  <td>0</td> </tr>
   <tr><td>*</td> <td>0-Trns</td> <td>0</td>  <td>NC</td> </tr>
   <tr><td>*</td> <td>1-Trns</td> <td>0</td>  <td>DataIn</td> </tr>
@@ -4701,7 +4700,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>*</td> <td>X</td> <td>X or U or 0 or NC</td> </tr>
 </table>
 
-<pre>
+<blockquote><pre>
   *  = do not care
   U  = L.'U'
   0  = L.'0' or L.'L'
@@ -4713,7 +4712,7 @@ Clock transition definitions:
   1-Trns: 0 -> 1
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
-</pre>
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -4733,14 +4732,14 @@ Clock transition definitions:
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Clock</strong></td>
       <td><strong>Reset</strong></td>
       <td><strong>DataOut</strong></td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>U</td > <td>U</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>U</td>  <td>U</td> </tr>
   <tr><td>*</td> <td>*</td> <td>0</td>  <td>0</td> </tr>
   <tr><td>*</td> <td>0-Trns</td> <td>1</td>  <td>NC</td> </tr>
   <tr><td>*</td> <td>1-Trns</td> <td>1</td>  <td>DataIn</td> </tr>
@@ -4748,7 +4747,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>*</td> <td>X</td> <td>X or U or 0 or NC</td> </tr>
 </table>
 
-<pre>
+<blockquote><pre>
   *  = do not care
   U  = L.'U'
   0  = L.'0' or L.'L'
@@ -4760,7 +4759,7 @@ Clock transition definitions:
   1-Trns: 0 -> 1
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
-</pre>
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -4953,7 +4952,7 @@ Clock transition definitions:
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table for high active set and reset</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Clock</strong></td>
       <td><strong>Reset</strong></td>
@@ -4978,7 +4977,7 @@ Clock transition definitions:
 
 <p><strong>Truth Table for low active set and reset </strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Clock</strong></td>
       <td><strong>Reset</strong></td>
@@ -5000,7 +4999,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>0-Trns</td> <td>1</td>  <td>1</td> <td>NC</td> <td>8</td> </tr>
 </table>
 
-<pre>
+<blockquote><pre>
   *  = do not care
   ~  = not equal
   U  = L.'U'
@@ -5013,7 +5012,7 @@ Clock transition definitions:
   1-Trns: 0 -> 1
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
-</pre>
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -5141,7 +5140,7 @@ Clock transition definitions:
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Clock</strong></td>
       <td><strong>Reset</strong></td>
@@ -5162,7 +5161,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>0-Trns</td> <td>0</td>  <td>0</td> <td>NC</td> </tr>
 </table>
 
-<pre>
+<blockquote><pre>
   *  = do not care
   ~  = not equal
   U  = L.'U'
@@ -5175,7 +5174,7 @@ Clock transition definitions:
   1-Trns: 0 -> 1
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
-</pre>
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -5202,7 +5201,7 @@ Clock transition definitions:
 
 <p><strong>Truth Table</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Clock</strong></td>
       <td><strong>Reset</strong></td>
@@ -5223,7 +5222,7 @@ Clock transition definitions:
   <tr><td>*</td> <td>0-Trns</td> <td>1</td>  <td>1</td> <td>NC</td> </tr>
 </table>
 
-<pre>
+<blockquote><pre>
   *  = do not care
   ~  = not equal
   U  = L.'U'
@@ -5236,7 +5235,7 @@ Clock transition definitions:
   1-Trns: 0 -> 1
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
-</pre>
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -5343,7 +5342,7 @@ Clock transition definitions:
 <p> Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd\">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a></p>
 <p><strong>Truth Table for high active reset:</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>Reset</strong></td>
@@ -5351,7 +5350,7 @@ Clock transition definitions:
       <td>Map</td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>U</td > <td>U</td> <td>1</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>U</td>  <td>U</td> <td>1</td> </tr>
   <tr><td>*</td> <td>*</td> <td>1</td>  <td>0</td> <td>2</td> </tr>
   <tr><td>*</td> <td>0</td> <td>0</td>  <td>NC</td> <td>3</td> </tr>
   <tr><td>*</td> <td>1</td> <td>0</td>  <td>DataIn</td> <td>3</td> </tr>
@@ -5362,7 +5361,7 @@ Clock transition definitions:
 
 <p><strong>Truth Table for low active reset:</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>Reset</strong></td>
@@ -5379,16 +5378,15 @@ Clock transition definitions:
   <tr><td>*</td> <td>~U</td> <td>X</td> <td>X or U or 0 or NC</td> <td>4</td> </tr>
 </table>
 
-<pre>
-
-  *  = do not care
-  ~  = not equal
-  U  = L.'U'
-  0  = L.'0' or L.'L'
-  1  = L.'1' or L.'H'
-  X  = L.'X' or L.'W' or L.'Z' or L.'-'
-  NC = no change
-</pre>
+<blockquote><pre>
+*  = do not care
+~  = not equal
+U  = L.'U'
+0  = L.'0' or L.'L'
+1  = L.'1' or L.'H'
+X  = L.'X' or L.'W' or L.'Z' or L.'-'
+NC = no change
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -5496,14 +5494,14 @@ Clock transition definitions:
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>Reset</strong></td>
       <td><strong>DataOut</strong></td>
   </tr>
 
-  <tr><td>*</td> <td>*</td> <td>U</td > <td>U</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>U</td>  <td>U</td> </tr>
   <tr><td>*</td> <td>*</td> <td>1</td>  <td>0</td> </tr>
   <tr><td>*</td> <td>0</td> <td>0</td>  <td>NC</td> </tr>
   <tr><td>*</td> <td>1</td> <td>0</td>  <td>DataIn</td> </tr>
@@ -5512,15 +5510,15 @@ Clock transition definitions:
   <tr><td>*</td> <td>~U</td> <td>X</td> <td>X or U or 0 or NC</td> </tr>
 </table>
 
-<pre>
-  *  = do not care
-  ~  = not equal
-  U  = L.'U'
-  0  = L.'0' or L.'L'
-  1  = L.'1' or L.'H'
-  X  = L.'X' or L.'W' or L.'Z' or L.'-'
-  NC = no change
-</pre>
+<blockquote><pre>
+*  = do not care
+~  = not equal
+U  = L.'U'
+0  = L.'0' or L.'L'
+1  = L.'1' or L.'H'
+X  = L.'X' or L.'W' or L.'Z' or L.'-'
+NC = no change
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -5584,7 +5582,7 @@ Clock transition definitions:
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>Reset</strong></td>
@@ -5600,15 +5598,15 @@ Clock transition definitions:
   <tr><td>*</td> <td>~U</td> <td>X</td> <td>X or U or 0 or NC</td> </tr>
 </table>
 
-<pre>
-  *  = do not care
-  ~  = not equal
-  U  = L.'U'
-  0  = L.'0' or L.'L'
-  1  = L.'1' or L.'H'
-  X  = L.'X' or L.'W' or L.'Z' or L.'-'
-  NC = no change
-</pre>
+<blockquote><pre>
+*  = do not care
+~  = not equal
+U  = L.'U'
+0  = L.'0' or L.'L'
+1  = L.'1' or L.'H'
+X  = L.'X' or L.'W' or L.'Z' or L.'-'
+NC = no change
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -5763,7 +5761,7 @@ Clock transition definitions:
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table for high active set and reset</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>Reset</strong></td>
@@ -5789,7 +5787,7 @@ Clock transition definitions:
 
 <p><strong>Truth Table for low active set and reset </strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>Reset</strong></td>
@@ -5813,15 +5811,15 @@ Clock transition definitions:
 
 </table>
 
-<pre>
-  *  = do not care
-  ~  = not equal
-  U  = L.'U'
-  0  = L.'0' or L.'L'
-  1  = L.'1' or L.'H'
-  X  = L.'X' or L.'W' or L.'Z' or L.'-'
-  NC = no change
-</pre>
+<blockquote><pre>
+*  = do not care
+~  = not equal
+U  = L.'U'
+0  = L.'0' or L.'L'
+1  = L.'1' or L.'H'
+X  = L.'X' or L.'W' or L.'Z' or L.'-'
+NC = no change
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -5945,7 +5943,7 @@ Clock transition definitions:
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table:</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>Reset</strong></td>
@@ -5968,15 +5966,15 @@ Clock transition definitions:
 
 </table>
 
-<pre>
-  *  = do not care
-  ~  = not equal
-  U  = L.'U'
-  0  = L.'0' or L.'L'
-  1  = L.'1' or L.'H'
-  X  = L.'X' or L.'W' or L.'Z' or L.'-'
-  NC = no change
-</pre>
+<blockquote><pre>
+*  = do not care
+~  = not equal
+U  = L.'U'
+0  = L.'0' or L.'L'
+1  = L.'1' or L.'H'
+X  = L.'X' or L.'W' or L.'Z' or L.'-'
+NC = no change
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -6045,7 +6043,7 @@ Clock transition definitions:
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>Reset</strong></td>
@@ -6067,15 +6065,15 @@ Clock transition definitions:
   <tr><td>*</td> <td>0</td> <td>1</td>  <td>1</td> <td>NC</td> </tr>
 </table>
 
-<pre>
-  *  = do not care
-  ~  = not equal
-  U  = L.'U'
-  0  = L.'0' or L.'L'
-  1  = L.'1' or L.'H'
-  X  = L.'X' or L.'W' or L.'Z' or L.'-'
-  NC = no change
-</pre>
+<blockquote><pre>
+*  = do not care
+~  = not equal
+U  = L.'U'
+0  = L.'0' or L.'L'
+1  = L.'1' or L.'H'
+X  = L.'X' or L.'W' or L.'Z' or L.'-'
+NC = no change
+</pre></blockquote>
 </html>", revisions="<html>
 <ul>
 <li><em>September 11, 2009</em> created by Ulrich Donath<br>
@@ -6162,7 +6160,7 @@ Clock transition definitions:
 </html>", info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>DataOut</strong></td>
@@ -6179,9 +6177,9 @@ Clock transition definitions:
   <tr><td>*</td> <td>-</td> <td>UX</td></tr>
 </table>
 
-<pre>
-  UX: if dataIn == U then U else X
-</pre>
+<blockquote><pre>
+UX: if dataIn == U then U else X
+</pre></blockquote>
 </html>"));
     end NXFERGATE;
 
@@ -6244,7 +6242,7 @@ Clock transition definitions:
 </html>", info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>DataOut</strong></td>
@@ -6261,10 +6259,10 @@ Clock transition definitions:
   <tr><td>*</td> <td>-</td> <td>UW</td></tr>
 </table>
 
-<pre>
-  UW: if dataIn == U then U else W
-  Strength Reduced: 0 -> L, 1 -> H, X -> W
-</pre>
+<blockquote><pre>
+UW: if dataIn == U then U else W
+Strength Reduced: 0 -> L, 1 -> H, X -> W
+</pre></blockquote>
 </html>"));
     end NRXFERGATE;
 
@@ -6326,7 +6324,7 @@ Clock transition definitions:
 </html>", info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>DataOut</strong></td>
@@ -6343,9 +6341,9 @@ Clock transition definitions:
   <tr><td>*</td> <td>-</td> <td>UX</td></tr>
 </table>
 
-<pre>
-  UX: if dataIn == U then U else X
-</pre>
+<blockquote><pre>
+UX: if dataIn == U then U else X
+</pre></blockquote>
 </html>"));
     end PXFERGATE;
 
@@ -6408,7 +6406,7 @@ Clock transition definitions:
 </html>", info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><strong>Truth Table</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>DataOut</strong></td>
@@ -6486,7 +6484,7 @@ Clock transition definitions:
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
 <p><strong>Truth Table</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>DataOut*</strong></td>
@@ -6503,10 +6501,10 @@ Clock transition definitions:
   <tr><td>*</td> <td>-</td> <td>UX</td></tr>
 </table>
 
-<pre>
-  UX: if dataIn == U then U else X
-  DataOut*: Strength map for DataOut according to tristate table Buf3sTable
-</pre>
+<blockquote><pre>
+UX: if dataIn == U then U else X
+DataOut*: Strength map for DataOut according to tristate table Buf3sTable
+</pre></blockquote>
 </html>"));
     end BUF3S;
 
@@ -6565,7 +6563,7 @@ Clock transition definitions:
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
 <p><strong>Truth Table</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>DataOut*</strong></td>
@@ -6582,10 +6580,10 @@ Clock transition definitions:
   <tr><td>*</td> <td>-</td> <td>UX</td></tr>
 </table>
 
-<pre>
-  UX: if dataIn == U then U else X
-  DataOut*: Strength map for DataOut according to tristate table Buf3slTable
-</pre>
+<blockquote><pre>
+UX: if dataIn == U then U else X
+DataOut*: Strength map for DataOut according to tristate table Buf3slTable
+</pre></blockquote>
 </html>"));
     end BUF3SL;
 
@@ -6649,7 +6647,7 @@ Clock transition definitions:
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
 <p><strong>Truth Table</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>DataOut*</strong></td>
@@ -6666,10 +6664,10 @@ Clock transition definitions:
   <tr><td>*</td> <td>-</td> <td>UX</td></tr>
 </table>
 
-<pre>
-  UX: if dataIn == U then U else X
-  DataOut*: Strength map for DataOut according to tristate table Buf3sTable
-</pre>
+<blockquote><pre>
+UX: if dataIn == U then U else X
+DataOut*: Strength map for DataOut according to tristate table Buf3sTable
+</pre></blockquote>
 </html>"));
     end INV3S;
 
@@ -6733,7 +6731,7 @@ Clock transition definitions:
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p>and for tristate table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
 <p><strong>Truth Table</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>DataIn</strong></td>
       <td><strong>Enable</strong></td>
       <td><strong>DataOut*</strong></td>
@@ -6750,10 +6748,10 @@ Clock transition definitions:
   <tr><td>*</td> <td>-</td> <td>UX</td></tr>
 </table>
 
-<pre>
-  UX: if dataIn == U then U else X
-  DataOut*: Strength map for DataOut according to tristate table Buf3slTable
-</pre>
+<blockquote><pre>
+UX: if dataIn == U then U else X
+DataOut*: Strength map for DataOut according to tristate table Buf3slTable
+</pre></blockquote>
 </html>"));
     end INV3SL;
 
@@ -6853,7 +6851,7 @@ Wires n input signals in one output signal, without delay.
 Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd\">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a>
 </p>
 <p><strong>Truth Table for high active read enable RE:</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>RE</strong></td>
       <td><strong>Addr</strong></td>
       <td><strong>DataOut</strong></td>
@@ -6864,7 +6862,7 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
   <tr><td>X</td>  <td>*</td>              <td>X over all</td>  </tr>
 </table>
 <p><strong>Truth Table for high active write enable WE:</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>WE</strong></td>
       <td><strong>Addr</strong></td>
       <td><strong>Memory</strong></td>
@@ -6876,14 +6874,13 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
   <tr><td>X</td>  <td>X in Addr</td>      <td>no write</td>  </tr>
 </table>
 
-<pre>
-
-  *  = do not care
-  0  = L.'0' or L.'L'
-  1  = L.'1' or L.'H'
-  X  = L.'X' or L.'W' or L.'Z' or L.'-' or L.'U'
-  Z  = L.'Z'
-</pre>
+<blockquote><pre>
+*  = do not care
+0  = L.'0' or L.'L'
+1  = L.'1' or L.'H'
+X  = L.'X' or L.'W' or L.'Z' or L.'-' or L.'U'
+Z  = L.'Z'
+</pre></blockquote>
 
 <p><strong>Simultaneous read/write operations are allowed.
 Firstly Write is carried out, then Read.</strong></p>
@@ -6951,7 +6948,7 @@ Firstly Write is carried out, then Read.</strong></p>
 Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd\">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a>
 </p>
 <p><strong>Truth Table for high active read enable RE:</strong></p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>RE</strong></td>
       <td><strong>Addr</strong></td>
       <td><strong>DataOut</strong></td>
@@ -6962,14 +6959,13 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
   <tr><td>X</td> <td>*</td> <td>X over all</td> </tr>
 </table>
 
-<pre>
-
-  *  = do not care
-  0  = L.'0' or L.'L'
-  1  = L.'1' or L.'H'
-  X  = L.'X' or L.'W' or L.'Z' or L.'-' or L.'U'
-  Z  = L.'Z'
-</pre>
+<blockquote><pre>
+*  = do not care
+0  = L.'0' or L.'L'
+1  = L.'1' or L.'H'
+X  = L.'X' or L.'W' or L.'Z' or L.'-' or L.'U'
+Z  = L.'Z'
+</pre></blockquote>
 
 </html>", revisions="<html>
 <dl>
@@ -7105,13 +7101,13 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
 <td><p>X</p></td>
 </tr>
 </table>
-<pre>
-
-  *  = don&#39;t care
-  0  = L.&#39;0&#39; or L.&#39;L&#39;
-  1  = L.&#39;1&#39; or L.&#39;H&#39;
-  X  = L.&#39;X&#39; or L.&#39;W&#39; or L.&#39;Z&#39; or L.&#39;-&#39;
-  U  = L.&#39;U&#39; </pre>
+<blockquote><pre>
+*  = don&#39;t care
+0  = L.&#39;0&#39; or L.&#39;L&#39;
+1  = L.&#39;1&#39; or L.&#39;H&#39;
+X  = L.&#39;X&#39; or L.&#39;W&#39; or L.&#39;Z&#39; or L.&#39;-&#39;
+U  = L.&#39;U&#39;
+</pre></blockquote>
 </html>", revisions="<html>
 <dl>
 <dt><em>January 24, 2011</em></dt>
@@ -7152,7 +7148,7 @@ for both setting of input and interpreting the output values.
 
 <p><strong>Code Table:</strong></p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>Logic value</strong></td>
       <td><strong>Integer code</strong></td>
       <td><strong>Meaning</strong></td>
@@ -7176,7 +7172,7 @@ the library is implemented and released for public use.
 </p>
 
 <p>
-Copyright &copy; 1998-2019, Modelica Association and contributors
+Copyright &copy; 1998-2020, Modelica Association and contributors
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false,
                 extent={{-100,-100},{100,100}}), graphics={

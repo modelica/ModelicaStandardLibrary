@@ -10,7 +10,7 @@ model MagneticFluxSensor "Sensor to measure magnetic flux"
         origin={0,-100},
         extent={{10,-10},{-10,10}},
         rotation=90)));
- Modelica.SIunits.MagneticFlux abs_Phi=Modelica.ComplexMath.'abs'(Phi)
+ Modelica.SIunits.MagneticFlux abs_Phi=Modelica.ComplexMath.abs(Phi)
     "Magnitude of complex magnetic flux";
   Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
     "Argument of complex magnetic flux";

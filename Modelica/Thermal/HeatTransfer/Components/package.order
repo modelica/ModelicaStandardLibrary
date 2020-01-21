@@ -5,5 +5,6 @@ Convection
 ConvectiveResistor
 BodyRadiation
 ThermalCollector
+ThermalCollectorMatrix
 GeneralHeatFlowToTemperatureAdaptor
 GeneralTemperatureToHeatFlowAdaptor

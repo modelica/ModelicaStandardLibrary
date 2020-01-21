@@ -24,9 +24,5 @@ This is a simple idle running branch.
 
 </html>"),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-            {100,100}}), graphics={Line(points={{-100,0},{-60,0}}, color={
-          255,128,0}),Line(points={{60,0},{100,0}}, color={255,128,0}),Line(
-          points={{-60,0},{-40,2},{-18,6},{0,14},{12,26}}, color={255,128,0}),
-          Line(points={{60,0},{40,-2},{18,-6},{0,-14},{-12,-26}}, color={
-          255,128,0})}));
+            {100,100}})));
 end Idle;

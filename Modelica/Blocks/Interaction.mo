@@ -62,7 +62,7 @@ name of the variable value that is displayed is also shown below the icon):
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Interaction/RealValue.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Interaction/Show/RealValue.png\"
      alt=\"RealValue.png\">
 </p>
 
@@ -126,7 +126,7 @@ name of the variable value that is displayed is also shown below the icon):
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Interaction/IntegerValue.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Interaction/Show/IntegerValue.png\"
      alt=\"IntegerValue.png\">
 </p>
 
@@ -189,7 +189,7 @@ name of the variable value that is displayed is also shown below the icon):
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Interaction/BooleanValue.png\"
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Interaction/Show/BooleanValue.png\"
      alt=\"BooleanValue.png\">
 </p>
 

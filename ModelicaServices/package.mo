@@ -74,9 +74,9 @@ First version of the ModelicaServices library.
     class Contact "Contact"
       extends Modelica.Icons.Contact;
       annotation (Documentation(info="<html>
-<h5>Main Author:</h5>
+<h5>Main Author</h5>
 
-<table border=0 cellspacing=0 cellpadding=2>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr>
 <td>
 <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
@@ -190,10 +190,10 @@ but indirectly via the alias definition in
 
   package System "System dependent functions"
     extends Modelica.Icons.Package;
-    function exit "Terminate execution of Modelica environment"
+    impure function exit "Terminate execution of Modelica environment"
       extends Modelica.Utilities.Internal.PartialModelicaServices.System.exitBase;
       external "C" exit(status) annotation(Include="#include <stdlib.h>", Library="ModelicaExternalC");
-      annotation(__ModelicaAssociation_Impure=true, Documentation(info="<html>
+      annotation(Documentation(info="<html>
 <p>
 Tool-specific implementation of <a href=\"modelica://Modelica.Utilities.System.exit\">Modelica.Utilities.System.exit</a>.
 </p>
@@ -270,9 +270,8 @@ These are:
 
 <li> <a href=\"modelica://ModelicaServices.Types.SolverMethod\">Types.SolverMethod</a>
      provides a string defining the integration method to solve differential equations in
-     a clocked discretized continuous-time partition (see Modelica 3.3 language specification).
-     It is not yet used in the Modelica Standard Library, but in the Modelica_Synchronous library
-     that provides convenience blocks for the clock operators of Modelica version &ge; 3.3.</li>
+     a clocked discretized continuous-time partition
+     (see <a href=\"https://specification.modelica.org/v3.4/Ch16.html#solver-methods\">Section 16.8.2 (Solver Methods) of the Modelica 3.4 specification</a>).</li>
 </ul>
 
 <p>
@@ -282,7 +281,7 @@ This ModelicaServices package provides only \"dummy\" models that do nothing.
 
 <p>
 <strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
-Copyright &copy; 2009-2019, Modelica Association and contributors
+Copyright &copy; 2009-2020, Modelica Association and contributors
 </p>
 
 <p>

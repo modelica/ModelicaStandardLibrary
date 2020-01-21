@@ -1,6 +1,7 @@
 within Modelica.Magnetic.FluxTubes.UsersGuide;
 package Hysteresis "Hysteresis"
   extends Modelica.Icons.Information;
+
   annotation (Documentation(info="<html>
 
 <h4>Introduction</h4>
@@ -24,7 +25,7 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
 
 <h4>Flux tube elements of the Package HysteresisAndMagnets</h4>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
  <tr>
   <th>Name / Icon</th><th>Description</th>
  </tr>

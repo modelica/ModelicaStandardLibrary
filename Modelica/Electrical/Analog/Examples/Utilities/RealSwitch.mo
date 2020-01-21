@@ -1,7 +1,7 @@
 within Modelica.Electrical.Analog.Examples.Utilities;
 model RealSwitch "Ideal switch with resistance"
 
-  Ideal.ControlledIdealCommutingSwitch S(level=2.5) annotation (Placement(
+  Ideal.ControlledIdealTwoWaySwitch S(level=2.5) annotation (Placement(
         transformation(extent={{11.3333,-46},{58,0.6667}})));
   Basic.Resistor R(R=0.01) annotation (Placement(transformation(extent={{-66,-48},
             {-19.3333,-1.3333}})));

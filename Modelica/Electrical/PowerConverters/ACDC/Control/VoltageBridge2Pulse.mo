@@ -19,8 +19,8 @@ model VoltageBridge2Pulse "Control of 2 pulse bridge rectifier"
   parameter Modelica.SIunits.Voltage vStart=0
     "Start voltage of filter output"
     annotation (Dialog(tab="Filter", enable=useFilter));
-  Modelica.Blocks.Interfaces.RealInput firingAngle if not
-    useConstantFiringAngle "Firing angle (rad)" annotation (Placement(
+  Modelica.Blocks.Interfaces.RealInput firingAngle(unit="rad") if not
+    useConstantFiringAngle "Firing angle" annotation (Placement(
         transformation(
         extent={{-20,-20},{20,20}},
         rotation=90,

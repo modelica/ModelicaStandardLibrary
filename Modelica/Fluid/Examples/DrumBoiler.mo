@@ -8,7 +8,7 @@ package DrumBoiler
     extends Modelica.Icons.Example;
 
     parameter Boolean use_inputs = false
-      "use external inputs instead of test data contained internally";
+      "= true, if external inputs are used, otherwise use test data contained internally";
 
     Modelica.Fluid.Examples.DrumBoiler.BaseClasses.EquilibriumDrumBoiler
       evaporator(
@@ -33,20 +33,20 @@ package DrumBoiler
           origin={90,-20},
           extent={{-10,-10},{10,10}},
           rotation=180)));
-    Modelica.Fluid.Sensors.MassFlowRate massFlowRate(           redeclare
+    Modelica.Fluid.Sensors.MassFlowRate massFlowRate(redeclare
         package Medium =
           Modelica.Media.Water.StandardWater)
       annotation (Placement(transformation(
           origin={30,-20},
           extent={{10,10},{-10,-10}},
           rotation=180)));
-    Modelica.Fluid.Sensors.Temperature temperature(    redeclare package Medium
+    Modelica.Fluid.Sensors.Temperature temperature(redeclare package Medium
         = Modelica.Media.Water.StandardWater)
       annotation (Placement(transformation(
           origin={-3,-1},
           extent={{10,10},{-10,-10}},
           rotation=180)));
-    Modelica.Fluid.Sensors.Pressure pressure(           redeclare package
+    Modelica.Fluid.Sensors.Pressure pressure(redeclare package
         Medium =
           Modelica.Media.Water.StandardWater)
       annotation (Placement(transformation(extent={{10,18},{30,38}})));
@@ -61,13 +61,13 @@ package DrumBoiler
       annotation (Placement(transformation(extent={{-22,20},{-42,40}})));
     Modelica.Blocks.Sources.Constant levelSetPoint(k=67)
       annotation (Placement(transformation(extent={{-38,48},{-24,62}})));
-    Modelica.Blocks.Interfaces.RealOutput T_S(final unit="degC") "steam temperature"
+    Modelica.Blocks.Interfaces.RealOutput T_S(final unit="degC") "Steam temperature"
       annotation (Placement(transformation(extent={{100,48},{112,60}})));
-    Modelica.Blocks.Interfaces.RealOutput p_S(final unit="bar") "steam pressure"
+    Modelica.Blocks.Interfaces.RealOutput p_S(final unit="bar") "Steam pressure"
       annotation (Placement(transformation(extent={{100,22},{112,34}})));
-    Modelica.Blocks.Interfaces.RealOutput qm_S(unit="kg/s") "steam flow rate"
+    Modelica.Blocks.Interfaces.RealOutput qm_S(unit="kg/s") "Steam flow rate"
       annotation (Placement(transformation(extent={{100,-2},{112,10}})));
-    Modelica.Blocks.Interfaces.RealOutput V_l(unit="m3") "liquid volume inside drum"
+    Modelica.Blocks.Interfaces.RealOutput V_l(unit="m3") "Liquid volume inside drum"
       annotation (Placement(transformation(extent={{100,74},{112,86}})));
   public
     Modelica.Blocks.Math.Gain MW2W(k=1e6)
@@ -81,7 +81,7 @@ package DrumBoiler
           origin={-78,30},
           extent={{-7,7},{7,-7}},
           rotation=180)));
-    Modelica.Fluid.Valves.ValveLinear SteamValve(                  redeclare
+    Modelica.Fluid.Valves.ValveLinear SteamValve(redeclare
         package Medium =
           Modelica.Media.Water.StandardWater,
       dp_nominal=9000000,
@@ -95,9 +95,9 @@ package DrumBoiler
     Modelica.Blocks.Sources.TimeTable Y_Valve_Tab(table=[0,0; 900,1; 7210,1]) if not use_inputs
                annotation (Placement(transformation(extent={{30,-80},{50,-60}})));
     Blocks.Interfaces.RealInput q_F(unit="MW") if
-                                       use_inputs "fuel flow rate"
+                                       use_inputs "Fuel flow rate"
       annotation (Placement(transformation(extent={{-112,-56},{-100,-44}})));
-    Blocks.Interfaces.RealInput Y_Valve if use_inputs "valve opening"
+    Blocks.Interfaces.RealInput Y_Valve if use_inputs "Valve opening"
       annotation (Placement(transformation(extent={{-112,-96},{-100,-84}})));
   equation
     connect(furnace.port, evaporator.heatPort)
@@ -181,10 +181,10 @@ package DrumBoiler
       import Modelica.Constants;
       import Modelica.Fluid.Types;
 
-      parameter SI.Mass m_D "mass of surrounding drum metal";
+      parameter SI.Mass m_D "Mass of surrounding drum metal";
       parameter Medium.SpecificHeatCapacity cp_D
-        "specific heat capacity of drum metal";
-      parameter SI.Volume V_t "total volume inside drum";
+        "Specific heat capacity of drum metal";
+      parameter SI.Volume V_t "Total volume inside drum";
       parameter Medium.AbsolutePressure p_start=system.p_start
         "Start value of pressure"
       annotation(Dialog(tab = "Initialization"));
@@ -194,7 +194,7 @@ package DrumBoiler
 
       // Assumptions
       parameter Boolean allowFlowReversal = system.allowFlowReversal
-        "allow flow reversal, false restricts to design direction (port_a -> port_b)"
+        "= true, if flow reversal is enabled, otherwise restrict flow to design direction (port_a -> port_b)"
         annotation(Dialog(tab="Assumptions"), Evaluate=true);
       parameter Types.Dynamics energyDynamics=system.energyDynamics
         "Formulation of energy balance"
@@ -205,7 +205,7 @@ package DrumBoiler
 
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-      Modelica.Blocks.Interfaces.RealOutput V(unit="m3") "liquid volume"
+      Modelica.Blocks.Interfaces.RealOutput V(unit="m3") "Liquid volume"
       annotation (Placement(transformation(
             origin={40,110},
             extent={{-10,-10},{10,10}},
@@ -214,27 +214,27 @@ package DrumBoiler
       Medium.SaturationProperties sat
         "State vector to compute saturation properties";
       Medium.AbsolutePressure p(start=p_start, stateSelect=StateSelect.prefer)
-        "pressure inside drum boiler";
-      Medium.Temperature T "temperature inside drum boiler";
-      SI.Volume V_v "volume of vapour phase";
+        "Pressure inside drum boiler";
+      Medium.Temperature T "Temperature inside drum boiler";
+      SI.Volume V_v "Volume of vapour phase";
       SI.Volume V_l(start=V_l_start, stateSelect=StateSelect.prefer)
-        "volumes of liquid phase";
+        "Volumes of liquid phase";
       Medium.SpecificEnthalpy h_v=Medium.dewEnthalpy(sat)
-        "specific enthalpy of vapour";
+        "Specific enthalpy of vapour";
       Medium.SpecificEnthalpy h_l=Medium.bubbleEnthalpy(sat)
-        "specific enthalpy of liquid";
-      Medium.Density rho_v=Medium.dewDensity(sat) "density in vapour phase";
-      Medium.Density rho_l=Medium.bubbleDensity(sat) "density in liquid phase";
-      SI.Mass m "total mass of drum boiler";
-      SI.Energy U "internal energy";
-      Medium.Temperature T_D=heatPort.T "temperature of drum";
-      SI.HeatFlowRate q_F=heatPort.Q_flow "heat flow rate from furnace";
+        "Specific enthalpy of liquid";
+      Medium.Density rho_v=Medium.dewDensity(sat) "Density in vapour phase";
+      Medium.Density rho_l=Medium.bubbleDensity(sat) "Density in liquid phase";
+      SI.Mass m "Total mass of drum boiler";
+      SI.Energy U "Internal energy";
+      Medium.Temperature T_D=heatPort.T "Temperature of drum";
+      SI.HeatFlowRate q_F=heatPort.Q_flow "Heat flow rate from furnace";
       Medium.SpecificEnthalpy h_W=inStream(port_a.h_outflow)
         "Feed water enthalpy (specific enthalpy close to feedwater port when mass flows in to the boiler)";
       Medium.SpecificEnthalpy h_S=inStream(port_b.h_outflow)
-        "steam enthalpy (specific enthalpy close to steam port when mass flows in to the boiler)";
-      SI.MassFlowRate qm_W=port_a.m_flow "feed water mass flow rate";
-      SI.MassFlowRate qm_S=port_b.m_flow "steam mass flow rate";
+        "Steam enthalpy (specific enthalpy close to steam port when mass flows in to the boiler)";
+      SI.MassFlowRate qm_W=port_a.m_flow "Feed water mass flow rate";
+      SI.MassFlowRate qm_S=port_b.m_flow "Steam mass flow rate";
     /*outer Modelica.Fluid.Components.FluidOptions fluidOptions
     "Global default options";*/
     equation

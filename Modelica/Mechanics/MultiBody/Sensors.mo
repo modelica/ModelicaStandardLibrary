@@ -253,27 +253,43 @@ package Sensors "Sensors to measure variables"
               -100},{100,100}}), graphics={
           Line(
             visible=get_r,
-            points={{-84,0},{-84,-60},{-100,-60},{-100,-100}},
+            points={{-68,-20},{-100,-40},{-100,-100}},
+            color={0,0,127}),
+          Line(
+            visible=get_v,
+            points={{-60,-36},{-60,-68}},
+            color={0,0,127}),
+          Line(
+            visible=get_v,
+            points={{-60,-94},{-60,-100}},
             color={0,0,127}),
           Line(
             visible=get_a,
             points={{-20,-67},{-20,-100}},
             color={0,0,127}),
           Line(
-            visible=get_w,
-            points={{60,-36},{60,-100}},
-            color={0,0,127}),
-          Line(
-            visible=get_z,
-            points={{86,0},{86,-60},{100,-60},{100,-100}},
-            color={0,0,127}),
-          Line(
-            visible=get_v,
-            points={{-60,-36},{-60,-100}},
+            visible=get_angles,
+            points={{20,-67},{20,-72}},
             color={0,0,127}),
           Line(
             visible=get_angles,
-            points={{20,-67},{20,-100}},
+            points={{20,-94},{20,-100}},
+            color={0,0,127}),
+          Line(
+            visible=get_w,
+            points={{60,-36},{60,-48}},
+            color={0,0,127}),
+          Line(
+            visible=get_w,
+            points={{60,-76},{60,-100}},
+            color={0,0,127}),
+          Line(
+            visible=get_z,
+            points={{68,-20},{100,-40},{100,-68}},
+            color={0,0,127}),
+          Line(
+            visible=get_z,
+            points={{100,-94},{100,-100}},
             color={0,0,127}),
           Line(
             points={{95,0},{95,0},{70,0}},
@@ -284,28 +300,34 @@ package Sensors "Sensors to measure variables"
             textColor={0,0,255}),
           Text(
             visible=get_r,
-            extent={{-130,-74},{-95,-90}},
-            textString="r"),
+            extent={{-140,-72},{-100,-92}},
+            textColor={64,64,64},
+            textString="m"),
           Text(
             visible=get_v,
-            extent={{-95,-74},{-60,-90}},
-            textString="v"),
+            extent={{-90,-72},{-40,-92}},
+            textColor={64,64,64},
+            textString="m/s"),
           Text(
             visible=get_a,
-            extent={{-55,-74},{-20,-90}},
-            textString="a"),
+            extent={{-50,-36},{20,-56}},
+            textColor={64,64,64},
+            textString="m/s2"),
           Text(
             visible=get_angles,
-            extent={{-71,-35},{96,-54}},
-            textString="angles"),
+            extent={{-6,-72},{54,-92}},
+            textColor={64,64,64},
+            textString="rad"),
           Text(
             visible=get_w,
-            extent={{59,-68},{105,-85}},
-            textString="w"),
+            extent={{34,-50},{104,-70}},
+            textColor={64,64,64},
+            textString="rad/s"),
           Text(
             visible=get_z,
-            extent={{107,-68},{153,-84}},
-            textString="z"),
+            extent={{70,-72},{160,-92}},
+            textColor={64,64,64},
+            textString="rad/s2"),
           Text(
             extent={{60,52},{191,27}},
             textColor={95,95,95},
@@ -334,7 +356,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 a vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vectors in world frame</td></tr>
@@ -371,10 +393,10 @@ them in to the frame defined by <strong>resolveInFrame</strong>.
 <p>
 For example, if resolveInFrame = <strong>Types.ResolveInFrameA.frame_a</strong>, then
 </p>
-<pre>
-   v0 = <strong>der</strong>(frame_a.r0);
-   v  = resolve2(frame_a.R, v0);
-</pre>
+<blockquote><pre>
+v0 = <strong>der</strong>(frame_a.r0);
+v  = resolve2(frame_a.R, v0);
+</pre></blockquote>
 <p>
 is returned, i.e., the derivative of the absolute distance from the
 world frame to the origin of frame_a, resolved in frame_a.
@@ -394,9 +416,9 @@ around angles[2] along the x-axis, and finally it is rotated around
 angles[3] along the y-axis and is then identical to frame_a.
 The 3 angles are returned in the range
 </p>
-<pre>
-    -<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
-</pre>
+<blockquote><pre>
+-&pi; &lt;= angles[i] &lt;= &pi;
+</pre></blockquote>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.
 Via parameter <strong>guessAngle1</strong> (default = 0) the
@@ -413,11 +435,11 @@ The parameter <strong>sequence</strong> has the restriction that
 only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
 and sequence[2] &ne; sequence[3]. Often used values are:
 </p>
-<pre>
-  sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
-           = <strong>{3,1,3}</strong>  // Euler angle sequence
-           = <strong>{3,2,1}</strong>
-</pre>
+<blockquote><pre>
+sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
+         = <strong>{3,1,3}</strong>  // Euler angle sequence
+         = <strong>{3,2,1}</strong>
+</pre></blockquote>
 </html>"));
   end AbsoluteSensor;
 
@@ -693,27 +715,43 @@ and sequence[2] &ne; sequence[3]. Often used values are:
             extent={{-100,-100},{100,100}}), graphics={
           Line(
             visible=get_r_rel,
-            points={{-84,0},{-84,-60},{-100,-60},{-100,-100}},
+            points={{-68,-20},{-100,-40},{-100,-100}},
+            color={0,0,127}),
+          Line(
+            visible=get_w_rel,
+            points={{60,-36},{60,-46}},
+            color={0,0,127}),
+          Line(
+            visible=get_w_rel,
+            points={{60,-76},{60,-100}},
             color={0,0,127}),
           Line(
             visible=get_a_rel,
             points={{-20,-67},{-20,-100}},
             color={0,0,127}),
           Line(
-            visible=get_w_rel,
-            points={{60,-36},{60,-100}},
-            color={0,0,127}),
-          Line(
-            visible=get_z_rel,
-            points={{86,0},{86,-60},{100,-60},{100,-100}},
-            color={0,0,127}),
-          Line(
-            visible=get_v_rel,
-            points={{-60,-36},{-60,-100}},
+            visible=get_angles,
+            points={{20,-67},{20,-72}},
             color={0,0,127}),
           Line(
             visible=get_angles,
-            points={{20,-67},{20,-100}},
+            points={{20,-94},{20,-100}},
+            color={0,0,127}),
+          Line(
+            visible=get_v_rel,
+            points={{-60,-36},{-60,-68}},
+            color={0,0,127}),
+          Line(
+            visible=get_v_rel,
+            points={{-60,-94},{-60,-100}},
+            color={0,0,127}),
+          Line(
+            visible=get_z_rel,
+            points={{68,-20},{100,-40},{100,-68}},
+            color={0,0,127}),
+          Line(
+            visible=get_z_rel,
+            points={{100,-94},{100,-100}},
             color={0,0,127}),
           Text(
             extent={{-132,90},{129,138}},
@@ -721,28 +759,34 @@ and sequence[2] &ne; sequence[3]. Often used values are:
             textColor={0,0,255}),
           Text(
             visible=get_r_rel,
-            extent={{-130,-74},{-95,-90}},
-            textString="r"),
+            extent={{-140,-72},{-100,-92}},
+            textColor={64,64,64},
+            textString="m"),
           Text(
             visible=get_v_rel,
-            extent={{-95,-74},{-60,-90}},
-            textString="v"),
+            extent={{-90,-72},{-40,-92}},
+            textColor={64,64,64},
+            textString="m/s"),
           Text(
             visible=get_a_rel,
-            extent={{-55,-74},{-20,-90}},
-            textString="a"),
+            extent={{-50,-36},{20,-56}},
+            textColor={64,64,64},
+            textString="m/s2"),
           Text(
             visible=get_angles,
-            extent={{-71,-35},{96,-54}},
-            textString="angles"),
+            extent={{-6,-72},{54,-92}},
+            textColor={64,64,64},
+            textString="rad"),
           Text(
             visible=get_w_rel,
-            extent={{63,-73},{103,-90}},
-            textString="w"),
+            extent={{34,-50},{104,-70}},
+            textColor={64,64,64},
+            textString="rad/s"),
           Text(
             visible=get_z_rel,
-            extent={{103,-71},{149,-87}},
-            textString="z")}),
+            extent={{70,-72},{160,-92}},
+            textColor={64,64,64},
+            textString="rad/s2")}),
       Documentation(info="<html>
 <p>
 Relative kinematic quantities between frame_a and frame_b are
@@ -767,7 +811,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 a vector is resolved (before differentiation):
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vectors in world frame</td></tr>
@@ -813,10 +857,10 @@ vector in another frame.
 For example, if resolveInFrame = <strong>Types.ResolveInFrameAB.frame_b</strong>, then
 </p>
 
-<pre>
-   r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0);
-   v_rel = <strong>der</strong>(r_rel);
-</pre>
+<blockquote><pre>
+r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0);
+v_rel = <strong>der</strong>(r_rel);
+</pre></blockquote>
 
 <p>
 is returned (r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0)), i.e.,
@@ -826,9 +870,9 @@ resolved in frame_b. If
 v_rel is additionally transformed to:
 </p>
 
-<pre>
-   v_rel = resolve1(frame_b.R, <strong>der</strong>(r_rel))
-</pre>
+<blockquote><pre>
+v_rel = resolve1(frame_b.R, <strong>der</strong>(r_rel))
+</pre></blockquote>
 
 <p>
 The cut-force and the cut-torque in frame_resolve are
@@ -844,9 +888,9 @@ around angles[2] along the x-axis, and finally it is rotated around
 angles[3] along the y-axis and is then identical to frame_b.
 The 3 angles are returned in the range
 </p>
-<pre>
-    -<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
-</pre>
+<blockquote><pre>
+-&pi; &lt;= angles[i] &lt;= &pi;
+</pre></blockquote>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.
 Via parameter <strong>guessAngle1</strong> (default = 0) the
@@ -863,11 +907,11 @@ The parameter <strong>sequence</strong> has the restriction that
 only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
 and sequence[2] &ne; sequence[3]. Often used values are:
 </p>
-<pre>
-  sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
-           = <strong>{3,1,3}</strong>  // Euler angle sequence
-           = <strong>{3,2,1}</strong>
-</pre>
+<blockquote><pre>
+sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
+         = <strong>{3,1,3}</strong>  // Euler angle sequence
+         = <strong>{3,2,1}</strong>
+</pre></blockquote>
 </html>"));
   end RelativeSensor;
 
@@ -922,20 +966,21 @@ and sequence[2] &ne; sequence[3]. Often used values are:
           Line(
             points={{70,0},{100,0}},
             color={0,0,127}),
+          Line(
+            points={{0,-96},{0,-96},{0,-70},{0,-70}},
+            pattern=LinePattern.Dot),
           Text(
             extent={{-127,95},{134,143}},
             textString="%name",
             textColor={0,0,255}),
           Text(
-            extent={{62,46},{146,16}},
-            textString="r"),
+            extent={{-50,-14},{50,-54}},
+            textColor={64,64,64},
+            textString="m"),
           Text(
-            extent={{15,-67},{146,-92}},
+            extent={{0,-67},{130,-92}},
             textColor={95,95,95},
-            textString="resolve"),
-          Line(
-            points={{0,-96},{0,-96},{0,-70},{0,-70}},
-            pattern=LinePattern.Dot)}),
+            textString="resolve")}),
       Documentation(info="<html>
 <p>
 The absolute position vector of the origin of frame_a is
@@ -947,7 +992,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the position vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -1051,21 +1096,22 @@ r = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0);
           Line(
             points={{70,0},{100,0}},
             color={0,0,127}),
+          Line(
+            points={{0,-70},{0,-95}},
+            color={95,95,95},
+            pattern=LinePattern.Dot),
           Text(
             extent={{-130,72},{131,120}},
             textString="%name",
             textColor={0,0,255}),
           Text(
-            extent={{58,48},{142,18}},
-            textString="v"),
+            extent={{-50,-14},{50,-54}},
+            textColor={64,64,64},
+            textString="m/s"),
           Text(
-            extent={{15,-67},{146,-92}},
+            extent={{0,-67},{130,-92}},
             textColor={95,95,95},
-            textString="resolve"),
-          Line(
-            points={{0,-70},{0,-95}},
-            color={95,95,95},
-            pattern=LinePattern.Dot)}),
+            textString="resolve")}),
       Documentation(info="<html>
 <p>
 The absolute velocity vector of the origin of frame_a is
@@ -1077,7 +1123,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the velocity vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -1146,8 +1192,10 @@ v  = MultiBody.Frames.resolve2(frame_a.R, v0);
             points={{70,0},{100,0}},
             color={0,0,127}),
           Text(
-            extent={{62,-22},{172,-44}},
-            textString="angles")}), Documentation(info="<html>
+            extent={{-50,-14},{50,-54}},
+            textColor={64,64,64},
+            textString="rad")}),
+      Documentation(info="<html>
 <p>
 This model determines the 3 angles to rotate the world frame
 into frame_a along the axes defined by parameter <strong>sequence</strong>.
@@ -1157,9 +1205,9 @@ around angles[2] along the x-axis, and finally it is rotated around
 angles[3] along the y-axis and is then identical to frame_a.
 The 3 angles are returned in the range
 </p>
-<pre>
-    -<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
-</pre>
+<blockquote><pre>
+-&pi; &lt;= angles[i] &lt;= &pi;
+</pre></blockquote>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.
 Via parameter <strong>guessAngle1</strong> (default = 0) the
@@ -1176,11 +1224,11 @@ The parameter <strong>sequence</strong> has the restriction that
 only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
 and sequence[2] &ne; sequence[3]. Often used values are:
 </p>
-<pre>
-  sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
-           = <strong>{3,1,3}</strong>  // Euler angle sequence
-           = <strong>{3,2,1}</strong>
-</pre>
+<blockquote><pre>
+sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
+         = <strong>{3,1,3}</strong>  // Euler angle sequence
+         = <strong>{3,2,1}</strong>
+</pre></blockquote>
 </html>"));
   end AbsoluteAngles;
 
@@ -1236,19 +1284,20 @@ and sequence[2] &ne; sequence[3]. Often used values are:
           Line(
             points={{70,0},{100,0}},
             color={0,0,127}),
-          Text(
-            extent={{-127,77},{134,125}},
-            textString="%name",
-            textColor={0,0,255}),
-          Text(
-            extent={{66,48},{150,18}},
-            textString="w"),
           Line(
             points={{0,-70},{0,-96}},
             color={95,95,95},
             pattern=LinePattern.Dot),
           Text(
-            extent={{15,-67},{146,-92}},
+            extent={{-127,77},{134,125}},
+            textString="%name",
+            textColor={0,0,255}),
+          Text(
+            extent={{-50,-14},{50,-54}},
+            textColor={64,64,64},
+            textString="rad/s"),
+          Text(
+            extent={{0,-67},{130,-92}},
             textColor={95,95,95},
             textString="resolve")}),
       Documentation(info="<html>
@@ -1263,7 +1312,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the angular velocity is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -1351,8 +1400,9 @@ w = MultiBody.Frames.angularVelocity2(frame_a.R);
             textString="%name",
             textColor={0,0,255}),
           Text(
-            extent={{18,-80},{102,-110}},
-            textString="r_rel")}),
+            extent={{-50,-14},{50,-54}},
+            textColor={64,64,64},
+            textString="m")}),
       Documentation(info="<html>
 <p>
 The relative position vector between the origins of frame_a and frame_b are
@@ -1364,7 +1414,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the position vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -1475,8 +1525,9 @@ r_rel = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
             textString="%name",
             textColor={0,0,255}),
           Text(
-            extent={{18,-80},{102,-110}},
-            textString="v_rel")}),
+            extent={{-50,-14},{50,-54}},
+            textColor={64,64,64},
+            textString="m/s")}),
       Documentation(info="<html>
 <p>
 The relative velocity vector between the origins of frame_a and of frame_b are
@@ -1494,7 +1545,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the velocity vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -1579,8 +1630,9 @@ v_rel   = MultiBody.Frames.resolveRelative(frame_a.R, frame_b.R, v_rel_a);
             textString="%name",
             textColor={0,0,255}),
           Text(
-            extent={{0,-76},{110,-98}},
-            textString="angles"),
+            extent={{-50,-14},{50,-54}},
+            textColor={64,64,64},
+            textString="rad"),
           Text(
             extent={{-108,43},{-72,18}},
             textColor={128,128,128},
@@ -1588,7 +1640,8 @@ v_rel   = MultiBody.Frames.resolveRelative(frame_a.R, frame_b.R, v_rel_a);
           Text(
             extent={{72,43},{108,18}},
             textColor={128,128,128},
-            textString="b")}),      Documentation(info="<html>
+            textString="b")}),
+      Documentation(info="<html>
 <p>
 This model determines the 3 angles to rotate frame_a
 into frame_b along the axes defined by parameter <strong>sequence</strong>.
@@ -1598,9 +1651,9 @@ around angles[2] along the x-axis, and finally it is rotated around
 angles[3] along the y-axis and is then identical to frame_b.
 The 3 angles are returned in the range
 </p>
-<pre>
-    -<font face=\"Symbol\">p</font> &lt;= angles[i] &lt;= <font face=\"Symbol\">p</font>
-</pre>
+<blockquote><pre>
+-&pi; &lt;= angles[i] &lt;= &pi;
+</pre></blockquote>
 <p>
 There are <strong>two solutions</strong> for \"angles[1]\" in this range.
 Via parameter <strong>guessAngle1</strong> (default = 0) the
@@ -1617,11 +1670,11 @@ The parameter <strong>sequence</strong> has the restriction that
 only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
 and sequence[2] &ne; sequence[3]. Often used values are:
 </p>
-<pre>
-  sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
-           = <strong>{3,1,3}</strong>  // Euler angle sequence
-           = <strong>{3,2,1}</strong>
-</pre>
+<blockquote><pre>
+sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
+         = <strong>{3,1,3}</strong>  // Euler angle sequence
+         = <strong>{3,2,1}</strong>
+</pre></blockquote>
 </html>"));
   end RelativeAngles;
 
@@ -1684,8 +1737,9 @@ and sequence[2] &ne; sequence[3]. Often used values are:
             textString="%name",
             textColor={0,0,255}),
           Text(
-            extent={{14,-78},{98,-108}},
-            textString="w_rel")}),
+            extent={{-50,-14},{50,-54}},
+            textColor={64,64,64},
+            textString="rad/s")}),
       Documentation(info="<html>
 <p>
 The relative angular velocity between frame_a and frame_b is
@@ -1697,7 +1751,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the angular velocity is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -1783,13 +1837,17 @@ w_rel = MultiBody.Frames.angularVelocity1(R_rel);
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{0,-60},{0,-100}}, color={0,0,255}),
+          Line(points={{0,-60},{0,-100}}, color={0,0,127}),
           Line(points={{-70,0},{-101,0}}),
           Line(points={{70,0},{100,0}}),
           Text(
             extent={{-128,30},{133,78}},
             textString="%name",
-            textColor={0,0,255})}),
+            textColor={0,0,255}),
+          Text(
+            extent={{-30,10},{70,-30}},
+            textColor={64,64,64},
+            textString="m")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Line(points={{-70,0},{-101,0}}),
@@ -1904,11 +1962,13 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
         color={95,95,95},
         pattern=LinePattern.Dot));
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={Text(
-            extent={{-190,-70},{-74,-96}},
-            textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,
-                127})}),
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+        graphics={
+          Line(points={{-80,-100},{-80,0}}, color={0,0,127}),
+          Text(
+            extent={{-50,-14},{50,-54}},
+            textColor={64,64,64},
+            textString="N")}),
       Documentation(info="<html>
 <p>
 The cut-force acting between the two frames to which this
@@ -1922,7 +1982,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the force vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -2011,11 +2071,13 @@ with negative sign at frame_a.
         color={95,95,95},
         pattern=LinePattern.Dot));
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
-              100}}), graphics={Text(
-            extent={{-180,-72},{-64,-98}},
-            textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,0,
-                127})}),
+      Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
+        graphics={
+          Line(points={{-80,-100},{-80,0}}, color={0,0,127}),
+          Text(
+            extent={{-50,-14},{50,-54}},
+            textColor={64,64,64},
+            textString="N.m")}),
       Documentation(info="<html>
 <p>
 The cut-torque acting between the two frames to which this
@@ -2029,7 +2091,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the torque vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -2160,11 +2222,13 @@ with negative sign at frame_a.
           Line(points={{-80,-100},{-80,0}}, color={0,0,127}),
           Line(points={{0,-100},{0,-70}}, color={0,0,127}),
           Text(
-            extent={{-188,-70},{-72,-96}},
-            textString="force"),
+            extent={{-60,-60},{0,-100}},
+            textColor={64,64,64},
+            textString="N.m"),
           Text(
-            extent={{-56,-70},{60,-96}},
-            textString="torque")}),
+            extent={{-120,-60},{-80,-100}},
+            textColor={64,64,64},
+            textString="N")}),
       Documentation(info="<html>
 <p>
 The cut-force and cut-torque acting between the two frames to which this
@@ -2179,7 +2243,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the two vectors are resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -2238,12 +2302,13 @@ with negative sign at frame_a.
           Line(points={{70,0},{100,0}}),
           Line(points={{-80,0},{-80,-100}}, color={0,0,127}),
           Text(
-            extent={{-60,-92},{16,-114}},
-            textString="power"),
-          Text(
             extent={{-128,126},{126,68}},
             textString="%name",
-            textColor={0,0,255})}),
+            textColor={0,0,255}),
+          Text(
+            extent={{-50,-14},{50,-54}},
+            textColor={64,64,64},
+            textString="W")}),
       Documentation(info="<html>
 <p>
 This component provides the power flowing from frame_a to frame_b
@@ -2589,7 +2654,7 @@ This partial class can be used for sensors defined either by components or by eq
               textColor={128,128,128},
               textString="a"),
             Text(
-              extent={{72,41},{108,16}},
+              extent={{72,43},{108,18}},
               textColor={128,128,128},
               textString="b"),
             Line(
@@ -2636,12 +2701,17 @@ The connector frame_resolve is always enabled and must be connected exactly once
         r = zeros(3);
       end if;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-              extent={{61,47},{145,17}},
-              textString="r"), Text(
+                -100},{100,100}}),
+          graphics={
+            Text(
               extent={{-127,75},{134,123}},
               textString="%name",
-              textColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255}),
+            Text(
+              extent={{-50,-14},{50,-54}},
+              textColor={64,64,64},
+              textString="m")}),
+        Documentation(info="<html>
 <p>
 This basic sensor is aimed to be used within advanced sensors where
 the absolute position vector of the origin of frame_a should be determined.
@@ -2653,7 +2723,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined in which frame
 the position vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -2711,13 +2781,18 @@ r = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0);
           assert(false, "Wrong value for parameter resolveInFrame");
           w = zeros(3);
        end if;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-              extent={{62,48},{146,18}},
-              textString="w"), Text(
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+          graphics={
+            Text(
               extent={{-130,76},{131,124}},
               textString="%name",
-              textColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255}),
+            Text(
+              extent={{-50,-14},{50,-54}},
+              textColor={64,64,64},
+              textString="rad/s")}),
+        Documentation(info="<html>
 <p>
 This basic sensor is aimed to be used within advanced sensors where
 the absolute angular velocity of frame_a should be determined.
@@ -2729,7 +2804,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the angular velocity is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -2791,13 +2866,18 @@ w = MultiBody.Frames.angularVelocity2(frame_a.R);
           assert(false, "Wrong value for parameter resolveInFrame");
           r_rel = zeros(3);
        end if;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-              extent={{12,-76},{96,-106}},
-              textString="r_rel"), Text(
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+          graphics={
+            Text(
               extent={{-127,95},{134,143}},
               textString="%name",
-              textColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255}),
+            Text(
+              extent={{-50,-14},{50,-54}},
+              textColor={64,64,64},
+              textString="m")}),
+        Documentation(info="<html>
 <p>
 This basic sensor is aimed to be used within advanced sensors where
 the relative position vector between the origins of frame_a and frame_b should be determined.
@@ -2809,7 +2889,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined in which frame
 the position vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -2877,13 +2957,18 @@ r_rel = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
           assert(false, "Wrong value for parameter resolveInFrame");
           w_rel = zeros(3);
        end if;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-              extent={{12,-76},{96,-106}},
-              textString="w_rel"), Text(
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+          graphics={
+            Text(
               extent={{-132,90},{129,138}},
               textString="%name",
-              textColor={0,0,255})}), Documentation(info="<html>
+              textColor={0,0,255}),
+            Text(
+              extent={{-50,-14},{50,-54}},
+              textColor={64,64,64},
+              textString="rad/s")}),
+        Documentation(info="<html>
 <p>
 This basic sensor is aimed to be used within advanced sensors where
 the relative angular velocity between frame_a and frame_b should be determined.
@@ -2895,7 +2980,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the angular velocity is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -3045,7 +3130,7 @@ Via parameters <strong>frame_r_in</strong> and <strong>frame_r_out</strong> it i
 defined in which frame the position vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -3139,7 +3224,7 @@ Via parameters <strong>frame_r_in</strong> and <strong>frame_r_out</strong> it i
 defined in which frame the position vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -3330,11 +3415,13 @@ with the blocks of package Modelica.Blocks.
         force = zeros(3);
       end if;
       annotation (
-         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Text(
-              extent={{-190,-70},{-74,-96}},
-              textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,
-                  127})}),
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+          graphics={
+            Line(points={{-80,-100},{-80,0}}, color={0,0,127}),
+            Text(
+              extent={{-50,-14},{50,-54}},
+              textColor={64,64,64},
+              textString="N")}),
         Documentation(info="<html>
 <p>
 This basic sensor is aimed to be used within advanced sensors where
@@ -3349,7 +3436,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined in which frame
 the force vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -3413,11 +3500,14 @@ with negative sign at frame_a.
           torque = zeros(3);
        end if;
       annotation (
-         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Text(
-              extent={{-190,-70},{-74,-96}},
-              textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,
-                  0,127})}), Documentation(info="<html>
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+          graphics={
+            Line(points={{-80,-100},{-80,0}}, color={0,0,127}),
+            Text(
+              extent={{-50,-14},{50,-54}},
+              textColor={64,64,64},
+              textString="N.m")}),
+        Documentation(info="<html>
 <p>
 This basic sensor is aimed to be used within advanced sensors where
 the cut-torque acting between the two frames is determined to which this
@@ -3431,7 +3521,7 @@ Via parameter <strong>resolveInFrame</strong> it is defined in which frame
 the torque vector is resolved:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>

@@ -502,16 +502,8 @@ generated signal.
           transformation(extent={{100,-10},{120,10}})));
     annotation (Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={Text(
-              extent={{-102,34},{-142,24}},
-              textString="(setpoint)",
-              textColor={0,0,255}),Text(
-              extent={{100,24},{140,14}},
-              textString="(actuator)",
-              textColor={0,0,255}),Text(
-              extent={{-83,-112},{-33,-102}},
-              textString=" (measurement)",
-              textColor={0,0,255})}), Documentation(info="<html>
+          extent={{-100,-100},{100,100}})),
+                                      Documentation(info="<html>
 <p>
 Block has two continuous Real input signals and one
 continuous Real output signal. The block is designed
@@ -537,16 +529,8 @@ to be used as base class for a corresponding controller.
         Placement(transformation(extent={{100,-10},{120,10}})));
     annotation (Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={Text(
-              extent={{-100,36},{-140,26}},
-              textString="(setpoint)",
-              textColor={0,0,255}),Text(
-              extent={{102,24},{142,14}},
-              textString="(actuator)",
-              textColor={0,0,255}),Text(
-              extent={{-75,-108},{-25,-98}},
-              textString=" (measurement)",
-              textColor={0,0,255})}), Documentation(info="<html>
+          extent={{-100,-100},{100,100}})),
+                                      Documentation(info="<html>
 <p>
 Block has two continuous Real input signal vectors and one
 continuous Real output signal vector. The block is designed
@@ -678,13 +662,7 @@ See the base-class <a href=\"modelica://Modelica.Blocks.Interfaces.DiscreteBlock
     connect(u_m, sampler_m.u)
       annotation (Line(points={{0,-120},{0,-111},{0,-102}}));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={Text(
-              extent={{-100,34},{-140,24}},
-              textString="(setpoint)"),Text(
-              extent={{100,22},{130,14}},
-              textString="(actuator)"),Text(
-              extent={{-70,-112},{-20,-102}},
-              textString=" (measurement)")}), Documentation(info="<html>
+              -100},{100,100}})),             Documentation(info="<html>
 <p>
 Block has two Real input signals and one
 Real output signal
@@ -729,13 +707,7 @@ See the base-class <a href=\"modelica://Modelica.Blocks.Interfaces.DiscreteBlock
               -100},{100,100}}), graphics={Text(
               extent={{-100,-10},{-80,-30}},
               textString="u_s",
-              textColor={0,0,255}),Text(
-              extent={{-98,34},{-138,24}},
-              textString="(setpoint)"),Text(
-              extent={{98,24},{138,14}},
-              textString="(actuator)"),Text(
-              extent={{-62,-110},{-12,-100}},
-              textString=" (measurement)")}), Documentation(info="<html>
+              textColor={0,0,255})}),         Documentation(info="<html>
 <p>
 Block has two Real input signal vectors and one
 Real output signal vector. The vector signals
@@ -1150,21 +1122,7 @@ with a 3D icon (e.g., used in Blocks.Logical library).
             fillColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Polygon(
-              points={{-70,92},{-76,70},{-64,70},{-70,92}},
-              lineColor={95,95,95},
-              fillColor={95,95,95},
-              fillPattern=FillPattern.Solid),Line(points={{-70,70},{-70,-88}},
-            color={95,95,95}),Line(points={{-90,-70},{68,-70}}, color={95,95,95}),
-            Polygon(
-              points={{90,-70},{68,-64},{68,-76},{90,-70}},
-              lineColor={95,95,95},
-              fillColor={95,95,95},
-              fillPattern=FillPattern.Solid),Text(
-              extent={{54,-80},{106,-92}},
-              textString="time"),Text(
-              extent={{-64,92},{-46,74}},
-              textString="y")}),
+              100,100}})),
       Documentation(info="<html>
 <p>
 Basic block for Boolean sources of package Blocks.Sources.
@@ -1347,7 +1305,7 @@ converts from one unit into another one.
 
   partial block PartialNoise "Partial noise generator"
     import generator = Modelica.Math.Random.Generators.Xorshift128plus;
-    import Modelica.Math.Random.Utilities.impureRandomInteger;
+    import Modelica.Math.Random.Utilities.automaticLocalSeed;
     extends Modelica.Blocks.Interfaces.SO;
 
     // Main dialog menu
@@ -1382,7 +1340,7 @@ converts from one unit into another one.
     parameter Integer actualGlobalSeed = if useGlobalSeed then globalSeed.seed else 0
       "The global seed, which is actually used";
     parameter Boolean generateNoise = enableNoise and globalSeed.enableNoise
-      "= true if noise shall be generated, otherwise no noise";
+      "= true, if noise shall be generated, otherwise no noise";
 
     // Declare state and random number variables
     Integer state[generator.nState] "Internal state of random number generator";
@@ -1390,7 +1348,7 @@ converts from one unit into another one.
     discrete Real r_raw "Uniform random number in the range (0,1]";
 
   initial equation
-     localSeed = if useAutomaticLocalSeed then impureRandomInteger(globalSeed.id_impure) else fixedLocalSeed;
+     localSeed = if useAutomaticLocalSeed then automaticLocalSeed(getInstanceName()) else fixedLocalSeed;
      pre(state) = generator.initialState(localSeed, actualGlobalSeed);
      r_raw = generator.random(pre(state));
 
@@ -1442,13 +1400,13 @@ Partial base class of noise generators defining the common features
 of noise blocks.
 </p>
 </html>",   revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">

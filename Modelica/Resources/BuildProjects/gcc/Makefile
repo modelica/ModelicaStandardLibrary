@@ -7,6 +7,12 @@ INC = -I"../../C-Sources/zlib"
 
 TARGETDIR = linux64
 
+EXTC_OBJS = \
+	ModelicaFFT.o \
+	ModelicaInternal.o \
+	ModelicaRandom.o \
+	ModelicaStrings.o
+
 TABLES_OBJS = \
 	ModelicaStandardTables.o \
 	ModelicaStandardTablesUsertab.o
@@ -35,9 +41,14 @@ ZLIB_OBJS = \
 	uncompr.o \
 	zutil.o
 
-ALL_OBJS = $(TABLES_OBJS) $(MATIO_OBJS) $(IO_OBJS) $(ZLIB_OBJS)
+ALL_OBJS = $(EXTC_OBJS) $(TABLES_OBJS) $(MATIO_OBJS) $(IO_OBJS) $(ZLIB_OBJS)
 
-all: clean libModelicaStandardTables.a libModelicaIO.a libModelicaMatIO.a libzlib.a
+all: clean
+	$(MAKE) libModelicaExternalC.a libModelicaStandardTables.a libModelicaIO.a libModelicaMatIO.a libzlib.a
+
+libModelicaExternalC.a: $(EXTC_OBJS)
+	$(AR) $@ $(EXTC_OBJS)
+	cp $@ ../../Library/$(TARGETDIR)/$@
 
 libModelicaStandardTables.a: $(TABLES_OBJS)
 	$(AR) $@ $(TABLES_OBJS)
@@ -68,6 +79,18 @@ snprintf.o: ../../C-Sources/snprintf.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) $(INC) -c -o $@ $<
 
 ModelicaIO.o: ../../C-Sources/ModelicaIO.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(INC) -c -o $@ $<
+
+ModelicaFFT.o: ../../C-Sources/ModelicaFFT.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(INC) -c -o $@ $<
+
+ModelicaInternal.o: ../../C-Sources/ModelicaInternal.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(INC) -c -o $@ $<
+
+ModelicaRandom.o: ../../C-Sources/ModelicaRandom.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(INC) -c -o $@ $<
+
+ModelicaStrings.o: ../../C-Sources/ModelicaStrings.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) $(INC) -c -o $@ $<
 
 %.o: ../../C-Sources/zlib/%.c

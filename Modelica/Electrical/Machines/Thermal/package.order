@@ -1,0 +1,9 @@
+LinearTemperatureCoefficient20
+Constants
+convertAlpha
+convertResistance
+linearTemperatureDependency
+InductionMachines
+SynchronousMachines
+DCMachines
+ThermalAmbientTransformer

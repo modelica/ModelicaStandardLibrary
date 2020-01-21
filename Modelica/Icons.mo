@@ -793,7 +793,7 @@ corresponding library in a future release.
             extent={{-12.5,-12.5},{12.5,12.5}})}), Documentation(info="<html>
 <p>This package contains definitions for the graphical layout of components which may be used in different libraries. The icons can be utilized by inheriting them in the desired class using &quot;extends&quot; or by directly copying the &quot;icon&quot; layer.</p>
 
-<h4>Main Authors:</h4>
+<h4>Main Authors</h4>
 
 <dl>
 <dt><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></dt>
@@ -816,7 +816,7 @@ corresponding library in a future release.
 </dl>
 
 <p>
-Copyright &copy; 1998-2019, Modelica Association and contributors
+Copyright &copy; 1998-2020, Modelica Association and contributors
 </p>
 </html>"));
 end Icons;

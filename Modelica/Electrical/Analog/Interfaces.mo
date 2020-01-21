@@ -125,43 +125,22 @@ The reason could be that
 
   partial model TwoPin "Component with two electrical pins"
     SI.Voltage v "Voltage drop of the two pins (= p.v - n.v)";
-    PositivePin p "Positive electrical pin" annotation (Placement(
-          transformation(extent={{-110,-10},{-90,10}})));
-    NegativePin n "Negative electrical pin" annotation (Placement(transformation(extent={{
-              90,-10},{110,10}})));
+
+    PositivePin p "Positive electrical pin"
+      annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+    NegativePin n "Negative electrical pin"
+      annotation (Placement(transformation(extent={{90,-10},{110,10}})));
   equation
     v = p.v - n.v;
     annotation (
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Polygon(
-            points={{-120,3},{-110,0},{-120,-3},{-120,3}},
-            lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-136,0},{-111,0}}, color={160,160,164}),
-          Text(
-            extent={{-134,5},{-117,20}},
-            textColor={160,160,164},
-            textString="p.i"),
-          Line(points={{110,0},{135,0}}, color={160,160,164}),
-          Polygon(
-            points={{120,3},{110,0},{120,-3},{120,3}},
-            lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{117,3},{134,18}},
-            textColor={160,160,164},
-            textString="n.i")}),
-      Documentation(revisions="<html>
+      Diagram(coordinateSystem(initialScale = 0.1)),
+      Documentation(revisions = "<html>
 <ul>
 <li><em> 1998   </em>
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
-</html>", info="<html>
+</html>", info = "<html>
 <p>TwoPin is a partial model with two pins and one internal variable for the voltage over the two pins. Internal currents are not defined. It is intended to be used in cases where the model which inherits TwoPin is composed by combining other components graphically, not by equations.</p>
 </html>"));
   end TwoPin;
@@ -184,32 +163,7 @@ The reason could be that
        </li>
 </ul>
 </html>"),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-110,20},{-85,20}}, color={160,160,164}),
-          Polygon(
-            points={{-95,23},{-85,20},{-95,17},{-95,23}},
-            lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid),
-          Line(points={{90,20},{115,20}}, color={160,160,164}),
-          Line(points={{-125,0},{-115,0}}, color={160,160,164}),
-          Line(points={{-120,-5},{-120,5}}, color={160,160,164}),
-          Text(
-            extent={{-110,25},{-90,45}},
-            textColor={160,160,164},
-            textString="i"),
-          Polygon(
-            points={{105,23},{115,20},{105,17},{105,23}},
-            lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid),
-          Line(points={{115,0},{125,0}}, color={160,160,164}),
-          Text(
-            extent={{90,45},{110,25}},
-            textColor={160,160,164},
-            textString="i")}));
+      Diagram(coordinateSystem(initialScale = 0.1)));
   end OnePort;
 
   partial model FourPin "Component with two pairs of each two electrical pins"
@@ -516,12 +470,11 @@ The device temperature <strong>internalHeatPort.T</strong> can be used to descri
   partial model VoltageSource "Interface for voltage sources"
     extends Modelica.Electrical.Analog.Icons.VoltageSource;
     extends OnePort;
-
+    replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
+        final offset = offset, final startTime=startTime) annotation (Placement(
+          transformation(extent={{70,69},{91,89}})));
     parameter SI.Voltage offset=0 "Voltage offset";
     parameter SI.Time startTime=0 "Time offset";
-    replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
-        final offset = offset, final startTime=startTime)
-    annotation (Placement(transformation(extent={{70,70},{90,90}})));
   equation
     v = signalSource.y;
     annotation (
@@ -542,11 +495,12 @@ The device temperature <strong>internalHeatPort.T</strong> can be used to descri
   partial model CurrentSource "Interface for current sources"
     extends Modelica.Electrical.Analog.Icons.CurrentSource;
     extends OnePort;
-    parameter SI.Current offset=0 "Current offset";
-    parameter SI.Time startTime=0 "Time offset";
     replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
         final offset = offset, final startTime=startTime) annotation (Placement(
           transformation(extent={{70,69},{91,89}})));
+
+    parameter SI.Current offset=0 "Current offset";
+    parameter SI.Time startTime=0 "Time offset";
   equation
     i = signalSource.y;
     annotation (
@@ -592,7 +546,7 @@ The device temperature <strong>internalHeatPort.T</strong> can be used to descri
 This is an ideal semiconductor which is<br><br>
 <strong>open </strong>(off), if it is reversed biased (voltage drop less than 0)<br>
 <strong>closed</strong> (on), if it is conducting (current > 0).<br>
-<br/>
+<br>
 This is the behaviour if all parameters are exactly zero.<br><br>
 Note, there are circuits, where this ideal description
 with zero resistance and zero conductance is not possible.
@@ -811,7 +765,7 @@ When the Boolean variable <code>off</code> signals to open the switch, a voltage
 This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code>
 (simulating the rising voltage of an extending arc) until a maximum voltage <code>Vmax</code> is reached.
 </p>
-<pre>
+<blockquote><pre>
      | voltage
 Vmax |      +-----
      |     /
@@ -819,7 +773,7 @@ Vmax |      +-----
 V0   |   +
      |   |
      +---+-------- time
-</pre>
+</pre></blockquote>
 <p>
 This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched.
 Once the arc is quenched, i.e., the current flowing through the switch gets zero, the equation for the off-state is activated
@@ -875,7 +829,7 @@ Christoph Clau&szlig;
 </ul>
 
 <p>
-Copyright &copy; 1998-2019, Modelica Association and contributors
+Copyright &copy; 1998-2020, Modelica Association and contributors
 </p>
 </html>"));
 end Interfaces;

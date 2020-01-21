@@ -49,7 +49,7 @@ package DryAirNasa "Air: Detailed dry air model as ideal gas (200..6000 K)"
 
   annotation (Documentation(info="<html>
 <p>
-    <img src=\"modelica://Modelica/Resources/Images/Media/IdealGases/SingleGases/Air.png\">
+    <img src=\"modelica://Modelica/Resources/Images/Media/Air/Air.png\">
 </p>
 
 <p>

@@ -1,6 +1,7 @@
 within Modelica;
 package Math "Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices"
   import SI = Modelica.SIunits;
+
   extends Modelica.Icons.Package;
 
 package Vectors "Library of functions operating on vectors"
@@ -53,19 +54,19 @@ The default values of \"name\" and \"significantDigits\" are \"\" and 6 respecti
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  v = {2.12, -4.34, -2.56, -1.67};
-  <strong>toString</strong>(v);
-                         // = \"
-                         //           2.12
-                         //          -4.34
-                         //          -2.56
-                         //          -1.67\"
-  <strong>toString</strong>(v,\"vv\",1);
-                         // = \"vv =
-                         //           2
-                         //          -4
-                         //          -3
-                         //          -2\"
+v = {2.12, -4.34, -2.56, -1.67};
+<strong>toString</strong>(v);
+                       // = \"
+                       //           2.12
+                       //          -4.34
+                       //          -2.56
+                       //          -1.67\"
+<strong>toString</strong>(v,\"vv\",1);
+                       // = \"vv =
+                       //           2
+                       //          -4
+                       //          -3
+                       //          -2\"
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -179,7 +180,7 @@ second argument \"p\", any other p-norm can be computed:
 Besides the Euclidean norm (p=2), also the 1-norm and the
 infinity-norm are sometimes used:
 </p>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td><strong>1-norm</strong></td>
       <td>= sum(abs(v))</td>
       <td><strong>norm</strong>(v,1)</td>
@@ -201,12 +202,12 @@ Note, for any vector norm the following inequality holds:
 </pre></blockquote>
 <h4>Example</h4>
 <blockquote><pre>
-  v = {2, -4, -2, -1};
-  <strong>norm</strong>(v,1);    // = 9
-  <strong>norm</strong>(v,2);    // = 5
-  <strong>norm</strong>(v);      // = 5
-  <strong>norm</strong>(v,10.5); // = 4.00052597412635
-  <strong>norm</strong>(v,Modelica.Constants.inf);  // = 4
+v = {2, -4, -2, -1};
+<strong>norm</strong>(v,1);    // = 9
+<strong>norm</strong>(v,2);    // = 5
+<strong>norm</strong>(v);      // = 5
+<strong>norm</strong>(v,10.5); // = 4.00052597412635
+<strong>norm</strong>(v,Modelica.Constants.inf);  // = 4
 </pre></blockquote>
 <h4>See also</h4>
 <p>
@@ -239,8 +240,8 @@ not the case with function norm(..).
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  v = {2, -4, -2, -1};
-  <strong>length</strong>(v);  // = 5
+v = {2, -4, -2, -1};
+<strong>length</strong>(v);  // = 5
 </pre></blockquote>
 <h4>See also</h4>
 <p>
@@ -287,8 +288,8 @@ is usually inlined and symbolic processing is applied.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  <strong>normalize</strong>({1,2,3});  // = {0.267, 0.534, 0.802}
-  <strong>normalize</strong>({0,0,0});  // = {0,0,0}
+<strong>normalize</strong>({1,2,3});  // = {0.267, 0.534, 0.802}
+<strong>normalize</strong>({0,0,0});  // = {0,0,0}
 </pre></blockquote>
 <h4>See also</h4>
 <p>
@@ -327,8 +328,8 @@ is usually inlined and symbolic processing is applied.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  <strong>normalizeWithAssert</strong>({1,2,3});  // = {0.267, 0.534, 0.802}
-  <strong>normalizeWithAssert</strong>({0,0,0});  // error (an assert is triggered)
+<strong>normalizeWithAssert</strong>({1,2,3});  // = {0.267, 0.534, 0.802}
+<strong>normalizeWithAssert</strong>({0,0,0});  // error (an assert is triggered)
 </pre></blockquote>
 <h4>See also</h4>
 <p>
@@ -357,7 +358,7 @@ vector elements in reverse order.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  <strong>reverse</strong>({1,2,3,4});  // = {4,3,2,1}
+<strong>reverse</strong>({1,2,3,4});  // = {4,3,2,1}
 </pre></blockquote>
 </html>"));
   end reverse;
@@ -435,9 +436,9 @@ to the original vector are given, such that sorted_v = v[indices].
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  (v2, i2) := Vectors.sort({-1, 8, 3, 6, 2});
-       -> v2 = {-1, 2, 3, 6, 8}
-          i2 = {1, 5, 3, 4, 2}
+(v2, i2) := Vectors.sort({-1, 8, 3, 6, 2});
+     -> v2 = {-1, 2, 3, 6, 8}
+        i2 = {1, 5, 3, 4, 2}
 </pre></blockquote>
 </html>"));
   end sort;
@@ -636,161 +637,6 @@ at the left and at the right side of the pipe), see next figure:
 </p>
 </html>"));
   end relNodePositions;
-
-  package Utilities
-    "Utility functions that should not be directly utilized by the user"
-    extends Modelica.Icons.UtilitiesPackage;
-    function householderVector
-      "Calculate a normalized householder vector to reflect vector a onto vector b"
-      extends Modelica.Icons.Function;
-      import Modelica.Math.Vectors.norm;
-
-      input Real a[:] "Real vector to be reflected";
-      input Real b[size(a, 1)] "Real vector b vector a is mapped onto";
-      output Real u[size(a, 1)] "Householder vector to map a onto b";
-    protected
-      Real norm_a=norm(a, 2);
-      Real norm_b=norm(b, 2);
-      Real alpha;
-
-    algorithm
-      assert(norm_b > 0,
-        "Vector b in function householderVector is zero vector, but at least one element should be different from zero");
-      assert(norm_a > 0,
-        "Vector a in function householderVector is zero vector, but at least one element should be different from zero");
-      alpha := if norm(a + norm_a/norm_b*b, 2) > norm(a - norm_a/norm_b*b, 2)
-         then norm_a/norm_b else -norm_a/norm_b;
-      u := (a + alpha*b)/length(a + alpha*b);
-
-      annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-Vectors.Utilities.<strong>householderVector</strong>(a,b);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-The function call \"<code>householderVector(a, b)</code>\" returns the normalized Householder vector
-<strong>u</strong> for Householder reflection of input vector <strong>a</strong> onto vector <strong>b</strong>, i.e., Householder vector <strong>u</strong> is the normal
-vector of the reflection plane. Algebraically, the reflection is performed by transformation matrix <strong>Q</strong>
-</p>
-<blockquote>
-<p>
-<strong>Q</strong> = <strong>I</strong> - 2*<strong>u</strong>*<strong>u</strong>',
-</p>
-</blockquote>
-i.e., vector <strong>a</strong> is mapped to
-<blockquote>
-<p>
-<strong>a</strong> -> <strong>Q</strong>*<strong>a</strong>=c*<strong>b</strong>
-</p>
-</blockquote>
-with scalar c, |c| = ||<strong>a</strong>|| / ||<strong>b</strong>||. <strong>Q</strong>*<strong>a</strong> is the reflection of <strong>a</strong> about the hyperplane orthogonal to <strong>u</strong>.
-<strong>Q</strong> is an orthogonal matrix, i.e.
-<blockquote>
-<p>
-    <strong>Q</strong> = inv(<strong>Q</strong>) = <strong>Q</strong>'
-</p>
-</blockquote>
-<h4>Example</h4>
-<blockquote><pre>
-  a = {2, -4, -2, -1};
-  b = {1, 0, 0, 0};
-
-  u = <strong>householderVector</strong>(a,b);    // {0.837, -0.478, -0.239, -0.119}
-                               // Computation (identity(4) - 2*matrix(u)*transpose(matrix(u)))*a results in
-                               // {-5, 0, 0, 0} = -5*b
-</pre></blockquote>
-<h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Vectors.Utilities.householderReflection\">Vectors.Utilities.householderReflection</a><br>
-<a href=\"modelica://Modelica.Math.Matrices.Utilities.householderReflection\">Matrices.Utilities.householderReflection</a><br>
-<a href=\"modelica://Modelica.Math.Matrices.Utilities.householderSimilarityTransformation\">Matrices.Utilities.householderSimilarityTransformation</a>
-</html>", revisions="<html>
-<ul>
-<li><em>2010/04/30 </em>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-
-</html>"));
-    end householderVector;
-
-    function householderReflection
-      "Reflect a vector a on a plane with orthogonal vector u"
-      extends Modelica.Icons.Function;
-      import Modelica.Math.Vectors;
-
-      input Real a[:] "Real vector a to be reflected";
-      input Real u[size(a, 1)] "Householder vector";
-      output Real ra[size(u, 1)] "Reflection of a";
-
-    protected
-      Real norm_a=Vectors.length(a);
-      Real h=2*u*a;
-
-    algorithm
-      ra := a - h*u;
-
-      // Values close to zero are set to zero.
-      for i in 1:size(ra, 1) loop
-        ra[i] := if abs(ra[i]) >= norm_a*1e-12 then ra[i] else 0;
-      end for;
-
-      annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-Vectors.Utilities.<strong>householderReflection</strong>(a,u);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-Function \"<code>householderReflection(a, u)</code>\" performs the reflection of vector
-<strong>a</strong> about a plane orthogonal to vector <strong>u</strong> (Householder vector).
-Algebraically the operation is defined by
-</p>
-<blockquote>
-<p>
-<strong>b</strong>=<strong>Q</strong>*<strong>a</strong>
-</p>
-</blockquote>
-with
-<blockquote>
-<p>
-   <strong>Q</strong> = <strong>I</strong> - 2*<strong>u</strong>*<strong>u</strong>',
-</p>
-</blockquote>
-where <strong>Q</strong> is an orthogonal matrix, i.e.
-<blockquote>
-<p>
-    <strong>Q</strong> = inv(<strong>Q</strong>) = <strong>Q</strong>'
-</p>
-</blockquote>
-<h4>Example</h4>
-<blockquote><pre>
-  a = {2, -4, -2, -1};
-  u = {0.837, -0.478, -0.239, -0.119};
-
-  <strong>householderReflection</strong>(a,u);    //  = {-5.0, -0.001, -0.0005, -0.0044}
-</pre></blockquote>
-<h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Vectors.Utilities.householderVector\">Utilities.householderVector</a><br>
-<a href=\"modelica://Modelica.Math.Matrices.Utilities.householderReflection\">Matrices.Utilities.householderReflection</a><br>
-<a href=\"modelica://Modelica.Math.Matrices.Utilities.householderSimilarityTransformation\">Matrices.Utilities.householderSimilarityTransformation</a>
-
-</html>", revisions="<html>
-<ul>
-<li><em>2010/04/30 </em>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-</html>"));
-    end householderReflection;
-
-    annotation (Documentation(info="<html>
-<p>
-This package contains utility functions that are utilized by higher level vector
-and matrix functions. These functions are usually not useful for an end-user.
-</p>
-
-</html>"));
-  end Utilities;
-
   annotation (preferredView="info", Documentation(info="<html>
 <h4>Library content</h4>
 <p>
@@ -958,17 +804,17 @@ prefix \"&lt;name&gt; =\" is left out.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  A = [2.12, -4.34; -2.56, -1.67];
+A = [2.12, -4.34; -2.56, -1.67];
 
-  toString(A);
-  // = \"
-  //      2.12   -4.34
-  //     -2.56   -1.67\";
+toString(A);
+// = \"
+//      2.12   -4.34
+//     -2.56   -1.67\";
 
-  toString(A,\"A\",1);
-  // = \"A =
-  //         2     -4
-  //        -3     -2\"
+toString(A,\"A\",1);
+// = \"A =
+//         2     -4
+//        -3     -2\"
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -1208,9 +1054,9 @@ x = Matrices.<strong>leastSquares</strong>(A,b);
 Returns a solution of equation A*x = b in a least
 square sense (A may be rank deficient):
 </p>
-<pre>
-  minimize | A*x - b |
-</pre>
+<blockquote><pre>
+minimize | A*x - b |
+</pre></blockquote>
 
 <p>
 Several different cases can be distinguished (note, <strong>rank</strong> is an
@@ -1280,10 +1126,10 @@ i.e., QR or LQ factorization of A with column pivoting.
 The function first computes a QR factorization with column pivoting:
 </p>
 
-<pre>
-      A * P = Q * [ R11 R12 ]
-                  [  0  R22 ]
-</pre>
+<blockquote><pre>
+A * P = Q * [ R11 R12 ]
+            [  0  R22 ]
+</pre></blockquote>
 
 <p>
 with R11 defined as the largest leading submatrix whose estimated
@@ -1297,19 +1143,19 @@ by orthogonal transformations from the right, arriving at the
 complete orthogonal factorization:
 </p>
 
-<pre>
-     A * P = Q * [ T11 0 ] * Z
-                 [  0  0 ]
-</pre>
+<blockquote><pre>
+A * P = Q * [ T11 0 ] * Z
+            [  0  0 ]
+</pre></blockquote>
 
 <p>
 The minimum-norm solution is then
 </p>
 
-<pre>
-     x = P * Z' [ inv(T11)*Q1'*b ]
-                [        0       ]
-</pre>
+<blockquote><pre>
+x = P * Z' [ inv(T11)*Q1'*b ]
+           [        0       ]
+</pre></blockquote>
 
 <p>
 where Q1 consists of the first \"rank\" columns of Q.
@@ -1358,9 +1204,9 @@ X = Matrices.<strong>leastSquares2</strong>(A,B);
 Returns a solution of equation A*X = B in a least
 square sense (A may be rank deficient):
 </p>
-<pre>
-  minimize | A*X - B |
-</pre>
+<blockquote><pre>
+minimize | A*X - B |
+</pre></blockquote>
 
 <p>
 Several different cases can be distinguished (note, <strong>rank</strong> is an
@@ -1430,10 +1276,10 @@ i.e., QR or LQ factorization of A with column pivoting.
 The function first computes a QR factorization with column pivoting:
 </p>
 
-<pre>
-      A * P = Q * [ R11 R12 ]
-                  [  0  R22 ]
-</pre>
+<blockquote><pre>
+A * P = Q * [ R11 R12 ]
+            [  0  R22 ]
+</pre></blockquote>
 
 <p>
 with R11 defined as the largest leading submatrix whose estimated
@@ -1447,19 +1293,19 @@ by orthogonal transformations from the right, arriving at the
 complete orthogonal factorization:
 </p>
 
-<pre>
-     A * P = Q * [ T11 0 ] * Z
-                 [  0  0 ]
-</pre>
+<blockquote><pre>
+A * P = Q * [ T11 0 ] * Z
+            [  0  0 ]
+</pre></blockquote>
 
 <p>
 The minimum-norm solution is then
 </p>
 
-<pre>
-     X = P * Z' [ inv(T11)*Q1'*B ]
-                [        0       ]
-</pre>
+<blockquote><pre>
+X = P * Z' [ inv(T11)*Q1'*B ]
+           [        0       ]
+</pre></blockquote>
 
 <p>
 where Q1 consists of the first \"rank\" columns of Q.
@@ -1539,13 +1385,13 @@ has a unique solution.
 </html>"));
   end equalityLeastSquares;
 
-  function LU "LU decomposition of square or rectangular matrix"
+  pure function LU "LU decomposition of square or rectangular matrix"
     extends Modelica.Icons.Function;
     input Real A[:, :] "Square or rectangular matrix";
     output Real LU[size(A, 1), size(A, 2)]=A
       "L,U factors (used with LU_solve(..))";
     output Integer pivots[min(size(A, 1), size(A, 2))]
-      "pivot indices (used with LU_solve(..))";
+      "Pivot indices (used with LU_solve(..))";
     output Integer info "Information";
   protected
     Integer m=size(A, 1);
@@ -1594,7 +1440,7 @@ more convenient to just use the function
 </p>
 <p>
 The optional third (Integer) output argument has the following meaning:</p>
-<table border=0 cellspacing=0 cellpadding=2>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr><td>info = 0:</td>
       <td>successful exit</td></tr>
   <tr><td>info &gt; 0:</td>
@@ -1864,11 +1710,9 @@ With function
 a real block diagonal matrix is constructed from the eigenvalues
 such that
 </p>
-<blockquote>
-<pre>
+<blockquote><pre>
 A = eigenvectors * eigenValueMatrix(eigenvalues) * inv(eigenvectors)
-</pre>
-</blockquote>
+</pre></blockquote>
 <p>
 provided the eigenvector matrix \"eigenvectors\" can be inverted
 (an inversion is possible, if all eigenvalues are different;
@@ -1885,8 +1729,7 @@ the same).
   eval := Matrices.eigenValues(A);  // eval = [-0.618, 0;
                                     //          8.0  , 0;
                                     //          1.618, 0];
-</pre>
-</blockquote>
+</pre></blockquote>
 <p>
 i.e., matrix A has the 3 real eigenvalues -0.618, 8, 1.618.
 </p>
@@ -1943,14 +1786,12 @@ element of <strong>J</strong> is the real eigenvalue.
 Otherwise, eigenvalue i and conjugate complex eigenvalue i+1
 are used to construct a 2 by 2 diagonal block of <strong>J</strong>:
 </p>
-<blockquote>
-<pre>
-  J[i  , i]   := eigenvalues[i,1];
-  J[i  , i+1] := eigenvalues[i,2];
-  J[i+1, i]   := eigenvalues[i+1,2];
-  J[i+1, i+1] := eigenvalues[i+1,1];
-</pre>
-</blockquote>
+<blockquote><pre>
+J[i  , i]   := eigenvalues[i,1];
+J[i  , i+1] := eigenvalues[i,2];
+J[i+1, i]   := eigenvalues[i+1,2];
+J[i+1, i+1] := eigenvalues[i+1,1];
+</pre></blockquote>
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>
 </html>"));
@@ -1988,33 +1829,33 @@ singular vectors of matrix A. Basically the singular
 value decomposition of A is computed, i.e.,
 </p>
 <blockquote><pre>
-<strong>A</strong> = <strong>U</strong> <strong><font face=\"Symbol\">S</font></strong> <strong>V</strong><sup>T</sup>
+<strong>A</strong> = <strong>U</strong> <strong>&Sigma;</strong> <strong>V</strong><sup>T</sup>
   = U*Sigma*VT
 </pre></blockquote>
 <p>
 where <strong>U</strong> and <strong>V</strong> are orthogonal matrices (<strong>UU</strong><sup>T</sup>=<strong>I,
-</strong><strong>VV</strong><sup>T</sup>=<strong>I</strong>). <strong><font face=\"Symbol\">S
-</font></strong> = [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>), zeros(n,m-n)], if n=size(A,1) &le;
-m=size(A,2)) or [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>); zeros(n-m,m)], if n &gt;
-m=size(A,2)). <strong><font face=\"Symbol\">S</font></strong> has the same size as matrix A with
+</strong><strong>VV</strong><sup>T</sup>=<strong>I</strong>).
+<strong>&Sigma;</strong> = [diagonal(&sigma;<sub>i</sub>), zeros(n,m-n)], if n=size(A,1) &le;
+m=size(A,2)) or [diagonal(&sigma;<sub>i</sub>); zeros(n-m,m)], if n &gt;
+m=size(A,2)). <strong>&Sigma;</strong> has the same size as matrix A with
 nonnegative diagonal elements in decreasing order and with all other elements zero
-(<font face=\"Symbol\">s</font><sub>1</sub> is the largest element). The function
-returns the singular values <font face=\"Symbol\">s</font><sub>i</sub>
+(&sigma;<sub>1</sub> is the largest element). The function
+returns the singular values &sigma;<sub>i</sub>
 in vector <code>sigma</code> and the orthogonal matrices in
 matrices <code>U</code> and <code>VT</code>.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  A = [1, 2,  3,  4;
-       3, 4,  5, -2;
-      -1, 2, -3,  5];
-  (sigma, U, VT) = singularValues(A);
-  results in:
-     sigma = {8.33, 6.94, 2.31};
-  i.e.
-     Sigma = [8.33,    0,    0, 0;
-                 0, 6.94,    0, 0;
-                 0,    0, 2.31, 0]
+A = [1, 2,  3,  4;
+     3, 4,  5, -2;
+    -1, 2, -3,  5];
+(sigma, U, VT) = singularValues(A);
+results in:
+   sigma = {8.33, 6.94, 2.31};
+i.e.
+   Sigma = [8.33,    0,    0, 0;
+               0, 6.94,    0, 0;
+               0,    0, 2.31, 0]
 </pre></blockquote>
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>
@@ -2095,12 +1936,10 @@ This allows to, e.g., estimate the row-rank
 of <strong>R</strong> (which is the same row-rank as <strong>A</strong>). Furthermore,
 <strong>R</strong> can be partitioned in two parts
 </p>
-<blockquote>
-<pre>
-   <strong>A</strong>[:,<strong>p</strong>] = <strong>Q</strong> * [<strong>R</strong><sub>1</sub>, <strong>R</strong><sub>2</sub>;
-                 <strong>0</strong>,  <strong>0</strong>]
-</pre>
-</blockquote>
+<blockquote><pre>
+<strong>A</strong>[:,<strong>p</strong>] = <strong>Q</strong> * [<strong>R</strong><sub>1</sub>, <strong>R</strong><sub>2</sub>;
+              <strong>0</strong>,  <strong>0</strong>]
+</pre></blockquote>
 <p>
 where <strong>R</strong><sub>1</sub> is a regular, upper triangular matrix.
 </p>
@@ -2153,8 +1992,8 @@ called as: <code>(,R,p) = QR(A)</code>.
 
 <h4>Syntax</h4>
 <blockquote><pre>
-         H = Matrices.<strong>hessenberg</strong>(A);
-    (H, U) = Matrices.<strong>hessenberg</strong>(A);
+     H = Matrices.<strong>hessenberg</strong>(A);
+(H, U) = Matrices.<strong>hessenberg</strong>(A);
  </pre></blockquote>
 
 <h4>Description</h4>
@@ -2167,27 +2006,27 @@ by function \"Utilities.toUpperHessenberg()\". The transformation matrix <strong
 
 <h4>Example</h4>
 <blockquote><pre>
- A  = [1, 2,  3;
-       6, 5,  4;
-       1, 0,  0];
+A  = [1, 2,  3;
+      6, 5,  4;
+      1, 0,  0];
 
- (H, U) = hessenberg(A);
+(H, U) = hessenberg(A);
 
-  results in:
+results in:
 
- H = [1.0,  -2.466,  2.630;
-     -6.083, 5.514, -3.081;
-      0.0,   0.919, -0.514]
+H = [1.0,  -2.466,  2.630;
+    -6.083, 5.514, -3.081;
+     0.0,   0.919, -0.514]
 
- U = [1.0,    0.0,      0.0;
-      0.0,   -0.9864,  -0.1644;
-      0.0,   -0.1644,   0.9864]
+U = [1.0,    0.0,      0.0;
+     0.0,   -0.9864,  -0.1644;
+     0.0,   -0.1644,   0.9864]
 
-  and therefore,
+and therefore,
 
- U*H*transpose(U) = [1.0, 2.0, 3.0;
-                     6.0, 5.0, 4.0;
-                     1.0, 0.0, 0.0]
+U*H*transpose(U) = [1.0, 2.0, 3.0;
+                    6.0, 5.0, 4.0;
+                    1.0, 0.0, 0.0]
 
 </pre></blockquote>
 
@@ -2255,7 +2094,7 @@ Function <strong>realSchur</strong> calculates the real Schur form of a real squ
 </p>
 
 <blockquote><pre>
- <strong>A</strong> = <strong>QZ</strong>*<strong>S</strong>*transpose(<strong>QZ</strong>)
+<strong>A</strong> = <strong>QZ</strong>*<strong>S</strong>*transpose(<strong>QZ</strong>)
 </pre></blockquote>
 
 <p>
@@ -2350,9 +2189,9 @@ The calculation in lapack.dgees is performed stepwise, i.e., using the internal 
 <h4>Syntax</h4>
 
 <blockquote><pre>
-         H = Matrices.<strong>cholesky</strong>(A);
-         H = Matrices.<strong>cholesky</strong>(A, upper=true);
- </pre></blockquote>
+H = Matrices.<strong>cholesky</strong>(A);
+H = Matrices.<strong>cholesky</strong>(A, upper=true);
+</pre></blockquote>
 
 <h4>Description</h4>
 <p>
@@ -2361,8 +2200,8 @@ The optional Boolean input \"upper\" specifies whether the upper or the lower tr
 </p>
 
 <blockquote><pre>
- A = H'*H   if upper is true (H is upper triangular)
- A = H*H'   if upper is false (H is lower triangular)
+A = H'*H   if upper is true (H is upper triangular)
+A = H*H'   if upper is false (H is lower triangular)
 </pre></blockquote>
 
 <p>
@@ -2372,24 +2211,24 @@ The computation is performed by <a href=\"modelica://Modelica.Math.Matrices.LAPA
 <h4>Example</h4>
 
 <blockquote><pre>
-  A  = [1, 0,  0;
-        6, 5,  0;
-        1, -2,  2];
-  S = A*transpose(A);
+A  = [1, 0,  0;
+      6, 5,  0;
+      1, -2,  2];
+S = A*transpose(A);
 
-  H = Matrices.cholesky(S);
+H = Matrices.cholesky(S);
 
-  results in:
+results in:
 
-  H = [1.0,  6.0,  1.0;
-       0.0,  5.0, -2.0;
-       0.0,  0.0,  2.0]
+H = [1.0,  6.0,  1.0;
+     0.0,  5.0, -2.0;
+     0.0,  0.0,  2.0]
 
-  with
+with
 
-  transpose(H)*H = [1.0,  6.0,   1;
-                    6.0, 61.0,  -4.0;
-                    1.0, -4.0,   9.0] //=S
+transpose(H)*H = [1.0,  6.0,   1;
+                  6.0, 61.0,  -4.0;
+                  1.0, -4.0,   9.0] //=S
 
 </pre></blockquote>
 
@@ -2480,21 +2319,20 @@ or computation of eigenvalues.
 
 <h4>Example</h4>
 
-<blockquote>
-<pre>       - A = [1, 10,  1000; 0.01,  0,  10; 0.005,  0.01,  10]
-       - Matrices.norm(A, 1);
-         = 1020.0
-       - (T,B)=Matrices.balance(A)
-       - T
-         = {256, 16, 0.5}
-       - B
-         =  [1,     0.625,   1.953125;
-             0.16,  0,       0.3125;
-             2.56,  0.32,   10.0]
-       - Matrices.norm(B, 1);
-         = 12.265625
-</pre>
-</blockquote>
+<blockquote><pre>
+- A = [1, 10,  1000; 0.01,  0,  10; 0.005,  0.01,  10]
+- Matrices.norm(A, 1);
+  = 1020.0
+- (T,B)=Matrices.balance(A)
+- T
+  = {256, 16, 0.5}
+- B
+  =  [1,     0.625,   1.953125;
+      0.16,  0,       0.3125;
+      2.56,  0.32,   10.0]
+- Matrices.norm(B, 1);
+  = 12.265625
+</pre></blockquote>
 
 <p>
 The Algorithm is taken from
@@ -2509,7 +2347,7 @@ which based on the <code>balance</code> function from EISPACK.
 </p>
 
 </html>", revisions="<html>
-<h4>Release Notes:</h4>
+<h4>Release Notes</h4>
 <ul>
 <li><em>July 5, 2002</em>
        by H. D. Joos and Nico Walther<br>
@@ -2594,19 +2432,21 @@ which based on the <code>balance</code> function from EISPACK.
 This function returns a vector scale, such that with T=diagonal(scale) system matrix S_scale
 </p>
 
-<pre>             |inv(T)*A*T, inv(T)*B|
-   S_scale = |                    |
-             |       C*T,     0   |
-</pre>
+<blockquote><pre>
+          |inv(T)*A*T, inv(T)*B|
+S_scale = |                    |
+          |       C*T,     0   |
+</pre></blockquote>
 
 <p>
 has a better condition as system matrix S
 </p>
 
-<pre>       |A, B|
-   S = |    |
-       |C, 0|
-</pre>
+<blockquote><pre>
+    |A, B|
+S = |    |
+    |C, 0|
+</pre></blockquote>
 <p>
 that is, conditionNumber(S_scale) &le; conditionNumber(S). The elements of vector scale
 are multiples of 2 which means that this function does not introduce round-off errors.
@@ -2616,9 +2456,10 @@ are multiples of 2 which means that this function does not introduce round-off e
 Balancing a linear dynamic system in state space form
 </p>
 
-<pre>  der(x) = A*x + B*u
-      y  = C*x + D*u
-</pre>
+<blockquote><pre>
+der(x) = A*x + B*u
+    y  = C*x + D*u
+</pre></blockquote>
 
 <p>
 means to find a state transformation x_new = T*x = diagonal(scale)*x
@@ -2627,8 +2468,8 @@ so that the transformed system is better suited for numerical algorithms.
 
 <h4>Example</h4>
 
-<blockquote>
-<pre>import Modelica.Math.Matrices;
+<blockquote><pre>
+import Modelica.Math.Matrices;
 
 A = [1, -10,  1000; 0.01,  0,  10; 0.005,  -0.01,  10];
 B = [100, 10; 1,0; -0.003, 1];
@@ -2645,8 +2486,7 @@ scale = {16, 1, 0.0625}
 norm(A)  = 1000.15, norm(B)  = 100.504, norm(C)  = 100.006
 norm(As) = 10.8738, norm(Bs) = 16.0136, norm(Cs) = 10.2011
 err = 0
-</pre>
-</blockquote>
+</pre></blockquote>
 
 <p>
 The algorithm is taken from
@@ -2679,7 +2519,7 @@ which is based on the <code>balance</code> function from EISPACK.
     annotation (Inline=true,Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-  r = Matrices.<strong>trace</strong>(A);
+r = Matrices.<strong>trace</strong>(A);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -2689,13 +2529,13 @@ This function computes the trace, i.e., the sum of the elements in the diagonal 
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [1, 3;
-       2, 1];
-  r = trace(A);
+A = [1, 3;
+     2, 1];
+r = trace(A);
 
-  results in:
+results in:
 
-  r = 2.0
+r = 2.0
 </pre></blockquote>
 
 </html>", revisions="<html>
@@ -2890,13 +2730,13 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Condition_number\">
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [1, 2;
-       2, 1];
-  r = conditionNumber(A);
+A = [1, 2;
+     2, 1];
+r = conditionNumber(A);
 
-  results in:
+results in:
 
-  r = 3.0
+r = 3.0
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -2953,13 +2793,13 @@ If rcond(A) is near 1.0, <strong>A</strong> is well conditioned and <strong>A</s
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [1, 2;
-       2, 1];
-  r = rcond(A);
+A = [1, 2;
+     2, 1];
+r = rcond(A);
 
-  results in:
+results in:
 
-  r = 0.3333
+r = 0.3333
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -3059,7 +2899,7 @@ Vectors.<strong>norm</strong>(A*v,p) &le; Matrices.<strong>norm</strong>(A,p)*Ve
     annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-  r = Matrices.<strong>frobeniusNorm</strong>(A);
+r = Matrices.<strong>frobeniusNorm</strong>(A);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -3070,14 +2910,13 @@ This function computes the Frobenius norm of a general real matrix <strong>A</st
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [1, 2;
-       2, 1];
-  r = frobeniusNorm(A);
+A = [1, 2;
+     2, 1];
+r = frobeniusNorm(A);
 
-  results in:
+results in:
 
-  r = 3.162;
-
+r = 3.162;
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -3145,7 +2984,7 @@ The nullspace is obtained by SVD method. That is, matrix <strong>A</strong> is d
 </p>
 
 <blockquote><pre>
- <strong>A</strong> = <strong>U</strong>*<strong>S</strong>*transpose(<strong>V</strong>)
+<strong>A</strong> = <strong>U</strong>*<strong>S</strong>*transpose(<strong>V</strong>)
 </pre></blockquote>
 
 <p>
@@ -3153,8 +2992,8 @@ with the orthonormal matrices <strong>U</strong> and <strong>V</strong> and the 
 </p>
 
 <blockquote><pre>
- <strong>S</strong> = [<strong>S</strong>1, <strong>0</strong>]
- <strong>S</strong>1 = [diag(s); <strong>0</strong>]
+<strong>S</strong> = [<strong>S</strong>1, <strong>0</strong>]
+<strong>S</strong>1 = [diag(s); <strong>0</strong>]
 </pre></blockquote>
 
 <p>
@@ -3162,7 +3001,7 @@ and the singular values <strong>s</strong>={s1, s2, ..., sr} of <strong>A</stron
 </p>
 
 <blockquote><pre>
- transpose(<strong>U</strong>)*<strong>A</strong>*<strong>V</strong> = [<strong>S</strong>1, <strong>0</strong>].
+transpose(<strong>U</strong>)*<strong>A</strong>*<strong>V</strong> = [<strong>S</strong>1, <strong>0</strong>].
 </pre></blockquote>
 
 <p>
@@ -3173,31 +3012,31 @@ Matrix <strong>S</strong>1 obviously has full column rank and therefore, the lef
 The nullity of matrix <strong>A</strong> is the dimension of the nullspace of <strong>A</strong>. In view of the above, it becomes clear that nullity holds
 </p>
 <blockquote><pre>
- nullity = n - r
+nullity = n - r
 </pre></blockquote>
 <p>
 with
 </p>
 <blockquote><pre>
- n = number of columns of matrix <strong>A</strong>
- r = rank(<strong>A</strong>)
+n = number of columns of matrix <strong>A</strong>
+r = rank(<strong>A</strong>)
 </pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [1, 2,  3, 1;
-       3, 4,  5, 2;
-      -1, 2, -3, 3];
-  (Z, nullity) = nullspace(A);
+A = [1, 2,  3, 1;
+     3, 4,  5, 2;
+    -1, 2, -3, 3];
+(Z, nullity) = nullspace(A);
 
-  results in:
+results in:
 
-  Z=[0.1715;
-    -0.686;
-     0.1715;
-     0.686]
+Z=[0.1715;
+  -0.686;
+   0.1715;
+   0.686]
 
-  nullity = 1
+nullity = 1
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -3299,20 +3138,21 @@ phi = Matrices.<strong>exp</strong>(A,T=1);
 <p>
 This function computes the exponential e<sup><strong>A</strong>T</sup> of matrix <strong>A</strong>, i.e.
 </p>
-<blockquote>
-<pre>                            (<strong>A</strong>T)^2   (<strong>A</strong>T)^3
-     <font size=4> <strong>&Phi;</strong></font> = e^(<strong>A</strong>T) = <strong>I</strong> + <strong>A</strong>T + ------ + ------ + ....
-                              2!       3!
+<blockquote><pre>
+                       (<strong>A</strong>T)^2   (<strong>A</strong>T)^3
+<font size=\"4\"> <strong>&Phi;</strong></font> = e^(<strong>A</strong>T) = <strong>I</strong> + <strong>A</strong>T + ------ + ------ + ....
+                         2!       3!
 </pre></blockquote>
 
 <p>where e=2.71828..., <strong>A</strong> is an n x n matrix with real elements and T is a real number,
 e.g., the sampling time.
 <strong>A</strong> may be singular. With the exponential of a matrix it is, e.g., possible
 to compute the solution of a linear system of differential equations</p>
-<pre>    der(<strong>x</strong>) = <strong>A</strong>*<strong>x</strong>   ->   <strong>x</strong>(t0 + T) = e^(<strong>A</strong>T)*x(t0)
-</pre>
+<blockquote><pre>
+der(<strong>x</strong>) = <strong>A</strong>*<strong>x</strong>   ->   <strong>x</strong>(t0 + T) = e^(<strong>A</strong>T)*x(t0)
+</pre></blockquote>
 
-<h4>Algorithmic details:</h4>
+<h4>Algorithmic details</h4>
 
 <p>The algorithm is taken from</p>
 <dl>
@@ -3455,10 +3295,11 @@ The function uses a Taylor series expansion with Balancing and
 scaling/squaring to approximate the integral <strong>&Psi;</strong> of the matrix
 exponential <strong>&Phi;</strong>=e^(AT):
 </p>
-<pre>                                 AT^2   A^2 * T^3          A^k * T^(k+1)
-        <strong>&Psi;</strong> = int(e^(As))ds = IT + ---- + --------- + ... + --------------
-                                  2!        3!                (k+1)!
-</pre>
+<blockquote><pre>
+                         AT^2   A^2 * T^3          A^k * T^(k+1)
+<strong>&Psi;</strong> = int(e^(As))ds = IT + ---- + --------- + ... + --------------
+                          2!        3!                (k+1)!
+</pre></blockquote>
 <p>
 <strong>&Phi;</strong> is calculated through <strong>&Phi;</strong> = I + A*<strong>&Psi;</strong>, so A may be singular. <strong>&Gamma;</strong> is
 simply <strong>&Psi;</strong>*B.
@@ -3480,10 +3321,11 @@ guarantees minimum rounding errors in the following series
 expansion. The re-scaling based on the equation&nbsp; exp(A*2T) = exp(AT)^2.
 The needed re-scaling formula for psi thus becomes:
 </p>
-<pre>         <strong>&Phi;</strong> = <strong>&Phi;</strong>'*<strong>&Phi;</strong>'
-   I + A*<strong>&Psi;</strong> = I + 2A*<strong>&Psi;</strong>' + A^2*<strong>&Psi;</strong>'^2
-         <strong>&Psi;</strong> = A*<strong>&Psi;</strong>'^2 + 2*<strong>&Psi;</strong>'
-</pre>
+<blockquote><pre>
+      <strong>&Phi;</strong> = <strong>&Phi;</strong>'*<strong>&Phi;</strong>'
+I + A*<strong>&Psi;</strong> = I + 2A*<strong>&Psi;</strong>' + A^2*<strong>&Psi;</strong>'^2
+      <strong>&Psi;</strong> = A*<strong>&Psi;</strong>'^2 + 2*<strong>&Psi;</strong>'
+</pre></blockquote>
 <p>
 where psi' is the scaled result from the series expansion while psi is the
 re-scaled matrix.
@@ -3492,9 +3334,10 @@ re-scaled matrix.
 The function is normally used to discretize a state-space system as the
 zero-order-hold equivalent:
 </p>
-<pre>      x(k+1) = <strong>&Phi;</strong>*x(k) + <strong>&Gamma;</strong>*u(k)
-        y(k) = C*x(k) + D*u(k)
-</pre>
+<blockquote><pre>
+x(k+1) = <strong>&Phi;</strong>*x(k) + <strong>&Gamma;</strong>*u(k)
+  y(k) = C*x(k) + D*u(k)
+</pre></blockquote>
 <p>
 The zero-order-hold sampling, also known as step-invariant method, gives
 exact values of the state variables, under the assumption that the control
@@ -3506,12 +3349,12 @@ is described in
 <dd><strong>Computer Controlled Systems - Theory and Design</strong><br>
     Third Edition, p. 32</dd>
 </dl>
-<pre><strong>Syntax:</strong>
+<blockquote><pre><strong>Syntax:</strong>
       (phi,gamma) = Matrices.expIntegral(A,B,T)
                        A,phi: [n,n] square matrices
                      B,gamma: [n,m] input matrix
                            T: scalar, e.g., sampling time
-</pre>
+</pre></blockquote>
 <p>
 The Algorithm to calculate psi is taken from
 </p>
@@ -3575,17 +3418,19 @@ B, gamma, and gamma1 are (n,m) matrices.
 <p>
 The function calculates the matrices phi,gamma,gamma1 through the equation:
 </p>
-<pre>                                 [ A B 0 ]
+<blockquote><pre>
+                                 [ A B 0 ]
 [phi gamma gamma1] = [I 0 0]*exp([ 0 0 I ]*T)
                                  [ 0 0 0 ]
-</pre>
+</pre></blockquote>
 
 <p>
 The matrices define the discretized first-order-hold equivalent of
 a state-space system:
 </p>
-<pre>      x(k+1) = phi*x(k) + gamma*u(k) + gamma1/T*(u(k+1) - u(k))
-</pre>
+<blockquote><pre>
+x(k+1) = phi*x(k) + gamma*u(k) + gamma1/T*(u(k+1) - u(k))
+</pre></blockquote>
 <p>
 The first-order-hold sampling, also known as ramp-invariant method, gives
 more smooth control signals as the ZOH equivalent. First-order-hold sampling
@@ -3750,8 +3595,8 @@ is, e.g., described in
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-         X = Matrices.<strong>continuousLyapunov</strong>(A, C);
-         X = Matrices.<strong>continuousLyapunov</strong>(A, C, ATisSchur, eps);
+X = Matrices.<strong>continuousLyapunov</strong>(A, C);
+X = Matrices.<strong>continuousLyapunov</strong>(A, C, ATisSchur, eps);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -3760,7 +3605,7 @@ This function computes the solution <strong>X</strong> of the continuous-time Ly
 </p>
 
 <blockquote><pre>
- <strong>X</strong>*<strong>A</strong> + <strong>A</strong>'*<strong>X</strong> = <strong>C</strong>
+<strong>X</strong>*<strong>A</strong> + <strong>A</strong>'*<strong>X</strong> = <strong>C</strong>
 </pre></blockquote>
 
 <p>
@@ -3772,7 +3617,7 @@ In a nutshell, the problem is reduced to the corresponding problem
 </p>
 
 <blockquote><pre>
- <strong>Y</strong>*<strong>R</strong>' + <strong>R</strong>*<strong>Y</strong> = <strong>D</strong>
+<strong>Y</strong>*<strong>R</strong>' + <strong>R</strong>*<strong>Y</strong> = <strong>D</strong>
 </pre></blockquote>
 
 <p>
@@ -3783,32 +3628,32 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
 </p>
 
 <h4>References</h4>
-<pre>
-  [1] Bartels, R.H. and Stewart G.W.
-      Algorithm 432: Solution of the matrix equation AX + XB = C.
-      Comm. ACM., Vol. 15, pp. 820-826, 1972.
-</pre>
+<blockquote><pre>
+[1] Bartels, R.H. and Stewart G.W.
+    Algorithm 432: Solution of the matrix equation AX + XB = C.
+    Comm. ACM., Vol. 15, pp. 820-826, 1972.
+</pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [1, 2,  3,  4;
-       3, 4,  5, -2;
-      -1, 2, -3, -5;
-       0, 2,  0,  6];
+A = [1, 2,  3,  4;
+     3, 4,  5, -2;
+    -1, 2, -3, -5;
+     0, 2,  0,  6];
 
-  C =  [-2, 3, 1, 0;
-        -6, 8, 0, 1;
-         2, 3, 4, 5;
-        0, -2, 0, 0];
+C =  [-2, 3, 1, 0;
+      -6, 8, 0, 1;
+       2, 3, 4, 5;
+      0, -2, 0, 0];
 
-  X = continuousLyapunov(A, C);
+X = continuousLyapunov(A, C);
 
-  results in:
+results in:
 
-  X = [1.633, -0.761,  0.575, -0.656;
-      -1.158,  1.216,  0.047,  0.343;
-      -1.066, -0.052, -0.916,  1.61;
-      -2.473,  0.717, -0.986,  1.48]
+X = [1.633, -0.761,  0.575, -0.656;
+    -1.158,  1.216,  0.047,  0.343;
+    -1.066, -0.052, -0.916,  1.61;
+    -2.473,  0.717, -0.986,  1.48]
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -3888,8 +3733,8 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
     annotation (Documentation(info="<html>
  <h4>Syntax</h4>
 <blockquote><pre>
-         X = Matrices.<strong>continuousSylvester</strong>(A, B, C);
-         X = Matrices.<strong>continuousSylvester</strong>(A, B, C, AisSchur, BisSchur);
+X = Matrices.<strong>continuousSylvester</strong>(A, B, C);
+X = Matrices.<strong>continuousSylvester</strong>(A, B, C, AisSchur, BisSchur);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -3898,7 +3743,7 @@ Function <strong>continuousSylvester</strong> computes the solution <strong>X</s
 </p>
 
 <blockquote><pre>
- <strong>A</strong>*<strong>X</strong> + <strong>X</strong>*<strong>B</strong> = <strong>C</strong>.
+<strong>A</strong>*<strong>X</strong> + <strong>X</strong>*<strong>B</strong> = <strong>C</strong>.
 </pre></blockquote>
 
 <p>
@@ -3909,7 +3754,7 @@ using the Schur method for Sylvester equations proposed by Bartels and Stewart [
 In a nutshell, the problem is reduced to the corresponding problem
 </p>
 <blockquote><pre>
- <strong>S</strong>*<strong>Y</strong> + <strong>Y</strong>*<strong>T</strong> = <strong>D</strong>.
+<strong>S</strong>*<strong>Y</strong> + <strong>Y</strong>*<strong>T</strong> = <strong>D</strong>.
 </pre></blockquote>
 <p>
 with <strong>S</strong>=<strong>U</strong>'*<strong>A</strong>*<strong>U</strong> is the real Schur of <strong>A</strong>,  <strong>T</strong>=<strong>V</strong>'*<strong>T</strong>*<strong>V</strong> is the real Schur form of <strong>B</strong> and
@@ -3925,40 +3770,41 @@ for more information.
 </p>
 
 <h4>References</h4>
-<pre>
-  [1] Bartels, R.H. and Stewart G.W.
-      Algorithm 432: Solution of the matrix equation AX + XB = C.
-      Comm. ACM., Vol. 15, pp. 820-826, 1972.
-</pre>
+<blockquote><pre>
+[1] Bartels, R.H. and Stewart G.W.
+    Algorithm 432: Solution of the matrix equation AX + XB = C.
+    Comm. ACM., Vol. 15, pp. 820-826, 1972.
+</pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [17.0,   24.0,   1.0,   8.0,   15.0 ;
-       23.0,    5.0,   7.0,  14.0,   16.0 ;
-        0.0,    6.0,  13.0,  20.0,   22.0;
-        0.0,    0.0,  19.0,  21.0,    3.0 ;
-        0.0,    0.0,   0.0,   2.0,    9.0];
+A = [17.0,   24.0,   1.0,   8.0,   15.0 ;
+     23.0,    5.0,   7.0,  14.0,   16.0 ;
+      0.0,    6.0,  13.0,  20.0,   22.0;
+      0.0,    0.0,  19.0,  21.0,    3.0 ;
+      0.0,    0.0,   0.0,   2.0,    9.0];
 
-  B =  [8.0, 1.0, 6.0;
-        0.0, 5.0, 7.0;
-        0.0, 9.0, 2.0];
+B =  [8.0, 1.0, 6.0;
+      0.0, 5.0, 7.0;
+      0.0, 9.0, 2.0];
 
-  C = [62.0,  -12.0, 26.0;
-       59.0,  -10.0, 31.0;
-       70.0,  -6.0,   9.0;
-       35.0,  31.0,  -7.0;
-       36.0, -15.0,   7.0];
+C = [62.0,  -12.0, 26.0;
+     59.0,  -10.0, 31.0;
+     70.0,  -6.0,   9.0;
+     35.0,  31.0,  -7.0;
+     36.0, -15.0,   7.0];
 
-  X = continuousSylvester(A, B, C);
+X = continuousSylvester(A, B, C);
 
-  results in:
+results in:
 
-  X = [0.0,  0.0,  1.0;
-       1.0,  0.0,  0.0;
-       0.0,  1.0,  0.0;
-       1.0,  1.0, -1.0;
-       2.0, -2.0,  1.0];
+X = [0.0,  0.0,  1.0;
+     1.0,  0.0,  0.0;
+     0.0,  1.0,  0.0;
+     1.0,  1.0, -1.0;
+     2.0, -2.0,  1.0];
 </pre></blockquote>
+
 <h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Math.Matrices.discreteSylvester\">Matrices.discreteSylvester</a>,
@@ -4054,8 +3900,8 @@ for more information.
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-                                X = Matrices.<strong>continuousRiccati</strong>(A, B, R, Q);
-        (X, alphaReal, alphaImag) = Matrices.<strong>continuousRiccati</strong>(A, B, R, Q, true);
+                        X = Matrices.<strong>continuousRiccati</strong>(A, B, R, Q);
+(X, alphaReal, alphaImag) = Matrices.<strong>continuousRiccati</strong>(A, B, R, Q, true);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -4064,7 +3910,7 @@ Function <strong>continuousRiccati</strong> computes the solution <strong>X</str
 </p>
 
 <blockquote><pre>
- <strong>A</strong>'*<strong>X</strong> + <strong>X</strong>*<strong>A</strong> - <strong>X</strong>*<strong>G</strong>*<strong>X</strong> + <strong>Q</strong> = <strong>0</strong>
+<strong>A</strong>'*<strong>X</strong> + <strong>X</strong>*<strong>A</strong> - <strong>X</strong>*<strong>G</strong>*<strong>X</strong> + <strong>Q</strong> = <strong>0</strong>
 </pre></blockquote>
 
 <p>
@@ -4125,28 +3971,28 @@ for more information.
 </p>
 
 <h4>References</h4>
-<pre>
-  [1] Laub, A.J.
-      A Schur Method for Solving Algebraic Riccati equations.
-      IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
-</pre>
+<blockquote><pre>
+[1] Laub, A.J.
+    A Schur Method for Solving Algebraic Riccati equations.
+    IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
+</pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [0.0, 1.0;
-       0.0, 0.0];
+A = [0.0, 1.0;
+     0.0, 0.0];
 
-  B = [0.0;
-       1.0];
+B = [0.0;
+     1.0];
 
-  R = [1];
+R = [1];
 
-  Q = [1.0, 0.0;
-       0.0, 2.0];
+Q = [1.0, 0.0;
+     0.0, 2.0];
 
 X = continuousRiccati(A, B, R, Q);
 
-  results in:
+results in:
 
 X = [2.0, 1.0;
      1.0, 2.0];
@@ -4258,8 +4104,8 @@ X = [2.0, 1.0;
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-         X = Matrices.<strong>discreteLyapunov</strong>(A, C);
-         X = Matrices.<strong>discreteLyapunov</strong>(A, C, ATisSchur, sgn, eps);
+X = Matrices.<strong>discreteLyapunov</strong>(A, C);
+X = Matrices.<strong>discreteLyapunov</strong>(A, C, ATisSchur, sgn, eps);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -4268,7 +4114,7 @@ This function computes the solution <strong>X</strong> of the discrete-time Lyap
 </p>
 
 <blockquote><pre>
- <strong>A</strong>'*<strong>X</strong>*<strong>A</strong> + sgn*<strong>X</strong> = <strong>C</strong>
+<strong>A</strong>'*<strong>X</strong>*<strong>A</strong> + sgn*<strong>X</strong> = <strong>C</strong>
 </pre></blockquote>
 
 <p>
@@ -4276,7 +4122,7 @@ where sgn=1 or sgn =-1. For sgn = -1, the discrete Lyapunov equation is a specia
 </p>
 
 <blockquote><pre>
- <strong>A</strong>*<strong>X</strong>*<strong>B</strong> - <strong>X</strong> + <strong>Q</strong> = <strong>0</strong>.
+<strong>A</strong>*<strong>X</strong>*<strong>B</strong> - <strong>X</strong> + <strong>Q</strong> = <strong>0</strong>.
 </pre></blockquote>
 
 <p>
@@ -4288,7 +4134,7 @@ In a nutshell, the problem is reduced to the corresponding problem
 </p>
 
 <blockquote><pre>
- <strong>R</strong>*<strong>Y</strong>*<strong>R</strong>' + sgn*<strong>Y</strong> = <strong>D</strong>.
+<strong>R</strong>*<strong>Y</strong>*<strong>R</strong>' + sgn*<strong>Y</strong> = <strong>D</strong>.
 </pre></blockquote>
 
 <p>
@@ -4299,32 +4145,32 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
 </p>
 
 <h4>References</h4>
-<pre>
-  [1] Bartels, R.H. and Stewart G.W.
-      Algorithm 432: Solution of the matrix equation AX + XB = C.
-      Comm. ACM., Vol. 15, pp. 820-826, 1972.
-</pre>
+<blockquote><pre>
+[1] Bartels, R.H. and Stewart G.W.
+    Algorithm 432: Solution of the matrix equation AX + XB = C.
+    Comm. ACM., Vol. 15, pp. 820-826, 1972.
+</pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [1, 2,  3,  4;
-       3, 4,  5, -2;
-      -1, 2, -3, -5;
-       0, 2,  0,  6];
+A = [1, 2,  3,  4;
+     3, 4,  5, -2;
+    -1, 2, -3, -5;
+     0, 2,  0,  6];
 
-  C =  [-2,  3, 1, 0;
-        -6,  8, 0, 1;
-         2,  3, 4, 5;
-         0, -2, 0, 0];
+C =  [-2,  3, 1, 0;
+      -6,  8, 0, 1;
+       2,  3, 4, 5;
+       0, -2, 0, 0];
 
-  X = discreteLyapunov(A, C, sgn=-1);
+X = discreteLyapunov(A, C, sgn=-1);
 
-  results in:
+results in:
 
-  X  = [7.5735,   -3.1426,  2.7205, -2.5958;
-       -2.6105,    1.2384, -0.9232,  0.9632;
-        6.6090,   -2.6775,  2.6415, -2.6928;
-       -0.3572,    0.2298,  0.0533, -0.27410];
+X  = [7.5735,   -3.1426,  2.7205, -2.5958;
+     -2.6105,    1.2384, -0.9232,  0.9632;
+      6.6090,   -2.6775,  2.6415, -2.6928;
+     -0.3572,    0.2298,  0.0533, -0.27410];
 
 </pre></blockquote>
 
@@ -4465,8 +4311,8 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-         X = Matrices.<strong>discreteSylvester</strong>(A, B, C);
-         X = Matrices.<strong>discreteSylvester</strong>(A, B, C, AisHess, BTisSchur, sgn, eps);
+X = Matrices.<strong>discreteSylvester</strong>(A, B, C);
+X = Matrices.<strong>discreteSylvester</strong>(A, B, C, AisHess, BTisSchur, sgn, eps);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -4475,8 +4321,7 @@ Function <strong>discreteSylvester</strong> computes the solution <strong>X</str
 </p>
 
 <blockquote><pre>
- <strong>A</strong>*<strong>X</strong>*<strong>B</strong> + sgn*<strong>X</strong> = <strong>C</strong>.
-
+<strong>A</strong>*<strong>X</strong>*<strong>B</strong> + sgn*<strong>X</strong> = <strong>C</strong>.
 </pre></blockquote>
 
 <p>
@@ -4485,14 +4330,14 @@ For sgn = -1, the discrete Sylvester equation is also known as Stein equation:
 </p>
 
 <blockquote><pre>
- <strong>A</strong>*<strong>X</strong>*<strong>B</strong> - <strong>X</strong> + <strong>Q</strong> = <strong>0</strong>.
+<strong>A</strong>*<strong>X</strong>*<strong>B</strong> - <strong>X</strong> + <strong>Q</strong> = <strong>0</strong>.
 </pre></blockquote>
 
 <p>
 In a nutshell, the problem is reduced to the corresponding problem
 </p>
 <blockquote><pre>
- <strong>H</strong>*<strong>Y</strong>*<strong>S</strong>' + sgn*<strong>Y</strong> = <strong>F</strong>.
+<strong>H</strong>*<strong>Y</strong>*<strong>S</strong>' + sgn*<strong>Y</strong> = <strong>F</strong>.
 </pre></blockquote>
 
 <p>
@@ -4504,33 +4349,32 @@ The Boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of
 </p>
 
 <h4>References</h4>
-<pre>
-  [1] Golub, G.H., Nash, S. and Van Loan, C.F.
-      A Hessenberg-Schur method for the problem AX + XB = C.
-      IEEE Transaction on Automatic Control, AC-24, no. 6, pp. 909-913, 1979.
-
-</pre>
+<blockquote><pre>
+[1] Golub, G.H., Nash, S. and Van Loan, C.F.
+    A Hessenberg-Schur method for the problem AX + XB = C.
+    IEEE Transaction on Automatic Control, AC-24, no. 6, pp. 909-913, 1979.
+</pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [1.0,   2.0,   3.0;
-       6.0,   7.0,   8.0;
-       9.0,   2.0,   3.0];
+A = [1.0,   2.0,   3.0;
+     6.0,   7.0,   8.0;
+     9.0,   2.0,   3.0];
 
-  B = [7.0,   2.0,   3.0;
-       2.0,   1.0,   2.0;
-       3.0,   4.0,   1.0];
+B = [7.0,   2.0,   3.0;
+     2.0,   1.0,   2.0;
+     3.0,   4.0,   1.0];
 
-  C = [271.0,   135.0,   147.0;
-       923.0,   494.0,   482.0;
-       578.0,   383.0,   287.0];
+C = [271.0,   135.0,   147.0;
+     923.0,   494.0,   482.0;
+     578.0,   383.0,   287.0];
 
-  X = discreteSylvester(A, B, C);
+X = discreteSylvester(A, B, C);
 
-  results in:
-  X = [2.0,   3.0,   6.0;
-       4.0,   7.0,   1.0;
-       5.0,   3.0,   2.0];
+results in:
+X = [2.0,   3.0,   6.0;
+     4.0,   7.0,   1.0;
+     5.0,   3.0,   2.0];
 
 </pre></blockquote>
 
@@ -4641,8 +4485,8 @@ no or infinitely many solutions (input A is singular).");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-                                 X = Matrices.<strong>discreteRiccati</strong>(A, B, R, Q);
-         (X, alphaReal, alphaImag) = Matrices.<strong>discreteRiccati</strong>(A, B, R, Q, true);
+                        X = Matrices.<strong>discreteRiccati</strong>(A, B, R, Q);
+(X, alphaReal, alphaImag) = Matrices.<strong>discreteRiccati</strong>(A, B, R, Q, true);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -4652,7 +4496,7 @@ Function <strong>discreteRiccati</strong> computes the solution <strong>X</stron
 </p>
 
 <blockquote><pre>
- <strong>A</strong>'*<strong>X</strong>*<strong>A</strong> - <strong>X</strong> - <strong>A</strong>'*<strong>X</strong>*<strong>B</strong>*inv(<strong>R</strong> + <strong>B</strong>'*<strong>X</strong>*<strong>B</strong>)*<strong>B</strong>'*<strong>X</strong>*<strong>A</strong> + <strong>Q</strong> = <strong>0</strong>
+<strong>A</strong>'*<strong>X</strong>*<strong>A</strong> - <strong>X</strong> - <strong>A</strong>'*<strong>X</strong>*<strong>B</strong>*inv(<strong>R</strong> + <strong>B</strong>'*<strong>X</strong>*<strong>B</strong>)*<strong>B</strong>'*<strong>X</strong>*<strong>A</strong> + <strong>Q</strong> = <strong>0</strong>
 </pre></blockquote>
 
 <p>
@@ -4727,24 +4571,24 @@ according to <strong>S</strong>, the solution <strong>X</strong> can be calculat
 </pre></blockquote>
 
 <h4>References</h4>
-<pre>
-  [1] Laub, A.J.
-      A Schur Method for Solving Algebraic Riccati equations.
-      IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
-</pre>
+<blockquote><pre>
+[1] Laub, A.J.
+    A Schur Method for Solving Algebraic Riccati equations.
+    IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
+</pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
- A  = [4.0    3.0]
-      -4.5,  -3.5];
+A  = [4.0    3.0]
+     -4.5,  -3.5];
 
- B  = [ 1.0;
-       -1.0];
+B  = [ 1.0;
+      -1.0];
 
- R = [1.0];
+R = [1.0];
 
- Q = [9.0, 6.0;
-      6.0, 4.0]
+Q = [9.0, 6.0;
+     6.0, 4.0]
 
 X = discreteRiccati(A, B, R, Q);
 
@@ -4896,17 +4740,17 @@ output argument, the indices of the sorted rows or columns with respect
 to the original matrix are given, such that
 </p>
 
-<pre>
-   sorted_M = <strong>if</strong> sortedRow <strong>then</strong> M[indices,:] <strong>else</strong> M[:,indices];
-</pre>
+<blockquote><pre>
+sorted_M = <strong>if</strong> sortedRow <strong>then</strong> M[indices,:] <strong>else</strong> M[:,indices];
+</pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
-  (M2, i2) := Matrices.sort([2, 1,  0;
-                             2, 0, -1]);
-       -> M2 = [2, 0, -1;
-                2, 1, 0 ];
-          i2 = {2,1};
+(M2, i2) := Matrices.sort([2, 1,  0;
+                           2, 0, -1]);
+     -> M2 = [2, 0, -1;
+              2, 1, 0 ];
+        i2 = {2,1};
 </pre></blockquote>
 </html>"));
   end sort;
@@ -4921,7 +4765,7 @@ to the original matrix are given, such that
     annotation (Inline=true, Documentation(info="<html>
  <h4>Syntax</h4>
 <blockquote><pre>
-         A_flr = Matrices.<strong>flipLeftRight</strong>(A);
+A_flr = Matrices.<strong>flipLeftRight</strong>(A);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -4931,17 +4775,17 @@ Function <strong>flipLeftRight</strong> computes from matrix <strong>A</strong> 
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [1, 2,  3;
-       3, 4,  5;
-      -1, 2, -3];
+A = [1, 2,  3;
+     3, 4,  5;
+    -1, 2, -3];
 
-  A_flr = flipLeftRight(A);
+A_flr = flipLeftRight(A);
 
-  results in:
+results in:
 
-  A_flr = [3, 2,  1;
-           5, 4,  3;
-          -3, 2, -1]
+A_flr = [3, 2,  1;
+         5, 4,  3;
+        -3, 2, -1]
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -4967,7 +4811,7 @@ Function <strong>flipLeftRight</strong> computes from matrix <strong>A</strong> 
     annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-         A_fud = Matrices.<strong>flipUpDown</strong>(A);
+A_fud = Matrices.<strong>flipUpDown</strong>(A);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -4977,17 +4821,17 @@ Function <strong>flipUpDown</strong> computes from matrix <strong>A</strong> a m
 
 <h4>Example</h4>
 <blockquote><pre>
-  A = [1, 2,  3;
-       3, 4,  5;
-      -1, 2, -3];
+A = [1, 2,  3;
+     3, 4,  5;
+    -1, 2, -3];
 
-  A_fud = flipUpDown(A);
+A_fud = flipUpDown(A);
 
-  results in:
+results in:
 
-  A_fud  = [-1, 2, -3;
-             3, 4,  5;
-             1, 2,  3]
+A_fud  = [-1, 2, -3;
+           3, 4,  5;
+           1, 2,  3]
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -5007,7 +4851,7 @@ Function <strong>flipUpDown</strong> computes from matrix <strong>A</strong> a m
     "Interface to LAPACK library (should usually not directly be used but only indirectly via Modelica.Math.Matrices)"
     extends Modelica.Icons.FunctionsPackage;
 
-    function dgeev
+    pure function dgeev
       "Compute eigenvalues and (right) eigenvectors for real nonsymmetric matrix A"
 
       extends Modelica.Icons.Function;
@@ -5142,7 +4986,7 @@ Lapack documentation
 "));
     end dgeev;
 
-    function dgeev_eigenValues
+    pure function dgeev_eigenValues
       "Compute eigenvalues for real nonsymmetric matrix A"
 
       extends Modelica.Icons.Function;
@@ -5281,7 +5125,7 @@ Lapack documentation
 "));
     end dgeev_eigenValues;
 
-    function dgelsy
+    pure function dgelsy
       "Compute the minimum-norm solution to a real linear least squares problem with rank deficient A"
 
       extends Modelica.Icons.Function;
@@ -5431,7 +5275,7 @@ Lapack documentation
 "));
     end dgelsy;
 
-    function dgelsy_vec
+    pure function dgelsy_vec
       "Compute the minimum-norm solution to a real linear least squares problem with rank deficient A"
 
       extends Modelica.Icons.Function;
@@ -5581,7 +5425,7 @@ Lapack documentation
 "));
     end dgelsy_vec;
 
-    function dgels_vec
+    pure function dgels_vec
       "Solve overdetermined or underdetermined real linear equations A*x=b with a b vector"
 
       extends Modelica.Icons.Function;
@@ -5717,7 +5561,7 @@ Lapack documentation
 "));
     end dgels_vec;
 
-    function dgesv
+    pure function dgesv
       "Solve real system of linear equations A*X=B with a B matrix"
       extends Modelica.Icons.Function;
       input Real A[:, size(A, 1)];
@@ -5795,7 +5639,7 @@ Lapack documentation
 "));
     end dgesv;
 
-    function dgesv_vec
+    pure function dgesv_vec
       "Solve real system of linear equations A*x=b with a b vector"
       extends Modelica.Icons.Function;
       input Real A[:, size(A, 1)];
@@ -5825,7 +5669,7 @@ For details of the arguments, see documentation of dgesv.
 "));
     end dgesv_vec;
 
-    function dgglse_vec
+    pure function dgglse_vec
       "Solve a linear equality constrained least squares problem"
       extends Modelica.Icons.Function;
       input Real A[:, :] "Minimize |A*x - c|^2";
@@ -5956,7 +5800,7 @@ For details of the arguments, see documentation of dgesv.
 "));
     end dgglse_vec;
 
-    function dgtsv
+    pure function dgtsv
       "Solve real system of linear equations A*X=B with B matrix and tridiagonal A"
 
       extends Modelica.Icons.Function;
@@ -6043,7 +5887,7 @@ For details of the arguments, see documentation of dgesv.
 "));
     end dgtsv;
 
-    function dgtsv_vec
+    pure function dgtsv_vec
       "Solve real system of linear equations A*x=b with b vector and tridiagonal A"
 
       extends Modelica.Icons.Function;
@@ -6076,7 +5920,7 @@ For details of the arguments, see documentation of dgtsv.
 "));
     end dgtsv_vec;
 
-    function dgbsv
+    pure function dgbsv
       "Solve real system of linear equations A*X=B with a B matrix"
       extends Modelica.Icons.Function;
       input Integer n "Number of equations";
@@ -6188,7 +6032,7 @@ For details of the arguments, see documentation of dgtsv.
 "));
     end dgbsv;
 
-    function dgbsv_vec
+    pure function dgbsv_vec
       "Solve real system of linear equations A*x=b with a b vector"
       extends Modelica.Icons.Function;
       input Integer n "Number of equations";
@@ -6221,7 +6065,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgbsv_vec;
 
-    function dgesvd "Determine singular value decomposition"
+    pure function dgesvd "Determine singular value decomposition"
       extends Modelica.Icons.Function;
       input Real A[:, :];
       output Real sigma[min(size(A, 1), size(A, 2))];
@@ -6369,7 +6213,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgesvd;
 
-    function dgesvd_sigma "Determine singular values"
+    pure function dgesvd_sigma "Determine singular values"
       extends Modelica.Icons.Function;
       input Real A[:, :];
       output Real sigma[min(size(A, 1), size(A, 2))];
@@ -6517,7 +6361,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgesvd_sigma;
 
-    function dgetrf
+    pure function dgetrf
       "Compute LU factorization of square or rectangular matrix A (A = P*L*U)"
 
       extends Modelica.Icons.Function;
@@ -6583,7 +6427,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgetrf;
 
-    function dgetrs
+    pure function dgetrs
       "Solve a system of linear equations with the LU decomposition from dgetrf"
 
       extends Modelica.Icons.Function;
@@ -6659,7 +6503,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgetrs;
 
-    function dgetrs_vec
+    pure function dgetrs_vec
       "Solve a system of linear equations with the LU decomposition from dgetrf"
 
       extends Modelica.Icons.Function;
@@ -6736,7 +6580,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgetrs_vec;
 
-    function dgetri
+    pure function dgetri
       "Compute the inverse of a matrix using the LU factorization from dgetrf"
 
       extends Modelica.Icons.Function;
@@ -6810,7 +6654,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgetri;
 
-    function dgeqp3 "Compute QR factorization with column pivoting of square or rectangular matrix A"
+    pure function dgeqp3 "Compute QR factorization with column pivoting of square or rectangular matrix A"
 
       extends Modelica.Icons.Function;
       input Real A[:, :] "Square or rectangular matrix";
@@ -6912,7 +6756,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgeqp3;
 
-    function dorgqr
+    pure function dorgqr
       "Generate a Real orthogonal matrix Q which is defined as the product of elementary reflectors as returned from dgeqrf"
 
       extends Modelica.Icons.Function;
@@ -6999,7 +6843,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dorgqr;
 
-    function dgees
+    pure function dgees
       "Compute real Schur form T of real nonsymmetric matrix A, and, optionally, the matrix of Schur vectors Z as well as the eigenvalues"
       extends Modelica.Icons.Function;
 
@@ -7155,7 +6999,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgees;
 
-    function dtrsen "Reorder the real Schur factorization of a real matrix"
+    pure function dtrsen "Reorder the real Schur factorization of a real matrix"
       extends Modelica.Icons.Function;
 
       input String job="N" "Specifies the usage of a condition number";
@@ -7413,7 +7257,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dtrsen;
 
-    function dgesvx
+    pure function dgesvx
       "Solve real system of linear equations op(A)*X=B, op(A) is A or A' according to the Boolean input transposed"
       extends Modelica.Icons.Function;
       input Real A[:, size(A, 1)] "Real square matrix A";
@@ -7692,7 +7536,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgesvx;
 
-    function dtrsyl
+    pure function dtrsyl
       "Solve the real Sylvester matrix equation op(A)*X + X*op(B) = scale*C or op(A)*X - X*op(B) = scale*C"
       extends Modelica.Icons.Function;
 
@@ -7808,7 +7652,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dtrsyl;
 
-    function dhseqr
+    pure function dhseqr
       "Compute eigenvalues of a matrix H using lapack routine DHSEQR for Hessenberg form matrix"
       extends Modelica.Icons.Function;
 
@@ -8000,7 +7844,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dhseqr;
 
-    function dlange "Norm of a matrix"
+    pure function dlange "Norm of a matrix"
       extends Modelica.Icons.Function;
 
       input Real A[:, :] "Real matrix A";
@@ -8073,7 +7917,7 @@ For details of the arguments, see documentation of dgbsv.
 
     end dlange;
 
-    function dgecon
+    pure function dgecon
       "Estimate the reciprocal of the condition number of a general real matrix A"
       extends Modelica.Icons.Function;
 
@@ -8149,15 +7993,15 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgecon;
 
-    function dgehrd
+    pure function dgehrd
       "Reduce a real general matrix A to upper Hessenberg form H by an orthogonal similarity transformation:  Q' * A * Q = H"
       extends Modelica.Icons.Function;
 
       input Real A[:, size(A, 1)];
       input Integer ilo=1
-        "Lowest index where the original matrix had been Hessenberg form";
+        "Lowest index where the original matrix is not in upper triangular form";
       input Integer ihi=size(A, 1)
-        "Highest index where the original matrix had been Hessenberg form";
+        "Highest index where the original matrix is not in upper triangular form";
       output Real Aout[size(A, 1), size(A, 2)]=A
         "Contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q";
       output Real tau[max(size(A, 1), 1) - 1]
@@ -8268,7 +8112,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgehrd;
 
-    function dgeqrf "Compute a QR factorization without pivoting"
+    pure function dgeqrf "Compute a QR factorization without pivoting"
       extends Modelica.Icons.Function;
 
       input Real A[:, :] "Square or rectangular matrix";
@@ -8359,7 +8203,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgeqrf;
 
-    function dgeevx
+    pure function dgeevx
       "Compute the eigenvalues and the (real) left and right eigenvectors of matrix A, using lapack routine dgeevx"
       extends Modelica.Icons.Function;
 
@@ -8591,7 +8435,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgeevx;
 
-    function dgesdd "Determine singular value decomposition"
+    pure function dgesdd "Determine singular value decomposition"
       extends Modelica.Icons.Function;
       input Real A[:, :];
       output Real sigma[min(size(A, 1), size(A, 2))];
@@ -8756,7 +8600,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dgesdd;
 
-    function dggev
+    pure function dggev
       "Compute generalized eigenvalues, as well as the left and right eigenvectors for a (A,B) system"
       extends Modelica.Icons.Function;
 
@@ -8925,7 +8769,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dggev;
 
-    function dggevx
+    pure function dggevx
       "Compute generalized eigenvalues for a (A,B) system, using lapack routine dggevx"
       extends Modelica.Icons.Function;
 
@@ -9229,7 +9073,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dggevx;
 
-    function dhgeqz "Compute generalized eigenvalues for a (A,B) system"
+    pure function dhgeqz "Compute generalized eigenvalues for a (A,B) system"
       extends Modelica.Icons.Function;
 
       input Real A[:, size(A, 1)];
@@ -9468,7 +9312,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dhgeqz;
 
-    function dormhr
+    pure function dormhr
       "Overwrite the general real M-by-N matrix C with Q * C or C * Q or Q' * C or C * Q', where Q is an orthogonal matrix as returned by dgehrd"
       extends Modelica.Icons.Function;
 
@@ -9478,9 +9322,9 @@ For details of the arguments, see documentation of dgbsv.
       input String side="L";
       input String trans="N";
       input Integer ilo=1
-        "Lowest index where the original matrix had been Hessenberg form";
+        "Lowest index where the original matrix is not in upper triangular form";
       input Integer ihi=if side == "L" then size(C, 1) else size(C, 2)
-        "Highest index where the original matrix had been Hessenberg form";
+        "Highest index where the original matrix is not in upper triangular form";
       output Real Cout[size(C, 1), size(C, 2)]=C
         "Contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q";
 
@@ -9596,7 +9440,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dormhr;
 
-    function dormqr
+    pure function dormqr
       "Overwrite the general real M-by-N matrix C with Q * C or C * Q or Q' * C or C * Q', where Q is an orthogonal matrix of a QR factorization as returned by dgeqrf"
       extends Modelica.Icons.Function;
 
@@ -9718,7 +9562,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dormqr;
 
-    function dtrevc
+    pure function dtrevc
       "Compute the right and/or left eigenvectors of a real upper quasi-triangular matrix T"
       extends Modelica.Icons.Function;
 
@@ -9886,7 +9730,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dtrevc;
 
-    function dpotrf
+    pure function dpotrf
       "Compute the Cholesky factorization of a real symmetric positive definite matrix A"
       extends Modelica.Icons.Function;
 
@@ -9953,7 +9797,7 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dpotrf;
 
-    function dtrsm
+    pure function dtrsm
       "Solve one of the matrix equations op( A )*X = alpha*B, or X*op( A ) = alpha*B, where A is triangular matrix. BLAS routine"
       extends Modelica.Icons.Function;
 
@@ -10103,16 +9947,16 @@ For details of the arguments, see documentation of dgbsv.
 "));
     end dtrsm;
 
-    function dorghr
+    pure function dorghr
       "Generate a real orthogonal matrix Q which is defined as the product of IHI-ILO elementary reflectors of order N, as returned by DGEHRD"
       extends Modelica.Icons.Function;
 
       input Real A[:, size(A, 1)]
         "Square matrix with the elementary reflectors";
       input Integer ilo=1
-        "Lowest index where the original matrix had been Hessenberg form - ilo must have the same value as in the previous call of DGEHRD";
+        "Lowest index where the original matrix is not in upper triangular form - ilo must have the same value as in the previous call of DGEHRD";
       input Integer ihi=size(A, 1)
-        "Highest index where the original matrix had been Hessenberg form - ihi must have the same value as in the previous call of DGEHRD";
+        "Highest index where the original matrix is not in upper triangular form - ihi must have the same value as in the previous call of DGEHRD";
       input Real tau[max(0, size(A, 1) - 1)]
         "Scalar factors of the elementary reflectors";
       output Real Aout[size(A, 1), size(A, 2)]=A
@@ -10295,8 +10139,8 @@ This package contains a direct interface to the LAPACK subroutines
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-           X = Matrices.Utilities.<strong>continuousRiccatiIterative</strong>(A, B, R, Q, X0);
-      (X, r) = Matrices.Utilities.<strong>continuousRiccatiIterative</strong>(A, B, R, Q, X0, maxSteps, eps);
+     X = Matrices.Utilities.<strong>continuousRiccatiIterative</strong>(A, B, R, Q, X0);
+(X, r) = Matrices.Utilities.<strong>continuousRiccatiIterative</strong>(A, B, R, Q, X0, maxSteps, eps);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -10304,28 +10148,27 @@ This function provides a Newton-like method for solving continuous algebraic Ric
 convergence of Newton's method. Exact line search in this case means, that at each iteration <code>i</code> a Newton step <code><strong>delta</strong>_i</code>
 </p>
 <blockquote><pre>
-  <strong>X</strong>_i+1 = <strong>X</strong>_i + <strong>delta</strong>_i
+<strong>X</strong>_i+1 = <strong>X</strong>_i + <strong>delta</strong>_i
 </pre></blockquote>
 <p>
 is taken in the direction to minimize the Frobenius norm of the residual
 </p>
 <blockquote><pre>
-    r = || <strong>X</strong>_i+1*<strong>A</strong> +<strong>A</strong>'*<strong>X</strong>_i+1 - <strong>X</strong>_i+1*<strong>G</strong>*<strong>X</strong>_i+1 + <strong>Q</strong> ||.
+r = || <strong>X</strong>_i+1*<strong>A</strong> +<strong>A</strong>'*<strong>X</strong>_i+1 - <strong>X</strong>_i+1*<strong>G</strong>*<strong>X</strong>_i+1 + <strong>Q</strong> ||.
 </pre></blockquote>
 <p>
 with
 </p>
 <blockquote><pre>
-        -1
-  G = <strong>B</strong>*<strong>R</strong> *<strong>B</strong>'
+      -1
+G = <strong>B</strong>*<strong>R</strong> *<strong>B</strong>'
 </pre></blockquote>
-<p>
 
+<p>
 The inputs \"maxSteps\" and \"eps\" specify the termination of the iteration. The iteration is terminated if either
 maxSteps iteration steps have been performed or the relative change <strong>delta</strong>_i/<strong>X</strong>_i became smaller than eps.
 </p>
 <p>
-
 With an appropriate initial value <strong>X</strong>0 a sufficiently accurate solution might be reach within a few iteration steps. Although a Lyapunov equation
 of order <code>n</code> (n is the order of the Riccati equation) is to be solved at each iteration step, the algorithm might be faster
 than a direct method like <a href=\"modelica://Modelica.Math.Matrices.continuousRiccati\">Matrices.continuousRiccati</a>, since direct methods have to solve the 2*n-order Hamiltonian
@@ -10334,50 +10177,49 @@ system equation.<br>
 The algorithm is taken from [1] and [2].
 </p>
 <h4>References</h4>
-<pre>
-  [1] Benner, P., Byers, R.
-      An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
-      IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
-  [2] Datta, B.N.
-      Numerical Methods for Linear Control Systems
-      Elsevier Academic Press, 2004.
-</pre>
+<blockquote><pre>
+[1] Benner, P., Byers, R.
+    An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
+    IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
+[2] Datta, B.N.
+    Numerical Methods for Linear Control Systems
+    Elsevier Academic Press, 2004.
+</pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
-     A=[0.0,         1.0,         0.0,         0.0;
-        0.0,        -1.890,       3.900e-01,  -5.530;
-        0.0,        -3.400e-02,  -2.980,       2.430;
-        3.400e-02,  -1.100e-03,  -9.900e-01,  -2.100e-01];
+A=[0.0,         1.0,         0.0,         0.0;
+   0.0,        -1.890,       3.900e-01,  -5.530;
+   0.0,        -3.400e-02,  -2.980,       2.430;
+   3.400e-02,  -1.100e-03,  -9.900e-01,  -2.100e-01];
 
-     B=[ 0.0,         0.0;
-         3.600e-01,  -1.60;
-        -9.500e-01,  -3.200e-02;
-         3.000e-02,   0.0];
+B=[ 0.0,         0.0;
+    3.600e-01,  -1.60;
+   -9.500e-01,  -3.200e-02;
+    3.000e-02,   0.0];
 
-     R=[1, 0; 0, 1];
+R=[1, 0; 0, 1];
 
-     Q=[2.313,       2.727,       6.880e-01,   2.300e-02;
-        2.727,       4.271,       1.148,       3.230e-01;
-        6.880e-01,   1.148,       3.130e-01,   1.020e-01;
-        2.300e-02,   3.230e-01,   1.020e-01,   8.300e-02];
+Q=[2.313,       2.727,       6.880e-01,   2.300e-02;
+   2.727,       4.271,       1.148,       3.230e-01;
+   6.880e-01,   1.148,       3.130e-01,   1.020e-01;
+   2.300e-02,   3.230e-01,   1.020e-01,   8.300e-02];
 
-    X0=identity(4);
+X0=identity(4);
 
-    (X,r) = Matrices.Utilities.continuousRiccatiIterative(A, B, R, Q, X0);
+(X,r) = Matrices.Utilities.continuousRiccatiIterative(A, B, R, Q, X0);
 
-  //  X = [1.3239,  0.9015,  0.5466, -1.7672;
-           0.9015,  0.9607,  0.4334, -1.1989;
-           0.5466,  0.4334,  0.4605, -1.3633;
-          -1.7672, -1.1989, -1.3633,  4.4612]
-  // r =  2.48809423389491E-015
+// X = [1.3239,  0.9015,  0.5466, -1.7672;
+        0.9015,  0.9607,  0.4334, -1.1989;
+        0.5466,  0.4334,  0.4605, -1.3633;
+       -1.7672, -1.1989, -1.3633,  4.4612]
+// r =  2.48809423389491E-015
 
-    (,r) = Matrices.Utilities.continuousRiccatiIterative(A, B, R, Q, X0,4);
+(,r) = Matrices.Utilities.continuousRiccatiIterative(A, B, R, Q, X0,4);
 
-   // r =  0.0004;
-
-<br>
+// r =  0.0004;
 </pre></blockquote>
+
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.Utilities.discreteRiccatiIterative\">Matrices.Utilities.discreteRiccatiIterative</a><br>
 <a href=\"modelica://Modelica.Math.Matrices.continuousRiccati\">Matrices.continuousRiccati</a>
@@ -10459,8 +10301,8 @@ The algorithm is taken from [1] and [2].
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-           X = Matrices.Utilities.<strong>discreteRiccatiIterative</strong>(A, B, R, Q, X0);
-      (X, r) = Matrices.Utilities.<strong>discreteRiccatiIterative</strong>(A, B, R, Q, X0, maxSteps, eps);
+     X = Matrices.Utilities.<strong>discreteRiccatiIterative</strong>(A, B, R, Q, X0);
+(X, r) = Matrices.Utilities.<strong>discreteRiccatiIterative</strong>(A, B, R, Q, X0, maxSteps, eps);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -10468,23 +10310,22 @@ This function provides a Newton-like method for solving discrete-time algebraic 
 convergence of Newton's method. Exact line search in this case means, that at each iteration <code>i</code> a Newton step <code><strong>delta</strong>_i</code>
 </p>
 <blockquote><pre>
-  <strong>X</strong>_i+1 = <strong>X</strong>_i + <strong>delta</strong>_i
+<strong>X</strong>_i+1 = <strong>X</strong>_i + <strong>delta</strong>_i
 </pre></blockquote>
 <p>
 is taken in the direction to minimize the Frobenius norm of the residual
 </p>
 <blockquote><pre>
-  r = || <strong>A</strong>'<strong>X</strong>_i+1*<strong>A</strong> - <strong>X</strong>_i+1 - <strong>A</strong>'<strong>X</strong>_i+1*<strong>G</strong>_i*<strong>X</strong>_i+1*<strong>A</strong> + <strong>Q</strong> ||
+r = || <strong>A</strong>'<strong>X</strong>_i+1*<strong>A</strong> - <strong>X</strong>_i+1 - <strong>A</strong>'<strong>X</strong>_i+1*<strong>G</strong>_i*<strong>X</strong>_i+1*<strong>A</strong> + <strong>Q</strong> ||
 </pre></blockquote>
 <p>
 with
 </p>
 <blockquote><pre>
-                       -1
-  G_i = <strong>B</strong>*(<strong>R</strong> + <strong>B</strong>'*<strong>X</strong>_i*<strong>B</strong>) *<strong>B</strong>'
+                     -1
+G_i = <strong>B</strong>*(<strong>R</strong> + <strong>B</strong>'*<strong>X</strong>_i*<strong>B</strong>) *<strong>B</strong>'
 </pre></blockquote>
 <p>
-
 Output <code>r</code> is the norm of the residual of the last iteration.<br>
 </p>
 <p>
@@ -10492,7 +10333,6 @@ The inputs \"maxSteps\" and \"eps\" specify the termination of the iteration. Th
 maxSteps iteration steps have been performed or the relative change <strong>delta</strong>_i/<strong>X</strong>_i became smaller than eps.
 </p>
 <p>
-
 With an appropriate initial value <strong>X</strong>0 a sufficiently accurate solution might be reach with a few iteration steps. Although a Lyapunov equation of
 order <code>n</code> (n is the order of the Riccati equation) is to be solved at each iteration step, the algorithm might be faster
 than a direct method like <a href=\"modelica://Modelica.Math.Matrices.discreteRiccati\">Matrices.discreteRiccati</a>, since direct methods have to solve the 2*n-order Hamiltonian
@@ -10501,45 +10341,46 @@ system equation.
 The algorithm is taken from [1] and [2].
 </p>
 <h4>References</h4>
-<pre>
-  [1] Benner, P., Byers, R.
-      An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
-      IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
-  [2] Datta, B.N.
-      Numerical Methods for Linear Control Systems
-      Elsevier Academic Press, 2004.
-</pre>
+<blockquote><pre>
+[1] Benner, P., Byers, R.
+    An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
+    IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
+[2] Datta, B.N.
+    Numerical Methods for Linear Control Systems
+    Elsevier Academic Press, 2004.
+</pre></blockquote>
 
 <h4>Example</h4>
 <blockquote><pre>
-     A  = [0.9970,    0.0000,    0.0000,    0.0000;
-           1.0000,    0.0000,    0.0000,    0.0000;
-           0.0000,    1.0000,    0.0000,    0.0000;
-           0.0000,    0.0000,    1.0000,    0.0000];
+A  = [0.9970,    0.0000,    0.0000,    0.0000;
+      1.0000,    0.0000,    0.0000,    0.0000;
+      0.0000,    1.0000,    0.0000,    0.0000;
+      0.0000,    0.0000,    1.0000,    0.0000];
 
-     B  = [0.0150;
-           0.0000;
-           0.0000;
-           0.0000];
+B  = [0.0150;
+      0.0000;
+      0.0000;
+      0.0000];
 
-     R = [0.2500];
+R = [0.2500];
 
-     Q = [0, 0, 0, 0;
-          0, 0, 0, 0;
-          0, 0, 0, 0;
-          0, 0, 0, 1];
+Q = [0, 0, 0, 0;
+     0, 0, 0, 0;
+     0, 0, 0, 0;
+     0, 0, 0, 1];
 
-    X0=identity(4);
+X0=identity(4);
 
-    (X,r) = Matrices.Utilities.discreteRiccatiIterative(A, B, R, Q, X0);
+(X,r) = Matrices.Utilities.discreteRiccatiIterative(A, B, R, Q, X0);
 
-  //  X = [30.625, 0.0, 0.0, 0.0;
-            0.0,   1.0, 0.0, 0.0;
-            0.0,   0.0, 1.0, 0.0;
-            0.0,   0.0, 0.0, 1.0];
+//  X = [30.625, 0.0, 0.0, 0.0;
+          0.0,   1.0, 0.0, 0.0;
+          0.0,   0.0, 1.0, 0.0;
+          0.0,   0.0, 0.0, 1.0];
 
-  // r =   3.10862446895044E-015
+// r =   3.10862446895044E-015
 </pre></blockquote>
+
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">Matrices.Utilities.continuousRiccatiIterative</a><br>
 <a href=\"modelica://Modelica.Math.Matrices.discreteRiccati\">Matrices.discreteRiccati</a>
@@ -10551,168 +10392,6 @@ The algorithm is taken from [1] and [2].
 </html>"));
     end discreteRiccatiIterative;
 
-    function householderReflection
-      "Reflect each of the vectors a_i of matrix  A=[a_1, a_2, ..., a_n] on a plane with orthogonal vector u"
-      extends Modelica.Icons.Function;
-      import Modelica.Math.Vectors;
-
-      input Real A[:, :] "Rectangular matrix";
-      input Real u[size(A, 1)] "Householder vector";
-
-      output Real RA[size(A, 1), size(A, 2)] "Reflexion of A";
-
-    protected
-      Integer n=size(A, 2);
-      Real h;
-      Real lu=(Vectors.length(u))^2;
-
-    algorithm
-      for i in 1:n loop
-        h := scalar(2*transpose(matrix(u))*A[:, i]/lu);
-        RA[:, i] := A[:, i] - h*u;
-      end for;
-
-      annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-Matrices.<strong>householderReflection</strong>(A,u);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-This function computes the Householder reflection (transformation)
-</p>
-<blockquote>
- <strong>Ar</strong> = <strong>Q</strong>*<strong>A</strong>
-</blockquote>
-with
-<blockquote>
- <strong>Q</strong> = <strong>I</strong> -2*<strong>u</strong>*<strong>u</strong>'/(<strong>u</strong>'*<strong>u</strong>)
-</blockquote>
-<p>
-where <strong>u</strong> is Householder vector, i.e., the normal vector of the reflection plane.
-</p>
-<p>
-Householder reflection is widely used in numerical linear algebra, e.g., to perform QR decompositions.
-</p>
-<h4>Example</h4>
-<blockquote><pre>
-// First step of QR decomposition
-  import   Modelica.Math.Vectors.Utilities;
-
-  Real A[3,3] = [1,2,3;
-                 3,4,5;
-                 2,1,4];
-  Real Ar[3,3];
-  Real u[:];
-
-  u=Utilities.householderVector(A[:,1],{1,0,0});
-  // u= {0.763, 0.646, 0}
-
-  Ar=householderReflection(A,u);
- // Ar = [-6.0828,   -5.2608,   -4.4388;
- //        0.0,      -1.1508,   -2.3016;
- //        0.0,       2.0,       0.0]
-
-</pre></blockquote>
-
-<h4>See also</h4>
-<p>
-<a href=\"modelica://Modelica.Math.Matrices.Utilities.householderSimilarityTransformation\">Matrices.Utilities.housholderSimilarityTransformation</a>,<br>
-<a href=\"modelica://Modelica.Math.Vectors.Utilities.householderReflection\">Vectors.Utilities.householderReflection</a>,<br>
-<a href=\"modelica://Modelica.Math.Vectors.Utilities.householderVector\">Vectors.Utilities.householderVector</a>
-</p>
-</html>", revisions="<html>
-<ul>
-<li><em>2010/04/30 </em>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-</html>"));
-    end householderReflection;
-
-    function householderSimilarityTransformation
-      "Perform the similarity transformation S*A*S of matrix A with symmetric householder matrix S = I - 2u*u'"
-      extends Modelica.Icons.Function;
-
-      import Modelica.Math.Vectors;
-
-      input Real A[:, size(A, 1)] "Square matrix A";
-      input Real u[size(A, 1)] "Householder vector";
-      output Real SAS[size(A, 1), size(A, 1)] "Transformation of matrix A";
-
-    protected
-      Integer na=size(A, 1);
-      Real S[size(A, 1), size(A, 1)] "Symmetric matrix";
-      Integer i;
-    algorithm
-      if na > 0 then
-        S := -2*matrix(u)*transpose(matrix(u))/(Vectors.length(u)*
-          Vectors.length(u));
-        for i in 1:na loop
-          S[i, i] := 1.0 + S[i, i];
-        end for;
-        SAS := S*A*S;
-      else
-        SAS := fill(
-                0.0,
-                0,
-                0);
-      end if;
-
-      annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-  As = Matrices.<strong>householderSimilarityTransformation</strong>(A,u);
-</pre></blockquote>
-<h4>Description</h4>
-<p>
-This function computes the Householder similarity transformation
-</p>
-<blockquote>
- <strong>As</strong> = <strong>S</strong>*<strong>A</strong>*<strong>S</strong>
-</blockquote>
-with
-<blockquote>
- <strong>S</strong> = <strong>I</strong> -2*<strong>u</strong>*<strong>u</strong>'/(<strong>u</strong>'*<strong>u</strong>).
-</blockquote>
-<p>
-This transformation is widely used for transforming non-symmetric matrices to a Hessenberg form.
-</p>
-<h4>Example</h4>
-<blockquote><pre>
-// First step of Hessenberg decomposition
-  import   Modelica.Math.Vectors.Utilities;
-
-  Real A[4,4] = [1,2,3,4;
-                 3,4,5,6;
-                 9,8,7,6;
-                 1,2,0,0];
-  Real Ar[4,4];
-  Real u[4]={0,0,0,0};
-
-  u[2:4]=Utilities.householderVector(A[2:4,1],{1,0,0});
-  // u= = {0, 0.8107, 0.5819, 0.0647}
-
-  Ar=householderSimilarityTransformation(A,u);
- //  Ar = [1.0,     -3.8787,    -1.2193,    3.531;
-          -9.5394, 11.3407,      6.4336,   -5.9243;
-           0.0,     3.1307,      0.7525,   -3.3670;
-           0.0,     0.8021,     -1.1656,   -1.0932]
-</pre></blockquote>
-
-<h4>See also</h4>
-<p>
-<a href=\"modelica://Modelica.Math.Matrices.Utilities.householderReflection\">Matrices.Utilities.householderReflection</a>,<br>
-<a href=\"modelica://Modelica.Math.Vectors.Utilities.householderReflection\">Vectors.Utilities.householderReflection</a>,<br>
-<a href=\"modelica://Modelica.Math.Vectors.Utilities.householderVector\">Vectors.Utilities.householderVector</a>
-</p>
-</html>", revisions="<html>
-<ul>
-<li><em>2010/04/30 </em>
-       by Marcus Baur, DLR-RM</li>
-</ul>
-</html>"));
-    end householderSimilarityTransformation;
-
     function toUpperHessenberg
       "Transform a real square matrix A to upper Hessenberg form H by orthogonal similarity transformation:  Q' * A * Q = H"
       extends Modelica.Icons.Function;
@@ -10722,9 +10401,9 @@ This transformation is widely used for transforming non-symmetric matrices to a 
 
       input Real A[:, size(A, 1)] "Square matrix A";
       input Integer ilo=1
-        "Lowest index where the original matrix had been Hessenberg form";
+        "Lowest index where the original matrix is not in upper triangular form";
       input Integer ihi=size(A, 1)
-        "Highest index where the original matrix had been Hessenberg form";
+        "Highest index where the original matrix is not in upper triangular form";
       output Real H[size(A, 1), size(A, 2)] "Upper Hessenberg form";
       output Real V[size(A, 1), size(A, 2)]
         "V=[v1,v2,..vn-1,0] with vi are vectors which define the elementary reflectors";
@@ -10763,30 +10442,31 @@ This transformation is widely used for transforming non-symmetric matrices to a 
     annotation (Documentation(info="<html>
    <h4>Syntax</h4>
 <blockquote><pre>
-         H = Matrices.Utilities.<strong>toUpperHessenberg</strong>(A);
-         (H, V, tau, info) = Matrices.Utilities.<strong>toUpperHessenberg</strong>(A,ilo, ihi);
+                H = Matrices.Utilities.<strong>toUpperHessenberg</strong>(A);
+(H, V, tau, info) = Matrices.Utilities.<strong>toUpperHessenberg</strong>(A,ilo, ihi);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
 Function <strong>toUpperHessenberg</strong> computes a upper Hessenberg form <strong>H</strong> of a matrix <strong>A</strong> by orthogonal similarity transformation:  <strong>Q</strong>' * <strong>A</strong> * <strong>Q</strong> = <strong>H</strong>.
-With the optional inputs ilo and ihi, also partial transformation is possible. The function calls LAPACK function DGEHRD.
+The optional inputs <strong>ilo</strong> and <strong>ihi</strong> improve efficiency if the matrix is already partially converted to Hessenberg form; it is assumed
+that matrix <strong>A</strong> is already upper Hessenberg for rows and columns <strong>1:(ilo-1)</strong> and <strong>(ihi+1):size(A, 1)</strong>.
+The function calls <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">LAPACK.dgehrd</a>.
 See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.LAPACK.dgehrd</a> for more information about the additional outputs V, tau, info and inputs ilo, ihi.
 </p>
 
 <h4>Example</h4>
 <blockquote><pre>
- A  = [1, 2, 3;
-       6, 5, 4;
-       1, 0, 0];
+A  = [1, 2, 3;
+      6, 5, 4;
+      1, 0, 0];
 
- H = toUpperHessenberg(A);
+H = toUpperHessenberg(A);
 
-  results in:
+results in:
 
- H = [1.0,  -2.466,  2.630;
-     -6.083, 5.514, -3.081;
-      0.0,   0.919, -0.514]
-
+H = [1.0,  -2.466,  2.630;
+    -6.083, 5.514, -3.081;
+     0.0,   0.919, -0.514]
 </pre></blockquote>
 
 <h4>See also</h4>
@@ -10824,8 +10504,8 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.LAPACK.
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-           ev = Matrices.Utilities.<strong>eigenvaluesHessenberg</strong>(H);
-   (ev, info) = Matrices.Utilities.<strong>eigenvaluesHessenberg</strong>(H);
+        ev = Matrices.Utilities.<strong>eigenvaluesHessenberg</strong>(H);
+(ev, info) = Matrices.Utilities.<strong>eigenvaluesHessenberg</strong>(H);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -10841,18 +10521,18 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">Matrices.LAPACK.
 
 <h4>Example</h4>
 <blockquote><pre>
-     Real A[3,3] = [1,2,3;
-                    9,8,7;
-                    0,1,0];
+Real A[3,3] = [1,2,3;
+               9,8,7;
+               0,1,0];
 
-     Real ev[3,2];
+Real ev[3,2];
 
-     ev := Matrices.Utilities.eigenvaluesHessenberg(A);
+ev := Matrices.Utilities.eigenvaluesHessenberg(A);
 
-  // ev  = [10.7538,    0.0;
-            -0.8769,    1.0444;
-            -0.8769,   -1.0444]
-  // = {10.7538,  -0.8769 +- i*1.0444}
+// ev  = [10.7538,    0.0;
+          -0.8769,    1.0444;
+          -0.8769,   -1.0444]
+// = {10.7538,  -0.8769 +- i*1.0444}
 </pre></blockquote>
 <br>
 
@@ -10938,16 +10618,16 @@ reordered eigenvalues respectively.
 
 <h4>Example</h4>
 <blockquote><pre>
-  T := [-1,2, 3,4;
-         0,2, 6,5;
-         0,0,-3,5;
-         0,0, 0,6];
-  To := Matrices.Utilities.reorderRSF(T,identity(4),{-1, 2, -3, 6},{0, 0, 0, 0}, true);
+T := [-1,2, 3,4;
+       0,2, 6,5;
+       0,0,-3,5;
+       0,0, 0,6];
+To := Matrices.Utilities.reorderRSF(T,identity(4),{-1, 2, -3, 6},{0, 0, 0, 0}, true);
 
-  // To = [-1.0, -0.384, 3.585, 4.0;
-  //        0.0, -3.0,   6.0,   0.64;
-  //        0.0,  0.0,   2.0,   7.04;
-  //        0.0,  0.0,   0.0,   6.0]
+// To = [-1.0, -0.384, 3.585, 4.0;
+//        0.0, -3.0,   6.0,   0.64;
+//        0.0,  0.0,   2.0,   7.04;
+//        0.0,  0.0,   0.0,   6.0]
 </pre></blockquote>
 <p>
 See also <a href=\"modelica://Modelica.Math.Matrices.realSchur\">Matrices.realSchur</a>
@@ -11007,7 +10687,7 @@ See also <a href=\"modelica://Modelica.Math.Matrices.realSchur\">Matrices.realSc
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-           tk = Matrices.Utilities.<strong>findLocal_tk</strong>(Rk, Vk);
+tk = Matrices.Utilities.<strong>findLocal_tk</strong>(Rk, Vk);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -11017,7 +10697,7 @@ and <a href=\"modelica://Modelica.Math.Matrices.Utilities.discreteRiccatiIterati
 The function computes the local minimum of the function f_k(t_k)
 </p>
 <blockquote><pre>
-  f_k(t_k) = alpha_k*(1-t_k)^2 + 2*beta_k*(1-t)*t^2 + gamma_k*t^4
+f_k(t_k) = alpha_k*(1-t_k)^2 + 2*beta_k*(1-t)*t^2 + gamma_k*t^4
 </pre></blockquote>
 <p>
 by calculating the zeros of the derivation d f_k/d t_k. It is known that the function f_k(t_k) has a local minimum at some value t_k_min in [0, 2].<br>
@@ -11025,11 +10705,11 @@ With t_k_min the norm of the next residual of the algorithm will be minimized.<b
 See [1] for more information
 </p>
 <h4>References</h4>
-<pre>
-  [1] Benner, P., Byers, R.
-      An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
-      IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
-</pre>
+<blockquote><pre>
+[1] Benner, P., Byers, R.
+    An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
+    IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
+</pre></blockquote>
 
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">Matrices.Utilities.continuousRiccatiIterative</a><br>
@@ -11269,16 +10949,7 @@ package Icons "Icons for Math"
             textString="%name",
             textColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={95,95,95}),
-            Line(points={{-80,-80},{-88,-80}}, color={95,95,95}),Line(
-            points={{-80,-90},{-80,84}}, color={95,95,95}),Text(
-                extent={{-75,104},{-55,84}},
-                textColor={95,95,95},
-                textString="y"),Polygon(
-                points={{-80,98},{-86,82},{-74,82},{-80,98}},
-                lineColor={95,95,95},
-                fillColor={95,95,95},
-                fillPattern=FillPattern.Solid)}),
+              100,100}})),
       Documentation(info="<html>
 <p>
 Icon for a mathematical function, consisting of an y-axis on the left side.
@@ -11307,16 +10978,6 @@ It is expected, that an x-axis is added and a plot of the function.
             extent={{-150,150},{150,110}},
             textString="%name",
             textColor={0,0,255})}),
-      Diagram(graphics={Line(points={{0,80},{-8,80}}, color={95,95,95}),Line(
-            points={{0,-80},{-8,-80}}, color={95,95,95}),Line(points={{0,-90},{
-            0,84}}, color={95,95,95}),Text(
-                extent={{5,104},{25,84}},
-                textColor={95,95,95},
-                textString="y"),Polygon(
-                points={{0,98},{-6,82},{6,82},{0,98}},
-                lineColor={95,95,95},
-                fillColor={95,95,95},
-                fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
 Icon for a mathematical function, consisting of an y-axis in the middle.
@@ -11374,8 +11035,8 @@ end isEqual;
 
 function sin "Sine"
   extends Modelica.Math.Icons.AxisLeft;
-  input Modelica.SIunits.Angle u;
-  output Real y;
+  input SI.Angle u "Independent variable";
+  output Real y "Dependent variable y=sin(u)";
 
 external "builtin" y = sin(u);
   annotation (
@@ -11399,35 +11060,7 @@ external "builtin" y = sin(u);
           textString="sin")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
-          Polygon(
-            points={{100,0},{84,6},{84,-6},{100,0}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-80,0},{-68.7,34.2},{-61.5,53.1},{-55.1,66.4},{-49.4,74.6},
-            {-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{-26.9,69.7},{-21.3,59.4},{-14.9,
-            44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},{23.7,-64.2},{29.3,-73.1},
-            {35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,-71.5},{57.5,-61.9},{63.9,
-            -47.2},{72,-24.8},{80,0}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-105,72},{-85,88}},
-            textString="1",
-            textColor={0,0,255}),Text(
-            extent={{70,25},{90,5}},
-            textString="2*pi",
-            textColor={0,0,255}),Text(
-            extent={{-103,-72},{-83,-88}},
-            textString="-1",
-            textColor={0,0,255}),Text(
-            extent={{82,-6},{102,-26}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{-80,80},{-28,80}},
-            color={175,175,175}),Line(
-            points={{-80,-80},{50,-80}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = sin(u), with -&infin; &lt; u &lt; &infin;:
@@ -11442,8 +11075,8 @@ end sin;
 
 function cos "Cosine"
   extends Modelica.Math.Icons.AxisLeft;
-  input SI.Angle u;
-  output Real y;
+  input SI.Angle u "Independent variable";
+  output Real y "Dependent variable y=cos(u)";
 
 external "builtin" y = cos(u);
   annotation (
@@ -11467,33 +11100,7 @@ external "builtin" y = cos(u);
           textString="cos")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Text(
-            extent={{-103,72},{-83,88}},
-            textString="1",
-            textColor={0,0,255}),Text(
-            extent={{-103,-72},{-83,-88}},
-            textString="-1",
-            textColor={0,0,255}),Text(
-            extent={{70,25},{90,5}},
-            textString="2*pi",
-            textColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={95,95,95}),
-          Polygon(
-            points={{98,0},{82,6},{82,-6},{98,0}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-80,80},{-74.4,78.1},{-68.7,72.3},{-63.1,63},{-56.7,48.7},
-            {-48.6,26.6},{-29.3,-32.5},{-22.1,-51.7},{-15.7,-65.3},{-10.1,-73.8},
-            {-4.42,-78.8},{1.21,-79.9},{6.83,-77.1},{12.5,-70.6},{18.1,-60.6},{
-            24.5,-45.7},{32.6,-23},{50.3,31.3},{57.5,50.7},{63.9,64.6},{69.5,
-            73.4},{75.2,78.6},{80,80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{78,-6},{98,-26}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{-80,-80},{18,-80}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = cos(u), with -&infin; &lt; u &lt; &infin;:
@@ -11508,8 +11115,8 @@ end cos;
 
 function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   extends Modelica.Math.Icons.AxisCenter;
-  input SI.Angle u;
-  output Real y;
+  input SI.Angle u "Independent variable";
+  output Real y "Dependent variable y=tan(u)";
 
 external "builtin" y = tan(u);
   annotation (
@@ -11532,34 +11139,7 @@ external "builtin" y = tan(u);
           textString="tan")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Text(
-            extent={{-37,-72},{-17,-88}},
-            textString="-5.8",
-            textColor={0,0,255}),Text(
-            extent={{-33,86},{-13,70}},
-            textString=" 5.8",
-            textColor={0,0,255}),Text(
-            extent={{68,-13},{88,-33}},
-            textString="1.4",
-            textColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={95,95,95}),
-          Polygon(
-            points={{98,0},{82,6},{82,-6},{98,0}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-80,-80},{-78.4,-68.4},{-76.8,-59.7},{-74.4,-50},{-71.2,-40.9},
-            {-67.1,-33},{-60.7,-24.8},{-51.1,-17.2},{-35.8,-9.98},{-4.42,-1.07},
-            {33.4,9.12},{49.4,16.2},{59.1,23.2},{65.5,30.6},{70.4,39.1},{73.6,
-            47.4},{76,56.1},{77.6,63.8},{80,80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{82,22},{102,2}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{0,80},{86,80}},
-            color={175,175,175}),Line(
-            points={{80,88},{80,-16}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = tan(u), with -&infin; &lt; u &lt; &infin;
@@ -11575,8 +11155,8 @@ end tan;
 
 function asin "Inverse sine (-1 <= u <= 1)"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output SI.Angle y;
+  input Real u "Independent variable";
+  output SI.Angle y "Dependent variable y=asin(u)";
 
 external "builtin" y = asin(u);
   annotation (
@@ -11598,36 +11178,7 @@ external "builtin" y = asin(u);
           textString="asin")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Text(
-            extent={{-40,-72},{-15,-88}},
-            textString="-pi/2",
-            textColor={0,0,255}),Text(
-            extent={{-38,88},{-13,72}},
-            textString=" pi/2",
-            textColor={0,0,255}),Text(
-            extent={{68,-9},{88,-29}},
-            textString="+1",
-            textColor={0,0,255}),Text(
-            extent={{-90,21},{-70,1}},
-            textString="-1",
-            textColor={0,0,255}),Line(points={{-100,0},{84,0}}, color={95,95,95}),
-          Polygon(
-            points={{98,0},{82,6},{82,-6},{98,0}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-80,-80},{-79.2,-72.8},{-77.6,-67.5},{-73.6,-59.4},{-66.3,
-            -49.8},{-53.5,-37.3},{-30.2,-19.7},{37.4,24.8},{57.5,40.8},{68.7,
-            52.7},{75.2,62.2},{77.6,67.5},{80,80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{82,24},{102,4}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{0,80},{86,80}},
-            color={175,175,175}),Line(
-            points={{80,86},{80,-10}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = asin(u), with -1 &le; u &le; +1:
@@ -11642,8 +11193,8 @@ end asin;
 
 function acos "Inverse cosine (-1 <= u <= 1)"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output SI.Angle y;
+  input Real u "Independent variable";
+  output SI.Angle y "Dependent variable y=acos(u)";
 
 external "builtin" y = acos(u);
   annotation (
@@ -11665,33 +11216,7 @@ external "builtin" y = acos(u);
           textString="acos")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-80},{84,-80}}, color={95,95,95}),
-          Polygon(
-            points={{98,-80},{82,-74},{82,-86},{98,-80}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-80,80},{-79.2,72.8},{-77.6,67.5},{-73.6,59.4},{-66.3,49.8},
-            {-53.5,37.3},{-30.2,19.7},{37.4,-24.8},{57.5,-40.8},{68.7,-52.7},{
-            75.2,-62.2},{77.6,-67.5},{80,-80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-30,88},{-5,72}},
-            textString=" pi",
-            textColor={0,0,255}),Text(
-            extent={{-94,-57},{-74,-77}},
-            textString="-1",
-            textColor={0,0,255}),Text(
-            extent={{60,-81},{80,-101}},
-            textString="+1",
-            textColor={0,0,255}),Text(
-            extent={{82,-56},{102,-76}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{-2,80},{84,80}},
-            color={175,175,175}),Line(
-            points={{80,82},{80,-86}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = acos(u), with -1 &le; u &le; +1:
@@ -11706,8 +11231,8 @@ end acos;
 
 function atan "Inverse tangent"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output SI.Angle y;
+  input Real u "Independent variable";
+  output SI.Angle y "Dependent variable y=atan(u)";
 
 external "builtin" y = atan(u);
   annotation (
@@ -11730,29 +11255,7 @@ external "builtin" y = atan(u);
           textString="atan")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
-          Polygon(
-            points={{96,0},{80,6},{80,-6},{96,0}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-80,-80},{-52.7,-75.2},{-37.4,-69.7},{-26.9,-63},{-19.7,-55.2},
-            {-14.1,-45.8},{-10.1,-36.4},{-6.03,-23.9},{-1.21,-5.06},{5.23,21},{
-            9.25,34.1},{13.3,44.2},{18.1,52.9},{24.5,60.8},{33.4,67.6},{47,73.6},
-            {65,77},{80,78}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-34,87},{-14,74}},
-            textString="pi/2",
-            textColor={0,0,255}),Text(
-            extent={{-32,-71},{-12,-91}},
-            textString="-pi/2",
-            textColor={0,0,255}),Text(
-            extent={{84,-4},{104,-24}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{-2,80},{84,80}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = atan(u), with -&infin; &lt; u &lt; &infin;:
@@ -11767,9 +11270,9 @@ end atan;
 
 function atan2 "Four quadrant inverse tangent"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u1;
-  input Real u2;
-  output SI.Angle y;
+  input Real u1 "First independent variable";
+  input Real u2 "Second independent variable";
+  output SI.Angle y "Dependent variable y=atan2(u1, u2)=atan(u1/u2)";
 
 external "builtin" y = atan2(u1, u2);
   annotation (
@@ -11795,45 +11298,7 @@ external "builtin" y = atan2(u1, u2);
           textString="atan2")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
-          Polygon(
-            points={{96,0},{80,6},{80,-6},{96,0}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{0,-80},{8.93,-67.2},{17.1,-59.3},{27.3,-53.6},{42.1,-49.4},
-            {69.9,-45.8},{80,-45.1}},
-            color={0,0,255},
-            thickness=0.5),Line(
-            points={{-80,-34.9},{-46.1,-31.4},{-29.4,-27.1},{-18.3,-21.5},{-10.3,
-            -14.5},{-2.03,-3.17},{7.97,11.6},{15.5,19.4},{24.3,25},{39,30},{
-            62.1,33.5},{80,34.9}},
-            color={0,0,255},
-            thickness=0.5),Line(
-            points={{-80,45.1},{-45.9,48.7},{-29.1,52.9},{-18.1,58.6},{-10.2,
-            65.8},{-1.82,77.2},{0,80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-32,89},{-10,74}},
-            textString="pi",
-            textColor={0,0,255}),Text(
-            extent={{-32,-72},{-4,-88}},
-            textString="-pi",
-            textColor={0,0,255}),Text(
-            extent={{0,55},{20,42}},
-            textString="pi/2",
-            textColor={0,0,255}),Line(points={{0,40},{-8,40}}, color={192,192,192}),
-          Line(points={{0,-40},{-8,-40}}, color={192,192,192}),Text(
-            extent={{0,-23},{20,-42}},
-            textString="-pi/2",
-            textColor={0,0,255}),Text(
-            extent={{62,-4},{94,-26}},
-            textColor={95,95,95},
-            textString="u1, u2"),Line(
-            points={{-88,40},{86,40}},
-            color={175,175,175}),Line(
-            points={{-86,-40},{86,-40}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = atan2(u1,u2) such that tan(y) = u1/u2 and
@@ -11852,13 +11317,12 @@ end atan2;
 
 function atan3
   "Four quadrant inverse tangent (select solution that is closest to given angle y0)"
-  import Modelica.Math;
   import Modelica.Constants.pi;
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u1;
-  input Real u2;
+  input Real u1 "First independent variable";
+  input Real u2 "Second independent variable";
   input Modelica.SIunits.Angle y0=0 "y shall be in the range: -pi < y-y0 <= pi";
-  output Modelica.SIunits.Angle y;
+  output SI.Angle y "Dependent variable y=atan3(u1, u2, y0)=atan(u1/u2)";
 
 protected
   constant Real pi2=2*pi;
@@ -11899,39 +11363,7 @@ algorithm
           textString="atan3")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-86},{84,-86}}, color={95,95,95}),
-          Polygon(
-            points={{98,-86},{82,-80},{82,-92},{98,-86}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{0,-80},{8.93,-67.2},{17.1,-59.3},{27.3,-53.6},{42.1,-49.4},
-            {69.9,-45.8},{80,-45.1}},
-            color={0,0,255},
-            thickness=0.5),Line(
-            points={{-80,-34.9},{-46.1,-31.4},{-29.4,-27.1},{-18.3,-21.5},{-10.3,
-            -14.5},{-2.03,-3.17},{7.97,11.6},{15.5,19.4},{24.3,25},{39,30},{
-            62.1,33.5},{80,34.9}},
-            color={0,0,255},
-            thickness=0.5),Line(
-            points={{-80,45.1},{-45.9,48.7},{-29.1,52.9},{-18.1,58.6},{-10.2,
-            65.8},{-1.82,77.2},{0,80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-56,82},{-12,72}},
-            textString="(2*N-1)*pi",
-            textColor={0,0,255}),Text(
-            extent={{-52,-72},{-10,-88}},
-            textString="(2*N-3)*pi",
-            textColor={0,0,255}),Line(points={{0,40},{-8,40}}, color={192,192,192}),
-          Line(points={{0,-40},{-8,-40}}, color={192,192,192}),Text(
-            extent={{38,-68},{78,-84}},
-            textColor={95,95,95},
-            textString="u1, u2, y0"),Line(
-            points={{-84,40},{88,40}},
-            color={175,175,175}),Line(
-            points={{-84,-40},{88,-40}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = <strong>atan3</strong>(u1,u2,y0) such that
@@ -11957,8 +11389,8 @@ end atan3;
 
 function sinh "Hyperbolic sine"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=sinh(u)";
 
 external "builtin" y = sinh(u);
   annotation (
@@ -11981,37 +11413,7 @@ external "builtin" y = sinh(u);
           textString="sinh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
-          Polygon(
-            points={{98,0},{82,6},{82,-6},{98,0}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-80,-80},{-76,-65.4},{-71.2,-51.4},{-65.5,-38.8},{-59.1,-28.1},
-            {-51.1,-18.7},{-41.4,-11.4},{-27.7,-5.5},{-4.42,-0.653},{24.5,4.57},
-            {39,10.1},{49.4,17.2},{57.5,25.9},{63.9,35.8},{69.5,47.4},{74.4,
-            60.4},{78.4,73.8},{80,80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-31,72},{-11,88}},
-            textString="27",
-            textColor={0,0,255}),Text(
-            extent={{-35,-88},{-15,-72}},
-            textString="-27",
-            textColor={0,0,255}),Text(
-            extent={{68,-7},{88,-27}},
-            textString="4",
-            textColor={0,0,255}),Text(
-            extent={{-98,21},{-78,1}},
-            textString="-4",
-            textColor={0,0,255}),Text(
-            extent={{80,26},{100,6}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{0,80},{86,80}},
-            color={175,175,175}),Line(
-            points={{80,84},{80,-6}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = sinh(u), with -&infin; &lt; u &lt; &infin;:
@@ -12026,8 +11428,8 @@ end sinh;
 
 function cosh "Hyperbolic cosine"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=cosh(u)";
 
 external "builtin" y = cosh(u);
   annotation (
@@ -12052,35 +11454,7 @@ external "builtin" y = cosh(u);
           textString="cosh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-84.083},{84,-84.083}}, color=
-           {95,95,95}),Polygon(
-            points={{98,-84.083},{82,-78.083},{82,-90.083},{98,-84.083}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-80,80},{-77.6,61.1},{-74.4,39.3},{-71.2,20.7},{-67.1,1.29},
-            {-63.1,-14.6},{-58.3,-29.8},{-52.7,-43.5},{-46.2,-55.1},{-39,-64.3},
-            {-30.2,-71.7},{-18.9,-77.1},{-4.42,-79.9},{10.9,-79.1},{23.7,-75.2},
-            {34.2,-68.7},{42.2,-60.6},{48.6,-51.2},{54.3,-40},{59.1,-27.5},{
-            63.1,-14.6},{67.1,1.29},{71.2,20.7},{74.4,39.3},{77.6,61.1},{80,80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-31,72},{-11,88}},
-            textString="27",
-            textColor={0,0,255}),Text(
-            extent={{64,-83},{84,-103}},
-            textString="4",
-            textColor={0,0,255}),Text(
-            extent={{-94,-63},{-74,-83}},
-            textString="-4",
-            textColor={0,0,255}),Text(
-            extent={{80,-60},{100,-80}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{0,80},{88,80}},
-            color={175,175,175}),Line(
-            points={{80,84},{80,-90}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = cosh(u), with -&infin; &lt; u &lt; &infin;:
@@ -12095,8 +11469,8 @@ end cosh;
 
 function tanh "Hyperbolic tangent"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=tanh(u)";
 
 external "builtin" y = tanh(u);
   annotation (
@@ -12119,29 +11493,7 @@ external "builtin" y = tanh(u);
           textString="tanh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
-          Polygon(
-            points={{96,0},{80,6},{80,-6},{96,0}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-80,-80.5},{-47.8,-79.2},{-35.8,-76.2},{-27.7,-71.1},{-22.1,
-            -64.7},{-17.3,-56.4},{-12.5,-44.8},{-7.64,-29.7},{-1.21,-5.32},{
-            6.83,25.8},{11.7,41.5},{16.5,53.7},{21.3,62.6},{26.9,69.4},{34.2,
-            74.5},{45.4,77.9},{72,79.4},{80,79.5}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-29,72},{-9,88}},
-            textString="1",
-            textColor={0,0,255}),Text(
-            extent={{3,-72},{23,-88}},
-            textString="-1",
-            textColor={0,0,255}),Text(
-            extent={{82,-2},{102,-22}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{0,80},{88,80}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = tanh(u), with -&infin; &lt; u &lt; &infin;:
@@ -12156,8 +11508,8 @@ end tanh;
 
 function asinh "Inverse of sinh (area hyperbolic sine)"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=asinh(u)";
 
 algorithm
   y := Modelica.Math.log(u + sqrt(u*u + 1));
@@ -12180,36 +11532,7 @@ algorithm
           textString="asinh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
-          Polygon(
-            points={{98,0},{82,6},{82,-6},{98,0}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-80,-80},{-56.7,-68.4},{-39.8,-56.8},{-26.9,-44.7},{-17.3,
-            -32.4},{-9.25,-19},{9.25,19},{17.3,32.4},{26.9,44.7},{39.8,56.8},{
-            56.7,68.4},{80,80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-31,72},{-11,88}},
-            textString="2.31",
-            textColor={0,0,255}),Text(
-            extent={{-35,-88},{-15,-72}},
-            textString="-2.31",
-            textColor={0,0,255}),Text(
-            extent={{72,-13},{92,-33}},
-            textString="5",
-            textColor={0,0,255}),Text(
-            extent={{-96,21},{-76,1}},
-            textString="-5",
-            textColor={0,0,255}),Text(
-            extent={{80,22},{100,2}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{0,80},{88,80}},
-            color={175,175,175}),Line(
-            points={{80,86},{80,-12}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 The function returns the area hyperbolic sine of its
@@ -12227,8 +11550,8 @@ end asinh;
 
 function acosh "Inverse of cosh (area hyperbolic cosine)"
   extends Modelica.Math.Icons.AxisLeft;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=acosh(u)";
 
 algorithm
   assert(u >= 1.0, "Input argument u (= " + String(u) +
@@ -12253,44 +11576,15 @@ algorithm
           textString="arcosh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-70},{84,-70}}, color={95,95,95}),
-          Polygon(
-            points={{100,-70},{84,-64},{84,-76},{100,-70}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-60,-70},{-59.2,-56},{-58.4,-50.3},{-56.8,-42.2},{-54.4,-33.4},
-            {-50.4,-22.4},{-43.9,-9.3},{-35.1,4.35},{-23,18.8},{-6.9,33.8},{
-            13.97,49.2},{41.3,65},{75.9,80.8},{100,90}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-80,66},{-58,78}},
-            textString="2.29",
-            textColor={0,0,255}),Text(
-            extent={{-73,-86},{-50,-70}},
-            textString="1.0",
-            textColor={0,0,255}),Text(
-            extent={{64,-77},{84,-92}},
-            textString="5",
-            textColor={0,0,255}),Text(
-            extent={{-96,-55},{-76,-70}},
-            textString="0",
-            textColor={0,0,255}),Text(
-            extent={{74,-44},{94,-64}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{-80,80},{100,80}},
-            color={175,175,175}),Line(
-            points={{74,-78},{74,88}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns the area hyperbolic cosine of its
 input argument u. The valid range of u is
 </p>
-<pre>
-  +1 &le; u &lt; +&infin;
-</pre>
+<blockquote><pre>
++1 &le; u &lt; +&infin;
+</pre></blockquote>
 <p>
 If the function is called with u &lt; 1, an error occurs.
 The function cosh(u) has two inverse functions (the curve
@@ -12309,8 +11603,8 @@ end acosh;
 
 function exp "Exponential, base e"
   extends Modelica.Math.Icons.AxisCenter;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=exp(u)";
 
 external "builtin" y = exp(u);
   annotation (
@@ -12332,36 +11626,7 @@ external "builtin" y = exp(u);
           textString="exp")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-80.3976},{84,-80.3976}},
-          color={95,95,95}),Polygon(
-            points={{98,-80.3976},{82,-74.3976},{82,-86.3976},{98,-80.3976}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-80,-80},{-31,-77.9},{-6.03,-74},{10.9,-68.4},{23.7,-61},{
-            34.2,-51.6},{43,-40.3},{50.3,-27.8},{56.7,-13.5},{62.3,2.23},{67.1,
-            18.6},{72,38.2},{76,57.6},{80,80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-31,72},{-11,88}},
-            textString="20",
-            textColor={0,0,255}),Text(
-            extent={{-92,-81},{-72,-101}},
-            textString="-3",
-            textColor={0,0,255}),Text(
-            extent={{66,-81},{86,-101}},
-            textString="3",
-            textColor={0,0,255}),Text(
-            extent={{2,-69},{22,-89}},
-            textString="1",
-            textColor={0,0,255}),Text(
-            extent={{78,-54},{98,-74}},
-            textColor={95,95,95},
-            textString="u"),Line(
-            points={{0,80},{88,80}},
-            color={175,175,175}),Line(
-            points={{80,84},{80,-84}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = exp(u), with -&infin; &lt; u &lt; &infin;:
@@ -12376,8 +11641,8 @@ end exp;
 
 function log "Natural (base e) logarithm (u shall be > 0)"
   extends Modelica.Math.Icons.AxisLeft;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=ln(u)";
 
 external "builtin" y = log(u);
   annotation (
@@ -12399,36 +11664,7 @@ external "builtin" y = log(u);
           textString="log")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
-          Polygon(
-            points={{100,0},{84,6},{84,-6},{100,0}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-78,-80},{-77.2,-50.6},{-76.4,-37},{-75.6,-28},{-74.8,-21.3},
-            {-73.2,-11.4},{-70.8,-1.31},{-67.5,8.08},{-62.7,17.9},{-55.5,28},{-45,
-            38.1},{-29.8,48.1},{-8.1,58},{24.1,68},{70.7,78.1},{82,80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{-105,72},{-85,88}},
-            textString="3",
-            textColor={0,0,255}),Text(
-            extent={{60,-3},{80,-23}},
-            textString="20",
-            textColor={0,0,255}),Text(
-            extent={{-78,-7},{-58,-27}},
-            textString="1",
-            textColor={0,0,255}),Text(
-            extent={{84,26},{104,6}},
-            textColor={95,95,95},
-            textString="u"),Text(
-            extent={{-100,9},{-80,-11}},
-            textString="0",
-            textColor={0,0,255}),Line(
-            points={{-80,80},{84,80}},
-            color={175,175,175}),Line(
-            points={{82,82},{82,-6}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = log(10) (the natural logarithm of u),
@@ -12444,8 +11680,8 @@ end log;
 
 function log10 "Base 10 logarithm (u shall be > 0)"
   extends Modelica.Math.Icons.AxisLeft;
-  input Real u;
-  output Real y;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=lg(u)";
 
 external "builtin" y = log10(u);
   annotation (
@@ -12467,36 +11703,7 @@ external "builtin" y = log10(u);
           textString="log10")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
-          Polygon(
-            points={{98,0},{82,6},{82,-6},{98,0}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),Line(
-            points={{-77.8,-80},{-77.2,-50.6},{-76.4,-37},{-75.6,-28},{-74.8,-21.3},
-            {-73.2,-11.4},{-70.8,-1.31},{-67.5,8.08},{-62.7,17.9},{-55.5,28},{-45,
-            38.1},{-29.8,48.1},{-8.1,58},{24.1,68},{70.7,78.1},{82,80}},
-            color={0,0,255},
-            thickness=0.5),Text(
-            extent={{66,-13},{86,-33}},
-            textString="20",
-            textColor={0,0,255}),Text(
-            extent={{-78,-1},{-58,-21}},
-            textString="1",
-            textColor={0,0,255}),Text(
-            extent={{-83,62},{-63,78}},
-            textString=" 1.3",
-            textColor={0,0,255}),Text(
-            extent={{80,24},{100,4}},
-            textColor={95,95,95},
-            textString="u"),Text(
-            extent={{-100,9},{-80,-11}},
-            textString="0",
-            textColor={0,0,255}),Line(
-            points={{-80,80},{86,80}},
-            color={175,175,175}),Line(
-            points={{80,92},{80,-12}},
-            color={175,175,175})}),
+        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = log10(u),
@@ -12537,7 +11744,7 @@ email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a>
 </p>
 
 <p>
-Copyright &copy; 1998-2019, Modelica Association and contributors
+Copyright &copy; 1998-2020, Modelica Association and contributors
 </p>
 </html>", revisions="<html>
 <ul>

@@ -45,36 +45,7 @@ equation
           extent={{-69,7},{71,-24}},
           textString="%C")}),
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}}), graphics={
-        Polygon(
-          points={{0,67},{-20,63},{-40,57},{-52,43},{-58,35},{-68,25},{-72,
-              13},{-76,-1},{-78,-15},{-76,-31},{-76,-43},{-76,-53},{-70,-65},
-              {-64,-73},{-48,-77},{-30,-83},{-18,-83},{-2,-85},{8,-89},{22,
-              -89},{32,-87},{42,-81},{54,-75},{56,-73},{66,-61},{68,-53},{
-              70,-51},{72,-35},{76,-21},{78,-13},{78,3},{74,15},{66,25},{54,
-              33},{44,41},{36,57},{26,65},{0,67}},
-          lineColor={160,160,164},
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Solid),
-        Polygon(
-          points={{-58,35},{-68,25},{-72,13},{-76,-1},{-78,-15},{-76,-31},{
-              -76,-43},{-76,-53},{-70,-65},{-64,-73},{-48,-77},{-30,-83},{-18,
-              -83},{-2,-85},{8,-89},{22,-89},{32,-87},{42,-81},{54,-75},{42,
-              -77},{40,-77},{30,-79},{20,-81},{18,-81},{10,-81},{2,-77},{-12,
-              -73},{-22,-73},{-30,-71},{-40,-65},{-50,-55},{-56,-43},{-58,-35},
-              {-58,-25},{-60,-13},{-60,-5},{-60,7},{-58,17},{-56,19},{-52,
-              27},{-48,35},{-44,45},{-40,57},{-58,35}},
-          fillColor={160,160,164},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{-6,-1},{6,-12}},
-          lineColor={255,0,0},
-          fillColor={191,0,0},
-          fillPattern=FillPattern.Solid),
-        Text(
-          extent={{11,13},{50,-25}},
-          textString="T"),
-        Line(points={{0,-12},{0,-96}}, color={255,0,0})}),
+            {100,100}})),
     Documentation(info="<html>
 <p>
 This is a generic model for the heat capacity of a material.
@@ -113,16 +84,16 @@ component may be measured or calculated and multiplied with the
 <strong>specific heat capacity cp</strong> of the component material to
 compute C:
 </p>
-<pre>
-   C = cp*m.
-   Typical values for cp at 20 degC in J/(kg.K):
-      aluminium   896
-      concrete    840
-      copper      383
-      iron        452
-      silver      235
-      steel       420 ... 500 (V2A)
-      wood       2500
-</pre>
+<blockquote><pre>
+C = cp*m.
+Typical values for cp at 20 degC in J/(kg.K):
+   aluminium   896
+   concrete    840
+   copper      383
+   iron        452
+   silver      235
+   steel       420 ... 500 (V2A)
+   wood       2500
+</pre></blockquote>
 </html>"));
 end HeatCapacitor;

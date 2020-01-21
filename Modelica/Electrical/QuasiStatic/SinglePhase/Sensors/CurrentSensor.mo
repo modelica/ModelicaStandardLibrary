@@ -1,7 +1,7 @@
 within Modelica.Electrical.QuasiStatic.SinglePhase.Sensors;
 model CurrentSensor "Current sensor"
   extends Interfaces.RelativeSensor;
-  Modelica.SIunits.Current abs_y=Modelica.ComplexMath.'abs'(y) "Magnitude of complex current";
+  Modelica.SIunits.Current abs_y=Modelica.ComplexMath.abs(y) "Magnitude of complex current";
   Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(y) "Argument of complex current";
 equation
   v = Complex(0);

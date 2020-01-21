@@ -57,14 +57,14 @@ Have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingC
 </p>
 <p>
 Simulation of the force-stroke characteristic of the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> with a constant current I=3A and a forced armature movement (similar to measurements in reality) shows the dependency of both force-generating permeances G_ma and G_mb as well as inductance L on armature position x. <strong>Simulate for 8 s</strong> and <strong>plot vs.</strong> armature position <strong>feedX.flange_b.s</strong> (same physical quantities together in a common diagram for comparison):</p>
-<pre>
-    feedX.flange_b.f            // force of permeance model (permeance of stator iron neglected in this model)
-    comparisonWithFEA.y[1]      // force of FEA model with non-linear stator iron 1.0718
-    comparisonWithFEA.y[2]      // force of FEA model with mu_rFe=const.=1000
-    actuator.g_ma.G_m           // permeance G_ma
-    actuator.g_mb.G_m           // permeance G_mb
-    actuator.L                  // inductance of permeance model
-    comparisonWithFEA.y[3]      // inductance of FEA model for comparison (mu_rFe=const.=1000).
-</pre>
+<blockquote><pre>
+feedX.flange_b.f            // force of permeance model (permeance of stator iron neglected in this model)
+comparisonWithFEA.y[1]      // force of FEA model with non-linear stator iron 1.0718
+comparisonWithFEA.y[2]      // force of FEA model with mu_rFe=const.=1000
+actuator.g_ma.G_m           // permeance G_ma
+actuator.g_mb.G_m           // permeance G_mb
+actuator.L                  // inductance of permeance model
+comparisonWithFEA.y[3]      // inductance of FEA model for comparison (mu_rFe=const.=1000).
+</pre></blockquote>
 </html>"));
 end ForceStrokeBehaviour;

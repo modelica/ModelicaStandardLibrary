@@ -9,7 +9,7 @@ record Reference "Reference angle"
     assert(abs(reference1.gamma - reference2.gamma) < 1E-6*2*Modelica.Constants.pi,
       "Reference angles should be equal!");
     annotation (Documentation(info="<html>
-Equality constraint for the reference angle, according to the Modelica Specification (Overdetermined connection sets).
+Equality constraint for the reference angle, according to the <a href=\"https://specification.modelica.org/v3.4/Ch9.html#equation-operators-for-overconstrained-connection-based-equation-systems1\">Section 9.4 (Equation Operators for Overconstrained Connection-Based Equation Systems) of the Modelica 3.4 specification</a>.
 </html>"));
   end equalityConstraint;
   annotation (Documentation(info="<html>

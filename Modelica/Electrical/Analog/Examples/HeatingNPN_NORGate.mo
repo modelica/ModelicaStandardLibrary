@@ -86,7 +86,7 @@ model HeatingNPN_NORGate "Heating NPN NOR Gate"
   annotation (Placement(transformation(extent={{50,6},{70,26}})));
   Modelica.Electrical.Analog.Basic.Ground Gnd7
   annotation (Placement(transformation(extent={{-80,2},{-60,22}})));
-  Semiconductors.HeatingNPN T1(
+  Semiconductors.NPN T1(
     Bf=100,
     Br=1,
     Is=1e-14,
@@ -104,9 +104,9 @@ model HeatingNPN_NORGate "Heating NPN NOR Gate"
     Gbe=1e-12,
     EMax=40,
     vt_t(start=0.01, fixed=false),
-    useHeatPort=true, ibe(start=0), vbc(start=0))
+    useTemperatureDependency=true, ibe(start=0), vbc(start=0))
            annotation (Placement(transformation(extent={{-20,48},{0,68}})));
-  Semiconductors.HeatingNPN T2(
+  Semiconductors.NPN T2(
     Bf=100,
     Br=1,
     Is=1e-14,
@@ -124,7 +124,7 @@ model HeatingNPN_NORGate "Heating NPN NOR Gate"
     Gbe=1e-12,
     EMax=40,
     vt_t(start=0.01, fixed=false),
-    useHeatPort=true, ibe(start=0), vbc(start=0))
+    useTemperatureDependency=true, ibe(start=0), vbc(start=0))
            annotation (Placement(transformation(extent={{20,-22},{40,-2}})));
 initial equation
   HeatCapacitor1.T= 293.15;

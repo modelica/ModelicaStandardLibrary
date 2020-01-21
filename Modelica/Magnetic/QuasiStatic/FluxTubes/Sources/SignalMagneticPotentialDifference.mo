@@ -3,7 +3,7 @@ model SignalMagneticPotentialDifference
 "Signal-controlled magnetomotive force"
 
   extends FluxTubes.Interfaces.Source;
-  Modelica.Blocks.Interfaces.RealInput f annotation (Placement(
+  Modelica.Blocks.Interfaces.RealInput f(unit="Hz") annotation (Placement(
         transformation(
         origin={60,120},
         extent={{-20,-20},{20,20}},

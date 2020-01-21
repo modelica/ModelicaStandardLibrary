@@ -80,10 +80,10 @@ required from medium model \""
           p,
           T,
           Xi);
-    R = dryair.R*(X_air/(1 - X_liquid)) + steam.R*X_steam/(1 - X_liquid);
+    R_s = dryair.R_s*(X_air/(1 - X_liquid)) + steam.R_s*X_steam/(1 - X_liquid);
     //
-    u = h - R*T;
-    d = p/(R*T);
+    u = h - R_s*T;
+    d = p/(R_s*T);
     /* Note, u and d are computed under the assumption that the volume of the liquid
          water is negligible with respect to the volume of air and of steam
       */
@@ -161,10 +161,10 @@ The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermo
     output ThermodynamicState state "Thermodynamic state";
   algorithm
     state := if size(X, 1) == nX then ThermodynamicState(
-          p=d*({steam.R,dryair.R}*X)*T,
+          p=d*({steam.R_s,dryair.R_s}*X)*T,
           T=T,
           X=X) else ThermodynamicState(
-          p=d*({steam.R,dryair.R}*cat(
+          p=d*({steam.R_s,dryair.R_s}*cat(
             1,
             X,
             {1 - sum(X)}))*T,
@@ -307,7 +307,7 @@ Relative humidity is computed from the thermodynamic state record with 1.0 as th
     "Return ideal gas constant as a function from thermodynamic state, only valid for phi<1"
 
   algorithm
-    R := dryair.R*(1 - state.X[Water]) + steam.R*state.X[Water];
+    R_s := dryair.R_s*(1 - state.X[Water]) + steam.R_s*state.X[Water];
     annotation (smoothOrder=2, Documentation(info="<html>
 The ideal gas constant for moist air is computed from <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermodynamic state</a> assuming that all water is in the gas phase.
 </html>"));
@@ -317,9 +317,9 @@ The ideal gas constant for moist air is computed from <a href=\"modelica://Model
     "Return ideal gas constant as a function from composition X"
     extends Modelica.Icons.Function;
     input SI.MassFraction X[:] "Gas phase composition";
-    output SI.SpecificHeatCapacity R "Ideal gas constant";
+    output SI.SpecificHeatCapacity R_s "Ideal gas constant";
   algorithm
-    R := dryair.R*(1 - X[Water]) + steam.R*X[Water];
+    R_s := dryair.R_s*(1 - X[Water]) + steam.R_s*X[Water];
     annotation (smoothOrder=2, Documentation(info="<html>
 The ideal gas constant for moist air is computed from the gas phase composition. The first entry in composition vector X is the steam mass fraction of the gas phase.
 </html>"));
@@ -490,31 +490,18 @@ Derivative function of <a href=\"modelica://Modelica.Media.Air.MoistAir.saturati
     output SI.Temperature T "Saturation temperature";
 
   protected
-    package Internal
-      extends Modelica.Media.Common.OneNonLinearEquation;
+    function f_nonlinear "Solve p(T) for T with given p"
+      extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
+      input SI.Pressure p "Pressure";
+    algorithm
+      y := saturationPressure(Tsat=u) - p;
+    end f_nonlinear;
 
-      redeclare record extends f_nonlinear_Data
-        // Define data to be passed to user function
-      end f_nonlinear_Data;
-
-      redeclare function extends f_nonlinear
-      algorithm
-        y := saturationPressure(x);
-        // Compute the non-linear equation: y = f(x, Data)
-      end f_nonlinear;
-
-      // Dummy definition
-      redeclare function extends solve
-      end solve;
-    end Internal;
   algorithm
-    T := Internal.solve(
-          p,
-          T_min,
-          T_max,
-          f_nonlinear_data=Internal.f_nonlinear_Data());
+    T := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
+      function f_nonlinear(p=p), T_min, T_max);
     annotation (Documentation(info="<html>
- Computes saturation temperature from (partial) pressure via numerical inversion of the function <a href=\"modelica://Modelica.Media.Air.MoistAir.saturationPressure\">saturationPressure</a>. Therefore additional inputs are required (or the defaults are used) for upper and lower temperature bounds.
+Computes saturation temperature from (partial) pressure via numerical inversion of the function <a href=\"modelica://Modelica.Media.Air.MoistAir.saturationPressure\">saturationPressure</a>. Therefore additional inputs are required (or the defaults are used) for upper and lower temperature bounds.
 </html>"));
   end saturationTemperature;
 
@@ -663,9 +650,9 @@ Specific enthalpy of dry air is computed from temperature.
     annotation (derivative=enthalpyOfWater_der, Documentation(info="<html>
 Specific enthalpy of water (liquid and solid) is computed from temperature using constant properties as follows:<br>
 <ul>
-<li>  heat capacity of liquid water:4200 J/kg</li>
-<li>  heat capacity of solid water: 2050 J/kg</li>
-<li>  enthalpy of fusion (liquid=>solid): 333000 J/kg</li>
+<li>heat capacity of liquid water:4200 J/kg</li>
+<li>heat capacity of solid water: 2050 J/kg</li>
+<li>enthalpy of fusion (liquid=>solid): 333000 J/kg</li>
 </ul>
 Pressure is assumed to be around 1 bar. This function is usually used to determine the specific enthalpy of the liquid or solid fraction of moist air.
 </html>"));
@@ -727,35 +714,18 @@ Temperature is returned from the thermodynamic state record input as a simple as
     output Temperature T "Temperature";
 
   protected
-    package Internal
-      "Solve h(data,T) for T with given h (use only indirectly via temperature_phX)"
-      extends Modelica.Media.Common.OneNonLinearEquation;
-      redeclare record extends f_nonlinear_Data
-        "Data to be passed to non-linear function"
-        extends Modelica.Media.IdealGases.Common.DataRecord;
-      end f_nonlinear_Data;
-
-      redeclare function extends f_nonlinear
-      algorithm
-        y := h_pTX(
-                  p,
-                  x,
-                  X);
-      end f_nonlinear;
-
-      // Dummy definition has to be added for current Dymola
-      redeclare function extends solve
-      end solve;
-    end Internal;
+    function f_nonlinear "Solve h_pTX(p,T,X) for T with given h"
+      extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      input MassFraction[:] X "Mass fractions of composition";
+    algorithm
+      y := h_pTX(p=p, T=u, X=X) - h;
+    end f_nonlinear;
 
   algorithm
-    T := Internal.solve(
-          h,
-          190,
-          647,
-          p,
-          X[1:nXi],
-          steam);
+    T := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
+      function f_nonlinear(p=p, h=h, X=X[1:nXi]), 190, 647);
     annotation (Documentation(info="<html>
 Temperature is computed from pressure, specific enthalpy and composition via numerical inversion of function <a href=\"modelica://Modelica.Media.Air.MoistAir.h_pTX\">h_pTX</a>.
 </html>"));
@@ -943,7 +913,6 @@ Derivative function for <a href=\"modelica://Modelica.Media.Air.MoistAir.h_pTX\"
   redeclare function extends specificInternalEnergy
     "Return specific internal energy of moist air as a function of the thermodynamic state record"
     extends Modelica.Icons.Function;
-    output SI.SpecificInternalEnergy u "Specific internal energy";
   algorithm
     u := specificInternalEnergy_pTX(
           state.p,
@@ -968,7 +937,7 @@ Specific internal energy is determined from the thermodynamic state record, assu
     SI.MassFraction X_steam "Mass fraction of steam water";
     SI.MassFraction X_air "Mass fraction of air";
     SI.MassFraction X_sat "Absolute humidity per unit mass of moist air";
-    Real R_gas "Ideal gas constant";
+    SI.SpecificHeatCapacity R_gas "Ideal gas constant";
   algorithm
     p_steam_sat := saturationPressure(T);
     X_sat := min(p_steam_sat*k_mair/max(100*Constants.eps, p - p_steam_sat)*(
@@ -976,7 +945,7 @@ Specific internal energy is determined from the thermodynamic state record, assu
     X_liquid := max(X[Water] - X_sat, 0.0);
     X_steam := X[Water] - X_liquid;
     X_air := 1 - X[Water];
-    R_gas := dryair.R*X_air/(1 - X_liquid) + steam.R*X_steam/(1 - X_liquid);
+    R_gas := dryair.R_s*X_air/(1 - X_liquid) + steam.R_s*X_steam/(1 - X_liquid);
     u := X_steam*Modelica.Media.IdealGases.Common.Functions.h_Tlow(
           data=steam,
           T=T,
@@ -1034,7 +1003,7 @@ Specific internal energy is determined from pressure p, temperature T and compos
           1e-6);
     X_steam := X[Water] - X_liquid;
     X_air := 1 - X[Water];
-    R_gas := steam.R*X_steam/(1 - X_liquid) + dryair.R*X_air/(1 - X_liquid);
+    R_gas := steam.R_s*X_steam/(1 - X_liquid) + dryair.R_s*X_air/(1 - X_liquid);
 
     dX_air := -dX[Water];
     dps := saturationPressure_der(Tsat=T, dTsat=dT);
@@ -1050,7 +1019,7 @@ Specific internal energy is determined from pressure p, temperature T and compos
           (1 + x_sat)*dX[Water] - (1 - X[Water])*dx_sat,
           0.0);
     dX_steam := dX[Water] - dX_liq;
-    dR_gas := (steam.R*(dX_steam*(1 - X_liquid) + dX_liq*X_steam) + dryair.R*
+    dR_gas := (steam.R_s*(dX_steam*(1 - X_liquid) + dX_liq*X_steam) + dryair.R_s*
       (dX_air*(1 - X_liquid) + dX_liq*X_air))/(1 - X_liquid)/(1 - X_liquid);
 
     u_der := X_steam*Modelica.Media.IdealGases.Common.Functions.h_Tlow_der(
@@ -1263,9 +1232,9 @@ end thermalConductivity;
   redeclare function extends density_derX
 
   algorithm
-    dddX[Water] := - pressure(state)*(steam.R - dryair.R)/(((steam.R - dryair.R)
-      *state.X[Water] + dryair.R)^2*temperature(state));
-    dddX[Air] := - pressure(state)*(dryair.R - steam.R)/((steam.R + (dryair.R - steam.R)*
+    dddX[Water] := - pressure(state)*(steam.R_s - dryair.R_s)/(((steam.R_s - dryair.R_s)
+      *state.X[Water] + dryair.R_s)^2*temperature(state));
+    dddX[Air] := - pressure(state)*(dryair.R_s - steam.R_s)/((steam.R_s + (dryair.R_s - steam.R_s)*
       state.X[Air])^2*temperature(state));
 
     annotation (Documentation(revisions="<html>
@@ -1291,36 +1260,20 @@ end thermalConductivity;
     output Temperature T "Temperature";
 
   protected
-    package Internal "Solve s(data,T) for T with given s"
-      extends Modelica.Media.Common.OneNonLinearEquation;
-      redeclare record extends f_nonlinear_Data
-        "Data to be passed to non-linear function"
-        extends Modelica.Media.IdealGases.Common.DataRecord;
-      end f_nonlinear_Data;
-
-      redeclare function extends f_nonlinear
-      algorithm
-        y := s_pTX(
-                  p,
-                  x,
-                  X);
-      end f_nonlinear;
-
-      // Dummy definition has to be added for current Dymola
-      redeclare function extends solve
-      end solve;
-    end Internal;
+    function f_nonlinear "Solve s_pTX(p,T,X) for T with given s"
+      extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      input MassFraction[:] X "Mass fractions of composition";
+    algorithm
+      y := s_pTX(p=p, T=u, X=X) - s;
+    end f_nonlinear;
 
   algorithm
-    T := Internal.solve(
-          s,
-          190,
-          647,
-          p,
-          X[1:nX],
-          steam);
+    T := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
+      function f_nonlinear(p=p, s=s, X=X[1:nXi]), 190, 647);
     annotation (Documentation(info="<html>
-Temperature is computed from pressure, specific entropy and composition via numerical inversion of function <a href=\"modelica://Modelica.Media.Air.MoistAir.specificEntropy\">specificEntropy</a>.
+Temperature is computed from pressure, specific entropy and composition via numerical inversion of function <a href=\"modelica://Modelica.Media.Air.MoistAir.s_pTX\">s_pTX</a>.
 </html>",
         revisions="<html>
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
@@ -1365,17 +1318,10 @@ The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermo
       "Molar fraction";
 
   algorithm
-    s := Modelica.Media.IdealGases.Common.Functions.s0_Tlow(dryair, T)*(1 - X[
-      Water]) + Modelica.Media.IdealGases.Common.Functions.s0_Tlow(steam, T)*
-      X[Water] - Modelica.Constants.R*(Utilities.smoothMax(
-          X[Water]/MMX[Water]*Modelica.Math.log(max(Y[Water], Modelica.Constants.eps)
-        *p/reference_p),
-          0.0,
-          1e-9) + Utilities.smoothMax(
-          (1 - X[Water])/MMX[Air]*Modelica.Math.log(max(Y[Air], Modelica.Constants.eps)
-        *p/reference_p),
-          0.0,
-          1e-9));
+    s:= Modelica.Media.IdealGases.Common.Functions.s0_Tlow(dryair, T)*(1 - X[Water])
+    + Modelica.Media.IdealGases.Common.Functions.s0_Tlow(steam, T)*X[Water]
+    - Modelica.Constants.R*(Utilities.smoothMax(X[Water]/MMX[Water],0.0,1e-9)*Modelica.Math.log(max(Y[Water], Modelica.Constants.eps)*p/reference_p)
+    + Utilities.smoothMax((1 - X[Water])/MMX[Air],0.0,1e-9)*Modelica.Math.log(max(Y[Air], Modelica.Constants.eps)*p/reference_p));
     annotation (
       derivative=s_pTX_der,
       Inline=false,
@@ -1385,6 +1331,7 @@ Specific entropy of moist air is computed from pressure, temperature and composi
         revisions="<html>
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 <p>2019-05-14        Stefan Wischhusen: Corrected calculation.</p>
+<p>2019-09-10        Stefan Wischhusen: Corrected pressure influence (p &lt; p_ref).</p>
 </html>"),
       Icon(graphics={Text(
             extent={{-100,100},{100,-100}},
@@ -1405,38 +1352,39 @@ Specific entropy of moist air is computed from pressure, temperature and composi
   protected
     MoleFraction[2] Y=massToMoleFractions(X, {steam.MM,dryair.MM})
       "Molar fraction";
+    MolarMass MM "Molar mass";
 
   algorithm
-    ds := Modelica.Media.IdealGases.Common.Functions.s0_Tlow_der(
-          dryair,
-          T,
-          dT)*(1 - X[Water]) +
-      Modelica.Media.IdealGases.Common.Functions.s0_Tlow_der(
-          steam,
-          T,
-          dT)*X[Water] + Modelica.Media.IdealGases.Common.Functions.s0_Tlow(
-      dryair, T)*dX[Air] + Modelica.Media.IdealGases.Common.Functions.s0_Tlow(
-      steam, T)*dX[Water] - Modelica.Constants.R*(1/MMX[Water]*
-      Utilities.smoothMax_der(
-          X[Water]*Modelica.Math.log(max(Y[Water], Modelica.Constants.eps)*p/
-        reference_p),
-          0.0,
-          1e-9,
-          (Modelica.Math.log(max(Y[Water], Modelica.Constants.eps)*p/
-        reference_p) + (X[Water]/Y[Water]*(MMX[Air]*MMX[Water]/(X[Air]*MMX[
-        Water] + X[Water]*MMX[Air])^2)))*dX[Water] + X[Water]/p*
-        dp,
-          0,
-          0) + 1/MMX[Air]*Utilities.smoothMax_der(
-          (1 - X[Water])*Modelica.Math.log(max(Y[Air], Modelica.Constants.eps)
-        *p/reference_p),
-          0.0,
-          1e-9,
-          (Modelica.Math.log(max(Y[Air], Modelica.Constants.eps)*p/
-        reference_p) + (X[Air]/Y[Air]*(MMX[Water]*MMX[Air]/(X[Air]*MMX[Water]
-         + X[Water]*MMX[Air])^2)))*dX[Air] + X[Air]/p*dp,
-          0,
-          0));
+    MM := MMX[Water]*MMX[Air]/(X[Water]*MMX[Air] + X[Air]*MMX[Water]);
+
+
+    ds := IdealGases.Common.Functions.s0_Tlow_der(
+      dryair,
+      T,
+      dT)*(1 - X[Water]) + IdealGases.Common.Functions.s0_Tlow_der(
+      steam,
+      T,
+      dT)*X[Water] + Modelica.Media.IdealGases.Common.Functions.s0_Tlow(dryair, T)*dX[Air] + Modelica.Media.IdealGases.Common.Functions.s0_Tlow(steam, T)*dX[Water] - Modelica.Constants.R*(1/MMX[Water]*(Utilities.smoothMax_der(
+      X[Water],
+      0.0,
+      1e-9,
+      dX[Water],
+      0.0,
+      0.0)*(Modelica.Math.log(max(Y[Water], Modelica.Constants.eps)*p/reference_p) + MM/MMX[Air]) + dp/p*Utilities.smoothMax(
+      X[Water],
+      0.0,
+      1e-9)) + 1/MMX[Air]*(Utilities.smoothMax_der(
+      X[Air],
+      0.0,
+      1e-9,
+      dX[Air],
+      0.0,
+      0.0)*(Modelica.Math.log(max(Y[Air], Modelica.Constants.eps)*p/reference_p) + MM/MMX[Water]) + dp/p*Utilities.smoothMax(
+      X[Air],
+      0.0,
+      1e-9)));
+
+
     annotation (
       Inline=false,
       smoothOrder=1,
@@ -1446,6 +1394,7 @@ Specific entropy of moist air is computed from pressure, temperature and composi
         revisions="<html>
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 <p>2019-05-14        Stefan Wischhusen: Corrected calculation.</p>
+<p>2019-09-10        Stefan Wischhusen: Corrected pressure influence (p &lt; p_ref).</p>
 </html>"),
       Icon(graphics={Text(
             extent={{-100,100},{100,-100}},

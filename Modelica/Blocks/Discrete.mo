@@ -31,20 +31,7 @@ package Discrete
           fillPattern=FillPattern.Solid,
           extent={{-45.0,-10.0},{-25.0,10.0}})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
-          Ellipse(
-            extent={{-25,-10},{-45,10}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{45,-10},{25,10}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-100,0},{-45,0}}, color={0,0,255}),
-          Line(points={{45,0},{100,0}}, color={0,0,255}),
-          Line(points={{-35,0},{30,35}}, color={0,0,255})}),
+              100,100}})),
       Documentation(info="<html>
 <p>
 Samples the continues input signal with a sampling rate defined
@@ -139,11 +126,11 @@ values of the last two sampled input signals.
 <p>
 This block describes a unit delay:
 </p>
-<pre>
-          1
-     y = --- * u
-          z
-</pre>
+<blockquote><pre>
+     1
+y = --- * u
+     z
+</pre></blockquote>
 <p>
 that is, the output signal y is the input signal u of the
 previous sample instant. Before the second sample instant,
@@ -164,25 +151,7 @@ the output y is identical to parameter yStart.
         textString="z")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Text(
-            extent={{-160,10},{-140,-10}},
-            textString="u",
-            textColor={0,0,255}),
-          Text(
-            extent={{115,10},{135,-10}},
-            textString="y",
-            textColor={0,0,255}),
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
-          Line(points={{60,0},{100,0}}, color={0,0,255}),
-          Line(points={{40,0},{-40,0}}),
-          Text(
-            extent={{-55,55},{55,5}},
-            textString="1"),
-          Text(
-            extent={{-55,-5},{55,-55}},
-            textString="z")}));
+          extent={{-100,-100},{100,100}})));
   end UnitDelay;
 
   block TransferFunction "Discrete Transfer Function block"
@@ -225,22 +194,24 @@ the output y is identical to parameter yStart.
 transfer function between the input signal u and the output
 signal y. The numerator has the order nb-1, the denominator
 has the order na-1.</p>
-<pre>
-          b(1)*z^(nb-1) + b(2)*z^(nb-2) + ... + b(nb)
-   y(z) = -------------------------------------------- * u(z)
-          a(1)*z^(na-1) + a(2)*z^(na-2) + ... + a(na)
-</pre>
+<blockquote><pre>
+       b(1)*z^(nb-1) + b(2)*z^(nb-2) + ... + b(nb)
+y(z) = -------------------------------------------- * u(z)
+       a(1)*z^(na-1) + a(2)*z^(na-2) + ... + a(na)
+</pre></blockquote>
 <p>State variables <strong>x</strong> are defined according to
 <strong>controller canonical</strong> form. Initial values of the
 states can be set as start values of <strong>x</strong>.</p>
 <p>Example:</p>
-<pre>     Blocks.Discrete.TransferFunction g(b = {2,4}, a = {1,3});
-</pre>
+<blockquote><pre>
+Blocks.Discrete.TransferFunction g(b = {2,4}, a = {1,3});
+</pre></blockquote>
 <p>results in the following transfer function:</p>
-<pre>        2*z + 4
-   y = --------- * u
-         z + 3
-</pre>
+<blockquote><pre>
+     2*z + 4
+y = --------- * u
+      z + 3
+</pre></blockquote>
 
 </html>", revisions="<html>
 <p><strong>Release Notes:</strong></p>
@@ -269,19 +240,7 @@ states can be set as start values of <strong>x</strong>.</p>
         textString="a(z)")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Line(
-            points={{40,0},{-44,0}},
-            thickness=0.5),
-          Text(
-            extent={{-54,54},{54,4}},
-            textString="b(z)"),
-          Text(
-            extent={{-54,-6},{56,-56}},
-            textString="a(z)"),
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
-          Line(points={{60,0},{100,0}}, color={0,0,255})}));
+          extent={{-100,-100},{100,100}})));
   end TransferFunction;
 
   block StateSpace "Discrete State Space block"
@@ -306,30 +265,30 @@ states can be set as start values of <strong>x</strong>.</p>
 The <strong>discrete state space</strong> block defines the relation
 between the input u and the output y in state space form:
 </p>
-<pre>
-    x = A * pre(x) + B * u
-    y = C * pre(x) + D * u
-</pre>
+<blockquote><pre>
+x = A * pre(x) + B * u
+y = C * pre(x) + D * u
+</pre></blockquote>
 <p>
 where pre(x) is the value of the discrete state x at
 the previous sample time instant.
 The input is a vector of length nu, the output is a vector
 of length ny and nx is the number of states. Accordingly
 </p>
-<pre>
-        A has the dimension: A(nx,nx),
-        B has the dimension: B(nx,nu),
-        C has the dimension: C(ny,nx),
-        D has the dimension: D(ny,nu)
-</pre>
+<blockquote><pre>
+A has the dimension: A(nx,nx),
+B has the dimension: B(nx,nu),
+C has the dimension: C(ny,nx),
+D has the dimension: D(ny,nu)
+</pre></blockquote>
 <p>
 Example:
 </p>
-<pre>
-     parameter: A = [0.12, 2;3, 1.5]
-     parameter: B = [2, 7;3, 1]
-     parameter: C = [0.1, 2]
-     parameter: D = zeros(ny,nu)
+<blockquote><pre>
+parameter: A = [0.12, 2;3, 1.5]
+parameter: B = [2, 7;3, 1]
+parameter: C = [0.1, 2]
+parameter: D = zeros(ny,nu)
 
 results in the following equations:
   [x[1]]   [0.12  2.00] [pre(x[1])]   [2.0  7.0] [u[1]]
@@ -338,7 +297,7 @@ results in the following equations:
                              [pre(x[1])]            [u[1]]
        y[1]   = [0.1  2.0] * [         ] + [0  0] * [    ]
                              [pre(x[2])]            [u[2]]
-</pre>
+</pre></blockquote>
 </html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -364,16 +323,7 @@ results in the following equations:
             textColor={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Text(
-            extent={{-54,50},{52,-10}},
-            textString="zx=Ax+Bu"),
-          Text(
-            extent={{-56,14},{54,-50}},
-            textString="  y=Cx+Du"),
-          Line(points={{-102,0},{-60,0}}, color={0,0,255}),
-          Line(points={{60,0},{100,0}}, color={0,0,255})}));
+          extent={{-100,-100},{100,100}})));
   end StateSpace;
 
   block TriggeredSampler "Triggered sampling of continuous signals"
@@ -419,21 +369,7 @@ results in the following equations:
           fillPattern=FillPattern.Solid,
           extent={{-45.0,-10.0},{-25.0,10.0}})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
-          Ellipse(
-            extent={{-25,-10},{-45,10}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{45,-10},{25,10}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-100,0},{-45,0}}, color={0,0,255}),
-          Line(points={{45,0},{100,0}}, color={0,0,255}),
-          Line(points={{-35,0},{28,-48}}, color={0,0,255}),
-          Line(points={{0,-100},{0,-26}}, color={255,0,255})}),
+              100,100}})),
       Documentation(info="<html>
 <p>
 Samples the continuous input signal whenever the trigger input
@@ -491,21 +427,7 @@ the initial value defined via parameter <strong>y0</strong>.
           fillPattern=FillPattern.Solid,
           extent={{-45.0,-10.0},{-25.0,10.0}})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
-          Ellipse(
-            extent={{-25,-10},{-45,10}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{45,-10},{25,10}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-100,0},{-45,0}}, color={0,0,255}),
-          Line(points={{45,0},{100,0}}, color={0,0,255}),
-          Line(points={{-35,0},{28,-48}}, color={0,0,255}),
-          Line(points={{0,-100},{0,-26}}, color={255,0,255})}),
+              100,100}})),
       Documentation(info="<html>
 <p>
 Samples the continuous input signal whenever the trigger input

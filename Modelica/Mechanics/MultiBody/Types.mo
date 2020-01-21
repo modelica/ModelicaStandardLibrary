@@ -113,7 +113,7 @@ are shown for a cylinder:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/SpecularCoefficient.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Types/SpecularCoefficient.png\"/>
 </p>
 </html>"));
   type ShapeType = Modelica.Icons.TypeString
@@ -138,7 +138,7 @@ values for shapeType are possible, e.g., shapeType=\"box\":
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Shape.png\" alt=\"model Visualizers.FixedShape\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Shape.png\" alt=\"model Visualizers.FixedShape\">
 </p>
 
 <p>
@@ -188,7 +188,7 @@ extra data depending on the shape type. Usually, input
 variable <strong>extra</strong> is used as instance name:
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>shapeType</strong></th><th>Meaning of parameter <strong>extra</strong></th></tr>
 <tr>
   <td>\"cylinder\"</td>
@@ -236,7 +236,7 @@ width = height = 2*radiusOfGearWheel.</td>
         "Resolve in frame_resolve (frame_resolve must be connected)")
     "Enumeration to define the frame in which an absolute vector is resolved (world, frame_a, frame_resolve)"
                                                annotation (Documentation(info="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -255,7 +255,7 @@ width = height = 2*radiusOfGearWheel.</td>
         "Resolve in frame_resolve (frame_resolve must be connected)")
     "Enumeration to define the frame in which an absolute vector is resolved (world, frame_b, frame_resolve)"
                                                annotation (Documentation(info="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -275,7 +275,7 @@ width = height = 2*radiusOfGearWheel.</td>
         "Resolve in frame_resolve (frame_resolve must be connected)")
     "Enumeration to define the frame in which a relative vector is resolved (world, frame_a, frame_b, frame_resolve)"
                                                annotation (Documentation(info="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>world</td>
     <td>Resolve vector in world frame</td></tr>
@@ -298,7 +298,7 @@ width = height = 2*radiusOfGearWheel.</td>
     "Enumeration defining in which way the fixed orientation of frame_b with respect to frame_a is specified"
       annotation (
         Documentation(Evaluate=true, info="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.RotationTypes.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>RotationAxis</td>
     <td>frame_b is defined by rotating the coordinate system along
@@ -320,7 +320,7 @@ width = height = 2*radiusOfGearWheel.</td>
       PointGravity "Point gravity field")
     "Enumeration defining the type of the gravity field"
       annotation (Documentation(info="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th><strong>Types.GravityTypes.</strong></th><th><strong>Meaning</strong></th></tr>
 <tr><td>NoGravity</td>
     <td>No gravity field</td></tr>
