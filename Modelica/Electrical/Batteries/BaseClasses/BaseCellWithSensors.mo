@@ -5,7 +5,7 @@ partial model BaseCellWithSensors "Partial cell with sensors"
     "Cell parameters"
     annotation (Placement(transformation(extent={{-10,40},{10,60}})));
   parameter Real SOC0=0.1 "Initial SOC";
-  parameter Real SOCtolerance=1e-9 "SOC tolerance for detection of depletec or overharged cell"
+  parameter Real SOCtolerance=1e-9 "SOC tolerance for detection of depleted or overcharged cell"
     annotation(Dialog(tab="Advanced"));
   extends Modelica.Electrical.Analog.Interfaces.TwoPin;
   output Modelica.SIunits.Current i = p.i "Current into the cell";
@@ -77,7 +77,7 @@ equation
           -20},{-60,-10}}, color={0,0,255}));
   connect(heatFlowSensor.port_a, temperatureSensor.port)
     annotation (Line(points={{0,-50},{0,-40},{-20,-40}}, color={191,0,0}));
-  annotation (                   Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 This is a single <a href=\"modelica://Modelica.Electrical.Batteries.BatteryStacks.CellStack\">cell[Np=1, Ns=1]</a> with measurement.
 </p>
