@@ -120,9 +120,9 @@ For efficiency reasons, this reaction torque is, however, not computed.
 
 <p>
 This force component is by default visualized as an arrow
-acting at the connector to which it is connected. The diameter
-and color of the arrow can be defined via
-variables <strong>diameter</strong> and <strong>color</strong>. The arrow
+acting at the connector to which it is connected.
+The color of the arrow can be defined via
+variable <strong>color</strong>. The arrow
 points in the direction defined by the
 force signal. The length of the arrow is proportional
 to the length of the force vector using a&nbsp;global tool-dependent scaling factor.
@@ -247,9 +247,9 @@ For efficiency reasons, this reaction torque is, however, not computed.
 
 <p>
 This torque component is by default visualized as a <strong>double arrow</strong>
-acting at the connector to which it is connected. The diameter
-and color of the arrow can be defined via
-variables <strong>diameter</strong> and <strong>color</strong>. The double arrow points
+acting at the connector to which it is connected.
+The color of the arrow can be defined via
+variable <strong>color</strong>. The double arrow points
 in the direction defined by the
 torque vector. The length of the double arrow is proportional
 to the length of the torque vector using a global tool-dependent scaling factor.
