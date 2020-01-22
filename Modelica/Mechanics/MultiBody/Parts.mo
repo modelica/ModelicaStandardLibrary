@@ -129,16 +129,7 @@ animation = <strong>false</strong>.
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/Fixed.png\" alt=\"Parts.Fixed\">
 </p>
 
-</html>"),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{0,100},{0,-100}}),
-          Line(points={{0,-80},{-100,-20}}),
-          Line(points={{0,-40},{-100,20}}),
-          Line(points={{0,0},{-100,60}}),
-          Line(points={{0,40},{-100,100}}),
-          Line(points={{0,0},{100,0}})}));
+</html>"));
   end Fixed;
 
   model FixedTranslation "Fixed translation of frame_b with respect to frame_a"
@@ -259,54 +250,6 @@ animation = <strong>false</strong>.
             extent={{57,39},{93,14}},
             textColor={128,128,128},
             textString="b")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(
-            extent={{-100,5},{100,-5}},
-            fillPattern=FillPattern.Solid),
-          Line(
-            points={{-95,20},{-58,20}},
-            color={128,128,128},
-            arrow={Arrow.None,Arrow.Filled}),
-          Line(
-            points={{-94,18},{-94,50}},
-            color={128,128,128},
-            arrow={Arrow.None,Arrow.Filled}),
-          Text(
-            extent={{-72,35},{-58,24}},
-            textColor={128,128,128},
-            textString="x"),
-          Text(
-            extent={{-113,57},{-98,45}},
-            textColor={128,128,128},
-            textString="y"),
-          Line(points={{-100,-4},{-100,-69}}, color={128,128,128}),
-          Line(points={{-100,-63},{90,-63}}, color={128,128,128}),
-          Text(
-            extent={{-22,-39},{16,-63}},
-            textColor={128,128,128},
-            textString="r"),
-          Polygon(
-            points={{88,-59},{88,-68},{100,-63},{88,-59}},
-            fillPattern=FillPattern.Solid),
-          Line(points={{100,-3},{100,-68}}, color={128,128,128}),
-          Line(
-            points={{69,20},{106,20}},
-            color={128,128,128},
-            arrow={Arrow.None,Arrow.Filled}),
-          Line(
-            points={{70,18},{70,50}},
-            color={128,128,128},
-            arrow={Arrow.None,Arrow.Filled}),
-          Text(
-            extent={{92,35},{106,24}},
-            textColor={128,128,128},
-            textString="x"),
-          Text(
-            extent={{51,57},{66,45}},
-            textColor={128,128,128},
-            textString="y")}),
       Documentation(info="<html>
 <p>
 Component for a <strong>fixed translation</strong> of frame_b with respect
@@ -569,55 +512,7 @@ the animation may be switched off via parameter animation = <strong>false</stron
           Text(
             extent={{84,-24},{120,-49}},
             textColor={128,128,128},
-            textString="b")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-100,-1},{-100,-66}}, color={128,128,128}),
-          Line(points={{100,0},{100,-65}}, color={128,128,128}),
-          Line(points={{-100,-60},{89,-60}}, color={128,128,128}),
-          Text(
-            extent={{-22,-36},{16,-60}},
-            textColor={128,128,128},
-            textString="r"),
-          Rectangle(
-            extent={{-100,5},{100,-5}},
-            fillPattern=FillPattern.Solid),
-          Line(
-            points={{69,29},{97,45}},
-            color={128,128,128},
-            arrow={Arrow.None,Arrow.Filled}),
-          Line(
-            points={{70,27},{55,54}},
-            color={128,128,128},
-            arrow={Arrow.None,Arrow.Filled}),
-          Text(
-            extent={{95,42},{109,31}},
-            textColor={128,128,128},
-            textString="x"),
-          Text(
-            extent={{42,70},{57,58}},
-            textColor={128,128,128},
-            textString="y"),
-          Line(
-            points={{-95,22},{-58,22}},
-            color={128,128,128},
-            arrow={Arrow.None,Arrow.Filled}),
-          Line(
-            points={{-94,20},{-94,52}},
-            color={128,128,128},
-            arrow={Arrow.None,Arrow.Filled}),
-          Text(
-            extent={{-72,37},{-58,26}},
-            textColor={128,128,128},
-            textString="x"),
-          Text(
-            extent={{-113,59},{-98,47}},
-            textColor={128,128,128},
-            textString="y"),
-          Polygon(
-            points={{88,-56},{88,-65},{100,-60},{88,-56}},
-            fillPattern=FillPattern.Solid)}));
+            textString="b")}));
   end FixedRotation;
 
   model Body

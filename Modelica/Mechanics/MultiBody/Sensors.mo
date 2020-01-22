@@ -1860,21 +1860,6 @@ w_rel = MultiBody.Frames.angularVelocity1(R_rel);
             extent={{-30,10},{70,-30}},
             textColor={64,64,64},
             textString="m")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
-          Line(points={{-70,0},{-101,0}}),
-          Line(points={{70,0},{100,0}}),
-          Line(points={{0,-60},{0,-100}}, color={0,0,255}),
-          Text(
-            extent={{-22,70},{20,46}},
-            textString="s",
-            textColor={0,0,255}),
-          Line(points={{-98,40},{88,40}}, color={0,0,255}),
-          Polygon(
-            points={{102,40},{87,46},{87,34},{102,40}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
 The <strong>distance</strong> between the origins of frame_a
