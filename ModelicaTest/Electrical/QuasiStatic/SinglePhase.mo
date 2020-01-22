@@ -3,7 +3,7 @@ package SinglePhase "Single-phase quasi-static package"
   extends Modelica.Icons.ExamplesPackage;
   model SerialConnection "Example of serial connections"
     extends Modelica.Icons.Example;
-    output Modelica.SIunits.ComplexVoltage v = voltageSensor.y "Total voltage";
+    output Modelica.SIunits.ComplexVoltage v = voltageSensor.v "Total voltage";
     Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource currentSource(gamma(fixed=true, start=0))                                                  annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=90,
@@ -74,7 +74,7 @@ package SinglePhase "Single-phase quasi-static package"
 
   model Ideal "Ideal components"
     extends Modelica.Icons.Example;
-    output Modelica.SIunits.ComplexCurrent I = currentSensor.y "Current";
+    output Modelica.SIunits.ComplexCurrent I = currentSensor.i "Current";
     Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Idle idle annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,

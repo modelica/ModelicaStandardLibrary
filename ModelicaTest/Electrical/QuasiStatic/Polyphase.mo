@@ -4,7 +4,7 @@ package Polyphase "Polyphase quasi-static package"
   model SerialConnection "Example of serial connections"
     extends Modelica.Icons.Example;
     parameter Integer m = 3 "Number of phases";
-    output Modelica.SIunits.ComplexVoltage v[m] = voltageSensor.y "Total voltage";
+    output Modelica.SIunits.ComplexVoltage v[m] = voltageSensor.v "Total voltage";
     Modelica.Electrical.QuasiStatic.Polyphase.Sources.VariableCurrentSource currentSource(gamma(fixed=true, start=0), m=m)                                             annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=90,
@@ -93,7 +93,7 @@ package Polyphase "Polyphase quasi-static package"
   model Ideal "Ideal components"
     extends Modelica.Icons.Example;
     parameter Integer m = 3 "Number of phases";
-    output Modelica.SIunits.ComplexCurrent I[m] = currentSensor.y "Current";
+    output Modelica.SIunits.ComplexCurrent I[m] = currentSensor.i "Current";
     Modelica.Electrical.QuasiStatic.Polyphase.Ideal.Idle idle(m=m)
                                                                    annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
