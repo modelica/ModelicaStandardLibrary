@@ -60,7 +60,7 @@ This model is documented at
       input Modelica.SIunits.Position r[3]={0,0,0}
         "Position vector from origin of world frame to origin of vector, resolved in world frame" annotation(Dialog);
       input Real r_value[3]={0,0,0}
-        "Value of the vector" annotation(Dialog);
+        "Value of the vector resolved in vector frame" annotation(Dialog);
       input Types.Color color=Types.Defaults.ArrowColor
         "Color of vector" annotation(Dialog(colorSelector=true));
       input Types.SpecularCoefficient specularCoefficient = 0.7

@@ -80,7 +80,6 @@ package Forces "Components that exert forces and/or torques between frames"
             color={95,95,95},
             pattern=LinePattern.Dot)}),
       Documentation(info="<html>
-
 <p>
 The <strong>3</strong> signals of the <strong>force</strong> connector are interpreted
 as the x-, y- and z-coordinates of a <strong>force</strong> acting at the frame
@@ -126,7 +125,7 @@ and color of the arrow can be defined via
 variables <strong>diameter</strong> and <strong>color</strong>. The arrow
 points in the direction defined by the
 force signal. The length of the arrow is proportional
-to the length of the force vector using a global force scaling in a tool-dependent way.
+to the length of the force vector using a&nbsp;global tool-dependent scaling factor.
 </p>
 <p>
 An example how to use this model is given in the
@@ -144,7 +143,6 @@ This leads to the following animation
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForce2.png\">
 </p>
-
 </html>"));
   end WorldForce;
 
