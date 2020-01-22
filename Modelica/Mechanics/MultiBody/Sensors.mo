@@ -1931,10 +1931,10 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
       specularCoefficient=specularCoefficient,
       R=frame_b.R,
       r=frame_b.r_0,
-	  pushing=true,
-	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
+      pushing=true,
+      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
       r_head=-frame_a.f*(if positiveSign then +1 else -1)) if world.enableAnimation and animation;
-	  
+
     Internal.BasicCutForce cutForce(resolveInFrame=resolveInFrame, positiveSign=
           positiveSign)
       annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
@@ -2040,10 +2040,10 @@ with negative sign at frame_a.
     Visualizers.Advanced.Arrow torqueArrow(
       color=torqueColor,
       specularCoefficient=specularCoefficient,
-	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
+   quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
       R=frame_b.R,
       r=frame_b.r_0,
-	  pushing=true,
+   pushing=true,
       r_head=-frame_a.t*(if positiveSign then +1 else -1)) if world.enableAnimation and animation;
     Internal.BasicCutTorque cutTorque(resolveInFrame=resolveInFrame, positiveSign=
          positiveSign)
@@ -2163,16 +2163,16 @@ with negative sign at frame_a.
       specularCoefficient=specularCoefficient,
       R=frame_b.R,
       r=frame_b.r_0,
-	  pushing=true,
+      pushing=true,
       quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
       r_head=-frame_a.f*csign) if world.enableAnimation and animation;
     Visualizers.Advanced.Arrow torqueArrow(
       color=torqueColor,
       specularCoefficient=specularCoefficient,
-	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
+      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
       R=frame_b.R,
       r=frame_b.r_0,
-	  pushing=true,
+      pushing=true,
       r_head=-frame_a.t*csign) if world.enableAnimation and animation;
     Internal.BasicCutForce cutForce(resolveInFrame=resolveInFrame, positiveSign=
           positiveSign)

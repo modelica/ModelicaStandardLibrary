@@ -65,7 +65,7 @@ This model is documented at
         "Color of vector" annotation(Dialog(colorSelector=true));
       input Types.SpecularCoefficient specularCoefficient = 0.7
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
-                                                                                                            annotation(Dialog);
+        annotation(Dialog);
       input Boolean pushing=false "= true, if the vector is pointing towards the origin" annotation(Dialog);
       input Types.VectorQuantity quantity = Types.VectorQuantity.Force "The quantity of the value" annotation(Dialog);
 
@@ -187,7 +187,7 @@ package FileSystem
     extends Modelica.Icons.Function;
     input String name "Name of file, directory, pipe etc.";
     output Types.FileType fileType "Type of file";
-  external "C" fileType=  ModelicaInternal_stat(name) annotation(Library="ModelicaExternalC");
+  external "C" fileType = ModelicaInternal_stat(name) annotation(Library="ModelicaExternalC");
   end stat;
 
   impure function rename "Rename existing file or directory (C function 'rename')"

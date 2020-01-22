@@ -642,18 +642,18 @@ parameter menu.
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
-	input Types.VectorQuantity quantity=Types.VectorQuantity.RelativePosition 
-       "The kind of physical quantity represented by the vector"	  
+    input Types.VectorQuantity quantity=Types.VectorQuantity.RelativePosition
+      "The kind of physical quantity represented by the vector"
       annotation (Dialog(group="if animation = true", enable=animation));
-	input Boolean pushing=false "= true, if the vector is pointing towards the origin" 
-	  annotation (Dialog(group="if animation = true", enable=animation));
+    input Boolean pushing=false "= true, if the vector is pointing towards the origin"
+      annotation (Dialog(group="if animation = true", enable=animation));
   protected
     Visualizers.Advanced.Vector arrowLine(
       color=color,
       specularCoefficient=specularCoefficient,
       r_value=n*length,
-	  quantity=quantity,
-	  pushing=pushing,
+      quantity=quantity,
+      pushing=pushing,
       r=frame_a.r_0+Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolve1(frame_a.R.T, r_tail),
       R=frame_a.R) if world.enableAnimation and animation;
   equation
@@ -727,12 +727,12 @@ as is.
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.VectorQuantity quantity=Types.VectorQuantity.RelativePosition 
-          "The kind of physical quantity represented by the vector"	  
+    input Types.VectorQuantity quantity=Types.VectorQuantity.RelativePosition
+          "The kind of physical quantity represented by the vector"
        annotation(Dialog(group="if animation = true", enable=animation));
-	input Boolean pushing=false "= true, if the vector is pointing towards the origin" 
-	  annotation (Dialog(group="if animation = true", enable=animation));
-		  
+    input Boolean pushing=false "= true, if the vector is pointing towards the origin"
+      annotation (Dialog(group="if animation = true", enable=animation));
+
     Modelica.Blocks.Interfaces.RealInput r_head[3]
       "Vector resolved in frame_a"
       annotation (Placement(transformation(
@@ -748,8 +748,8 @@ as is.
       r_head=r_head,
       diameter=diameter,
       color=color,
-	  quantity=quantity,
-	  pushing=pushing,
+      quantity=quantity,
+      pushing=pushing,
       specularCoefficient=specularCoefficient) if world.enableAnimation and animation;
   equation
     frame_a.f = zeros(3);
@@ -1857,10 +1857,10 @@ This definition is also available as type
         "Color of arrow" annotation(Dialog(colorSelector=true));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
-		annotation(Dialog);
-      input Types.VectorQuantity quantity=Types.VectorQuantity.RelativePosition 
-          "The kind of physical quantity represented by the vector"	  
-    	  annotation(Dialog);
+        annotation(Dialog);
+      input Types.VectorQuantity quantity=Types.VectorQuantity.RelativePosition
+        "The kind of physical quantity represented by the vector"
+        annotation(Dialog);
       input Boolean pushing=false "= true, if the vector is pointing towards the origin" annotation(Dialog);
     protected
       outer Modelica.Mechanics.MultiBody.World world;
@@ -1870,8 +1870,8 @@ This definition is also available as type
         color=color,
         specularCoefficient=specularCoefficient,
         r=rvisobj,
-		quantity=quantity,
-		pushing=pushing,
+        quantity=quantity,
+        pushing=pushing,
         R=R) if world.enableAnimation;
 
       annotation (

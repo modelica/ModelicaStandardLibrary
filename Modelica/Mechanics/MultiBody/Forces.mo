@@ -33,9 +33,9 @@ package Forces "Components that exert forces and/or torques between frames"
       specularCoefficient=specularCoefficient,
       R=frame_b.R,
       r=frame_b.r_0,
-	  pushing=true,
-	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
-	  r_head=-frame_b.f) if world.enableAnimation and animation;
+      pushing=true,
+      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
+      r_head=-frame_b.f) if world.enableAnimation and animation;
 
   public
     Internal.BasicWorldForce basicWorldForce(resolveInFrame=resolveInFrame)
@@ -180,9 +180,9 @@ This leads to the following animation
       specularCoefficient=specularCoefficient,
       R=frame_b.R,
       r=frame_b.r_0,
-	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
-	  pushing=true,
-	  r_head=-frame_b.t) if world.enableAnimation and animation;
+      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
+      pushing=true,
+      r_head=-frame_b.t) if world.enableAnimation and animation;
   public
     Internal.BasicWorldTorque basicWorldTorque(resolveInFrame=resolveInFrame)
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
@@ -336,19 +336,19 @@ This leads to the following animation
     Visualizers.Advanced.Arrow forceArrow(
       color=forceColor,
       specularCoefficient=specularCoefficient,
-	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
+      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
       R=frame_b.R,
       r=frame_b.r_0,
       r_head=-frame_b.f,
-	  pushing=true) if world.enableAnimation and animation;
+      pushing=true) if world.enableAnimation and animation;
     Visualizers.Advanced.Arrow torqueArrow(
       color=torqueColor,
       specularCoefficient=specularCoefficient,
-	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
+      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
       R=frame_b.R,
       r=frame_b.r_0,
       r_head=-frame_b.t,
-	  pushing=true) if world.enableAnimation and animation;
+      pushing=true) if world.enableAnimation and animation;
   public
     Internal.BasicWorldForce basicWorldForce(resolveInFrame=resolveInFrame)
       annotation (Placement(transformation(extent={{18,-50},{38,-70}})));
@@ -533,11 +533,11 @@ This leads to the following animation
     Visualizers.Advanced.Arrow forceArrow(
       color=forceColor,
       specularCoefficient=specularCoefficient,
-	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
+      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
       R=frame_b.R,
       r=frame_b.r_0,
       r_head=-frame_b.f,
-	  pushing=true) if world.enableAnimation and animation;
+      pushing=true) if world.enableAnimation and animation;
     Visualizers.Advanced.Shape connectionLine(
       shapeType="cylinder",
       lengthDirection = to_unit1(basicForce.r_0),
@@ -714,15 +714,14 @@ clarity this is not shown in the animation):
       specularCoefficient=specularCoefficient,
       R=frame_b.R,
       r=frame_b.r_0,
-	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
+      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
       pushing=true,
       r_head=-frame_b.t) if world.enableAnimation and animation;
     Visualizers.Advanced.Shape connectionLine(
       shapeType="cylinder",
       lengthDirection = to_unit1(basicTorque.r_0),
       widthDirection={0,1,0},
-      length=Modelica.Math.Vectors.length(
-                           basicTorque.r_0),
+      length=Modelica.Math.Vectors.length(basicTorque.r_0),
       width=connectionLineDiameter,
       height=connectionLineDiameter,
       color=connectionLineColor,
@@ -861,15 +860,13 @@ clarity this is not shown in the animation):
 
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
 
-    Blocks.Interfaces.RealInput force[3](each final quantity="Force", each final unit=
-                     "N")
+    Blocks.Interfaces.RealInput force[3](each final quantity="Force", each final unit="N")
       "x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           origin={-80,120},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-    Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each final unit=
-                     "N.m")
+    Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each final unit="N.m")
       "x-, y-, z-coordinates of torque resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           origin={0,120},
@@ -905,7 +902,7 @@ clarity this is not shown in the animation):
   protected
     Visualizers.Advanced.Arrow forceArrow(
       specularCoefficient=specularCoefficient,
-	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
+      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
       R=frame_b.R,
       r=frame_b.r_0,
       pushing=true,
@@ -913,7 +910,7 @@ clarity this is not shown in the animation):
     Visualizers.Advanced.Arrow torqueArrow(
       color=torqueColor,
       specularCoefficient=specularCoefficient,
-	  quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
+      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
       R=frame_b.R,
       r=frame_b.r_0,
       pushing=true,
@@ -922,8 +919,7 @@ clarity this is not shown in the animation):
       shapeType="cylinder",
       lengthDirection = to_unit1(basicForce.r_0),
       widthDirection={0,1,0},
-      length=Modelica.Math.Vectors.length(
-                           basicForce.r_0),
+      length=Modelica.Math.Vectors.length(basicForce.r_0),
       width=connectionLineDiameter,
       height=connectionLineDiameter,
       color=connectionLineColor,
