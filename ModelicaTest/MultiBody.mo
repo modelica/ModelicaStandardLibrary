@@ -294,6 +294,7 @@ alt=\"model Examples.Elementary.DoublePendulum\">
         points={{0,0},{-20,0}},
         color={95,95,95},
         thickness=0.5));
+    annotation (experiment(StopTime=1));
   end WorldGroundVisualization;
 
   package FourbarVariants "Test joints and assembly joints with four bar loop"
@@ -4455,7 +4456,7 @@ a linear damper is connected here.
       connect(gasForce.flange_b, mass.flange_a) annotation (Line(points={{-40,0},{-20,0}}, color={0,127,0}));
       connect(gasForce.flange_a, fixed.flange) annotation (Line(points={{-60,0},{-80,0}}, color={0,127,0}));
       connect(position.flange, mass.flange_b) annotation (Line(points={{20,0},{0,0}}, color={0,127,0}));
-      annotation (Documentation(info="<html>
+      annotation (experiment(StopTime=1), Documentation(info="<html>
 <p>
 Simple model to test gasForce element used in some multi-body examples,
 see <a href=\"modelica://MultiBody.Examples.Loops\">MultiBody.Examples.Loops</a>.
