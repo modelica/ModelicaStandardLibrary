@@ -1267,7 +1267,7 @@ interface to include the required &quot;usertab.c&quot;. An example how this can
 <blockquote><pre>
 model ExampleCTable \"Example utilizing the usertab.c interface\"
   extends Modelica.Icons.Example;
-  parameter Real dummy(fixed=false) \"Dummy parameter\";
+  parameter Real dummy(fixed=false) \"Dummy parameter\" annotation(HideResult=true);
   Modelica.Blocks.Tables.CombiTable1Dv table(tableOnFile=true, tableName=\"TestTable_1D_a\")
     annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
   Modelica.Blocks.Sources.ContinuousClock clock

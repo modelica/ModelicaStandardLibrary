@@ -488,7 +488,7 @@ package CombiTable2Ds "Test models for Modelica.Blocks.Tables.CombiTable2Ds"
   model Test18_usertab "Test utilizing the usertab.c interface"
     extends Modelica.Icons.Example;
     extends TestDer(t_new(tableOnFile=true, tableName="TestTable_2D"));
-    parameter Real dummy(fixed=false) "Dummy parameter";
+    parameter Real dummy(fixed=false) "Dummy parameter" annotation(HideResult=true);
     Modelica.Blocks.Sources.Ramp ramp(height=2, duration=1)
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Sources.Ramp ramp1(duration=1, height=6)

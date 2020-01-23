@@ -225,7 +225,7 @@ package CombiTable1Ds "Test models for Modelica.Blocks.Tables.CombiTable1Ds"
         tableOnFile=true,
         tableName="TestTable_1D_b",
         columns={2,3}));
-    parameter Real dummy(fixed=false) "Dummy parameter";
+    parameter Real dummy(fixed=false) "Dummy parameter" annotation(HideResult=true);
   protected
     encapsulated impure function getUsertab
       import Modelica;

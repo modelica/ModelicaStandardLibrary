@@ -225,7 +225,7 @@ package CombiTable1Dv "Test models for Modelica.Blocks.Tables.CombiTable1Dv"
   model Test25_usertab "Test utilizing the usertab.c interface"
     extends Modelica.Icons.Example;
     extends TestDer(t_new(tableOnFile=true, tableName="TestTable_1D_a"));
-    parameter Real dummy(fixed=false) "Dummy parameter";
+    parameter Real dummy(fixed=false) "Dummy parameter" annotation(HideResult=true);
   protected
     encapsulated impure function getUsertab
       import Modelica;
