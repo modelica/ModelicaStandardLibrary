@@ -20,33 +20,31 @@ equation
               textColor={0,0,255},
               textString="%name")}), Documentation(info="<html>
 <p>
-This is an adapter model to utilize a conditional support connector
-in an elementary component, i.e., where the component equations are
-defined textually:
+This is an adapter model to utilize a&nbsp;conditional
+<a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.Support\">support connector</a>
+in a&nbsp;component. It could be applied to both textually (equations based) and graphically
+defined components:
 </p>
 
 <ul>
-<li> If <em>useSupport = true</em>, the flange has to be connected to the conditional
+<li> If <em>useSupport = true</em>, this flange has to be connected to the conditional
      support connector.</li>
-<li> If <em>useSupport = false</em>, the flange has to be connected to the conditional
+<li> If <em>useSupport = false</em>, this flange has to be connected to the conditional
      fixed model.</li>
 </ul>
 
 <p>
-Variable <strong>tau</strong> is defined as <strong>input</strong> and must be provided when using
-this component as a modifier (computed via a torque balance in
-the model where InternalSupport is used). Usually, model InternalSupport is
-utilized via the partial models:
+Variable <strong>tau</strong> is defined as <strong>input</strong>. It must be
+provided as a&nbsp;modifier and computed via a&nbsp;torque balance when using this
+model in textually defined components.
+This approach of internal support is utilized e.g. via the following partial models:
 </p>
 
-<blockquote>
-<a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport\">
-PartialElementaryOneFlangeAndSupport</a>,<br>
-<a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport\">
-PartialElementaryTwoFlangesAndSupport</a>,<br>
-<a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational\">
-PartialElementaryRotationalToTranslational</a>.
-</blockquote>
+<ul>
+<li> <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialOneFlangeAndSupport\">PartialOneFlangeAndSupport</a>,</li>
+<li> <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlangesAndSupport\">PartialTwoFlangesAndSupport</a>,</li>
+<li> <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational\">PartialElementaryRotationalToTranslational</a>.</li>
+</ul>
 
 <p>
 Note, the support angle can always be accessed as internalSupport.phi, and
