@@ -37,7 +37,7 @@ defined components:
 Variable <strong>tau</strong> is defined as <strong>input</strong>. It must be
 provided as a&nbsp;modifier and computed via a&nbsp;torque balance when using this
 model in textually defined components.
-This approach of internal support is utilized e.g. via the following partial models:
+This approach of internal support is utilized, e.g., via the following partial models:
 </p>
 
 <ul>
