@@ -1,1 +1,5 @@
-// No comparison signals available. Just an animation test.
+time
+torus1.surface.nu
+torus1.surface.nv
+torus2.surface.nu
+torus2.surface.nv

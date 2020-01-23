@@ -1,1 +1,9 @@
-// No comparison signals available. Just an animation test.
+time
+voluminousWheel.n_rTire
+voluminousWheel.n_rCurvature
+voluminousWheel.rw
+voluminousWheel.rCurvature2
+voluminousWheel.kw
+voluminousWheel.h
+voluminousWheel.ri
+voluminousWheel.rRim2
