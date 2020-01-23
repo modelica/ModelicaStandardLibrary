@@ -10501,6 +10501,7 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
           points={{0,20},{30,20}},
           color={95,95,95},
           thickness=0.5));
+      annotation (experiment(StopTime=1));
     end Planes;
   end Visualizers;
 
