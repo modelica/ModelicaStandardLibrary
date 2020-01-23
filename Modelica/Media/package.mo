@@ -134,7 +134,7 @@ is given in the next figure:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/mediumMenu.png\" alt=\"medium selection menu\">
+<img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/MediumUsage/mediumMenu.png\" alt=\"medium selection menu\">
 </p>
 
 <p>
@@ -1562,7 +1562,7 @@ flow direction of a pipe:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/BalanceEquations1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/MediumDefinition/BalanceEquations1.png\">
 </p>
 
 <p>
@@ -1572,7 +1572,7 @@ Usually, it is given as:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/EnergyBalance1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/MediumDefinition/EnergyBalance1.png\">
 </p>
 
 <p>
@@ -1585,7 +1585,7 @@ of the energy balance:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/EnergyBalance2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/MediumDefinition/EnergyBalance2.png\">
 </p>
 
 <p>
