@@ -564,7 +564,8 @@ axis of the revolute joint (parameter n) is orthogonal to the possible movements
 Either use instead joint MultiBody.Joints.Revolute or correct the
 definition of the axes vectors n in the revolute joints of the planar loop.
 ");
-    annotation (defaultComponentName="revolute",
+    annotation (
+      defaultComponentName="revolute",
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -606,34 +607,6 @@ definition of the axes vectors n in the revolute joints of the planar loop.
             points={{-91,-76},{-33,15},{30,-49},{87,61}},
             color={255,0,0},
             thickness=0.5)}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(
-            extent={{-100,-60},{-20,60}},
-            lineColor={64,64,64},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={255,255,255},
-            radius=10),
-          Rectangle(
-            extent={{-100,-60},{-20,60}},
-            lineColor={64,64,64},
-            radius=10),
-          Rectangle(
-            extent={{-20,10},{20,-10}},
-            lineColor={64,64,64},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{20,-60},{100,60}},
-            lineColor={64,64,64},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={255,255,255},
-            radius=10),
-          Rectangle(
-            extent={{20,-60},{100,60}},
-            lineColor={64,64,64},
-            radius=10)}),
       Documentation(info="<html>
 <p>
 Joint where frame_b rotates around axis n which is fixed in frame_a and
@@ -1450,36 +1423,7 @@ frame_b of the joint.
           Text(
             extent={{-150,-115},{150,-75}},
             textString="%name",
-            textColor={0,0,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Ellipse(
-            extent={{-70,-70},{70,70}},
-            fillPattern=FillPattern.Sphere,
-            fillColor={192,192,192}),
-          Ellipse(
-            extent={{-49,-50},{51,50}},
-            lineColor={128,128,128},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{30,70},{71,-68}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-100,10},{-68,-10}},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
-          Rectangle(
-            extent={{23,10},{100,-10}},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
-          Ellipse(
-            extent={{-24,25},{26,-25}},
-            fillPattern=FillPattern.Sphere,
-            fillColor={160,160,164})}));
+            textColor={0,0,255})}));
   end Spherical;
 
   model FreeMotion
@@ -1798,38 +1742,6 @@ frame_b of the joint.
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-30,-5},{-50,5}},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(
-            points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}},
-            color={160,160,164},
-            thickness=0.5,
-            smooth=Smooth.Bezier),
-          Polygon(
-            points={{90,0},{50,20},{50,-20},{90,0}},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{69,58},{49,40},{77,28},{69,58}},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{50,-5},{30,5}},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{11,-5},{-9,5}},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-30,-5},{-50,5}},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-70,-5},{-90,5}},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}));
   end FreeMotion;
@@ -2412,60 +2324,6 @@ its tip position, is shown in
           Text(
             extent={{-150,-60},{150,-90}},
             textString="%rodLength")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Ellipse(
-            extent={{-98,-40},{-18,40}},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{-88,-30},{-28,30}},
-            lineColor={160,160,164},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{18,-40},{98,40}},
-            lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{29,-30},{89,29}},
-            lineColor={192,192,192},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-56,-60},{46,-60}}, color={0,0,255}),
-          Polygon(
-            points={{56,-60},{41,-54},{41,-66},{56,-60}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-37,-63},{33,-79}},
-            textString="rodLength",
-            textColor={0,0,255}),
-          Rectangle(
-            extent={{-40,41},{40,-40}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-51,6},{48,-4}},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
-          Ellipse(
-            extent={{-71,15},{-42,-13}},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{42,14},{71,-14}},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-56,-71},{-56,1}}, color={0,0,255}),
-          Line(points={{56,-72},{56,0}}, color={0,0,255}),
-          Polygon(points={{11,1},{-1,4},{-1,-2},{11,1}}, lineColor={0,0,255}),
-          Line(points={{-56,1},{-1,1}}, color={0,0,255}),
-          Text(
-            extent={{-32,-4},{4,-29}},
-            textString="eRod_a")}),
       Documentation(info="<html>
 <p>
 Joint that has a spherical joint on each of its two ends.
@@ -2851,7 +2709,7 @@ if axis 2 is not orthogonal to axis 1 and to the connecting rod.
 </p>
 <p>
 Note, there is a <strong>singularity</strong> when axis 1 and the connecting rod are parallel
-to other. Therefore, if possible n1_a should be selected in such a way that it
+to each other. Therefore, if possible n1_a should be selected in such a way that it
 is perpendicular to rRod_ia in the initial configuration (i.e., the
 distance to the singularity is as large as possible).
 </p>
@@ -2991,108 +2849,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           Line(
             points={{-40,101},{-40,60},{-60,1}},
             color={128,128,128},
-            thickness=0.5)}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-60,-70},{46,-70}}, color={0,0,255}),
-          Polygon(
-            points={{60,-70},{45,-64},{45,-76},{60,-70}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-56,-71},{56,-90}},
-            textString="rRod",
-            textColor={0,0,255}),
-          Ellipse(
-            extent={{-100,-40},{-19,40}},
-            fillPattern=FillPattern.Sphere,
-            fillColor={192,192,192}),
-          Ellipse(
-            extent={{-90,-30},{-29,29}},
-            lineColor={160,160,164},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-60,41},{-19,-41}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(
-            points={{-60,40},{-60,-40}},
-            thickness=0.5),
-          Ellipse(
-            extent={{-83,-17},{-34,21}},
-            fillPattern=FillPattern.Sphere,
-            fillColor={192,192,192}),
-          Ellipse(
-            extent={{-74,-12},{-40,15}},
-            lineColor={160,160,164},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{-72,-20},{-89,3},{-69,25},{-45,27},{-72,-20}},
-            pattern=LinePattern.None,
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(
-            points={{-60,40},{-60,-10}},
-            thickness=0.5),
-          Line(
-            points={{-49,20},{-69,-15}},
-            thickness=0.5),
-          Polygon(points={{7,-1},{-5,2},{-5,-4},{7,-1}}, lineColor={0,0,255}),
-          Line(points={{-50,19},{-30,57}}, color={0,0,255}),
-          Text(
-            extent={{-34,78},{8,62}},
-            textString="e2"),
-          Polygon(points={{-25,64},{-33,56},{-27,53},{-25,64}}, lineColor={0,0,
-                255}),
-          Line(points={{-60,41},{-60,65}}, color={0,0,255}),
-          Polygon(points={{-60,75},{-64,63},{-56,63},{-60,75}}, lineColor={0,0,
-                255}),
-          Text(
-            extent={{-93,82},{-64,62}},
-            textString="n1"),
-          Line(points={{-60,-40},{-60,-72}}, color={0,0,255}),
-          Ellipse(
-            extent={{20,-40},{100,40}},
-            fillPattern=FillPattern.Sphere,
-            fillColor={192,192,192}),
-          Ellipse(
-            extent={{30,-30},{90,30}},
-            lineColor={192,192,192},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-22,45},{40,-43}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{45,14},{74,-14}},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-36,-8},{48,8}},
-            pattern=LinePattern.None,
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
-          Text(
-            extent={{-31,-7},{0,-28}},
-            textString="eRod"),
-          Line(points={{-60,0},{-5,0}}, color={0,0,255}),
-          Polygon(points={{7,0},{-5,3},{-5,-3},{7,0}}, lineColor={0,0,255}),
-          Line(points={{60,-1},{60,-72}}, color={0,0,255}),
-          Line(
-            points={{-40,100},{-40,70},{-60,0}},
-            color={128,128,128},
-            thickness=0.5),
-          Text(
-            extent={{-23,30},{26,10}},
-            textString=" eRod*e2 = 0;  n1*e2 = 0",
-            textColor={0,0,255})}));
+            thickness=0.5)}));
   end UniversalSpherical;
 
   model GearConstraint "Ideal 3-dim. gearbox (arbitrary shaft directions)"
@@ -4278,162 +4035,7 @@ component).
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            initialScale=0.2), graphics={
-            Line(points={{-60,-70},{46,-70}}, color={0,0,255}),
-            Polygon(
-              points={{60,-70},{45,-64},{45,-76},{60,-70}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-62,-73},{65,-90}},
-              textString="rAxis",
-              textColor={0,0,255}),
-            Ellipse(
-              extent={{-100,-40},{-19,40}},
-              fillPattern=FillPattern.Sphere,
-              fillColor={192,192,192}),
-            Ellipse(
-              extent={{-90,-30},{-29,29}},
-              lineColor={160,160,164},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{-60,41},{-19,-41}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(
-              points={{-60,40},{-60,-40}},
-              thickness=0.5),
-            Ellipse(
-              extent={{-83,-17},{-34,21}},
-              fillPattern=FillPattern.Sphere,
-              fillColor={192,192,192}),
-            Ellipse(
-              extent={{-74,-12},{-40,15}},
-              lineColor={160,160,164},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-72,-20},{-89,3},{-69,25},{-45,27},{-72,-20}},
-              pattern=LinePattern.None,
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Line(
-              points={{-60,40},{-60,-10}},
-              thickness=0.5),
-            Line(
-              points={{-49,20},{-69,-15}},
-              thickness=0.5),
-            Line(
-              points={{-40,0},{-40,90},{-80,90},{-80,99}},
-              color={95,95,95},
-              thickness=0.5),
-            Polygon(points={{7,-1},{-5,2},{-5,-4},{7,-1}}, lineColor={0,0,255}),
-            Line(points={{-50,19},{-30,57}}, color={0,0,255}),
-            Text(
-              extent={{-24,74},{7,53}},
-              textString="e2"),
-            Polygon(points={{-25,64},{-33,56},{-27,53},{-25,64}}, lineColor={0,
-                  0,255}),
-            Line(points={{-60,41},{-60,65}}, color={0,0,255}),
-            Polygon(points={{-60,75},{-64,63},{-56,63},{-60,75}}, lineColor={0,
-                  0,255}),
-            Text(
-              extent={{-96,82},{-65,61}},
-              textString="n1"),
-            Line(points={{-60,-40},{-60,-72}}, color={0,0,255}),
-            Ellipse(
-              extent={{20,-40},{100,40}},
-              fillPattern=FillPattern.Sphere,
-              fillColor={192,192,192}),
-            Ellipse(
-              extent={{30,-30},{90,30}},
-              lineColor={192,192,192},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{-22,45},{40,-43}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Ellipse(
-              extent={{45,14},{74,-14}},
-              fillPattern=FillPattern.Sphere,
-              fillColor={128,128,128}),
-            Line(points={{60,0},{60,-74}}, color={0,0,255}),
-            Rectangle(
-              extent={{-35,14},{-6,18}},
-              pattern=LinePattern.None,
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Rectangle(
-              extent={{-35,-13},{-6,14}},
-              pattern=LinePattern.None,
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Rectangle(
-              extent={{-6,6},{46,10}},
-              pattern=LinePattern.None,
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Rectangle(
-              extent={{-6,-7},{46,6}},
-              pattern=LinePattern.None,
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Line(points={{-6,-13},{-6,18}}),
-            Text(
-              extent={{-40,-2},{-1,-16}},
-              textString="nAxis"),
-            Line(points={{-61,1},{-2,1}}, color={0,0,255}),
-            Polygon(points={{10,1},{-2,4},{-2,-2},{10,1}}, lineColor={0,0,255}),
-            Line(
-              points={{60,-1},{60,90},{80,90},{80,99}},
-              color={95,95,95},
-              thickness=0.5),
-            Text(
-              extent={{-24,117},{-9,102}},
-              textString="f",
-              textColor={0,0,255}),
-            Polygon(
-              points={{-26,103},{-36,100},{-26,97},{-26,103}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{26,103},{36,100},{26,97},{26,103}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{14,100},{36,100}}, color={0,0,255}),
-            Text(
-              extent={{12,116},{27,101}},
-              textString="f",
-              textColor={0,0,255}),
-            Polygon(
-              points={{30,93},{40,90},{30,87},{30,93}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-40,90},{40,90}}, color={128,128,128}),
-            Line(points={{-25,100},{-10,100}}, color={0,0,255}),
-            Text(
-              extent={{-18,90},{19,77}},
-              textColor={128,128,128},
-              textString="s"),
-            Line(
-              points={{60,90},{40,90},{40,98}},
-              color={95,95,95},
-              thickness=0.5),
-            Line(
-              points={{-40,90},{-40,96},{-40,98}},
-              color={135,135,135},
-              thickness=0.5)}));
+            initialScale=0.2)));
     end JointUPS;
 
     model JointUSR
@@ -7892,54 +7494,6 @@ position a degree of freedom is lost.
               lineColor={64,64,64},
               fillPattern=FillPattern.VerticalCylinder,
               fillColor={192,192,192})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics={
-            Rectangle(
-              extent={{-100,-60},{-30,60}},
-              lineColor={64,64,64},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={255,255,255},
-              radius=10),
-            Rectangle(
-              extent={{-100,-60},{-30,60}},
-              lineColor={64,64,64},
-              radius=10),
-            Rectangle(
-              extent={{-30,10},{10,-10}},
-              lineColor={64,64,64},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{30,-60},{100,60}},
-              lineColor={64,64,64},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={255,255,255},
-              radius=10),
-            Rectangle(
-              extent={{30,-60},{100,60}},
-              lineColor={64,64,64},
-              radius=10),
-            Line(points={{-60,60},{-60,96}}),
-            Line(points={{-20,70},{-60,70}}),
-            Line(points={{-20,80},{-20,60}}),
-            Line(points={{20,80},{20,60}}),
-            Line(points={{20,70},{41,70}}),
-            Polygon(
-              points={{-9,30},{10,30},{30,50},{-29,50},{-9,30}},
-              lineColor={64,64,64},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{10,30},{30,50},{30,-51},{10,-31},{10,30}},
-              lineColor={64,64,64},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{-10,50},{10,100}},
-              lineColor={64,64,64},
-              fillPattern=FillPattern.VerticalCylinder,
-              fillColor={192,192,192})}),
         Documentation(info="<html>
 <p>
 Joint where frame_b rotates around axis n which is fixed in frame_a.
@@ -8215,92 +7769,6 @@ degree of freedom is lost.
             Text(
               extent={{-136,-116},{153,-77}},
               textString="n=%n")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics={
-            Line(points={{-30,-50},{-30,50}}),
-            Line(points={{0,-67},{90,-67}}, color={128,128,128}),
-            Text(
-              extent={{31,-68},{68,-81}},
-              textColor={128,128,128},
-              textString="s"),
-            Line(points={{-100,-67},{0,-67}}, color={128,128,128}),
-            Polygon(
-              points={{-39,-64},{-29,-67},{-39,-70},{-39,-64}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-77,-70},{-43,-85}},
-              textColor={128,128,128},
-              textString="s_offset"),
-            Line(points={{-100,-71},{-100,-51}}, color={128,128,128}),
-            Line(points={{-30,-73},{-30,-33}}, color={128,128,128}),
-            Line(points={{100,-70},{100,-30}}, color={128,128,128}),
-            Polygon(
-              points={{90,-64},{100,-67},{90,-70},{90,-64}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{-100,50},{-30,60}},
-              pattern=LinePattern.None,
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Rectangle(
-              extent={{-100,-60},{-30,50}},
-              pattern=LinePattern.None,
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Rectangle(extent={{-30,40},{100,-40}}),
-            Rectangle(
-              extent={{-30,-40},{100,30}},
-              pattern=LinePattern.None,
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Rectangle(
-              extent={{-30,30},{100,40}},
-              pattern=LinePattern.None,
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Rectangle(extent={{-100,60},{-30,-60}}),
-            Line(points={{100,-40},{100,-60}}, color={0,0,255}),
-            Text(
-              extent={{42,91},{57,76}},
-              textString="f",
-              textColor={0,0,255}),
-            Line(points={{40,75},{70,75}}, color={0,0,255}),
-            Polygon(
-              points={{-21,78},{-31,75},{-21,72},{-21,78}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-8,75},{-31,75}}, color={0,0,255}),
-            Text(
-              extent={{-21,90},{-6,75}},
-              textString="f",
-              textColor={0,0,255}),
-            Polygon(
-              points={{60,78},{70,75},{60,72},{60,78}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-30,64},{70,64}}, color={128,128,128}),
-            Polygon(
-              points={{60,67},{70,64},{60,61},{60,67}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{0,63},{37,50}},
-              textColor={128,128,128},
-              textString="s"),
-            Rectangle(
-              extent={{100,40},{90,80}},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
 <p>
 Joint where frame_b is translated along axis n which is fixed in frame_a.

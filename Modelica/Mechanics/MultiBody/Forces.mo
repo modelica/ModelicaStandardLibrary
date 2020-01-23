@@ -2108,29 +2108,7 @@ where a mass is hanging on a damper.
           Line(visible=useHeatPort,
             points={{-100,-99},{-100,-25},{-10,-25}},
             color={191,0,0},
-            pattern=LinePattern.Dot)}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-100,0},{-60,0}}),
-          Line(points={{-60,-30},{-60,30}}),
-          Line(points={{-60,-30},{60,-30}}),
-          Line(points={{-60,30},{60,30}}),
-          Rectangle(
-            extent={{-60,30},{30,-30}},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{30,0},{100,0}}),
-          Line(points={{-50,60},{50,60}}, color={128,128,128}),
-          Text(
-            extent={{-40,64},{23,77}},
-            textColor={128,128,128},
-            textString="der(s)"),
-          Polygon(
-            points={{64,60},{42,68},{42,52},{62,60},{64,60}},
-            lineColor={128,128,128},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid)}));
+            pattern=LinePattern.Dot)}));
   end Damper;
 
   model SpringDamperParallel "Linear spring and linear damper in parallel"
@@ -2258,38 +2236,7 @@ and der(s) is the time derivative of s.
             pattern=LinePattern.Dot),
           Text(
             extent={{-150,105},{150,135}},
-            textString="c=%c")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(
-            points={{-80,32},{-58,32},{-43,2},{-13,62},{17,2},{47,62},{62,32},{
-                80,32}},
-            thickness=0.5),
-          Line(points={{-68,32},{-68,97}}, color={128,128,128}),
-          Line(points={{72,32},{72,97}}, color={128,128,128}),
-          Line(points={{-68,92},{72,92}}, color={128,128,128}),
-          Polygon(
-            points={{62,95},{72,92},{62,89},{62,95}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-20,72},{20,97}},
-            textColor={0,0,255},
-            textString="s"),
-          Rectangle(
-            extent={{-52,-20},{38,-80}},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-52,-80},{68,-80}}),
-          Line(points={{-52,-20},{68,-20}}),
-          Line(points={{38,-50},{80,-50}}),
-          Line(points={{-80,-50},{-52,-50}}),
-          Line(points={{-80,32},{-80,-50}}),
-          Line(points={{80,32},{80,-50}}),
-          Line(points={{-100,0},{-80,0}}),
-          Line(points={{100,0},{80,0}})}));
+            textString="c=%c")}));
   end SpringDamperParallel;
 
   model SpringDamperSeries
@@ -2425,42 +2372,7 @@ force element) and der(s_damper) is the time derivative of s_damper.
             pattern=LinePattern.Dot),
           Text(
             extent={{-150,-100},{150,-70}},
-            textString="d=%d")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-100,0},{-15,0}}),
-          Line(points={{-60,-30},{-15,-30}}),
-          Line(points={{-60,30},{-15,30}}),
-          Rectangle(
-            extent={{-60,30},{-30,-30}},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-15,0},{-5,0},{5,-30},{25,30},{45,-30},{65,30},{75,0},{
-                99,0}}),
-          Line(points={{-75,0},{-75,85}}, color={160,160,164}),
-          Line(points={{-10,0},{-10,65}}, color={160,160,164}),
-          Line(points={{80,0},{80,85}}, color={160,160,164}),
-          Line(points={{-75,80},{80,80}}, color={160,160,164}),
-          Line(points={{-75,60},{-10,60}}, color={160,160,164}),
-          Polygon(
-            points={{-10,60},{-20,65},{-20,55},{-10,60}},
-            lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{80,80},{70,85},{70,75},{80,80}},
-            lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-72,63},{-11,78}},
-            textColor={160,160,164},
-            textString="s_damper"),
-          Text(
-            extent={{0,80},{20,100}},
-            textColor={160,160,164},
-            textString="s")}));
+            textString="d=%d")}));
   end SpringDamperSeries;
 
   package Internal "Internal package, should not be used by user"
@@ -2751,14 +2663,6 @@ values from the outside in order that the model remains balanced
        end if;
        frame_b.t = zeros(3);
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Polygon(
-              points={{-100,10},{50,10},{50,31},{97,0},{50,-31},{50,-10},{-100,
-                  -10},{-100,10}},
-              fillPattern=FillPattern.Solid), Line(
-              points={{0,-10},{0,-97}},
-              color={95,95,95},
-              pattern=LinePattern.Dot)}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -2849,20 +2753,6 @@ values from the outside in order that the model remains balanced
        end if;
        frame_b.f = zeros(3);
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={
-            Line(
-              points={{0,97},{0,82}},
-              color={95,95,95},
-              pattern=LinePattern.Dot),
-            Line(
-              points={{-100,0},{-94,13},{-86,28},{-74,48},{-65,60},{-52,72},{-35,
-                  81},{-22,84},{-8,84},{7,80},{19,73},{32,65},{44,55},{52,47},{
-                  58,40}},
-              thickness=0.5),
-            Polygon(
-              points={{97,6},{75,59},{41,24},{97,6}},
-              fillPattern=FillPattern.Solid)}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
