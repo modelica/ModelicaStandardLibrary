@@ -4,3 +4,5 @@ t_new.y[2]
 d_t_new.y
 d_t_new2.y
 clock.y
+d2_t_new.y
+d2_t_new2.y
