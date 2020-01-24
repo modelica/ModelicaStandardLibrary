@@ -469,7 +469,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2786\">#2786</a>.
 </p>
 </html>"));
-      end issue2786IdealGyrator;
+      end Issue2786IdealGyrator;
 
       model Issue2899Resistor "Conversion test for #2899"
         extends Modelica.Icons.Example;
