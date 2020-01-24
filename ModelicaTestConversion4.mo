@@ -442,7 +442,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue2361;
 
-      model issue2786IdealGyrator "Conversion test for #2786"
+      model Issue2786IdealGyrator "Conversion test for #2786"
         extends Modelica.Icons.Example;
         Modelica.Electrical.Analog.Basic.Ground ground1 annotation (Placement(transformation(extent={{-40,-54},{-20,-34}})));
         Modelica.Electrical.Analog.Ideal.IdealGyrator gyrator(G=1) annotation (Placement(transformation(extent={{-10,-12},{10,8}})));
