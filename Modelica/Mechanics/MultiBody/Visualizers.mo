@@ -649,7 +649,7 @@ parameter menu.
     Visualizers.Advanced.Vector arrowLine(
       color=color,
       specularCoefficient=specularCoefficient,
-      r_value=n*length,
+      coordinates=n*length,
       quantity=quantity,
       pushing=pushing,
       r=frame_a.r_0+Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolve1(frame_a.R.T, r_tail),
@@ -1858,7 +1858,7 @@ This definition is also available as type
       outer Modelica.Mechanics.MultiBody.World world;
       SI.Position rvisobj[3] = r + T.resolve1(R.T, r_tail);
       Visualizers.Advanced.Vector arrowLine(
-        r_value=r_head,
+        coordinates=r_head,
         color=color,
         specularCoefficient=specularCoefficient,
         r=rvisobj,
@@ -1947,7 +1947,7 @@ library (will be replaced by a color editor).
       outer Modelica.Mechanics.MultiBody.World world;
       SI.Position rvisobj[3] = r + T.resolve1(R.T, r_tail);
       Visualizers.Advanced.Vector arrowLine(
-        r_value=r_head,
+        coordinates=r_head,
         color=color,
         specularCoefficient=specularCoefficient,
         r=rvisobj,
@@ -2037,7 +2037,7 @@ modifier equation has to be provided in the
 model where a&nbsp;<strong>Vector</strong> instance is used, e.g., in the form
 </p>
 <blockquote><pre>
-Visualizers.Advanced.Vector vectorForce(r_value = {sin(time),cos(time),0});
+Visualizers.Advanced.Vector vectorForce(coordinates = {sin(time),cos(time),0});
 </pre></blockquote>
 
 <p>
