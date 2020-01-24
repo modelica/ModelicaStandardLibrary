@@ -379,7 +379,7 @@ This model is available as StateGraph.Examples.ControlledTanks.
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/StateGraph/Examples/ControlledTanks1.png\">
+<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/ControlledTanks1.png\">
 </p>
 
 <p>
@@ -435,7 +435,7 @@ the next figure:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/StateGraph/Examples/ControlledTanks2.png\">
+<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/ControlledTanks2.png\">
 </p>
 
 <p>
@@ -2775,9 +2775,9 @@ top-level part of the tank controller as a StateGraph is shown:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/StateGraph/Examples/ControlledTanks1_small.png\">
+<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/ControlledTanks1_small.png\">
 
-<img src=\"modelica://Modelica/Resources/Images/StateGraph/Examples/ControlledTanks2_small.png\">
+<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/ControlledTanks2_small.png\">
 </p>
 
 <p>
