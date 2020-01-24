@@ -562,10 +562,10 @@ the animation may be switched off via parameter animation = <strong>false</stron
       choices(checkBox=true),
       Dialog(tab="Initialization"));
     parameter SI.Angle angles_start[3]={0,0,0}
-      "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
+      "Initial values of angles to rotate world frame around 'sequence_start' axes into frame_a"
       annotation (Dialog(tab="Initialization"));
     parameter Types.RotationSequence sequence_start={1,2,3}
-      "Sequence of rotations to rotate frame_a into frame_b at initial time"
+      "Sequence of rotations to rotate world frame into frame_a at initial time"
       annotation (Evaluate=true, Dialog(tab="Initialization"));
 
     parameter Boolean w_0_fixed=false
@@ -938,10 +938,10 @@ to the setting of parameters \"useQuaternions\" and
       choices(checkBox=true),
       Dialog(tab="Initialization"));
     parameter SI.Angle angles_start[3]={0,0,0}
-      "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
+      "Initial values of angles to rotate world frame around 'sequence_start' axes into frame_a"
       annotation (Dialog(tab="Initialization"));
     parameter Types.RotationSequence sequence_start={1,2,3}
-      "Sequence of rotations to rotate frame_a into frame_b at initial time"
+      "Sequence of rotations to rotate world frame into frame_a at initial time"
       annotation (Evaluate=true, Dialog(tab="Initialization"));
 
     parameter Boolean w_0_fixed=false
@@ -1266,10 +1266,10 @@ states and of the \"Advanced\" menu parameters, see model
       choices(checkBox=true),
       Dialog(tab="Initialization"));
     parameter SI.Angle angles_start[3]={0,0,0}
-      "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
+      "Initial values of angles to rotate world frame around 'sequence_start' axes into frame_a"
       annotation (Dialog(tab="Initialization"));
     parameter Types.RotationSequence sequence_start={1,2,3}
-      "Sequence of rotations to rotate frame_a into frame_b at initial time"
+      "Sequence of rotations to rotate world frame into frame_a at initial time"
       annotation (Evaluate=true, Dialog(tab="Initialization"));
 
     parameter Boolean w_0_fixed=false
@@ -1492,10 +1492,10 @@ states and of the \"Advanced\" menu parameters, see model
       choices(checkBox=true),
       Dialog(tab="Initialization"));
     parameter SI.Angle angles_start[3]={0,0,0}
-      "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
+      "Initial values of angles to rotate world frame around 'sequence_start' axes into frame_a"
       annotation (Dialog(tab="Initialization"));
     parameter Types.RotationSequence sequence_start={1,2,3}
-      "Sequence of rotations to rotate frame_a into frame_b at initial time"
+      "Sequence of rotations to rotate world frame into frame_a at initial time"
       annotation (Evaluate=true, Dialog(tab="Initialization"));
 
     parameter Boolean w_0_fixed=false
