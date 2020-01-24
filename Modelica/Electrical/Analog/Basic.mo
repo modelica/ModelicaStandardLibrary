@@ -649,7 +649,7 @@ the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N
   model Gyrator "Gyrator"
     extends Interfaces.TwoPort;
     parameter SI.Conductance G1(start=1) "Gyration conductance";
-    parameter SI.Conductance G2(start=1) "Gyration conductance";
+    parameter SI.Conductance G2(start=G1) "Gyration conductance";
   equation
     i1 = G2*v2;
     i2 = -G1*v1;

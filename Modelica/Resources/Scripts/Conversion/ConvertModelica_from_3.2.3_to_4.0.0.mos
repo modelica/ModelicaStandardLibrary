@@ -1863,3 +1863,6 @@ convertElement("Modelica.Media.Interfaces.PartialSimpleMedium.BaseProperties", "
 convertElement("Modelica.Media.Interfaces.PartialTwoPhaseMedium.BaseProperties", "R", "R_s");
 convertElement("Modelica.Media.R134a.R134a_ph.BaseProperties", "R", "R_s");
 convertElement("Modelica.Media.Water.WaterIF97_base.BaseProperties", "R", "R_s");
+// removal of Modelica.Electrical.Analog.Ideal.IdealGyrator, see #2786
+convertElement({"Modelica.Electrical.Analog.Ideal.IdealGyrator"}, "G", "G1");
+convertClass("Modelica.Electrical.Analog.Ideal.IdealGyrator", "Modelica.Electrical.Analog.Basic.Gyrator")

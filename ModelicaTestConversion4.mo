@@ -442,6 +442,36 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue2361;
 
+      model issue2786IdealGyrator "Conversion test for #2786"
+        extends Modelica.Icons.Example;
+        Modelica.Electrical.Analog.Basic.Ground ground
+          annotation (Placement(transformation(extent={{-40,-54},{-20,-34}})));
+        Modelica.Electrical.Analog.Ideal.IdealGyrator gyrator(G=1) annotation (Placement(transformation(extent={{-10,-12},{10,8}})));
+        Modelica.Electrical.Analog.Sources.ConstantVoltage v1(V=1) annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-30,0})));
+        Modelica.Electrical.Analog.Sources.ConstantVoltage v2(V=1) annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={30,0})));
+        Modelica.Electrical.Analog.Basic.Ground ground1
+          annotation (Placement(transformation(extent={{20,-54},{40,-34}})));
+      equation
+        connect(v1.p, gyrator.p1) annotation (Line(points={{-30,10},{-30,20},{-10,20},{-10,8}}, color={0,0,255}));
+        connect(v1.n, gyrator.n1) annotation (Line(points={{-30,-10},{-30,-20},{-10,-20},{-10,-12}}, color={0,0,255}));
+        connect(v1.n, ground.p) annotation (Line(points={{-30,-10},{-30,-34}}, color={0,0,255}));
+        connect(v2.p, gyrator.p2) annotation (Line(points={{30,10},{30,20},{10,20},{10,8}}, color={0,0,255}));
+        connect(v2.n, gyrator.n2) annotation (Line(points={{30,-10},{30,-20},{10,-20},{10,-12}}, color={0,0,255}));
+        connect(v2.n, ground1.p) annotation (Line(points={{30,-10},{30,-34}}, color={0,0,255}));
+        annotation (experiment(StopTime=1),
+          Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2786\">#2786</a>.
+</p>
+</html>"));
+      end issue2786IdealGyrator;
+
       model Issue2899Resistor "Conversion test for #2899"
         extends Modelica.Icons.Example;
         Modelica.Electrical.Analog.Basic.Ground ground
