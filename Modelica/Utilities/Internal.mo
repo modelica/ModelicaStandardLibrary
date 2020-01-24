@@ -67,6 +67,7 @@ This model is documented at
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
         annotation(Dialog);
       input Boolean pushing=false "= true, if the vector is pointing towards the origin" annotation(Dialog);
+      input Boolean doubleArrow=false "= true, if the arrow has two heads after each other (pointing in the same direction)" annotation(Dialog);
       input Types.VectorQuantity quantity = Types.VectorQuantity.Force "The quantity of the value" annotation(Dialog);
 
     annotation (

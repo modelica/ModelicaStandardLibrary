@@ -1940,8 +1940,8 @@ library (will be replaced by a color editor).
         "Position vector from origin of world frame to origin of arrow frame, resolved in world frame" annotation(Dialog);
       input SI.Position r_tail[3]={0,0,0}
         "Position vector from origin of arrow frame to double arrow tail, resolved in arrow frame" annotation(Dialog);
-      input SI.Position r_head[3]={0,0,0}
-        "Position vector from double arrow tail to the head of the double arrow, resolved in arrow frame" annotation(Dialog);
+      input Real r_head[3]={0,0,0}
+        "Vector from double arrow tail to the head of the double arrow, resolved in arrow frame" annotation(Dialog);
       input SI.Diameter diameter=world.defaultArrowDiameter
         "Diameter of arrow line" annotation(Dialog);
       input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
@@ -1949,54 +1949,21 @@ library (will be replaced by a color editor).
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
                                                                                                             annotation(Dialog);
-
+      input Types.VectorQuantity quantity=Types.VectorQuantity.Torque
+        "The kind of physical quantity represented by the vector"
+        annotation(Dialog);
+      input Boolean pushing=true "= true, if the vector is pointing towards the origin" annotation(Dialog);
     protected
       outer Modelica.Mechanics.MultiBody.World world;
-      SI.Length length=Modelica.Math.Vectors.length(r_head) "Length of arrow";
-      Real e_x[3](each final unit="1", start={1,0,0}) = noEvent(if length < 1e-10 then {1,0,0} else r_head/length);
-      Real rxvisobj[3](each final unit="1") = transpose(R.T)*e_x
-        "X-axis unit vector of shape, resolved in world frame"
-          annotation (HideResult=true);
-      SI.Position rvisobj[3] = r + T.resolve1(R.T, r_tail)
-        "Position vector from world frame to shape frame, resolved in world frame"
-          annotation (HideResult=true);
-
-      SI.Length headLength=noEvent(max(0, min(length, diameter*MultiBody.Types.Defaults.ArrowHeadLengthFraction)));
-      SI.Length headWidth=noEvent(max(0, diameter*MultiBody.Types.Defaults.ArrowHeadWidthFraction));
-      SI.Length arrowLength = noEvent(max(0, length - 1.5*diameter*MultiBody.Types.Defaults.ArrowHeadLengthFraction));
-      Visualizers.Advanced.Shape arrowLine(
-        length=arrowLength,
-        width=diameter,
-        height=diameter,
-        lengthDirection = to_unit1(r_head),
-        widthDirection={0,1,0},
-        shapeType="cylinder",
+      SI.Position rvisobj[3] = r + T.resolve1(R.T, r_tail);
+      Visualizers.Advanced.Vector arrowLine(
+        r_value=r_head,
         color=color,
         specularCoefficient=specularCoefficient,
-        r_shape=r_tail,
-        r=r,
-        R=R) if world.enableAnimation;
-      Visualizers.Advanced.Shape arrowHead1(
-        length=headLength,
-        width=headWidth,
-        height=headWidth,
-        lengthDirection = to_unit1(r_head),
-        widthDirection={0,1,0},
-        shapeType="cone",
-        color=color,
-        specularCoefficient=specularCoefficient,
-        r=rvisobj + rxvisobj*arrowLength,
-        R=R) if world.enableAnimation;
-      Visualizers.Advanced.Shape arrowHead2(
-        length=headLength,
-        width=headWidth,
-        height=headWidth,
-        lengthDirection = to_unit1(r_head),
-        widthDirection={0,1,0},
-        shapeType="cone",
-        color=color,
-        specularCoefficient=specularCoefficient,
-        r=rvisobj + rxvisobj*(arrowLength + 0.5*headLength),
+        r=rvisobj,
+        quantity=quantity,
+        pushing=pushing,
+        doubleArrow=true,
         R=R) if world.enableAnimation;
 
       annotation (
@@ -2039,7 +2006,7 @@ modifier equation has to be provided in the
 model where an <strong>Arrow</strong> instance is used, e.g., in the form
 </p>
 <blockquote><pre>
-Visualizers.Advanced.DoubleArrow doubleArrow(diameter = sin(time));
+Visualizers.Advanced.DoubleArrow doubleArrow(r_head = {sin(time),cos(time},0})
 </pre></blockquote>
 <p>
 Variable <strong>color</strong> is an Integer vector with 3 elements,
