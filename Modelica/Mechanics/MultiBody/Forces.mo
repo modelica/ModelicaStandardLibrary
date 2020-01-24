@@ -173,7 +173,7 @@ This leads to the following animation
       annotation (Dialog(group="if animation = true", enable=animation));
 
   protected
-    Visualizers.Advanced.Arrow arrow(
+    Visualizers.Advanced.DoubleArrow arrow(
       color=color,
       specularCoefficient=specularCoefficient,
       R=frame_b.R,
@@ -339,7 +339,7 @@ This leads to the following animation
       r=frame_b.r_0,
       r_head=-frame_b.f,
       pushing=true) if world.enableAnimation and animation;
-    Visualizers.Advanced.Arrow torqueArrow(
+    Visualizers.Advanced.DoubleArrow torqueArrow(
       color=torqueColor,
       specularCoefficient=specularCoefficient,
       quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
@@ -707,7 +707,7 @@ clarity this is not shown in the animation):
       annotation (Dialog(group="if animation = true", enable=animation));
 
   protected
-    Visualizers.Advanced.Arrow torqueArrow(
+    Visualizers.Advanced.DoubleArrow torqueArrow(
       color=torqueColor,
       specularCoefficient=specularCoefficient,
       R=frame_b.R,
@@ -905,7 +905,7 @@ clarity this is not shown in the animation):
       r=frame_b.r_0,
       pushing=true,
       r_head=-frame_b.f) if world.enableAnimation and animation;
-    Visualizers.Advanced.Arrow torqueArrow(
+    Visualizers.Advanced.DoubleArrow torqueArrow(
       color=torqueColor,
       specularCoefficient=specularCoefficient,
       quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,

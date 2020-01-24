@@ -1764,8 +1764,15 @@ convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor",
 				  "Modelica.Mechanics.MultiBody.Sensors.RelativeSensor",
 				  "Modelica.Mechanics.MultiBody.Sensors.Distance"},
                   {"arrowDiameter"}, fill("", 0), true);
-convertModifiers({"Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow","Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow"},
+convertModifiers({"Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow",
+           "Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow",
+           "Modelica.Mechanics.MultiBody.Visualizers.FixedArrow",
+           "Modelica.Mechanics.MultiBody.Visualizers.SignalArrow"},
                   {"diameter"}, fill("", 0), true);
+convertModifiers({"Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit",
+                  "Modelica.Mechanics.MultiBody.Joints.FreeMotion"},
+                  {"arrowDiameter"}, fill("", 0), true);               
+                  
 convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutForce",
                   "Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque",
 				  "Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque"},

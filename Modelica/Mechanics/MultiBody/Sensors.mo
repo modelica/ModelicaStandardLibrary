@@ -2037,13 +2037,13 @@ with negative sign at frame_a.
     extends Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor;
 
   protected
-    Visualizers.Advanced.Arrow torqueArrow(
+    Visualizers.Advanced.DoubleArrow torqueArrow(
       color=torqueColor,
       specularCoefficient=specularCoefficient,
-   quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
+      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
       R=frame_b.R,
       r=frame_b.r_0,
-   pushing=true,
+      pushing=true,
       r_head=-frame_a.t*(if positiveSign then +1 else -1)) if world.enableAnimation and animation;
     Internal.BasicCutTorque cutTorque(resolveInFrame=resolveInFrame, positiveSign=
          positiveSign)
@@ -2166,7 +2166,7 @@ with negative sign at frame_a.
       pushing=true,
       quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
       r_head=-frame_a.f*csign) if world.enableAnimation and animation;
-    Visualizers.Advanced.Arrow torqueArrow(
+    Visualizers.Advanced.DoubleArrow torqueArrow(
       color=torqueColor,
       specularCoefficient=specularCoefficient,
       quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,

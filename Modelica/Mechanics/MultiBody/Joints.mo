@@ -1525,9 +1525,6 @@ frame_b of the joint.
       "Initial values of angular acceleration z_rel_a = der(w_rel_a)"
       annotation (Dialog(group="Initialization"));
 
-    parameter SI.Length arrowDiameter=world.defaultArrowDiameter
-      "Diameter of arrow from frame_a to frame_b"
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
       "Color of arrow"
       annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
@@ -1552,7 +1549,6 @@ frame_b of the joint.
   protected
     Visualizers.Advanced.Arrow arrow(
       r_head=r_rel_a,
-      diameter=arrowDiameter,
       color=arrowColor,
       specularCoefficient=specularCoefficient,
       r=frame_a.r_0,
@@ -1996,9 +1992,6 @@ frame_b of the joint.
       "Relative angular acceleration z_rel_b[3]"
       annotation(Dialog(enable=use_w and use_z, tab="Angular velocity initialization", group="Angular acceleration z_rel_b = der(w_rel_b)",showStartAttribute=true));
 
-    parameter SI.Length arrowDiameter=world.defaultArrowDiameter
-      "Diameter of arrow from frame_a to frame_b"
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation and use_r));
     input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
       "Color of arrow"
       annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation and use_r));
@@ -2028,7 +2021,6 @@ frame_b of the joint.
     Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque zeroForceAndTorque2
       annotation (Placement(transformation(extent={{80,-50},{60,-30}})));
     Modelica.Mechanics.MultiBody.Visualizers.SignalArrow arrow(
-      diameter=arrowDiameter,
       color=arrowColor,
       specularCoefficient=specularCoefficient) if world.enableAnimation and animation and use_r
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));

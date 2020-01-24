@@ -635,8 +635,6 @@ parameter menu.
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Length length=0.1 "Length of complete arrow"
       annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter diameter=world.defaultArrowDiameter
-      "Diameter of arrow line" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color color={0,0,255} "Color of arrow"
       annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
@@ -718,9 +716,6 @@ as is.
     input SI.Position r_tail[3]={0,0,0}
       "Vector from frame_a to arrow tail, resolved in frame_a"
       annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter diameter=world.defaultArrowDiameter
-      "Diameter of arrow line"
-      annotation (Dialog(group="if animation = true", enable=animation));
     input Modelica.Mechanics.MultiBody.Types.Color color={0,0,255}
       "Color of arrow"
       annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
@@ -746,7 +741,6 @@ as is.
       r=frame_a.r_0,
       r_tail=r_tail,
       r_head=r_head,
-      diameter=diameter,
       color=color,
       quantity=quantity,
       pushing=pushing,
@@ -2918,7 +2912,7 @@ Via vectors <strong>n_x</strong> and <strong>n_y</strong> a two-dimensional
 coordinate system is defined. The points defined with variable
 <strong>lines</strong> are with respect to this coordinate system. For example
 \"[0, 0; 1, 1]\" defines a line that starts at {0,0} and ends at {1,1}.
-The diameter and color of all line cylinders are identical
+The        and color of all line cylinders are identical
 and are defined by parameters.
 </p>
 
