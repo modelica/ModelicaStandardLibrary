@@ -1764,7 +1764,7 @@ convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor",
 				  "Modelica.Mechanics.MultiBody.Sensors.RelativeSensor",
 				  "Modelica.Mechanics.MultiBody.Sensors.Distance"},
                   {"arrowDiameter"}, fill("", 0), true);
-convertModifiers({"Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow"},
+convertModifiers({"Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow","Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow"},
                   {"diameter"}, fill("", 0), true);
 convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutForce",
                   "Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque",
@@ -1795,13 +1795,7 @@ convertModifiers({"Modelica.Mechanics.MultiBody.Forces.WorldTorque",
 				  "Modelica.Mechanics.MultiBody.Forces.ForceAndTorque",
 				  "Modelica.Mechanics.MultiBody.Sensors.CutTorque",
                   "Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque"},
-				  {"Nm_to_m"}, fill("", 0), true)
-// convertClass("Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow",
-//   "Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow");
-//convertModifiers({"Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow"},
-//                  {"diameter"}, fill("", 0), true);
-//convertModifiers({"Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow"},
-//                  fill("", 0), {"quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque"}, true);
+				  {"Nm_to_m"}, fill("", 0), true);
 
 convertClass("Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch",
              "Modelica.Electrical.Analog.Ideal.IdealTwoWaySwitch");

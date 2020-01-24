@@ -1851,8 +1851,6 @@ This definition is also available as type
         "Position vector from origin of arrow frame to arrow tail, resolved in arrow frame" annotation(Dialog);
       input Real r_head[3]={0,0,0}
         "Vector from arrow tail to the head of the arrow, resolved in arrow frame" annotation(Dialog);
-      input SI.Diameter diameter=world.defaultArrowDiameter
-        "Diameter of arrow line" annotation(Dialog);
       input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
         "Color of arrow" annotation(Dialog(colorSelector=true));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
@@ -1942,8 +1940,6 @@ library (will be replaced by a color editor).
         "Position vector from origin of arrow frame to double arrow tail, resolved in arrow frame" annotation(Dialog);
       input Real r_head[3]={0,0,0}
         "Vector from double arrow tail to the head of the double arrow, resolved in arrow frame" annotation(Dialog);
-      input SI.Diameter diameter=world.defaultArrowDiameter
-        "Diameter of arrow line" annotation(Dialog);
       input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
         "Color of double arrow" annotation(Dialog(colorSelector=true));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
