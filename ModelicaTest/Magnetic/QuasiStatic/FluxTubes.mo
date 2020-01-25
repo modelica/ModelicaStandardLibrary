@@ -114,5 +114,6 @@ package FluxTubes "Test examples of Modelica.Magnetic.QuasiStatic.FluxTubes"
     connect(ground.port, reluctance.port_n) annotation (Line(points={{0,-30},{40,-30},{40,-10}}, color={255,170,85}));
     connect(magFluxSource.port_n, permeance.port_p) annotation (Line(points={{-40,10},{-40,30},{20,30},{20,10}}, color={255,170,85}));
     connect(reluctance.port_p, permeance.port_p) annotation (Line(points={{40,10},{40,30},{20,30},{20,10}}, color={255,170,85}));
+    annotation (experiment(StopTime=1));
   end VariableComponents;
 end FluxTubes;

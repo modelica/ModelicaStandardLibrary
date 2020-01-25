@@ -39,7 +39,7 @@ equation
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}})),
-    experiment(Interval=0.001, Tolerance=1e-05),
+    experiment(Interval=0.001, Tolerance=1e-05, StopTime=1),
     Documentation(info="<html>
 <p>This simple circuit uses the saturating inductor which has an inductance dependent on current.</p>
 <p>Plot <code>saturatingInductor.Psi</code> versus <code>saturatingInductor.i</code></p>

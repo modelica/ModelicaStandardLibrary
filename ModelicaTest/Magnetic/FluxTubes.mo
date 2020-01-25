@@ -719,5 +719,6 @@ package FluxTubes "Test library for Modelica.Magnetic.FluxTubes"
     connect(magFluxSource.port_n, permeance.port_p) annotation (Line(points={{-40,10},{-40,30},{20,30},{20,10}}, color={255,127,0}));
     connect(reluctance.port_p, permeance.port_p) annotation (Line(points={{40,10},{40,30},{20,30},{20,10}}, color={255,127,0}));
     connect(ground.port, magFluxSource.port_p) annotation (Line(points={{0,-30},{-40,-30},{-40,-10}}, color={255,127,0}));
+    annotation (experiment(StopTime=1));
   end VariableComponents;
 end FluxTubes;
