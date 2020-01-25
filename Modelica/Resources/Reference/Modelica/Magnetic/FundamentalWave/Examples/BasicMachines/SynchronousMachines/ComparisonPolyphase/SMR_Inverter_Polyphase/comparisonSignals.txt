@@ -1,1 +1,15 @@
 time
+loadInertia3.phi
+loadInertia3.w
+loadInertiaM.phi
+loadInertiaM.w
+smr3.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+smr3.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+smr3.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+smr3.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+smrM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+smrM.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+smrM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+smrM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+vfController3.x
+vfControllerM.x
