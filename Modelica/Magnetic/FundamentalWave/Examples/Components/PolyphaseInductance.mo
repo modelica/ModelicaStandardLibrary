@@ -57,7 +57,6 @@ model PolyphaseInductance "Polyphase inductance"
   Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter converter_m(
     m=m,
     orientation=Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
-
     effectiveTurns=fill(effectiveTurns, m))
     annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
 
@@ -98,5 +97,23 @@ equation
       points={{-60,30},{-60,30}}, color={0,0,255}));
   connect(star_m.pin_n, ground_m.p) annotation (Line(
       points={{-60,-70},{-60,-70}}, color={0,0,255}));
-  annotation (experiment(StopTime=100, Interval=0.01));
+  annotation (experiment(StopTime=100, Interval=0.01), Documentation(info="<html>
+<p>
+This example compares an electric polyphase inductor with an equivalent magnetic fundamental wave circuit.
+The phase inductance <code>L</code> and the magnetic fundamental wave reluctance <code>R_m</code> are related by:
+</p>
+
+<blockquote><pre>
+R_m = m * effectiveTurns^2 / 2 / L
+</pre></blockquote>
+
+<p>
+Comparing the two currents
+</p>
+<ul>
+<li><code>resistor_e.i[1]</code></li>
+<li><code>resistor_m.i[1]</code></li>
+</ul>
+<p>show the same waveforms and thus prove the equivalence of the two different modelling approaches.</p> 
+</html>"));
 end PolyphaseInductance;
