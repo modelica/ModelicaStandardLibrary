@@ -1,7 +1,6 @@
 within Modelica.Electrical.PowerConverters;
 package ACDC "AC to DC converters"
   extends Modelica.Icons.Package;
-
   annotation (Documentation(info="<html>
 <p>
 General information about AC/DC converters can be found at the
