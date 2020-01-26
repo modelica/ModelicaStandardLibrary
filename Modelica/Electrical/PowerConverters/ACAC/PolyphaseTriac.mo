@@ -41,43 +41,25 @@ equation
   annotation (defaultComponentName="triac",
     Icon(graphics={
         Text(
-          extent={{-150,110},{150,70}},
+          extent={{-150,120},{150,80}},
           textString="%name",
           textColor={0,0,255}),
-        Line(points={{-40,70},{-40,-70}}, color={0,0,255}),
-        Line(points={{40,70},{40,-72}}, color={0,0,255}),
-        Polygon(points={{-40,70},{40,30},{-40,-10},{-40,70}},lineColor={0,0,
+        Line(points={{-60,-100},{-60,-40},{-40,-30}},
+                                                    color={255,0,255}),
+        Line(points={{60,-100},{60,20},{40,30}}, color={255,0,255}),
+        Line(points={{-40,-70},{-40,70}}, color={0,0,255}),
+        Line(points={{40,-72},{40,70}}, color={0,0,255}),
+        Polygon(points={{-40,-70},{40,-30},{-40,10},{-40,-70}},
+                                                             lineColor={0,0,
               255},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
-        Polygon(points={{40,8},{-40,-32},{40,-72},{40,8}},   lineColor={0,0,
+        Polygon(points={{40,-10},{-40,30},{40,70},{40,-10}}, lineColor={0,0,
               255},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
         Line(points={{-40,0},{-90,0}}, color={0,0,255}),
-        Line(points={{90,0},{40,0}}, color={0,0,255}),
-        Line(points={{-60,-100},{-60,-10},{-40,0}}, color={0,0,255}),
-        Line(points={{60,-100},{60,-10},{40,0}}, color={0,0,255}),
-        Line(
-          points={{-10,-5},{10,5},{10,5}},
-          color={0,0,255},
-          origin={50,-3},
-          rotation=180),
-        Line(
-          points={{-10,-5},{10,5},{10,5}},
-          color={0,0,255},
-          origin={50,-7},
-          rotation=180),
-        Line(
-          points={{-10,5},{10,-5},{10,-5}},
-          color={0,0,255},
-          origin={-50,-7},
-          rotation=180),
-        Line(
-          points={{-10,5},{10,-5},{10,-5}},
-          color={0,0,255},
-          origin={-50,-3},
-          rotation=180)}),
+        Line(points={{90,0},{40,0}}, color={0,0,255})}),
       Documentation(info="<html>
 <p>
 Simplified model of <code>m</code> 
