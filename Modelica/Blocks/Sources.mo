@@ -499,11 +499,11 @@ The Real output y is a cosine signal:
           extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
-This signal source provides a sinusoidal signal with variable frequency <code>f</code> and variable <code>amplitude</code>, 
+This signal source provides a sinusoidal signal with variable frequency <code>f</code> and variable <code>amplitude</code>,
 i.e. the phase angle of the sine wave is integrated from 2*&pi;*f.
 </p>
 <p>
-Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift, 
+Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift,
 and that the parameter <code>startTime</code> is omitted since the voltage can be kept equal to offset with setting the input <code>amplitude</code> to zero.
 </p>
 </html>"));
@@ -609,11 +609,11 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
           extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
-This signal source provides a cosine signal with variable frequency <code>f</code> and variable <code>amplitude</code>, 
+This signal source provides a cosine signal with variable frequency <code>f</code> and variable <code>amplitude</code>,
 i.e. the phase angle of the cosine wave is integrated from 2*&pi;*f.
 </p>
 <p>
-Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift, 
+Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift,
 and that the parameter <code>startTime</code> is omitted since the voltage can be kept equal to offset with setting the input <code>amplitude</code> to zero.
 </p>
 </html>"));
@@ -1777,6 +1777,13 @@ smoothness = 1: Linear interpolation
                 extrapolated. Additionally, overshoots and edge cases of the
                 original Akima interpolation method are avoided.
 </pre></blockquote></li>
+<li>First and second <strong>derivatives</strong> are provided, with exception of the following two smoothness options.
+<ol>
+<li>No derivatives are provided for interpolation by constant segments.</li>
+<li>No second derivative is provided for linear interpolation.<br>There is a design inconsistency, that it is possible
+to model a signal consisting of constant segments using linear interpolation and duplicated sample points.
+In contrast to interpolation by constant segments, the first derivative is provided as zero.</li>
+</ol></li>
 <li>Values <strong>outside</strong> of the table range, are computed by
     extrapolation according to the setting of parameter <strong>extrapolation</strong>:
 <blockquote><pre>
