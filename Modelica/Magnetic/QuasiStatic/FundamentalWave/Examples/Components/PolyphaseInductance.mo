@@ -103,7 +103,7 @@ equation
   annotation (experiment(StopTime=100,
         Interval=0.01), Documentation(info="<html>
 <p>
-This example compares a quasi static electric polyphase inductor with a quasi static equivalent magnetic fundamental wave circuit.
+This example compares a quasi static electric polyphase inductor with an equivalent quasi static fundamental wave reluctance circuit.
 The phase inductance <code>L</code> and the magnetic fundamental wave reluctance <code>R_m</code> are related by:
 </p>
 
@@ -112,12 +112,25 @@ R_m = m * effectiveTurns^2 / 2 / L
 </pre></blockquote>
 
 <p>
-Comparing the two currents
+The real parts
 </p>
+
 <ul>
-<li><code>resistor_e.i[1]</code></li>
-<li><code>resistor_m.i[1]</code></li>
+<li><code>resistor_e.i[1].re</code></li>
+<li><code>resistor_m.i[1].re</code></li>
 </ul>
-<p>show the same waveforms and thus prove the equivalence of the two different modelling approaches.</p> 
+
+<p>
+and the imaginary parts
+</p>
+
+<ul>
+<li><code>resistor_e.i[1].im</code></li>
+<li><code>resistor_m.i[1].im</code></li>
+</ul>
+
+<p>
+of the two currents show the same result and thus prove the equivalence of the two different modelling approaches.
+</p> 
 </html>"));
 end PolyphaseInductance;
