@@ -109,8 +109,8 @@ The magnetic flux through the armature and the actuator's static inductance both
 </p>
 
 <blockquote><pre>
-simpleSolenoid.G_mFeArm.Phi            // magnetic flux through armature of simple magnetic network model
-advancedSolenoid.G_mFeArm.Phi          // magnetic flux through armature of advanced magnetic network model
+simpleSolenoid.g_mFeArm.Phi            // magnetic flux through armature of simple magnetic network model
+advancedSolenoid.g_mFeArm.Phi          // magnetic flux through armature of advanced magnetic network model
 comparisonWithFEA.y[2]                 // magnetic flux obtained with FEA as reference
 
 simpleSolenoid.coil.L_stat             // static inductance of simple magnetic network model
