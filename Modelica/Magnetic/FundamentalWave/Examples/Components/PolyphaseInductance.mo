@@ -99,7 +99,7 @@ equation
       points={{-60,-70},{-60,-70}}, color={0,0,255}));
   annotation (experiment(StopTime=100, Interval=0.01), Documentation(info="<html>
 <p>
-This example compares an electric polyphase inductor with an equivalent magnetic fundamental wave circuit.
+This example compares an electric polyphase inductor with an equivalent fundamental wave reluctance circuit.
 The phase inductance <code>L</code> and the magnetic fundamental wave reluctance <code>R_m</code> are related by:
 </p>
 
@@ -108,12 +108,16 @@ R_m = m * effectiveTurns^2 / 2 / L
 </pre></blockquote>
 
 <p>
-Comparing the two currents
+The two currents
 </p>
+
 <ul>
 <li><code>resistor_e.i[1]</code></li>
 <li><code>resistor_m.i[1]</code></li>
 </ul>
-<p>show the same waveforms and thus prove the equivalence of the two different modelling approaches.</p> 
+
+<p>
+show the same waveforms and thus prove the equivalence of the two different modelling approaches.
+</p> 
 </html>"));
 end PolyphaseInductance;
