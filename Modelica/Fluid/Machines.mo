@@ -311,7 +311,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
     parameter Medium.MassFlowRate m_flow_start = system.m_flow_start
         "Guess value of m_flow = port_a.m_flow"
       annotation(Dialog(tab = "Initialization"));
-    parameter Boolean checkValveClosedInit = false "= true if the check valve is closed at initialization"
+    parameter Types.CheckValveHomotopyType checkValveHomotopy = Types.CheckValveHomotopyType.NoHomotopy "= whether the valve is Closed, Open, or unknown at initialization"
       annotation(Dialog(tab = "Initialization"));
     final parameter SI.VolumeFlowRate V_flow_single_init = m_flow_start/rho_nominal/nParallel
         "Used for simplified initialization model";
@@ -434,14 +434,20 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
       // Flow characteristics when check valve is open
       // The simplified model uses an approximation of the tangent to the head curve in the initialization point
       // or the zero-flow vertical axis in case the system is initialized with the check valve closed
-      head = homotopy(if s > 0 then (N/N_nominal)^2*flowCharacteristic(V_flow_single*N_nominal/N)
+      if checkValveHomotopy == Types.CheckValveHomotopyType.NoHomotopy then
+        head = if s > 0 then (N/N_nominal)^2*flowCharacteristic(V_flow_single*N_nominal/N)
+                               else (N/N_nominal)^2*flowCharacteristic(0) - s*unitHead;
+        V_flow_single = if s > 0 then s*unitMassFlowRate/rho else 0;
+      else
+        head = homotopy(if s > 0 then (N/N_nominal)^2*flowCharacteristic(V_flow_single*N_nominal/N)
                                else (N/N_nominal)^2*flowCharacteristic(0) - s*unitHead,
-                      if not checkValveClosedInit then 
+                      if checkValveHomotopy == Types.CheckValveHomotopyType.Open then 
                         N/N_nominal*(flowCharacteristic(V_flow_single_init)+(V_flow_single-V_flow_single_init)*noEvent(if abs(V_flow_single_init)>0 then delta_head_init/(0.1*V_flow_single_init) else 0))
                       else
                         N/N_nominal*flowCharacteristic(0) - s*unitHead);
-      V_flow_single = homotopy(if s > 0 then s*unitMassFlowRate/rho else 0,
-                               if not checkValveClosedInit then s*unitMassFlowRate/rho_nominal else 0);
+        V_flow_single = homotopy(if s > 0 then s*unitMassFlowRate/rho else 0,
+                               if checkValveHomotopy == Types.CheckValveHomotopyType.Open then s*unitMassFlowRate/rho_nominal else 0);
+      end if;
     end if;
     // Power consumption
     if use_powerCharacteristic then

@@ -28,7 +28,6 @@ model PumpingSystem "Model of a pumping system for drinking water"
 
   Machines.PrescribedPump pumps(
     checkValve=true,
-    checkValveClosedInit=true,
     N_nominal=1200,
     redeclare function flowCharacteristic =
         Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow (
