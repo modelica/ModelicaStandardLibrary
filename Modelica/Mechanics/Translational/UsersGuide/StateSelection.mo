@@ -61,7 +61,7 @@ variable and only use an absolute tolerance for the step size control.
 </p>
 
 <p>
-Currently, in Modelica there is no possibility to provide this information.
+At the time of the library design, there was not yet a possibility to provide this information in Modelica.
 In order to reduce this effect, it is advisable to not use absolute positions, but
 relative positions as states. A user can define relative variables as states
 explicitly with component
