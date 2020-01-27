@@ -1378,7 +1378,7 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
     Modelica.Electrical.Analog.Interfaces.NegativePin n "Cathode"
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
     Modelica.Electrical.Analog.Interfaces.PositivePin p "Anode"
-      annotation (Placement(transformation(extent={{94,-10},{114,10}})));
+      annotation (Placement(transformation(extent={{90,-10},{110,10}})));
   equation
 
     connect(idealThyristor.n, capacitor.n) annotation (Line(
@@ -1398,7 +1398,7 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
     connect(n, idealThyristor.p) annotation (Line(
         points={{-100,0},{-90,0},{-90,40},{-20,40},{-20,32}}, color={0,0,255}));
     connect(idealThyristor1.p, p) annotation (Line(
-        points={{0,-32},{0,-40},{80,-40},{80,0},{104,0}}, color={0,0,255}));
+        points={{0,-32},{0,-40},{80,-40},{80,0},{100,0}}, color={0,0,255}));
     annotation (defaultComponentName="triac",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
@@ -1422,7 +1422,7 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{-40,0},{-90,0}}, color={0,0,255}),
-          Line(points={{90,0},{40,0}}, color={0,0,255}),
+          Line(points={{100,0},{40,0}},color={0,0,255}),
           Line(points={{-100,-100},{-100,-60},{-40,-30}},
                                                       color={255,0,255})}),
                                     Documentation(info="<html>
