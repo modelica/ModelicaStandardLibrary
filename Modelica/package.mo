@@ -2138,7 +2138,7 @@ design of sensors apply:
         <li>or <code>{{-50,-12},{50,-48}}</code> (<strong>Fig.&nbsp;6(b)</strong>), depending on the better readability</li>
         </ul></li>
 
-    <li>In a <a href=\"modelica://Modelica.Icons.RectangularSensor\">rectangular sensor</a> the text size shall be 
+    <li>In a <a href=\"modelica://Modelica.Icons.RectangularSensor\">rectangular sensor</a> the text size shall be
         <code>{{-24,20},{66,-40}}</code> (<strong>Fig.&nbsp;7</strong>)</li>
     </ul></li>
 <li>For a sensor with multiple output signals the SI unit shall be placed next to the output signal;
@@ -2185,8 +2185,8 @@ design of sensors apply:
 
 <h4>Diagram layer</h4>
 
-<p>The diagram layer is intended to contain the graphical components, and if there are no graphical components it shall be left empty. 
-In particular do not make the diagram layer a copy of the icon layer. 
+<p>The diagram layer is intended to contain the graphical components, and if there are no graphical components it shall be left empty.
+In particular do not make the diagram layer a copy of the icon layer.
 Graphical illustrations shall not be added in the diagram layer, but can be added in the HTML documentation.</p>
 </html>"));
     end Icons;
@@ -2355,8 +2355,14 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-<tr><td> </td>
-    <td>
+<tr><td><a href=\"modelica://Modelica.Clocked\">Modelica.Clocked</a></td>
+    <td>This library can be used to precisely define and synchronize sampled data systems with different sampling rates.<br>The library previously was
+    available as separate package <a href=\"https://github.com/modelica/Modelica_Synchronous\">Modelica_Synchronous</a>.
+    (This library was developed by DLR in close cooperation with Dassault Syst&egrave;mes Lund.)
+    </td></tr>
+<tr><td><a href=\"modelica://Modelica.Electrical.Batteries\">Modelica.Electrical.Batteries</a></td>
+    <td>This library offers simple battery models.<br>
+    (This library was developed by Anton Haumer and Christian Kral.)
     </td></tr>
 </table>
 
@@ -2414,9 +2420,30 @@ that can lead to wrong simulation results):
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"> </td></tr>
-<tr><td> </td>
-    <td> </td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks</strong></td></tr>
+<tr><td>Pythagoras</td>
+    <td>The case with negative <code>y2</code> was not correctly considered if <code>u1IsHypotenuse</code> is <code>true</code>. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Spice3.Additionals</strong></td></tr>
+<tr><td>poly</td>
+    <td>The case with one coefficient and one variable was not correctly considered. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Fluid.Dissipation.PressureLoss.General</strong></td></tr>
+<tr><td>dp_volumeFlowRate_DP<br>dp_volumeFlowRate_MFLOW</td>
+    <td>The mass flow rate was not correctly computed if the pressure drop is a linear function of the volume flow rate. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Air.MoistAir</strong></td></tr>
+<tr><td>density_derX<br>s_pTX<br>s_pTX_der</td>
+    <td>The calculation was wrong. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Air.ReferenceAir.Air_Base</strong></td></tr>
+<tr><td>BaseProperties</td>
+    <td>The unit of the specific gas constant <code>R_s</code> was not correctly considered. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.IdealGases.Common.Functions</strong></td></tr>
+<tr><td>s0_Tlow_der</td>
+    <td>The calculation was wrong. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.R134a.R134a_ph</strong></td></tr>
+<tr><td>setState_dTX</td>
+    <td>The calculation was wrong in two-phase regime. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Utilities.System</strong></td></tr>
+<tr><td>getTime</td>
+    <td>The month and year was only correctly returned if the implementing source file (ModelicaInternal.c) was compiled for Windows OS. This has been corrected.</td></tr>
 </table>
 </html>"));
 end Version_4_0_0;
@@ -2455,13 +2482,13 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
     <td>
     This library provides models for the investigation of quasi-static electromagnetic devices with lumped magnetic networks
     in a comparable way as <a href=\"modelica://Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes</a>.<br>
-    (This library was developed by Christian Kral).
+    (This library was developed by Christian Kral.)
     </td></tr>
 <tr><td><a href=\"modelica://Modelica.Electrical.Machines.Examples.ControlledDCDrives\">Modelica.Electrical.Machines.Examples.ControlledDCDrives</a></td>
     <td>
     This library demonstrates the control of a permanent magnet dc machine: current control, speed control and position control
     along with the necessary components in sublibrary Utilities.<br>
-    (This library was developed by Anton Haumer).
+    (This library was developed by Anton Haumer.)
     </td></tr>
 </table>
 
@@ -2912,7 +2939,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
 <tr><td><a href=\"modelica://Modelica.Electrical.PowerConverters\">Modelica.Electrical.PowerConverters</a></td>
     <td>
     This library offers models for rectifiers, inverters and DC/DC-converters.<br>
-    (This library was developed by Christian Kral and Anton Haumer).
+    (This library was developed by Christian Kral and Anton Haumer.)
     </td></tr>
 
 <tr><td><a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave\">Modelica.Magnetic.QuasiStatic.FundamentalWave</a></td>
@@ -2922,7 +2949,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
     Quasistatic means that electric transients are neglected, voltages and currents are supposed to be sinusoidal. Mechanical and thermal transients are taken into account.<br>
     This library is especially useful in combination with the <a href=\"modelica://Modelica.Electrical.QuasiStatic\">Modelica.Electrical.QuasiStatic</a>
     library in order to build up very fast simulations of electrical circuits with sinusoidal currents and voltages.<br>
-    (This library was developed by Christian Kral and Anton Haumer).
+    (This library was developed by Christian Kral and Anton Haumer.)
     </td></tr>
 
 <tr><td>Sublibraries of <a href=\"modelica://Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes</a></td>
@@ -3566,7 +3593,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
     <code>&nbsp;  Complex  c    = (2*b + a)/b;</code><br>
     <code>&nbsp;  Complex  d    = Modelica.ComplexMath.sin(c);</code><br>
     <code>&nbsp;  Complex  v[3] = {b/2, c, 2*d};</code><br>
-    (This library was developed by Marcus Baur, DLR).
+    (This library was developed by Marcus Baur, DLR.)
     </td></tr>
 
 <tr><td><a href=\"modelica://Modelica.ComplexBlocks\">Modelica.ComplexBlocks</a></td>
@@ -3576,7 +3603,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
     <a href=\"modelica://Modelica.Electrical.QuasiStatic\">Modelica.Electrical.QuasiStatic</a>
     library in order to build up very fast simulations of electrical circuits with periodic
     currents and voltages.<br>
-    (This library was developed by Anton Haumer).
+    (This library was developed by Anton Haumer.)
     </td></tr>
 
 <tr><td><a href=\"modelica://Modelica.Electrical.QuasiStatic\">Modelica.Electrical.QuasiStatic</a></td>
@@ -3585,7 +3612,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
     This library allows very fast simulations of electrical circuits with sinusoidal
     currents and voltages by only taking into account the quasi-static, periodic part
     and neglecting non-periodic transients.<br>
-    (This library was developed by Anton Haumer and Christian Kral).
+    (This library was developed by Anton Haumer and Christian Kral.)
     </td></tr>
 
 <tr><td><a href=\"modelica://Modelica.Electrical.Spice3\">Modelica.Electrical.Spice3</a></td>
@@ -3604,7 +3631,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
     Furthermore, a pre-processor is under development to transform automatically
     a SPICE netlist into a Modelica model, in order that the many available
     SPICE3 models can be directly used in a Modelica model.<br>
-    (This library was developed by Fraunhofer Gesellschaft, Dresden).
+    (This library was developed by Fraunhofer Gesellschaft, Dresden.)
     </td></tr>
 
 <tr><td><a href=\"modelica://Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a></td>
@@ -3619,14 +3646,14 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
      From a didactic point of view this library is very beneficial for students in the field
      of electrical engineering.<br>
      (This library was developed by Christian Kral and Anton Haumer, using
-     ideas and source code of a library from Michael Beuschel from 2000).
+     ideas and source code of a library from Michael Beuschel from 2000.)
     </td></tr>
 
 <tr><td><a href=\"modelica://Modelica.Fluid.Dissipation\">Modelica.Fluid.Dissipation</a></td>
     <td>
      Library with functions to compute convective heat transfer and pressure loss characteristics.<br>
      (This library was developed by Thorben Vahlenkamp and Stefan Wischhusen from
-     XRG Simulation GmbH).
+     XRG Simulation GmbH.)
     </td></tr>
 
 <tr><td><a href=\"modelica://Modelica.ComplexMath\">Modelica.ComplexMath</a></td>
@@ -3634,7 +3661,7 @@ The following <font color=\"blue\"><strong>new libraries</strong></font> have be
     Library of complex mathematical functions (e.g., sin, cos) and of functions operating
     on complex vectors.<br>
     (This library was developed by Marcus Baur from DLR-RM, Anton Haumer, and
-     HansJ&uuml;rg Wiesmann).
+     HansJ&uuml;rg Wiesmann.)
     </td></tr>
 </table>
 
