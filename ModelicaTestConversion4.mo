@@ -445,7 +445,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
       model Issue2786IdealGyrator "Conversion test for #2786"
         extends Modelica.Icons.Example;
         Modelica.Electrical.Analog.Basic.Ground ground1 annotation (Placement(transformation(extent={{-40,-54},{-20,-34}})));
-        Modelica.Electrical.Analog.Ideal.IdealGyrator gyrator(G=1) annotation (Placement(transformation(extent={{-10,-12},{10,8}})));
+        Modelica.Electrical.Analog.Ideal.IdealGyrator gyrator(G=2) annotation (Placement(transformation(extent={{-10,-12},{10,8}})));
         Modelica.Electrical.Analog.Sources.ConstantVoltage v1(V=1) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
