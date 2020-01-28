@@ -125,7 +125,7 @@ equation
     annotation (Line(points={{0,70},{0,60}}, color={0,0,255}));
   connect(inductor.plug_n, idealCloser.plug_p)
     annotation (Line(points={{0,40},{0,30}}, color={0,0,255}));
-  annotation (experiment(StopTime=2.5, Interval=0.0001, Tolerance=1e-06,), Documentation(
+  annotation (experiment(StopTime=2.5, Interval=0.0001, Tolerance=1e-06), Documentation(
         info="<html>
 <p>
 Same example as IMC_YD, but with a time delay between Y off and D on.
