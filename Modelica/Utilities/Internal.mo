@@ -14,39 +14,31 @@ partial package PartialModelicaServices
         import Modelica.Mechanics.MultiBody.Types;
 
     parameter Types.ShapeType shapeType="box"
-          "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring, <external shape>)";
+      "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring, <external shape>)";
     input Frames.Orientation R=Frames.nullRotation()
-          "Orientation object to rotate the world frame into the object frame"
-                                                                            annotation(Dialog);
+      "Orientation object to rotate the world frame into the object frame" annotation(Dialog);
     input SI.Position r[3]={0,0,0}
-          "Position vector from origin of world frame to origin of object frame, resolved in world frame"
-                                                                                                      annotation(Dialog);
+      "Position vector from origin of world frame to origin of object frame, resolved in world frame" annotation(Dialog);
     input SI.Position r_shape[3]={0,0,0}
-          "Position vector from origin of object frame to shape origin, resolved in object frame"
-                                                                                              annotation(Dialog);
+      "Position vector from origin of object frame to shape origin, resolved in object frame" annotation(Dialog);
     input Real lengthDirection[3](each final unit="1")={1,0,0}
-          "Vector in length direction, resolved in object frame"
-                                                              annotation(Dialog);
+      "Vector in length direction, resolved in object frame" annotation(Dialog);
     input Real widthDirection[3](each final unit="1")={0,1,0}
-          "Vector in width direction, resolved in object frame"
-                                                             annotation(Dialog);
+      "Vector in width direction, resolved in object frame" annotation(Dialog);
     input SI.Length length=0 "Length of visual object" annotation(Dialog);
     input SI.Length width=0 "Width of visual object" annotation(Dialog);
     input SI.Length height=0 "Height of visual object" annotation(Dialog);
     input Types.ShapeExtra extra=0.0
-          "Additional size data for some of the shape types" annotation(Dialog);
+      "Additional size data for some of the shape types" annotation(Dialog);
     input Real color[3]={255,0,0} "Color of shape" annotation(Dialog(colorSelector=true));
     input Types.SpecularCoefficient specularCoefficient = 0.7
-          "Reflection of ambient light (= 0: light is completely absorbed)"
-                                                                        annotation(Dialog);
+      "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog);
     annotation (
       Documentation(info="<html>
-
 <p>
 This model is documented at
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>.
 </p>
-
 </html>"));
 
   end PartialShape;
@@ -64,20 +56,17 @@ This model is documented at
       input Types.Color color=Types.Defaults.ArrowColor
         "Color of vector" annotation(Dialog(colorSelector=true));
       input Types.SpecularCoefficient specularCoefficient = 0.7
-        "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
-        annotation(Dialog);
+        "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)" annotation(Dialog);
+      input Types.VectorQuantity quantity = Types.VectorQuantity.Force "The quantity of the coordinates" annotation(Dialog);
       input Boolean headAtOrigin=false "= true, if the vector is pointing towards the origin of vector frame" annotation(Dialog);
       input Boolean twoHeadedArrow=false "= true, if the arrow has two heads after each other (pointing in the same direction)" annotation(Dialog);
-      input Types.VectorQuantity quantity = Types.VectorQuantity.Force "The quantity of the coordinates" annotation(Dialog);
 
     annotation (
       Documentation(info="<html>
-
 <p>
 This model is documented at
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector</a>.
 </p>
-
 </html>"));
     end PartialVector;
 
@@ -118,7 +107,6 @@ This model is documented at
 This model is documented at
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</a>.
 </p>
-
 </html>"));
     end PartialSurface;
   end Animation;
