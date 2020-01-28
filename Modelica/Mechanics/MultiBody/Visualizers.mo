@@ -1848,11 +1848,9 @@ This definition is also available as type
       input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
         "Color of arrow" annotation(Dialog(colorSelector=true));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-        "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
-        annotation(Dialog);
+        "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)" annotation(Dialog);
       input Types.VectorQuantity quantity=Types.VectorQuantity.RelativePosition
-        "The kind of physical quantity represented by the vector"
-        annotation(Dialog);
+        "The kind of physical quantity represented by the vector" annotation(Dialog);
       input Boolean headAtOrigin=false "= true, if the vector is pointing towards the origin of vector frame" annotation(Dialog);
     protected
       outer Modelica.Mechanics.MultiBody.World world;
@@ -1880,7 +1878,8 @@ If you want an arrow representing something that is not a relative position, use
 </p>
 
 <p>
-The variables under heading <strong>Parameters</strong> below
+The dialog variables <code>R</code>, <code>r</code>, <code>r_tail</code>, <code>r_head</code>, <code>color</code>,
+<code>specularCoefficient</code>, <code>quantity</code>, and <code>headAtOrigin</code>
 are declared as (time varying) <strong>input</strong> variables.
 If the default equation is not appropriate, a corresponding
 modifier equation has to be provided in the
@@ -1987,7 +1986,8 @@ visualized at the defined location (see variables below).
 </p>
 
 <p>
-The variables under heading <strong>Parameters</strong> below
+The dialog variables <code>R</code>, <code>r</code>, <code>r_tail</code>, <code>r_head</code>, <code>color</code>,
+<code>specularCoefficient</code>, <code>quantity</code>, and <code>headAtOrigin</code>
 are declared as (time varying) <strong>input</strong> variables.
 If the default equation is not appropriate, a corresponding
 modifier equation has to be provided in the
@@ -2028,7 +2028,8 @@ exaggerate the relative positions.
 </p>
 
 <p>
-The variables under heading <strong>Parameters</strong> below
+The dialog variables <code>R</code>, <code>r</code>, <code>coordinates</code>, <code>color</code>,
+<code>specularCoefficient</code>, <code>quantity</code>, <code>headAtOrigin</code>, and <code>twoHeadedArrow</code>
 are declared as (time varying) <strong>input</strong> variables.
 If the default equation is not appropriate, a&nbsp;corresponding
 modifier equation has to be provided in the
@@ -2261,7 +2262,9 @@ definition of the colors used in the MultiBody library together with a color edi
 </p>
 
 <p>
-The variables under heading <strong>Parameters</strong> below
+The dialog variables <code>shapeType</code>, <code>R</code>, <code>r</code>, <code>r_shape</code>,
+<code>lengthDirection</code>, <code>widthDirection</code>, <code>length</code>, <code>width</code>,
+<code>height</code>, <code>extra</code>, <code>color</code>, and <code>specularCoefficient</code>
 are declared as (time varying) <strong>input</strong> variables.
 If the default equation is not appropriate, a corresponding
 modifier equation has to be provided in the
