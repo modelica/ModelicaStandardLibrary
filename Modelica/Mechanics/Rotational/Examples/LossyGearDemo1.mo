@@ -69,6 +69,19 @@ gear.mode  :  1 = forward rolling
               0 = stuck (w=0)
              -1 = backward rolling
 </pre></blockquote>
+
+
+<p>
+Note, powerLoss (= sum of the power flows of the connectors) and 
+gear.powerLoss (= gear.tau_loss*gear.w_a, where gear.tau_loss is determined in a non-trivial way
+from the stuck/sliding situation of the bearing and teeth friction;
+= equation (16) in <a href=\"https://www.modelica.org/events/Conference2002/papers/p33_Pelchen.pdf\">(Pelchen et al. 2002)</a>)
+should be identical, or the difference should be close to zero, if model 
+<a href=\"modelica://Modelica.Mechanics.Rotational.Components.LossyGear\">LossyGear</a>
+is correctly implemented.
+</p>
+
+
 </html>"),
        experiment(StopTime=0.5, Interval=0.001));
 end LossyGearDemo1;
