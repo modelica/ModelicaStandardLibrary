@@ -1,6 +1,9 @@
 within Modelica.Electrical.Machines.Utilities;
 model SwitchYD "Y-D-switch"
   parameter Integer m=3 "Number of phases";
+  parameter SIunits.Resistance Ron=1e-5 "Closed switch resistance";
+  parameter SIunits.Conductance Goff=1e-5 "Opened switch conductance";
+  parameter SIunits.Time onDelay=0 "Time delay between Y off and D on";
   Modelica.Electrical.Polyphase.Interfaces.PositivePlug plugSupply(final m=
        m) "To grid" annotation (Placement(transformation(extent={{-10,90},{
             10,110}})));
@@ -14,28 +17,44 @@ model SwitchYD "Y-D-switch"
       Placement(transformation(extent={{20,-50},{40,-30}})));
   Modelica.Electrical.Polyphase.Basic.Delta delta(final m=m) annotation (
       Placement(transformation(extent={{40,-80},{20,-60}})));
-  Modelica.Electrical.Polyphase.Ideal.IdealCommutingSwitch
-    idealCommutingSwitch(
+  Polyphase.Ideal.IdealClosingSwitch idealCloser(
     final m=m,
-    Ron=fill(1e-5, m),
-    Goff=fill(1e-5, m)) annotation (Placement(transformation(extent={{-10,-70},
-            {10,-50}})));
+    Ron=fill(Ron, m),
+    Goff=fill(Goff, m))
+    annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
   Modelica.Blocks.Interfaces.BooleanInput control[m] annotation (Placement(
         transformation(extent={{-120,0},{-100,20}}), iconTransformation(extent={{-140,-20},{-100,20}})));
+  Polyphase.Ideal.IdealOpeningSwitch idealOpener(
+    final m=m,
+    Ron=fill(Ron, m),
+    Goff=fill(Goff, m))
+    annotation (Placement(transformation(extent={{-60,-50},{-40,-30}})));
+  Blocks.Logical.Timer timer[m]
+    annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
+  Blocks.Logical.GreaterEqualThreshold greaterEqualThreshold[m](threshold=fill(
+        onDelay, m))
+    annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
 equation
   connect(delta.plug_p, plugSupply) annotation (Line(points={{40,-70},{60,-70},
           {60,100},{0,100}}, color={0,0,255}));
   connect(delta.plug_p, plug_sp) annotation (Line(points={{40,-70},{60,-70},
           {60,-100}}, color={0,0,255}));
-  connect(idealCommutingSwitch.plug_n2, delta.plug_n) annotation (Line(
-        points={{10,-60},{10,-70},{20,-70}}, color={0,0,255}));
-  connect(idealCommutingSwitch.plug_n1, star.plug_p) annotation (Line(
-        points={{10,-56},{10,-40},{20,-40}}, color={0,0,255}));
-  connect(idealCommutingSwitch.plug_p, plug_sn) annotation (Line(points={{-10,
-          -60},{-60,-60},{-60,-100}}, color={0,0,255}));
-  connect(control, idealCommutingSwitch.control)
-    annotation (Line(points={{-110,10},{0,10},{0,-48}},
-                                                      color={255,0,255}));
+  connect(idealCloser.plug_p, plug_sn) annotation (Line(points={{-10,-70},{-60,-70},
+          {-60,-100}}, color={0,0,255}));
+  connect(idealCloser.plug_n, delta.plug_n)
+    annotation (Line(points={{10,-70},{20,-70}}, color={0,0,255}));
+  connect(idealOpener.plug_p, plug_sn)
+    annotation (Line(points={{-60,-40},{-60,-100}}, color={0,0,255}));
+  connect(idealOpener.plug_n, star.plug_p)
+    annotation (Line(points={{-40,-40},{20,-40}}, color={0,0,255}));
+  connect(control, idealOpener.control) annotation (Line(points={{-110,10},{-50,
+          10},{-50,-28}}, color={255,0,255}));
+  connect(control, timer.u) annotation (Line(points={{-110,10},{-80,10},{-80,30},
+          {-72,30}}, color={255,0,255}));
+  connect(timer.y, greaterEqualThreshold.u)
+    annotation (Line(points={{-49,30},{-42,30}}, color={0,0,127}));
+  connect(greaterEqualThreshold.y, idealCloser.control)
+    annotation (Line(points={{-19,30},{0,30},{0,-58}}, color={255,0,255}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={
         Line(
@@ -70,6 +89,7 @@ equation
                             Documentation(info="<html>
 Simple Star-Delta-switch.<br>
 If <em>control</em> is false, plug_sp and plug_sn are star connected and plug_sp connected to the supply plug.<br>
-If <em>control</em> is true, plug_sp and plug_sn are delta connected and they are connected to the supply plug.
+If <em>control</em> is true, plug_sp and plug_sn are delta connected and they are connected to the supply plug.<br>
+Note there is a delay between opening star connection and closing delta connection.
 </html>"));
 end SwitchYD;
