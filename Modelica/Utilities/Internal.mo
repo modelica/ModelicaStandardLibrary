@@ -50,7 +50,7 @@ This model is documented at
 </html>"));
 
   end PartialShape;
-  
+
     model PartialVector "Interface for 3D animation of a vector quantity (force, torque etc)"
       import Modelica.Mechanics.MultiBody.Types;
       import Modelica.Mechanics.MultiBody.Frames;
@@ -58,7 +58,7 @@ This model is documented at
       input Frames.Orientation R=Frames.nullRotation()
         "Orientation object to rotate the world frame into the vector frame" annotation(Dialog);
       input Modelica.SIunits.Position r[3]={0,0,0}
-        "Position vector from origin of world frame to origin of vector, resolved in world frame" annotation(Dialog);
+        "Position vector from origin of world frame to origin of vector frame, resolved in world frame" annotation(Dialog);
       input Real coordinates[3]={0,0,0}
         "Coordinates of the vector resolved in vector frame" annotation(Dialog);
       input Types.Color color=Types.Defaults.ArrowColor
@@ -66,9 +66,9 @@ This model is documented at
       input Types.SpecularCoefficient specularCoefficient = 0.7
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
         annotation(Dialog);
-      input Boolean pushing=false "= true, if the vector is pointing towards the origin" annotation(Dialog);
-      input Boolean doubleArrow=false "= true, if the arrow has two heads after each other (pointing in the same direction)" annotation(Dialog);
-      input Types.VectorQuantity quantity = Types.VectorQuantity.Force "The quantity of the value" annotation(Dialog);
+      input Boolean headAtOrigin=false "= true, if the vector is pointing towards the origin of vector frame" annotation(Dialog);
+      input Boolean twoHeadedArrow=false "= true, if the arrow has two heads after each other (pointing in the same direction)" annotation(Dialog);
+      input Types.VectorQuantity quantity = Types.VectorQuantity.Force "The quantity of the coordinates" annotation(Dialog);
 
     annotation (
       Documentation(info="<html>
