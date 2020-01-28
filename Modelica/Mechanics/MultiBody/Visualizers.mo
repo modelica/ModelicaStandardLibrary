@@ -643,7 +643,7 @@ parameter menu.
     input Types.VectorQuantity quantity=Types.VectorQuantity.RelativePosition
       "The kind of physical quantity represented by the vector"
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Boolean pushing=false "= true, if the vector is pointing towards the origin"
+    input Boolean headAtOrigin=false "= true, if the vector is pointing towards the origin of vector frame"
       annotation (Dialog(group="if animation = true", enable=animation));
   protected
     Visualizers.Advanced.Vector arrowLine(
@@ -651,7 +651,7 @@ parameter menu.
       specularCoefficient=specularCoefficient,
       coordinates=n*length,
       quantity=quantity,
-      pushing=pushing,
+      headAtOrigin=headAtOrigin,
       r=frame_a.r_0+Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolve1(frame_a.R.T, r_tail),
       R=frame_a.R) if world.enableAnimation and animation;
   equation
@@ -725,7 +725,7 @@ as is.
     input Types.VectorQuantity quantity=Types.VectorQuantity.RelativePosition
           "The kind of physical quantity represented by the vector"
        annotation(Dialog(group="if animation = true", enable=animation));
-    input Boolean pushing=false "= true, if the vector is pointing towards the origin"
+    input Boolean headAtOrigin=false "= true, if the vector is pointing towards the origin of vector frame"
       annotation (Dialog(group="if animation = true", enable=animation));
 
     Modelica.Blocks.Interfaces.RealInput r_head[3]
@@ -743,7 +743,7 @@ as is.
       r_head=r_head,
       color=color,
       quantity=quantity,
-      pushing=pushing,
+      headAtOrigin=headAtOrigin,
       specularCoefficient=specularCoefficient) if world.enableAnimation and animation;
   equation
     frame_a.f = zeros(3);
@@ -1853,7 +1853,7 @@ This definition is also available as type
       input Types.VectorQuantity quantity=Types.VectorQuantity.RelativePosition
         "The kind of physical quantity represented by the vector"
         annotation(Dialog);
-      input Boolean pushing=false "= true, if the vector is pointing towards the origin" annotation(Dialog);
+      input Boolean headAtOrigin=false "= true, if the vector is pointing towards the origin of vector frame" annotation(Dialog);
     protected
       outer Modelica.Mechanics.MultiBody.World world;
       SI.Position rvisobj[3] = r + T.resolve1(R.T, r_tail);
@@ -1863,7 +1863,7 @@ This definition is also available as type
         specularCoefficient=specularCoefficient,
         r=rvisobj,
         quantity=quantity,
-        pushing=pushing,
+        headAtOrigin=headAtOrigin,
         R=R) if world.enableAnimation;
 
       annotation (
@@ -1937,12 +1937,10 @@ library (will be replaced by a color editor).
       input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
         "Color of double arrow" annotation(Dialog(colorSelector=true));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-        "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
-                                                                                                            annotation(Dialog);
+        "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"  annotation(Dialog);
       input Types.VectorQuantity quantity=Types.VectorQuantity.Torque
-        "The kind of physical quantity represented by the vector"
-        annotation(Dialog);
-      input Boolean pushing=true "= true, if the vector is pointing towards the origin" annotation(Dialog);
+        "The kind of physical quantity represented by the vector" annotation(Dialog);
+      input Boolean headAtOrigin=true "= true, if the vector is pointing towards the origin of vector frame" annotation(Dialog);
     protected
       outer Modelica.Mechanics.MultiBody.World world;
       SI.Position rvisobj[3] = r + T.resolve1(R.T, r_tail);
@@ -1952,8 +1950,8 @@ library (will be replaced by a color editor).
         specularCoefficient=specularCoefficient,
         r=rvisobj,
         quantity=quantity,
-        pushing=pushing,
-        doubleArrow=true,
+        headAtOrigin=headAtOrigin,
+        twoHeadedArrow=true,
         R=R) if world.enableAnimation;
 
       annotation (
