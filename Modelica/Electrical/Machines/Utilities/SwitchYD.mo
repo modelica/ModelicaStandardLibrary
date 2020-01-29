@@ -29,7 +29,7 @@ model SwitchYD "Y-D-switch"
     Ron=fill(Ron, m),
     Goff=fill(Goff, m))
     annotation (Placement(transformation(extent={{-60,-50},{-40,-30}})));
-  LogicalDelay logicalDelay[m](delayTime=fill(delayTime, m))
+  Blocks.Logical.LogicalDelay logicalDelay[m](delayTime=fill(delayTime, m))
     annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
 equation
   connect(delta.plug_p, plugSupply) annotation (Line(points={{40,-70},{60,-70},

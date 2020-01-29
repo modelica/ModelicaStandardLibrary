@@ -6,7 +6,6 @@ DQToThreePhase
 DQCurrentController
 SinCosEvaluation
 SwitchYD
-LogicalDelay
 SwitchYDwithArc
 TerminalBox
 MultiTerminalBox
