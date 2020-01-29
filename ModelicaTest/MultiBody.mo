@@ -276,8 +276,7 @@ alt=\"model Examples.Elementary.DoublePendulum\">
       animation=true,
       r_tail={0,0,0},
       n=world.groundAxis_u,
-      length=world.nominalLength/4,
-      diameter=world.axisDiameter) "Visualize arrow in direction of world.groundAxis_u" annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+      length=world.nominalLength/4) "Visualize arrow in direction of world.groundAxis_u" annotation (Placement(transformation(extent={{0,-10},{20,10}})));
 
     inner MultiBody.World world(
       groundLength_v=0.2,
@@ -1102,8 +1101,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 
     model Force
       extends Modelica.Icons.Example;
-      inner MultiBody.World world annotation (Placement(transformation(extent={{-100,80},
-                {-80,100}})));
+      inner MultiBody.World world(defaultN_to_m=600) annotation (Placement(transformation(
+            extent={{-100,80},{-80,100}})));
       MultiBody.Joints.Revolute Revolute1(
         n={0,1,0},
         phi(fixed=true),
@@ -1126,10 +1125,10 @@ menu (this sets \"fixed=false\" on parameter \"length\").
               extent={{-88,-70},{-68,-50}})));
       MultiBody.Parts.FixedRotation fixedRotation(n={0,0,1}, angle=45) annotation (
           Placement(transformation(extent={{-8,-90},{12,-70}})));
-      MultiBody.Forces.Force force1(N_to_m=600,
+      MultiBody.Forces.Force force1(
           resolveInFrame=MultiBody.Types.ResolveInFrameAB.frame_b)
         annotation (Placement(transformation(extent={{60,40},{40,60}})));
-      MultiBody.Forces.Force force2(N_to_m=600,
+      MultiBody.Forces.Force force2(
           resolveInFrame=MultiBody.Types.ResolveInFrameAB.frame_resolve)
         annotation (Placement(transformation(extent={{60,-10},{40,-30}})));
       MultiBody.Joints.Revolute Revolute2(
@@ -1215,8 +1214,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 
     model Force2
       extends Modelica.Icons.Example;
-      inner MultiBody.World world annotation (Placement(transformation(extent={{-190,60},
-                {-170,80}})));
+      inner MultiBody.World world(defaultN_to_m=600) annotation (Placement(transformation(
+            extent={{-190,60},{-170,80}})));
       MultiBody.Joints.Revolute Revolute1(
         n={0,1,0},
         phi(fixed=true),
@@ -1240,10 +1239,10 @@ menu (this sets \"fixed=false\" on parameter \"length\").
               extent={{-198,-70},{-178,-50}})));
       MultiBody.Parts.FixedRotation fixedRotation(n={0,0,1}, angle=45) annotation (
           Placement(transformation(extent={{-118,-90},{-98,-70}})));
-      MultiBody.Forces.Force force1(N_to_m=600,
+      MultiBody.Forces.Force force1(
           resolveInFrame=MultiBody.Types.ResolveInFrameAB.frame_b)
         annotation (Placement(transformation(extent={{-50,40},{-70,60}})));
-      MultiBody.Forces.Force force2(N_to_m=600,
+      MultiBody.Forces.Force force2(
           resolveInFrame=MultiBody.Types.ResolveInFrameAB.frame_resolve)
         annotation (Placement(transformation(extent={{-50,-10},{-70,-30}})));
       MultiBody.Joints.Revolute Revolute2(
@@ -1289,9 +1288,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
               extent={{12,-70},{32,-50}})));
       MultiBody.Parts.FixedRotation fixedRotation1(n={0,0,1}, angle=45) annotation (
           Placement(transformation(extent={{92,-90},{112,-70}})));
-      MultiBody.Forces.ForceAndTorque force3(N_to_m=600)
+      MultiBody.Forces.ForceAndTorque force3
         annotation (Placement(transformation(extent={{162,40},{142,60}})));
-      MultiBody.Forces.ForceAndTorque force4(N_to_m=600,
+      MultiBody.Forces.ForceAndTorque force4(
           resolveInFrame=MultiBody.Types.ResolveInFrameAB.frame_resolve)
         annotation (Placement(transformation(extent={{160,-10},{140,-30}})));
       MultiBody.Joints.Revolute Revolute6(
@@ -1386,8 +1385,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 
     model ForcesAndTorques
       extends Modelica.Icons.Example;
-      inner MultiBody.World world annotation (Placement(transformation(extent={{-80,60},{
-                -60,80}})));
+      inner MultiBody.World world(defaultN_to_m=600, 
+        defaultNm_to_m=120) annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
       MultiBody.Joints.Revolute Revolute1(
         n={0,1,0},
         phi(fixed=true),
@@ -1410,12 +1409,10 @@ menu (this sets \"fixed=false\" on parameter \"length\").
               extent={{-88,-70},{-68,-50}})));
       MultiBody.Parts.FixedRotation fixedRotation(n={0,0,1}, angle=45) annotation (
           Placement(transformation(extent={{-8,-90},{12,-70}})));
-      MultiBody.Forces.ForceAndTorque forceAndTorque1(
-          Nm_to_m=120, N_to_m=600) annotation (Placement(transformation(extent=
+      MultiBody.Forces.ForceAndTorque forceAndTorque1
+            annotation (Placement(transformation(extent=
                 {{62,40},{42,60}})));
       MultiBody.Forces.ForceAndTorque forceAndTorque2(
-        Nm_to_m=120,
-        N_to_m=600,
         resolveInFrame=MultiBody.Types.ResolveInFrameAB.frame_resolve)
         annotation (Placement(transformation(extent={{60,-10},{40,-30}})));
       MultiBody.Joints.Revolute Revolute2(
@@ -1707,8 +1704,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 
     model FrameForces
       extends Modelica.Icons.Example;
-      inner MultiBody.World world annotation (Placement(transformation(extent={{-100,80},
-                {-80,100}})));
+      inner MultiBody.World world(defaultN_to_m=600)
+           annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
       MultiBody.Joints.Revolute Revolute1(phi(fixed=true), w(fixed=true)) annotation (
           Placement(transformation(extent={{-40,40},{-20,60}})));
       MultiBody.Parts.BodyCylinder BodyCylinder1(r={1,0,0}) annotation (Placement(
@@ -1717,7 +1714,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           Placement(transformation(extent={{100,40},{80,60}})));
       MultiBody.Parts.Fixed fixed1(r={0,0.5,0}) annotation (Placement(transformation(
               extent={{-80,40},{-60,60}})));
-      MultiBody.Forces.WorldForce frameForce1(N_to_m=600,
+      MultiBody.Forces.WorldForce frameForce1(
           resolveInFrame=MultiBody.Types.ResolveInFrameB.frame_b)
         annotation (Placement(transformation(extent={{60,40},{40,60}})));
       MultiBody.Joints.Revolute Revolute2(phi(fixed=true), w(fixed=true)) annotation (
@@ -1726,7 +1723,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
             transformation(extent={{0,0},{20,20}})));
       MultiBody.Parts.Fixed fixed2(r={0,-0.5,0}) annotation (Placement(transformation(
               extent={{-80,0},{-60,20}})));
-      MultiBody.Forces.WorldForce frameForce2(N_to_m=600,
+      MultiBody.Forces.WorldForce frameForce2(
           resolveInFrame=MultiBody.Types.ResolveInFrameB.frame_resolve)
         annotation (Placement(transformation(extent={{60,0},{40,20}})));
       MultiBody.Parts.FixedRotation FixedRotation1(n={0,0,1}, angle=45) annotation (
@@ -1785,7 +1782,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           Placement(transformation(extent={{100,60},{80,80}})));
       MultiBody.Parts.Fixed fixed1(r={0,0.5,0}) annotation (Placement(transformation(
               extent={{-80,60},{-60,80}})));
-      MultiBody.Forces.WorldForce frameForce1(N_to_m=600,
+      MultiBody.Forces.WorldForce frameForce1(
           resolveInFrame=MultiBody.Types.ResolveInFrameB.frame_b)
         annotation (Placement(transformation(extent={{60,60},{40,80}})));
       MultiBody.Joints.Revolute Revolute2(phi(fixed=true), w(fixed=true)) annotation (
@@ -1794,7 +1791,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
             transformation(extent={{0,20},{20,40}})));
       MultiBody.Parts.Fixed fixed2(r={0,-0.5,0}) annotation (Placement(transformation(
               extent={{-80,20},{-60,40}})));
-      MultiBody.Forces.WorldForce frameForce2(N_to_m=600,
+      MultiBody.Forces.WorldForce frameForce2(
           resolveInFrame=MultiBody.Types.ResolveInFrameB.frame_resolve)
         annotation (Placement(transformation(extent={{60,20},{40,40}})));
       MultiBody.Joints.Revolute Revolute3(
@@ -1805,14 +1802,14 @@ menu (this sets \"fixed=false\" on parameter \"length\").
             transformation(extent={{0,-30},{20,-10}})));
       Modelica.Blocks.Sources.Constant Constant2[3](k={0,500,0}) annotation (
           Placement(transformation(extent={{100,-30},{80,-10}})));
-      MultiBody.Forces.WorldForce frameForce3(N_to_m=600,
+      MultiBody.Forces.WorldForce frameForce3(
           resolveInFrame=MultiBody.Types.ResolveInFrameB.world)
         annotation (Placement(transformation(extent={{60,-30},{40,-10}})));
       MultiBody.Joints.Revolute Revolute4(phi(fixed=true), w(fixed=true)) annotation (
           Placement(transformation(extent={{-40,-70},{-20,-50}})));
       MultiBody.Parts.BodyCylinder BodyCylinder4(r={1,0,0}) annotation (Placement(
             transformation(extent={{0,-70},{20,-50}})));
-      MultiBody.Forces.WorldForce frameForce4(N_to_m=600,
+      MultiBody.Forces.WorldForce frameForce4(
           resolveInFrame=MultiBody.Types.ResolveInFrameB.frame_resolve)
         annotation (Placement(transformation(extent={{60,-70},{40,-50}})));
     equation
@@ -1897,7 +1894,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
     model FrameForcesAndTorques
       extends Modelica.Icons.Example;
       parameter Real tol=1e-4;
-      inner MultiBody.World world annotation (Placement(transformation(extent={{-100,80},
+      inner MultiBody.World world(defaultN_to_m=600,
+         defaultNm_to_m=120) annotation (Placement(transformation(extent={{-100,80},
                 {-80,100}})));
       MultiBody.Joints.Revolute Revolute1(
         n={0,1,0},
@@ -1917,13 +1915,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       MultiBody.Parts.Fixed fixed2(r={0,-0.5,0}) annotation (Placement(transformation(
               extent={{-98,-70},{-78,-50}})));
       MultiBody.Forces.WorldForceAndTorque frameTorque1(
-        Nm_to_m=120,
-        N_to_m=600,
         resolveInFrame=MultiBody.Types.ResolveInFrameB.frame_b)
         annotation (Placement(transformation(extent={{60,60},{40,80}})));
       MultiBody.Forces.WorldForceAndTorque frameTorque2(
-        Nm_to_m=120,
-        N_to_m=600,
         resolveInFrame=MultiBody.Types.ResolveInFrameB.frame_resolve)
         annotation (Placement(transformation(extent={{60,-10},{40,-30}})));
       MultiBody.Joints.Revolute Revolute2(
@@ -1999,7 +1993,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
     model FrameForcesAndTorques2
       extends Modelica.Icons.Example;
       parameter Real tol=1e-4;
-      inner MultiBody.World world annotation (Placement(transformation(extent={{-100,80},
+      inner MultiBody.World world(defaultN_to_m=600,
+         defaultNm_to_m=120) annotation (Placement(transformation(extent={{-100,80},
                 {-80,100}})));
       MultiBody.Joints.Revolute Revolute1(
         n={0,1,0},
@@ -2019,13 +2014,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       MultiBody.Parts.Fixed fixed2(r={0,-0.5,0}) annotation (Placement(transformation(
               extent={{-98,-70},{-78,-50}})));
       MultiBody.Forces.WorldForceAndTorque frameTorque1(
-        Nm_to_m=120,
-        N_to_m=600,
         resolveInFrame=MultiBody.Types.ResolveInFrameB.frame_b)
         annotation (Placement(transformation(extent={{60,60},{40,80}})));
       MultiBody.Forces.WorldForceAndTorque frameTorque2(
-        Nm_to_m=120,
-        N_to_m=600,
         resolveInFrame=MultiBody.Types.ResolveInFrameB.frame_resolve)
         annotation (Placement(transformation(extent={{60,-10},{40,-30}})));
       MultiBody.Joints.Revolute Revolute2(
@@ -2099,7 +2090,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
     model FrameForcesAndTorques3
       extends Modelica.Icons.Example;
       parameter Real tol=1e-4;
-      inner MultiBody.World world annotation (Placement(transformation(extent={{-100,20},
+      inner MultiBody.World world(defaultN_to_m=600,
+         defaultNm_to_m=120) annotation (Placement(transformation(extent={{-100,20},
                 {-80,40}})));
       MultiBody.Joints.Revolute Revolute1(
         n={0,1,0},
@@ -2115,13 +2107,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       MultiBody.Parts.BodyCylinder body2(r={1,0,0}) annotation (Placement(transformation(
               extent={{0,-30},{20,-10}})));
       MultiBody.Forces.WorldForceAndTorque frameTorque1(
-        Nm_to_m=120,
-        N_to_m=600,
         resolveInFrame=MultiBody.Types.ResolveInFrameB.world)
         annotation (Placement(transformation(extent={{60,60},{40,80}})));
       MultiBody.Forces.WorldForceAndTorque frameTorque2(
-        Nm_to_m=120,
-        N_to_m=600,
         resolveInFrame=MultiBody.Types.ResolveInFrameB.frame_resolve)
         annotation (Placement(transformation(extent={{60,-10},{40,-30}})));
       MultiBody.Joints.Revolute Revolute2(
@@ -2202,7 +2190,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 
     model FrameTorques
       extends Modelica.Icons.Example;
-      inner MultiBody.World world annotation (Placement(transformation(extent={{-100,80},
+      inner MultiBody.World world(defaultNm_to_m=120)
+           annotation (Placement(transformation(extent={{-100,80},
                 {-80,100}})));
       MultiBody.Joints.Revolute Revolute1(
         n={0,1,0},
@@ -2223,10 +2212,10 @@ menu (this sets \"fixed=false\" on parameter \"length\").
               extent={{-80,-40},{-60,-20}})));
       MultiBody.Parts.FixedRotation FixedRotation1(n={0,0,1}, angle=45) annotation (
           Placement(transformation(extent={{0,-60},{20,-40}})));
-      MultiBody.Forces.WorldTorque frameTorque1(Nm_to_m=120,
+      MultiBody.Forces.WorldTorque frameTorque1(
           resolveInFrame=MultiBody.Types.ResolveInFrameB.frame_b)
         annotation (Placement(transformation(extent={{60,80},{40,100}})));
-      MultiBody.Forces.WorldTorque frameTorque2(Nm_to_m=120,
+      MultiBody.Forces.WorldTorque frameTorque2(
           resolveInFrame=MultiBody.Types.ResolveInFrameB.frame_resolve)
         annotation (Placement(transformation(extent={{60,20},{40,0}})));
       MultiBody.Joints.Revolute Revolute2(
@@ -2281,7 +2270,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
     model FrameTorques2
       extends Modelica.Icons.Example;
       parameter Real tol=1e-4;
-      inner MultiBody.World world annotation (Placement(transformation(extent={{-90,-30},{-70,-10}})));
+      inner MultiBody.World world(defaultNm_to_m=120) 
+          annotation (Placement(transformation(extent={{-90,-30},{-70,-10}})));
       MultiBody.Joints.Revolute Revolute1(
         n={0,1,0},
         phi(fixed=true),
@@ -2298,10 +2288,10 @@ menu (this sets \"fixed=false\" on parameter \"length\").
               extent={{0,40},{20,60}})));
       MultiBody.Parts.Fixed fixed2(r={0,-0.5,0}) annotation (Placement(transformation(
               extent={{-80,40},{-60,60}})));
-      MultiBody.Forces.WorldTorque frameTorque1(Nm_to_m=120,
+      MultiBody.Forces.WorldTorque frameTorque1(
           resolveInFrame=MultiBody.Types.ResolveInFrameB.frame_b)
         annotation (Placement(transformation(extent={{60,80},{40,100}})));
-      MultiBody.Forces.WorldTorque frameTorque2(Nm_to_m=120,
+      MultiBody.Forces.WorldTorque frameTorque2(
           resolveInFrame=MultiBody.Types.ResolveInFrameB.frame_resolve)
         annotation (Placement(transformation(extent={{60,60},{40,40}})));
       MultiBody.Joints.Revolute Revolute2(
@@ -2324,10 +2314,10 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           Placement(transformation(extent={{100,-30},{80,-10}})));
       MultiBody.Parts.BodyCylinder body4(r={1,0,0}) annotation (Placement(transformation(
               extent={{-4,-70},{16,-50}})));
-      MultiBody.Forces.WorldTorque frameTorque3(Nm_to_m=120,
+      MultiBody.Forces.WorldTorque frameTorque3(
           resolveInFrame=MultiBody.Types.ResolveInFrameB.world)
         annotation (Placement(transformation(extent={{56,-30},{36,-10}})));
-      MultiBody.Forces.WorldTorque frameTorque4(Nm_to_m=120,
+      MultiBody.Forces.WorldTorque frameTorque4(
           resolveInFrame=MultiBody.Types.ResolveInFrameB.frame_resolve)
         annotation (Placement(transformation(extent={{56,-50},{36,-70}})));
       MultiBody.Joints.Revolute Revolute4(
@@ -2735,8 +2725,8 @@ a linear damper is connected here.
 
     model Torque
       extends Modelica.Icons.Example;
-      inner MultiBody.World world annotation (Placement(transformation(extent={{-80,60},{
-                -60,80}})));
+      inner MultiBody.World world(defaultNm_to_m=120)
+          annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
       MultiBody.Joints.Revolute Revolute1(
         n={0,1,0},
         phi(fixed=true),
@@ -2759,10 +2749,10 @@ a linear damper is connected here.
               extent={{-98,-70},{-78,-50}})));
       MultiBody.Parts.FixedRotation fixedRotation(n={0,0,1}, angle=45) annotation (
           Placement(transformation(extent={{-8,-90},{12,-70}})));
-      MultiBody.Forces.Torque torque1(Nm_to_m=120,
+      MultiBody.Forces.Torque torque1(
           resolveInFrame=MultiBody.Types.ResolveInFrameAB.frame_b)
         annotation (Placement(transformation(extent={{62,40},{42,60}})));
-      MultiBody.Forces.Torque torque2(Nm_to_m=120,
+      MultiBody.Forces.Torque torque2(
           resolveInFrame=MultiBody.Types.ResolveInFrameAB.frame_resolve)
         annotation (Placement(transformation(extent={{60,-10},{40,-30}})));
       MultiBody.Joints.Revolute Revolute2(
@@ -2841,8 +2831,8 @@ a linear damper is connected here.
 
     model Torque2
       extends Modelica.Icons.Example;
-      inner MultiBody.World world annotation (Placement(transformation(extent={{-80,60},{
-                -60,80}})));
+      inner MultiBody.World world(defaultNm_to_m=120) 
+        annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
       MultiBody.Joints.Revolute Revolute1(
         n={0,1,0},
         phi(fixed=true),
@@ -2865,10 +2855,10 @@ a linear damper is connected here.
               extent={{-88,-70},{-68,-50}})));
       MultiBody.Parts.FixedRotation fixedRotation(n={0,0,1}, angle=45) annotation (
           Placement(transformation(extent={{-8,-90},{12,-70}})));
-      MultiBody.Forces.Torque torque1(Nm_to_m=120,
+      MultiBody.Forces.Torque torque1(
           resolveInFrame=MultiBody.Types.ResolveInFrameAB.frame_b)
         annotation (Placement(transformation(extent={{62,40},{42,60}})));
-      MultiBody.Forces.Torque torque2(Nm_to_m=120,
+      MultiBody.Forces.Torque torque2(
           resolveInFrame=MultiBody.Types.ResolveInFrameAB.frame_resolve)
         annotation (Placement(transformation(extent={{60,-10},{40,-30}})));
       MultiBody.Joints.Revolute Revolute2(
@@ -2913,9 +2903,9 @@ a linear damper is connected here.
               extent={{-88,-260},{-68,-240}})));
       MultiBody.Parts.FixedRotation fixedRotation1(n={0,0,1}, angle=45) annotation (
           Placement(transformation(extent={{-8,-280},{12,-260}})));
-      MultiBody.Forces.ForceAndTorque torque3(Nm_to_m=120)
+      MultiBody.Forces.ForceAndTorque torque3
         annotation (Placement(transformation(extent={{62,-150},{42,-130}})));
-      MultiBody.Forces.ForceAndTorque torque4(Nm_to_m=120,
+      MultiBody.Forces.ForceAndTorque torque4(
           resolveInFrame=MultiBody.Types.ResolveInFrameAB.frame_resolve)
         annotation (Placement(transformation(extent={{60,-200},{40,-220}})));
       MultiBody.Joints.Revolute Revolute6(
@@ -3011,8 +3001,8 @@ a linear damper is connected here.
     model Torque3
       extends Modelica.Icons.Example;
       parameter Real tol=1e-4;
-      inner MultiBody.World world annotation (Placement(transformation(extent={{10,-32},{
-                30,-12}})));
+      inner MultiBody.World world(defaultNm_to_m=120)
+          annotation (Placement(transformation(extent={{10,-32},{30,-12}})));
       MultiBody.Joints.Revolute Revolute1(
         n={0,1,0},
         phi(fixed=true),
@@ -3033,10 +3023,10 @@ a linear damper is connected here.
               extent={{-100,-30},{-80,-10}})));
       MultiBody.Parts.Fixed fixed3(r={0,-0.5,0}) annotation (Placement(transformation(
               extent={{-188,-70},{-168,-50}})));
-      MultiBody.Forces.Torque torque1(Nm_to_m=120,
+      MultiBody.Forces.Torque torque1(
           resolveInFrame=MultiBody.Types.ResolveInFrameAB.frame_b)
         annotation (Placement(transformation(extent={{-38,40},{-58,60}})));
-      MultiBody.Forces.Torque torque2(Nm_to_m=120,
+      MultiBody.Forces.Torque torque2(
           resolveInFrame=MultiBody.Types.ResolveInFrameAB.frame_resolve)
         annotation (Placement(transformation(extent={{-40,-10},{-60,-30}})));
       MultiBody.Joints.Revolute Revolute2(
@@ -3075,10 +3065,10 @@ a linear damper is connected here.
             rotation=270)));
       MultiBody.Parts.BodyCylinder body4(r={1,0,0}) annotation (Placement(transformation(
               extent={{100,-30},{120,-10}})));
-      MultiBody.Forces.ForceAndTorque torque3(Nm_to_m=120,
+      MultiBody.Forces.ForceAndTorque torque3(
           resolveInFrame=MultiBody.Types.ResolveInFrameAB.world)
         annotation (Placement(transformation(extent={{160,40},{140,60}})));
-      MultiBody.Forces.ForceAndTorque torque4(Nm_to_m=120,
+      MultiBody.Forces.ForceAndTorque torque4(
           resolveInFrame=MultiBody.Types.ResolveInFrameAB.frame_resolve)
         annotation (Placement(transformation(extent={{160,-10},{140,-30}})));
       MultiBody.Joints.Revolute Revolute6(
@@ -3190,13 +3180,14 @@ a linear damper is connected here.
 
     model WorldForces
       extends Modelica.Icons.Example;
-      inner MultiBody.World world annotation (Placement(transformation(extent={{-100,20},
+      inner MultiBody.World world(defaultN_to_m=600,defaultNm_to_m=200) 
+            annotation (Placement(transformation(extent={{-100,20},
                 {-80,40}})));
       MultiBody.Joints.Revolute Revolute1(phi(fixed=true), w(fixed=true)) annotation (
           Placement(transformation(extent={{-40,60},{-20,80}})));
       MultiBody.Parts.BodyCylinder BodyCylinder1(r={1,0,0}) annotation (Placement(
             transformation(extent={{0,60},{20,80}})));
-      MultiBody.Forces.WorldForce worldForce(N_to_m=600)
+      MultiBody.Forces.WorldForce worldForce
         annotation (Placement(transformation(extent={{60,60},{40,80}})));
       Modelica.Blocks.Sources.Constant Constant1[3](k={0,500,0}) annotation (
           Placement(transformation(extent={{100,60},{80,80}})));
@@ -3211,7 +3202,7 @@ a linear damper is connected here.
             rotation=90)));
       MultiBody.Parts.BodyCylinder BodyCylinder2(r={1,0,0}) annotation (Placement(
             transformation(extent={{0,20},{20,40}})));
-      MultiBody.Forces.WorldTorque worldTorque1(Nm_to_m=200)
+      MultiBody.Forces.WorldTorque worldTorque1
         annotation (Placement(transformation(extent={{60,20},{40,40}})));
       Modelica.Blocks.Sources.Constant Constant2[3](k={100,100,100})
         annotation (Placement(transformation(extent={{100,20},{80,40}})));
@@ -3292,7 +3283,8 @@ a linear damper is connected here.
 
     model WorldForces2
       extends Modelica.Icons.Example;
-      inner MultiBody.World world annotation (Placement(transformation(
+      inner MultiBody.World world(defaultN_to_m=600) 
+          annotation (Placement(transformation(
             extent={{10,-10},{-10,10}},
             origin={86,-10})));
 
@@ -3301,7 +3293,7 @@ a linear damper is connected here.
           Placement(transformation(extent={{-40,60},{-20,80}})));
       MultiBody.Parts.BodyCylinder BodyCylinder1(r={1,0,0}) annotation (Placement(
             transformation(extent={{0,60},{20,80}})));
-      MultiBody.Forces.WorldForce worldForce(N_to_m=600)
+      MultiBody.Forces.WorldForce worldForce
         annotation (Placement(transformation(extent={{60,60},{40,80}})));
       Modelica.Blocks.Sources.Constant Constant1[3](k={0,500,0}) annotation (
           Placement(transformation(extent={{100,60},{80,80}})));
@@ -3311,7 +3303,7 @@ a linear damper is connected here.
           Placement(transformation(extent={{-42,18},{-22,38}})));
       MultiBody.Parts.BodyCylinder BodyCylinder2(r={1,0,0}) annotation (Placement(
             transformation(extent={{-2,18},{18,38}})));
-      MultiBody.Forces.WorldForce worldForce1(N_to_m=600,
+      MultiBody.Forces.WorldForce worldForce1(
           resolveInFrame=MultiBody.Types.ResolveInFrameB.frame_resolve)
         annotation (Placement(transformation(extent={{58,18},{38,38}})));
       Modelica.Blocks.Sources.Constant Constant2[3](k={0,500,0}) annotation (
@@ -3324,7 +3316,7 @@ a linear damper is connected here.
             transformation(extent={{0,-60},{20,-40}})));
       MultiBody.Parts.Fixed fixed3(r={0,0.5,0}) annotation (Placement(transformation(
               extent={{-80,-60},{-60,-40}})));
-      MultiBody.Forces.WorldForce worldForce2(N_to_m=600,
+      MultiBody.Forces.WorldForce worldForce2(
           resolveInFrame=MultiBody.Types.ResolveInFrameB.frame_b)
         annotation (Placement(transformation(extent={{60,-60},{40,-40}})));
       Modelica.Blocks.Sources.Sine sine(amplitude=500, f=1/0.403)
@@ -3394,8 +3386,8 @@ a linear damper is connected here.
     model WorldTorques
       extends Modelica.Icons.Example;
       parameter Real tol=1e-4;
-      inner MultiBody.World world annotation (Placement(transformation(
-            extent={{10,-10},{-10,10}},
+      inner MultiBody.World world(defaultNm_to_m=200) 
+        annotation (Placement(transformation(extent={{10,-10},{-10,10}},
             origin={80,18})));
       MultiBody.Parts.Fixed fixed2(r={0,-0.5,0}) annotation (Placement(transformation(
               extent={{-80,40},{-60,60}})));
@@ -3407,7 +3399,7 @@ a linear damper is connected here.
             extent={{-10,-10},{10,10}})));
       MultiBody.Parts.BodyCylinder BodyCylinder2(r={1,0,0}) annotation (Placement(
             transformation(extent={{-10,40},{10,60}})));
-      MultiBody.Forces.WorldTorque worldTorque1(Nm_to_m=200)
+      MultiBody.Forces.WorldTorque worldTorque1
         annotation (Placement(transformation(extent={{46,40},{26,60}})));
       Modelica.Blocks.Sources.Constant Constant2[3](k={100,100,100})
         annotation (Placement(transformation(extent={{90,40},{70,60}})));
@@ -3421,7 +3413,7 @@ a linear damper is connected here.
             extent={{-10,-10},{10,10}})));
       MultiBody.Parts.BodyCylinder BodyCylinder1(r={1,0,0}) annotation (Placement(
             transformation(extent={{-10,-20},{10,0}})));
-      MultiBody.Forces.WorldTorque worldTorque2(Nm_to_m=200,
+      MultiBody.Forces.WorldTorque worldTorque2(
           resolveInFrame=MultiBody.Types.ResolveInFrameB.frame_resolve)
         annotation (Placement(transformation(extent={{48,-20},{28,0}})));
       Modelica.Blocks.Sources.Constant Constant1[3](k={100,100,100})
@@ -3438,7 +3430,7 @@ a linear damper is connected here.
             5}) annotation (Placement(transformation(
             extent={{10,-10},{-10,10}},
             origin={80,-60})));
-      MultiBody.Forces.WorldTorque worldTorque3(Nm_to_m=200,
+      MultiBody.Forces.WorldTorque worldTorque3(
           resolveInFrame=MultiBody.Types.ResolveInFrameB.frame_b)
         annotation (Placement(transformation(extent={{50,-70},{30,-50}})));
     equation
@@ -4478,7 +4470,6 @@ and plot gasForce.press over gasForce.s_rel.
                 20},{-40,40}})));
       MultiBody.Visualizers.FixedArrow axis(
         length=0.5,
-        diameter=0.02,
         n={0,0,1}) annotation (Placement(transformation(extent={{10,60},{30,80}})));
       MultiBody.Joints.Revolute revolute(
         n={0,0,1},
@@ -4581,7 +4572,6 @@ and plot gasForce.press over gasForce.s_rel.
                 20},{-40,40}})));
       MultiBody.Visualizers.FixedArrow axis(
         length=0.5,
-        diameter=0.02,
         n={1,1,0}) annotation (Placement(transformation(extent={{10,60},{30,80}})));
       MultiBody.Joints.Prismatic prismatic(
         n={1,1,0},
@@ -4630,7 +4620,6 @@ and plot gasForce.press over gasForce.s_rel.
                 20},{-40,40}})));
       MultiBody.Visualizers.FixedArrow axis(
         length=0.5,
-        diameter=0.02,
         n={0,0,1}) annotation (Placement(transformation(extent={{10,60},{30,80}})));
       MultiBody.Joints.Cylindrical cylindrical(
         n={0,0,1},
@@ -4683,7 +4672,6 @@ and plot gasForce.press over gasForce.s_rel.
                 20},{-40,40}})));
       MultiBody.Visualizers.FixedArrow axis2(
         length=0.5,
-        diameter=0.02,
         n={0,1,0},
         animation=false) annotation (Placement(transformation(extent={{10,60},{
                 30,80}})));
@@ -4715,7 +4703,6 @@ and plot gasForce.press over gasForce.s_rel.
             rotation=270)));
       MultiBody.Visualizers.FixedArrow axis1(
         length=0.5,
-        diameter=0.02,
         n={0,0,1},
         animation=false) annotation (Placement(transformation(extent={{-34,60},
                 {-14,80}})));
@@ -4749,7 +4736,6 @@ and plot gasForce.press over gasForce.s_rel.
                 -10},{-40,10}})));
       MultiBody.Visualizers.FixedArrow axis2(
         length=0.5,
-        diameter=0.02,
         n={0,1,0}) annotation (Placement(transformation(extent={{40,30},{60,50}})));
       MultiBody.Joints.Planar planar(
         n={0,1,0},
@@ -4783,7 +4769,6 @@ and plot gasForce.press over gasForce.s_rel.
             rotation=270)));
       MultiBody.Visualizers.FixedArrow axis1(
         length=0.5,
-        diameter=0.02,
         n={0,0,1},
         r_tail={0,0,0.5}) annotation (Placement(transformation(extent={{-8,30},
                 {12,50}})));
@@ -5339,29 +5324,24 @@ and plot gasForce.press over gasForce.s_rel.
       MultiBody.Visualizers.FixedArrow n1_a(
         length=0.5,
         color={0,0,200},
-        n={0,0,1},
-        diameter=d) annotation (Placement(transformation(extent={{-46,60},{-26,
+        n={0,0,1}) annotation (Placement(transformation(extent={{-46,60},{-26,
                 80}})));
       MultiBody.Visualizers.FixedArrow n2_ia(
         length=0.5,
         n=jointUSP.e2_ia,
-        diameter=d,
         color={0,128,0}) annotation (Placement(transformation(extent={{-20,60},
                 {0,80}})));
       MultiBody.Visualizers.FixedArrow rRod1(
-        diameter=d,
         r_tail={0,-0.1,0},
         n=rRod1_ia,
         length=Modelica.Math.Vectors.length(rRod1_ia)) annotation (Placement(
             transformation(extent={{-20,-20},{0,0}})));
       MultiBody.Visualizers.FixedArrow rRod2(
-        diameter=d,
         r_tail={0,-0.1,0},
         n=rRod2_ib,
         length=Modelica.Math.Vectors.length(rRod2_ib)) annotation (Placement(
             transformation(extent={{40,-20},{20,0}})));
       MultiBody.Visualizers.FixedArrow prism(
-        diameter=d,
         r_tail={0,-0.1,0},
         n={-1,0,0},
         color={255,0,0},
@@ -5401,17 +5381,14 @@ and plot gasForce.press over gasForce.s_rel.
       MultiBody.Visualizers.FixedArrow n1_a(
         length=0.5,
         color={0,0,200},
-        n={0,0,1},
-        diameter=d) annotation (Placement(transformation(extent={{-46,60},{-26,
+        n={0,0,1}) annotation (Placement(transformation(extent={{-46,60},{-26,
                 80}})));
       MultiBody.Visualizers.FixedArrow n2_ia(
         length=0.5,
         n=jointUPS.e2_ia,
-        diameter=d,
         color={0,128,0}) annotation (Placement(transformation(extent={{-20,60},
                 {0,80}})));
       MultiBody.Visualizers.FixedArrow rRod1(
-        diameter=d,
         r_tail={0,-0.1,0},
         n=rRod1_ia,
         length=Modelica.Math.Vectors.length(rRod1_ia)) annotation (Placement(
@@ -5449,13 +5426,11 @@ and plot gasForce.press over gasForce.s_rel.
         revoluteDiameter=0.05) annotation (Placement(transformation(extent={{-20,
                 20},{0,40}})));
       MultiBody.Visualizers.FixedArrow rRod2(
-        diameter=d,
         n=rRod2_ib,
         length=Modelica.Math.Vectors.length(rRod2_ib),
         r_tail={0.05,0.1,0}) annotation (Placement(transformation(extent={{40,-20},
                 {20,0}})));
       MultiBody.Visualizers.FixedArrow prism(
-        diameter=d,
         color={255,0,0},
         length=0.3,
         n={0,0,1}) annotation (Placement(transformation(extent={{0,-60},{-20,-40}})));
@@ -5488,29 +5463,24 @@ and plot gasForce.press over gasForce.s_rel.
       MultiBody.Visualizers.FixedArrow n1_a(
         length=0.5,
         color={0,0,200},
-        n={0,0,1},
-        diameter=d) annotation (Placement(transformation(extent={{-46,60},{-26,
+        n={0,0,1}) annotation (Placement(transformation(extent={{-46,60},{-26,
                 80}})));
       MultiBody.Visualizers.FixedArrow n2_ia(
         length=0.5,
         n=jointUSR.e2_ia,
-        diameter=d,
         color={0,128,0}) annotation (Placement(transformation(extent={{-20,60},
                 {0,80}})));
       MultiBody.Visualizers.FixedArrow rRod1(
-        diameter=d,
         r_tail={0,-0.1,0},
         n=rRod1_ia,
         length=Modelica.Math.Vectors.length(rRod1_ia)) annotation (Placement(
             transformation(extent={{-20,-20},{0,0}})));
       MultiBody.Visualizers.FixedArrow rRod2(
-        diameter=d,
         r_tail={0,-0.1,0},
         n=rRod2_ib,
         length=Modelica.Math.Vectors.length(rRod2_ib)) annotation (Placement(
             transformation(extent={{40,-20},{20,0}})));
       MultiBody.Visualizers.FixedArrow prism(
-        diameter=d,
         color={255,0,0},
         n={0,0,1},
         length=0.3) annotation (Placement(transformation(extent={{0,-60},{-20,-40}})));
@@ -5548,31 +5518,26 @@ and plot gasForce.press over gasForce.s_rel.
               extent={{-20,20},{0,40}})));
       MultiBody.Visualizers.FixedArrow n1_a(
         n={0,0,1},
-        diameter=d,
         length=0.4,
         color={255,0,0}) annotation (Placement(transformation(extent={{-46,60},
                 {-26,80}})));
       MultiBody.Visualizers.FixedArrow rRod1(
-        diameter=d,
         r_tail={0,-0.1,0},
         n=rRod1_ia,
         length=Modelica.Math.Vectors.length(rRod1_ia)) annotation (Placement(
             transformation(extent={{-20,-20},{0,0}})));
       MultiBody.Visualizers.FixedArrow rRod2(
-        diameter=d,
         r_tail={0,-0.1,0},
         n=rRod2_ib,
         length=Modelica.Math.Vectors.length(rRod2_ib)) annotation (Placement(
             transformation(extent={{40,-20},{20,0}})));
       MultiBody.Visualizers.FixedArrow prism(
-        diameter=d,
         n={0,0,1},
         length=0.4,
         color={255,0,0}) annotation (Placement(transformation(extent={{0,-60},{
                 -20,-40}})));
       MultiBody.Visualizers.FixedArrow n1_a1(
         n={0,0,1},
-        diameter=d,
         length=0.4,
         color={255,0,0}) annotation (Placement(transformation(extent={{-10,66},
                 {10,86}})));
@@ -5611,30 +5576,25 @@ and plot gasForce.press over gasForce.s_rel.
               extent={{-20,20},{0,40}})));
       MultiBody.Visualizers.FixedArrow n1_a(
         n={0,0,1},
-        diameter=d,
         length=0.4,
         color={255,0,0}) annotation (Placement(transformation(extent={{-46,60},
                 {-26,80}})));
       MultiBody.Visualizers.FixedArrow n2_ia(
-        diameter=d,
         n=jointRRP.e_im,
         length=0.4,
         color={255,0,0}) annotation (Placement(transformation(extent={{-20,60},
                 {0,80}})));
       MultiBody.Visualizers.FixedArrow rRod1(
-        diameter=d,
         r_tail={0,-0.1,0},
         n=rRod1_ia,
         length=Modelica.Math.Vectors.length(rRod1_ia)) annotation (Placement(
             transformation(extent={{-20,-20},{0,0}})));
       MultiBody.Visualizers.FixedArrow rRod2(
-        diameter=d,
         r_tail={0,-0.1,0},
         n=rRod2_ib,
         length=Modelica.Math.Vectors.length(rRod2_ib)) annotation (Placement(
             transformation(extent={{40,-20},{20,0}})));
       MultiBody.Visualizers.FixedArrow prism(
-        diameter=d,
         r_tail={0,-0.1,0},
         n={-1,0,0},
         color={255,0,0},
@@ -5678,13 +5638,11 @@ and plot gasForce.press over gasForce.s_rel.
         s_guess=-10) annotation (Placement(transformation(extent={{-20,20},{0,
                 40}})));
       MultiBody.Visualizers.FixedArrow rRod2(
-        diameter=d,
         n=rRod2_ib,
         length=Modelica.Math.Vectors.length(rRod2_ib),
         r_tail={0.05,0.1,0}) annotation (Placement(transformation(extent={{40,-20},
                 {20,0}})));
       MultiBody.Visualizers.FixedArrow prism(
-        diameter=d,
         color={255,0,0},
         length=0.3,
         n={0,0,1}) annotation (Placement(transformation(extent={{0,-60},{-20,-40}})));
@@ -5752,7 +5710,6 @@ and plot gasForce.press over gasForce.s_rel.
                 20},{-70,40}})));
       MultiBody.Visualizers.FixedArrow axis(
         length=0.5,
-        diameter=0.02,
         n={0,0,1}) annotation (Placement(transformation(extent={{10,60},{30,80}})));
       MultiBody.Joints.Revolute revolute(
         n={0,0,1},
@@ -6798,8 +6755,7 @@ and plot gasForce.press over gasForce.s_rel.
         n={1,0.5,0},
         color={0,0,255},
         r_tail={0.03,0.1,0},
-        length=1.05,
-        diameter=0.02) annotation (Placement(transformation(extent={{10,-20},{
+        length=1.05) annotation (Placement(transformation(extent={{10,-20},{
                 30,0}})));
     equation
       R = MultiBody.Frames.nullRotation();
@@ -6859,7 +6815,6 @@ and plot gasForce.press over gasForce.s_rel.
             extent={{-10,-10},{10,10}},
             rotation=270)));
       MultiBody.Joints.FreeMotion freeMotion(
-        arrowDiameter=0.04,
         w_rel_a_fixed=true,
         v_rel_a(each fixed=true),
         angles_fixed=true,
@@ -9315,9 +9270,9 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
     model CutForce
       extends Modelica.Icons.Example;
       parameter Real tol=1e-3;
-      inner MultiBody.World world annotation (Placement(
+      inner MultiBody.World world(defaultN_to_m=10) annotation (Placement(
             transformation(extent={{-100,0},{-80,20}})));
-      MultiBody.Sensors.CutForce cutForce1a(N_to_m=10)
+      MultiBody.Sensors.CutForce cutForce1a
         annotation (Placement(transformation(extent={{-20,20},{0,0}})));
       MultiBody.Parts.FixedTranslation translate1a(r={0,-1,0})
         annotation (Placement(transformation(
@@ -9328,7 +9283,6 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
         annotation (Placement(transformation(extent={{60,0},{80,20}})));
       MultiBody.Sensors.CutForce cutForce2a(
         positiveSign=false,
-        N_to_m=10,
         resolveInFrame=MultiBody.Types.ResolveInFrameA.world)
         annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
       MultiBody.Parts.FixedTranslation translate2a(r={0,-1,0})
@@ -9348,7 +9302,7 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
         angle=90,
         r={0,0,0.2}) annotation (Placement(transformation(extent={{-60,-40},{-40,
                 -20}})));
-      MultiBody.Sensors.CutForce cutForce1b(N_to_m=10,
+      MultiBody.Sensors.CutForce cutForce1b(
           resolveInFrame=MultiBody.Types.ResolveInFrameA.frame_resolve)
         annotation (Placement(transformation(extent={{-20,60},{0,80}})));
       MultiBody.Parts.FixedTranslation translate1b(r={0,-1,0})
@@ -9367,7 +9321,6 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
             transformation(extent={{10,30},{30,50}})));
       MultiBody.Sensors.CutForce cutForce2b(
         positiveSign=false,
-        N_to_m=10,
         resolveInFrame=MultiBody.Types.ResolveInFrameA.frame_resolve)
         annotation (Placement(transformation(extent={{-20,-80},{0,-100}})));
       MultiBody.Parts.FixedTranslation translate2b(r={0,-1,0})
@@ -9500,7 +9453,7 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
       inner Modelica.Mechanics.MultiBody.World world(animateWorld=false,
           animateGravity=false) annotation (Placement(transformation(extent={{-80,
                 -20},{-60,0}})));
-      Modelica.Mechanics.MultiBody.Sensors.CutForce cutForce(animation=false, vectorAnimation=true) annotation (
+      Modelica.Mechanics.MultiBody.Sensors.CutForce cutForce(animation=true) annotation (
           Placement(transformation(extent={{0,-20},{20,0}})));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
         r={0.5,0.5,0.1},
@@ -9538,9 +9491,9 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
     model CutTorque
       extends Modelica.Icons.Example;
       parameter Real tol=1e-3;
-      inner MultiBody.World world(n={0,0,-1}) annotation (
+      inner MultiBody.World world(defaultNm_to_m=10,n={0,0,-1}) annotation (
           Placement(transformation(extent={{-100,0},{-80,20}})));
-      MultiBody.Sensors.CutTorque cutTorque1a(Nm_to_m=10)
+      MultiBody.Sensors.CutTorque cutTorque1a
         annotation (Placement(transformation(extent={{-20,20},{0,0}})));
       MultiBody.Parts.FixedTranslation translate1a(r={0,-1,0})
         annotation (Placement(transformation(
@@ -9551,7 +9504,6 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
         annotation (Placement(transformation(extent={{60,0},{80,20}})));
       MultiBody.Sensors.CutTorque cutTorque2a(
         positiveSign=false,
-        Nm_to_m=10,
         resolveInFrame=MultiBody.Types.ResolveInFrameA.world)
         annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
       MultiBody.Parts.FixedTranslation translate2a(r={0,-1,0})
@@ -9571,7 +9523,7 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
         angle=90,
         r={0,0,0.2}) annotation (Placement(transformation(extent={{-60,-40},{-40,
                 -20}})));
-      MultiBody.Sensors.CutTorque cutTorque1b(Nm_to_m=10,
+      MultiBody.Sensors.CutTorque cutTorque1b(
           resolveInFrame=MultiBody.Types.ResolveInFrameA.frame_resolve)
         annotation (Placement(transformation(extent={{-20,60},{0,80}})));
       MultiBody.Parts.FixedTranslation translate1b(r={0,-1,0})
@@ -9590,7 +9542,6 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
             transformation(extent={{10,30},{30,50}})));
       MultiBody.Sensors.CutTorque cutTorque2b(
         positiveSign=false,
-        Nm_to_m=10,
         resolveInFrame=MultiBody.Types.ResolveInFrameA.frame_resolve)
         annotation (Placement(transformation(extent={{-20,-80},{0,-100}})));
       MultiBody.Parts.FixedTranslation translate2b(r={0,-1,0})
@@ -9723,7 +9674,7 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
       inner Modelica.Mechanics.MultiBody.World world(animateWorld=false,
           animateGravity=false) annotation (Placement(transformation(extent={{-80,
                 -20},{-60,0}})));
-      Modelica.Mechanics.MultiBody.Sensors.CutTorque cutTorque(animation=false, vectorAnimation=true) annotation (
+      Modelica.Mechanics.MultiBody.Sensors.CutTorque cutTorque(animation=true) annotation (
           Placement(transformation(extent={{0,-20},{20,0}})));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
         r={0.5,0.5,0.1},
@@ -9761,30 +9712,25 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
     model CutForceAndTorque1
       extends Modelica.Icons.Example;
       parameter Real tol=1e-3;
-      inner MultiBody.World world annotation (Placement(
+      inner MultiBody.World world(defaultN_to_m=10,
+         defaultNm_to_m=10) annotation (Placement(
             transformation(extent={{-100,0},{-80,20}})));
       Modelica.Blocks.Math.Add err1[6](each k2=-1) annotation (Placement(
             transformation(extent={{10,30},{30,50}})));
       Modelica.Blocks.Math.Add err2[6](each k2=-1) annotation (Placement(
             transformation(extent={{10,-70},{30,-50}})));
-      MultiBody.Sensors.CutForceAndTorque cutForce1a(N_to_m=
-            10, Nm_to_m=10) annotation (Placement(transformation(extent={{-20,
+      MultiBody.Sensors.CutForceAndTorque cutForce1a
+            annotation (Placement(transformation(extent={{-20,
                 20},{0,0}})));
       MultiBody.Sensors.CutForceAndTorque cutForce1b(
-        N_to_m=10,
-        Nm_to_m=10,
         resolveInFrame=MultiBody.Types.ResolveInFrameA.frame_resolve)
         annotation (Placement(transformation(extent={{-20,60},{0,80}})));
       MultiBody.Sensors.CutForceAndTorque cutForce2a(
         positiveSign=false,
-        N_to_m=10,
-        Nm_to_m=10,
         resolveInFrame=MultiBody.Types.ResolveInFrameA.world)
         annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
       MultiBody.Sensors.CutForceAndTorque cutForce2b(
         positiveSign=false,
-        N_to_m=10,
-        Nm_to_m=10,
         resolveInFrame=MultiBody.Types.ResolveInFrameA.frame_resolve)
         annotation (Placement(transformation(extent={{-20,-80},{0,-100}})));
       MultiBody.Parts.FixedTranslation translate1a(r={0,-1,0})
@@ -9916,10 +9862,11 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
     model CutForceAndTorque2
       extends Modelica.Icons.Example;
       parameter Real tol=1e-3;
-      inner MultiBody.World world(n={0,0,-1}) annotation (
+      inner MultiBody.World world(defaultN_to_m=10,
+          defaultNm_to_m=10,n={0,0,-1}) annotation (
           Placement(transformation(extent={{-100,0},{-80,20}})));
-      MultiBody.Sensors.CutForceAndTorque cutForce1a(N_to_m=
-            10, Nm_to_m=10) annotation (Placement(transformation(extent={{-20,
+      MultiBody.Sensors.CutForceAndTorque cutForce1a
+         annotation (Placement(transformation(extent={{-20,
                 20},{0,0}})));
       MultiBody.Parts.FixedTranslation translate1a(r={0,-1,0})
         annotation (Placement(transformation(
@@ -9930,8 +9877,6 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
         annotation (Placement(transformation(extent={{60,0},{80,20}})));
       MultiBody.Sensors.CutForceAndTorque cutForce2a(
         positiveSign=false,
-        N_to_m=10,
-        Nm_to_m=10,
         resolveInFrame=MultiBody.Types.ResolveInFrameA.world)
         annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
       MultiBody.Parts.FixedTranslation translate2a(r={0,-1,0})
@@ -9952,8 +9897,6 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
         r={0,0,0.2}) annotation (Placement(transformation(extent={{-60,-40},{-40,
                 -20}})));
       MultiBody.Sensors.CutForceAndTorque cutForce1b(
-        N_to_m=10,
-        Nm_to_m=10,
         resolveInFrame=MultiBody.Types.ResolveInFrameA.frame_resolve)
         annotation (Placement(transformation(extent={{-20,60},{0,80}})));
       MultiBody.Parts.FixedTranslation translate1b(r={0,-1,0})
@@ -9972,8 +9915,6 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
             transformation(extent={{10,30},{30,50}})));
       MultiBody.Sensors.CutForceAndTorque cutForce2b(
         positiveSign=false,
-        N_to_m=10,
-        Nm_to_m=10,
         resolveInFrame=MultiBody.Types.ResolveInFrameA.frame_resolve)
         annotation (Placement(transformation(extent={{-20,-80},{0,-100}})));
       MultiBody.Parts.FixedTranslation translate2b(r={0,-1,0})
@@ -10284,7 +10225,7 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
             origin={-30,-10},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      MultiBody.Visualizers.SignalArrow arrow(diameter=0.02)
+      MultiBody.Visualizers.SignalArrow arrow
         annotation (Placement(transformation(
             origin={-30,30},
             extent={{-10,-10},{10,10}},
