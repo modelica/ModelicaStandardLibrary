@@ -343,6 +343,15 @@ type Init = enumeration(
       Velocity,
       VelocityAcceleration,
       PositionVelocityAcceleration);
+      
+type VectorQuantity = enumeration(
+      Force,
+      Torque,
+      Velocity,
+      Acceleration,
+      AngularVelocity,
+      AngularAcceleration,
+      RelativePosition);
 
   package Defaults "Default settings of the MultiBody library via constants"
     extends Modelica.Icons.Package;

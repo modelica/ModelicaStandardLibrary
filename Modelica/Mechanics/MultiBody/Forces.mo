@@ -20,11 +20,6 @@ package Forces "Components that exert forces and/or torques between frames"
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
       "Frame in which input force is resolved (1: world, 2: frame_b, 3: frame_resolve)";
-    parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
-      "Force arrow scaling (length = force/N_to_m)"
-      annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter diameter=world.defaultArrowDiameter
-      "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
       "Color of arrow"
       annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
@@ -33,16 +28,14 @@ package Forces "Components that exert forces and/or torques between frames"
       annotation (Dialog(group="if animation = true", enable=animation));
 
   protected
-    SI.Position f_in_m[3]=frame_b.f/N_to_m
-      "Force mapped from N to m for animation";
     Visualizers.Advanced.Arrow arrow(
-      diameter=diameter,
       color=color,
       specularCoefficient=specularCoefficient,
       R=frame_b.R,
       r=frame_b.r_0,
-      r_tail=f_in_m,
-      r_head=-f_in_m) if world.enableAnimation and animation;
+      headAtOrigin=true,
+      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
+      r_head=-frame_b.f) if world.enableAnimation and animation;
 
   public
     Internal.BasicWorldForce basicWorldForce(resolveInFrame=resolveInFrame)
@@ -87,7 +80,6 @@ package Forces "Components that exert forces and/or torques between frames"
             color={95,95,95},
             pattern=LinePattern.Dot)}),
       Documentation(info="<html>
-
 <p>
 The <strong>3</strong> signals of the <strong>force</strong> connector are interpreted
 as the x-, y- and z-coordinates of a <strong>force</strong> acting at the frame
@@ -128,14 +120,12 @@ For efficiency reasons, this reaction torque is, however, not computed.
 
 <p>
 This force component is by default visualized as an arrow
-acting at the connector to which it is connected. The diameter
-and color of the arrow can be defined via
-variables <strong>diameter</strong> and <strong>color</strong>. The arrow
+acting at the connector to which it is connected.
+The color of the arrow can be defined via
+variable <strong>color</strong>. The arrow
 points in the direction defined by the
 force signal. The length of the arrow is proportional
-to the length of the force vector using parameter
-<strong>N_to_m</strong> as scaling factor. For example, if N_to_m = 100 N/m,
-then a force of 350 N is displayed as an arrow of length 3.5 m.
+to the length of the force vector using a&nbsp;global tool-dependent scaling factor.
 </p>
 <p>
 An example how to use this model is given in the
@@ -153,7 +143,6 @@ This leads to the following animation
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForce2.png\">
 </p>
-
 </html>"));
   end WorldForce;
 
@@ -176,11 +165,6 @@ This leads to the following animation
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
       "Frame in which input torque is resolved (1: world, 2: frame_b, 3: frame_resolve)";
-    parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m
-      "Torque arrow scaling (length = torque/Nm_to_m)"
-      annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter diameter=world.defaultArrowDiameter
-      "Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
       "Color of arrow"
       annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
@@ -189,16 +173,14 @@ This leads to the following animation
       annotation (Dialog(group="if animation = true", enable=animation));
 
   protected
-    SI.Position t_in_m[3]=frame_b.t/Nm_to_m
-      "Torque mapped from Nm to m for animation";
     Visualizers.Advanced.DoubleArrow arrow(
-      diameter=diameter,
       color=color,
       specularCoefficient=specularCoefficient,
       R=frame_b.R,
       r=frame_b.r_0,
-      r_tail=t_in_m,
-      r_head=-t_in_m) if world.enableAnimation and animation;
+      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
+      headAtOrigin=true,
+      r_head=-frame_b.t) if world.enableAnimation and animation;
   public
     Internal.BasicWorldTorque basicWorldTorque(resolveInFrame=resolveInFrame)
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
@@ -265,14 +247,12 @@ For efficiency reasons, this reaction torque is, however, not computed.
 
 <p>
 This torque component is by default visualized as a <strong>double arrow</strong>
-acting at the connector to which it is connected. The diameter
-and color of the arrow can be defined via
-variables <strong>diameter</strong> and <strong>color</strong>. The double arrow points
+acting at the connector to which it is connected.
+The color of the arrow can be defined via
+variable <strong>color</strong>. The double arrow points
 in the direction defined by the
 torque vector. The length of the double arrow is proportional
-to the length of the torque vector using parameter
-<strong>Nm_to_m</strong> as scaling factor. For example, if Nm_to_m = 100 Nm/m,
-then a torque of 350 Nm is displayed as an arrow of length 3.5 m.
+to the length of the torque vector using a global tool-dependent scaling factor.
 </p>
 <p>
 An example how to use this model is given in the
@@ -342,16 +322,6 @@ This leads to the following animation
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
       "Frame in which input force and torque are resolved (1: world, 2: frame_b, 3: frame_resolve)";
 
-    parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
-      "Force arrow scaling (length = force/N_to_m)"
-      annotation (Dialog(group="if animation = true", enable=animation));
-    parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m
-      "Torque arrow scaling (length = torque/Nm_to_m)"
-      annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter forceDiameter=world.defaultArrowDiameter
-      "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter torqueDiameter=forceDiameter "Diameter of torque arrow"
-                                  annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
       "Color of force arrow" annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
@@ -361,26 +331,22 @@ This leads to the following animation
       annotation (Dialog(group="if animation = true", enable=animation));
 
   protected
-    SI.Position f_in_m[3]=frame_b.f/N_to_m
-      "Force mapped from N to m for animation";
-    SI.Position t_in_m[3]=frame_b.t/Nm_to_m
-      "Torque mapped from Nm to m for animation";
     Visualizers.Advanced.Arrow forceArrow(
-      diameter=forceDiameter,
       color=forceColor,
       specularCoefficient=specularCoefficient,
+      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
       R=frame_b.R,
       r=frame_b.r_0,
-      r_tail=f_in_m,
-      r_head=-f_in_m) if world.enableAnimation and animation;
+      r_head=-frame_b.f,
+      headAtOrigin=true) if world.enableAnimation and animation;
     Visualizers.Advanced.DoubleArrow torqueArrow(
-      diameter=torqueDiameter,
       color=torqueColor,
       specularCoefficient=specularCoefficient,
+      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
       R=frame_b.R,
       r=frame_b.r_0,
-      r_tail=t_in_m,
-      r_head=-t_in_m) if world.enableAnimation and animation;
+      r_head=-frame_b.t,
+      headAtOrigin=true) if world.enableAnimation and animation;
   public
     Internal.BasicWorldForce basicWorldForce(resolveInFrame=resolveInFrame)
       annotation (Placement(transformation(extent={{18,-50},{38,-70}})));
@@ -500,15 +466,12 @@ For efficiency reasons, this reaction torque is, however, not computed.
 <p>
 The force and torque are by default visualized as an arrow (force)
 and as a double arrow (torque) acting at the connector to which
-they are connected. The diameters
-and colors of the arrows can be defined via
-variables <strong>forceDiameter</strong>, <strong>torqueDiameter</strong>,
+they are connected. The colors of the arrows can be defined via
 <strong>forceColor</strong> and <strong>torqueColor</strong>. The arrows
 point in the directions defined by the
 force and torque vectors. The lengths of the arrows are proportional
-to the length of the force and torque vectors, respectively, using parameters
-<strong>N_to_m</strong> and <strong>Nm_to_m</strong> as scaling factors. For example, if N_to_m = 100 N/m,
-then a force of 350 N is displayed as an arrow of length 3.5 m.
+to the length of the force and torque vectors, respectively, using tool-dependent
+scaling factors.
 </p>
 <p>
 An example how to use this model is given in the
@@ -552,12 +515,7 @@ This leads to the following animation
       resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b
       "Frame in which input force is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
-    parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
-      "Force arrow scaling (length = force/N_to_m)"
-      annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter forceDiameter=world.defaultArrowDiameter
-      "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter connectionLineDiameter=forceDiameter
+    input SI.Diameter connectionLineDiameter=world.defaultArrowDiameter
       "Diameter of line connecting frame_a and frame_b"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
@@ -570,16 +528,14 @@ This leads to the following animation
       annotation (Dialog(group="if animation = true", enable=animation));
 
   protected
-    SI.Position f_in_m[3]=frame_b.f/N_to_m
-      "Force mapped from N to m for animation";
     Visualizers.Advanced.Arrow forceArrow(
-      diameter=forceDiameter,
       color=forceColor,
       specularCoefficient=specularCoefficient,
+      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
       R=frame_b.R,
       r=frame_b.r_0,
-      r_tail=f_in_m,
-      r_head=-f_in_m) if world.enableAnimation and animation;
+      r_head=-frame_b.f,
+      headAtOrigin=true) if world.enableAnimation and animation;
     Visualizers.Advanced.Shape connectionLine(
       shapeType="cylinder",
       lengthDirection = to_unit1(basicForce.r_0),
@@ -738,12 +694,7 @@ clarity this is not shown in the animation):
       resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b
       "Frame in which input force is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
-    parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m
-      "Torque arrow scaling (length = torque/Nm_to_m)"
-      annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter torqueDiameter=world.defaultArrowDiameter
-      "Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter connectionLineDiameter=torqueDiameter
+    input SI.Diameter connectionLineDiameter=world.defaultArrowDiameter
       "Diameter of line connecting frame_a and frame_b"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
@@ -756,22 +707,19 @@ clarity this is not shown in the animation):
       annotation (Dialog(group="if animation = true", enable=animation));
 
   protected
-    SI.Position t_in_m[3]=frame_b.t/Nm_to_m
-      "Torque mapped from Nm to m for animation";
     Visualizers.Advanced.DoubleArrow torqueArrow(
-      diameter=torqueDiameter,
       color=torqueColor,
       specularCoefficient=specularCoefficient,
       R=frame_b.R,
       r=frame_b.r_0,
-      r_tail=t_in_m,
-      r_head=-t_in_m) if world.enableAnimation and animation;
+      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
+      headAtOrigin=true,
+      r_head=-frame_b.t) if world.enableAnimation and animation;
     Visualizers.Advanced.Shape connectionLine(
       shapeType="cylinder",
       lengthDirection = to_unit1(basicTorque.r_0),
       widthDirection={0,1,0},
-      length=Modelica.Math.Vectors.length(
-                           basicTorque.r_0),
+      length=Modelica.Math.Vectors.length(basicTorque.r_0),
       width=connectionLineDiameter,
       height=connectionLineDiameter,
       color=connectionLineColor,
@@ -910,15 +858,13 @@ clarity this is not shown in the animation):
 
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
 
-    Blocks.Interfaces.RealInput force[3](each final quantity="Force", each final unit=
-                     "N")
+    Blocks.Interfaces.RealInput force[3](each final quantity="Force", each final unit="N")
       "x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           origin={-80,120},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-    Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each final unit=
-                     "N.m")
+    Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each final unit="N.m")
       "x-, y-, z-coordinates of torque resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           origin={0,120},
@@ -937,17 +883,7 @@ clarity this is not shown in the animation):
       resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b
       "Frame in which input force and torque are resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
-    parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
-      "Force arrow scaling (length = force/N_to_m)"
-      annotation (Dialog(group="if animation = true", enable=animation));
-    parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m
-      "Torque arrow scaling (length = torque/Nm_to_m)"
-      annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter forceDiameter=world.defaultArrowDiameter
-      "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter torqueDiameter=forceDiameter "Diameter of torque arrow"
-                                  annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter connectionLineDiameter=forceDiameter
+    input SI.Diameter connectionLineDiameter=world.defaultArrowDiameter
       "Diameter of line connecting frame_a and frame_b"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
@@ -962,32 +898,26 @@ clarity this is not shown in the animation):
       annotation (Dialog(group="if animation = true", enable=animation));
 
   protected
-    SI.Position f_in_m[3]=frame_b.f/N_to_m
-      "Force mapped from N to m for animation";
-    SI.Position t_in_m[3]=frame_b.t/Nm_to_m
-      "Torque mapped from Nm to m for animation";
     Visualizers.Advanced.Arrow forceArrow(
-      diameter=forceDiameter,
-      color=forceColor,
       specularCoefficient=specularCoefficient,
+      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
       R=frame_b.R,
       r=frame_b.r_0,
-      r_tail=f_in_m,
-      r_head=-f_in_m) if world.enableAnimation and animation;
+      headAtOrigin=true,
+      r_head=-frame_b.f) if world.enableAnimation and animation;
     Visualizers.Advanced.DoubleArrow torqueArrow(
-      diameter=torqueDiameter,
       color=torqueColor,
       specularCoefficient=specularCoefficient,
+      quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
       R=frame_b.R,
       r=frame_b.r_0,
-      r_tail=t_in_m,
-      r_head=-t_in_m) if world.enableAnimation and animation;
+      headAtOrigin=true,
+      r_head=-frame_b.t) if world.enableAnimation and animation;
     Visualizers.Advanced.Shape connectionLine(
       shapeType="cylinder",
       lengthDirection = to_unit1(basicForce.r_0),
       widthDirection={0,1,0},
-      length=Modelica.Math.Vectors.length(
-                           basicForce.r_0),
+      length=Modelica.Math.Vectors.length(basicForce.r_0),
       width=connectionLineDiameter,
       height=connectionLineDiameter,
       color=connectionLineColor,

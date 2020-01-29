@@ -1759,6 +1759,52 @@ convertElement({"Modelica.Electrical.Machines.BasicMachines.SynchronousInduction
                 "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited",
                 "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor"},
                 "airGapR", "airGap")
+
+// New element Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector
+convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor",
+                  "Modelica.Mechanics.MultiBody.Sensors.RelativeSensor",
+                  "Modelica.Mechanics.MultiBody.Sensors.Distance"},
+                 {"arrowDiameter"}, fill("", 0), true);
+convertModifiers({"Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow",
+                  "Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow",
+                  "Modelica.Mechanics.MultiBody.Visualizers.FixedArrow",
+                  "Modelica.Mechanics.MultiBody.Visualizers.SignalArrow"},
+                 {"diameter"}, fill("", 0), true);
+convertModifiers({"Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit",
+                  "Modelica.Mechanics.MultiBody.Joints.FreeMotion"},
+                 {"arrowDiameter"}, fill("", 0), true);               
+                  
+convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutForce",
+                  "Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque",
+                  "Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque"},
+                 {"forceDiameter"}, fill("", 0), true);
+convertModifiers({"Modelica.Mechanics.MultiBody.Forces.WorldForce",
+                  "Modelica.Mechanics.MultiBody.Forces.WorldTorque"},
+                 {"diameter"}, fill("", 0), true);
+convertModifiers({"Modelica.Mechanics.MultiBody.Forces.Force","Modelica.Mechanics.MultiBody.Forces.ForceAndTorque"},
+                 {"forceDiameter"}, {"connectionLineDiameter=%forceDiameter%"}, false);
+convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutTorque",
+                  "Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque",
+                  "Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque",
+                  "Modelica.Mechanics.MultiBody.Forces.ForceAndTorque"},
+                 {"torqueDiameter"}, fill("", 0), true);
+convertModifiers({"Modelica.Mechanics.MultiBody.Forces.Torque"},
+                 {"torqueDiameter"}, {"connectionLineDiameter=%torqueDiameter%"}, false);
+convertModifiers({"Modelica.Mechanics.MultiBody.Forces.WorldForce",
+                  "Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque",
+                  "Modelica.Mechanics.MultiBody.Forces.Force",
+                  "Modelica.Mechanics.MultiBody.Forces.ForceAndTorque",
+                  "Modelica.Mechanics.MultiBody.Sensors.CutForce",
+                  "Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque"},
+                 {"N_to_m"}, fill("", 0), true)
+convertModifiers({"Modelica.Mechanics.MultiBody.Forces.WorldTorque",
+                  "Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque",
+                  "Modelica.Mechanics.MultiBody.Forces.Torque",
+                  "Modelica.Mechanics.MultiBody.Forces.ForceAndTorque",
+                  "Modelica.Mechanics.MultiBody.Sensors.CutTorque",
+                  "Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque"},
+                 {"Nm_to_m"}, fill("", 0), true);
+
 convertClass("Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch",
              "Modelica.Electrical.Analog.Ideal.IdealTwoWaySwitch");
 convertClass("Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch",
