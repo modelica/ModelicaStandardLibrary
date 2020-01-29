@@ -691,17 +691,16 @@ shown at the location of its frame_a.
 
 <p>
 The direction of the arrow specified with vector
-<strong>n</strong> is with respect to frame_a, i.e., the local frame to which the
-arrow component is attached. The direction and length of the arrow, its diameter
-and color can vary dynamically by
-providing appropriate expressions in the input fields of the
-parameter menu.
+<code>n</code> is with respect to frame_a, i.e., the local frame to which the
+arrow component is attached. The direction, length and color of the arrow
+can vary dynamically by providing appropriate expressions in the input
+fields of the parameter menu.
 </p>
 <p>
-The <strong>quantity</strong> parameter defines what the vector represents, allowing
-tools to scale e.g. forces and torques differently in a consistent way.
-For the default value <strong>RelativePosition</strong> the obvious scaling is 1 and the relative position is shown
-as is.
+The <code>quantity</code> variable defines what the vector represents, allowing
+tools to scale e.g. forces and torques differently in a&nbsp;consistent way.
+For the default value <strong>RelativePosition</strong> the obvious scaling is
+1&nbsp;and the relative position is shown as is.
 </p>
 </html>"));
   end FixedArrow;
@@ -773,20 +772,20 @@ Model <strong>SignalArrow</strong> defines an arrow that is dynamically visualiz
 at the location where its frame_a is attached. The
 vector from the tail to the head of the arrow,
 resolved in frame_a, is defined via the signal vector of
-the connector <strong>r_head</strong> (Real r_head[3]):<br>&nbsp;
+the connector <code>r_head</code> (<code><strong>Real</strong> r_head[3]</code>):<br>&nbsp;
 </p>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png\" alt=\"model Visualizers.SignalArrow\">
 </p>
 <p>
-The <strong>quantity</strong> parameter defines what the vector represents, allowing
-tools to scale e.g. forces and torques differently in a consistent way.
-For the default value <strong>RelativePosition</strong> the obvious scaling is 1 and the relative position is shown
-as is.
+The <code>quantity</code> variable defines what the vector represents, allowing
+tools to scale e.g. forces and torques differently in a&nbsp;consistent way.
+For the default value <strong>RelativePosition</strong> the obvious scaling is
+1&nbsp;and the relative position is shown as is.
 </p>
 <p>
-The tail of the arrow is defined with parameter <strong>r_tail</strong>
+The tail of the arrow is defined with input <code>r_tail</code>
 with respect to frame_a (vector from the origin of frame_a to the arrow tail).
 </p>
 </html>"));
@@ -1869,7 +1868,7 @@ This definition is also available as type
 <p>
 Model <strong>Arrow</strong> defines an arrow that is dynamically
 visualized at the defined location (see variables below).
-If you want an arrow representing something that is not a relative position, use
+If you want an arrow representing something that is not a&nbsp;relative position, use
 <a href=\"Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Vector</a> instead.
 </p>
 
@@ -1881,22 +1880,24 @@ If you want an arrow representing something that is not a relative position, use
 The dialog variables <code>R</code>, <code>r</code>, <code>r_tail</code>, <code>r_head</code>, <code>color</code>,
 <code>specularCoefficient</code>, <code>quantity</code>, and <code>headAtOrigin</code>
 are declared as (time varying) <strong>input</strong> variables.
-If the default equation is not appropriate, a corresponding
+If the default equation is not appropriate, a&nbsp;corresponding
 modifier equation has to be provided in the
 model where an <strong>Arrow</strong> instance is used, e.g., in the form
 </p>
-<pre>
-    Visualizers.Advanced.Arrow arrow(r_head = {sin(time),cos(time},0});
-</pre>
+
+<blockquote><pre>
+Visualizers.Advanced.Arrow arrow(r_head = {sin(time),cos(time},0});
+</pre></blockquote>
 
 <p>
-Variable <strong>color</strong> is an Integer vector with 3 elements,
-{r, g, b}, and specifies the color of the shape.
-{r, g, b} are the \"red\", \"green\" and \"blue\" color parts.
+Variable <code>color</code> is an Integer vector with 3&nbsp;elements,
+{r,&nbsp;g,&nbsp;b}, and specifies the color of the shape.
+{r,&nbsp;g,&nbsp;b} are the &quot;red&quot;, &quot;green&quot; and &quot;blue&quot; color parts.
 Note, r, g and b are given in the range 0&nbsp;&hellip;&nbsp;255.
-The predefined type <strong>MultiBody.Types.Color</strong> contains
-a menu definition of the colors used in the MultiBody
-library (will be replaced by a color editor).
+The predefined type
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a>
+contains a&nbsp;menu definition of the colors used in the MultiBody
+library together with a&nbsp;color editor.
 </p>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -1979,6 +1980,9 @@ library (will be replaced by a color editor).
 <p>
 Model <strong>DoubleArrow</strong> defines a double arrow that is dynamically
 visualized at the defined location (see variables below).
+Nonetheless, visualizing physical vectors by means of
+<a href=\"Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Vector</a>
+can be better option in many cases.
 </p>
 
 <p>
@@ -1989,21 +1993,24 @@ visualized at the defined location (see variables below).
 The dialog variables <code>R</code>, <code>r</code>, <code>r_tail</code>, <code>r_head</code>, <code>color</code>,
 <code>specularCoefficient</code>, <code>quantity</code>, and <code>headAtOrigin</code>
 are declared as (time varying) <strong>input</strong> variables.
-If the default equation is not appropriate, a corresponding
+If the default equation is not appropriate, a&nbsp;corresponding
 modifier equation has to be provided in the
 model where an <strong>Arrow</strong> instance is used, e.g., in the form
 </p>
+
 <blockquote><pre>
 Visualizers.Advanced.DoubleArrow doubleArrow(r_head = {sin(time),cos(time},0})
 </pre></blockquote>
+
 <p>
-Variable <strong>color</strong> is an Integer vector with 3 elements,
-{r, g, b}, and specifies the color of the shape.
-{r, g, b} are the \"red\", \"green\" and \"blue\" color parts.
+Variable <strong>color</strong> is an Integer vector with 3&nbsp;elements,
+{r,&nbsp;g,&nbsp;b}, and specifies the color of the shape.
+{r,&nbsp;g,&nbsp;b} are the &quot;red&quot;, &quot;green&quot; and &quot;blue&quot; color parts.
 Note, r, g and b are given in the range 0&nbsp;&hellip;&nbsp;255.
-The predefined type <strong>MultiBody.Types.Color</strong> contains
-a menu definition of the colors used in the MultiBody
-library (will be replaced by a color editor).
+The predefined type
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a>
+contains a&nbsp;menu definition of the colors used in the MultiBody
+library together with a&nbsp;color editor.
 </p>
 </html>"));
     end DoubleArrow;
@@ -2012,13 +2019,13 @@ library (will be replaced by a color editor).
 
       extends ModelicaServices.Animation.Vector;
       extends Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialVector;
- 
+
       annotation (
         Documentation(info="<html>
 <p>
 Model <strong>Vector</strong> defines a&nbsp;vector that is dynamically
 visualized at the defined location (see variables below).
-The vector-length does not represent
+The vector length does not represent
 a&nbsp;physical length, but a&nbsp;different 3-dimensional quantity
 (such as force, torque, speed, &hellip;), except for <strong>RelativePosition</strong>.
 
@@ -2040,14 +2047,14 @@ Visualizers.Advanced.Vector vectorForce(coordinates = {sin(time),cos(time),0});
 </pre></blockquote>
 
 <p>
-Variable <strong>color</strong> is an Integer vector with 3 elements,
+Variable <code>color</code> is an Integer vector with 3&nbsp;elements,
 {r,&nbsp;g,&nbsp;b}, and specifies the color of the shape.
-{{r,&nbsp;g,&nbsp;b} are the &quot;red&quot;, &quot;green&quot; and &quot;blue&quot; color parts.
+{r,&nbsp;g,&nbsp;b} are the &quot;red&quot;, &quot;green&quot; and &quot;blue&quot; color parts.
 Note, r, g and b are given in the range 0&nbsp;&hellip;&nbsp;255.
 The predefined type
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a>
-contains a menu definition of the colors 
-used in the MultiBody library together with a&nbsp;color editor.
+contains a&nbsp;menu definition of the colors used in the MultiBody
+library together with a&nbsp;color editor.
 </p>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
