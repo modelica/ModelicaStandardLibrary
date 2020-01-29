@@ -9,9 +9,9 @@ partial package PartialModelicaServices
     extends Modelica.Icons.Package;
   partial model PartialShape "Interface for 3D animation of elementary shapes"
 
-        import SI = Modelica.SIunits;
-        import Modelica.Mechanics.MultiBody.Frames;
-        import Modelica.Mechanics.MultiBody.Types;
+    import SI = Modelica.SIunits;
+    import Modelica.Mechanics.MultiBody.Frames;
+    import Modelica.Mechanics.MultiBody.Types;
 
     parameter Types.ShapeType shapeType="box"
       "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring, <external shape>)";
@@ -33,6 +33,7 @@ partial package PartialModelicaServices
     input Real color[3]={255,0,0} "Color of shape" annotation(Dialog(colorSelector=true));
     input Types.SpecularCoefficient specularCoefficient = 0.7
       "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog);
+
     annotation (
       Documentation(info="<html>
 <p>
@@ -61,8 +62,8 @@ This model is documented at
       input Boolean headAtOrigin=false "= true, if the vector is pointing towards the origin of vector frame" annotation(Dialog);
       input Boolean twoHeadedArrow=false "= true, if the arrow has two heads after each other (pointing in the same direction)" annotation(Dialog);
 
-    annotation (
-      Documentation(info="<html>
+      annotation (
+        Documentation(info="<html>
 <p>
 This model is documented at
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector</a>.
@@ -72,36 +73,34 @@ This model is documented at
 
     model PartialSurface "Interface for 3D animation of surfaces"
 
-        import Modelica.Mechanics.MultiBody.Frames;
-        import Modelica.Mechanics.MultiBody.Types;
+      import Modelica.Mechanics.MultiBody.Frames;
+      import Modelica.Mechanics.MultiBody.Types;
 
       input Frames.Orientation R=Frames.nullRotation()
-          "Orientation object to rotate the world frame into the surface frame"
+        "Orientation object to rotate the world frame into the surface frame"
         annotation(Dialog(group="Surface frame"));
       input Modelica.SIunits.Position r_0[3]={0,0,0}
-          "Position vector from origin of world frame to origin of surface frame, resolved in world frame"
+        "Position vector from origin of world frame to origin of surface frame, resolved in world frame"
         annotation(Dialog(group="Surface frame"));
 
       parameter Integer nu=2 "Number of points in u-Dimension" annotation(Dialog(group="Surface properties"));
       parameter Integer nv=2 "Number of points in v-Dimension" annotation(Dialog(group="Surface properties"));
       replaceable function surfaceCharacteristic =
-         Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic
-          "Function defining the surface characteristic"
-              annotation(choicesAllMatching=true,Dialog(group="Surface properties"));
+        Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic
+        "Function defining the surface characteristic"
+        annotation(choicesAllMatching=true,Dialog(group="Surface properties"));
 
-      parameter Boolean wireframe=false
-          "= true: 3D model will be displayed without faces"
+      parameter Boolean wireframe=false "= true: 3D model will be displayed without faces"
         annotation (Dialog(group="Material properties"),choices(checkBox=true));
-      parameter Boolean multiColoredSurface=false
-          "= true: Color is defined for each surface point"
-          annotation(Dialog(group="Material properties"),choices(checkBox=true));
+      parameter Boolean multiColoredSurface=false "= true: Color is defined for each surface point"
+        annotation(Dialog(group="Material properties"),choices(checkBox=true));
       input Real color[3]={255,0,0} "Color of surface" annotation(Dialog(colorSelector=true,group="Material properties", enable=not multiColoredSurface));
       input Types.SpecularCoefficient specularCoefficient = 0.7
-          "Reflection of ambient light (= 0: light is completely absorbed)"
-                                                                          annotation(Dialog(group="Material properties"));
-      input Real transparency=0
-          "Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)"
-                                   annotation(Dialog(group="Material properties"));
+        "Reflection of ambient light (= 0: light is completely absorbed)"
+        annotation(Dialog(group="Material properties"));
+      input Real transparency=0 "Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)"
+        annotation(Dialog(group="Material properties"));
+
       annotation (Documentation(info="<html>
 <p>
 This model is documented at
