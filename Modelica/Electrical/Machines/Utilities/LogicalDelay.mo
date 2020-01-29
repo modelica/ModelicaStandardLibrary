@@ -9,12 +9,11 @@ block LogicalDelay "Delay boolean signal"
   Blocks.Interfaces.BooleanOutput y2
   annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
 protected
-  Boolean not_u=not u;
   discrete SIunits.Time tSwitch;
 initial equation
   tSwitch = time - 2*delayTime;
 equation
-  when {u, not_u} then
+  when {u, not u} then
     tSwitch = time;
   end when;
   y1 = if u then true else not (time >= tSwitch + delayTime);
