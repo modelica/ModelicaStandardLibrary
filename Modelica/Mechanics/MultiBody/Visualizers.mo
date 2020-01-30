@@ -1132,7 +1132,7 @@ connector frame_a (visualized by the red coordinate system in the figure below).
           Polygon(origin = {-5, 0}, lineColor = {107, 0, 4}, fillColor = {251, 0, 7}, fillPattern = FillPattern.Sphere, points = {{90.667, 0}, {90.096, 8.651}, {88.44, 16.645}, {85.785, 23.57}, {80.378, 30.796}, {74, 33.333}, {67.622, 30.796}, {62.215, 23.57}, {59.56, 16.645}, {57.904, 8.651}, {57.333, 0}, {57.904, -8.651}, {59.56, -16.645}, {62.215, -23.57}, {67.622, -30.796}, {74, -33.333}, {80.378, -30.796}, {85.785, -23.57}, {88.44, -16.645}, {90.096, -8.651}, {90.667, 0}}, smooth=Smooth.Bezier),                                                                                                                                                                                                        Line(origin = {-5, 0}, points = {{-76, 33.333}, {-76, 33.333}, {-82.378, 30.796}, {-87.785, 23.57}, {-90.44, 16.645}, {-92.096, 8.651}, {-92.667, 0}, {-92.096, -8.651}, {-90.44, -16.645}, {-87.785, -23.57}, {-82.378, -30.796}, {-76, -33.333}, {-76, -33.333}, {74, -33.333}, {74, -33.333}, {80.378, -30.796}, {85.785, -23.57}, {88.44, -16.645}, {90.096, -8.651}, {90.667, 0}, {90.096, 8.651}, {88.44, 16.645}, {85.785, 23.57}, {80.378, 30.796}, {74, 33.333}, {74, 33.333}, {-76, 33.333}}, color = {64, 64, 64}, arrowSize = 8, smooth = Smooth.Bezier)},
         coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true)),
     Documentation(info = "<html>
-<p> 
+<p>
 Model <strong>PipeWithScalarField</strong> visualizes a pipe and a scalar
 field along the pipe axis. The latter is shown by mapping the scalar
 field to color values with a color map and utilizing this color
@@ -2121,7 +2121,7 @@ library together with a&nbsp;color editor.
               pattern=LinePattern.None,
               lineColor={0,0,0})}));
     end Vector;
-    
+
     model Shape
       "Visualizing an elementary object with variable size; all data have to be set as modifiers (see info layer)"
 

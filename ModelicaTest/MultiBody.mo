@@ -1386,7 +1386,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 
     model ForcesAndTorques
       extends Modelica.Icons.Example;
-      inner MultiBody.World world(defaultN_to_m=600, 
+      inner MultiBody.World world(defaultN_to_m=600,
         defaultNm_to_m=120) annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
       MultiBody.Joints.Revolute Revolute1(
         n={0,1,0},
@@ -2271,7 +2271,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
     model FrameTorques2
       extends Modelica.Icons.Example;
       parameter Real tol=1e-4;
-      inner MultiBody.World world(defaultNm_to_m=120) 
+      inner MultiBody.World world(defaultNm_to_m=120)
           annotation (Placement(transformation(extent={{-90,-30},{-70,-10}})));
       MultiBody.Joints.Revolute Revolute1(
         n={0,1,0},
@@ -2832,7 +2832,7 @@ a linear damper is connected here.
 
     model Torque2
       extends Modelica.Icons.Example;
-      inner MultiBody.World world(defaultNm_to_m=120) 
+      inner MultiBody.World world(defaultNm_to_m=120)
         annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
       MultiBody.Joints.Revolute Revolute1(
         n={0,1,0},
@@ -3181,7 +3181,7 @@ a linear damper is connected here.
 
     model WorldForces
       extends Modelica.Icons.Example;
-      inner MultiBody.World world(defaultN_to_m=600,defaultNm_to_m=200) 
+      inner MultiBody.World world(defaultN_to_m=600,defaultNm_to_m=200)
             annotation (Placement(transformation(extent={{-100,20},
                 {-80,40}})));
       MultiBody.Joints.Revolute Revolute1(phi(fixed=true), w(fixed=true)) annotation (
@@ -3284,7 +3284,7 @@ a linear damper is connected here.
 
     model WorldForces2
       extends Modelica.Icons.Example;
-      inner MultiBody.World world(defaultN_to_m=600) 
+      inner MultiBody.World world(defaultN_to_m=600)
           annotation (Placement(transformation(
             extent={{10,-10},{-10,10}},
             origin={86,-10})));
@@ -3387,7 +3387,7 @@ a linear damper is connected here.
     model WorldTorques
       extends Modelica.Icons.Example;
       parameter Real tol=1e-4;
-      inner MultiBody.World world(defaultNm_to_m=200) 
+      inner MultiBody.World world(defaultNm_to_m=200)
         annotation (Placement(transformation(extent={{10,-10},{-10,10}},
             origin={80,18})));
       MultiBody.Parts.Fixed fixed2(r={0,-0.5,0}) annotation (Placement(transformation(
@@ -9488,7 +9488,7 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
           points={{79,-10},{62,-10}}, color={0,0,127}));
       annotation (experiment(StopTime=1.1));
     end CutForce3;
-    
+
     model CutTorque
       extends Modelica.Icons.Example;
       parameter Real tol=1e-3;
@@ -9669,7 +9669,7 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end CutTorque2;
-    
+
     model CutTorque3
       extends Modelica.Icons.Example;
       inner Modelica.Mechanics.MultiBody.World world(animateWorld=false,

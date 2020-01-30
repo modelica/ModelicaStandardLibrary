@@ -71,8 +71,8 @@ This set of symmetrical components is repeated for each of the n<sub>Base</sub> 
 </p>
 <h4>Polygon connection</h4>
 <p>
-For polyphase systems, star connection of the m phases is unambiguous, i.e., each pin of the plug is connected to the starpoint pin, 
-whereas for polygon connection (m<sub>Base</sub> - 1)/2 alternatives exist (refer to Fig. 3). 
+For polyphase systems, star connection of the m phases is unambiguous, i.e., each pin of the plug is connected to the starpoint pin,
+whereas for polygon connection (m<sub>Base</sub> - 1)/2 alternatives exist (refer to Fig. 3).
 </p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\"><strong>Fig. 3: </strong>Line-to-neutral voltages and line-to-line voltages for different systems</caption>
@@ -126,7 +126,7 @@ whereas for polygon connection (m<sub>Base</sub> - 1)/2 alternatives exist (refe
   </tr>
 </table>
 <p>
-Therefore, using the <a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MultiDelta\">MultiDelta</a> component, 
+Therefore, using the <a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MultiDelta\">MultiDelta</a> component,
 the alternative has to be specified by the parameter kPolygon.
 </p>
 <h4>See also</h4>

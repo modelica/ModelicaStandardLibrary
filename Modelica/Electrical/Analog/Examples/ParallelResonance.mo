@@ -100,7 +100,7 @@ equation
   annotation (experiment(StopTime=1.0, Interval=0.0001), Documentation(info="<html>
 <p>
 This model demonstrates the transient behaviour of a parallel resonant circuit:
-A sine or cosine current with variable frequency and constant amplitude is applied to a parallel connection of L, C and R. 
+A sine or cosine current with variable frequency and constant amplitude is applied to a parallel connection of L, C and R.
 The parameter values result in a resonance frequency of 100 Hz.
 </p>
 </html>"));

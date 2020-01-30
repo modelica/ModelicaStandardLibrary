@@ -1151,10 +1151,10 @@ Thus, we have to sample for a&nbsp;period of <code>n*samplePeriod&nbsp;=&nbsp;1/
 </p>
 <p>
 The result file &quot;rectifier6pulseFFTresult.mat&quot; can be used to plot
-amplitudes versus frequencies. 
+amplitudes versus frequencies.
 Note that for each frequency three rows exit: one with amplitude zero,
-one with the calculated amplitude, one with apmplitude zero. 
-Thus, the second column (amplitude) can be easily plotted versus the first column (frequency). 
+one with the calculated amplitude, one with apmplitude zero.
+Thus, the second column (amplitude) can be easily plotted versus the first column (frequency).
 As expected, one can see the 5<sup>th</sup>, 7<sup>th</sup>, 11<sup>th</sup>,
 13<sup>th</sup>, 17<sup>th</sup>, 19<sup>th</sup>, 23<sup>th</sup>, 25<sup>th</sup>,
 &hellip; harmonic in the result.
@@ -1189,17 +1189,17 @@ Sampling starts after the initial transients are settled - waiting for
 Choosing a&nbsp;maximum frequency <code>f_max&nbsp;=&nbsp;2000&nbsp;Hz</code>,
 a&nbsp;frequency resolution <code>f_res&nbsp;=&nbsp;5&nbsp;Hz</code>
 (both given in the block <code>realFFT</code>) and
-the default oversampling factor <code>f_max_factor&nbsp;=&nbsp;5</code>, 
+the default oversampling factor <code>f_max_factor&nbsp;=&nbsp;5</code>,
 we have to acquire <code>n&nbsp;= 2*f_max/f_res*f_max_factor&nbsp;=&nbsp;4000</code>
-sampling intervals. 
-The resulting sampling interval is <code>samplePeriod&nbsp;=&nbsp;1/(n*f_res)&nbsp;=&nbsp;0.05&nbsp;ms</code>. 
+sampling intervals.
+The resulting sampling interval is <code>samplePeriod&nbsp;=&nbsp;1/(n*f_res)&nbsp;=&nbsp;0.05&nbsp;ms</code>.
 Thus, we have to sample for a&nbsp;period of <code>n*samplePeriod = 1/f_res = 0.2 s</code>.
 </p>
 <p>
-The resultfile &quot;rectifier12pulseFFTresult.mat&quot; can be used to plot amplitudes versus frequencies. 
+The resultfile &quot;rectifier12pulseFFTresult.mat&quot; can be used to plot amplitudes versus frequencies.
 Note that for each frequency three rows exit: one with amplitude zero,
-one with the calculated amplitude, one with apmplitude zero. 
-Thus, the second column (amplitude) can be easily plotted versus the first column (frequency). 
+one with the calculated amplitude, one with apmplitude zero.
+Thus, the second column (amplitude) can be easily plotted versus the first column (frequency).
 As expected, one can see the 11<sup>th</sup>, 13<sup>th</sup>, 23<sup>th</sup>, 25<sup>th</sup>,
 &hellip; harmonic in the result.
 </p>
@@ -1417,15 +1417,15 @@ The sin-cos-encoder provides four tracks:
 <li>minus cosine</li>
 </ul>
 <p>
-All four tracks have the same amplitude and the same offset &gt; amplitude. Offset is used to detect loss of a track. 
-To remove offset, (minus sine) is subtracted from (sine) and (minus cosine) from (cosine), 
+All four tracks have the same amplitude and the same offset &gt; amplitude. Offset is used to detect loss of a track.
+To remove offset, (minus sine) is subtracted from (sine) and (minus cosine) from (cosine),
 resulting in a cosine and a sine signal with doubled amplitude but without offset.
 </p>
 <p>
-Interpreting cosine and sine as real and imaginary part of a phasor, one could calculate the angle of the phasor (i.e. transform rectangular coordinates to polar coordinates). 
-This is not very robust if the signals are superimposed with some noise. 
-Therefore the phasor is rotated by an angle that is obtained by a controller. The controller aims at imaginary part equal to zero. 
-The resulting angle is continuous, i.e. differentiating the angle results in 2*&pi;*frequency. 
+Interpreting cosine and sine as real and imaginary part of a phasor, one could calculate the angle of the phasor (i.e. transform rectangular coordinates to polar coordinates).
+This is not very robust if the signals are superimposed with some noise.
+Therefore the phasor is rotated by an angle that is obtained by a controller. The controller aims at imaginary part equal to zero.
+The resulting angle is continuous, i.e. differentiating the angle results in 2*&pi;*frequency.
 If desired, the angle can be wrapped to the interval [-&pi;, +&pi;].
 </p>
 </html>"));

@@ -17,7 +17,7 @@ equation
       Documentation(info="<html>
 <p>
 The relative sensor partial model relies on the
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.TwoPinElementary\">TwoPinElementary</a> 
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.TwoPinElementary\">TwoPinElementary</a>
 to measure the complex voltage or current. Additionally this model contains a proper icon and a definition of the angular velocity.
 </p>
 

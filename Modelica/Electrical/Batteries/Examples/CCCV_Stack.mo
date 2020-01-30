@@ -85,7 +85,7 @@ equation
       Tolerance=1e-06),
     Documentation(info="<html>
 <p>
-A stack of cells with one degraded cell (with indices <code>[1,1]</code>, with double inner resistance), all cells depleted to <code>SOC = 0.1</code>, is recharged with a CC-CV charger. 
+A stack of cells with one degraded cell (with indices <code>[1,1]</code>, with double inner resistance), all cells depleted to <code>SOC = 0.1</code>, is recharged with a CC-CV charger.
 Simulate for 1200 s and plot versus <code>time</code>:
 </p>
 <ul>

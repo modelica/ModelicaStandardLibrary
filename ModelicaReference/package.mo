@@ -1481,8 +1481,8 @@ In a top-level class, the version number and the dependency to earlier versions 
      the CURRENT-VERSION-NUMBER of the current class without any changes.<br>&nbsp;</li>
 
 <li> <code>conversion ( from (version = VERSION-NUMBER, [to = VERSION_NUMBER \",\"] script = \"?\" ) ) </code><br>
-     Defines that user models using the VERSION-NUMBER or any of the given VERSION-NUMBER can be upgraded to the given VERSION-NUMBER 
-     (if the to-tag is missing this is the CURRENT-VERSION-NUMBER) of the current class by applying the given conversion rules. 
+     Defines that user models using the VERSION-NUMBER or any of the given VERSION-NUMBER can be upgraded to the given VERSION-NUMBER
+     (if the to-tag is missing this is the CURRENT-VERSION-NUMBER) of the current class by applying the given conversion rules.
      <em>The to-tag is added for clarity and optionally allows a tool to convert in multiple steps.</em>
      <br>&nbsp;</li>
 
@@ -1931,7 +1931,7 @@ The external C-functions may be defined in the following way:
   class 'function' "function"
     extends ModelicaReference.Icons.Information;
 
- 
+
 
 class 'function partial application' "function partial application"
     extends ModelicaReference.Icons.Information;
@@ -2051,31 +2051,31 @@ a component, according to case (d) above:
 </pre></blockquote>
 </html>"));
   end 'function partial application';
-  
+
   class 'pure function' "pure function"
     extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
     <p>
-Modelica functions are normally pure which makes it easy for humans to reason about the code 
+Modelica functions are normally pure which makes it easy for humans to reason about the code
 since they behave as mathematical functions, and possible for compilers to optimize.</p>
 <ul>
 <li>
-Pure Modelica functions always give the same output values or errors for the same input values 
-and only the output values influence the simulation result, i.e. is seen as equivalent to a mathematical map from input values to output values. 
-Some input values may map to errors. Pure functions are thus allowed to fail by 
-calling assert, or ModelicaError in C-code, or dividing by zero. 
+Pure Modelica functions always give the same output values or errors for the same input values
+and only the output values influence the simulation result, i.e. is seen as equivalent to a mathematical map from input values to output values.
+Some input values may map to errors. Pure functions are thus allowed to fail by
+calling assert, or ModelicaError in C-code, or dividing by zero.
 Such errors will only be reported when and if the function is called.
 Pure Modelica functions are not assumed to be thread-safe.</li>
 <li>A Modelica function which does not have the pure function properties is impure.</li>
 </ul>
 <p>The declaration of functions follow these rules:</p>
 <ul>
-<li>Functions defined in Modelica (non-external) are normally assumed to be pure (the exception is the deprecated case below), 
+<li>Functions defined in Modelica (non-external) are normally assumed to be pure (the exception is the deprecated case below),
 if they are impure they shall be marked with the impure keyword. They can be explicitly marked as pure.</li>
 <li>External functions must be explicitly declared with pure or impure.</li>
-<li>A deprecated semantics is that external functions (and functions defined in Modelica directly or indirectly calling them) 
-without pure or impure keyword are assumed to be impure – but without any restriction on calling them. 
+<li>A deprecated semantics is that external functions (and functions defined in Modelica directly or indirectly calling them)
+without pure or impure keyword are assumed to be impure – but without any restriction on calling them.
 Except for the function Modelica.Utilities.Streams.print diagnostics must be given if called in a simulation model.</li>
 </ul>
     </html>"));
@@ -2139,8 +2139,8 @@ general Modelica class:
 <li> A function can have at most one algorithm section or one external function interface (not both), which, if present, is the body of the function.</li>
 
 <li> For a function to be called in a simulation model, the function may not be partial,
-     and the output variables must be assigned inside the function either in declaration assignments 
-     or in an algorithm section, or have an external function interface as its body, or be defined as a function partial derivative. 
+     and the output variables must be assigned inside the function either in declaration assignments
+     or in an algorithm section, or have an external function interface as its body, or be defined as a function partial derivative.
      The output variables of a function should be computed.</li>
 
 <li> A function cannot contain calls to the Modelica built-in operators

@@ -7,7 +7,7 @@ class References "References"
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <td>[Ceraolo2014]</td>
-    <td>M. Ceraolo and D. Poli; <em>Fundamentals of Electric Power Engineering</em>, IEEE/Wiley 2014, 
+    <td>M. Ceraolo and D. Poli; <em>Fundamentals of Electric Power Engineering</em>, IEEE/Wiley 2014,
       <a href=\"https://www.wiley.com/en-us/Fundamentals+of+Electric+Power+Engineering:+From+Electromagnetics+to+Power+Systems-p-9781118679692\">ISBN 978-1-118-67969-2</a>.</td>
   </tr>
   <tr>

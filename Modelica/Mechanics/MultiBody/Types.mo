@@ -343,7 +343,7 @@ type Init = enumeration(
       Velocity,
       VelocityAcceleration,
       PositionVelocityAcceleration);
-      
+
 type VectorQuantity = enumeration(
       Force,
       Torque,

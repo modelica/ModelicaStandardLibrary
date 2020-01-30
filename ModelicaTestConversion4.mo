@@ -1988,7 +1988,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue2653jointSet;
-      
+
       package Issue2501Vector "Conversion tests for #2501 New vector visualization"
         extends Modelica.Icons.ExamplesPackage;
         model DoublePendulum
@@ -2122,7 +2122,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
           annotation (
             experiment(StopTime=3),
             Documentation(info="<html>
-Demonstrates sensors visualization in vectors - 
+Demonstrates sensors visualization in vectors -
 based on <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulum\">DoublePendulum</a>.
 </html>"));
         end DoublePendulum;

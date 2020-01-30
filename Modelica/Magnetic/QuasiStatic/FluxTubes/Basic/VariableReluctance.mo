@@ -21,7 +21,7 @@ equation
         textString="%name",
         textColor={0,0,255})}), Documentation(info="<html>
 <p>
-The reluctance of this model is controlled by a real signal input. 
+The reluctance of this model is controlled by a real signal input.
 </p>
 </html>"));
 end VariableReluctance;

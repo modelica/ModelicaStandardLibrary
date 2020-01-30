@@ -250,7 +250,7 @@ package OpAmps "Examples with operational amplifiers"
 This model demonstrates a differential amplifier to attenuate the input voltage to a level that can be handled by the measurement instrument.
 </p>
 <p>
-Two sinusoidal source voltages with a phase shift of 120&deg; (e.g., two phases of a three-phase system) feed a load resistor. 
+Two sinusoidal source voltages with a phase shift of 120&deg; (e.g., two phases of a three-phase system) feed a load resistor.
 The voltage at the load resistor has to be measured but is too high for direct measurement.
 </p>
 <h4>Notes</h4>
@@ -258,8 +258,8 @@ The voltage at the load resistor has to be measured but is too high for direct m
 <li>The output of the amplifier is inverted with respect to the differential input, as well as attenuated by the factor 1/data.k.</li>
 <li>The influence of the measurement instrument's input resistance on the measurement result is small.</li>
 <li>The current consumption of the amplifier inputs at the source circuit is small (<code>resistor1.i</code> and <code>resistor2.i</code>).</li>
-<li>The common of the source and the common of the amplifier are connected by a ground resistor. 
-In case this resistance is low, a small current is flowing between the amplifier's common and the source's common (<code>resistorGround.i</code>). 
+<li>The common of the source and the common of the amplifier are connected by a ground resistor.
+In case this resistance is low, a small current is flowing between the amplifier's common and the source's common (<code>resistorGround.i</code>).
 In case this resistance is high, the amplifier's common is floating with respect to the source's common with a high voltage (<code>resistorGround.v</code>).</li>
 </ul>
 </html>"));
@@ -1195,7 +1195,7 @@ The output of the integrator part opamp (opAmp2) is a triangular signal of also 
             coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>
-Partial model for operational amplifier circuits, based on the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model. 
+Partial model for operational amplifier circuits, based on the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.
 Different functionality is achieved by different circuits.
 </p>
 </html>"));

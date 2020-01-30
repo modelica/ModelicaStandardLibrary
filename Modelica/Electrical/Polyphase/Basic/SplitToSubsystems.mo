@@ -20,8 +20,8 @@ equation
   end for;
   annotation (Documentation(info="<html>
 <p>
-Splits the m phases in plug_p into subsystems, i.e., mSystems plugs with mBasic pins according to 
-<a href=\"modelica://Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation\">phase orientation</a> described in the users guide. 
+Splits the m phases in plug_p into subsystems, i.e., mSystems plugs with mBasic pins according to
+<a href=\"modelica://Modelica.Electrical.Polyphase.UsersGuide.PhaseOrientation\">phase orientation</a> described in the users guide.
 </p>
 </html>"), Icon(graphics={
         Text(

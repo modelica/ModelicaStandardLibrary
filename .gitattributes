@@ -11,10 +11,12 @@
 *.mos text
 *.order text
 *.py text
+*.txt text
 *.yml text
 .gitattributes text
 .gitignore text
 .mailmap text
+LICENSE text
 
 # git archive keyword substitions for the main package files
 Complex.mo export-subst

@@ -51,10 +51,10 @@ equation
               fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
 <p>
-This model represents the internal connections of the terminal box of an electric machine. 
-The parameter <code>terminalConnection</code> is used to switch between star 
-(<code>terminalConnection = \"Y\"</code>) and delta (<code>terminalConnection = \"D\"</code>) connection. 
-The (single-phase) connector <code>starPoint</code> is only available if star connection is selected. 
+This model represents the internal connections of the terminal box of an electric machine.
+The parameter <code>terminalConnection</code> is used to switch between star
+(<code>terminalConnection = \"Y\"</code>) and delta (<code>terminalConnection = \"D\"</code>) connection.
+The (single-phase) connector <code>starPoint</code> is only available if star connection is selected.
 </p>
 </html>"));
 end TerminalBox;

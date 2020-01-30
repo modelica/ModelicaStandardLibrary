@@ -75,11 +75,11 @@ equation
 <p>In case of a three-phase system without neutral we may want to measure power flowing in a line, connecting, say, the left part of the circuit to its right part. The wires connecting the two parts are only three (i.e., <em>m</em>=3)
 and therefore all currents between these two parts are <em>i</em><sub>1</sub>, <em>i</em><sub>2</sub>, <em>i</em><sub>3</sub>.&nbsp;</p>
 <p>Since the voltage to be taken as reference is arbitrary, we can take the voltage of conductor 2. Therefore our power becomes:</p>
-<p><em>P</em>=(<em>v</em><sub>1</sub>-<em>v</em><sub>2</sub>)*<em>i</em><sub>1</sub>+(<em>v</em><sub>2</sub>-<em>v</em><sub>2</sub>)*<em>i</em><sub>2</sub>+(<em>v</em><sub>3</sub>-<em>v</em><sub>2)</sub>*<em>i</em><sub>3 </sub>= 
+<p><em>P</em>=(<em>v</em><sub>1</sub>-<em>v</em><sub>2</sub>)*<em>i</em><sub>1</sub>+(<em>v</em><sub>2</sub>-<em>v</em><sub>2</sub>)*<em>i</em><sub>2</sub>+(<em>v</em><sub>3</sub>-<em>v</em><sub>2)</sub>*<em>i</em><sub>3 </sub>=
 (<em>v</em><sub>1</sub>-<em>v</em><sub>2</sub>)*i<sub>1</sub>+(<em>v</em><sub>3</sub>-<em>v</em><sub>2</sub>)* i<sub>3</sub></p>
 <p>In this way, we can just sum up the power from two wattmeters to get the three-phase power.</p>
 <p>Note, that this formula does not work if there are additional current paths between the left and right parts of our circuits, e.g., if both have grounds (and current flows through it).</p>
-<p>For more information on why power flowing in a circuit between two subcircuits is the sum of products of voltages times currents, the voltages being measured to an arbitrary reference potential, see 
+<p>For more information on why power flowing in a circuit between two subcircuits is the sum of products of voltages times currents, the voltages being measured to an arbitrary reference potential, see
 [<a href=\"modelica://Modelica.Electrical.Polyphase.UsersGuide.References\">Ceraolo2014</a>, par. 3.8.1].</p>
 </html>"));
 end AronSensor;

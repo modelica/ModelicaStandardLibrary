@@ -1,4 +1,4 @@
-﻿within Modelica.Fluid.Examples;
+within Modelica.Fluid.Examples;
 package DrumBoiler
   "Drum boiler example, see Franke, Rode, Krüger: On-line Optimization of Drum Boiler Startup, 3rd International Modelica Conference, Linköping, 2003"
 

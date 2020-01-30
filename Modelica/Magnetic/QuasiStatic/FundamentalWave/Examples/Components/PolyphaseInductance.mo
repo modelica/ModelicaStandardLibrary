@@ -131,6 +131,6 @@ and the imaginary parts
 
 <p>
 of the two currents show the same result and thus prove the equivalence of the two different modelling approaches.
-</p> 
+</p>
 </html>"));
 end PolyphaseInductance;

@@ -11,7 +11,7 @@ expandable connector StackBusArrays "Measurement signal bus for a stack, arrange
   Modelica.SIunits.Temperature T[Ns, Np] "Cells temperatures";
   annotation (Documentation(info="<html>
 <p>
-Measurement bus of a stack, containing arrays of measured values, arranged in a matrix <code>Ns</code> x <code>Np</code> 
+Measurement bus of a stack, containing arrays of measured values, arranged in a matrix <code>Ns</code> x <code>Np</code>
 the same way as the stack is built from cells.
 </p>
 </html>"));

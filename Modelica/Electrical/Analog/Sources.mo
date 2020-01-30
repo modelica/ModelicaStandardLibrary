@@ -288,11 +288,11 @@ package Sources "Time-dependent and controlled voltage and current sources"
 </ul>
 </html>", info="<html>
 <p>
-This voltage source provides a sinusoidal voltage with variable frequency <code>f</code> and variable amplitude <code>V</code>, 
+This voltage source provides a sinusoidal voltage with variable frequency <code>f</code> and variable amplitude <code>V</code>,
 i.e. the phase angle of the sine wave is integrated from 2*&pi;*f.
 </p>
 <p>
-Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift, 
+Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift,
 and that the parameter <code>startTime</code> is omitted since the voltage can be kept equal to offset with setting the input <code>V</code> to zero.
 </p>
 </html>"));
@@ -383,11 +383,11 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
 </ul>
 </html>", info="<html>
 <p>
-This voltage source provides a cosine voltage with variable frequency <code>f</code> and variable amplitude <code>V</code>, 
+This voltage source provides a cosine voltage with variable frequency <code>f</code> and variable amplitude <code>V</code>,
 i.e. the phase angle of the sine wave is integrated from 2*&pi;*f.
 </p>
 <p>
-Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift, 
+Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift,
 and that the parameter <code>startTime</code> is omitted since the voltage can be kept equal to offset with setting the input <code>V</code> to zero.
 </p>
 </html>"));
@@ -889,11 +889,11 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 </ul>
 </html>", info="<html>
 <p>
-This current source provides a sinusoidal current with variable frequency <code>f</code> and variable amplitude <code>I</code>, 
+This current source provides a sinusoidal current with variable frequency <code>f</code> and variable amplitude <code>I</code>,
 i.e. the phase angle of the sine wave is integrated from 2*&pi;*f.
 </p>
 <p>
-Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift, 
+Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift,
 and that the parameter <code>startTime</code> is omitted since the current can be kept equal to offset with setting the input <code>I</code> to zero.
 </p>
 </html>"));
@@ -984,11 +984,11 @@ and that the parameter <code>startTime</code> is omitted since the current can b
 </ul>
 </html>", info="<html>
 <p>
-This current source provides a cosine current with variable frequency <code>f</code> and variable amplitude <code>I</code>, 
+This current source provides a cosine current with variable frequency <code>f</code> and variable amplitude <code>I</code>,
 i.e. the phase angle of the sine wave is integrated from 2*&pi;*f.
 </p>
 <p>
-Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift, 
+Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift,
 and that the parameter <code>startTime</code> is omitted since the current can be kept equal to offset with setting the input <code>I</code> to zero.
 </p>
 </html>"));

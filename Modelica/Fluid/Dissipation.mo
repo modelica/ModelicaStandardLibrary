@@ -1,4 +1,4 @@
-﻿within Modelica.Fluid;
+within Modelica.Fluid;
 package Dissipation
   "Functions for convective heat transfer and pressure loss characteristics"
     extends Modelica.Icons.BasesPackage;

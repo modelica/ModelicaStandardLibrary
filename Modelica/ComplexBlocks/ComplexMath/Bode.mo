@@ -1,4 +1,4 @@
-﻿within Modelica.ComplexBlocks.ComplexMath;
+within Modelica.ComplexBlocks.ComplexMath;
 block Bode "Calculate quantities to plot Bode diagram"
   extends Modelica.ComplexBlocks.Icons.ComplexBlock;
   parameter Boolean useDivisor = true "Use divisor input, if true" annotation(Evaluate = true, HideResult = true, choices(  checkBox = true));

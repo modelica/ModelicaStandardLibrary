@@ -55,15 +55,15 @@ equation
               textString="%terminalConnection")}),
     Documentation(info="<html>
 <p>
-This model represents the internal connections of the terminal box of an electric machine. 
-The parameter <code>terminalConnection</code> is used to switch between star 
+This model represents the internal connections of the terminal box of an electric machine.
+The parameter <code>terminalConnection</code> is used to switch between star
 (<code>terminalConnection = \"Y\"</code>) and delta (<code>terminalConnection = \"D\"</code>) connection.
 </p>
 
-<p>The connector <code>starPoint</code> is only available if star connection is selected. 
-This connector is a plug with 
-<code>mSystem = Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems(m)</code> phases, 
-representing the star points of each base system; see 
+<p>The connector <code>starPoint</code> is only available if star connection is selected.
+This connector is a plug with
+<code>mSystem = Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems(m)</code> phases,
+representing the star points of each base system; see
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase\">Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase</a>.
 </p>
 </html>"));

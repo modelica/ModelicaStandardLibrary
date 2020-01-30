@@ -80,14 +80,14 @@ equation
           rotation=180)}),
       Documentation(info="<html>
 <p>
-Simplified model of <code>m</code> 
-<a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.SinglePhaseTriac\">triodes for alternating current</a>, each built from two antiparallel thyristors. 
-<code>thyristor1</code> has to be fired during the positive halfwave of the voltage. 
-<code>thyristor2</code> has to be fired during the negative halfwave of the voltage. 
+Simplified model of <code>m</code>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.SinglePhaseTriac\">triodes for alternating current</a>, each built from two antiparallel thyristors.
+<code>thyristor1</code> has to be fired during the positive halfwave of the voltage.
+<code>thyristor2</code> has to be fired during the negative halfwave of the voltage.
 </p>
 <p>
-Note: A real triac is fired in positive direction (<code>thyristor1</code>) by a positive gate current and in negative direction (<code>thyristor2</code>) by a negative gate current. 
-The triac goes in blocking condition when the current falls to zero. 
+Note: A real triac is fired in positive direction (<code>thyristor1</code>) by a positive gate current and in negative direction (<code>thyristor2</code>) by a negative gate current.
+The triac goes in blocking condition when the current falls to zero.
 </p>
 <p>
 This behaviour is simulated by the two firing gates <code>fire1</code> and <code>fire2</code>:

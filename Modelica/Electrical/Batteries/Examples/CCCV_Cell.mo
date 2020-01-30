@@ -46,7 +46,7 @@ equation
     Documentation(info="<html>
 <p>
 A single cell depleted to <code>SOC = 0.1</code> is recharged with a CC-CV charger.
-Charging current in CC mode is 5C which means the battery is theoretically nearly fulled charged after <code>0.9*3600 s/5 = 648 s</code> and the charger switches to CV mode. 
+Charging current in CC mode is 5C which means the battery is theoretically nearly fulled charged after <code>0.9*3600 s/5 = 648 s</code> and the charger switches to CV mode.
 Simulate for 1200 s and plot <code>cell.cellBus.soc</code> versus <code>time</code>.
 </p>
 </html>"));

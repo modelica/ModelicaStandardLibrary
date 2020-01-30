@@ -12,17 +12,17 @@ class ACACConcept "AC/AC converter concept"
 
 <h4>Control</h4>
 
-<p>To apply firing signals to the triac, the 
+<p>To apply firing signals to the triac, the
 <a href=\"modelica://Modelica.Electrical.PowerConverters.DCDC.Control.Signal2mPulse\">Signal2mPulse adaptor</a> is provided.
 </p>
 <p>
-The <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle\">Voltage2Angle block</a> 
+The <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle\">Voltage2Angle block</a>
 calculates phase angle from reference voltage.
 </p>
 <p>
-To control the soft start of an induction machine, 
-the <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.Control.SoftStartControl\">SoftStartControl block</a> 
-is provided. It applies a voltage ramp during start, setting the ramp on hold whenever the measured current exceeds the maximum current. 
+To control the soft start of an induction machine,
+the <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.Control.SoftStartControl\">SoftStartControl block</a>
+is provided. It applies a voltage ramp during start, setting the ramp on hold whenever the measured current exceeds the maximum current.
 Furthermore, a ramp down can be applied for stopping the drive.
 </p>
 

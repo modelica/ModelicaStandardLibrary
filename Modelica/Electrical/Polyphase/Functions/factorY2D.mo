@@ -24,7 +24,7 @@ Calculates line-to-line voltage from line-to-neutral voltage.
 </p>
 <h4>Note</h4>
 <p>
-For m&gt;3 phases, more than one variant exists for the choice of the line-to-line voltage. 
+For m&gt;3 phases, more than one variant exists for the choice of the line-to-line voltage.
 If input kPolygon is not in the range of 1 &le; kPolygon &le; (mBasic - 1)/2, the function is evaluated for kPolygon = 1.
 </p>
 </html>"));

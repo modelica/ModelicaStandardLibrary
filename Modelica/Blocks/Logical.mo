@@ -610,7 +610,7 @@ output signal <strong>y</strong>:
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Logical/Hysteresis.png\"
-     alt=\"Hysteresis.png\"> 
+     alt=\"Hysteresis.png\">
 </p>
 
 <ul>
@@ -736,7 +736,7 @@ input signal <strong>u</strong>.
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Logical/TriggeredTrapezoid.png\"
-     alt=\"TriggeredTrapezoid.png\"> 
+     alt=\"TriggeredTrapezoid.png\">
 </p>
 
 <p>The behaviour is as follows: Assume the initial input to be false. In this

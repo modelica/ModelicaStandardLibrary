@@ -66,7 +66,7 @@ these components reference material properties, such as thermal conductivity, an
 the Modelica design group is discussing a general scheme to describe material properties.
 </p>
 <p>
-For technical details in the design of this library, see 
+For technical details in the design of this library, see
 [<a href=\"modelica://Modelica.Thermal.HeatTransfer.UsersGuide.References\">Tiller2001</a>].</p>
 </html>"));
 end UsersGuide;

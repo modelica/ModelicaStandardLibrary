@@ -66,9 +66,9 @@ equation
     annotation (Line(points={{-59,0},{-42,0}}, color={0,0,127}));
   annotation (Documentation(info="<html>
 <p>
-This block calculates firing angle from desired voltage, 
-choosing either a linear (<code>Lin</code>) relationship or prescribing the first harmonic (<code>H01</code>)  or the root mean square (<code>RMS</code>) . 
-Since calculating the firing angle from both the H01 and the RMS involves a nonlinear equation, 
+This block calculates firing angle from desired voltage,
+choosing either a linear (<code>Lin</code>) relationship or prescribing the first harmonic (<code>H01</code>)  or the root mean square (<code>RMS</code>) .
+Since calculating the firing angle from both the H01 and the RMS involves a nonlinear equation,
 both relationships have been precalculated and are interpolated from a table.
 </p>
 </html>"), Icon(coordinateSystem(grid={2,2}),

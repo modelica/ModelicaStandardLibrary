@@ -72,15 +72,15 @@ This block models the functionality of a soft starter controller, controlling th
 <p>
 Boolean input <code>start = true</code> causes the output <code>vRef</code> to be risen according to a ramp: <code>vRef = vStart + (1 - vStart)*(time - t0)/tRampUp</code>.
 </p>
-<p> 
-In case the current exceeds the specified maximum current <code>iMax</code> during the starting ramp, the ramp is stopped. 
-When the current falls below the lower threshold of current control <code>iMin &lt; iMax</code>, the ramp is continued. 
+<p>
+In case the current exceeds the specified maximum current <code>iMax</code> during the starting ramp, the ramp is stopped.
+When the current falls below the lower threshold of current control <code>iMin &lt; iMax</code>, the ramp is continued.
 </p>
 <p>
 Note: It is recommended to filter the measured current, e.g. using <a href=\"modelica://Modelica.Blocks.Continuous.Filter\">Modelica.Blocks.Continuous.Filter</a>
 </p>
 <p>
-Boolean input <code>start = false</code> causes the output <code>vRef</code> to be lowered according to a ramp: <code>vRef = -(time - t0)/tRampDown</code>. 
+Boolean input <code>start = false</code> causes the output <code>vRef</code> to be lowered according to a ramp: <code>vRef = -(time - t0)/tRampDown</code>.
 </p>
 </html>"), Icon(graphics={
         Polygon(

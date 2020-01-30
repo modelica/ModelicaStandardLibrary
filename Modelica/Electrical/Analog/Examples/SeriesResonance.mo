@@ -77,7 +77,7 @@ equation
   annotation (experiment(StopTime=1.0, Interval=0.0001), Documentation(info="<html>
 <p>
 This model demonstrates the transient behaviour of a series resonant circuit:
-A sine or cosine voltage with variable frequency and constant amplitude is applied to a series connection of L, C and R. 
+A sine or cosine voltage with variable frequency and constant amplitude is applied to a series connection of L, C and R.
 The parameter values result in a resonance frequency of 100 Hz.
 </p>
 </html>"));

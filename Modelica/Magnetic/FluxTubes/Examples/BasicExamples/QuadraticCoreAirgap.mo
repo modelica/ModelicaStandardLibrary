@@ -136,10 +136,10 @@ Educational example of a magnetic circuit containing an iron core and an airgap:
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/MagneticCircuit.png\" alt=\"Magnetic circuit with iron core and airgap\">
 </p>
 <p>
-A current ramp is applied in positive electric direction through the exciting coil, causing a rising magnetomotive force (mmf) in positive magnetic direction of the electromagnetic converter.  
-The mmf in turn causes a magnetic flux through the circuit in the direction indicated by the flux sensor. 
+A current ramp is applied in positive electric direction through the exciting coil, causing a rising magnetomotive force (mmf) in positive magnetic direction of the electromagnetic converter.
+The mmf in turn causes a magnetic flux through the circuit in the direction indicated by the flux sensor.
 From that magnetic flux, flux density can be calculated in every element of the magnetic circuit. Flux density is used to derive magnetic field strength.
-Magnetic field strength times length of the flux line gives magnetic potential difference of each element. 
+Magnetic field strength times length of the flux line gives magnetic potential difference of each element.
 The sum of all magnetic potential differences is covered by the mmf of the exciting coil.
 </p>
 <p>
@@ -155,22 +155,22 @@ Using the parameter values, the results can be validated by analytic calculation
 <tr><td>total     </td><td>             </td><td>             </td><td>                  </td><td>                    </td><td>                                     </td><td>&Sigma; mmf = N*I</td></tr>
 </table>
 <p>
-Note that there is a leakage flux path present. Therefore the total magnetic flux of in core splits into 
+Note that there is a leakage flux path present. Therefore the total magnetic flux of in core splits into
 </p>
 <ul>
 <li>the useful flux through the airgap and</li>
 <li>the leakage flux through the leakage element.</li>
 </ul>
 <p>
-However, the magnetic voltage across the airgap and the leakage model are equal. 
-The ratio of the useful flux over the flux in the core is equal to <code>1 - &sigma;</code>. 
-In the core the magnetic flux is the same in every element as they are connected in series. 
+However, the magnetic voltage across the airgap and the leakage model are equal.
+The ratio of the useful flux over the flux in the core is equal to <code>1 - &sigma;</code>.
+In the core the magnetic flux is the same in every element as they are connected in series.
 For the calculation of the length of flux lines inside the core, a medium flux line (dashed line) is used.
 </p>
 <p>
-Additionally, a measuring coil is placed in the airgap. 
-Due to Faraday's law, the time derivative of flux causes an induced voltage both in the exciting coil (in positive direction) and in the measuring coil (in negative direction). 
-Since current and therefore flux are a linear time dependent ramp, induced voltages are constant during that ramp and zero otherwise. 
+Additionally, a measuring coil is placed in the airgap.
+Due to Faraday's law, the time derivative of flux causes an induced voltage both in the exciting coil (in positive direction) and in the measuring coil (in negative direction).
+Since current and therefore flux are a linear time dependent ramp, induced voltages are constant during that ramp and zero otherwise.
 Note that usage of nonlinear magnetic material would change that result due the nonlinear relationship between magnetic field strength and flux density.
 </p>
 <p>

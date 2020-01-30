@@ -91,10 +91,10 @@ equation
 Educational example of a magnetic circuit containing a toroidal iron core with rectangular cross section and an airgap:
 </p>
 <p>
-A current ramp is applied in positive electric direction through the exciting coil, causing a rising magnetomotive force (mmf) in positive magnetic direction of the electromagnetic converter.  
-The mmf in turn causes a magnetic flux through the circuit in the direction indicated by the flux sensor. 
+A current ramp is applied in positive electric direction through the exciting coil, causing a rising magnetomotive force (mmf) in positive magnetic direction of the electromagnetic converter.
+The mmf in turn causes a magnetic flux through the circuit in the direction indicated by the flux sensor.
 From that magnetic flux, flux density can be calculated in every element of the magnetic circuit. Flux density is used to derive magnetic field strength.
-Magnetic field strength times length of the flux line gives magnetic potential difference of each element. 
+Magnetic field strength times length of the flux line gives magnetic potential difference of each element.
 The sum of all magnetic potential differences is covered by the mmf of the exciting coil.
 </p>
 <p>
@@ -107,13 +107,13 @@ Using the values shown in section Parameters, the results can be validated easil
 <tr><td>total     </td><td>             </td><td>                               </td><td>                  </td><td>                    </td><td>                                     </td><td>&Sigma; mmf = N*I</td></tr>
 </table>
 <p>
-Note that since no leakage is present, the magnetic flux is the same in every element - they are connected in series. 
+Note that since no leakage is present, the magnetic flux is the same in every element - they are connected in series.
 For calculation of the length of flux lines, a medium flux line is used.
 </p>
 <p>
-Additionally, a measuring coil is placed in the airgap. 
-Due to Faraday's law, the time derivative of flux causes an induced voltage both in the exciting coil (in positive direction) and in the measuring coil (in negative direction). 
-Since current and therefore flux are a linear time dependent ramp, induced voltages are constant during that ramp and zero otherwise. 
+Additionally, a measuring coil is placed in the airgap.
+Due to Faraday's law, the time derivative of flux causes an induced voltage both in the exciting coil (in positive direction) and in the measuring coil (in negative direction).
+Since current and therefore flux are a linear time dependent ramp, induced voltages are constant during that ramp and zero otherwise.
 Note that usage of nonlinear magnetic material would change that result due the nonlinear relationship between magnetic field strength and flux density.
 </p>
 <p>
