@@ -7619,7 +7619,7 @@ critical pressure.
 public
   record SaturationProperties "Properties in the two phase region"
     extends Modelica.Icons.Record;
-    SI.Temp_K T "Temperature";
+    SI.Temperature T "Temperature";
     SI.Density d "Density";
     SI.Pressure p "Pressure";
     SI.SpecificEnergy u "Specific inner energy";
@@ -7642,7 +7642,7 @@ public
     "Properties on both phase boundaries, including some derivatives"
 
     extends Modelica.Icons.Record;
-    SI.Temp_K T "Saturation temperature";
+    SI.Temperature T "Saturation temperature";
     SI.Density dl "Liquid density";
     SI.Density dv "Vapour density";
     SI.SpecificEnthalpy hl "Liquid specific enthalpy";

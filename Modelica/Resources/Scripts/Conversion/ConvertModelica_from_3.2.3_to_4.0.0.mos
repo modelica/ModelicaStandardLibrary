@@ -39,20 +39,6 @@ convertClass("Modelica.Electrical.Digital.Converters.LogicToXO1",
               "Modelica.Electrical.Digital.Converters.LogicToX01")
 convertClass("Modelica.Electrical.Digital.Converters.LogicToXO1Z",
               "Modelica.Electrical.Digital.Converters.LogicToX01Z")
-convertClass("Modelica.SIunits.Conversions.ConversionIcon",
-              "Modelica.SIunits.Icons.Conversion")
-convertClass("Modelica.SIunits.FluxiodQuantum",
-              "Modelica.SIunits.FluxoidQuantum")
-convertClass("Modelica.SIunits.RadiantExtiance",
-              "Modelica.SIunits.RadiantExitance")
-convertClass("Modelica.SIunits.LoundnessLevel",
-              "Modelica.SIunits.LoudnessLevel")
-convertClass("Modelica.SIunits.Loundness",
-              "Modelica.SIunits.Loudness")
-convertClass("Modelica.SIunits.Conversions.NonSIunits.FirstOrderTemperaturCoefficient",
-              "Modelica.SIunits.LinearTemperatureCoefficientResistance")
-convertClass("Modelica.SIunits.Conversions.NonSIunits.SecondOrderTemperaturCoefficient",
-              "Modelica.SIunits.QuadraticTemperatureCoefficientResistance")
 convertClass("Modelica.Media.Incompressible.TableBased.Polynomials_Temp",
               "Modelica.Math.Polynomials")
 convertClass("Modelica.Math.Vectors.Utilities.roots",
@@ -1921,3 +1907,19 @@ convertClass("Modelica.SIunits", "Modelica.Units.SI")
 convertClass("Modelica.SIunits.Icons", "Modelica.Units.Icons")
 convertClass("Modelica.SIunits.Conversions", "Modelica.Units.Conversions")
 convertClass("Modelica.SIunits.Conversions.NonSIunits", "Modelica.Units.Other")
+convertClass("Modelica.SIunits.Temp_C", "Modelica.Units.Other.Temperature_degC")
+convertClass("Modelica.SIunits.Temp_K", "Modelica.Units.Temperature")
+convertClass("Modelica.SIunits.Conversions.ConversionIcon",
+              "Modelica.Units.Icons.Conversion")
+convertClass("Modelica.SIunits.FluxiodQuantum",
+              "Modelica.Units.SI.FluxoidQuantum")
+convertClass("Modelica.SIunits.RadiantExtiance",
+              "Modelica.Units.SI.RadiantExitance")
+convertClass("Modelica.SIunits.LoundnessLevel",
+              "Modelica.Units.SI.LoudnessLevel")
+convertClass("Modelica.SIunits.Loundness",
+              "Modelica.Units.SI.Loudness")
+convertClass("Modelica.SIunits.Conversions.NonSIunits.FirstOrderTemperaturCoefficient",
+              "Modelica.Units.SI.LinearTemperatureCoefficientResistance")
+convertClass("Modelica.SIunits.Conversions.NonSIunits.SecondOrderTemperaturCoefficient",
+             "Modelica.Units.SI.QuadraticTemperatureCoefficientResistance")

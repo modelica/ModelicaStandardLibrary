@@ -12460,7 +12460,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
           SI.Density rho_m "Mean density of ideal gas"
             annotation (Dialog(group="Fluid properties", enable=useMeanDensity));
-          SI.Temp_K T_m "Mean temperature of ideal gas"
+          SI.Temperature T_m "Mean temperature of ideal gas"
             annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
           SI.Pressure p_m "Mean pressure of ideal gas"
             annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
@@ -12601,7 +12601,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             annotation (Dialog(group="Generic variables"));
           SI.Density rho_m=p_m/(R_s*T_m) "Mean density of ideal gas"
             annotation (Dialog(group="Fluid properties", enable=useMeanDensity));
-          SI.Temp_K T_m "Mean temperature of ideal gas"
+          SI.Temperature T_m "Mean temperature of ideal gas"
             annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
           SI.Pressure p_m "Mean pressure of ideal gas"
             annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));

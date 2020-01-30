@@ -5083,7 +5083,7 @@ extends Modelica.Icons.ExamplesPackage;
             "Specific gas constant of ideal gas";
           parameter SI.Density rho_m=p_m/(R_s*T_m)
             "Mean density of ideal gas";
-          parameter SI.Temp_K T_m=(293 + 293)/2
+          parameter SI.Temperature T_m=(293 + 293)/2
             "Mean temperature of ideal gas";
           parameter SI.Pressure p_m=(1e5 + 1e5)/2
             "Mean pressure of ideal gas";

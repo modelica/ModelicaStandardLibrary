@@ -142,7 +142,7 @@ A complex unit is declared as:
 <li>Modelica quantity names are defined according to the recommendations
     of ISO 31. Some of these name are rather long, such as
     \"ThermodynamicTemperature\". Shorter alias names are defined, e.g.,
-    \"type Temp_K = ThermodynamicTemperature;\".</li>
+    \"type Temperature = ThermodynamicTemperature;\".</li>
 <li>Modelica units are defined according to the SI base units without
     multiples (only exception \"kg\").</li>
 <li>For some quantities, more convenient units for an engineer are
@@ -399,12 +399,10 @@ end UsersGuide;
         nominal = 300,
         displayUnit="degC")
       "Absolute temperature (use type TemperatureDifference for relative temperatures)" annotation(absoluteValue=true);
-    type Temp_K = ThermodynamicTemperature;
     type Temperature = ThermodynamicTemperature;
     type TemperatureDifference = Real (
         final quantity="ThermodynamicTemperature",
         final unit="K") annotation(absoluteValue=false);
-    type Temp_C = Modelica.Units.Other.Temperature_degC;
     type TemperatureSlope = Real (final quantity="TemperatureSlope",
         final unit="K/s");
     type LinearTemperatureCoefficient = Real(final quantity = "LinearTemperatureCoefficient", final unit="1/K");
