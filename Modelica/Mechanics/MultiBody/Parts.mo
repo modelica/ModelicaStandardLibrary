@@ -1804,7 +1804,7 @@ are forced to be used as states.
 
     encapsulated model Housing
       import Modelica;
-      input SI.Torque t[3];
+      input Modelica.Units.SI.Torque t[3];
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a annotation (
           Placement(transformation(extent={{-116,-16},{-84,16}})));
     equation
@@ -1936,6 +1936,7 @@ November 3-4, 2003, pp. 149-158</p>
       "1D inertia attachable on 3-dim. bodies (3D dynamic effects are taken into account)"
 
       import Modelica;
+      import Modelica.Units.SI;
       import Modelica.Mechanics.MultiBody.Frames;
       import Modelica.Mechanics.MultiBody.Types;
 
@@ -2266,7 +2267,7 @@ November 3-4, 2003, pp. 149-158</p>
       "Unit vector in direction of flange_b rotation axis";
     encapsulated model Housing
       import Modelica;
-      input SI.Torque t[3];
+      input Modelica.Units.SI.Torque t[3];
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a annotation (
           Placement(transformation(extent={{-116,-16},{-84,16}})));
     equation

@@ -4222,7 +4222,7 @@ function. The solver function is a direct mapping of the Algol 60 procedure
           import Modelica;
            input Real a "Coefficient of s^1";
            input Real b "Coefficient of s^0";
-           input SI.AngularVelocity w
+           input Modelica.Units.SI.AngularVelocity w
             "Bandwidth angular frequency";
            output Real alpha "Alpha factor to build up band pass";
 

@@ -803,6 +803,7 @@ of the modeller.
 
        encapsulated function wallFriction
           "Return pressure loss data due to friction in a straight pipe with walls of nonuniform roughness (not useful for smooth pipes, since zeta is no function of Re)"
+          import Modelica.Units.SI;
           import Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
           import Modelica.Fluid.Types.Roughness;
           import lg = Modelica.Math.log10;
@@ -938,6 +939,7 @@ As a short summary:
 
        encapsulated function suddenExpansion
           "Return pressure loss data for sudden expansion or contraction in a pipe (for both flow directions)"
+          import Modelica.Units.SI;
           import
             Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
 
@@ -1037,6 +1039,7 @@ A_a &gt; A_b (Idelchik 1994, diagram 4-9, p. 216 and diagram 4-10, p. 217)
 
        encapsulated function sharpEdgedOrifice
           "Return pressure loss data for sharp edged orifice (for both flow directions)"
+          import Modelica.Units.SI;
           import NonSI = Modelica.Units.Other;
           import
             Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
