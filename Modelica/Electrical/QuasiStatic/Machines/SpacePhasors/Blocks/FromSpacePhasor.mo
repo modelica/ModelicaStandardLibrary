@@ -9,7 +9,7 @@ block FromSpacePhasor "Conversion: space phasor -> three-phase"
   Modelica.ComplexBlocks.Interfaces.ComplexOutput y[m]
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 protected
-  parameter Modelica.SIunits.Angle phi[m]=
+  parameter SI.Angle phi[m]=
       Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m);
 equation
   y = {Complex(u[1], u[2])*exp(-j*phi[k])/sqrt(2) for k in 1:m};

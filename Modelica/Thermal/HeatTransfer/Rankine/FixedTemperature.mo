@@ -6,7 +6,7 @@ model FixedTemperature "Fixed temperature boundary condition in degRankine"
   Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
             90,-10},{110,10}})));
 equation
-  port.T = Modelica.SIunits.Conversions.from_degRk(T);
+  port.T = SI.Conversions.from_degRk(T);
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={

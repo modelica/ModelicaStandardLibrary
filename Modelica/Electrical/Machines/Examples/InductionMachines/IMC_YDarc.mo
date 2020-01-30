@@ -3,17 +3,17 @@ model IMC_YDarc "Test example: InductionMachineSquirrelCage Y-D"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   constant Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Voltage VNominal=100
+  parameter SI.Voltage VNominal=100
     "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
-  parameter Modelica.SIunits.Resistance RLine=0.0001 "Line resistance";
-  parameter Modelica.SIunits.Inductance LLine=0.0001/(2*pi*fNominal) "Line inductance";
-  parameter Modelica.SIunits.Time tStart1=0.1 "Start time";
-  parameter Modelica.SIunits.Time tStart2=2.0 "Start time from Y to D";
-  parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
-  parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="rev/min")=
+  parameter SI.Frequency fNominal=50 "Nominal frequency";
+  parameter SI.Resistance RLine=0.0001 "Line resistance";
+  parameter SI.Inductance LLine=0.0001/(2*pi*fNominal) "Line inductance";
+  parameter SI.Time tStart1=0.1 "Start time";
+  parameter SI.Time tStart2=2.0 "Start time from Y to D";
+  parameter SI.Torque TLoad=161.4 "Nominal load torque";
+  parameter SI.AngularVelocity wLoad(displayUnit="rev/min")=
        1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
-  parameter Modelica.SIunits.Inertia JLoad=0.29
+  parameter SI.Inertia JLoad=0.29
     "Load's moment of inertia";
   Machines.BasicMachines.InductionMachines.IM_SquirrelCage aimc(
     p=aimcData.p,

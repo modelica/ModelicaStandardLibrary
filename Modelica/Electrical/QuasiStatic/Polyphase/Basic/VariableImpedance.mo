@@ -1,14 +1,14 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Basic;
 model VariableImpedance "Polyphase variable impedance"
   extends Interfaces.TwoPlug;
-  parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m)
+  parameter SI.Temperature T_ref[m]=fill(293.15, m)
     "Reference temperatures";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=zeros(m)
+  parameter SI.LinearTemperatureCoefficient alpha_ref[m]=zeros(m)
     "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
   extends Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort(final mh=m, T=T_ref);
   parameter Boolean frequencyDependent = false "Consider frequency dependency, if true"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-  parameter Modelica.SIunits.Frequency f_ref = 1 "Reference frequency, if frequency dependency is considered"
+  parameter SI.Frequency f_ref = 1 "Reference frequency, if frequency dependency is considered"
     annotation(Dialog(enable=frequencyDependent));
   Modelica.ComplexBlocks.Interfaces.ComplexInput Z_ref[m]
     "Variable complex impedances" annotation (Placement(transformation(

@@ -3,17 +3,17 @@ model DCPM_withLosses
   "Test example: Investigate influence of losses on DCPM motor performance"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
-  parameter Modelica.SIunits.Time tStart=0.2
+  parameter SI.Voltage Va=100 "Actual armature voltage";
+  parameter SI.Time tStart=0.2
     "Start of armature voltage ramp";
-  parameter Modelica.SIunits.Time tRamp=0.8 "Armature voltage ramp";
-  parameter Modelica.SIunits.Torque TLoad1=63.66 "Nominal load torque";
-  parameter Modelica.SIunits.AngularVelocity wLoad1=1425*2*pi/60
+  parameter SI.Time tRamp=0.8 "Armature voltage ramp";
+  parameter SI.Torque TLoad1=63.66 "Nominal load torque";
+  parameter SI.AngularVelocity wLoad1=1425*2*pi/60
     "Nominal load speed";
-  parameter Modelica.SIunits.Torque TLoad2=61.30 "Nominal load torque";
-  parameter Modelica.SIunits.AngularVelocity wLoad2=1417.5*2*pi/60
+  parameter SI.Torque TLoad2=61.30 "Nominal load torque";
+  parameter SI.AngularVelocity wLoad2=1417.5*2*pi/60
     "Nominal load speed";
-  parameter Modelica.SIunits.Inertia JLoad=0.15
+  parameter SI.Inertia JLoad=0.15
     "Load's moment of inertia";
   Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm1(
     VaNominal=dcpmData1.VaNominal,

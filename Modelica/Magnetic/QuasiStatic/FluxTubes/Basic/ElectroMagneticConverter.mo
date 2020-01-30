@@ -8,20 +8,20 @@ model ElectroMagneticConverter "Electromagnetic energy conversion"
   "Positive electric pin" annotation (Placement(transformation(extent={{-90,90},{-110,110}}), iconTransformation(extent={{-90,90},{-110,110}})));
   Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin pin_n
   "Negative electric pin"   annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}), iconTransformation(extent={{-110,-110},{-90,-90}})));
-  Modelica.SIunits.ComplexVoltage v "Voltage";
-  Modelica.SIunits.ComplexCurrent i(re(start=0, stateSelect=StateSelect.prefer),
+  SI.ComplexVoltage v "Voltage";
+  SI.ComplexCurrent i(re(start=0, stateSelect=StateSelect.prefer),
                                     im(start=0, stateSelect=StateSelect.prefer))
   "Current";
-  Modelica.SIunits.ComplexMagneticPotentialDifference V_m
+  SI.ComplexMagneticPotentialDifference V_m
   "Magnetic potential difference";
-  Modelica.SIunits.ComplexMagneticFlux Phi
+  SI.ComplexMagneticFlux Phi
   "Magnetic flux coupled into magnetic circuit";
-  Modelica.SIunits.AngularVelocity omega;
+  SI.AngularVelocity omega;
 
   parameter Real N=1 "Number of turns";
 
   //for information only:
-  Modelica.SIunits.ComplexMagneticFlux Psi
+  SI.ComplexMagneticFlux Psi
   "Flux linkage for information only";
   SI.Inductance L_stat "Static inductance abs(Psi/i) for information only";
 

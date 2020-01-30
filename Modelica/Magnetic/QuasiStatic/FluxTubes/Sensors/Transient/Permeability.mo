@@ -2,9 +2,9 @@ within Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient;
 model Permeability
 "Determines permeability from flux and magnetic potential difference"
 
-  parameter Modelica.SIunits.Area A
+  parameter SI.Area A
   "Area of cross section penetrated by flux";
-  parameter Modelica.SIunits.Length l
+  parameter SI.Length l
   "Length associated with magnetic potential difference";
 
   Modelica.Blocks.Interfaces.RealInput Phi(unit="Wb") "Magnetic flux"

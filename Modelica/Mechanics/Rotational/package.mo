@@ -1,7 +1,7 @@
 within Modelica.Mechanics;
 package Rotational "Library to model 1-dimensional, rotational mechanical systems"
   extends Modelica.Icons.Package;
-  import SI = Modelica.SIunits;
+  import SI = SI;
 
   annotation (Documentation(info="<html>
 

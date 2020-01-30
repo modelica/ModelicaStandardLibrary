@@ -3,17 +3,17 @@ model SMR_Inverter
   "Starting of synchronous reluctance machine with inverter"
   extends Modelica.Icons.Example;
   constant Integer m=3 "Number of stator phases";
-  parameter Modelica.SIunits.Voltage VsNominal=100
+  parameter SI.Voltage VsNominal=100
     "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fsNominal=smrData.fsNominal "Nominal frequency";
-  parameter Modelica.SIunits.Frequency fKnee=50
+  parameter SI.Frequency fsNominal=smrData.fsNominal "Nominal frequency";
+  parameter SI.Frequency fKnee=50
     "Knee frequency of V/f curve";
-  parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
-  parameter Modelica.SIunits.Torque T_Load=46 "Nominal load torque";
-  parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
-  parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
-  Modelica.SIunits.Angle thetaM=rotorAngleM.rotorDisplacementAngle "Rotor displacement angle, FundamentalWave machine";
-  Modelica.SIunits.Angle thetaE=rotorAngleE.rotorDisplacementAngle "Rotor displacement angle, Electrical machine";
+  parameter SI.Time tRamp=1 "Frequency ramp";
+  parameter SI.Torque T_Load=46 "Nominal load torque";
+  parameter SI.Time tStep=1.2 "Time of load torque step";
+  parameter SI.Inertia J_Load=0.29 "Load inertia";
+  SI.Angle thetaM=rotorAngleM.rotorDisplacementAngle "Rotor displacement angle, FundamentalWave machine";
+  SI.Angle thetaE=rotorAngleE.rotorDisplacementAngle "Rotor displacement angle, Electrical machine";
 
   Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
         transformation(

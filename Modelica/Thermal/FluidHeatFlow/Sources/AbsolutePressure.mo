@@ -4,7 +4,7 @@ model AbsolutePressure "Defines absolute pressure level"
     final Exchange=false,
     final T0=293.15,
     final T0fixed=false);
-  parameter Modelica.SIunits.Pressure p(start=0) "Pressure ground";
+  parameter SI.Pressure p(start=0) "Pressure ground";
 equation
   // defining pressure
   flowPort.p = p;

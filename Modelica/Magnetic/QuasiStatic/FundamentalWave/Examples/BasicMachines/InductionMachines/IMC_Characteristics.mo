@@ -3,15 +3,15 @@ model IMC_Characteristics "Characteristic curves of Induction machine with squir
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   parameter Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Voltage VsNominal=100
+  parameter SI.Voltage VsNominal=100
     "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fNominal=imcData.fsNominal "Nominal frequency";
-  parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="rev/min")=
+  parameter SI.Frequency fNominal=imcData.fsNominal "Nominal frequency";
+  parameter SI.AngularVelocity w_Load(displayUnit="rev/min")=
        1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
   parameter Integer p=imcData.p "Number of pole pairs";
   Real speedPerUnit = p*imcQS.wMechanical/(2*pi*fNominal) "Per unit speed";
   Real slip = 1-speedPerUnit "Slip";
-  output Modelica.SIunits.Current Iqs=iSensorQS.I "QS RMS current";
+  output SI.Current Iqs=iSensorQS.I "QS RMS current";
   Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource vSourceQS(
     m=m,
     f=fNominal,

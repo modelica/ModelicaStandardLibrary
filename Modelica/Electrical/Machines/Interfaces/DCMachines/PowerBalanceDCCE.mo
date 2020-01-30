@@ -5,13 +5,13 @@ record PowerBalanceDCCE
       lossPowerTotal=lossPowerArmature + lossPowerCore + lossPowerStrayLoad +
         lossPowerFriction + lossPowerBrush + lossPowerShuntExcitation +
         lossPowerSeriesExcitation);
-  Modelica.SIunits.Power powerShuntExcitation
+  SI.Power powerShuntExcitation
     "Electrical (shunt) excitation power";
-  Modelica.SIunits.Power powerSeriesExcitation
+  SI.Power powerSeriesExcitation
     "Electrical series excitation power";
-  Modelica.SIunits.Power lossPowerShuntExcitation
+  SI.Power lossPowerShuntExcitation
     "(Shunt) excitation losses";
-  Modelica.SIunits.Power lossPowerSeriesExcitation
+  SI.Power lossPowerSeriesExcitation
     "Series excitation losses";
   annotation (defaultComponentPrefixes="output", Documentation(info="<html>
 Power balance of DC machines with compound excitation.

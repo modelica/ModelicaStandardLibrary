@@ -4,15 +4,15 @@ model SMPM_ResistiveBraking
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   constant Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Inertia JLoad=4*smpmData.Jr "Load's moment of inertia";
-  parameter Modelica.SIunits.AngularVelocity w0(displayUnit="rev/min")=
+  parameter SI.Inertia JLoad=4*smpmData.Jr "Load's moment of inertia";
+  parameter SI.AngularVelocity w0(displayUnit="rev/min")=
     2*pi*smpmData.fsNominal/smpmData.p "Initial speed";
   parameter Real k[3]={1,3,5} "Braking resistance stages w.r.t. Rs";
-  parameter Modelica.SIunits.Current idq_sr[2](fixed=false)
+  parameter SI.Current idq_sr[2](fixed=false)
     "Initial stator current space phasor";
-  Modelica.SIunits.Torque tauElectrical=smpm.tauElectrical "Electrical torque";
-  Modelica.SIunits.Torque tauShaft=smpm.tauShaft "Shaft torque";
-  Modelica.SIunits.AngularVelocity wMechanical(displayUnit="rev/min")=
+  SI.Torque tauElectrical=smpm.tauElectrical "Electrical torque";
+  SI.Torque tauShaft=smpm.tauShaft "Shaft torque";
+  SI.AngularVelocity wMechanical(displayUnit="rev/min")=
     smpm.wMechanical "Shaft speed";
   parameter
     Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData

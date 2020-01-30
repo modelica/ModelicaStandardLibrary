@@ -4,7 +4,7 @@ package Polyphase "Polyphase quasi-static package"
   model SerialConnection "Example of serial connections"
     extends Modelica.Icons.Example;
     parameter Integer m = 3 "Number of phases";
-    output Modelica.SIunits.ComplexVoltage v[m] = voltageSensor.v "Total voltage";
+    output SI.ComplexVoltage v[m] = voltageSensor.v "Total voltage";
     Modelica.Electrical.QuasiStatic.Polyphase.Sources.VariableCurrentSource currentSource(gamma(fixed=true, start=0), m=m)                                             annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=90,
@@ -93,7 +93,7 @@ package Polyphase "Polyphase quasi-static package"
   model Ideal "Ideal components"
     extends Modelica.Icons.Example;
     parameter Integer m = 3 "Number of phases";
-    output Modelica.SIunits.ComplexCurrent I[m] = currentSensor.i "Current";
+    output SI.ComplexCurrent I[m] = currentSensor.i "Current";
     Modelica.Electrical.QuasiStatic.Polyphase.Ideal.Idle idle(m=m)
                                                                    annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
@@ -205,8 +205,8 @@ package Polyphase "Polyphase quasi-static package"
 
   model FrequencySweep "Tests voltage and current frequency sweep sources"
     extends Modelica.Icons.Example;
-    output Modelica.SIunits.Current iL[3] = inductor.abs_i "Inductor current";
-    output Modelica.SIunits.Voltage vC[3] = capacitor.abs_v "Inductor voltage";
+    output SI.Current iL[3] = inductor.abs_i "Inductor current";
+    output SI.Voltage vC[3] = capacitor.abs_v "Inductor voltage";
 
     Modelica.Electrical.QuasiStatic.Polyphase.Sources.FrequencySweepVoltageSource voltageSource(
       gamma(start=0, fixed=true),

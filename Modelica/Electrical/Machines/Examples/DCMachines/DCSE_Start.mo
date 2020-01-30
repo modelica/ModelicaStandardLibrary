@@ -2,13 +2,13 @@ within Modelica.Electrical.Machines.Examples.DCMachines;
 model DCSE_Start
   "Test example: DC with serial excitation starting with voltage ramp"
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
-  parameter Modelica.SIunits.Time tStart=0.1 "Start of resistance ramp";
-  parameter Modelica.SIunits.Time tRamp=0.9 "Resistance ramp";
-  parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
-  parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="rev/min")=
+  parameter SI.Voltage Va=100 "Actual armature voltage";
+  parameter SI.Time tStart=0.1 "Start of resistance ramp";
+  parameter SI.Time tRamp=0.9 "Resistance ramp";
+  parameter SI.Torque TLoad=63.66 "Nominal load torque";
+  parameter SI.AngularVelocity wLoad(displayUnit="rev/min")=
        1410*2*Modelica.Constants.pi/60 "Nominal load speed";
-  parameter Modelica.SIunits.Inertia JLoad=0.15
+  parameter SI.Inertia JLoad=0.15
     "Load's moment of inertia";
   Machines.BasicMachines.DCMachines.DC_SeriesExcited dcse(
     VaNominal=dcseData.VaNominal,

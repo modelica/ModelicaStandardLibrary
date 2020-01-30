@@ -17,7 +17,7 @@ model DC_PermanentMagnet "Permanent magnet DC machine"
     redeclare final Machines.Interfaces.DCMachines.PowerBalanceDCPM
       powerBalance(final lossPowerPermanentMagnet=0),
     core(final w=airGapDC.w));
-  final parameter Modelica.SIunits.Temperature TpmOperational=293.15
+  final parameter SI.Temperature TpmOperational=293.15
     "Operational temperature of permanent magnet"
     annotation (Dialog(group="Operational temperatures"));
   Machines.BasicMachines.Components.AirGapDC airGapDC(
@@ -35,9 +35,9 @@ model DC_PermanentMagnet "Permanent magnet DC machine"
         origin={0,-40},
         extent={{-10,-10},{10,10}})));
 protected
-  constant Modelica.SIunits.Inductance Lme=1
+  constant SI.Inductance Lme=1
     "Field excitation inductance";
-  constant Modelica.SIunits.Current IeNominal=1
+  constant SI.Current IeNominal=1
     "Equivalent excitation current";
 equation
   connect(eGround.p, ie.p) annotation (Line(points={{-10,-30},{-10,-30},{

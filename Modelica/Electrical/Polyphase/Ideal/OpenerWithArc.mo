@@ -1,15 +1,15 @@
 within Modelica.Electrical.Polyphase.Ideal;
 model OpenerWithArc "Polyphase opener with arc"
   extends Interfaces.TwoPlug;
-  parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
+  parameter SI.Resistance Ron[m](final min=zeros(m), start=
         fill(1e-5, m)) "Closed switch resistance";
-  parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
+  parameter SI.Conductance Goff[m](final min=zeros(m), start=
         fill(1e-5, m)) "Opened switch conductance";
-  parameter Modelica.SIunits.Voltage V0[m](start=fill(30, m))
+  parameter SI.Voltage V0[m](start=fill(30, m))
     "Initial arc voltage";
-  parameter Modelica.SIunits.VoltageSlope dVdt[m](start=fill(10E3, m))
+  parameter SI.VoltageSlope dVdt[m](start=fill(10E3, m))
     "Arc voltage slope";
-  parameter Modelica.SIunits.Voltage Vmax[m](start=fill(60, m))
+  parameter SI.Voltage Vmax[m](start=fill(60, m))
     "Max. arc voltage";
   extends Polyphase.Interfaces.ConditionalHeatPort(final mh=m, final T=fill(
         293.15, m));

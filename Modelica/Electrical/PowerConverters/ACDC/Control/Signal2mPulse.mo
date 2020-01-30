@@ -5,15 +5,15 @@ block Signal2mPulse "Generic control of 2*m pulse rectifiers"
   parameter Integer m(final min=1) = 3 "Number of phases";
   parameter Boolean useConstantFiringAngle=true
     "Use constant firing angle instead of signal input";
-  parameter Modelica.SIunits.Angle constantFiringAngle=0 "Firing angle"
+  parameter SI.Angle constantFiringAngle=0 "Firing angle"
     annotation (Dialog(enable=useConstantFiringAngle));
   parameter Boolean useFilter=true "Enable use of filter"
     annotation (Dialog(tab="Filter"));
-  parameter Modelica.SIunits.Frequency f=50 "Frequency";
-  parameter Modelica.SIunits.Frequency fCut=2*f
+  parameter SI.Frequency f=50 "Frequency";
+  parameter SI.Frequency fCut=2*f
     "Cut off frequency of filter"
     annotation (Dialog(tab="Filter", enable=useFilter));
-  parameter Modelica.SIunits.Voltage vStart[m]=zeros(m)
+  parameter SI.Voltage vStart[m]=zeros(m)
     "Start voltage of filter output"
     annotation (Dialog(tab="Filter", enable=useFilter));
   Modelica.Blocks.Interfaces.RealInput firingAngle(unit="rad") if not
@@ -22,10 +22,10 @@ block Signal2mPulse "Generic control of 2*m pulse rectifiers"
         extent={{20,-20},{-20,20}},
         rotation=270,
         origin={0,-120})));
-  parameter Modelica.SIunits.Angle firingAngleMax(
+  parameter SI.Angle firingAngleMax(
     final min=0, final max=pi) = Modelica.Constants.pi
     "Maximum firing angle";
-  parameter Modelica.SIunits.Angle firingAngleMin(
+  parameter SI.Angle firingAngleMin(
     final min=0, final max=pi) = 0
     "Minimum firing angle";
   Modelica.Blocks.Sources.Constant constantconstantFiringAngle(final k=

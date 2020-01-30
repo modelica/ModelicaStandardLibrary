@@ -15,7 +15,7 @@ partial model PartialElementaryTwoFlangesAndSupport2
     useSupport "Support/housing of component"
     annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
 protected
-  Modelica.SIunits.Angle phi_support "Absolute angle of support flange";
+  SI.Angle phi_support "Absolute angle of support flange";
 equation
   if not useSupport then
     phi_support = 0;

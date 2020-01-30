@@ -5,17 +5,17 @@ model HBridge "H bridge (four quadrant converter)"
   extends PowerConverters.Interfaces.DCDC.DCtwoPin2;
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
        293.15);
-  parameter Modelica.SIunits.Resistance RonTransistor=1e-05
+  parameter SI.Resistance RonTransistor=1e-05
     "Transistor closed resistance";
-  parameter Modelica.SIunits.Conductance GoffTransistor=1e-05
+  parameter SI.Conductance GoffTransistor=1e-05
     "Transistor opened conductance";
-  parameter Modelica.SIunits.Voltage VkneeTransistor=0
+  parameter SI.Voltage VkneeTransistor=0
     "Transistor threshold voltage";
-  parameter Modelica.SIunits.Resistance RonDiode=1e-05
+  parameter SI.Resistance RonDiode=1e-05
     "Diode closed resistance";
-  parameter Modelica.SIunits.Conductance GoffDiode=1e-05
+  parameter SI.Conductance GoffDiode=1e-05
     "Diode opened conductance";
-  parameter Modelica.SIunits.Voltage VkneeDiode=0 "Diode threshold voltage";
+  parameter SI.Voltage VkneeDiode=0 "Diode threshold voltage";
   extends Interfaces.Enable.Enable2;
   DCAC.SinglePhase2Level inverter_p(
     final RonTransistor=RonTransistor,

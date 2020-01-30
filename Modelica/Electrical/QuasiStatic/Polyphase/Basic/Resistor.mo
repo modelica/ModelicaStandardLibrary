@@ -1,11 +1,11 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Basic;
 model Resistor "Polyphase linear resistor"
   extends Interfaces.TwoPlug;
-  parameter Modelica.SIunits.Resistance R_ref[m](start=fill(1, m))
+  parameter SI.Resistance R_ref[m](start=fill(1, m))
     "Reference resistances at T_ref";
-  parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m)
+  parameter SI.Temperature T_ref[m]=fill(293.15, m)
     "Reference temperatures";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=
+  parameter SI.LinearTemperatureCoefficient alpha_ref[m]=
       zeros(m)
     "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
   extends Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort(

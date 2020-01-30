@@ -676,9 +676,9 @@ signal <strong>u</strong> exceeds the <strong>reference</strong> signal plus hal
     extends Modelica.Blocks.Icons.PartialBooleanBlock;
 
     parameter Real amplitude=1 "Amplitude of trapezoid";
-    parameter Modelica.SIunits.Time rising(final min=0) = 0
+    parameter SI.Time rising(final min=0) = 0
       "Rising duration of trapezoid";
-    parameter Modelica.SIunits.Time falling(final min=0) = rising
+    parameter SI.Time falling(final min=0) = rising
       "Falling duration of trapezoid";
     parameter Real offset=0 "Offset of output signal";
 
@@ -690,7 +690,7 @@ signal <strong>u</strong> exceeds the <strong>reference</strong> signal plus hal
   protected
     discrete Real endValue "Value of y at time of recent edge";
     discrete Real rate "Current rising/falling rate";
-    discrete Modelica.SIunits.Time T
+    discrete SI.Time T
       "Predicted time of output reaching endValue";
   equation
     y = if time < T then endValue - (T - time)*rate else endValue;
@@ -761,7 +761,7 @@ handled properly.</p>
       annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
   protected
-    discrete Modelica.SIunits.Time entryTime "Time instant when u became true";
+    discrete SI.Time entryTime "Time instant when u became true";
   initial equation
     pre(entryTime) = 0;
   equation

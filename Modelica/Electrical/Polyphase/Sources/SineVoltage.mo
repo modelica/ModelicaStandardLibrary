@@ -1,15 +1,15 @@
 within Modelica.Electrical.Polyphase.Sources;
 model SineVoltage "Polyphase sine voltage source"
   extends Interfaces.TwoPlug;
-  parameter Modelica.SIunits.Voltage V[m](start=fill(1, m))
+  parameter SI.Voltage V[m](start=fill(1, m))
     "Amplitudes of sine waves";
-  parameter Modelica.SIunits.Angle phase[m]=-
+  parameter SI.Angle phase[m]=-
       Polyphase.Functions.symmetricOrientation(                    m)
     "Phases of sine waves";
-  parameter Modelica.SIunits.Frequency f[m](start=fill(1, m))
+  parameter SI.Frequency f[m](start=fill(1, m))
     "Frequencies of sine waves";
-  parameter Modelica.SIunits.Voltage offset[m]=zeros(m) "Voltage offsets";
-  parameter Modelica.SIunits.Time startTime[m]=zeros(m) "Time offsets";
+  parameter SI.Voltage offset[m]=zeros(m) "Voltage offsets";
+  parameter SI.Time startTime[m]=zeros(m) "Time offsets";
   Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage[m](
     final V=V,
     final phase=phase,

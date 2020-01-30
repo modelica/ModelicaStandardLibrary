@@ -22,26 +22,26 @@ model QuasiStaticAnalogElectroMagneticConverter
   parameter Real effectiveTurns "Effective number of turns"
     annotation (Evaluate=true);
   // Local electric single-phase quantities
-  Modelica.SIunits.Voltage v "Voltage drop";
-  Modelica.SIunits.Current i "Current";
+  SI.Voltage v "Voltage drop";
+  SI.Current i "Current";
 
   // Local electromagnetic fundamental wave quantities
-  Modelica.SIunits.ComplexMagneticPotentialDifference V_m
+  SI.ComplexMagneticPotentialDifference V_m
     "Complex magnetic potential difference";
-  Modelica.SIunits.MagneticPotentialDifference abs_V_m=
+  SI.MagneticPotentialDifference abs_V_m=
       Modelica.ComplexMath.abs(V_m)
     "Magnitude of complex magnetic potential difference";
-  Modelica.SIunits.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
+  SI.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
     "Argument of complex magnetic potential difference";
 
-  Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
-  Modelica.SIunits.MagneticPotentialDifference abs_Phi=
+  SI.ComplexMagneticFlux Phi "Complex magnetic flux";
+  SI.MagneticPotentialDifference abs_Phi=
       Modelica.ComplexMath.abs(Phi) "Magnitude of complex magnetic flux";
-  Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
+  SI.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
     "Argument of complex magnetic flux";
 
-  Modelica.SIunits.Angle gamma "Angle of V_m fixed reference frame";
-  Modelica.SIunits.AngularVelocity omega=der(port_p.reference.gamma);
+  SI.Angle gamma "Angle of V_m fixed reference frame";
+  SI.AngularVelocity omega=der(port_p.reference.gamma);
 equation
   // Magnetic flux and flux balance of the magnetic ports
   port_p.Phi = Phi;

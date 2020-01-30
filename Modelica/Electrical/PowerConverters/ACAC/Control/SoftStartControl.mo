@@ -3,12 +3,12 @@ block SoftStartControl
   extends Modelica.Blocks.Icons.Block;
   import ModeOfOperation =
     Modelica.Electrical.PowerConverters.Types.SoftStarterModeOfOperation;
-  parameter Modelica.SIunits.Time tRampUp "Start ramp duration";
+  parameter SI.Time tRampUp "Start ramp duration";
   parameter Real vStart=0 "Start voltage / nominal voltage";
   parameter Real iMax "Maximum current / nominal current";
   parameter Real iMin=0.9*iMax "Lower threshold of current control";
-  parameter Modelica.SIunits.Current INominal "Nominal current";
-parameter Modelica.SIunits.Time tRampDown "Stop ramp duration";
+  parameter SI.Current INominal "Nominal current";
+parameter SI.Time tRampDown "Stop ramp duration";
   Modelica.Blocks.Interfaces.RealInput iRMS(unit="A") "Measured RMS current"
     annotation (Placement(
         transformation(extent={{-140,-20},{-100,20}})));

@@ -4,17 +4,17 @@ model HalfControlledBridge2mPulse
   extends Icons.Converter;
   import Modelica.Constants.pi;
   // parameter Integer m(final min=3) = 3 "Number of phases";
-  parameter Modelica.SIunits.Resistance RonDiode(final min=0) = 1e-05
+  parameter SI.Resistance RonDiode(final min=0) = 1e-05
     "Closed diode resistance";
-  parameter Modelica.SIunits.Conductance GoffDiode(final min=0) = 1e-05
+  parameter SI.Conductance GoffDiode(final min=0) = 1e-05
     "Opened diode conductance";
-  parameter Modelica.SIunits.Voltage VkneeDiode(final min=0) = 0
+  parameter SI.Voltage VkneeDiode(final min=0) = 0
     "Diode forward threshold voltage";
-  parameter Modelica.SIunits.Resistance RonThyristor(final min=0) = 1e-05
+  parameter SI.Resistance RonThyristor(final min=0) = 1e-05
     "Closed thyristor resistance";
-  parameter Modelica.SIunits.Conductance GoffThyristor(final min=0) = 1e-05
+  parameter SI.Conductance GoffThyristor(final min=0) = 1e-05
     "Opened thyristor conductance";
-  parameter Modelica.SIunits.Voltage VkneeThyristor(final min=0) = 0
+  parameter SI.Voltage VkneeThyristor(final min=0) = 0
     "Thyristor forward threshold voltage";
   parameter Boolean offStart_p[m]=fill(true, m)
     "Boolean start value of variable thyristor_p[:].off"

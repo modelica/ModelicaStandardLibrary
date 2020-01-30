@@ -2,7 +2,7 @@ within Modelica.Mechanics.Rotational.Interfaces;
 partial model PartialTorque
   "Partial model of a torque acting at the flange (accelerates the flange)"
   extends Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
-  Modelica.SIunits.Angle phi
+  SI.Angle phi
     "Angle of flange with respect to support (= flange.phi - support.phi)";
 
 equation

@@ -26,34 +26,34 @@ model RotorSaliencyAirGap "Air gap model with rotor saliency"
   final parameter Magnetic.FundamentalWave.Types.SalientReluctance R_m(d=1/L0.d,
       q=1/L0.q) "Reluctance of the air gap model";
   // Complex phasors of magnetic potential differences
-  Modelica.SIunits.ComplexMagneticPotentialDifference V_ms
+  SI.ComplexMagneticPotentialDifference V_ms
     "Complex magnetic potential difference of stator w.r.t. stator fixed frame";
-  Modelica.SIunits.ComplexMagneticPotentialDifference V_msr=V_ms*
+  SI.ComplexMagneticPotentialDifference V_msr=V_ms*
       Modelica.ComplexMath.fromPolar(1, gammar)
     "Complex magnetic potential difference of stator w.r.t. rotor fixed frame";
-  Modelica.SIunits.ComplexMagneticPotentialDifference V_mr
+  SI.ComplexMagneticPotentialDifference V_mr
     "Complex magnetic potential difference of rotor w.r.t. rotor fixed frame";
-  Modelica.SIunits.ComplexMagneticPotentialDifference V_mrr=V_mr*
+  SI.ComplexMagneticPotentialDifference V_mrr=V_mr*
       Modelica.ComplexMath.fromPolar(1, gammar)
     "Complex magnetic potential difference of rotor w.r.t. rotor fixed frame";
   // Complex phasors of magnetic fluxes
-  Modelica.SIunits.ComplexMagneticFlux Phi_s
+  SI.ComplexMagneticFlux Phi_s
     "Complex magnetic flux of stator w.r.t. stator fixed frame";
-  Modelica.SIunits.ComplexMagneticFlux Phi_sr=Phi_s*
+  SI.ComplexMagneticFlux Phi_sr=Phi_s*
       Modelica.ComplexMath.fromPolar(1, gammar)
     "Complex magnetic flux of stator w.r.t. rotor fixed frame";
-  Modelica.SIunits.ComplexMagneticFlux Phi_r
+  SI.ComplexMagneticFlux Phi_r
     "Complex magnetic flux of rotor w.r.t. rotor fixed frame";
-  Modelica.SIunits.ComplexMagneticFlux Phi_rr=Phi_r*
+  SI.ComplexMagneticFlux Phi_rr=Phi_r*
       Modelica.ComplexMath.fromPolar(1, gammar)
     "Complex magnetic flux of rotor w.r.t. rotor fixed frame";
   // Electrical torque and mechanical angle
-  Modelica.SIunits.Torque tauElectrical "Electrical torque";
-  Modelica.SIunits.Angle gamma=p*(flange_a.phi - support.phi)
+  SI.Torque tauElectrical "Electrical torque";
+  SI.Angle gamma=p*(flange_a.phi - support.phi)
     "Electrical angle between rotor and stator";
-  Modelica.SIunits.Angle gammas=port_sp.reference.gamma
+  SI.Angle gammas=port_sp.reference.gamma
     "Angle electrical quantities in stator fixed frame";
-  Modelica.SIunits.Angle gammar=port_rp.reference.gamma
+  SI.Angle gammar=port_rp.reference.gamma
     "Angle electrical quantities in rotor fixed frame";
 equation
   port_sp.Phi = Phi_s "Stator flux into positive stator port";

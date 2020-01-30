@@ -2,21 +2,21 @@ within Modelica.Electrical.PowerConverters.ACDC.Control;
 model VoltageBridge2Pulse "Control of 2 pulse bridge rectifier"
   import Modelica.Constants.pi;
   extends Icons.Control;
-  parameter Modelica.SIunits.Frequency f=50 "Frequency";
+  parameter SI.Frequency f=50 "Frequency";
   parameter Boolean useConstantFiringAngle=true
     "Use constant firing angle instead of signal input";
-  parameter Modelica.SIunits.Angle constantFiringAngle=0 "Firing angle"
+  parameter SI.Angle constantFiringAngle=0 "Firing angle"
     annotation (Dialog(enable=useConstantFiringAngle));
-  parameter Modelica.SIunits.Angle firingAngleMax(
+  parameter SI.Angle firingAngleMax(
     final min=0,
     final max=Modelica.Constants.pi) = Modelica.Constants.pi
     "Maximum firing angle";
   parameter Boolean useFilter=true "Enable use of filter"
     annotation (Dialog(tab="Filter"));
-  parameter Modelica.SIunits.Frequency fCut=2*f
+  parameter SI.Frequency fCut=2*f
     "Cut off frequency of filter"
     annotation (Dialog(tab="Filter", enable=useFilter));
-  parameter Modelica.SIunits.Voltage vStart=0
+  parameter SI.Voltage vStart=0
     "Start voltage of filter output"
     annotation (Dialog(tab="Filter", enable=useFilter));
   Modelica.Blocks.Interfaces.RealInput firingAngle(unit="rad") if not

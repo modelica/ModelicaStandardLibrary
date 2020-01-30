@@ -4,13 +4,13 @@ model EddyCurrentLosses
   extends Modelica.Icons.Example;
   constant Integer m=3 "Number of phases";
   // ## Original value R = 0.1 Ohm
-  parameter Modelica.SIunits.Resistance R=0.1 "Resistance";
-  parameter Modelica.SIunits.Conductance Gc=0.0001 "Loss conductance";
-  parameter Modelica.SIunits.Reluctance R_m=1
+  parameter SI.Resistance R=0.1 "Resistance";
+  parameter SI.Conductance Gc=0.0001 "Loss conductance";
+  parameter SI.Reluctance R_m=1
     "Reluctance of the magnetic circuit";
   parameter Real N=1 "Number of turns";
-  output Modelica.SIunits.Power lossPower_e=sum(loss_e.conductor.LossPower);
-  output Modelica.SIunits.Power lossPower_m=loss_m.lossPower;
+  output SI.Power lossPower_e=sum(loss_e.conductor.LossPower);
+  output SI.Power lossPower_m=loss_m.lossPower;
   Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground ground_e
     annotation (Placement(transformation(extent={{-90,0},{-70,20}})));
   Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground ground_m

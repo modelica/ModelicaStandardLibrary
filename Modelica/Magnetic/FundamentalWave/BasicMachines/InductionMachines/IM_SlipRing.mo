@@ -31,21 +31,21 @@ model IM_SlipRing "Induction machine with slip ring rotor"
   Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_rp(final m=
         mr) "Positive plug of rotor" annotation (Placement(transformation(
           extent={{-110,70},{-90,50}})));
-  parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi
+  parameter SI.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi
         *fsNominal)) "Stator main field inductance" annotation (Dialog(
         tab="Nominal resistances and inductances", groupImage=
           "modelica://Modelica/Resources/Images/Electrical/Machines/IMS.png"));
-  parameter Modelica.SIunits.Inductance Lrsigma(start=3*(1 - sqrt(1 -
+  parameter SI.Inductance Lrsigma(start=3*(1 - sqrt(1 -
         0.0667))/(2*pi*fsNominal))
     "Rotor leakage inductance w.r.t. rotor side"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Inductance Lrzero=Lrsigma
+  parameter SI.Inductance Lrzero=Lrsigma
     "Rotor zero inductance w.r.t. rotor side"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Resistance Rr(start=0.04)
+  parameter SI.Resistance Rr(start=0.04)
     "Rotor resistance per phase w.r.t. rotor side"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Temperature TrRef(start=293.15)
+  parameter SI.Temperature TrRef(start=293.15)
     "Reference temperature of rotor resistance"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter
@@ -53,7 +53,7 @@ model IM_SlipRing "Induction machine with slip ring rotor"
     alpha20r(start=0)
     "Temperature coefficient of rotor resistance at 20 degC"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
+  parameter SI.Temperature TrOperational(start=293.15)
     "Operational temperature of rotor resistance" annotation (Dialog(
         group="Operational temperatures", enable=not useThermalPort));
   parameter Boolean useTurnsRatio(start=true)
@@ -61,10 +61,10 @@ model IM_SlipRing "Induction machine with slip ring rotor"
   parameter Real TurnsRatio(final min=Modelica.Constants.small, start=1)
     "Effective number of stator turns / effective number of rotor turns"
     annotation (Dialog(enable=useTurnsRatio));
-  parameter Modelica.SIunits.Voltage VsNominal(start=100)
+  parameter SI.Voltage VsNominal(start=100)
     "Nominal stator voltage per phase"
     annotation (Dialog(enable=not useTurnsRatio));
-  parameter Modelica.SIunits.Voltage VrLockedRotor(start=100*(2*pi*
+  parameter SI.Voltage VrLockedRotor(start=100*(2*pi*
         fsNominal*Lm)/sqrt(Rs^2 + (2*pi*fsNominal*(Lm + Lssigma))^2))
     "Locked rotor voltage per phase"
     annotation (Dialog(enable=not useTurnsRatio));
@@ -76,9 +76,9 @@ model IM_SlipRing "Induction machine with slip ring rotor"
     wRef(start=1) = 1)
     "Rotor core loss parameter record, all quantities refer to rotor side"
     annotation (Dialog(tab="Losses"));
-  output Modelica.SIunits.Voltage vr[mr]=plug_rp.pin.v - plug_rn.pin.v
+  output SI.Voltage vr[mr]=plug_rp.pin.v - plug_rn.pin.v
     "Rotor instantaneous voltages";
-  output Modelica.SIunits.Current ir[mr]=plug_rp.pin.i
+  output SI.Current ir[mr]=plug_rp.pin.i
     "Rotor instantaneous currents";
 protected
   final parameter Real internalTurnsRatio=if useTurnsRatio then

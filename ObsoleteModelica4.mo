@@ -264,7 +264,7 @@ for signal buses, see example
               "Enables bipolar input voltage range";
             parameter Boolean useConstantMaximumVoltage=true
               "Enables constant maximum voltage";
-            parameter Modelica.SIunits.Voltage vMax=0
+            parameter SI.Voltage vMax=0
               "Maximum voltage range mapped to dutyCycle = 1"
               annotation(Dialog(enable=useConstantMaximumVoltage));
             Modelica.Blocks.Interfaces.RealInput v "Voltage" annotation (Placement(
@@ -500,16 +500,16 @@ The relative sensor partial model relies on the
           parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
             "Axis of translation resolved in frame_a (= same as in frame_b)"
             annotation (Evaluate=true);
-          parameter Modelica.SIunits.Position s_offset=0
+          parameter SI.Position s_offset=0
             "Relative distance offset (distance between frame_a and frame_b = s_offset + s)";
           parameter Modelica.Mechanics.MultiBody.Types.Axis boxWidthDirection={0,1,0}
             "Vector in width direction of box, resolved in frame_a"
             annotation (Evaluate=true, Dialog(tab="Animation", group=
                   "if animation = true", enable=animation));
-          parameter Modelica.SIunits.Distance boxWidth=world.defaultJointWidth
+          parameter SI.Distance boxWidth=world.defaultJointWidth
             "Width of prismatic joint box"
             annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-          parameter Modelica.SIunits.Distance boxHeight=boxWidth "Height of prismatic joint box"
+          parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint box"
             annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
           input Modelica.Mechanics.MultiBody.Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
             "Color of prismatic joint box"
@@ -523,7 +523,7 @@ The relative sensor partial model relies on the
              Modelica.Math.Vectors.normalizeWithAssert(n)
             "Unit vector in direction of prismatic axis n";
 
-          Modelica.SIunits.Position s(start=0, final stateSelect=stateSelect)
+          SI.Position s(start=0, final stateSelect=stateSelect)
             "Relative distance between frame_a and frame_b"
             annotation (unassignedMessage="
 The relative distance s of a prismatic joint cannot be determined.
@@ -535,10 +535,10 @@ Possible reasons:
   (remove all StateSelect.always settings).
 ");
 
-          Modelica.SIunits.Velocity v(start=0,final stateSelect=stateSelect)
+          SI.Velocity v(start=0,final stateSelect=stateSelect)
             "First derivative of s (relative velocity)";
-          Modelica.SIunits.Acceleration a(start=0) "Second derivative of s (relative acceleration)";
-          Modelica.SIunits.Force f "Actuation force in direction of joint axis";
+          SI.Acceleration a(start=0) "Second derivative of s (relative acceleration)";
+          SI.Force f "Actuation force in direction of joint axis";
 
         protected
           Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape box(
@@ -705,12 +705,12 @@ vector \"n\" defining the translation axis
           parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1}
             "Axis of rotation resolved in frame_a (= same as in frame_b)"
             annotation (Evaluate=true);
-          parameter Modelica.SIunits.Angle phi_offset=0
+          parameter SI.Angle phi_offset=0
             "Relative angle offset (angle = phi_offset + phi)";
-          parameter Modelica.SIunits.Distance cylinderLength=world.defaultJointLength
+          parameter SI.Distance cylinderLength=world.defaultJointLength
             "Length of cylinder representing the joint axis"
             annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-          parameter Modelica.SIunits.Distance cylinderDiameter=world.defaultJointWidth
+          parameter SI.Distance cylinderDiameter=world.defaultJointWidth
             "Diameter of cylinder representing the joint axis"
             annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
           input Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
@@ -723,7 +723,7 @@ vector \"n\" defining the translation axis
           parameter StateSelect stateSelect=StateSelect.prefer
             "Priority to use joint angle phi and w=der(phi) as states" annotation(Dialog(tab="Advanced"));
 
-          Modelica.SIunits.Angle phi(start=0, final stateSelect=stateSelect)
+          SI.Angle phi(start=0, final stateSelect=stateSelect)
             "Relative rotation angle from frame_a to frame_b"
              annotation (unassignedMessage="
 The rotation angle phi of a revolute joint cannot be determined.
@@ -734,12 +734,12 @@ Possible reasons:
   has less degrees of freedom as specified with this setting
   (remove all StateSelect.always settings).
 ");
-          Modelica.SIunits.AngularVelocity w(start=0, stateSelect=stateSelect)
+          SI.AngularVelocity w(start=0, stateSelect=stateSelect)
             "First derivative of angle phi (relative angular velocity)";
-          Modelica.SIunits.AngularAcceleration a(start=0)
+          SI.AngularAcceleration a(start=0)
             "Second derivative of angle phi (relative angular acceleration)";
-          Modelica.SIunits.Torque tau "Driving torque in direction of axis of rotation";
-          Modelica.SIunits.Angle angle "= phi_offset + phi";
+          SI.Torque tau "Driving torque in direction of axis of rotation";
+          SI.Angle angle "= phi_offset + phi";
 
         protected
           outer Modelica.Mechanics.MultiBody.World world;
@@ -1100,7 +1100,7 @@ and instead the component is internally fixed to ground.
             Evaluate=true,
             HideResult=true,
             choices(checkBox=true));
-          Modelica.SIunits.Length s
+          SI.Length s
             "Distance between flange and support (= flange.s - support.s)";
           Modelica.Mechanics.Translational.Interfaces.Flange_b flange "Flange of component" annotation (Placement(transformation(extent={{90,-10},{110,10}})));
 
@@ -1168,8 +1168,8 @@ and instead the component is internally fixed to ground.
             HideResult=true,
             choices(checkBox=true));
           extends Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges;
-          Modelica.SIunits.Length s_a "Distance between left flange and support";
-          Modelica.SIunits.Length s_b "Distance between right flange and support";
+          SI.Length s_a "Distance between left flange and support";
+          SI.Length s_b "Distance between right flange and support";
         protected
           Modelica.Mechanics.Translational.Interfaces.InternalSupport internalSupport(f=-flange_a.f - flange_b.f)
             "Internal support/housing of component as a model with connector flange (flange is either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
@@ -2544,24 +2544,24 @@ This transformation is widely used for transforming non-symmetric matrices to a 
             parameter Boolean useHeatPort=false
               "Enable / disable (=fixed temperatures) thermal port"
               annotation (Evaluate=true);
-            parameter Modelica.SIunits.Resistance RRef
+            parameter SI.Resistance RRef
               "Winding resistance per phase at TRef";
-            parameter Modelica.SIunits.Temperature TRef(start=293.15)
+            parameter SI.Temperature TRef(start=293.15)
               "Reference temperature of winding";
             parameter
               Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
               alpha20(start=0) "Temperature coefficient of winding at 20 degC";
-            final parameter Modelica.SIunits.LinearTemperatureCoefficient alphaRef=
+            final parameter SI.LinearTemperatureCoefficient alphaRef=
                 Modelica.Electrical.Machines.Thermal.convertAlpha(
                       alpha20,
                       TRef,
                       293.15) "Temperature coefficient of winding at reference temperature";
-            parameter Modelica.SIunits.Temperature TOperational(start=293.15)
+            parameter SI.Temperature TOperational(start=293.15)
               "Operational temperature of winding"
               annotation (Dialog(enable=not useHeatPort));
-            parameter Modelica.SIunits.Inductance Lsigma "Cage stray inductance";
+            parameter SI.Inductance Lsigma "Cage stray inductance";
             parameter Real effectiveTurns=1 "Effective number of turns";
-            Modelica.SIunits.Current i[m]=strayInductor.i "Cage currents";
+            SI.Current i[m]=strayInductor.i "Cage currents";
             Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter
               winding(
               final m=m,
@@ -2664,17 +2664,17 @@ Obsolete symmetric cage model, see
               annotation (Evaluate=true);
             parameter Modelica.Magnetic.FundamentalWave.Types.SalientResistance
               RRef(d(start=1), q(start=1)) "Salient cage resistance";
-            parameter Modelica.SIunits.Temperature TRef(start=293.15)
+            parameter SI.Temperature TRef(start=293.15)
               "Reference temperature of winding";
             parameter
               Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
               alpha20(start=0) "Temperature coefficient of winding at 20 degC";
-            final parameter Modelica.SIunits.LinearTemperatureCoefficient alphaRef=
+            final parameter SI.LinearTemperatureCoefficient alphaRef=
                 Modelica.Electrical.Machines.Thermal.convertAlpha(
                       alpha20,
                       TRef,
                       293.15) "Temperature coefficient of winding at reference temperature";
-            parameter Modelica.SIunits.Temperature TOperational(start=293.15)
+            parameter SI.Temperature TOperational(start=293.15)
               "Operational temperature of winding"
               annotation (Dialog(enable=not useHeatPort));
             parameter Modelica.Magnetic.FundamentalWave.Types.SalientInductance

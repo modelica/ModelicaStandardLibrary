@@ -3,16 +3,16 @@ block VfController "Voltage-Frequency-Controller"
   import Modelica.Constants.pi;
   extends Modelica.Blocks.Interfaces.SIMO(u(unit="Hz"), final nout=m);
   parameter Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Angle orientation[m]=-
+  parameter SI.Angle orientation[m]=-
       Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m)
     "Orientation of phases";
-  parameter Modelica.SIunits.Voltage VNominal "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fNominal "Nominal frequency";
-  parameter Modelica.SIunits.Angle BasePhase=0 "Common phase shift";
+  parameter SI.Voltage VNominal "Nominal RMS voltage per phase";
+  parameter SI.Frequency fNominal "Nominal frequency";
+  parameter SI.Angle BasePhase=0 "Common phase shift";
   parameter Boolean EconomyMode=false "Economy mode: voltage quadratic dependent on frequency"
     annotation(Evaluate=true,choices(checkBox=true));
-  output Modelica.SIunits.Angle x(start=0, fixed=true) "Integrator state";
-  output Modelica.SIunits.Voltage amplitude;
+  output SI.Angle x(start=0, fixed=true) "Integrator state";
+  output SI.Voltage amplitude;
 protected
   parameter Integer pow=if EconomyMode then 2 else 1
     annotation(Evaluate=true);

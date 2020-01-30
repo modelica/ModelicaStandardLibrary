@@ -106,7 +106,7 @@ package Machines
   equation
     phi = shaft.phi;
     omega = der(phi);
-    N = Modelica.SIunits.Conversions.to_rpm(omega);
+    N = SI.Conversions.to_rpm(omega);
     W_single = omega*shaft.tau;
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,

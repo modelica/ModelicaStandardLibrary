@@ -1,7 +1,7 @@
 within Modelica.Electrical.Analog.Examples.Utilities;
 model InverseInductor "Input/output block of an inverse inductor model"
   extends Modelica.Blocks.Icons.Block;
-  parameter Modelica.SIunits.Inductance L(min=0)=1 "Inductance";
+  parameter SI.Inductance L(min=0)=1 "Inductance";
   Modelica.Electrical.Analog.Basic.Inductor inductor(i(fixed=true, start=0), L=
         L) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},

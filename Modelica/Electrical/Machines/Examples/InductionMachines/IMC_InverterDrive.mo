@@ -5,16 +5,16 @@ model IMC_InverterDrive
   import Modelica.Constants.pi;
   import Modelica.Electrical.Polyphase.Functions.factorY2DC;
   constant Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Voltage VNominal=400
+  parameter SI.Voltage VNominal=400
     "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
-  parameter Modelica.SIunits.Resistance RGrid=10e-3 "Grid choke resistance";
-  parameter Modelica.SIunits.Inductance LGrid=500e-6 "Grid choke inductance";
-  parameter Modelica.SIunits.Voltage VDC=factorY2DC(m)*VNominal/sqrt(3) "Theoretical DC voltage";
-  parameter Modelica.SIunits.Capacitance CDC=5e-3 "DC capacitor";
-  parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
-  parameter Modelica.SIunits.AngularVelocity wLoad=1440.45*2*pi/60 "Nominal load speed";
-  parameter Modelica.SIunits.Inertia JLoad=0.29 "Load's moment of inertia";
+  parameter SI.Frequency fNominal=50 "Nominal frequency";
+  parameter SI.Resistance RGrid=10e-3 "Grid choke resistance";
+  parameter SI.Inductance LGrid=500e-6 "Grid choke inductance";
+  parameter SI.Voltage VDC=factorY2DC(m)*VNominal/sqrt(3) "Theoretical DC voltage";
+  parameter SI.Capacitance CDC=5e-3 "DC capacitor";
+  parameter SI.Torque TLoad=161.4 "Nominal load torque";
+  parameter SI.AngularVelocity wLoad=1440.45*2*pi/60 "Nominal load speed";
+  parameter SI.Inertia JLoad=0.29 "Load's moment of inertia";
   Polyphase.Sources.SineVoltage sineVoltage(
     final m=m,
     final phase=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),

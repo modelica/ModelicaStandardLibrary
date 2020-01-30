@@ -8,7 +8,7 @@ model TestWallFriction
     constrainedby Modelica.Media.Interfaces.PartialMedium
     "Medium in all components"                        annotation (
     choicesAllMatching =                                                                            true);
-  parameter Modelica.SIunits.Length roughness = 0.025e-3;
+  parameter SI.Length roughness = 0.025e-3;
 
   Modelica.Fluid.Sources.Boundary_pT ambient_a(redeclare package Medium =
         Medium,

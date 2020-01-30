@@ -6,17 +6,17 @@ model SaliencyCageWinding "Rotor cage with saliency in d- and q-axis"
     annotation (Evaluate=true);
   parameter Magnetic.FundamentalWave.Types.SalientResistance RRef(d(start=1), q(
         start=1)) "Salient cage resistance";
-  parameter Modelica.SIunits.Temperature TRef(start=293.15)
+  parameter SI.Temperature TRef(start=293.15)
     "Reference temperature of winding";
   parameter
     Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
     alpha20(start=0) "Temperature coefficient of winding at 20 degC";
-  final parameter Modelica.SIunits.LinearTemperatureCoefficient alphaRef=
+  final parameter SI.LinearTemperatureCoefficient alphaRef=
       Modelica.Electrical.Machines.Thermal.convertAlpha(
             alpha20,
             TRef,
             293.15) "Temperature coefficient of winding at reference temperature";
-  parameter Modelica.SIunits.Temperature TOperational(start=293.15)
+  parameter SI.Temperature TOperational(start=293.15)
     "Operational temperature of winding"
     annotation (Dialog(enable=not useHeatPort));
   parameter Magnetic.FundamentalWave.Types.SalientInductance Lsigma(d(start=1),

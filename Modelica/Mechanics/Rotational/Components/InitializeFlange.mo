@@ -26,9 +26,9 @@ model InitializeFlange
   Interfaces.Flange_b flange "Flange that is initialized" annotation (
       Placement(transformation(extent={{90,-10},{110,10}})));
 
-  Modelica.SIunits.Angle phi_flange(stateSelect=stateSelect) = flange.phi
+  SI.Angle phi_flange(stateSelect=stateSelect) = flange.phi
     "Flange angle";
-  Modelica.SIunits.AngularVelocity w_flange(stateSelect=stateSelect) = der(
+  SI.AngularVelocity w_flange(stateSelect=stateSelect) = der(
     phi_flange) "= der(phi_flange)";
 
 protected
@@ -77,7 +77,7 @@ protected
           stateSelect=StateSelect.avoid)) annotation (Placement(
           transformation(extent={{90,-10},{110,10}})));
 
-    Modelica.SIunits.AngularVelocity w=der(flange.phi)
+    SI.AngularVelocity w=der(flange.phi)
       annotation (HideResult=true);
   initial equation
     der(w) = a_start;

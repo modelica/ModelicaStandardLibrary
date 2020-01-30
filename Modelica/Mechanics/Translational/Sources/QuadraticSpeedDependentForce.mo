@@ -2,13 +2,13 @@ within Modelica.Mechanics.Translational.Sources;
 model QuadraticSpeedDependentForce
   "Quadratic dependency of force versus speed"
   extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
-  parameter Modelica.SIunits.Force f_nominal
+  parameter SI.Force f_nominal
     "Nominal force (if negative, force is acting as load in positive direction of motion)";
   parameter Boolean ForceDirection=true
     "Same direction of force in both directions of motion";
-  parameter Modelica.SIunits.Velocity v_nominal(min=Modelica.Constants.eps)
+  parameter SI.Velocity v_nominal(min=Modelica.Constants.eps)
     "Nominal speed";
-  Modelica.SIunits.Velocity v
+  SI.Velocity v
     "Velocity of flange with respect to support (= der(s))";
 equation
   v = der(s);

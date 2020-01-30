@@ -2,7 +2,7 @@ within Modelica.Blocks;
 package Sources
   "Library of signal source blocks generating Real, Integer and Boolean signals"
   import Modelica.Blocks.Interfaces;
-  import Modelica.SIunits;
+  import SI;
   extends Modelica.Icons.SourcesPackage;
 
   block RealExpression "Set output signal to a time varying Real expression"
@@ -253,7 +253,7 @@ The Real output y is a step signal:
   block Ramp "Generate ramp signal"
     parameter Real height=1 "Height of ramps"
       annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Ramp.png"));
-    parameter Modelica.SIunits.Time duration(min=0.0, start=2)
+    parameter SI.Time duration(min=0.0, start=2)
       "Duration of ramp (= 0.0 gives a Step)";
     extends Interfaces.SignalSource;
 
@@ -407,11 +407,11 @@ The Real output y is a cosine signal:
     parameter Real constantAmplitude=1 "Constant amplitude"
       annotation(Dialog(enable=useConstantAmplitude));
     parameter Boolean useConstantFrequency=false "Enable constant frequency";
-    parameter Modelica.SIunits.Frequency constantFrequency=1 "Constant frequency"
+    parameter SI.Frequency constantFrequency=1 "Constant frequency"
       annotation(Dialog(enable=useConstantFrequency));
     parameter Real offset=0 "Offset of the sine wave"
       annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/SineVariableFrequencyAndAmplitude.png"));
-    Modelica.SIunits.Angle phi(start=0) "Phase of the sine wave";
+    SI.Angle phi(start=0) "Phase of the sine wave";
     Blocks.Interfaces.RealInput amplitude if not useConstantAmplitude "Amplitude"
                   annotation (Placement(
           transformation(
@@ -517,11 +517,11 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
     parameter Real constantAmplitude=1 "Constant amplitude"
       annotation(Dialog(enable=useConstantAmplitude));
     parameter Boolean useConstantFrequency=false "Enable constant frequency";
-    parameter Modelica.SIunits.Frequency constantFrequency=1 "Constant frequency"
+    parameter SI.Frequency constantFrequency=1 "Constant frequency"
       annotation(Dialog(enable=useConstantFrequency));
     parameter Real offset=0 "Offset of the sine wave"
       annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/CosineVariableFrequencyAndAmplitude.png"));
-    Modelica.SIunits.Angle phi(start=0) "Phase of the sine wave";
+    SI.Angle phi(start=0) "Phase of the sine wave";
     Blocks.Interfaces.RealInput amplitude if not useConstantAmplitude "Amplitude"
                   annotation (Placement(
           transformation(
@@ -627,7 +627,7 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
     parameter SIunits.Frequency f(start=1) "Frequency of sine wave";
     extends Interfaces.SignalSource;
   protected
-    Modelica.SIunits.Angle x=2*pi*f*(time - startTime);
+    SI.Angle x=2*pi*f*(time - startTime);
   equation
     y = offset + (if time < startTime then 0 else amplitude*
       (if noEvent(time - startTime)<eps then 1 else (sin(x))/x));
@@ -796,14 +796,14 @@ by a falling exponential signal:
     parameter Real width(
       final min=Modelica.Constants.small,
       final max=100) = 50 "Width of pulse in % of period";
-    parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small,
+    parameter SI.Time period(final min=Modelica.Constants.small,
         start=1) "Time for one period";
     parameter Integer nperiod=-1
       "Number of periods (< 0 means infinite number of periods)";
     extends Interfaces.SignalSource;
   protected
-    Modelica.SIunits.Time T_width=period*width/100;
-    Modelica.SIunits.Time T_start "Start time of current period";
+    SI.Time T_width=period*width/100;
+    SI.Time T_start "Start time of current period";
     Integer count "Period count";
   initial algorithm
     count := integer((time - startTime)/period);
@@ -986,8 +986,8 @@ The Real output y is a trapezoid signal:
     parameter Real wMin(final min=eps) "Start frequency"
       annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/LogFrequencySweep.png"));
     parameter Real wMax(final min=eps) "End frequency";
-    parameter Modelica.SIunits.Time startTime=0 "Start time of frequency sweep";
-    parameter Modelica.SIunits.Time duration(min=0.0, start=1) "Duration of ramp (= 0.0 gives a Step)";
+    parameter SI.Time startTime=0 "Start time of frequency sweep";
+    parameter SI.Time duration(min=0.0, start=1) "Duration of ramp (= 0.0 gives a Step)";
   equation
     y = if time < startTime then wMin else
       if time < (startTime + max(duration,eps)) then
@@ -1179,13 +1179,13 @@ a flange according to a given acceleration.
       "Maximum velocities der(q)";
     parameter Real qdd_max[:](each final min=Modelica.Constants.small) = {1}
       "Maximum accelerations der(qd)";
-    parameter Modelica.SIunits.Time startTime=0
+    parameter SI.Time startTime=0
       "Time instant at which movement starts";
 
     extends Modelica.Blocks.Icons.Block;
     final parameter Integer nout=max([size(q_begin, 1); size(q_end, 1); size(qd_max, 1); size(qdd_max, 1)])
       "Number of output signals (= dimension of q, qd, qdd, moving)";
-    output Modelica.SIunits.Time endTime "Time instant at which movement stops";
+    output SI.Time endTime "Time instant at which movement stops";
 
     Modelica.Blocks.Interfaces.RealOutput q[nout]
       "Reference position of path planning" annotation (Placement(
@@ -1406,11 +1406,11 @@ a flange according to a given acceleration.
     parameter Real table[:, 2] = fill(0.0, 0, 2)
       "Table matrix (time = first column; e.g., table=[0, 0; 1, 1; 2, 4])"
       annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/TimeTable.png"));
-    parameter Modelica.SIunits.Time timeScale(
+    parameter SI.Time timeScale(
       min=Modelica.Constants.eps)=1 "Time scale of first table column"
       annotation (Evaluate=true);
     extends Interfaces.SignalSource;
-    parameter Modelica.SIunits.Time shiftTime=startTime
+    parameter SI.Time shiftTime=startTime
       "Shift time of first table column";
   protected
     discrete Real a "Interpolation coefficient a of actual interval (y=a*x+b)";
@@ -1645,15 +1645,15 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
     parameter Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints
       "Extrapolation of data outside the definition range"
       annotation (Dialog(group="Table data interpretation"));
-    parameter Modelica.SIunits.Time timeScale(
+    parameter SI.Time timeScale(
       min=Modelica.Constants.eps)=1 "Time scale of first table column"
       annotation (Dialog(group="Table data interpretation"), Evaluate=true);
     parameter Real offset[:]={0} "Offsets of output signals"
       annotation (Dialog(group="Table data interpretation"));
-    parameter Modelica.SIunits.Time startTime=0
+    parameter SI.Time startTime=0
       "Output = offset for time < startTime"
       annotation (Dialog(group="Table data interpretation"));
-    parameter Modelica.SIunits.Time shiftTime=startTime
+    parameter SI.Time shiftTime=startTime
       "Shift time of first table column"
       annotation (Dialog(group="Table data interpretation"));
     parameter Modelica.Blocks.Types.TimeEvents timeEvents=Modelica.Blocks.Types.TimeEvents.Always
@@ -1662,9 +1662,9 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
     parameter Boolean verboseExtrapolation=false
       "= true, if warning messages are to be printed if time is outside the table definition range"
       annotation (Dialog(group="Table data interpretation", enable=extrapolation == Modelica.Blocks.Types.Extrapolation.LastTwoPoints or extrapolation == Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
-    final parameter Modelica.SIunits.Time t_min=t_minScaled*timeScale
+    final parameter SI.Time t_min=t_minScaled*timeScale
       "Minimum abscissa value defined in table";
-    final parameter Modelica.SIunits.Time t_max=t_maxScaled*timeScale
+    final parameter SI.Time t_max=t_maxScaled*timeScale
       "Maximum abscissa value defined in table";
     final parameter Real t_minScaled=Internal.getTimeTableTmin(tableID)
       "Minimum (scaled) abscissa value defined in table";
@@ -1685,7 +1685,7 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
           shiftTime/timeScale,
           if smoothness == Modelica.Blocks.Types.Smoothness.LinearSegments then timeEvents elseif smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then Modelica.Blocks.Types.TimeEvents.Always else Modelica.Blocks.Types.TimeEvents.NoTimeEvents,
           if tableOnFile then verboseRead else false) "External table object";
-    discrete Modelica.SIunits.Time nextTimeEvent(start=0, fixed=true)
+    discrete SI.Time nextTimeEvent(start=0, fixed=true)
       "Next time event instant";
     discrete Real nextTimeEventScaled(start=0, fixed=true)
       "Next scaled time event instant";
@@ -1992,7 +1992,7 @@ The Boolean output y is a constant signal:
   end BooleanConstant;
 
   block BooleanStep "Generate step signal of type Boolean"
-    parameter Modelica.SIunits.Time startTime=0 "Time instant of step start"
+    parameter SI.Time startTime=0 "Time instant of step start"
      annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/BooleanStep.png"));
     parameter Boolean startValue=false "Output before startTime";
 
@@ -2031,15 +2031,15 @@ The Boolean output y is a step signal:
       final min=Modelica.Constants.small,
       final max=100) = 50 "Width of pulse in % of period"
       annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/BooleanPulse.png"));
-    parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small,
+    parameter SI.Time period(final min=Modelica.Constants.small,
         start=1) "Time for one period";
-    parameter Modelica.SIunits.Time startTime=0 "Time instant of first pulse";
+    parameter SI.Time startTime=0 "Time instant of first pulse";
     extends Modelica.Blocks.Interfaces.partialBooleanSource;
 
   protected
-    parameter Modelica.SIunits.Time Twidth=period*width/100
+    parameter SI.Time Twidth=period*width/100
       "width of one pulse" annotation (HideResult=true);
-    discrete Modelica.SIunits.Time pulseStart "Start time of pulse"
+    discrete SI.Time pulseStart "Start time of pulse"
       annotation (HideResult=true);
   initial equation
     pulseStart = startTime;
@@ -2071,10 +2071,10 @@ The Boolean output y is a pulse signal:
   end BooleanPulse;
 
   block SampleTrigger "Generate sample trigger signal"
-    parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small,
+    parameter SI.Time period(final min=Modelica.Constants.small,
         start=0.01) "Sample period"
       annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/SampleTrigger.png"));
-    parameter Modelica.SIunits.Time startTime=0
+    parameter SI.Time startTime=0
       "Time instant of first sample trigger";
     extends Interfaces.partialBooleanSource;
 
@@ -2111,16 +2111,16 @@ at sample times (defined by parameter <strong>period</strong>) and is otherwise
   block BooleanTable
     "Generate a Boolean output signal based on a vector of time instants"
 
-    parameter Modelica.SIunits.Time table[:]={0,1}
+    parameter SI.Time table[:]={0,1}
       "Vector of time points. At every time point, the output y gets its opposite value (e.g., table={0,1})" annotation(Dialog(group="Table data definition"));
     parameter Boolean startValue=false
       "Start value of y. At time = table[1], y changes to 'not startValue'" annotation(Dialog(group="Table data interpretation",
       groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/BooleanTable.png"));
     parameter Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint
       "Extrapolation of data outside the definition range" annotation(Dialog(group="Table data interpretation"));
-    parameter Modelica.SIunits.Time startTime=-Modelica.Constants.inf
+    parameter SI.Time startTime=-Modelica.Constants.inf
       "Output = false for time < startTime" annotation(Dialog(group="Table data interpretation"));
-    parameter Modelica.SIunits.Time shiftTime=0
+    parameter SI.Time shiftTime=0
       "Shift time of table" annotation(Dialog(group="Table data interpretation"));
 
     extends Interfaces.partialBooleanSO;
@@ -2234,7 +2234,7 @@ The precise semantics is:
 
   block RadioButtonSource "Boolean signal source that mimics a radio button"
 
-    parameter Modelica.SIunits.Time buttonTimeTable[:]={0,1}
+    parameter SI.Time buttonTimeTable[:]={0,1}
       "Time instants where button is pressed";
     input Boolean reset[:]={false}
       "Reset button to false, if an element of reset becomes true"
@@ -2387,9 +2387,9 @@ The Integer output y is a step signal:
     parameter Real table[:, 2]=fill(0,0,2) "Table matrix (first column: time; second column: y)" annotation(Dialog(group="Table data definition"));
     parameter Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint
       "Extrapolation of data outside the definition range" annotation(Dialog(group="Table data interpretation"));
-    parameter Modelica.SIunits.Time startTime=-Modelica.Constants.inf
+    parameter SI.Time startTime=-Modelica.Constants.inf
       "Output = 0 for time < startTime" annotation(Dialog(group="Table data interpretation"));
-    parameter Modelica.SIunits.Time shiftTime=0
+    parameter SI.Time shiftTime=0
       "Shift time of first table column" annotation(Dialog(group="Table data interpretation"));
 
     extends Interfaces.IntegerSO;
@@ -2408,7 +2408,7 @@ The Integer output y is a step signal:
         extends Modelica.Icons.Function;
         input Real table[:, 2] "Table matrix";
     protected
-        Modelica.SIunits.Time t_last;
+        SI.Time t_last;
         Integer n=size(table, 1) "Number of table points";
       algorithm
         if n > 0 then

@@ -453,7 +453,7 @@ it is open.
       parameter Boolean filteredOpening=false
         "= true, if opening is filtered with a 2nd order CriticalDamping filter"
         annotation(Dialog(group="Filtered opening"),choices(checkBox=true));
-      parameter Modelica.SIunits.Time riseTime=1
+      parameter SI.Time riseTime=1
         "Rise time of the filter (time to reach 99.6 % of an opening step)"
         annotation(Dialog(group="Filtered opening",enable=filteredOpening));
       parameter Real leakageOpening(min=0,max=1)=1e-3

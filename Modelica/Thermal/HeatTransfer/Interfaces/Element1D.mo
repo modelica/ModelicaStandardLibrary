@@ -2,9 +2,9 @@ within Modelica.Thermal.HeatTransfer.Interfaces;
 partial model Element1D
   "Partial heat transfer element with two HeatPort connectors that does not store energy"
 
-  Modelica.SIunits.HeatFlowRate Q_flow
+  SI.HeatFlowRate Q_flow
     "Heat flow rate from port_a -> port_b";
-  Modelica.SIunits.TemperatureDifference dT "port_a.T - port_b.T";
+  SI.TemperatureDifference dT "port_a.T - port_b.T";
 public
   HeatPort_a port_a annotation (Placement(transformation(extent={{-110,-10},
             {-90,10}})));

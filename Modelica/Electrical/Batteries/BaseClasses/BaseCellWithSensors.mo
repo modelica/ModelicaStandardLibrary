@@ -8,8 +8,8 @@ partial model BaseCellWithSensors "Partial cell with sensors"
   parameter Real SOCtolerance=1e-9 "SOC tolerance for detection of depleted or overcharged cell"
     annotation(Dialog(tab="Advanced"));
   extends Modelica.Electrical.Analog.Interfaces.TwoPin;
-  output Modelica.SIunits.Current i = p.i "Current into the cell";
-  output Modelica.SIunits.Power power = v*i "Power to the cell";
+  output SI.Current i = p.i "Current into the cell";
+  output SI.Power power = v*i "Power to the cell";
   output Real SOC = limIntegrator.y "State of charge";
   extends Modelica.Electrical.Analog.Interfaces.PartialConditionalHeatPort;
   replaceable Modelica.Electrical.Batteries.BatteryStacks.CellStack cell(

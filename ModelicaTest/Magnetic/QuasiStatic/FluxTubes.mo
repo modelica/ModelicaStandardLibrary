@@ -4,10 +4,10 @@ package FluxTubes "Test examples of Modelica.Magnetic.QuasiStatic.FluxTubes"
   model NoPhysicalTestLeakage "Testing leakage models"
     extends Modelica.Icons.Example;
     import Modelica.Constants.pi;
-    parameter Modelica.SIunits.RelativePermeability mu_rConst = 100 "Relative permeability";
+    parameter SI.RelativePermeability mu_rConst = 100 "Relative permeability";
 
-    output Modelica.SIunits.ComplexMagneticFlux Phi1 = magFluxSensor1.Phi "Flux of circuit 1";
-    output Modelica.SIunits.ComplexMagneticFlux Phi2 = magFluxSensor1.Phi "Flux of circuit 2";
+    output SI.ComplexMagneticFlux Phi1 = magFluxSensor1.Phi "Flux of circuit 1";
+    output SI.ComplexMagneticFlux Phi2 = magFluxSensor1.Phi "Flux of circuit 2";
 
     Modelica.Magnetic.QuasiStatic.FluxTubes.Sources.ConstantMagneticPotentialDifference constantSource1(f=50,
       gamma(fixed=true, start=0),

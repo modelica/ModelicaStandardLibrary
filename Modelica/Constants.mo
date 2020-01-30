@@ -2,7 +2,7 @@ within Modelica;
 package Constants
   "Library of mathematical constants and constants of nature (e.g., pi, eps, R, sigma)"
 
-  import SI = Modelica.SIunits;
+  import SI = SI;
   import NonSI = Modelica.Units.Other;
 
   extends Modelica.Icons.Package;

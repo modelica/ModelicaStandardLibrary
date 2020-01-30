@@ -6,7 +6,7 @@ model FromKelvin "Conversion from Kelvin to degree Celsius"
   Modelica.Blocks.Interfaces.RealOutput Celsius(unit="degC")
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 equation
-  Celsius = Modelica.SIunits.Conversions.to_degC(Kelvin);
+  Celsius = SI.Conversions.to_degC(Kelvin);
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={

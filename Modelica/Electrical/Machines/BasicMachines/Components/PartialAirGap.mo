@@ -2,19 +2,19 @@ within Modelica.Electrical.Machines.BasicMachines.Components;
 partial model PartialAirGap "Partial airgap model"
   parameter Integer m=3 "Number of phases";
   parameter Integer p(min=1) "Number of pole pairs";
-  output Modelica.SIunits.Torque tauElectrical;
-  Modelica.SIunits.Angle gamma "Rotor displacement angle";
-  Modelica.SIunits.Current i_ss[2]
+  output SI.Torque tauElectrical;
+  SI.Angle gamma "Rotor displacement angle";
+  SI.Current i_ss[2]
     "Stator current space phasor with respect to the stator fixed frame";
-  Modelica.SIunits.Current i_sr[2]
+  SI.Current i_sr[2]
     "Stator current space phasor with respect to the rotor fixed frame";
-  Modelica.SIunits.Current i_rs[2]
+  SI.Current i_rs[2]
     "Rotor current space phasor with respect to the stator fixed frame";
-  Modelica.SIunits.Current i_rr[2]
+  SI.Current i_rr[2]
     "Rotor current space phasor with respect to the rotor fixed frame";
-  Modelica.SIunits.MagneticFlux psi_ms[2]
+  SI.MagneticFlux psi_ms[2]
     "Magnetizing flux phasor with respect to the stator fixed frame";
-  Modelica.SIunits.MagneticFlux psi_mr[2]
+  SI.MagneticFlux psi_mr[2]
     "Magnetizing flux phasor with respect to the rotor fixed frame";
   Real RotationMatrix[2, 2] "Matrix of rotation from rotor to stator";
 public
@@ -28,19 +28,19 @@ public
   Machines.Interfaces.SpacePhasor spacePhasor_r
     annotation (Placement(transformation(extent={{90,90},{110,110}})));
   /*
-  Modelica.SIunits.AngularVelocity omegaPsi_ms
+  SI.AngularVelocity omegaPsi_ms
     "Angular velocity of main flux with respect to the stator fixed frame";
-  Modelica.SIunits.AngularVelocity omegaPsi_mr
+  SI.AngularVelocity omegaPsi_mr
     "Angular velocity of main flux with respect to the rotor fixed frame";
-  Modelica.SIunits.Current i_sm[2]
+  SI.Current i_sm[2]
     "Stator current space phasor with respect to the main flux fixed frame";
-  Modelica.SIunits.Current i_rm[2]
+  SI.Current i_rm[2]
     "Rotor current space phasor with respect to the main flux fixed frame";
 protected
-  Modelica.SIunits.MagneticFlux psi_msAbs "Length of main flux phasor";
-  Modelica.SIunits.Angle psi_msArg
+  SI.MagneticFlux psi_msAbs "Length of main flux phasor";
+  SI.Angle psi_msArg
     "(Wrapped) angle of main flux phasor with respect to the stator fixed frame";
-  Modelica.SIunits.Angle psi_mrArg
+  SI.Angle psi_mrArg
     "(Wrapped) angle of main flux phasor with respect to the rotor fixed frame";
 initial equation
   i_sm = Machines.SpacePhasors.Functions.Rotator(i_ss, psi_msArg);

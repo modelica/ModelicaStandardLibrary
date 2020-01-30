@@ -3,20 +3,20 @@ model SMPM_MTPA "Test example: PermanentMagnetSynchronousMachine, investigating 
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   parameter Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Voltage VNominal=100 "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
-  parameter Modelica.SIunits.Frequency f=50 "Actual frequency";
-  parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
-  parameter Modelica.SIunits.Torque TLoad=181.4 "Nominal load torque";
-  parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
-  parameter Modelica.SIunits.Inertia JLoad=0.29 "Load's moment of inertia";
-  parameter Modelica.SIunits.AngularVelocity wNominal = 2*pi*fNominal/smpmData.p "Nominal angular velocity";
+  parameter SI.Voltage VNominal=100 "Nominal RMS voltage per phase";
+  parameter SI.Frequency fNominal=50 "Nominal frequency";
+  parameter SI.Frequency f=50 "Actual frequency";
+  parameter SI.Time tRamp=1 "Frequency ramp";
+  parameter SI.Torque TLoad=181.4 "Nominal load torque";
+  parameter SI.Time tStep=1.2 "Time of load torque step";
+  parameter SI.Inertia JLoad=0.29 "Load's moment of inertia";
+  parameter SI.AngularVelocity wNominal = 2*pi*fNominal/smpmData.p "Nominal angular velocity";
   parameter Boolean positiveRange = false "Use positive range of angles, if true";
-  output Modelica.SIunits.Angle theta=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi-static";
-  output Modelica.SIunits.Angle phi_i = Modelica.Math.wrapAngle(smpmQS.arg_is[1],positiveRange) "Angle of current";
-  output Modelica.SIunits.Angle phi_v = Modelica.Math.wrapAngle(smpmQS.arg_vs[1],positiveRange) "Angle of voltage";
-  output Modelica.SIunits.Angle phi = Modelica.Math.wrapAngle(phi_v-phi_i,positiveRange) "Angle between voltage and current";
-  output Modelica.SIunits.Angle epsilon = Modelica.Math.wrapAngle(phi-theta,positiveRange) "Current angle";
+  output SI.Angle theta=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi-static";
+  output SI.Angle phi_i = Modelica.Math.wrapAngle(smpmQS.arg_is[1],positiveRange) "Angle of current";
+  output SI.Angle phi_v = Modelica.Math.wrapAngle(smpmQS.arg_vs[1],positiveRange) "Angle of voltage";
+  output SI.Angle phi = Modelica.Math.wrapAngle(phi_v-phi_i,positiveRange) "Angle between voltage and current";
+  output SI.Angle epsilon = Modelica.Math.wrapAngle(phi-theta,positiveRange) "Current angle";
 
   parameter
     Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData

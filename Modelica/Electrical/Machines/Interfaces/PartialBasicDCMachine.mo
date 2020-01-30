@@ -1,29 +1,29 @@
 within Modelica.Electrical.Machines.Interfaces;
 partial model PartialBasicDCMachine "Partial model for DC machine"
-  parameter Modelica.SIunits.Temperature TaOperational(start=293.15)
+  parameter SI.Temperature TaOperational(start=293.15)
     "Operational armature temperature" annotation (Dialog(group=
           "Operational temperatures", enable=not useThermalPort));
-  parameter Modelica.SIunits.Voltage VaNominal(start=100)
+  parameter SI.Voltage VaNominal(start=100)
     "Nominal armature voltage" annotation (Dialog(tab="Nominal parameters"));
-  parameter Modelica.SIunits.Current IaNominal(start=100)
+  parameter SI.Current IaNominal(start=100)
     "Nominal armature current (>0..Motor, <0..Generator)"
     annotation (Dialog(tab="Nominal parameters"));
-  parameter Modelica.SIunits.AngularVelocity wNominal(displayUnit="rev/min",
+  parameter SI.AngularVelocity wNominal(displayUnit="rev/min",
       start=1425*2*pi/60) "Nominal speed"
     annotation (Dialog(tab="Nominal parameters"));
-  parameter Modelica.SIunits.Temperature TaNominal(start=293.15)
+  parameter SI.Temperature TaNominal(start=293.15)
     "Nominal armature temperature"
     annotation (Dialog(tab="Nominal parameters"));
-  parameter Modelica.SIunits.Resistance Ra(start=0.05)
+  parameter SI.Resistance Ra(start=0.05)
     "Armature resistance at TaRef"
     annotation (Dialog(tab="Armature"));
-  parameter Modelica.SIunits.Temperature TaRef(start=293.15)
+  parameter SI.Temperature TaRef(start=293.15)
     "Reference temperature of armature resistance"
     annotation (Dialog(tab="Armature"));
   parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20a(start=0)
     "Temperature coefficient of armature resistance"
     annotation (Dialog(tab="Armature"));
-  parameter Modelica.SIunits.Inductance La(start=0.0015)
+  parameter SI.Inductance La(start=0.0015)
     "Armature inductance"
     annotation (Dialog(tab="Armature"));
   extends PartialBasicMachine(
@@ -53,8 +53,8 @@ partial model PartialBasicDCMachine "Partial model for DC machine"
     final lossPowerFriction=friction.lossPower,
     final lossPowerBrush=brush.lossPower) "Power balance";
 
-  output Modelica.SIunits.Voltage va=pin_ap.v - pin_an.v "Armature voltage";
-  output Modelica.SIunits.Current ia(start=0) = pin_ap.i "Armature current";
+  output SI.Voltage va=pin_ap.v - pin_an.v "Armature voltage";
+  output SI.Current ia(start=0) = pin_ap.i "Armature current";
   Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap
     "Positive armature pin" annotation (Placement(transformation(extent={{
             50,110},{70,90}})));
@@ -94,8 +94,8 @@ protected
   constant Real pi = Modelica.Constants.pi;
   constant Boolean quasiStatic=false "No electrical transients if true"
     annotation (Evaluate=true);
-  parameter Modelica.SIunits.Voltage ViNominal "Nominal induced Voltage";
-  parameter Modelica.SIunits.MagneticFlux psi_eNominal
+  parameter SI.Voltage ViNominal "Nominal induced Voltage";
+  parameter SI.MagneticFlux psi_eNominal
     "Nominal magnetic flux";
   parameter Real turnsRatio=ViNominal/(wNominal*psi_eNominal)
     "Ratio of armature turns over number of turns of the excitation winding";

@@ -5,7 +5,7 @@ package Parts
 
   model Fixed "Frame fixed in the world frame at a given position"
     import Modelica.Mechanics.MultiBody.Types;
-    import Modelica.SIunits.Conversions.to_unit1;
+    import SI.Conversions.to_unit1;
 
     Interfaces.Frame_b frame_b "Coordinate system fixed in the world frame"
       annotation (Placement(transformation(extent={{84,-16},{116,16}})));
@@ -134,7 +134,7 @@ animation = <strong>false</strong>.
 
   model FixedTranslation "Fixed translation of frame_b with respect to frame_a"
     import Modelica.Mechanics.MultiBody.Types;
-    import Modelica.SIunits.Conversions.to_unit1;
+    import SI.Conversions.to_unit1;
 
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
@@ -273,7 +273,7 @@ the animation may be switched off via parameter animation = <strong>false</stron
     "Fixed translation followed by a fixed rotation of frame_b with respect to frame_a"
 
     import Modelica.Mechanics.MultiBody.Frames;
-    import Modelica.SIunits.Conversions.to_unit1;
+    import SI.Conversions.to_unit1;
 
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
@@ -520,7 +520,7 @@ the animation may be switched off via parameter animation = <strong>false</stron
 
     import Modelica.Mechanics.MultiBody.Types;
     import Modelica.Mechanics.MultiBody.Frames;
-    import Modelica.SIunits.Conversions.to_unit1;
+    import SI.Conversions.to_unit1;
 
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
       "Coordinate system fixed at body" annotation (Placement(transformation(
@@ -888,7 +888,7 @@ to the setting of parameters \"useQuaternions\" and
     "Rigid body with mass, inertia tensor, different shapes for animation, and two frame connectors (12 potential states)"
 
     import Modelica.Mechanics.MultiBody.Types;
-    import Modelica.SIunits.Conversions.to_unit1;
+    import SI.Conversions.to_unit1;
 
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
@@ -1209,7 +1209,7 @@ states and of the \"Advanced\" menu parameters, see model
 
     import Modelica.Mechanics.MultiBody.Types;
     import Modelica.Math.Vectors.normalizeWithAssert;
-    import Modelica.SIunits.Conversions.to_unit1;
+    import SI.Conversions.to_unit1;
 
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
@@ -1439,7 +1439,7 @@ states and of the \"Advanced\" menu parameters, see model
     import NonSI = Modelica.Units.Other;
     import Modelica.Mechanics.MultiBody.Types;
     import Modelica.Math.Vectors.normalizeWithAssert;
-    import Modelica.SIunits.Conversions.to_unit1;
+    import SI.Conversions.to_unit1;
     import Modelica.Constants.pi;
 
     Interfaces.Frame_a frame_a
@@ -1786,7 +1786,7 @@ are forced to be used as states.
 
   model Mounting1D
     "Propagate 1-dim. support torque to 3-dim. system (provided world.driveTrainMechanics3D=true)"
-    parameter Modelica.SIunits.Angle phi0=0 "Fixed offset angle of housing";
+    parameter SI.Angle phi0=0 "Fixed offset angle of housing";
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
       "Axis of rotation = axis of support torque (resolved in frame_a)"
        annotation (Evaluate=true);
@@ -1804,7 +1804,7 @@ are forced to be used as states.
 
     encapsulated model Housing
       import Modelica;
-      input Modelica.SIunits.Torque t[3];
+      input SI.Torque t[3];
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a annotation (
           Placement(transformation(extent={{-116,-16},{-84,16}})));
     equation
@@ -1938,7 +1938,7 @@ November 3-4, 2003, pp. 149-158</p>
       import Modelica;
       import Modelica.Mechanics.MultiBody.Frames;
       import Modelica.Mechanics.MultiBody.Types;
-      import SI = Modelica.SIunits;
+      import SI = SI;
 
       parameter Boolean animation=true
         "= true, if animation shall be enabled (show rotor as cylinder)";
@@ -2266,7 +2266,7 @@ November 3-4, 2003, pp. 149-158</p>
       "Unit vector in direction of flange_b rotation axis";
     encapsulated model Housing
       import Modelica;
-      input Modelica.SIunits.Torque t[3];
+      input SI.Torque t[3];
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a annotation (
           Placement(transformation(extent={{-116,-16},{-84,16}})));
     equation
@@ -2615,31 +2615,31 @@ To work properly, the gravity acceleration vector g of the world must point in t
     parameter StateSelect stateSelect=StateSelect.always
       "Priority to use the generalized coordinates as states";
 
-    Modelica.SIunits.Position x(
+    SI.Position x(
       start=0,
       fixed=true,
       stateSelect=stateSelect) "x coordinate of center between wheels";
-    Modelica.SIunits.Position y(
+    SI.Position y(
       start=0,
       fixed=true,
       stateSelect=stateSelect) "y coordinate of center between wheels";
-    Modelica.SIunits.Angle phi(
+    SI.Angle phi(
       start=0,
       fixed=true,
       stateSelect=stateSelect) "Orientation angle of wheel axis along z-axis";
-    Modelica.SIunits.Angle theta1(
+    SI.Angle theta1(
       start=0,
       fixed=true,
       stateSelect=stateSelect) "Angle of wheel 1";
-    Modelica.SIunits.Angle theta2(
+    SI.Angle theta2(
       start=0,
       fixed=true,
       stateSelect=stateSelect) "Angle of wheel 2";
-    Modelica.SIunits.AngularVelocity der_theta1(
+    SI.AngularVelocity der_theta1(
       start=0,
       fixed=true,
       stateSelect=stateSelect) "Derivative of theta 1";
-    Modelica.SIunits.AngularVelocity der_theta2(
+    SI.AngularVelocity der_theta2(
       start=0,
       fixed=true,
       stateSelect=stateSelect) "Derivative of theta 2";

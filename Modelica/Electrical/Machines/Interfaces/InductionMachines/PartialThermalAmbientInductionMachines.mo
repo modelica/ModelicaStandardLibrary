@@ -5,24 +5,24 @@ model PartialThermalAmbientInductionMachines
   parameter Boolean useTemperatureInputs=false
     "If true, temperature inputs are used; else, temperatures are constant"
     annotation (Evaluate=true);
-  constant Modelica.SIunits.Temperature TDefault=293.15
+  constant SI.Temperature TDefault=293.15
     "Default temperature";
-  parameter Modelica.SIunits.Temperature Ts(start=TDefault)
+  parameter SI.Temperature Ts(start=TDefault)
     "Temperature of stator windings"
     annotation (Dialog(enable=not useTemperatureInputs));
-  output Modelica.SIunits.HeatFlowRate Q_flowStatorWinding=
+  output SI.HeatFlowRate Q_flowStatorWinding=
       temperatureStatorWinding.port.Q_flow
     "Heat flow rate of stator windings";
-  output Modelica.SIunits.HeatFlowRate Q_flowStatorCore=
+  output SI.HeatFlowRate Q_flowStatorCore=
       temperatureStatorCore.port.Q_flow
     "Heat flow rate of stator core losses";
-  output Modelica.SIunits.HeatFlowRate Q_flowRotorCore=
+  output SI.HeatFlowRate Q_flowRotorCore=
       temperatureRotorCore.port.Q_flow
     "Heat flow rate of stator core losses";
-  output Modelica.SIunits.HeatFlowRate Q_flowStrayLoad=
+  output SI.HeatFlowRate Q_flowStrayLoad=
       temperatureStrayLoad.port.Q_flow
     "Heat flow rate of stray load losses";
-  output Modelica.SIunits.HeatFlowRate Q_flowFriction=temperatureFriction.port.Q_flow
+  output SI.HeatFlowRate Q_flowFriction=temperatureFriction.port.Q_flow
     "Heat flow rate of friction losses";
   replaceable
     Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines thermalPort(final m=m)

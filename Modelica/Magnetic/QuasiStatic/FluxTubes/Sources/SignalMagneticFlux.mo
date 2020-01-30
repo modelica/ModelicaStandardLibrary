@@ -7,7 +7,7 @@ model SignalMagneticFlux "Signal-controlled magnetic flux source"
         origin={60,120},
         extent={{-20,-20},{20,20}},
         rotation=270)));
-  Modelica.SIunits.ComplexMagneticPotentialDifference V_m
+  SI.ComplexMagneticPotentialDifference V_m
   "Magnetic potential difference between both ports";
   Modelica.ComplexBlocks.Interfaces.ComplexInput Phi annotation (Placement(
         transformation(

@@ -7,7 +7,7 @@ model PrescribedTemperature
   Modelica.Blocks.Interfaces.RealInput T(unit="degRk")
      annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
 equation
-  port.T = Modelica.SIunits.Conversions.from_degRk(T);
+  port.T = SI.Conversions.from_degRk(T);
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={

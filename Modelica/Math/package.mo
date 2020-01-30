@@ -1,6 +1,6 @@
 within Modelica;
 package Math "Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices"
-  import SI = Modelica.SIunits;
+  import SI = SI;
 
   extends Modelica.Icons.Package;
 
@@ -11321,7 +11321,7 @@ function atan3
   extends Modelica.Math.Icons.AxisCenter;
   input Real u1 "First independent variable";
   input Real u2 "Second independent variable";
-  input Modelica.SIunits.Angle y0=0 "y shall be in the range: -pi < y-y0 <= pi";
+  input SI.Angle y0=0 "y shall be in the range: -pi < y-y0 <= pi";
   output SI.Angle y "Dependent variable y=atan3(u1, u2, y0)=atan(u1/u2)";
 
 protected

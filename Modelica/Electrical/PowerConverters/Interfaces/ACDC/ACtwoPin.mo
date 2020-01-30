@@ -7,7 +7,7 @@ partial model ACtwoPin "Positive and negative AC pin"
   Modelica.Electrical.Analog.Interfaces.NegativePin ac_n
     "Negative AC input"
     annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
-  Modelica.SIunits.Voltage vAC=ac_p.v - ac_n.v "AC voltages";
-  Modelica.SIunits.Current iAC=ac_p.i "AC currents";
-  Modelica.SIunits.Power powerAC=vAC*iAC "AC power";
+  SI.Voltage vAC=ac_p.v - ac_n.v "AC voltages";
+  SI.Current iAC=ac_p.i "AC currents";
+  SI.Power powerAC=vAC*iAC "AC power";
 end ACtwoPin;

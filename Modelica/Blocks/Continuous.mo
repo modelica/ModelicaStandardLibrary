@@ -2,7 +2,7 @@ within Modelica.Blocks;
 package Continuous "Library of continuous control blocks with internal states"
 
   import Modelica.Blocks.Interfaces;
-  import Modelica.SIunits;
+  import SI;
   extends Modelica.Icons.Package;
 
   block Integrator "Output the integral of the input signal with optional reset"
@@ -784,11 +784,11 @@ to compute u by an algebraic equation.
     parameter .Modelica.Blocks.Types.SimpleController controllerType=
            .Modelica.Blocks.Types.SimpleController.PID "Type of controller";
     parameter Real k(min=0, unit="1") = 1 "Gain of controller";
-    parameter Modelica.SIunits.Time Ti(min=Modelica.Constants.small)=0.5
+    parameter SI.Time Ti(min=Modelica.Constants.small)=0.5
       "Time constant of Integrator block" annotation (Dialog(enable=
             controllerType == .Modelica.Blocks.Types.SimpleController.PI or
             controllerType == .Modelica.Blocks.Types.SimpleController.PID));
-    parameter Modelica.SIunits.Time Td(min=0)=0.1
+    parameter SI.Time Td(min=0)=0.1
       "Time constant of Derivative block" annotation (Dialog(enable=
             controllerType == .Modelica.Blocks.Types.SimpleController.PD or
             controllerType == .Modelica.Blocks.Types.SimpleController.PID));
@@ -832,7 +832,7 @@ to compute u by an algebraic equation.
       annotation (Evaluate=true, Dialog(group="Initialization"));
     parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
       annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
-    constant Modelica.SIunits.Time unitTime=1 annotation (HideResult=true);
+    constant SI.Time unitTime=1 annotation (HideResult=true);
     Modelica.Blocks.Interfaces.RealInput u_ff if withFeedForward
       "Optional connector of feed-forward input signal"
      annotation (Placement(
@@ -1527,7 +1527,7 @@ initType=Modelica.Blocks.Types.Init.SteadyState).
     extends Modelica.Blocks.Interfaces.SISO;
 
     parameter Integer n=2 "Order of filter";
-    parameter Modelica.SIunits.Frequency f(start=1) "Cut-off frequency";
+    parameter SI.Frequency f(start=1) "Cut-off frequency";
     parameter Boolean normalized = true
       "= true, if amplitude at f_cut is 3 dB, otherwise unmodified filter";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
@@ -1657,13 +1657,13 @@ y = ------------- * u
     parameter Modelica.Blocks.Types.FilterType filterType=Modelica.Blocks.Types.FilterType.LowPass
       "Type of filter (LowPass/HighPass/BandPass/BandStop)";
     parameter Integer order(min=1) = 2 "Order of filter";
-    parameter Modelica.SIunits.Frequency f_cut "Cut-off frequency";
+    parameter SI.Frequency f_cut "Cut-off frequency";
     parameter Real gain=1.0
       "Gain (= amplitude of frequency response at zero frequency)";
     parameter Real A_ripple(unit="dB") = 0.5
       "Pass band ripple for Chebyshev filter (otherwise not used); > 0 required"
       annotation(Dialog(enable=analogFilter==Modelica.Blocks.Types.AnalogFilter.ChebyshevI));
-    parameter Modelica.SIunits.Frequency f_min=0
+    parameter SI.Frequency f_min=0
       "Band of band pass/stop filter is f_min (A=-3db*gain) .. f_cut (A=-3db*gain)"
       annotation(Dialog(enable=filterType == Modelica.Blocks.Types.FilterType.BandPass or
                                filterType == Modelica.Blocks.Types.FilterType.BandStop));
@@ -2221,7 +2221,7 @@ The development of this block was partially funded by BMBF within the
             "Coefficients of s^0 term if conjugate complex pole";
         input Real c1_in[size(c0_in,1)]
             "Coefficients of s^1 term if conjugate complex pole";
-        input Modelica.SIunits.Frequency f_cut "Cut-off frequency";
+        input SI.Frequency f_cut "Cut-off frequency";
 
         output Real cr[size(cr_in,1)] "Coefficient of real pole";
         output Real c0[size(c0_in,1)]
@@ -2230,7 +2230,7 @@ The development of this block was partially funded by BMBF within the
             "Coefficients of s^1 term if conjugate complex pole";
 
         protected
-        Modelica.SIunits.AngularVelocity w_cut=2*pi*f_cut
+        SI.AngularVelocity w_cut=2*pi*f_cut
             "Cut-off angular frequency";
         Real w_cut2=w_cut*w_cut;
 
@@ -2257,7 +2257,7 @@ The development of this block was partially funded by BMBF within the
             "Coefficients of s^0 term if conjugate complex pole";
         input Real c1_in[size(c0_in,1)]
             "Coefficients of s^1 term if conjugate complex pole";
-        input Modelica.SIunits.Frequency f_cut "Cut-off frequency";
+        input SI.Frequency f_cut "Cut-off frequency";
 
         output Real cr[size(cr_in,1)] "Coefficient of real pole";
         output Real c0[size(c0_in,1)]
@@ -2266,7 +2266,7 @@ The development of this block was partially funded by BMBF within the
             "Coefficients of s^1 term if conjugate complex pole";
 
         protected
-        Modelica.SIunits.AngularVelocity w_cut=2*pi*f_cut
+        SI.AngularVelocity w_cut=2*pi*f_cut
             "Cut-off angular frequency";
         Real w_cut2=w_cut*w_cut;
 
@@ -2307,9 +2307,9 @@ The development of this block was partially funded by BMBF within the
             "Coefficients of s^0 term if conjugate complex pole";
         input Real c1_in[size(c0_in,1)]
             "Coefficients of s^1 term if conjugate complex pole";
-        input Modelica.SIunits.Frequency f_min
+        input SI.Frequency f_min
             "Band of band pass filter is f_min (A=-3db) .. f_max (A=-3db)";
-        input Modelica.SIunits.Frequency f_max "Upper band frequency";
+        input SI.Frequency f_max "Upper band frequency";
 
         output Real cr[0] "Coefficient of real pole";
         output Real c0[size(cr_in,1) + 2*size(c0_in,1)]
@@ -2318,8 +2318,8 @@ The development of this block was partially funded by BMBF within the
             "Coefficients of s^1 term if conjugate complex pole";
         output Real cn "Numerator coefficient of the PT2 terms";
         protected
-        Modelica.SIunits.Frequency f0 = sqrt(f_min*f_max);
-        Modelica.SIunits.AngularVelocity w_cut=2*pi*f0
+        SI.Frequency f0 = sqrt(f_min*f_max);
+        SI.AngularVelocity w_cut=2*pi*f0
             "Cut-off angular frequency";
         Real w_band = (f_max - f_min) / f0;
         Real w_cut2=w_cut*w_cut;
@@ -2397,9 +2397,9 @@ The development of this block was partially funded by BMBF within the
             "Coefficients of s^0 term if conjugate complex pole";
         input Real c1_in[size(c0_in,1)]
             "Coefficients of s^1 term if conjugate complex pole";
-        input Modelica.SIunits.Frequency f_min
+        input SI.Frequency f_min
             "Band of band stop filter is f_min (A=-3db) .. f_max (A=-3db)";
-        input Modelica.SIunits.Frequency f_max "Upper band frequency";
+        input SI.Frequency f_max "Upper band frequency";
 
         output Real cr[0] "Coefficient of real pole";
         output Real c0[size(cr_in,1) + 2*size(c0_in,1)]
@@ -2407,8 +2407,8 @@ The development of this block was partially funded by BMBF within the
         output Real c1[size(cr_in,1) + 2*size(c0_in,1)]
             "Coefficients of s^1 term if conjugate complex pole";
         protected
-        Modelica.SIunits.Frequency f0 = sqrt(f_min*f_max);
-        Modelica.SIunits.AngularVelocity w_cut=2*pi*f0
+        SI.Frequency f0 = sqrt(f_min*f_max);
+        SI.AngularVelocity w_cut=2*pi*f0
             "Cut-off angular frequency";
         Real w_band = (f_max - f_min) / f0;
         Real w_cut2=w_cut*w_cut;
@@ -2510,7 +2510,7 @@ The development of this block was partially funded by BMBF within the
             "Coefficients of s^0 term of base filter if conjugate complex pole";
         input Real c1_in[size(c0_in,1)]
             "Coefficients of s^1 term of base filter if conjugate complex pole";
-        input Modelica.SIunits.Frequency f_cut "Cut-off frequency";
+        input SI.Frequency f_cut "Cut-off frequency";
 
         output Real r[size(cr_in,1)] "Real eigenvalues";
         output Real a[size(c0_in,1)]
@@ -2612,7 +2612,7 @@ This representation has the following transfer function:
             "Coefficients of s^0 term of base filter if conjugate complex pole";
         input Real c1_in[size(c0_in,1)]
             "Coefficients of s^1 term of base filter if conjugate complex pole";
-        input Modelica.SIunits.Frequency f_cut "Cut-off frequency";
+        input SI.Frequency f_cut "Cut-off frequency";
 
         output Real r[size(cr_in,1)] "Real eigenvalues";
         output Real a[size(c0_in,1)]
@@ -2726,9 +2726,9 @@ This representation has the following transfer function:
             "Coefficients of s^0 term of base filter if conjugate complex pole";
         input Real c1_in[size(c0_in,1)]
             "Coefficients of s^1 term of base filter if conjugate complex pole";
-        input Modelica.SIunits.Frequency f_min
+        input SI.Frequency f_min
             "Band of band pass filter is f_min (A=-3db) .. f_max (A=-3db)";
-        input Modelica.SIunits.Frequency f_max "Upper band frequency";
+        input SI.Frequency f_max "Upper band frequency";
 
         output Real a[size(cr_in,1) + 2*size(c0_in,1)]
             "Real parts of complex conjugate eigenvalues";
@@ -2822,9 +2822,9 @@ This representation has the following transfer function:
             "Coefficients of s^0 term of base filter if conjugate complex pole";
         input Real c1_in[size(c0_in,1)]
             "Coefficients of s^1 term of base filter if conjugate complex pole";
-        input Modelica.SIunits.Frequency f_min
+        input SI.Frequency f_min
             "Band of band stop filter is f_min (A=-3db) .. f_max (A=-3db)";
-        input Modelica.SIunits.Frequency f_max "Upper band frequency";
+        input SI.Frequency f_max "Upper band frequency";
 
         output Real a[size(cr_in,1) + 2*size(c0_in,1)]
             "Real parts of complex conjugate eigenvalues";
@@ -4222,7 +4222,7 @@ function. The solver function is a direct mapping of the Algol 60 procedure
           import Modelica;
            input Real a "Coefficient of s^1";
            input Real b "Coefficient of s^0";
-           input Modelica.SIunits.AngularVelocity w
+           input SI.AngularVelocity w
             "Bandwidth angular frequency";
            output Real alpha "Alpha factor to build up band pass";
 

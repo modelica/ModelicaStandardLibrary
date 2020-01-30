@@ -11,17 +11,17 @@ package FastFourierTransform
       "Example demonstrating the use of an FFT calculation during simulation (and storing both amplitudes and phases on file)"
       import Modelica.Constants.pi;
       extends Modelica.Icons.Example;
-      parameter Modelica.SIunits.Frequency f_max = 4
+      parameter SI.Frequency f_max = 4
         "Maximum frequency of interest";
-      parameter Modelica.SIunits.Frequency f_resolution = 0.2
+      parameter SI.Frequency f_resolution = 0.2
         "Frequency resolution";
-      parameter Modelica.SIunits.Frequency f1 = 2 "Frequency of sine";
-      parameter Modelica.SIunits.Frequency f2 = 3 "Frequency of cosine";
+      parameter SI.Frequency f1 = 2 "Frequency of sine";
+      parameter SI.Frequency f2 = 3 "Frequency of cosine";
       parameter String FFT_resultFileName = "RealFFT1_resultFFT.mat"
         "File where FFT will be stored as [f,A,Phi], with f in {Hz] and A the amplitudes and Phi the phases in [rad]";
       final parameter Integer nfi = max(1,min(integer(ceil(f_max/f_resolution))+1,nf))
         "Number of frequency points of the interested frequency range (only up to f_max)";
-      final parameter Modelica.SIunits.Frequency fi[nfi](each fixed=false)
+      final parameter SI.Frequency fi[nfi](each fixed=false)
         "FFT frequencies of interested frequency points";
       Real y(final start=0, final fixed=true)
         "Signal from which FFT is computed";
@@ -34,11 +34,11 @@ package FastFourierTransform
 
     protected
       parameter Integer ns = realFFTsamplePoints(f_max, f_resolution, f_max_factor=5);
-      parameter Modelica.SIunits.Frequency f_max_FFT = f_resolution*div(ns, 2)
+      parameter SI.Frequency f_max_FFT = f_resolution*div(ns, 2)
         "Maximum frequency used by FFT";
       parameter Integer nf = div(ns,2) + 1 "Number of frequency points";
-      parameter Modelica.SIunits.Time Ts = 1/(2*f_max_FFT) "Sample period";
-      parameter Modelica.SIunits.Time T = (ns - 1)*Ts
+      parameter SI.Time Ts = 1/(2*f_max_FFT) "Sample period";
+      parameter SI.Time T = (ns - 1)*Ts
         "Simulation time for one FFT calculation";
 
       Integer iTick(start=0, fixed=true);
@@ -115,17 +115,17 @@ Furthermore, note that the FFT phases are with respect to a cos(..) signal.
       "Example demonstrating the use of an FFT calculation during simulation (and storing only amplitudes on file)"
       import Modelica.Constants.pi;
       extends Modelica.Icons.Example;
-      parameter Modelica.SIunits.Frequency f_max = 4
+      parameter SI.Frequency f_max = 4
         "Maximum frequency of interest";
-      parameter Modelica.SIunits.Frequency f_resolution = 0.2
+      parameter SI.Frequency f_resolution = 0.2
         "Frequency resolution";
-      parameter Modelica.SIunits.Frequency f1 = 2 "Frequency of sine";
-      parameter Modelica.SIunits.Frequency f2 = 3 "Frequency of cosine";
+      parameter SI.Frequency f1 = 2 "Frequency of sine";
+      parameter SI.Frequency f2 = 3 "Frequency of cosine";
       parameter String FFT_resultFileName = "RealFFT2_resultFFT.mat"
         "File where FFT will be stored as [f,A,Phi], with f in {Hz] and A the amplitues and Phi the phases in [rad]";
       final parameter Integer nfi = max(1,min(integer(ceil(f_max/f_resolution))+1,nf))
         "Number of frequency points of the interested frequency range (only up to f_max)";
-      final parameter Modelica.SIunits.Frequency fi[nfi](each fixed=false)
+      final parameter SI.Frequency fi[nfi](each fixed=false)
         "FFT frequencies of interested frequency points";
       Real y(final start=0, final fixed=true)
         "Signal from which FFT is computed";
@@ -136,11 +136,11 @@ Furthermore, note that the FFT phases are with respect to a cos(..) signal.
 
     protected
       parameter Integer ns = realFFTsamplePoints(f_max, f_resolution, f_max_factor=5);
-      parameter Modelica.SIunits.Frequency f_max_FFT = f_resolution*div(ns, 2)
+      parameter SI.Frequency f_max_FFT = f_resolution*div(ns, 2)
         "Maximum frequency used by FFT";
       parameter Integer nf = div(ns,2) + 1 "Number of frequency points";
-      parameter Modelica.SIunits.Time Ts = 1/(2*f_max_FFT) "Sample period";
-      parameter Modelica.SIunits.Time T = (ns - 1)*Ts
+      parameter SI.Time Ts = 1/(2*f_max_FFT) "Sample period";
+      parameter SI.Time T = (ns - 1)*Ts
         "Simulation time for one FFT calculation";
 
       Integer iTick(start=0, fixed=true);
@@ -200,17 +200,17 @@ with the only difference that just the amplitudes of the FFT are stored on file 
     "Print information about real FFT for given f_max and f_resolution"
     extends Modelica.Icons.Function;
     import Modelica.Utilities.Streams.print;
-    input Modelica.SIunits.Frequency f_max "Maximum frequency";
-    input Modelica.SIunits.Frequency f_resolution "Frequency resolution";
+    input SI.Frequency f_max "Maximum frequency";
+    input SI.Frequency f_resolution "Frequency resolution";
     input Integer f_max_factor(min=1)=5
       "Maximum FFT frequency >= f_max*f_max_factor (sample frequency = 2*Maximum FFT Frequency)";
   protected
     Integer ns = realFFTsamplePoints(f_max, f_resolution, f_max_factor);
     Integer nf = div(ns,2)+1;
-    Modelica.SIunits.Frequency f_max_used = f_resolution*div(ns, 2);
-    Modelica.SIunits.Frequency fs = f_max_used*2;
-    Modelica.SIunits.Time Ts= 1/(2*f_max_used) "Sample period";
-    Modelica.SIunits.Time T=(ns - 1)*Ts "Simulation time for FFT calculation";
+    SI.Frequency f_max_used = f_resolution*div(ns, 2);
+    SI.Frequency fs = f_max_used*2;
+    SI.Time Ts= 1/(2*f_max_used) "Sample period";
+    SI.Time T=(ns - 1)*Ts "Simulation time for FFT calculation";
     Integer e2, e3, e5;
     Boolean success;
   algorithm
@@ -290,8 +290,8 @@ results in the following output:
 
   function realFFTsamplePoints "Return number of sample points for a real FFT"
      extends Modelica.Icons.Function;
-     input Modelica.SIunits.Frequency f_max "Maximum frequency of interest";
-     input Modelica.SIunits.Frequency f_resolution "Frequency resolution";
+     input SI.Frequency f_max "Maximum frequency of interest";
+     input SI.Frequency f_resolution "Frequency resolution";
      input Integer f_max_factor(min=1)=5
       "Maximum FFT frequency >= f_max*f_max_factor (sample frequency = 2*Maximum FFT Frequency)";
      output Integer ns
@@ -432,7 +432,7 @@ ns = 5760
     u2   :=u - fill(u_DC, nu);
     (info, A, Phi) :=Internal.rawRealFFT(u2);
     amplitudes :=A[1:nfi];
-    phases :=Modelica.SIunits.Conversions.to_deg(Phi[1:nfi]);
+    phases :=SI.Conversions.to_deg(Phi[1:nfi]);
     Aeps :=0.0001*max(amplitudes);
     amplitudes[1] :=u_DC;
     phases[1] := 0.0;
@@ -539,12 +539,12 @@ which is a complete example where an FFT is computed during simulation and store
   function realFFTwriteToFile "Write real FFT computation to file"
     extends Modelica.Icons.Function;
      import Modelica.Utilities.Streams.print;
-     import Modelica.SIunits.Conversions.to_deg;
+     import SI.Conversions.to_deg;
      import Modelica.Utilities.Streams.writeRealMatrix;
      input Real t_computed "Time instant at which the FFT was computed";
      input String fileName
       "File where FFT shall be stored (if it exists, it is deleted and then re-created)";
-     input Modelica.SIunits.Frequency f_max "Maximum frequency";
+     input SI.Frequency f_max "Maximum frequency";
      input Real amplitudes[:] "Amplitudes of FFT";
      input Real phases[:] = fill(0.0,0)
       "Phases of FFT (either provide no argument, or a vector with the same length as amplitudes)";

@@ -1,10 +1,10 @@
 within Modelica.Thermal.HeatTransfer.Sources;
 model FixedHeatFlow "Fixed heat flow boundary condition"
-  parameter Modelica.SIunits.HeatFlowRate Q_flow
+  parameter SI.HeatFlowRate Q_flow
     "Fixed heat flow rate at port";
-  parameter Modelica.SIunits.Temperature T_ref=293.15
+  parameter SI.Temperature T_ref=293.15
     "Reference temperature";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
+  parameter SI.LinearTemperatureCoefficient alpha=0
     "Temperature coefficient of heat flow rate";
   Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{90,
             -10},{110,10}})));

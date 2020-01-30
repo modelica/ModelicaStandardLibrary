@@ -3,14 +3,14 @@ model SMR_Inverter
   "Test example: SynchronousMachineReluctanceRotor with inverter"
   extends Modelica.Icons.Example;
   constant Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Voltage VNominal=100
+  parameter SI.Voltage VNominal=100
     "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
-  parameter Modelica.SIunits.Frequency f=50 "Actual frequency";
-  parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
-  parameter Modelica.SIunits.Torque TLoad=46 "Nominal load torque";
-  parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
-  parameter Modelica.SIunits.Inertia JLoad=0.29
+  parameter SI.Frequency fNominal=50 "Nominal frequency";
+  parameter SI.Frequency f=50 "Actual frequency";
+  parameter SI.Time tRamp=1 "Frequency ramp";
+  parameter SI.Torque TLoad=46 "Nominal load torque";
+  parameter SI.Time tStep=1.2 "Time of load torque step";
+  parameter SI.Inertia JLoad=0.29
     "Load's moment of inertia";
   Machines.BasicMachines.SynchronousMachines.SM_ReluctanceRotor smr(
     p=smrData.p,

@@ -3,18 +3,18 @@ model Rectifier "Test example with polyphase components"
   extends Modelica.Icons.Example;
   import Modelica.Electrical.Polyphase.Functions.factorY2DC;
   final parameter Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Voltage V=100 "RMS of Star-Voltage";
-  parameter Modelica.SIunits.Frequency f=50 "Frequency";
-  parameter Modelica.SIunits.Inductance L=0.0001 "Line Inductance";
-  parameter Modelica.SIunits.Resistance RL=2 "Load Resistance";
-  parameter Modelica.SIunits.Capacitance C=0.005 "Total DC-Capacitance";
-  parameter Modelica.SIunits.Resistance RE=1E6 "Earthing Resistance";
-  parameter Modelica.SIunits.Resistance Ron=1e-5 "Closed diode resistance";
-  parameter Modelica.SIunits.Conductance Goff=1e-5
+  parameter SI.Voltage V=100 "RMS of Star-Voltage";
+  parameter SI.Frequency f=50 "Frequency";
+  parameter SI.Inductance L=0.0001 "Line Inductance";
+  parameter SI.Resistance RL=2 "Load Resistance";
+  parameter SI.Capacitance C=0.005 "Total DC-Capacitance";
+  parameter SI.Resistance RE=1E6 "Earthing Resistance";
+  parameter SI.Resistance Ron=1e-5 "Closed diode resistance";
+  parameter SI.Conductance Goff=1e-5
     "Opened diode conductance";
-  parameter Modelica.SIunits.Voltage Vknee=0 "Threshold diode voltage";
-  final parameter Modelica.SIunits.Voltage VDC=factorY2DC(m)*V "Estimated average DC voltage";
-  final parameter Modelica.SIunits.Current IDC=VDC/RL "Estimated average DC current";
+  parameter SI.Voltage Vknee=0 "Threshold diode voltage";
+  final parameter SI.Voltage VDC=factorY2DC(m)*V "Estimated average DC voltage";
+  final parameter SI.Current IDC=VDC/RL "Estimated average DC current";
   Sources.SineVoltage sineVoltage(
     m=m,
     f=fill(f, m),

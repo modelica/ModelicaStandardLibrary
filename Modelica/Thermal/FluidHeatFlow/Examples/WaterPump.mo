@@ -2,11 +2,11 @@ within Modelica.Thermal.FluidHeatFlow.Examples;
 model WaterPump "Water pumping station"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  output Modelica.SIunits.VolumeFlowRate V_flow=volumeFlowSensor.y "Volume flow rate";
-  output Modelica.SIunits.Pressure p(displayUnit="bar")=pressureSensor.y "Pressure at pump outlet";
-  output Modelica.SIunits.AngularVelocity w(displayUnit="1/min")=multiSensor.w "Pump speed";
-  output Modelica.SIunits.Torque tau=multiSensor.tau "Pump torque";
-  output Modelica.SIunits.Power power=multiSensor.power "Pump power";
+  output SI.VolumeFlowRate V_flow=volumeFlowSensor.y "Volume flow rate";
+  output SI.Pressure p(displayUnit="bar")=pressureSensor.y "Pressure at pump outlet";
+  output SI.AngularVelocity w(displayUnit="1/min")=multiSensor.w "Pump speed";
+  output SI.Torque tau=multiSensor.tau "Pump torque";
+  output SI.Power power=multiSensor.power "Pump power";
   Modelica.Blocks.Sources.Trapezoid trapezoid(
     period=2,
     nperiod=1,

@@ -2,14 +2,14 @@ within Modelica.Electrical.QuasiStatic.Polyphase.Examples;
 model BalancingDelta "Balancing an unsymmetrical delta-connected load"
   extends Modelica.Icons.Example;
   parameter Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Voltage V_LL=100 "Source voltage line-to-line";
-  parameter Modelica.SIunits.Frequency f=50 "Source frequency";
-  parameter Modelica.SIunits.Resistance R=10 "Load resistance";
-  parameter Modelica.SIunits.Inductance L=(R*sqrt(3))/(2*Modelica.Constants.pi*f)
+  parameter SI.Voltage V_LL=100 "Source voltage line-to-line";
+  parameter SI.Frequency f=50 "Source frequency";
+  parameter SI.Resistance R=10 "Load resistance";
+  parameter SI.Inductance L=(R*sqrt(3))/(2*Modelica.Constants.pi*f)
     "Load inductance";
-  parameter Modelica.SIunits.Capacitance C=1/(R*sqrt(3))/(2*Modelica.Constants.pi*f)
+  parameter SI.Capacitance C=1/(R*sqrt(3))/(2*Modelica.Constants.pi*f)
     "Load capacitance";
-  output Modelica.SIunits.ComplexCurrent i[m]={resistor.i, inductor.i, capacitor.i}
+  output SI.ComplexCurrent i[m]={resistor.i, inductor.i, capacitor.i}
     "Phase currents";
   QuasiStatic.Polyphase.Sources.VoltageSource voltageSource(
     m=m,

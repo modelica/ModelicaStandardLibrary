@@ -1,11 +1,11 @@
 within Modelica.Electrical.PowerConverters.ACAC;
 model PolyphaseTriac "Triodes for alternating current"
   extends Modelica.Electrical.Polyphase.Interfaces.TwoPlug;
-  parameter Modelica.SIunits.Resistance Ron(final min=0)=1e-5
+  parameter SI.Resistance Ron(final min=0)=1e-5
     "Forward state-on differential resistance (closed resistance)";
-  parameter Modelica.SIunits.Conductance Goff(final min=0)=1e-5
+  parameter SI.Conductance Goff(final min=0)=1e-5
     "Backward state-off conductance (opened conductance)";
-  parameter Modelica.SIunits.Voltage Vknee(final min=0)=0 "Forward threshold voltage";
+  parameter SI.Voltage Vknee(final min=0)=0 "Forward threshold voltage";
   extends Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort(final mh=m);
   Modelica.Blocks.Interfaces.BooleanInput fire1[m] annotation (Placement(
         transformation(

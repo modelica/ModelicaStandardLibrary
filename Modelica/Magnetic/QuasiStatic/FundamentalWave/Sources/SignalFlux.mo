@@ -1,12 +1,12 @@
 within Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources;
 model SignalFlux "Source of time varying magnetic flux"
   extends Interfaces.TwoPortElementary;
-  Modelica.SIunits.ComplexMagneticPotentialDifference V_m
+  SI.ComplexMagneticPotentialDifference V_m
     "Complex magnetic potential difference";
-  Modelica.SIunits.MagneticPotentialDifference abs_V_m=
+  SI.MagneticPotentialDifference abs_V_m=
       Modelica.ComplexMath.abs(V_m)
     "Magnitude of complex magnetic potential difference";
-  Modelica.SIunits.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
+  SI.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
     "Argument of complex magnetic potential difference";
 
   Modelica.ComplexBlocks.Interfaces.ComplexInput Phi
@@ -15,9 +15,9 @@ model SignalFlux "Source of time varying magnetic flux"
         origin={0,100},
         extent={{-20,-20},{20,20}},
         rotation=270)));
-  Modelica.SIunits.MagneticPotentialDifference abs_Phi=
+  SI.MagneticPotentialDifference abs_Phi=
       Modelica.ComplexMath.abs(Phi) "Magnitude of complex magnetic flux";
-  Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
+  SI.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
     "Argument of complex magnetic flux";
 equation
   // Flux into positive port

@@ -1,15 +1,15 @@
 within Modelica.Electrical.Machines.Thermal;
 package Constants "Material Constants"
   extends Modelica.Icons.Package;
-  constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Zero=0
+  constant SI.LinearTemperatureCoefficient alpha20Zero=0
     "Not temperature dependent";
-  constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Aluminium=
+  constant SI.LinearTemperatureCoefficient alpha20Aluminium=
       4.000e-3 "Aluminium";
-  constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Brass=
+  constant SI.LinearTemperatureCoefficient alpha20Brass=
       1.100e-3 "Brass";
-  constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Bronze=
+  constant SI.LinearTemperatureCoefficient alpha20Bronze=
       0.800e-3 "Bronze";
-  constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Copper=
+  constant SI.LinearTemperatureCoefficient alpha20Copper=
       3.920e-3 "Copper";
 
   annotation (Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}),

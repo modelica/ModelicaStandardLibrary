@@ -1,13 +1,13 @@
 within Modelica.Mechanics.Rotational.Sources;
 model TorqueStep "Constant torque, not dependent on speed"
   extends Modelica.Mechanics.Rotational.Interfaces.PartialTorque;
-  parameter Modelica.SIunits.Torque stepTorque(start=1)
+  parameter SI.Torque stepTorque(start=1)
     "Height of torque step (if negative, torque is acting as load)";
-  parameter Modelica.SIunits.Torque offsetTorque(start=0)
+  parameter SI.Torque offsetTorque(start=0)
     "Offset of torque";
-  parameter Modelica.SIunits.Time startTime=0
+  parameter SI.Time startTime=0
     "Torque = offset for time < startTime";
-  Modelica.SIunits.Torque tau
+  SI.Torque tau
     "Accelerating torque acting at flange (= -flange.tau)";
 
 equation

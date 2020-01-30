@@ -5,7 +5,7 @@ model PressureIncrease "Enforces constant pressure increase"
   parameter Boolean usePressureIncreaseInput=false
     "Enable / disable pressure increase input"
     annotation(Evaluate=true, choices(checkBox=true));
-  parameter Modelica.SIunits.Pressure constantPressureIncrease(start=1)
+  parameter SI.Pressure constantPressureIncrease(start=1)
     "Pressure increase"
     annotation(Dialog(enable=not usePressureIncreaseInput));
   Modelica.Blocks.Interfaces.RealInput pressureIncrease(unit="Pa")=internalPressureIncrease if usePressureIncreaseInput
@@ -15,7 +15,7 @@ model PressureIncrease "Enforces constant pressure increase"
         rotation=270,
         origin={0,100})));
 protected
-  Modelica.SIunits.Pressure internalPressureIncrease;
+  SI.Pressure internalPressureIncrease;
 equation
   if not usePressureIncreaseInput then
     internalPressureIncrease = constantPressureIncrease;

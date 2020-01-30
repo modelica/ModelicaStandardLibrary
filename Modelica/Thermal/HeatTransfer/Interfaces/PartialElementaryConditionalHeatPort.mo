@@ -3,7 +3,7 @@ partial model PartialElementaryConditionalHeatPort
   "Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models"
   parameter Boolean useHeatPort = false "= true, if heatPort is enabled"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-  parameter Modelica.SIunits.Temperature T=293.15
+  parameter SI.Temperature T=293.15
     "Fixed device temperature if useHeatPort = false"
     annotation(Dialog(enable=not useHeatPort));
   HeatTransfer.Interfaces.HeatPort_a heatPort(final T=TheatPort, final Q_flow=-
@@ -11,9 +11,9 @@ partial model PartialElementaryConditionalHeatPort
     "Optional port to which dissipated losses are transported in form of heat"
     annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
         iconTransformation(extent={{-110,-110},{-90,-90}})));
-  Modelica.SIunits.Power lossPower
+  SI.Power lossPower
     "Loss power leaving component via heatPort (> 0, if heat is flowing out of component)";
-  Modelica.SIunits.Temperature TheatPort "Temperature of heatPort";
+  SI.Temperature TheatPort "Temperature of heatPort";
 equation
   if not useHeatPort then
      TheatPort = T;

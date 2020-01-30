@@ -19,7 +19,7 @@ model SignalMagneticPotentialDifference
         extent={{-20,-20},{20,20}},
         rotation=270,
         origin={-60,120})));
-  Modelica.SIunits.ComplexMagneticFlux Phi(re(start=0),im(start=0))
+  SI.ComplexMagneticFlux Phi(re(start=0),im(start=0))
   "Magnetic flux from port_p to port_n";
 equation
   omega = 2*Modelica.Constants.pi*f;

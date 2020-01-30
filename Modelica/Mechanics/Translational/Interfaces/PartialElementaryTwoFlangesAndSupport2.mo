@@ -11,10 +11,10 @@ partial model PartialElementaryTwoFlangesAndSupport2
   Support support(s=s_support, f=-flange_a.f - flange_b.f) if useSupport
     "Support/housing of component"
     annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-  Modelica.SIunits.Length s_a "Distance between left flange and support";
-  Modelica.SIunits.Length s_b "Distance between right flange and support";
+  SI.Length s_a "Distance between left flange and support";
+  SI.Length s_b "Distance between right flange and support";
 protected
-  Modelica.SIunits.Length s_support "Absolute position of support flange";
+  SI.Length s_support "Absolute position of support flange";
 equation
   s_a = flange_a.s - s_support;
   s_b = flange_b.s - s_support;

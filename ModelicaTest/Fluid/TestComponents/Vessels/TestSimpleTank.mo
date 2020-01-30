@@ -1,7 +1,7 @@
 within ModelicaTest.Fluid.TestComponents.Vessels;
 model TestSimpleTank
   "Test a tank running empty and being filled through a top inlet with less water than could flow through the bottom outlet"
-  import Modelica.SIunits.Conversions.from_bar;
+  import SI.Conversions.from_bar;
   extends Modelica.Icons.Example;
 
   Modelica.Fluid.Vessels.OpenTank tank(

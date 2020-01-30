@@ -2,7 +2,7 @@ within Modelica.Electrical.Polyphase.Basic;
 model VariableInductor
   "Ideal linear electrical inductors with variable inductance"
   extends Interfaces.TwoPlug;
-  parameter Modelica.SIunits.Inductance Lmin[m]=fill(Modelica.Constants.eps,
+  parameter SI.Inductance Lmin[m]=fill(Modelica.Constants.eps,
       m) "Minimum inductance";
   Modelica.Blocks.Interfaces.RealInput L[m](each unit="H") annotation (
       Placement(transformation(

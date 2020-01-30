@@ -33,7 +33,7 @@ package ReferenceMoistAir
 
   import Modelica.Media.Interfaces;
   import Modelica.Math;
-  import SI = Modelica.SIunits;
+  import SI = SI;
   import Modelica.Constants;
   import Modelica.Media.IdealGases.Common.SingleGasNasa;
 
@@ -668,11 +668,11 @@ package ReferenceMoistAir
       function T_phX
         "Return temperature as a function of pressure, specific enthalpy and mass fractions"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.AbsolutePressure p "Pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
-        input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+        input SI.AbsolutePressure p "Pressure";
+        input SI.SpecificEnthalpy h "Specific enthalpy";
+        input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
           "Mass fractions";
-        output Modelica.SIunits.Temperature T "Temperature";
+        output SI.Temperature T "Temperature";
 
       protected
         MassFraction[nX] Xfull=if size(X, 1) == nX then X else cat(
@@ -682,9 +682,9 @@ package ReferenceMoistAir
 
         function T_phX_res
           extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
-          input Modelica.SIunits.AbsolutePressure p "Pressure";
-          input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
-          input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+          input SI.AbsolutePressure p "Pressure";
+          input SI.SpecificEnthalpy h "Specific enthalpy";
+          input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
             "Mass fractions";
         algorithm
           y := Modelica.Media.Air.ReferenceMoistAir.Utilities.h_pTX(
@@ -712,11 +712,11 @@ package ReferenceMoistAir
       function T_psX
         "Return temperature as function of pressure, specific entropy and mass fractions"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.AbsolutePressure p "Pressure";
-        input Modelica.SIunits.SpecificEntropy s "Specific entropy";
-        input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+        input SI.AbsolutePressure p "Pressure";
+        input SI.SpecificEntropy s "Specific entropy";
+        input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
           "Mass fractions";
-        output Modelica.SIunits.Temperature T "Temperature";
+        output SI.Temperature T "Temperature";
 
       protected
         MassFraction[nX] Xfull=if size(X, 1) == nX then X else cat(
@@ -726,9 +726,9 @@ package ReferenceMoistAir
 
         function T_psX_res
           extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
-          input Modelica.SIunits.AbsolutePressure p "Pressure";
-          input Modelica.SIunits.SpecificEntropy s "Specific entropy";
-          input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+          input SI.AbsolutePressure p "Pressure";
+          input SI.SpecificEntropy s "Specific entropy";
+          input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
             "Mass fractions";
         algorithm
           y := Modelica.Media.Air.ReferenceMoistAir.Utilities.s_pTX(
@@ -756,11 +756,11 @@ package ReferenceMoistAir
       function p_dTX
         "Return pressure as function of density, temperature and mass fractions"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Density d "Density";
-        input Modelica.SIunits.Temperature T "Temperature";
-        input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+        input SI.Density d "Density";
+        input SI.Temperature T "Temperature";
+        input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
           "Mass fractions";
-        output Modelica.SIunits.AbsolutePressure p "Pressure";
+        output SI.AbsolutePressure p "Pressure";
 
       protected
         MassFraction[nX] Xfull=if size(X, 1) == nX then X else cat(
@@ -770,9 +770,9 @@ package ReferenceMoistAir
 
         function p_dTX_res
           extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
-          input Modelica.SIunits.Density d "Density";
-          input Modelica.SIunits.Temperature T "Temperature";
-          input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+          input SI.Density d "Density";
+          input SI.Temperature T "Temperature";
+          input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
             "Mass fractions";
         algorithm
           y := Modelica.Media.Air.ReferenceMoistAir.Utilities.rho_pTX(
@@ -817,11 +817,11 @@ package ReferenceMoistAir
 
       function eta_pTX "Dynamic viscosity"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.AbsolutePressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
-        input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+        input SI.AbsolutePressure p "Pressure";
+        input SI.Temperature T "Temperature";
+        input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
           "Mass fractions";
-        output Modelica.SIunits.DynamicViscosity eta "Dynamic viscosity";
+        output SI.DynamicViscosity eta "Dynamic viscosity";
 
       protected
         Real ya;
@@ -908,11 +908,11 @@ package ReferenceMoistAir
 
       function lambda_pTX "Thermal conductivity"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.AbsolutePressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
-        input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+        input SI.AbsolutePressure p "Pressure";
+        input SI.Temperature T "Temperature";
+        input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
           "Mass fractions";
-        output Modelica.SIunits.ThermalConductivity lambda
+        output SI.ThermalConductivity lambda
           "Thermal conductivity";
 
       protected
@@ -1019,9 +1019,9 @@ package ReferenceMoistAir
       function Baa_dT "Second molar virial coefficient of dry air"
         extends Modelica.Icons.Function;
 
-        input Modelica.SIunits.Density d "Density";
-        input Modelica.SIunits.Temperature T "Temperature";
-        output Modelica.SIunits.MolarVolume baa "Second virial coefficient";
+        input SI.Density d "Density";
+        input SI.Temperature T "Temperature";
+        output SI.MolarVolume baa "Second virial coefficient";
 
       protected
         final constant Real[19] N={0.118160747229,0.713116392079,-0.161824192067E+001,
@@ -1047,9 +1047,9 @@ package ReferenceMoistAir
       function Baw_dT "Second molar cross-virial coefficient"
         extends Modelica.Icons.Function;
 
-        input Modelica.SIunits.Density d "Density";
-        input Modelica.SIunits.Temperature T "Temperature";
-        output Modelica.SIunits.MolarVolume baw
+        input SI.Density d "Density";
+        input SI.Temperature T "Temperature";
+        output SI.MolarVolume baw
           "Second cross-virial coefficient";
 
       protected
@@ -1070,9 +1070,9 @@ package ReferenceMoistAir
       function Bww_dT "Second molar virial coefficient of water"
         extends Modelica.Icons.Function;
 
-        input Modelica.SIunits.Density d "Density";
-        input Modelica.SIunits.Temperature T "Temperature";
-        output Modelica.SIunits.MolarVolume bww "Second virial coefficient";
+        input SI.Density d "Density";
+        input SI.Temperature T "Temperature";
+        output SI.MolarVolume bww "Second virial coefficient";
 
       protected
         final constant Real[56] N={0.12533547935523E-001,0.78957634722828E+001,
@@ -1187,9 +1187,9 @@ package ReferenceMoistAir
       function Caaa_dT "Third molar virial coefficient of dry air"
         extends Modelica.Icons.Function;
 
-        input Modelica.SIunits.Density d "Density";
-        input Modelica.SIunits.Temperature T "Temperature";
-        output Modelica.SIunits.MolarVolume caaa "Third virial coefficient";
+        input SI.Density d "Density";
+        input SI.Temperature T "Temperature";
+        output SI.MolarVolume caaa "Third virial coefficient";
 
       protected
         final constant Real[19] N={0.118160747229,0.713116392079,-0.161824192067E+001,
@@ -1219,8 +1219,8 @@ package ReferenceMoistAir
       function Caaw_dT "Third molar cross-virial coefficient"
         extends Modelica.Icons.Function;
 
-        input Modelica.SIunits.Density d "Density";
-        input Modelica.SIunits.Temperature T "Temperature";
+        input SI.Density d "Density";
+        input SI.Temperature T "Temperature";
         output Real caaw "Third cross-virial coefficient";
 
       protected
@@ -1241,8 +1241,8 @@ package ReferenceMoistAir
       function Caww_dT "Third molar cross-virial coefficient"
         extends Modelica.Icons.Function;
 
-        input Modelica.SIunits.Density d "Density";
-        input Modelica.SIunits.Temperature T "Temperature";
+        input SI.Density d "Density";
+        input SI.Temperature T "Temperature";
         output Real caww "Third cross-virial coefficient";
 
       protected
@@ -1263,9 +1263,9 @@ package ReferenceMoistAir
       function Cwww_dT "Third molar virial coefficient of water"
         extends Modelica.Icons.Function;
 
-        input Modelica.SIunits.Density d "Density";
-        input Modelica.SIunits.Temperature T "Temperature";
-        output Modelica.SIunits.MolarVolume cwww "Third virial coefficient";
+        input SI.Density d "Density";
+        input SI.Temperature T "Temperature";
+        output SI.MolarVolume cwww "Third virial coefficient";
 
       protected
         final constant Real[56] N={0.12533547935523E-001,0.78957634722828E+001,
@@ -1399,22 +1399,22 @@ package ReferenceMoistAir
       extends Modelica.Icons.BasesPackage;
 
       final constant Real[6] AA={20413.2,1075.5,165.95,1491.75,3235.34,4.5542};
-      final constant Modelica.SIunits.Temperature[6] BB={-33086.5,-30283.3,-19526.8,
+      final constant SI.Temperature[6] BB={-33086.5,-30283.3,-19526.8,
           -27488.0,-30807.8,-10973.6};
-      final constant Modelica.SIunits.MolarHeatCapacity[6] CC={-19.5,-65.2,-18.7,
+      final constant SI.MolarHeatCapacity[6] CC={-19.5,-65.2,-18.7,
           -3.6,-21.8,-5.6};
-      final constant Modelica.SIunits.MolarInternalEnergy[6] DD={-1.15E+005,
+      final constant SI.MolarInternalEnergy[6] DD={-1.15E+005,
           3.03E+005,5.72E+004,3.93E+005,1.5E+005,1.62E+004};
       final constant Real[6] EE(each unit="J.K/mol") = {9.483E+009,7.277E+009,
         3.136E+009,5.826E+009,7.659E+009,9.94E+008};
-      final constant Modelica.SIunits.AbsolutePressure p0=101325
+      final constant SI.AbsolutePressure p0=101325
         "Reference pressure";
 
       function U2 "Reaction index for formation of H2"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.AbsolutePressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
-        input Modelica.SIunits.MoleFraction[4] moleFraction "Mole fractions";
+        input SI.AbsolutePressure p "Pressure";
+        input SI.Temperature T "Temperature";
+        input SI.MoleFraction[4] moleFraction "Mole fractions";
         output Real u "Reaction index for H2";
       algorithm
         u := AA[2]*moleFraction[1]/sqrt(moleFraction[3])*(p/p0)^(-0.5)*
@@ -1427,9 +1427,9 @@ package ReferenceMoistAir
 
       function U3 "Reaction index for formation of OH"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.AbsolutePressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
-        input Modelica.SIunits.MoleFraction[4] moleFraction "Mole fractions";
+        input SI.AbsolutePressure p "Pressure";
+        input SI.Temperature T "Temperature";
+        input SI.MoleFraction[4] moleFraction "Mole fractions";
         output Real u "Reaction index for OH";
       algorithm
         u := AA[3]*sqrt(moleFraction[1])*sqrt(sqrt(moleFraction[3]))*(p/p0)^(-0.25)
@@ -1442,9 +1442,9 @@ package ReferenceMoistAir
 
       function U4 "Reaction index for formation of H"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.AbsolutePressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
-        input Modelica.SIunits.MoleFraction[4] moleFraction "Mole fractions";
+        input SI.AbsolutePressure p "Pressure";
+        input SI.Temperature T "Temperature";
+        input SI.MoleFraction[4] moleFraction "Mole fractions";
         output Real u "Reaction index for H";
       algorithm
         u := AA[4]*sqrt(U2(
@@ -1459,9 +1459,9 @@ package ReferenceMoistAir
 
       function U5 "Reaction index for formation of O"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.AbsolutePressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
-        input Modelica.SIunits.MoleFraction[4] moleFraction "Mole fractions";
+        input SI.AbsolutePressure p "Pressure";
+        input SI.Temperature T "Temperature";
+        input SI.MoleFraction[4] moleFraction "Mole fractions";
         output Real u "Reaction index for O";
       algorithm
         u := AA[5]*sqrt(moleFraction[3])*(p/p0)^(-0.5)*Modelica.Math.exp(BB[5]/
@@ -1474,9 +1474,9 @@ package ReferenceMoistAir
 
       function U6 "Reaction index for formation of NO"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.AbsolutePressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
-        input Modelica.SIunits.MoleFraction[4] moleFraction "Mole fractions";
+        input SI.AbsolutePressure p "Pressure";
+        input SI.Temperature T "Temperature";
+        input SI.MoleFraction[4] moleFraction "Mole fractions";
         output Real u "Reaction index for NO";
       algorithm
         u := AA[6]*sqrt(moleFraction[2]*moleFraction[3])*Modelica.Math.exp(BB[6]
@@ -1489,8 +1489,8 @@ package ReferenceMoistAir
 
       function V2 "Energy index for formation of H2"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Temperature T "Temperature";
-        output Modelica.SIunits.MolarHeatCapacity v "Energy index for H2";
+        input SI.Temperature T "Temperature";
+        output SI.MolarHeatCapacity v "Energy index for H2";
       algorithm
         v := CC[2] + DD[2]/T + EE[2]/T^2;
         annotation (
@@ -1501,8 +1501,8 @@ package ReferenceMoistAir
 
       function V3 "Energy index for formation of OH"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Temperature T "Temperature";
-        output Modelica.SIunits.MolarHeatCapacity v "Energy index for OH";
+        input SI.Temperature T "Temperature";
+        output SI.MolarHeatCapacity v "Energy index for OH";
       algorithm
         v := CC[3] + DD[3]/T + EE[3]/T^2;
         annotation (
@@ -1513,8 +1513,8 @@ package ReferenceMoistAir
 
       function V4 "Energy index for formation of H"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Temperature T "Temperature";
-        output Modelica.SIunits.MolarHeatCapacity v "Energy index for H";
+        input SI.Temperature T "Temperature";
+        output SI.MolarHeatCapacity v "Energy index for H";
       algorithm
         v := CC[4] + DD[4]/T + EE[4]/T^2;
         annotation (
@@ -1525,8 +1525,8 @@ package ReferenceMoistAir
 
       function V5 "Energy index for formation of O"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Temperature T "Temperature";
-        output Modelica.SIunits.MolarHeatCapacity v "Energy index for O";
+        input SI.Temperature T "Temperature";
+        output SI.MolarHeatCapacity v "Energy index for O";
       algorithm
         v := CC[5] + DD[5]/T + EE[5]/T^2;
         annotation (
@@ -1537,8 +1537,8 @@ package ReferenceMoistAir
 
       function V6 "Energy index for formation of NO"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Temperature T "Temperature";
-        output Modelica.SIunits.MolarHeatCapacity v "Energy index for NO";
+        input SI.Temperature T "Temperature";
+        output SI.MolarHeatCapacity v "Energy index for NO";
       algorithm
         v := CC[6] + DD[6]/T + EE[6]/T^2;
         annotation (
@@ -1549,9 +1549,9 @@ package ReferenceMoistAir
 
       function U2_der "Derivative reaction index for formation of H2"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.AbsolutePressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
-        input Modelica.SIunits.MoleFraction[4] moleFraction "Mole fractions";
+        input SI.AbsolutePressure p "Pressure";
+        input SI.Temperature T "Temperature";
+        input SI.MoleFraction[4] moleFraction "Mole fractions";
         input Real p_der "Derivative of pressure";
         input Real T_der "Derivative of temperature";
         input Real[4] moleFraction_der "Derivative of mole fractions";
@@ -1575,9 +1575,9 @@ package ReferenceMoistAir
 
       function U3_der "Derivative of reaction index for formation of OH"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.AbsolutePressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
-        input Modelica.SIunits.MoleFraction[4] moleFraction "Mole fractions";
+        input SI.AbsolutePressure p "Pressure";
+        input SI.Temperature T "Temperature";
+        input SI.MoleFraction[4] moleFraction "Mole fractions";
         input Real p_der "Derivative of pressure";
         input Real T_der "Derivative of temperature";
         input Real[4] moleFraction_der "Derivative of mole fractions";
@@ -1600,9 +1600,9 @@ package ReferenceMoistAir
 
       function U4_der "Derivative of reaction index for formation of H"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.AbsolutePressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
-        input Modelica.SIunits.MoleFraction[4] moleFraction "Mole fractions";
+        input SI.AbsolutePressure p "Pressure";
+        input SI.Temperature T "Temperature";
+        input SI.MoleFraction[4] moleFraction "Mole fractions";
         input Real p_der "Derivative of pressure";
         input Real T_der "Derivative of temperature";
         input Real[4] moleFraction_der "Derivative of mole fractions";
@@ -1634,9 +1634,9 @@ package ReferenceMoistAir
 
       function U5_der "Derivative of reaction index for formation of O"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.AbsolutePressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
-        input Modelica.SIunits.MoleFraction[4] moleFraction "Mole fractions";
+        input SI.AbsolutePressure p "Pressure";
+        input SI.Temperature T "Temperature";
+        input SI.MoleFraction[4] moleFraction "Mole fractions";
         input Real p_der "Derivative of pressure";
         input Real T_der "Derivative of temperature";
         input Real[4] moleFraction_der "Derivative of mole fractions";
@@ -1655,9 +1655,9 @@ package ReferenceMoistAir
 
       function U6_der "Derivative of reaction index for formation of NO"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.AbsolutePressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
-        input Modelica.SIunits.MoleFraction[4] moleFraction "Mole fractions";
+        input SI.AbsolutePressure p "Pressure";
+        input SI.Temperature T "Temperature";
+        input SI.MoleFraction[4] moleFraction "Mole fractions";
         input Real p_der "Derivative of pressure";
         input Real T_der "Derivative of temperature";
         input Real[4] moleFraction_der "Derivative of mole fractions";
@@ -1676,7 +1676,7 @@ package ReferenceMoistAir
 
       function V2_der "Derivative of energy index for formation of H2"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Temperature T "Temperature";
+        input SI.Temperature T "Temperature";
         input Real T_der "Derivative of temperature";
         output Real v_der "Derivative energy index for H2";
       algorithm
@@ -1686,7 +1686,7 @@ package ReferenceMoistAir
 
       function V3_der "Derivative energy index for formation of OH"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Temperature T "Temperature";
+        input SI.Temperature T "Temperature";
         input Real T_der "Derivative of temperature";
         output Real v_der "Derivative energy index for OH";
       algorithm
@@ -1695,7 +1695,7 @@ package ReferenceMoistAir
 
       function V4_der "Derivative of energy index for formation of H"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Temperature T "Temperature";
+        input SI.Temperature T "Temperature";
         input Real T_der "Derivative of temperature";
         output Real v_der "Derivative energy index for H";
 
@@ -1705,7 +1705,7 @@ package ReferenceMoistAir
 
       function V5_der "Derivative of energy index for formation of O"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Temperature T "Temperature";
+        input SI.Temperature T "Temperature";
         input Real T_der "Derivative of temperature";
         output Real v_der "Derivative energy index for O";
       algorithm
@@ -1714,7 +1714,7 @@ package ReferenceMoistAir
 
       function V6_der "Derivative of energy index for formation of NO"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Temperature T "Temperature";
+        input SI.Temperature T "Temperature";
         input Real T_der "Derivative of temperature";
         output Real v_der "Derivative energy index for NO";
       algorithm
@@ -1733,11 +1733,11 @@ package ReferenceMoistAir
 
       function h_pT "Specific enthalpy as function or pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
+        input SI.Pressure p "Pressure";
+        input SI.Temperature T "Temperature";
         input Integer region=0
           "If 0, region is unknown, otherwise known and this input (unused)";
-        output Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+        output SI.SpecificEnthalpy h "Specific enthalpy";
       protected
         Modelica.Media.Common.GibbsDerivs g;
       algorithm
@@ -1751,11 +1751,11 @@ package ReferenceMoistAir
 
       function s_pT "Temperature as function of pressure and temperature for region 2"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
+        input SI.Pressure p "Pressure";
+        input SI.Temperature T "Temperature";
         input Integer region=0
           "If 0, region is unknown, otherwise known and this input (unused)";
-        output Modelica.SIunits.SpecificEntropy s "Specific entropy";
+        output SI.SpecificEntropy s "Specific entropy";
       protected
         Modelica.Media.Common.GibbsDerivs g;
       algorithm
@@ -1766,11 +1766,11 @@ package ReferenceMoistAir
       function cp_pT
         "Specific heat capacity at constant pressure as function of pressure and temperature for region 2"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
+        input SI.Pressure p "Pressure";
+        input SI.Temperature T "Temperature";
         input Integer region=0
           "If 0, region is unknown, otherwise known and this input (unsued)";
-        output Modelica.SIunits.SpecificHeatCapacity cp
+        output SI.SpecificHeatCapacity cp
           "Specific heat capacity";
       protected
         Modelica.Media.Common.GibbsDerivs g;
@@ -1782,11 +1782,11 @@ package ReferenceMoistAir
       function cv_pT
         "Specific heat capacity at constant volume as function of pressure and temperature for region 2"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
+        input SI.Pressure p "Pressure";
+        input SI.Temperature T "Temperature";
         input Integer region=0
           "If 0, region is unknown, otherwise known and this input (unused)";
-        output Modelica.SIunits.SpecificHeatCapacity cv
+        output SI.SpecificHeatCapacity cv
           "Specific heat capacity";
       protected
         Modelica.Media.Common.GibbsDerivs g;
@@ -1798,9 +1798,9 @@ package ReferenceMoistAir
 
       function rho_pT "Density as function or pressure and temperature for region 2"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
-        output Modelica.SIunits.Density rho "Density";
+        input SI.Pressure p "Pressure";
+        input SI.Temperature T "Temperature";
+        output SI.Density rho "Density";
       protected
         Modelica.Media.Common.GibbsDerivs g;
       algorithm
@@ -2056,7 +2056,7 @@ for region 2.
 
         record IceConstants
           extends Common.FundamentalConstants;
-          Modelica.SIunits.AbsolutePressure p0;
+          SI.AbsolutePressure p0;
         end IceConstants;
 
         constant IceConstants Constants(
@@ -2242,13 +2242,13 @@ for region 2.
 
         function Tsub "Sublimation temperature"
           extends Modelica.Icons.Function;
-          input Modelica.SIunits.AbsolutePressure p "Pressure";
-          output Modelica.SIunits.Temperature T_sub "Temperature";
+          input SI.AbsolutePressure p "Pressure";
+          output SI.Temperature T_sub "Temperature";
 
         protected
           function Tsub_res
             extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
-            input Modelica.SIunits.AbsolutePressure p "Pressure";
+            input SI.AbsolutePressure p "Pressure";
 
           algorithm
             y := Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.psub(u) - p;
@@ -2299,8 +2299,8 @@ for region 2.
       function ice09BaseProp_pT
         "Intermediate property record for water (p and T preferred states)"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
+        input SI.Pressure p "Pressure";
+        input SI.Temperature T "Temperature";
         output Common.AuxiliaryProperties aux "Auxiliary record";
       protected
         Common.GibbsDerivs2 g "Gibbs function and derivatives w.r.t. p and T";
@@ -2322,10 +2322,10 @@ for region 2.
 
       function rho_props_pT "Density as function or pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
+        input SI.Pressure p "Pressure";
+        input SI.Temperature T "Temperature";
         input Common.AuxiliaryProperties aux "Auxiliary record";
-        output Modelica.SIunits.Density rho "Density";
+        output SI.Density rho "Density";
       algorithm
         rho := aux.rho;
         annotation (
@@ -2336,9 +2336,9 @@ for region 2.
 
       function rho_pT "Density as function or pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
-        output Modelica.SIunits.Density rho "Density";
+        input SI.Pressure p "Pressure";
+        input SI.Temperature T "Temperature";
+        output SI.Density rho "Density";
       algorithm
         rho := rho_props_pT(
                 p,
@@ -2350,8 +2350,8 @@ for region 2.
 
       function rho_pT_der "Derivative function of rho_pT"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
+        input SI.Pressure p "Pressure";
+        input SI.Temperature T "Temperature";
         input Common.AuxiliaryProperties aux "Auxiliary record";
         input Real p_der "Derivative of pressure";
         input Real T_der "Derivative of temperature";
@@ -2364,10 +2364,10 @@ for region 2.
       function h_props_pT
         "Specific enthalpy as function or pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
+        input SI.Pressure p "Pressure";
+        input SI.Temperature T "Temperature";
         input Common.AuxiliaryProperties aux "Auxiliary record";
-        output Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+        output SI.SpecificEnthalpy h "Specific enthalpy";
       algorithm
         h := aux.h;
         annotation (
@@ -2378,9 +2378,9 @@ for region 2.
 
       function h_pT "Specific enthalpy as function or pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
-        output Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+        input SI.Pressure p "Pressure";
+        input SI.Temperature T "Temperature";
+        output SI.SpecificEnthalpy h "Specific enthalpy";
       algorithm
         h := h_props_pT(
                 p,
@@ -2392,8 +2392,8 @@ for region 2.
 
       function h_pT_der "Derivative function of h_pT"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
+        input SI.Pressure p "Pressure";
+        input SI.Temperature T "Temperature";
         input Common.AuxiliaryProperties aux "Auxiliary record";
         input Real p_der "Derivative of pressure";
         input Real T_der "Derivative of temperature";
@@ -2405,10 +2405,10 @@ for region 2.
       function s_props_pT
         "Specific entropy as function of pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
+        input SI.Pressure p "Pressure";
+        input SI.Temperature T "Temperature";
         input Common.AuxiliaryProperties aux "Auxiliary record";
-        output Modelica.SIunits.SpecificEntropy s "Specific entropy";
+        output SI.SpecificEntropy s "Specific entropy";
       algorithm
         s := aux.s;
         annotation (Inline=false, LateInline=true);
@@ -2416,9 +2416,9 @@ for region 2.
 
       function s_pT "Temperature as function of pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
-        output Modelica.SIunits.SpecificEntropy s "Specific entropy";
+        input SI.Pressure p "Pressure";
+        input SI.Temperature T "Temperature";
+        output SI.SpecificEntropy s "Specific entropy";
       algorithm
         s := s_props_pT(
                 p,
@@ -2431,10 +2431,10 @@ for region 2.
       function kappa_props_pT
         "Isothermal compressibility factor as function of pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
+        input SI.Pressure p "Pressure";
+        input SI.Temperature T "Temperature";
         input Common.AuxiliaryProperties aux "Auxiliary record";
-        output Modelica.SIunits.IsothermalCompressibility kappa
+        output SI.IsothermalCompressibility kappa
           "Isothermal compressibility factor";
       algorithm
         kappa := -aux.vp*aux.rho;
@@ -2444,9 +2444,9 @@ for region 2.
       function kappa_pT
         "Isothermal compressibility factor as function of pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
-        output Modelica.SIunits.IsothermalCompressibility kappa
+        input SI.Pressure p "Pressure";
+        input SI.Temperature T "Temperature";
+        output SI.IsothermalCompressibility kappa
           "Isothermal compressibility factor";
       algorithm
         kappa := kappa_props_pT(
@@ -2462,8 +2462,8 @@ for region 2.
     function beta_H "Henry's law constant"
       extends Modelica.Icons.Function;
 
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
-      input Modelica.SIunits.Temperature T "Temperature";
+      input SI.AbsolutePressure p "Pressure";
+      input SI.Temperature T "Temperature";
       output Real beta_H(unit="1/Pa") "Henry's law constant";
 
     protected
@@ -2494,15 +2494,15 @@ for region 2.
     function f_pT "Enhancement factor as function of pressure and temperature"
       extends Modelica.Icons.Function;
 
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
-      input Modelica.SIunits.Temperature T "Temperature";
+      input SI.AbsolutePressure p "Pressure";
+      input SI.Temperature T "Temperature";
       output Real f "Vapor-pressure enhancement factor";
 
     protected
       function f_res
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
-        input Modelica.SIunits.AbsolutePressure p "Pressure";
-        input Modelica.SIunits.Temperature T "Temperature";
+        input SI.AbsolutePressure p "Pressure";
+        input SI.Temperature T "Temperature";
 
       protected
         Real x=u;
@@ -2590,11 +2590,11 @@ for region 2.
       "Return density as a function of pressure p, temperature T and composition X"
       extends Modelica.Icons.Function;
 
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
-      input Modelica.SIunits.Temperature T "Temperature";
-      input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+      input SI.AbsolutePressure p "Pressure";
+      input SI.Temperature T "Temperature";
+      input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
         "Mass fractions";
-      output Modelica.SIunits.Density d "Density";
+      output SI.Density d "Density";
 
     protected
       Real pd;
@@ -2645,9 +2645,9 @@ for region 2.
     function pds_pT "Saturation partial pressure of steam"
       extends Modelica.Icons.Function;
 
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
-      input Modelica.SIunits.Temperature T "Temperature";
-      output Modelica.SIunits.AbsolutePressure pds "Pressure";
+      input SI.AbsolutePressure p "Pressure";
+      input SI.Temperature T "Temperature";
+      output SI.AbsolutePressure pds "Pressure";
 
     protected
       Real Tlim;
@@ -2686,11 +2686,11 @@ for region 2.
     function pd_pTX "partial pressure of steam"
       extends Modelica.Icons.Function;
 
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
-      input Modelica.SIunits.Temperature T "Temperature";
-      input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+      input SI.AbsolutePressure p "Pressure";
+      input SI.Temperature T "Temperature";
+      input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
         "Mass fractions";
-      output Modelica.SIunits.AbsolutePressure pd "partial pressure";
+      output SI.AbsolutePressure pd "partial pressure";
 
     protected
       Real xw;
@@ -2716,8 +2716,8 @@ for region 2.
     function xws_pT "Humidity ratio (absolute) of saturated humid air"
       extends Modelica.Icons.Function;
 
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
-      input Modelica.SIunits.Temperature T "Temperature";
+      input SI.AbsolutePressure p "Pressure";
+      input SI.Temperature T "Temperature";
       output Real xws "Absolute humidity ratio";
 
     protected
@@ -2744,9 +2744,9 @@ for region 2.
 
     function phi_pTX "Relative humidity"
       extends Modelica.Icons.Function;
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
-      input Modelica.SIunits.Temperature T "Temperature";
-      input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+      input SI.AbsolutePressure p "Pressure";
+      input SI.Temperature T "Temperature";
+      input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
         "Mass fractions";
       output Real phi "Relative humidity";
 
@@ -2785,11 +2785,11 @@ for region 2.
 
     function cp_pTX "Specific isobaric heat capacity"
       extends Modelica.Icons.Function;
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
-      input Modelica.SIunits.Temperature T "Temperature";
-      input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+      input SI.AbsolutePressure p "Pressure";
+      input SI.Temperature T "Temperature";
+      input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
         "Mass fractions";
-      output Modelica.SIunits.SpecificHeatCapacity cp "Specific heat capacity";
+      output SI.SpecificHeatCapacity cp "Specific heat capacity";
 
     protected
       Real xw;
@@ -2840,11 +2840,11 @@ for region 2.
 
     function cv_pTX "Specific isochoric heat capacity"
       extends Modelica.Icons.Function;
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
-      input Modelica.SIunits.Temperature T "Temperature";
-      input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+      input SI.AbsolutePressure p "Pressure";
+      input SI.Temperature T "Temperature";
+      input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
         "Mass fractions";
-      output Modelica.SIunits.SpecificHeatCapacity cv "Specific heat capacity";
+      output SI.SpecificHeatCapacity cv "Specific heat capacity";
 
     protected
       Real xw;
@@ -2876,11 +2876,11 @@ for region 2.
 
     function h_pTX "Specific enthalpy of moist air"
       extends Modelica.Icons.Function;
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
-      input Modelica.SIunits.Temperature T "Temperature";
-      input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+      input SI.AbsolutePressure p "Pressure";
+      input SI.Temperature T "Temperature";
+      input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
         "Mass fractions";
-      output Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+      output SI.SpecificEnthalpy h "Specific enthalpy";
 
     protected
       Real xw;
@@ -2936,9 +2936,9 @@ for region 2.
 
     function h_dis_pTX
       extends Modelica.Icons.Function;
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
-      input Modelica.SIunits.Temperature T "Temperature";
-      input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+      input SI.AbsolutePressure p "Pressure";
+      input SI.Temperature T "Temperature";
+      input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
         "Mass fractions";
       output Real u "Reaction index";
     protected
@@ -2946,7 +2946,7 @@ for region 2.
       Real invMMX[4] "Inverses of molar weights";
       SI.MolarMass Mmix "Molar mass of mixture";
       MassFraction[4] massFraction "Mass fractions of components";
-      Modelica.SIunits.MoleFraction[4] Y
+      SI.MoleFraction[4] Y
         "Mole fractions of individual components (H2O, N2, O2, Ar) of moist air";
     algorithm
       if (useDissociation == false) then
@@ -3018,11 +3018,11 @@ for region 2.
 
     function s_pTX "Specific entropy of moist air"
       extends Modelica.Icons.Function;
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
-      input Modelica.SIunits.Temperature T "Temperature";
-      input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+      input SI.AbsolutePressure p "Pressure";
+      input SI.Temperature T "Temperature";
+      input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
         "Mass fractions";
-      output Modelica.SIunits.SpecificEntropy s "Specific entropy";
+      output SI.SpecificEntropy s "Specific entropy";
 
     protected
       Real xw;
@@ -3075,11 +3075,11 @@ for region 2.
 
     function u_pTX "Internal energy"
       extends Modelica.Icons.Function;
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
-      input Modelica.SIunits.Temperature T "Temperature";
-      input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+      input SI.AbsolutePressure p "Pressure";
+      input SI.Temperature T "Temperature";
+      input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
         "Mass fractions";
-      output Modelica.SIunits.SpecificEnergy u "Specific entropy";
+      output SI.SpecificEnergy u "Specific entropy";
 
     algorithm
       u := Modelica.Media.Air.ReferenceMoistAir.Utilities.h_pTX(
@@ -3097,9 +3097,9 @@ for region 2.
 
     function cp_dis_pTX
       extends Modelica.Icons.Function;
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
-      input Modelica.SIunits.Temperature T "Temperature";
-      input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+      input SI.AbsolutePressure p "Pressure";
+      input SI.Temperature T "Temperature";
+      input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
         "Mass fractions";
       output Real u "Reaction index";
     protected
@@ -3107,7 +3107,7 @@ for region 2.
       Real invMMX[4] "Inverses of molar weights";
       SI.MolarMass Mmix "Molar mass of mixture";
       MassFraction[4] massFraction "Mass fractions of components";
-      Modelica.SIunits.MoleFraction[4] Y
+      SI.MoleFraction[4] Y
         "Mole fractions of individual components (H2O, N2, O2, Ar) of moist air";
     algorithm
       if (useDissociation == false) then
@@ -3173,9 +3173,9 @@ for region 2.
 
     function s_dis_pTX
       extends Modelica.Icons.Function;
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
-      input Modelica.SIunits.Temperature T "Temperature";
-      input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+      input SI.AbsolutePressure p "Pressure";
+      input SI.Temperature T "Temperature";
+      input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
         "Mass fractions";
       output Real u "Reaction index";
     protected
@@ -3183,7 +3183,7 @@ for region 2.
       Real invMMX[4] "Inverses of molar weights";
       SI.MolarMass Mmix "Molar mass of mixture";
       MassFraction[4] massFraction "Mass fractions of components";
-      Modelica.SIunits.MoleFraction[4] Y
+      SI.MoleFraction[4] Y
         "Mole fractions of individual components (H2O, N2, O2, Ar) of moist air";
     algorithm
       if (useDissociation == false) then
@@ -3256,9 +3256,9 @@ for region 2.
     function pd_pTX_der "Derivative of partial pressure of steam"
       extends Modelica.Icons.Function;
 
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
-      input Modelica.SIunits.Temperature T "Temperature";
-      input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+      input SI.AbsolutePressure p "Pressure";
+      input SI.Temperature T "Temperature";
+      input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
         "Mass fractions";
       input Real p_der "Derivative of pressure";
       input Real T_der "Derivative of temperature";
@@ -3298,8 +3298,8 @@ for region 2.
       "Derivative of humidity ration (absolute) of saturated humid air"
       extends Modelica.Icons.Function;
 
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
-      input Modelica.SIunits.Temperature T "Temperature";
+      input SI.AbsolutePressure p "Pressure";
+      input SI.Temperature T "Temperature";
       input Real p_der "Derivative of pressure";
       input Real T_der "Derivative of temperature";
       output Real xws_der "Derivative of absolute humidity ratio";
@@ -3333,8 +3333,8 @@ for region 2.
     function pds_pT_der "Derivative of saturation partial pressure of steam"
       extends Modelica.Icons.Function;
 
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
-      input Modelica.SIunits.Temperature T "Temperature";
+      input SI.AbsolutePressure p "Pressure";
+      input SI.Temperature T "Temperature";
       input Real p_der "Derivative of pressure";
       input Real T_der "Derivative of temperature";
       output Real pds_der "Derivative of pressure";
@@ -3372,9 +3372,9 @@ for region 2.
       "Derivative of density as a function of pressure p, temperature T and composition X"
       extends Modelica.Icons.Function;
 
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
-      input Modelica.SIunits.Temperature T "Temperature";
-      input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+      input SI.AbsolutePressure p "Pressure";
+      input SI.Temperature T "Temperature";
+      input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
         "Mass fractions";
       input Real p_der "Derivative of pressure";
       input Real T_der "Derivative of temperature";
@@ -3524,9 +3524,9 @@ for region 2.
     function h_dis_pTX_der
       extends Modelica.Icons.Function;
       import Modelica.Media.Air.ReferenceMoistAir.Utilities;
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
-      input Modelica.SIunits.Temperature T "Temperature";
-      input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+      input SI.AbsolutePressure p "Pressure";
+      input SI.Temperature T "Temperature";
+      input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
         "Mass fractions";
       input Real p_der "Derivative of pressure";
       input Real T_der "Derivative of temperature";
@@ -3539,7 +3539,7 @@ for region 2.
       Real Mmix_der "Derivative of molar mass of mixture";
       MassFraction[4] massFraction "Mass fractions of components";
       Real[4] massFraction_der "Derivative of mass fractions of components";
-      Modelica.SIunits.MoleFraction[4] Y
+      SI.MoleFraction[4] Y
         "Mole fractions of individual components (H2O, N2, O2, Ar) of moist air";
       Real[4] Y_der
         "Derivative of mole fractions of individual components (H2O, N2, O2, Ar) of moist air";
@@ -3720,9 +3720,9 @@ for region 2.
 
     function h_pTX_der "Derivative of specific enthalpy of moist air"
       extends Modelica.Icons.Function;
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
-      input Modelica.SIunits.Temperature T "Temperature";
-      input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+      input SI.AbsolutePressure p "Pressure";
+      input SI.Temperature T "Temperature";
+      input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
         "Mass fractions";
       input Real p_der "Derivative of pressure";
       input Real T_der "Derivative of temperature";
@@ -3730,7 +3730,7 @@ for region 2.
       output Real h_der "Derivative of specific enthalpy";
 
     protected
-      Modelica.SIunits.SpecificEnthalpy h;
+      SI.SpecificEnthalpy h;
       Real xw,      xw_der;
       Real xws,      xws_der;
       Real pd,      pd_der;
@@ -3913,9 +3913,9 @@ for region 2.
 
     function u_pTX_der "Derivative of internal energy"
       extends Modelica.Icons.Function;
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
-      input Modelica.SIunits.Temperature T "Temperature";
-      input Modelica.SIunits.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
+      input SI.AbsolutePressure p "Pressure";
+      input SI.Temperature T "Temperature";
+      input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
         "Mass fractions";
       input Real p_der "Derivative of pressure";
       input Real T_der "Derivative of temperature";

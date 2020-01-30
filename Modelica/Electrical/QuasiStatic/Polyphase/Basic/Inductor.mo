@@ -1,7 +1,7 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Basic;
 model Inductor "Polyphase linear inductor"
   extends Interfaces.TwoPlug;
-  parameter Modelica.SIunits.Inductance L[m](start=fill(1, m))
+  parameter SI.Inductance L[m](start=fill(1, m))
     "Inductances";
   QuasiStatic.SinglePhase.Basic.Inductor inductor[m](final L=L)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));

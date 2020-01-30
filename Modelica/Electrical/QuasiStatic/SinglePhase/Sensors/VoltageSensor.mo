@@ -9,9 +9,9 @@ model VoltageSensor "Voltage sensor"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={0,-110})));
-  Modelica.SIunits.Voltage abs_v=Modelica.ComplexMath.abs(v) "Magnitude of complex voltage";
-  Modelica.SIunits.Angle arg_v=Modelica.ComplexMath.arg(v) "Argument of complex voltage";
-  Modelica.SIunits.ComplexCurrent i "Complex current";
+  SI.Voltage abs_v=Modelica.ComplexMath.abs(v) "Magnitude of complex voltage";
+  SI.Angle arg_v=Modelica.ComplexMath.arg(v) "Argument of complex voltage";
+  SI.ComplexCurrent i "Complex current";
 equation
   v = pin_p.v - pin_n.v;
   i = pin_p.i;

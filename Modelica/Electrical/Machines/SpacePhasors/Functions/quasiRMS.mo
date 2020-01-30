@@ -6,7 +6,7 @@ function quasiRMS "Calculate quasi-RMS value of input"
   output Real y;
 protected
   Integer m=size(x, 1) "Number of phases";
-  Modelica.SIunits.Angle phi[m]=
+  SI.Angle phi[m]=
       Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m);
   Real TransformationMatrix[2, m]=2/m*{+cos(+phi),+sin(+phi)};
   Real h[2]=TransformationMatrix*x;

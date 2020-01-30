@@ -1254,7 +1254,7 @@ buttons:
     model TankController "Controller for tank system"
       extends StateGraph.Interfaces.PartialStateGraphIcon;
       parameter Real limit=0.98 "Limit level of tank 1";
-      parameter Modelica.SIunits.Time waitTime=3 "Wait time";
+      parameter SI.Time waitTime=3 "Wait time";
 
       InitialStep s1(nIn=2, nOut=1)
         annotation (Placement(transformation(extent={{-72,30},{-52,50}})));
@@ -1387,7 +1387,7 @@ buttons:
         "State machine defining the time instants when to fill or empty a tank"
       extends StateGraph.PartialCompositeStep;
       parameter Real limit=0.98 "Limit level of tank 1";
-      parameter Modelica.SIunits.Time waitTime=3 "Wait time";
+      parameter SI.Time waitTime=3 "Wait time";
 
       Modelica.Blocks.Interfaces.RealInput level1
         annotation (Placement(transformation(extent={{-190,-140},{-150,-100}})));
@@ -1438,7 +1438,7 @@ buttons:
     connector Inflow1
         "Inflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
-        import Units = Modelica.SIunits;
+        import Units = SI;
 
       input Units.VolumeFlowRate Fi "inflow";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1452,7 +1452,7 @@ buttons:
     connector Inflow2
         "Inflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
-        import Units = Modelica.SIunits;
+        import Units = SI;
 
       output Units.VolumeFlowRate Fi "inflow";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1466,7 +1466,7 @@ buttons:
     connector Outflow1
         "Outflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
-        import Units = Modelica.SIunits;
+        import Units = SI;
 
       output Units.VolumeFlowRate Fo "outflow";
       input Boolean open "valve open";
@@ -1481,7 +1481,7 @@ buttons:
     connector Outflow2
         "Outflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
-        import Units = Modelica.SIunits;
+        import Units = SI;
 
       input Units.VolumeFlowRate Fo "outflow";
       output Boolean open "valve open";
@@ -1731,7 +1731,7 @@ buttons:
         annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
       Step initStep(nIn=1, nOut=1) annotation (Placement(transformation(extent={{-140,-10},{-120,10}})));
       Step exitStep(nIn=1, nOut=1) annotation (Placement(transformation(extent={{110,-10},{130,10}})));
-      parameter Modelica.SIunits.Time waitTime=2 "Waiting time in this composite step";
+      parameter SI.Time waitTime=2 "Waiting time in this composite step";
     equation
       connect(exitStep.outPort[1], outPort)
         annotation (Line(points={{130.5,0},{155,0}}));
@@ -1979,10 +1979,10 @@ package Interfaces "Connectors and partial models"
       annotation (HideResult=true);
     parameter Boolean enableTimer=false "= true, if timer is enabled"
       annotation (Evaluate=true, Dialog(group="Timer"));
-    parameter Modelica.SIunits.Time waitTime(min=0) = 0
+    parameter SI.Time waitTime(min=0) = 0
         "Wait time before transition fires"
       annotation (Dialog(group="Timer", enable=enableTimer));
-    output Modelica.SIunits.Time t
+    output SI.Time t
         "Actual waiting time (transition will fire when t > waitTime)";
     output Boolean enableFire "= true, if all firing conditions are true";
     output Boolean fire "= true, if transition fires" annotation (HideResult=true);
@@ -1994,7 +1994,7 @@ package Interfaces "Connectors and partial models"
         "Vector of transition output connectors"
       annotation (Placement(transformation(extent={{10,-5},{20,5}})));
     protected
-    discrete Modelica.SIunits.Time t_start
+    discrete SI.Time t_start
         "Time instant at which the transition would fire, if waitTime would be zero";
     Real t_dummy;
   initial equation

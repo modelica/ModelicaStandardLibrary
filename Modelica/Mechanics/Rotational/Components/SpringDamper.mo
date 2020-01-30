@@ -10,8 +10,8 @@ model SpringDamper "Linear 1D rotational spring and damper in parallel"
   extends
     Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
 protected
-  Modelica.SIunits.Torque tau_c "Spring torque";
-  Modelica.SIunits.Torque tau_d "Damping torque";
+  SI.Torque tau_c "Spring torque";
+  SI.Torque tau_d "Damping torque";
 equation
   tau_c = c*(phi_rel - phi_rel0);
   tau_d = d*w_rel;

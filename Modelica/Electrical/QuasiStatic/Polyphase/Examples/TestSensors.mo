@@ -4,16 +4,16 @@ model TestSensors
   extends Modelica.Icons.Example;
   constant Integer m=3 "Number of phases";
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Voltage VRMS=100
+  parameter SI.Voltage VRMS=100
     "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency f=50 "Frequency";
-  parameter Modelica.SIunits.Resistance R=1/sqrt(2) "Load resistance";
-  parameter Modelica.SIunits.Inductance L=1/sqrt(2)/(2*pi*f) "Load inductance";
-  final parameter Modelica.SIunits.Impedance Z=sqrt(R^2 + (2*pi*f*L)^2) "Load impedance";
-  final parameter Modelica.SIunits.Current IRMS=VRMS/Z "Steady state RMS current";
-  final parameter Modelica.SIunits.ActivePower P=3*R*IRMS^2 "Total active power";
-  final parameter Modelica.SIunits.ReactivePower Q=3*(2*pi*f*L)*IRMS^2 "Total reactive power";
-  final parameter Modelica.SIunits.ApparentPower S=3*Z*IRMS^2 "Total apparent power";
+  parameter SI.Frequency f=50 "Frequency";
+  parameter SI.Resistance R=1/sqrt(2) "Load resistance";
+  parameter SI.Inductance L=1/sqrt(2)/(2*pi*f) "Load inductance";
+  final parameter SI.Impedance Z=sqrt(R^2 + (2*pi*f*L)^2) "Load impedance";
+  final parameter SI.Current IRMS=VRMS/Z "Steady state RMS current";
+  final parameter SI.ActivePower P=3*R*IRMS^2 "Total active power";
+  final parameter SI.ReactivePower Q=3*(2*pi*f*L)*IRMS^2 "Total reactive power";
+  final parameter SI.ApparentPower S=3*Z*IRMS^2 "Total apparent power";
   Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource sineVoltage(
     final m=m,
     f=f,

@@ -2,10 +2,10 @@ within Modelica.Electrical.QuasiStatic.SinglePhase.Examples;
 model Rectifier "Rectifier example"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Voltage VAC=100 "AC rms voltage";
+  parameter SI.Voltage VAC=100 "AC rms voltage";
   parameter Real conversionFactor=1 "Ratio of DC voltage / AC rms voltage";
-  output Modelica.SIunits.Current Itr=iAC.y_rms "Transient current";
-  output Modelica.SIunits.Current Iqs=iQS.len "QS current";
+  output SI.Current Itr=iAC.y_rms "Transient current";
+  output SI.Current Iqs=iQS.len "QS current";
   Sources.VoltageSource voltageQS(
     f=50,
     V=VAC,

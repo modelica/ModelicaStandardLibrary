@@ -3,9 +3,9 @@ model HBridge_DC_Drive "H bridge DC/DC converter with DC drive"
   extends ExampleTemplates.HBridge(signalPWM(useConstantDutyCycle=false),
       constantVoltage(V=120));
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Inductance Ld=3*dcpmData.La
+  parameter SI.Inductance Ld=3*dcpmData.La
     "Smoothing inductance";
-  final parameter Modelica.SIunits.Torque tauNominal=dcpmData.ViNominal
+  final parameter SI.Torque tauNominal=dcpmData.ViNominal
       *dcpmData.IaNominal/dcpmData.wNominal "Nominal torque";
   parameter Real dMin=0.2 "Minimum duty cycle";
   parameter Real dMax=1 - dMin "Maximum duty cycle";

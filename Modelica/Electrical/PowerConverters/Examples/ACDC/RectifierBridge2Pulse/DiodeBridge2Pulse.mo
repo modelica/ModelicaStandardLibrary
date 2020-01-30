@@ -3,11 +3,11 @@ model DiodeBridge2Pulse
   "Two pulse Graetz diode bridge with resistive load"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
-  parameter Modelica.SIunits.Frequency f=50 "Frequency";
-  parameter Modelica.SIunits.Resistance R=20 "Load resistance";
-  // parameter Modelica.SIunits.Inductance L = 1 "Load resistance" annotation(Evaluate=true);
-  // parameter Modelica.SIunits.Voltage VDC=-120 "DC load offset voltage";
+  parameter SI.Voltage Vrms=110 "RMS supply voltage";
+  parameter SI.Frequency f=50 "Frequency";
+  parameter SI.Resistance R=20 "Load resistance";
+  // parameter SI.Inductance L = 1 "Load resistance" annotation(Evaluate=true);
+  // parameter SI.Voltage VDC=-120 "DC load offset voltage";
   Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
         transformation(
         origin={-80,-50},

@@ -4,26 +4,26 @@ model ThyristorBridge2mPulse_DC_Drive
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   parameter Integer m(final min=3) = 3 "Number of phases";
-  parameter Modelica.SIunits.Voltage Vrms=dcpmData.VaNominal/
+  parameter SI.Voltage Vrms=dcpmData.VaNominal/
       Modelica.Electrical.Polyphase.Functions.factorY2DC(m)
     "RMS supply voltage";
-  parameter Modelica.SIunits.Frequency f=50 "Frequency";
-  parameter Modelica.SIunits.ApparentPower SMains=250E3
+  parameter SI.Frequency f=50 "Frequency";
+  parameter SI.ApparentPower SMains=250E3
     "Mains short circuit apparent power";
   parameter Real lamdaMains=0.1 "Mains short circuit power factor";
-  final parameter Modelica.SIunits.Impedance ZMains=Vrms^2/SMains*m
+  final parameter SI.Impedance ZMains=Vrms^2/SMains*m
     "Mains short circuit impedance";
-  final parameter Modelica.SIunits.Resistance RMains=ZMains*lamdaMains
+  final parameter SI.Resistance RMains=ZMains*lamdaMains
     "Mains resistance" annotation (Evaluate=true);
-  final parameter Modelica.SIunits.Inductance LMains=ZMains*sqrt(1 -
+  final parameter SI.Inductance LMains=ZMains*sqrt(1 -
       lamdaMains^2)/(2*pi*f) "Mains inductance"
     annotation (Evaluate=true);
-  parameter Modelica.SIunits.Inductance Ld=3*dcpmData.La
+  parameter SI.Inductance Ld=3*dcpmData.La
     "Smoothing inductance" annotation (Evaluate=true);
-  final parameter Modelica.SIunits.Torque tauNominal=dcpmData.ViNominal
+  final parameter SI.Torque tauNominal=dcpmData.ViNominal
       *dcpmData.IaNominal/dcpmData.wNominal "Nominal torque";
-  output Modelica.SIunits.AngularVelocity w(displayUnit="rpm") = dcpm.wMechanical;
-  output Modelica.SIunits.Torque tau=dcpm.tauShaft;
+  output SI.AngularVelocity w(displayUnit="rpm") = dcpm.wMechanical;
+  output SI.Torque tau=dcpm.tauShaft;
   Modelica.Electrical.Polyphase.Sources.SineVoltage sinevoltage(
     m=m,
     final V=fill(sqrt(2)*Vrms, m),

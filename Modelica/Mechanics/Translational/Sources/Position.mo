@@ -18,7 +18,7 @@ model Position
     "Reference position of flange as input signal" annotation (Placement(
         transformation(extent={{-140,-20},{-100,20}})));
 protected
-  parameter Modelica.SIunits.AngularFrequency w_crit=2*Modelica.Constants.pi
+  parameter SI.AngularFrequency w_crit=2*Modelica.Constants.pi
       *f_crit "Critical frequency";
   constant Real af=1.3617 "s coefficient of Bessel filter";
   constant Real bf=0.6180 "s*s coefficient of Bessel filter";

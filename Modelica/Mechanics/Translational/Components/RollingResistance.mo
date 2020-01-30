@@ -11,11 +11,11 @@ model RollingResistance "Resistance of a rolling wheel"
     annotation(Dialog(enable=not useInclinationInput));
   parameter Modelica.Blocks.Types.Regularization reg=Modelica.Blocks.Types.Regularization.Exp
     "Type of regularization" annotation(Evaluate=true);
-  parameter Modelica.SIunits.Velocity v0(final min=Modelica.Constants.eps)=0.1
+  parameter SI.Velocity v0(final min=Modelica.Constants.eps)=0.1
     "Regularization below v0";
-  Modelica.SIunits.Velocity v
+  SI.Velocity v
     "Velocity of flange with respect to support (= der(s))";
-  Modelica.SIunits.Force f_nominal "Nominal rolling resistance without regularization";
+  SI.Force f_nominal "Nominal rolling resistance without regularization";
   Blocks.Interfaces.RealInput inclination = inclination_internal if useInclinationInput
     "Inclination=tan(angle)"
     annotation (Placement(transformation(extent={{-20,-20},{20,20}},

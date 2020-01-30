@@ -1190,10 +1190,10 @@ y is set to parameter y_start.
         extends Interfaces.PartialClockedSO;
       parameter Integer height = 1 "Height of step";
       parameter Integer offset = 0 "Offset of output signal y";
-      parameter Modelica.SIunits.Time startTime = 0
+      parameter SI.Time startTime = 0
         "Output y = offset for time < startTime";
     protected
-      Modelica.SIunits.Time simTime;
+      SI.Time simTime;
      equation
       simTime = sample(time);
       y = offset + (if simTime < startTime then 0 else height);

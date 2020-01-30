@@ -1,11 +1,11 @@
 within Modelica.Electrical.Polyphase.Basic;
 model Transformer "Polyphase Transformer"
   extends Interfaces.FourPlug;
-  parameter Modelica.SIunits.Inductance L1[m](start=fill(1, m))
+  parameter SI.Inductance L1[m](start=fill(1, m))
     "Primary inductance";
-  parameter Modelica.SIunits.Inductance L2[m](start=fill(1, m))
+  parameter SI.Inductance L2[m](start=fill(1, m))
     "Secondary inductance";
-  parameter Modelica.SIunits.Inductance M[m](start=fill(1, m))
+  parameter SI.Inductance M[m](start=fill(1, m))
     "Coupling inductance";
   Modelica.Electrical.Analog.Basic.Transformer transformer[m](
     final L1=L1,

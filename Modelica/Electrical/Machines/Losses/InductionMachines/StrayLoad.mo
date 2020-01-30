@@ -9,7 +9,7 @@ model StrayLoad
   extends
     Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
       useHeatPort=false);
-  Modelica.SIunits.Current iRMS=quasiRMS(i);
+  SI.Current iRMS=quasiRMS(i);
 equation
   v = zeros(m);
   if (strayLoadParameters.PRef <= 0) then

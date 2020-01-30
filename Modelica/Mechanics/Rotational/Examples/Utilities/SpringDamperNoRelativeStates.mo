@@ -1,18 +1,18 @@
 within Modelica.Mechanics.Rotational.Examples.Utilities;
 model SpringDamperNoRelativeStates
   "Linear 1D rotational spring and damper in parallel (phi and w are not used as states)"
-  parameter Modelica.SIunits.RotationalSpringConstant c(final min=0, start=1.0e5) "Spring constant";
-  parameter Modelica.SIunits.RotationalDampingConstant d(final min=0, start=0) "Damping constant";
-  parameter Modelica.SIunits.Angle phi_rel0=0
+  parameter SI.RotationalSpringConstant c(final min=0, start=1.0e5) "Spring constant";
+  parameter SI.RotationalDampingConstant d(final min=0, start=0) "Damping constant";
+  parameter SI.Angle phi_rel0=0
     "Unstretched spring angle";
-  Modelica.SIunits.AngularVelocity w_rel(start=0)
+  SI.AngularVelocity w_rel(start=0)
     "Relative angular velocity(= der(phi_rel))";
   extends Modelica.Mechanics.Rotational.Interfaces.PartialCompliant;
   extends
     Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
 protected
-  Modelica.SIunits.Torque tau_c "Spring torque";
-  Modelica.SIunits.Torque tau_d "Damping torque";
+  SI.Torque tau_c "Spring torque";
+  SI.Torque tau_d "Damping torque";
 equation
   w_rel = der(phi_rel);
   tau_c = c*(phi_rel - phi_rel0);

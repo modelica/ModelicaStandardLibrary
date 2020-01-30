@@ -1,6 +1,6 @@
 within Modelica;
 package Blocks "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
-  import SI = Modelica.SIunits;
+  import SI = SI;
 
   extends Modelica.Icons.Package;
 
@@ -12,7 +12,7 @@ package Examples
   model PID_Controller
     "Demonstrates the usage of a Continuous.LimPID controller"
     extends Modelica.Icons.Example;
-    parameter Modelica.SIunits.Angle driveAngle=1.570796326794897
+    parameter SI.Angle driveAngle=1.570796326794897
       "Reference distance to move";
     Modelica.Blocks.Continuous.LimPID PI(
       k=100,
@@ -160,7 +160,7 @@ is forced back to its limit after a transient phase.
   model Filter "Demonstrates the Continuous.Filter block with various options"
     extends Modelica.Icons.Example;
     parameter Integer order=3 "Number of order of filter";
-    parameter Modelica.SIunits.Frequency f_cut=2 "Cut-off frequency";
+    parameter SI.Frequency f_cut=2 "Cut-off frequency";
     parameter Modelica.Blocks.Types.FilterType filterType=Modelica.Blocks.Types.FilterType.LowPass
       "Type of filter (LowPass/HighPass)";
     parameter Modelica.Blocks.Types.Init init=Modelica.Blocks.Types.Init.SteadyState
@@ -239,7 +239,7 @@ The default setting uses low pass filters of order 3 with a cut-off frequency of
   model FilterWithDifferentiation
     "Demonstrates the use of low pass filters to determine derivatives of filters"
     extends Modelica.Icons.Example;
-    parameter Modelica.SIunits.Frequency f_cut=2 "Cut-off frequency";
+    parameter SI.Frequency f_cut=2 "Cut-off frequency";
 
     Modelica.Blocks.Sources.Step step(startTime=0.1, offset=0.1)
       annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
@@ -285,7 +285,7 @@ discontinuous control signal.
     import Modelica.Constants.pi;
     extends Modelica.Icons.Example;
     parameter Integer order=2 "Filter order";
-    parameter Modelica.SIunits.Time riseTime=2 "Time to reach the step input";
+    parameter SI.Time riseTime=2 "Time to reach the step input";
 
     Continuous.Filter filter_fac5(f_cut=5/(2*pi*riseTime), order=order)
       annotation (Placement(transformation(extent={{-20,-20},{0,0}})));
@@ -374,12 +374,12 @@ reached with different precisions. This is summarized in the following table:
   model SlewRateLimiter
     "Demonstrate usage of Nonlinear.SlewRateLimiter"
     extends Modelica.Icons.Example;
-    parameter Modelica.SIunits.Velocity vMax=2 "Max. velocity";
-    parameter Modelica.SIunits.Acceleration aMax=20 "Max. acceleration";
-    Modelica.SIunits.Position s=positionStep.y "Reference position";
-    Modelica.SIunits.Position sSmoothed=positionSmoothed.y "Smoothed position";
-    Modelica.SIunits.Velocity vLimited=limit_a.y "Limited velocity";
-    Modelica.SIunits.Acceleration aLimited=a.y "Limited acceleration";
+    parameter SI.Velocity vMax=2 "Max. velocity";
+    parameter SI.Acceleration aMax=20 "Max. acceleration";
+    SI.Position s=positionStep.y "Reference position";
+    SI.Position sSmoothed=positionSmoothed.y "Smoothed position";
+    SI.Velocity vLimited=limit_a.y "Limited velocity";
+    SI.Acceleration aLimited=a.y "Limited acceleration";
     Modelica.Blocks.Sources.Step positionStep(startTime=0.1)
       annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
     Modelica.Blocks.Nonlinear.SlewRateLimiter limit_v(
@@ -1208,9 +1208,9 @@ As expected, one can see the 11<sup>th</sup>, 13<sup>th</sup>, 23<sup>th</sup>, 
 
   model TotalHarmonicDistortion "Calculation of total harmonic distortion of voltage"
     extends Modelica.Icons.Example;
-    parameter Modelica.SIunits.Frequency f1 = 50 "Fundamental wave frequency";
-    parameter Modelica.SIunits.Voltage V1 = 100 "Fundamental wave RMS voltage";
-    parameter Modelica.SIunits.Voltage V3 = 20 "Third harmonic wave RMS voltage";
+    parameter SI.Frequency f1 = 50 "Fundamental wave frequency";
+    parameter SI.Voltage V1 = 100 "Fundamental wave RMS voltage";
+    parameter SI.Voltage V3 = 20 "Third harmonic wave RMS voltage";
     final parameter Real THD1 = V3/V1 "Theoretically obtained THD with respect to fundamental wave";
     final parameter Real THDrms = V3/sqrt(V1^2+V3^2) "Theoretically obtained THD with respect to RMS";
     Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
@@ -1325,7 +1325,7 @@ This example demonstrates amplitude modulation (AM) and frequency modulation (FM
   model SinCosEncoder "Evaluation of a sinusoidal encoder"
     extends Modelica.Icons.Example;
     import Modelica.Constants.pi;
-    Modelica.SIunits.AngularVelocity w=2*pi*ramp.y "2*pi*f";
+    SI.AngularVelocity w=2*pi*ramp.y "2*pi*f";
     Sources.Ramp ramp(
       height=100,
       duration=1,
@@ -1519,7 +1519,7 @@ The result of a simulation is shown in the next diagram:
     model AutomaticSeed
       "Demonstrates noise with startTime and automatic local seed for UniformNoise"
        extends Modelica.Icons.Example;
-       parameter Modelica.SIunits.Time startTime = 0.5 "Start time of noise";
+       parameter SI.Time startTime = 0.5 "Start time of noise";
        parameter Real y_off = -1.0 "Output of block before startTime";
 
        output Real manualSeed1_y = manualSeed1.y;
@@ -1625,7 +1625,7 @@ manualSeed2 will produce exactly the same noise.
     model Distributions
       "Demonstrates noise with different types of distributions"
       extends Modelica.Icons.Example;
-      parameter Modelica.SIunits.Period samplePeriod=0.02
+      parameter SI.Period samplePeriod=0.02
         "Sample period of all blocks";
       parameter Real y_min = -1 "Minimum value of band for random values";
       parameter Real y_max = 3 "Maximum value of band for random values";
@@ -2129,7 +2129,7 @@ enableNoise = false in the globalSeed component.
     model DrydenContinuousTurbulence
       "Demonstrates how to model wind turbulence for aircraft with the BandLimitedWhiteNoise block (a simple model of vertical Dryden gust speed at low altitudes < 1000 ft)"
       extends Modelica.Icons.Example;
-      import SI = Modelica.SIunits;
+      import SI = SI;
       import Modelica.Constants.pi;
 
       parameter SI.Velocity V =            140 * 0.5144
@@ -2147,7 +2147,7 @@ enableNoise = false in the globalSeed component.
       Modelica.Blocks.Noise.BandLimitedWhiteNoise whiteNoise(samplePeriod=
            0.005)
         annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
-      constant Modelica.SIunits.Velocity unitVelocity = 1 annotation(HideResult=true);
+      constant SI.Velocity unitVelocity = 1 annotation(HideResult=true);
       Modelica.Blocks.Math.Gain compareToSpeed(k=unitVelocity/V)
         annotation (Placement(transformation(extent={{40,0},{60,20}})));
       inner Modelica.Blocks.Noise.GlobalSeed globalSeed
@@ -2455,7 +2455,7 @@ This block is demonstrated in the example
         "Block generating random numbers with the impure random number generator"
         extends Modelica.Blocks.Interfaces.SO;
 
-        parameter Modelica.SIunits.Period samplePeriod
+        parameter SI.Period samplePeriod
           "Sample period for random number generation";
 
       protected
@@ -2499,14 +2499,14 @@ random number generator. This block is used in the example
           "Synchronous machine with current controller and measurement noise"
           extends Modelica.Electrical.Machines.Icons.TransientMachine;
           constant Integer m=3 "Number of phases";
-          parameter Modelica.SIunits.Voltage VNominal=100
+          parameter SI.Voltage VNominal=100
             "Nominal RMS voltage per phase";
-          parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
-          parameter Modelica.SIunits.Frequency f=50 "Actual frequency";
-          parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
-          parameter Modelica.SIunits.Torque TLoad=181.4 "Nominal load torque";
-          parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
-          parameter Modelica.SIunits.Inertia JLoad=0.29 "Load's moment of inertia";
+          parameter SI.Frequency fNominal=50 "Nominal frequency";
+          parameter SI.Frequency f=50 "Actual frequency";
+          parameter SI.Time tRamp=1 "Frequency ramp";
+          parameter SI.Torque TLoad=181.4 "Nominal load torque";
+          parameter SI.Time tStep=1.2 "Time of load torque step";
+          parameter SI.Inertia JLoad=0.29 "Load's moment of inertia";
 
           Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_PermanentMagnet
             smpm(
@@ -2898,7 +2898,7 @@ to utilize the blocks from sublibrary
       expandable connector ControlBus
         "Control bus that is adapted to the signals connected to it"
         extends Modelica.Icons.SignalBus;
-        import SI = Modelica.SIunits;
+        import SI = SI;
         SI.AngularVelocity realSignal1 "First Real signal (angular velocity)"
           annotation (HideResult=false);
         SI.Velocity realSignal2 "Second Real signal"

@@ -2,15 +2,15 @@ within Modelica.Electrical.QuasiStatic.Polyphase.Sources;
 model FrequencySweepVoltageSource "Voltage source with integrated frequency sweep"
   extends Interfaces.TwoPlug;
   import Modelica.Constants.eps;
-  Modelica.SIunits.Angle gamma(start=0) = plug_p.reference.gamma;
+  SI.Angle gamma(start=0) = plug_p.reference.gamma;
   parameter Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Frequency fStart(final min=eps, start=1) "Start sweep frequency";
-  parameter Modelica.SIunits.Frequency fStop(final min=eps, start=1) "Stop sweep frequency";
-  parameter Modelica.SIunits.Time startTime=0 "Start time of frequency sweep";
-  parameter Modelica.SIunits.Time duration(start=1) "Duration of frequency sweep";
-  parameter Modelica.SIunits.Voltage V[m](start=fill(1,m)) "RMS voltage of the source";
-  parameter Modelica.SIunits.Angle phi[m]=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m) "Phase shift of the source";
-  Modelica.SIunits.Frequency f = voltageSource.f "Actual frequency";
+  parameter SI.Frequency fStart(final min=eps, start=1) "Start sweep frequency";
+  parameter SI.Frequency fStop(final min=eps, start=1) "Stop sweep frequency";
+  parameter SI.Time startTime=0 "Start time of frequency sweep";
+  parameter SI.Time duration(start=1) "Duration of frequency sweep";
+  parameter SI.Voltage V[m](start=fill(1,m)) "RMS voltage of the source";
+  parameter SI.Angle phi[m]=-Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m) "Phase shift of the source";
+  SI.Frequency f = voltageSource.f "Actual frequency";
   VariableVoltageSource voltageSource(final m=m) annotation (Placement(transformation(extent={{-10,10},{10,-10}})));
   Modelica.Blocks.Sources.LogFrequencySweep logFrequencySweep(
     final wMin=fStart,

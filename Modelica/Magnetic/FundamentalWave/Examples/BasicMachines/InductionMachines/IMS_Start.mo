@@ -3,19 +3,19 @@ model IMS_Start
   "Starting of induction machine with slip rings"
   extends Modelica.Icons.Example;
   constant Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Voltage VsNominal=100
+  parameter SI.Voltage VsNominal=100
     "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fNominal=aimsData.fsNominal "Nominal frequency";
-  parameter Modelica.SIunits.Time tOn=0.1 "Start time of machine";
-  parameter Modelica.SIunits.Resistance RStart=0.16/aimsData.turnsRatio^2
+  parameter SI.Frequency fNominal=aimsData.fsNominal "Nominal frequency";
+  parameter SI.Time tOn=0.1 "Start time of machine";
+  parameter SI.Resistance RStart=0.16/aimsData.turnsRatio^2
     "Starting resistance";
-  parameter Modelica.SIunits.Time tRheostat=1.0
+  parameter SI.Time tRheostat=1.0
     "Time of shortening the rheostat";
-  parameter Modelica.SIunits.Torque T_Load=161.4 "Nominal load torque";
-  parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="rev/min")=
-       Modelica.SIunits.Conversions.from_rpm(1440.45)
+  parameter SI.Torque T_Load=161.4 "Nominal load torque";
+  parameter SI.AngularVelocity w_Load(displayUnit="rev/min")=
+       SI.Conversions.from_rpm(1440.45)
     "Nominal load speed";
-  parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
+  parameter SI.Inertia J_Load=0.29 "Load inertia";
   Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
         transformation(
         origin={-90,90},

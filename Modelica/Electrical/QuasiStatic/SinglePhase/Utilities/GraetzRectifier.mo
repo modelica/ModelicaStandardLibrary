@@ -1,11 +1,11 @@
 within Modelica.Electrical.QuasiStatic.SinglePhase.Utilities;
 model GraetzRectifier "Graetz rectifier bridge"
-  Modelica.SIunits.Voltage vAC=pin_pAC.v - pin_nAC.v "AC voltage";
-  Modelica.SIunits.Current iAC=pin_pAC.i "AC current";
-  Modelica.SIunits.ActivePower pAC=vAC*iAC "AC power";
-  Modelica.SIunits.Voltage vDC=pin_pDC.v - pin_nDC.v "DC voltage";
-  Modelica.SIunits.Current iDC=pin_pDC.i "DC current";
-  Modelica.SIunits.Power pDC=vDC*iDC "DC power";
+  SI.Voltage vAC=pin_pAC.v - pin_nAC.v "AC voltage";
+  SI.Current iAC=pin_pAC.i "AC current";
+  SI.ActivePower pAC=vAC*iAC "AC power";
+  SI.Voltage vDC=pin_pDC.v - pin_nDC.v "DC voltage";
+  SI.Current iDC=pin_pDC.i "DC current";
+  SI.Power pDC=vDC*iDC "DC power";
   Modelica.Electrical.Analog.Interfaces.PositivePin pin_pAC annotation (
       Placement(transformation(extent={{-110,110},{-90,90}}),
         iconTransformation(extent={{-110,110},{-90,90}})));

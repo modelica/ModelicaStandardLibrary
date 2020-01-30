@@ -3,20 +3,20 @@ record IM_SlipRingData
   "Common parameters for induction machines with slip ring"
   extends InductionMachineData;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Inductance Lm=3*sqrt(1 - 0.0667)/(2*pi*
+  parameter SI.Inductance Lm=3*sqrt(1 - 0.0667)/(2*pi*
       fsNominal) "Stator main field inductance per phase"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Inductance Lrsigma=3*(1 - sqrt(1 - 0.0667))/
+  parameter SI.Inductance Lrsigma=3*(1 - sqrt(1 - 0.0667))/
       (2*pi*fsNominal)/turnsRatio^2
     "Rotor stray inductance per phase w.r.t. rotor side"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Inductance Lrzero=Lrsigma/turnsRatio^2
+  parameter SI.Inductance Lrzero=Lrsigma/turnsRatio^2
     "Rotor zero sequence inductance w.r.t. rotor side"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Resistance Rr=0.04/turnsRatio^2
+  parameter SI.Resistance Rr=0.04/turnsRatio^2
     "Rotor resistance per phase at TRef w.r.t. rotor side"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Temperature TrRef=293.15
+  parameter SI.Temperature TrRef=293.15
     "Reference temperature of rotor resistance"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r=0
@@ -29,10 +29,10 @@ record IM_SlipRingData
     fsNominal*(Lm + Lssigma))^2)
     "Effective number of stator turns / effective number of rotor turns"
     annotation (Dialog(enable=useTurnsRatio));
-  parameter Modelica.SIunits.Voltage VsNominal=100
+  parameter SI.Voltage VsNominal=100
     "Nominal stator voltage per phase"
     annotation (Dialog(enable=not useTurnsRatio));
-  parameter Modelica.SIunits.Voltage VrLockedRotor=100*(2*pi*fsNominal*Lm)
+  parameter SI.Voltage VrLockedRotor=100*(2*pi*fsNominal*Lm)
       /sqrt(Rs^2 + (2*pi*fsNominal*(Lm + Lssigma))^2)
     "Locked-rotor voltage per phase"
     annotation (Dialog(enable=not useTurnsRatio));

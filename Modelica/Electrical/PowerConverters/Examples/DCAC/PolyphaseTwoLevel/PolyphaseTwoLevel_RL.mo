@@ -3,11 +3,11 @@ model PolyphaseTwoLevel_RL
   "Polyphase DC to AC converter with R-L load"
   extends Modelica.Icons.Example;
   parameter Integer m=6 "Number of phases";
-  parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
-  parameter Modelica.SIunits.Frequency f1=50
+  parameter SI.Frequency f=1000 "Switching frequency";
+  parameter SI.Frequency f1=50
     "Fundamental wave AC frequency";
-  parameter Modelica.SIunits.Resistance R=100 "Resistance";
-  parameter Modelica.SIunits.Inductance L=1 "Inductance";
+  parameter SI.Resistance R=100 "Resistance";
+  parameter SI.Inductance L=1 "Inductance";
   Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage_n(
       V=50) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},

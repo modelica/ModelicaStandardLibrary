@@ -2,7 +2,7 @@ within Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities;
 model CurrentController "Current controller"
   parameter Integer m=3 "Number of phases";
   parameter Integer p "Number of pole pairs";
-  parameter Modelica.SIunits.Angle gamma0=0
+  parameter SI.Angle gamma0=0
     "Offset added to electrical rotor angle";
   Modelica.Blocks.Interfaces.RealInput id_rms annotation (Placement(
         transformation(extent={{-140,40},{-100,80}})));

@@ -3,7 +3,7 @@ model IdealRollingWheel
   "Simple 1-dim. model of an ideal rolling wheel without inertia"
 
   extends Rotational.Interfaces.PartialElementaryRotationalToTranslational;
-  parameter Modelica.SIunits.Distance radius(start=0.3) "Wheel radius";
+  parameter SI.Distance radius(start=0.3) "Wheel radius";
 
 equation
   (flangeR.phi - internalSupportR.phi)*radius = (flangeT.s -

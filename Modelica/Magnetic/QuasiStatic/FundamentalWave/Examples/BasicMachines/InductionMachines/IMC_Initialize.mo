@@ -3,15 +3,15 @@ model IMC_Initialize "Steady-state initialization of induction machine with squi
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   parameter Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Voltage VNominal=100
+  parameter SI.Voltage VNominal=100
     "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fNominal=imc.fsNominal "Nominal frequency";
-  parameter Modelica.SIunits.AngularVelocity wSync=2*pi*fNominal/imcData.p "Synchronous speed";
-  parameter Modelica.SIunits.Time tStart=0.5 "Start time";
-  parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
-  parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="rev/min")=
+  parameter SI.Frequency fNominal=imc.fsNominal "Nominal frequency";
+  parameter SI.AngularVelocity wSync=2*pi*fNominal/imcData.p "Synchronous speed";
+  parameter SI.Time tStart=0.5 "Start time";
+  parameter SI.Torque TLoad=161.4 "Nominal load torque";
+  parameter SI.AngularVelocity wLoad(displayUnit="rev/min")=
        1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
-  parameter Modelica.SIunits.Inertia JLoad=0.29
+  parameter SI.Inertia JLoad=0.29
     "Load's moment of inertia";
   Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage
     imcQS(

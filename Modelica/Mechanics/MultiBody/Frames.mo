@@ -137,7 +137,7 @@ with&nbsp;6 elements that describes the constraints between the&nbsp;9 elements 
 
     extends Modelica.Icons.Function;
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
-    output Modelica.SIunits.AngularVelocity w[3]
+    output SI.AngularVelocity w[3]
       "Angular velocity of frame 2 with respect to frame 1 resolved in frame 1";
   algorithm
     w := resolve1(R, R.w);
@@ -167,7 +167,7 @@ from the orientation object R12 that describes the orientation to rotate frame&n
 
     extends Modelica.Icons.Function;
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
-    output Modelica.SIunits.AngularVelocity w[3]
+    output SI.AngularVelocity w[3]
       "Angular velocity of frame 2 with respect to frame 1 resolved in frame 2";
   algorithm
     w := R.w;
@@ -462,9 +462,9 @@ from the relative orientation object R_rel that describes the orientation to rot
     extends Modelica.Icons.Function;
     input Real e[3](each final unit="1")
       "Normalized axis of rotation (must have length=1)";
-    input Modelica.SIunits.Angle angle
+    input SI.Angle angle
       "Rotation angle to rotate frame 1 into frame 2 along axis e";
-    input Modelica.SIunits.AngularVelocity der_angle "= der(angle)";
+    input SI.AngularVelocity der_angle "= der(angle)";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
   algorithm
     R := Orientation(T=outerProduct(e,e) + (identity(3) - outerProduct(e,e))*
@@ -504,7 +504,7 @@ return a wrong result, if length(e) is not one.
       "A vector v resolved in frame 1 (shall not be parallel to e)";
     input Real v2[3]
       "Vector v resolved in frame 2, i.e., v2 = resolve2(planarRotation(e,angle),v1)";
-    output Modelica.SIunits.Angle angle
+    output SI.Angle angle
       "Rotation angle to rotate frame 1 into frame 2 along axis e in the range: -pi <= angle <= pi";
   algorithm
     /* Vector v is resolved in frame 1 and frame 2 according to:
@@ -545,7 +545,7 @@ A call to this function of the form
 </p>
 <blockquote><pre>
   Real[3]                e, v1, v2;
-  Modelica.SIunits.Angle angle;
+  SI.Angle angle;
 <strong>equation</strong>
   angle = <strong>planarRotationAngle</strong>(e, v1, v2);
 </pre></blockquote>
@@ -592,9 +592,9 @@ and/or a division by zero will occur.
 
     extends Modelica.Icons.Function;
     input Integer axis(min=1, max=3) "Rotate around 'axis' of frame 1";
-    input Modelica.SIunits.Angle angle
+    input SI.Angle angle
       "Rotation angle to rotate frame 1 into frame 2 along 'axis' of frame 1";
-    input Modelica.SIunits.AngularVelocity der_angle "= der(angle)";
+    input SI.AngularVelocity der_angle "= der(angle)";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
   algorithm
     R := Orientation(T=(if axis == 1 then [1, 0, 0; 0, Modelica.Math.cos(angle), Modelica.Math.sin(angle);
@@ -635,9 +635,9 @@ Frames.planarRotation({0,1,0}, phi, der_phi)
       min={1,1,1},
       max={3,3,3}) = {1,2,3}
       "Sequence of rotations from frame 1 to frame 2 along axis sequence[i]";
-    input Modelica.SIunits.Angle angles[3]
+    input SI.Angle angles[3]
       "Rotation angles around the axes defined in 'sequence'";
-    input Modelica.SIunits.AngularVelocity der_angles[3] "= der(angles)";
+    input SI.AngularVelocity der_angles[3] "= der(angles)";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
   algorithm
     /*
@@ -788,7 +788,7 @@ A call to this function of the form
 <blockquote><pre>
   Frames.Orientation R;
   <strong>parameter</strong> Integer sequence[3] = {1,2,3};
-  Modelica.SIunits.Angle angles[3];
+  SI.Angle angles[3];
 <strong>equation</strong>
   angle = <strong>axesRotationAngles</strong>(R, sequence);
 </pre></blockquote>
@@ -841,7 +841,7 @@ sequence = <strong>{1,2,3}</strong>  // Cardan angle sequence
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
     input Boolean withResidues=false
       "= false/true, if 'angles'/'angles and residues' are returned in phi";
-    output Modelica.SIunits.Angle phi[if withResidues then 6 else 3]
+    output SI.Angle phi[if withResidues then 6 else 3]
       "The rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small rotation + optionally 3 residues that should be zero";
   algorithm
     /* Planar rotation:
@@ -965,7 +965,7 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
     extends Modelica.Icons.Function;
     input Real T[3, 3]
       "Transformation matrix to transform vector from frame 1 to frame 2 (v2=T*v1)";
-    input Modelica.SIunits.AngularVelocity w[3]
+    input SI.AngularVelocity w[3]
       "Angular velocity from frame 2 with respect to frame 1, resolved in frame 2 (skew(w)=T*der(transpose(T)))";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
   algorithm
@@ -1034,7 +1034,7 @@ is not possible or too difficult to compute, use function from_T2(&hellip;).
     extends Modelica.Icons.Function;
     input Real T_inv[3, 3]
       "Inverse transformation matrix to transform vector from frame 2 to frame 1 (v1=T_inv*v2)";
-    input Modelica.SIunits.AngularVelocity w[3]
+    input SI.AngularVelocity w[3]
       "Angular velocity from frame 1 with respect to frame 2, resolved in frame 1 (skew(w)=T_inv*der(transpose(T_inv)))";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
   algorithm
@@ -1071,7 +1071,7 @@ Note that the velocity vector&nbsp;w has to be calculated accordingly.
     extends Modelica.Icons.Function;
     input Quaternions.Orientation Q
       "Quaternions orientation object to rotate frame 1 into frame 2";
-    input Modelica.SIunits.AngularVelocity w[3]
+    input SI.AngularVelocity w[3]
       "Angular velocity from frame 2 with respect to frame 1, resolved in frame 2";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
   algorithm
@@ -1398,7 +1398,7 @@ between the&nbsp;4 elements of the
       input Quaternions.Orientation Q
         "Quaternions orientation object to rotate frame 1 into frame 2";
       input der_Orientation der_Q "Derivative of Q";
-      output Modelica.SIunits.AngularVelocity w[3]
+      output SI.AngularVelocity w[3]
         "Angular velocity of frame 2 with respect to frame 1 resolved in frame 1";
     algorithm
       w := 2*([Q[4], -Q[3], Q[2], -Q[1]; Q[3], Q[4], -Q[1], -Q[2]; -Q[2], Q[1],
@@ -1433,7 +1433,7 @@ and from its first time derivative der_Q.
       input Quaternions.Orientation Q
         "Quaternions orientation object to rotate frame 1 into frame 2";
       input der_Orientation der_Q "Derivative of Q";
-      output Modelica.SIunits.AngularVelocity w[3]
+      output SI.AngularVelocity w[3]
         "Angular velocity of frame 2 with respect to frame 1 resolved in frame 2";
     algorithm
       w := 2*([Q[4], Q[3], -Q[2], -Q[1]; -Q[3], Q[4], Q[1], -Q[2]; Q[2], -Q[1],
@@ -1733,7 +1733,7 @@ that describes the orientation to rotate from frame&nbsp;1 to frame&nbsp;2.
       extends Modelica.Icons.Function;
       input Real e[3](each final unit="1")
         "Normalized axis of rotation (must have length=1)";
-      input Modelica.SIunits.Angle angle
+      input SI.Angle angle
         "Rotation angle to rotate frame 1 into frame 2 along axis e";
       output Quaternions.Orientation Q
         "Quaternions orientation object to rotate frame 1 into frame 2 along axis e";
@@ -1767,7 +1767,7 @@ return a wrong result, if length(e) is not one.
       extends Modelica.Icons.Function;
       input Quaternions.Orientation Q
         "Quaternions orientation object to rotate frame 1 into frame 2";
-      output Modelica.SIunits.Angle phi[3]
+      output SI.Angle phi[3]
         "The rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small relative rotation";
     algorithm
       phi := 2*{Q[1],Q[2],Q[3]};
@@ -2235,7 +2235,7 @@ between the&nbsp;9 elements of the
       input TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
       input der_Orientation der_T "Derivative of T";
-      output Modelica.SIunits.AngularVelocity w[3]
+      output SI.AngularVelocity w[3]
         "Angular velocity of frame 2 with respect to frame 1 resolved in frame 1";
     algorithm
       /* The angular velocity w of frame 2 with respect to frame 1 resolved in frame 1,
@@ -2290,7 +2290,7 @@ w = vec( der(transpose(T)) * T ).
       input TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
       input der_Orientation der_T "Derivative of T";
-      output Modelica.SIunits.AngularVelocity w[3]
+      output SI.AngularVelocity w[3]
         "Angular velocity of frame 2 with respect to frame 1 resolved in frame 2";
     algorithm
       /* The angular velocity w of frame 2 with respect to frame 1 resolved in frame 2,
@@ -2660,7 +2660,7 @@ that describes the orientation to rotate from frame&nbsp;1 to frame&nbsp;2.
       extends Modelica.Icons.Function;
       input Real e[3](each final unit="1")
         "Normalized axis of rotation (must have length=1)";
-      input Modelica.SIunits.Angle angle
+      input SI.Angle angle
         "Rotation angle to rotate frame 1 into frame 2 along axis e";
       output TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
@@ -2702,7 +2702,7 @@ return a wrong result, if length(e) is not one.
         "A vector v resolved in frame 1 (shall not be parallel to e)";
       input Real v2[3]
         "Vector v resolved in frame 2, i.e., v2 = resolve2(planarRotation(e,angle),v1)";
-      output Modelica.SIunits.Angle angle
+      output SI.Angle angle
         "Rotation angle to rotate frame 1 into frame 2 along axis e in the range: -pi <= angle <= pi";
     algorithm
       /* Vector v is resolved in frame 1 and frame 2 according to:
@@ -2743,7 +2743,7 @@ A call to this function of the form
 </p>
 <blockquote><pre>
   Real[3]                e, v1, v2;
-  Modelica.SIunits.Angle angle;
+  SI.Angle angle;
 <strong>equation</strong>
   angle = <strong>planarRotationAngle</strong>(e, v1, v2);
 </pre></blockquote>
@@ -2789,7 +2789,7 @@ and/or a division by zero will occur.
       "Return rotation object to rotate around one frame axis"
       extends Modelica.Icons.Function;
       input Integer axis(min=1, max=3) "Rotate around 'axis' of frame 1";
-      input Modelica.SIunits.Angle angle
+      input SI.Angle angle
         "Rotation angle to rotate frame 1 into frame 2 along 'axis' of frame 1";
       output TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
@@ -2829,7 +2829,7 @@ TransformationMatrices.planarRotation({0,1,0}, phi)
         min={1,1,1},
         max={3,3,3}) = {1,2,3}
         "Sequence of rotations from frame 1 to frame 2 along axis sequence[i]";
-      input Modelica.SIunits.Angle angles[3]={0,0,0}
+      input SI.Angle angles[3]={0,0,0}
         "Rotation angles around the axes defined in 'sequence'";
       output TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
@@ -2973,7 +2973,7 @@ A call to this function of the form
 <blockquote><pre>
   TransformationMatrices.Orientation T;
   <strong>parameter</strong> Integer sequence[3] = {1,2,3};
-  Modelica.SIunits.Angle angles[3];
+  SI.Angle angles[3];
 <strong>equation</strong>
   angle = <strong>axesRotationAngles</strong>(T, sequence);
 </pre></blockquote>
@@ -3028,7 +3028,7 @@ sequence = <strong>{1,2,3}</strong>  // Cardan angle sequence
         "Orientation object to rotate frame 1 into frame 2";
       input Boolean withResidues=false
         "= false/true, if 'angles'/'angles and residues' are returned in phi";
-      output Modelica.SIunits.Angle phi[if withResidues then 6 else 3]
+      output SI.Angle phi[if withResidues then 6 else 3]
         "The rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small rotation + optionally 3 residues that should be zero";
     algorithm
       /* Planar rotation:

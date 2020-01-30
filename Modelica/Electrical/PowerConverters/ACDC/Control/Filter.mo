@@ -2,11 +2,11 @@ within Modelica.Electrical.PowerConverters.ACDC.Control;
 block Filter "PT1 + all-pass filter"
   extends Modelica.Blocks.Interfaces.SISO;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Frequency f=50 "Mains Frequency";
-  parameter Modelica.SIunits.Frequency fCut=2*f "Cut off frequency";
+  parameter SI.Frequency f=50 "Mains Frequency";
+  parameter SI.Frequency fCut=2*f "Cut off frequency";
   final parameter Integer na(final min=2) = 2
     "Count of 1st order all-pass";
-  final parameter Modelica.SIunits.Frequency fa=f/tan(pi/na - atan(f/fCut)
+  final parameter SI.Frequency fa=f/tan(pi/na - atan(f/fCut)
       /(2*na)) "Characteristic frequency of all-pass filter";
   parameter Real yStart=0 "Start value of output";
   Modelica.Blocks.Continuous.FirstOrder firstOrder(

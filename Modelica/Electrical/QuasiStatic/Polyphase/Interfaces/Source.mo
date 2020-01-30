@@ -1,8 +1,8 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Interfaces;
 partial model Source "Partial voltage / current source"
   extends OnePort;
-  constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
-  Modelica.SIunits.Angle gamma(start=0) = plug_p.reference.gamma;
+  constant SI.Angle pi=Modelica.Constants.pi;
+  SI.Angle gamma(start=0) = plug_p.reference.gamma;
 equation
   Connections.root(plug_p.reference);
   annotation (

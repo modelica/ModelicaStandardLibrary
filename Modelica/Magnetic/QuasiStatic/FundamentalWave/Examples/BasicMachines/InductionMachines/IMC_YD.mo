@@ -3,15 +3,15 @@ model IMC_YD "Induction machine with squirrel cage starting Y-D"
   import Modelica.Constants.pi;
   extends Modelica.Icons.Example;
   constant Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Voltage VNominal=100
+  parameter SI.Voltage VNominal=100
     "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fNominal=imc.fsNominal "Nominal frequency";
-  parameter Modelica.SIunits.Time tStart1=0.1 "Start time";
-  parameter Modelica.SIunits.Time tStart2=2.0 "Start time from Y to D";
-  parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
-  parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="rev/min")=
+  parameter SI.Frequency fNominal=imc.fsNominal "Nominal frequency";
+  parameter SI.Time tStart1=0.1 "Start time";
+  parameter SI.Time tStart2=2.0 "Start time from Y to D";
+  parameter SI.Torque TLoad=161.4 "Nominal load torque";
+  parameter SI.AngularVelocity wLoad(displayUnit="rev/min")=
        1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
-  parameter Modelica.SIunits.Inertia JLoad=0.29
+  parameter SI.Inertia JLoad=0.29
     "Load's moment of inertia";
   Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage
     imcQS(

@@ -3,14 +3,14 @@ model SMEE_Generator
   "Test example: ElectricalExcitedSynchronousMachine as Generator"
   extends Modelica.Icons.Example;
   constant Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Voltage VNominal=100
+  parameter SI.Voltage VNominal=100
     "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
-  parameter Modelica.SIunits.AngularVelocity wActual(displayUnit="rev/min")=
+  parameter SI.Frequency fNominal=50 "Nominal frequency";
+  parameter SI.AngularVelocity wActual(displayUnit="rev/min")=
        1499*2*Modelica.Constants.pi/60 "Actual speed";
-  parameter Modelica.SIunits.Current Ie=19 "Excitation current";
-  parameter Modelica.SIunits.Current Ie0=10 "Initial excitation current";
-  parameter Modelica.SIunits.Angle gamma0(displayUnit="deg") = 0
+  parameter SI.Current Ie=19 "Excitation current";
+  parameter SI.Current Ie0=10 "Initial excitation current";
+  parameter SI.Angle gamma0(displayUnit="deg") = 0
     "Initial rotor displacement angle";
   Machines.BasicMachines.SynchronousMachines.SM_ElectricalExcited smee(
     phiMechanical(start=-(Modelica.Constants.pi + gamma0)/smee.p, fixed=true),

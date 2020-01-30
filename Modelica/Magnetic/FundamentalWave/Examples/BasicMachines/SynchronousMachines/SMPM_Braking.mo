@@ -5,10 +5,10 @@ model SMPM_Braking
   import Modelica.Constants.pi;
   constant Integer m=3 "Number of phases";
   constant Real unitK( unit="rad/(s.Ohm)")=1 annotation(HideResult=true);
-  parameter Modelica.SIunits.Resistance R=1 "Nominal braking resistance";
-  parameter Modelica.SIunits.AngularVelocity wNominal=2*pi*smpmData.fsNominal/smpmData.p
+  parameter SI.Resistance R=1 "Nominal braking resistance";
+  parameter SI.AngularVelocity wNominal=2*pi*smpmData.fsNominal/smpmData.p
     "Nominal speed";
-  parameter Modelica.SIunits.Inertia JLoad=0.29
+  parameter SI.Inertia JLoad=0.29
     "Load's moment of inertia";
   Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet
     smpm(

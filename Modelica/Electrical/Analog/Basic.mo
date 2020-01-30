@@ -1838,8 +1838,8 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
       final f(unit="A"),
       final fder(unit="A/s"),
       final fder2(unit="A/s2"));
-    Modelica.SIunits.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
-    Modelica.SIunits.Current i "Current flowing from pin p to pin n";
+    SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
+    SI.Current i "Current flowing from pin p to pin n";
     Modelica.Electrical.Analog.Interfaces.PositivePin pin_p
       annotation (Placement(transformation(extent={{-30,70},{-10,90}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin pin_n
@@ -1894,8 +1894,8 @@ Bear in mind that separating physical components and connecting them via adaptor
       final f(unit="A"),
       final fder(unit="A/s"),
       final fder2(unit="A/s2"));
-    Modelica.SIunits.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
-    Modelica.SIunits.Current i "Current flowing from pin p to pin n";
+    SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
+    SI.Current i "Current flowing from pin p to pin n";
     Modelica.Electrical.Analog.Interfaces.PositivePin pin_p
       annotation (Placement(transformation(extent={{10,70},{30,90}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin pin_n

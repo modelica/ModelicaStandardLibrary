@@ -1,6 +1,6 @@
 within Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces;
 partial model TwoPortElementary "Partial two port for graphical programming"
-  Modelica.SIunits.AngularVelocity omega=der(port_p.reference.gamma)
+  SI.AngularVelocity omega=der(port_p.reference.gamma)
     "Reference angular velocity (= der(port_p.reference.gamma))";
   FundamentalWave.Interfaces.PositiveMagneticPort port_p
     "Positive quasi-static magnetic port of fundamental wave machines" annotation (Placement(

@@ -1,8 +1,8 @@
 within Modelica.Electrical.QuasiStatic.SinglePhase.Examples;
 model SeriesResonance "Series resonance circuit"
   extends Modelica.Icons.Example;
-  output Modelica.SIunits.Current I_abs=complexToPolar.len "Current";
-  output Modelica.SIunits.Angle I_arg=complexToPolar.phi "Current phase";
+  output SI.Current I_abs=complexToPolar.len "Current";
+  output SI.Angle I_arg=complexToPolar.phi "Current phase";
   Modelica.Blocks.Sources.Constant V(k=1) annotation (Placement(
         transformation(
         origin={-40,50},

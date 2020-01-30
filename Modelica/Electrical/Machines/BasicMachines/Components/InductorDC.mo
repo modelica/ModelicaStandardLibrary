@@ -2,7 +2,7 @@ within Modelica.Electrical.Machines.BasicMachines.Components;
 model InductorDC
   "Ideal linear electrical inductor for electrical DC machines"
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  parameter Modelica.SIunits.Inductance L(start=1) "Inductance";
+  parameter SI.Inductance L(start=1) "Inductance";
   parameter Boolean quasiStatic(start=false)
     "No electrical transients if true" annotation (Evaluate=true);
 equation

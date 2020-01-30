@@ -6,7 +6,7 @@ model ToKelvin "Conversion from degree Fahrenheit to Kelvin"
   Modelica.Blocks.Interfaces.RealOutput Kelvin(unit="K")
       annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 equation
-  Kelvin = Modelica.SIunits.Conversions.from_degF(Fahrenheit);
+  Kelvin = SI.Conversions.from_degF(Fahrenheit);
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={

@@ -5,7 +5,7 @@ model Thyristor1Pulse_R_Characteristic
         useConstantFiringAngle=false, f=f));
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Resistance R=20 "Load resistance";
+  parameter SI.Resistance R=20 "Load resistance";
   Modelica.Electrical.Analog.Basic.Resistor resistor(R=R) annotation (
       Placement(transformation(
         origin={30,30},

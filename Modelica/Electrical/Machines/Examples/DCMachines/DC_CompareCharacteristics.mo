@@ -2,12 +2,12 @@ within Modelica.Electrical.Machines.Examples.DCMachines;
 model DC_CompareCharacteristics
   "Test example: Compare torque-speed characteristic of DC motors"
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
-  parameter Modelica.SIunits.Voltage Ve=100 "Actual excitation voltage";
-  parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
-  parameter Modelica.SIunits.Time tStart=0.5 "Start of load torque ramp";
-  parameter Modelica.SIunits.Time tRamp=5.0 "Load torque ramp";
-  parameter Modelica.SIunits.Inertia JLoad=0.15 "Load's moment of inertia";
+  parameter SI.Voltage Va=100 "Actual armature voltage";
+  parameter SI.Voltage Ve=100 "Actual excitation voltage";
+  parameter SI.Torque TLoad=63.66 "Nominal load torque";
+  parameter SI.Time tStart=0.5 "Start of load torque ramp";
+  parameter SI.Time tRamp=5.0 "Load torque ramp";
+  parameter SI.Inertia JLoad=0.15 "Load's moment of inertia";
   Modelica.Electrical.Analog.Sources.ConstantVoltage armatureVoltage(V=Va)
     annotation (Placement(transformation(extent={{10,-10},{-10,10}},
                                                                    rotation=90,

@@ -9,8 +9,8 @@ partial model BaseCellStack
   parameter Real SOCtolerance=1e-9 "Tolerance to detect depleted of overcharged battery"
     annotation(Dialog(tab="Advanced"));
   extends Modelica.Electrical.Analog.Interfaces.TwoPin;
-  Modelica.SIunits.Current i = p.i "Current into the battery";
-  Modelica.SIunits.Power power = v*i "Power to the battery";
+  SI.Current i = p.i "Current into the battery";
+  SI.Power power = v*i "Power to the battery";
   output Real SOC(start=cellData.SOCmax) = limIntegrator.y "State of charge"
     annotation (Dialog(showStartAttribute=true));
   Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor

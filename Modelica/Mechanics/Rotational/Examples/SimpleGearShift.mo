@@ -1,9 +1,9 @@
 within Modelica.Mechanics.Rotational.Examples;
 model SimpleGearShift "Simple Gearshift"
   extends Modelica.Icons.Example;
-  output Modelica.SIunits.AngularVelocity wEngine=engine.w
+  output SI.AngularVelocity wEngine=engine.w
     "Speed of engine";
-  output Modelica.SIunits.AngularVelocity wLoad=load.w "Speed of load";
+  output SI.AngularVelocity wLoad=load.w "Speed of load";
   output Real gearRatio=wLoad/max(wEngine, 1E-6) "gear ratio load/engine";
   Modelica.Mechanics.Rotational.Sources.TorqueStep torqueStep(
     offsetTorque=0,

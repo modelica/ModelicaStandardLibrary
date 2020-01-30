@@ -3,15 +3,15 @@ model IMC_Inverter
   "Induction machine with squirrel cage and inverter"
   extends Modelica.Icons.Example;
   constant Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Voltage VNominal=100
+  parameter SI.Voltage VNominal=100
     "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fNominal=aimcData.fsNominal "Nominal frequency";
-  parameter Modelica.SIunits.Frequency f=fNominal "Maximum operational frequency";
-  Modelica.SIunits.Frequency fActual=ramp.y "Actual frequency";
-  parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
-  parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
-  parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
-  parameter Modelica.SIunits.Inertia JLoad=0.29
+  parameter SI.Frequency fNominal=aimcData.fsNominal "Nominal frequency";
+  parameter SI.Frequency f=fNominal "Maximum operational frequency";
+  SI.Frequency fActual=ramp.y "Actual frequency";
+  parameter SI.Time tRamp=1 "Frequency ramp";
+  parameter SI.Torque TLoad=161.4 "Nominal load torque";
+  parameter SI.Time tStep=1.2 "Time of load torque step";
+  parameter SI.Inertia JLoad=0.29
     "Load's moment of inertia";
   Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage aimc(
     p=aimcData.p,

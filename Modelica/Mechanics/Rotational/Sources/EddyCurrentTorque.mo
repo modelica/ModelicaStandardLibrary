@@ -1,11 +1,11 @@
 within Modelica.Mechanics.Rotational.Sources;
 model EddyCurrentTorque "Simple model of a rotational eddy current brake"
   import Modelica.Electrical.Machines.Thermal.linearTemperatureDependency;
-  parameter Modelica.SIunits.Torque tau_nominal
+  parameter SI.Torque tau_nominal
     "Maximum torque (always braking)";
-  parameter Modelica.SIunits.AngularVelocity w_nominal(min=Modelica.Constants.eps)
+  parameter SI.AngularVelocity w_nominal(min=Modelica.Constants.eps)
     "Nominal speed (leads to maximum torque) at reference temperature";
-  parameter Modelica.SIunits.Temperature TRef(start=293.15)
+  parameter SI.Temperature TRef(start=293.15)
     "Reference temperature";
   parameter
     Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
@@ -13,9 +13,9 @@ model EddyCurrentTorque "Simple model of a rotational eddy current brake"
   extends Modelica.Mechanics.Rotational.Interfaces.PartialTorque;
   extends
     Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort;
-  Modelica.SIunits.Torque tau
+  SI.Torque tau
     "Accelerating torque acting at flange (= flange.tau)";
-  Modelica.SIunits.AngularVelocity w
+  SI.AngularVelocity w
     "Angular velocity of flange with respect to support (= der(phi))";
   Real w_normalized "Relative speed w/w_nominal";
 equation

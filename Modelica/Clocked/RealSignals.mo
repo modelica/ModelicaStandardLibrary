@@ -3437,10 +3437,10 @@ clocked signals, will usually result in non-expected behavior.
           extends Interfaces.PartialClockedSO;
           parameter Real height = 1 "Height of step";
           parameter Real offset = 0 "Offset of output signal y";
-          parameter Modelica.SIunits.Time startTime = 0
+          parameter SI.Time startTime = 0
         "Output y = offset for time < startTime";
     protected
-          Modelica.SIunits.Time simTime;
+          SI.Time simTime;
         equation
           simTime = sample(time);
           y = offset + (if simTime < startTime then 0 else height);
@@ -3572,13 +3572,13 @@ See model <a href=\"modelica://Modelica.Clocked.Examples.Elementary.RealSignals.
         block Ramp "Generate ramp signal"
           extends Interfaces.PartialClockedSO;
           parameter Real height=1 "Height of ramps";
-          parameter Modelica.SIunits.Time duration(min=Modelica.Constants.small, start = 2)
+          parameter SI.Time duration(min=Modelica.Constants.small, start = 2)
         "Durations of ramp";
           parameter Real offset=0 "Offset of output signal";
-          parameter Modelica.SIunits.Time startTime=0
+          parameter SI.Time startTime=0
         "Output = offset for time < startTime";
     protected
-          Modelica.SIunits.Time simTime;
+          SI.Time simTime;
         equation
           simTime = sample(time);
           y = offset + (if simTime < startTime then 0 else if simTime < (startTime +
@@ -3729,16 +3729,16 @@ See model <a href=\"modelica://Modelica.Clocked.Examples.Elementary.RealSignals.
         block Sine "Generate sine signal"
           extends Interfaces.PartialClockedSO;
           parameter Real amplitude=1 "Amplitude of sine wave";
-          parameter Modelica.SIunits.Frequency f(start=1)
+          parameter SI.Frequency f(start=1)
         "Frequency of sine wave";
-          parameter Modelica.SIunits.Angle phase=0 "Phase of sine wave";
+          parameter SI.Angle phase=0 "Phase of sine wave";
           parameter Real offset=0 "Offset of output signal";
-          parameter Modelica.SIunits.Time startTime=0
+          parameter SI.Time startTime=0
         "Output = offset for time < startTime";
     protected
           constant Real pi=Modelica.Constants.pi;
     protected
-                  Modelica.SIunits.Time simTime;
+                  SI.Time simTime;
         equation
           simTime = sample(time);
           y = offset + (if simTime < startTime then 0 else amplitude*

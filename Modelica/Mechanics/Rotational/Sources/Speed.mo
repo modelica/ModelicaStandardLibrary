@@ -23,7 +23,7 @@ model Speed
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
 
 protected
-  parameter Modelica.SIunits.AngularFrequency w_crit=2*Modelica.Constants.pi
+  parameter SI.AngularFrequency w_crit=2*Modelica.Constants.pi
       *f_crit "Critical frequency";
 initial equation
   if not exact then

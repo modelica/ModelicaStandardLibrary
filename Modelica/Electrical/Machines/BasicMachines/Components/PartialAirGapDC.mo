@@ -4,14 +4,14 @@ partial model PartialAirGapDC "Partial airgap model of a DC machine"
     "No electrical transients if true" annotation (Evaluate=true);
   parameter Real turnsRatio
     "Ratio of armature turns over number of turns of the excitation winding";
-  output Modelica.SIunits.AngularVelocity w "Angular velocity";
-  Modelica.SIunits.Voltage vei
+  output SI.AngularVelocity w "Angular velocity";
+  SI.Voltage vei
     "Voltage drop across field excitation inductance";
-  Modelica.SIunits.Current ie "Excitation current";
-  Modelica.SIunits.MagneticFlux psi_e "Excitation flux";
-  Modelica.SIunits.Voltage vai "Induced armature voltage";
-  Modelica.SIunits.Current ia "Armature current";
-  output Modelica.SIunits.Torque tauElectrical;
+  SI.Current ie "Excitation current";
+  SI.MagneticFlux psi_e "Excitation flux";
+  SI.Voltage vai "Induced armature voltage";
+  SI.Current ia "Armature current";
+  output SI.Torque tauElectrical;
   Modelica.Mechanics.Rotational.Interfaces.Flange_a flange annotation (
       Placement(transformation(extent={{-10,110},{10,90}})));
   Modelica.Mechanics.Rotational.Interfaces.Flange_a support

@@ -1,7 +1,7 @@
 within Modelica.Electrical.Polyphase.Basic;
 model Inductor "Ideal linear electrical inductors"
   extends Interfaces.TwoPlug;
-  parameter Modelica.SIunits.Inductance L[m](start=fill(1, m)) "Inductance";
+  parameter SI.Inductance L[m](start=fill(1, m)) "Inductance";
   Modelica.Electrical.Analog.Basic.Inductor inductor[m](final L=L)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
 equation

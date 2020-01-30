@@ -8,7 +8,7 @@ model TemperatureSensor "Absolute temperature sensor in degCelsius"
   Interfaces.HeatPort_a port annotation (Placement(transformation(extent={{
             -110,-10},{-90,10}})));
 equation
-  T = Modelica.SIunits.Conversions.to_degC(port.T);
+  T = SI.Conversions.to_degC(port.T);
   port.Q_flow = 0;
   annotation (defaultComponentName="temperatureSensor",
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},

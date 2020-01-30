@@ -5,13 +5,13 @@ model System
   package Medium = Modelica.Media.Interfaces.PartialMedium
     "Medium model for default start values"
       annotation (choicesAllMatching = true);
-  parameter Modelica.SIunits.AbsolutePressure p_ambient=101325
+  parameter SI.AbsolutePressure p_ambient=101325
     "Default ambient pressure"
     annotation(Dialog(group="Environment"));
-  parameter Modelica.SIunits.Temperature T_ambient=293.15
+  parameter SI.Temperature T_ambient=293.15
     "Default ambient temperature"
     annotation(Dialog(group="Environment"));
-  parameter Modelica.SIunits.Acceleration g=Modelica.Constants.g_n
+  parameter SI.Acceleration g=Modelica.Constants.g_n
     "Constant gravity acceleration"
     annotation(Dialog(group="Environment"));
 
@@ -38,29 +38,29 @@ model System
     annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
 
   // Initialization
-  parameter Modelica.SIunits.MassFlowRate m_flow_start = 0
+  parameter SI.MassFlowRate m_flow_start = 0
     "Default start value for mass flow rates"
     annotation(Dialog(tab = "Initialization"));
-  parameter Modelica.SIunits.AbsolutePressure p_start = p_ambient
+  parameter SI.AbsolutePressure p_start = p_ambient
     "Default start value for pressures"
     annotation(Dialog(tab = "Initialization"));
-  parameter Modelica.SIunits.Temperature T_start = T_ambient
+  parameter SI.Temperature T_start = T_ambient
     "Default start value for temperatures"
     annotation(Dialog(tab = "Initialization"));
   // Advanced
   parameter Boolean use_eps_Re = false
     "= true to determine turbulent region automatically using Reynolds number"
     annotation(Evaluate=true, Dialog(tab = "Advanced"));
-  parameter Modelica.SIunits.MassFlowRate m_flow_nominal = if use_eps_Re then 1 else 1e2*m_flow_small
+  parameter SI.MassFlowRate m_flow_nominal = if use_eps_Re then 1 else 1e2*m_flow_small
     "Default nominal mass flow rate"
     annotation(Dialog(tab="Advanced", enable = use_eps_Re));
   parameter Real eps_m_flow(min=0) = 1e-4
     "Regularization of zero flow for |m_flow| < eps_m_flow*m_flow_nominal"
     annotation(Dialog(tab = "Advanced", enable = use_eps_Re));
-  parameter Modelica.SIunits.AbsolutePressure dp_small(min=0) = 1
+  parameter SI.AbsolutePressure dp_small(min=0) = 1
     "Default small pressure drop for regularization of laminar and zero flow"
     annotation(Dialog(tab="Advanced", group="Classic", enable = not use_eps_Re));
-  parameter Modelica.SIunits.MassFlowRate m_flow_small(min=0) = 1e-2
+  parameter SI.MassFlowRate m_flow_small(min=0) = 1e-2
     "Default small mass flow rate for regularization of laminar and zero flow"
     annotation(Dialog(tab = "Advanced", group="Classic", enable = not use_eps_Re));
 initial equation

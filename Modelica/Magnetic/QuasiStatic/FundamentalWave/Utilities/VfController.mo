@@ -2,14 +2,14 @@ within Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities;
 block VfController "Voltage-Frequency-Controller"
   import Modelica.Constants.pi;
   parameter Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Angle orientation[m]=-
+  parameter SI.Angle orientation[m]=-
       Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m)
     "Orientation of phases";
-  parameter Modelica.SIunits.Voltage VNominal
+  parameter SI.Voltage VNominal
     "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fNominal "Nominal frequency";
-  parameter Modelica.SIunits.Angle BasePhase=0 "Common phase shift";
-  output Modelica.SIunits.Voltage amplitude;
+  parameter SI.Frequency fNominal "Nominal frequency";
+  parameter SI.Angle BasePhase=0 "Common phase shift";
+  output SI.Voltage amplitude;
   Modelica.ComplexBlocks.Interfaces.ComplexOutput y[m]
     "Complex quasi-static voltages (RMS)" annotation (Placement(
         transformation(extent={{100,-10},{120,10}}), iconTransformation(

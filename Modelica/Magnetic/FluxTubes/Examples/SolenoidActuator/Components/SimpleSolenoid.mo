@@ -31,10 +31,10 @@ model SimpleSolenoid
     annotation (Dialog(group="Armature and stopper"));
   parameter SI.Length l_arm=26e-3 "Armature length"
     annotation (Dialog(group="Armature and stopper"));
-  parameter Modelica.SIunits.TranslationalSpringConstant c=1e11
+  parameter SI.TranslationalSpringConstant c=1e11
     "Spring stiffness between impact partners"
     annotation (Dialog(group="Armature and stopper"));
-  parameter Modelica.SIunits.TranslationalDampingConstant d=400
+  parameter SI.TranslationalDampingConstant d=400
     "Damping coefficient between impact partners"
     annotation (Dialog(group="Armature and stopper"));
   parameter SI.Position x_min=0.25e-3

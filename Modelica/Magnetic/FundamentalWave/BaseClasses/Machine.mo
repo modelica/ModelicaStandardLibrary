@@ -1,27 +1,27 @@
 within Modelica.Magnetic.FundamentalWave.BaseClasses;
 partial model Machine "Base model of machines"
-  constant Modelica.SIunits.Angle pi = Modelica.Constants.pi;
+  constant SI.Angle pi = Modelica.Constants.pi;
   extends Modelica.Electrical.Machines.Icons.FundamentalWaveMachine;
   parameter Integer m(min=3) = 3 "Number of stator phases";
   // Mechanical parameters
-  parameter Modelica.SIunits.Inertia Jr(start=0.29) "Rotor inertia";
+  parameter SI.Inertia Jr(start=0.29) "Rotor inertia";
   parameter Boolean useSupport=false
     "Enable / disable (=fixed stator) support" annotation (Evaluate=true);
-  parameter Modelica.SIunits.Inertia Js(start=Jr) "Stator inertia"
+  parameter SI.Inertia Js(start=Jr) "Stator inertia"
     annotation (Dialog(enable=useSupport));
   parameter Boolean useThermalPort=false
     "Enable / disable (=fixed temperatures) thermal port"
     annotation (Evaluate=true);
   parameter Integer p(min=1, start=2) "Number of pole pairs (Integer)";
-  parameter Modelica.SIunits.Frequency fsNominal(start=50)
+  parameter SI.Frequency fsNominal(start=50)
     "Nominal frequency";
-  parameter Modelica.SIunits.Temperature TsOperational(start=293.15)
+  parameter SI.Temperature TsOperational(start=293.15)
     "Operational temperature of stator resistance" annotation (Dialog(group=
          "Operational temperatures", enable=not useThermalPort));
-  parameter Modelica.SIunits.Resistance Rs(start=0.03)
+  parameter SI.Resistance Rs(start=0.03)
     "Stator resistance per phase at TRef"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Temperature TsRef(start=293.15)
+  parameter SI.Temperature TsRef(start=293.15)
     "Reference temperature of stator resistance"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter
@@ -30,10 +30,10 @@ partial model Machine "Base model of machines"
     "Temperature coefficient of stator resistance at 20 degC"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter Real effectiveStatorTurns=1 "Effective number of stator turns";
-  parameter Modelica.SIunits.Inductance Lssigma(start=3*(1 - sqrt(1 -
+  parameter SI.Inductance Lssigma(start=3*(1 - sqrt(1 -
         0.0667))/(2*pi*fsNominal)) "Stator stray inductance"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Inductance Lszero=Lssigma
+  parameter SI.Inductance Lszero=Lssigma
     "Stator zero inductance"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter Magnetic.FundamentalWave.Types.SalientInductance L0(d(start=1), q(
@@ -53,15 +53,15 @@ partial model Machine "Base model of machines"
     strayLoadParameters(IRef(start=100), wRef=2*pi*fsNominal/p)
     "Stray load loss parameter record" annotation (Dialog(tab="Losses"));
   // Mechanical quantities
-  output Modelica.SIunits.Angle phiMechanical(start=0) = flange.phi -
+  output SI.Angle phiMechanical(start=0) = flange.phi -
     internalSupport.phi "Mechanical angle of rotor against stator";
-  output Modelica.SIunits.AngularVelocity wMechanical(
+  output SI.AngularVelocity wMechanical(
     start=0,
     displayUnit="rev/min") = der(phiMechanical)
     "Mechanical angular velocity of rotor against stator";
-  output Modelica.SIunits.Torque tauElectrical=inertiaRotor.flange_a.tau
+  output SI.Torque tauElectrical=inertiaRotor.flange_a.tau
     "Electromagnetic torque";
-  output Modelica.SIunits.Torque tauShaft=-flange.tau "Shaft torque";
+  output SI.Torque tauShaft=-flange.tau "Shaft torque";
   replaceable output
     Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialPowerBalanceInductionMachines
     powerBalance(
@@ -76,9 +76,9 @@ partial model Machine "Base model of machines"
     final lossPowerFriction=friction.lossPower) "Power balance";
 
   // Stator voltages and currents
-  output Modelica.SIunits.Voltage vs[m]=plug_sp.pin.v - plug_sn.pin.v
+  output SI.Voltage vs[m]=plug_sp.pin.v - plug_sn.pin.v
     "Stator instantaneous voltages";
-  output Modelica.SIunits.Current is[m]=plug_sp.pin.i
+  output SI.Current is[m]=plug_sp.pin.i
     "Stator instantaneous currents";
   Modelica.Mechanics.Rotational.Interfaces.Flange_a flange "Shaft"
     annotation (Placement(transformation(extent={{90,-10},{110,10}})));

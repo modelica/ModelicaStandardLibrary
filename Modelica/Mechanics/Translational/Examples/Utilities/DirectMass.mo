@@ -1,7 +1,7 @@
 within Modelica.Mechanics.Translational.Examples.Utilities;
 model DirectMass "Input/output block of a direct mass model"
   extends Modelica.Blocks.Icons.Block;
-  parameter Modelica.SIunits.Mass m(min=0)=1 "Mass";
+  parameter SI.Mass m(min=0)=1 "Mass";
   Modelica.Mechanics.Translational.Components.Mass mass(
     m=m,
     s(start=0, fixed=true),

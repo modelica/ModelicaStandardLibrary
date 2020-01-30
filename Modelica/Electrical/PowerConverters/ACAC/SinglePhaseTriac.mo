@@ -1,15 +1,15 @@
 within Modelica.Electrical.PowerConverters.ACAC;
 model SinglePhaseTriac "Triode for alternating current"
   extends Modelica.Electrical.Analog.Interfaces.TwoPin;
-  Modelica.SIunits.Current i=p.i "Current flowing from pin p to pin n";
-  parameter Modelica.SIunits.Resistance Ron(final min=0)=1e-5
+  SI.Current i=p.i "Current flowing from pin p to pin n";
+  parameter SI.Resistance Ron(final min=0)=1e-5
     "Forward state-on differential resistance (closed resistance)";
-  parameter Modelica.SIunits.Conductance Goff(final min=0)=1e-5
+  parameter SI.Conductance Goff(final min=0)=1e-5
     "Backward state-off conductance (opened conductance)";
-  parameter Modelica.SIunits.Voltage Vknee(final min=0)=0 "Forward threshold voltage";
+  parameter SI.Voltage Vknee(final min=0)=0 "Forward threshold voltage";
   parameter Boolean useHeatPort = false "= true, if heatPort is enabled"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-  parameter Modelica.SIunits.Temperature T=293.15
+  parameter SI.Temperature T=293.15
     "Fixed device temperature if useHeatPort = false"
     annotation(Dialog(enable=not useHeatPort));
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort

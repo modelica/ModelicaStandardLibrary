@@ -14,28 +14,28 @@ record TransformerData "Common parameters for transformers"
        then 1/sqrt(3) else if C1 == "Y" and C2 == "d" then sqrt(3) else 1)
     "Ratio primary voltage (line-to-line) / secondary voltage (line-to-line)"
     annotation (Dialog(enable=false));
-  parameter Modelica.SIunits.Resistance R1=5E-3/3
+  parameter SI.Resistance R1=5E-3/3
     "Primary resistance per phase at TRef"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Temperature T1Ref=293.15
+  parameter SI.Temperature T1Ref=293.15
     "Reference temperature of primary resistance"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20_1=0
     "Temperature coefficient of primary resistance at 20 degC"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Inductance L1sigma=78E-6/3
+  parameter SI.Inductance L1sigma=78E-6/3
     "Primary stray inductance per phase"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Resistance R2=5E-3/3
+  parameter SI.Resistance R2=5E-3/3
     "Secondary resistance per phase at TRef"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Temperature T2Ref=293.15
+  parameter SI.Temperature T2Ref=293.15
     "Reference temperature of secondary resistance"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20_2=0
     "Temperature coefficient of secondary resistance at 20 degC"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Inductance L2sigma=78E-6/3
+  parameter SI.Inductance L2sigma=78E-6/3
     "Secondary stray inductance per phase"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   annotation (

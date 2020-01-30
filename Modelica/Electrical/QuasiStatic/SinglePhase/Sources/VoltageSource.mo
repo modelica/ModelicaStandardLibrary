@@ -1,9 +1,9 @@
 within Modelica.Electrical.QuasiStatic.SinglePhase.Sources;
 model VoltageSource "Constant AC voltage"
   extends Interfaces.Source;
-  parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
-  parameter Modelica.SIunits.Voltage V(start=1) "RMS voltage of the source";
-  parameter Modelica.SIunits.Angle phi(start=0) "Phase shift of the source";
+  parameter SI.Frequency f(start=1) "Frequency of the source";
+  parameter SI.Voltage V(start=1) "RMS voltage of the source";
+  parameter SI.Angle phi(start=0) "Phase shift of the source";
 equation
   omega = 2*Modelica.Constants.pi*f;
   v = Complex(V*cos(phi), V*sin(phi));

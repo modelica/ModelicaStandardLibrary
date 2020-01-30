@@ -4,13 +4,13 @@ model ThermalAmbientDCPM
   extends Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines(
       redeclare final Machines.Interfaces.DCMachines.ThermalPortDCPM
       thermalPort);
-  parameter Modelica.SIunits.Temperature Tpm(start=TDefault)
+  parameter SI.Temperature Tpm(start=TDefault)
     "Temperature of permanent magnet"
     annotation (Dialog(enable=not useTemperatureInputs));
-  output Modelica.SIunits.HeatFlowRate Q_flowPermanentMagnet=
+  output SI.HeatFlowRate Q_flowPermanentMagnet=
       temperaturePermanentMagnet.port.Q_flow
     "Heat flow rate of permanent magnets";
-  output Modelica.SIunits.HeatFlowRate Q_flowTotal=Q_flowArmature +
+  output SI.HeatFlowRate Q_flowTotal=Q_flowArmature +
       Q_flowCore + Q_flowStrayLoad + Q_flowFriction + Q_flowBrush +
       Q_flowPermanentMagnet;
   Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature

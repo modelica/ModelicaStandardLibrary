@@ -7,10 +7,10 @@ model RampedRheostat "Rheostat with linearly decreasing resistance"
   Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_n(final m=m)
     "To negative rotor plug" annotation (Placement(transformation(extent={{
             90,-50},{110,-70}})));
-  parameter Modelica.SIunits.Resistance RStart "Starting resistance";
-  parameter Modelica.SIunits.Time tStart
+  parameter SI.Resistance RStart "Starting resistance";
+  parameter SI.Time tStart
     "Time instance of reducing the rheostat";
-  parameter Modelica.SIunits.Time tRamp "Duration of ramp";
+  parameter SI.Time tRamp "Duration of ramp";
   Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
       Placement(transformation(extent={{-20,-70},{-40,-50}})));
   Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(

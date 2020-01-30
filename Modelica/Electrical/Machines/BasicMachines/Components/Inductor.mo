@@ -1,8 +1,8 @@
 within Modelica.Electrical.Machines.BasicMachines.Components;
 model Inductor "Space phasor inductor"
-  parameter Modelica.SIunits.Inductance L[2] "Inductance of both axes";
-  Modelica.SIunits.Voltage v_[2];
-  Modelica.SIunits.Current i_[2];
+  parameter SI.Inductance L[2] "Inductance of both axes";
+  SI.Voltage v_[2];
+  SI.Current i_[2];
   Machines.Interfaces.SpacePhasor spacePhasor_a
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
   Machines.Interfaces.SpacePhasor spacePhasor_b

@@ -1,7 +1,7 @@
 within Modelica.Blocks;
 package Interfaces
   "Library of connectors and partial models for input/output blocks"
-  import Modelica.SIunits;
+  import SI;
   extends Modelica.Icons.InterfacesPackage;
 
   connector RealInput = input Real "'input Real' as connector" annotation (
@@ -1309,7 +1309,7 @@ converts from one unit into another one.
     extends Modelica.Blocks.Interfaces.SO;
 
     // Main dialog menu
-    parameter Modelica.SIunits.Period samplePeriod(start=0.01)
+    parameter SI.Period samplePeriod(start=0.01)
       "Period for sampling the raw random numbers"
       annotation(Dialog(enable=enableNoise));
 
@@ -1330,7 +1330,7 @@ converts from one unit into another one.
       annotation(choices(checkBox=true),Dialog(tab="Advanced",group = "Initialization",enable=enableNoise));
     parameter Integer fixedLocalSeed = 1 "Local seed (any Integer number)"
       annotation(Dialog(tab="Advanced",group = "Initialization",enable=enableNoise and not useAutomaticLocalSeed));
-    parameter Modelica.SIunits.Time startTime = 0.0
+    parameter SI.Time startTime = 0.0
       "Start time for sampling the raw random numbers"
       annotation(Dialog(tab="Advanced", group="Initialization",enable=enableNoise));
     final parameter Integer localSeed(fixed=false) "The actual localSeed";

@@ -5,10 +5,10 @@ model ThyristorCenterTap2Pulse_RLV_Characteristic
         useConstantFiringAngle=false));
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Resistance R=20 "Load resistance";
-  parameter Modelica.SIunits.Inductance L=1 "Load resistance"
+  parameter SI.Resistance R=20 "Load resistance";
+  parameter SI.Inductance L=1 "Load resistance"
     annotation (Evaluate=true);
-  parameter Modelica.SIunits.Voltage VDC=-120 "DC load offset voltage";
+  parameter SI.Voltage VDC=-120 "DC load offset voltage";
   Modelica.Electrical.Analog.Basic.Resistor resistor(R=R) annotation (
       Placement(transformation(
         origin={30,30},

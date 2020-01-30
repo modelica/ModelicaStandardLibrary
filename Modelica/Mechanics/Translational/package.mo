@@ -1,7 +1,7 @@
 within Modelica.Mechanics;
 package Translational "Library to model 1-dimensional, translational mechanical systems"
   extends Modelica.Icons.Package;
-  import SI = Modelica.SIunits;
+  import SI = SI;
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
             {100,100}}), graphics={
@@ -66,8 +66,8 @@ flange. A flange is described by a Modelica connector containing
 the following variables:
 </p>
 <blockquote><pre>
-Modelica.SIunits.Position s    \"Absolute position of flange\";
-<strong>flow</strong> Modelica.SIunits.Force f  \"Cut-force in the flange\";
+Modelica.Units.SI.Position s    \"Absolute position of flange\";
+<strong>flow</strong> Modelica.Units.SI.Force f  \"Cut-force in the flange\";
 </pre></blockquote>
 
 <p>

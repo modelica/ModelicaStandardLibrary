@@ -6,7 +6,7 @@ model SinCosResolver "Sin-Cos-Resolver"
   parameter Integer p(final min=1, start=2) "Number of pole pairs";
   parameter Real amplitude=1 "Amplitude of signals";
   parameter Real offset=1.5 "Offset of signals";
-  parameter Modelica.SIunits.Angle phi0=-pi/p "Initial mechanical angle";
+  parameter SI.Angle phi0=-pi/p "Initial mechanical angle";
   Modelica.Blocks.Interfaces.RealOutput y[4] "Track signals"
     annotation (Placement(transformation(extent={{-100,-10},{-120,10}})));
 equation

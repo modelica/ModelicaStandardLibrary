@@ -1,13 +1,13 @@
 within Modelica.Electrical.Polyphase.Basic;
 model SaturatingInductor "Simple model of inductors with saturation"
   extends Interfaces.TwoPlug;
-  parameter Modelica.SIunits.Current Inom[m](start=fill(1, m))
+  parameter SI.Current Inom[m](start=fill(1, m))
     "Nominal current";
-  parameter Modelica.SIunits.Inductance Lnom[m](start=fill(1, m))
+  parameter SI.Inductance Lnom[m](start=fill(1, m))
     "Nominal inductance at Nominal current";
-  parameter Modelica.SIunits.Inductance Lzer[m](start={2*Lnom[j] for j in 1
+  parameter SI.Inductance Lzer[m](start={2*Lnom[j] for j in 1
         :m}) "Inductance near current=0";
-  parameter Modelica.SIunits.Inductance Linf[m](start={Lnom[j]/2 for j in 1
+  parameter SI.Inductance Linf[m](start={Lnom[j]/2 for j in 1
         :m}) "Inductance at large currents";
   Modelica.Electrical.Analog.Basic.SaturatingInductor saturatingInductor[m](
     final Inom=Inom,

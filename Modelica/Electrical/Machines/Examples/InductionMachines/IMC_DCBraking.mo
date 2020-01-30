@@ -3,13 +3,13 @@ model IMC_DCBraking "Induction machine with DC current braking"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   constant Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.AngularVelocity w0(displayUnit="rev/min")=
+  parameter SI.AngularVelocity w0(displayUnit="rev/min")=
     2*pi*imcData.fsNominal/imcData.p "Initial mechanical speed";
-  parameter Modelica.SIunits.Inertia JLoad=4*imcData.Jr
+  parameter SI.Inertia JLoad=4*imcData.Jr
     "Load's moment of inertia";
-  Modelica.SIunits.Torque tauElectrical=imc.tauElectrical "Electrical torque";
-  Modelica.SIunits.Torque tauShaft=imc.tauShaft "Shaft torque";
-  Modelica.SIunits.AngularVelocity wMechanical(displayUnit="rev/min") = imc.wMechanical
+  SI.Torque tauElectrical=imc.tauElectrical "Electrical torque";
+  SI.Torque tauShaft=imc.tauShaft "Shaft torque";
+  SI.AngularVelocity wMechanical(displayUnit="rev/min") = imc.wMechanical
     "Shaft speed";
   parameter Modelica.Electrical.Machines.Utilities.DcBrakeSettings settings(INominal=
         100, layout="D3")

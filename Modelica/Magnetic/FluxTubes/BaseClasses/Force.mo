@@ -11,7 +11,7 @@ partial model Force "Base class for flux tubes with reluctance force generation;
     "Relative magnetic permeability";
 
   SI.Force F_m "Reluctance force";
-  Modelica.SIunits.Length s=flange.s - s_support
+  SI.Length s=flange.s - s_support
     "Distance between flange and support";
 
   SI.Reluctance R_m "Magnetic reluctance";
@@ -29,7 +29,7 @@ partial model Force "Base class for flux tubes with reluctance force generation;
      Placement(transformation(extent={{-10,-110},{10,-90}})));
 
 protected
-  Modelica.SIunits.Length s_support "Absolute position of support flange";
+  SI.Length s_support "Absolute position of support flange";
 
 equation
   V_m = Phi*R_m;

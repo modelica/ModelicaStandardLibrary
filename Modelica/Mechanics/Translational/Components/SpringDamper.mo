@@ -8,8 +8,8 @@ model SpringDamper "Linear 1D translational spring and damper in parallel"
   parameter SI.Position s_rel0=0 "Unstretched spring length";
   extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
 protected
-  Modelica.SIunits.Force f_c "Spring force";
-  Modelica.SIunits.Force f_d "Damping force";
+  SI.Force f_c "Spring force";
+  SI.Force f_d "Damping force";
 equation
   f_c = c*(s_rel - s_rel0);
   f_d = d*v_rel;

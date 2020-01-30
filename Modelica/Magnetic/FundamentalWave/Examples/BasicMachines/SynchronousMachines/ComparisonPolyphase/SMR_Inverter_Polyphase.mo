@@ -5,15 +5,15 @@ model SMR_Inverter_Polyphase
   extends Modelica.Icons.Example;
   constant Integer m3=3 "Number of stator phases of three-phase system";
   parameter Integer m=5 "Number of stator phases";
-  parameter Modelica.SIunits.Voltage VsNominal=100
+  parameter SI.Voltage VsNominal=100
     "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fsNominal=smrData.fsNominal "Nominal frequency";
-  parameter Modelica.SIunits.Frequency fKnee=50
+  parameter SI.Frequency fsNominal=smrData.fsNominal "Nominal frequency";
+  parameter SI.Frequency fKnee=50
     "Knee frequency of V/f curve";
-  parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
-  parameter Modelica.SIunits.Torque T_Load=46 "Nominal load torque";
-  parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
-  parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
+  parameter SI.Time tRamp=1 "Frequency ramp";
+  parameter SI.Torque T_Load=46 "Nominal load torque";
+  parameter SI.Time tStep=1.2 "Time of load torque step";
+  parameter SI.Inertia J_Load=0.29 "Load inertia";
   Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM(
       terminalConnection="Y", m=m) annotation (Placement(transformation(
           extent={{-10,-14},{10,6}})));

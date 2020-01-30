@@ -7,13 +7,13 @@ model ThermalAmbientSMR
     Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines(
       redeclare final Machines.Interfaces.InductionMachines.ThermalPortSMR
       thermalPort(final useDamperCage=useDamperCage));
-  parameter Modelica.SIunits.Temperature Tr(start=TDefault)
+  parameter SI.Temperature Tr(start=TDefault)
     "Temperature of damper cage (optional)" annotation (Dialog(enable=(
           not useTemperatureInputs and useDamperCage)));
-  output Modelica.SIunits.HeatFlowRate Q_flowRotorWinding=
+  output SI.HeatFlowRate Q_flowRotorWinding=
       temperatureRotorWinding.port.Q_flow
     "Heat flow rate of damper cage (optional))";
-  output Modelica.SIunits.HeatFlowRate Q_flowTotal=Q_flowStatorWinding +
+  output SI.HeatFlowRate Q_flowTotal=Q_flowStatorWinding +
       Q_flowRotorWinding + Q_flowStatorCore + Q_flowRotorCore +
       Q_flowStrayLoad + Q_flowFriction;
   Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature

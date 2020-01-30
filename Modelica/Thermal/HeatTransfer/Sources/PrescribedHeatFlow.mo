@@ -1,8 +1,8 @@
 within Modelica.Thermal.HeatTransfer.Sources;
 model PrescribedHeatFlow "Prescribed heat flow boundary condition"
-  parameter Modelica.SIunits.Temperature T_ref=293.15
+  parameter SI.Temperature T_ref=293.15
     "Reference temperature";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
+  parameter SI.LinearTemperatureCoefficient alpha=0
     "Temperature coefficient of heat flow rate";
   Modelica.Blocks.Interfaces.RealInput Q_flow(unit="W")
         annotation (Placement(transformation(

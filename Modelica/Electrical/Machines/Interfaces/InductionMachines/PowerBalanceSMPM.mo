@@ -6,8 +6,8 @@ record PowerBalanceSMPM
       final lossPowerTotal=lossPowerStatorWinding + lossPowerStatorCore +
         lossPowerRotorCore + lossPowerStrayLoad + lossPowerFriction +
         lossPowerRotorWinding + lossPowerPermanentMagnet);
-  Modelica.SIunits.Power lossPowerRotorWinding "Rotor copper losses";
-  Modelica.SIunits.Power lossPowerPermanentMagnet
+  SI.Power lossPowerRotorWinding "Rotor copper losses";
+  SI.Power lossPowerPermanentMagnet
     "Permanent magnet losses";
   annotation (defaultComponentPrefixes="output", Documentation(info="<html>
 Power balance of synchronous machines with permanent magnet.

@@ -208,13 +208,13 @@ package Sources "Time-dependent and controlled voltage and current sources"
     extends Modelica.Electrical.Analog.Icons.VoltageSource;
     import Modelica.Constants.pi;
     parameter Boolean useConstantAmplitude=false "Enable constant amplitude";
-    parameter Modelica.SIunits.Voltage constantAmplitude=1 "Constant amplitude"
+    parameter SI.Voltage constantAmplitude=1 "Constant amplitude"
       annotation(Dialog(enable=useConstantAmplitude));
     parameter Boolean useConstantFrequency=false "Enable constant frequency";
-    parameter Modelica.SIunits.Frequency constantFrequency=1 "Constant frequency"
+    parameter SI.Frequency constantFrequency=1 "Constant frequency"
       annotation(Dialog(enable=useConstantFrequency));
-    parameter Modelica.SIunits.Voltage offset=0 "Offset of the sine wave";
-    Modelica.SIunits.Angle phi(start=0) "Phase of the sine wave";
+    parameter SI.Voltage offset=0 "Offset of the sine wave";
+    SI.Angle phi(start=0) "Phase of the sine wave";
     Blocks.Interfaces.RealInput V(unit="V") if not useConstantAmplitude
       "Amplitude" annotation (Placement(
           transformation(
@@ -304,13 +304,13 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
     extends Modelica.Electrical.Analog.Icons.VoltageSource;
     import Modelica.Constants.pi;
     parameter Boolean useConstantAmplitude=false "Enable constant amplitude";
-    parameter Modelica.SIunits.Voltage constantAmplitude=1 "Constant amplitude"
+    parameter SI.Voltage constantAmplitude=1 "Constant amplitude"
       annotation(Dialog(enable=useConstantAmplitude));
     parameter Boolean useConstantFrequency=false "Enable constant frequency";
-    parameter Modelica.SIunits.Frequency constantFrequency=1 "Constant frequency"
+    parameter SI.Frequency constantFrequency=1 "Constant frequency"
       annotation(Dialog(enable=useConstantFrequency));
-    parameter Modelica.SIunits.Voltage offset=0 "Offset of the sine wave";
-    Modelica.SIunits.Angle phi(start=0) "Phase of the sine wave";
+    parameter SI.Voltage offset=0 "Offset of the sine wave";
+    SI.Angle phi(start=0) "Phase of the sine wave";
     Blocks.Interfaces.RealInput V(unit="V") if not useConstantAmplitude
       "Amplitude" annotation (Placement(
           transformation(
@@ -809,13 +809,13 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     extends Modelica.Electrical.Analog.Icons.CurrentSource;
     import Modelica.Constants.pi;
     parameter Boolean useConstantAmplitude=false "Enable constant amplitude";
-    parameter Modelica.SIunits.Current constantAmplitude=1 "Constant amplitude"
+    parameter SI.Current constantAmplitude=1 "Constant amplitude"
       annotation(Dialog(enable=useConstantAmplitude));
     parameter Boolean useConstantFrequency=false "Enable constant frequency";
-    parameter Modelica.SIunits.Frequency constantFrequency=1 "Constant frequency"
+    parameter SI.Frequency constantFrequency=1 "Constant frequency"
       annotation(Dialog(enable=useConstantFrequency));
-    parameter Modelica.SIunits.Current offset=0 "Offset of the sine wave";
-    Modelica.SIunits.Angle phi(start=0) "Phase of the sine wave";
+    parameter SI.Current offset=0 "Offset of the sine wave";
+    SI.Angle phi(start=0) "Phase of the sine wave";
     Blocks.Interfaces.RealInput I(unit="A") if not useConstantAmplitude
       "Amplitude" annotation (Placement(
           transformation(
@@ -905,13 +905,13 @@ and that the parameter <code>startTime</code> is omitted since the current can b
     extends Modelica.Electrical.Analog.Icons.CurrentSource;
     import Modelica.Constants.pi;
     parameter Boolean useConstantAmplitude=false "Enable constant amplitude";
-    parameter Modelica.SIunits.Current constantAmplitude=1 "Constant amplitude"
+    parameter SI.Current constantAmplitude=1 "Constant amplitude"
       annotation(Dialog(enable=useConstantAmplitude));
     parameter Boolean useConstantFrequency=false "Enable constant frequency";
-    parameter Modelica.SIunits.Frequency constantFrequency=1 "Constant frequency"
+    parameter SI.Frequency constantFrequency=1 "Constant frequency"
       annotation(Dialog(enable=useConstantFrequency));
-    parameter Modelica.SIunits.Current offset=0 "Offset of the sine wave";
-    Modelica.SIunits.Angle phi(start=0) "Phase of the sine wave";
+    parameter SI.Current offset=0 "Offset of the sine wave";
+    SI.Angle phi(start=0) "Phase of the sine wave";
     Blocks.Interfaces.RealInput I(unit="A") if not useConstantAmplitude
       "Amplitude" annotation (Placement(
           transformation(

@@ -2,7 +2,7 @@ within Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.FixedShapes;
 model CylinderSections
 "Magnetic circuit using different cylinder sections"
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.RelativePermeability mu_rConst = 100
+  parameter SI.RelativePermeability mu_rConst = 100
   "Relative permeability";
 Shapes.FixedShape.HollowCylinderAxialFlux hollowCylinderAxialInner(
   l=0.01,

@@ -1,7 +1,7 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Basic;
 model Capacitor "Polyphase linear capacitor"
   extends Interfaces.TwoPlug;
-  parameter Modelica.SIunits.Capacitance C[m](start=fill(1, m))
+  parameter SI.Capacitance C[m](start=fill(1, m))
     "Capacitances";
   QuasiStatic.SinglePhase.Basic.Capacitor capacitor[m](final C=C)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));

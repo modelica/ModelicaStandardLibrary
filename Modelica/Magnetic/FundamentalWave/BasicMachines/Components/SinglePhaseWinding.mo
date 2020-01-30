@@ -21,43 +21,43 @@ model SinglePhaseWinding
   parameter Boolean useHeatPort=false
     "Enable / disable (=fixed temperatures) thermal port"
     annotation (Evaluate=true);
-  parameter Modelica.SIunits.Resistance RRef
+  parameter SI.Resistance RRef
     "Winding resistance per phase at TRef";
-  parameter Modelica.SIunits.Temperature TRef(start=293.15)
+  parameter SI.Temperature TRef(start=293.15)
     "Reference temperature of winding";
   parameter
     Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
     alpha20(start=0) "Temperature coefficient of winding at 20 degC";
-  final parameter Modelica.SIunits.LinearTemperatureCoefficient alphaRef=
+  final parameter SI.LinearTemperatureCoefficient alphaRef=
       Modelica.Electrical.Machines.Thermal.convertAlpha(
             alpha20,
             TRef,
             293.15) "Temperature coefficient of winding at reference temperature";
-  parameter Modelica.SIunits.Temperature TOperational(start=293.15)
+  parameter SI.Temperature TOperational(start=293.15)
     "Operational temperature of winding"
     annotation (Dialog(enable=not useHeatPort));
-  parameter Modelica.SIunits.Inductance Lsigma
+  parameter SI.Inductance Lsigma
     "Winding stray inductance per phase";
   parameter Real effectiveTurns=1 "Effective number of turns per phase";
-  parameter Modelica.SIunits.Angle orientation
+  parameter SI.Angle orientation
     "Orientation of the resulting fundamental wave field phasor";
 
-  Modelica.SIunits.Voltage v=pin_p.v - pin_n.v "Voltage";
-  Modelica.SIunits.Current i=pin_p.i "Current";
+  SI.Voltage v=pin_p.v - pin_n.v "Voltage";
+  SI.Current i=pin_p.i "Current";
 
-  Modelica.SIunits.ComplexMagneticPotentialDifference V_m=port_p.V_m -
+  SI.ComplexMagneticPotentialDifference V_m=port_p.V_m -
       port_n.V_m "Complex magnetic potential difference";
-  Modelica.SIunits.MagneticPotentialDifference abs_V_m=
+  SI.MagneticPotentialDifference abs_V_m=
       Modelica.ComplexMath.abs(V_m)
     "Magnitude of complex magnetic potential difference";
-  Modelica.SIunits.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
+  SI.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
     "Argument of complex magnetic potential difference";
-  Modelica.SIunits.ComplexMagneticFlux Phi=port_p.Phi
+  SI.ComplexMagneticFlux Phi=port_p.Phi
     "Complex magnetic flux";
-  Modelica.SIunits.MagneticFlux abs_Phi=
+  SI.MagneticFlux abs_Phi=
       Modelica.ComplexMath.abs(Phi)
     "Magnitude of complex magnetic flux";
-  Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
+  SI.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
     "Argument of complex magnetic flux";
 
   Modelica.Electrical.Analog.Basic.Resistor resistor(

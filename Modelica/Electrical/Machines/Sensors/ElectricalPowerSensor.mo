@@ -19,8 +19,8 @@ model ElectricalPowerSensor "Instantaneous power from space phasors"
   Modelica.Electrical.Polyphase.Interfaces.NegativePlug plug_nv(final m=m)
     annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
 protected
-  Modelica.SIunits.Voltage v_[2];
-  Modelica.SIunits.Current i_[2];
+  SI.Voltage v_[2];
+  SI.Current i_[2];
 equation
   plug_p.pin.v = plug_ni.pin.v;
   plug_p.pin.i + plug_ni.pin.i = zeros(m);

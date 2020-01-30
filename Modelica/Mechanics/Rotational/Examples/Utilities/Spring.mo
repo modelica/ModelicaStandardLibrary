@@ -1,9 +1,9 @@
 within Modelica.Mechanics.Rotational.Examples.Utilities;
 model Spring "Input/output block of a spring model"
   extends Modelica.Blocks.Icons.Block;
-  parameter Modelica.SIunits.RotationalSpringConstant c=1e4
+  parameter SI.RotationalSpringConstant c=1e4
     "Spring constant";
-  parameter Modelica.SIunits.Angle phi_rel0=0
+  parameter SI.Angle phi_rel0=0
     "Unstretched spring angle";
 
   Components.AngleToTorqueAdaptor

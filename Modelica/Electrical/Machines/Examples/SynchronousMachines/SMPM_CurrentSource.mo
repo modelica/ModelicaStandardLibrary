@@ -4,12 +4,12 @@ model SMPM_CurrentSource
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   constant Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Current Idq[2]={-53.5, 84.6}
+  parameter SI.Current Idq[2]={-53.5, 84.6}
     "Desired d- and q-current";
-  parameter Modelica.SIunits.AngularVelocity wNominal=2*pi*smpmData.fsNominal/smpmData.p
+  parameter SI.AngularVelocity wNominal=2*pi*smpmData.fsNominal/smpmData.p
     "Nominal speed";
-  parameter Modelica.SIunits.Torque TLoad=181.4 "Nominal load torque";
-  parameter Modelica.SIunits.Inertia JLoad=0.29
+  parameter SI.Torque TLoad=181.4 "Nominal load torque";
+  parameter SI.Inertia JLoad=0.29
     "Load's moment of inertia";
   Machines.BasicMachines.SynchronousMachines.SM_PermanentMagnet smpm(
     p=smpmData.p,

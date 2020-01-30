@@ -1801,7 +1801,7 @@ force law in a target system between two inertias.
 
     model DirectInertia "Input/output block of a direct inertia model"
       extends Modelica.Blocks.Icons.Block;
-      parameter Modelica.SIunits.Inertia J(min=0)=1 "Inertia";
+      parameter SI.Inertia J(min=0)=1 "Inertia";
       Modelica.Mechanics.Rotational.Components.Inertia inertia(
         J=J,
         phi(start=0, fixed=true),
@@ -1881,7 +1881,7 @@ on the other side of it.
 
     model InverseInertia "Input/output block of an inverse inertia model"
       extends Modelica.Blocks.Icons.Block;
-      parameter Modelica.SIunits.Inertia J=1 "Inertia";
+      parameter SI.Inertia J=1 "Inertia";
       Modelica.Mechanics.Rotational.Components.Inertia inertia(
         J=J,
         phi(start=0),
@@ -1952,11 +1952,11 @@ the output torque <code>tau</code> is returned.
 
     model SpringDamper "Input/output block of a spring/damper model"
       extends Modelica.Blocks.Icons.Block;
-      parameter Modelica.SIunits.RotationalSpringConstant c=1e4
+      parameter SI.RotationalSpringConstant c=1e4
         "Spring constant";
-      parameter Modelica.SIunits.RotationalDampingConstant d=1
+      parameter SI.RotationalDampingConstant d=1
         "Damping constant";
-      parameter Modelica.SIunits.Angle phi_rel0=0
+      parameter SI.Angle phi_rel0=0
         "Unstretched spring angle";
 
       Modelica.Mechanics.Rotational.Components.GeneralAngleToTorqueAdaptor
@@ -2046,9 +2046,9 @@ exchange.
 
     model Spring "Input/output block of a spring model"
       extends Modelica.Blocks.Icons.Block;
-      parameter Modelica.SIunits.RotationalSpringConstant c=1e4
+      parameter SI.RotationalSpringConstant c=1e4
         "Spring constant";
-      parameter Modelica.SIunits.Angle phi_rel0=0
+      parameter SI.Angle phi_rel0=0
         "Unstretched spring angle";
 
       Modelica.Mechanics.Rotational.Components.GeneralAngleToTorqueAdaptor

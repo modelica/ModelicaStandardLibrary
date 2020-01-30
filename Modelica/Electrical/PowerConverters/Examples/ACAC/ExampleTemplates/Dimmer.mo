@@ -2,13 +2,13 @@ within Modelica.Electrical.PowerConverters.Examples.ACAC.ExampleTemplates;
 partial model Dimmer "Dimmer including control"
   extends Icons.ExampleTemplate;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Frequency f=50 "Source frequency";
-  parameter Modelica.SIunits.Voltage Vrms=110 "RMS source voltage";
-  parameter Modelica.SIunits.ApparentPower S=1000 "Load apparent power";
+  parameter SI.Frequency f=50 "Source frequency";
+  parameter SI.Voltage Vrms=110 "RMS source voltage";
+  parameter SI.ApparentPower S=1000 "Load apparent power";
   parameter Real powerFactor(final min=0, final max=1)=0.87 "Load power factor";
-  parameter Modelica.SIunits.Impedance ZLoad=Vrms^2/S "Load impedance";
-  parameter Modelica.SIunits.Resistance RLoad=ZLoad*powerFactor "Load resistance";
-  parameter Modelica.SIunits.Inductance LLoad=ZLoad*sqrt(1 - powerFactor^2)/(2*pi*f) "Load inductance";
+  parameter SI.Impedance ZLoad=Vrms^2/S "Load impedance";
+  parameter SI.Resistance RLoad=ZLoad*powerFactor "Load resistance";
+  parameter SI.Inductance LLoad=ZLoad*sqrt(1 - powerFactor^2)/(2*pi*f) "Load inductance";
   Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(final V=sqrt(2)*
         Vrms, f=f) annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},

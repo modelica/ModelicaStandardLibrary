@@ -7,7 +7,7 @@ partial model ConditionalHeatPort
     Evaluate=true,
     HideResult=true,
     choices(checkBox=true));
-  parameter Modelica.SIunits.Temperature T[mh]=fill(293.15, mh)
+  parameter SI.Temperature T[mh]=fill(293.15, mh)
     "Fixed device temperatures if useHeatPort = false"
     annotation (Dialog(enable=not useHeatPort));
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort[mh] if

@@ -6,9 +6,9 @@ model TranslatoryArmatureAndStopper
     "Length of component from left flange to right flange (= flange_b.s - flange_a.s)";
   parameter SI.Mass m(start=1) "Armature mass";
 
-  parameter Modelica.SIunits.TranslationalSpringConstant c(start=1e11)
+  parameter SI.TranslationalSpringConstant c(start=1e11)
     "Spring stiffness between impact partners";
-  parameter Modelica.SIunits.TranslationalDampingConstant d(start=2e7)
+  parameter SI.TranslationalDampingConstant d(start=2e7)
     "Damping coefficient between impact partners";
   parameter Real n(final min=1) = 2
     "Exponent of spring forces (f_c = c*|s_rel|^n)"
@@ -18,11 +18,11 @@ model TranslatoryArmatureAndStopper
     "Position of stopper at maximum armature position";
   parameter SI.Position x_min(start=0)
     "Position of stopper at minimum armature position";
-  Modelica.SIunits.Position s(start=0)
+  SI.Position s(start=0)
     "Absolute position of center of component (= flange_a.s + L/2)";
-  Modelica.SIunits.Velocity v(start=0)
+  SI.Velocity v(start=0)
     "Absolute velocity of components (= der(s))";
-  Modelica.SIunits.Acceleration a(start=0)
+  SI.Acceleration a(start=0)
     "Absolute acceleration of components (= der(v))";
   Modelica.Mechanics.Translational.Components.Mass mass(final L=L, final
       m=m) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));

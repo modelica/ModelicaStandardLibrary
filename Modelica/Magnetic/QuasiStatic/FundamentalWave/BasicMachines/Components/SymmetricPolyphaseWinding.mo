@@ -23,65 +23,65 @@ model SymmetricPolyphaseWinding
     "Enable / disable (=fixed temperatures) thermal port"
     annotation (Evaluate=true);
   // Resistor model
-  parameter Modelica.SIunits.Resistance RRef
+  parameter SI.Resistance RRef
     "Winding resistance per phase at TRef";
-  parameter Modelica.SIunits.Temperature TRef(start=293.15)
+  parameter SI.Temperature TRef(start=293.15)
     "Reference temperature of winding";
   parameter
     Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
     alpha20(start=0) "Temperature coefficient of winding at 20 degC";
-  final parameter Modelica.SIunits.LinearTemperatureCoefficient alphaRef=
+  final parameter SI.LinearTemperatureCoefficient alphaRef=
       Modelica.Electrical.Machines.Thermal.convertAlpha(
             alpha20,
             TRef,
             293.15) "Temperature coefficient of winding at reference temperature";
-  parameter Modelica.SIunits.Temperature TOperational(start=293.15)
+  parameter SI.Temperature TOperational(start=293.15)
     "Operational temperature of winding"
     annotation (Dialog(enable=not useHeatPort));
-  parameter Modelica.SIunits.Inductance Lsigma
+  parameter SI.Inductance Lsigma
     "Winding stray inductance per phase";
   parameter Real effectiveTurns=1 "Effective number of turns per phase";
-  parameter Modelica.SIunits.Conductance GcRef
+  parameter SI.Conductance GcRef
     "Electrical reference core loss reluctance";
 
-  Modelica.SIunits.ComplexVoltage v[m]=plug_p.pin.v - plug_n.pin.v
+  SI.ComplexVoltage v[m]=plug_p.pin.v - plug_n.pin.v
     "Complex voltage";
-  Modelica.SIunits.Voltage abs_v[m]=Modelica.ComplexMath.abs(v)
+  SI.Voltage abs_v[m]=Modelica.ComplexMath.abs(v)
     "Magnitude of complex voltage";
-  Modelica.SIunits.Angle arg_v[m]=Modelica.ComplexMath.arg(v)
+  SI.Angle arg_v[m]=Modelica.ComplexMath.arg(v)
     "Argument of complex voltage";
-  Modelica.SIunits.ComplexCurrent i[m]=plug_p.pin.i "Complex current";
-  Modelica.SIunits.Current abs_i[m]=Modelica.ComplexMath.abs(i)
+  SI.ComplexCurrent i[m]=plug_p.pin.i "Complex current";
+  SI.Current abs_i[m]=Modelica.ComplexMath.abs(i)
     "Magnitude of complex current";
-  Modelica.SIunits.Angle arg_i[m]=Modelica.ComplexMath.arg(i)
+  SI.Angle arg_i[m]=Modelica.ComplexMath.arg(i)
     "Argument of complex current";
-  Modelica.SIunits.ActivePower P[m]={Modelica.ComplexMath.real(v[k]*
+  SI.ActivePower P[m]={Modelica.ComplexMath.real(v[k]*
       Modelica.ComplexMath.conj(i[k])) for k in 1:m} "Active power";
-  Modelica.SIunits.ActivePower P_total=sum(P) "Total active power";
-  Modelica.SIunits.ReactivePower Q[m]={Modelica.ComplexMath.imag(v[k]*
+  SI.ActivePower P_total=sum(P) "Total active power";
+  SI.ReactivePower Q[m]={Modelica.ComplexMath.imag(v[k]*
       Modelica.ComplexMath.conj(i[k])) for k in 1:m} "Reactive power";
-  Modelica.SIunits.ReactivePower Q_total=sum(Q) "Total reactive power";
-  Modelica.SIunits.ApparentPower S[m]={Modelica.ComplexMath.abs(v[k]*
+  SI.ReactivePower Q_total=sum(Q) "Total reactive power";
+  SI.ApparentPower S[m]={Modelica.ComplexMath.abs(v[k]*
       Modelica.ComplexMath.conj(i[k])) for k in 1:m}
     "Magnitude of complex apparent power";
-  Modelica.SIunits.ApparentPower S_total=sqrt(P_total^2 + Q_total^2)
+  SI.ApparentPower S_total=sqrt(P_total^2 + Q_total^2)
     "Magnitude of total complex apparent power";
   Real pf[m]={cos(Modelica.ComplexMath.arg(Complex(P[k], Q[k]))) for k in
           1:m} "Power factor";
 
-  Modelica.SIunits.ComplexMagneticPotentialDifference V_m=port_p.V_m -
+  SI.ComplexMagneticPotentialDifference V_m=port_p.V_m -
       port_n.V_m "Complex magnetic potential difference";
-  Modelica.SIunits.MagneticPotentialDifference abs_V_m=
+  SI.MagneticPotentialDifference abs_V_m=
       Modelica.ComplexMath.abs(V_m)
     "Magnitude of complex magnetic potential difference";
-  Modelica.SIunits.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
+  SI.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
     "Argument of complex magnetic potential difference";
-  Modelica.SIunits.ComplexMagneticFlux Phi=port_p.Phi
+  SI.ComplexMagneticFlux Phi=port_p.Phi
     "Complex magnetic flux";
-  Modelica.SIunits.MagneticFlux abs_Phi=
+  SI.MagneticFlux abs_Phi=
       Modelica.ComplexMath.abs(Phi)
     "Magnitude of complex magnetic flux";
-  Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
+  SI.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
     "Argument of complex magnetic flux";
 
   Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter

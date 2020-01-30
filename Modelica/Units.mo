@@ -78,7 +78,7 @@ a tool might ignore the \"displayUnit\" attribute.
 </p>
 
 <p>
-In order to help the Modelica model developer, the Modelica.SIunits
+In order to help the Modelica model developer, the <code>Modelica.Units</code>
 library provides about 450 predefined type names,
 together with values for the attributes <strong>quantity</strong>, <strong>unit</strong> and sometimes
 <strong>displayUnit</strong> and <strong>min</strong>. The unit is always selected as SI-unit according to the
@@ -119,7 +119,7 @@ in the declaration as in the example at the beginning.
 </p>
 
 <p>
-<strong>Complex units</strong> are also included in <code>Modelica.Units</code>. 
+<strong>Complex units</strong> are also included in <code>Modelica.Units</code>.
 A complex unit is declared as:
 </p>
 <blockquote><pre>
@@ -1062,8 +1062,8 @@ end UsersGuide;
     type LandauGinzburgParameter = Real (final quantity="LandauGinzburgParameter",
             final unit="1");
     type FluxoidQuantum = Real (final quantity="FluxoidQuantum", final unit="Wb");
-    type TimeAging = Real (final quantity="1/Modelica.SIunits.Time",final unit="1/s");
-    type ChargeAging = Real (final quantity="1/Modelica.SIunits.ElectricCharge",final unit="1/(A.s)");
+    type TimeAging = Real (final quantity="1/Modelica.Units.SI.Time",final unit="1/s");
+    type ChargeAging = Real (final quantity="1/Modelica.Units.SI.ElectricCharge",final unit="1/(A.s)");
    // Other types not defined in ISO 31-1992
     type PerUnit = Real(unit = "1");
     type DimensionlessRatio = Real(unit = "1");
@@ -1189,13 +1189,13 @@ For an introduction to the conventions used in this package, have a look at:
 
     type Temperature_degC = Real (final quantity="ThermodynamicTemperature",
           final unit="degC")
-      "Absolute temperature in degree Celsius (for relative temperature use SIunits.TemperatureDifference)" annotation(absoluteValue=true);
+      "Absolute temperature in degree Celsius (for relative temperature use Modelica.Units.SI.TemperatureDifference)" annotation(absoluteValue=true);
     type Temperature_degF = Real (final quantity="ThermodynamicTemperature",
           final unit="degF")
-      "Absolute temperature in degree Fahrenheit (for relative temperature use SIunits.TemperatureDifference)" annotation(absoluteValue=true);
+      "Absolute temperature in degree Fahrenheit (for relative temperature use Modelica.Units.SI.TemperatureDifference)" annotation(absoluteValue=true);
     type Temperature_degRk = Real (final quantity="ThermodynamicTemperature",
           final unit="degRk")
-      "Absolute temperature in degree Rankine (for relative temperature use SIunits.TemperatureDifference)" annotation(absoluteValue=true);
+      "Absolute temperature in degree Rankine (for relative temperature use Modelica.Units.SI.TemperatureDifference)" annotation(absoluteValue=true);
     type Angle_deg = Real (final quantity="Angle", final unit="deg")
       "Angle in degree";
     type AngularVelocity_rpm = Real (final quantity="AngularVelocity", final unit=
@@ -1242,14 +1242,9 @@ units according to ISO 31-1992 \"General principles concerning quantities,
 units and symbols\" and ISO 1000-1992 \"SI units and recommendations for
 the use of their multiples and of certain other units\".</p>
 <p>If possible, the types in this package should not be used. Use instead
-types of package Modelica.SIunits. For more information on units, see also
+types of package <code>Modelica.Units.SI</code>. For more information on units, see also
 the book of Francois Cardarelli <strong>Scientific Unit Conversion - A
 Practical Guide to Metrication</strong> (Springer 1997).</p>
-<p>Some units, such as <strong>Temperature_degC/Temp_C</strong> are both defined in
-Modelica.SIunits and in Modelica.Conversions.NonSIunits. The reason is that these
-definitions have been placed erroneously in Modelica.SIunits although they
-are not SIunits. For backward compatibility, these type definitions are
-still kept in Modelica.SIunits.</p>
 </html>"),
          Icon(coordinateSystem(extent={{-100,-100},{100,100}}), graphics={Ellipse(
             extent={{-10,10},{10,-10}},
@@ -1287,7 +1282,7 @@ The function call \"<code>Conversions.<strong>to_unit1</strong>(r)</code>\" retu
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-Modelica.SIunits.Velocity v = {3,2,1};
+Modelica.Units.SI.Velocity v = {3,2,1};
 Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call of to_unit1
 </pre></blockquote>
 </html>"),

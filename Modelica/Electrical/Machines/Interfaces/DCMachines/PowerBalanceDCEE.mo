@@ -4,9 +4,9 @@ record PowerBalanceDCEE
   extends Machines.Interfaces.DCMachines.PartialPowerBalanceDCMachines(final
       lossPowerTotal=lossPowerArmature + lossPowerCore + lossPowerStrayLoad +
         lossPowerFriction + lossPowerBrush + lossPowerExcitation);
-  Modelica.SIunits.Power powerExcitation
+  SI.Power powerExcitation
     "Electrical (shunt) excitation power";
-  Modelica.SIunits.Power lossPowerExcitation "Excitation losses";
+  SI.Power lossPowerExcitation "Excitation losses";
   annotation (defaultComponentPrefixes="output", Documentation(info="<html>
 Power balance of DC machines with electrical excitation.
  </html>"));

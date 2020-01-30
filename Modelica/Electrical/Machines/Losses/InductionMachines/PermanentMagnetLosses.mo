@@ -9,8 +9,8 @@ model PermanentMagnetLosses
   extends
     Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
       useHeatPort=false);
-  input Modelica.SIunits.Current is[m] "Instantaneous stator currents";
-  Modelica.SIunits.Current iRMS=quasiRMS(is);
+  input SI.Current is[m] "Instantaneous stator currents";
+  SI.Current iRMS=quasiRMS(is);
 equation
   if (permanentMagnetLossParameters.PRef <= 0) then
     tau = 0;

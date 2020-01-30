@@ -1,9 +1,9 @@
 within Modelica.Mechanics.Rotational.Sources;
 model ConstantSpeed "Constant speed, not dependent on torque"
   extends Modelica.Mechanics.Rotational.Interfaces.PartialTorque;
-  Modelica.SIunits.AngularVelocity w
+  SI.AngularVelocity w
     "Angular velocity of flange with respect to support (= der(phi))";
-  parameter Modelica.SIunits.AngularVelocity w_fixed "Fixed speed";
+  parameter SI.AngularVelocity w_fixed "Fixed speed";
 equation
   w = der(phi);
   w = w_fixed;

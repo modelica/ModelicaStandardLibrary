@@ -50,7 +50,7 @@ package ModelicaTestOverdetermined
           use_eps_Re=true,
           p_start=10000000)
           annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
-        discrete Modelica.SIunits.MassFlowRate m_flow_initial;
+        discrete Modelica.Units.SI.MassFlowRate m_flow_initial;
       equation
         when time > 0.1 then
           m_flow_initial = valve.port_a.m_flow;
@@ -134,7 +134,7 @@ The initial equations are consistent however and a tool shall reduce them approp
           p_start=10000000,
           use_eps_Re=true)
           annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
-        discrete Modelica.SIunits.MassFlowRate m_flow_initial;
+        discrete Modelica.Units.SI.MassFlowRate m_flow_initial;
       equation
         when time > 0.1 then
           m_flow_initial = valve.port_a.m_flow;

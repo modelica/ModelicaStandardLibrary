@@ -1,11 +1,11 @@
 within Modelica.Electrical.Polyphase.Basic;
 model Conductor "Ideal linear electrical conductors"
   extends Interfaces.TwoPlug;
-  parameter Modelica.SIunits.Conductance G[m](start=fill(1, m))
+  parameter SI.Conductance G[m](start=fill(1, m))
     "Conductances G_ref at temperatures T_ref";
-  parameter Modelica.SIunits.Temperature T_ref[m]=fill(300.15, m)
+  parameter SI.Temperature T_ref[m]=fill(300.15, m)
     "Reference temperatures";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha[m]=zeros(m)
+  parameter SI.LinearTemperatureCoefficient alpha[m]=zeros(m)
     "Temperature coefficients of conductances at reference temperatures";
   extends Polyphase.Interfaces.ConditionalHeatPort(final mh=m, T=T_ref);
   Modelica.Electrical.Analog.Basic.Conductor conductor[m](

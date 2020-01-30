@@ -1,7 +1,7 @@
 within Modelica.Mechanics.Translational.Examples.Utilities;
 model InverseMass "Input/output block of an inverse mass model"
   extends Modelica.Blocks.Icons.Block;
-  parameter Modelica.SIunits.Mass m=1 "Mass";
+  parameter SI.Mass m=1 "Mass";
   Modelica.Mechanics.Translational.Components.Mass mass(
     m=m)           annotation (Placement(transformation(extent={{-10,
             -10},{10,10}})));

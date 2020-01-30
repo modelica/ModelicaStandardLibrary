@@ -3,7 +3,7 @@ package MultiBody "Test models for Modelica.Mechanics.MultiBody"
   import Modelica.Mechanics.MultiBody;
   model PlanarLoopWithMove
     "Move block + multi-body system where index reduction can fail"
-    import SI = Modelica.SIunits;
+    import SI = SI;
     extends Modelica.Icons.Example;
     parameter SI.Length rh1[3]={0.5,0,0} "Position vector from r1 to r4";
     parameter SI.Length rv1[3]={0,0.5,0} "Position vector from r1 to r2";
@@ -301,7 +301,7 @@ alt=\"model Examples.Elementary.DoublePendulum\">
     model SphericalAndUniversal
       "One kinematic loop with four bars (with Spherical and Universal joint)"
 
-      import SI = Modelica.SIunits;
+      import SI = SI;
       extends Modelica.Icons.Example;
 
       output SI.Angle j1_phi "angle of revolute joint j1";
@@ -419,7 +419,7 @@ for rodLength:
 
     model SphericalSpherical
       "One kinematic loop with four bars (with SphericalSpherical joint)"
-      import SI = Modelica.SIunits;
+      import SI = SI;
       extends Modelica.Icons.Example;
 
       output SI.Angle j1_phi "angle of revolute joint j1";
@@ -514,7 +514,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 
     model UniversalSpherical
       "One kinematic loop with four bars (with UniversalSpherical joint)"
-      import SI = Modelica.SIunits;
+      import SI = SI;
       extends Modelica.Icons.Example;
 
       output SI.Angle j1_phi "angle of revolute joint j1";
@@ -623,7 +623,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
     end UniversalSpherical;
 
     model JointUSR "One kinematic loop with four bars (using JointUSR joint)"
-      import SI = Modelica.SIunits;
+      import SI = SI;
       extends Modelica.Icons.Example;
 
       output SI.Angle j1_phi "angle of revolute joint j1";
@@ -760,9 +760,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
     end JointUSR;
 
     model JointSSR "One kinematic loop with four bars (using JointSSR joint)"
-      import SI = Modelica.SIunits;
+      import SI = SI;
       extends Modelica.Icons.Example;
-      parameter Modelica.SIunits.Distance L=Modelica.Math.Vectors.length({-1,
+      parameter SI.Distance L=Modelica.Math.Vectors.length({-1,
           0.3,0.1});
       output SI.Angle j1_phi "angle of revolute joint j1";
       output SI.Position j2_s "distance of prismatic joint j2";
@@ -877,7 +877,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
     end JointSSR;
 
     model JointUSP "One kinematic loop with four bars (using JointUSP joint)"
-      import SI = Modelica.SIunits;
+      import SI = SI;
       extends Modelica.Icons.Example;
 
       output SI.Angle revolute_phi "angle of revolute joint j1";
@@ -966,7 +966,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
   package Frames "Test functions of package Frames"
     extends Modelica.Icons.ExamplesPackage;
     model AngularVelocity "Test angular velocity functions"
-      import SI = Modelica.SIunits;
+      import SI = SI;
       import Modelica.Mechanics.MultiBody.Frames.{angularVelocity1, angularVelocity2, resolve1};
       extends Modelica.Icons.Example;
       MultiBody.Frames.Orientation R=body.frame_a.R;
@@ -2405,7 +2405,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 
     model LineForceWithMass
       "Example to demonstrate how to construct force elements with masses"
-      import SI = Modelica.SIunits;
+      import SI = SI;
 
       extends Modelica.Icons.Example;
       parameter Real tol=1e-4;
@@ -2553,10 +2553,10 @@ a linear damper is connected here.
 
     model LineForceWithTwoMasses
       "Example to demonstrate how to construct force elements with masses"
-      import SI = Modelica.SIunits;
+      import SI = SI;
 
       extends Modelica.Icons.Example;
-      parameter Modelica.SIunits.Mass m=1 "Mass of point masses";
+      parameter SI.Mass m=1 "Mass of point masses";
       SI.Force rod_f_diff[3]=rod1.frame_b.f - rod3.frame_b.f
         "Difference of cut-forces in rod1 and rod3";
       SI.Force body_f_diff[3]=bodyBox1.frame_b.f - bodyBox2.frame_b.f
@@ -3633,7 +3633,7 @@ a linear damper is connected here.
     end WorldForceAndTorque;
 
     model Spring
-      import SI = Modelica.SIunits;
+      import SI = SI;
 
       extends Modelica.Icons.Example;
       inner MultiBody.World world
@@ -3722,7 +3722,7 @@ a linear damper is connected here.
     end Spring;
 
     model Spring2
-      import SI = Modelica.SIunits;
+      import SI = SI;
 
       extends Modelica.Icons.Example;
       inner MultiBody.World world
@@ -3826,7 +3826,7 @@ a linear damper is connected here.
     end Spring2;
 
     model Damper
-      import SI = Modelica.SIunits;
+      import SI = SI;
 
       extends Modelica.Icons.Example;
       inner MultiBody.World world
@@ -4015,7 +4015,7 @@ a linear damper is connected here.
     end Damper;
 
     model Damper2
-      import SI = Modelica.SIunits;
+      import SI = SI;
 
       extends Modelica.Icons.Example;
       inner MultiBody.World world
@@ -6735,7 +6735,7 @@ and plot gasForce.press over gasForce.s_rel.
   package Parts "Test MultiBody.Parts"
     extends Modelica.Icons.ExamplesPackage;
     model FixedTranslation
-      import SI = Modelica.SIunits;
+      import SI = SI;
       import Modelica.Mechanics.MultiBody.Visualizers;
       extends Modelica.Icons.Example;
       parameter SI.Length length=0.5 "Length of axes of frames";
@@ -7416,7 +7416,7 @@ often possible to use the FreeMotion joint such that the singularity
     end FreeBodiesEnforceStatesFalse;
 
     model Bodies
-      import SI = Modelica.SIunits;
+      import SI = SI;
       extends Modelica.Icons.Example;
       MultiBody.Parts.Body body2(
         m=1,
@@ -7514,7 +7514,7 @@ often possible to use the FreeMotion joint such that the singularity
     end PointMass;
 
     model FixedRotation
-      import SI = Modelica.SIunits;
+      import SI = SI;
       import Modelica.Mechanics.MultiBody.Visualizers;
       extends Modelica.Icons.Example;
       parameter SI.Length length=0.5 "Length of axes of frames";
@@ -7582,7 +7582,7 @@ often possible to use the FreeMotion joint such that the singularity
     end FixedRotation;
 
     model FlyingBodies
-      import SI = Modelica.SIunits;
+      import SI = SI;
       extends Modelica.Icons.Example;
       MultiBody.Parts.BodyShape bodyShape(
         m=1,

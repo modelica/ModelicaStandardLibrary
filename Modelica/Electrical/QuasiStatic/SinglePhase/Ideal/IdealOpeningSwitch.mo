@@ -3,8 +3,8 @@ model IdealOpeningSwitch "Ideal electrical opener"
   import Modelica.ComplexMath.real;
   import Modelica.ComplexMath.conj;
   extends QuasiStatic.SinglePhase.Interfaces.OnePort;
-  parameter Modelica.SIunits.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
-  parameter Modelica.SIunits.Conductance Goff(final min=0) = 1e-5 "Opened switch conductance";
+  parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
+  parameter SI.Conductance Goff(final min=0) = 1e-5 "Opened switch conductance";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
   Modelica.Blocks.Interfaces.BooleanInput control "true => switch open, false => p--n connected"
                                                    annotation (Placement(
@@ -14,9 +14,9 @@ model IdealOpeningSwitch "Ideal electrical opener"
         rotation=270)));
 protected
   Complex s(re(final unit="1"),im(final unit="1")) "Auxiliary variable";
-  constant Modelica.SIunits.ComplexVoltage unitVoltage=Complex(1, 0)
+  constant SI.ComplexVoltage unitVoltage=Complex(1, 0)
     annotation (HideResult=true);
-  constant Modelica.SIunits.ComplexCurrent unitCurrent=Complex(1, 0)
+  constant SI.ComplexCurrent unitCurrent=Complex(1, 0)
     annotation (HideResult=true);
 equation
   v = (s*unitCurrent)*(if control then 1 else Ron);

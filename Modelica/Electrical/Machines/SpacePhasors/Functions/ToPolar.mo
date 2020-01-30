@@ -3,7 +3,7 @@ function ToPolar "Converts a space phasor to polar coordinates"
   extends Modelica.Icons.Function;
   input Real x[2] "Real and imaginary part of space phasor";
   output Real absolute "Magnitude of space phasor";
-  output Modelica.SIunits.Angle angle "Angle of space phasor";
+  output SI.Angle angle "Angle of space phasor";
 protected
   constant Real small=Modelica.Constants.small;
 algorithm

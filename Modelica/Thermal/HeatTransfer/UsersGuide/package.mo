@@ -40,8 +40,8 @@ and the heat flow rate <strong>Q_flow</strong> flowing into the component (if Q_
 the heat flows into the element, otherwise it flows out of the element):
 </p>
 <blockquote><pre>
-Modelica.SIunits.Temperature  T  \"Absolute temperature at port in Kelvin\";
-Modelica.SIunits.HeatFlowRate Q_flow  \"Flow rate at the port in Watt\";
+Modelica.Units.SI.Temperature  T  \"Absolute temperature at port in Kelvin\";
+Modelica.Units.SI.HeatFlowRate Q_flow  \"Flow rate at the port in Watt\";
 </pre></blockquote>
 <p>
 Note, that all temperatures of this package, including initial conditions,
@@ -53,10 +53,10 @@ functions between the units Kelvin and Celsius, Fahrenheit, Rankine are
 provided. These functions may be used in the following way:
 </p>
 <blockquote><pre>
-<strong>import</strong> Modelica.SIunits;
-<strong>import</strong> Modelica.SIunits.Conversions.from_degC;
+<strong>import</strong> Modelica.Units.SI;
+<strong>import</strong> Modelica.Units.Conversions.from_degC;
 ...
-<strong>parameter</strong> SIunits.Temperature T = from_degC(25);  // convert 25 degree Celsius to Kelvin
+<strong>parameter</strong> SI.Temperature T = from_degC(25);  // convert 25 degree Celsius to Kelvin
 </pre></blockquote>
 
 <p>

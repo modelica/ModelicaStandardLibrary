@@ -3,14 +3,14 @@ model IMC_DOL
   "Direct on line (DOL) start of induction machine with squirrel cage"
   extends Modelica.Icons.Example;
   constant Integer m=3 "Number of stator phases";
-  parameter Modelica.SIunits.Voltage VsNominal=100
+  parameter SI.Voltage VsNominal=100
     "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fNominal=aimcData.fsNominal "Nominal frequency";
-  parameter Modelica.SIunits.Time tOn=0.1 "Start time of machine";
-  parameter Modelica.SIunits.Torque T_Load=161.4 "Nominal load torque";
-  parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="rev/min")=
+  parameter SI.Frequency fNominal=aimcData.fsNominal "Nominal frequency";
+  parameter SI.Time tOn=0.1 "Start time of machine";
+  parameter SI.Torque T_Load=161.4 "Nominal load torque";
+  parameter SI.AngularVelocity w_Load(displayUnit="rev/min")=
        1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
-  parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
+  parameter SI.Inertia J_Load=0.29 "Load inertia";
   parameter Integer p=2 "Number of pole pairs";
   Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
         transformation(

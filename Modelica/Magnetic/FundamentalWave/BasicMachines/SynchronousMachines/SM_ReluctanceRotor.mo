@@ -22,45 +22,45 @@ model SM_ReluctanceRotor "Reluctance machine with optional damper cage"
         lossPowerRotorCore=0));
 
   // Main field parameters
-  parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
+  parameter SI.Temperature TrOperational(start=293.15)
     "Operational temperature of (optional) damper cage" annotation (
       Dialog(group="Operational temperatures", enable=not useThermalPort
            and useDamperCage));
-  parameter Modelica.SIunits.Inductance Lmd(start=2.9/(2*pi*fsNominal))
+  parameter SI.Inductance Lmd(start=2.9/(2*pi*fsNominal))
     "Stator main field inductance, d-axis" annotation (Dialog(tab=
           "Nominal resistances and inductances", groupImage=
           "modelica://Modelica/Resources/Images/Electrical/Machines/SMR.png"));
-  parameter Modelica.SIunits.Inductance Lmq(start=0.9/(2*pi*fsNominal))
+  parameter SI.Inductance Lmq(start=0.9/(2*pi*fsNominal))
     "Stator main field inductance, q-axis"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   // Rotor cage parameters
   parameter Boolean useDamperCage(start=true)
     "Enable/disable damper cage" annotation (Dialog(tab=
           "Nominal resistances and inductances", group="Damper cage"));
-  parameter Modelica.SIunits.Inductance Lrsigmad(start=0.05/(2*pi*
+  parameter SI.Inductance Lrsigmad(start=0.05/(2*pi*
         fsNominal))
     "Rotor leakage inductance, d-axis, w.r.t. stator side" annotation (
       Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",
       enable=useDamperCage));
-  parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
+  parameter SI.Inductance Lrsigmaq=Lrsigmad
     "Rotor leakage inductance, q-axis, w.r.t. stator side" annotation (
       Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",
       enable=useDamperCage));
-  parameter Modelica.SIunits.Resistance Rrd(start=0.04)
+  parameter SI.Resistance Rrd(start=0.04)
     "Rotor resistance, d-axis, w.r.t. stator side" annotation (Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",
       enable=useDamperCage));
-  parameter Modelica.SIunits.Resistance Rrq=Rrd
+  parameter SI.Resistance Rrq=Rrd
     "Rotor resistance , q-axis, w.r.t. stator side" annotation (Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",
       enable=useDamperCage));
-  parameter Modelica.SIunits.Temperature TrRef(start=293.15)
+  parameter SI.Temperature TrRef(start=293.15)
     "Reference temperature of damper resistances in d- and q-axis"
     annotation (Dialog(
       tab="Nominal resistances and inductances",

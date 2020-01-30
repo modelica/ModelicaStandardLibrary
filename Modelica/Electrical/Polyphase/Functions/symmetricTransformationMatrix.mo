@@ -10,7 +10,7 @@ protected
   Integer nBase=numberOfSymmetricBaseSystems(m);
   Integer mBase=integer(m/nBase);
   Real factor=nBase/m;
-  Modelica.SIunits.Angle oM[m,m]=symmetricOrientationMatrix(m);
+  SI.Angle oM[m,m]=symmetricOrientationMatrix(m);
 algorithm
   //fill only elements within baseSystems
   for i in 1:nBase loop

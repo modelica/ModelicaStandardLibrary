@@ -1,13 +1,13 @@
 within Modelica.Blocks;
 package Math "Library of Real mathematical functions as input/output blocks"
-  import Modelica.SIunits;
+  import SI;
   import Modelica.Blocks.Interfaces;
   extends Modelica.Icons.Package;
 
   encapsulated package UnitConversions
     "Conversion blocks to convert between SI and non-SI unit signals"
     import Modelica;
-    import SI = Modelica.SIunits;
+    import SI = SI;
     import NonSI = Modelica.Units.Other;
     extends Modelica.Icons.Package;
 
@@ -2266,13 +2266,13 @@ y_im = u_abs * sin( u_arg )
 
   block Mean "Calculate mean over period 1/f"
     extends Modelica.Blocks.Interfaces.SISO;
-    parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
+    parameter SI.Frequency f(start=50) "Base frequency";
     parameter Real x0=0 "Start value of integrator state";
     parameter Boolean yGreaterOrEqualZero=false
       "= true, if output y is guaranteed to be >= 0 for the exact solution"
       annotation (Evaluate=true, Dialog(tab="Advanced"));
   protected
-    parameter Modelica.SIunits.Time t0(fixed=false) "Start time of simulation";
+    parameter SI.Time t0(fixed=false) "Start time of simulation";
     Real x "Integrator state";
     discrete Real y_last "Last sampled mean value";
   initial equation
@@ -2315,7 +2315,7 @@ explicitly set to 0.0, if the mean value results in a negative value.
 
   block RectifiedMean "Calculate rectified mean over period 1/f"
     extends Modelica.Blocks.Interfaces.SISO;
-    parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
+    parameter SI.Frequency f(start=50) "Base frequency";
     parameter Real x0=0 "Start value of integrator state";
     Mean mean(final f=f, final x0=x0)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
@@ -2346,7 +2346,7 @@ Note: The output is updated after each period defined by 1/f.
   block ContinuousMean
     "Calculates the empirical expectation (mean) value of its input signal"
     extends Modelica.Blocks.Icons.Block;
-    parameter Modelica.SIunits.Time t_eps(min= 100*Modelica.Constants.eps)=1e-7
+    parameter SI.Time t_eps(min= 100*Modelica.Constants.eps)=1e-7
       "Mean value calculation starts at startTime + t_eps"
       annotation(Dialog(group="Advanced"));
 
@@ -2428,7 +2428,7 @@ This block is demonstrated in the examples
 
   block RootMeanSquare "Calculate root mean square over period 1/f"
     extends Modelica.Blocks.Interfaces.SISO;
-    parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
+    parameter SI.Frequency f(start=50) "Base frequency";
     parameter Real x0=0 "Start value of integrator state";
     MultiProduct product(nu=2)
       annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
@@ -2468,7 +2468,7 @@ Note: The output is updated after each period defined by 1/f.
 
   block Variance "Calculates the empirical variance of its input signal"
     extends Modelica.Blocks.Icons.Block;
-    parameter Modelica.SIunits.Time t_eps(min=100*Modelica.Constants.eps)=1e-7
+    parameter SI.Time t_eps(min=100*Modelica.Constants.eps)=1e-7
       "Variance calculation starts at startTime + t_eps"
       annotation(Dialog(group="Advanced"));
 
@@ -2559,7 +2559,7 @@ This block is demonstrated in the examples
   block StandardDeviation
     "Calculates the empirical standard deviation of its input signal"
     extends Modelica.Blocks.Icons.Block;
-    parameter Modelica.SIunits.Time t_eps(min=100*Modelica.Constants.eps)=1e-7
+    parameter SI.Time t_eps(min=100*Modelica.Constants.eps)=1e-7
       "Standard deviation calculation starts at startTime + t_eps"
       annotation(Dialog(group="Advanced"));
 
@@ -2648,7 +2648,7 @@ This block is demonstrated in the examples
 
   block Harmonic "Calculate harmonic over period 1/f"
     extends Modelica.Blocks.Icons.Block;
-    parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
+    parameter SI.Frequency f(start=50) "Base frequency";
     parameter Integer k(start=1) "Order of harmonic";
     parameter Boolean useConjugateComplex=false
       "Gives conjugate complex result if true"
@@ -2744,7 +2744,7 @@ The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if 
 
   block TotalHarmonicDistortion "Output the total harmonic distortion (THD)"
     extends Interfaces.SISO;
-    parameter Modelica.SIunits.Frequency f(start=1) "Base frequency";
+    parameter SI.Frequency f(start=1) "Base frequency";
     parameter Boolean useFirstHarmonic = true "THD with respect to first harmonic, if true; otherwise with respect to total RMS";
 
     Harmonic harmonic(
@@ -2850,8 +2850,8 @@ calculations are indicated by <code>valid = true</code>.
 
   block RealFFT "Sampling and FFT of input u"
     extends Modelica.Blocks.Interfaces.DiscreteBlock(final samplePeriod=1/(2*f_res*div(ns, 2)));
-    parameter Modelica.SIunits.Frequency f_max "Maximum frequency of interest";
-    parameter Modelica.SIunits.Frequency f_res "Frequency resolution";
+    parameter SI.Frequency f_max "Maximum frequency of interest";
+    parameter SI.Frequency f_res "Frequency resolution";
     final parameter Integer ns=Modelica.Math.FastFourierTransform.realFFTsamplePoints(f_max, f_res, f_max_factor=5) "Number of samples";
     final parameter Integer nf=max(1,min(integer(ceil(f_max/f_res))+1, div(ns, 2))) "Number of frequency points";
     parameter String resultFileName="realFFT.mat" "Result file: f, abs, arg";

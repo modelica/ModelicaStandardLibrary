@@ -4,8 +4,8 @@ partial model ACplug "AC polyphase plug"
   Modelica.Electrical.Polyphase.Interfaces.PositivePlug ac(final m=m)
     "AC input"
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-  Modelica.SIunits.Voltage vAC[m]=ac.pin[:].v "AC potentials";
-  Modelica.SIunits.Current iAC[m]=ac.pin[:].i "AC currents";
-  Modelica.SIunits.Power powerAC[m]=vAC.*iAC "AC power";
-  Modelica.SIunits.Power powerTotalAC=sum(powerAC) "AC total power";
+  SI.Voltage vAC[m]=ac.pin[:].v "AC potentials";
+  SI.Current iAC[m]=ac.pin[:].i "AC currents";
+  SI.Power powerAC[m]=vAC.*iAC "AC power";
+  SI.Power powerTotalAC=sum(powerAC) "AC total power";
 end ACplug;

@@ -4,21 +4,21 @@ model ThermalAmbientTransformer "Thermal ambient for transformers"
   parameter Boolean useTemperatureInputs=false
     "If true, temperature inputs are used; else, temperatures are constant"
     annotation (Evaluate=true);
-  constant Modelica.SIunits.Temperature TDefault=293.15
+  constant SI.Temperature TDefault=293.15
     "Default temperature";
-  parameter Modelica.SIunits.Temperature T1(start=TDefault)
+  parameter SI.Temperature T1(start=TDefault)
     "Temperature of primary windings"
     annotation (Dialog(enable=not useTemperatureInputs));
-  parameter Modelica.SIunits.Temperature T2(start=TDefault)
+  parameter SI.Temperature T2(start=TDefault)
     "Temperature of secondary windings"
     annotation (Dialog(enable=not useTemperatureInputs));
-  output Modelica.SIunits.HeatFlowRate Q_flow1=temperature1.port.Q_flow
+  output SI.HeatFlowRate Q_flow1=temperature1.port.Q_flow
     "Heat flow rate of primary windings";
-  output Modelica.SIunits.HeatFlowRate Q_flow2=temperature2.port.Q_flow
+  output SI.HeatFlowRate Q_flow2=temperature2.port.Q_flow
     "Heat flow rate of secondary windings";
-  output Modelica.SIunits.HeatFlowRate Q_flowCore=temperatureCore.port.Q_flow
+  output SI.HeatFlowRate Q_flowCore=temperatureCore.port.Q_flow
     "Heat flow rate of core losses";
-  output Modelica.SIunits.HeatFlowRate Q_flowTotal=Q_flow1 + Q_flow2 +
+  output SI.HeatFlowRate Q_flowTotal=Q_flow1 + Q_flow2 +
       Q_flowCore;
   Machines.Interfaces.ThermalPortTransformer thermalPort(final m=m)
     annotation (Placement(transformation(extent={{-10,90},{10,110}})));

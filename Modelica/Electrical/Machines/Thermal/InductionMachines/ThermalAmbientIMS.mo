@@ -6,15 +6,15 @@ model ThermalAmbientIMS
       redeclare final Machines.Interfaces.InductionMachines.ThermalPortIMS
       thermalPort(final mr=mr));
   parameter Integer mr=m "Number of rotor phases";
-  parameter Modelica.SIunits.Temperature Tr(start=TDefault)
+  parameter SI.Temperature Tr(start=TDefault)
     "Temperature of rotor windings"
     annotation (Dialog(enable=not useTemperatureInputs));
-  output Modelica.SIunits.HeatFlowRate Q_flowRotorWinding=
+  output SI.HeatFlowRate Q_flowRotorWinding=
       temperatureRotorWinding.port.Q_flow
     "Heat flow rate of rotor (squirrel cage)";
-  output Modelica.SIunits.HeatFlowRate Q_flowBrush=temperatureBrush.port.Q_flow
+  output SI.HeatFlowRate Q_flowBrush=temperatureBrush.port.Q_flow
     "Heat flow rate of brushes";
-  output Modelica.SIunits.HeatFlowRate Q_flowTotal=Q_flowStatorWinding +
+  output SI.HeatFlowRate Q_flowTotal=Q_flowStatorWinding +
       Q_flowRotorWinding + Q_flowStatorCore + Q_flowRotorCore +
       Q_flowStrayLoad + Q_flowFriction + Q_flowBrush;
   Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature

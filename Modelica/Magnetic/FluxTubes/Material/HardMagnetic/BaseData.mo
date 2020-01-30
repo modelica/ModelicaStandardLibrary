@@ -7,7 +7,7 @@ record BaseData "Record for permanent magnetic material data"
   parameter SI.MagneticFluxDensity B_rRef=1
     "Remanence at reference temperature";
   parameter SI.Temperature T_ref=293.15 "Reference temperature";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_Br=0
+  parameter SI.LinearTemperatureCoefficient alpha_Br=0
     "Temperature coefficient of remanence at reference temperature";
 
   parameter SI.Temperature T_op=293.15 "Operating temperature";

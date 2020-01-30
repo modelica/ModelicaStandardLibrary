@@ -497,8 +497,8 @@ a one-dimensional model that is mounted with an
           extent={{10,-10},{-10,10}},
           rotation=-90,
           origin={10,20})));
-    Modelica.SIunits.AngularVelocity ws[3] = sensor1.w;
-    Modelica.SIunits.Power bevelGearPower;
+    SI.AngularVelocity ws[3] = sensor1.w;
+    SI.Power bevelGearPower;
   equation
     bevelGearPower = (ws + der(bevelGear.flange_a.phi)*na)*bevelGear.flange_a.tau*na +
                      (ws + der(bevelGear.flange_b.phi)*nb)*bevelGear.flange_b.tau*nb +
@@ -590,7 +590,7 @@ angular velocity of the support frame):
 
 <blockquote><pre>
   import Modelica.Mechanics.MultiBody.Frames;
-  import SI=Modelica.SIunits;
+  import SI=SI;
   SI.Power           bevelGearPower;
   SI.AngularVelocity ws[3] = Frames.angularVelocity2(bevelGear.frame_a.R);
 <strong>equation</strong>

@@ -1,7 +1,7 @@
 within Modelica.Mechanics.Translational.Sources;
 model ConstantForce "Constant force, not dependent on speed"
   extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
-  parameter Modelica.SIunits.Force f_constant
+  parameter SI.Force f_constant
     "Nominal force (if negative, force is acting as load in positive direction of motion)";
 equation
   f = -f_constant;

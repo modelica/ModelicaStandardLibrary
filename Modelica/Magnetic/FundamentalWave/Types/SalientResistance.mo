@@ -1,6 +1,6 @@
 within Modelica.Magnetic.FundamentalWave.Types;
-record SalientResistance = Salient (redeclare Modelica.SIunits.Resistance d,
-      redeclare Modelica.SIunits.Resistance q) "Salient resistance"
+record SalientResistance = Salient (redeclare SI.Resistance d,
+      redeclare SI.Resistance q) "Salient resistance"
   annotation (Documentation(info="<html>
 <p>Type representing the d- and q-axis of an resistance with respect to the fundamental wave.</p>
 

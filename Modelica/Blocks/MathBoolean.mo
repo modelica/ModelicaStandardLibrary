@@ -383,11 +383,11 @@ The usage is demonstrated, e.g., in example
   block OnDelay
     "Delay a rising edge of the input, but do not delay a falling edge."
         extends Modelica.Blocks.Interfaces.PartialBooleanSISO_small;
-        parameter Modelica.SIunits.Time delayTime "Delay time";
+        parameter SI.Time delayTime "Delay time";
 
   protected
         Boolean delaySignal(start=false,fixed=true);
-        discrete Modelica.SIunits.Time t_next;
+        discrete SI.Time t_next;
   initial equation
         pre(u) = false;
         pre(t_next) = time - 1;

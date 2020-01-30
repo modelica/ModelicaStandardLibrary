@@ -3,8 +3,8 @@ partial model ThyristorCenterTap2Pulse
   "Template of two pulse thyristor rectifier with center tap"
   extends Icons.ExampleTemplate;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
-  parameter Modelica.SIunits.Frequency f=50 "Frequency";
+  parameter SI.Voltage Vrms=110 "RMS supply voltage";
+  parameter SI.Frequency f=50 "Frequency";
 
   Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
         transformation(

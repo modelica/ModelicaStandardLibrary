@@ -3,7 +3,7 @@ package SinglePhase "Single-phase quasi-static package"
   extends Modelica.Icons.ExamplesPackage;
   model SerialConnection "Example of serial connections"
     extends Modelica.Icons.Example;
-    output Modelica.SIunits.ComplexVoltage v = voltageSensor.v "Total voltage";
+    output SI.ComplexVoltage v = voltageSensor.v "Total voltage";
     Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource currentSource(gamma(fixed=true, start=0))                                                  annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=90,
@@ -74,7 +74,7 @@ package SinglePhase "Single-phase quasi-static package"
 
   model Ideal "Ideal components"
     extends Modelica.Icons.Example;
-    output Modelica.SIunits.ComplexCurrent I = currentSensor.i "Current";
+    output SI.ComplexCurrent I = currentSensor.i "Current";
     Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Idle idle annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
@@ -160,10 +160,10 @@ package SinglePhase "Single-phase quasi-static package"
 
   model FrequencySweep "Tests voltage and current frequency sweep sources"
     extends Modelica.Icons.Example;
-    output Modelica.SIunits.Current iL = inductor.abs_i "Inductor current";
-    output Modelica.SIunits.Voltage vC = capacitor.abs_v "Inductor voltage";
-    output Modelica.SIunits.Current iLL = impedanceL.abs_i "Inductor current";
-    output Modelica.SIunits.Voltage vCC = impedanceC.abs_v "Inductor voltage";
+    output SI.Current iL = inductor.abs_i "Inductor current";
+    output SI.Voltage vC = capacitor.abs_v "Inductor voltage";
+    output SI.Current iLL = impedanceL.abs_i "Inductor current";
+    output SI.Voltage vCC = impedanceC.abs_v "Inductor voltage";
 
     Modelica.Electrical.QuasiStatic.SinglePhase.Sources.FrequencySweepVoltageSource voltageSource(
       gamma(start=0, fixed=true),

@@ -2,9 +2,9 @@ within Modelica.Electrical.Polyphase.Basic;
 model VariableResistor
   "Ideal linear electrical resistors with variable resistance"
   extends Interfaces.TwoPlug;
-  parameter Modelica.SIunits.Temperature T_ref[m]=fill(300.15, m)
+  parameter SI.Temperature T_ref[m]=fill(300.15, m)
     "Reference temperatures";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha[m]=zeros(m)
+  parameter SI.LinearTemperatureCoefficient alpha[m]=zeros(m)
     "Temperature coefficients of resistances at reference temperatures";
   extends Polyphase.Interfaces.ConditionalHeatPort(final mh=m, T=T_ref);
   Modelica.Blocks.Interfaces.RealInput R[m](each unit="Ohm") annotation (

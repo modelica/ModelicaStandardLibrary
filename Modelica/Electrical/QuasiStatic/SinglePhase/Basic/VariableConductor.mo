@@ -3,10 +3,10 @@ model VariableConductor "Single-phase variable conductor"
   extends Interfaces.OnePort;
   import Modelica.ComplexMath.real;
   import Modelica.ComplexMath.conj;
-  parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
+  parameter SI.Temperature T_ref=293.15 "Reference temperature";
+  parameter SI.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
-  Modelica.SIunits.Conductance G_actual "Conductance = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
+  SI.Conductance G_actual "Conductance = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
   Modelica.Blocks.Interfaces.RealInput G_ref(unit="S") "Variable conductance"
                            annotation (Placement(transformation(
         origin={0,120},

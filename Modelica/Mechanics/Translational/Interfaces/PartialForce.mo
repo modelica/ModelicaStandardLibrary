@@ -2,7 +2,7 @@ within Modelica.Mechanics.Translational.Interfaces;
 partial model PartialForce
   "Partial model of a force acting at the flange (accelerates the flange)"
   extends PartialElementaryOneFlangeAndSupport2;
-  Modelica.SIunits.Force f
+  SI.Force f
     "Accelerating force acting at flange (= flange.f)";
 equation
   f = flange.f;

@@ -5,19 +5,19 @@ model DQCurrentController
   constant Integer m=3 "Number of phases";
   parameter Integer p "Number of pole pairs";
   parameter Boolean useRMS=true "If true, inputs dq are multiplied by sqrt(2)";
-  parameter Modelica.SIunits.Frequency fsNominal "Nominal frequency";
-  parameter Modelica.SIunits.Voltage VsOpenCircuit
+  parameter SI.Frequency fsNominal "Nominal frequency";
+  parameter SI.Voltage VsOpenCircuit
     "Open circuit RMS voltage per phase @ fsNominal";
-  parameter Modelica.SIunits.Resistance Rs "Stator resistance per phase";
-  parameter Modelica.SIunits.Inductance Ld "Inductance in d-axis";
-  parameter Modelica.SIunits.Inductance Lq "Inductance in q-axis";
+  parameter SI.Resistance Rs "Stator resistance per phase";
+  parameter SI.Inductance Ld "Inductance in d-axis";
+  parameter SI.Inductance Lq "Inductance in q-axis";
   //Decoupling
   parameter Boolean decoupling=false "Use decoupling network";
-  final parameter Modelica.SIunits.MagneticFlux psiM=sqrt(2)*VsOpenCircuit/
+  final parameter SI.MagneticFlux psiM=sqrt(2)*VsOpenCircuit/
       (2*pi*fsNominal) "Approximation of magnetic flux linkage";
-  Modelica.SIunits.AngularVelocity omega=p*der(phi);
-  Modelica.SIunits.Voltage Vd=sqrt(2)*(Rs*id - omega*Lq*iq);
-  Modelica.SIunits.Voltage Vq=sqrt(2)*(Rs*iq + omega*Ld*id) + omega*psiM;
+  SI.AngularVelocity omega=p*der(phi);
+  SI.Voltage Vd=sqrt(2)*(Rs*id - omega*Lq*iq);
+  SI.Voltage Vq=sqrt(2)*(Rs*iq + omega*Ld*id) + omega*psiM;
   extends Modelica.Blocks.Interfaces.MO(final nout=m);
   Modelica.Blocks.Interfaces.RealInput id "Reference of d-current"
     annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
@@ -72,7 +72,7 @@ model DQCurrentController
   Modelica.Blocks.Sources.RealExpression deCoupling[2](y={Vd,Vq})
     annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
 protected
-  constant Modelica.SIunits.Resistance unitResistance=1
+  constant SI.Resistance unitResistance=1
     annotation (HideResult=true);
 equation
   connect(fromDQ.y, y) annotation (Line(

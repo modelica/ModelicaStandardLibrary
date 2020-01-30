@@ -2,8 +2,8 @@ within Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge;
 model HBridge_RL "H bridge DC/DC converter with R-L load"
   extends ExampleTemplates.HBridge;
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Resistance R=100 "Resistance";
-  parameter Modelica.SIunits.Inductance L=1 "Inductance";
+  parameter SI.Resistance R=100 "Resistance";
+  parameter SI.Inductance L=1 "Inductance";
   Modelica.Electrical.Analog.Basic.Resistor resistor(R=R) annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},

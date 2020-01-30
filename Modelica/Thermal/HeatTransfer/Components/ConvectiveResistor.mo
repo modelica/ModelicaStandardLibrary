@@ -1,8 +1,8 @@
 within Modelica.Thermal.HeatTransfer.Components;
 model ConvectiveResistor
   "Lumped thermal element for heat convection (dT = Rc*Q_flow)"
-  Modelica.SIunits.HeatFlowRate Q_flow "Heat flow rate from solid -> fluid";
-  Modelica.SIunits.TemperatureDifference dT "= solid.T - fluid.T";
+  SI.HeatFlowRate Q_flow "Heat flow rate from solid -> fluid";
+  SI.TemperatureDifference dT "= solid.T - fluid.T";
   Modelica.Blocks.Interfaces.RealInput Rc(unit="K/W")
     "Signal representing the convective thermal resistance in [K/W]"
     annotation (Placement(transformation(

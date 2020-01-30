@@ -4,13 +4,13 @@ partial model PartialCore
   parameter Integer m(final min=1) = 3 "Number of phases";
   parameter Real n12(start=1) "Turns ratio 1:2";
   parameter Real n13(start=1) "Turns ratio 1:3";
-  Modelica.SIunits.ComplexVoltage v1[m];
-  Modelica.SIunits.ComplexCurrent i1[m];
-  Modelica.SIunits.ComplexVoltage v2[m];
-  Modelica.SIunits.ComplexCurrent i2[m];
-  Modelica.SIunits.ComplexVoltage v3[m];
-  Modelica.SIunits.ComplexCurrent i3[m];
-  Modelica.SIunits.ComplexCurrent im[m] "Magnetizing current";
+  SI.ComplexVoltage v1[m];
+  SI.ComplexCurrent i1[m];
+  SI.ComplexVoltage v2[m];
+  SI.ComplexCurrent i2[m];
+  SI.ComplexVoltage v3[m];
+  SI.ComplexCurrent i3[m];
+  SI.ComplexCurrent im[m] "Magnetizing current";
   QuasiStatic.Polyphase.Interfaces.PositivePlug plug_p1(final m=m) annotation (
       Placement(transformation(extent={{-110,90},{-90,110}}),
         iconTransformation(extent={{-110,90},{-90,110}})));

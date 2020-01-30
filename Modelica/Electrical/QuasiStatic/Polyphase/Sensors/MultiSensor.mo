@@ -18,37 +18,37 @@ model MultiSensor "Polyphase sensor to measure current, voltage and power"
     "Negative plug, voltage path"
     annotation (Placement(transformation(extent={{10,-110},{-10,-90}})));
   Modelica.ComplexBlocks.Interfaces.ComplexOutput i[m](
-    redeclare each final Modelica.SIunits.Current re, redeclare each final Modelica.SIunits.Current im)
+    redeclare each final SI.Current re, redeclare each final SI.Current im)
     "Current as complex output signal" annotation (Placement(transformation(
         origin={-60,-110},
         extent={{10,10},{-10,-10}},
         rotation=90)));
   Modelica.ComplexBlocks.Interfaces.ComplexOutput v[m](
-    redeclare each final Modelica.SIunits.Voltage re, redeclare each final Modelica.SIunits.Voltage im)
+    redeclare each final SI.Voltage re, redeclare each final SI.Voltage im)
     "Voltage as complex output signal" annotation (Placement(transformation(
         origin={60,-110},
         extent={{10,10},{-10,-10}},
         rotation=90)));
   Modelica.ComplexBlocks.Interfaces.ComplexOutput apparentPower[m](
-    redeclare each final Modelica.SIunits.ActivePower re, redeclare each final Modelica.SIunits.ReactivePower im)
+    redeclare each final SI.ActivePower re, redeclare each final SI.ReactivePower im)
     "Instantaneous apparent power as complex output signal" annotation (Placement(transformation(
         origin={-110,-60},
         extent={{-10,10},{10,-10}},
         rotation=180)));
   Modelica.ComplexBlocks.Interfaces.ComplexOutput apparentPowerTotal(
-    redeclare final Modelica.SIunits.ActivePower re, redeclare final Modelica.SIunits.ReactivePower im)
+    redeclare final SI.ActivePower re, redeclare final SI.ReactivePower im)
     "Sum of instantaneous apparent power as complex output signal" annotation (Placement(transformation(
         origin={110,-60},
         extent={{10,10},{-10,-10}},
         rotation=180)));
-  output Modelica.SIunits.Current abs_i[m]=abs(i) "Absolute of complex currents";
-  output Modelica.SIunits.Angle arg_i[m]=arg(i) "Argument of complex currents";
-  output Modelica.SIunits.Voltage abs_v[m]=abs(v) "Absolute of complex voltages";
-  output Modelica.SIunits.Angle arg_v[m]=arg(v) "Argument of complex voltages";
-  output Modelica.SIunits.ApparentPower abs_apparentPower[m]=abs(apparentPower) "Absolute of complex apparent power signals";
-  output Modelica.SIunits.Angle arg_apparentPower[m]=arg(apparentPower) "Argument of complex apparent power signals";
-  output Modelica.SIunits.ApparentPower abs_apparentPowerTotal=abs(apparentPowerTotal) "Absolute of sum complex apparent power";
-  output Modelica.SIunits.Angle arg_apparentPowerTotal=arg(apparentPowerTotal) "Argument of sum complex apparent power";
+  output SI.Current abs_i[m]=abs(i) "Absolute of complex currents";
+  output SI.Angle arg_i[m]=arg(i) "Argument of complex currents";
+  output SI.Voltage abs_v[m]=abs(v) "Absolute of complex voltages";
+  output SI.Angle arg_v[m]=arg(v) "Argument of complex voltages";
+  output SI.ApparentPower abs_apparentPower[m]=abs(apparentPower) "Absolute of complex apparent power signals";
+  output SI.Angle arg_apparentPower[m]=arg(apparentPower) "Argument of complex apparent power signals";
+  output SI.ApparentPower abs_apparentPowerTotal=abs(apparentPowerTotal) "Absolute of sum complex apparent power";
+  output SI.Angle arg_apparentPowerTotal=arg(apparentPowerTotal) "Argument of sum complex apparent power";
 equation
   Connections.branch(pc.reference, nc.reference);
   pc.reference.gamma = nc.reference.gamma;

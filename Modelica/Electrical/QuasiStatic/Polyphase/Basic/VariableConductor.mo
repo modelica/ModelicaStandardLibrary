@@ -1,9 +1,9 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Basic;
 model VariableConductor "Polyphase variable conductor"
   extends Interfaces.TwoPlug;
-  parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m)
+  parameter SI.Temperature T_ref[m]=fill(293.15, m)
     "Reference temperatures";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=
+  parameter SI.LinearTemperatureCoefficient alpha_ref[m]=
       zeros(m)
     "Temperature coefficient of resistance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
   extends Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort(

@@ -7,7 +7,7 @@ package ClockSignals "Library of blocks for clocked signals"
 
     block PeriodicRealClock
       "Generate a periodic clock signal with a period defined by a Real number"
-      parameter Modelica.SIunits.Time period
+      parameter SI.Time period
         "Period of clock (defined as Real number)" annotation(Evaluate=true);
       extends Clocked.ClockSignals.Interfaces.PartialPeriodicClock;
     equation
@@ -382,7 +382,7 @@ For an example, see
         "Event clock generating a clock tick each time an observed input angle changed for a certain, constant rotational-interval"
         extends PartialRotationalClock;
 
-        parameter Modelica.SIunits.Angle trigger_interval = 2*Modelica.Constants.pi
+        parameter SI.Angle trigger_interval = 2*Modelica.Constants.pi
           "Rotational-interval the input angle must be changed to trigger the next clock tick";
 
         RotationalClock rotationalClock

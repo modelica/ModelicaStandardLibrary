@@ -1,8 +1,8 @@
 within Modelica.Magnetic.FundamentalWave.Interfaces;
 connector MagneticPort "Magnetic port of fundamental wave machines"
-  Modelica.SIunits.ComplexMagneticPotential V_m
+  SI.ComplexMagneticPotential V_m
     "Complex magnetic potential at the port";
-  flow Modelica.SIunits.ComplexMagneticFlux Phi
+  flow SI.ComplexMagneticFlux Phi
     "Complex magnetic flux into the port";
   annotation (Documentation(info="<html>
 <p>

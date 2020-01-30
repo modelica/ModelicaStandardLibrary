@@ -2,17 +2,17 @@ within Modelica.Thermal.FluidHeatFlow.Examples.Utilities;
 model DoubleRamp "Ramp going up and down"
   extends Modelica.Blocks.Interfaces.SO;
   parameter Real offset=1 "Offset of ramps";
-  parameter Modelica.SIunits.Time startTime=0.2 "StartTime of 1st ramp";
-  parameter Modelica.SIunits.Time interval=0.2
+  parameter SI.Time startTime=0.2 "StartTime of 1st ramp";
+  parameter SI.Time interval=0.2
     "Interval between end of 1st and beginning of 2nd ramp";
   parameter Real height_1=-1 "Height of ramp"
     annotation(Dialog(group="Ramp 1"));
-  parameter Modelica.SIunits.Time duration_1(min=Modelica.Constants.small)=0.2
+  parameter SI.Time duration_1(min=Modelica.Constants.small)=0.2
     "Duration of ramp"
     annotation(Dialog(group="Ramp 1"));
   parameter Real height_2=1 "Height of ramp"
     annotation(Dialog(group="Ramp 2"));
-  parameter Modelica.SIunits.Time duration_2(min=Modelica.Constants.small)=0.2
+  parameter SI.Time duration_2(min=Modelica.Constants.small)=0.2
     "Duration of ramp"
     annotation(Dialog(group="Ramp 2"));
 

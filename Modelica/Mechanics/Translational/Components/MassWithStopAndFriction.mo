@@ -6,14 +6,14 @@ model MassWithStopAndFriction
     "Absolute velocity of flange_a and flange_b";
   SI.Acceleration a(start=0)
     "Absolute acceleration of flange_a and flange_b";
-  parameter Modelica.SIunits.Mass m(start=1) "Mass";
+  parameter SI.Mass m(start=1) "Mass";
   parameter Real F_prop(
     final unit="N.s/m",
     final min=0,
     start=1) "Velocity dependent friction";
-  parameter Modelica.SIunits.Force F_Coulomb(start=5)
+  parameter SI.Force F_Coulomb(start=5)
     "Constant friction: Coulomb force";
-  parameter Modelica.SIunits.Force F_Stribeck(start=10) "Stribeck effect";
+  parameter SI.Force F_Stribeck(start=10) "Stribeck effect";
   parameter Real fexp(
     final unit="s/m",
     final min=0,
@@ -24,7 +24,7 @@ model MassWithStopAndFriction
   encapsulated partial model PartialFrictionWithStop
     "Base model of Coulomb friction elements with stop"
 
-    import SI = Modelica.SIunits;
+    import SI = SI;
     import Modelica.Mechanics.Translational.Interfaces.PartialRigid;
     parameter SI.Position smax(start=25)
       "Right stop for (right end of) sliding mass";

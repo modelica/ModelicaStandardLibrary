@@ -1,10 +1,10 @@
 within Modelica.Thermal.HeatTransfer.Components;
 model HeatCapacitor "Lumped thermal element storing heat"
-  parameter Modelica.SIunits.HeatCapacity C
+  parameter SI.HeatCapacity C
     "Heat capacity of element (= cp*m)";
-  Modelica.SIunits.Temperature T(start=293.15, displayUnit="degC")
+  SI.Temperature T(start=293.15, displayUnit="degC")
     "Temperature of element";
-  Modelica.SIunits.TemperatureSlope der_T(start=0)
+  SI.TemperatureSlope der_T(start=0)
     "Time derivative of temperature (= der(T))";
   Interfaces.HeatPort_a port annotation (Placement(transformation(
         origin={0,-100},

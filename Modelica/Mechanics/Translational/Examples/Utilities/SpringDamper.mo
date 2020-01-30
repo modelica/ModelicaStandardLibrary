@@ -1,11 +1,11 @@
 within Modelica.Mechanics.Translational.Examples.Utilities;
 model SpringDamper "Input/output block of a spring/damper model"
   extends Modelica.Blocks.Icons.Block;
-  parameter Modelica.SIunits.TranslationalSpringConstant c=1e4
+  parameter SI.TranslationalSpringConstant c=1e4
     "Spring constant";
-  parameter Modelica.SIunits.TranslationalDampingConstant d=1
+  parameter SI.TranslationalDampingConstant d=1
     "Damping constant";
-  parameter Modelica.SIunits.Length s_rel0=0
+  parameter SI.Length s_rel0=0
     "Unstretched spring length";
 
   Modelica.Mechanics.Translational.Components.GeneralPositionToForceAdaptor positionToForce1(use_pder2=false)

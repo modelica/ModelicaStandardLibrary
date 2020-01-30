@@ -5,13 +5,13 @@ model Pipe "Pipe with optional heat exchange"
 
   parameter Boolean useHeatPort = false "= true, if HeatPort is enabled"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-  parameter Modelica.SIunits.Length h_g(start=0)
+  parameter SI.Length h_g(start=0)
     "Geodetic height (height difference from flowPort_a to flowPort_b)";
-  parameter Modelica.SIunits.Acceleration g(final min=0)=Modelica.Constants.g_n "Gravitation";
+  parameter SI.Acceleration g(final min=0)=Modelica.Constants.g_n "Gravitation";
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T=T_q, Q_flow=Q_flowHeatPort) if useHeatPort
     annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
 protected
-  Modelica.SIunits.HeatFlowRate Q_flowHeatPort "Heat flow at conditional heatPort";
+  SI.HeatFlowRate Q_flowHeatPort "Heat flow at conditional heatPort";
 equation
   if not useHeatPort then
     Q_flowHeatPort=0;

@@ -5,9 +5,9 @@ model ThyristorCenterTap2mPulse_R
         constantFiringAngle=constantFiringAngle));
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Angle constantFiringAngle=30*pi/180
+  parameter SI.Angle constantFiringAngle=30*pi/180
     "Firing angle";
-  parameter Modelica.SIunits.Resistance R=20 "Load resistance";
+  parameter SI.Resistance R=20 "Load resistance";
   Modelica.Electrical.Analog.Basic.Resistor resistor(R=R) annotation (
       Placement(transformation(
         origin={30,30},

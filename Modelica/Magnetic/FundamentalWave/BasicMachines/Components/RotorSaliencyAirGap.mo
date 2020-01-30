@@ -26,22 +26,22 @@ model RotorSaliencyAirGap "Air gap model with rotor saliency"
   final parameter Magnetic.FundamentalWave.Types.SalientReluctance R_m(d=1/L0.d,
       q=1/L0.q) "Reluctance of the air gap model";
   // Complex phasors of magnetic potential differences
-  Modelica.SIunits.ComplexMagneticPotentialDifference V_mss
+  SI.ComplexMagneticPotentialDifference V_mss
     "Complex magnetic potential difference of stator w.r.t. stator fixed frame";
-  Modelica.SIunits.ComplexMagneticPotentialDifference V_msr
+  SI.ComplexMagneticPotentialDifference V_msr
     "Complex magnetic potential difference of stator w.r.t. rotor fixed frame";
-  Modelica.SIunits.ComplexMagneticPotentialDifference V_mrr
+  SI.ComplexMagneticPotentialDifference V_mrr
     "Complex magnetic potential difference of rotor w.r.t. rotor fixed frame";
   // Complex phasors of magnetic fluxes
-  Modelica.SIunits.ComplexMagneticFlux Phi_ss
+  SI.ComplexMagneticFlux Phi_ss
     "Complex magnetic flux of stator w.r.t. stator fixed frame";
-  Modelica.SIunits.ComplexMagneticFlux Phi_sr
+  SI.ComplexMagneticFlux Phi_sr
     "Complex magnetic flux of stator w.r.t. rotor fixed frame";
-  Modelica.SIunits.ComplexMagneticFlux Phi_rr
+  SI.ComplexMagneticFlux Phi_rr
     "Complex magnetic flux of rotor w.r.t. rotor fixed frame";
   // Electrical torque and mechanical angle
-  Modelica.SIunits.Torque tauElectrical "Electrical torque";
-  Modelica.SIunits.Angle gamma
+  SI.Torque tauElectrical "Electrical torque";
+  SI.Angle gamma
     "Electrical angle between rotor and stator";
   Complex rotator "Equivalent vector representation of orientation";
 equation

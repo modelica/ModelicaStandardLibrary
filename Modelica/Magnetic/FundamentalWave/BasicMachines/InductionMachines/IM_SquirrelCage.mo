@@ -20,18 +20,18 @@ model IM_SquirrelCage
       Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceIMC
       powerBalance(final lossPowerRotorWinding=sum(rotorCage.resistor.resistor.LossPower),
         final lossPowerRotorCore=0));
-  parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi
+  parameter SI.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi
         *fsNominal)) "Stator main field inductance" annotation (Dialog(
         tab="Nominal resistances and inductances", groupImage=
           "modelica://Modelica/Resources/Images/Electrical/Machines/IMC.png"));
-  parameter Modelica.SIunits.Inductance Lrsigma(start=3*(1 - sqrt(1 -
+  parameter SI.Inductance Lrsigma(start=3*(1 - sqrt(1 -
         0.0667))/(2*pi*fsNominal))
     "Rotor leakage inductance of equivalent m phase winding w.r.t. stator side"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Resistance Rr(start=0.04)
+  parameter SI.Resistance Rr(start=0.04)
     "Rotor resistance of equivalent m phase winding w.r.t. stator side"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Temperature TrRef(start=293.15)
+  parameter SI.Temperature TrRef(start=293.15)
     "Reference temperature of rotor resistance"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter
@@ -39,10 +39,10 @@ model IM_SquirrelCage
     alpha20r(start=0)
     "Temperature coefficient of rotor resistance at 20 degC"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
+  parameter SI.Temperature TrOperational(start=293.15)
     "Operational temperature of rotor resistance" annotation (Dialog(
         group="Operational temperatures", enable=not useThermalPort));
-  output Modelica.SIunits.Current ir[m]=rotorCage.i "Rotor cage currents";
+  output SI.Current ir[m]=rotorCage.i "Rotor cage currents";
   Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding
     rotorCage(
     final Lsigma=Lrsigma,

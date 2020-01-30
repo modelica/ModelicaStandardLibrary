@@ -2,7 +2,7 @@ within Modelica.Mechanics.Rotational.Examples;
 model FirstGrounded
   "First example: simple drive train with grounded elements"
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Torque amplitude=10
+  parameter SI.Torque amplitude=10
     "Amplitude of driving torque";
   parameter SI.Frequency f=5 "Frequency of driving torque";
   parameter SI.Inertia Jmotor(min=0) = 0.1 "Motor inertia";

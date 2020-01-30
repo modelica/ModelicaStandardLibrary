@@ -14,8 +14,8 @@ in order to easier identify a flange variable in a diagram.
 Both connector classes contain the following variables:
 </p>
 <blockquote><pre>
-Modelica.SIunits.Position   s &quot;Absolute position of flange&quot;;
-<strong>flow</strong> Modelica.SIunits.Force f &quot;Cut force directed into flange&quot;;
+SI.Position   s &quot;Absolute position of flange&quot;;
+<strong>flow</strong> SI.Force f &quot;Cut force directed into flange&quot;;
 </pre></blockquote>
 
 <p>

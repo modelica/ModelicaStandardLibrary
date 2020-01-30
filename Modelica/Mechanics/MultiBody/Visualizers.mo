@@ -193,7 +193,7 @@ definition of the colors used in the MultiBody library together with a color edi
 
     import Modelica.Mechanics.MultiBody.Frames;
     import Modelica.Mechanics.MultiBody.Types;
-    import Modelica.SIunits.Conversions.to_unit1;
+    import SI.Conversions.to_unit1;
 
     Interfaces.Frame_a frame_a
       "Coordinate system a (all shape definition vectors are resolved in this frame)"
@@ -795,9 +795,9 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
      extends Modelica.Icons.ObsoleteModel;
       parameter Boolean animation=true
       "= true, if animation of ground shall be enabled";
-      parameter Modelica.SIunits.Position length = 10
+      parameter SI.Position length = 10
       "Length and width of box (center is at x=y=0)" annotation (Dialog(enable=animation));
-      parameter Modelica.SIunits.Position height = 0.02
+      parameter SI.Position height = 0.02
       "Height of box (upper surface is at z=0, lower surface is at z=-height)"
                                                                         annotation (Dialog(enable=animation));
       parameter Modelica.Mechanics.MultiBody.Types.Color groundColor={0,255,0}
@@ -848,13 +848,13 @@ This shape visualizes the x-y plane by a box.
 
     parameter Boolean animation=true "= true, if animation shall be enabled";
 
-    parameter Modelica.SIunits.Radius R=0.5 "Major radius (distance from center of torus to center of tube)" annotation(Dialog(enable=animation));
-    parameter Modelica.SIunits.Radius r=0.1 "Minor radius (radius of tube)"
+    parameter SI.Radius R=0.5 "Major radius (distance from center of torus to center of tube)" annotation(Dialog(enable=animation));
+    parameter SI.Radius r=0.1 "Minor radius (radius of tube)"
       annotation(Dialog(enable=animation));
-    parameter Modelica.SIunits.Angle opening=0 "Opening angle of torus" annotation(Dialog(enable=animation));
-    parameter Modelica.SIunits.Angle startAngle=-3.1415926535898
+    parameter SI.Angle opening=0 "Opening angle of torus" annotation(Dialog(enable=animation));
+    parameter SI.Angle startAngle=-3.1415926535898
       "Start angle of torus slice" annotation(Dialog(enable=animation));
-    parameter Modelica.SIunits.Angle stopAngle=3.1415926535898
+    parameter SI.Angle stopAngle=3.1415926535898
       "End angle of torus slice" annotation(Dialog(enable=animation));
     parameter Boolean wireframe=false
       "= true: 3D model will be displayed without faces"
@@ -1036,8 +1036,8 @@ connector frame_a (visualized by the red coordinate system in the figure below).
 
     parameter Boolean animation=true "= true, if animation shall be enabled";
 
-    parameter Modelica.SIunits.Radius rOuter "Outer radius of pipe" annotation(Dialog(enable=animation));
-    parameter Modelica.SIunits.Length length "Length of pipe" annotation(Dialog(enable=animation));
+    parameter SI.Radius rOuter "Outer radius of pipe" annotation(Dialog(enable=animation));
+    parameter SI.Length length "Length of pipe" annotation(Dialog(enable=animation));
 
     parameter Real xsi[:](each min=0, each max=1)= Modelica.Math.Vectors.relNodePositions(12)
       "Vector of relative positions along the pipe with x[1] = 0, x[end] = 1"
@@ -1834,7 +1834,7 @@ This definition is also available as type
       import Modelica.Mechanics.MultiBody.Types;
       import Modelica.Mechanics.MultiBody.Frames;
       import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
-      import Modelica.SIunits.Conversions.to_unit1;
+      import SI.Conversions.to_unit1;
 
       input Frames.Orientation R=Frames.nullRotation()
         "Orientation object to rotate the world frame into the arrow frame" annotation(Dialog);
@@ -1924,7 +1924,7 @@ library together with a&nbsp;color editor.
       import Modelica.Mechanics.MultiBody.Types;
       import Modelica.Mechanics.MultiBody.Frames;
       import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
-      import Modelica.SIunits.Conversions.to_unit1;
+      import SI.Conversions.to_unit1;
 
       input Frames.Orientation R=Frames.nullRotation()
         "Orientation object to rotate the world frame into the arrow frame" annotation(Dialog);
@@ -2350,12 +2350,12 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
       input Frames.Orientation R=Frames.nullRotation()
         "Orientation object to rotate the world frame into the surface frame"
         annotation(Dialog(group="Surface frame"));
-      input Modelica.SIunits.Position r_0[3]={0,0,0}
+      input SI.Position r_0[3]={0,0,0}
         "Position vector from origin of world frame to origin of surface frame, resolved in world frame"
         annotation(Dialog(group="Surface frame"));
 
-      parameter Modelica.SIunits.Radius rOuter "Outer radius of pipe" annotation(Dialog(group="Surface properties"));
-      parameter Modelica.SIunits.Length length "Length of pipe" annotation(Dialog(group="Surface properties"));
+      parameter SI.Radius rOuter "Outer radius of pipe" annotation(Dialog(group="Surface properties"));
+      parameter SI.Length length "Length of pipe" annotation(Dialog(group="Surface properties"));
       parameter Integer n_rOuter=30 "Number of points along outer radius" annotation(Dialog(group="Surface properties"));
       parameter Integer n_length=10 "Number of points along length" annotation(Dialog(group="Surface properties"));
       parameter Types.SpecularCoefficient specularCoefficient = 0.7
@@ -2493,18 +2493,18 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
       function torus "Function defining the surface characteristic of a torus"
         extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
           final multiColoredSurface=false);
-        input Modelica.SIunits.Length R=1 "Major radius (distance from center of torus to center of tube)" annotation(Dialog);
-        input Modelica.SIunits.Length r=0.2 "Minor radius (radius of tube)" annotation(Dialog);
-        input Modelica.SIunits.Angle opening=0 "Opening angle of torus" annotation(Dialog);
-        input Modelica.SIunits.Angle startAngle= -Modelica.Constants.pi
+        input SI.Length R=1 "Major radius (distance from center of torus to center of tube)" annotation(Dialog);
+        input SI.Length r=0.2 "Minor radius (radius of tube)" annotation(Dialog);
+        input SI.Angle opening=0 "Opening angle of torus" annotation(Dialog);
+        input SI.Angle startAngle= -Modelica.Constants.pi
           "Start angle of torus slice" annotation(Dialog);
-        input Modelica.SIunits.Angle stopAngle= Modelica.Constants.pi
+        input SI.Angle stopAngle= Modelica.Constants.pi
           "End angle of torus slice" annotation(Dialog);
       protected
-        Modelica.SIunits.Angle alpha;
-        Modelica.SIunits.Angle beta;
-        Modelica.SIunits.Angle phi_start;
-        Modelica.SIunits.Angle phi_stop;
+        SI.Angle alpha;
+        SI.Angle beta;
+        SI.Angle phi_start;
+        SI.Angle phi_stop;
       algorithm
         phi_start :=-Modelica.Constants.pi + opening;
         phi_stop  :=Modelica.Constants.pi - opening;
@@ -2543,9 +2543,9 @@ stopAngle  =  135 degree
         "Function defining the surface characteristic of a pipe where a scalar field value is displayed with color along the pipe axis"
         extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
           final multiColoredSurface=true);
-        input Modelica.SIunits.Radius rOuter "Outer radius of cylinder" annotation(Dialog);
-        input Modelica.SIunits.Length length "Length of cylinder" annotation(Dialog);
-        input Modelica.SIunits.Position xsi[:]
+        input SI.Radius rOuter "Outer radius of cylinder" annotation(Dialog);
+        input SI.Length length "Length of cylinder" annotation(Dialog);
+        input SI.Position xsi[:]
           "Relative position along the pipe with x[1] = 0, x[end] = 1" annotation(Dialog);
         input Real T[size(xsi,1)] "Scalar field value at position xsi*length" annotation(Dialog);
         input Real T_min "T <= T_min is mapped to colorMap[1,:]" annotation(Dialog);
@@ -2850,7 +2850,7 @@ The diameter and color of all line cylinders are identical.
       parameter Integer n=size(lines, 1) "Number of cylinders";
       T.Orientation R_rel=T.from_nxy(n_x, n_y);
       T.Orientation R_lines=T.absoluteRotation(R.T, R_rel);
-      Modelica.SIunits.Position r_abs[3]=r + T.resolve1(R.T, r_lines);
+      SI.Position r_abs[3]=r + T.resolve1(R.T, r_lines);
       Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape cylinders[n](
         each shapeType="cylinder",
         lengthDirection={T.resolve1(R_rel, vector([lines[i, 2, :] - lines[i, 1,

@@ -17,7 +17,7 @@ model MultiSensor "Sensor to measure current, voltage and power"
     "Negative pin, voltage path"
     annotation (Placement(transformation(extent={{10,-110},{-10,-90}})));
   Modelica.ComplexBlocks.Interfaces.ComplexOutput i(
-    redeclare final Modelica.SIunits.Current re, redeclare final Modelica.SIunits.Current im)
+    redeclare final SI.Current re, redeclare final SI.Current im)
     "Current as complex output signal" annotation (Placement(transformation(
         origin={-60,-110},
         extent={{10,10},{-10,-10}},
@@ -26,7 +26,7 @@ model MultiSensor "Sensor to measure current, voltage and power"
         rotation=90,
         origin={-60,-110})));
   Modelica.ComplexBlocks.Interfaces.ComplexOutput v(
-    redeclare final Modelica.SIunits.Voltage re, redeclare final Modelica.SIunits.Voltage im)
+    redeclare final SI.Voltage re, redeclare final SI.Voltage im)
     "Voltage as complex output signal" annotation (Placement(transformation(
         origin={60,-110},
         extent={{10,10},{-10,-10}},
@@ -35,7 +35,7 @@ model MultiSensor "Sensor to measure current, voltage and power"
         rotation=90,
         origin={60,-110})));
   Modelica.ComplexBlocks.Interfaces.ComplexOutput apparentPower(
-    redeclare final Modelica.SIunits.ActivePower re, redeclare final Modelica.SIunits.ReactivePower im)
+    redeclare final SI.ActivePower re, redeclare final SI.ReactivePower im)
     "Instantaneous apparent power as complex output signal" annotation (Placement(transformation(
         origin={-110,-60},
         extent={{-10,10},{10,-10}},
@@ -43,12 +43,12 @@ model MultiSensor "Sensor to measure current, voltage and power"
         extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-110,-60})));
-  output Modelica.SIunits.Current abs_i=abs(i) "Absolute of complex current";
-  output Modelica.SIunits.Angle arg_i=arg(i) "Argument of complex current";
-  output Modelica.SIunits.Voltage abs_v=abs(v) "Absolute of complex voltage";
-  output Modelica.SIunits.Angle arg_v=arg(v) "Argument of complex voltage";
-  output Modelica.SIunits.ApparentPower abs_apparentPower=abs(apparentPower) "Absolute of complex apparent power";
-  output Modelica.SIunits.Angle arg_apparentPower=arg(apparentPower) "Argument of complex apparent power";
+  output SI.Current abs_i=abs(i) "Absolute of complex current";
+  output SI.Angle arg_i=arg(i) "Argument of complex current";
+  output SI.Voltage abs_v=abs(v) "Absolute of complex voltage";
+  output SI.Angle arg_v=arg(v) "Argument of complex voltage";
+  output SI.ApparentPower abs_apparentPower=abs(apparentPower) "Absolute of complex apparent power";
+  output SI.Angle arg_apparentPower=arg(apparentPower) "Argument of complex apparent power";
 equation
   Connections.branch(pc.reference, nc.reference);
   pc.reference.gamma = nc.reference.gamma;

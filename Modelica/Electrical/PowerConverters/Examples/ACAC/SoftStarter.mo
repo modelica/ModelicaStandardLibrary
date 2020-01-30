@@ -4,12 +4,12 @@ model SoftStarter "Soft start of an induction machine"
   import Modelica.Constants.pi;
   constant Integer m=3 "Number of phases";
   constant Real y2d=Modelica.Electrical.Polyphase.Functions.factorY2D(m);
-  parameter Modelica.SIunits.Voltage VNominal=100 "Nominal RMS voltage line to line";
-  parameter Modelica.SIunits.Current INominal=100*y2d "Nominal RMS current at the terminals";
-  parameter Modelica.SIunits.Frequency fNominal=aimcData.fsNominal "Nominal frequency";
-  parameter Modelica.SIunits.Inertia JLoad=aimcData.Jr "Load's moment of inertia";
-  parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
-  parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="rev/min")=
+  parameter SI.Voltage VNominal=100 "Nominal RMS voltage line to line";
+  parameter SI.Current INominal=100*y2d "Nominal RMS current at the terminals";
+  parameter SI.Frequency fNominal=aimcData.fsNominal "Nominal frequency";
+  parameter SI.Inertia JLoad=aimcData.Jr "Load's moment of inertia";
+  parameter SI.Torque TLoad=161.4 "Nominal load torque";
+  parameter SI.AngularVelocity wLoad(displayUnit="rev/min")=
        1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
   Modelica.Electrical.Polyphase.Sources.SineVoltage sineVoltage(
     final m=m,

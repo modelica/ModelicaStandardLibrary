@@ -2,10 +2,10 @@ within Modelica.Magnetic.QuasiStatic.FluxTubes.Sources;
 model ConstantMagneticPotentialDifference "Constant magnetomotive force"
 
   extends FluxTubes.Interfaces.Source;
-  parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
-  parameter Modelica.SIunits.ComplexMagneticPotentialDifference V_m
+  parameter SI.Frequency f(start=1) "Frequency of the source";
+  parameter SI.ComplexMagneticPotentialDifference V_m
   "Magnetic potential difference";
-  Modelica.SIunits.ComplexMagneticFlux Phi(re(start=0),im(start=0))
+  SI.ComplexMagneticFlux Phi(re(start=0),im(start=0))
   "Magnetic flux from port_p to port_n";
 
 equation

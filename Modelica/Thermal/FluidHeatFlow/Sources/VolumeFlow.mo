@@ -5,7 +5,7 @@ model VolumeFlow "Enforces constant volume flow"
   parameter Boolean useVolumeFlowInput=false
     "Enable / disable volume flow input"
     annotation(Evaluate=true, choices(checkBox=true));
-  parameter Modelica.SIunits.VolumeFlowRate constantVolumeFlow(start=1)
+  parameter SI.VolumeFlowRate constantVolumeFlow(start=1)
     "Volume flow rate"
     annotation(Dialog(enable=not useVolumeFlowInput));
   Modelica.Blocks.Interfaces.RealInput volumeFlow(unit="m3/s")=internalVolumeFlow if useVolumeFlowInput
@@ -14,7 +14,7 @@ model VolumeFlow "Enforces constant volume flow"
         rotation=270,
         origin={0,100})));
 protected
-  Modelica.SIunits.VolumeFlowRate internalVolumeFlow;
+  SI.VolumeFlowRate internalVolumeFlow;
 equation
   if not useVolumeFlowInput then
     internalVolumeFlow = constantVolumeFlow;

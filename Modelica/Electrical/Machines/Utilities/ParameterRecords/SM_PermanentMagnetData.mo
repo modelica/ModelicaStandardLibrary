@@ -4,7 +4,7 @@ record SM_PermanentMagnetData
   extends SM_ReluctanceRotorData(Lmd=0.3/(2*pi*fsNominal), Lmq=0.3/(2*pi*
         fsNominal));
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Voltage VsOpenCircuit=112.3
+  parameter SI.Voltage VsOpenCircuit=112.3
     "Open circuit RMS voltage per phase @ fsNominal";
   parameter Machines.Losses.PermanentMagnetLossParameters permanentMagnetLossParameters(
     PRef=0,

@@ -4,17 +4,17 @@ model IMS_Characteristics "Characteristic curves of induction machine with slip 
   import Modelica.Constants.pi;
   parameter Integer m=3 "Number of stator phases";
   parameter Integer mr=3 "Number of rotor phases";
-  parameter Modelica.SIunits.Voltage VsNominal=100
+  parameter SI.Voltage VsNominal=100
     "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fNominal=imsData.fsNominal "Nominal frequency";
-  parameter Modelica.SIunits.Resistance Rr=0.16/imsData.turnsRatio^2 "Starting resistance";
+  parameter SI.Frequency fNominal=imsData.fsNominal "Nominal frequency";
+  parameter SI.Resistance Rr=0.16/imsData.turnsRatio^2 "Starting resistance";
   parameter Integer p=imsData.p "Number of pole pairs";
-  parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="rev/min")=
-       Modelica.SIunits.Conversions.from_rpm(1440.45)
+  parameter SI.AngularVelocity w_Load(displayUnit="rev/min")=
+       SI.Conversions.from_rpm(1440.45)
     "Nominal load speed";
   Real speedPerUnit = p*imsQS.wMechanical/(2*pi*fNominal) "Per unit speed";
   Real slip = 1-speedPerUnit "Slip";
-  output Modelica.SIunits.Current Iqs=iSensorQS.I "QS RMS current";
+  output SI.Current Iqs=iSensorQS.I "QS RMS current";
   Utilities.MultiTerminalBox terminalBoxQS(m=m, terminalConnection="Y")
     annotation (Placement(transformation(extent={{20,46},{40,66}})));
   FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing imsQS(

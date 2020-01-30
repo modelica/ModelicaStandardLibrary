@@ -1,11 +1,11 @@
 within Modelica.Thermal.HeatTransfer.Examples;
 model ControlledTemperature "Control temperature of a resistor"
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC") = 293.15
+  parameter SI.Temperature TAmb(displayUnit="degC") = 293.15
     "Ambient temperature";
-  parameter Modelica.SIunits.TemperatureDifference TDif = 2
+  parameter SI.TemperatureDifference TDif = 2
     "Error in temperature";
-  output Modelica.SIunits.Temperature TRes(displayUnit="degC") = resistor.T_heatPort "Resulting temperature";
+  output SI.Temperature TRes(displayUnit="degC") = resistor.T_heatPort "Resulting temperature";
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={
             {-100,-100},{-80,-80}})));

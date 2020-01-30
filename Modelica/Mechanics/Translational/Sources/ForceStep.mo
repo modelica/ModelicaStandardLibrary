@@ -1,10 +1,10 @@
 within Modelica.Mechanics.Translational.Sources;
 model ForceStep "Constant force, not dependent on speed"
   extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
-  parameter Modelica.SIunits.Force stepForce(start=1)
+  parameter SI.Force stepForce(start=1)
     "Height of force step (if negative, force is acting as load)";
-  parameter Modelica.SIunits.Force offsetForce(start=0) "Offset of force";
-  parameter Modelica.SIunits.Time startTime=0
+  parameter SI.Force offsetForce(start=0) "Offset of force";
+  parameter SI.Time startTime=0
     "Force = offset for time < startTime";
 equation
   f = -offsetForce - (if time < startTime then 0 else stepForce);

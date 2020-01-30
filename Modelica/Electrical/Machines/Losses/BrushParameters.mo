@@ -1,9 +1,9 @@
 within Modelica.Electrical.Machines.Losses;
 record BrushParameters "Parameter record for brush losses"
   extends Modelica.Icons.Record;
-  parameter Modelica.SIunits.Voltage V=0
+  parameter SI.Voltage V=0
     "Total voltage drop of brushes for currents > ILinear";
-  parameter Modelica.SIunits.Current ILinear(start=0.01)
+  parameter SI.Current ILinear(start=0.01)
     "Current indicating linear voltage region of brush voltage drop";
   annotation (defaultComponentPrefixes="parameter ", Documentation(info="<html>
 <p>

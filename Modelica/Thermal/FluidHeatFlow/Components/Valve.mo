@@ -8,26 +8,26 @@ model Valve "Simple valve"
         "Exponential"));
   parameter Real y1(min=small, start=1) "Max. valve opening"
     annotation(Dialog(group="Standard characteristic"));
-  parameter Modelica.SIunits.VolumeFlowRate Kv1(min=small, start=1)
+  parameter SI.VolumeFlowRate Kv1(min=small, start=1)
     "Max. flow @ y = y1"
     annotation(Dialog(group="Standard characteristic"));
   parameter Real kv0(min=small,max=1-small, start=0.01)
     "Leakage flow / max.flow @ y = 0"
     annotation(Dialog(group="Standard characteristic"));
-  parameter Modelica.SIunits.Pressure dp0(start=1) "Standard pressure drop"
+  parameter SI.Pressure dp0(start=1) "Standard pressure drop"
     annotation(Dialog(group="Standard characteristic"));
-  parameter Modelica.SIunits.Density rho0(start=10)
+  parameter SI.Density rho0(start=10)
     "Standard medium's density"
     annotation(Dialog(group="Standard characteristic"));
   parameter Real frictionLoss(min=0, max=1, start=0)
     "Part of friction losses fed to medium";
 protected
-  constant Modelica.SIunits.VolumeFlowRate unitVolumeFlowRate = 1;
+  constant SI.VolumeFlowRate unitVolumeFlowRate = 1;
   constant Real small = Modelica.Constants.small;
-  constant Modelica.SIunits.VolumeFlowRate smallVolumeFlowRate = eps*unitVolumeFlowRate;
+  constant SI.VolumeFlowRate smallVolumeFlowRate = eps*unitVolumeFlowRate;
   constant Real eps = Modelica.Constants.eps;
   Real yLim = max(min(y,y1),0) "Limited valve opening";
-  Modelica.SIunits.VolumeFlowRate Kv "Standard flow rate";
+  SI.VolumeFlowRate Kv "Standard flow rate";
 public
   Modelica.Blocks.Interfaces.RealInput y annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},

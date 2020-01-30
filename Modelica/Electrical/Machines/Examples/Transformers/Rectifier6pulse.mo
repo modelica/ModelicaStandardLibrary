@@ -2,12 +2,12 @@ within Modelica.Electrical.Machines.Examples.Transformers;
 model Rectifier6pulse "6-pulse rectifier with 1 transformer"
   extends Modelica.Icons.Example;
   constant Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Voltage V=100*sqrt(2/3)
+  parameter SI.Voltage V=100*sqrt(2/3)
     "Amplitude of star-voltage";
-  parameter Modelica.SIunits.Frequency f=50 "Frequency";
-  parameter Modelica.SIunits.Resistance RL=0.4 "Load resistance";
-  parameter Modelica.SIunits.Capacitance C=0.005 "Total DC-capacitance";
-  parameter Modelica.SIunits.Voltage VC0=sqrt(3)*V
+  parameter SI.Frequency f=50 "Frequency";
+  parameter SI.Resistance RL=0.4 "Load resistance";
+  parameter SI.Capacitance C=0.005 "Total DC-capacitance";
+  parameter SI.Voltage VC0=sqrt(3)*V
     "Initial voltage of capacitance";
   Modelica.Electrical.Polyphase.Sources.SineVoltage source(
     m=m,

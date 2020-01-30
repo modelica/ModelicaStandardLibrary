@@ -1,7 +1,7 @@
 within Modelica.Electrical.Machines.Examples.Transformers;
 model AsymmetricalLoad "Asymmetrical load"
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Resistance RL=1 "Load resistance";
+  parameter SI.Resistance RL=1 "Load resistance";
   Modelica.Electrical.Polyphase.Sources.SineVoltage source(f=fill(
         50, 3), V=fill(sqrt(2/3)*100, 3)) annotation (Placement(
         transformation(

@@ -2,7 +2,7 @@ within Modelica.Thermal.HeatTransfer.Components;
 model ThermalResistor
   "Lumped thermal element transporting heat without storing it"
   extends Interfaces.Element1D;
-  parameter Modelica.SIunits.ThermalResistance R
+  parameter SI.ThermalResistance R
     "Constant thermal resistance of material";
 
 equation

@@ -3,15 +3,15 @@ model SMPM_Inverter
   "Starting of permanent magnet synchronous machine with inverter"
   extends Modelica.Icons.Example;
   constant Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Voltage VsNominal=100
+  parameter SI.Voltage VsNominal=100
     "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fsNominal=smpmData.fsNominal "Nominal frequency";
-  parameter Modelica.SIunits.Frequency fKnee=50
+  parameter SI.Frequency fsNominal=smpmData.fsNominal "Nominal frequency";
+  parameter SI.Frequency fKnee=50
     "Knee frequency of V/f curve";
-  parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
-  parameter Modelica.SIunits.Torque T_Load=181.4 "Nominal load torque";
-  parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
-  parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
+  parameter SI.Time tRamp=1 "Frequency ramp";
+  parameter SI.Torque T_Load=181.4 "Nominal load torque";
+  parameter SI.Time tStep=1.2 "Time of load torque step";
+  parameter SI.Inertia J_Load=0.29 "Load inertia";
   Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
         transformation(
         origin={-90,90},
@@ -143,8 +143,8 @@ model SMPM_Inverter
     Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
     smpmData "Synchronous machine data"
     annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
-  Modelica.SIunits.Angle thetaM=rotorAngleM.rotorDisplacementAngle "Rotor displacement angle, FundamentalWave machine";
-  Modelica.SIunits.Angle thetaE=rotorAngleE.rotorDisplacementAngle "Rotor displacement angle, Electrical machine";
+  SI.Angle thetaM=rotorAngleM.rotorDisplacementAngle "Rotor displacement angle, FundamentalWave machine";
+  SI.Angle thetaE=rotorAngleE.rotorDisplacementAngle "Rotor displacement angle, Electrical machine";
 initial equation
   smpmE.is[1:2] = zeros(2);
   smpmM.is[1:2] = zeros(2);

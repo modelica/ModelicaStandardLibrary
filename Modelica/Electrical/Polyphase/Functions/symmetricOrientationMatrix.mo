@@ -4,13 +4,13 @@ function symmetricOrientationMatrix
   extends Modelica.Icons.Function;
   import Modelica.Constants.pi;
   input Integer m "Number of phases";
-  output Modelica.SIunits.Angle oM[m, m]
+  output SI.Angle oM[m, m]
     "Angles of symmetric transformation matrix";
 protected
   Integer nBase=numberOfSymmetricBaseSystems(m);
   Integer mBase=integer(m/nBase);
-  Modelica.SIunits.Angle o[m]=symmetricOrientation(m);
-  Modelica.SIunits.Angle oBase[numberOfSymmetricBaseSystems(m)]=o[1:mBase:m];
+  SI.Angle o[m]=symmetricOrientation(m);
+  SI.Angle oBase[numberOfSymmetricBaseSystems(m)]=o[1:mBase:m];
 algorithm
   // Init transformation matrix with zeros
   oM := zeros(m, m);

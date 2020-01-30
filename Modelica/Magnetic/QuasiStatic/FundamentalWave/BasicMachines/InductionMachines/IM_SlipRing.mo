@@ -32,18 +32,18 @@ model IM_SlipRing "Induction machine with slip ring rotor"
   Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug
     plug_rp(final m=mr) "Positive plug of rotor" annotation (Placement(
         transformation(extent={{-110,70},{-90,50}})));
-  parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi
+  parameter SI.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi
         *fsNominal)) "Stator main field inductance per phase" annotation (
      Dialog(tab="Nominal resistances and inductances", groupImage=
           "modelica://Modelica/Resources/Images/Electrical/Machines/IMS.png"));
-  parameter Modelica.SIunits.Inductance Lrsigma(start=3*(1 - sqrt(1 -
+  parameter SI.Inductance Lrsigma(start=3*(1 - sqrt(1 -
         0.0667))/(2*pi*fsNominal))
     "Rotor leakage inductance per phase w.r.t. rotor side"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Resistance Rr(start=0.04)
+  parameter SI.Resistance Rr(start=0.04)
     "Rotor resistance per phase w.r.t. rotor side"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Temperature TrRef(start=293.15)
+  parameter SI.Temperature TrRef(start=293.15)
     "Reference temperature of rotor resistance"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter
@@ -51,7 +51,7 @@ model IM_SlipRing "Induction machine with slip ring rotor"
     alpha20r(start=0)
     "Temperature coefficient of rotor resistance at 20 degC"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
+  parameter SI.Temperature TrOperational(start=293.15)
     "Operational temperature of rotor resistance" annotation (Dialog(
         group="Operational temperatures", enable=not useThermalPort));
   parameter Boolean useTurnsRatio(start=true)
@@ -59,10 +59,10 @@ model IM_SlipRing "Induction machine with slip ring rotor"
   parameter Real TurnsRatio(final min=Modelica.Constants.small, start=1)
     "Effective number of stator turns / effective number of rotor turns"
     annotation (Dialog(enable=useTurnsRatio));
-  parameter Modelica.SIunits.Voltage VsNominal(start=100)
+  parameter SI.Voltage VsNominal(start=100)
     "Nominal stator voltage per phase"
     annotation (Dialog(enable=not useTurnsRatio));
-  parameter Modelica.SIunits.Voltage VrLockedRotor(start=100*(2*pi*
+  parameter SI.Voltage VrLockedRotor(start=100*(2*pi*
         fsNominal*Lm)/sqrt(Rs^2 + (2*pi*fsNominal*(Lm + Lssigma))^2))
     "Locked rotor voltage per phase"
     annotation (Dialog(enable=not useTurnsRatio));
@@ -74,34 +74,34 @@ model IM_SlipRing "Induction machine with slip ring rotor"
     wRef(start=1) = 1)
     "Rotor core loss parameter record, all quantities refer to rotor side"
     annotation (Dialog(tab="Losses"));
-  output Modelica.SIunits.ComplexVoltage vr[mr]=plug_rp.pin.v - plug_rn.pin.v
+  output SI.ComplexVoltage vr[mr]=plug_rp.pin.v - plug_rn.pin.v
     "Complex rotor voltage";
-  Modelica.SIunits.Voltage abs_vr[mr]=Modelica.ComplexMath.abs(vr)
+  SI.Voltage abs_vr[mr]=Modelica.ComplexMath.abs(vr)
     "Magnitude of complex rotor voltage";
-  Modelica.SIunits.Angle arg_vr[mr]=Modelica.ComplexMath.arg(vr)
+  SI.Angle arg_vr[mr]=Modelica.ComplexMath.arg(vr)
     "Argument of complex rotor voltage";
 
-  output Modelica.SIunits.ComplexCurrent ir[mr]=plug_rp.pin.i
+  output SI.ComplexCurrent ir[mr]=plug_rp.pin.i
     "Complex rotor current";
-  Modelica.SIunits.Current abs_ir[mr]=Modelica.ComplexMath.abs(ir)
+  SI.Current abs_ir[mr]=Modelica.ComplexMath.abs(ir)
     "Magnitude of complex rotor current";
-  Modelica.SIunits.Angle arg_ir[mr]=Modelica.ComplexMath.arg(ir)
+  SI.Angle arg_ir[mr]=Modelica.ComplexMath.arg(ir)
     "Argument of complex rotor current";
 
-  Modelica.SIunits.ActivePower Pr[mr]={Modelica.ComplexMath.real(vr[k]*
+  SI.ActivePower Pr[mr]={Modelica.ComplexMath.real(vr[k]*
       Modelica.ComplexMath.conj(ir[k])) for k in 1:mr}
     "Active rotor power";
-  Modelica.SIunits.ActivePower Pr_total=sum(Pr)
+  SI.ActivePower Pr_total=sum(Pr)
     "Total active rotor power";
-  Modelica.SIunits.ReactivePower Qr[mr]={Modelica.ComplexMath.imag(vr[k]*
+  SI.ReactivePower Qr[mr]={Modelica.ComplexMath.imag(vr[k]*
       Modelica.ComplexMath.conj(ir[k])) for k in 1:mr}
     "Reactive rotor power";
-  Modelica.SIunits.ReactivePower Qr_total=sum(Qr)
+  SI.ReactivePower Qr_total=sum(Qr)
     "Total reactive rotor power";
-  Modelica.SIunits.ApparentPower Sr[mr]={Modelica.ComplexMath.abs(vr[k]
+  SI.ApparentPower Sr[mr]={Modelica.ComplexMath.abs(vr[k]
       *Modelica.ComplexMath.conj(ir[k])) for k in 1:mr}
     "Magnitude of complex rotor apparent power";
-  Modelica.SIunits.ApparentPower Sr_total=sqrt(Pr_total^2 + Qr_total^2)
+  SI.ApparentPower Sr_total=sqrt(Pr_total^2 + Qr_total^2)
     "Magnitude of total complex rotor apparent power";
   Real pfr[m]={cos(Modelica.ComplexMath.arg(Complex(Pr[k], Qr[k]))) for k in
           1:m} "Rotor power factor";

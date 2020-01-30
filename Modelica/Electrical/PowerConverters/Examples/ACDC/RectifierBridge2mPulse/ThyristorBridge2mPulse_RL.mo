@@ -6,10 +6,10 @@ model ThyristorBridge2mPulse_RL
           fill(true, m), offStart_n=fill(true, m)));
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Angle constantFiringAngle=30*pi/180
+  parameter SI.Angle constantFiringAngle=30*pi/180
     "Firing angle";
-  parameter Modelica.SIunits.Resistance R=20 "Load resistance";
-  parameter Modelica.SIunits.Inductance L=1 "Load resistance"
+  parameter SI.Resistance R=20 "Load resistance";
+  parameter SI.Inductance L=1 "Load resistance"
     annotation (Evaluate=true);
   Modelica.Electrical.Analog.Basic.Resistor resistor(R=R) annotation (
       Placement(transformation(

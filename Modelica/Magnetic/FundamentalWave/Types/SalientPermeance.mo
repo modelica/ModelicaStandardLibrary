@@ -1,6 +1,6 @@
 within Modelica.Magnetic.FundamentalWave.Types;
-record SalientPermeance = Salient (redeclare Modelica.SIunits.Permeance d,
-      redeclare Modelica.SIunits.Permeance q) "Salient permeance"
+record SalientPermeance = Salient (redeclare SI.Permeance d,
+      redeclare SI.Permeance q) "Salient permeance"
   annotation (Documentation(info="<html>
 <p>Type representing the d- and q-axis of an reluctance with respect to the fundamental wave.</p>
 

@@ -24,9 +24,9 @@ model InitializeFlange
   Interfaces.Flange_b flange "Flange that is initialized" annotation (
       Placement(transformation(extent={{90,-10},{110,10}})));
 
-  Modelica.SIunits.Position s_flange(stateSelect=stateSelect) = flange.s
+  SI.Position s_flange(stateSelect=stateSelect) = flange.s
     "Flange position";
-  Modelica.SIunits.Velocity v_flange(stateSelect=stateSelect) = der(
+  SI.Velocity v_flange(stateSelect=stateSelect) = der(
     s_flange) "= der(s_flange)";
 
 protected
@@ -72,7 +72,7 @@ protected
     Modelica.Mechanics.Translational.Interfaces.Flange_b flange(s(
           stateSelect=StateSelect.avoid)) annotation (Placement(
           transformation(extent={{90,-10},{110,10}})));
-    Modelica.SIunits.Velocity v=der(flange.s) annotation (HideResult=true);
+    SI.Velocity v=der(flange.s) annotation (HideResult=true);
   initial equation
     der(v) = a_start;
   equation

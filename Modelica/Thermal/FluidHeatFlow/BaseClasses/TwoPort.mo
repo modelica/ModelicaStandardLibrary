@@ -2,8 +2,8 @@ within Modelica.Thermal.FluidHeatFlow.BaseClasses;
 partial model TwoPort "Partial model of two port"
   parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
     "Medium in the component" annotation (choicesAllMatching=true);
-  parameter Modelica.SIunits.Mass m(start=1) "Mass of medium";
-  parameter Modelica.SIunits.Temperature T0(start=293.15, displayUnit="degC")
+  parameter SI.Mass m(start=1) "Mass of medium";
+  parameter SI.Temperature T0(start=293.15, displayUnit="degC")
     "Initial temperature of medium"
     annotation(Dialog(enable=m>Modelica.Constants.small));
   parameter Boolean T0fixed=false
@@ -11,19 +11,19 @@ partial model TwoPort "Partial model of two port"
   annotation(choices(checkBox=true),Dialog(enable=m>Modelica.Constants.small));
   parameter Real tapT(final min=0, final max=1)=1
     "Defines temperature of heatPort between inlet and outlet temperature";
-  Modelica.SIunits.Pressure dp "Pressure drop a->b";
-  Modelica.SIunits.VolumeFlowRate V_flow(start=0) "Volume flow a->b";
-  Modelica.SIunits.HeatFlowRate Q_flow "Heat exchange with ambient";
-  output Modelica.SIunits.Temperature T(start=T0, fixed=T0fixed)
+  SI.Pressure dp "Pressure drop a->b";
+  SI.VolumeFlowRate V_flow(start=0) "Volume flow a->b";
+  SI.HeatFlowRate Q_flow "Heat exchange with ambient";
+  output SI.Temperature T(start=T0, fixed=T0fixed)
     "Outlet temperature of medium";
-  output Modelica.SIunits.Temperature T_a "Temperature at flowPort_a";
-  output Modelica.SIunits.Temperature T_b "Temperature at flowPort_b";
-  output Modelica.SIunits.TemperatureDifference dT
+  output SI.Temperature T_a "Temperature at flowPort_a";
+  output SI.Temperature T_b "Temperature at flowPort_b";
+  output SI.TemperatureDifference dT
     "Temperature increase of coolant in flow direction";
-  Modelica.SIunits.Temperature T_q
+  SI.Temperature T_q
     "Temperature relevant for heat exchange with ambient";
 protected
-  Modelica.SIunits.SpecificEnthalpy h(start=medium.cp*T0) "Medium's specific enthalpy";
+  SI.SpecificEnthalpy h(start=medium.cp*T0) "Medium's specific enthalpy";
 public
   FluidHeatFlow.Interfaces.FlowPort_a flowPort_a(final medium=medium)
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));

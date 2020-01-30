@@ -9,7 +9,7 @@ partial package PartialModelicaServices
     extends Modelica.Icons.Package;
   partial model PartialShape "Interface for 3D animation of elementary shapes"
 
-    import SI = Modelica.SIunits;
+    import SI = SI;
     import Modelica.Mechanics.MultiBody.Frames;
     import Modelica.Mechanics.MultiBody.Types;
 
@@ -50,7 +50,7 @@ This model is documented at
 
       input Frames.Orientation R=Frames.nullRotation()
         "Orientation object to rotate the world frame into the vector frame" annotation(Dialog);
-      input Modelica.SIunits.Position r[3]={0,0,0}
+      input SI.Position r[3]={0,0,0}
         "Position vector from origin of world frame to origin of vector frame, resolved in world frame" annotation(Dialog);
       input Real coordinates[3]={0,0,0}
         "Coordinates of the vector resolved in vector frame" annotation(Dialog);
@@ -79,7 +79,7 @@ This model is documented at
       input Frames.Orientation R=Frames.nullRotation()
         "Orientation object to rotate the world frame into the surface frame"
         annotation(Dialog(group="Surface frame"));
-      input Modelica.SIunits.Position r_0[3]={0,0,0}
+      input SI.Position r_0[3]={0,0,0}
         "Position vector from origin of world frame to origin of surface frame, resolved in world frame"
         annotation(Dialog(group="Surface frame"));
 

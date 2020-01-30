@@ -1,7 +1,7 @@
 within Modelica.Thermal.HeatTransfer.Examples;
 model TwoMasses "Simple conduction demo"
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Temperature T_final_K(fixed=false)
+  parameter SI.Temperature T_final_K(fixed=false)
     "Projected final temperature";
   HeatTransfer.Components.HeatCapacitor mass1(C=15, T(start=373.15, fixed=true))
     annotation (Placement(transformation(extent={{-100,20},{-40,80}})));

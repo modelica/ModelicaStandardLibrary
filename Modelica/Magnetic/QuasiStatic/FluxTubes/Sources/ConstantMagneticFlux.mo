@@ -2,10 +2,10 @@ within Modelica.Magnetic.QuasiStatic.FluxTubes.Sources;
 model ConstantMagneticFlux "Source of constant magnetic flux"
 
   extends FluxTubes.Interfaces.Source;
-  parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
-  Modelica.SIunits.ComplexMagneticPotentialDifference V_m
+  parameter SI.Frequency f(start=1) "Frequency of the source";
+  SI.ComplexMagneticPotentialDifference V_m
   "Magnetic potential difference between both ports";
-  parameter Modelica.SIunits.ComplexMagneticFlux Phi=Complex(1,0)
+  parameter SI.ComplexMagneticFlux Phi=Complex(1,0)
   "Magnetic flux";
 
 equation

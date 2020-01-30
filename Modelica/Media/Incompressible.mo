@@ -69,8 +69,8 @@ package Incompressible
     Medium.SpecificInternalEnergy h=Medium.specificEnthalpy(medium.state);
     Medium.SpecificInternalEnergy d=Medium.density(medium.state);
     protected
-    constant Modelica.SIunits.Time timeUnit = 1;
-    constant Modelica.SIunits.Temperature Ta = 1;
+    constant SI.Time timeUnit = 1;
+    constant SI.Temperature Ta = 1;
   equation
     medium.p = 1.013e5;
     medium.T = Medium.T_min + time/timeUnit*Ta;
@@ -137,9 +137,9 @@ density and heat capacity as functions of temperature.</li>
       "True if enthalpy is approximated as a function of T only, (p-dependence neglected)";
     constant Boolean densityOfT = size(tableDensity,1) > 1
       "True if density is a function of temperature";
-    constant Modelica.SIunits.Temperature T_min
+    constant SI.Temperature T_min
       "Minimum temperature valid for medium model";
-    constant Modelica.SIunits.Temperature T_max
+    constant SI.Temperature T_max
       "Maximum temperature valid for medium model";
     constant Temperature T0=273.15 "Reference Temperature";
     constant SpecificEnthalpy h0=0 "Reference enthalpy at T0, reference_p";
@@ -390,7 +390,7 @@ which is only exactly true for a fluid with constant density d=d0.
     end specificEntropy;
 
     function h_T "Compute specific enthalpy from temperature"
-      import Modelica.SIunits.Conversions.to_degC;
+      import SI.Conversions.to_degC;
       extends Modelica.Icons.Function;
       input SI.Temperature T "Temperature";
       output SI.SpecificEnthalpy h "Specific enthalpy at p, T";
@@ -401,7 +401,7 @@ which is only exactly true for a fluid with constant density d=d0.
     end h_T;
 
     function h_T_der "Compute specific enthalpy from temperature"
-      import Modelica.SIunits.Conversions.to_degC;
+      import SI.Conversions.to_degC;
       extends Modelica.Icons.Function;
       input SI.Temperature T "Temperature";
       input Real dT "Temperature derivative";
@@ -412,7 +412,7 @@ which is only exactly true for a fluid with constant density d=d0.
     end h_T_der;
 
     function h_pT "Compute specific enthalpy from pressure and temperature"
-      import Modelica.SIunits.Conversions.to_degC;
+      import SI.Conversions.to_degC;
       extends Modelica.Icons.Function;
       input SI.Pressure p "Pressure";
       input SI.Temperature T "Temperature";

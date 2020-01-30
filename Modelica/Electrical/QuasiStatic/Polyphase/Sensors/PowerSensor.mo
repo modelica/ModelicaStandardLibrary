@@ -2,7 +2,7 @@ within Modelica.Electrical.QuasiStatic.Polyphase.Sensors;
 model PowerSensor "Power sensor"
   extends Modelica.Icons.RoundSensor;
   parameter Integer m(min=1) = 3 "Number of phases";
-  Modelica.SIunits.AngularVelocity omega=der(currentP.reference.gamma);
+  SI.AngularVelocity omega=der(currentP.reference.gamma);
   Interfaces.PositivePlug currentP(final m=m) annotation (Placement(
         transformation(extent={{-110,-10},{-90,10}})));
   Interfaces.NegativePlug currentN(final m=m) annotation (Placement(
@@ -40,8 +40,8 @@ model PowerSensor "Power sensor"
         extent={{-10,-10},{10,10}},
         rotation=270)));
 
-  Modelica.SIunits.ApparentPower abs_apparentPower=Modelica.ComplexMath.abs(apparentPower) "Magnitude of complex apparent power";
-  Modelica.SIunits.Angle arg_apparentPower=Modelica.ComplexMath.arg(apparentPower) "Argument of complex apparent power";
+  SI.ApparentPower abs_apparentPower=Modelica.ComplexMath.abs(apparentPower) "Magnitude of complex apparent power";
+  SI.Angle arg_apparentPower=Modelica.ComplexMath.arg(apparentPower) "Argument of complex apparent power";
 
 equation
   connect(plugToPinsCurrentP.plug_p, currentP) annotation (Line(points={{-72,
