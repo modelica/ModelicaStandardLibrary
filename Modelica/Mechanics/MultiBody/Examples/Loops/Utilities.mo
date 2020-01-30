@@ -395,9 +395,9 @@ alt=\"model Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2\">
       "Offset of crank pin from center axis";
     parameter SI.Length crankPinLength=0.1
       "Offset of crank pin from center axis";
-    parameter Cv.NonSIunits.Angle_deg cylinderInclinationAngle=0
+    parameter Modelica.Units.Other.Angle_deg cylinderInclinationAngle=0
       "Inclination of cylinder";
-    parameter Cv.NonSIunits.Angle_deg crankAngleOffset=0
+    parameter Modelica.Units.Other.Angle_deg crankAngleOffset=0
       "Offset for crank angle";
     parameter SI.Length pistonLength=0.1 "Length of cylinder"
       annotation (Dialog(group="Piston"));

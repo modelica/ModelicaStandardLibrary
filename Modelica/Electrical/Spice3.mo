@@ -4618,12 +4618,12 @@ on the model behaviour.
         "Bulk junction saturation current per sq-meter of junction area";
        parameter SI.Length TOX=-1e40 "Oxide thickness, default 1e-7";
        parameter Real NSUB=-1e40 "Substrate doping, default 0";
-       parameter SI.Conversions.NonSIunits.PerArea_cm NSS=0.0
+       parameter Modelica.Units.Other.PerArea_cm NSS=0.0
         "Surface state density";
        parameter Real TPG=1.0
         "Type of gate material: +1 opp. to substrate, -1 same as substrate, 0 Al gate";
        parameter SI.Length LD=0.0 "Lateral diffusion";
-       parameter SI.Conversions.NonSIunits.Area_cmPerVoltageSecond UO=600
+       parameter Modelica.Units.Other.Area_cmPerVoltageSecond UO=600
         "Surface mobility";
        parameter Real KF=0 "Flicker noise coefficient";
        parameter Real AF=1.0 "Flicker noise exponent";
@@ -4843,7 +4843,7 @@ on the model behaviour.
        extends Modelica.Icons.Record;
      extends Spice3.Internal.ModelcardMOS(MJSW=0.33);
 
-       parameter SI.Conversions.NonSIunits.PerArea_cm NFS=0.0
+       parameter Modelica.Units.Other.PerArea_cm NFS=0.0
         "Fast surface state density";
        parameter SI.Length XJ=0.0 "Metallurgical junction depth";
        parameter Types.ElectricFieldStrength_cm UCRIT=1e4
@@ -6541,13 +6541,13 @@ This function mosfetRenameParametersDev assigns the external (given by the user)
          Real m_substrateDoping(start = 0.0) "NSUB, Substrate doping";
          Real m_substrateDopingIsGiven "Substrate doping IsGivenValue";
          Real m_gateType(start = 1.0) "TPG, Gate type";
-         SI.Conversions.NonSIunits.PerArea_cm
+         Modelica.Units.Other.PerArea_cm
           m_surfaceStateDensity(start = 0.0) "NSS, Gate type";
          //-----------------obsolete--------------------------------------------
          Real m_surfaceStateDensityIsGiven(start=0)
           "surfaceStateDensityIsGivenValue";
          //---------------------------------------------------------------------
-         SI.Conversions.NonSIunits.Area_cmPerVoltageSecond
+         Modelica.Units.Other.Area_cmPerVoltageSecond
           m_surfaceMobility( start = 600.0) "UO, Surface mobility";
          SI.Length m_latDiff(             start = 0.0) "LD, Lateral diffusion";
          SI.Current m_jctSatCur(           start = 1.0e-14)
@@ -6586,7 +6586,7 @@ This function mosfetRenameParametersDev assigns the external (given by the user)
         extends Spice3.Internal.Mosfet.MosfetCalc;
 
         SI.Transconductance m_tTransconductance(start=0.);
-        SI.Conversions.NonSIunits.Area_cmPerVoltageSecond m_tSurfMob( start = 0.);
+        Modelica.Units.Other.Area_cmPerVoltageSecond m_tSurfMob( start = 0.);
         SI.Voltage m_tPhi(start=0.7);
         SI.Voltage m_tVto(start=1.);
         SI.CurrentDensity m_tSatCurDens( start = 0.);
@@ -7857,7 +7857,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         SI.Length m_junctionDepth( start = 0.0) "XJ, Junction depth";
         SI.Charge m_channelCharge( start = 1.0)
           "NEFF, Total channel charge coeff";
-        SI.Conversions.NonSIunits.PerArea_cm m_fastSurfaceStateDensity( start = 0.0)
+        Modelica.Units.Other.PerArea_cm m_fastSurfaceStateDensity( start = 0.0)
           "NFS, Fast surface state density";
         Real m_xd; // unit m/V(-0.5) -> m/Wurzel V
         annotation (Documentation(info="<html>

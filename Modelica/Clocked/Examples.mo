@@ -1664,12 +1664,11 @@ to beeing satisfied, i.e., the state when the clock last ticked.
         extends Modelica.Icons.Package;
         block ThrottleBody "Basic throttle body equations"
           extends Modelica.Blocks.Icons.Block;
-          import Modelica.SIunits.Conversions.NonSIunits;
 
-        parameter NonSIunits.Pressure_bar P_0 = 1 "Atmospheric pressure (bar)";
+        parameter Modelica.Units.Other.Pressure_bar P_0 = 1 "Atmospheric pressure (bar)";
         protected
           Real m_ai(start=0, fixed=true, unit="g") "Mass";
-          NonSIunits.Angle_deg f_Theta "Auxiliary variable";
+          Modelica.Units.Other.Angle_deg f_Theta "Auxiliary variable";
           Real g_Pm "Auxiliary variable";
         public
           Modelica.Blocks.Interfaces.RealInput Theta(unit="deg") "Throttle angle (deg)"
@@ -1704,10 +1703,10 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
 
         block IntakeManifold "Dynamics of the intake manifold"
           extends Modelica.Blocks.Icons.Block;
-          import Modelica.SIunits.Conversions.NonSIunits;
+
           parameter Real RTVmRatio = 0.41328
             "RT/V_m";
-          parameter NonSIunits.Pressure_bar P_0 = 0.543
+          parameter Modelica.Units.Other.Pressure_bar P_0 = 0.543
             "Initial value for P_m, (bar)";
           Modelica.Blocks.Interfaces.RealInput m_ai_der(unit="g/s")
             "Mass flow rate of air into manifold (g/s)"
@@ -1748,7 +1747,7 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
 
         block SpeedControl
           "Discrete control of crankshaft speed by throttle actuation"
-          import Modelica.SIunits.Conversions.NonSIunits;
+
           parameter Real k_p = 0.0614 "Proportional gain";
           parameter Real k_I = 0.0723 "Integral gain";
           Modelica.Blocks.Interfaces.RealInput N_des(unit="rad/s") "Desired speed, (rad/s)" annotation (Placement(transformation(extent={{-140,20},{-100,60}})));
@@ -1756,7 +1755,7 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
           Modelica.Blocks.Interfaces.RealOutput Theta(start=8.9, unit="deg")
             "Throttle angle (deg)" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
         protected
-          NonSIunits.Angle_deg x_d(start=8.973, fixed=true);
+          Modelica.Units.Other.Angle_deg x_d(start=8.973, fixed=true);
         /*
 initial equation
   N_des = pre(N_des);

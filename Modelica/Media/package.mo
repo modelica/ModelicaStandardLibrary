@@ -1204,9 +1204,9 @@ following structure:</p>
     <strong>extends</strong> BasePropertiesRecord;
     ThermodynamicState state;
     <strong>parameter</strong> Boolean preferredMediumStates=false;
-    SI.Conversions.NonSIunits.Temperature_degC T_degC =
+    Modelica.Units.Other.Temperature_degC T_degC =
        Modelica.SIunits.Conversions.to_degC(T)
-    SI.Conversions.NonSIunits.Pressure_bar p_bar =
+    Modelica.Units.Other.Pressure_bar p_bar =
        Modelica.SIunits.Conversions.to_bar(p)
   <strong>equation</strong>
     Xi = X[1:nXi];
@@ -3995,10 +3995,10 @@ Modelica source.
         annotation (Evaluate=true, Dialog(tab="Advanced"));
       parameter Boolean standardOrderComponents=true
         "If true, and reducedX = true, the last element of X will be computed from the other ones";
-      SI.Conversions.NonSIunits.Temperature_degC T_degC=
+      Modelica.Units.Other.Temperature_degC T_degC=
           Modelica.SIunits.Conversions.to_degC(T)
         "Temperature of medium in [degC]";
-      SI.Conversions.NonSIunits.Pressure_bar p_bar=
+      Modelica.Units.Other.Pressure_bar p_bar=
           Modelica.SIunits.Conversions.to_bar(p)
         "Absolute pressure of medium in [bar]";
 

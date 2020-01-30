@@ -292,7 +292,7 @@ the animation may be switched off via parameter animation = <strong>false</stron
       "Axis of rotation in frame_a (= same as in frame_b)" annotation (
         Evaluate=true, Dialog(group="if rotationType = RotationAxis", enable=
             rotationType == Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis));
-    parameter Cv.NonSIunits.Angle_deg angle=0
+    parameter Modelica.Units.Other.Angle_deg angle=0
       "Angle to rotate frame_a around axis n into frame_b" annotation (Dialog(
           group="if rotationType = RotationAxis", enable=rotationType ==
             Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis));
@@ -311,7 +311,7 @@ the animation may be switched off via parameter animation = <strong>false</stron
       max={3,3,3}) = {1,2,3} "Sequence of rotations" annotation (Evaluate=true,
         Dialog(group="if rotationType = PlanarRotationSequence", enable=
             rotationType == Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence));
-    parameter Cv.NonSIunits.Angle_deg angles[3]={0,0,0}
+    parameter Modelica.Units.Other.Angle_deg angles[3]={0,0,0}
       "Rotation angles around the axes defined in 'sequence'" annotation (
         Dialog(group="if rotationType = PlanarRotationSequence", enable=
             rotationType == Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence));
@@ -1436,7 +1436,7 @@ states and of the \"Advanced\" menu parameters, see model
   model BodyCylinder
     "Rigid body with cylinder shape. Mass and animation properties are computed from cylinder data and density (12 potential states)"
 
-    import NonSI = Modelica.SIunits.Conversions.NonSIunits;
+    import NonSI = Modelica.Units.Other;
     import Modelica.Mechanics.MultiBody.Types;
     import Modelica.Math.Vectors.normalizeWithAssert;
     import Modelica.SIunits.Conversions.to_unit1;

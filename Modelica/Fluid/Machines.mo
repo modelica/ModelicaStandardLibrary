@@ -129,7 +129,7 @@ package Machines
 
   model ControlledPump
     "Centrifugal pump with ideally controlled mass flow rate"
-    import Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm;
+    import Modelica.Units.Other.AngularVelocity_rpm;
     extends Modelica.Fluid.Machines.BaseClasses.PartialPump(
       N_nominal=1500,
       N(start=N_nominal),
@@ -236,7 +236,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
     extends Modelica.Fluid.Machines.BaseClasses.PartialPump;
     parameter Boolean use_N_in = false
       "Get the rotational speed from the input connector";
-    parameter Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm
+    parameter Modelica.Units.Other.AngularVelocity_rpm
       N_const =                                                                     N_nominal
       "Constant rotational speed" annotation(Dialog(enable = not use_N_in));
     Modelica.Blocks.Interfaces.RealInput N_in(unit="rev/min") if use_N_in
@@ -287,7 +287,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
     extends Modelica.Icons.BasesPackage;
 
   partial model PartialPump "Base model for centrifugal pumps"
-      import NonSI = Modelica.SIunits.Conversions.NonSIunits;
+      import NonSI = Modelica.Units.Other;
       import Modelica.Constants;
 
     extends Modelica.Fluid.Interfaces.PartialTwoPort(
@@ -560,7 +560,7 @@ provided a two-phase medium model is used (see Advanced tab).
 
   package PumpCharacteristics "Functions for pump characteristics"
     extends Modelica.Icons.Package;
-    import NonSI = Modelica.SIunits.Conversions.NonSIunits;
+    import NonSI = Modelica.Units.Other;
 
     partial function baseFlow "Base class for pump flow characteristics"
       extends Modelica.Icons.Function;

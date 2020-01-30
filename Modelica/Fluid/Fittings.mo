@@ -424,7 +424,7 @@ end SimpleGenericOrifice;
 
 model SharpEdgedOrifice
     "Pressure drop due to sharp edged orifice (for both flow directions)"
-    import NonSI = Modelica.SIunits.Conversions.NonSIunits;
+    import NonSI = Modelica.Units.Other;
   extends BaseClasses.QuadraticTurbulent.BaseModel(final data=
           BaseClasses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice(
           diameter,
@@ -1037,7 +1037,7 @@ A_a &gt; A_b (Idelchik 1994, diagram 4-9, p. 216 and diagram 4-10, p. 217)
 
        encapsulated function sharpEdgedOrifice
           "Return pressure loss data for sharp edged orifice (for both flow directions)"
-          import NonSI = Modelica.SIunits.Conversions.NonSIunits;
+          import NonSI = Modelica.Units.Other;
           import
             Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
           import SI = Modelica.SIunits;

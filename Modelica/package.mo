@@ -2690,7 +2690,7 @@ have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and wi
 <tr><td colspan=\"2\"><strong>Modelica.Icons</strong></td></tr>
 <tr><td>Library<br>Library2<br>GearIcon<br>MotorIcon<br>Info</td>
     <td>Use (substitute) icons from Modelica.Icons, Modelica.Mechanics.Rotational.Icons or Modelica.Electrical.Machines.Icons instead.</td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.SIunits.Conversions.NonSIunits</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Units.Other</strong></td></tr>
 <tr><td>FirstOrderTemperaturCoefficient<br>SecondOrderTemperaturCoefficient</td>
     <td>Use Modelica.SIunits.LinearTemperatureCoefficientResistance or Modelica.SIunits.QuadraticTemperatureCoefficientResistance instead.</td></tr>
 </table>
@@ -5589,8 +5589,8 @@ should be automatic):
           <td> Moved package <code>Machines.Examples.Utilities</code> to <code>Machines.Utilities</code></td></tr>
 <tr><td> </td>
           <td> Removed all nonSIunits; especially in DCMachines<br>
-                                                parameter NonSIunits.AngularVelocity_rpm rpmNominal was replaced by<br>
-                                                parameter SIunits.AngularVelocity wNominal</td></tr>
+                                                parameter Modelica.Units.Other.AngularVelocity_rpm rpmNominal was replaced by<br>
+                                                parameter Modelica.Units.SI.AngularVelocity wNominal</td></tr>
 <tr><td> </td>
           <td> Changed the following component variable and parameter names to be more concise:<br>
                                                 Removed suffix \"DamperCage\" from all synchronous machines
@@ -5807,7 +5807,7 @@ should be automatic):
 <tr><td colspan=\"2\"><strong>SIunits.</strong></td></tr>
 <tr><td> CelsiusTemperature </td>
           <td> Removed, since no SI unit. The conversion script changes references to
-                                                SIunits.Conversions.NonSIunits.Temperature_degC </td></tr>
+                                                Units.Other.Temperature_degC </td></tr>
 <tr><td> ThermodynamicTemperature<br>
                                                 TemperatureDifference</td>
           <td> Added annotation \"absoluteValue=true/false\"
@@ -5815,7 +5815,7 @@ should be automatic):
                                                 (the unit checker needs to know for a unit that has an offset,
                                                 whether it is used as absolute or as a relative number)</td></tr>
 
-<tr><td colspan=\"2\"><strong>SIunits.Conversions.NonSIunits.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Units.Other.</strong></td></tr>
 <tr><td> Temperature_degC<br>
                                                 Temperature_degF<br>
                                                 Temperature_degRk </td>
@@ -6840,7 +6840,7 @@ units are wrong or errors in documentation):
 <tr><td> GasForce</td>
           <td> Wrong units corrected:
                    \"SIunitsPosition x,y\" to \"Real x,y\";
-           \"SIunits.Pressure press\" to \"SIunits.Conversions.NonSIunits.Pressure_bar\"
+           \"SIunits.Pressure press\" to \"Units.Other.Pressure_bar\"
            </td>
 </tr>
 <tr><td> GasForce2</td>

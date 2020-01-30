@@ -5,7 +5,7 @@ package Utilities
   function theoreticalNormalGravityWGS84
     "WGS84 normal gravity over earth ellipsoid in negative y-direction"
      extends Modelica.Mechanics.MultiBody.Interfaces.partialGravityAcceleration;
-    input Modelica.SIunits.Conversions.NonSIunits.Angle_deg phi
+    input Modelica.Units.Other.Angle_deg phi
       "Geodetic latitude" annotation(Dialog);
   protected
     constant Modelica.SIunits.Position a = 6378137.0

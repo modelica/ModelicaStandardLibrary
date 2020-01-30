@@ -1,7 +1,7 @@
 within Modelica.Thermal.HeatTransfer.Rankine;
 model FixedTemperature "Fixed temperature boundary condition in degRankine"
   extends HeatTransfer.Icons.FixedTemperature;
-  parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degRk T
+  parameter Modelica.Units.Other.Temperature_degRk T
     "Fixed Temperature at the port";
   Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
             90,-10},{110,10}})));
