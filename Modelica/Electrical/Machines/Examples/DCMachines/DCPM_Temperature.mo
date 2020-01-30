@@ -5,7 +5,7 @@ model DCPM_Temperature
   parameter SI.Voltage Va=100 "Actual armature voltage";
   parameter SI.Voltage Ve=100 "Actual excitation voltage";
   parameter SI.AngularVelocity w0=
-      SI.Conversions.from_rpm(1500) "No-load speed";
+      Modelica.Units.Conversions.from_rpm(1500) "No-load speed";
   parameter SI.Torque TLoad=63.66 "Nominal load torque";
   parameter SI.Inertia JLoad=0.15
     "Load's moment of inertia";

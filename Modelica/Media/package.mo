@@ -1175,7 +1175,7 @@ following structure:</p>
   <strong>constant</strong> AbsolutePressure reference_p = 101325;
   <strong>constant</strong> MassFraction     reference_X[nX]=fill(1/nX,nX);
   <strong>constant</strong> AbsolutePressure p_default = 101325;
-  <strong>constant</strong> Temperature      T_default = SI.Conversions.from_degC(20);
+  <strong>constant</strong> Temperature      T_default = Modelica.Units.Conversions.from_degC(20);
   <strong>constant</strong> SpecificEnthalpy h_default =
                             specificEnthalpy_pTX(p_default, T_default, X_default);
   <strong>constant</strong> MassFraction     X_default[nX]=reference_X;
@@ -1204,9 +1204,9 @@ following structure:</p>
     ThermodynamicState state;
     <strong>parameter</strong> Boolean preferredMediumStates=false;
     Modelica.Units.Other.Temperature_degC T_degC =
-       SI.Conversions.to_degC(T)
+       Modelica.Units.Conversions.to_degC(T)
     Modelica.Units.Other.Pressure_bar p_bar =
-       SI.Conversions.to_bar(p)
+       Modelica.Units.Conversions.to_bar(p)
   <strong>equation</strong>
     Xi = X[1:nXi];
     <strong>if</strong> nX > 1 <strong>then</strong>
@@ -3279,7 +3279,7 @@ equation in one unknown with function <a href=\"modelica://Modelica.Math.Nonline
           annotation (Evaluate=true, Dialog(group=
                 "Initial temperature or initial specific enthalpy"));
         parameter Medium.Temperature T_start=
-            SI.Conversions.from_degC(20) "Initial temperature"
+            Modelica.Units.Conversions.from_degC(20) "Initial temperature"
           annotation (Dialog(group=
                 "Initial temperature or initial specific enthalpy", enable=
                 use_T_start));
@@ -3365,7 +3365,7 @@ transport.
           annotation (Evaluate=true, Dialog(group=
                 "Ambient temperature or ambient specific enthalpy"));
         parameter Medium.Temperature T_ambient=
-            SI.Conversions.from_degC(20) "Ambient temperature"
+            Modelica.Units.Conversions.from_degC(20) "Ambient temperature"
           annotation (Dialog(group=
                 "Ambient temperature or ambient specific enthalpy", enable=
                 use_T_ambient));
@@ -3451,7 +3451,7 @@ transport.
           annotation (Evaluate=true, Dialog(group=
                 "Ambient temperature or ambient specific enthalpy"));
         parameter Medium.Temperature T_ambient=
-            SI.Conversions.from_degC(20) "Ambient temperature"
+            Modelica.Units.Conversions.from_degC(20) "Ambient temperature"
           annotation (Dialog(group=
                 "Ambient temperature or ambient specific enthalpy", enable=
                 use_T_ambient));
@@ -3942,7 +3942,7 @@ Modelica source.
       "Default mass fractions of medium";
     constant AbsolutePressure p_default=101325
       "Default value for pressure of medium (for initialization)";
-    constant Temperature T_default=SI.Conversions.from_degC(20)
+    constant Temperature T_default=Modelica.Units.Conversions.from_degC(20)
       "Default value for temperature of medium (for initialization)";
     constant SpecificEnthalpy h_default=specificEnthalpy_pTX(
             p_default,
@@ -3993,10 +3993,10 @@ Modelica source.
       parameter Boolean standardOrderComponents=true
         "If true, and reducedX = true, the last element of X will be computed from the other ones";
       Modelica.Units.Other.Temperature_degC T_degC=
-          SI.Conversions.to_degC(T)
+          Modelica.Units.Conversions.to_degC(T)
         "Temperature of medium in [degC]";
       Modelica.Units.Other.Pressure_bar p_bar=
-          SI.Conversions.to_bar(p)
+          Modelica.Units.Conversions.to_bar(p)
         "Absolute pressure of medium in [bar]";
 
       // Local connector definition, used for equation balancing check

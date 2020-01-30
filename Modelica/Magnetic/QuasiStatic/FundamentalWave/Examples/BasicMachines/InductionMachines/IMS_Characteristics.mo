@@ -10,7 +10,7 @@ model IMS_Characteristics "Characteristic curves of induction machine with slip 
   parameter SI.Resistance Rr=0.16/imsData.turnsRatio^2 "Starting resistance";
   parameter Integer p=imsData.p "Number of pole pairs";
   parameter SI.AngularVelocity w_Load(displayUnit="rev/min")=
-       SI.Conversions.from_rpm(1440.45)
+       Modelica.Units.Conversions.from_rpm(1440.45)
     "Nominal load speed";
   Real speedPerUnit = p*imsQS.wMechanical/(2*pi*fNominal) "Per unit speed";
   Real slip = 1-speedPerUnit "Slip";

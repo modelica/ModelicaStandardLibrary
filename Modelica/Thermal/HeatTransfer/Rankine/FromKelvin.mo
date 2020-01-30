@@ -6,7 +6,7 @@ model FromKelvin "Conversion from Kelvin to degree Rankine"
   Modelica.Blocks.Interfaces.RealOutput Rankine(unit="degRk")
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 equation
-  Rankine = SI.Conversions.to_degRk(Kelvin);
+  Rankine = Modelica.Units.Conversions.to_degRk(Kelvin);
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={

@@ -5,7 +5,7 @@ package Parts
 
   model Fixed "Frame fixed in the world frame at a given position"
     import Modelica.Mechanics.MultiBody.Types;
-    import SI.Conversions.to_unit1;
+    import Modelica.Units.Conversions.to_unit1;
 
     Interfaces.Frame_b frame_b "Coordinate system fixed in the world frame"
       annotation (Placement(transformation(extent={{84,-16},{116,16}})));
@@ -134,7 +134,7 @@ animation = <strong>false</strong>.
 
   model FixedTranslation "Fixed translation of frame_b with respect to frame_a"
     import Modelica.Mechanics.MultiBody.Types;
-    import SI.Conversions.to_unit1;
+    import Modelica.Units.Conversions.to_unit1;
 
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
@@ -273,7 +273,7 @@ the animation may be switched off via parameter animation = <strong>false</stron
     "Fixed translation followed by a fixed rotation of frame_b with respect to frame_a"
 
     import Modelica.Mechanics.MultiBody.Frames;
-    import SI.Conversions.to_unit1;
+    import Modelica.Units.Conversions.to_unit1;
 
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
@@ -520,7 +520,7 @@ the animation may be switched off via parameter animation = <strong>false</stron
 
     import Modelica.Mechanics.MultiBody.Types;
     import Modelica.Mechanics.MultiBody.Frames;
-    import SI.Conversions.to_unit1;
+    import Modelica.Units.Conversions.to_unit1;
 
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
       "Coordinate system fixed at body" annotation (Placement(transformation(
@@ -888,7 +888,7 @@ to the setting of parameters \"useQuaternions\" and
     "Rigid body with mass, inertia tensor, different shapes for animation, and two frame connectors (12 potential states)"
 
     import Modelica.Mechanics.MultiBody.Types;
-    import SI.Conversions.to_unit1;
+    import Modelica.Units.Conversions.to_unit1;
 
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
@@ -1209,7 +1209,7 @@ states and of the \"Advanced\" menu parameters, see model
 
     import Modelica.Mechanics.MultiBody.Types;
     import Modelica.Math.Vectors.normalizeWithAssert;
-    import SI.Conversions.to_unit1;
+    import Modelica.Units.Conversions.to_unit1;
 
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
@@ -1439,7 +1439,7 @@ states and of the \"Advanced\" menu parameters, see model
     import NonSI = Modelica.Units.Other;
     import Modelica.Mechanics.MultiBody.Types;
     import Modelica.Math.Vectors.normalizeWithAssert;
-    import SI.Conversions.to_unit1;
+    import Modelica.Units.Conversions.to_unit1;
     import Modelica.Constants.pi;
 
     Interfaces.Frame_a frame_a

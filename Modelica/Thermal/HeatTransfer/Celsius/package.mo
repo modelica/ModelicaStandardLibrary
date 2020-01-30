@@ -16,7 +16,7 @@ of units at all places where Kelvin is required as parameter.
 Example:
 </p>
 <blockquote><pre>
-<strong>import</strong> SI.Conversions.from_degC;
+<strong>import</strong> Modelica.Units.Conversions.from_degC;
 Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degC(20));
 </pre></blockquote>
 </html>"));

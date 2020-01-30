@@ -495,7 +495,7 @@ This leads to the following animation
 
   model Force
     "Force acting between two frames, defined by 3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve"
-    import SI.Conversions.to_unit1;
+    import Modelica.Units.Conversions.to_unit1;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     Interfaces.Frame_resolve frame_resolve if
          resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
@@ -673,7 +673,7 @@ clarity this is not shown in the animation):
 
   model Torque
     "Torque acting between two frames, defined by 3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve"
-    import SI.Conversions.to_unit1;
+    import Modelica.Units.Conversions.to_unit1;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     Interfaces.Frame_resolve frame_resolve if
          resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
@@ -854,7 +854,7 @@ clarity this is not shown in the animation):
     "Force and torque acting between two frames, defined by 3+3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve"
 
     import Modelica.Mechanics.MultiBody.Types;
-    import SI.Conversions.to_unit1;
+    import Modelica.Units.Conversions.to_unit1;
 
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
 

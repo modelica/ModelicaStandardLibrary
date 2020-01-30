@@ -35,7 +35,7 @@ package Utilities
     Real ha(unit="1") "h/a";
   algorithm
     h := r[2];
-    sinphi2 :=Modelica.Math.sin(SI.Conversions.from_deg(phi))^2;
+    sinphi2 :=Modelica.Math.sin(Modelica.Units.Conversions.from_deg(phi))^2;
     gn := g_e*(1 + k*sinphi2)/sqrt(1 - e2*sinphi2);
     ha := h/a;
     gh := gn*(1 - ha*(2*(1+f+m-2*f*sinphi2)+3*ha));

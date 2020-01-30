@@ -13,7 +13,7 @@ model IMS_Start
     "Time of shortening the rheostat";
   parameter SI.Torque T_Load=161.4 "Nominal load torque";
   parameter SI.AngularVelocity w_Load(displayUnit="rev/min")=
-       SI.Conversions.from_rpm(1440.45)
+       Modelica.Units.Conversions.from_rpm(1440.45)
     "Nominal load speed";
   parameter SI.Inertia J_Load=0.29 "Load inertia";
   Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(

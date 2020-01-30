@@ -4950,7 +4950,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td> ElectricalForceConstant </td>
     <td> New type added (#190).</td></tr>
 
-<tr><td colspan=\"2\"><strong>Modelica.SIunits.Conversions.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Conversions.</strong></td></tr>
 <tr><td> from_Hz<br>
                       to_Hz</td>
     <td> New functions to convert between frequency [Hz] and

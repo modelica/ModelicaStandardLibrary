@@ -4,9 +4,9 @@ model IMC_withLosses
   extends Modelica.Icons.Example;
   constant Integer m=3 "Number of phases";
   import Modelica.Constants.pi;
-  import SI.Conversions.from_rpm;
-  import SI.Conversions.to_rpm;
-  import SI.Conversions.from_degC;
+  import Modelica.Units.Conversions.from_rpm;
+  import Modelica.Units.Conversions.to_rpm;
+  import Modelica.Units.Conversions.from_degC;
 protected
   parameter SI.Power PNominal=18500 "Nominal output";
   parameter SI.Voltage VNominal=400 "Nominal RMS voltage";

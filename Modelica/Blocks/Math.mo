@@ -16,7 +16,7 @@ package Math "Library of Real mathematical functions as input/output blocks"
             unit="degC"));
 
     equation
-      y = SI.Conversions.to_degC(u);
+      y = Modelica.Units.Conversions.to_degC(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -34,7 +34,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degC"),
           y(unit="K"));
     equation
-      y = SI.Conversions.from_degC(u);
+      y = Modelica.Units.Conversions.from_degC(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -52,7 +52,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degF"));
     equation
-      y = SI.Conversions.to_degF(u);
+      y = Modelica.Units.Conversions.to_degF(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -70,7 +70,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degF"),
           y(unit="K"));
     equation
-      y = SI.Conversions.from_degF(u);
+      y = Modelica.Units.Conversions.from_degF(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -88,7 +88,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degRk"));
     equation
-      y = SI.Conversions.to_degRk(u);
+      y = Modelica.Units.Conversions.to_degRk(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -106,7 +106,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degRk"),
           y(unit="K"));
     equation
-      y = SI.Conversions.from_degRk(u);
+      y = Modelica.Units.Conversions.from_degRk(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -124,7 +124,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="rad"),
           y(unit="deg"));
     equation
-      y = SI.Conversions.to_deg(u);
+      y = Modelica.Units.Conversions.to_deg(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -142,7 +142,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="deg"),
           y(unit="rad"));
     equation
-      y = SI.Conversions.from_deg(u);
+      y = Modelica.Units.Conversions.from_deg(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -160,7 +160,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="rad/s"),
           y(unit="rev/min"));
     equation
-      y = SI.Conversions.to_rpm(u);
+      y = Modelica.Units.Conversions.to_rpm(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{26,82},{-98,50}},
@@ -178,7 +178,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="rev/min"),
           y(unit="rad/s"));
     equation
-      y = SI.Conversions.from_rpm(u);
+      y = Modelica.Units.Conversions.from_rpm(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{50,84},{-94,56}},
@@ -196,7 +196,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="m/s"),
           y(unit="km/h"));
     equation
-      y = SI.Conversions.to_kmh(u);
+      y = Modelica.Units.Conversions.to_kmh(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{0,82},{-96,42}},
@@ -214,7 +214,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="km/h"),
           y(unit="m/s"));
     equation
-      y = SI.Conversions.from_kmh(u);
+      y = Modelica.Units.Conversions.from_kmh(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{26,80},{-96,48}},
@@ -232,7 +232,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="s"), y(
             unit="d"));
     equation
-      y = SI.Conversions.to_day(u);
+      y = Modelica.Units.Conversions.to_day(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -250,7 +250,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="d"), y(
             unit="s"));
     equation
-      y = SI.Conversions.from_day(u);
+      y = Modelica.Units.Conversions.from_day(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -268,7 +268,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="s"), y(
             unit="h"));
     equation
-      y = SI.Conversions.to_hour(u);
+      y = Modelica.Units.Conversions.to_hour(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -286,7 +286,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="h"), y(
             unit="s"));
     equation
-      y = SI.Conversions.from_hour(u);
+      y = Modelica.Units.Conversions.from_hour(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -304,7 +304,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="s"), y(
             unit="min"));
     equation
-      y = SI.Conversions.to_minute(u);
+      y = Modelica.Units.Conversions.to_minute(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -322,7 +322,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="min"),
           y(unit="s"));
     equation
-      y = SI.Conversions.from_minute(u);
+      y = Modelica.Units.Conversions.from_minute(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -340,7 +340,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="m3"), y(
             unit="l"));
     equation
-      y = SI.Conversions.to_litre(u);
+      y = Modelica.Units.Conversions.to_litre(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -358,7 +358,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="l"), y(
             unit="m3"));
     equation
-      y = SI.Conversions.from_litre(u);
+      y = Modelica.Units.Conversions.from_litre(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -376,7 +376,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="J"), y(
             unit="kW.h"));
     equation
-      y = SI.Conversions.to_kWh(u);
+      y = Modelica.Units.Conversions.to_kWh(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -394,7 +394,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="kW.h"),
           y(unit="J"));
     equation
-      y = SI.Conversions.from_kWh(u);
+      y = Modelica.Units.Conversions.from_kWh(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -412,7 +412,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="Pa"), y(
             unit="bar"));
     equation
-      y = SI.Conversions.to_bar(u);
+      y = Modelica.Units.Conversions.to_bar(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -430,7 +430,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="bar"),
           y(unit="Pa"));
     equation
-      y = SI.Conversions.from_bar(u);
+      y = Modelica.Units.Conversions.from_bar(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -448,7 +448,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="kg/s"),
           y(unit="g/s"));
     equation
-      y = SI.Conversions.to_gps(u);
+      y = Modelica.Units.Conversions.to_gps(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -466,7 +466,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="g/s"),
           y(unit="kg/s"));
     equation
-      y = SI.Conversions.from_gps(u);
+      y = Modelica.Units.Conversions.from_gps(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},

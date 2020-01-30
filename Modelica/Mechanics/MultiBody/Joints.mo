@@ -5728,7 +5728,7 @@ component).
       "Planar revolute - revolute - revolute joint aggregation (no constraints, no potential states)"
 
       import Modelica.Mechanics.MultiBody.Types;
-      import SI.Conversions.to_unit1;
+      import Modelica.Units.Conversions.to_unit1;
 
       extends Interfaces.PartialTwoFramesDoubleSize;
 
@@ -6037,7 +6037,7 @@ are connected by rigid rods.
       "Planar revolute - revolute - prismatic joint aggregation (no constraints, no potential states)"
 
       import Modelica.Mechanics.MultiBody.Types;
-      import SI.Conversions.to_unit1;
+      import Modelica.Units.Conversions.to_unit1;
 
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia

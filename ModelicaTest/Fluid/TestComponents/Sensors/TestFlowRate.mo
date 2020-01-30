@@ -11,7 +11,7 @@ model TestFlowRate
            {{-100,0},{-80,20}})));
   Modelica.Fluid.Sources.MassFlowSource_T massFlowRate1(nPorts=1,
     use_m_flow_in=true,
-    T=SI.Conversions.from_degC(50),
+    T=Modelica.Units.Conversions.from_degC(50),
     redeclare package Medium = Modelica.Media.Water.StandardWater)
                                     annotation (Placement(transformation(extent=
            {{-60,0},{-40,20}})));

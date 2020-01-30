@@ -193,7 +193,7 @@ definition of the colors used in the MultiBody library together with a color edi
 
     import Modelica.Mechanics.MultiBody.Frames;
     import Modelica.Mechanics.MultiBody.Types;
-    import SI.Conversions.to_unit1;
+    import Modelica.Units.Conversions.to_unit1;
 
     Interfaces.Frame_a frame_a
       "Coordinate system a (all shape definition vectors are resolved in this frame)"
@@ -1834,7 +1834,7 @@ This definition is also available as type
       import Modelica.Mechanics.MultiBody.Types;
       import Modelica.Mechanics.MultiBody.Frames;
       import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
-      import SI.Conversions.to_unit1;
+      import Modelica.Units.Conversions.to_unit1;
 
       input Frames.Orientation R=Frames.nullRotation()
         "Orientation object to rotate the world frame into the arrow frame" annotation(Dialog);
@@ -1924,7 +1924,7 @@ library together with a&nbsp;color editor.
       import Modelica.Mechanics.MultiBody.Types;
       import Modelica.Mechanics.MultiBody.Frames;
       import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
-      import SI.Conversions.to_unit1;
+      import Modelica.Units.Conversions.to_unit1;
 
       input Frames.Orientation R=Frames.nullRotation()
         "Orientation object to rotate the world frame into the arrow frame" annotation(Dialog);

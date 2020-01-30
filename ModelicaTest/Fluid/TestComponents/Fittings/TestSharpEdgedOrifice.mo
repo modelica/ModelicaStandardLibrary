@@ -22,12 +22,12 @@ model TestSharpEdgedOrifice
   Modelica.Fluid.Sources.Boundary_pT ambient_p1(nPorts=1,
     redeclare package Medium = Medium,
     p=1.0e5,
-    T=Modelica.SIunits.Conversions.from_degC(80))
+    T=Modelica.Conversions.from_degC(80))
     annotation (Placement(transformation(extent={{60,40},{40,60}})));
   Modelica.Fluid.Sources.Boundary_pT ambient_p2(nPorts=1,
     redeclare package Medium = Medium,
     p=1.0e5,
-    T=Modelica.SIunits.Conversions.from_degC(80))
+    T=Modelica.Conversions.from_degC(80))
     annotation (Placement(transformation(extent={{60,10},{40,30}})));
   Modelica.Fluid.Fittings.SharpEdgedOrifice orifice1(
     redeclare package Medium = Medium,

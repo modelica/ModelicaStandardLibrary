@@ -19,13 +19,13 @@ model HeatingSystem "Simple model of a heating system"
     redeclare model HeatTransfer =
         Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer (k=10),
     ports(each p(start=1.1e5)),
-    T_start=SI.Conversions.from_degC(20))
+    T_start=Modelica.Units.Conversions.from_degC(20))
               annotation (Placement(transformation(extent={{-80,30},{-60,50}})));
   Machines.ControlledPump pump(
     redeclare package Medium = Medium,
     N_nominal=1500,
     use_T_start=true,
-    T_start=SI.Conversions.from_degC(40),
+    T_start=Modelica.Units.Conversions.from_degC(40),
     m_flow_start=0.01,
     m_flow_nominal=0.01,
     control_m_flow=false,
@@ -69,7 +69,7 @@ public
   Pipes.DynamicPipe heater(
     redeclare package Medium = Medium,
     use_T_start=true,
-    T_start=SI.Conversions.from_degC(80),
+    T_start=Modelica.Units.Conversions.from_degC(80),
     length=2,
     redeclare model HeatTransfer =
         Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer,
@@ -86,7 +86,7 @@ public
     use_T_start=true,
     redeclare package Medium = Medium,
     length=10,
-    T_start=SI.Conversions.from_degC(40),
+    T_start=Modelica.Units.Conversions.from_degC(40),
     redeclare model HeatTransfer =
         Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer,
     diameter=0.01,
@@ -124,7 +124,7 @@ public
   Pipes.DynamicPipe pipe(
     redeclare package Medium = Medium,
     use_T_start=true,
-    T_start=SI.Conversions.from_degC(80),
+    T_start=Modelica.Units.Conversions.from_degC(80),
     redeclare model HeatTransfer =
         Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer,
     diameter=0.01,

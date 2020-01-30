@@ -390,7 +390,7 @@ which is only exactly true for a fluid with constant density d=d0.
     end specificEntropy;
 
     function h_T "Compute specific enthalpy from temperature"
-      import SI.Conversions.to_degC;
+      import Modelica.Units.Conversions.to_degC;
       extends Modelica.Icons.Function;
       input SI.Temperature T "Temperature";
       output SI.SpecificEnthalpy h "Specific enthalpy at p, T";
@@ -401,7 +401,7 @@ which is only exactly true for a fluid with constant density d=d0.
     end h_T;
 
     function h_T_der "Compute specific enthalpy from temperature"
-      import SI.Conversions.to_degC;
+      import Modelica.Units.Conversions.to_degC;
       extends Modelica.Icons.Function;
       input SI.Temperature T "Temperature";
       input Real dT "Temperature derivative";
@@ -412,7 +412,7 @@ which is only exactly true for a fluid with constant density d=d0.
     end h_T_der;
 
     function h_pT "Compute specific enthalpy from pressure and temperature"
-      import SI.Conversions.to_degC;
+      import Modelica.Units.Conversions.to_degC;
       extends Modelica.Icons.Function;
       input SI.Pressure p "Pressure";
       input SI.Temperature T "Temperature";

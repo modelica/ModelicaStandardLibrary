@@ -432,7 +432,7 @@ ns = 5760
     u2   :=u - fill(u_DC, nu);
     (info, A, Phi) :=Internal.rawRealFFT(u2);
     amplitudes :=A[1:nfi];
-    phases :=SI.Conversions.to_deg(Phi[1:nfi]);
+    phases :=Modelica.Units.Conversions.to_deg(Phi[1:nfi]);
     Aeps :=0.0001*max(amplitudes);
     amplitudes[1] :=u_DC;
     phases[1] := 0.0;
@@ -539,7 +539,7 @@ which is a complete example where an FFT is computed during simulation and store
   function realFFTwriteToFile "Write real FFT computation to file"
     extends Modelica.Icons.Function;
      import Modelica.Utilities.Streams.print;
-     import SI.Conversions.to_deg;
+     import Modelica.Units.Conversions.to_deg;
      import Modelica.Utilities.Streams.writeRealMatrix;
      input Real t_computed "Time instant at which the FFT was computed";
      input String fileName

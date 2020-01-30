@@ -1431,7 +1431,7 @@ Default values of the parameters are given for the axis of joint 1.
 
     model MechanicalStructure
       "Model of the mechanical part of the r3 robot (without animation)"
-      import SI.Conversions.to_unit1;
+      import Modelica.Units.Conversions.to_unit1;
 
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter SI.Mass mLoad(min=0)=15 "Mass of load";

@@ -6,7 +6,7 @@ model TemperatureSensor "Absolute temperature sensor in degRankine"
   Interfaces.HeatPort_a port annotation (Placement(
     transformation(extent={{-110,-10},{-90,10}})));
 equation
-  T = SI.Conversions.to_degRk(port.T);
+  T = Modelica.Units.Conversions.to_degRk(port.T);
   port.Q_flow = 0;
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
