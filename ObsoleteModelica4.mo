@@ -1,6 +1,9 @@
 within ;
 package ObsoleteModelica4 "Library that contains components from Modelica Standard Library 3.2.3 that have been removed from version 4.0.0"
   extends Modelica.Icons.Package;
+
+  import Modelica.Units.SI;
+
   package Blocks "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
     extends Modelica.Icons.Package;
     package Interfaces "Library of connectors and partial models for input/output blocks"
