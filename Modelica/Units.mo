@@ -1274,7 +1274,7 @@ Practical Guide to Metrication</strong> (Springer 1997).</p>
     annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-SIunits.Conversions.<strong>to_unit1</strong>(r);
+Modelica.Units.Conversions.<strong>to_unit1</strong>(r);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -1801,7 +1801,7 @@ argument):</p>
           Line(points={{-80,0},{20,0}}, color={191,0,0})}));
   end Conversions;
 
-  package Icons "Icons for SIunits"
+  package Icons "Icons for Units"
     extends Modelica.Icons.IconsPackage;
 
     partial function Conversion "Base icon for conversion functions"

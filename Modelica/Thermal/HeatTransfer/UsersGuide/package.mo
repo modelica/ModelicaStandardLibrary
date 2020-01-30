@@ -48,7 +48,7 @@ Note, that all temperatures of this package, including initial conditions,
 are given in Kelvin. For convenience, in subpackages <strong>HeatTransfer.Celsius</strong>,
  <strong>HeatTransfer.Fahrenheit</strong> and <strong>HeatTransfer.Rankine</strong> components are provided such that source and
 sensor information is available in degree Celsius, degree Fahrenheit, or degree Rankine,
-respectively. Additionally, in package <strong>SIunits.Conversions</strong> conversion
+respectively. Additionally, in package <strong>Modelica.Units.Conversions</strong> conversion
 functions between the units Kelvin and Celsius, Fahrenheit, Rankine are
 provided. These functions may be used in the following way:
 </p>

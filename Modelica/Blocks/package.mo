@@ -1090,7 +1090,7 @@ For example \"Internal.ControlBus\" is defined as:
 <strong>expandable connector</strong> StandardControlBus
   <strong>extends</strong> BusUsage_Utilities.Interfaces.ControlBus;
 
-  <strong>import</strong> SI = Modelica.SIunits;
+  <strong>import</strong> Modelica.Units.SI;
   SI.AngularVelocity    realSignal1   \"First Real signal\";
   SI.Velocity           realSignal2   \"Second Real signal\";
   Integer               integerSignal \"Integer signal\";
@@ -3073,7 +3073,7 @@ replaceable type SignalType = Real
        in order that the type of the signal of an input/output block
        can be changed to a physical type, for example:
 <blockquote><pre>
-Sine sin1(outPort(redeclare type SignalType=Modelica.SIunits.Torque))
+Sine sin1(outPort(redeclare type SignalType=Modelica.Units.SI.Torque))
 </pre></blockquote>
       </li>
 <li><em>Sept. 18, 1999</em>
