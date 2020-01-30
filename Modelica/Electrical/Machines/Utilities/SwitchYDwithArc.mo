@@ -27,7 +27,7 @@ model SwitchYDwithArc "Y-D-switch with arc"
     V0=fill(V0, m),
     dVdt=fill(dVdt, m),
     Vmax=fill(Vmax, m),
-    closerWithArc(off(start=fill(true, m))))
+    closerWithArc(off(start=fill(true, m), fixed=fill(true, m))))
     annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
   Modelica.Blocks.Interfaces.BooleanInput control[m] annotation (Placement(
         transformation(extent={{-120,0},{-100,20}}), iconTransformation(extent={{-140,-20},{-100,20}})));
@@ -38,7 +38,7 @@ model SwitchYDwithArc "Y-D-switch with arc"
     V0=fill(V0, m),
     dVdt=fill(dVdt, m),
     Vmax=fill(Vmax, m),
-    openerWithArc(off(start=fill(true, m))))
+    openerWithArc(off(start=fill(true, m), fixed=fill(true, m))))
     annotation (Placement(transformation(extent={{-60,-50},{-40,-30}})));
   Blocks.Logical.LogicalDelay logicalDelay[m](delayTime=fill(delayTime, m))
     annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
