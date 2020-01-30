@@ -3,7 +3,7 @@ partial record TransientStackRecord "Indicates transient stack data"
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
         Text(
-          lineColor={0,0,255},
+          textColor={0,0,255},
           extent={{-150,60},{150,100}},
           textString="%name"),
         Rectangle(

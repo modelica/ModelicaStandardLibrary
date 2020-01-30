@@ -62,12 +62,12 @@ equation
           fillPattern=FillPattern.Solid),
         Text(
           extent={{-100,42},{100,22}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           horizontalAlignment=TextAlignment.Left,
           textString=" cellBus[Ns,Np].v"),
         Text(
           extent={{-100,-20},{100,-40}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           horizontalAlignment=TextAlignment.Right,
           textString="v[Ns,Np] ")}),   Documentation(info="<html>
 <p>

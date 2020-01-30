@@ -60,7 +60,7 @@ equation
               textString="Phi"),Text(
               extent={{130,102},{147,117}},
           textString="Phi",
-          lineColor={160,160,164}),
+          textColor={160,160,164}),
                                 Line(points={{-152,-100},{-127,-100}}, color={160,160,164}),
                          Polygon(
           points={{-142,-97},{-152,-100},{-142,-103},{-142,-97}},

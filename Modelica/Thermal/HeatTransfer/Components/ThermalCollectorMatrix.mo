@@ -14,11 +14,11 @@ equation
         Text(
           extent={{-150,-30},{150,-70}},
           textString="%name",
-          lineColor={0,0,255}),
+          textColor={0,0,255}),
         Text(
           extent={{-150,80},{150,50}},
           textString="%Ns x %Np",
-          lineColor={0,0,0}),
+          textColor={0,0,0}),
         Line(
           points={{0,90},{0,40}},
           color={181,0,0}),

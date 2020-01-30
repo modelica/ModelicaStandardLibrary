@@ -2067,7 +2067,7 @@ library together with a&nbsp;color editor.
             Text(
               extent={{-150,105},{150,65}},
               textString="%name",
-              lineColor={0,0,255}),
+              textColor={0,0,255}),
             Rectangle(
               extent={{-100,-28},{20,28}},
               fillColor={60,120,180},
