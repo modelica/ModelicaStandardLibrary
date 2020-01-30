@@ -6075,11 +6075,11 @@ Import classes
   <strong>import</strong> SI = Modelica.Units.SI; // #1 (Try to avoid renaming imports!)
   <strong>import</strong> Modelica.Math.*; // #2 (Try to avoid wildcard imports!)
   <strong>import</strong> Modelica.Mechanics.Rotational; // #3
-  <strong>import</strong> Modelica.SIUnits.{Molality, Molarity}; // #4
+  <strong>import</strong> Modelica.Units.SI.{Molality, Molarity}; // #4
 
   SI.Torque torque; // due to #1 (Modelica.Units.SI.Torque)
   Rotational.Components.Inertia inertia; // due to #3 (Modelica.Mechanics.Rotational.Components.Inertia)
-  Molarity c = 1; // due to #4 (Modelica.SIUnits.Molarity)
+  Molarity c = 1; // due to #4 (Modelica.Units.SI.Molarity)
 <strong>equation</strong>
   torque = sin(<strong>time</strong>); // due to #2 (Modelica.Math.sin)
   ...

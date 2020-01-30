@@ -1425,9 +1425,9 @@ Example:
 
 <blockquote><pre>
 <strong>model</strong> SpringDamper
-<strong>parameter</strong> Real c(final unit=\"N.m/rad\")    = 1e5 \"Spring constant\";
-<strong>parameter</strong> Real d(final unit=\"N.m.s/rad\")  = 0   \"Damping constant\";
-<strong>parameter</strong> Modelica.SIunits.Angle phi_rel0 = 0   \"Unstretched spring angle\";
+<strong>parameter</strong> Real c(final unit=\"N.m/rad\") = 1e5    \"Spring constant\";
+<strong>parameter</strong> Real d(final unit=\"N.m.s/rad\") = 0    \"Damping constant\";
+<strong>parameter</strong> Modelica.Units.SI.Angle phi_rel0 = 0  \"Unstretched spring angle\";
 ...
 <strong>end</strong> SpringDamper;
 </pre></blockquote>
@@ -1476,9 +1476,9 @@ following example:
 
 <blockquote><pre>
 <strong>model</strong> SpringDamper
-<strong>parameter</strong> Real c(final unit=\"N.m/rad\"  , start=1e5) \"Spring constant\";
-<strong>parameter</strong> Real d(final unit=\"N.m.s/rad\", start=  0) \"Damping constant\";
-<strong>parameter</strong> Modelica.SIunits.Angle phi_rel0 = 0       \"Unstretched spring angle\";
+<strong>parameter</strong> Real c(final unit=\"N.m/rad\"  , start = 1e5) \"Spring constant\";
+<strong>parameter</strong> Real d(final unit=\"N.m.s/rad\", start = 0)   \"Damping constant\";
+<strong>parameter</strong> Modelica.Units.SI.Angle phi_rel0 = 0        \"Unstretched spring angle\";
 ...
 <strong>end</strong> SpringDamper;
 
@@ -2009,7 +2009,7 @@ In the Modelica Standard Library the following color schemes apply:</p>
     <td></td>
   </tr>
   <tr>
-    <td>Modelica.SIunits</td>
+    <td>Modelica.Units</td>
     <td>none</td>
     <td></td>
   </tr>
