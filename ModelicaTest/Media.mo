@@ -4,7 +4,7 @@ package Media "Test models for Modelica.Media"
   package TestAllProperties
     extends Modelica.Icons.ExamplesPackage;
     model PartialMediumFunctions
-      import SI = SI;
+
       replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
         "Medium model";
       parameter Real eps_h_is=1e-10;
@@ -142,7 +142,7 @@ package Media "Test models for Modelica.Media"
 
     model FlueGasSixComponents
       "A copy of PartialMediumFunctions, but isentropicEnthalpy gets the additional argument exact=true"
-      import SI = SI;
+
       extends Modelica.Icons.Example;
       package Medium =
           Modelica.Media.IdealGases.MixtureGases.FlueGasSixComponents
@@ -281,7 +281,7 @@ package Media "Test models for Modelica.Media"
       extends Modelica.Icons.ExamplesPackage;
 
       model PartialMediumFunctionsForIncompressible
-        import SI = SI;
+
 
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model";
@@ -392,7 +392,7 @@ package Media "Test models for Modelica.Media"
       end PartialMediumFunctionsForIncompressible;
 
       model PartialMediumFunctionsForTwoPhase
-        import SI = SI;
+
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model";
         parameter Real eps_h_is=1e-10;
@@ -502,7 +502,7 @@ package Media "Test models for Modelica.Media"
       end PartialMediumFunctionsForTwoPhase;
 
       model PartialMediumFunctionsForRealCondensingGases
-        import SI = SI;
+
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model";
         parameter Real eps_h_is=1e-10;

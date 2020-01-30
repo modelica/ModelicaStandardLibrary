@@ -1,6 +1,6 @@
 within Modelica;
 package Blocks "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
-  import SI = SI;
+
 
   extends Modelica.Icons.Package;
 
@@ -2129,7 +2129,7 @@ enableNoise = false in the globalSeed component.
     model DrydenContinuousTurbulence
       "Demonstrates how to model wind turbulence for aircraft with the BandLimitedWhiteNoise block (a simple model of vertical Dryden gust speed at low altitudes < 1000 ft)"
       extends Modelica.Icons.Example;
-      import SI = SI;
+
       import Modelica.Constants.pi;
 
       parameter SI.Velocity V =            140 * 0.5144
@@ -2898,7 +2898,7 @@ to utilize the blocks from sublibrary
       expandable connector ControlBus
         "Control bus that is adapted to the signals connected to it"
         extends Modelica.Icons.SignalBus;
-        import SI = SI;
+
         SI.AngularVelocity realSignal1 "First Real signal (angular velocity)"
           annotation (HideResult=false);
         SI.Velocity realSignal2 "Second Real signal"

@@ -1,13 +1,13 @@
 within Modelica.Blocks;
 package Math "Library of Real mathematical functions as input/output blocks"
-  import SI;
+
   import Modelica.Blocks.Interfaces;
   extends Modelica.Icons.Package;
 
   encapsulated package UnitConversions
     "Conversion blocks to convert between SI and non-SI unit signals"
     import Modelica;
-    import SI = SI;
+
     import NonSI = Modelica.Units.Other;
     extends Modelica.Icons.Package;
 

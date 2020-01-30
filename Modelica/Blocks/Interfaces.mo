@@ -1,7 +1,7 @@
 within Modelica.Blocks;
 package Interfaces
   "Library of connectors and partial models for input/output blocks"
-  import SI;
+
   extends Modelica.Icons.InterfacesPackage;
 
   connector RealInput = input Real "'input Real' as connector" annotation (

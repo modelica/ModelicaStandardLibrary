@@ -2,7 +2,7 @@ within Modelica.Media.Air;
   package ReferenceAir
     "ReferenceAir: Detailed dry air model with a large operating range (130 ... 2000 K, 0 ... 2000 MPa) based on Helmholtz equations of state"
     extends Modelica.Icons.VariantsPackage;
-    import SI = SI;
+
 
     constant Modelica.Media.Interfaces.Types.TwoPhase.FluidConstants
       airConstants(

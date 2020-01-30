@@ -1938,7 +1938,7 @@ November 3-4, 2003, pp. 149-158</p>
       import Modelica;
       import Modelica.Mechanics.MultiBody.Frames;
       import Modelica.Mechanics.MultiBody.Types;
-      import SI = SI;
+
 
       parameter Boolean animation=true
         "= true, if animation shall be enabled (show rotor as cylinder)";

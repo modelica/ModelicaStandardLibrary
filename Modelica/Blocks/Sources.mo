@@ -2,7 +2,7 @@ within Modelica.Blocks;
 package Sources
   "Library of signal source blocks generating Real, Integer and Boolean signals"
   import Modelica.Blocks.Interfaces;
-  import SI;
+
   extends Modelica.Icons.SourcesPackage;
 
   block RealExpression "Set output signal to a time varying Real expression"

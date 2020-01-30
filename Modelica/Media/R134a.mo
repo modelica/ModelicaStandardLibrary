@@ -98,7 +98,7 @@ package R134a "R134a: Medium model for R134a"
       "Compute isochoric specific heat capacity inside the two-phase region"
       extends Modelica.Icons.Function;
 
-      import SI = SI;
+
       input PhaseBoundaryProperties liq "Properties on the boiling curve";
       input PhaseBoundaryProperties vap "Properties on the condensation curve";
       input SI.MassFraction x "Vapour mass fraction";
@@ -160,7 +160,7 @@ package R134a "R134a: Medium model for R134a"
       "Calculate phase boundary property record from dimensionless Helmholtz function"
 
       extends Modelica.Icons.Function;
-      import SI = SI;
+
       input Modelica.Media.Common.HelmholtzDerivs f
         "Dimensionless derivatives of Helmholtz function";
       output PhaseBoundaryProperties sat "Phase boundary property record";
@@ -2638,7 +2638,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
   end R134a_ph;
 
   package R134aData "R134a data required by package R134a_ph"
-    import SI;
+
 
     extends Modelica.Icons.Package;
     constant SI.SpecificHeatCapacity R_s=data.R_s;

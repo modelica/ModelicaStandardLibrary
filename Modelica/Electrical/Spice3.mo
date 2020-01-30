@@ -1,6 +1,6 @@
 within Modelica.Electrical;
 package Spice3 "Library for components of the Berkeley SPICE3 simulator"
-  import SI = SI;
+
 
 extends Modelica.Icons.Package;
 

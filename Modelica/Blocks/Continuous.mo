@@ -2,7 +2,7 @@ within Modelica.Blocks;
 package Continuous "Library of continuous control blocks with internal states"
 
   import Modelica.Blocks.Interfaces;
-  import SI;
+
   extends Modelica.Icons.Package;
 
   block Integrator "Output the integral of the input signal with optional reset"

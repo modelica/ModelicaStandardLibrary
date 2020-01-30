@@ -1,6 +1,6 @@
 within Modelica.Electrical;
 package Analog "Library for analog electrical models"
-  import SI = SI;
+
 
   extends Modelica.Icons.Package;
 

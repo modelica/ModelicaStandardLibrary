@@ -1,6 +1,5 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Examples;
 model TestSensors
-  import Modelica;
   extends Modelica.Icons.Example;
   constant Integer m=3 "Number of phases";
   import Modelica.Constants.pi;

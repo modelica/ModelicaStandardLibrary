@@ -1,6 +1,5 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Sensors;
 model AronSensor "Three-phase Aron sensor for active power"
-  import Modelica;
   extends Modelica.Icons.RoundSensor;
   final parameter Integer m(final min=1) = 3 "Number of phases";
   Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug plug_p(final m=m)

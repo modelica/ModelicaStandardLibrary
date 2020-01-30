@@ -1,7 +1,7 @@
 within Modelica.Magnetic;
 package FluxTubes "Library for modelling of electromagnetic devices with lumped magnetic networks"
 
-  import SI = SI;
+
   import Modelica.Constants.pi;
   import Modelica.Constants.mu_0;
 

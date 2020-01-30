@@ -33,7 +33,7 @@ package ReferenceMoistAir
 
   import Modelica.Media.Interfaces;
   import Modelica.Math;
-  import SI = SI;
+
   import Modelica.Constants;
   import Modelica.Media.IdealGases.Common.SingleGasNasa;
 

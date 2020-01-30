@@ -24,7 +24,7 @@ model MassWithStopAndFriction
   encapsulated partial model PartialFrictionWithStop
     "Base model of Coulomb friction elements with stop"
 
-    import SI = SI;
+
     import Modelica.Mechanics.Translational.Interfaces.PartialRigid;
     parameter SI.Position smax(start=25)
       "Right stop for (right end of) sliding mass";

@@ -806,7 +806,7 @@ of the modeller.
           import Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
           import Modelica.Fluid.Types.Roughness;
           import lg = Modelica.Math.log10;
-          import SI = SI;
+
 
          input SI.Length length "Length of pipe" annotation(Dialog);
          input SI.Diameter diameter "Inner diameter of pipe" annotation(Dialog);
@@ -940,7 +940,7 @@ As a short summary:
           "Return pressure loss data for sudden expansion or contraction in a pipe (for both flow directions)"
           import
             Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
-          import SI = SI;
+
          input SI.Diameter diameter_a "Inner diameter of pipe at port_a" annotation(Dialog);
          input SI.Diameter diameter_b "Inner diameter of pipe at port_b" annotation(Dialog);
          output LossFactorData data
@@ -1040,7 +1040,7 @@ A_a &gt; A_b (Idelchik 1994, diagram 4-9, p. 216 and diagram 4-10, p. 217)
           import NonSI = Modelica.Units.Other;
           import
             Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
-          import SI = SI;
+
           input SI.Diameter diameter
             "Inner diameter of pipe (= same at port_a and port_b)"
                                                                   annotation(Dialog);

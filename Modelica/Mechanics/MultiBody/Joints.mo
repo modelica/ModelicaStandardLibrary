@@ -7933,7 +7933,7 @@ To work properly, the gravity acceleration vector g of the world must point in t
       "Internal model to initialize r_rel_a for Joints.FreeMotionScalarInit"
        extends Modelica.Blocks.Icons.Block;
 
-       import SI = SI;
+
        import Modelica.Mechanics.MultiBody.Frames;
 
        input SI.Position r_a_0[3] annotation(Dialog);
@@ -7963,7 +7963,7 @@ a position vector r_b_0, resolved in frame given by an
       "Internal model to initialize the angels for Joints.FreeMotionScalarInit"
        extends Modelica.Blocks.Icons.Block;
 
-       import SI = SI;
+
        import Modelica.Mechanics.MultiBody.Frames;
 
        parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence_start={1,2,3}
@@ -8015,7 +8015,7 @@ Compute three rotational angles <strong>angle</strong> for a given rotational se
       "Internal model to initialize w_rel_b for Joints.FreeMotionScalarInit"
        extends Modelica.Blocks.Icons.Block;
 
-       import SI = SI;
+
        import Modelica.Mechanics.MultiBody.Frames;
 
        input Frames.Orientation R_a annotation(Dialog);

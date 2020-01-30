@@ -1188,7 +1188,7 @@ precisely time-synchronized to each other.
     model ControlledMixingUnit
       "Simple example of a mixing unit where a (discretized) nonlinear inverse plant model is used as feedforward controller"
        extends Modelica.Icons.Example;
-      import SI;
+
       parameter SI.Frequency freq = 1/300 "Critical frequency of filter";
       parameter Real c0(unit="mol/l") = 0.848 "Nominal concentration";
       parameter SI.Temperature T0 = 308.5 "Nominal temperature";
@@ -2239,7 +2239,7 @@ initial equation
         extends Modelica.Icons.Package;
         model MixingUnit
           "Mixing unit demo from Foellinger, Nichtlineare Regelungen II, p. 280"
-          import SI;
+
           Modelica.Blocks.Interfaces.RealInput T_c(unit="K")
             "Cooling temperature"
             annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
@@ -2318,7 +2318,7 @@ See description in <a href=\"modelica://Modelica.Clocked.Examples.Systems.Contro
 
         model MixingUnitWithContinuousControl "Simple example of a mixing unit where a (continuous) nonlinear inverse plant model is used as feedforward controller"
           extends Modelica.Icons.Example;
-          import SI;
+
 
           parameter SI.Frequency freq = 1/300 "Critical frequency of filter";
           parameter Real c0(unit="mol/l") = 0.848 "Nominal concentration";

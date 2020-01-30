@@ -1,7 +1,7 @@
 within Modelica.Mechanics;
 package Translational "Library to model 1-dimensional, translational mechanical systems"
   extends Modelica.Icons.Package;
-  import SI = SI;
+
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
             {100,100}}), graphics={

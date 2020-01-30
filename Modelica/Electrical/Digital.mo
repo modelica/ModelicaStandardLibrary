@@ -2,7 +2,7 @@ within Modelica.Electrical;
 package Digital
   "Library for digital electrical components based on the VHDL standard with 9-valued logic and conversion to 2-,3-,4-valued logic"
   extends Modelica.Icons.Package;
-  import SI = SI;
+
 
     package UsersGuide "User's Guide"
       extends Modelica.Icons.Information;

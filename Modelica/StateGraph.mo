@@ -1438,9 +1438,7 @@ buttons:
     connector Inflow1
         "Inflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
-        import Units = SI;
-
-      input Units.VolumeFlowRate Fi "inflow";
+      input SI.VolumeFlowRate Fi "inflow";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Polygon(
                 points={{-100,-100},{0,100},{100,-100},{-100,-100}},
@@ -1452,9 +1450,7 @@ buttons:
     connector Inflow2
         "Inflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
-        import Units = SI;
-
-      output Units.VolumeFlowRate Fi "inflow";
+      output SI.VolumeFlowRate Fi "inflow";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Polygon(
                 points={{-100,-100},{0,100},{100,-100},{-100,-100}},
@@ -1466,9 +1462,7 @@ buttons:
     connector Outflow1
         "Outflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
-        import Units = SI;
-
-      output Units.VolumeFlowRate Fo "outflow";
+      output SI.VolumeFlowRate Fo "outflow";
       input Boolean open "valve open";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Polygon(
@@ -1481,9 +1475,7 @@ buttons:
     connector Outflow2
         "Outflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
-        import Units = SI;
-
-      input Units.VolumeFlowRate Fo "outflow";
+      input SI.VolumeFlowRate Fo "outflow";
       output Boolean open "valve open";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Polygon(
