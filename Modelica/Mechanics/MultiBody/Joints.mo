@@ -6479,7 +6479,6 @@ pair of joints\" from Woernle and Hiller is described in:
     model Prismatic
       "Prismatic cut-joint and translational directions may be constrained or released"
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
-      import Cv = Modelica.SIunits.Conversions;
 
       parameter Boolean x_locked=true
         "= true: constraint force in x-direction, resolved in frame_a"

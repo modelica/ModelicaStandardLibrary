@@ -34,7 +34,6 @@ package ReferenceMoistAir
   import Modelica.Media.Interfaces;
   import Modelica.Math;
   import SI = Modelica.SIunits;
-  import Cv = Modelica.SIunits.Conversions;
   import Modelica.Constants;
   import Modelica.Media.IdealGases.Common.SingleGasNasa;
 

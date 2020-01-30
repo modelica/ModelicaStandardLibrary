@@ -32,7 +32,6 @@ package DryAirNasa "Air: Detailed dry air model as ideal gas (200..6000 K)"
     input Integer method=1 "Dummy for compatibility reasons";
     output ThermalConductivity lambda "Thermal conductivity";
     import Modelica.Math.Polynomials;
-    import Cv = Modelica.SIunits.Conversions;
   algorithm
     lambda := 1e-3*Polynomials.evaluateWithRange(
         {6.5691470817717812E-15,-3.4025961923050509E-11,5.3279284846303157E-08,

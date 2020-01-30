@@ -2,7 +2,7 @@ within Modelica.Mechanics;
 package MultiBody "Library to model 3-dimensional mechanical systems"
   extends Modelica.Icons.Package;
   import SI = Modelica.SIunits;
-  import Cv = Modelica.SIunits.Conversions;
+  import Cv = Modelica.Units.Conversions;
   import C = Modelica.Constants;
 
 package UsersGuide "User's Guide of MultiBody Library"

@@ -1150,7 +1150,6 @@ end dynamicViscosity;
 redeclare function extends thermalConductivity
     "Return thermal conductivity as a function of the thermodynamic state record, valid from 123.15 K to 1273.15 K"
   import Modelica.Math.Polynomials;
-  import Cv = Modelica.SIunits.Conversions;
 algorithm
   lambda := 1e-3*Polynomials.evaluateWithRange(
       {6.5691470817717812E-15,-3.4025961923050509E-11,5.3279284846303157E-08,

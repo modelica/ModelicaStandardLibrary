@@ -2,7 +2,7 @@ within Modelica;
 package Media "Library of media property models"
 extends Modelica.Icons.Package;
 import SI = Modelica.SIunits;
-import Cv = Modelica.SIunits.Conversions;
+import Cv = Modelica.Units.Conversions;
 
 package UsersGuide "User's Guide of Media Library"
   extends Modelica.Icons.Information;
