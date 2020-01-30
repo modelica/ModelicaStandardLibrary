@@ -2690,7 +2690,7 @@ have been marked as <font color=\"blue\"><strong>obsolete</strong></font> and wi
 <tr><td colspan=\"2\"><strong>Modelica.Icons</strong></td></tr>
 <tr><td>Library<br>Library2<br>GearIcon<br>MotorIcon<br>Info</td>
     <td>Use (substitute) icons from Modelica.Icons, Modelica.Mechanics.Rotational.Icons or Modelica.Electrical.Machines.Icons instead.</td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Units.Other</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.SIunits.Conversions.NonSIunits</strong></td></tr>
 <tr><td>FirstOrderTemperaturCoefficient<br>SecondOrderTemperaturCoefficient</td>
     <td>Use Modelica.SIunits.LinearTemperatureCoefficientResistance or Modelica.SIunits.QuadraticTemperatureCoefficientResistance instead.</td></tr>
 </table>
@@ -4950,7 +4950,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
 <tr><td> ElectricalForceConstant </td>
     <td> New type added (#190).</td></tr>
 
-<tr><td colspan=\"2\"><strong>Modelica.Conversions.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.SIunits.Conversions.</strong></td></tr>
 <tr><td> from_Hz<br>
                       to_Hz</td>
     <td> New functions to convert between frequency [Hz] and
@@ -5589,8 +5589,8 @@ should be automatic):
           <td> Moved package <code>Machines.Examples.Utilities</code> to <code>Machines.Utilities</code></td></tr>
 <tr><td> </td>
           <td> Removed all nonSIunits; especially in DCMachines<br>
-                                                parameter Modelica.Units.Other.AngularVelocity_rpm rpmNominal was replaced by<br>
-                                                parameter Modelica.Units.SI.AngularVelocity wNominal</td></tr>
+                                                parameter NonSIunits.AngularVelocity_rpm rpmNominal was replaced by<br>
+                                                parameter SIunits.AngularVelocity wNominal</td></tr>
 <tr><td> </td>
           <td> Changed the following component variable and parameter names to be more concise:<br>
                                                 Removed suffix \"DamperCage\" from all synchronous machines
@@ -5807,7 +5807,7 @@ should be automatic):
 <tr><td colspan=\"2\"><strong>SIunits.</strong></td></tr>
 <tr><td> CelsiusTemperature </td>
           <td> Removed, since no SI unit. The conversion script changes references to
-                                                Units.Other.Temperature_degC </td></tr>
+                                                SIunits.Conversions.NonSIunits.Temperature_degC </td></tr>
 <tr><td> ThermodynamicTemperature<br>
                                                 TemperatureDifference</td>
           <td> Added annotation \"absoluteValue=true/false\"
@@ -5815,7 +5815,7 @@ should be automatic):
                                                 (the unit checker needs to know for a unit that has an offset,
                                                 whether it is used as absolute or as a relative number)</td></tr>
 
-<tr><td colspan=\"2\"><strong>Units.Other.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>SIunits.Conversions.NonSIunits.</strong></td></tr>
 <tr><td> Temperature_degC<br>
                                                 Temperature_degF<br>
                                                 Temperature_degRk </td>
@@ -6790,7 +6790,7 @@ units are wrong or errors in documentation):
            </td></tr>
 <tr><td> TLine2</td>
           <td> Changed wrong type of parameter NL (normalized length) from
-                   SI.Length to Real.
+                   SIunits.Length to Real.
            </td>
 </tr>
 
@@ -6810,8 +6810,8 @@ units are wrong or errors in documentation):
 
 <tr><td colspan=\"2\"><strong>Electrical.Polyphase.Basic.</strong></td></tr>
 <tr><td> Conductor</td>
-          <td> Changed wrong type of parameter G from SI.Resistance to
-                   SI.Conductance.
+          <td> Changed wrong type of parameter G from SIunits.Resistance to
+                   SIunits.Conductance.
            </td>
 </tr>
 
@@ -6824,8 +6824,8 @@ units are wrong or errors in documentation):
 
 <tr><td colspan=\"2\"><strong>Electrical.Polyphase.Sources.</strong></td></tr>
 <tr><td> SineCurrent</td>
-          <td> Changed wrong type of parameter offset from SI.Voltage to
-                   SI.Current.
+          <td> Changed wrong type of parameter offset from SIunits.Voltage to
+                   SIunits.Current.
            </td>
 </tr>
 
@@ -6840,7 +6840,7 @@ units are wrong or errors in documentation):
 <tr><td> GasForce</td>
           <td> Wrong units corrected:
                    \"SIunitsPosition x,y\" to \"Real x,y\";
-           \"SIunits.Pressure press\" to \"Units.Other.Pressure_bar\"
+           \"SIunits.Pressure press\" to \"SIunits.Conversions.NonSIunits.Pressure_bar\"
            </td>
 </tr>
 <tr><td> GasForce2</td>
@@ -6902,7 +6902,7 @@ units are wrong or errors in documentation):
 </tr>
 <tr><td> Distance</td>
           <td> Corrected wrong units: \"SIunits.Length L2\" to \"SIunits.Area L2\" and
-                   SI.Length s_small2\" to \"SIunits.Area s_small2\"
+                   SIunits.Length s_small2\" to \"SIunits.Area s_small2\"
            </td>
 </tr>
 
@@ -6944,7 +6944,7 @@ units are wrong or errors in documentation):
 
 <tr><td colspan=\"2\"><strong>Mechanics.Translational.</strong></td></tr>
 <tr><td> Speed</td>
-          <td> Corrected unit of v_ref from SI.Position to SI.Velocity
+          <td> Corrected unit of v_ref from SIunits.Position to SIunits.Velocity
            </td>
 </tr>
 
@@ -7891,7 +7891,7 @@ class Version_1_5 "Version 1.5 (Dec. 16, 2002)"
 block Step \"Generate step signals of type Real\"
         parameter Real height[:]={1} \"Heights of steps\";
 <strong> // parameter Real offset[:]={0} \"Offsets of output signals\";
-// parameter SI.Time startTime[:]={0} \"Output = offset for time < startTime\";
+// parameter SIunits.Time startTime[:]={0} \"Output = offset for time < startTime\";
 // extends Interfaces.MO          (final nout=max([size(height, 1); size(offset, 1); size(startTime, 1)]));
         extends Interfaces.SignalSource(final nout=max([size(height, 1); size(offset, 1); size(startTime, 1)]));</strong>
 </pre></blockquote>
@@ -7919,7 +7919,7 @@ end getInterpolationCoefficients;
 <p><em>Modelica.Blocks.Sources.BooleanStep</em></p>
 <blockquote><pre>
 block BooleanStep \"Generate step signals of type Boolean\"
-        parameter SI.Time startTime[:]={0} \"Time instants of steps\";
+        parameter SIunits.Time startTime[:]={0} \"Time instants of steps\";
         <strong>parameter Boolean startValue[size(startTime, 1)]=fill(false, size(startTime, 1)) \"Output before startTime\";</strong>
         extends Interfaces.BooleanSignalSource(final nout=size(startTime, 1));
 equation
@@ -7973,7 +7973,7 @@ filled with white and not transparent any more.</p>
 <p>Replaced <code>reinit</code> by <code>initial equation</code></p>
 <p><em>ModelicaAdditions.HeatFlow1D.Interfaces</em></p>
 <p>Definition of connectors <em>Surface_a</em> and <em>Surface_b</em>:<br>
-<code>flow SI.HeatFlux q;</code> changed to <code>flow SI.HeatFlowRate q;</code></p>
+<code>flow SIunits.HeatFlux q;</code> changed to <code>flow SIunits.HeatFlowRate q;</code></p>
 <p><em>MultiBody.Parts.InertialSystem</em></p>
 <p>Icon corrected.</p>
 </html>"));
