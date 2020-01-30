@@ -272,7 +272,7 @@ port has a rising edge.
   block Derivative "Approximated derivative block"
     import Modelica.Blocks.Types.Init;
     parameter Real k(unit="1")=1 "Gains";
-    parameter SIunits.Time T(min=Modelica.Constants.small) = 0.01
+    parameter SI.Time T(min=Modelica.Constants.small) = 0.01
       "Time constants (T>0 required; T=0 is ideal derivative block)";
     parameter Init initType=Init.NoInit
       "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
@@ -360,7 +360,7 @@ If k=0, the block reduces to y=0.
   block FirstOrder "First order transfer function block (= 1 pole)"
     import Modelica.Blocks.Types.Init;
     parameter Real k(unit="1")=1 "Gain";
-    parameter SIunits.Time T(start=1) "Time Constant";
+    parameter SI.Time T(start=1) "Time Constant";
     parameter Init initType=Init.NoInit
       "Type of initialization (1: no init, 2: steady state, 3/4: initial output)" annotation(Evaluate=true,
         Dialog(group="Initialization"));
@@ -523,7 +523,7 @@ Example:
   block PI "Proportional-Integral controller"
     import Modelica.Blocks.Types.Init;
     parameter Real k(unit="1")=1 "Gain";
-    parameter SIunits.Time T(start=1,min=Modelica.Constants.small)
+    parameter SI.Time T(start=1,min=Modelica.Constants.small)
       "Time Constant (T>0 required)";
     parameter Init initType=Init.NoInit
       "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
@@ -621,9 +621,9 @@ This is discussed in the description of package
     extends Interfaces.SISO;
 
     parameter Real k(unit="1")=1 "Gain";
-    parameter SIunits.Time Ti(min=Modelica.Constants.small, start=0.5)
+    parameter SI.Time Ti(min=Modelica.Constants.small, start=0.5)
       "Time Constant of Integrator";
-    parameter SIunits.Time Td(min=0, start=0.1)
+    parameter SI.Time Td(min=0, start=0.1)
       "Time Constant of Derivative block";
     parameter Real Nd(min=Modelica.Constants.small) = 10
       "The higher Nd, the more ideal the derivative block";

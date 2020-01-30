@@ -477,7 +477,7 @@ All vectors have the same number of elements.
   partial block SignalSource "Base class for continuous signal source"
     extends SO;
     parameter Real offset=0 "Offset of output signal y";
-    parameter SIunits.Time startTime=0 "Output y = offset for time < startTime";
+    parameter SI.Time startTime=0 "Output y = offset for time < startTime";
     annotation (Documentation(info="<html>
 <p>
 Basic block for Real sources of package Blocks.Sources.

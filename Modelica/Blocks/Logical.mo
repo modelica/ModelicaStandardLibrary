@@ -808,7 +808,7 @@ When the input becomes <strong>false</strong>, the timer stops and the output is
 
   block LogicalDelay "Delay boolean signal"
     extends Blocks.Icons.PartialBooleanBlock;
-    parameter SIunits.Time delayTime(final min=0)=0 "Time delay";
+    parameter SI.Time delayTime(final min=0)=0 "Time delay";
     Blocks.Interfaces.BooleanInput u
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     Blocks.Interfaces.BooleanOutput y1
@@ -816,7 +816,7 @@ When the input becomes <strong>false</strong>, the timer stops and the output is
     Blocks.Interfaces.BooleanOutput y2
     annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
   protected
-    discrete SIunits.Time tSwitch;
+    discrete SI.Time tSwitch;
   initial equation
     tSwitch = time - 2*delayTime;
   equation

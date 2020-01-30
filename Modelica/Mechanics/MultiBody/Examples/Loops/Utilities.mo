@@ -254,11 +254,11 @@ Used as submodel in <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.L
     extends Modelica.Mechanics.Translational.Interfaces.PartialCompliant;
     parameter SI.Length L "Length of cylinder";
     parameter SI.Length d "Diameter of cylinder";
-    parameter SIunits.Volume k0=0.01
+    parameter SI.Volume k0=0.01
       "Volume V = k0 + k1*(1-x), with x = 1 - s_rel/L";
-    parameter SIunits.Volume k1=1
+    parameter SI.Volume k1=1
       "Volume V = k0 + k1*(1-x), with x = 1 - s_rel/L";
-    parameter SIunits.HeatCapacity k=1 "Gas constant (p*V = k*T)";
+    parameter SI.HeatCapacity k=1 "Gas constant (p*V = k*T)";
 
   /*
   parameter Real k0=0.01;

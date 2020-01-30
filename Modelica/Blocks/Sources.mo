@@ -304,8 +304,8 @@ If parameter duration is set to 0.0, the limiting case of a Step signal is achie
     import Modelica.Constants.pi;
     parameter Real amplitude=1 "Amplitude of sine wave"
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Sine.png"));
-    parameter SIunits.Frequency f(start=1) "Frequency of sine wave";
-    parameter SIunits.Angle phase=0 "Phase of sine wave";
+    parameter SI.Frequency f(start=1) "Frequency of sine wave";
+    parameter SI.Angle phase=0 "Phase of sine wave";
     extends Interfaces.SignalSource;
   equation
     y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.sin(2
@@ -353,8 +353,8 @@ The Real output y is a sine signal:
     import Modelica.Constants.pi;
     parameter Real amplitude=1 "Amplitude of cosine wave"
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Cosine.png"));
-    parameter SIunits.Frequency f(start=1) "Frequency of cosine wave";
-    parameter SIunits.Angle phase=0 "Phase of cosine wave";
+    parameter SI.Frequency f(start=1) "Frequency of cosine wave";
+    parameter SI.Angle phase=0 "Phase of cosine wave";
     extends Interfaces.SignalSource;
   equation
     y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.cos(2
@@ -624,7 +624,7 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
     import Modelica.Constants.eps;
     parameter Real amplitude=1 "Amplitude of sine wave"
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Sinc.png"));
-    parameter SIunits.Frequency f(start=1) "Frequency of sine wave";
+    parameter SI.Frequency f(start=1) "Frequency of sine wave";
     extends Interfaces.SignalSource;
   protected
     SI.Angle x=2*pi*f*(time - startTime);
@@ -679,9 +679,9 @@ The Real output y is a sinc signal: <code> amplitude*(sin(2*&pi;*f*t))/((2*&pi;*
     import Modelica.Constants.pi;
     parameter Real amplitude=1 "Amplitude of sine wave"
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/ExpSine.png"));
-    parameter SIunits.Frequency f(start=2) "Frequency of sine wave";
-    parameter SIunits.Angle phase=0 "Phase of sine wave";
-    parameter SIunits.Damping damping(start=1)
+    parameter SI.Frequency f(start=2) "Frequency of sine wave";
+    parameter SI.Angle phase=0 "Phase of sine wave";
+    parameter SI.Damping damping(start=1)
       "Damping coefficient of sine wave";
     extends Interfaces.SignalSource;
   equation
@@ -733,10 +733,10 @@ The Real output y is a sine signal with exponentially changing amplitude:
 
     parameter Real outMax=1 "Height of output for infinite riseTime"
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Exponentials.png"));
-    parameter SIunits.Time riseTime(min=0,start=0.5) "Rise time";
-    parameter SIunits.Time riseTimeConst(min=Modelica.Constants.small) = 0.1
+    parameter SI.Time riseTime(min=0,start=0.5) "Rise time";
+    parameter SI.Time riseTimeConst(min=Modelica.Constants.small) = 0.1
       "Rise time constant; rising is defined as outMax*(1-exp(-riseTime/riseTimeConst))";
-    parameter SIunits.Time fallTimeConst(min=Modelica.Constants.small)=
+    parameter SI.Time fallTimeConst(min=Modelica.Constants.small)=
       riseTimeConst "Fall time constant";
     extends Interfaces.SignalSource;
   protected
@@ -855,13 +855,13 @@ The Real output y is a pulse signal:
   block SawTooth "Generate saw tooth signal"
     parameter Real amplitude=1 "Amplitude of saw tooth"
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/SawTooth.png"));
-    parameter SIunits.Time period(final min=Modelica.Constants.small,start=1)
+    parameter SI.Time period(final min=Modelica.Constants.small,start=1)
       "Time for one period";
     parameter Integer nperiod=-1
       "Number of periods (< 0 means infinite number of periods)";
     extends Interfaces.SignalSource;
   protected
-    SIunits.Time T_start(final start=startTime) "Start time of current period";
+    SI.Time T_start(final start=startTime) "Start time of current period";
     Integer count "Period count";
   initial algorithm
     count := integer((time - startTime)/period);
@@ -911,25 +911,25 @@ The Real output y is a saw tooth signal:
   block Trapezoid "Generate trapezoidal signal of type Real"
     parameter Real amplitude=1 "Amplitude of trapezoid"
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Trapezoid.png"));
-    parameter SIunits.Time rising(final min=0) = 0
+    parameter SI.Time rising(final min=0) = 0
       "Rising duration of trapezoid";
-    parameter SIunits.Time width(final min=0) = 0.5
+    parameter SI.Time width(final min=0) = 0.5
       "Width duration of trapezoid";
-    parameter SIunits.Time falling(final min=0) = 0
+    parameter SI.Time falling(final min=0) = 0
       "Falling duration of trapezoid";
-    parameter SIunits.Time period(final min=Modelica.Constants.small, start=1)
+    parameter SI.Time period(final min=Modelica.Constants.small, start=1)
       "Time for one period";
     parameter Integer nperiod=-1
       "Number of periods (< 0 means infinite number of periods)";
     extends Interfaces.SignalSource;
   protected
-    parameter SIunits.Time T_rising=rising
+    parameter SI.Time T_rising=rising
       "End time of rising phase within one period";
-    parameter SIunits.Time T_width=T_rising + width
+    parameter SI.Time T_width=T_rising + width
       "End time of width phase within one period";
-    parameter SIunits.Time T_falling=T_width + falling
+    parameter SI.Time T_falling=T_width + falling
       "End time of falling phase within one period";
-    SIunits.Time T_start "Start time of current period";
+    SI.Time T_start "Start time of current period";
     Integer count "Period count";
   initial algorithm
     count := integer((time - startTime)/period);
@@ -1043,7 +1043,7 @@ The output is the decimal power of this logarithmic ramp.
       "Maximum velocities der(q)";
     parameter Real qdd_max[:](each final min=Modelica.Constants.small) = {1}
       "Maximum accelerations der(qd)";
-    parameter SIunits.Time startTime=0 "Time instant at which movement starts";
+    parameter SI.Time startTime=0 "Time instant at which movement starts";
 
     extends Interfaces.MO(final nout=max([size(deltaq, 1); size(qd_max, 1); size(qdd_max, 1)]));
 
@@ -1059,10 +1059,10 @@ The output is the decimal power of this logarithmic ramp.
     Real sdd;
     Real aux1[nout];
     Real aux2[nout];
-    SIunits.Time Ta1;
-    SIunits.Time Ta2;
-    SIunits.Time Tv;
-    SIunits.Time Te;
+    SI.Time Ta1;
+    SI.Time Ta2;
+    SI.Time Tv;
+    SI.Time Te;
     Boolean noWphase;
 
   equation
@@ -1416,7 +1416,7 @@ a flange according to a given acceleration.
     discrete Real a "Interpolation coefficient a of actual interval (y=a*x+b)";
     discrete Real b "Interpolation coefficient b of actual interval (y=a*x+b)";
     Integer last(start=1) "Last used lower grid index";
-    discrete SIunits.Time nextEvent(start=0, fixed=true) "Next event instant";
+    discrete SI.Time nextEvent(start=0, fixed=true) "Next event instant";
     discrete Real nextEventScaled(start=0, fixed=true)
       "Next scaled event instant";
     Real timeScaled "Scaled time";
@@ -1826,7 +1826,7 @@ timeEvents = 1: Always generate time events at interval boundaries
     <strong>t_max</strong>/<strong>t_maxScaled</strong> are provided and can be
     accessed from the outside of the table object. Whereas <strong>t_min</strong> and
     <strong>t_max</strong> define the scaled abscissa values (using parameter
-    <strong>timeScale</strong>) in SIunits.Time, <strong>t_minScaled</strong> and
+    <strong>timeScale</strong>) in SI.Time, <strong>t_minScaled</strong> and
     <strong>t_maxScaled</strong> define the unitless original abscissa values of
     the table.</li>
 </ul>

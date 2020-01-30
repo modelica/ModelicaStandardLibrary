@@ -1801,7 +1801,7 @@ in the other flange connector.
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input SIunits.Diameter massDiameter=max(0, (width - 2*coilWidth)*0.9)
+    input SI.Diameter massDiameter=max(0, (width - 2*coilWidth)*0.9)
       "Diameter of mass point sphere" annotation (Dialog(tab="Animation", group=
             "if animation = true and showMass = true", enable=animation and showMass));
     input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
@@ -1945,10 +1945,10 @@ alt=\"model Examples.Elementary.SpringWithMass\">
     parameter SI.Distance length_a=world.defaultForceLength
       "Length of cylinder at frame_a side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input SIunits.Diameter diameter_a=world.defaultForceWidth
+    input SI.Diameter diameter_a=world.defaultForceWidth
       "Diameter of cylinder at frame_a side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input SIunits.Diameter diameter_b=0.6*diameter_a
+    input SI.Diameter diameter_b=0.6*diameter_a
       "Diameter of cylinder at frame_b side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color color_a={100,100,100} "Color at frame_a"
@@ -2051,10 +2051,10 @@ where a mass is hanging on a damper.
     parameter SI.Distance length_a=world.defaultForceLength
       "Length of damper cylinder at frame_a side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input SIunits.Diameter diameter_a=world.defaultForceWidth
+    input SI.Diameter diameter_a=world.defaultForceWidth
       "Diameter of damper cylinder at frame_a side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input SIunits.Diameter diameter_b=0.6*diameter_a
+    input SI.Diameter diameter_b=0.6*diameter_a
       "Diameter of damper cylinder at frame_b side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color color_a={100,100,100} "Color of damper cylinder at frame_a"
@@ -2183,10 +2183,10 @@ and der(s) is the time derivative of s.
     parameter SI.Distance length_a=world.defaultForceLength
       "Length of damper cylinder at frame_a side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input SIunits.Diameter diameter_a=world.defaultForceWidth
+    input SI.Diameter diameter_a=world.defaultForceWidth
       "Diameter of damper cylinder at frame_a side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input SIunits.Diameter diameter_b=0.6*diameter_a
+    input SI.Diameter diameter_b=0.6*diameter_a
       "Diameter of damper cylinder at damper-spring side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color color_a={100,100,100} "Color of damper cylinder at frame_a"

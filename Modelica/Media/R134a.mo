@@ -2641,7 +2641,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
     import SI;
 
     extends Modelica.Icons.Package;
-    constant SIunits.SpecificHeatCapacity R_s=data.R_s;
+    constant SI.SpecificHeatCapacity R_s=data.R_s;
     constant Integer Npoints=478;
     constant Integer Ninterval=Npoints - 1;
     constant Real[Npoints] pbreaks={9.597762848258994e-005,
@@ -9282,19 +9282,19 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
 
     record crit
       extends Modelica.Icons.Record;
-      constant SIunits.Temperature TCRIT=374.18;
-      constant SIunits.Pressure PCRIT=4056290.0;
-      constant SIunits.Density DCRIT=508.0;
+      constant SI.Temperature TCRIT=374.18;
+      constant SI.Pressure PCRIT=4056290.0;
+      constant SI.Density DCRIT=508.0;
 
     end crit;
 
     record data
-      constant SIunits.SpecificHeatCapacity R_s=81.4888564372;
+      constant SI.SpecificHeatCapacity R_s=81.4888564372;
       // 8.314471/0.102032
-      constant SIunits.MolarMass MM=0.102032;
+      constant SI.MolarMass MM=0.102032;
       extends crit;
-      constant SIunits.SpecificEnthalpy HCRIT=389653;
-      constant SIunits.SpecificEntropy SCRIT=1562.135;
+      constant SI.SpecificEnthalpy HCRIT=389653;
+      constant SI.SpecificEntropy SCRIT=1562.135;
       extends fcrit;
       extends triple;
 
@@ -9302,9 +9302,9 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
 
     record fcrit
       extends Modelica.Icons.Record;
-      constant SIunits.Temperature FTCRIT=374.209;
-      constant SIunits.Pressure FPCRIT=4059280.0;
-      constant SIunits.Density FDCRIT=511.9;
+      constant SI.Temperature FTCRIT=374.209;
+      constant SI.Pressure FPCRIT=4059280.0;
+      constant SI.Density FDCRIT=511.9;
 
     end fcrit;
 
@@ -9316,8 +9316,8 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
 
     record ReferenceStates
       extends Modelica.Icons.Record;
-      constant SIunits.SpecificEnthalpy h0=1.0;
-      constant SIunits.SpecificEntropy s0=1.0;
+      constant SI.SpecificEnthalpy h0=1.0;
+      constant SI.SpecificEntropy s0=1.0;
 
     end ReferenceStates;
 
@@ -9342,10 +9342,10 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
 
     record triple
       extends Modelica.Icons.Record;
-      constant SIunits.Temperature TTRIPLE=169.85;
-      constant SIunits.Pressure PTRIPLE=389.563789;
-      constant SIunits.Density DLTRIPLE=1591.107453;
-      constant SIunits.Density DVTRIPLE=0.028172;
+      constant SI.Temperature TTRIPLE=169.85;
+      constant SI.Pressure PTRIPLE=389.563789;
+      constant SI.Density DLTRIPLE=1591.107453;
+      constant SI.Density DVTRIPLE=0.028172;
 
     end triple;
 

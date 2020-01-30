@@ -634,8 +634,8 @@ Specific enthalpy of dry air is computed from temperature.
   function enthalpyOfWater
     "Computes specific enthalpy of water (solid/liquid) near atmospheric pressure from temperature T"
     extends Modelica.Icons.Function;
-    input SIunits.Temperature T "Temperature";
-    output SIunits.SpecificEnthalpy h "Specific enthalpy of water";
+    input SI.Temperature T "Temperature";
+    output SI.SpecificEnthalpy h "Specific enthalpy of water";
   algorithm
     /*simple model assuming constant properties:
   heat capacity of liquid water:4200 J/kg
@@ -660,7 +660,7 @@ Pressure is assumed to be around 1 bar. This function is usually used to determi
 
   function enthalpyOfWater_der "Derivative function of enthalpyOfWater"
     extends Modelica.Icons.Function;
-    input SIunits.Temperature T "Temperature";
+    input SI.Temperature T "Temperature";
     input Real dT(unit="K/s") "Time derivative of temperature";
     output Real dh(unit="J/(kg.s)") "Time derivative of specific enthalpy";
   algorithm

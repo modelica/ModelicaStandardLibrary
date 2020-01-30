@@ -8,7 +8,7 @@ model CurrentSensor "Current Sensor"
     "Magnitude of complex current";
   SI.Angle arg_i[m]=Modelica.ComplexMath.arg(i)
     "Argument of complex current";
-  ComplexBlocks.Interfaces.ComplexOutput i[m](redeclare each final SIunits.Current re, redeclare each final SIunits.Current im) "Current as complex output signal"
+  ComplexBlocks.Interfaces.ComplexOutput i[m](redeclare each final SI.Current re, redeclare each final SI.Current im) "Current as complex output signal"
     annotation (Placement(transformation(
         origin={0,-110},
         extent={{10,10},{-10,-10}},

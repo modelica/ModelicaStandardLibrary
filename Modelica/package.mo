@@ -6790,7 +6790,7 @@ units are wrong or errors in documentation):
            </td></tr>
 <tr><td> TLine2</td>
           <td> Changed wrong type of parameter NL (normalized length) from
-                   SIunits.Length to Real.
+                   SI.Length to Real.
            </td>
 </tr>
 
@@ -6810,8 +6810,8 @@ units are wrong or errors in documentation):
 
 <tr><td colspan=\"2\"><strong>Electrical.Polyphase.Basic.</strong></td></tr>
 <tr><td> Conductor</td>
-          <td> Changed wrong type of parameter G from SIunits.Resistance to
-                   SIunits.Conductance.
+          <td> Changed wrong type of parameter G from SI.Resistance to
+                   SI.Conductance.
            </td>
 </tr>
 
@@ -6824,8 +6824,8 @@ units are wrong or errors in documentation):
 
 <tr><td colspan=\"2\"><strong>Electrical.Polyphase.Sources.</strong></td></tr>
 <tr><td> SineCurrent</td>
-          <td> Changed wrong type of parameter offset from SIunits.Voltage to
-                   SIunits.Current.
+          <td> Changed wrong type of parameter offset from SI.Voltage to
+                   SI.Current.
            </td>
 </tr>
 
@@ -6902,7 +6902,7 @@ units are wrong or errors in documentation):
 </tr>
 <tr><td> Distance</td>
           <td> Corrected wrong units: \"SIunits.Length L2\" to \"SIunits.Area L2\" and
-                   SIunits.Length s_small2\" to \"SIunits.Area s_small2\"
+                   SI.Length s_small2\" to \"SIunits.Area s_small2\"
            </td>
 </tr>
 
@@ -6944,7 +6944,7 @@ units are wrong or errors in documentation):
 
 <tr><td colspan=\"2\"><strong>Mechanics.Translational.</strong></td></tr>
 <tr><td> Speed</td>
-          <td> Corrected unit of v_ref from SIunits.Position to SIunits.Velocity
+          <td> Corrected unit of v_ref from SI.Position to SI.Velocity
            </td>
 </tr>
 
@@ -7891,7 +7891,7 @@ class Version_1_5 "Version 1.5 (Dec. 16, 2002)"
 block Step \"Generate step signals of type Real\"
         parameter Real height[:]={1} \"Heights of steps\";
 <strong> // parameter Real offset[:]={0} \"Offsets of output signals\";
-// parameter SIunits.Time startTime[:]={0} \"Output = offset for time < startTime\";
+// parameter SI.Time startTime[:]={0} \"Output = offset for time < startTime\";
 // extends Interfaces.MO          (final nout=max([size(height, 1); size(offset, 1); size(startTime, 1)]));
         extends Interfaces.SignalSource(final nout=max([size(height, 1); size(offset, 1); size(startTime, 1)]));</strong>
 </pre></blockquote>
@@ -7919,7 +7919,7 @@ end getInterpolationCoefficients;
 <p><em>Modelica.Blocks.Sources.BooleanStep</em></p>
 <blockquote><pre>
 block BooleanStep \"Generate step signals of type Boolean\"
-        parameter SIunits.Time startTime[:]={0} \"Time instants of steps\";
+        parameter SI.Time startTime[:]={0} \"Time instants of steps\";
         <strong>parameter Boolean startValue[size(startTime, 1)]=fill(false, size(startTime, 1)) \"Output before startTime\";</strong>
         extends Interfaces.BooleanSignalSource(final nout=size(startTime, 1));
 equation
@@ -7973,7 +7973,7 @@ filled with white and not transparent any more.</p>
 <p>Replaced <code>reinit</code> by <code>initial equation</code></p>
 <p><em>ModelicaAdditions.HeatFlow1D.Interfaces</em></p>
 <p>Definition of connectors <em>Surface_a</em> and <em>Surface_b</em>:<br>
-<code>flow SIunits.HeatFlux q;</code> changed to <code>flow SIunits.HeatFlowRate q;</code></p>
+<code>flow SI.HeatFlux q;</code> changed to <code>flow SI.HeatFlowRate q;</code></p>
 <p><em>MultiBody.Parts.InertialSystem</em></p>
 <p>Icon corrected.</p>
 </html>"));

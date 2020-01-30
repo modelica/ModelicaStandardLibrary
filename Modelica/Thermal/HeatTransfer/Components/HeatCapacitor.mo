@@ -56,7 +56,7 @@ is constant (independent of temperature).
 </p>
 <p>
 The temperature T [Kelvin] of this component is a <strong>state</strong>.
-A default of T = 25 degree Celsius (= SIunits.Conversions.from_degC(25))
+A default of T = 25 degree Celsius (= Modelica.Units.Conversions.from_degC(25))
 is used as start value for initialization.
 This usually means that at start of integration the temperature of this
 component is 25 degrees Celsius. You may, of course, define a different

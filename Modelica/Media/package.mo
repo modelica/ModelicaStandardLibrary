@@ -2427,55 +2427,55 @@ is given to compare the approximation.
   model PsychrometricData "Produces plot data for psychrometric charts"
     extends Modelica.Icons.Example;
     package Medium = Modelica.Media.Air.MoistAir "Used medium package";
-    parameter SIunits.Pressure p_const=1e5 "Pressure";
+    parameter SI.Pressure p_const=1e5 "Pressure";
     parameter Integer n_T=11 "Number of isotherms";
-    parameter SIunits.Temperature T_min=253.15 "Lowest isotherm";
-    parameter SIunits.Temperature T_step=10
+    parameter SI.Temperature T_min=253.15 "Lowest isotherm";
+    parameter SI.Temperature T_step=10
       "Temperature step between two isotherms";
     parameter Integer n_h=16 "Number of lines with constant specific enthalpy";
-    parameter SIunits.SpecificEnthalpy h_min=-20e3
+    parameter SI.SpecificEnthalpy h_min=-20e3
       "Lowest line of constant enthalpy";
-    parameter SIunits.SpecificEnthalpy h_step=1e4
+    parameter SI.SpecificEnthalpy h_step=1e4
       "Enthalpy step between two lines of constant enthalpy";
     parameter Integer n_phi=10
       "Number of lines with constant relative humidity";
     parameter Real phi_min=0.1 "Lowest line of constant humidity";
     parameter Real phi_step=0.1 "Step between two lines of constant humidity";
-    parameter SIunits.MassFraction x_min=0.00
+    parameter SI.MassFraction x_min=0.00
       "Minimum diagram absolute humidity";
-    parameter SIunits.MassFraction x_max=0.03
+    parameter SI.MassFraction x_max=0.03
       "Maximum diagram absolute humidity";
-    parameter SIunits.Time t=1 "Simulation time";
+    parameter SI.Time t=1 "Simulation time";
 
-    final parameter SIunits.Temperature[n_T] T_const={T_min - T_step + i*
+    final parameter SI.Temperature[n_T] T_const={T_min - T_step + i*
         T_step for i in 1:n_T} "Constant temperatures";
-    final parameter SIunits.SpecificEnthalpy[n_h] h_const={(i - 1)*h_step +
+    final parameter SI.SpecificEnthalpy[n_h] h_const={(i - 1)*h_step +
         h_min for i in 1:n_h} "Constant enthalpies";
     final parameter Real[n_phi] phi_const={(i - 1)*phi_step + phi_min for i in
             1:n_phi} "Constant relative humidities";
     final parameter Real diagSlope=Medium.enthalpyOfVaporization(273.15)
       "Rotation of diagram that zero degrees isotherm becomes horizontal outside the fog region";
-    final parameter SIunits.MassFraction x_start=x_min
+    final parameter SI.MassFraction x_start=x_min
       "Initial absolute humidity in kg water/kg dry air";
 
-    SIunits.MassFraction x(start=x_start)
+    SI.MassFraction x(start=x_start)
       "Absolute humidity in kg water/kg dry air";
-    SIunits.SpecificEnthalpy[n_T] hx_T "h_1+x for const T";
-    SIunits.SpecificEnthalpy[n_h] hx_h(start=h_const, each fixed=true)
+    SI.SpecificEnthalpy[n_T] hx_T "h_1+x for const T";
+    SI.SpecificEnthalpy[n_h] hx_h(start=h_const, each fixed=true)
       "Const h_1+x";
-    SIunits.SpecificEnthalpy[n_phi] hx_phi "h_1+x for const phi";
-    SIunits.SpecificEnthalpy[n_T] y_T "Chart enthalpy for const T";
-    SIunits.SpecificEnthalpy[n_h] y_h "Chart enthalpy for const h";
-    SIunits.SpecificEnthalpy[n_phi] y_phi "Chart enthalpy for const phi";
+    SI.SpecificEnthalpy[n_phi] hx_phi "h_1+x for const phi";
+    SI.SpecificEnthalpy[n_T] y_T "Chart enthalpy for const T";
+    SI.SpecificEnthalpy[n_h] y_h "Chart enthalpy for const h";
+    SI.SpecificEnthalpy[n_phi] y_phi "Chart enthalpy for const phi";
     Medium.BaseProperties[n_T] medium_T "Medium properties for const T";
     Medium.BaseProperties[n_phi] medium_phi "Medium properties for const phi";
 
   protected
-    SIunits.Pressure[n_phi] ps_phi "Saturation pressure for constant-phi-lines";
-    SIunits.Temperature[n_phi] T_phi(each start=290);
+    SI.Pressure[n_phi] ps_phi "Saturation pressure for constant-phi-lines";
+    SI.Temperature[n_phi] T_phi(each start=290);
     Boolean[n_T] fog(start=fill(false, n_T))
       "Triggers events at intersection of isotherms with phi=1";
-    SIunits.Pressure[n_T] pd "Steam partial pressure along isotherms";
+    SI.Pressure[n_T] pd "Steam partial pressure along isotherms";
   initial equation
     x = x_min;
   equation
