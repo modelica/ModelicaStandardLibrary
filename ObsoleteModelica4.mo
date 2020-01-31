@@ -368,8 +368,8 @@ Note: This block is replaced by the improved <a href=\"modelica://Modelica.Elect
           extends Modelica.Icons.InterfacesPackage;
           partial model RelativeSensor "Obsolete model - use Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.RelativeSensorElementary instead"
             extends Modelica.Icons.ObsoleteModel;
-            extends Modelica.Icons.RotationalSensor;
-            extends Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort;
+            extends Modelica.Icons.RoundSensor;
+            extends Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.OnePort;
             Modelica.ComplexBlocks.Interfaces.ComplexOutput y annotation (Placement(
                   transformation(
                   origin={0,-110},
@@ -412,8 +412,8 @@ The relative sensor partial model relies on the
           extends Modelica.Icons.InterfacesPackage;
           partial model RelativeSensor "Obsolete model - use Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.RelativeSensorElementary instead"
             extends Modelica.Icons.ObsoleteModel;
-            extends Modelica.Icons.RotationalSensor;
-            extends Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug;
+            extends Modelica.Icons.RoundSensor;
+            extends Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug;
             Modelica.ComplexBlocks.Interfaces.ComplexOutput y[m] annotation (
                 Placement(transformation(
                   origin={0,-110},
@@ -582,7 +582,7 @@ Possible reasons:
               points={{80,40},{80,60}}, color={0,127,0}));
           connect(constantForce.flange, internalAxis.flange) annotation (Line(
               points={{60,40},{80,40}}, color={0,127,0}));
-          annotation (
+          annotation (obsolete = "Obsolete model - use Modelica.Mechanics.MultiBody.Joints.Prismatic instead",
             Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}}), graphics={
@@ -638,9 +638,7 @@ Possible reasons:
                   extent={{-150,60},{150,100}},
                   textString="%name",
                   lineColor={0,0,255})}),
-            Documentation(
-              obsolete = "Obsolete model - use Modelica.Mechanics.MultiBody.Joints.Prismatic instead",
-              info="<html>
+            Documentation(info="<html>
 <p>
 Joint where frame_b is translated along axis n which is fixed in frame_a.
 The two frames coincide when the relative distance \"s = 0\".
@@ -809,7 +807,7 @@ Possible reasons:
               points={{0,80},{0,100}}));
           connect(constantTorque.flange, internalAxis.flange) annotation (Line(
               points={{20,80},{0,80}}));
-          annotation (
+          annotation (obsolete = "Obsolete model - use Modelica.Mechanics.MultiBody.Joints.Revolute instead",
             Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}}), graphics={
@@ -894,9 +892,7 @@ Possible reasons:
                   extent={{-150,70},{150,110}},
                   textString="%name",
                   lineColor={0,0,255})}),
-            Documentation(
-              obsolete = "Obsolete model - use Modelica.Mechanics.MultiBody.Joints.Revolute instead",
-              info="<html>
+            Documentation(info="<html>
 <p>
 Joint where frame_b rotates around axis n which is fixed in frame_a.
 The two frames coincide when the rotation angle \"phi = 0\".
@@ -1479,6 +1475,7 @@ x_zero = MyNonLinearSolver.solve(y_zero, x_min, x_max, data=data);
         function householderVector "Calculate a normalized householder vector to reflect vector a onto vector b"
           extends Modelica.Icons.Function;
           extends Modelica.Icons.ObsoleteModel;
+          import Modelica.Math.Vectors.length;
           import Modelica.Math.Vectors.norm;
 
           input Real a[:] "Real vector to be reflected";
