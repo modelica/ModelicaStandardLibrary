@@ -2,8 +2,8 @@ within Modelica;
 package StateGraph
   "Library of hierarchical state machine components to model discrete event and reactive systems"
 
-extends Modelica.Icons.Package;
-
+  extends Modelica.Icons.Package;
+  import Modelica.Units.SI;
 package UsersGuide "User's Guide of StateGraph Library"
   extends Modelica.Icons.Information;
 

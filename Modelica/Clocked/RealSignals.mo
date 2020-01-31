@@ -1,6 +1,7 @@
 within Modelica.Clocked;
 package RealSignals "Library of clocked blocks for Real signals"
   extends Modelica.Icons.Package;
+  import Modelica.Units.SI;
   package Sampler "Library of sampler and hold blocks for Real signals"
     block Sample
       "Sample the continuous-time, Real input signal and provide it as clocked output signal (clock is inferred)"

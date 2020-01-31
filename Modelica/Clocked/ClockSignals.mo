@@ -1,7 +1,7 @@
 within Modelica.Clocked;
 package ClockSignals "Library of blocks for clocked signals"
   extends Modelica.Icons.Package;
-
+  import Modelica.Units.SI;
   package Clocks "Library of blocks that generate clocks"
     extends Modelica.Icons.SourcesPackage;
 

@@ -72,7 +72,7 @@ protected
     Modelica.Mechanics.Translational.Interfaces.Flange_b flange(s(
           stateSelect=StateSelect.avoid)) annotation (Placement(
           transformation(extent={{90,-10},{110,10}})));
-    SI.Velocity v=der(flange.s) annotation (HideResult=true);
+    Modelica.Units.SI.Velocity v=der(flange.s) annotation (HideResult=true);
   initial equation
     der(v) = a_start;
   equation

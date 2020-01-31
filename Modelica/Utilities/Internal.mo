@@ -2,6 +2,7 @@ within Modelica.Utilities;
 package Internal
   "Internal components that a user should usually not directly utilize"
   extends Modelica.Icons.InternalPackage;
+  import Modelica.Units.SI;
 partial package PartialModelicaServices
     "Interfaces of components requiring a tool specific implementation"
     extends Modelica.Icons.InternalPackage;

@@ -1,8 +1,8 @@
 within Modelica;
 package Blocks "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
 
-
   extends Modelica.Icons.Package;
+  import Modelica.Units.SI;
 
 package Examples
   "Library of examples to demonstrate the usage of package Blocks"

@@ -1,6 +1,7 @@
 within Modelica.Clocked;
 package IntegerSignals "Library of clocked blocks for Integer signals"
   extends Modelica.Icons.Package;
+  import Modelica.Units.SI;
   package Sampler "Library of sampler and hold blocks for Integer signals"
     extends Modelica.Icons.Package;
 

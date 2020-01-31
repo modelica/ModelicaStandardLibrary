@@ -77,7 +77,7 @@ protected
           stateSelect=StateSelect.avoid)) annotation (Placement(
           transformation(extent={{90,-10},{110,10}})));
 
-    SI.AngularVelocity w=der(flange.phi)
+    Modelica.Units.SI.AngularVelocity w=der(flange.phi)
       annotation (HideResult=true);
   initial equation
     der(w) = a_start;

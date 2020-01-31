@@ -2,12 +2,12 @@ within Modelica.ComplexBlocks.Sources;
 block ComplexRotatingPhasor
   "Generate a phasor with constant magnitude and constant angular velocity of type Complex"
   parameter Real magnitude=1 "Magnitude of complex phasor";
-  parameter SI.AngularVelocity w=1
+  parameter Modelica.Units.SI.AngularVelocity w=1
     "Constant angular velocity of complex phasor";
-  parameter SI.Angle phi0=0
+  parameter Modelica.Units.SI.Angle phi0=0
     "Initial angle of complex phasor at time = 0";
   extends Modelica.ComplexBlocks.Interfaces.ComplexSO;
-  SI.Angle phi "Angle";
+  Modelica.Units.SI.Angle phi "Angle";
 equation
   phi = w*time + phi0;
   y = magnitude*Modelica.ComplexMath.exp(Complex(0, phi));

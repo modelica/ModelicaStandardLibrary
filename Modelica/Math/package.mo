@@ -1,7 +1,6 @@
 within Modelica;
 package Math "Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices"
 
-
   extends Modelica.Icons.Package;
 
 package Vectors "Library of functions operating on vectors"
@@ -11035,7 +11034,7 @@ end isEqual;
 
 function sin "Sine"
   extends Modelica.Math.Icons.AxisLeft;
-  input SI.Angle u "Independent variable";
+  input Modelica.Units.SI.Angle u "Independent variable";
   output Real y "Dependent variable y=sin(u)";
 
 external "builtin" y = sin(u);
@@ -11075,7 +11074,7 @@ end sin;
 
 function cos "Cosine"
   extends Modelica.Math.Icons.AxisLeft;
-  input SI.Angle u "Independent variable";
+  input Modelica.Units.SI.Angle u "Independent variable";
   output Real y "Dependent variable y=cos(u)";
 
 external "builtin" y = cos(u);
@@ -11115,7 +11114,7 @@ end cos;
 
 function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   extends Modelica.Math.Icons.AxisCenter;
-  input SI.Angle u "Independent variable";
+  input Modelica.Units.SI.Angle u "Independent variable";
   output Real y "Dependent variable y=tan(u)";
 
 external "builtin" y = tan(u);
@@ -11156,7 +11155,7 @@ end tan;
 function asin "Inverse sine (-1 <= u <= 1)"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u "Independent variable";
-  output SI.Angle y "Dependent variable y=asin(u)";
+  output Modelica.Units.SI.Angle y "Dependent variable y=asin(u)";
 
 external "builtin" y = asin(u);
   annotation (
@@ -11194,7 +11193,7 @@ end asin;
 function acos "Inverse cosine (-1 <= u <= 1)"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u "Independent variable";
-  output SI.Angle y "Dependent variable y=acos(u)";
+  output Modelica.Units.SI.Angle y "Dependent variable y=acos(u)";
 
 external "builtin" y = acos(u);
   annotation (
@@ -11232,7 +11231,7 @@ end acos;
 function atan "Inverse tangent"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u "Independent variable";
-  output SI.Angle y "Dependent variable y=atan(u)";
+  output Modelica.Units.SI.Angle y "Dependent variable y=atan(u)";
 
 external "builtin" y = atan(u);
   annotation (
@@ -11272,7 +11271,7 @@ function atan2 "Four quadrant inverse tangent"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u1 "First independent variable";
   input Real u2 "Second independent variable";
-  output SI.Angle y "Dependent variable y=atan2(u1, u2)=atan(u1/u2)";
+  output Modelica.Units.SI.Angle y "Dependent variable y=atan2(u1, u2)=atan(u1/u2)";
 
 external "builtin" y = atan2(u1, u2);
   annotation (
@@ -11321,8 +11320,8 @@ function atan3
   extends Modelica.Math.Icons.AxisCenter;
   input Real u1 "First independent variable";
   input Real u2 "Second independent variable";
-  input SI.Angle y0=0 "y shall be in the range: -pi < y-y0 <= pi";
-  output SI.Angle y "Dependent variable y=atan3(u1, u2, y0)=atan(u1/u2)";
+  input Modelica.Units.SI.Angle y0=0 "y shall be in the range: -pi < y-y0 <= pi";
+  output Modelica.Units.SI.Angle y "Dependent variable y=atan3(u1, u2, y0)=atan(u1/u2)";
 
 protected
   constant Real pi2=2*pi;

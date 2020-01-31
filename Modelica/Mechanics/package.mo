@@ -1,6 +1,7 @@
 within Modelica;
 package Mechanics "Library of 1-dim. and 3-dim. mechanical components (multi-body, rotational, translational)"
   extends Modelica.Icons.Package;
+  import Modelica.Units.SI;
   annotation (
   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
       Rectangle(

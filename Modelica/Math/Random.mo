@@ -11,7 +11,7 @@ package Random "Library of functions for generating random numbers"
        extends Modelica.Icons.Example;
 
     // Global parameters
-      parameter SI.Period samplePeriod = 0.05
+      parameter Modelica.Units.SI.Period samplePeriod = 0.05
         "Sample period for the generation of random numbers";
       parameter Integer globalSeed = 30020
         "Global seed to initialize random number generator";

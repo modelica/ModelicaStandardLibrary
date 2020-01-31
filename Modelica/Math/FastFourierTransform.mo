@@ -2,10 +2,11 @@ within Modelica.Math;
 package FastFourierTransform
   "Library of functions for the Fast Fourier Transform (FFT)"
   extends Modelica.Icons.Package;
+  import Modelica.Units.SI;
 
   package Examples
     "Examples demonstrating the usage of the Math.FastFourierTransform functions"
-   extends Modelica.Icons.ExamplesPackage;
+    extends Modelica.Icons.ExamplesPackage;
 
     model RealFFT1
       "Example demonstrating the use of an FFT calculation during simulation (and storing both amplitudes and phases on file)"

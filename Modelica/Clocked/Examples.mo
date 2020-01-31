@@ -2,7 +2,7 @@ within Modelica.Clocked;
 package Examples
   "Library of examples to demonstrate the usage of package Modelica.Clocked"
   extends Modelica.Icons.ExamplesPackage;
-
+  import Modelica.Units.SI;
   package SimpleControlledDrive
     "Examples based on a simple controlled drive with different ways to define the sampling"
   extends Modelica.Icons.ExamplesPackage;

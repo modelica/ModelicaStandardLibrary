@@ -2,8 +2,6 @@ within ;
 package Modelica "Modelica Standard Library - Version 4.0.0-dev"
 extends Modelica.Icons.Package;
 
-  import Modelica.Units.SI;
-
 package UsersGuide "User's Guide"
   extends Modelica.Icons.Information;
 

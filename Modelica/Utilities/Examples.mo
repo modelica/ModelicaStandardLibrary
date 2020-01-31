@@ -381,11 +381,11 @@ readRealParameter(\"test.txt\", \"w_rel0\")
       "File on which data is present"
           annotation(Dialog(loadSelector(filter="Text files (*.txt)",
                         caption="Open text file to read parameters of the form \"name = value\"")));
-    parameter SI.Inertia J =              readRealParameter(file, "J")
+    parameter Modelica.Units.SI.Inertia J = readRealParameter(file, "J")
       "Inertia";
-    parameter SI.Angle phi_rel0 =         readRealParameter(file, "phi_rel0")
+    parameter Modelica.Units.SI.Angle phi_rel0 = readRealParameter(file, "phi_rel0")
       "Relative angle";
-    parameter SI.AngularVelocity w_rel0 = readRealParameter(file, "w_rel0")
+    parameter Modelica.Units.SI.AngularVelocity w_rel0 = readRealParameter(file, "w_rel0")
       "Relative angular velocity";
   equation
     when terminal() then
