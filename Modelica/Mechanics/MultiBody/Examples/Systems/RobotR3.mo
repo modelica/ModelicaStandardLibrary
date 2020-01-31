@@ -12,8 +12,8 @@ package RobotR3
     parameter Real ks=0.5 "Gain of speed controller of axis";
     parameter SI.Time Ts=0.05
       "Time constant of integrator of speed controller of axis";
-    parameter Modelica.Units.Other.Angle_deg startAngle = 0 "Start angle of axis";
-    parameter Modelica.Units.Other.Angle_deg endAngle = 120 "End angle of axis";
+    parameter Modelica.Units.NonSI.Angle_deg startAngle = 0 "Start angle of axis";
+    parameter Modelica.Units.NonSI.Angle_deg endAngle = 120 "End angle of axis";
 
     parameter SI.Time swingTime=0.5
       "Additional time after reference motion is in rest before simulation is stopped";
@@ -84,30 +84,30 @@ load inertia.
     parameter SI.Time refSwingTime=0.5
       "Additional time after reference motion is in rest before simulation is stopped";
 
-    parameter Modelica.Units.Other.Angle_deg startAngle1 = -60 "Start angle of axis 1"
+    parameter Modelica.Units.NonSI.Angle_deg startAngle1 = -60 "Start angle of axis 1"
       annotation (Dialog(tab="Reference", group="Start angles"));
-    parameter Modelica.Units.Other.Angle_deg startAngle2 = 20 "Start angle of axis 2"
+    parameter Modelica.Units.NonSI.Angle_deg startAngle2 = 20 "Start angle of axis 2"
       annotation (Dialog(tab="Reference", group="Start angles"));
-    parameter Modelica.Units.Other.Angle_deg startAngle3 = 90 "Start angle of axis 3"
+    parameter Modelica.Units.NonSI.Angle_deg startAngle3 = 90 "Start angle of axis 3"
       annotation (Dialog(tab="Reference", group="Start angles"));
-    parameter Modelica.Units.Other.Angle_deg startAngle4 = 0 "Start angle of axis 4"
+    parameter Modelica.Units.NonSI.Angle_deg startAngle4 = 0 "Start angle of axis 4"
       annotation (Dialog(tab="Reference", group="Start angles"));
-    parameter Modelica.Units.Other.Angle_deg startAngle5 = -110 "Start angle of axis 5"
+    parameter Modelica.Units.NonSI.Angle_deg startAngle5 = -110 "Start angle of axis 5"
       annotation (Dialog(tab="Reference", group="Start angles"));
-    parameter Modelica.Units.Other.Angle_deg startAngle6 = 0 "Start angle of axis 6"
+    parameter Modelica.Units.NonSI.Angle_deg startAngle6 = 0 "Start angle of axis 6"
       annotation (Dialog(tab="Reference", group="Start angles"));
 
-    parameter Modelica.Units.Other.Angle_deg endAngle1 = 60 "End angle of axis 1"
+    parameter Modelica.Units.NonSI.Angle_deg endAngle1 = 60 "End angle of axis 1"
       annotation (Dialog(tab="Reference", group="End angles"));
-    parameter Modelica.Units.Other.Angle_deg endAngle2 = -70 "End angle of axis 2"
+    parameter Modelica.Units.NonSI.Angle_deg endAngle2 = -70 "End angle of axis 2"
       annotation (Dialog(tab="Reference", group="End angles"));
-    parameter Modelica.Units.Other.Angle_deg endAngle3 = -35 "End angle of axis 3"
+    parameter Modelica.Units.NonSI.Angle_deg endAngle3 = -35 "End angle of axis 3"
       annotation (Dialog(tab="Reference", group="End angles"));
-    parameter Modelica.Units.Other.Angle_deg endAngle4 = 45 "End angle of axis 4"
+    parameter Modelica.Units.NonSI.Angle_deg endAngle4 = 45 "End angle of axis 4"
       annotation (Dialog(tab="Reference", group="End angles"));
-    parameter Modelica.Units.Other.Angle_deg endAngle5 = 110 "End angle of axis 5"
+    parameter Modelica.Units.NonSI.Angle_deg endAngle5 = 110 "End angle of axis 5"
       annotation (Dialog(tab="Reference", group="End angles"));
-    parameter Modelica.Units.Other.Angle_deg endAngle6 = 45 "End angle of axis 6"
+    parameter Modelica.Units.NonSI.Angle_deg endAngle6 = 45 "End angle of axis 6"
       annotation (Dialog(tab="Reference", group="End angles"));
 
     parameter SI.AngularVelocity refSpeedMax[6]={3,1.5,5,3.1,3.1,4.1}
@@ -403,8 +403,8 @@ determined from the connections to this bus.
       "Generate reference angles for fastest kinematic movement"
       extends Blocks.Icons.Block;
 
-      parameter Modelica.Units.Other.Angle_deg angleBegDeg = 0 "Start angle";
-      parameter Modelica.Units.Other.Angle_deg angleEndDeg = 1 "End angle";
+      parameter Modelica.Units.NonSI.Angle_deg angleBegDeg = 0 "Start angle";
+      parameter Modelica.Units.NonSI.Angle_deg angleEndDeg = 1 "End angle";
       parameter SI.AngularVelocity speedMax = 3 "Maximum axis speed";
       parameter SI.AngularAcceleration accMax = 2.5 "Maximum axis acceleration";
       parameter SI.Time startTime=0 "Start time of movement";
@@ -510,9 +510,9 @@ motion on the controlBus of the r3 robot.
       extends Blocks.Icons.Block;
 
       parameter Integer naxis=6 "Number of driven axis";
-      parameter Modelica.Units.Other.Angle_deg angleBegDeg[naxis] = zeros(naxis)
+      parameter Modelica.Units.NonSI.Angle_deg angleBegDeg[naxis] = zeros(naxis)
         "Start angles";
-      parameter Modelica.Units.Other.Angle_deg angleEndDeg[naxis] = ones(naxis)
+      parameter Modelica.Units.NonSI.Angle_deg angleEndDeg[naxis] = ones(naxis)
         "End angles";
       parameter SI.AngularVelocity speedMax[naxis]=fill(3, naxis)
         "Maximum axis speed";

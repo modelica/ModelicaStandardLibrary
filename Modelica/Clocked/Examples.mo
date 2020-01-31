@@ -1665,10 +1665,10 @@ to beeing satisfied, i.e., the state when the clock last ticked.
         block ThrottleBody "Basic throttle body equations"
           extends Modelica.Blocks.Icons.Block;
 
-        parameter Modelica.Units.Other.Pressure_bar P_0 = 1 "Atmospheric pressure (bar)";
+        parameter Modelica.Units.NonSI.Pressure_bar P_0 = 1 "Atmospheric pressure (bar)";
         protected
           Real m_ai(start=0, fixed=true, unit="g") "Mass";
-          Modelica.Units.Other.Angle_deg f_Theta "Auxiliary variable";
+          Modelica.Units.NonSI.Angle_deg f_Theta "Auxiliary variable";
           Real g_Pm "Auxiliary variable";
         public
           Modelica.Blocks.Interfaces.RealInput Theta(unit="deg") "Throttle angle (deg)"
@@ -1706,7 +1706,7 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
 
           parameter Real RTVmRatio = 0.41328
             "RT/V_m";
-          parameter Modelica.Units.Other.Pressure_bar P_0 = 0.543
+          parameter Modelica.Units.NonSI.Pressure_bar P_0 = 0.543
             "Initial value for P_m, (bar)";
           Modelica.Blocks.Interfaces.RealInput m_ai_der(unit="g/s")
             "Mass flow rate of air into manifold (g/s)"
@@ -1755,7 +1755,7 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
           Modelica.Blocks.Interfaces.RealOutput Theta(start=8.9, unit="deg")
             "Throttle angle (deg)" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
         protected
-          Modelica.Units.Other.Angle_deg x_d(start=8.973, fixed=true);
+          Modelica.Units.NonSI.Angle_deg x_d(start=8.973, fixed=true);
         /*
 initial equation
   N_des = pre(N_des);

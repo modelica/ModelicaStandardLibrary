@@ -113,7 +113,7 @@ or in a short hand notation as
 <p>
 For some often
 used Non SI-units (like hour), some additional type definitions are
-present as <code>Modelica.Units.Other</code>. If this is not sufficient,
+present as <code>Modelica.Units.NonSI</code>. If this is not sufficient,
 the user has to define its own types or use the attributes directly
 in the declaration as in the example at the beginning.
 </p>
@@ -1181,7 +1181,7 @@ For an introduction to the conventions used in this package, have a look at:
 </html>"));
   end SI;
 
-  package Other "Type definitions of non SI and other units"
+  package NonSI "Type definitions of non SI and other units"
 
     extends Modelica.Icons.Package;
 
@@ -1248,16 +1248,16 @@ Practical Guide to Metrication</strong> (Springer 1997).</p>
             extent={{-10,10},{10,-10}},
             lineColor={128,128,128},
             fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),                               Ellipse(
+            fillPattern=FillPattern.Solid), Ellipse(
             extent={{-60,10},{-40,-10}},
             lineColor={128,128,128},
             fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),                               Ellipse(
+            fillPattern=FillPattern.Solid), Ellipse(
             extent={{40,10},{60,-10}},
             lineColor={128,128,128},
             fillColor={128,128,128},
             fillPattern=FillPattern.Solid)}));
-  end Other;
+  end NonSI;
 
   package Conversions "Conversion functions to/from non SI units and type definitions of non SI units"
 
@@ -1297,7 +1297,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
     function to_degC "Convert from Kelvin to degCelsius"
       extends Modelica.Units.Icons.Conversion;
       input SI.Temperature Kelvin "Kelvin value";
-      output Modelica.Units.Other.Temperature_degC Celsius "Celsius value";
+      output Modelica.Units.NonSI.Temperature_degC Celsius "Celsius value";
     algorithm
       Celsius := Kelvin + Modelica.Constants.T_zero;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1310,7 +1310,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
 
     function from_degC "Convert from degCelsius to Kelvin"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.Other.Temperature_degC Celsius "Celsius value";
+      input Modelica.Units.NonSI.Temperature_degC Celsius "Celsius value";
       output SI.Temperature Kelvin "Kelvin value";
     algorithm
       Kelvin := Celsius - Modelica.Constants.T_zero;
@@ -1325,7 +1325,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
     function to_degF "Convert from Kelvin to degFahrenheit"
       extends Modelica.Units.Icons.Conversion;
       input SI.Temperature Kelvin "Kelvin value";
-      output Modelica.Units.Other.Temperature_degF Fahrenheit "Fahrenheit value";
+      output Modelica.Units.NonSI.Temperature_degF Fahrenheit "Fahrenheit value";
     algorithm
       Fahrenheit := (Kelvin + Modelica.Constants.T_zero)*(9/5) + 32;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1338,7 +1338,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
 
     function from_degF "Convert from degFahrenheit to Kelvin"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.Other.Temperature_degF Fahrenheit "Fahrenheit value";
+      input Modelica.Units.NonSI.Temperature_degF Fahrenheit "Fahrenheit value";
       output SI.Temperature Kelvin "Kelvin value";
     algorithm
       Kelvin := (Fahrenheit - 32)*(5/9) - Modelica.Constants.T_zero;
@@ -1355,7 +1355,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
     function to_degRk "Convert from Kelvin to degRankine"
       extends Modelica.Units.Icons.Conversion;
       input SI.Temperature Kelvin "Kelvin value";
-      output Modelica.Units.Other.Temperature_degRk Rankine "Rankine value";
+      output Modelica.Units.NonSI.Temperature_degRk Rankine "Rankine value";
     algorithm
       Rankine := (9/5)*Kelvin;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1368,7 +1368,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
 
     function from_degRk "Convert from degRankine to Kelvin"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.Other.Temperature_degRk Rankine "Rankine value";
+      input Modelica.Units.NonSI.Temperature_degRk Rankine "Rankine value";
       output SI.Temperature Kelvin "Kelvin value";
     algorithm
       Kelvin := (5/9)*Rankine;
@@ -1383,7 +1383,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
     function to_deg "Convert from radian to degree"
       extends Modelica.Units.Icons.Conversion;
       input SI.Angle radian "radian value";
-      output Modelica.Units.Other.Angle_deg degree "degree value";
+      output Modelica.Units.NonSI.Angle_deg degree "degree value";
     algorithm
       degree := (180.0/Modelica.Constants.pi)*radian;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1396,7 +1396,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
 
     function from_deg "Convert from degree to radian"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.Other.Angle_deg degree "degree value";
+      input Modelica.Units.NonSI.Angle_deg degree "degree value";
       output SI.Angle radian "radian value";
     algorithm
       radian := (Modelica.Constants.pi/180.0)*degree;
@@ -1411,7 +1411,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
     function to_rpm "Convert from radian per second to revolutions per minute"
       extends Modelica.Units.Icons.Conversion;
       input SI.AngularVelocity rs "radian per second value";
-      output Modelica.Units.Other.AngularVelocity_rpm rpm "revolutions per minute value";
+      output Modelica.Units.NonSI.AngularVelocity_rpm rpm "revolutions per minute value";
     algorithm
       rpm := (30/Modelica.Constants.pi)*rs;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1425,7 +1425,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
     function from_rpm
       "Convert from revolutions per minute to radian per second"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.Other.AngularVelocity_rpm rpm "revolutions per minute value";
+      input Modelica.Units.NonSI.AngularVelocity_rpm rpm "revolutions per minute value";
       output SI.AngularVelocity rs "radian per second value";
     algorithm
       rs := (Modelica.Constants.pi/30)*rpm;
@@ -1440,7 +1440,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
     function to_kmh "Convert from metre per second to kilometre per hour"
       extends Modelica.Units.Icons.Conversion;
       input SI.Velocity ms "metre per second value";
-      output Modelica.Units.Other.Velocity_kmh kmh "kilometre per hour value";
+      output Modelica.Units.NonSI.Velocity_kmh kmh "kilometre per hour value";
     algorithm
       kmh := 3.6*ms;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1453,7 +1453,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
 
     function from_kmh "Convert from kilometre per hour to metre per second"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.Other.Velocity_kmh kmh "kilometre per hour value";
+      input Modelica.Units.NonSI.Velocity_kmh kmh "kilometre per hour value";
       output SI.Velocity ms "metre per second value";
     algorithm
       ms := kmh/3.6;
@@ -1468,7 +1468,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
     function to_day "Convert from second to day"
       extends Modelica.Units.Icons.Conversion;
       input SI.Time s "second value";
-      output Modelica.Units.Other.Time_day day "day value";
+      output Modelica.Units.NonSI.Time_day day "day value";
     algorithm
       day := s/86400;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1481,7 +1481,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
 
     function from_day "Convert from day to second"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.Other.Time_day day "day value";
+      input Modelica.Units.NonSI.Time_day day "day value";
       output SI.Time s "second value";
     algorithm
       s := 86400*day;
@@ -1496,7 +1496,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
     function to_hour "Convert from second to hour"
       extends Modelica.Units.Icons.Conversion;
       input SI.Time s "second value";
-      output Modelica.Units.Other.Time_hour hour "hour value";
+      output Modelica.Units.NonSI.Time_hour hour "hour value";
     algorithm
       hour := s/3600;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1509,7 +1509,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
 
     function from_hour "Convert from hour to second"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.Other.Time_hour hour "hour value";
+      input Modelica.Units.NonSI.Time_hour hour "hour value";
       output SI.Time s "second value";
     algorithm
       s := 3600*hour;
@@ -1524,7 +1524,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
     function to_minute "Convert from second to minute"
       extends Modelica.Units.Icons.Conversion;
       input SI.Time s "second value";
-      output Modelica.Units.Other.Time_minute minute "minute value";
+      output Modelica.Units.NonSI.Time_minute minute "minute value";
     algorithm
       minute := s/60;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1537,7 +1537,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
 
     function from_minute "Convert from minute to second"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.Other.Time_minute minute "minute value";
+      input Modelica.Units.NonSI.Time_minute minute "minute value";
       output SI.Time s "second value";
     algorithm
       s := 60*minute;
@@ -1552,7 +1552,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
     function to_litre "Convert from cubic metre to litre"
       extends Modelica.Units.Icons.Conversion;
       input SI.Volume m3 "cubic metre value";
-      output Modelica.Units.Other.Volume_litre litre "litre value";
+      output Modelica.Units.NonSI.Volume_litre litre "litre value";
     algorithm
       litre := 1000*m3;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1565,7 +1565,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
 
     function from_litre "Convert from litre to cubic metre"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.Other.Volume_litre litre "litre value";
+      input Modelica.Units.NonSI.Volume_litre litre "litre value";
       output SI.Volume m3 "cubic metre value";
     algorithm
       m3 := litre/1000;
@@ -1579,7 +1579,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
 
     function from_Ah "Convert from Ampere hours to Coulomb"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.Other.ElectricCharge_Ah AmpereHour "Ampere hours";
+      input Modelica.Units.NonSI.ElectricCharge_Ah AmpereHour "Ampere hours";
       output Modelica.Units.SI.ElectricCharge Coulomb "Coulomb";
     algorithm
       Coulomb := AmpereHour * 3600;
@@ -1594,7 +1594,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
     function to_Ah "Convert from Coulomb to Ampere hours"
       extends Modelica.Units.Icons.Conversion;
       input Modelica.Units.SI.ElectricCharge Coulomb "Coulomb";
-      output Modelica.Units.Other.ElectricCharge_Ah AmpereHour "Ampere hours";
+      output Modelica.Units.NonSI.ElectricCharge_Ah AmpereHour "Ampere hours";
     algorithm
       AmpereHour := Coulomb/3600;
 
@@ -1607,7 +1607,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
 
     function from_Wh "Convert from Watt hour to Joule"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.Other.Energy_Wh WattHour "Watt hour";
+      input Modelica.Units.NonSI.Energy_Wh WattHour "Watt hour";
       output Modelica.Units.SI.Energy Joule "Joule";
     algorithm
       Joule := WattHour * 3600;
@@ -1622,7 +1622,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
     function to_Wh "Convert from Joule to Watt hour"
       extends Modelica.Units.Icons.Conversion;
       input Modelica.Units.SI.Energy Joule "Joule";
-      output Modelica.Units.Other.Energy_Wh WattHour "Watt hour";
+      output Modelica.Units.NonSI.Energy_Wh WattHour "Watt hour";
     algorithm
       WattHour := Joule/3600;
 
@@ -1636,7 +1636,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
     function to_kWh "Convert from Joule to kilo Watt hour"
       extends Modelica.Units.Icons.Conversion;
       input SI.Energy J "Joule value";
-      output Modelica.Units.Other.Energy_kWh kWh "kWh value";
+      output Modelica.Units.NonSI.Energy_kWh kWh "kWh value";
     algorithm
       kWh := J/3.6e6;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1649,7 +1649,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
 
     function from_kWh "Convert from kilo Watt hour to Joule"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.Other.Energy_kWh kWh "kWh value";
+      input Modelica.Units.NonSI.Energy_kWh kWh "kWh value";
       output SI.Energy J "Joule value";
     algorithm
       J := 3.6e6*kWh;
@@ -1664,7 +1664,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
     function to_bar "Convert from Pascal to bar"
       extends Modelica.Units.Icons.Conversion;
       input SI.Pressure Pa "Pascal value";
-      output Modelica.Units.Other.Pressure_bar bar "bar value";
+      output Modelica.Units.NonSI.Pressure_bar bar "bar value";
     algorithm
       bar := Pa/1e5;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1677,7 +1677,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
 
     function from_bar "Convert from bar to Pascal"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.Other.Pressure_bar bar "bar value";
+      input Modelica.Units.NonSI.Pressure_bar bar "bar value";
       output SI.Pressure Pa "Pascal value";
     algorithm
       Pa := 1e5*bar;
@@ -1692,7 +1692,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
     function to_gps "Convert from kilogram per second to gram per second"
       extends Modelica.Units.Icons.Conversion;
       input SI.MassFlowRate kgps "kg/s value";
-      output Modelica.Units.Other.MassFlowRate_gps gps "g/s value";
+      output Modelica.Units.NonSI.MassFlowRate_gps gps "g/s value";
     algorithm
       gps := 1000*kgps;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1705,7 +1705,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
 
     function from_gps "Convert from gram per second to kilogram per second"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.Other.MassFlowRate_gps gps "g/s value";
+      input Modelica.Units.NonSI.MassFlowRate_gps gps "g/s value";
       output SI.MassFlowRate kgps "kg/s value";
     algorithm
       kgps := gps/1000;
@@ -1749,7 +1749,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
     function to_cm2 "Convert from square metre to square centimetre"
       extends Modelica.Units.Icons.Conversion;
       input SI.Area m2 "square metre value";
-      output Modelica.Units.Other.Area_cm cm2 "square centimetre value";
+      output Modelica.Units.NonSI.Area_cm cm2 "square centimetre value";
     algorithm
       cm2 := 10000*m2;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1762,7 +1762,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
 
     function from_cm2 "Convert from square centimetre to square metre"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.Other.Area_cm cm2 "square centimetre value";
+      input Modelica.Units.NonSI.Area_cm cm2 "square centimetre value";
       output SI.Area m2 "square metre value";
     algorithm
       m2 := 0.0001*cm2;
@@ -1775,7 +1775,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
     end from_cm2;
     annotation (Documentation(info="<html>
 <p>This package provides conversion functions from the non SI Units
-defined in package <code>Modelica.Other</code> to the
+defined in package <code>Modelica.Units.NonSI</code> to the
 corresponding SI Units defined in package <code>Modelica.Units.SI</code> and vice
 versa. It is recommended to use these functions in the following
 way (note, that all functions have one Real input and one Real output

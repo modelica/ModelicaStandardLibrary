@@ -8,7 +8,7 @@ package Math "Library of Real mathematical functions as input/output blocks"
     "Conversion blocks to convert between SI and non-SI unit signals"
     import Modelica;
 
-    import NonSI = Modelica.Units.Other;
+    import Modelica.Units.NonSI;
     extends Modelica.Icons.Package;
 
     block To_degC "Convert from Kelvin to degCelsius"

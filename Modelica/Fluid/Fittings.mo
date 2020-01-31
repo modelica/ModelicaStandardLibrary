@@ -424,7 +424,7 @@ end SimpleGenericOrifice;
 
 model SharpEdgedOrifice
     "Pressure drop due to sharp edged orifice (for both flow directions)"
-    import NonSI = Modelica.Units.Other;
+    import Modelica.Units.NonSI;
   extends BaseClasses.QuadraticTurbulent.BaseModel(final data=
           BaseClasses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice(
           diameter,
@@ -1040,19 +1040,14 @@ A_a &gt; A_b (Idelchik 1994, diagram 4-9, p. 216 and diagram 4-10, p. 217)
        encapsulated function sharpEdgedOrifice
           "Return pressure loss data for sharp edged orifice (for both flow directions)"
           import Modelica.Units.SI;
-          import NonSI = Modelica.Units.Other;
-          import
-            Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
+          import Modelica.Units.NonSI;
+          import Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
 
           input SI.Diameter diameter
-            "Inner diameter of pipe (= same at port_a and port_b)"
-                                                                  annotation(Dialog);
-          input SI.Diameter leastDiameter "Smallest diameter of orifice"
-                                                                annotation(Dialog);
-          input SI.Diameter length "Length of orifice"
-                                                 annotation(Dialog);
-          input NonSI.Angle_deg alpha "Angle of orifice"
-                                                        annotation(Dialog);
+            "Inner diameter of pipe (= same at port_a and port_b)" annotation(Dialog);
+          input SI.Diameter leastDiameter "Smallest diameter of orifice" annotation(Dialog);
+          input SI.Diameter length "Length of orifice" annotation(Dialog);
+          input NonSI.Angle_deg alpha "Angle of orifice" annotation(Dialog);
           output LossFactorData data
             "Pressure loss factors for both flow directions";
         protected

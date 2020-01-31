@@ -4075,9 +4075,9 @@ component).
         annotation (Evaluate=true);
       parameter SI.Position rRod2_ib[3]={-1,0,0}
         "Vector from origin of frame_ib to spherical joint, resolved in frame_ib";
-      parameter Modelica.Units.Other.Angle_deg phi_offset=0
+      parameter Modelica.Units.NonSI.Angle_deg phi_offset=0
         "Relative angle offset of revolute joint (angle = phi(t) + from_deg(phi_offset))";
-      parameter Modelica.Units.Other.Angle_deg phi_guess=0
+      parameter Modelica.Units.NonSI.Angle_deg phi_guess=0
         "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)| is minimal";
       parameter SI.Diameter sphereDiameter=world.defaultJointLength
         "Diameter of the spheres representing the universal and the spherical joint"
@@ -5068,9 +5068,9 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         "Axis of revolute joint fixed and resolved in frame_b";
       parameter SI.Position rRod2_ib[3]={1,0,0}
         "Vector from origin of frame_ib to spherical joint in the middle, resolved in frame_ib";
-      parameter Modelica.Units.Other.Angle_deg phi_offset=0
+      parameter Modelica.Units.NonSI.Angle_deg phi_offset=0
         "Relative angle offset of revolute joint (angle = phi(t) + from_deg(phi_offset))";
-      parameter Modelica.Units.Other.Angle_deg phi_guess=0
+      parameter Modelica.Units.NonSI.Angle_deg phi_guess=0
         "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)| is minimal";
       parameter SI.Diameter sphereDiameter=world.defaultJointLength
         "Diameter of the spheres representing the two spherical joints"
@@ -5769,9 +5769,9 @@ component).
         annotation (Evaluate=true);
       parameter SI.Position rRod2_ib[3]={-1,0,0}
         "Vector from origin of frame_ib to revolute joint in the middle, resolved in frame_ib";
-      parameter Modelica.Units.Other.Angle_deg phi_offset=0
+      parameter Modelica.Units.NonSI.Angle_deg phi_offset=0
         "Relative angle offset of revolute joint at frame_b (angle = phi(t) + from_deg(phi_offset))";
-      parameter Modelica.Units.Other.Angle_deg phi_guess=0
+      parameter Modelica.Units.NonSI.Angle_deg phi_guess=0
         "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)| is minimal";
       parameter SI.Distance cylinderLength=world.defaultJointLength
         "Length of cylinders representing the revolute joints"
@@ -7221,9 +7221,9 @@ of this subpackage.
       parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1}
         "Axis of rotation resolved in frame_a (= same as in frame_b)"
         annotation (Evaluate=true);
-      parameter Modelica.Units.Other.Angle_deg phi_offset=0
+      parameter Modelica.Units.NonSI.Angle_deg phi_offset=0
         "Relative angle offset (angle = phi + from_deg(phi_offset))";
-      parameter Modelica.Units.Other.Angle_deg phi_guess=0
+      parameter Modelica.Units.NonSI.Angle_deg phi_guess=0
         "Select the configuration such that at initial time |phi - from_deg(phi_guess)| is minimal";
       parameter SI.Distance cylinderLength=world.defaultJointLength
         "Length of cylinder representing the joint axis"

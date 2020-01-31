@@ -4,7 +4,7 @@ model EngineV6_analytic
 
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
-  output Modelica.Units.Other.AngularVelocity_rpm
+  output Modelica.Units.NonSI.AngularVelocity_rpm
     engineSpeed_rpm=
          Modelica.Units.Conversions.to_rpm(load.w) "Engine speed";
   output SI.Torque engineTorque = filter.u

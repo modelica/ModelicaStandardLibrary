@@ -2,7 +2,7 @@ within Modelica.Thermal.HeatTransfer.Celsius;
 model FixedTemperature
   "Fixed temperature boundary condition in degree Celsius"
   extends HeatTransfer.Icons.FixedTemperature;
-  parameter Modelica.Units.Other.Temperature_degC T
+  parameter Modelica.Units.NonSI.Temperature_degC T
     "Fixed temperature at the port";
   Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
             90,-10},{110,10}})));
