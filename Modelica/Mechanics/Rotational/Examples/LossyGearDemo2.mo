@@ -82,9 +82,25 @@ gear.mode           :  1 = forward rolling
                        0 = stuck (w=0)
                       -1 = backward rolling
 </pre></blockquote>
-<p>Note: This combination of LossyGear and BearingFriction is not recommended to use,
+
+
+<p>
+Note, <code>powerLoss</code> (= sum of the power flows of the connectors) and 
+<code>gear.powerLoss</code> (= <code>gear.tau_loss</code>*<code>gear.w_a</code>,
+where <code>gear.tau_loss</code> is determined in a non-trivial way
+from the stuck/sliding situation of the bearing and teeth friction;
+= equation (16) in [<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.References\">Pelchen2002</a>])
+should be identical, or the difference should be close to zero, if model 
+<a href=\"modelica://Modelica.Mechanics.Rotational.Components.LossyGear\">LossyGear</a>
+is correctly implemented.
+</p>
+
+
+<p>
+Note: This combination of LossyGear and BearingFriction is not recommended to use,
 as component LossyGear includes the functionality of component BearingFriction
-(only <em>peak</em> not supported).</p>
+(only <em>peak</em> not supported).
+</p>
 </html>"),
        experiment(StopTime=0.5, Interval=0.001));
 end LossyGearDemo2;
