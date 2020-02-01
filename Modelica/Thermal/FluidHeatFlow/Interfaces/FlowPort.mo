@@ -2,10 +2,10 @@ within Modelica.Thermal.FluidHeatFlow.Interfaces;
 connector FlowPort "Connector flow port"
 
   parameter FluidHeatFlow.Media.Medium medium "Medium in the connector";
-  Modelica.SIunits.Pressure p;
-  flow Modelica.SIunits.MassFlowRate m_flow;
-  Modelica.SIunits.SpecificEnthalpy h;
-  flow Modelica.SIunits.EnthalpyFlowRate H_flow;
+  SI.Pressure p;
+  flow SI.MassFlowRate m_flow;
+  SI.SpecificEnthalpy h;
+  flow SI.EnthalpyFlowRate H_flow;
 annotation (Documentation(info="<html>
 Basic definition of the connector.<br>
 <strong>Variables:</strong>

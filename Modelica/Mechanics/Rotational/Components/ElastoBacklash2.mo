@@ -2,29 +2,29 @@ within Modelica.Mechanics.Rotational.Components;
 model ElastoBacklash2
   "Backlash connected in series to linear spring and damper (backlash is modeled with elasticity; at start of contact the flange torque can jump, contrary to the ElastoBacklash model)"
 
-  parameter Modelica.SIunits.RotationalSpringConstant c(final min=Modelica.Constants.small,
+  parameter SI.RotationalSpringConstant c(final min=Modelica.Constants.small,
       start=1.0e5) "Spring constant (c > 0 required)";
-  parameter Modelica.SIunits.RotationalDampingConstant d(final min=0, start=0)
+  parameter SI.RotationalDampingConstant d(final min=0, start=0)
     "Damping constant";
-  parameter Modelica.SIunits.Angle b(final min=0)=0 "Total backlash";
-  parameter Modelica.SIunits.Angle phi_rel0=0 "Unstretched spring angle";
+  parameter SI.Angle b(final min=0)=0 "Total backlash";
+  parameter SI.Angle phi_rel0=0 "Unstretched spring angle";
 
   extends
     Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;
   extends
     Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
 protected
-  final parameter Modelica.SIunits.Angle bMax=b/2
+  final parameter SI.Angle bMax=b/2
     "Backlash in range bMin <= phi_rel - phi_rel0 <= bMax";
-  final parameter Modelica.SIunits.Angle bMin=-bMax
+  final parameter SI.Angle bMin=-bMax
     "Backlash in range bMin <= phi_rel - phi_rel0 <= bMax";
-  Modelica.SIunits.Torque tau_c;
-  Modelica.SIunits.Torque tau_d;
-  Modelica.SIunits.Angle phi_diff=phi_rel - phi_rel0;
+  SI.Torque tau_c;
+  SI.Torque tau_d;
+  SI.Angle phi_diff=phi_rel - phi_rel0;
 
   // A minimum backlash is defined in order to avoid an infinite
   // number of state events if backlash b is set to zero.
-  constant Modelica.SIunits.Angle bEps=1e-10 "Minimum backlash";
+  constant SI.Angle bEps=1e-10 "Minimum backlash";
 
 equation
   if initial() then

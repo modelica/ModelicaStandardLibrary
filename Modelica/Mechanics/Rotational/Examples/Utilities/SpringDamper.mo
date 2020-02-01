@@ -1,11 +1,11 @@
 within Modelica.Mechanics.Rotational.Examples.Utilities;
 model SpringDamper "Input/output block of a spring/damper model"
   extends Modelica.Blocks.Icons.Block;
-  parameter Modelica.SIunits.RotationalSpringConstant c=1e4
+  parameter SI.RotationalSpringConstant c=1e4
     "Spring constant";
-  parameter Modelica.SIunits.RotationalDampingConstant d=1
+  parameter SI.RotationalDampingConstant d=1
     "Damping constant";
-  parameter Modelica.SIunits.Angle phi_rel0=0
+  parameter SI.Angle phi_rel0=0
     "Unstretched spring angle";
 
   Components.AngleToTorqueAdaptor

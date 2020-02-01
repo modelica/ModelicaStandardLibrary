@@ -575,7 +575,7 @@ distance <strong>length</strong> became smaller as parameter <strong>s_small</st
   partial model PartialLineForce "Base model for massless line force elements"
     extends LineForceBase;
 
-    Modelica.SIunits.Position r_rel_a[3]
+    SI.Position r_rel_a[3]
       "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
     Real e_a[3](each final unit="1")
       "Unit vector on the line connecting the origin of frame_a with the origin of frame_b resolved in frame_a (directed from frame_a to frame_b)";
@@ -760,9 +760,9 @@ This component provides no visualization.
 
   partial function partialGravityAcceleration "Interface for the gravity function used in the World object"
     extends Modelica.Icons.Function;
-     input Modelica.SIunits.Position r[3]
+     input SI.Position r[3]
       "Position vector from world frame to actual point, resolved in world frame";
-     output Modelica.SIunits.Acceleration gravity[3]
+     output SI.Acceleration gravity[3]
       "Gravity acceleration at position r, resolved in world frame";
     annotation (Documentation(info="<html>
 <p>
@@ -781,11 +781,11 @@ gravity acceleration at this point, resolved in the world frame.
      input Integer nv "Number of points in v-Dimension";
      input Boolean multiColoredSurface=false
       "= true: Color is defined for each surface point";
-     output Modelica.SIunits.Position X[nu,nv]
+     output SI.Position X[nu,nv]
       "[nu,nv] positions of points in x-Direction resolved in surface frame";
-     output Modelica.SIunits.Position Y[nu,nv]
+     output SI.Position Y[nu,nv]
       "[nu,nv] positions of points in y-Direction resolved in surface frame";
-     output Modelica.SIunits.Position Z[nu,nv]
+     output SI.Position Z[nu,nv]
       "[nu,nv] positions of points in z-Direction resolved in surface frame";
      output Real C[if multiColoredSurface then nu else 0,
                    if multiColoredSurface then nv else 0,3]

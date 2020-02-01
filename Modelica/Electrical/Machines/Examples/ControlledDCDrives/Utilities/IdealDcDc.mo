@@ -1,7 +1,7 @@
 within Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities;
 model IdealDcDc "Ideal DC-DC inverter"
-  parameter Modelica.SIunits.Time Td "Dead time";
-  parameter Modelica.SIunits.Time Ti=1e-6 "Time constant of integral power controller";
+  parameter SI.Time Td "Dead time";
+  parameter SI.Time Ti=1e-6 "Time constant of integral power controller";
   Modelica.Electrical.Analog.Sources.SignalVoltage signalVoltage
     annotation (Placement(transformation(extent={{10,-80},{-10,-60}})));
   Modelica.Electrical.Analog.Sources.SignalCurrent signalCurrent annotation (

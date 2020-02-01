@@ -2,8 +2,8 @@ within Modelica.Electrical.QuasiStatic.SinglePhase.Examples;
 model SeriesBode "Series circuit with Bode analysis"
   extends Modelica.Icons.Example;
   output Real abs_y = bode.abs_y "Magnitude of voltage ratio";
-  output Modelica.SIunits.AmplitudeLevelDifference dB_y = bode.dB_y "Log10 of magnitude of voltage ratio in dB";
-  output Modelica.SIunits.Angle arg_y = bode.arg_y "Angle of voltage ratio";
+  output SI.AmplitudeLevelDifference dB_y = bode.dB_y "Log10 of magnitude of voltage ratio in dB";
+  output SI.Angle arg_y = bode.arg_y "Angle of voltage ratio";
   Modelica.Blocks.Sources.LogFrequencySweep frequencySweep(
     duration=1,
     wMin=0.01,

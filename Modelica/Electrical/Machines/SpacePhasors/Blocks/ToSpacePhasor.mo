@@ -4,7 +4,7 @@ block ToSpacePhasor
   extends Modelica.Blocks.Interfaces.MIMO(final nin=m, final nout=2);
   parameter Integer m(min=1) = 3 "Number of phases";
 protected
-  parameter Modelica.SIunits.Angle phi[m]=
+  parameter SI.Angle phi[m]=
       Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m);
   parameter Real TransformationMatrix[2, m]=2/m*{+cos(+phi),+sin(+phi)};
   parameter Real InverseTransformation[m, 2]={{+cos(-phi[k]),-sin(-phi[k])}

@@ -3,9 +3,9 @@ model DiodeCenterTap2Pulse
   "Two pulse diode rectifier with center tap with resistive load"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
-  parameter Modelica.SIunits.Frequency f=50 "Frequency";
-  parameter Modelica.SIunits.Resistance R=20 "Load resistance";
+  parameter SI.Voltage Vrms=110 "RMS supply voltage";
+  parameter SI.Frequency f=50 "Frequency";
+  parameter SI.Resistance R=20 "Load resistance";
 
   Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
         transformation(

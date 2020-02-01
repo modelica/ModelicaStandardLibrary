@@ -3,11 +3,11 @@ model SMEE_DOL
   "Test example: ElectricalExcitedSynchronousMachine starting direct on line"
   extends Modelica.Icons.Example;
   constant Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Voltage VNominal=100
+  parameter SI.Voltage VNominal=100
     "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
-  parameter Modelica.SIunits.Voltage Ve=smeeData.Re*smeeData.IeOpenCircuit "Excitation current";
-  parameter Modelica.SIunits.Angle gamma0(displayUnit="deg") = 0
+  parameter SI.Frequency fNominal=50 "Nominal frequency";
+  parameter SI.Voltage Ve=smeeData.Re*smeeData.IeOpenCircuit "Excitation current";
+  parameter SI.Angle gamma0(displayUnit="deg") = 0
     "Initial rotor displacement angle";
   Machines.BasicMachines.SynchronousMachines.SM_ElectricalExcited smee(
     phiMechanical(start=-(Modelica.Constants.pi + gamma0)/smee.p, fixed=true),

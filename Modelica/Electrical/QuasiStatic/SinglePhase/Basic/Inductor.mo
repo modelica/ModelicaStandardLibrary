@@ -2,7 +2,7 @@ within Modelica.Electrical.QuasiStatic.SinglePhase.Basic;
 model Inductor "Single-phase linear inductor"
   extends Interfaces.OnePort;
   import Modelica.ComplexMath.j;
-  parameter Modelica.SIunits.Inductance L(start=1) "Inductance";
+  parameter SI.Inductance L(start=1) "Inductance";
 equation
   v = j*omega*L*i;
   annotation (Icon(graphics={

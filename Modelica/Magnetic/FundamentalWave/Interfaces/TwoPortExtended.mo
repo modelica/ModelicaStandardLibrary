@@ -1,17 +1,17 @@
 within Modelica.Magnetic.FundamentalWave.Interfaces;
 partial model TwoPortExtended "Two magnetic ports for graphical modeling with additional variables"
   extends TwoPortElementary;
-  Modelica.SIunits.ComplexMagneticPotentialDifference V_m = port_p.V_m - port_n.V_m
+  SI.ComplexMagneticPotentialDifference V_m = port_p.V_m - port_n.V_m
     "Complex magnetic potential difference";
-  Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.abs(V_m)
+  SI.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.abs(V_m)
     "Magnitude of complex magnetic potential difference";
-  Modelica.SIunits.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
+  SI.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
     "Argument of complex magnetic potential difference";
-  Modelica.SIunits.ComplexMagneticFlux Phi = port_p.Phi
+  SI.ComplexMagneticFlux Phi = port_p.Phi
     "Complex magnetic flux";
-  Modelica.SIunits.MagneticFlux abs_Phi = Modelica.ComplexMath.abs(Phi)
+  SI.MagneticFlux abs_Phi = Modelica.ComplexMath.abs(Phi)
     "Magnitude of complex magnetic flux";
-  Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
+  SI.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
     "Argument of complex magnetic flux";
 
   annotation (Documentation(info="<html>

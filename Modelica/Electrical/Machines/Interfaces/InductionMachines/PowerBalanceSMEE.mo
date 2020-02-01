@@ -6,10 +6,10 @@ record PowerBalanceSMEE
       final lossPowerTotal=lossPowerStatorWinding + lossPowerStatorCore +
         lossPowerRotorCore + lossPowerStrayLoad + lossPowerFriction +
         lossPowerRotorWinding + lossPowerExcitation + lossPowerBrush);
-  Modelica.SIunits.Power lossPowerRotorWinding "Rotor copper losses";
-  Modelica.SIunits.Power powerExcitation "Electrical excitation power";
-  Modelica.SIunits.Power lossPowerExcitation "Excitation losses";
-  Modelica.SIunits.Power lossPowerBrush "Brush losses";
+  SI.Power lossPowerRotorWinding "Rotor copper losses";
+  SI.Power powerExcitation "Electrical excitation power";
+  SI.Power lossPowerExcitation "Excitation losses";
+  SI.Power lossPowerBrush "Brush losses";
   annotation (defaultComponentPrefixes="output", Documentation(info="<html>
 Power balance of synchronous machines with electrical excitation.
  </html>"));

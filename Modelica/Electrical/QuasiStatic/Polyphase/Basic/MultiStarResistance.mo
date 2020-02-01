@@ -4,7 +4,7 @@ model MultiStarResistance "Resistance connection of star points"
   final parameter Integer mBasic=
       Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems(
       m) "Number of symmetric base systems";
-  parameter Modelica.SIunits.Resistance R=1e6
+  parameter SI.Resistance R=1e6
     "Insulation resistance between base systems";
   Interfaces.PositivePlug plug(m=m)
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));

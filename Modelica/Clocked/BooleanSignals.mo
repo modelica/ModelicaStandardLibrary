@@ -1,6 +1,7 @@
 within Modelica.Clocked;
 package BooleanSignals "Library of clocked blocks for Boolean signals"
   extends Modelica.Icons.Package;
+  import Modelica.Units.SI;
   package Sampler "Library of sampler and hold blocks for Boolean signals"
     extends Modelica.Icons.Package;
 
@@ -1316,10 +1317,10 @@ y is set to parameter y_start.
      extends Modelica.Icons.SourcesPackage;
     block Step "Generate step signal of type Boolean"
       extends BooleanSignals.Interfaces.PartialClockedSO;
-      parameter Modelica.SIunits.Time startTime=0 "Time instant of step start";
+      parameter SI.Time startTime=0 "Time instant of step start";
       parameter Boolean startValue = false "Output before startTime";
     protected
-      Modelica.SIunits.Time simTime;
+      SI.Time simTime;
     equation
       simTime = sample(time);
       y = if simTime >= startTime then not startValue else startValue;
@@ -1459,19 +1460,19 @@ See model <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSigna
         parameter Real width(
           final min=Modelica.Constants.small,
           final max=100) = 50 "Width of pulse in % of period";
-        parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small,start=1)
+        parameter SI.Time period(final min=Modelica.Constants.small,start=1)
         "Time for one period";
-        parameter Modelica.SIunits.Time startTime=0
+        parameter SI.Time startTime=0
         "Time instant of first pulse";
 
     protected
-        Modelica.SIunits.Time simTime;
-        parameter Modelica.SIunits.Duration Twidth=period*width/100
+        SI.Time simTime;
+        parameter SI.Duration Twidth=period*width/100
         "width of one pulse" annotation(HideResult=true);
 
-        Modelica.SIunits.Time next(start=startTime, fixed=true)
+        SI.Time next(start=startTime, fixed=true)
         "next = startTime + n*period, for smallest n such that next>simTime";
-        Modelica.SIunits.Duration tol = 0.1*interval(simTime) "Tolerance for numeric comparisons";
+        SI.Duration tol = 0.1*interval(simTime) "Tolerance for numeric comparisons";
       equation
           simTime = sample(time);
           next = if (simTime >= previous(next) - tol) then previous(next) + period else previous(next);

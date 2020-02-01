@@ -4,21 +4,21 @@ model PartialThermalAmbientDCMachines
   parameter Boolean useTemperatureInputs=false
     "If true, temperature inputs are used; else, temperatures are constant"
     annotation (Evaluate=true);
-  constant Modelica.SIunits.Temperature TDefault=293.15
+  constant SI.Temperature TDefault=293.15
     "Default temperature";
-  parameter Modelica.SIunits.Temperature Ta(start=TDefault)
+  parameter SI.Temperature Ta(start=TDefault)
     "Temperature of armature"
     annotation (Dialog(enable=not useTemperatureInputs));
-  output Modelica.SIunits.HeatFlowRate Q_flowArmature=temperatureArmature.port.Q_flow
+  output SI.HeatFlowRate Q_flowArmature=temperatureArmature.port.Q_flow
     "Heat flow rate of armature";
-  output Modelica.SIunits.HeatFlowRate Q_flowCore=temperatureCore.port.Q_flow
+  output SI.HeatFlowRate Q_flowCore=temperatureCore.port.Q_flow
     "Heat flow rate of core losses";
-  output Modelica.SIunits.HeatFlowRate Q_flowStrayLoad=
+  output SI.HeatFlowRate Q_flowStrayLoad=
       temperatureStrayLoad.port.Q_flow
     "Heat flow rate of stray load losses";
-  output Modelica.SIunits.HeatFlowRate Q_flowFriction=temperatureFriction.port.Q_flow
+  output SI.HeatFlowRate Q_flowFriction=temperatureFriction.port.Q_flow
     "Heat flow rate of friction losses";
-  output Modelica.SIunits.HeatFlowRate Q_flowBrush=temperatureBrush.port.Q_flow
+  output SI.HeatFlowRate Q_flowBrush=temperatureBrush.port.Q_flow
     "Heat flow rate of brushes";
   replaceable Machines.Interfaces.DCMachines.PartialThermalPortDCMachines thermalPort
     annotation (Placement(transformation(extent={{-10,90},{10,110}})));

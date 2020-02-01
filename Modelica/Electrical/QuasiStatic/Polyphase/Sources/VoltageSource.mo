@@ -3,10 +3,10 @@ model VoltageSource "Constant polyphase AC voltage"
   extends Interfaces.Source;
   import Modelica.ComplexMath.j;
   import Modelica.ComplexMath.exp;
-  parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
-  parameter Modelica.SIunits.Voltage V[m](start=fill(1, m))
+  parameter SI.Frequency f(start=1) "Frequency of the source";
+  parameter SI.Voltage V[m](start=fill(1, m))
     "RMS voltage of the source";
-  parameter Modelica.SIunits.Angle phi[m]=-
+  parameter SI.Angle phi[m]=-
       Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m)
     "Phase shift of the source";
 equation

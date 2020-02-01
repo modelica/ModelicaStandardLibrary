@@ -1,15 +1,15 @@
 within Modelica.Electrical.Machines.BasicMachines.Components;
 model SquirrelCage "Squirrel Cage"
-  parameter Modelica.SIunits.Inductance Lrsigma
+  parameter SI.Inductance Lrsigma
     "Rotor stray inductance per phase translated to stator";
-  parameter Modelica.SIunits.Resistance Rr
+  parameter SI.Resistance Rr
     "Rotor resistance per phase translated to stator at T_ref";
-  parameter Modelica.SIunits.Temperature T_ref=293.15
+  parameter SI.Temperature T_ref=293.15
     "Reference temperature";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
+  parameter SI.LinearTemperatureCoefficient alpha=0
     "Temperature coefficient of resistance at T_ref";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
-  Modelica.SIunits.Resistance Rr_actual
+  SI.Resistance Rr_actual
     "Actual resistance = Rr*(1 + alpha*(T_heatPort - T_ref))";
   Machines.Interfaces.SpacePhasor spacePhasor_r
     annotation (Placement(transformation(extent={{-110,90},{-90,110}})));

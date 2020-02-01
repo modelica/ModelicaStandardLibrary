@@ -2,20 +2,20 @@ within Modelica.Electrical.Machines.Examples.DCMachines;
 model DCPM_CurrentControlled
   "Test example: DC with permanent magnet starting with current controller"
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Torque TLoad=ViNominal*dcpmData.IaNominal/dcpmData.wNominal "Nominal load torque";
-  parameter Modelica.SIunits.AngularVelocity wLoad=dcpmData.wNominal "Nominal load torque";
-  parameter Modelica.SIunits.Inertia JLoad=dcpmData.Jr "Load's moment of inertia";
-  parameter Modelica.SIunits.Resistance Ra=Modelica.Electrical.Machines.Thermal.convertResistance(
+  parameter SI.Torque TLoad=ViNominal*dcpmData.IaNominal/dcpmData.wNominal "Nominal load torque";
+  parameter SI.AngularVelocity wLoad=dcpmData.wNominal "Nominal load torque";
+  parameter SI.Inertia JLoad=dcpmData.Jr "Load's moment of inertia";
+  parameter SI.Resistance Ra=Modelica.Electrical.Machines.Thermal.convertResistance(
     dcpmData.Ra,
     dcpmData.TaRef,
     dcpmData.alpha20a,
     dcpmData.TaNominal) "Warm armature resistance";
-  parameter Modelica.SIunits.Voltage ViNominal=dcpmData.VaNominal - Ra*dcpmData.IaNominal "Nominal induced voltage";
-  parameter Modelica.SIunits.Time Ta=dcpmData.La/Ra "Armature time constant";
-  parameter Modelica.SIunits.Time Ts=1e-3 "Dead time of inverter";
-  parameter Modelica.SIunits.Resistance k=Ra*Ta/(2*Ts) "Current controller proportional gain";
-  parameter Modelica.SIunits.Time Ti=Ta "Current controller integral time constant";
-  parameter Modelica.SIunits.MagneticFlux kPhi=ViNominal/dcpmData.wNominal "Voltage constant";
+  parameter SI.Voltage ViNominal=dcpmData.VaNominal - Ra*dcpmData.IaNominal "Nominal induced voltage";
+  parameter SI.Time Ta=dcpmData.La/Ra "Armature time constant";
+  parameter SI.Time Ts=1e-3 "Dead time of inverter";
+  parameter SI.Resistance k=Ra*Ta/(2*Ts) "Current controller proportional gain";
+  parameter SI.Time Ti=Ta "Current controller integral time constant";
+  parameter SI.MagneticFlux kPhi=ViNominal/dcpmData.wNominal "Voltage constant";
   Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm(
     VaNominal=dcpmData.VaNominal,
     IaNominal=dcpmData.IaNominal,

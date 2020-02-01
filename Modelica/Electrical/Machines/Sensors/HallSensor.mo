@@ -4,7 +4,7 @@ model HallSensor "Hall sensor"
   extends
     Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
   parameter Integer p(final min=1, start=2) "Number of pole pairs";
-  parameter Modelica.SIunits.Angle phi0=-pi/p "Initial mechanical angle";
+  parameter SI.Angle phi0=-pi/p "Initial mechanical angle";
   Modelica.Blocks.Interfaces.RealOutput y(
     quantity="Angle",
     final unit="rad",

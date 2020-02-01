@@ -39,7 +39,7 @@ block LimitedPI
     "Control error (set point - measurement)";
   parameter Real k(unit="1")=1 "Gain";
   parameter Boolean useI=true "PI else P" annotation(Evaluate=true);
-  parameter Modelica.SIunits.Time Ti(min=Modelica.Constants.small)=1
+  parameter SI.Time Ti(min=Modelica.Constants.small)=1
     "Integral time constant (T>0 required)" annotation(Dialog(enable=useI));
   parameter Boolean useFF=false "Use feed-forward?"
     annotation(Dialog(group="Feed-forward"));

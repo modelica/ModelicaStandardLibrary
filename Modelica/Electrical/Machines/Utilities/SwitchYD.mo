@@ -1,9 +1,9 @@
 within Modelica.Electrical.Machines.Utilities;
 model SwitchYD "Y-D-switch"
   parameter Integer m=3 "Number of phases";
-  parameter SIunits.Resistance Ron=1e-5 "Closed switch resistance";
-  parameter SIunits.Conductance Goff=1e-5 "Opened switch conductance";
-  parameter SIunits.Time delayTime(final min=0)=0 "Time delay";
+  parameter SI.Resistance Ron=1e-5 "Closed switch resistance";
+  parameter SI.Conductance Goff=1e-5 "Opened switch conductance";
+  parameter SI.Time delayTime(final min=0)=0 "Time delay";
   Modelica.Electrical.Polyphase.Interfaces.PositivePlug plugSupply(final m=
        m) "To grid" annotation (Placement(transformation(extent={{-10,90},{
             10,110}})));

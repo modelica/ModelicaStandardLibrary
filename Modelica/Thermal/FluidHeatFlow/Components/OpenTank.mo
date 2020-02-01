@@ -2,16 +2,16 @@ within Modelica.Thermal.FluidHeatFlow.Components;
 model OpenTank "Model of a tank under ambient pressure"
   extends FluidHeatFlow.BaseClasses.SinglePortBottom(final Exchange=true);
 
-  parameter Modelica.SIunits.Area ATank(start=1) "Cross section of tank";
-  parameter Modelica.SIunits.Length hTank(start=1) "Height of tank";
-  parameter Modelica.SIunits.Pressure pAmbient(start=0) "Ambient pressure";
-  parameter Modelica.SIunits.Acceleration g(final min=0)=Modelica.Constants.g_n "Gravitation";
+  parameter SI.Area ATank(start=1) "Cross section of tank";
+  parameter SI.Length hTank(start=1) "Height of tank";
+  parameter SI.Pressure pAmbient(start=0) "Ambient pressure";
+  parameter SI.Acceleration g(final min=0)=Modelica.Constants.g_n "Gravitation";
   parameter Boolean useHeatPort = false "= true, if HeatPort is enabled"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-  Modelica.SIunits.Mass m "Mass of medium in tank";
+  SI.Mass m "Mass of medium in tank";
 protected
-  Modelica.SIunits.Enthalpy H "Enthalpy of medium";
-  Modelica.SIunits.HeatFlowRate Q_flow "Heat flow at the optional heatPort";
+  SI.Enthalpy H "Enthalpy of medium";
+  SI.HeatFlowRate Q_flow "Heat flow at the optional heatPort";
 public
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(final T=T, final Q_flow=Q_flow) if useHeatPort
     "Optional port for cooling or heating the medium in the tank"

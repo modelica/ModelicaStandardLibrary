@@ -3,24 +3,24 @@ partial model PartialBasicInductionMachine
   "Partial model for induction machine"
   final parameter Integer m=3 "Number of phases";
   parameter Integer p(min=1, start=2) "Number of pole pairs (Integer)";
-  parameter Modelica.SIunits.Frequency fsNominal(start=50)
+  parameter SI.Frequency fsNominal(start=50)
     "Nominal frequency";
-  parameter Modelica.SIunits.Temperature TsOperational(start=293.15)
+  parameter SI.Temperature TsOperational(start=293.15)
     "Operational temperature of stator resistance" annotation (Dialog(group=
          "Operational temperatures", enable=not useThermalPort));
-  parameter Modelica.SIunits.Resistance Rs(start=0.03)
+  parameter SI.Resistance Rs(start=0.03)
     "Stator resistance per phase at TRef"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Temperature TsRef(start=293.15)
+  parameter SI.Temperature TsRef(start=293.15)
     "Reference temperature of stator resistance"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20s(start=0)
     "Temperature coefficient of stator resistance at 20 degC"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Inductance Lszero=Lssigma
+  parameter SI.Inductance Lszero=Lssigma
     "Stator zero sequence inductance"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Inductance Lssigma(start=3*(1 - sqrt(1 -
+  parameter SI.Inductance Lssigma(start=3*(1 - sqrt(1 -
         0.0667))/(2*pi*fsNominal)) "Stator stray inductance per phase"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   extends PartialBasicMachine(
@@ -47,20 +47,20 @@ partial model PartialBasicInductionMachine
     final lossPowerStrayLoad=strayLoad.lossPower,
     final lossPowerFriction=friction.lossPower) "Power balance";
 
-  output Modelica.SIunits.Voltage vs[m]=plug_sp.pin.v - plug_sn.pin.v
+  output SI.Voltage vs[m]=plug_sp.pin.v - plug_sn.pin.v
     "Stator instantaneous voltages";
-  output Modelica.SIunits.Current is[m]=plug_sp.pin.i
+  output SI.Current is[m]=plug_sp.pin.i
     "Stator instantaneous currents";
-  output Modelica.SIunits.Current i_0_s(stateSelect=StateSelect.prefer)=
+  output SI.Current i_0_s(stateSelect=StateSelect.prefer)=
     spacePhasorS.zero.i "Stator zero-sequence current";
   // to be defined in model that extends from this partial (since airgap isn't included here)
-  input Modelica.SIunits.Current idq_ss[2]
+  input SI.Current idq_ss[2]
     "Stator space phasor current / stator fixed frame";
-  input Modelica.SIunits.Current idq_sr[2](each stateSelect=StateSelect.prefer)
+  input SI.Current idq_sr[2](each stateSelect=StateSelect.prefer)
     "Stator space phasor current / rotor fixed frame";
-  input Modelica.SIunits.Current idq_rs[2]
+  input SI.Current idq_rs[2]
     "Rotor space phasor current / stator fixed frame";
-  input Modelica.SIunits.Current idq_rr[2](each stateSelect=StateSelect.prefer)
+  input SI.Current idq_rr[2](each stateSelect=StateSelect.prefer)
     "Rotor space phasor current / rotor fixed frame";
   Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_sp(final m=m)
     "Positive stator plug" annotation (Placement(transformation(extent={{50,

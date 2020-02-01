@@ -3,7 +3,7 @@ model AnalysatorDC "Analyze DC voltage, current and power"
   extends Icons.RoundSensor;
   extends Modelica.Electrical.Analog.Interfaces.TwoPin;
   import Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems;
-  parameter Modelica.SIunits.Frequency f=50 "Mains frequency";
+  parameter SI.Frequency f=50 "Mains frequency";
   Analog.Interfaces.NegativePin nv "Negative electrical pin"
     annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
   Modelica.Blocks.Interfaces.RealOutput pDC(unit="W") "Mean power" annotation (

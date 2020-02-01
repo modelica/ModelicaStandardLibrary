@@ -3,15 +3,15 @@ model OneMass "Cooling of one hot mass"
   extends Modelica.Icons.Example;
   parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
     "Cooling medium" annotation (choicesAllMatching=true);
-  parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC")=293.15
+  parameter SI.Temperature TAmb(displayUnit="degC")=293.15
     "Ambient temperature";
-  parameter Modelica.SIunits.Temperature TMass(displayUnit="degC")=313.15
+  parameter SI.Temperature TMass(displayUnit="degC")=313.15
     "Initial temperature of mass";
-  output Modelica.SIunits.TemperatureDifference dTMass=
+  output SI.TemperatureDifference dTMass=
     heatCapacitor.port.T-TAmb "Mass over Ambient";
-  output Modelica.SIunits.TemperatureDifference dTtoPipe=heatCapacitor.port.T-pipe.T_q
+  output SI.TemperatureDifference dTtoPipe=heatCapacitor.port.T-pipe.T_q
     "Mass over Coolant";
-  output Modelica.SIunits.TemperatureDifference dTCoolant=pipe.dT
+  output SI.TemperatureDifference dTCoolant=pipe.dT
     "Coolant's temperature increase";
   FluidHeatFlow.Sources.Ambient ambient1(
     constantAmbientTemperature=TAmb,

@@ -4,13 +4,13 @@ model ThermalAmbientDCEE
   extends Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines(
       redeclare final Machines.Interfaces.DCMachines.ThermalPortDCEE
       thermalPort);
-  parameter Modelica.SIunits.Temperature Te(start=TDefault)
+  parameter SI.Temperature Te(start=TDefault)
     "Temperature of (shunt) excitation"
     annotation (Dialog(enable=not useTemperatureInputs));
-  output Modelica.SIunits.HeatFlowRate Q_flowExcitation=
+  output SI.HeatFlowRate Q_flowExcitation=
       temperatureExcitation.port.Q_flow
     "Heat flow rate of (shunt) excitation";
-  output Modelica.SIunits.HeatFlowRate Q_flowTotal=Q_flowArmature +
+  output SI.HeatFlowRate Q_flowTotal=Q_flowArmature +
       Q_flowCore + Q_flowStrayLoad + Q_flowFriction + Q_flowBrush +
       Q_flowExcitation;
   Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature

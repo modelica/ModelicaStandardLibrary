@@ -1,7 +1,7 @@
 within Modelica.Electrical.Polyphase.Sources;
 model ConstantVoltage "Polyphase constant voltage source"
   extends Interfaces.TwoPlug;
-  parameter Modelica.SIunits.Voltage V[m](start=fill(1, m))
+  parameter SI.Voltage V[m](start=fill(1, m))
     "Values of constant voltages";
   Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage[m](
       final V=V) annotation (Placement(transformation(extent={{-10,-10},{10,

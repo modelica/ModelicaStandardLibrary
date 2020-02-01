@@ -2,8 +2,8 @@ within Modelica.Electrical.QuasiStatic.SinglePhase.Ideal;
 model IdealIntermediateSwitch "Ideal intermediate switch"
   import Modelica.ComplexMath.real;
   import Modelica.ComplexMath.conj;
-  parameter Modelica.SIunits.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
-  parameter Modelica.SIunits.Conductance Goff(final min=0) = 1e-5 "Opened switch conductance";
+  parameter SI.Resistance Ron(final min=0) = 1e-5 "Closed switch resistance";
+  parameter SI.Conductance Goff(final min=0) = 1e-5 "Opened switch conductance";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
        293.15);
   QuasiStatic.SinglePhase.Interfaces.PositivePin p1 annotation (Placement(
@@ -26,9 +26,9 @@ protected
   Complex s2(re(final unit="1"), im(final unit="1"));
   Complex s3(re(final unit="1"), im(final unit="1"));
   Complex s4(re(final unit="1"), im(final unit="1")) "Auxiliary variables";
-  constant Modelica.SIunits.ComplexVoltage unitVoltage=Complex(1, 0)
+  constant SI.ComplexVoltage unitVoltage=Complex(1, 0)
     annotation (HideResult=true);
-  constant Modelica.SIunits.ComplexCurrent unitCurrent=Complex(1, 0)
+  constant SI.ComplexCurrent unitCurrent=Complex(1, 0)
     annotation (HideResult=true);
 equation
   Connections.branch(p1.reference, n1.reference);

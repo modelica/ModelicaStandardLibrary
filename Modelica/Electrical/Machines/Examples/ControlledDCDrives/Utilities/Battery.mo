@@ -1,8 +1,8 @@
 within Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities;
 model Battery "Simple battery model"
-  parameter Modelica.SIunits.Voltage V0 "No-load voltage";
-  parameter Modelica.SIunits.Current INominal "Nominal current";
-  parameter Modelica.SIunits.Resistance Ri=0.05*V0/INominal "Inner resistance";
+  parameter SI.Voltage V0 "No-load voltage";
+  parameter SI.Current INominal "Nominal current";
+  parameter SI.Resistance Ri=0.05*V0/INominal "Inner resistance";
   Modelica.Electrical.Analog.Interfaces.PositivePin pin_p
     annotation (Placement(transformation(extent={{50,110},{70,90}})));
   Modelica.Electrical.Analog.Interfaces.NegativePin pin_n

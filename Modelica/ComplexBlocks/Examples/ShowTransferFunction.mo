@@ -8,7 +8,7 @@ model ShowTransferFunction "Test Complex Transfer Function Block"
   parameter Real wMax=100 "Upper bound for frequency sweep";
   Real lg_w=log10(logFrequencySweep.y) "Logarithm of frequency";
   Real dB=20*log10(complexToPolar.len) "Magnitude of the transfer function in decibel";
-  Modelica.SIunits.Angle phi(displayUnit="deg")=complexToPolar.phi "Argument of the transfer function";
+  Modelica.Units.SI.Angle phi(displayUnit="deg")=complexToPolar.phi "Argument of the transfer function";
   Modelica.Blocks.Sources.LogFrequencySweep logFrequencySweep(
     duration=1,
     wMin=wMin,

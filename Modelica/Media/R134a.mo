@@ -8,22 +8,22 @@ package R134a "R134a: Medium model for R134a"
       "Thermodynamic base properties on the phase boundary"
       extends Modelica.Icons.Record;
 
-      Modelica.SIunits.Density d "Density";
-      Modelica.SIunits.SpecificEnthalpy h "Enthalpy";
-      Modelica.SIunits.SpecificEnergy u "Inner energy";
-      Modelica.SIunits.SpecificEntropy s "Entropy";
-      Modelica.SIunits.SpecificHeatCapacity cp
+      SI.Density d "Density";
+      SI.SpecificEnthalpy h "Enthalpy";
+      SI.SpecificEnergy u "Inner energy";
+      SI.SpecificEntropy s "Entropy";
+      SI.SpecificHeatCapacity cp
         "Heat capacity at constant pressure";
-      Modelica.SIunits.SpecificHeatCapacity cv
+      SI.SpecificHeatCapacity cv
         "Heat capacity at constant volume";
-      Modelica.SIunits.IsothermalCompressibility kappa "Isentropic exponent";
-      Modelica.SIunits.Velocity a "Velocity of sound";
+      SI.IsothermalCompressibility kappa "Isentropic exponent";
+      SI.Velocity a "Velocity of sound";
       Modelica.Media.Interfaces.Types.IsobaricExpansionCoefficient beta
         "Isobaric expansion coefficient";
-      Modelica.SIunits.IsentropicExponent gamma "Isentropic exponent";
-      Modelica.SIunits.DerPressureByTemperature pt
+      SI.IsentropicExponent gamma "Isentropic exponent";
+      SI.DerPressureByTemperature pt
         "Derivative of pressure w.r.t. temperature";
-      Modelica.SIunits.DerPressureByDensity pd
+      SI.DerPressureByDensity pd
         "Derivative of pressure w.r.t. density";
 
     end PhaseBoundaryProperties;
@@ -33,11 +33,11 @@ package R134a "R134a: Medium model for R134a"
       extends Modelica.Icons.Record;
 
       Integer phase "Number of phases";
-      Modelica.SIunits.Pressure p "Pressure";
-      Modelica.SIunits.Temperature T "Kelvin-temperature";
-      Modelica.SIunits.Density rho "Density";
-      Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
-      Modelica.SIunits.SpecificHeatCapacity cv
+      SI.Pressure p "Pressure";
+      SI.Temperature T "Kelvin-temperature";
+      SI.Density rho "Density";
+      SI.SpecificEnthalpy h "Specific enthalpy";
+      SI.SpecificHeatCapacity cv
         "Specific heat capacity at constant volume";
       Real pt "Derivative of pressure w.r.t. temperature";
       Real pd "Derivative of pressure w.r.t. density";
@@ -98,7 +98,7 @@ package R134a "R134a: Medium model for R134a"
       "Compute isochoric specific heat capacity inside the two-phase region"
       extends Modelica.Icons.Function;
 
-      import SI = Modelica.SIunits;
+
       input PhaseBoundaryProperties liq "Properties on the boiling curve";
       input PhaseBoundaryProperties vap "Properties on the condensation curve";
       input SI.MassFraction x "Vapour mass fraction";
@@ -160,7 +160,7 @@ package R134a "R134a: Medium model for R134a"
       "Calculate phase boundary property record from dimensionless Helmholtz function"
 
       extends Modelica.Icons.Function;
-      import SI = Modelica.SIunits;
+
       input Modelica.Media.Common.HelmholtzDerivs f
         "Dimensionless derivatives of Helmholtz function";
       output PhaseBoundaryProperties sat "Phase boundary property record";
@@ -284,9 +284,9 @@ package R134a "R134a: Medium model for R134a"
     protected
       SaturationProperties sat(psat=p, Tsat=0)
         "Saturation temperature and pressure";
-      Modelica.SIunits.SpecificEnthalpy hl=bubbleEnthalpy(sat)
+      SI.SpecificEnthalpy hl=bubbleEnthalpy(sat)
         "Liquid enthalpy";
-      Modelica.SIunits.SpecificEnthalpy hv=dewEnthalpy(sat) "Vapor enthalpy";
+      SI.SpecificEnthalpy hv=dewEnthalpy(sat) "Vapor enthalpy";
 
     algorithm
       state.p := p;
@@ -319,10 +319,10 @@ rho = Medium.density(setState_phX(p, h, fill(0, Medium.nX)));
       "Set state for density and temperature (X not used since single substance)"
     protected
       Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
-      Modelica.SIunits.SpecificHeatCapacity R_s "Specific gas constant";
+      SI.SpecificHeatCapacity R_s "Specific gas constant";
       SaturationProperties sat "Saturation temperature and pressure";
-      Modelica.SIunits.Density dl "Liquid density";
-      Modelica.SIunits.Density dv "Vapor density";
+      SI.Density dl "Liquid density";
+      SI.Density dv "Vapor density";
 
     algorithm
       R_s := R134aData.data.R_s;
@@ -375,8 +375,8 @@ s = Medium.specificEntropy(setState_dTX(d, T, fill(0, Medium.nX)));
       "Set state for pressure and specific entropy (X not used since single substance)"
 
     protected
-      Modelica.SIunits.Pressure delp=1e-2 "Iteration accuracy for pressure";
-      Modelica.SIunits.SpecificEntropy dels=1e-1
+      SI.Pressure delp=1e-2 "Iteration accuracy for pressure";
+      SI.SpecificEntropy dels=1e-1
         "Iteration accuracy for entropy";
       Integer error "If newton iteration fails (too many calls)";
       Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
@@ -423,7 +423,7 @@ h = Medium.specificEnthalpy(setState_psX(p, s, fill(0, Medium.nX)));
       "Set state for pressure and temperature (X not used since single substance)"
 
     protected
-        Modelica.SIunits.Pressure delp=1.0e-2
+        SI.Pressure delp=1.0e-2
         "Relative error in p in iteration";
 
     algorithm
@@ -477,7 +477,7 @@ Example:
 <blockquote><pre>
 Medium.AbsolutePressure p=3e5;
 // Viscosity on the liquid phase boundary
-Modelica.SIunits.DynamicViscosity eta_liq;
+SI.DynamicViscosity eta_liq;
 
 equation
 
@@ -511,7 +511,7 @@ Example:
 <blockquote><pre>
 Medium.AbsolutePressure p=3e5;
 // Viscosity on the vapor phase boundary
-Modelica.SIunits.DynamicViscosity eta_vap;
+SI.DynamicViscosity eta_vap;
 
 equation
 
@@ -646,7 +646,7 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
       SaturationProperties sat "Saturation temperature and pressure";
       Common.PhaseBoundaryProperties vap "Properties on vapor phase boundary";
 
-      Modelica.SIunits.MassFraction x "Vapor quality";
+      SI.MassFraction x "Vapor quality";
 
     algorithm
       if getPhase_ph(state.p, state.h) == 2 then
@@ -729,7 +729,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       "Time derivative of saturation temperature in two-phase region"
       extends Modelica.Icons.Function;
 
-      input Modelica.SIunits.AbsolutePressure p "Pressure";
+      input SI.AbsolutePressure p "Pressure";
       input Real der_p "Time derivative of pressure";
       output Real der_Tsat "Time derivative of saturation temperature";
     protected
@@ -1379,7 +1379,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       SaturationProperties sat "Saturation temperature and pressure";
       Common.PhaseBoundaryProperties vap "Properties on vapor phase boundary";
 
-      Modelica.SIunits.MassFraction x "Vapor quality";
+      SI.MassFraction x "Vapor quality";
 
     algorithm
       if getPhase_ph(state.p, state.h) == 2 then
@@ -1417,8 +1417,8 @@ Please note, that the function can also be called in the two-phase region, but t
       Real omega "Collision integral";
 
       constant Real K=0.021357 "Constant for low density term eta_star";
-      constant Modelica.SIunits.Length sigma=0.50647e-09 "Hard-sphere diameter";
-      constant Modelica.SIunits.Temperature epsilon_k=288.82 "Empirical factor";
+      constant SI.Length sigma=0.50647e-09 "Hard-sphere diameter";
+      constant SI.Temperature epsilon_k=288.82 "Empirical factor";
       constant Real a[5]={2.218816e-01,-5.079322e-01,1.285776e-01,-8.328165e-02,
           -2.713173e-02} "Coefficients for term of collision integral";
       constant Real b[13]={-1.7999496,4.6692621e+01,-5.3460794e+02,
@@ -1479,27 +1479,27 @@ Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
       Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
       Modelica.Media.Common.HelmholtzDerivs f_ref
         "Helmholtz derivatives for reference state";
-      Modelica.SIunits.ThermalConductivity lambda_dg
+      SI.ThermalConductivity lambda_dg
         "Dilute gas contribution to lambda";
       R134aData.CoeffsThermalConductivity coeff
         "Coefficients of thermal conductivity model";
-      Modelica.SIunits.ThermalConductivity lambda_reduced "Reduced lambda";
-      Modelica.SIunits.ThermalConductivity lambda_crit
+      SI.ThermalConductivity lambda_reduced "Reduced lambda";
+      SI.ThermalConductivity lambda_crit
         "Enhancement of lambda in the critical region";
-      Modelica.SIunits.ThermalConductivity chi_star "Correlation length";
-      Modelica.SIunits.ThermalConductivity chi_star_ref "Correlation length";
-      Modelica.SIunits.ThermalConductivity delta_chi "Chi_star - chi_star_ref";
+      SI.ThermalConductivity chi_star "Correlation length";
+      SI.ThermalConductivity chi_star_ref "Correlation length";
+      SI.ThermalConductivity delta_chi "Chi_star - chi_star_ref";
       Real rho_molar "Molar density [mol/l]";
       Real dddp "Derivative of density w.r.t. pressure";
       Real dddp_ref "Derivative of density w.r.t. pressure for reference state";
-      Modelica.SIunits.Length xi "Correlation length";
-      Modelica.SIunits.SpecificHeatCapacity cp
+      SI.Length xi "Correlation length";
+      SI.SpecificHeatCapacity cp
         "Specific heat capacity at constant pressure";
-      Modelica.SIunits.SpecificHeatCapacity cv
+      SI.SpecificHeatCapacity cv
         "Specific heat capacity at constant volume";
-      Modelica.SIunits.DynamicViscosity eta "Dynamic viscosity";
-      Modelica.SIunits.ThermalConductivity omega "Crossover function";
-      Modelica.SIunits.ThermalConductivity omega_0 "Crossover function";
+      SI.DynamicViscosity eta "Dynamic viscosity";
+      SI.ThermalConductivity omega "Crossover function";
+      SI.ThermalConductivity omega_0 "Crossover function";
 
     algorithm
       f := f_R134a(state.d, state.T);
@@ -1564,7 +1564,7 @@ Int. J. Refrig., 23 (2000) 43-63.</dd>
     protected
       Real tau "Reduced temperature";
       R134aData.CoeffsSurfaceTension coeff "Polynomial coefficients";
-      Modelica.SIunits.Temperature Tc=374.21 "Critical temperature";
+      SI.Temperature Tc=374.21 "Critical temperature";
 
     algorithm
       if sat.Tsat > Tc then
@@ -1855,12 +1855,12 @@ The isentropic efficiency function should not be applied in liquid region.
     protected
       SaturationProperties sat(psat=p, Tsat=0)
         "Saturation temperature and pressure";
-      Modelica.SIunits.Pressure delp=1.0e-2 "Relative error in p in iteration";
-      Modelica.SIunits.SpecificEnthalpy delh=1.0e-2
+      SI.Pressure delp=1.0e-2 "Relative error in p in iteration";
+      SI.SpecificEnthalpy delh=1.0e-2
         "Relative error in h in iteration";
-      Modelica.SIunits.SpecificEnthalpy hvapor=dewEnthalpy(sat=sat)
+      SI.SpecificEnthalpy hvapor=dewEnthalpy(sat=sat)
         "Vapor enthalpy";
-      Modelica.SIunits.SpecificEnthalpy hliquid=bubbleEnthalpy(sat=sat)
+      SI.SpecificEnthalpy hliquid=bubbleEnthalpy(sat=sat)
         "Liquid enthalpy";
       Integer error "Iteration error";
       Real x "Vapor quality";
@@ -1916,7 +1916,7 @@ The function cannot be inverted in a numerical way. Please use functions <a href
       constant Real dv_coef[:, 4]=R134aData.dvcoef
         "Coefficients of cubic spline for rho_vap(p)";
 
-      Modelica.SIunits.SpecificEnthalpy hl "Liquid enthalpy";
+      SI.SpecificEnthalpy hl "Liquid enthalpy";
       Boolean liquid "Is liquid";
       Boolean supercritical "Is supercritical";
       Integer int "Interval number";
@@ -2234,9 +2234,9 @@ This function computes the residual helmholtz derivatives of the fundamental equ
     protected
       SaturationProperties sat(psat=p, Tsat=0)
         "Saturation temperature and pressure";
-      Modelica.SIunits.SpecificEnthalpy hl=bubbleEnthalpy(sat)
+      SI.SpecificEnthalpy hl=bubbleEnthalpy(sat)
         "Liquid enthalpy";
-      Modelica.SIunits.SpecificEnthalpy hv=dewEnthalpy(sat) "Vapor enthalpy";
+      SI.SpecificEnthalpy hv=dewEnthalpy(sat) "Vapor enthalpy";
 
     algorithm
       phase := if ((h < hl) or (h > hv) or (p > R134aData.data.FPCRIT)) then 1
@@ -2256,8 +2256,8 @@ This function computes the number of phases for R134a depending on the inputs fo
     protected
       SaturationProperties sat(psat=p, Tsat=0)
         "Saturation temperature and pressure";
-      Modelica.SIunits.SpecificEntropy sl=bubbleEntropy(sat) "Liquid entropy";
-      Modelica.SIunits.SpecificEntropy sv=dewEntropy(sat) "Vapor entropy";
+      SI.SpecificEntropy sl=bubbleEntropy(sat) "Liquid entropy";
+      SI.SpecificEntropy sv=dewEntropy(sat) "Vapor entropy";
 
     algorithm
       phase := if ((s < sl) or (s > sv) or (p > R134aData.data.FPCRIT)) then 1
@@ -2277,11 +2277,11 @@ This function computes the number of phases for R134a depending on the inputs fo
 
     protected
       SaturationProperties sat "Saturation temperature and pressure";
-      Modelica.SIunits.MassFraction x "Vapor quality";
-      Modelica.SIunits.SpecificEntropy sl "Liquid entropy";
-      Modelica.SIunits.SpecificEntropy sv "Vapor entropy";
-      Modelica.SIunits.SpecificEnthalpy hl "Liquid enthalpy";
-      Modelica.SIunits.SpecificEnthalpy hv "Vapor enthalpy";
+      SI.MassFraction x "Vapor quality";
+      SI.SpecificEntropy sl "Liquid entropy";
+      SI.SpecificEntropy sv "Vapor entropy";
+      SI.SpecificEnthalpy hl "Liquid enthalpy";
+      SI.SpecificEnthalpy hv "Vapor enthalpy";
     algorithm
       sat.psat := p;
       // dummy
@@ -2307,8 +2307,8 @@ This function computes the specific enthalpy in two-phase for R134a depending on
       output Common.PhaseBoundaryProperties liq
         "Properties on liquid boundary phase";
     protected
-      Modelica.SIunits.Temperature T_liq "Liquid temperature";
-      Modelica.SIunits.Density d_liq "Liquid density";
+      SI.Temperature T_liq "Liquid temperature";
+      SI.Density d_liq "Liquid density";
       Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
     algorithm
       if T < R134aData.data.TCRIT then
@@ -2332,8 +2332,8 @@ This function computes the specific enthalpy in two-phase for R134a depending on
       output Common.PhaseBoundaryProperties vap
         "Properties on vapor boundary phase";
     protected
-      Modelica.SIunits.Temperature T_vap "Vapor temperature";
-      Modelica.SIunits.Density d_vap "Vapor density";
+      SI.Temperature T_vap "Vapor temperature";
+      SI.Density d_vap "Vapor density";
       Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
     algorithm
       if T < R134aData.data.TCRIT then
@@ -2378,11 +2378,11 @@ This function calculates the derivative of density w.r.t. time. It is used as de
       "Density as function of pressure and specific enthalpy"
       extends Modelica.Icons.Function;
 
-      input Modelica.SIunits.Pressure p "Pressure";
-      input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+      input SI.Pressure p "Pressure";
+      input SI.SpecificEnthalpy h "Specific enthalpy";
       input Common.InverseDerivatives_rhoT derivs
         "Record for the calculation of rho_ph_der";
-      output Modelica.SIunits.Density d "Density";
+      output SI.Density d "Density";
     algorithm
       d := derivs.rho;
 
@@ -2555,7 +2555,7 @@ The function cannot be inverted in a numerical way. Please use functions <a href
       extends Modelica.Icons.Function;
       input SI.Pressure p "Pressure";
       input SI.Temperature T "Temperature";
-      input Modelica.SIunits.Pressure delp
+      input SI.Pressure delp
         "Iteration converged if (p-pre(p) < delp)";
       output SI.SpecificEnthalpy h "Specific Enthalpy";
 
@@ -2578,12 +2578,12 @@ The function cannot be inverted in a numerical way. Please use functions <a href
     function phaseBoundaryAssert
       "Assert function for checking threshold to phase boundary"
       extends Modelica.Icons.Function;
-      input Modelica.SIunits.Pressure p "Refrigerant pressure";
-      input Modelica.SIunits.Temperature T "Refrigerant temperature";
+      input SI.Pressure p "Refrigerant pressure";
+      input SI.Temperature T "Refrigerant temperature";
 
     protected
-      Modelica.SIunits.Temperature T_lim_gas "Upper temperature limit";
-      Modelica.SIunits.Temperature T_lim_liq "Lower temperature limit";
+      SI.Temperature T_lim_gas "Upper temperature limit";
+      SI.Temperature T_lim_liq "Lower temperature limit";
 
     algorithm
       T_lim_gas := Modelica.Media.R134a.R134a_ph.saturationTemperature(p) + 1;
@@ -2638,10 +2638,10 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
   end R134a_ph;
 
   package R134aData "R134a data required by package R134a_ph"
-    import Modelica.SIunits;
+
 
     extends Modelica.Icons.Package;
-    constant SIunits.SpecificHeatCapacity R_s=data.R_s;
+    constant SI.SpecificHeatCapacity R_s=data.R_s;
     constant Integer Npoints=478;
     constant Integer Ninterval=Npoints - 1;
     constant Real[Npoints] pbreaks={9.597762848258994e-005,
@@ -9282,19 +9282,19 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
 
     record crit
       extends Modelica.Icons.Record;
-      constant SIunits.Temperature TCRIT=374.18;
-      constant SIunits.Pressure PCRIT=4056290.0;
-      constant SIunits.Density DCRIT=508.0;
+      constant SI.Temperature TCRIT=374.18;
+      constant SI.Pressure PCRIT=4056290.0;
+      constant SI.Density DCRIT=508.0;
 
     end crit;
 
     record data
-      constant SIunits.SpecificHeatCapacity R_s=81.4888564372;
+      constant SI.SpecificHeatCapacity R_s=81.4888564372;
       // 8.314471/0.102032
-      constant SIunits.MolarMass MM=0.102032;
+      constant SI.MolarMass MM=0.102032;
       extends crit;
-      constant SIunits.SpecificEnthalpy HCRIT=389653;
-      constant SIunits.SpecificEntropy SCRIT=1562.135;
+      constant SI.SpecificEnthalpy HCRIT=389653;
+      constant SI.SpecificEntropy SCRIT=1562.135;
       extends fcrit;
       extends triple;
 
@@ -9302,9 +9302,9 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
 
     record fcrit
       extends Modelica.Icons.Record;
-      constant SIunits.Temperature FTCRIT=374.209;
-      constant SIunits.Pressure FPCRIT=4059280.0;
-      constant SIunits.Density FDCRIT=511.9;
+      constant SI.Temperature FTCRIT=374.209;
+      constant SI.Pressure FPCRIT=4059280.0;
+      constant SI.Density FDCRIT=511.9;
 
     end fcrit;
 
@@ -9316,8 +9316,8 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
 
     record ReferenceStates
       extends Modelica.Icons.Record;
-      constant SIunits.SpecificEnthalpy h0=1.0;
-      constant SIunits.SpecificEntropy s0=1.0;
+      constant SI.SpecificEnthalpy h0=1.0;
+      constant SI.SpecificEntropy s0=1.0;
 
     end ReferenceStates;
 
@@ -9342,10 +9342,10 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
 
     record triple
       extends Modelica.Icons.Record;
-      constant SIunits.Temperature TTRIPLE=169.85;
-      constant SIunits.Pressure PTRIPLE=389.563789;
-      constant SIunits.Density DLTRIPLE=1591.107453;
-      constant SIunits.Density DVTRIPLE=0.028172;
+      constant SI.Temperature TTRIPLE=169.85;
+      constant SI.Pressure PTRIPLE=389.563789;
+      constant SI.Density DLTRIPLE=1591.107453;
+      constant SI.Density DVTRIPLE=0.028172;
 
     end triple;
 

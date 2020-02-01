@@ -4,18 +4,18 @@ model IMC_DOL
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   parameter Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Voltage VsNominal=100
+  parameter SI.Voltage VsNominal=100
     "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fNominal=imc.fsNominal "Nominal frequency";
-  parameter Modelica.SIunits.Time tOn=0.1 "Start time of machine";
-  parameter Modelica.SIunits.Torque T_Load=161.4 "Nominal load torque";
-  parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="rev/min")=
+  parameter SI.Frequency fNominal=imc.fsNominal "Nominal frequency";
+  parameter SI.Time tOn=0.1 "Start time of machine";
+  parameter SI.Torque T_Load=161.4 "Nominal load torque";
+  parameter SI.AngularVelocity w_Load(displayUnit="rev/min")=
        1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
-  parameter Modelica.SIunits.Inertia J_Load=0.5 "Load inertia";
+  parameter SI.Inertia J_Load=0.5 "Load inertia";
   parameter Integer p=2 "Number of pole pairs";
-  output Modelica.SIunits.Current Itr=currentQuasiRMSSensor.I
+  output SI.Current Itr=currentQuasiRMSSensor.I
     "Transient RMS current";
-  output Modelica.SIunits.Current Iqs=currentQuasiRMSSensorQS.I
+  output SI.Current Iqs=currentQuasiRMSSensorQS.I
     "QS RMS current";
   Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource
     voltageSourceQS(

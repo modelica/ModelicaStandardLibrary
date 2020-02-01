@@ -7,18 +7,18 @@ model ThermalAmbientSMEE
     Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines(
       redeclare final Machines.Interfaces.InductionMachines.ThermalPortSMEE
       thermalPort(final useDamperCage=useDamperCage));
-  parameter Modelica.SIunits.Temperature Tr(start=TDefault)
+  parameter SI.Temperature Tr(start=TDefault)
     "Temperature of damper cage (optional)" annotation (Dialog(enable=(
           not useTemperatureInputs and useDamperCage)));
-  parameter Modelica.SIunits.Temperature Te(start=TDefault)
+  parameter SI.Temperature Te(start=TDefault)
     "Temperature of excitation"
     annotation (Dialog(enable=not useTemperatureInputs));
-  output Modelica.SIunits.HeatFlowRate Q_flowRotorWinding=
+  output SI.HeatFlowRate Q_flowRotorWinding=
       temperatureRotorWinding.port.Q_flow
     "Heat flow rate of damper cage (optional)";
-  output Modelica.SIunits.HeatFlowRate Q_flowExcitation=
+  output SI.HeatFlowRate Q_flowExcitation=
       temperatureExcitation.port.Q_flow "Heat flow rate of excitation";
-  output Modelica.SIunits.HeatFlowRate Q_flowTotal=Q_flowStatorWinding +
+  output SI.HeatFlowRate Q_flowTotal=Q_flowStatorWinding +
       Q_flowRotorWinding + Q_flowExcitation + Q_flowStatorCore +
       Q_flowRotorCore + Q_flowStrayLoad + Q_flowFriction;
   Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature

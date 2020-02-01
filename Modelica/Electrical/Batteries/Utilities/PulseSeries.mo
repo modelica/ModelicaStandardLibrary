@@ -3,17 +3,17 @@ block PulseSeries "Series of pulses"
   import Modelica.Math.BooleanVectors.oneTrue;
   parameter Real amplitude1= 1 "Amplitude of 1st pulse series";
   parameter Integer n1(min=0)=1 "Number of pulses of 1st series";
-  parameter Modelica.SIunits.Time T1 "Length of pulses of 1st series";
-  parameter Modelica.SIunits.Time Tp1 "Pause between pulses of 1st series";
+  parameter SI.Time T1 "Length of pulses of 1st series";
+  parameter SI.Time Tp1 "Pause between pulses of 1st series";
   parameter Real amplitude2=-amplitude1 "Amplitude of 2nd pulse series";
   parameter Integer n2(min=0)=1 "Number of pulses of 2nd series";
-  parameter Modelica.SIunits.Time T2=T1 "Length of pulses of 2nd series";
-  parameter Modelica.SIunits.Time Tp2=Tp1 "Pause between pulses of 1st series";
-  parameter Modelica.SIunits.Time Tp "Pause between the two series";
+  parameter SI.Time T2=T1 "Length of pulses of 2nd series";
+  parameter SI.Time Tp2=Tp1 "Pause between pulses of 1st series";
+  parameter SI.Time Tp "Pause between the two series";
   extends Modelica.Blocks.Interfaces.SignalSource;
 protected
-  parameter Modelica.SIunits.Time Tstart1[n1]={startTime + (k-1)*(T1 + Tp1) for k in 1:n1};
-  parameter Modelica.SIunits.Time Tstart2[n1]={startTime + n1*(T1 + Tp1) + Tp + (k-1)*(T2 + Tp2) for k in 1:n2};
+  parameter SI.Time Tstart1[n1]={startTime + (k-1)*(T1 + Tp1) for k in 1:n1};
+  parameter SI.Time Tstart2[n1]={startTime + n1*(T1 + Tp1) + Tp + (k-1)*(T2 + Tp2) for k in 1:n2};
   Boolean on1, on2;
 equation
   on1 = oneTrue({time >= Tstart1[k] and time < Tstart1[k] + T1 for k in 1:n1});

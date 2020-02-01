@@ -2,25 +2,25 @@ within Modelica.Electrical.Machines.Interfaces;
 partial model PartialBasicMachine "Partial model for all machines"
   import Modelica.Constants.pi;
   extends Machines.Icons.TransientMachine;
-  parameter Modelica.SIunits.Inertia Jr "Rotor's moment of inertia";
+  parameter SI.Inertia Jr "Rotor's moment of inertia";
   parameter Boolean useSupport=false
     "Enable / disable (=fixed stator) support" annotation (Evaluate=true);
-  parameter Modelica.SIunits.Inertia Js=Jr "Stator's moment of inertia"
+  parameter SI.Inertia Js=Jr "Stator's moment of inertia"
                                  annotation (Dialog(enable=useSupport));
   parameter Boolean useThermalPort=false
     "Enable / disable (=fixed temperatures) thermal port"
     annotation (Evaluate=true);
   parameter Machines.Losses.FrictionParameters frictionParameters
     "Friction loss parameter record" annotation (Dialog(tab="Losses"));
-  output Modelica.SIunits.Angle phiMechanical(start=0) = flange.phi -
+  output SI.Angle phiMechanical(start=0) = flange.phi -
     internalSupport.phi "Mechanical angle of rotor against stator";
-  output Modelica.SIunits.AngularVelocity wMechanical(
+  output SI.AngularVelocity wMechanical(
     displayUnit="rev/min",
     start=0) = der(phiMechanical)
     "Mechanical angular velocity of rotor against stator";
-  output Modelica.SIunits.Torque tauElectrical=inertiaRotor.flange_a.tau
+  output SI.Torque tauElectrical=inertiaRotor.flange_a.tau
     "Electromagnetic torque";
-  output Modelica.SIunits.Torque tauShaft=-flange.tau "Shaft torque";
+  output SI.Torque tauShaft=-flange.tau "Shaft torque";
   Modelica.Mechanics.Rotational.Interfaces.Flange_a flange "Shaft"
     annotation (Placement(transformation(extent={{90,-10},{110,10}})));
   Modelica.Mechanics.Rotational.Components.Inertia inertiaRotor(final J=Jr)

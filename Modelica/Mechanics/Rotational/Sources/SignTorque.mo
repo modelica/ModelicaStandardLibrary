@@ -2,15 +2,15 @@ within Modelica.Mechanics.Rotational.Sources;
 model SignTorque "Constant torque changing sign with speed"
   extends Rotational.Interfaces.PartialTorque;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Torque tau_nominal
+  parameter SI.Torque tau_nominal
     "Nominal torque (if negative, torque is acting as load)";
   parameter Modelica.Blocks.Types.Regularization reg=Modelica.Blocks.Types.Regularization.Exp
     "Type of regularization" annotation(Evaluate=true);
-  parameter Modelica.SIunits.AngularVelocity w0(final min=Modelica.Constants.eps, start=0.1)
+  parameter SI.AngularVelocity w0(final min=Modelica.Constants.eps, start=0.1)
     "Regularization below w0";
-  Modelica.SIunits.AngularVelocity w
+  SI.AngularVelocity w
     "Angular velocity of flange with respect to support (= der(phi))";
-  Modelica.SIunits.Torque tau
+  SI.Torque tau
     "Accelerating torque acting at flange (= -flange.tau)";
 equation
   w = der(phi);

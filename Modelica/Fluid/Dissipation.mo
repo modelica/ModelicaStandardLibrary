@@ -62,8 +62,8 @@ flow model will be explained as example.
 <blockquote><pre>
  model straightPipe
   //compressible case M_FLOW = f(dp)
-   Modelica.SIunits.Pressure dp \"Input pressure loss\";
-   Modelica.SIunits.MassFlowRate M_FLOW \"Output mass flow rate\";
+   SI.Pressure dp \"Input pressure loss\";
+   SI.MassFlowRate M_FLOW \"Output mass flow rate\";
  end straightPipe
 
  equation
@@ -88,8 +88,8 @@ dropped in the equation section of the <strong> equation layer </strong> of the 
 <blockquote><pre>
 model straightPipe
   //compressible case M_FLOW = f(dp)
-  Modelica.SIunits.Pressure dp \"Input pressure loss\";
-  Modelica.SIunits.MassFlowRate M_FLOW \"Output mass flow rate\";
+  SI.Pressure dp \"Input pressure loss\";
+  SI.MassFlowRate M_FLOW \"Output mass flow rate\";
 
 equation
   Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_<strong>MFLOW</strong>
@@ -2207,7 +2207,7 @@ This record is used as <strong> input record </strong> for the heat transfer fun
           Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties;
 
         //input variable (fluid flow velocity)
-        Modelica.SIunits.Velocity velocity annotation (Dialog(group="Input"));
+        SI.Velocity velocity annotation (Dialog(group="Input"));
 
       annotation (Documentation(info="<html>
 This record is used as <strong> input record </strong> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall\"> kc_overall</a> and
@@ -12460,7 +12460,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
           SI.Density rho_m "Mean density of ideal gas"
             annotation (Dialog(group="Fluid properties", enable=useMeanDensity));
-          SI.Temp_K T_m "Mean temperature of ideal gas"
+          SI.Temperature T_m "Mean temperature of ideal gas"
             annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
           SI.Pressure p_m "Mean pressure of ideal gas"
             annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
@@ -12601,7 +12601,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             annotation (Dialog(group="Generic variables"));
           SI.Density rho_m=p_m/(R_s*T_m) "Mean density of ideal gas"
             annotation (Dialog(group="Fluid properties", enable=useMeanDensity));
-          SI.Temp_K T_m "Mean temperature of ideal gas"
+          SI.Temperature T_m "Mean temperature of ideal gas"
             annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
           SI.Pressure p_m "Mean pressure of ideal gas"
             annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));

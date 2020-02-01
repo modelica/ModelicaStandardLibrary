@@ -3,15 +3,15 @@ model Cylinder "Simple model of a piston in a cylinder"
   import Modelica.Constants.small;
   extends FluidHeatFlow.BaseClasses.SinglePortLeft(final Exchange=true);
 
-  parameter Modelica.SIunits.Area A "Cross section of cylinder/piston";
-  parameter Modelica.SIunits.Length L "Length of cylinder";
+  parameter SI.Area A "Cross section of cylinder/piston";
+  parameter SI.Length L "Length of cylinder";
   extends
     Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2
     (s(start=small));
-  Modelica.SIunits.Force f=flange.f "Force at piston";
+  SI.Force f=flange.f "Force at piston";
 protected
-  Modelica.SIunits.Mass m "Mass of medium";
-  Modelica.SIunits.Enthalpy H "Enthalpy of medium";
+  SI.Mass m "Mass of medium";
+  SI.Enthalpy H "Enthalpy of medium";
 equation
   assert(s>=small, getInstanceName()+": Piston hit bottom of cylinder!");
   assert(s<=L, getInstanceName()+":Piston hit top of cylinder!");

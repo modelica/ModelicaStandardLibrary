@@ -1,17 +1,17 @@
 within Modelica.Electrical.PowerConverters.DCAC;
 model SinglePhase2Level "Single-phase DC to AC converter"
   extends Modelica.Blocks.Icons.Block;
-  parameter Modelica.SIunits.Resistance RonTransistor=1e-05
+  parameter SI.Resistance RonTransistor=1e-05
     "Transistor closed resistance";
-  parameter Modelica.SIunits.Conductance GoffTransistor=1e-05
+  parameter SI.Conductance GoffTransistor=1e-05
     "Transistor opened conductance";
-  parameter Modelica.SIunits.Voltage VkneeTransistor=0
+  parameter SI.Voltage VkneeTransistor=0
     "Transistor threshold voltage";
-  parameter Modelica.SIunits.Resistance RonDiode=1e-05
+  parameter SI.Resistance RonDiode=1e-05
     "Diode closed resistance";
-  parameter Modelica.SIunits.Conductance GoffDiode=1e-05
+  parameter SI.Conductance GoffDiode=1e-05
     "Diode opened conductance";
-  parameter Modelica.SIunits.Voltage VkneeDiode=0 "Diode threshold voltage";
+  parameter SI.Voltage VkneeDiode=0 "Diode threshold voltage";
   // parameter Boolean useEnable "Enables enable signal connector";
   extends PowerConverters.Interfaces.DCAC.DCtwoPin;
   extends PowerConverters.Interfaces.DCAC.ACpin;

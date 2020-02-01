@@ -3319,7 +3319,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
         extends Modelica.Icons.Function;
         input SI.Pressure p "Pressure";
         input SI.SpecificEnthalpy h "Specific enthalpy";
-        output SI.Temp_K T "Temperature";
+        output SI.Temperature T "Temperature";
       protected
         constant Real[:] n={-0.133645667811215e-6,0.455912656802978e-5,-0.146294640700979e-4,
             0.639341312970080e-2,0.372783927268847e3,-0.718654377460447e4,
@@ -3336,7 +3336,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
             1,1,0,1,0,3,4,5};
         constant SI.SpecificEnthalpy hstar=2300e3 "Normalization enthalpy";
         constant SI.Pressure pstar=100e6 "Normalization pressure";
-        constant SI.Temp_K Tstar=760 "Normalization temperature";
+        constant SI.Temperature Tstar=760 "Normalization temperature";
         Real pi=p/pstar "Normalized specific pressure";
         Real eta=h/hstar "Normalized specific enthalpy";
       algorithm
@@ -3361,7 +3361,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
         extends Modelica.Icons.Function;
         input SI.Pressure p "Pressure";
         input SI.SpecificEnthalpy h "Specific enthalpy";
-        output SI.Temp_K T "Temperature";
+        output SI.Temperature T "Temperature";
       protected
         constant Real[:] n={0.323254573644920e-4,-0.127575556587181e-3,-0.475851877356068e-3,
             0.156183014181602e-2,0.105724860113781,-0.858514221132534e2,
@@ -3377,7 +3377,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
             -4,-4,-3,-2,-2,-1,-1,-1,-1,-1,-1,0,0,1,3,5,6,8};
         constant Real[:] J={0,1,0,1,5,10,12,0,1,2,4,10,0,1,2,0,1,5,0,4,2,4,6,10,
             14,16,0,2,1,1,1,1,1};
-        constant SI.Temp_K Tstar=860 "Normalization temperature";
+        constant SI.Temperature Tstar=860 "Normalization temperature";
         constant SI.Pressure pstar=100e6 "Normalization pressure";
         constant SI.SpecificEnthalpy hstar=2800e3 "Normalization enthalpy";
         Real pi=p/pstar "Normalized specific pressure";
@@ -3491,7 +3491,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
         extends Modelica.Icons.Function;
         input SI.Pressure p "Pressure";
         input SI.SpecificEntropy s "Specific entropy";
-        output SI.Temp_K T "Temperature";
+        output SI.Temperature T "Temperature";
       protected
         constant Real[:] n={0.150042008263875e10,-0.159397258480424e12,
             0.502181140217975e-3,-0.672057767855466e2,0.145058545404456e4,-0.823889534888890e4,
@@ -3508,7 +3508,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
             -5,-4,-4,-4,-2,-2,-1,-1,0,0,0,1,2,2,3,8,8,10};
         constant Real[:] J={28,32,4,10,12,14,5,7,8,28,2,6,32,0,14,32,6,10,36,1,
             4,1,6,0,1,4,0,0,3,2,0,1,2};
-        constant SI.Temp_K Tstar=760 "Normalization temperature";
+        constant SI.Temperature Tstar=760 "Normalization temperature";
         constant SI.Pressure pstar=100e6 "Normalization pressure";
         constant SI.SpecificEntropy sstar=4.4e3 "Normalization entropy";
         Real pi=p/pstar "Normalized specific pressure";
@@ -3536,7 +3536,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
         extends Modelica.Icons.Function;
         input SI.Pressure p "Pressure";
         input SI.SpecificEntropy s "Specific entropy";
-        output SI.Temp_K T "Temperature";
+        output SI.Temperature T "Temperature";
       protected
         constant Real[:] n={0.527111701601660,-0.401317830052742e2,
             0.153020073134484e3,-0.224799398218827e4,-0.193993484669048,-0.140467557893768e1,
@@ -3550,7 +3550,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
             -3,-3,-2,0,2,3,4,5,6,8,12,14};
         constant Real[:] J={1,3,4,7,0,1,3,0,2,4,0,1,2,4,6,12,1,6,2,0,1,1,0,24,0,
             3,1,2};
-        constant SI.Temp_K Tstar=860 "Normalization temperature";
+        constant SI.Temperature Tstar=860 "Normalization temperature";
         constant SI.Pressure pstar=100e6 "Normalization pressure";
         constant SI.SpecificEntropy sstar=5.3e3 "Normalization entropy";
         Real pi=p/pstar "Normalized specific pressure";
@@ -3734,11 +3734,11 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       function pmIceI_T
         "Melting pressure of ice I (temperature range from 273.16 to 251.165 K)"
         extends Modelica.Icons.Function;
-        input SI.Temp_K T "Temperature";
+        input SI.Temperature T "Temperature";
         output SI.Pressure pm
           "Melting pressure of iceI(for T from 273.16 to 251.165 K)";
       protected
-        constant SI.Temp_K Tn=273.16 "Normalization temperature";
+        constant SI.Temperature Tn=273.16 "Normalization temperature";
         constant SI.Pressure pn=611.657 "Normalization pressure";
         Real sigma=T/Tn "Normalized temperature";
       algorithm
@@ -3759,11 +3759,11 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       function pmIceIII_T
         "Melting pressure of ice III (temperature range from 251.165 to 256.164 K)"
         extends Modelica.Icons.Function;
-        input SI.Temp_K T "Temperature";
+        input SI.Temperature T "Temperature";
         output SI.Pressure pm
           "Melting pressure of iceIII(for T from 251.165 to 256.164 K)";
       protected
-        constant SI.Temp_K Tn=251.165 "Normalization temperature";
+        constant SI.Temperature Tn=251.165 "Normalization temperature";
         constant SI.Pressure pn=209.9e6 "Normalization pressure";
         Real sigma=T/Tn "Normalized temperature";
       algorithm
@@ -3783,11 +3783,11 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       function pmIceV_T
         "Melting pressure of ice V (temperature range from 256.164 to 273.31 K)"
         extends Modelica.Icons.Function;
-        input SI.Temp_K T "Temperature";
+        input SI.Temperature T "Temperature";
         output SI.Pressure pm
           "Melting pressure of iceV(for T from 256.164 to 273.31 K)";
       protected
-        constant SI.Temp_K Tn=256.164 "Normalization temperature";
+        constant SI.Temperature Tn=256.164 "Normalization temperature";
         constant SI.Pressure pn=350.1e6 "Normalization pressure";
         Real sigma=T/Tn "Normalized temperature";
 
@@ -3808,11 +3808,11 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       function sublimationPressure_T
         "Sublimation pressure, valid from 190 to 273.16 K"
         extends Modelica.Icons.Function;
-        input SI.Temp_K T "Temperature";
+        input SI.Temperature T "Temperature";
         output SI.Pressure psubl
           "Sublimation pressure (for T from 190 to 273.16)";
       protected
-        constant SI.Temp_K Tn=273.16 "Normalization temperature";
+        constant SI.Temperature Tn=273.16 "Normalization temperature";
         constant SI.Pressure pn=611.657 "Normalization pressure";
         constant Real[2] a={-13.9281690,34.7078238} "Constant values";
         Real sigma=T/Tn "Normalized temperature";
@@ -4651,7 +4651,7 @@ Ordinary Water Substance<br>
         input SI.SpecificEntropy s "Specific entropy";
         output SI.SpecificEnthalpy h "Specific enthalpy";
       protected
-        SI.Temp_K Tsat "Saturation temperature";
+        SI.Temperature Tsat "Saturation temperature";
         SI.MassFraction x "Dryness fraction";
         SI.SpecificEntropy sl "Saturated liquid specific entropy";
         SI.SpecificEntropy sv "Saturated vapour specific entropy";

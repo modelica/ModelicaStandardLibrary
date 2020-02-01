@@ -80,7 +80,7 @@ model TestTemperature1
     redeclare package Medium = Medium,
     zeta=zeta,
     diameter=diameter_a) annotation (Placement(transformation(extent={{40,-30},{60,-10}})));
-  Modelica.SIunits.TemperatureDifference Tdiff = Tmix2.T - Tmix1.T;
+  SI.TemperatureDifference Tdiff = Tmix2.T - Tmix1.T;
 equation
   assert(abs(Tdiff)/50 < 1e-3, "OnePortTemperature and TwoPortTemperature shall give the same result");
   connect(ramp.y, source1.m_flow_in)     annotation (Line(

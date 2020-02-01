@@ -4,8 +4,8 @@ model SpacePhasor
   import Modelica.Constants.pi;
   constant Integer m=3 "Number of phases";
   parameter Real turnsRatio=1 "Turns ratio";
-  Modelica.SIunits.Voltage v[m] "Instantaneous phase voltages";
-  Modelica.SIunits.Current i[m] "Instantaneous phase currents";
+  SI.Voltage v[m] "Instantaneous phase voltages";
+  SI.Current i[m] "Instantaneous phase currents";
 protected
   parameter Real TransformationMatrix[2, m]=2/m*{{cos(+(k - 1)/m*2*pi)
       for k in 1:m},{+sin(+(k - 1)/m*2*pi) for k in 1:m}};

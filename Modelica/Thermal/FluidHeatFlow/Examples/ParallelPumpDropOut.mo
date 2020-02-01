@@ -4,21 +4,21 @@ model ParallelPumpDropOut
   extends Modelica.Icons.Example;
   parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
     "Cooling medium" annotation (choicesAllMatching=true);
-  parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC")=293.15
+  parameter SI.Temperature TAmb(displayUnit="degC")=293.15
     "Ambient temperature";
-  output Modelica.SIunits.TemperatureDifference dTSource1=
+  output SI.TemperatureDifference dTSource1=
     prescribedHeatFlow1.port.T-TAmb "Source1 over Ambient";
-  output Modelica.SIunits.TemperatureDifference dTtoPipe1=prescribedHeatFlow1.port.T-pipe1.T_q
+  output SI.TemperatureDifference dTtoPipe1=prescribedHeatFlow1.port.T-pipe1.T_q
     "Source1 over Coolant1";
-  output Modelica.SIunits.TemperatureDifference dTCoolant1=pipe1.dT
+  output SI.TemperatureDifference dTCoolant1=pipe1.dT
     "Coolant1's temperature increase";
-  output Modelica.SIunits.TemperatureDifference dTSource2=
+  output SI.TemperatureDifference dTSource2=
     prescribedHeatFlow2.port.T-TAmb "Source2 over Ambient";
-  output Modelica.SIunits.TemperatureDifference dTtoPipe2=prescribedHeatFlow2.port.T-pipe2.T_q
+  output SI.TemperatureDifference dTtoPipe2=prescribedHeatFlow2.port.T-pipe2.T_q
     "Source2 over Coolant2";
-  output Modelica.SIunits.TemperatureDifference dTCoolant2=pipe2.dT
+  output SI.TemperatureDifference dTCoolant2=pipe2.dT
     "Coolant2's temperature increase";
-  output Modelica.SIunits.TemperatureDifference dTmixedCoolant=ambient2.T_port-ambient1.T_port
+  output SI.TemperatureDifference dTmixedCoolant=ambient2.T_port-ambient1.T_port
     "mixed Coolant's temperature increase";
   FluidHeatFlow.Sources.Ambient ambient1(
     constantAmbientTemperature=TAmb,

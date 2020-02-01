@@ -8,7 +8,7 @@ function ToSpacePhasor
   output Real y0 "Zero sequence component (of voltage or current)";
 protected
   parameter Integer m=size(x, 1) "Number of phases";
-  parameter Modelica.SIunits.Angle phi[m]=
+  parameter SI.Angle phi[m]=
       Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m);
   parameter Real TransformationMatrix[2, m]=2/m*{+cos(+phi),+sin(+phi)};
   parameter Real InverseTransformation[m, 2]={{+cos(-phi[k]),-sin(-phi[k])}

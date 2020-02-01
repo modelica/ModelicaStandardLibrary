@@ -2,7 +2,7 @@ within Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.Leakage;
 model CylinderLeakage "Testing cylinder leakage models"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.RelativePermeability mu_rConst = 100
+  parameter SI.RelativePermeability mu_rConst = 100
   "Relative permeability";
   Shapes.Leakage.QuarterCylinder quarterCylinder1(l=2*pi*0.1)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));

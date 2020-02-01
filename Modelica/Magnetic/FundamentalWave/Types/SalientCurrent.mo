@@ -1,6 +1,6 @@
 within Modelica.Magnetic.FundamentalWave.Types;
-record SalientCurrent = Salient (redeclare Modelica.SIunits.Current d,
-      redeclare Modelica.SIunits.Current q) "Salient current" annotation (
+record SalientCurrent = Salient (redeclare SI.Current d,
+      redeclare SI.Current q) "Salient current" annotation (
     Documentation(info="<html>
 <p>Type representing the d- and q-axis of a current phasor.</p>
 

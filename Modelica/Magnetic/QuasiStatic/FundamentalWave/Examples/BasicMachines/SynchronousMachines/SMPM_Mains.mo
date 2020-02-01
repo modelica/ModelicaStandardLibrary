@@ -4,14 +4,14 @@ model SMPM_Mains
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   parameter Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Frequency f=50 "Supply frequency";
-  parameter Modelica.SIunits.Voltage V=112.3 "Supply voltage";
-  parameter Modelica.SIunits.Torque T_Load=181.4 "Nominal load torque";
-  parameter Modelica.SIunits.Time tStep=0.5 "Time of load torque step";
-  parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
-  output Modelica.SIunits.Current Itr=currentQuasiRMSSensor.I
+  parameter SI.Frequency f=50 "Supply frequency";
+  parameter SI.Voltage V=112.3 "Supply voltage";
+  parameter SI.Torque T_Load=181.4 "Nominal load torque";
+  parameter SI.Time tStep=0.5 "Time of load torque step";
+  parameter SI.Inertia J_Load=0.29 "Load inertia";
+  output SI.Current Itr=currentQuasiRMSSensor.I
     "Transient RMS current";
-  output Modelica.SIunits.Current Iqs=currentQuasiRMSSensorQS.I
+  output SI.Current Iqs=currentQuasiRMSSensorQS.I
     "QS RMS current";
   Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource
     voltageSourceQS(

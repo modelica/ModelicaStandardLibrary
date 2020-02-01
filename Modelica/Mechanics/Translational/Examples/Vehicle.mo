@@ -2,23 +2,23 @@ within Modelica.Mechanics.Translational.Examples;
 model Vehicle "One-dimensional vehicle with driving resistances"
   extends Modelica.Icons.Example;
   import Modelica.Constants.g_n;
-  parameter Modelica.SIunits.Mass m=100 "Mass of vehicle";
-  parameter Modelica.SIunits.Length R=0.25 "Radius of wheel";
-  parameter Modelica.SIunits.Area A=1 "Cross section of vehicle";
+  parameter SI.Mass m=100 "Mass of vehicle";
+  parameter SI.Length R=0.25 "Radius of wheel";
+  parameter SI.Area A=1 "Cross section of vehicle";
   parameter Real Cd=0.5 "Drag resistance coefficient";
-  parameter Modelica.SIunits.Density rho=1.18 "Density of air";
-  parameter Modelica.SIunits.Velocity vWind=0 "Constant wind velocity";
+  parameter SI.Density rho=1.18 "Density of air";
+  parameter SI.Velocity vWind=0 "Constant wind velocity";
   parameter Real Cr=0.01 "Rolling resistance coefficient";
   //Check nominal force
   parameter Real inclination=0 "Constant inclination = tan(angle)";
-  parameter Modelica.SIunits.Velocity vNom=25/3.5 "Nominal velocity";
-  final parameter Modelica.SIunits.Force fDrag=Cd*A*rho*(vNom - vWind)^2/2 "Drag resistance"
+  parameter SI.Velocity vNom=25/3.5 "Nominal velocity";
+  final parameter SI.Force fDrag=Cd*A*rho*(vNom - vWind)^2/2 "Drag resistance"
     annotation(Dialog(enable=false));
-  final parameter Modelica.SIunits.Angle alpha=atan(inclination) "Inclination angle"
+  final parameter SI.Angle alpha=atan(inclination) "Inclination angle"
     annotation(Dialog(enable=false));
-  final parameter Modelica.SIunits.Force fRoll=Cr*m*g_n*cos(alpha) "Roll resistance"
+  final parameter SI.Force fRoll=Cr*m*g_n*cos(alpha) "Roll resistance"
     annotation(Dialog(enable=false));
-  final parameter Modelica.SIunits.Force fGrav=m*g_n*sin(alpha) "Grav resistance"
+  final parameter SI.Force fGrav=m*g_n*sin(alpha) "Grav resistance"
   annotation(Dialog(enable=false));
   Components.Vehicle vehicle(
     m=m,

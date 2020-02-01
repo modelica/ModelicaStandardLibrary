@@ -1,6 +1,6 @@
 within Modelica.Electrical.PowerConverters.DCAC.Control;
 block SVPWM "SpaceVector Pulse Width Modulation"
-  parameter Modelica.SIunits.Frequency f "Switching frequency";
+  parameter SI.Frequency f "Switching frequency";
   extends Modelica.Blocks.Interfaces.DiscreteBlock(final samplePeriod=1/f);
   import Modelica.Constants.small;
   import Modelica.Constants.eps;
@@ -22,12 +22,12 @@ block SVPWM "SpaceVector Pulse Width Modulation"
     annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
 protected
   discrete Real uRef(start=0, fixed=true) "length of reference vector";
-  discrete Modelica.SIunits.Angle phiRef(start=0, fixed=true) "Angle of reference vector within (-pi, +pi]";
-  discrete Modelica.SIunits.Angle phiPos(start=0, fixed=true) "Angle of reference vector within [0, 2*pi)";
+  discrete SI.Angle phiRef(start=0, fixed=true) "Angle of reference vector within (-pi, +pi]";
+  discrete SI.Angle phiPos(start=0, fixed=true) "Angle of reference vector within [0, 2*pi)";
   Integer ka(start=0, fixed=true), kb(start=0, fixed=true) "Switching patterns limiting the sector";
-  discrete Modelica.SIunits.Angle phiSec(start=0, fixed=true) "Angle of reference vector within sector within [0, pi/m)";
+  discrete SI.Angle phiSec(start=0, fixed=true) "Angle of reference vector within sector within [0, pi/m)";
   discrete Real ta(start=0, fixed=true), tb(start=0, fixed=true), t0(start=samplePeriod, fixed=true) "Relative time spans of vectors a, b, and 0";
-  discrete Modelica.SIunits.Time T0(start=startTime, fixed=true) "Start time of switching interval";
+  discrete SI.Time T0(start=startTime, fixed=true) "Start time of switching interval";
 algorithm
   when sampleTrigger then
     //Limited relative reference signal

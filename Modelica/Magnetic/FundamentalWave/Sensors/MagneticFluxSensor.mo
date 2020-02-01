@@ -2,7 +2,7 @@ within Modelica.Magnetic.FundamentalWave.Sensors;
 model MagneticFluxSensor "Sensor to measure magnetic flux"
   extends Modelica.Icons.RoundSensor;
   extends Magnetic.FundamentalWave.Interfaces.TwoPortElementary;
-  Modelica.SIunits.ComplexMagneticPotentialDifference V_m
+  SI.ComplexMagneticPotentialDifference V_m
     "Complex magnetic potential difference";
   Modelica.ComplexBlocks.Interfaces.ComplexOutput Phi
     "Complex magnetic flux from por_ p to port_n as output signal"

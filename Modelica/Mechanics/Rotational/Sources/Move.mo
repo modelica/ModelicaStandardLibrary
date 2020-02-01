@@ -4,7 +4,7 @@ model Move
   extends
     Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
 
-  Modelica.SIunits.Angle phi
+  SI.Angle phi
     "Rotation angle of flange with respect to support";
   Modelica.Blocks.Interfaces.RealInput u[3]
     "Angle, angular velocity and angular acceleration of flange with respect to support as input signals"

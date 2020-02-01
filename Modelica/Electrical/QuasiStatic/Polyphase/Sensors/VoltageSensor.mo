@@ -4,11 +4,11 @@ model VoltageSensor "Voltage sensor"
 
   QuasiStatic.SinglePhase.Sensors.VoltageSensor voltageSensor[m]
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  Modelica.SIunits.Voltage abs_v[m]=Modelica.ComplexMath.abs(v)
+  SI.Voltage abs_v[m]=Modelica.ComplexMath.abs(v)
     "Magnitude of complex voltage";
-  Modelica.SIunits.Angle arg_v[m]=Modelica.ComplexMath.arg(v)
+  SI.Angle arg_v[m]=Modelica.ComplexMath.arg(v)
     "Argument of complex voltage";
-  ComplexBlocks.Interfaces.ComplexOutput v[m](redeclare each final SIunits.Voltage re, redeclare each final SIunits.Voltage im) "Voltage as complex output signal"
+  ComplexBlocks.Interfaces.ComplexOutput v[m](redeclare each final SI.Voltage re, redeclare each final SI.Voltage im) "Voltage as complex output signal"
     annotation (Placement(transformation(
         origin={0,-110},
         extent={{10,10},{-10,-10}},

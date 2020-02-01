@@ -6,8 +6,8 @@ model SinglePhaseTwoLevel_R
       offset=0.5,
       f=f1));
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Resistance R=100 "Resistance";
-  parameter Modelica.SIunits.Frequency f1=50 "AC frequency";
+  parameter SI.Resistance R=100 "Resistance";
+  parameter SI.Frequency f1=50 "AC frequency";
   Modelica.Electrical.Analog.Basic.Resistor resistor(R=R) annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},

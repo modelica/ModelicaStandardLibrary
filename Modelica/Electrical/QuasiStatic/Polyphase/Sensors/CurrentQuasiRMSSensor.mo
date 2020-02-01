@@ -20,8 +20,8 @@ model CurrentQuasiRMSSensor
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={0,-50})));
-  Modelica.SIunits.ComplexVoltage v[m] = plug_p.pin.v - plug_n.pin.v "Complex voltage";
-  Modelica.SIunits.ComplexCurrent i[m] = plug_p.pin.i "Complex current";
+  SI.ComplexVoltage v[m] = plug_p.pin.v - plug_n.pin.v "Complex voltage";
+  SI.ComplexCurrent i[m] = plug_p.pin.i "Complex current";
 equation
   connect(quasiRMS.y, I) annotation (Line(
       points={{0,-61},{0,-100}}, color={0,0,127}));

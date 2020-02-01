@@ -6,8 +6,8 @@ model SignalPWM
     "Enables constant duty cycle";
   parameter Real constantDutyCycle=0 "Constant duty cycle"
     annotation (Dialog(enable=useConstantDutyCycle));
-  parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
-  parameter Modelica.SIunits.Time startTime=0 "Start time";
+  parameter SI.Frequency f=1000 "Switching frequency";
+  parameter SI.Time startTime=0 "Start time";
   Modelica.Blocks.Interfaces.RealInput dutyCycle if not
     useConstantDutyCycle "Duty cycle"
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));

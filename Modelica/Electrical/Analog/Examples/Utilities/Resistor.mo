@@ -1,7 +1,7 @@
 within Modelica.Electrical.Analog.Examples.Utilities;
 model Resistor "Input/output block of a resistance model"
   extends Modelica.Blocks.Icons.Block;
-  parameter Modelica.SIunits.Resistance R=1 "Resistance";
+  parameter SI.Resistance R=1 "Resistance";
   Modelica.Electrical.Analog.Basic.GeneralVoltageToCurrentAdaptor voltageToCurrent1(
       use_pder=false, use_fder=false)
     annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));

@@ -1,6 +1,6 @@
 within Modelica.Electrical;
 package Spice3 "Library for components of the Berkeley SPICE3 simulator"
-  import SI = Modelica.SIunits;
+
 
 extends Modelica.Icons.Package;
 
@@ -4459,7 +4459,7 @@ on the model behaviour.
         "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
     parameter SI.Voltage IC( start = -1e40)
         "Initial condition values, not implemented yet";
-    parameter SI.Temp_C TEMP = 27 "Operating temperature of the device";
+    parameter Modelica.Units.NonSI.Temperature_degC TEMP = 27 "Operating temperature of the device";
 
     parameter ModelcardMOS modelcard "MOSFET modelcard" annotation(Evaluate=true);
     constant SpiceConstants C "General constants of SPICE simulator";
@@ -4618,18 +4618,18 @@ on the model behaviour.
         "Bulk junction saturation current per sq-meter of junction area";
        parameter SI.Length TOX=-1e40 "Oxide thickness, default 1e-7";
        parameter Real NSUB=-1e40 "Substrate doping, default 0";
-       parameter SI.Conversions.NonSIunits.PerArea_cm NSS=0.0
+       parameter Modelica.Units.NonSI.PerArea_cm NSS=0.0
         "Surface state density";
        parameter Real TPG=1.0
         "Type of gate material: +1 opp. to substrate, -1 same as substrate, 0 Al gate";
        parameter SI.Length LD=0.0 "Lateral diffusion";
-       parameter SI.Conversions.NonSIunits.Area_cmPerVoltageSecond UO=600
+       parameter Modelica.Units.NonSI.Area_cmPerVoltageSecond UO=600
         "Surface mobility";
        parameter Real KF=0 "Flicker noise coefficient";
        parameter Real AF=1.0 "Flicker noise exponent";
        parameter Real FC=0.5
         "Coefficient for forward-bias depletion capacitance formula";
-       parameter SI.Temp_C TNOM=27
+       parameter Modelica.Units.NonSI.Temperature_degC TNOM=27
         "Parameter measurement temperature, default 27";
        constant Integer LEVEL=1 "Model level: Shichman-Hodges";
       annotation (Documentation(info="<html>
@@ -4675,7 +4675,7 @@ on the model behaviour.
         "Initial condition value (VBS, not implemented yet)";
     parameter Boolean UIC = false
         "Use initial conditions: true, if initial condition is used";
-    parameter SI.Temp_C TEMP = 27 "Operating temperature of the device";
+    parameter Modelica.Units.NonSI.Temperature_degC TEMP = 27 "Operating temperature of the device";
 
     parameter Spice3.Internal.ModelcardMOS2
                             modelcard "MOSFET modelcard"
@@ -4843,7 +4843,7 @@ on the model behaviour.
        extends Modelica.Icons.Record;
      extends Spice3.Internal.ModelcardMOS(MJSW=0.33);
 
-       parameter SI.Conversions.NonSIunits.PerArea_cm NFS=0.0
+       parameter Modelica.Units.NonSI.PerArea_cm NFS=0.0
         "Fast surface state density";
        parameter SI.Length XJ=0.0 "Metallurgical junction depth";
        parameter Types.ElectricFieldStrength_cm UCRIT=1e4
@@ -4883,7 +4883,7 @@ on the model behaviour.
         "Initial condition value (VBE, not implemented yet)";
       parameter Boolean UIC = false
         "Use initial conditions: true, if initial condition is used";
-      parameter SI.Temp_C TEMP = 27 "Operating temperature of the device";
+      parameter Modelica.Units.NonSI.Temperature_degC TEMP = 27 "Operating temperature of the device";
       parameter Boolean SENS_AREA = false
         "Flag to request sensitivity WRT area, not implemented yet";
 
@@ -5002,7 +5002,7 @@ on the model behaviour.
 
     record ModelcardBJT2 "Record with technology parameters (.model)"
       extends Modelica.Icons.Record;
-      parameter SI.Temp_C TNOM = 27 "Parameter measurement temperature";
+      parameter Modelica.Units.NonSI.Temperature_degC TNOM = 27 "Parameter measurement temperature";
       parameter SI.Current IS = 1e-16 "Transport saturation current";
       parameter Real BF = 100.00 "Ideal maximum forward beta F";
       parameter Real NF = 1.0 "Forward current emission coefficientF";
@@ -5076,7 +5076,7 @@ on the model behaviour.
         "Initial condition value (VGS, not implemented yet)";
     parameter Boolean UIC = false
         "Use initial conditions: true, if initial condition is used";
-    parameter SI.Temp_C TEMP=27 "Operating temperature of the device";
+    parameter Modelica.Units.NonSI.Temperature_degC TEMP=27 "Operating temperature of the device";
 
     parameter Modelica.Electrical.Spice3.Internal.ModelcardJFET modelcard
         "JFET modelcard" annotation(Evaluate=true);
@@ -5190,7 +5190,7 @@ on the model behaviour.
         "Coefficient for forward-bias depletion capacitance formula";
       parameter SI.Resistance RD=-1e40 "Drain ohmic resistance, default 0";
       parameter SI.Resistance RS=-1e40 "Source ohmic resistance, default 0";
-      parameter SI.Temp_C TNOM=27 "Parameter measurement temperature";
+      parameter Modelica.Units.NonSI.Temperature_degC TNOM=27 "Parameter measurement temperature";
       parameter SI.Voltage VTO=-1e40 "Zero-bias threshold voltage, default -2";
       parameter SI.InversePotential B=-1e40
         "Dotierungsverlauf parameter, default 1";
@@ -5216,7 +5216,7 @@ on the model behaviour.
         "Optional initial condition: false - IC not used, true - IC used, not implemented yet";
      parameter SI.Voltage IC( start = -1e40)
         "Initial condition value (VD, not implemented yet";
-     parameter SI.Temp_C TEMP = 27 "Operating temperature of the device";
+     parameter Modelica.Units.NonSI.Temperature_degC TEMP = 27 "Operating temperature of the device";
      parameter Boolean SENS_AREA( start = false)
         "Flag to request sensitivity WRT area, not implemented yet";
 
@@ -5313,7 +5313,7 @@ on the model behaviour.
     parameter Real FC=0.5 "Forward bias junction fit parameter";
     parameter SI.Voltage BV=-1e40 "Reverse breakdown voltage, default infinity";
     parameter SI.Current IBV=1e-3 "Current at reverse breakdown voltage";
-    parameter SI.Temp_C TNOM=27 "Parameter measurement temperature";
+    parameter Modelica.Units.NonSI.Temperature_degC TNOM=27 "Parameter measurement temperature";
     parameter Real KF=0.0 "Flicker noise coefficient";
     parameter Real AF=1.0 "Flicker noise exponent";
     parameter SI.Conductance G=0 "Ohmic conductance";
@@ -5328,7 +5328,7 @@ on the model behaviour.
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter SI.Resistance R= -1e40
         "Resistance, if specified, geometrical information is overwritten";
-      parameter SI.Temp_C TEMP = -1e40 "Temperature of resistor";
+      parameter Modelica.Units.NonSI.Temperature_degC TEMP = -1e40 "Temperature of resistor";
       parameter SI.Length L = -1e40 "Length of the resistor";
       parameter SI.Length W = -1e40
         "Width of the resistor, default DEFW (modelcard)";
@@ -5397,7 +5397,7 @@ on the model behaviour.
      parameter SI.QuadraticTemperatureCoefficientResistance TC2 = 0.0
         "Second order temperature coefficient";
      parameter SI.Resistance RSH = -1e40 "Sheet resistance";
-     parameter SI.Temp_C TNOM = -1e40
+     parameter Modelica.Units.NonSI.Temperature_degC TNOM = -1e40
         "Parameter measurement temperature, default 27";
      parameter SI.Length DEFW = 1e-5 "Default device width";
      parameter SI.Length NARROW = 0 "Narrowing of resistor due to side etching";
@@ -5412,7 +5412,7 @@ on the model behaviour.
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter Types.Capacitance C = -1e40
         "Capacitance, if specified, geometrical information is overwritten";
-      parameter SI.Temp_C TEMP = 27 "Temperature of capacitor";
+      parameter Modelica.Units.NonSI.Temperature_degC TEMP = 27 "Temperature of capacitor";
       parameter SI.Length  L(start = 0) "Length of the capacitor";
       parameter SI.Length  W = -1e40
         "Width of the capacitor, default DEFW (modelcard)";
@@ -5506,20 +5506,20 @@ on the model behaviour.
        constant Real EPSSIL =     (11.7 * 8.854214871e-12);
        constant Real EPSOX =      3.453133e-11;
        constant SI.Charge CHARGE =     (1.6021918e-19);
-       constant SI.Temp_K CONSTCtoK =  (273.15);
+       constant SI.Temperature CONSTCtoK =  (273.15);
        constant SI.HeatCapacity CONSTboltz = (1.3806226e-23); // J/K
-       constant SI.Temp_K REFTEMP =    300.15;  /* 27 deg C */
+       constant SI.Temperature REFTEMP =    300.15;  /* 27 deg C */
 
        constant Real CONSTroot2 =  sqrt(2.0);
-       constant Real CONSTvt0(   final unit= "(J)/(A.s)") = Modelica.Constants.k * SI.Conversions.from_degC(27)  / CHARGE; // deg C
+       constant Real CONSTvt0(   final unit= "(J)/(A.s)") = Modelica.Constants.k * Modelica.Units.Conversions.from_degC(27)  / CHARGE; // deg C
        constant Real CONSTKoverQ(  final unit= "(J/K)/(A.s)")= Modelica.Constants.k / CHARGE;
        constant Real CONSTe =      exp(1.0);
 
        // options
 
        constant SI.Conductance CKTgmin =         1e-12;
-       constant SI.Temp_K CKTnomTemp =      300.15;
-       constant SI.Temp_K CKTtemp =         300.15;
+       constant SI.Temperature CKTnomTemp =      300.15;
+       constant SI.Temperature CKTtemp =         300.15;
        constant SI.Area CKTdefaultMosAD = 0.0;
        constant SI.Area CKTdefaultMosAS = 0.0;
        constant SI.Length CKTdefaultMosL =  100e-6;
@@ -5560,8 +5560,8 @@ on the model behaviour.
         extends Modelica.Icons.Function;
 
         input SI.Voltage phi0;
-        input SI.Temp_K temp "Device Temperature";
-        input SI.Temp_K tnom "Nominal Temperature";
+        input SI.Temperature temp "Device Temperature";
+        input SI.Temperature tnom "Nominal Temperature";
 
         output SI.Voltage ret "Output voltage";
 
@@ -5590,8 +5590,8 @@ on the model behaviour.
         "Temperature dependency of saturation current"
       extends Modelica.Icons.Function;
         input SI.Current satcur0 "Saturation current";
-        input SI.Temp_K temp "Device Temperature";
-        input SI.Temp_K tnom "Nominal Temperature";
+        input SI.Temperature temp "Device Temperature";
+        input SI.Temperature tnom "Nominal Temperature";
 
         output Real ret "Output current"; //unit Current
 
@@ -5621,7 +5621,7 @@ on the model behaviour.
 
       function junctionVCrit "Voltage limitation"
       extends Modelica.Icons.Function;
-        input SI.Temp_K temp "temperature";
+        input SI.Temperature temp "temperature";
         input Real ncoeff;
         input SI.Current satcur "Saturation current";
 
@@ -5647,8 +5647,8 @@ on the model behaviour.
         input SI.Voltage phi0;
         input Real cap0;
         input Real mcoeff;
-        input SI.Temp_K temp "Device temperature";
-        input SI.Temp_K tnom "Nominal temperature";
+        input SI.Temperature temp "Device temperature";
+        input SI.Temperature tnom "Nominal temperature";
 
         output SI.Voltage junctionpot "Junction potential";
         output Real junctioncap "Junction capacitance";
@@ -5724,7 +5724,7 @@ on the model behaviour.
         "Junction current and conductance calculation"
     extends Modelica.Icons.Function;
       input SI.Voltage voltage "Input voltage";
-      input SI.Temp_K temp "Device Temperature";
+      input SI.Temperature temp "Device Temperature";
       input Real ncoeff;
       input SI.Current satcur "Saturation current";
 
@@ -5815,8 +5815,8 @@ on the model behaviour.
       "Temperature dependency of saturation current"
       extends Modelica.Icons.Function;
       input SI.Current satcur0 "Saturation current";
-      input SI.Temp_K temp "Device Temperature";
-      input SI.Temp_K tnom "Nominal Temperature";
+      input SI.Temperature temp "Device Temperature";
+      input SI.Temperature tnom "Nominal Temperature";
       input Real emissioncoeff;
       input Real energygap;
       input Real satcurexp;
@@ -5844,7 +5844,7 @@ on the model behaviour.
       input SI.Voltage vb;
       input SI.Current ivb;
       input SI.Current satcur "Saturation current";
-      input SI.Temp_K temp "Device temperature";
+      input SI.Temperature temp "Device temperature";
       input Real ncoeff;
 
       output SI.Voltage v23 "Output value";
@@ -5883,7 +5883,7 @@ on the model behaviour.
     function junction3 "Junction current and conductance calculation"
       extends Modelica.Icons.Function;
       input SI.Voltage voltage "Input voltage";
-      input SI.Temp_K temp "Device Temperature";
+      input SI.Temperature temp "Device Temperature";
       input Real ncoeff;
       input SI.Current satcur "Saturation current";
       input SI.Voltage v23;
@@ -5984,7 +5984,7 @@ on the model behaviour.
     function junction2 "Junction current and conductance calculation"
       extends Modelica.Icons.Function;
       input SI.Voltage voltage "Input Voltage";
-      input SI.Temp_K temp "Device Temperature";
+      input SI.Temperature temp "Device Temperature";
       input Real ncoeff;
       input SI.Current satcur "Saturation current";
 
@@ -6035,8 +6035,8 @@ on the model behaviour.
     function resDepTemp "Temperature dependent conductance"
       extends Modelica.Icons.Function;
       input SI.Resistance resist "Input resistance";
-      input SI.Temp_K temp "Device temperature";
-      input SI.Temp_K tnom "Nominal temperature";
+      input SI.Temperature temp "Device temperature";
+      input SI.Temperature tnom "Nominal temperature";
       input Real tc1;
       input Real tc2;
 
@@ -6079,8 +6079,8 @@ on the model behaviour.
       "Temperature dependency of saturation current"
       extends Modelica.Icons.Function;
       input SI.Current satcur0 "Saturation current";
-      input SI.Temp_K temp "Device Temperature";
-      input SI.Temp_K tnom "Nominal Temperature";
+      input SI.Temperature temp "Device Temperature";
+      input SI.Temperature tnom "Nominal Temperature";
 
       output SI.Current ret "Output value";
 
@@ -6111,7 +6111,7 @@ on the model behaviour.
 
     function energyGapDepTemp "Temperature dependency of energy gap"
       extends Modelica.Icons.Function;
-        input SI.Temp_K temp "Temperature";
+        input SI.Temperature temp "Temperature";
         output SI.GapEnergy ret "Output Gap Energy";
 
     algorithm
@@ -6127,7 +6127,7 @@ on the model behaviour.
     function junction2SPICE3BJT "Junction current and conductance calculation"
       extends Modelica.Icons.Function;
       input SI.Voltage voltage "Input Voltage";
-      input SI.Temp_K temp "Device Temperature";
+      input SI.Temperature temp "Device Temperature";
       input Real ncoeff1;
       input Real ncoeff2;
       input SI.Current satcur1 "Saturation current";
@@ -6172,13 +6172,13 @@ on the model behaviour.
 
     function energyGapDepTemp_old "Temperature dependency of energy gap"
       extends Modelica.Icons.Function;
-      input SI.Temp_K temp "Temperature";
+      input SI.Temperature temp "Temperature";
       output SI.Voltage ret "Output voltage";
 
       protected
        SI.Voltage gap0 =   1.16;
        Real coeff1( final unit = "V/K") = 7.02e-4;
-       SI.Temp_K coeff2 = 1108.0;
+       SI.Temperature coeff2 = 1108.0;
 
     algorithm
       ret := gap0 - (coeff1 * temp * temp) / (temp + coeff2);
@@ -6254,7 +6254,7 @@ on the model behaviour.
 
     record Model "Device Temperature"
       extends Modelica.Icons.Record;
-      SI.Temp_K m_dTemp( start = SpiceConstants.CKTnomTemp)
+      SI.Temperature m_dTemp( start = SpiceConstants.CKTnomTemp)
           "TEMP, Device Temperature";
         annotation (Documentation(info="<html>
 <p>The record Model includes the device temperature which has a default value of 27&deg;C.</p>
@@ -6459,7 +6459,7 @@ on the model behaviour.
         input SI.Voltage IC_VBS
           "Initial condition value VBS, not implemented yet";
         input Boolean UIC "Use initial condition, UIC";
-        input SI.Temp_C TEMP "Temperature";
+        input Modelica.Units.NonSI.Temperature_degC TEMP "Temperature";
 
         output Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet dev
           "Output record Mosfet";
@@ -6541,13 +6541,13 @@ This function mosfetRenameParametersDev assigns the external (given by the user)
          Real m_substrateDoping(start = 0.0) "NSUB, Substrate doping";
          Real m_substrateDopingIsGiven "Substrate doping IsGivenValue";
          Real m_gateType(start = 1.0) "TPG, Gate type";
-         SI.Conversions.NonSIunits.PerArea_cm
+         Modelica.Units.NonSI.PerArea_cm
           m_surfaceStateDensity(start = 0.0) "NSS, Gate type";
          //-----------------obsolete--------------------------------------------
          Real m_surfaceStateDensityIsGiven(start=0)
           "surfaceStateDensityIsGivenValue";
          //---------------------------------------------------------------------
-         SI.Conversions.NonSIunits.Area_cmPerVoltageSecond
+         Modelica.Units.NonSI.Area_cmPerVoltageSecond
           m_surfaceMobility( start = 600.0) "UO, Surface mobility";
          SI.Length m_latDiff(             start = 0.0) "LD, Lateral diffusion";
          SI.Current m_jctSatCur(           start = 1.0e-14)
@@ -6560,7 +6560,7 @@ This function mosfetRenameParametersDev assigns the external (given by the user)
          Real m_sourceResistanceIsGiven "Source resistance IsGivenValue";
          SI.Transconductance m_transconductance "input - use tTransconductance";
          Real m_transconductanceIsGiven "Transconductance IsGivenValue";
-         SI.Temp_K m_tnom(start=Spice3.Internal.SpiceConstants.CKTnomTemp)
+         SI.Temperature m_tnom(start=Spice3.Internal.SpiceConstants.CKTnomTemp)
           "TNOM, Parameter measurement temperature";
 
         annotation (Documentation(info="<html>
@@ -6586,7 +6586,7 @@ This function mosfetRenameParametersDev assigns the external (given by the user)
         extends Spice3.Internal.Mosfet.MosfetCalc;
 
         SI.Transconductance m_tTransconductance(start=0.);
-        SI.Conversions.NonSIunits.Area_cmPerVoltageSecond m_tSurfMob( start = 0.);
+        Modelica.Units.NonSI.Area_cmPerVoltageSecond m_tSurfMob( start = 0.);
         SI.Voltage m_tPhi(start=0.7);
         SI.Voltage m_tVto(start=1.);
         SI.CurrentDensity m_tSatCurDens( start = 0.);
@@ -7790,7 +7790,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         input Integer OFF
           "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
         input Real IC "Initial condition values, not implemented yet";
-        input SI.Temp_C TEMP "Temperature";
+        input Modelica.Units.NonSI.Temperature_degC TEMP "Temperature";
 
         output Mosfet.Mosfet dev "Output record Mosfet";
 
@@ -7857,7 +7857,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         SI.Length m_junctionDepth( start = 0.0) "XJ, Junction depth";
         SI.Charge m_channelCharge( start = 1.0)
           "NEFF, Total channel charge coeff";
-        SI.Conversions.NonSIunits.PerArea_cm m_fastSurfaceStateDensity( start = 0.0)
+        Modelica.Units.NonSI.PerArea_cm m_fastSurfaceStateDensity( start = 0.0)
           "NFS, Fast surface state density";
         Real m_xd; // unit m/V(-0.5) -> m/Wurzel V
         annotation (Documentation(info="<html>
@@ -8592,7 +8592,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         input Integer OFF
           "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
         input Real IC "Initial condition values, not implemented yet";
-        input SI.Temp_C TEMP "Temperature";
+        input Modelica.Units.NonSI.Temperature_degC TEMP "Temperature";
 
         output Spice3.Internal.Mosfet.Mosfet dev "Output record Mosfet";
 
@@ -8654,7 +8654,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         Real m_pBvIsGiven "BV is given value";
         SI.Current m_breakdownCurrent( start = 1.0e-3)
           "IBV, Current at reverse breakdown voltage";
-        SI.Temp_K m_nomTemp( start=SpiceConstants.CKTnomTemp)
+        SI.Temperature m_nomTemp( start=SpiceConstants.CKTnomTemp)
           "TNOM, Parameter measurement temperature";
         Real m_fNcoef( start = 0.0) "KF, flicker noise coefficient";
         Real m_fNexp( start = 1.0) "AF, flicker noise exponent";
@@ -8961,7 +8961,7 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
 
       function diodeRenameParametersDev "Temperature calculation"
         extends Modelica.Icons.Function;
-        input SI.Temp_K TEMP "Temperature";
+        input SI.Temperature TEMP "Temperature";
         input Real AREA "Area factor";
         input Real IC "Initial condition value (VD, not implemented yet";
         input Boolean OFF
@@ -8989,7 +8989,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
       function diodeRenameParametersDevTemp "Temperature calculation"
         extends Modelica.Icons.Function;
-        input SI.Temp_C TEMP "Temperature";
+        input Modelica.Units.NonSI.Temperature_degC TEMP "Temperature";
         output Model.Model dev_temp "Input record Model";
 
       algorithm
@@ -9018,7 +9018,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real m_dLengthIsGiven "Length is given value";
         Boolean m_bSensResist( start = false)
           "flag to request sensitivity WRT resistance";
-        SI.Temp_C m_dTemp(start = 27) "Resistor device temperature";
+        Modelica.Units.NonSI.Temperature_degC m_dTemp(start = 27) "Resistor device temperature";
 
         annotation (Documentation(info="<html>
 <p>This record contains the device parameters that are used for the resistor model in SPICE3.</p>
@@ -9033,7 +9033,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real m_dRshIsGiven;
         SI.Length m_dDefW "Default device width";
         SI.Length m_dNarrow "Narrowing of resistor";
-        SI.Temp_C m_dTnom "Parameter measurement temperature";
+        Modelica.Units.NonSI.Temperature_degC m_dTnom "Parameter measurement temperature";
 
         annotation (Documentation(info="<html>
 <p>This record contains the model line (also called model card) parameters that are used for the resistor model in SPICE3.</p>
@@ -9046,7 +9046,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         SI.Length m_dLength;
         SI.Resistance m_dResist;
         SI.Conductance m_dConduct;
-        SI.Temp_C m_dCond_dTemp;
+        Modelica.Units.NonSI.Temperature_degC m_dCond_dTemp;
         annotation (Documentation(info="<html>
 <p>This record contains the model variables that are used for the resistor model in SPICE3.</p>
 </html>"));
@@ -9083,7 +9083,7 @@ to the internal parameters (e.g., m_emissionCoeff). It also does the analysis of
         input SI.Resistance R "Resistance";
         input SI.Length W "Width";
         input SI.Length L "Length";
-        input SI.Temp_C TEMP "Temperature";
+        input Modelica.Units.NonSI.Temperature_degC TEMP "Temperature";
         input Boolean SENS_AREA
           "Parameter for sensitivity analyses, not implemented yet";
 
@@ -9192,7 +9192,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         extends Modelica.Icons.Record;
         Real m_type( start = 1) "device type : 1 = n,  -1 = p";
 
-        SI.Temp_K m_tnom(start=Spice3.Internal.SpiceConstants.CKTnomTemp)
+        SI.Temperature m_tnom(start=Spice3.Internal.SpiceConstants.CKTnomTemp)
           "TNOM, Parameter measurement temperature";
         SI.Current m_satCur(start=1.0e-16) "IS, Saturation Current";
         Real m_betaF( start = 100.0) "BF, Ideal forward beta";
@@ -9894,7 +9894,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         input Boolean UIC "Use initial conditions, UIC";
         input Boolean SENS_AREA
           "Flag for sensitivity analysis, not yet implemented";
-        input SI.Temp_C TEMP "Temperature";
+        input Modelica.Units.NonSI.Temperature_degC TEMP "Temperature";
 
         output Bjt dev "Output record Bjt";
 
@@ -9986,7 +9986,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
         SI.Conductance m_drainConduct(start = 0);
         SI.Conductance m_sourceConduct(start = 0);
-        SI.Temp_K m_tnom(start=Modelica.Electrical.Spice3.Internal.SpiceConstants.CKTnomTemp) "TNOM";
+        SI.Temperature m_tnom(start=Modelica.Electrical.Spice3.Internal.SpiceConstants.CKTnomTemp) "TNOM";
 
       end FetModelLine;
 
@@ -10015,7 +10015,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       input SI.Voltage IC_VGS
           "Initial condition value VGS, not implemented yet";
       input Boolean UIC "Use initial conditions, UIC";
-      input SI.Temp_C TEMP "Temperature";
+      input Modelica.Units.NonSI.Temperature_degC TEMP "Temperature";
 
       output Fet dev "Output record MESFET";
 
@@ -10484,7 +10484,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
           input Types.Capacitance C "Capacitance";
           input SI.Length  W "Width";
           input SI.Length  L "Length";
-          input SI.Temp_C TEMP "Temperature";
+          input Modelica.Units.NonSI.Temperature_degC TEMP "Temperature";
           input Boolean SENS_AREA
           "Parameter for sensitivity analyses, not implemented yet";
           input CapacitorModelLineParams p;

@@ -6,37 +6,37 @@ partial model PartialBasicTransformer
   constant String VectorGroup="Yy00";
   parameter Real n(start=1)
     "Ratio primary voltage (line-to-line) / secondary voltage (line-to-line)";
-  parameter Modelica.SIunits.Resistance R1(start=5E-3/(if C1 == "D" then 1
+  parameter SI.Resistance R1(start=5E-3/(if C1 == "D" then 1
          else 3)) "Primary resistance per phase at TRef"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Temperature T1Ref(start=293.15)
+  parameter SI.Temperature T1Ref(start=293.15)
     "Reference temperature of primary resistance"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20_1(start=0)
     "Temperature coefficient of primary resistance at 20 degC"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Inductance L1sigma(start=78E-6/(if C1 == "D"
+  parameter SI.Inductance L1sigma(start=78E-6/(if C1 == "D"
          then 1 else 3)) "Primary stray inductance per phase"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Resistance R2(start=5E-3/(if C2 == "d" then 1
+  parameter SI.Resistance R2(start=5E-3/(if C2 == "d" then 1
          else 3)) "Secondary resistance per phase at TRef"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Temperature T2Ref(start=293.15)
+  parameter SI.Temperature T2Ref(start=293.15)
     "Reference temperature of secondary resistance"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20_2(start=0)
     "Temperature coefficient of secondary resistance at 20 degC"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Inductance L2sigma(start=78E-6/(if C2 == "d"
+  parameter SI.Inductance L2sigma(start=78E-6/(if C2 == "d"
          then 1 else 3)) "Secondary stray inductance per phase"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter Boolean useThermalPort=false
     "Enable / disable (=fixed temperatures) thermal port"
     annotation (Evaluate=true);
-  parameter Modelica.SIunits.Temperature T1Operational(start=293.15)
+  parameter SI.Temperature T1Operational(start=293.15)
     "Operational temperature of primary resistance" annotation (Dialog(
         group="Operational temperatures", enable=not useThermalPort));
-  parameter Modelica.SIunits.Temperature T2Operational(start=293.15)
+  parameter SI.Temperature T2Operational(start=293.15)
     "Operational temperature of secondary resistance" annotation (Dialog(
         group="Operational temperatures", enable=not useThermalPort));
   output Machines.Interfaces.PowerBalanceTransformer powerBalance(
@@ -45,10 +45,10 @@ partial model PartialBasicTransformer
     final lossPower1=sum(r1.resistor.LossPower),
     final lossPower2=sum(r2.resistor.LossPower),
     final lossPowerCore=0) "Power balance";
-  output Modelica.SIunits.Voltage v1[m]=plug1.pin.v "Primary voltage";
-  output Modelica.SIunits.Current i1[m]=plug1.pin.i "Primary current";
-  output Modelica.SIunits.Voltage v2[m]=plug2.pin.v "Secondary voltage";
-  output Modelica.SIunits.Current i2[m]=plug2.pin.i "Secondary current";
+  output SI.Voltage v1[m]=plug1.pin.v "Primary voltage";
+  output SI.Current i1[m]=plug1.pin.i "Primary current";
+  output SI.Voltage v2[m]=plug2.pin.v "Secondary voltage";
+  output SI.Current i2[m]=plug2.pin.i "Secondary current";
 protected
   constant String C1=Modelica.Utilities.Strings.substring(
           VectorGroup,

@@ -2,14 +2,14 @@ within Modelica.Electrical.QuasiStatic.SinglePhase.Sources;
 model FrequencySweepCurrentSource "Current source with integrated frequency sweep"
   extends Interfaces.TwoPin;
   import Modelica.Constants.eps;
-  Modelica.SIunits.Angle gamma(start=0) = pin_p.reference.gamma;
-  parameter Modelica.SIunits.Frequency fStart(final min=eps, start=1) "Start sweep frequency";
-  parameter Modelica.SIunits.Frequency fStop(final min=eps, start=1) "Stop sweep frequency";
-  parameter Modelica.SIunits.Time startTime=0 "Start time of frequency sweep";
-  parameter Modelica.SIunits.Time duration(start=1) "Duration of frequency sweep";
-  parameter Modelica.SIunits.Current I(start=1) "RMS current of the source";
-  parameter Modelica.SIunits.Angle phi=0 "Phase shift of the source";
-  Modelica.SIunits.Frequency f = currentSource.f "Actual frequency";
+  SI.Angle gamma(start=0) = pin_p.reference.gamma;
+  parameter SI.Frequency fStart(final min=eps, start=1) "Start sweep frequency";
+  parameter SI.Frequency fStop(final min=eps, start=1) "Stop sweep frequency";
+  parameter SI.Time startTime=0 "Start time of frequency sweep";
+  parameter SI.Time duration(start=1) "Duration of frequency sweep";
+  parameter SI.Current I(start=1) "RMS current of the source";
+  parameter SI.Angle phi=0 "Phase shift of the source";
+  SI.Frequency f = currentSource.f "Actual frequency";
   Modelica.Blocks.Sources.LogFrequencySweep logFrequencySweep(
     final wMin=fStart,
     final wMax=fStop,

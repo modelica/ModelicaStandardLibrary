@@ -1,7 +1,7 @@
 within Modelica.Electrical.Analog.Examples.Utilities;
 model Conductor "Input/output block of a conductance model"
   extends Modelica.Blocks.Icons.Block;
-  parameter Modelica.SIunits.Conductance G=1 "Conductance";
+  parameter SI.Conductance G=1 "Conductance";
   Modelica.Electrical.Analog.Basic.GeneralCurrentToVoltageAdaptor currentToVoltage1(
       use_pder=false, use_fder=false)
     annotation (Placement(transformation(extent={{-10,-10},{-30,10}})));

@@ -918,7 +918,7 @@ This also allows for taking into account friction losses with respect to the act
             // Inputs
             input Medium.ThermodynamicState[n] states
           "Thermodynamic states along design flow";
-            input Modelica.SIunits.Velocity[n] vs
+            input SI.Velocity[n] vs
           "Mean velocities of fluid flow";
 
             // Geometry parameters and inputs
@@ -983,7 +983,7 @@ This also allows for taking into account friction losses with respect to the act
             Medium.DynamicViscosity[n-1] mus_act "Actual viscosity per segment";
 
             // Variables
-            Modelica.SIunits.Pressure[n-1] dps_fg(each start = (p_a_start - p_b_start)/(n-1))
+            SI.Pressure[n-1] dps_fg(each start = (p_a_start - p_b_start)/(n-1))
           "Pressure drop between states";
 
             // Reynolds Number
@@ -3374,7 +3374,7 @@ b has the same sign of the change of density.</p>
           "Absolute roughness of pipe (default = smooth steel pipe)"
             annotation(Dialog(enable=WallFriction.use_roughness));
 
-        parameter Modelica.SIunits.MassFlowRate m_flow_nominal=if system.use_eps_Re then system.m_flow_nominal else 1e2*system.m_flow_small
+        parameter SI.MassFlowRate m_flow_nominal=if system.use_eps_Re then system.m_flow_nominal else 1e2*system.m_flow_small
           "Nominal mass flow rate"
           annotation(Dialog(group="Nominal operating point"));
 

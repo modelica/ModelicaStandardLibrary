@@ -4,9 +4,9 @@ function GenerateStribeckFrictionTable
   extends Modelica.Icons.Function;
   input Real F_prop(final unit="N.s/m", final min=0)
     "Velocity dependent friction coefficient";
-  input Modelica.SIunits.Force F_Coulomb
+  input SI.Force F_Coulomb
     "Constant friction: Coulomb force";
-  input Modelica.SIunits.Force F_Stribeck "Stribeck effect";
+  input SI.Force F_Stribeck "Stribeck effect";
   input Real fexp(final unit="s/m", final min=0) "Exponential decay";
   input Real v_max "Generate table from v=0 ... v_max";
   input Integer nTable(min=2) = 100 "Number of table points";

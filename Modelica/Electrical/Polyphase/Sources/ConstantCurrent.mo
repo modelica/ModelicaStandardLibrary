@@ -1,7 +1,7 @@
 within Modelica.Electrical.Polyphase.Sources;
 model ConstantCurrent "Polyphase constant current source"
   extends Interfaces.TwoPlug;
-  parameter Modelica.SIunits.Current I[m](start=fill(1, m))
+  parameter SI.Current I[m](start=fill(1, m))
     "Values of constant currents";
   Modelica.Electrical.Analog.Sources.ConstantCurrent constantCurrent[m](
       final I=I) annotation (Placement(transformation(extent={{-10,-10},{10,

@@ -10,7 +10,7 @@ model PumpingSystem "Model of a pumping system for drinking water"
   Modelica.Fluid.Sources.FixedBoundary source(
     nPorts = 1,
     use_T=true,
-    T=Modelica.SIunits.Conversions.from_degC(20),
+    T=Modelica.Units.Conversions.from_degC(20),
     p=system.p_ambient,
     redeclare package Medium = Medium)
     annotation (Placement(transformation(extent={{-100,-80},{-80,-60}})));
@@ -43,7 +43,7 @@ model PumpingSystem "Model of a pumping system for drinking water"
     annotation (Placement(transformation(extent={{-68,-80},{-48,-60}})));
 
   Modelica.Fluid.Vessels.OpenTank reservoir(
-    T_start=Modelica.SIunits.Conversions.from_degC(20),
+    T_start=Modelica.Units.Conversions.from_degC(20),
     use_portsData=true,
     crossArea=50,
     level_start=2.2,

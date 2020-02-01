@@ -2,8 +2,8 @@ within Modelica.Electrical.Machines.Losses.DCMachines;
 function brushVoltageDrop "Voltage drop of carbon brushes"
   extends Modelica.Icons.Function;
   input Machines.Losses.BrushParameters brushParameters "Brush loss parameters";
-  input Modelica.SIunits.Current i "Actual current";
-  output Modelica.SIunits.Voltage v "Voltage drop";
+  input SI.Current i "Actual current";
+  output SI.Voltage v "Voltage drop";
 algorithm
   if (brushParameters.V <= 0) then
     v := 0;

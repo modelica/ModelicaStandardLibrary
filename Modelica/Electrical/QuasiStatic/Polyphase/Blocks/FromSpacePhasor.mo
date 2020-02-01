@@ -9,7 +9,7 @@ block FromSpacePhasor "Conversion: space phasor -> m phase"
   Modelica.ComplexBlocks.Interfaces.ComplexOutput y[m]
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 protected
-  parameter Modelica.SIunits.Angle phi[m]=
+  parameter SI.Angle phi[m]=
       Modelica.Electrical.Polyphase.Functions.symmetricOrientation(
                                                           m);
 equation

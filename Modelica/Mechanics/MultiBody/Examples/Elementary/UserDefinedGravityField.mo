@@ -2,11 +2,11 @@ within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model UserDefinedGravityField
   "Demonstrate the modeling of a user-defined gravity field"
    extends Modelica.Icons.Example;
-   parameter Modelica.SIunits.Conversions.NonSIunits.Angle_deg geodeticLatitude = 0
+   parameter Modelica.Units.NonSI.Angle_deg geodeticLatitude = 0
     "Geodetic latitude";
-   parameter Modelica.SIunits.Position height = 20
+   parameter SI.Position height = 20
     "Height of pendulum attachment point over WGS84 earth ellipsoid";
-   Modelica.SIunits.Acceleration gravity[3]=body.g_0
+   SI.Acceleration gravity[3]=body.g_0
     "Gravity acceleration at center of mass of body";
   inner Modelica.Mechanics.MultiBody.World world(
     gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.NoGravity,

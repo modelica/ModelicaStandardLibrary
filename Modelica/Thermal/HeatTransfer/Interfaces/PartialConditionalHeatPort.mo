@@ -3,7 +3,7 @@ partial model PartialConditionalHeatPort
   "Partial model to include a conditional HeatPort in order to dissipate losses, used for graphical modeling, i.e., for building models by drag-and-drop"
   parameter Boolean useHeatPort = false "= true, if HeatPort is enabled"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-  parameter Modelica.SIunits.Temperature T=293.15
+  parameter SI.Temperature T=293.15
     "Fixed device temperature if useHeatPort = false"
     annotation(Dialog(enable=not useHeatPort));
   HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort

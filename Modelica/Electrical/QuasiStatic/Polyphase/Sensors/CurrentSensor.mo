@@ -4,11 +4,11 @@ model CurrentSensor "Current Sensor"
 
   QuasiStatic.SinglePhase.Sensors.CurrentSensor currentSensor[m]
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  Modelica.SIunits.Current abs_i[m]=Modelica.ComplexMath.abs(i)
+  SI.Current abs_i[m]=Modelica.ComplexMath.abs(i)
     "Magnitude of complex current";
-  Modelica.SIunits.Angle arg_i[m]=Modelica.ComplexMath.arg(i)
+  SI.Angle arg_i[m]=Modelica.ComplexMath.arg(i)
     "Argument of complex current";
-  ComplexBlocks.Interfaces.ComplexOutput i[m](redeclare each final SIunits.Current re, redeclare each final SIunits.Current im) "Current as complex output signal"
+  ComplexBlocks.Interfaces.ComplexOutput i[m](redeclare each final SI.Current re, redeclare each final SI.Current im) "Current as complex output signal"
     annotation (Placement(transformation(
         origin={0,-110},
         extent={{10,10},{-10,-10}},

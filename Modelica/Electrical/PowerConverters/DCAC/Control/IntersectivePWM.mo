@@ -3,8 +3,8 @@ block IntersectivePWM "Intersective PWM"
   extends Modelica.Blocks.Icons.Block;
   import Modelica.Electrical.PowerConverters.Types.ReferenceType;
   constant Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Frequency f "Switching frequency";
-  parameter Modelica.SIunits.Time startTime=0 "Start time of PWM";
+  parameter SI.Frequency f "Switching frequency";
+  parameter SI.Time startTime=0 "Start time of PWM";
   parameter Real uMax "Maximum amplitude of signal";
   parameter PowerConverters.Types.ReferenceType refType=PowerConverters.Types.ReferenceType.Triangle3
     "Type of reference signal" annotation (Evaluate=true);

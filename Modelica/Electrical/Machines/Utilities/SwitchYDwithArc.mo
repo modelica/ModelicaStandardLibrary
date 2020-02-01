@@ -1,12 +1,12 @@
 within Modelica.Electrical.Machines.Utilities;
 model SwitchYDwithArc "Y-D-switch with arc"
   parameter Integer m=3 "Number of phases";
-  parameter SIunits.Resistance Ron=1e-5 "Closed switch resistance";
-  parameter SIunits.Conductance Goff=1e-5 "Opened switch conductance";
-  parameter SIunits.Time delayTime(final min=0)=0 "Time delay";
-  parameter SIunits.Voltage V0(start=30) "Initial arc voltage";
-  parameter SIunits.VoltageSlope dVdt(start=10E3) "Arc voltage slope";
-  parameter SIunits.Voltage Vmax(start=60) "Max. arc voltage";
+  parameter SI.Resistance Ron=1e-5 "Closed switch resistance";
+  parameter SI.Conductance Goff=1e-5 "Opened switch conductance";
+  parameter SI.Time delayTime(final min=0)=0 "Time delay";
+  parameter SI.Voltage V0(start=30) "Initial arc voltage";
+  parameter SI.VoltageSlope dVdt(start=10E3) "Arc voltage slope";
+  parameter SI.Voltage Vmax(start=60) "Max. arc voltage";
   Modelica.Electrical.Polyphase.Interfaces.PositivePlug plugSupply(final m=
        m) "To grid" annotation (Placement(transformation(extent={{-10,90},{
             10,110}})));

@@ -1,6 +1,6 @@
 within Modelica.Electrical.Machines.Thermal;
 type LinearTemperatureCoefficient20 =
-    Modelica.SIunits.LinearTemperatureCoefficient
+    SI.LinearTemperatureCoefficient
   "Linear temperature coefficient with choices" annotation (choices(
     choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero
       "Not temperature dependent",

@@ -1,10 +1,10 @@
 within Modelica.Thermal.HeatTransfer.Components;
 model HeatCapacitor "Lumped thermal element storing heat"
-  parameter Modelica.SIunits.HeatCapacity C
+  parameter SI.HeatCapacity C
     "Heat capacity of element (= cp*m)";
-  Modelica.SIunits.Temperature T(start=293.15, displayUnit="degC")
+  SI.Temperature T(start=293.15, displayUnit="degC")
     "Temperature of element";
-  Modelica.SIunits.TemperatureSlope der_T(start=0)
+  SI.TemperatureSlope der_T(start=0)
     "Time derivative of temperature (= der(T))";
   Interfaces.HeatPort_a port annotation (Placement(transformation(
         origin={0,-100},
@@ -56,7 +56,7 @@ is constant (independent of temperature).
 </p>
 <p>
 The temperature T [Kelvin] of this component is a <strong>state</strong>.
-A default of T = 25 degree Celsius (= SIunits.Conversions.from_degC(25))
+A default of T = 25 degree Celsius (= Modelica.Units.Conversions.from_degC(25))
 is used as start value for initialization.
 This usually means that at start of integration the temperature of this
 component is 25 degrees Celsius. You may, of course, define a different

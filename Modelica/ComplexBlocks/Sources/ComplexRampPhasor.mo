@@ -6,9 +6,9 @@ block ComplexRampPhasor "Generate a phasor with ramped magnitude and constant an
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/ComplexBlocks/Sources/ComplexRampPhasor.png"));
   parameter Real magnitude2(final min=0,start=1) "Magnitude of complex phasor at startTime+duration";
   parameter Boolean useLogRamp = false "Ramp appears linear on a logarithmic scale, if true";
-  parameter Modelica.SIunits.Angle phi(start=0) "Angle of complex phasor";
-  parameter Modelica.SIunits.Time startTime=0 "Start time of frequency sweep";
-  parameter Modelica.SIunits.Time duration(min=0.0, start=1) "Duration of ramp (= 0.0 gives a Step)";
+  parameter Modelica.Units.SI.Angle phi(start=0) "Angle of complex phasor";
+  parameter Modelica.Units.SI.Time startTime=0 "Start time of frequency sweep";
+  parameter Modelica.Units.SI.Time duration(min=0.0, start=1) "Duration of ramp (= 0.0 gives a Step)";
   Real magnitude "Actual magnitude of complex phasor";
 equation
   assert(not useLogRamp or (magnitude1>eps and magnitude2>eps),

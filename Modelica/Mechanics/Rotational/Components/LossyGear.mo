@@ -10,9 +10,9 @@ model LossyGear
   parameter Real lossTable[:, 5]=[0, 1, 1, 0, 0]
     "Array for mesh efficiencies and bearing friction depending on speed";
   extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
-  Modelica.SIunits.Angle phi_a
+  SI.Angle phi_a
     "Angle between left shaft flange and support";
-  Modelica.SIunits.Angle phi_b
+  SI.Angle phi_b
     "Angle between right shaft flange and support";
 
   Real sa(final unit="1") "Path parameter for acceleration and torque loss";

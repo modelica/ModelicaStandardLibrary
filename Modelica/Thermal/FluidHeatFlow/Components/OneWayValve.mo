@@ -2,10 +2,10 @@ within Modelica.Thermal.FluidHeatFlow.Components;
 model OneWayValve "Simple one-way valve"
   extends FluidHeatFlow.BaseClasses.TwoPort(m(start=0), final tapT=1);
 
-  parameter Modelica.SIunits.VolumeFlowRate V_flowNominal(start=1) "Nominal volume flow rate (forward)";
-  parameter Modelica.SIunits.Pressure dpForward(displayUnit="bar")=1e-6 "Pressure drop at nominal flow (forward)";
-  parameter Modelica.SIunits.Pressure dpNominal(displayUnit="bar", start=1e5) "Nominal pressure (backward)";
-  parameter Modelica.SIunits.VolumeFlowRate V_flowBackward(start=1E-6) "Leakage volume flow rate (backward)";
+  parameter SI.VolumeFlowRate V_flowNominal(start=1) "Nominal volume flow rate (forward)";
+  parameter SI.Pressure dpForward(displayUnit="bar")=1e-6 "Pressure drop at nominal flow (forward)";
+  parameter SI.Pressure dpNominal(displayUnit="bar", start=1e5) "Nominal pressure (backward)";
+  parameter SI.VolumeFlowRate V_flowBackward(start=1E-6) "Leakage volume flow rate (backward)";
   parameter Real frictionLoss(min=0, max=1, start=0)
     "Part of friction losses fed to medium";
   Boolean backward(start=true) "State forward=false / backward=true";
@@ -14,8 +14,8 @@ protected
     "Auxiliary variable for actual position on the valve characteristic";
   /* s < 0: backward, leakage flow
          s > 0: forward, small pressure drop */
-  constant Modelica.SIunits.VolumeFlowRate unitVolumeFlowRate = 1;
-  constant Modelica.SIunits.Pressure unitPressureDrop = 1;
+  constant SI.VolumeFlowRate unitVolumeFlowRate = 1;
+  constant SI.Pressure unitPressureDrop = 1;
 equation
   backward = s<0;
   dp     = (s*unitVolumeFlowRate)*(if backward then 1 else dpForward/V_flowNominal);

@@ -12,11 +12,11 @@ model Core "Model of core losses"
   Machines.Interfaces.SpacePhasor spacePhasor annotation (Placement(
         transformation(extent={{-110,-10},{-90,10}}), iconTransformation(extent=
            {{-110,-10},{-90,10}})));
-  input Modelica.SIunits.AngularVelocity w
+  input SI.AngularVelocity w
     "Remagnetization angular velocity" annotation (Dialog(group="Losses"));
-  Modelica.SIunits.Conductance Gc "Variable core loss conductance";
+  SI.Conductance Gc "Variable core loss conductance";
 protected
-  Modelica.SIunits.AngularVelocity wLimit=noEvent(max(noEvent(abs(w)),
+  SI.AngularVelocity wLimit=noEvent(max(noEvent(abs(w)),
       coreParameters.wMin)) "Limited angular velocity";
 equation
   if (coreParameters.PRef <= 0) then

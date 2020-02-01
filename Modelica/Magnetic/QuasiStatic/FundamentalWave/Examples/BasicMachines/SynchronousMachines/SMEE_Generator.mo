@@ -4,21 +4,21 @@ model SMEE_Generator
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   parameter Integer m=3 "Number of stator phases";
-  parameter Modelica.SIunits.Voltage VsNominal=100
+  parameter SI.Voltage VsNominal=100
     "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fsNominal=smeeData.fsNominal "Nominal frequency";
-  parameter Modelica.SIunits.AngularVelocity w=
-      Modelica.SIunits.Conversions.from_rpm(1499) "Nominal speed";
-  parameter Modelica.SIunits.Current Ie=19 "Excitation current";
-  parameter Modelica.SIunits.Current Ie0=10
+  parameter SI.Frequency fsNominal=smeeData.fsNominal "Nominal frequency";
+  parameter SI.AngularVelocity w=
+      Modelica.Units.Conversions.from_rpm(1499) "Nominal speed";
+  parameter SI.Current Ie=19 "Excitation current";
+  parameter SI.Current Ie0=10
     "Initial excitation current";
-  parameter Modelica.SIunits.Angle gamma0(displayUnit="deg") = 0
+  parameter SI.Angle gamma0(displayUnit="deg") = 0
     "Initial rotor displacement angle";
-  Modelica.SIunits.Angle thetaQS=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi-static";
-  Modelica.SIunits.Angle theta=rotorAngle.rotorDisplacementAngle "Rotor displacement angle, transient";
+  SI.Angle thetaQS=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi-static";
+  SI.Angle theta=rotorAngle.rotorDisplacementAngle "Rotor displacement angle, transient";
 
-  output Modelica.SIunits.Power Ptr=powerSensor.power "Transient power";
-  output Modelica.SIunits.Power Pqs=powerSensorQS.apparentPower.re "QS power";
+  output SI.Power Ptr=powerSensor.power "Transient power";
+  output SI.Power Pqs=powerSensorQS.apparentPower.re "QS power";
   Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
      Placement(transformation(extent={{-50,-30},{-70,-10}})));
   Modelica.Electrical.Analog.Basic.Ground grounde annotation (Placement(

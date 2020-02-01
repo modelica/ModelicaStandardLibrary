@@ -5,18 +5,18 @@ model Impedance "Single-phase linear impedance"
   import Modelica.ComplexMath.real;
   import Modelica.ComplexMath.imag;
   import Modelica.ComplexMath.conj;
-  parameter Modelica.SIunits.ComplexImpedance Z_ref(re(start=1),im(start=0)) "Complex impedance R_ref + j*X_ref";
-  parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+  parameter SI.ComplexImpedance Z_ref(re(start=1),im(start=0)) "Complex impedance R_ref + j*X_ref";
+  parameter SI.Temperature T_ref=293.15 "Reference temperature";
+  parameter SI.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
   parameter Boolean frequencyDependent = false "Consider frequency dependency, if true"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-  parameter Modelica.SIunits.Frequency f_ref = 1 "Reference frequency, if frequency dependency is considered"
+  parameter SI.Frequency f_ref = 1 "Reference frequency, if frequency dependency is considered"
     annotation(Dialog(enable=frequencyDependent));
-  Modelica.SIunits.Resistance R_actual "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-  Modelica.SIunits.Reactance X_actual "Reactance considering possible frequency dependency";
-  final parameter Modelica.SIunits.Resistance R_ref=real(Z_ref) "Resistive component of impedance, resistance";
-  final parameter Modelica.SIunits.Reactance X_ref=imag(Z_ref) "Reactive component of impedance, reactance";
+  SI.Resistance R_actual "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+  SI.Reactance X_actual "Reactance considering possible frequency dependency";
+  final parameter SI.Resistance R_ref=real(Z_ref) "Resistive component of impedance, resistance";
+  final parameter SI.Reactance X_ref=imag(Z_ref) "Reactive component of impedance, reactance";
 equation
   assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
     "Temperature outside scope of model!");

@@ -2,7 +2,7 @@ within Modelica.Electrical.PowerConverters.Examples.DCDC.ChopperStepDown;
 model ChopperStepDown_RL "Step down chopper with R-L load"
   extends ExampleTemplates.ChopperStepDown(signalPWM(useConstantDutyCycle=false));
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Inductance LLoad=0.025 "Load inductance";
+  parameter SI.Inductance LLoad=0.025 "Load inductance";
   Modelica.Electrical.Analog.Basic.Resistor loadResistor(R=RLoad)
     annotation (
       Placement(transformation(

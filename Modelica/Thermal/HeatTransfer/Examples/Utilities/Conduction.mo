@@ -1,7 +1,7 @@
 within Modelica.Thermal.HeatTransfer.Examples.Utilities;
 model Conduction "Input/output block of a conduction model"
   extends Modelica.Blocks.Icons.Block;
-  parameter Modelica.SIunits.ThermalConductance G=1 "Thermal conductance";
+  parameter SI.ThermalConductance G=1 "Thermal conductance";
   HeatTransfer.Components.GeneralTemperatureToHeatFlowAdaptor temperatureToHeatFlow1(use_pder=
         false)
     annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));

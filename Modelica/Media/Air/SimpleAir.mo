@@ -11,8 +11,8 @@ package SimpleAir "Air: Simple dry air model (0..100 degC)"
     T_min=Cv.from_degC(0),
     T_max=Cv.from_degC(100),
     fluidConstants=airConstants,
-    Temperature(min=Modelica.SIunits.Conversions.from_degC(0), max=
-          Modelica.SIunits.Conversions.from_degC(100)));
+    Temperature(min=Modelica.Units.Conversions.from_degC(0), max=
+          Modelica.Units.Conversions.from_degC(100)));
 
   import Modelica.Constants;
 

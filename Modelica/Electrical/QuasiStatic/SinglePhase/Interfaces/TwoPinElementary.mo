@@ -1,7 +1,7 @@
 within Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces;
 partial model TwoPinElementary "Elementary two pins with reference connection, without declaration of voltage and current"
   import Modelica.Constants.eps;
-  Modelica.SIunits.AngularVelocity omega "Angular velocity of reference frame";
+  SI.AngularVelocity omega "Angular velocity of reference frame";
 
   PositivePin pin_p "Positive quasi-static single-phase pin" annotation (Placement(transformation(
           extent={{-110,-10},{-90,10}})));

@@ -2,12 +2,12 @@ within Modelica.Electrical.Machines.Thermal;
 function convertResistance
   "Converts resistance from reference temperature to an actual temperature"
   extends Modelica.Icons.Function;
-  input Modelica.SIunits.Resistance RRef "Resistance at TRef";
-  input Modelica.SIunits.Temperature TRef "Reference temperature";
-  input Modelica.SIunits.LinearTemperatureCoefficient alpha20
+  input SI.Resistance RRef "Resistance at TRef";
+  input SI.Temperature TRef "Reference temperature";
+  input SI.LinearTemperatureCoefficient alpha20
     "Temperature coefficient at 20 degC";
-  input Modelica.SIunits.Temperature T "Actual temperature";
-  output Modelica.SIunits.Resistance R "Actual resistance at T";
+  input SI.Temperature T "Actual temperature";
+  output SI.Resistance R "Actual resistance at T";
 algorithm
   R := RRef*(1 + Machines.Thermal.convertAlpha(alpha20, TRef)*(T - TRef));
   annotation (Inline=true,Documentation(info="<html>

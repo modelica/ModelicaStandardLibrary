@@ -5,7 +5,7 @@ record CoilDesign
 
   parameter SI.Resistivity rho_20=0.0178e-6
     "Resistivity of conductor material at 20 degC (default: Copper)";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_20=0.0039
+  parameter SI.LinearTemperatureCoefficient alpha_20=0.0039
     "Temperature coefficient of conductor material's resistivity at 20 degC (default: Copper)";
   parameter SI.Temperature T_op=293.15 "Operating temperature of winding";
 

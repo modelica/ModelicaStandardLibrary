@@ -1,9 +1,9 @@
 within Modelica.Electrical.Polyphase.Basic;
 model ZeroInductor "Linear zero sequence inductor"
   extends Polyphase.Interfaces.OnePort;
-  parameter Modelica.SIunits.Inductance Lzero "Zero sequence inductance";
-  Modelica.SIunits.Current i0;
-  Modelica.SIunits.Voltage v0;
+  parameter SI.Inductance Lzero "Zero sequence inductance";
+  SI.Current i0;
+  SI.Voltage v0;
 equation
   m*i0 = sum(i);
   v0 = Lzero*der(i0);

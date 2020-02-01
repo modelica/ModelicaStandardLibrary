@@ -10,8 +10,8 @@ model PowerSensor "Power sensor"
           extent={{-10,90},{10,110}})));
   Interfaces.NegativePin voltageN annotation (Placement(transformation(
           extent={{-10,-110},{10,-90}})));
-  output Modelica.SIunits.ComplexCurrent i;
-  output Modelica.SIunits.ComplexVoltage v;
+  output SI.ComplexCurrent i;
+  output SI.ComplexVoltage v;
   Modelica.ComplexBlocks.Interfaces.ComplexOutput apparentPower(re(unit="W"), im(unit="var")) "Complex apparent power = active power + j * reactive power" annotation (Placement(transformation(
         origin={-100,-110},
         extent={{-10,-10},{10,10}},
@@ -19,8 +19,8 @@ model PowerSensor "Power sensor"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-100,-110})));
-  Modelica.SIunits.ApparentPower abs_apparentPower=Modelica.ComplexMath.abs(apparentPower) "Magnitude of complex apparent power";
-  Modelica.SIunits.Angle arg_apparentPower=Modelica.ComplexMath.arg(apparentPower) "Argument of complex apparent power";
+  SI.ApparentPower abs_apparentPower=Modelica.ComplexMath.abs(apparentPower) "Magnitude of complex apparent power";
+  SI.Angle arg_apparentPower=Modelica.ComplexMath.arg(apparentPower) "Argument of complex apparent power";
 
 equation
   Connections.branch(currentP.reference, currentN.reference);

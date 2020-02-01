@@ -4,15 +4,15 @@ record SM_ElectricalExcitedData
   extends SM_ReluctanceRotorData(Lmd=1.5/(2*pi*fsNominal), Lmq=1.5/(2*pi*
         fsNominal));
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Voltage VsNominal=100
+  parameter SI.Voltage VsNominal=100
     "Nominal stator RMS voltage per phase"
     annotation (Dialog(tab="Excitation"));
-  parameter Modelica.SIunits.Current IeOpenCircuit=10
+  parameter SI.Current IeOpenCircuit=10
     "Open circuit excitation current @ nominal voltage and frequency"
     annotation (Dialog(tab="Excitation"));
-  parameter Modelica.SIunits.Resistance Re=2.5
+  parameter SI.Resistance Re=2.5
     "Excitation resistance at TRef" annotation (Dialog(tab="Excitation"));
-  parameter Modelica.SIunits.Temperature TeRef=293.15
+  parameter SI.Temperature TeRef=293.15
     "Reference temperature of excitation resistance"
     annotation (Dialog(tab="Excitation"));
   parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20e=0

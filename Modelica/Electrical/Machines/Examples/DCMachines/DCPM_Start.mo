@@ -2,13 +2,13 @@ within Modelica.Electrical.Machines.Examples.DCMachines;
 model DCPM_Start
   "Test example: DC with permanent magnet starting with voltage ramp"
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
-  parameter Modelica.SIunits.Time tStart=0.2
+  parameter SI.Voltage Va=100 "Actual armature voltage";
+  parameter SI.Time tStart=0.2
     "Start of armature voltage ramp";
-  parameter Modelica.SIunits.Time tRamp=0.8 "Armature voltage ramp";
-  parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
-  parameter Modelica.SIunits.Time tStep=1.5 "Time of load torque step";
-  parameter Modelica.SIunits.Inertia JLoad=0.15
+  parameter SI.Time tRamp=0.8 "Armature voltage ramp";
+  parameter SI.Torque TLoad=63.66 "Nominal load torque";
+  parameter SI.Time tStep=1.5 "Time of load torque step";
+  parameter SI.Inertia JLoad=0.15
     "Load's moment of inertia";
   Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm(
     VaNominal=dcpmData.VaNominal,

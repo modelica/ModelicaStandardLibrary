@@ -318,9 +318,9 @@ model SimpleGenericOrifice
   public
   Real zeta_nominal;
   Medium.Density d = 0.5*(Medium.density(state_a) + Medium.density(state_b));
-  Modelica.SIunits.Pressure dp_fg(start=dp_start)
+  SI.Pressure dp_fg(start=dp_start)
       "pressure loss due to friction and gravity";
-  Modelica.SIunits.Area A_mean = Modelica.Constants.pi/4*diameter^2
+  SI.Area A_mean = Modelica.Constants.pi/4*diameter^2
       "mean cross flow area";
 
   constant SI.ReynoldsNumber Re_turbulent = 10000 "cf. sharpEdgedOrifice";
@@ -424,7 +424,7 @@ end SimpleGenericOrifice;
 
 model SharpEdgedOrifice
     "Pressure drop due to sharp edged orifice (for both flow directions)"
-    import NonSI = Modelica.SIunits.Conversions.NonSIunits;
+    import Modelica.Units.NonSI;
   extends BaseClasses.QuadraticTurbulent.BaseModel(final data=
           BaseClasses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice(
           diameter,
@@ -803,10 +803,11 @@ of the modeller.
 
        encapsulated function wallFriction
           "Return pressure loss data due to friction in a straight pipe with walls of nonuniform roughness (not useful for smooth pipes, since zeta is no function of Re)"
+          import Modelica.Units.SI;
           import Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
           import Modelica.Fluid.Types.Roughness;
           import lg = Modelica.Math.log10;
-          import SI = Modelica.SIunits;
+
 
          input SI.Length length "Length of pipe" annotation(Dialog);
          input SI.Diameter diameter "Inner diameter of pipe" annotation(Dialog);
@@ -938,9 +939,10 @@ As a short summary:
 
        encapsulated function suddenExpansion
           "Return pressure loss data for sudden expansion or contraction in a pipe (for both flow directions)"
+          import Modelica.Units.SI;
           import
             Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
-          import SI = Modelica.SIunits;
+
          input SI.Diameter diameter_a "Inner diameter of pipe at port_a" annotation(Dialog);
          input SI.Diameter diameter_b "Inner diameter of pipe at port_b" annotation(Dialog);
          output LossFactorData data
@@ -1037,19 +1039,15 @@ A_a &gt; A_b (Idelchik 1994, diagram 4-9, p. 216 and diagram 4-10, p. 217)
 
        encapsulated function sharpEdgedOrifice
           "Return pressure loss data for sharp edged orifice (for both flow directions)"
-          import NonSI = Modelica.SIunits.Conversions.NonSIunits;
-          import
-            Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
-          import SI = Modelica.SIunits;
+          import Modelica.Units.SI;
+          import Modelica.Units.NonSI;
+          import Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
+
           input SI.Diameter diameter
-            "Inner diameter of pipe (= same at port_a and port_b)"
-                                                                  annotation(Dialog);
-          input SI.Diameter leastDiameter "Smallest diameter of orifice"
-                                                                annotation(Dialog);
-          input SI.Diameter length "Length of orifice"
-                                                 annotation(Dialog);
-          input NonSI.Angle_deg alpha "Angle of orifice"
-                                                        annotation(Dialog);
+            "Inner diameter of pipe (= same at port_a and port_b)" annotation(Dialog);
+          input SI.Diameter leastDiameter "Smallest diameter of orifice" annotation(Dialog);
+          input SI.Diameter length "Length of orifice" annotation(Dialog);
+          input NonSI.Angle_deg alpha "Angle of orifice" annotation(Dialog);
           output LossFactorData data
             "Pressure loss factors for both flow directions";
         protected
@@ -1555,7 +1553,7 @@ The used sufficient criteria for monotonicity follows from:
           final momentumDynamics = Types.Dynamics.SteadyState);
 
         parameter LossFactorData data "Loss factor data";
-        parameter Modelica.SIunits.MassFlowRate m_flow_nominal=if system.use_eps_Re then system.m_flow_nominal else 1e2*system.m_flow_small
+        parameter SI.MassFlowRate m_flow_nominal=if system.use_eps_Re then system.m_flow_nominal else 1e2*system.m_flow_small
           "Nominal mass flow rate"
           annotation(Dialog(group="Nominal operating point"));
 
@@ -1572,7 +1570,7 @@ The used sufficient criteria for monotonicity follows from:
                              Medium.reference_T,
                              Medium.reference_X)
           "Medium state to compute nominal pressure drop";
-        parameter Modelica.SIunits.Pressure dp_nominal=
+        parameter SI.Pressure dp_nominal=
           pressureLoss_m_flow(m_flow_nominal, Medium.density(state_nominal), Medium.density(state_nominal), data, m_flow_small)
           "Nominal pressure loss";
         parameter Medium.AbsolutePressure dp_small(min=0) = if system.use_eps_Re then dp_nominal/m_flow_nominal*m_flow_small else system.dp_small
@@ -1593,9 +1591,9 @@ The used sufficient criteria for monotonicity follows from:
               data.D_Re) if show_Re "Reynolds number at diameter data.D_Re";
 
         // Variables
-        Modelica.SIunits.Pressure dp_fg
+        SI.Pressure dp_fg
           "pressure loss due to friction and gravity";
-        Modelica.SIunits.Area A_mean = Modelica.Constants.pi/4*(data.diameter_a^2+data.diameter_b^2)/2
+        SI.Area A_mean = Modelica.Constants.pi/4*(data.diameter_a^2+data.diameter_b^2)/2
           "mean cross flow area";
 
       equation
@@ -1781,7 +1779,7 @@ The used sufficient criteria for monotonicity follows from:
           final momentumDynamics = Types.Dynamics.SteadyState);
 
         parameter LossFactorData data "Loss factor data";
-        parameter Modelica.SIunits.MassFlowRate m_flow_nominal=if system.use_eps_Re then system.m_flow_nominal else 1e2*system.m_flow_small
+        parameter SI.MassFlowRate m_flow_nominal=if system.use_eps_Re then system.m_flow_nominal else 1e2*system.m_flow_small
           "Nominal mass flow rate"
           annotation(Dialog(group="Nominal operating point"));
 
@@ -1800,7 +1798,7 @@ The used sufficient criteria for monotonicity follows from:
                              Medium.reference_T,
                              Medium.reference_X)
           "Medium state to compute nominal pressure drop" annotation(HideResult=true);
-        parameter Modelica.SIunits.Pressure dp_nominal=
+        parameter SI.Pressure dp_nominal=
           pressureLoss_m_flow(m_flow_nominal, Medium.density(state_nominal), Medium.density(state_nominal), data, m_flow_small)
           "Nominal pressure loss";
         parameter Medium.AbsolutePressure dp_small(min=0) = if system.use_eps_Re then dp_nominal/m_flow_nominal*m_flow_small else system.dp_small
@@ -1835,9 +1833,9 @@ The used sufficient criteria for monotonicity follows from:
           show_portVelocities "Fluid velocity into port_b";
 
         // Variables
-        Modelica.SIunits.Pressure dp_fg
+        SI.Pressure dp_fg
           "pressure loss due to friction and gravity";
-        Modelica.SIunits.Area A_mean = Modelica.Constants.pi/4*(data.diameter_a^2+data.diameter_b^2)/2
+        SI.Area A_mean = Modelica.Constants.pi/4*(data.diameter_a^2+data.diameter_b^2)/2
           "mean cross flow area";
 
         Medium.ThermodynamicState state_b_des

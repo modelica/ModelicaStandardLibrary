@@ -1,15 +1,15 @@
 within Modelica.Electrical.Polyphase.Sources;
 model CosineCurrent "Polyphase cosine current source"
   extends Interfaces.TwoPlug;
-  parameter Modelica.SIunits.Current I[m](start=fill(1, m))
+  parameter SI.Current I[m](start=fill(1, m))
     "Amplitudes of cosine waves";
-  parameter Modelica.SIunits.Angle phase[m]=-
+  parameter SI.Angle phase[m]=-
       Polyphase.Functions.symmetricOrientation(                    m)
     "Phases of cosine waves";
-  parameter Modelica.SIunits.Frequency f[m](start=fill(1, m))
+  parameter SI.Frequency f[m](start=fill(1, m))
     "Frequencies of cosine waves";
-  parameter Modelica.SIunits.Current offset[m]=zeros(m) "Current offsets";
-  parameter Modelica.SIunits.Time startTime[m]=zeros(m) "Time offsets";
+  parameter SI.Current offset[m]=zeros(m) "Current offsets";
+  parameter SI.Time startTime[m]=zeros(m) "Time offsets";
   Modelica.Electrical.Analog.Sources.CosineCurrent cosineCurrent[m](
     final I=I,
     final phase=phase,

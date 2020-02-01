@@ -1,8 +1,8 @@
 within Modelica;
 package Fluid "Library of 1-dim. thermo-fluid flow models using the Modelica.Media media description"
   extends Modelica.Icons.Package;
-  import SI = Modelica.SIunits;
-  import Cv = Modelica.SIunits.Conversions;
+  import Modelica.Units.SI;
+  import Cv = Modelica.Units.Conversions;
 
 package UsersGuide "User's Guide"
   extends Modelica.Icons.Information;
@@ -161,7 +161,7 @@ nominal attributes. Furthermore, Medium.MassFlowRate is defined as:
 </p>
 <blockquote><pre>
 <strong>type</strong> MassFlowRate =
-   Modelica.SIunits.MassFlowRate(quantity=\"MassFlowRate.\" + mediumName);
+   SI.MassFlowRate(quantity=\"MassFlowRate.\" + mediumName);
 </pre></blockquote>
 <p>
 Generally, with the current library design, it is necessary to explicitly select the medium
@@ -225,9 +225,9 @@ terms in the energy balance are neglected for simplicity.
 model MixingVolume \"Volume that mixes two flows\"
   replaceable package Medium = Modelica.Media.Interfaces.PartialPureSubstance;
   FluidPort port_a, port_b;
-  parameter Modelica.SIunits.Volume V \"Volume of device\";
-  Modelica.SIunits.Mass             m \"Mass in device\";
-  Modelica.SIunits.Energy           U \"Inner energy in device\";
+  parameter SI.Volume V \"Volume of device\";
+  SI.Mass             m \"Mass in device\";
+  SI.Energy           U \"Inner energy in device\";
   Medium.BaseProperties medium(preferredMediumStates=true) \"Medium in the device\";
 equation
   // Definition of port variables

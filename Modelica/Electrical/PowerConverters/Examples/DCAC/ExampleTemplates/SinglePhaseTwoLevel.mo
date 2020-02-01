@@ -2,7 +2,7 @@ within Modelica.Electrical.PowerConverters.Examples.DCAC.ExampleTemplates;
 partial model SinglePhaseTwoLevel
   "Single-phase two level inverter including control"
   extends Icons.ExampleTemplate;
-  parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
+  parameter SI.Frequency f=1000 "Switching frequency";
   Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage_n(
       V=50) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},

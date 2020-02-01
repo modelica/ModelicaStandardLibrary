@@ -1,7 +1,7 @@
 within Modelica.Electrical.Machines.Interfaces;
 connector SpacePhasor "Connector for Space Phasors"
-  Modelica.SIunits.Voltage v_[2] "1=real, 2=imaginary part";
-  flow Modelica.SIunits.Current i_[2] "1=real, 2=imaginary part";
+  SI.Voltage v_[2] "1=real, 2=imaginary part";
+  flow SI.Current i_[2] "1=real, 2=imaginary part";
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
             {100,100}}), graphics={Polygon(

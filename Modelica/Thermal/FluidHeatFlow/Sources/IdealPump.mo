@@ -2,19 +2,19 @@ within Modelica.Thermal.FluidHeatFlow.Sources;
 model IdealPump "Model of an ideal pump"
 
   extends FluidHeatFlow.BaseClasses.TwoPort(final tapT=1);
-  parameter Modelica.SIunits.AngularVelocity wNominal(start=1, displayUnit="rev/min")
+  parameter SI.AngularVelocity wNominal(start=1, displayUnit="rev/min")
     "Nominal speed"
       annotation(Dialog(group="Pump characteristic"));
-  parameter Modelica.SIunits.Pressure dp0(start=2)
+  parameter SI.Pressure dp0(start=2)
     "Max. pressure increase @ V_flow=0"
       annotation(Dialog(group="Pump characteristic"));
-  parameter Modelica.SIunits.VolumeFlowRate V_flow0(start=2)
+  parameter SI.VolumeFlowRate V_flow0(start=2)
     "Max. volume flow rate @ dp=0"
       annotation(Dialog(group="Pump characteristic"));
-  Modelica.SIunits.AngularVelocity w=der(flange_a.phi) "Speed";
+  SI.AngularVelocity w=der(flange_a.phi) "Speed";
 protected
-  Modelica.SIunits.Pressure dp1;
-  Modelica.SIunits.VolumeFlowRate V_flow1;
+  SI.Pressure dp1;
+  SI.VolumeFlowRate V_flow1;
 public
   Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
     annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));

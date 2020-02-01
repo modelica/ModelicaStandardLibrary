@@ -5,12 +5,12 @@ model ThyristorBridge2Pulse_RLV_Characteristic
         useConstantFiringAngle=false));
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Voltage Vdi0=2/pi*sin(pi/2)*sqrt(2)*Vrms
+  parameter SI.Voltage Vdi0=2/pi*sin(pi/2)*sqrt(2)*Vrms
     "Ideal max. DC voltage";
-  parameter Modelica.SIunits.Resistance R=20 "Load resistance";
-  parameter Modelica.SIunits.Inductance L=1 "Load resistance"
+  parameter SI.Resistance R=20 "Load resistance";
+  parameter SI.Inductance L=1 "Load resistance"
     annotation (Evaluate=true);
-  parameter Modelica.SIunits.Voltage VDC=-120 "DC load offset voltage";
+  parameter SI.Voltage VDC=-120 "DC load offset voltage";
   Modelica.Electrical.Analog.Basic.Resistor resistor(R=R) annotation (
       Placement(transformation(
         origin={30,30},

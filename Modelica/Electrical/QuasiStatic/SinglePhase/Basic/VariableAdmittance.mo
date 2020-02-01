@@ -4,8 +4,8 @@ model VariableAdmittance "Single-phase variable admittance"
   import Modelica.ComplexMath.real;
   import Modelica.ComplexMath.imag;
   import Modelica.ComplexMath.conj;
-  parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+  parameter SI.Temperature T_ref=293.15 "Reference temperature";
+  parameter SI.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
   Modelica.ComplexBlocks.Interfaces.ComplexInput Y_ref "Variable complex admittance"
     annotation (Placement(transformation(
@@ -17,12 +17,12 @@ model VariableAdmittance "Single-phase variable admittance"
         origin={0,120})));
   parameter Boolean frequencyDependent = false "Consider frequency dependency, if true"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-  parameter Modelica.SIunits.Frequency f_ref = 1 "Reference frequency, if frequency dependency is considered"
+  parameter SI.Frequency f_ref = 1 "Reference frequency, if frequency dependency is considered"
     annotation(Dialog(enable=frequencyDependent));
-  Modelica.SIunits.Conductance G_actual "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-  Modelica.SIunits.Susceptance B_actual "Susceptance considering possible frequency dependency";
-  Modelica.SIunits.Conductance G_ref=real(Y_ref) "Resistive component of conductance";
-  Modelica.SIunits.Susceptance B_ref=imag(Y_ref) "Reactive component of susceptance";
+  SI.Conductance G_actual "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+  SI.Susceptance B_actual "Susceptance considering possible frequency dependency";
+  SI.Conductance G_ref=real(Y_ref) "Resistive component of conductance";
+  SI.Susceptance B_ref=imag(Y_ref) "Reactive component of susceptance";
 equation
   assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
     "Temperature outside scope of model!");

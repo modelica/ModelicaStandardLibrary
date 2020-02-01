@@ -1,19 +1,19 @@
 within Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources;
 model ConstantFlux "Source of constant magnetic flux"
   extends Interfaces.TwoPortElementary;
-  parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
-  Modelica.SIunits.ComplexMagneticPotentialDifference V_m
+  parameter SI.Frequency f(start=1) "Frequency of the source";
+  SI.ComplexMagneticPotentialDifference V_m
     "Complex magnetic potential difference";
-  Modelica.SIunits.MagneticPotentialDifference abs_V_m=
+  SI.MagneticPotentialDifference abs_V_m=
       Modelica.ComplexMath.abs(V_m)
     "Magnitude of complex magnetic potential difference";
-  Modelica.SIunits.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
+  SI.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
     "Argument of complex magnetic potential difference";
-  parameter Modelica.SIunits.ComplexMagneticFlux Phi=Complex(re=1, im=0)
+  parameter SI.ComplexMagneticFlux Phi=Complex(re=1, im=0)
     "Complex magnetic flux";
-  Modelica.SIunits.MagneticPotentialDifference abs_Phi=
+  SI.MagneticPotentialDifference abs_Phi=
       Modelica.ComplexMath.abs(Phi) "Magnitude of complex magnetic flux";
-  Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
+  SI.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
     "Argument of complex magnetic flux";
 equation
   // Flux into positive port

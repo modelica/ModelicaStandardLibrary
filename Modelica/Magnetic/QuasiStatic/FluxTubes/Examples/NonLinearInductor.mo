@@ -1,7 +1,7 @@
 within Modelica.Magnetic.QuasiStatic.FluxTubes.Examples;
 model NonLinearInductor "Non linear inductor with ferromagnetic core"
   extends Modelica.Icons.Example;
-  output Modelica.SIunits.Current deviation = feedback.y "Deviation of transient and quasi-static current";
+  output SI.Current deviation = feedback.y "Deviation of transient and quasi-static current";
   FluxTubes.Basic.Ground ground_mQS annotation (Placement(transformation(extent={{80,-90},{100,-70}})));
   Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource
     sourceQS(

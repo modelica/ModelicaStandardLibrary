@@ -1,9 +1,9 @@
 within Modelica.Thermal.FluidHeatFlow.Examples;
 model TestOpenTank "Test the OpenTank model"
   extends Modelica.Icons.Example;
-  output Modelica.SIunits.VolumeFlowRate V_flow=volumeFlow.V_flow "Volume flow rate to tank";
-  output Modelica.SIunits.Length level=openTank.level "Level in tank";
-  output Modelica.SIunits.Temperature T(displayUnit="degC")=openTank.TTank "Temperature in tank";
+  output SI.VolumeFlowRate V_flow=volumeFlow.V_flow "Volume flow rate to tank";
+  output SI.Length level=openTank.level "Level in tank";
+  output SI.Temperature T(displayUnit="degC")=openTank.TTank "Temperature in tank";
   FluidHeatFlow.Components.OpenTank openTank(
     ATank=1,
     hTank=1,

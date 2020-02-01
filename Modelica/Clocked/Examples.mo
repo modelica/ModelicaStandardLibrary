@@ -2,7 +2,7 @@ within Modelica.Clocked;
 package Examples
   "Library of examples to demonstrate the usage of package Modelica.Clocked"
   extends Modelica.Icons.ExamplesPackage;
-
+  import Modelica.Units.SI;
   package SimpleControlledDrive
     "Examples based on a simple controlled drive with different ways to define the sampling"
   extends Modelica.Icons.ExamplesPackage;
@@ -1188,10 +1188,10 @@ precisely time-synchronized to each other.
     model ControlledMixingUnit
       "Simple example of a mixing unit where a (discretized) nonlinear inverse plant model is used as feedforward controller"
        extends Modelica.Icons.Example;
-      import Modelica.SIunits;
-      parameter SIunits.Frequency freq = 1/300 "Critical frequency of filter";
+
+      parameter SI.Frequency freq = 1/300 "Critical frequency of filter";
       parameter Real c0(unit="mol/l") = 0.848 "Nominal concentration";
-      parameter SIunits.Temperature T0 = 308.5 "Nominal temperature";
+      parameter SI.Temperature T0 = 308.5 "Nominal temperature";
       parameter Real a1_inv =  0.2674 "Process parameter of inverse plant model (see references in help)";
       parameter Real a21_inv = 1.815 "Process parameter of inverse plant model (see references in help)";
       parameter Real a22_inv = 0.4682 "Process parameter of inverse plant model (see references in help)";
@@ -1202,7 +1202,7 @@ precisely time-synchronized to each other.
       parameter Real x20 = 0.01 "Relative offset between nominal temperature and initial temperature";
       parameter Real u0 = -0.0224 "Relative offset between initial cooling temperature and nominal temperature";
       final parameter Real c_start(unit="mol/l") = c0*(1-x10) "Initial concentration";
-      final parameter SIunits.Temperature T_start = T0*(1+x20) "Initial temperature";
+      final parameter SI.Temperature T_start = T0*(1+x20) "Initial temperature";
       final parameter Real c_high_start(unit="mol/l") = c0*(1-0.72) "Reference concentration";
       final parameter Real T_c_start = T0*(1+u0) "Initial cooling temperature";
       parameter Real pro=1.5 "Deviations of plant to inverse plant parameters";
@@ -1664,12 +1664,11 @@ to beeing satisfied, i.e., the state when the clock last ticked.
         extends Modelica.Icons.Package;
         block ThrottleBody "Basic throttle body equations"
           extends Modelica.Blocks.Icons.Block;
-          import Modelica.SIunits.Conversions.NonSIunits;
 
-        parameter NonSIunits.Pressure_bar P_0 = 1 "Atmospheric pressure (bar)";
+        parameter Modelica.Units.NonSI.Pressure_bar P_0 = 1 "Atmospheric pressure (bar)";
         protected
           Real m_ai(start=0, fixed=true, unit="g") "Mass";
-          NonSIunits.Angle_deg f_Theta "Auxiliary variable";
+          Modelica.Units.NonSI.Angle_deg f_Theta "Auxiliary variable";
           Real g_Pm "Auxiliary variable";
         public
           Modelica.Blocks.Interfaces.RealInput Theta(unit="deg") "Throttle angle (deg)"
@@ -1704,10 +1703,10 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
 
         block IntakeManifold "Dynamics of the intake manifold"
           extends Modelica.Blocks.Icons.Block;
-          import Modelica.SIunits.Conversions.NonSIunits;
+
           parameter Real RTVmRatio = 0.41328
             "RT/V_m";
-          parameter NonSIunits.Pressure_bar P_0 = 0.543
+          parameter Modelica.Units.NonSI.Pressure_bar P_0 = 0.543
             "Initial value for P_m, (bar)";
           Modelica.Blocks.Interfaces.RealInput m_ai_der(unit="g/s")
             "Mass flow rate of air into manifold (g/s)"
@@ -1748,7 +1747,7 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
 
         block SpeedControl
           "Discrete control of crankshaft speed by throttle actuation"
-          import Modelica.SIunits.Conversions.NonSIunits;
+
           parameter Real k_p = 0.0614 "Proportional gain";
           parameter Real k_I = 0.0723 "Integral gain";
           Modelica.Blocks.Interfaces.RealInput N_des(unit="rad/s") "Desired speed, (rad/s)" annotation (Placement(transformation(extent={{-140,20},{-100,60}})));
@@ -1756,7 +1755,7 @@ g_Pm = if Pm <= P_0/2 then 1.0 else 2/P_0*sqrt(Pm*P_0 - Pm^2);
           Modelica.Blocks.Interfaces.RealOutput Theta(start=8.9, unit="deg")
             "Throttle angle (deg)" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
         protected
-          NonSIunits.Angle_deg x_d(start=8.973, fixed=true);
+          Modelica.Units.NonSI.Angle_deg x_d(start=8.973, fixed=true);
         /*
 initial equation
   N_des = pre(N_des);
@@ -2240,7 +2239,7 @@ initial equation
         extends Modelica.Icons.Package;
         model MixingUnit
           "Mixing unit demo from Foellinger, Nichtlineare Regelungen II, p. 280"
-          import Modelica.SIunits;
+
           Modelica.Blocks.Interfaces.RealInput T_c(unit="K")
             "Cooling temperature"
             annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
@@ -2250,7 +2249,7 @@ initial equation
             "Temperature in mixing unit"
             annotation (Placement(transformation(extent={{100,-80},{140,-40}})));
           parameter Real c0(unit="mol/l") = 0.848 "Nominal concentration";
-          parameter SIunits.Temperature T0 = 308.5 "Nominal temperature";
+          parameter SI.Temperature T0 = 308.5 "Nominal temperature";
           parameter Real a1 = 0.2674 "Process parameter (see references in help)";
           parameter Real a21 = 1.815 "Process parameter (see references in help)";
           parameter Real a22 = 0.4682 "Process parameter (see references in help)";
@@ -2259,7 +2258,7 @@ initial equation
           parameter Real eps = 34.2894 "Process parameter (see references in help)";
           Real gamma "Reaction speed";
         protected
-          parameter SIunits.Time tau0 = 60;
+          parameter SI.Time tau0 = 60;
           parameter Real wk0 = k0/c0;
           parameter Real weps = eps*T0;
           parameter Real wa11 = a1/tau0;
@@ -2319,11 +2318,11 @@ See description in <a href=\"modelica://Modelica.Clocked.Examples.Systems.Contro
 
         model MixingUnitWithContinuousControl "Simple example of a mixing unit where a (continuous) nonlinear inverse plant model is used as feedforward controller"
           extends Modelica.Icons.Example;
-          import Modelica.SIunits;
 
-          parameter SIunits.Frequency freq = 1/300 "Critical frequency of filter";
+
+          parameter SI.Frequency freq = 1/300 "Critical frequency of filter";
           parameter Real c0(unit="mol/l") = 0.848 "Nominal concentration";
-          parameter SIunits.Temperature T0 = 308.5 "Nominal temperature";
+          parameter SI.Temperature T0 = 308.5 "Nominal temperature";
           parameter Real a1_inv =  0.2674 "Process parameter of inverse plant model (see references in help)";
           parameter Real a21_inv = 1.815 "Process parameter of inverse plant model (see references in help)";
           parameter Real a22_inv = 0.4682 "Process parameter of inverse plant model (see references in help)";
@@ -2336,7 +2335,7 @@ See description in <a href=\"modelica://Modelica.Clocked.Examples.Systems.Contro
           parameter Real u0 = -0.0224 "Relative offset between initial cooling temperature and nominal temperature";
 
           final parameter Real c_start(unit="mol/l") = c0*(1-x10) "Initial concentration";
-          final parameter SIunits.Temperature T_start = T0*(1+x20) "Initial temperature";
+          final parameter SI.Temperature T_start = T0*(1+x20) "Initial temperature";
           final parameter Real c_high_start(unit="mol/l") = c0*(1-0.72) "Reference concentration";
           final parameter Real T_c_start = T0*(1+u0) "Initial cooling temperature";
 
@@ -2456,7 +2455,7 @@ See description in <a href=\"modelica://Modelica.Clocked.Examples.Systems.Contro
           extends Modelica.Blocks.Interfaces.SISO;
 
           parameter Integer n=2 "Order of filter";
-          parameter Modelica.SIunits.Frequency f(start=1) "Cut-off frequency";
+          parameter SI.Frequency f(start=1) "Cut-off frequency";
           parameter Boolean normalized = true
             "= true, if amplitude at f_cut is 3 dB, otherwise unmodified filter";
           output Real x[n](start=zeros(n)) "Filter states";

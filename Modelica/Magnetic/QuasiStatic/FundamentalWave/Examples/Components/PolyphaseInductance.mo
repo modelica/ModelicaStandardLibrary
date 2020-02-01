@@ -2,17 +2,17 @@ within Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.Components;
 model PolyphaseInductance "Polyphase inductance"
   extends Modelica.Icons.Example;
   parameter Integer m=5 "Number of phases";
-  parameter Modelica.SIunits.Frequency f=1 "Supply frequency";
-  parameter Modelica.SIunits.Voltage VRMS=100 "RMS supply voltage";
-  parameter Modelica.SIunits.Resistance R=1E-5 "Resistance";
-  parameter Modelica.SIunits.Inductance L=1 "Load inductance";
+  parameter SI.Frequency f=1 "Supply frequency";
+  parameter SI.Voltage VRMS=100 "RMS supply voltage";
+  parameter SI.Resistance R=1E-5 "Resistance";
+  parameter SI.Inductance L=1 "Load inductance";
   parameter Real effectiveTurns=5 "Effective number of turns";
   // Symmetrical polyphase magnetic reluctance
-  final parameter Modelica.SIunits.Reluctance R_m=m*effectiveTurns^2/2/L
+  final parameter SI.Reluctance R_m=m*effectiveTurns^2/2/L
     "Equivalent magnetic reluctance";
-  output Modelica.SIunits.ComplexCurrent Ie=resistor_e.i[1]
+  output SI.ComplexCurrent Ie=resistor_e.i[1]
     "Current of electric representation";
-  output Modelica.SIunits.ComplexCurrent Im=resistor_m.i[1]
+  output SI.ComplexCurrent Im=resistor_m.i[1]
     "Current of magnetic representation";
   Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground ground_e
     annotation (Placement(transformation(extent={{-70,10},{-50,30}})));

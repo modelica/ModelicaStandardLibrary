@@ -7,8 +7,8 @@ model SwitchedRheostat "Rheostat which is shortened after a given time"
   Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug
     plug_n(final m=m) "To negative rotor plug" annotation (Placement(
         transformation(extent={{90,-50},{110,-70}})));
-  parameter Modelica.SIunits.Resistance RStart "Starting resistance";
-  parameter Modelica.SIunits.Time tStart
+  parameter SI.Resistance RStart "Starting resistance";
+  parameter SI.Time tStart
     "Duration of switching on the starting resistor";
   Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star star(final m=m)
     annotation (Placement(transformation(extent={{-40,-70},{-60,-50}})));

@@ -7,8 +7,8 @@ partial model ACtwoPlug "Two AC polyphase plugs"
   Modelica.Electrical.Polyphase.Interfaces.NegativePlug ac_n(final m=m)
     "Negative potential AC input"
     annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
-  Modelica.SIunits.Voltage vAC[m]=ac_p.pin[:].v - ac_n.pin[:].v "AC voltages";
-  Modelica.SIunits.Current iAC[m]=ac_p.pin[:].i "AC currents";
-  Modelica.SIunits.Power powerAC[m]=vAC.*iAC "AC power";
-  Modelica.SIunits.Power powerTotalAC=sum(powerAC) "AC total power";
+  SI.Voltage vAC[m]=ac_p.pin[:].v - ac_n.pin[:].v "AC voltages";
+  SI.Current iAC[m]=ac_p.pin[:].i "AC currents";
+  SI.Power powerAC[m]=vAC.*iAC "AC power";
+  SI.Power powerTotalAC=sum(powerAC) "AC total power";
 end ACtwoPlug;

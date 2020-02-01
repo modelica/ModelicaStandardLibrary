@@ -2,7 +2,7 @@ within Modelica.Thermal.HeatTransfer.Examples.Utilities;
 model InverseCapacity
   "Input/output block of an inverse heatCapacity model"
   extends Modelica.Blocks.Icons.Block;
-  parameter Modelica.SIunits.HeatCapacity C(min=0)=1 "HeatCapacity";
+  parameter SI.HeatCapacity C(min=0)=1 "HeatCapacity";
   HeatTransfer.Components.HeatCapacitor mass(C=C, T(fixed=true, start=293.15))
     annotation (Placement(transformation(extent={{-10,0},{10,20}})));
   HeatTransfer.Components.GeneralTemperatureToHeatFlowAdaptor temperatureToHeatFlow

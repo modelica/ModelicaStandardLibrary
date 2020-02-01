@@ -2,7 +2,7 @@ within Modelica.Electrical.PowerConverters.ACAC.Control;
 block VoltageToAngle "Reference voltage to firing angle converter"
   extends Modelica.Blocks.Icons.Block;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Voltage VNominal "Nominal voltage";
+  parameter SI.Voltage VNominal "Nominal voltage";
   parameter PowerConverters.Types.Voltage2AngleType voltage2Angle=
       PowerConverters.Types.Voltage2AngleType.Lin "Select type of calculation";
   Modelica.Blocks.Interfaces.RealInput vRef "Reference voltage"

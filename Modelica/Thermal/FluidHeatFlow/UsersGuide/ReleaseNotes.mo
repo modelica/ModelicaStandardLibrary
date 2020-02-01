@@ -59,7 +59,7 @@ class ReleaseNotes "Release Notes"
   <h5>1.6.1, 2007-08-12 (Anton Haumer)</h5>
   <ul>
   <li> Improved documentation</li>
-  <li> Removed type TemperatureDifference since this is defined in Modelica.SIunits</li>
+  <li> Removed type TemperatureDifference since this is defined in SI</li>
   </ul>
 
   <h5>1.60, 2007-01-23 (Anton Haumer)</h5>

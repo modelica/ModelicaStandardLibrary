@@ -3,23 +3,23 @@ model PermanentMagnet
   "Permanent magnet model without intrinsic reluctance, represented by magnetic potential difference"
   extends FundamentalWave.Losses.PermanentMagnetLosses;
   extends Magnetic.QuasiStatic.FundamentalWave.Interfaces.TwoPortElementary;
-  parameter Modelica.SIunits.ComplexMagneticPotentialDifference V_m=
+  parameter SI.ComplexMagneticPotentialDifference V_m=
       Complex(re=1, im=0)
     "Complex magnetic potential difference w.r.t. the rotor fixed reference frame";
-  Modelica.SIunits.MagneticPotentialDifference abs_V_m=
+  SI.MagneticPotentialDifference abs_V_m=
       Modelica.ComplexMath.abs(V_m)
     "Magnitude of complex magnetic potential difference";
-  Modelica.SIunits.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
+  SI.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
     "Argument of complex magnetic potential difference w.r.t. reference frame";
 
-  Modelica.SIunits.Angle gamma "Angle of V_m fixed reference frame";
-  Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
-  Modelica.SIunits.MagneticPotentialDifference abs_Phi=
+  SI.Angle gamma "Angle of V_m fixed reference frame";
+  SI.ComplexMagneticFlux Phi "Complex magnetic flux";
+  SI.MagneticPotentialDifference abs_Phi=
       Modelica.ComplexMath.abs(Phi)
     "Magnitude of complex magnetic flux";
-  Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
+  SI.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
     "Argument of complex magnetic flux";
-  Modelica.SIunits.ComplexMagneticPotentialDifference V_mGamma=V_m*
+  SI.ComplexMagneticPotentialDifference V_mGamma=V_m*
       Modelica.ComplexMath.fromPolar(1, -gamma)
     "Magnetic potential difference w.r.t. the reference frame";
 equation

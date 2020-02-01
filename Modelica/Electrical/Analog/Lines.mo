@@ -51,7 +51,7 @@ package Lines
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-110,-110},{-90,-90}})));
   protected
-    parameter Modelica.SIunits.Resistance rm[N + 1]=
+    parameter SI.Resistance rm[N + 1]=
     {if i==1 or i==N + 1 then r*length/(N*2) else r*length/N for i in 1:N+1};
     Modelica.Electrical.Analog.Basic.Resistor R[N + 1](
       R=rm,
@@ -59,7 +59,7 @@ package Lines
       alpha=fill(alpha_R, N + 1),
       useHeatPort=fill(useHeatPort, N + 1),
       T=fill(T, N + 1));
-    parameter Modelica.SIunits.Inductance lm[N + 1]=
+    parameter SI.Inductance lm[N + 1]=
     {if i==1 or i==N + 1 then l*length/(N*2) else l*length/N for i in 1:N+1};
     Modelica.Electrical.Analog.Basic.Inductor L[N + 1](L=lm);
     Modelica.Electrical.Analog.Basic.Capacitor C[N](C=fill(c*length/(N), N));
@@ -552,7 +552,7 @@ package Lines
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-108,-110},{-88,-90}})));
   protected
-     parameter Modelica.SIunits.Resistance rm[N + 1]=
+     parameter SI.Resistance rm[N + 1]=
     {if i==1 or i==N + 1 then r*length/(N*2) else r*length/N for i in 1:N+1};
     Modelica.Electrical.Analog.Basic.Resistor R[N + 1](
       R=rm,

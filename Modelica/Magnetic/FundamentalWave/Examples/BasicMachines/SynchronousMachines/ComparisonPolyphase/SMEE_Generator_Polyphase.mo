@@ -6,32 +6,32 @@ model SMEE_Generator_Polyphase
   import Modelica.Constants.pi;
   constant Integer m3=3 "Number of stator phases of three-phase system";
   parameter Integer m=5 "Number of stator phases";
-  parameter Modelica.SIunits.Voltage VsNominal=100
+  parameter SI.Voltage VsNominal=100
     "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fsNominal=smeeData.fsNominal "Nominal frequency";
-  parameter Modelica.SIunits.AngularVelocity w=
-      Modelica.SIunits.Conversions.from_rpm(1499) "Nominal speed";
-  parameter Modelica.SIunits.Current Ie=19 "Excitation current";
-  parameter Modelica.SIunits.Current Ie0=10 "Initial excitation current";
-  parameter Modelica.SIunits.Angle gamma0(displayUnit="deg") = 0
+  parameter SI.Frequency fsNominal=smeeData.fsNominal "Nominal frequency";
+  parameter SI.AngularVelocity w=
+      Modelica.Units.Conversions.from_rpm(1499) "Nominal speed";
+  parameter SI.Current Ie=19 "Excitation current";
+  parameter SI.Current Ie0=10 "Initial excitation current";
+  parameter SI.Angle gamma0(displayUnit="deg") = 0
     "Initial rotor displacement angle";
   parameter Integer p=2 "Number of pole pairs";
-  parameter Modelica.SIunits.Resistance Rs=0.03
+  parameter SI.Resistance Rs=0.03
     "Warm stator resistance per phase";
-  parameter Modelica.SIunits.Inductance Lssigma=0.1/(2*Modelica.Constants.pi
+  parameter SI.Inductance Lssigma=0.1/(2*Modelica.Constants.pi
       *fsNominal) "Stator stray inductance per phase";
-  parameter Modelica.SIunits.Inductance Lmd=1.5/(2*Modelica.Constants.pi*
+  parameter SI.Inductance Lmd=1.5/(2*Modelica.Constants.pi*
       fsNominal) "Main field inductance in d-axis";
-  parameter Modelica.SIunits.Inductance Lmq=1.5/(2*Modelica.Constants.pi*
+  parameter SI.Inductance Lmq=1.5/(2*Modelica.Constants.pi*
       fsNominal) "Main field inductance in q-axis";
-  parameter Modelica.SIunits.Inductance Lrsigmad=0.05/(2*Modelica.Constants.pi
+  parameter SI.Inductance Lrsigmad=0.05/(2*Modelica.Constants.pi
       *fsNominal)
     "Damper stray inductance (equivalent three-phase winding) d-axis";
-  parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
+  parameter SI.Inductance Lrsigmaq=Lrsigmad
     "Damper stray inductance (equivalent three-phase winding) q-axis";
-  parameter Modelica.SIunits.Resistance Rrd=0.04
+  parameter SI.Resistance Rrd=0.04
     "Warm damper resistance (equivalent three-phase winding) d-axis";
-  parameter Modelica.SIunits.Resistance Rrq=Rrd
+  parameter SI.Resistance Rrq=Rrd
     "Warm damper resistance (equivalent three-phase winding) q-axis";
   Modelica.Electrical.Polyphase.Basic.Star star3(final m=m3) annotation (
      Placement(transformation(extent={{-50,-30},{-70,-10}})));

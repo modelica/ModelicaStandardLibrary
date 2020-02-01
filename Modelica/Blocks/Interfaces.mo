@@ -1,7 +1,7 @@
 within Modelica.Blocks;
 package Interfaces
   "Library of connectors and partial models for input/output blocks"
-  import Modelica.SIunits;
+
   extends Modelica.Icons.InterfacesPackage;
 
   connector RealInput = input Real "'input Real' as connector" annotation (
@@ -477,7 +477,7 @@ All vectors have the same number of elements.
   partial block SignalSource "Base class for continuous signal source"
     extends SO;
     parameter Real offset=0 "Offset of output signal y";
-    parameter SIunits.Time startTime=0 "Output y = offset for time < startTime";
+    parameter SI.Time startTime=0 "Output y = offset for time < startTime";
     annotation (Documentation(info="<html>
 <p>
 Basic block for Real sources of package Blocks.Sources.
@@ -1309,7 +1309,7 @@ converts from one unit into another one.
     extends Modelica.Blocks.Interfaces.SO;
 
     // Main dialog menu
-    parameter Modelica.SIunits.Period samplePeriod(start=0.01)
+    parameter SI.Period samplePeriod(start=0.01)
       "Period for sampling the raw random numbers"
       annotation(Dialog(enable=enableNoise));
 
@@ -1330,7 +1330,7 @@ converts from one unit into another one.
       annotation(choices(checkBox=true),Dialog(tab="Advanced",group = "Initialization",enable=enableNoise));
     parameter Integer fixedLocalSeed = 1 "Local seed (any Integer number)"
       annotation(Dialog(tab="Advanced",group = "Initialization",enable=enableNoise and not useAutomaticLocalSeed));
-    parameter Modelica.SIunits.Time startTime = 0.0
+    parameter SI.Time startTime = 0.0
       "Start time for sampling the raw random numbers"
       annotation(Dialog(tab="Advanced", group="Initialization",enable=enableNoise));
     final parameter Integer localSeed(fixed=false) "The actual localSeed";

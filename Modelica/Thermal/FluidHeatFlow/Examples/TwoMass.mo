@@ -3,25 +3,25 @@ model TwoMass "Cooling of two hot masses"
   extends Modelica.Icons.Example;
   parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
     "Cooling medium" annotation (choicesAllMatching=true);
-  parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC")=293.15
+  parameter SI.Temperature TAmb(displayUnit="degC")=293.15
     "Ambient temperature";
-  parameter Modelica.SIunits.Temperature TMass1(displayUnit="degC")=313.15
+  parameter SI.Temperature TMass1(displayUnit="degC")=313.15
     "Initial temperature of mass1";
-  parameter Modelica.SIunits.Temperature TMass2(displayUnit="degC")=333.15
+  parameter SI.Temperature TMass2(displayUnit="degC")=333.15
     "Initial temperature of mass2";
-  output Modelica.SIunits.TemperatureDifference dTMass1=
+  output SI.TemperatureDifference dTMass1=
     heatCapacitor1.port.T-TAmb "Mass1 over Ambient";
-  output Modelica.SIunits.TemperatureDifference dTtoPipe1=heatCapacitor1.port.T-pipe1.T_q
+  output SI.TemperatureDifference dTtoPipe1=heatCapacitor1.port.T-pipe1.T_q
     "Mass1 over Coolant1";
-  output Modelica.SIunits.TemperatureDifference dTCoolant1=pipe1.dT
+  output SI.TemperatureDifference dTCoolant1=pipe1.dT
     "Coolant1's temperature increase";
-  output Modelica.SIunits.TemperatureDifference dTMass2=
+  output SI.TemperatureDifference dTMass2=
     heatCapacitor2.port.T-TAmb "Mass2 over Ambient";
-  output Modelica.SIunits.TemperatureDifference dTtoPipe2=heatCapacitor2.port.T-pipe2.T_q
+  output SI.TemperatureDifference dTtoPipe2=heatCapacitor2.port.T-pipe2.T_q
     "Mass2 over Coolant2";
-  output Modelica.SIunits.TemperatureDifference dTCoolant2=pipe2.dT
+  output SI.TemperatureDifference dTCoolant2=pipe2.dT
     "Coolant2's temperature increase";
-  output Modelica.SIunits.TemperatureDifference dTmixedCoolant=ambient2.T_port-ambient1.T_port
+  output SI.TemperatureDifference dTmixedCoolant=ambient2.T_port-ambient1.T_port
     "mixed Coolant's temperature increase";
   FluidHeatFlow.Sources.Ambient ambient1(
     constantAmbientTemperature=TAmb,

@@ -1,9 +1,9 @@
 within Modelica.Mechanics.Rotational.Interfaces;
 model InternalSupport
   "Adapter model to utilize conditional support connector"
-  input Modelica.SIunits.Torque tau
+  input SI.Torque tau
     "External support torque (must be computed via torque balance in model where InternalSupport is used; = flange.tau)";
-  Modelica.SIunits.Angle phi "External support angle (= flange.phi)";
+  SI.Angle phi "External support angle (= flange.phi)";
   Flange_a flange
     "Internal support flange (must be connected to the conditional support connector for useSupport=true and to conditional fixed model for useSupport=false)"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));

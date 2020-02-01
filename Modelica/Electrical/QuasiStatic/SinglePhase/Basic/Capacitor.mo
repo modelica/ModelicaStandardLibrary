@@ -2,7 +2,7 @@ within Modelica.Electrical.QuasiStatic.SinglePhase.Basic;
 model Capacitor "Single-phase linear capacitor"
   extends Interfaces.OnePort;
   import Modelica.ComplexMath.j;
-  parameter Modelica.SIunits.Capacitance C(start=1) "Capacitance";
+  parameter SI.Capacitance C(start=1) "Capacitance";
 equation
   i = j*omega*C*v;
   annotation (Icon(graphics={

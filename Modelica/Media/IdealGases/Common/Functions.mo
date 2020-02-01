@@ -193,8 +193,8 @@ package Functions
   function dynamicViscosityLowPressure
     "Dynamic viscosity of low pressure gases"
     extends Modelica.Icons.Function;
-    input SI.Temp_K T "Gas temperature";
-    input SI.Temp_K Tc "Critical temperature of gas";
+    input SI.Temperature T "Gas temperature";
+    input SI.Temperature Tc "Critical temperature of gas";
     input SI.MolarMass M "Molar mass of gas";
     input SI.MolarVolume Vc "Critical molar volume of gas";
     input Real w "Acentric factor of gas";

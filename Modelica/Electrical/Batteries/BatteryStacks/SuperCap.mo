@@ -1,15 +1,15 @@
 within Modelica.Electrical.Batteries.BatteryStacks;
 model SuperCap "Simple model of a supercapacitor"
   extends Modelica.Electrical.Analog.Interfaces.TwoPin;
-  Modelica.SIunits.Current i = p.i "Current into the supercap";
-  parameter Modelica.SIunits.Voltage Vnom "Nominal voltage";
-  parameter Modelica.SIunits.Voltage V0=Vnom "Initial voltage";
-  parameter Modelica.SIunits.Capacitance C "Capacitance";
-  parameter Modelica.SIunits.ElectricCharge Qnom=C*Vnom "Nominal charge";
-  parameter Modelica.SIunits.Resistance Rs "Series resistance";
-  parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0 "Temperature coefficient of resistance at T_ref";
-  parameter Modelica.SIunits.Current Idis=0 "Self-discharge current at nominal voltage"
+  SI.Current i = p.i "Current into the supercap";
+  parameter SI.Voltage Vnom "Nominal voltage";
+  parameter SI.Voltage V0=Vnom "Initial voltage";
+  parameter SI.Capacitance C "Capacitance";
+  parameter SI.ElectricCharge Qnom=C*Vnom "Nominal charge";
+  parameter SI.Resistance Rs "Series resistance";
+  parameter SI.Temperature T_ref=293.15 "Reference temperature";
+  parameter SI.LinearTemperatureCoefficient alpha=0 "Temperature coefficient of resistance at T_ref";
+  parameter SI.Current Idis=0 "Self-discharge current at nominal voltage"
     annotation(Evaluate=true);
   extends Modelica.Electrical.Analog.Interfaces.PartialConditionalHeatPort;
   Modelica.Electrical.Analog.Basic.Resistor resistor(

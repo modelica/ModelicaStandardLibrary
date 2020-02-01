@@ -3,11 +3,11 @@ model HalfControlledBridge2Pulse
   "Two pulse Graetz half controlled bridge with resistive load"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
-  parameter Modelica.SIunits.Frequency f=50 "Frequency";
-  parameter Modelica.SIunits.Angle constantFiringAngle=30*pi/180
+  parameter SI.Voltage Vrms=110 "RMS supply voltage";
+  parameter SI.Frequency f=50 "Frequency";
+  parameter SI.Angle constantFiringAngle=30*pi/180
     "Firing angle";
-  parameter Modelica.SIunits.Resistance R=20 "Load resistance";
+  parameter SI.Resistance R=20 "Load resistance";
 
   Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
         transformation(

@@ -9,7 +9,7 @@ model MagneticPotentialDifferenceSensor
         origin={0,-100},
         extent={{10,-10},{-10,10}},
         rotation=90)));
-  Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
+  SI.ComplexMagneticFlux Phi "Complex magnetic flux";
 equation
   // Flux into positive port
   port_p.V_m - port_n.V_m = V_m;

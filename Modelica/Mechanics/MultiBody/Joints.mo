@@ -512,7 +512,7 @@ vector \"n\" defining the translation axis
     Real ex_b[3](each final unit="1") "ex_a, resolved in frame_b";
     Frames.Orientation R_rel
       "Dummy or relative orientation object from frame_a to frame_b";
-    Modelica.SIunits.Position r_rel_a[3]
+    SI.Position r_rel_a[3]
       "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
     SI.Force f_c[2] "Dummy or constraint forces in direction of ex_a, ey_a";
 
@@ -2860,9 +2860,9 @@ the origin of frame_a to the middle of the rod, this might be defined as:
     parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={1,0,0}
       "Axis of rotation of shaft b (same coordinates in frame_a, frame_b, bearing)";
 
-    parameter Modelica.SIunits.Position r_a[3]={0,0,0}
+    parameter SI.Position r_a[3]={0,0,0}
       "Vector from frame bearing to frame_a resolved in bearing";
-    parameter Modelica.SIunits.Position r_b[3]={0,0,0}
+    parameter SI.Position r_b[3]={0,0,0}
       "Vector from frame bearing to frame_b resolved in bearing";
     parameter StateSelect stateSelect=StateSelect.default
       "Priority to use joint coordinates (phi_a, phi_b, w_a, w_b) as states" annotation(Dialog(tab="Advanced"));
@@ -3306,19 +3306,19 @@ To work properly, the gravity acceleration vector g of the world must point in t
       parameter StateSelect stateSelect = StateSelect.default
       "Priority to use the generalized coordinates as states";
 
-      Modelica.SIunits.Position x(start=0, stateSelect=stateSelect)
+      SI.Position x(start=0, stateSelect=stateSelect)
       "x coordinate for center between wheels";
-      Modelica.SIunits.Position y(start=0, stateSelect=stateSelect)
+      SI.Position y(start=0, stateSelect=stateSelect)
       "y coordinate for center between wheels";
-      Modelica.SIunits.Angle phi(start=0, stateSelect=stateSelect)
+      SI.Angle phi(start=0, stateSelect=stateSelect)
       "Orientation angle of wheel axis along z-axis";
-      Modelica.SIunits.Angle theta1(start=0, stateSelect=stateSelect)
+      SI.Angle theta1(start=0, stateSelect=stateSelect)
       "Angle of wheel 1";
-      Modelica.SIunits.Angle theta2(start=0, stateSelect=stateSelect)
+      SI.Angle theta2(start=0, stateSelect=stateSelect)
       "Angle of wheel 2";
-      Modelica.SIunits.AngularVelocity der_theta1(start=0, stateSelect=stateSelect)
+      SI.AngularVelocity der_theta1(start=0, stateSelect=stateSelect)
       "Derivative of theta 1";
-      Modelica.SIunits.AngularVelocity der_theta2(start=0, stateSelect=stateSelect)
+      SI.AngularVelocity der_theta2(start=0, stateSelect=stateSelect)
       "Derivative of theta 2";
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame1
@@ -4075,9 +4075,9 @@ component).
         annotation (Evaluate=true);
       parameter SI.Position rRod2_ib[3]={-1,0,0}
         "Vector from origin of frame_ib to spherical joint, resolved in frame_ib";
-      parameter Cv.NonSIunits.Angle_deg phi_offset=0
+      parameter Modelica.Units.NonSI.Angle_deg phi_offset=0
         "Relative angle offset of revolute joint (angle = phi(t) + from_deg(phi_offset))";
-      parameter Cv.NonSIunits.Angle_deg phi_guess=0
+      parameter Modelica.Units.NonSI.Angle_deg phi_guess=0
         "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)| is minimal";
       parameter SI.Diameter sphereDiameter=world.defaultJointLength
         "Diameter of the spheres representing the universal and the spherical joint"
@@ -5068,9 +5068,9 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         "Axis of revolute joint fixed and resolved in frame_b";
       parameter SI.Position rRod2_ib[3]={1,0,0}
         "Vector from origin of frame_ib to spherical joint in the middle, resolved in frame_ib";
-      parameter Cv.NonSIunits.Angle_deg phi_offset=0
+      parameter Modelica.Units.NonSI.Angle_deg phi_offset=0
         "Relative angle offset of revolute joint (angle = phi(t) + from_deg(phi_offset))";
-      parameter Cv.NonSIunits.Angle_deg phi_guess=0
+      parameter Modelica.Units.NonSI.Angle_deg phi_guess=0
         "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)| is minimal";
       parameter SI.Diameter sphereDiameter=world.defaultJointLength
         "Diameter of the spheres representing the two spherical joints"
@@ -5728,7 +5728,7 @@ component).
       "Planar revolute - revolute - revolute joint aggregation (no constraints, no potential states)"
 
       import Modelica.Mechanics.MultiBody.Types;
-      import Modelica.SIunits.Conversions.to_unit1;
+      import Modelica.Units.Conversions.to_unit1;
 
       extends Interfaces.PartialTwoFramesDoubleSize;
 
@@ -5769,9 +5769,9 @@ component).
         annotation (Evaluate=true);
       parameter SI.Position rRod2_ib[3]={-1,0,0}
         "Vector from origin of frame_ib to revolute joint in the middle, resolved in frame_ib";
-      parameter Cv.NonSIunits.Angle_deg phi_offset=0
+      parameter Modelica.Units.NonSI.Angle_deg phi_offset=0
         "Relative angle offset of revolute joint at frame_b (angle = phi(t) + from_deg(phi_offset))";
-      parameter Cv.NonSIunits.Angle_deg phi_guess=0
+      parameter Modelica.Units.NonSI.Angle_deg phi_guess=0
         "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)| is minimal";
       parameter SI.Distance cylinderLength=world.defaultJointLength
         "Length of cylinders representing the revolute joints"
@@ -6037,7 +6037,7 @@ are connected by rigid rods.
       "Planar revolute - revolute - prismatic joint aggregation (no constraints, no potential states)"
 
       import Modelica.Mechanics.MultiBody.Types;
-      import Modelica.SIunits.Conversions.to_unit1;
+      import Modelica.Units.Conversions.to_unit1;
 
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia
@@ -6479,7 +6479,6 @@ pair of joints\" from Woernle and Hiller is described in:
     model Prismatic
       "Prismatic cut-joint and translational directions may be constrained or released"
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
-      import Cv = Modelica.SIunits.Conversions;
 
       parameter Boolean x_locked=true
         "= true: constraint force in x-direction, resolved in frame_a"
@@ -6506,9 +6505,9 @@ pair of joints\" from Woernle and Hiller is described in:
     protected
       Frames.Orientation R_rel
         "Dummy or relative orientation object from frame_a to frame_b";
-      Modelica.SIunits.Position r_rel_a[3]
+      SI.Position r_rel_a[3]
         "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
-      Modelica.SIunits.InstantaneousPower P;
+      SI.InstantaneousPower P;
 
     public
       Visualizers.Advanced.Shape sphere(
@@ -6683,9 +6682,9 @@ pair of joints\" from Woernle and Hiller is described in:
     protected
       Frames.Orientation R_rel
         "Dummy or relative orientation object from frame_a to frame_b";
-      Modelica.SIunits.Position r_rel_a[3]
+      SI.Position r_rel_a[3]
         "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
-      Modelica.SIunits.InstantaneousPower P;
+      SI.InstantaneousPower P;
       parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalizeWithAssert(
                                            n)
         "Unit vector in direction of rotation axis, resolved in frame_a (= same as in frame_b)";
@@ -6835,7 +6834,7 @@ pair of joints\" from Woernle and Hiller is described in:
       parameter Boolean animation=true
         "= true, if animation shall be enabled (show sphere)"
         annotation (Dialog(group="Animation"));
-      parameter Modelica.SIunits.Distance sphereDiameter=world.defaultJointLength /3
+      parameter SI.Distance sphereDiameter=world.defaultJointLength /3
         "Diameter of sphere representing the spherical joint"
         annotation (Dialog(group="Animation", enable=animation));
       input MBS.Types.Color sphereColor=MBS.Types.Defaults.JointColor
@@ -6860,9 +6859,9 @@ pair of joints\" from Woernle and Hiller is described in:
     protected
       MBS.Frames.Orientation R_rel
         "Dummy or relative orientation object from frame_a to frame_b";
-      Modelica.SIunits.Position r_rel_a[3]
+      SI.Position r_rel_a[3]
         "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
-      Modelica.SIunits.InstantaneousPower P;
+      SI.InstantaneousPower P;
 
     equation
       // Determine relative position vector resolved in frame_a
@@ -7024,10 +7023,10 @@ pair of joints\" from Woernle and Hiller is described in:
       MBS.Frames.Orientation R_rel
         "Dummy or relative orientation object from frame_a to frame_b";
       Real w_rel[3];
-      Modelica.SIunits.Position r_rel_a[3]
+      SI.Position r_rel_a[3]
         "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
 
-      Modelica.SIunits.InstantaneousPower P;
+      SI.InstantaneousPower P;
     equation
       // Determine relative position vector resolved in frame_a
       R_rel = MBS.Frames.relativeRotation(frame_a.R, frame_b.R);
@@ -7222,9 +7221,9 @@ of this subpackage.
       parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1}
         "Axis of rotation resolved in frame_a (= same as in frame_b)"
         annotation (Evaluate=true);
-      parameter Cv.NonSIunits.Angle_deg phi_offset=0
+      parameter Modelica.Units.NonSI.Angle_deg phi_offset=0
         "Relative angle offset (angle = phi + from_deg(phi_offset))";
-      parameter Cv.NonSIunits.Angle_deg phi_guess=0
+      parameter Modelica.Units.NonSI.Angle_deg phi_guess=0
         "Select the configuration such that at initial time |phi - from_deg(phi_guess)| is minimal";
       parameter SI.Distance cylinderLength=world.defaultJointLength
         "Length of cylinder representing the joint axis"
@@ -7592,7 +7591,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of prismatic joint";
       SI.Position r_b[3]=position_b
         "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of prismatic joint";
-      Modelica.SIunits.Position rbra[3] "= rb - ra";
+      SI.Position rbra[3] "= rb - ra";
       Real B "Coefficient B of equation: s*s + B*s + C = 0";
       Real C "Coefficient C of equation: s*s + B*s + C = 0";
       Real k1 "Constant of quadratic equation solution";
@@ -7626,7 +7625,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
           "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of prismatic joint";
         output Boolean positiveBranch "Branch of the initial solution";
       protected
-        Modelica.SIunits.Position rbra[3] "= rb - ra";
+        SI.Position rbra[3] "= rb - ra";
         Real B "Coefficient B of equation: d*d + B*d + C = 0";
         Real C "Coefficient C of equation: d*d + B*d + C = 0";
         Real k1 "Constant of quadratic equation solution";
@@ -7934,7 +7933,7 @@ To work properly, the gravity acceleration vector g of the world must point in t
       "Internal model to initialize r_rel_a for Joints.FreeMotionScalarInit"
        extends Modelica.Blocks.Icons.Block;
 
-       import SI = Modelica.SIunits;
+
        import Modelica.Mechanics.MultiBody.Frames;
 
        input SI.Position r_a_0[3] annotation(Dialog);
@@ -7964,7 +7963,7 @@ a position vector r_b_0, resolved in frame given by an
       "Internal model to initialize the angels for Joints.FreeMotionScalarInit"
        extends Modelica.Blocks.Icons.Block;
 
-       import SI = Modelica.SIunits;
+
        import Modelica.Mechanics.MultiBody.Frames;
 
        parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence_start={1,2,3}
@@ -8016,7 +8015,7 @@ Compute three rotational angles <strong>angle</strong> for a given rotational se
       "Internal model to initialize w_rel_b for Joints.FreeMotionScalarInit"
        extends Modelica.Blocks.Icons.Block;
 
-       import SI = Modelica.SIunits;
+
        import Modelica.Mechanics.MultiBody.Frames;
 
        input Frames.Orientation R_a annotation(Dialog);

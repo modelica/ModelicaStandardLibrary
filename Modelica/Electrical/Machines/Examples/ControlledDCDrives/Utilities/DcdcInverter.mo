@@ -1,31 +1,31 @@
 within Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities;
 model DcdcInverter "DC-DC inverter"
   parameter Boolean useIdealInverter=true "Use ideal averaging inverter, otherwise switching inverter";
-  parameter Modelica.SIunits.Frequency fS "Switching frequency";
-  parameter Modelica.SIunits.Time Td=0.5/fS "Dead time";
-  parameter Modelica.SIunits.Time Tmf=2/fS "Measurement filter time constant";
-  parameter Modelica.SIunits.Voltage VMax "Maximum Voltage";
-  parameter Modelica.SIunits.Time Ti=1e-6 "Time constant of integral power controller"
+  parameter SI.Frequency fS "Switching frequency";
+  parameter SI.Time Td=0.5/fS "Dead time";
+  parameter SI.Time Tmf=2/fS "Measurement filter time constant";
+  parameter SI.Voltage VMax "Maximum Voltage";
+  parameter SI.Time Ti=1e-6 "Time constant of integral power controller"
     annotation(Dialog(group="Averaging", enable=useIdealInverter));
-  parameter Modelica.SIunits.Resistance RonT=1e-05
+  parameter SI.Resistance RonT=1e-05
     "Transistor closed resistance"
     annotation (Dialog(group="Switching", enable=not useIdealInverter));
-  parameter Modelica.SIunits.Conductance GoffT=1e-05
+  parameter SI.Conductance GoffT=1e-05
     "Transistor opened conductance"
     annotation (Dialog(group="Switching", enable=not useIdealInverter));
-  parameter Modelica.SIunits.Voltage VkneeT=0
+  parameter SI.Voltage VkneeT=0
     "Transistor threshold voltage"
     annotation (Dialog(group="Switching", enable=not useIdealInverter));
-  parameter Modelica.SIunits.Resistance RonD=1e-05
+  parameter SI.Resistance RonD=1e-05
     "Diode closed resistance"
     annotation (Dialog(group="Switching", enable=not useIdealInverter));
-  parameter Modelica.SIunits.Conductance GoffD=1e-05
+  parameter SI.Conductance GoffD=1e-05
     "Diode opened conductance"
     annotation (Dialog(group="Switching", enable=not useIdealInverter));
-  parameter Modelica.SIunits.Voltage VkneeD=0 "Diode threshold voltage"
+  parameter SI.Voltage VkneeD=0 "Diode threshold voltage"
     annotation (Dialog(group="Switching", enable=not useIdealInverter));
-  output Modelica.SIunits.Power pDC=vDC*iDC "DC power (from battery)";
-  output Modelica.SIunits.Power pMot=vMot*iMot "Power to motor";
+  output SI.Power pDC=vDC*iDC "DC power (from battery)";
+  output SI.Power pMot=vMot*iMot "Power to motor";
   Modelica.Electrical.Analog.Interfaces.PositivePin pin_pBat
     annotation (Placement(transformation(extent={{50,110},{70,90}})));
   Modelica.Electrical.Analog.Interfaces.NegativePin pin_nBat annotation (

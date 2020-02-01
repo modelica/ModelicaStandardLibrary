@@ -1,7 +1,7 @@
 within Modelica.Electrical.Machines.Examples.Transformers;
 model TransformerTestbench "Transformer test bench"
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Resistance RL[3]=fill(1/3, 3)
+  parameter SI.Resistance RL[3]=fill(1/3, 3)
     "Load resistance";
   Modelica.Electrical.Polyphase.Sources.SineVoltage source(f=fill(
         50, 3), V=fill(sqrt(2/3)*100, 3)) annotation (Placement(

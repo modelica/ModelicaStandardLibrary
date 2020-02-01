@@ -5,7 +5,7 @@ model StateSelector
   parameter Integer m(min=3) = 3 "Number of phases";
   input Real xi[m](each stateSelect=StateSelect.avoid)
     "Instantaneous values" annotation (Dialog);
-  input Modelica.SIunits.Angle gamma "Angle of rotation" annotation (Dialog);
+  input SI.Angle gamma "Angle of rotation" annotation (Dialog);
   parameter StateSelect x0StateSelect=StateSelect.prefer
     "Priority to use zero systems as states";
   parameter StateSelect xrStateSelect=StateSelect.prefer

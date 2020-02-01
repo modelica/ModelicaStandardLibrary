@@ -1,11 +1,11 @@
 within Modelica.Electrical.Polyphase.Interfaces;
 partial model FourPlug "Component with two polyphase electrical ports"
   parameter Integer m(final min=1) = 3 "Number of phases";
-  Modelica.SIunits.Voltage v1[m] "Voltage drops of port 1";
-  Modelica.SIunits.Voltage v2[m] "Voltage drops of port 2";
-  Modelica.SIunits.Current i1[m]
+  SI.Voltage v1[m] "Voltage drops of port 1";
+  SI.Voltage v2[m] "Voltage drops of port 2";
+  SI.Current i1[m]
     "Currents flowing into positive polyphase plug of port 1";
-  Modelica.SIunits.Current i2[m]
+  SI.Current i2[m]
     "Currents flowing into positive polyphase plug of port 2";
   PositivePlug plug_p1(final m=m) "Positive electrical polyphase plug of port 1 with m pins" annotation (Placement(transformation(
           extent={{-110,90},{-90,110}})));

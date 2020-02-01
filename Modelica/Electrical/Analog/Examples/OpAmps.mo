@@ -542,9 +542,9 @@ In case this resistance is high, the amplifier's common is floating with respect
 
   model ControlCircuit "Control circuit"
     extends Modelica.Icons.Example;
-    parameter Modelica.SIunits.Time T1=0.01 "Small time constant";
-    parameter Modelica.SIunits.Time T2=0.01 "Large time constant";
-    parameter Modelica.SIunits.Time Ti=T2 "Integral time constant";
+    parameter SI.Time T1=0.01 "Small time constant";
+    parameter SI.Time T2=0.01 "Large time constant";
+    parameter SI.Time Ti=T2 "Integral time constant";
     parameter Real kp=T2/(2*T1) "Proportional gain";
     Modelica.Electrical.Analog.Basic.Ground ground
       annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
@@ -1301,8 +1301,8 @@ Different functionality is achieved by different circuits.
 
     model Add "Adding operational amplifier circuit"
       extends PartialOpAmp;
-      Modelica.SIunits.Voltage v1_2=p1_2.v - n1.v "Voltage drop of port 1_2 (= p1_2.v - n1.v)";
-      Modelica.SIunits.Current i1_2=p1_2.i "Current flowing from pos. to neg. pin of port 1_2";
+      SI.Voltage v1_2=p1_2.v - n1.v "Voltage drop of port 1_2 (= p1_2.v - n1.v)";
+      SI.Current i1_2=p1_2.i "Current flowing from pos. to neg. pin of port 1_2";
       parameter Real k1(final min=0)=1 "Weight of input 1";
       parameter Real k2(final min=0)=1 "Weight of input 2";
       parameter SI.Resistance R=1000 "Resistance at output of OpAmp";
@@ -1353,8 +1353,8 @@ Different functionality is achieved by different circuits.
 
     model Feedback "Subtracting operational amplifier circuit"
       extends PartialOpAmp;
-      Modelica.SIunits.Voltage v1_2=p1_2.v - n1.v "Voltage drop of port 1_2 (= p1_2.v - n1.v)";
-      Modelica.SIunits.Current i1_2=p1_2.i "Current flowing from pos. to neg. pin of port 1_2";
+      SI.Voltage v1_2=p1_2.v - n1.v "Voltage drop of port 1_2 (= p1_2.v - n1.v)";
+      SI.Current i1_2=p1_2.i "Current flowing from pos. to neg. pin of port 1_2";
       parameter Real k(final min=0)=1 "Desired amplification";
       parameter SI.Resistance R1=1000 "Resistance at inputs of OpAmp";
       parameter SI.Resistance R3=R1/k "Calculated resistance to reach desired amplification k";
@@ -1411,10 +1411,10 @@ Different functionality is achieved by different circuits.
       extends PartialOpAmp;
       import Modelica.Constants.pi;
       parameter Real k(final min=0)=1 "Desired amplification at frequency f";
-      parameter Modelica.SIunits.Frequency f "Frequency";
+      parameter SI.Frequency f "Frequency";
       parameter SI.Resistance R=1000 "Resistance at output of OpAmp";
       parameter SI.Capacitance C=k/(2*pi*f*R) "Calculated capacitance to reach desired amplification k";
-      Modelica.SIunits.Voltage v(start=0)=c.v "Capacitor voltage = state";
+      SI.Voltage v(start=0)=c.v "Capacitor voltage = state";
       Basic.Capacitor                            c(final C=C)
         annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
       Basic.Resistor                            r(final R=R)
@@ -1447,7 +1447,7 @@ Different functionality is achieved by different circuits.
       extends PartialOpAmp(v2(start=0));
       import Modelica.Constants.pi;
       parameter Real k(final min=0)=1 "Desired amplification at frequency f";
-      parameter Modelica.SIunits.Frequency f "Frequency";
+      parameter SI.Frequency f "Frequency";
       parameter SI.Resistance R=1000 "Resistance at negative input of OpAmp";
       parameter SI.Capacitance C=1/k/(2*pi*f*R) "Calculated capacitance to reach desired amplification k";
       Basic.Capacitor  c(final C=C)
@@ -1561,7 +1561,7 @@ Different functionality is achieved by different circuits.
       parameter SI.Resistance R2=k*R1 "Calculated resistance to reach k";
       parameter SI.Time T "Time constant";
       parameter SI.Capacitance C=T/R1 "Calculated capacitance to reach T";
-      Modelica.SIunits.Voltage v(start=0)=c.v "Capacitor voltage = state";
+      SI.Voltage v(start=0)=c.v "Capacitor voltage = state";
       Basic.Resistor                            r1(R=R1)
         annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
       Basic.Resistor                            r2(R=R2)
@@ -1659,29 +1659,29 @@ Different functionality is achieved by different circuits.
 
     record DifferentialAmplifierData "Data record for differential amplifier"
       extends Modelica.Icons.Record;
-      parameter Modelica.SIunits.Voltage VSource=400 "Source RMS voltage line-to-line"
+      parameter SI.Voltage VSource=400 "Source RMS voltage line-to-line"
         annotation(Dialog(group="Source"));
-      parameter Modelica.SIunits.Frequency fSource=50 "Source frequency"
+      parameter SI.Frequency fSource=50 "Source frequency"
         annotation(Dialog(group="Source"));
-      parameter Modelica.SIunits.Resistance RLoad=10 "Load resistance of source"
+      parameter SI.Resistance RLoad=10 "Load resistance of source"
         annotation(Dialog(group="Source"));
-      parameter Modelica.SIunits.Resistance RGround=100e3 "Resistance of ground connection"
+      parameter SI.Resistance RGround=100e3 "Resistance of ground connection"
         annotation(Dialog(group="Source"));
       parameter Real V0=10e3 "No-load differential amplification"
         annotation(Dialog(group="OpAmp"));
-      parameter Modelica.SIunits.Voltage VSupply=15 "Supply voltage"
+      parameter SI.Voltage VSupply=15 "Supply voltage"
         annotation(Dialog(group="OpAmp"));
       parameter Real k=100 "Attenuation factor"
         annotation(Dialog(group="OpAmp"));
-      parameter Modelica.SIunits.Resistance R1=100e3 "Resistor 1"
+      parameter SI.Resistance R1=100e3 "Resistor 1"
         annotation(Dialog(group="OpAmp"));
-      parameter Modelica.SIunits.Resistance R2=R1 "Resistor 2"
+      parameter SI.Resistance R2=R1 "Resistor 2"
         annotation(Dialog(group="OpAmp"));
-      parameter Modelica.SIunits.Resistance R3=R1/k "Resistor 3"
+      parameter SI.Resistance R3=R1/k "Resistor 3"
         annotation(Dialog(group="OpAmp"));
-      parameter Modelica.SIunits.Resistance R4=R3 "Resistor 4"
+      parameter SI.Resistance R4=R3 "Resistor 4"
         annotation(Dialog(group="OpAmp"));
-      parameter Modelica.SIunits.Resistance RInstrument=100e3 "Input resistance of instrument"
+      parameter SI.Resistance RInstrument=100e3 "Input resistance of instrument"
         annotation(Dialog(group="Measurement"));
       annotation (defaultComponentPrefixes="parameter", defaultComponentName="data",
         Documentation(info="<html>

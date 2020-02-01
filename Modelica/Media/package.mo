@@ -1,8 +1,8 @@
 within Modelica;
 package Media "Library of media property models"
-extends Modelica.Icons.Package;
-import SI = Modelica.SIunits;
-import Cv = Modelica.SIunits.Conversions;
+  extends Modelica.Icons.Package;
+  import Modelica.Units.SI;
+  import Cv = Modelica.Units.Conversions;
 
 package UsersGuide "User's Guide of Media Library"
   extends Modelica.Icons.Information;
@@ -254,7 +254,7 @@ Modelica.Media.Examples.Utilities.PortVolume</a>):
 </p>
 <blockquote><pre>
 <strong>model</strong> JunctionVolume
-  <strong>import</strong> SI=Modelica.SIunits;
+  <strong>import</strong> Modelica.Units.SI;
   <strong>import</strong> Modelica.Media.Examples.Utilities.FluidPort_a;
 
   <strong>parameter</strong> SI.Volume V = 1e-6 \"Fixed size of junction volume\";
@@ -369,7 +369,7 @@ Modelica.Media.Examples.Utilities.ShortPipe</a>):
 </p>
 <blockquote><pre>
 <strong>model</strong> ShortPipe
-  <strong>import</strong> SI=Modelica.SIunits;
+  <strong>import</strong> Modelica.Units.SI;
   <strong>import</strong> Modelica.Media.Examples.Utilities;
 
   // parameters defining the pressure drop equation
@@ -593,7 +593,7 @@ as
 </p>
 
 <blockquote><pre>
-<strong>import</strong> SI = Modelica.SIunits;
+<strong>import</strong> Modelica.Units.SI;
 <strong>type</strong> DynamicViscosity = SI.DynamicViscosity (
                                    min=0,
                                    max=1.e8,
@@ -1166,7 +1166,7 @@ medium is defined by Modelica.Media.Interfaces.PartialMedium that has the
 following structure:</p>
 <blockquote><pre>
 <strong>partial package</strong> PartialMedium
-  <strong>import</strong> SI = Modelica.SIunits;
+  <strong>import</strong> Modelica.Units.SI;
   <strong>constant</strong> String           mediumName = \"\";
   <strong>constant</strong> String           substanceNames[:] = {mediumName};
   <strong>constant</strong> String           extraPropertiesNames[:] = fill(\"\",0);
@@ -1176,7 +1176,7 @@ following structure:</p>
   <strong>constant</strong> AbsolutePressure reference_p = 101325;
   <strong>constant</strong> MassFraction     reference_X[nX]=fill(1/nX,nX);
   <strong>constant</strong> AbsolutePressure p_default = 101325;
-  <strong>constant</strong> Temperature      T_default = Modelica.SIunits.Conversions.from_degC(20);
+  <strong>constant</strong> Temperature      T_default = Modelica.Units.Conversions.from_degC(20);
   <strong>constant</strong> SpecificEnthalpy h_default =
                             specificEnthalpy_pTX(p_default, T_default, X_default);
   <strong>constant</strong> MassFraction     X_default[nX]=reference_X;
@@ -1204,10 +1204,10 @@ following structure:</p>
     <strong>extends</strong> BasePropertiesRecord;
     ThermodynamicState state;
     <strong>parameter</strong> Boolean preferredMediumStates=false;
-    SI.Conversions.NonSIunits.Temperature_degC T_degC =
-       Modelica.SIunits.Conversions.to_degC(T)
-    SI.Conversions.NonSIunits.Pressure_bar p_bar =
-       Modelica.SIunits.Conversions.to_bar(p)
+    Modelica.Units.NonSI.Temperature_degC T_degC =
+       Modelica.Units.Conversions.to_degC(T)
+    Modelica.Units.NonSI.Pressure_bar p_bar =
+       Modelica.Units.Conversions.to_bar(p)
   <strong>equation</strong>
     Xi = X[1:nXi];
     <strong>if</strong> nX > 1 <strong>then</strong>
@@ -1350,7 +1350,7 @@ The type PartialMedium.MassFlowRate is defined as
 </p>
 
 <blockquote><pre>
-<strong>type</strong> MassFlowRate = Modelica.SIunits.MassFlowRate
+<strong>type</strong> MassFlowRate = SI.MassFlowRate
      (quantity = \"MassFlowRate.\" + mediumName);
 </pre></blockquote>
 
@@ -2255,15 +2255,15 @@ is given to compare the approximation.
         stateSelect=StateSelect.prefer),
       T(start=275.0),
       d(start=999.0));
-    Modelica.SIunits.Volume V(start=0.1, fixed=true);
-    parameter Modelica.SIunits.VolumeFlowRate dV=0.0
+    SI.Volume V(start=0.1, fixed=true);
+    parameter SI.VolumeFlowRate dV=0.0
       "Fixed time derivative of volume";
     parameter Medium.MassFlowRate m_flow_ext=0
       "Fixed mass flow rate into volume";
     parameter Medium.EnthalpyFlowRate H_flow_ext=10000
       "Fixed enthalpy flow rate into volume";
-    Modelica.SIunits.Mass m "Mass of volume";
-    Modelica.SIunits.InternalEnergy U "Internal energy of volume";
+    SI.Mass m "Mass of volume";
+    SI.InternalEnergy U "Internal energy of volume";
 
     Medium.ThermodynamicState state2;
     Medium.ThermodynamicState state;
@@ -2300,10 +2300,10 @@ is given to compare the approximation.
   model MixtureGases "Test gas mixtures"
     extends Modelica.Icons.Example;
 
-    parameter Modelica.SIunits.Volume V=1 "Fixed size of volume 1 and volume 2";
-    parameter Modelica.SIunits.MassFlowRate m_flow_ext=0.01
+    parameter SI.Volume V=1 "Fixed size of volume 1 and volume 2";
+    parameter SI.MassFlowRate m_flow_ext=0.01
       "Fixed mass flow rate into volume 1 and into volume 2";
-    parameter Modelica.SIunits.EnthalpyFlowRate H_flow_ext=5000
+    parameter SI.EnthalpyFlowRate H_flow_ext=5000
       "Fixed enthalpy flow rate into volume 1 and into volume 2";
 
     package Medium1 = Modelica.Media.IdealGases.MixtureGases.CombustionAir
@@ -2317,7 +2317,7 @@ is given to compare the approximation.
         stateSelect=StateSelect.prefer),
       X(start={0.8,0.2}));
     Real m1(quantity=Medium1.mediumName, start=1.0);
-    Modelica.SIunits.InternalEnergy U1;
+    SI.InternalEnergy U1;
     Medium1.SpecificHeatCapacity cp1=Medium1.specificHeatCapacityCp(medium1.state);
     Medium1.DynamicViscosity eta1=Medium1.dynamicViscosity(medium1.state);
     Medium1.ThermalConductivity lambda1=Medium1.thermalConductivity(medium1.state);
@@ -2333,7 +2333,7 @@ is given to compare the approximation.
         stateSelect=StateSelect.prefer),
       X(start={0.1,0.1,0.1,0.2,0.2,0.3}));
     Real m2(quantity=Medium2.mediumName, start=1.0);
-    Modelica.SIunits.InternalEnergy U2;
+    SI.InternalEnergy U2;
     Medium2.SpecificHeatCapacity cp2=Medium2.specificHeatCapacityCp(medium2.state);
     Medium2.DynamicViscosity eta2=Medium2.dynamicViscosity(medium2.state);
     Medium2.ThermalConductivity lambda2=Medium2.thermalConductivity(medium2.state);
@@ -2396,7 +2396,7 @@ is given to compare the approximation.
     Real der_p;
     Real der_T;
   protected
-    constant Modelica.SIunits.Time unitTime=1;
+    constant SI.Time unitTime=1;
   equation
     der(medium.p) = 0.0;
     der(medium.T) = 90;
@@ -2428,55 +2428,55 @@ is given to compare the approximation.
   model PsychrometricData "Produces plot data for psychrometric charts"
     extends Modelica.Icons.Example;
     package Medium = Modelica.Media.Air.MoistAir "Used medium package";
-    parameter SIunits.Pressure p_const=1e5 "Pressure";
+    parameter SI.Pressure p_const=1e5 "Pressure";
     parameter Integer n_T=11 "Number of isotherms";
-    parameter SIunits.Temperature T_min=253.15 "Lowest isotherm";
-    parameter SIunits.Temperature T_step=10
+    parameter SI.Temperature T_min=253.15 "Lowest isotherm";
+    parameter SI.Temperature T_step=10
       "Temperature step between two isotherms";
     parameter Integer n_h=16 "Number of lines with constant specific enthalpy";
-    parameter SIunits.SpecificEnthalpy h_min=-20e3
+    parameter SI.SpecificEnthalpy h_min=-20e3
       "Lowest line of constant enthalpy";
-    parameter SIunits.SpecificEnthalpy h_step=1e4
+    parameter SI.SpecificEnthalpy h_step=1e4
       "Enthalpy step between two lines of constant enthalpy";
     parameter Integer n_phi=10
       "Number of lines with constant relative humidity";
     parameter Real phi_min=0.1 "Lowest line of constant humidity";
     parameter Real phi_step=0.1 "Step between two lines of constant humidity";
-    parameter SIunits.MassFraction x_min=0.00
+    parameter SI.MassFraction x_min=0.00
       "Minimum diagram absolute humidity";
-    parameter SIunits.MassFraction x_max=0.03
+    parameter SI.MassFraction x_max=0.03
       "Maximum diagram absolute humidity";
-    parameter SIunits.Time t=1 "Simulation time";
+    parameter SI.Time t=1 "Simulation time";
 
-    final parameter SIunits.Temperature[n_T] T_const={T_min - T_step + i*
+    final parameter SI.Temperature[n_T] T_const={T_min - T_step + i*
         T_step for i in 1:n_T} "Constant temperatures";
-    final parameter SIunits.SpecificEnthalpy[n_h] h_const={(i - 1)*h_step +
+    final parameter SI.SpecificEnthalpy[n_h] h_const={(i - 1)*h_step +
         h_min for i in 1:n_h} "Constant enthalpies";
     final parameter Real[n_phi] phi_const={(i - 1)*phi_step + phi_min for i in
             1:n_phi} "Constant relative humidities";
     final parameter Real diagSlope=Medium.enthalpyOfVaporization(273.15)
       "Rotation of diagram that zero degrees isotherm becomes horizontal outside the fog region";
-    final parameter SIunits.MassFraction x_start=x_min
+    final parameter SI.MassFraction x_start=x_min
       "Initial absolute humidity in kg water/kg dry air";
 
-    SIunits.MassFraction x(start=x_start)
+    SI.MassFraction x(start=x_start)
       "Absolute humidity in kg water/kg dry air";
-    SIunits.SpecificEnthalpy[n_T] hx_T "h_1+x for const T";
-    SIunits.SpecificEnthalpy[n_h] hx_h(start=h_const, each fixed=true)
+    SI.SpecificEnthalpy[n_T] hx_T "h_1+x for const T";
+    SI.SpecificEnthalpy[n_h] hx_h(start=h_const, each fixed=true)
       "Const h_1+x";
-    SIunits.SpecificEnthalpy[n_phi] hx_phi "h_1+x for const phi";
-    SIunits.SpecificEnthalpy[n_T] y_T "Chart enthalpy for const T";
-    SIunits.SpecificEnthalpy[n_h] y_h "Chart enthalpy for const h";
-    SIunits.SpecificEnthalpy[n_phi] y_phi "Chart enthalpy for const phi";
+    SI.SpecificEnthalpy[n_phi] hx_phi "h_1+x for const phi";
+    SI.SpecificEnthalpy[n_T] y_T "Chart enthalpy for const T";
+    SI.SpecificEnthalpy[n_h] y_h "Chart enthalpy for const h";
+    SI.SpecificEnthalpy[n_phi] y_phi "Chart enthalpy for const phi";
     Medium.BaseProperties[n_T] medium_T "Medium properties for const T";
     Medium.BaseProperties[n_phi] medium_phi "Medium properties for const phi";
 
   protected
-    SIunits.Pressure[n_phi] ps_phi "Saturation pressure for constant-phi-lines";
-    SIunits.Temperature[n_phi] T_phi(each start=290);
+    SI.Pressure[n_phi] ps_phi "Saturation pressure for constant-phi-lines";
+    SI.Temperature[n_phi] T_phi(each start=290);
     Boolean[n_T] fog(start=fill(false, n_T))
       "Triggers events at intersection of isotherms with phi=1";
-    SIunits.Pressure[n_T] pd "Steam partial pressure along isotherms";
+    SI.Pressure[n_T] pd "Steam partial pressure along isotherms";
   initial equation
     x = x_min;
   equation
@@ -2677,9 +2677,9 @@ points, e.g., when an isentropic reference state is computed.
 
     model MoistAir "Example for moist air"
       extends Modelica.Icons.Example;
-      parameter Modelica.SIunits.Temperature T_start=274
+      parameter SI.Temperature T_start=274
         "Initial guess value for temperature";
-      parameter Modelica.SIunits.Pressure p_start=1e5
+      parameter SI.Pressure p_start=1e5
         "Initial guess value for pressure";
       package Medium = Modelica.Media.Air.ReferenceMoistAir "Medium model";
       Medium.BaseProperties medium(
@@ -2697,7 +2697,7 @@ points, e.g., when an isentropic reference state is computed.
       Real der_p;
       Real der_T;
     protected
-      constant Modelica.SIunits.Time unitTime=1;
+      constant SI.Time unitTime=1;
     equation
       der(medium.p) = 0.0;
       der(medium.T) = 90;
@@ -2739,34 +2739,34 @@ points, e.g., when an isentropic reference state is computed.
 
       import Medium = Modelica.Media.Air.ReferenceAir.Air_pT "Medium model";
 
-      parameter Modelica.SIunits.Temperature T_min=300
+      parameter SI.Temperature T_min=300
         "Vary temperature linearly from T_min (time=0) up to T_max (time=1)";
-      parameter Modelica.SIunits.Temperature T_max=500
+      parameter SI.Temperature T_max=500
         "Vary temperature linearly from T_min (time=0) up to T_max (time=1)";
-      parameter Modelica.SIunits.Pressure p=1.0e5 "Fixed pressure in model";
-      final parameter Modelica.SIunits.SpecificEnthalpy h_min=
+      parameter SI.Pressure p=1.0e5 "Fixed pressure in model";
+      final parameter SI.SpecificEnthalpy h_min=
           Medium.specificEnthalpy(Medium.setState_pT(p, T_min))
         "Specific enthalpy at T_min";
-      final parameter Modelica.SIunits.SpecificEnthalpy h_max=
+      final parameter SI.SpecificEnthalpy h_max=
           Medium.specificEnthalpy(Medium.setState_pT(p, T_max))
         "Specific enthalpy at T_max";
-      final parameter Modelica.SIunits.SpecificEntropy s_min=
+      final parameter SI.SpecificEntropy s_min=
           Medium.specificEntropy(Medium.setState_pT(p, T_min))
         "Specific entropy at T_min";
-      final parameter Modelica.SIunits.SpecificEntropy s_max=
+      final parameter SI.SpecificEntropy s_max=
           Medium.specificEntropy(Medium.setState_pT(p, T_max))
         "Specific entropy at T_max";
-      Modelica.SIunits.SpecificEnthalpy h1 "Pre-defined specific enthalpy";
-      Modelica.SIunits.SpecificEnthalpy h2
+      SI.SpecificEnthalpy h1 "Pre-defined specific enthalpy";
+      SI.SpecificEnthalpy h2
         "Specific enthalpy computed from T (= h1 required)";
-      Modelica.SIunits.SpecificEntropy s1 "Pre-defined specific entropy";
-      Modelica.SIunits.SpecificEntropy s2
+      SI.SpecificEntropy s1 "Pre-defined specific entropy";
+      SI.SpecificEntropy s2
         "Specific entropy computed from T (= h1 required)";
-      Modelica.SIunits.Temperature Th "Temperature computed from h1";
-      Modelica.SIunits.Temperature Ts "Temperature computed from s1";
+      SI.Temperature Th "Temperature computed from h1";
+      SI.Temperature Ts "Temperature computed from s1";
 
     protected
-      constant Modelica.SIunits.Time timeUnit=1.0;
+      constant SI.Time timeUnit=1.0;
 
     equation
       // Define specific enthalpy and specific entropy
@@ -2805,48 +2805,48 @@ points, e.g., when an isentropic reference state is computed.
 
       import Medium = Modelica.Media.Air.ReferenceMoistAir "Medium model";
 
-      parameter Modelica.SIunits.Temperature T_min=300
+      parameter SI.Temperature T_min=300
         "Vary temperature linearly from T_min (time=0) up to T_max (time=1)";
-      parameter Modelica.SIunits.Temperature T_max=500
+      parameter SI.Temperature T_max=500
         "Vary temperature linearly from T_min (time=0) up to T_max (time=1)";
-      parameter Modelica.SIunits.Pressure p=1.0e5 "Fixed pressure in model";
-      parameter Modelica.SIunits.MassFraction[:] X=Modelica.Media.Air.ReferenceMoistAir.reference_X
+      parameter SI.Pressure p=1.0e5 "Fixed pressure in model";
+      parameter SI.MassFraction[:] X=Modelica.Media.Air.ReferenceMoistAir.reference_X
         "Mass fraction vector";
-      final parameter Modelica.SIunits.SpecificEnthalpy h_min=
+      final parameter SI.SpecificEnthalpy h_min=
           Modelica.Media.Air.ReferenceMoistAir.specificEnthalpy(
           Modelica.Media.Air.ReferenceMoistAir.setState_pTX(
                 p,
                 T_min,
                 X)) "Specific enthalpy at T_min";
-      final parameter Modelica.SIunits.SpecificEnthalpy h_max=
+      final parameter SI.SpecificEnthalpy h_max=
           Modelica.Media.Air.ReferenceMoistAir.specificEnthalpy(
           Modelica.Media.Air.ReferenceMoistAir.setState_pTX(
                 p,
                 T_max,
                 X)) "Specific enthalpy at T_max";
-      final parameter Modelica.SIunits.SpecificEntropy s_min=
+      final parameter SI.SpecificEntropy s_min=
           Modelica.Media.Air.ReferenceMoistAir.specificEntropy(
           Modelica.Media.Air.ReferenceMoistAir.setState_pTX(
                 p,
                 T_min,
                 X)) "Specific entropy at T_min";
-      final parameter Modelica.SIunits.SpecificEntropy s_max=
+      final parameter SI.SpecificEntropy s_max=
           Modelica.Media.Air.ReferenceMoistAir.specificEntropy(
           Modelica.Media.Air.ReferenceMoistAir.setState_pTX(
                 p,
                 T_max,
                 X)) "Specific entropy at T_max";
-      Modelica.SIunits.SpecificEnthalpy h1 "Pre-defined specific enthalpy";
-      Modelica.SIunits.SpecificEnthalpy h2
+      SI.SpecificEnthalpy h1 "Pre-defined specific enthalpy";
+      SI.SpecificEnthalpy h2
         "Specific enthalpy computed from T (= h1 required)";
-      Modelica.SIunits.SpecificEntropy s1 "Pre-defined specific entropy";
-      Modelica.SIunits.SpecificEntropy s2
+      SI.SpecificEntropy s1 "Pre-defined specific entropy";
+      SI.SpecificEntropy s2
         "Specific entropy computed from T (= h1 required)";
-      Modelica.SIunits.Temperature Th "Temperature computed from h1";
-      Modelica.SIunits.Temperature Ts "Temperature computed from s1";
+      SI.Temperature Th "Temperature computed from h1";
+      SI.Temperature Ts "Temperature computed from s1";
 
     protected
-      constant Modelica.SIunits.Time timeUnit=1.0;
+      constant SI.Time timeUnit=1.0;
 
     equation
       // Define specific enthalpy
@@ -3280,7 +3280,7 @@ equation in one unknown with function <a href=\"modelica://Modelica.Math.Nonline
           annotation (Evaluate=true, Dialog(group=
                 "Initial temperature or initial specific enthalpy"));
         parameter Medium.Temperature T_start=
-            Modelica.SIunits.Conversions.from_degC(20) "Initial temperature"
+            Modelica.Units.Conversions.from_degC(20) "Initial temperature"
           annotation (Dialog(group=
                 "Initial temperature or initial specific enthalpy", enable=
                 use_T_start));
@@ -3366,7 +3366,7 @@ transport.
           annotation (Evaluate=true, Dialog(group=
                 "Ambient temperature or ambient specific enthalpy"));
         parameter Medium.Temperature T_ambient=
-            Modelica.SIunits.Conversions.from_degC(20) "Ambient temperature"
+            Modelica.Units.Conversions.from_degC(20) "Ambient temperature"
           annotation (Dialog(group=
                 "Ambient temperature or ambient specific enthalpy", enable=
                 use_T_ambient));
@@ -3452,7 +3452,7 @@ transport.
           annotation (Evaluate=true, Dialog(group=
                 "Ambient temperature or ambient specific enthalpy"));
         parameter Medium.Temperature T_ambient=
-            Modelica.SIunits.Conversions.from_degC(20) "Ambient temperature"
+            Modelica.Units.Conversions.from_degC(20) "Ambient temperature"
           annotation (Dialog(group=
                 "Ambient temperature or ambient specific enthalpy", enable=
                 use_T_ambient));
@@ -3538,7 +3538,7 @@ with exception of ambient pressure, do not have an effect.
         //   "Medium properties in port_b";
         Medium.MassFlowRate m_flow
           "Mass flow rate from port_a to port_b (m_flow > 0 is design flow direction)";
-        Modelica.SIunits.Pressure dp "Pressure drop from port_a to port_b";
+        SI.Pressure dp "Pressure drop from port_a to port_b";
       equation
         /* Handle reverse and zero flow */
         port_a.H_flow = semiLinear(
@@ -3583,7 +3583,6 @@ no mass or energy is stored in the pipe.
       end ShortPipe;
 
       partial model PartialTestModel "Basic test model to test a medium"
-        import SI = Modelica.SIunits;
 
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model" annotation (choicesAllMatching=true);
@@ -3643,7 +3642,6 @@ no mass or energy is stored in the pipe.
 
       partial model PartialTestModel2
         "Slightly larger test model to test a medium"
-        import SI = Modelica.SIunits;
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model" annotation (choicesAllMatching=true);
         parameter SI.AbsolutePressure p_start=1.0e5 "Initial value of pressure";
@@ -3945,7 +3943,7 @@ Modelica source.
       "Default mass fractions of medium";
     constant AbsolutePressure p_default=101325
       "Default value for pressure of medium (for initialization)";
-    constant Temperature T_default=Modelica.SIunits.Conversions.from_degC(20)
+    constant Temperature T_default=Modelica.Units.Conversions.from_degC(20)
       "Default value for temperature of medium (for initialization)";
     constant SpecificEnthalpy h_default=specificEnthalpy_pTX(
             p_default,
@@ -3995,11 +3993,11 @@ Modelica source.
         annotation (Evaluate=true, Dialog(tab="Advanced"));
       parameter Boolean standardOrderComponents=true
         "If true, and reducedX = true, the last element of X will be computed from the other ones";
-      SI.Conversions.NonSIunits.Temperature_degC T_degC=
-          Modelica.SIunits.Conversions.to_degC(T)
+      Modelica.Units.NonSI.Temperature_degC T_degC=
+          Modelica.Units.Conversions.to_degC(T)
         "Temperature of medium in [degC]";
-      SI.Conversions.NonSIunits.Pressure_bar p_bar=
-          Modelica.SIunits.Conversions.to_bar(p)
+      Modelica.Units.NonSI.Pressure_bar p_bar=
+          Modelica.Units.Conversions.to_bar(p)
         "Absolute pressure of medium in [bar]";
 
       // Local connector definition, used for equation balancing check
@@ -7399,7 +7397,7 @@ critical pressure.
         "Derivative of specific volume w.r.t. temperature";
       Real vp(unit="m4.kg-2.s2")
         "Derivative of specific volume w.r.t. pressure";
-      Modelica.SIunits.Density d;
+      SI.Density d;
     algorithm
       pro.R_s := g.R_s;
       pro.p := g.p;
@@ -7622,7 +7620,7 @@ critical pressure.
 public
   record SaturationProperties "Properties in the two phase region"
     extends Modelica.Icons.Record;
-    SI.Temp_K T "Temperature";
+    SI.Temperature T "Temperature";
     SI.Density d "Density";
     SI.Pressure p "Pressure";
     SI.SpecificEnergy u "Specific inner energy";
@@ -7645,7 +7643,7 @@ public
     "Properties on both phase boundaries, including some derivatives"
 
     extends Modelica.Icons.Record;
-    SI.Temp_K T "Saturation temperature";
+    SI.Temperature T "Saturation temperature";
     SI.Density dl "Liquid density";
     SI.Density dv "Vapour density";
     SI.SpecificEnthalpy hl "Liquid specific enthalpy";
@@ -7962,14 +7960,14 @@ end BridgmansTablesForWater;
 
   record FundamentalConstants "Constants of the medium"
     extends Modelica.Icons.Record;
-    Modelica.SIunits.MolarHeatCapacity R_bar;
-    Modelica.SIunits.SpecificHeatCapacity R_s;
-    Modelica.SIunits.MolarMass MM;
-    Modelica.SIunits.MolarDensity rhored;
-    Modelica.SIunits.Temperature Tred;
-    Modelica.SIunits.AbsolutePressure pred;
-    Modelica.SIunits.SpecificEnthalpy h_off;
-    Modelica.SIunits.SpecificEntropy s_off;
+    SI.MolarHeatCapacity R_bar;
+    SI.SpecificHeatCapacity R_s;
+    SI.MolarMass MM;
+    SI.MolarDensity rhored;
+    SI.Temperature Tred;
+    SI.AbsolutePressure pred;
+    SI.SpecificEnthalpy h_off;
+    SI.SpecificEntropy s_off;
   end FundamentalConstants;
 
   record AuxiliaryProperties "Intermediate property data record"

@@ -1,18 +1,18 @@
 within Modelica.Mechanics.Translational.Sources;
 model EddyCurrentForce "Simple model of a translational eddy current brake"
   import Modelica.Electrical.Machines.Thermal.linearTemperatureDependency;
-  parameter Modelica.SIunits.Force f_nominal
+  parameter SI.Force f_nominal
     "Maximum force (always braking)";
-  parameter Modelica.SIunits.Velocity v_nominal(min=Modelica.Constants.eps)
+  parameter SI.Velocity v_nominal(min=Modelica.Constants.eps)
     "Nominal speed (leads to maximum force) at reference temperature";
-  parameter Modelica.SIunits.Temperature TRef(start=293.15)
+  parameter SI.Temperature TRef(start=293.15)
     "Reference temperature";
   parameter
     Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
     alpha20(start=0) "Temperature coefficient of material";
   extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
   extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort;
-  Modelica.SIunits.Velocity v
+  SI.Velocity v
     "Velocity of flange with respect to support (= der(s))";
   Real v_normalized "Relative speed v/v_nominal";
 equation

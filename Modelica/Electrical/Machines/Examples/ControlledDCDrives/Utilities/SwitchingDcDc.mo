@@ -1,18 +1,18 @@
 within Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities;
 model SwitchingDcDc "Switching DC-DC inverter"
-  parameter Modelica.SIunits.Frequency fS "Switching frequency";
-  parameter Modelica.SIunits.Voltage VMax "Maximum Voltage";
-  parameter Modelica.SIunits.Resistance RonT=1e-05
+  parameter SI.Frequency fS "Switching frequency";
+  parameter SI.Voltage VMax "Maximum Voltage";
+  parameter SI.Resistance RonT=1e-05
     "Transistor closed resistance";
-  parameter Modelica.SIunits.Conductance GoffT=1e-05
+  parameter SI.Conductance GoffT=1e-05
     "Transistor opened conductance";
-  parameter Modelica.SIunits.Voltage VkneeT=0
+  parameter SI.Voltage VkneeT=0
     "Transistor threshold voltage";
-  parameter Modelica.SIunits.Resistance RonD=1e-05
+  parameter SI.Resistance RonD=1e-05
     "Diode closed resistance";
-  parameter Modelica.SIunits.Conductance GoffD=1e-05
+  parameter SI.Conductance GoffD=1e-05
     "Diode opened conductance";
-  parameter Modelica.SIunits.Voltage VkneeD=0 "Diode threshold voltage";
+  parameter SI.Voltage VkneeD=0 "Diode threshold voltage";
   Modelica.Electrical.PowerConverters.DCDC.Control.Voltage2DutyCycle
     adaptor(useConstantVoltageLimit=false, VLim=VMax)
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));

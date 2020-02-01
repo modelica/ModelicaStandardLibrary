@@ -8,7 +8,7 @@ partial model PartialElementaryConditionalHeatPortWithoutT
     "Optional port to which dissipated losses are transported in form of heat"
     annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
         iconTransformation(extent={{-110,-110},{-90,-90}})));
-  Modelica.SIunits.Power lossPower
+  SI.Power lossPower
     "Loss power leaving component via heatPort (> 0, if heat is flowing out of component)";
   annotation (Documentation(info="<html>
 <p>

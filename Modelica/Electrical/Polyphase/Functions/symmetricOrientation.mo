@@ -3,7 +3,7 @@ function symmetricOrientation
   "Orientations of the resulting fundamental wave field phasors"
   extends Modelica.Icons.Function;
   input Integer m "Number of phases";
-  output Modelica.SIunits.Angle orientation[m]
+  output SI.Angle orientation[m]
     "Orientation of the resulting fundamental wave field phasors";
   import Modelica.Constants.pi;
 algorithm

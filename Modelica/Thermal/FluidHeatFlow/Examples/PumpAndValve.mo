@@ -3,13 +3,13 @@ model PumpAndValve "Cooling circuit with pump and valve"
   extends Modelica.Icons.Example;
   parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
     "Cooling medium" annotation (choicesAllMatching=true);
-  parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC")=293.15
+  parameter SI.Temperature TAmb(displayUnit="degC")=293.15
     "Ambient temperature";
-  output Modelica.SIunits.TemperatureDifference dTSource=
+  output SI.TemperatureDifference dTSource=
     prescribedHeatFlow.port.T-TAmb "Source over Ambient";
-  output Modelica.SIunits.TemperatureDifference dTtoPipe=prescribedHeatFlow.port.T-pipe.T_q
+  output SI.TemperatureDifference dTtoPipe=prescribedHeatFlow.port.T-pipe.T_q
     "Source over Coolant";
-  output Modelica.SIunits.TemperatureDifference dTCoolant=pipe.dT
+  output SI.TemperatureDifference dTCoolant=pipe.dT
     "Coolant's temperature increase";
   FluidHeatFlow.Sources.Ambient ambient1(
     constantAmbientTemperature=TAmb,

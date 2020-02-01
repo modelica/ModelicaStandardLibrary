@@ -2,9 +2,9 @@ within Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient;
 model FundamentalWavePermabilitySensor
 "Sensor of fundamental wave permeability"
   extends Modelica.Icons.RoundSensor;
-  parameter Modelica.SIunits.Frequency f "Fundamental wave frequency";
-  parameter Modelica.SIunits.Area A "Area of cross section";
-  parameter Modelica.SIunits.Length l "Length";
+  parameter SI.Frequency f "Fundamental wave frequency";
+  parameter SI.Area A "Area of cross section";
+  parameter SI.Length l "Length";
 
   Magnetic.FluxTubes.Interfaces.PositiveMagneticPort fluxP
     "Positive port of flux path" annotation (Placement(transformation(extent={{

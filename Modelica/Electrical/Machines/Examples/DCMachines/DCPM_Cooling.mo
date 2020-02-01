@@ -1,31 +1,31 @@
 within Modelica.Electrical.Machines.Examples.DCMachines;
 model DCPM_Cooling "Test example: Cooling of a DCPM motor"
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
-  parameter Modelica.SIunits.Voltage Ve=100 "Actual excitation voltage";
-  parameter Modelica.SIunits.AngularVelocity w0=
-      Modelica.SIunits.Conversions.from_rpm(1500) "No-load speed";
-  parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
-  parameter Modelica.SIunits.Inertia JLoad=0.15
+  parameter SI.Voltage Va=100 "Actual armature voltage";
+  parameter SI.Voltage Ve=100 "Actual excitation voltage";
+  parameter SI.AngularVelocity w0=
+      Modelica.Units.Conversions.from_rpm(1500) "No-load speed";
+  parameter SI.Torque TLoad=63.66 "Nominal load torque";
+  parameter SI.Inertia JLoad=0.15
     "Load's moment of inertia";
-  parameter Modelica.SIunits.Temperature TAmbient=293.15
+  parameter SI.Temperature TAmbient=293.15
     "Ambient temperature";
-  parameter Modelica.SIunits.HeatCapacity Ca=20
+  parameter SI.HeatCapacity Ca=20
     "Armature's heat capacity";
-  parameter Modelica.SIunits.HeatCapacity Cc=50 "Core's heat capacity";
-  final parameter Modelica.SIunits.Power Losses=dcpm.Ra*dcpm.IaNominal^2
+  parameter SI.HeatCapacity Cc=50 "Core's heat capacity";
+  final parameter SI.Power Losses=dcpm.Ra*dcpm.IaNominal^2
     "Nominal Losses";
-  final parameter Modelica.SIunits.Temperature T0=293.15
+  final parameter SI.Temperature T0=293.15
     "Reference temperature 20 degC";
-  final parameter Modelica.SIunits.TemperatureDifference dTCoolant=10
+  final parameter SI.TemperatureDifference dTCoolant=10
     "Coolant's temperature rise";
-  final parameter Modelica.SIunits.TemperatureDifference dTArmature=dcpm.TaNominal
+  final parameter SI.TemperatureDifference dTArmature=dcpm.TaNominal
        - T0 - dTCoolant/2 "Armature's temperature rise over coolant";
-  parameter Modelica.SIunits.ThermalConductance G_armature_core=2*Losses/
+  parameter SI.ThermalConductance G_armature_core=2*Losses/
       dTArmature "Heat conductance armature - core";
-  parameter Modelica.SIunits.ThermalConductance G_core_cooling=2*Losses/
+  parameter SI.ThermalConductance G_core_cooling=2*Losses/
       dTArmature "Heat conductance core - cooling";
-  parameter Modelica.SIunits.VolumeFlowRate CoolantFlow=50 "Coolant flow";
+  parameter SI.VolumeFlowRate CoolantFlow=50 "Coolant flow";
   Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm(
     wMechanical(start=w0, fixed=true),
     VaNominal=dcpmData.VaNominal,

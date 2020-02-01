@@ -6,26 +6,26 @@ model SymmetricPolyphaseCageWinding "Symmetrical rotor cage"
   parameter Boolean useHeatPort=false
     "Enable / disable (=fixed temperatures) thermal port"
     annotation (Evaluate=true);
-  parameter Modelica.SIunits.Resistance RRef
+  parameter SI.Resistance RRef
     "Winding resistance per phase at TRef";
-  parameter Modelica.SIunits.Temperature TRef(start=293.15)
+  parameter SI.Temperature TRef(start=293.15)
     "Reference temperature of winding";
   parameter
     Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
     alpha20(start=0) "Temperature coefficient of winding at 20 degC";
-  final parameter Modelica.SIunits.LinearTemperatureCoefficient alphaRef=
+  final parameter SI.LinearTemperatureCoefficient alphaRef=
       Modelica.Electrical.Machines.Thermal.convertAlpha(
             alpha20,
             TRef,
             293.15) "Temperature coefficient of winding at reference temperature";
-  parameter Modelica.SIunits.Temperature TOperational(start=293.15)
+  parameter SI.Temperature TOperational(start=293.15)
     "Operational temperature of winding"
     annotation (Dialog(enable=not useHeatPort));
-  parameter Modelica.SIunits.Inductance Lsigma "Cage stray inductance";
+  parameter SI.Inductance Lsigma "Cage stray inductance";
   parameter Real effectiveTurns=1 "Effective number of turns";
   final parameter Integer nBase=Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems(m)
     "Number of base systems";
-  Modelica.SIunits.ComplexCurrent i[m]=electroMagneticConverter.i
+  SI.ComplexCurrent i[m]=electroMagneticConverter.i
     "Cage currents";
   Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter
     electroMagneticConverter(final m=m, final effectiveTurns=effectiveTurns)

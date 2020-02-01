@@ -1,6 +1,6 @@
 within Modelica.Electrical.Machines.BasicMachines.Components;
 model PermanentMagnet "Permanent magnet excitation"
-  parameter Modelica.SIunits.Current Ie "Equivalent excitation current";
+  parameter SI.Current Ie "Equivalent excitation current";
   Machines.Interfaces.SpacePhasor spacePhasor_r
     annotation (Placement(transformation(extent={{-110,90},{-90,110}})));
 equation

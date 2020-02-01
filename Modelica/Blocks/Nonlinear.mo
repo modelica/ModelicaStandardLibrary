@@ -189,7 +189,7 @@ a lot by removing one strong nonlinearity from the initialization problem.
       "Maximum rising slew rate [+small..+inf) [1/s]";
     parameter Real Falling(max=-small) = -Rising
       "Maximum falling slew rate (-inf..-small] [1/s]";
-    parameter Modelica.SIunits.Time Td(min=small) = 0.001
+    parameter SI.Time Td(min=small) = 0.001
       "Derivative time constant";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.SteadyState
       "Type of initialization (SteadyState implies y = u)"
@@ -303,7 +303,7 @@ function of the input with a slope of 1.
 
   block FixedDelay "Delay block with fixed DelayTime"
     extends Modelica.Blocks.Interfaces.SISO;
-    parameter Modelica.SIunits.Time delayTime(start=1)
+    parameter SI.Time delayTime(start=1)
       "Delay time of output with respect to input signal";
 
   equation
@@ -340,7 +340,7 @@ y = u(time - delayTime) for time &gt; time.start + delayTime
   block PadeDelay
     "Pade approximation of delay block with fixed delayTime (use balance=true; this is not the default to be backwards compatible)"
     extends Modelica.Blocks.Interfaces.SISO;
-    parameter Modelica.SIunits.Time delayTime(start=1)
+    parameter SI.Time delayTime(start=1)
       "Delay time of output with respect to input signal";
     parameter Integer n(min=1) = 1 "Order of Pade delay";
     parameter Integer m(min=1,max=n) = n
@@ -542,7 +542,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
 
   block VariableDelay "Delay block with variable DelayTime"
     extends Modelica.Blocks.Interfaces.SISO;
-    parameter Modelica.SIunits.Duration delayMax(min=0, start=1) "Maximum delay time";
+    parameter SI.Duration delayMax(min=0, start=1) "Maximum delay time";
 
     Modelica.Blocks.Interfaces.RealInput delayTime annotation (Placement(
           transformation(extent={{-140,-80},{-100,-40}})));

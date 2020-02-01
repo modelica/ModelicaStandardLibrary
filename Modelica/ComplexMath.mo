@@ -497,9 +497,9 @@ end Vectors;
   function arg "Phase angle of complex number"
     extends Modelica.Icons.Function;
     input Complex c "Complex number";
-    input Modelica.SIunits.Angle phi0=0
+    input Modelica.Units.SI.Angle phi0=0
       "Phase angle phi shall be in the range: -pi < phi-phi0 < pi";
-    output Modelica.SIunits.Angle phi "= phase angle of c";
+    output Modelica.Units.SI.Angle phi "= phase angle of c";
   algorithm
     phi := Modelica.Math.atan3(
         c.im,
@@ -546,7 +546,7 @@ end Vectors;
   function fromPolar "Complex from polar representation"
     extends Modelica.Icons.Function;
     input Real len "abs of complex";
-    input Modelica.SIunits.Angle phi "arg of complex";
+    input Modelica.Units.SI.Angle phi "arg of complex";
     output Complex c "= len*cos(phi) + j*len*sin(phi)";
   algorithm
     c := Complex(len*Modelica.Math.cos(phi), len*Modelica.Math.sin(phi));

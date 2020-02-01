@@ -5,9 +5,9 @@ model IdealGear "Ideal gear without inertia"
     Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
   parameter Real ratio(start=1)
     "Transmission ratio (flange_a.phi/flange_b.phi)";
-  Modelica.SIunits.Angle phi_a
+  SI.Angle phi_a
     "Angle between left shaft flange and support";
-  Modelica.SIunits.Angle phi_b
+  SI.Angle phi_b
     "Angle between right shaft flange and support";
 
 equation

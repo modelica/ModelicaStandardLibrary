@@ -1,11 +1,11 @@
 within Modelica.Thermal.FluidHeatFlow.Examples;
 model TestCylinder "Two cylinder system"
   extends Modelica.Icons.Example;
-  output Modelica.SIunits.Force f1=-10*cylinder1.f "10 x Force on piston 1";
-  output Modelica.SIunits.Position s1=0.1*cylinder1.s "0.1 x Position of piston 1";
-  output Modelica.SIunits.Position s2=cylinder2.s "Position of piston 2";
-  output Modelica.SIunits.Force f2=-cylinder2.f "Force on piston 2";
-  output Modelica.SIunits.Force f=springDamper.f "Force of springDamper";
+  output SI.Force f1=-10*cylinder1.f "10 x Force on piston 1";
+  output SI.Position s1=0.1*cylinder1.s "0.1 x Position of piston 1";
+  output SI.Position s2=cylinder2.s "Position of piston 2";
+  output SI.Force f2=-cylinder2.f "Force on piston 2";
+  output SI.Force f=springDamper.f "Force of springDamper";
   Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(
     table=[0,0; 0.25,-1; 0.5,0; 0.75,0],
     smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments)

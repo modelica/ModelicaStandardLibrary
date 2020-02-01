@@ -72,7 +72,7 @@ sample instant during the sample points.
   block FirstOrderHold "First order hold of a sampled-data system"
     extends Modelica.Blocks.Interfaces.DiscreteSISO;
   protected
-    Modelica.SIunits.Time tSample;
+    SI.Time tSample;
     Real uSample;
     Real pre_uSample;
     Real c;

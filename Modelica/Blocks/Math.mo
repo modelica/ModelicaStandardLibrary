@@ -1,14 +1,14 @@
 within Modelica.Blocks;
 package Math "Library of Real mathematical functions as input/output blocks"
-  import Modelica.SIunits;
+
   import Modelica.Blocks.Interfaces;
   extends Modelica.Icons.Package;
 
   encapsulated package UnitConversions
     "Conversion blocks to convert between SI and non-SI unit signals"
     import Modelica;
-    import SI = Modelica.SIunits;
-    import NonSI = Modelica.SIunits.Conversions.NonSIunits;
+
+    import Modelica.Units.NonSI;
     extends Modelica.Icons.Package;
 
     block To_degC "Convert from Kelvin to degCelsius"
@@ -16,7 +16,7 @@ package Math "Library of Real mathematical functions as input/output blocks"
             unit="degC"));
 
     equation
-      y = SI.Conversions.to_degC(u);
+      y = Modelica.Units.Conversions.to_degC(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -34,7 +34,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degC"),
           y(unit="K"));
     equation
-      y = SI.Conversions.from_degC(u);
+      y = Modelica.Units.Conversions.from_degC(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -52,7 +52,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degF"));
     equation
-      y = SI.Conversions.to_degF(u);
+      y = Modelica.Units.Conversions.to_degF(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -70,7 +70,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degF"),
           y(unit="K"));
     equation
-      y = SI.Conversions.from_degF(u);
+      y = Modelica.Units.Conversions.from_degF(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -88,7 +88,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degRk"));
     equation
-      y = SI.Conversions.to_degRk(u);
+      y = Modelica.Units.Conversions.to_degRk(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -106,7 +106,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degRk"),
           y(unit="K"));
     equation
-      y = SI.Conversions.from_degRk(u);
+      y = Modelica.Units.Conversions.from_degRk(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -124,7 +124,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="rad"),
           y(unit="deg"));
     equation
-      y = SI.Conversions.to_deg(u);
+      y = Modelica.Units.Conversions.to_deg(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -142,7 +142,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="deg"),
           y(unit="rad"));
     equation
-      y = SI.Conversions.from_deg(u);
+      y = Modelica.Units.Conversions.from_deg(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -160,7 +160,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="rad/s"),
           y(unit="rev/min"));
     equation
-      y = SI.Conversions.to_rpm(u);
+      y = Modelica.Units.Conversions.to_rpm(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{26,82},{-98,50}},
@@ -178,7 +178,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="rev/min"),
           y(unit="rad/s"));
     equation
-      y = SI.Conversions.from_rpm(u);
+      y = Modelica.Units.Conversions.from_rpm(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{50,84},{-94,56}},
@@ -196,7 +196,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="m/s"),
           y(unit="km/h"));
     equation
-      y = SI.Conversions.to_kmh(u);
+      y = Modelica.Units.Conversions.to_kmh(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{0,82},{-96,42}},
@@ -214,7 +214,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="km/h"),
           y(unit="m/s"));
     equation
-      y = SI.Conversions.from_kmh(u);
+      y = Modelica.Units.Conversions.from_kmh(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{26,80},{-96,48}},
@@ -232,7 +232,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="s"), y(
             unit="d"));
     equation
-      y = SI.Conversions.to_day(u);
+      y = Modelica.Units.Conversions.to_day(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -250,7 +250,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="d"), y(
             unit="s"));
     equation
-      y = SI.Conversions.from_day(u);
+      y = Modelica.Units.Conversions.from_day(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -268,7 +268,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="s"), y(
             unit="h"));
     equation
-      y = SI.Conversions.to_hour(u);
+      y = Modelica.Units.Conversions.to_hour(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -286,7 +286,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="h"), y(
             unit="s"));
     equation
-      y = SI.Conversions.from_hour(u);
+      y = Modelica.Units.Conversions.from_hour(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -304,7 +304,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="s"), y(
             unit="min"));
     equation
-      y = SI.Conversions.to_minute(u);
+      y = Modelica.Units.Conversions.to_minute(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -322,7 +322,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="min"),
           y(unit="s"));
     equation
-      y = SI.Conversions.from_minute(u);
+      y = Modelica.Units.Conversions.from_minute(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -340,7 +340,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="m3"), y(
             unit="l"));
     equation
-      y = SI.Conversions.to_litre(u);
+      y = Modelica.Units.Conversions.to_litre(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -358,7 +358,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="l"), y(
             unit="m3"));
     equation
-      y = SI.Conversions.from_litre(u);
+      y = Modelica.Units.Conversions.from_litre(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -376,7 +376,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="J"), y(
             unit="kW.h"));
     equation
-      y = SI.Conversions.to_kWh(u);
+      y = Modelica.Units.Conversions.to_kWh(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -394,7 +394,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="kW.h"),
           y(unit="J"));
     equation
-      y = SI.Conversions.from_kWh(u);
+      y = Modelica.Units.Conversions.from_kWh(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -412,7 +412,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="Pa"), y(
             unit="bar"));
     equation
-      y = SI.Conversions.to_bar(u);
+      y = Modelica.Units.Conversions.to_bar(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -430,7 +430,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="bar"),
           y(unit="Pa"));
     equation
-      y = SI.Conversions.from_bar(u);
+      y = Modelica.Units.Conversions.from_bar(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -448,7 +448,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="kg/s"),
           y(unit="g/s"));
     equation
-      y = SI.Conversions.to_gps(u);
+      y = Modelica.Units.Conversions.to_gps(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -466,7 +466,7 @@ the result as output signal.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="g/s"),
           y(unit="kg/s"));
     equation
-      y = SI.Conversions.from_gps(u);
+      y = Modelica.Units.Conversions.from_gps(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-20,100},{-100,20}},
@@ -2266,13 +2266,13 @@ y_im = u_abs * sin( u_arg )
 
   block Mean "Calculate mean over period 1/f"
     extends Modelica.Blocks.Interfaces.SISO;
-    parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
+    parameter SI.Frequency f(start=50) "Base frequency";
     parameter Real x0=0 "Start value of integrator state";
     parameter Boolean yGreaterOrEqualZero=false
       "= true, if output y is guaranteed to be >= 0 for the exact solution"
       annotation (Evaluate=true, Dialog(tab="Advanced"));
   protected
-    parameter Modelica.SIunits.Time t0(fixed=false) "Start time of simulation";
+    parameter SI.Time t0(fixed=false) "Start time of simulation";
     Real x "Integrator state";
     discrete Real y_last "Last sampled mean value";
   initial equation
@@ -2315,7 +2315,7 @@ explicitly set to 0.0, if the mean value results in a negative value.
 
   block RectifiedMean "Calculate rectified mean over period 1/f"
     extends Modelica.Blocks.Interfaces.SISO;
-    parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
+    parameter SI.Frequency f(start=50) "Base frequency";
     parameter Real x0=0 "Start value of integrator state";
     Mean mean(final f=f, final x0=x0)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
@@ -2346,7 +2346,7 @@ Note: The output is updated after each period defined by 1/f.
   block ContinuousMean
     "Calculates the empirical expectation (mean) value of its input signal"
     extends Modelica.Blocks.Icons.Block;
-    parameter Modelica.SIunits.Time t_eps(min= 100*Modelica.Constants.eps)=1e-7
+    parameter SI.Time t_eps(min= 100*Modelica.Constants.eps)=1e-7
       "Mean value calculation starts at startTime + t_eps"
       annotation(Dialog(group="Advanced"));
 
@@ -2428,7 +2428,7 @@ This block is demonstrated in the examples
 
   block RootMeanSquare "Calculate root mean square over period 1/f"
     extends Modelica.Blocks.Interfaces.SISO;
-    parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
+    parameter SI.Frequency f(start=50) "Base frequency";
     parameter Real x0=0 "Start value of integrator state";
     MultiProduct product(nu=2)
       annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
@@ -2468,7 +2468,7 @@ Note: The output is updated after each period defined by 1/f.
 
   block Variance "Calculates the empirical variance of its input signal"
     extends Modelica.Blocks.Icons.Block;
-    parameter Modelica.SIunits.Time t_eps(min=100*Modelica.Constants.eps)=1e-7
+    parameter SI.Time t_eps(min=100*Modelica.Constants.eps)=1e-7
       "Variance calculation starts at startTime + t_eps"
       annotation(Dialog(group="Advanced"));
 
@@ -2559,7 +2559,7 @@ This block is demonstrated in the examples
   block StandardDeviation
     "Calculates the empirical standard deviation of its input signal"
     extends Modelica.Blocks.Icons.Block;
-    parameter Modelica.SIunits.Time t_eps(min=100*Modelica.Constants.eps)=1e-7
+    parameter SI.Time t_eps(min=100*Modelica.Constants.eps)=1e-7
       "Standard deviation calculation starts at startTime + t_eps"
       annotation(Dialog(group="Advanced"));
 
@@ -2648,7 +2648,7 @@ This block is demonstrated in the examples
 
   block Harmonic "Calculate harmonic over period 1/f"
     extends Modelica.Blocks.Icons.Block;
-    parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
+    parameter SI.Frequency f(start=50) "Base frequency";
     parameter Integer k(start=1) "Order of harmonic";
     parameter Boolean useConjugateComplex=false
       "Gives conjugate complex result if true"
@@ -2744,7 +2744,7 @@ The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if 
 
   block TotalHarmonicDistortion "Output the total harmonic distortion (THD)"
     extends Interfaces.SISO;
-    parameter Modelica.SIunits.Frequency f(start=1) "Base frequency";
+    parameter SI.Frequency f(start=1) "Base frequency";
     parameter Boolean useFirstHarmonic = true "THD with respect to first harmonic, if true; otherwise with respect to total RMS";
 
     Harmonic harmonic(
@@ -2850,8 +2850,8 @@ calculations are indicated by <code>valid = true</code>.
 
   block RealFFT "Sampling and FFT of input u"
     extends Modelica.Blocks.Interfaces.DiscreteBlock(final samplePeriod=1/(2*f_res*div(ns, 2)));
-    parameter Modelica.SIunits.Frequency f_max "Maximum frequency of interest";
-    parameter Modelica.SIunits.Frequency f_res "Frequency resolution";
+    parameter SI.Frequency f_max "Maximum frequency of interest";
+    parameter SI.Frequency f_res "Frequency resolution";
     final parameter Integer ns=Modelica.Math.FastFourierTransform.realFFTsamplePoints(f_max, f_res, f_max_factor=5) "Number of samples";
     final parameter Integer nf=max(1,min(integer(ceil(f_max/f_res))+1, div(ns, 2))) "Number of frequency points";
     parameter String resultFileName="realFFT.mat" "Result file: f, abs, arg";

@@ -3,11 +3,11 @@ model ResonanceCircuits
   "Resonance circuits: example to demonstrate generation of FMUs (Functional Mock-up Units)"
   import Modelica.Constants.pi;
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Capacitance C=0.01 "Capacitance";
-  parameter Modelica.SIunits.Inductance L=0.01 "Inductance";
-  final parameter Modelica.SIunits.Frequency fRes=1/(2*pi*sqrt(L*C)) "Source frequency";
+  parameter SI.Capacitance C=0.01 "Capacitance";
+  parameter SI.Inductance L=0.01 "Inductance";
+  final parameter SI.Frequency fRes=1/(2*pi*sqrt(L*C)) "Source frequency";
   parameter Real res=1 "Built from f/fResonanace";
-  parameter Modelica.SIunits.Frequency f=res*fRes "Source frequency";
+  parameter SI.Frequency f=res*fRes "Source frequency";
 
   Modelica.Electrical.Analog.Sources.SineCurrent current1(I=1, f=f)
     annotation (

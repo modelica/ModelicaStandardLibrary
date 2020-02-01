@@ -97,7 +97,7 @@ blocks of the block library Modelica.Blocks.Sources.
     "Forced movement of a flange according to an angle and speed signal"
     extends Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
 
-    Modelica.SIunits.Angle phi
+    SI.Angle phi
       "Rotation angle of flange with respect to support";
     Modelica.Blocks.Interfaces.RealInput u[2]
       "Angle and angular velocity of flange with respect to support as input signals"

@@ -14,8 +14,8 @@ in order to easier identify a flange variable in a diagram.
 Both connector classes contain the following variables:
 </p>
 <blockquote><pre>
-Modelica.SIunits.Angle       phi  &quot;Absolute rotation angle of flange&quot;;
-<strong>flow</strong> Modelica.SIunits.Torque tau  &quot;Cut torque in the flange&quot;;
+SI.Angle       phi  &quot;Absolute rotation angle of flange&quot;;
+<strong>flow</strong> SI.Torque tau  &quot;Cut torque in the flange&quot;;
 </pre></blockquote>
 
 <p>

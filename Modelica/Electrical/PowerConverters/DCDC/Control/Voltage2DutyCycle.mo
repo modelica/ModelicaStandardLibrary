@@ -7,7 +7,7 @@ block Voltage2DutyCycle "Linearly transforms voltage to duty cycle"
     annotation(Dialog(enable=not reciprocal));
   parameter Boolean useConstantVoltageLimit=true
     "Enables constant voltage limit";
-  parameter Modelica.SIunits.Voltage VLim(final min=Modelica.Constants.small)
+  parameter SI.Voltage VLim(final min=Modelica.Constants.small)
     "Voltage range limit mapped to dutyCycle = 1 resp. 0"
     annotation(Dialog(enable=useConstantVoltageLimit));
   Modelica.Blocks.Interfaces.RealInput v(unit = "V") "Voltage" annotation (Placement(

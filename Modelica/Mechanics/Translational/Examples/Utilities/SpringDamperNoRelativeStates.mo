@@ -1,17 +1,17 @@
 within Modelica.Mechanics.Translational.Examples.Utilities;
 model SpringDamperNoRelativeStates
   "Linear 1D translational spring and damper in parallel (s and v are not used as states)"
-  parameter Modelica.SIunits.TranslationalSpringConstant c(final min=0, start=1.0e5) "Spring constant";
-  parameter Modelica.SIunits.TranslationalDampingConstant d(final min=0, start=0) "Damping constant";
-  parameter Modelica.SIunits.Length s_rel0=0
+  parameter SI.TranslationalSpringConstant c(final min=0, start=1.0e5) "Spring constant";
+  parameter SI.TranslationalDampingConstant d(final min=0, start=0) "Damping constant";
+  parameter SI.Length s_rel0=0
     "Unstretched spring length";
-  Modelica.SIunits.Velocity v_rel(start=0)
+  SI.Velocity v_rel(start=0)
     "Relative velocity (= der(s_rel))";
   extends Modelica.Mechanics.Translational.Interfaces.PartialCompliant;
   extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
 protected
-  Modelica.SIunits.Force f_c "Spring force";
-  Modelica.SIunits.Force f_d "Damping force";
+  SI.Force f_c "Spring force";
+  SI.Force f_d "Damping force";
 equation
   v_rel = der(s_rel);
   f_c = c*(s_rel - s_rel0);

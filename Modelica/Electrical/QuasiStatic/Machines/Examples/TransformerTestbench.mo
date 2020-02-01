@@ -2,12 +2,12 @@ within Modelica.Electrical.QuasiStatic.Machines.Examples;
 model TransformerTestbench "Transformer test bench"
   extends Modelica.Icons.Example;
   parameter Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Resistance RL[m]=fill(1/3, m)
+  parameter SI.Resistance RL[m]=fill(1/3, m)
     "Load resistance";
-  output Modelica.SIunits.Voltage VS=polarVS.len "Grid voltage";
-  output Modelica.SIunits.Angle phiS=polarVS.phi "Grid phase";
-  output Modelica.SIunits.Voltage VL=polarVL.len "Load voltage";
-  output Modelica.SIunits.Angle phiL=polarVL.phi "Load phase";
+  output SI.Voltage VS=polarVS.len "Grid voltage";
+  output SI.Angle phiS=polarVS.phi "Grid phase";
+  output SI.Voltage VL=polarVL.len "Load voltage";
+  output SI.Angle phiL=polarVL.phi "Load phase";
   QuasiStatic.Polyphase.Sources.VoltageSource source(
     f=50,
     V=fill(100/sqrt(3), 3),

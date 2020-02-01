@@ -1335,13 +1335,13 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
     "Check that new implementation gives the same result as the old implementation for the default balance = false"
     extends Modelica.Icons.Example;
     parameter Integer n=10 "Order of Pade approximation";
-    parameter Modelica.SIunits.Time delayTime=0.2
+    parameter SI.Time delayTime=0.2
       "Delay time of output with respect to input signal";
 
     block PadeDelayOld
       "Pade approximation of delay block with fixed DelayTime (from MSL 3.2.1)"
     extends Modelica.Blocks.Interfaces.SISO;
-    parameter Modelica.SIunits.Time delayTime(start=1)
+    parameter SI.Time delayTime(start=1)
         "Delay time of output with respect to input signal";
     parameter Integer n(min=1) = 1 "Order of Pade approximation";
     parameter Integer m(
@@ -1556,7 +1556,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
     "PadeDelay: Compare balance = false with balance = true setting"
     extends Modelica.Icons.Example;
     parameter Integer n=4 "Order of Pade approximation";
-    parameter Modelica.SIunits.Time delayTime=0.001
+    parameter SI.Time delayTime=0.001
       "Delay time of output with respect to input signal";
 
     Modelica.Blocks.Nonlinear.PadeDelay padeDelay1b(
@@ -1633,8 +1633,8 @@ This shows the improvements in the numerics when balance=true is set.
       extends Modelica.Blocks.Icons.Block;
       parameter Integer order1=3;
       parameter Integer order2=6;
-      parameter Modelica.SIunits.Frequency f_cut1=3;
-      parameter Modelica.SIunits.Frequency f_cut2=5;
+      parameter SI.Frequency f_cut1=3;
+      parameter SI.Frequency f_cut2=5;
       parameter Boolean normalized=true;
       parameter Modelica.Blocks.Types.FilterType filterType=Modelica.Blocks.Types.FilterType.LowPass
         "Type of filter (LowPass/HighPass)";
@@ -1803,7 +1803,7 @@ This shows the improvements in the numerics when balance=true is set.
 
   model Discrete
     extends Modelica.Icons.Example;
-    parameter Modelica.SIunits.Time samplePeriod=0.02
+    parameter SI.Time samplePeriod=0.02
       "Sample period of component";
     Modelica.Blocks.Sources.Sine sine(f=3)
       annotation (Placement(transformation(extent={{-80,70},{-60,90}})));

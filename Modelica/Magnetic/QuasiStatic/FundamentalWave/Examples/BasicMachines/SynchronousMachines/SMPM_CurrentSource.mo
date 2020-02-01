@@ -4,17 +4,17 @@ model SMPM_CurrentSource
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   parameter Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Voltage VNominal=100
+  parameter SI.Voltage VNominal=100
     "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fNominal=smpmData.fsNominal "Nominal frequency";
-  parameter Modelica.SIunits.Frequency f=50 "Actual frequency";
-  parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
-  parameter Modelica.SIunits.Torque TLoad=181.4 "Nominal load torque";
-  parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
-  parameter Modelica.SIunits.Inertia JLoad=0.29
+  parameter SI.Frequency fNominal=smpmData.fsNominal "Nominal frequency";
+  parameter SI.Frequency f=50 "Actual frequency";
+  parameter SI.Time tRamp=1 "Frequency ramp";
+  parameter SI.Torque TLoad=181.4 "Nominal load torque";
+  parameter SI.Time tStep=1.2 "Time of load torque step";
+  parameter SI.Inertia JLoad=0.29
     "Load's moment of inertia";
-  Modelica.SIunits.Angle thetaQS=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi-static";
-  Modelica.SIunits.Angle theta=rotorAngle.rotorDisplacementAngle "Rotor displacement angle, transient";
+  SI.Angle thetaQS=rotorAngleQS.rotorDisplacementAngle "Rotor displacement angle, quasi-static";
+  SI.Angle theta=rotorAngle.rotorDisplacementAngle "Rotor displacement angle, transient";
 
   Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet
     smpm(

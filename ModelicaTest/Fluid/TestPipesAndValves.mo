@@ -88,7 +88,7 @@ extends Modelica.Icons.ExamplesPackage;
                 annotation (Placement(transformation(extent={{46,30},{26,50}})));
     inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial, use_eps_Re=true)
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
-    discrete Modelica.SIunits.MassFlowRate m_flow_initial;
+    discrete SI.MassFlowRate m_flow_initial;
   equation
     when time >= 0.1 then
       m_flow_initial = valve.port_a.m_flow;
@@ -1401,7 +1401,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and
                 annotation (Placement(transformation(extent={{46,30},{26,50}})));
     inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial, use_eps_Re=true)
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
-    discrete Modelica.SIunits.MassFlowRate m_flow_initial;
+    discrete SI.MassFlowRate m_flow_initial;
   equation
     when time >= 0.1 then
       m_flow_initial = valve.port_a.m_flow;

@@ -4,17 +4,17 @@ model IMC_Conveyor
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   constant Integer m=3 "Number of phases";
-  constant Modelica.SIunits.Frequency unitFrequency=1 annotation(HideResult=true);
-  parameter Modelica.SIunits.Voltage VNominal=100
+  constant SI.Frequency unitFrequency=1 annotation(HideResult=true);
+  parameter SI.Voltage VNominal=100
     "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fNominal=aimcData.fsNominal
+  parameter SI.Frequency fNominal=aimcData.fsNominal
     "Nominal frequency";
-  parameter Modelica.SIunits.AngularVelocity wNominal=2*pi*fNominal/aimcData.p
+  parameter SI.AngularVelocity wNominal=2*pi*fNominal/aimcData.p
     "Nominal speed";
-  parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
-  parameter Modelica.SIunits.Inertia JLoad=0.29
+  parameter SI.Torque TLoad=161.4 "Nominal load torque";
+  parameter SI.Inertia JLoad=0.29
     "Load's moment of inertia";
-  parameter Modelica.SIunits.Length r=0.05 "Transmission radius";
+  parameter SI.Length r=0.05 "Transmission radius";
   Machines.BasicMachines.InductionMachines.IM_SquirrelCage aimc(
     p=aimcData.p,
     fsNominal=aimcData.fsNominal,

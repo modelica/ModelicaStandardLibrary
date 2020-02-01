@@ -8,7 +8,7 @@ model StrayLoad "Model of stray load losses dependent on current and speed"
   extends
     Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
       useHeatPort=false);
-  Modelica.SIunits.Current iRMS=quasiRMS(i);
+  SI.Current iRMS=quasiRMS(i);
 equation
   v = {Complex(0, 0) for k in 1:m};
   if (strayLoadParameters.PRef <= 0) then

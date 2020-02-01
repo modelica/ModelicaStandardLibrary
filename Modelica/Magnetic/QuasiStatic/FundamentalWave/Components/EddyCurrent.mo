@@ -4,12 +4,12 @@ model EddyCurrent
   import Modelica.Constants.pi;
   constant Complex j=Complex(0, 1);
   extends Interfaces.TwoPort;
-  parameter Modelica.SIunits.Conductance G(min=0)
+  parameter SI.Conductance G(min=0)
     "Equivalent symmetric loss conductance";
   extends
     Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
       final T=273.15);
-  Modelica.SIunits.AngularVelocity omega=der(port_p.reference.gamma)
+  SI.AngularVelocity omega=der(port_p.reference.gamma)
     "Angular velocity";
 equation
   lossPower = (pi/2)*Modelica.ComplexMath.imag(omega*V_m*

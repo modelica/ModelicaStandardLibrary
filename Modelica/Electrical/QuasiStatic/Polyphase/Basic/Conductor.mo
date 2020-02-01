@@ -1,11 +1,11 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Basic;
 model Conductor "Polyphase linear conductor"
   extends Interfaces.TwoPlug;
-  parameter Modelica.SIunits.Conductance G_ref[m](start=fill(1, m))
+  parameter SI.Conductance G_ref[m](start=fill(1, m))
     "Reference conductances at T_ref";
-  parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m)
+  parameter SI.Temperature T_ref[m]=fill(293.15, m)
     "Reference temperatures";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=
+  parameter SI.LinearTemperatureCoefficient alpha_ref[m]=
       zeros(m)
     "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
   extends Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort(

@@ -1,15 +1,15 @@
 within Modelica.Mechanics.Rotational.Sources;
 model LinearSpeedDependentTorque "Linear dependency of torque versus speed"
   extends Modelica.Mechanics.Rotational.Interfaces.PartialTorque;
-  parameter Modelica.SIunits.Torque tau_nominal
+  parameter SI.Torque tau_nominal
     "Nominal torque (if negative, torque is acting as load in positive direction of rotation)";
   parameter Boolean TorqueDirection=true
     "Same direction of torque in both directions of rotation";
-  parameter Modelica.SIunits.AngularVelocity w_nominal(min=Modelica.Constants.eps)
+  parameter SI.AngularVelocity w_nominal(min=Modelica.Constants.eps)
     "Nominal speed";
-  Modelica.SIunits.AngularVelocity w
+  SI.AngularVelocity w
     "Angular velocity of flange with respect to support (= der(phi))";
-  Modelica.SIunits.Torque tau
+  SI.Torque tau
     "Accelerating torque acting at flange (= -flange.tau)";
 equation
   w = der(phi);

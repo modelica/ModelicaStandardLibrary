@@ -3,13 +3,13 @@ function activePower
   "Calculate active power of voltage and current input"
   import Modelica.Constants.pi;
   extends Modelica.Icons.Function;
-  input Modelica.SIunits.Voltage v[m] "phase voltages";
-  input Modelica.SIunits.Current i[m] "phase currents";
-  output Modelica.SIunits.Power p "Active power";
+  input SI.Voltage v[m] "phase voltages";
+  input SI.Current i[m] "phase currents";
+  output SI.Power p "Active power";
 protected
   constant Integer m=3 "Number of phases";
-  Modelica.SIunits.Voltage v_[2] "Voltage space phasor";
-  Modelica.SIunits.Current i_[2] "Current space phasor";
+  SI.Voltage v_[2] "Voltage space phasor";
+  SI.Current i_[2] "Current space phasor";
 algorithm
   v_ := zeros(2);
   i_ := zeros(2);

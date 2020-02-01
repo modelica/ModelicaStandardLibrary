@@ -2,7 +2,7 @@ within Modelica.Thermal.HeatTransfer.Components;
 model ThermalConductor
   "Lumped thermal element transporting heat without storing it"
   extends Interfaces.Element1D;
-  parameter Modelica.SIunits.ThermalConductance G
+  parameter SI.ThermalConductance G
     "Constant thermal conductance of material";
 
 equation

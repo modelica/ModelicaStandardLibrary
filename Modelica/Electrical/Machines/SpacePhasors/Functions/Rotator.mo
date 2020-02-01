@@ -2,7 +2,7 @@ within Modelica.Electrical.Machines.SpacePhasors.Functions;
 function Rotator "Rotates space phasor"
   extends Modelica.Icons.Function;
   input Real x[2] "Input space phasor";
-  input Modelica.SIunits.Angle angle "Input angle of rotation";
+  input SI.Angle angle "Input angle of rotation";
   output Real y[2] "Output space phasor";
 protected
   Real RotationMatrix[2, 2]={{+cos(-angle),-sin(-angle)},{+sin(-angle),+

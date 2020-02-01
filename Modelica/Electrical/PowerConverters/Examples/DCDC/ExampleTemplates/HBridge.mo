@@ -1,7 +1,7 @@
 within Modelica.Electrical.PowerConverters.Examples.DCDC.ExampleTemplates;
 partial model HBridge "H bridge DC/DC converter"
   extends Icons.ExampleTemplate;
-  parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
+  parameter SI.Frequency f=1000 "Switching frequency";
   PowerConverters.DCDC.HBridge hbridge(useHeatPort=false)
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
   Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=

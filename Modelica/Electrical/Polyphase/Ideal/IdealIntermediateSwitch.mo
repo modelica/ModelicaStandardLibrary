@@ -1,9 +1,9 @@
 within Modelica.Electrical.Polyphase.Ideal;
 model IdealIntermediateSwitch "Polyphase ideal intermediate switch"
   parameter Integer m(final min=1) = 3 "Number of phases";
-  parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
+  parameter SI.Resistance Ron[m](final min=zeros(m), start=
         fill(1e-5, m)) "Closed switch resistance";
-  parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
+  parameter SI.Conductance Goff[m](final min=zeros(m), start=
         fill(1e-5, m)) "Opened switch conductance";
   extends Polyphase.Interfaces.ConditionalHeatPort(final mh=m, final T=fill(
         293.15, m));

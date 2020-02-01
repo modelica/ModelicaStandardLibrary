@@ -2,12 +2,12 @@ within Modelica.Electrical.Machines.Thermal;
 function convertAlpha
   "Converts alpha from temperature 1 (default 20 degC) to temperature 2"
   extends Modelica.Icons.Function;
-  input Modelica.SIunits.LinearTemperatureCoefficient alpha1
+  input SI.LinearTemperatureCoefficient alpha1
     "Temperature coefficient at temperature 1 (default: 20 degC)";
-  input Modelica.SIunits.Temperature T2 "Temperature 2";
-  input Modelica.SIunits.Temperature T1=293.15
+  input SI.Temperature T2 "Temperature 2";
+  input SI.Temperature T1=293.15
     "Temperature 1 (default: 20 degC)";
-  output Modelica.SIunits.LinearTemperatureCoefficient alpha2
+  output SI.LinearTemperatureCoefficient alpha2
     "Temperature coefficient at TRef";
 algorithm
   alpha2 := alpha1/(1 + alpha1*(T2 - T1));

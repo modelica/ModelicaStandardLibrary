@@ -5,20 +5,20 @@ model SMEE_Rectifier
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   constant Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.AngularVelocity wNominal=2*pi*smeeData.fsNominal
+  parameter SI.AngularVelocity wNominal=2*pi*smeeData.fsNominal
       /smee.p "Nominal speed";
-  parameter Modelica.SIunits.Voltage VDC0=sqrt(2*3)*smeeData.VsNominal
+  parameter SI.Voltage VDC0=sqrt(2*3)*smeeData.VsNominal
     "No-load DC voltage";
-  parameter Modelica.SIunits.Resistance RLoad=VDC0^2/smeeData.SNominal
+  parameter SI.Resistance RLoad=VDC0^2/smeeData.SNominal
     "Load resistance";
-  parameter Modelica.SIunits.Voltage Ve0=smee.IeOpenCircuit*
+  parameter SI.Voltage Ve0=smee.IeOpenCircuit*
       Modelica.Electrical.Machines.Thermal.convertResistance(
             smee.Re,
             smee.TeRef,
             smee.alpha20e,
             smee.TeOperational) "No load excitation voltage";
   parameter Real k=2*Ve0/smeeData.VsNominal "Voltage controller: gain";
-  parameter Modelica.SIunits.Time Ti=smeeData.Td0Transient/2
+  parameter SI.Time Ti=smeeData.Td0Transient/2
     "Voltage controller: integral time constant";
   Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited
     smee(
@@ -178,7 +178,7 @@ model SMEE_Rectifier
         rotation=270,
         origin={-60,0})));
 protected
-  constant Modelica.SIunits.MagneticFlux unitMagneticFlux=1
+  constant SI.MagneticFlux unitMagneticFlux=1
     annotation (HideResult=true);
 initial equation
   smee.is[1:2] = zeros(2);

@@ -1,11 +1,11 @@
 within Modelica.Electrical.Polyphase.Basic;
 model Resistor "Ideal linear electrical resistors"
   extends Interfaces.TwoPlug;
-  parameter Modelica.SIunits.Resistance R[m](start=fill(1, m))
+  parameter SI.Resistance R[m](start=fill(1, m))
     "Resistances R_ref at temperatures T_ref";
-  parameter Modelica.SIunits.Temperature T_ref[m]=fill(300.15, m)
+  parameter SI.Temperature T_ref[m]=fill(300.15, m)
     "Reference temperatures";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha[m]=zeros(m)
+  parameter SI.LinearTemperatureCoefficient alpha[m]=zeros(m)
     "Temperature coefficients of resistances at reference temperatures";
   extends Polyphase.Interfaces.ConditionalHeatPort(final mh=m, T=T_ref);
   Modelica.Electrical.Analog.Basic.Resistor resistor[m](

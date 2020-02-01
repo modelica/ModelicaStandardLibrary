@@ -13,7 +13,7 @@ model HollowCylinderAxialFlux
     annotation (Dialog(group="Fixed geometry"));
   parameter SI.Radius r_o=0.01 "Outer radius of (hollow) cylinder"
     annotation (Dialog(group="Fixed geometry"));
-  parameter Modelica.SIunits.Angle alpha=2*Modelica.Constants.pi
+  parameter SI.Angle alpha=2*Modelica.Constants.pi
   "Central angle";
 equation
   A = pi*(r_o^2 - r_i^2)*alpha/(2*Modelica.Constants.pi);

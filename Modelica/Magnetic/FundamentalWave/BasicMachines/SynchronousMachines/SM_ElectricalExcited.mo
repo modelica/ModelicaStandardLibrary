@@ -28,41 +28,41 @@ model SM_ElectricalExcited
       final lossPowerBrush=brush.lossPower,
       final lossPowerRotorCore=0));
   // Main field parameters
-  parameter Modelica.SIunits.Inductance Lmd(start=1.5/(2*pi*fsNominal))
+  parameter SI.Inductance Lmd(start=1.5/(2*pi*fsNominal))
     "Stator main field inductance, d-axis" annotation (Dialog(tab=
           "Nominal resistances and inductances", groupImage=
           "modelica://Modelica/Resources/Images/Electrical/Machines/SMEE.png"));
-  parameter Modelica.SIunits.Inductance Lmq(start=1.5/(2*pi*fsNominal))
+  parameter SI.Inductance Lmq(start=1.5/(2*pi*fsNominal))
     "Stator main field inductance, q-axis"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   // Rotor cage parameters
   parameter Boolean useDamperCage(start=true)
     "Enable/disable damper cage" annotation (Dialog(tab=
           "Nominal resistances and inductances", group="Damper cage"));
-  parameter Modelica.SIunits.Inductance Lrsigmad(start=0.05/(2*pi*
+  parameter SI.Inductance Lrsigmad(start=0.05/(2*pi*
         fsNominal))
     "Rotor leakage inductance, d-axis, w.r.t. stator side" annotation (
       Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",
       enable=useDamperCage));
-  parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
+  parameter SI.Inductance Lrsigmaq=Lrsigmad
     "Rotor leakage inductance, q-axis, w.r.t. stator side" annotation (
       Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",
       enable=useDamperCage));
-  parameter Modelica.SIunits.Resistance Rrd(start=0.04)
+  parameter SI.Resistance Rrd(start=0.04)
     "Rotor resistance, d-axis, w.r.t. stator side" annotation (Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",
       enable=useDamperCage));
-  parameter Modelica.SIunits.Resistance Rrq=Rrd
+  parameter SI.Resistance Rrq=Rrd
     "Rotor resistance , q-axis, w.r.t. stator side" annotation (Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",
       enable=useDamperCage));
-  parameter Modelica.SIunits.Temperature TrRef(start=293.15)
+  parameter SI.Temperature TrRef(start=293.15)
     "Reference temperature of damper resistances in d- and q-axis"
     annotation (Dialog(
       tab="Nominal resistances and inductances",
@@ -77,22 +77,22 @@ model SM_ElectricalExcited
       group="Damper cage",
       enable=useDamperCage));
   // Operational temperature
-  parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
+  parameter SI.Temperature TrOperational(start=293.15)
     "Operational temperature of (optional) damper cage" annotation (
       Dialog(group="Operational temperatures", enable=not useThermalPort
            and useDamperCage));
-  parameter Modelica.SIunits.Temperature TeOperational(start=293.15)
+  parameter SI.Temperature TeOperational(start=293.15)
     "Operational excitation temperature" annotation (Dialog(group=
           "Operational temperatures", enable=not useThermalPort));
   // Excitation parameters
-  parameter Modelica.SIunits.Voltage VsNominal(start=100)
+  parameter SI.Voltage VsNominal(start=100)
     "Nominal stator voltage" annotation (Dialog(tab="Excitation"));
-  parameter Modelica.SIunits.Current IeOpenCircuit(start=10)
+  parameter SI.Current IeOpenCircuit(start=10)
     "Open circuit excitation current @ nominal voltage and frequency"
     annotation (Dialog(tab="Excitation"));
-  parameter Modelica.SIunits.Resistance Re(start=2.5)
+  parameter SI.Resistance Re(start=2.5)
     "Warm excitation resistance" annotation (Dialog(tab="Excitation"));
-  parameter Modelica.SIunits.Temperature TeRef(start=293.15)
+  parameter SI.Temperature TeRef(start=293.15)
     "Reference temperature of excitation resistance"
     annotation (Dialog(tab="Excitation"));
   parameter
@@ -107,9 +107,9 @@ model SM_ElectricalExcited
   parameter Modelica.Electrical.Machines.Losses.BrushParameters
     brushParameters "Brush loss parameter record"
     annotation (Dialog(tab="Losses"));
-  output Modelica.SIunits.Voltage ve=pin_ep.v - pin_en.v
+  output SI.Voltage ve=pin_ep.v - pin_en.v
     "Excitation voltage";
-  output Modelica.SIunits.Current ie=pin_ep.i "Excitation current";
+  output SI.Current ie=pin_ep.i "Excitation current";
   // Rotor cage components
   Modelica.Blocks.Interfaces.RealOutput ir[2](
     start=zeros(2),
@@ -166,7 +166,7 @@ model SM_ElectricalExcited
 protected
   final parameter Real turnsRatio=sqrt(2)*VsNominal/(2*pi*fsNominal*Lmd*
       IeOpenCircuit) "Stator current / excitation current";
-  final parameter Modelica.SIunits.Inductance Lesigma=Lmd*turnsRatio^2*3/
+  final parameter SI.Inductance Lesigma=Lmd*turnsRatio^2*3/
       2*sigmae/(1 - sigmae)
     "Leakage inductance of the excitation winding";
   Modelica.Blocks.Interfaces.RealOutput damperCageLossPower(final

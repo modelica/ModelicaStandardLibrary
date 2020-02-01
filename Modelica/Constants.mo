@@ -2,10 +2,9 @@ within Modelica;
 package Constants
   "Library of mathematical constants and constants of nature (e.g., pi, eps, R, sigma)"
 
-  import SI = Modelica.SIunits;
-  import NonSI = Modelica.SIunits.Conversions.NonSIunits;
-
   extends Modelica.Icons.Package;
+  import Modelica.Units.SI;
+  import Modelica.Units.NonSI;
 
   // Mathematical constants
   final constant Real e=Modelica.Math.exp(1.0);

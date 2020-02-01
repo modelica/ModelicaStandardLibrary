@@ -1,7 +1,7 @@
 within Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.FixedShapes;
 model CuboidSections "Magnetic circuit using different cuboid sections"
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.RelativePermeability mu_rConst = 100
+  parameter SI.RelativePermeability mu_rConst = 100
   "Relative permeability";
 Basic.Ground ground
   annotation (Placement(transformation(extent={{-70,-30},{-50,-10}})));

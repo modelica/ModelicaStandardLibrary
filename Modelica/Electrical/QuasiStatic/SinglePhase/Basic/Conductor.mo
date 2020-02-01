@@ -3,11 +3,11 @@ model Conductor "Single-phase linear conductor"
   extends Interfaces.OnePort;
   import Modelica.ComplexMath.real;
   import Modelica.ComplexMath.conj;
-  parameter Modelica.SIunits.Conductance G_ref(start=1) "Reference conductance at T_ref";
-  parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
+  parameter SI.Conductance G_ref(start=1) "Reference conductance at T_ref";
+  parameter SI.Temperature T_ref=293.15 "Reference temperature";
+  parameter SI.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
-  Modelica.SIunits.Conductance G_actual "Conductance = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
+  SI.Conductance G_actual "Conductance = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
 equation
   assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
     "Temperature outside scope of model!");

@@ -1,8 +1,8 @@
 within Modelica.Thermal.HeatTransfer.Components;
 model Convection
   "Lumped thermal element for heat convection (Q_flow = Gc*dT)"
-  Modelica.SIunits.HeatFlowRate Q_flow "Heat flow rate from solid -> fluid";
-  Modelica.SIunits.TemperatureDifference dT "= solid.T - fluid.T";
+  SI.HeatFlowRate Q_flow "Heat flow rate from solid -> fluid";
+  SI.TemperatureDifference dT "= solid.T - fluid.T";
   Modelica.Blocks.Interfaces.RealInput Gc(unit="W/K")
     "Signal representing the convective thermal conductance in [W/K]"
     annotation (Placement(transformation(

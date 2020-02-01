@@ -567,7 +567,7 @@ Modelica code in the HTML documentation.
 <ol>
 <li> For constants, parameters and variables in code segments <code>&lt;code&gt;</code>
      and <code>&lt;/code&gt;</code> should to be used, e.g.,<br>
-     <code><strong>parameter</strong> Modelica.SIunits.Time tStart &quot;Start time&quot;</code></li>
+     <code><strong>parameter</strong> Modelica.Units.SI.Time tStart &quot;Start time&quot;</code></li>
 <li> Write multi or single line code segments as quoted preformatted text, i.e., embedded within
      <code>&lt;blockquote&gt;&lt;pre&gt;</code> and <code>&lt;/pre&gt;&lt;/blockquote&gt;</code> tags.</li>
 <li> Multi line or single line code shall not be additionally indented.</li>
@@ -601,14 +601,14 @@ Modelica code in the HTML documentation.
 
 <blockquote><pre>
 &lt;blockquote&gt;&lt;pre&gt;
-&lt;strong&gt;parameter&lt;/strong&gt; Modelica.SIunits.Conductance G=1 &quot;Conductance&quot;;
+&lt;strong&gt;parameter&lt;/strong&gt; Modelica.Units.SI.Conductance G=1 &quot;Conductance&quot;;
 &lt;/pre&gt;&lt;/blockquote&gt;
 </pre></blockquote>
 
 <p>appears as</p>
 
 <blockquote><pre>
-<strong>parameter</strong> Modelica.SIunits.Conductance G=1 &quot;Conductance&quot;;
+<strong>parameter</strong> Modelica.Units.SI.Conductance G=1 &quot;Conductance&quot;;
 </pre></blockquote>
 </html>"));
         end Code;
@@ -1423,9 +1423,9 @@ Example:
 
 <blockquote><pre>
 <strong>model</strong> SpringDamper
-<strong>parameter</strong> Real c(final unit=\"N.m/rad\")    = 1e5 \"Spring constant\";
-<strong>parameter</strong> Real d(final unit=\"N.m.s/rad\")  = 0   \"Damping constant\";
-<strong>parameter</strong> Modelica.SIunits.Angle phi_rel0 = 0   \"Unstretched spring angle\";
+<strong>parameter</strong> Real c(final unit=\"N.m/rad\") = 1e5    \"Spring constant\";
+<strong>parameter</strong> Real d(final unit=\"N.m.s/rad\") = 0    \"Damping constant\";
+<strong>parameter</strong> Modelica.Units.SI.Angle phi_rel0 = 0  \"Unstretched spring angle\";
 ...
 <strong>end</strong> SpringDamper;
 </pre></blockquote>
@@ -1474,9 +1474,9 @@ following example:
 
 <blockquote><pre>
 <strong>model</strong> SpringDamper
-<strong>parameter</strong> Real c(final unit=\"N.m/rad\"  , start=1e5) \"Spring constant\";
-<strong>parameter</strong> Real d(final unit=\"N.m.s/rad\", start=  0) \"Damping constant\";
-<strong>parameter</strong> Modelica.SIunits.Angle phi_rel0 = 0       \"Unstretched spring angle\";
+<strong>parameter</strong> Real c(final unit=\"N.m/rad\"  , start = 1e5) \"Spring constant\";
+<strong>parameter</strong> Real d(final unit=\"N.m.s/rad\", start = 0)   \"Damping constant\";
+<strong>parameter</strong> Modelica.Units.SI.Angle phi_rel0 = 0        \"Unstretched spring angle\";
 ...
 <strong>end</strong> SpringDamper;
 
@@ -2007,7 +2007,7 @@ In the Modelica Standard Library the following color schemes apply:</p>
     <td></td>
   </tr>
   <tr>
-    <td>Modelica.SIunits</td>
+    <td>Modelica.Units</td>
     <td>none</td>
     <td></td>
   </tr>
@@ -2126,7 +2126,7 @@ design of sensors apply:
 
 <ul>
 <li>The sensor outputs shall be indicated by its SI unit, not its quantity; the proper SI unit shall be compliant with the unit definitions of
-    <a href=\"modelica://Modelica.SIunits\">SIunits</a>,
+    <a href=\"modelica://Modelica.Units.SI\">Modelica.Units.SI</a>,
     e.g. heat flow is indicated by <strong>W</strong>, torque is indicated by <strong>N.m</strong></li>
 <li>The text color of the SI units is {64,64,64} in RGB code</li>
 <li>For a sensor with a single output signal the SI unit shall be placed withing the sensor,
@@ -8613,10 +8613,6 @@ User's Guides that can be accessed by the following links:
    <td>Library to model 1-dimensional, rotational mechanical systems</td>
 </tr>
 
-<tr><td><a href=\"modelica://Modelica.SIunits.UsersGuide\">SIunits</a> </td>
-   <td>Library of type definitions based on SI units according to ISO 31-1992</td>
-</tr>
-
 <tr>
   <td><a href=\"modelica://Modelica.Electrical.Spice3.UsersGuide\">Spice3</a></td>
   <td>Library for components of the Berkeley SPICE3 simulator</td>
@@ -8630,6 +8626,10 @@ User's Guides that can be accessed by the following links:
 <tr><td><a href=\"modelica://Modelica.Mechanics.Translational.UsersGuide\">Translational</a>
     </td>
    <td>Library to model 1-dimensional, translational mechanical systems</td>
+</tr>
+
+<tr><td><a href=\"modelica://Modelica.Units.UsersGuide\">Units</a> </td>
+   <td>Library of type definitions</td>
 </tr>
 
 <tr><td><a href=\"modelica://Modelica.Utilities.UsersGuide\">Utilities</a>

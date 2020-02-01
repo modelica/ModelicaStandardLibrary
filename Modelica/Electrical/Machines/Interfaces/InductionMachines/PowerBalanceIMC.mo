@@ -6,7 +6,7 @@ record PowerBalanceIMC
       final lossPowerTotal=lossPowerStatorWinding + lossPowerStatorCore +
         lossPowerRotorCore + lossPowerStrayLoad + lossPowerFriction +
         lossPowerRotorWinding);
-  Modelica.SIunits.Power lossPowerRotorWinding "Rotor copper losses";
+  SI.Power lossPowerRotorWinding "Rotor copper losses";
   annotation (defaultComponentPrefixes="output", Documentation(info="<html>
 Power balance of induction machines with squirrel cage.
  </html>"));

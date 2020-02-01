@@ -2,9 +2,9 @@ within Modelica.Electrical.Polyphase.Basic;
 model VariableConductor
   "Ideal linear electrical conductors with variable conductance"
   extends Interfaces.TwoPlug;
-  parameter Modelica.SIunits.Temperature T_ref[m]=fill(300.15, m)
+  parameter SI.Temperature T_ref[m]=fill(300.15, m)
     "Reference temperatures";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha[m]=zeros(m)
+  parameter SI.LinearTemperatureCoefficient alpha[m]=zeros(m)
     "Temperature coefficients of conductances at reference temperatures";
   extends Polyphase.Interfaces.ConditionalHeatPort(final mh=m, T=T_ref);
   Modelica.Blocks.Interfaces.RealInput G[m](each unit="S") annotation (

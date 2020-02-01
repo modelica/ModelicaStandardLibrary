@@ -7,9 +7,9 @@ model PotentialSensor "Potential sensor"
         transformation(extent={{-80,-10},{-60,10}})));
   Modelica.ComplexBlocks.Interfaces.ComplexOutput v[m] "Potential as complex output signal"
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-  Modelica.SIunits.Voltage abs_v[m]=Modelica.ComplexMath.abs(v)
+  SI.Voltage abs_v[m]=Modelica.ComplexMath.abs(v)
     "Magnitude of complex potential";
-  Modelica.SIunits.Angle arg_v[m]=Modelica.ComplexMath.arg(v)
+  SI.Angle arg_v[m]=Modelica.ComplexMath.arg(v)
     "Argument of complex potential";
 
 equation

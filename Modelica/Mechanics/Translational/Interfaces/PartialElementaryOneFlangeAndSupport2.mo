@@ -7,7 +7,7 @@ partial model PartialElementaryOneFlangeAndSupport2
     Evaluate=true,
     HideResult=true,
     choices(checkBox=true));
-  Modelica.SIunits.Length s
+  SI.Length s
     "Distance between flange and support (= flange.s - support.s)";
   Flange_b flange "Flange of component" annotation (Placement(
         transformation(extent={{90,-10},{110,10}})));
@@ -15,7 +15,7 @@ partial model PartialElementaryOneFlangeAndSupport2
     "Support/housing of component"
     annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
 protected
-  Modelica.SIunits.Length s_support "Absolute position of support flange";
+  SI.Length s_support "Absolute position of support flange";
 equation
   s = flange.s - s_support;
   if not useSupport then

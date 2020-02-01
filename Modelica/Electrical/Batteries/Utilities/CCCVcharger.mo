@@ -2,10 +2,10 @@ within Modelica.Electrical.Batteries.Utilities;
 model CCCVcharger
   "Charger with constant current - constant voltage characteristic"
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  parameter Modelica.SIunits.Current I "Constant charge current";
-  parameter Modelica.SIunits.Time startTime=0 "Start time of charging";
-  parameter Modelica.SIunits.Time rampTime=60 "Ramp up charging current";
-  parameter Modelica.SIunits.Voltage Vend "End of charge voltage";
+  parameter SI.Current I "Constant charge current";
+  parameter SI.Time startTime=0 "Start time of charging";
+  parameter SI.Time rampTime=60 "Ramp up charging current";
+  parameter SI.Voltage Vend "End of charge voltage";
   Boolean CV(start=false, fixed=true) "Indicates CV charging";
 equation
   CV=v>=Vend;

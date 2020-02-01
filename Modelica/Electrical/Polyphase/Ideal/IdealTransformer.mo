@@ -4,7 +4,7 @@ model IdealTransformer "Polyphase ideal transformer"
   parameter Real n[m](start=fill(1, m)) "Turns ratio primary:secondary voltage";
   parameter Boolean considerMagnetization=false
     "Choice of considering magnetization";
-  parameter Modelica.SIunits.Inductance Lm1[m](start=fill(1, m))
+  parameter SI.Inductance Lm1[m](start=fill(1, m))
     "Magnetization inductances w.r.t. primary side";
   Modelica.Electrical.Analog.Ideal.IdealTransformer idealTransformer[m](
     final n=n,

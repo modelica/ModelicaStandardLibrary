@@ -2,16 +2,16 @@ within Modelica.Mechanics.Rotational.Interfaces;
 partial model PartialCompliantWithRelativeStates
   "Partial model for the compliant connection of two rotational 1-dim. shaft flanges where the relative angle and speed are used as preferred states"
 
-  Modelica.SIunits.Angle phi_rel(
+  SI.Angle phi_rel(
     start=0,
     stateSelect=stateSelect,
     nominal=if phi_nominal >= Modelica.Constants.eps then phi_nominal else
         1) "Relative rotation angle (= flange_b.phi - flange_a.phi)";
-  Modelica.SIunits.AngularVelocity w_rel(start=0, stateSelect=stateSelect)
+  SI.AngularVelocity w_rel(start=0, stateSelect=stateSelect)
     "Relative angular velocity (= der(phi_rel))";
-  Modelica.SIunits.AngularAcceleration a_rel(start=0)
+  SI.AngularAcceleration a_rel(start=0)
     "Relative angular acceleration (= der(w_rel))";
-  Modelica.SIunits.Torque tau "Torque between flanges (= flange_b.tau)";
+  SI.Torque tau "Torque between flanges (= flange_b.tau)";
   Flange_a flange_a "Left flange of compliant 1-dim. rotational component"
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
   Flange_b flange_b "Right flange of compliant 1-dim. rotational component"

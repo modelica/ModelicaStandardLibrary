@@ -2,8 +2,8 @@ within Modelica.Electrical.Machines.BasicMachines.Components;
 model ElectricalExcitation "Electrical excitation"
   parameter Real turnsRatio(start=1)
     "Ratio stator current / excitation current";
-  Modelica.SIunits.Current ie "Excitation current";
-  Modelica.SIunits.Voltage ve "Excitation voltage";
+  SI.Current ie "Excitation current";
+  SI.Voltage ve "Excitation voltage";
   Machines.Interfaces.SpacePhasor spacePhasor_r
     annotation (Placement(transformation(extent={{-110,90},{-90,110}})));
   Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep annotation (

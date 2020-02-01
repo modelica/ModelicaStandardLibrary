@@ -1,11 +1,11 @@
 within Modelica.Electrical.Machines.BasicMachines.Components;
 model AirGapS "Airgap in stator-fixed coordinate system"
-  parameter Modelica.SIunits.Inductance Lm "Main field inductance";
+  parameter SI.Inductance Lm "Main field inductance";
   extends PartialAirGap;
-  Modelica.SIunits.Current i_ms[2]
+  SI.Current i_ms[2]
     "Magnetizing current space phasor with respect to the stator fixed frame";
 protected
-  parameter Modelica.SIunits.Inductance L[2, 2]={{Lm,0},{0,Lm}}
+  parameter SI.Inductance L[2, 2]={{Lm,0},{0,Lm}}
     "Inductance matrix";
 equation
   // Magnetizing current with respect to the stator reference frame

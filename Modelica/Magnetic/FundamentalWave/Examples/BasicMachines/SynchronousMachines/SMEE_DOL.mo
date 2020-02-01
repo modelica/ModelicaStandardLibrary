@@ -3,10 +3,10 @@ model SMEE_DOL
   "ElectricalExcitedSynchronousMachine starting direct on line"
   extends Modelica.Icons.Example;
   parameter Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Voltage VNominal=100 "Nominal RMS voltage per phase";
-  parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
-  parameter Modelica.SIunits.Voltage Ve=smeeData.Re*smeeData.IeOpenCircuit "Excitation current";
-  parameter Modelica.SIunits.Angle gamma0(displayUnit="deg") = 0 "Initial rotor displacement angle";
+  parameter SI.Voltage VNominal=100 "Nominal RMS voltage per phase";
+  parameter SI.Frequency fNominal=50 "Nominal frequency";
+  parameter SI.Voltage Ve=smeeData.Re*smeeData.IeOpenCircuit "Excitation current";
+  parameter SI.Angle gamma0(displayUnit="deg") = 0 "Initial rotor displacement angle";
   Modelica.Blocks.Interfaces.RealOutput irRMS(
     final quantity="ElectricCurrent",
     final unit="A") if smee.useDamperCage "Damper cage RMS current"

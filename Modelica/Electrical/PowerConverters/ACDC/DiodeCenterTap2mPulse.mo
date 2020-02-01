@@ -3,11 +3,11 @@ model DiodeCenterTap2mPulse "2*m pulse diode rectifier with center tap"
   extends Icons.Converter;
   import Modelica.Constants.pi;
   parameter Integer m(final min=3) = 3 "Number of phases";
-  parameter Modelica.SIunits.Resistance RonDiode(final min=0) = 1e-05
+  parameter SI.Resistance RonDiode(final min=0) = 1e-05
     "Closed diode resistance";
-  parameter Modelica.SIunits.Conductance GoffDiode(final min=0) = 1e-05
+  parameter SI.Conductance GoffDiode(final min=0) = 1e-05
     "Opened diode conductance";
-  parameter Modelica.SIunits.Voltage VkneeDiode(final min=0) = 0
+  parameter SI.Voltage VkneeDiode(final min=0) = 0
     "Diode forward threshold voltage";
   extends PowerConverters.Interfaces.ACDC.ACtwoPlug;
   extends PowerConverters.Interfaces.ACDC.DCpin;

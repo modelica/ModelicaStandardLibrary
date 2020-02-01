@@ -1,21 +1,21 @@
 within Modelica.Electrical.Machines.BasicMachines.Components;
 model DamperCage "Squirrel Cage"
-  parameter Modelica.SIunits.Inductance Lrsigmad
+  parameter SI.Inductance Lrsigmad
     "Stray inductance in d-axis per phase translated to stator";
-  parameter Modelica.SIunits.Inductance Lrsigmaq
+  parameter SI.Inductance Lrsigmaq
     "Stray inductance in q-axis per phase translated to stator";
-  parameter Modelica.SIunits.Resistance Rrd
+  parameter SI.Resistance Rrd
     "Resistance in d-axis per phase translated to stator at T_ref";
-  parameter Modelica.SIunits.Resistance Rrq
+  parameter SI.Resistance Rrq
     "Resistance in q-axis per phase translated to stator at T_ref";
-  parameter Modelica.SIunits.Temperature T_ref=293.15
+  parameter SI.Temperature T_ref=293.15
     "Reference temperature of both resistances in d- and q-axis";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
+  parameter SI.LinearTemperatureCoefficient alpha=0
     "Temperature coefficient of both resistances in d- and q-axis at T_ref";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
-  Modelica.SIunits.Resistance Rrd_actual
+  SI.Resistance Rrd_actual
     "Actual resistance = Rrd*(1 + alpha*(T_heatPort - T_ref))";
-  Modelica.SIunits.Resistance Rrq_actual
+  SI.Resistance Rrq_actual
     "Actual resistance = Rrq*(1 + alpha*(T_heatPort - T_ref))";
   Modelica.Blocks.Interfaces.RealOutput i[2](
     each final quantity="ElectricCurrent",

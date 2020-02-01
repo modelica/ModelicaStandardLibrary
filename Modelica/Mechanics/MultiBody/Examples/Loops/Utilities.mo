@@ -254,11 +254,11 @@ Used as submodel in <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.L
     extends Modelica.Mechanics.Translational.Interfaces.PartialCompliant;
     parameter SI.Length L "Length of cylinder";
     parameter SI.Length d "Diameter of cylinder";
-    parameter SIunits.Volume k0=0.01
+    parameter SI.Volume k0=0.01
       "Volume V = k0 + k1*(1-x), with x = 1 - s_rel/L";
-    parameter SIunits.Volume k1=1
+    parameter SI.Volume k1=1
       "Volume V = k0 + k1*(1-x), with x = 1 - s_rel/L";
-    parameter SIunits.HeatCapacity k=1 "Gas constant (p*V = k*T)";
+    parameter SI.HeatCapacity k=1 "Gas constant (p*V = k*T)";
 
   /*
   parameter Real k0=0.01;
@@ -267,13 +267,13 @@ Used as submodel in <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.L
 */
     Real x "Normalized position of cylinder (= 1 - s_rel/L)";
     SI.Density dens;
-    Modelica.SIunits.AbsolutePressure press "Cylinder pressure";
+    SI.AbsolutePressure press "Cylinder pressure";
     SI.Volume V;
     SI.Temperature T;
     SI.Velocity v_rel "Relative piston velocity (<0: compression;  >0: expansion)";
 
   protected
-    constant Modelica.SIunits.SpecificHeatCapacity R_air = Modelica.Constants.R/0.0289651159;
+    constant SI.SpecificHeatCapacity R_air = Modelica.Constants.R/0.0289651159;
   equation
     x = 1 - s_rel/L;
     v_rel = der(s_rel);
@@ -395,9 +395,9 @@ alt=\"model Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2\">
       "Offset of crank pin from center axis";
     parameter SI.Length crankPinLength=0.1
       "Offset of crank pin from center axis";
-    parameter Cv.NonSIunits.Angle_deg cylinderInclinationAngle=0
+    parameter Modelica.Units.NonSI.Angle_deg cylinderInclinationAngle=0
       "Inclination of cylinder";
-    parameter Cv.NonSIunits.Angle_deg crankAngleOffset=0
+    parameter Modelica.Units.NonSI.Angle_deg crankAngleOffset=0
       "Offset for crank angle";
     parameter SI.Length pistonLength=0.1 "Length of cylinder"
       annotation (Dialog(group="Piston"));

@@ -1,7 +1,7 @@
 within Modelica.Electrical.Analog.Examples.Utilities;
 model InverseCapacitor "Input/output block of an inverse capacitor model"
   extends Modelica.Blocks.Icons.Block;
-  parameter Modelica.SIunits.Capacitance C(min=0)=1 "Capacitance";
+  parameter SI.Capacitance C(min=0)=1 "Capacitance";
   Modelica.Electrical.Analog.Basic.Capacitor capacitor(C=C, v(fixed=
           true, start=0)) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},

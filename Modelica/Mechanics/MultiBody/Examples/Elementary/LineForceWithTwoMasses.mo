@@ -2,7 +2,7 @@ within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model LineForceWithTwoMasses
   "Demonstrate line force with two point masses using a JointUPS and alternatively a LineForceWithTwoMasses component"
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Mass m=1 "Mass of point masses";
+  parameter SI.Mass m=1 "Mass of point masses";
   SI.Force rod_f_diff[3]=rod1.frame_b.f - rod3.frame_b.f
     "Difference of cut-forces in rod1 and rod3";
   SI.Force body_f_diff[3]=bodyBox1.frame_b.f - bodyBox2.frame_b.f

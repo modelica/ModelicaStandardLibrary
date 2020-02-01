@@ -3,26 +3,26 @@ model MultiSensorTest
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   parameter Integer m = 3 "Number of phases";
-  parameter Modelica.SIunits.Voltage Vrms = 100 "RMS supply voltage";
-  parameter Modelica.SIunits.Frequency f = 50 "Frequency";
-  parameter Modelica.SIunits.Resistance R = 10 "Resistance";
-  parameter Modelica.SIunits.Reactance X = 10 "Reactance";
-  final parameter Modelica.SIunits.Inductance L = X/(2*pi*f) "Inducance";
+  parameter SI.Voltage Vrms = 100 "RMS supply voltage";
+  parameter SI.Frequency f = 50 "Frequency";
+  parameter SI.Resistance R = 10 "Resistance";
+  parameter SI.Reactance X = 10 "Reactance";
+  final parameter SI.Inductance L = X/(2*pi*f) "Inducance";
 
-  Modelica.SIunits.Current IA=rmsiA.y   "RMS current (Analog)";
-  Modelica.SIunits.Current IM[m]=rmsiM.y   "RMS current (Polyphase)";
-  Modelica.SIunits.Current IQS = Modelica.ComplexMath.abs(multiSensorQS.i) "RMS current (QuasiStatic SinglePhase)";
-  Modelica.SIunits.Current IQM[m] = Modelica.ComplexMath.abs(multiSensorQM.i) "RMS current (QuasiStatic Polyphase)";
+  SI.Current IA=rmsiA.y   "RMS current (Analog)";
+  SI.Current IM[m]=rmsiM.y   "RMS current (Polyphase)";
+  SI.Current IQS = Modelica.ComplexMath.abs(multiSensorQS.i) "RMS current (QuasiStatic SinglePhase)";
+  SI.Current IQM[m] = Modelica.ComplexMath.abs(multiSensorQM.i) "RMS current (QuasiStatic Polyphase)";
 
-  Modelica.SIunits.Voltage VA = rmsvA.y "RMS voltage (Analog)";
-  Modelica.SIunits.Voltage VM[m] = rmsvM.y "RMS voltage (Polyphase)";
-  Modelica.SIunits.Voltage VQS = Modelica.ComplexMath.abs(multiSensorQS.v) "RMS voltage (QuasiStatic SinglePhase)";
-  Modelica.SIunits.Voltage VQM[m] = Modelica.ComplexMath.abs(multiSensorQM.v) "RMS voltage (QuasiStatic Polyphase)";
+  SI.Voltage VA = rmsvA.y "RMS voltage (Analog)";
+  SI.Voltage VM[m] = rmsvM.y "RMS voltage (Polyphase)";
+  SI.Voltage VQS = Modelica.ComplexMath.abs(multiSensorQS.v) "RMS voltage (QuasiStatic SinglePhase)";
+  SI.Voltage VQM[m] = Modelica.ComplexMath.abs(multiSensorQM.v) "RMS voltage (QuasiStatic Polyphase)";
 
-  Modelica.SIunits.Power powerA = meanpowerA.y "Avareage power (Analog)";
-  Modelica.SIunits.Power powerM[m] = meanpowerM.y "Avareage power (Polyphase)";
-  Modelica.SIunits.Power powerQS = multiSensorQS.apparentPower.re "Active power (QuasiStatic SinglePhase)";
-  Modelica.SIunits.Power powerQM[m] = multiSensorQM.apparentPower.re "Active power (QuasiStatic Polyphase)";
+  SI.Power powerA = meanpowerA.y "Avareage power (Analog)";
+  SI.Power powerM[m] = meanpowerM.y "Avareage power (Polyphase)";
+  SI.Power powerQS = multiSensorQS.apparentPower.re "Active power (QuasiStatic SinglePhase)";
+  SI.Power powerQM[m] = multiSensorQM.apparentPower.re "Active power (QuasiStatic Polyphase)";
 
   Modelica.Electrical.Analog.Basic.Resistor resistorA(R=R) annotation (Placement(transformation(extent={{40,70},{60,90}})));
   Modelica.Electrical.Analog.Basic.Inductor inductorA(L=L, i(fixed=true,

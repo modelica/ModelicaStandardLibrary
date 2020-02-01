@@ -38,46 +38,46 @@ model SM_PermanentMagnet "Permanent magnet synchronous machine"
     final Lmq=Lmq,
     final m=m) annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=270)));
-  final parameter Modelica.SIunits.Temperature TpmOperational=293.15
+  final parameter SI.Temperature TpmOperational=293.15
     "Operational temperature of permanent magnet"
     annotation (Dialog(group="Operational temperatures"));
-  parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
+  parameter SI.Temperature TrOperational(start=293.15)
     "Operational temperature of (optional) damper cage" annotation (
       Dialog(group="Operational temperatures", enable=not useThermalPort
            and useDamperCage));
-  parameter Modelica.SIunits.Voltage VsOpenCircuit(start=112.3)
+  parameter SI.Voltage VsOpenCircuit(start=112.3)
     "Open circuit RMS voltage per phase @ fsNominal";
-  parameter Modelica.SIunits.Inductance Lmd(start=0.3/(2*pi*fsNominal))
+  parameter SI.Inductance Lmd(start=0.3/(2*pi*fsNominal))
     "Stator main field inductance per phase in d-axis"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter Modelica.SIunits.Inductance Lmq(start=0.3/(2*pi*fsNominal))
+  parameter SI.Inductance Lmq(start=0.3/(2*pi*fsNominal))
     "Stator main field inductance per phase in q-axis"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter Boolean useDamperCage(start=true)
     "Enable / disable damper cage" annotation (Evaluate=true, Dialog(tab=
           "Nominal resistances and inductances", group="Damper cage"));
-  parameter Modelica.SIunits.Inductance Lrsigmad(start=0.05/(2*pi*
+  parameter SI.Inductance Lrsigmad(start=0.05/(2*pi*
         fsNominal)) "Damper stray inductance in d-axis" annotation (
       Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",
       enable=useDamperCage));
-  parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
+  parameter SI.Inductance Lrsigmaq=Lrsigmad
     "Damper stray inductance in q-axis" annotation (Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",
       enable=useDamperCage));
-  parameter Modelica.SIunits.Resistance Rrd(start=0.04)
+  parameter SI.Resistance Rrd(start=0.04)
     "Damper resistance in d-axis at TRef" annotation (Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",
       enable=useDamperCage));
-  parameter Modelica.SIunits.Resistance Rrq=Rrd
+  parameter SI.Resistance Rrq=Rrd
     "Damper resistance in q-axis at TRef" annotation (Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",
       enable=useDamperCage));
-  parameter Modelica.SIunits.Temperature TrRef(start=293.15)
+  parameter SI.Temperature TrRef(start=293.15)
     "Reference temperature of damper resistances in d- and q-axis"
     annotation (Dialog(
       tab="Nominal resistances and inductances",
@@ -114,7 +114,7 @@ model SM_PermanentMagnet "Permanent magnet synchronous machine"
         extent={{-10,-10},{10,10}},
         rotation=270)));
 protected
-  final parameter Modelica.SIunits.Current Ie=sqrt(2)*VsOpenCircuit/(Lmd*
+  final parameter SI.Current Ie=sqrt(2)*VsOpenCircuit/(Lmd*
       2*pi*fsNominal) "Equivalent excitation current";
   Modelica.Blocks.Interfaces.RealOutput damperCageLossPower(final
       quantity="Power", final unit="W") "Damper losses";

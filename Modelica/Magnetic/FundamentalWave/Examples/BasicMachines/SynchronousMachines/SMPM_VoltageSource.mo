@@ -4,12 +4,12 @@ model SMPM_VoltageSource
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   constant Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Current Idq[2]={-53.5, 84.6}
+  parameter SI.Current Idq[2]={-53.5, 84.6}
     "Desired d- and q-current";
-  parameter Modelica.SIunits.AngularVelocity wNominal=2*pi*smpmData.fsNominal/smpmData.p
+  parameter SI.AngularVelocity wNominal=2*pi*smpmData.fsNominal/smpmData.p
     "Nominal speed";
-  parameter Modelica.SIunits.Torque TLoad=181.4 "Nominal load torque";
-  parameter Modelica.SIunits.Inertia JLoad=0.29
+  parameter SI.Torque TLoad=181.4 "Nominal load torque";
+  parameter SI.Inertia JLoad=0.29
     "Load's moment of inertia";
   Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet
     smpm(
@@ -131,7 +131,7 @@ model SMPM_VoltageSource
         origin={-10,20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.SIunits.Angle theta=rotorDisplacementAngle.rotorDisplacementAngle "Rotor displacement angle, FundamentalWave machine";
+  SI.Angle theta=rotorDisplacementAngle.rotorDisplacementAngle "Rotor displacement angle, FundamentalWave machine";
 
 initial equation
   smpm.is[1:2] = zeros(2);

@@ -1,11 +1,11 @@
 within Modelica.Thermal.FluidHeatFlow.Examples;
 model TwoTanks "Two connected open tanks"
   extends Modelica.Icons.Example;
-  output Modelica.SIunits.VolumeFlowRate V_flow=pipe.V_flow "Volume flow rate tank 1 -> tank 2";
-  output Modelica.SIunits.Length level1=openTank1.level "Level in tank 1";
-  output Modelica.SIunits.Temperature T1(displayUnit="degC")=openTank1.TTank "Temperature in tank 1";
-  output Modelica.SIunits.Length level2=openTank2.level "Level in tank 2";
-  output Modelica.SIunits.Temperature T2(displayUnit="degC")=openTank2.TTank "Temperature in tank 2";
+  output SI.VolumeFlowRate V_flow=pipe.V_flow "Volume flow rate tank 1 -> tank 2";
+  output SI.Length level1=openTank1.level "Level in tank 1";
+  output SI.Temperature T1(displayUnit="degC")=openTank1.TTank "Temperature in tank 1";
+  output SI.Length level2=openTank2.level "Level in tank 2";
+  output SI.Temperature T2(displayUnit="degC")=openTank2.TTank "Temperature in tank 2";
   FluidHeatFlow.Components.OpenTank openTank1(
     ATank=1,
     hTank=1,

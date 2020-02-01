@@ -5,20 +5,20 @@ model PolyphaseElectroMagneticConverter
   import Modelica.Constants.pi;
 
   // Global plug and port variables
-  Modelica.SIunits.Voltage v[m]=plug_p.pin.v - plug_n.pin.v "Voltage";
-  Modelica.SIunits.Current i[m]=plug_p.pin.i "Current";
-  Modelica.SIunits.ComplexMagneticPotentialDifference V_m=port_p.V_m -
+  SI.Voltage v[m]=plug_p.pin.v - plug_n.pin.v "Voltage";
+  SI.Current i[m]=plug_p.pin.i "Current";
+  SI.ComplexMagneticPotentialDifference V_m=port_p.V_m -
       port_n.V_m "Magnetic potential difference";
-  Modelica.SIunits.MagneticPotentialDifference abs_V_m=
+  SI.MagneticPotentialDifference abs_V_m=
       Modelica.ComplexMath.abs(V_m)
     "Magnitude of complex magnetic potential difference";
-  Modelica.SIunits.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
+  SI.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
     "Argument of complex magnetic potential difference";
 
-  Modelica.SIunits.ComplexMagneticFlux Phi=port_p.Phi "Magnetic flux";
-  Modelica.SIunits.MagneticPotentialDifference abs_Phi=
+  SI.ComplexMagneticFlux Phi=port_p.Phi "Magnetic flux";
+  SI.MagneticPotentialDifference abs_Phi=
       Modelica.ComplexMath.abs(Phi) "Magnitude of complex magnetic flux";
-  Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
+  SI.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
     "Argument of complex magnetic flux";
 
   Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_p(final m=m)
@@ -39,7 +39,7 @@ model PolyphaseElectroMagneticConverter
     annotation (Placement(transformation(extent={{90,-110},{110,-90}})));
   parameter Integer m=3 "Number of phases";
   parameter Real effectiveTurns[m] "Effective number of turns";
-  parameter Modelica.SIunits.Angle orientation[m]
+  parameter SI.Angle orientation[m]
     "Orientation of the resulting fundamental wave field phasor";
   Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter singlePhaseElectroMagneticConverter[m](final
       effectiveTurns=effectiveTurns, final orientation=orientation)

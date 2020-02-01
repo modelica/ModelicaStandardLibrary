@@ -1,7 +1,7 @@
 within Modelica.Mechanics.Rotational.Examples.Utilities;
 model InverseInertia "Input/output block of an inverse inertia model"
   extends Modelica.Blocks.Icons.Block;
-  parameter Modelica.SIunits.Inertia J=1 "Inertia";
+  parameter SI.Inertia J=1 "Inertia";
   Modelica.Mechanics.Rotational.Components.Inertia inertia(
     J=J,
     phi(start=0),

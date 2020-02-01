@@ -17,16 +17,16 @@ model Gearbox "Realistic model of a gearbox (based on LossyGear)"
     annotation (HideResult=true, Dialog(tab="Advanced"));
   extends Modelica.Thermal.HeatTransfer.Interfaces.PartialConditionalHeatPort(
       final T=293.15);
-  Modelica.SIunits.Angle phi_rel(
+  SI.Angle phi_rel(
     start=0,
     stateSelect=stateSelect,
     nominal=1e-4) = flange_b.phi - lossyGear.flange_b.phi
     "Relative rotation angle over gear elasticity (= flange_b.phi - lossyGear.flange_b.phi)";
-  Modelica.SIunits.AngularVelocity w_rel(
+  SI.AngularVelocity w_rel(
     start=0,
     stateSelect=stateSelect) = der(phi_rel)
     "Relative angular velocity over gear elasticity (= der(phi_rel))";
-  Modelica.SIunits.AngularAcceleration a_rel(start=0) = der(w_rel)
+  SI.AngularAcceleration a_rel(start=0) = der(w_rel)
     "Relative angular acceleration over gear elasticity (= der(w_rel))";
 
   Rotational.Components.LossyGear lossyGear(

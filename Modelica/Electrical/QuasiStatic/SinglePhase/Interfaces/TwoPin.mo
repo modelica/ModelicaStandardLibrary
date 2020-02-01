@@ -3,20 +3,20 @@ partial model TwoPin "Two pins"
   import Modelica.Constants.eps;
   extends Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.TwoPinElementary;
 
-  Modelica.SIunits.ComplexVoltage v "Complex voltage";
-  Modelica.SIunits.Voltage abs_v=Modelica.ComplexMath.abs(v) "Magnitude of complex voltage";
-  Modelica.SIunits.Angle arg_v=Modelica.ComplexMath.arg(v) "Argument of complex voltage";
-  Modelica.SIunits.ComplexCurrent i "Complex current";
-  Modelica.SIunits.Current abs_i=Modelica.ComplexMath.abs(i) "Magnitude of complex current";
-  Modelica.SIunits.Angle arg_i=Modelica.ComplexMath.arg(i) "Argument of complex current";
-  Modelica.SIunits.ActivePower P=Modelica.ComplexMath.real(v*
+  SI.ComplexVoltage v "Complex voltage";
+  SI.Voltage abs_v=Modelica.ComplexMath.abs(v) "Magnitude of complex voltage";
+  SI.Angle arg_v=Modelica.ComplexMath.arg(v) "Argument of complex voltage";
+  SI.ComplexCurrent i "Complex current";
+  SI.Current abs_i=Modelica.ComplexMath.abs(i) "Magnitude of complex current";
+  SI.Angle arg_i=Modelica.ComplexMath.arg(i) "Argument of complex current";
+  SI.ActivePower P=Modelica.ComplexMath.real(v*
       Modelica.ComplexMath.conj(i)) "Active power";
-  Modelica.SIunits.ReactivePower Q=Modelica.ComplexMath.imag(v*
+  SI.ReactivePower Q=Modelica.ComplexMath.imag(v*
       Modelica.ComplexMath.conj(i)) "Reactive power";
-  Modelica.SIunits.ApparentPower S=Modelica.ComplexMath.abs(v*
+  SI.ApparentPower S=Modelica.ComplexMath.abs(v*
       Modelica.ComplexMath.conj(i)) "Magnitude of complex apparent power";
   Real pf=cos(Modelica.ComplexMath.arg(Complex(P, Q))) "Power factor";
-  Modelica.SIunits.AngularVelocity omega "Angular velocity of reference frame";
+  SI.AngularVelocity omega "Angular velocity of reference frame";
 
 equation
   v = pin_p.v - pin_n.v;

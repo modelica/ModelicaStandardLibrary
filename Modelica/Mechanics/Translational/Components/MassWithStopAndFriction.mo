@@ -6,14 +6,14 @@ model MassWithStopAndFriction
     "Absolute velocity of flange_a and flange_b";
   SI.Acceleration a(start=0)
     "Absolute acceleration of flange_a and flange_b";
-  parameter Modelica.SIunits.Mass m(start=1) "Mass";
+  parameter SI.Mass m(start=1) "Mass";
   parameter Real F_prop(
     final unit="N.s/m",
     final min=0,
     start=1) "Velocity dependent friction";
-  parameter Modelica.SIunits.Force F_Coulomb(start=5)
+  parameter SI.Force F_Coulomb(start=5)
     "Constant friction: Coulomb force";
-  parameter Modelica.SIunits.Force F_Stribeck(start=10) "Stribeck effect";
+  parameter SI.Force F_Stribeck(start=10) "Stribeck effect";
   parameter Real fexp(
     final unit="s/m",
     final min=0,
@@ -24,23 +24,23 @@ model MassWithStopAndFriction
   encapsulated partial model PartialFrictionWithStop
     "Base model of Coulomb friction elements with stop"
 
-    import SI = Modelica.SIunits;
+    import Modelica;
     import Modelica.Mechanics.Translational.Interfaces.PartialRigid;
-    parameter SI.Position smax(start=25)
+    parameter Modelica.Units.SI.Position smax(start=25)
       "Right stop for (right end of) sliding mass";
-    parameter SI.Position smin(start=-25)
+    parameter Modelica.Units.SI.Position smin(start=-25)
       "Left stop for (left end of) sliding mass";
-    parameter SI.Velocity v_small=1e-3
+    parameter Modelica.Units.SI.Velocity v_small=1e-3
       "Relative velocity near to zero (see model info text)"
       annotation (Dialog(tab="Advanced"));
     // Equations to define the following variables have to be defined in subclasses
-    SI.Velocity v_relfric "Relative velocity between frictional surfaces";
-    SI.Acceleration a_relfric
+    Modelica.Units.SI.Velocity v_relfric "Relative velocity between frictional surfaces";
+    Modelica.Units.SI.Acceleration a_relfric
       "Relative acceleration between frictional surfaces";
-    SI.Force f
+    Modelica.Units.SI.Force f
       "Friction force (positive, if directed in opposite direction of v_rel)";
-    SI.Force f0 "Friction force for v=0 and forward sliding";
-    SI.Force f0_max "Maximum friction force for v=0 and locked";
+    Modelica.Units.SI.Force f0 "Friction force for v=0 and forward sliding";
+    Modelica.Units.SI.Force f0_max "Maximum friction force for v=0 and locked";
     Boolean free "true, if frictional element is not active";
     // Equations to define the following variables are given in this class
     Real sa(unit="1")
@@ -64,8 +64,8 @@ model MassWithStopAndFriction
       fixed=true)
       "Mode of friction (-1: backward sliding, 0: stuck, 1: forward sliding, 2: inactive, 3: unknown)";
   protected
-    constant SI.Acceleration unitAcceleration=1 annotation (HideResult=true);
-    constant SI.Force unitForce=1 annotation (HideResult=true);
+    constant Modelica.Units.SI.Acceleration unitAcceleration=1 annotation (HideResult=true);
+    constant Modelica.Units.SI.Force unitForce=1 annotation (HideResult=true);
   equation
     /* Friction characteristic
    (locked is introduced to help the Modelica translator determining

@@ -5,13 +5,13 @@ model ThermalAmbientIMC
     Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines(
       redeclare final Machines.Interfaces.InductionMachines.ThermalPortIMC
       thermalPort);
-  parameter Modelica.SIunits.Temperature Tr(start=TDefault)
+  parameter SI.Temperature Tr(start=TDefault)
     "Temperature of rotor (squirrel cage)"
     annotation (Dialog(enable=not useTemperatureInputs));
-  output Modelica.SIunits.HeatFlowRate Q_flowRotorWinding=
+  output SI.HeatFlowRate Q_flowRotorWinding=
       temperatureRotorWinding.port.Q_flow
     "Heat flow rate of rotor (squirrel cage)";
-  output Modelica.SIunits.HeatFlowRate Q_flowTotal=Q_flowStatorWinding +
+  output SI.HeatFlowRate Q_flowTotal=Q_flowStatorWinding +
       Q_flowRotorWinding + Q_flowStatorCore + Q_flowRotorCore +
       Q_flowStrayLoad + Q_flowFriction;
   Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature

@@ -1,8 +1,8 @@
 within Modelica.Mechanics;
 package MultiBody "Library to model 3-dimensional mechanical systems"
   extends Modelica.Icons.Package;
-  import SI = Modelica.SIunits;
-  import Cv = Modelica.SIunits.Conversions;
+
+  import Cv = Modelica.Units.Conversions;
   import C = Modelica.Constants;
 
 package UsersGuide "User's Guide of MultiBody Library"
@@ -1001,11 +1001,11 @@ model World
     annotation (Dialog(
       tab="Animation", group="if animateGround = true and gravityType = UniformGravity",
       enable=enableAnimation and animateGround and gravityType == GravityTypes.UniformGravity));
-  parameter Modelica.SIunits.Length groundLength_u=2 "Length of ground plane along groundAxis_u"
+  parameter SI.Length groundLength_u=2 "Length of ground plane along groundAxis_u"
     annotation (Dialog(
       tab="Animation", group="if animateGround = true and gravityType = UniformGravity",
       enable=enableAnimation and animateGround and gravityType == GravityTypes.UniformGravity));
-  parameter Modelica.SIunits.Length groundLength_v=groundLength_u "Length of ground plane perpendicular to groundAxis_u"
+  parameter SI.Length groundLength_v=groundLength_u "Length of ground plane perpendicular to groundAxis_u"
     annotation (Dialog(
       tab="Animation", group="if animateGround = true and gravityType = UniformGravity",
       enable=enableAnimation and animateGround and gravityType == GravityTypes.UniformGravity));

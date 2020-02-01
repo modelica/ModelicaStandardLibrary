@@ -1,7 +1,7 @@
 within Modelica.Mechanics.Rotational.Examples;
 model First "First example: simple drive train"
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Torque amplitude=10
+  parameter SI.Torque amplitude=10
     "Amplitude of driving torque";
   parameter SI.Frequency f=5 "Frequency of driving torque";
   parameter SI.Inertia Jmotor(min=0) = 0.1 "Motor inertia";

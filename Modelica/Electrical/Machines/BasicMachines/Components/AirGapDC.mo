@@ -1,7 +1,7 @@
 within Modelica.Electrical.Machines.BasicMachines.Components;
 model AirGapDC "Linear airgap model of a DC machine"
   extends PartialAirGapDC;
-  parameter Modelica.SIunits.Inductance Le "Excitation inductance";
+  parameter SI.Inductance Le "Excitation inductance";
 equation
   // excitation flux: linearly dependent on excitation current
   psi_e = Le*ie;

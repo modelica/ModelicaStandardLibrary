@@ -2,27 +2,27 @@ within Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.Indu
 model IMC_withLosses "Induction machine with squirrel cage and losses"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  import Modelica.SIunits.Conversions.from_rpm;
-  import Modelica.SIunits.Conversions.to_rpm;
-  import Modelica.SIunits.Conversions.from_degC;
+  import Modelica.Units.Conversions.from_rpm;
+  import Modelica.Units.Conversions.to_rpm;
+  import Modelica.Units.Conversions.from_degC;
   constant Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Power PNominal=18500 "Nominal output";
-  parameter Modelica.SIunits.Voltage VNominal=400 "Nominal RMS voltage";
-  parameter Modelica.SIunits.Current INominal=32.85 "Nominal RMS current";
+  parameter SI.Power PNominal=18500 "Nominal output";
+  parameter SI.Voltage VNominal=400 "Nominal RMS voltage";
+  parameter SI.Current INominal=32.85 "Nominal RMS current";
   parameter Real pfNominal=0.898 "Nominal power factor";
-  parameter Modelica.SIunits.Power PsNominal=sqrt(3)*VNominal*INominal*pfNominal "Nominal stator power";
-  parameter Modelica.SIunits.Power lossNominal=PsNominal-PNominal "Nominal losses";
+  parameter SI.Power PsNominal=sqrt(3)*VNominal*INominal*pfNominal "Nominal stator power";
+  parameter SI.Power lossNominal=PsNominal-PNominal "Nominal losses";
   parameter Real etaNominal=0.9049 "Nominal efficiency";
-  parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
-  parameter Modelica.SIunits.AngularVelocity wNominal=from_rpm(1462.5)
+  parameter SI.Frequency fNominal=50 "Nominal frequency";
+  parameter SI.AngularVelocity wNominal=from_rpm(1462.5)
     "Nominal speed";
-  parameter Modelica.SIunits.Torque TNominal=PNominal/wNominal
+  parameter SI.Torque TNominal=PNominal/wNominal
     "Nominal torque";
-  parameter Modelica.SIunits.Temperature TempNominal=from_degC(90)
+  parameter SI.Temperature TempNominal=from_degC(90)
     "Nominal temperature";
-  Modelica.SIunits.Power PelQS=electricalPowerSensorQS.apparentPower.re;
-  Modelica.SIunits.ReactivePower QelQS=electricalPowerSensorQS.apparentPower.im;
-  Modelica.SIunits.ApparentPower SelQS=sqrt(PelQS^2 + QelQS^2);
+  SI.Power PelQS=electricalPowerSensorQS.apparentPower.re;
+  SI.ReactivePower QelQS=electricalPowerSensorQS.apparentPower.im;
+  SI.ApparentPower SelQS=sqrt(PelQS^2 + QelQS^2);
 protected
   parameter Real Ptable[:]={1E-6,1845,3549,5325,7521,9372,11010,12930,
       14950,16360,18500,18560,20180,22170} "Table of measured power data";
@@ -35,15 +35,15 @@ protected
   parameter Real etable[:]={0,0.7250,0.8268,0.8698,0.8929,0.9028,0.9064,
       0.9088,0.9089,0.9070,0.9044,0.9043,0.9008,0.8972} "Table of measured efficiency data";
 public
-  output Modelica.SIunits.Power PmechQS=powerSensorQS.power "Mechanical output";
-  output Modelica.SIunits.Power Ps_simQS=sqrt(3)*VNominal*I_simQS*pf_simQS "Simulated stator power";
-  output Modelica.SIunits.Power Ps_measQS=sqrt(3)*VNominal*I_measQS*pf_measQS "Simulated stator power";
-  output Modelica.SIunits.Power loss_simQS=Ps_simQS-PmechQS "Simulated total losses";
-  output Modelica.SIunits.Power loss_measQS=Ps_measQS-PmechQS "Measured total losses";
-  output Modelica.SIunits.Current I_simQS=currentQuasiRMSSensorQS.I "Simulated current";
-  output Modelica.SIunits.Current I_measQS=combiTable1DsQS.y[1] "Measured current";
-  output Modelica.SIunits.AngularVelocity w_simQS(displayUnit="rev/min") = imcQS.wMechanical "Simulated speed";
-  output Modelica.SIunits.AngularVelocity w_measQS(displayUnit="rev/min")=combiTable1DsQS.y[2] "Measured speed";
+  output SI.Power PmechQS=powerSensorQS.power "Mechanical output";
+  output SI.Power Ps_simQS=sqrt(3)*VNominal*I_simQS*pf_simQS "Simulated stator power";
+  output SI.Power Ps_measQS=sqrt(3)*VNominal*I_measQS*pf_measQS "Simulated stator power";
+  output SI.Power loss_simQS=Ps_simQS-PmechQS "Simulated total losses";
+  output SI.Power loss_measQS=Ps_measQS-PmechQS "Measured total losses";
+  output SI.Current I_simQS=currentQuasiRMSSensorQS.I "Simulated current";
+  output SI.Current I_measQS=combiTable1DsQS.y[1] "Measured current";
+  output SI.AngularVelocity w_simQS(displayUnit="rev/min") = imcQS.wMechanical "Simulated speed";
+  output SI.AngularVelocity w_measQS(displayUnit="rev/min")=combiTable1DsQS.y[2] "Measured speed";
   output Real pf_simQS=if noEvent(SelQS > Modelica.Constants.small) then PelQS/SelQS else 0 "Simulated power factor";
   output Real pf_measQS=combiTable1DsQS.y[3] "Measured power factor";
   output Real eff_simQS=if noEvent(abs(PelQS) > Modelica.Constants.small) then PmechQS/PelQS else 0 "Simulated efficiency";

@@ -1,7 +1,7 @@
 within Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces;
 partial model Source "Partial voltage / current source"
   extends OnePort;
-  Modelica.SIunits.Angle gamma(start=0) = pin_p.reference.gamma;
+  SI.Angle gamma(start=0) = pin_p.reference.gamma;
 equation
   Connections.root(pin_p.reference);
   annotation (Icon(graphics={

@@ -6,16 +6,16 @@ model IdealACDCConverter "Ideal AC DC converter"
   import Modelica.ComplexMath.conj;
   import Modelica.ComplexMath.abs;
   import Modelica.ComplexMath.arg;
-  Modelica.SIunits.ComplexVoltage vQS=pin_pQS.v - pin_nQS.v "AC QS voltage";
-  Modelica.SIunits.ComplexCurrent iQS=pin_pQS.i "AC QS current";
-  output Modelica.SIunits.Voltage vQSabs=abs(vQS) "Abs(AC QS voltage)";
-  output Modelica.SIunits.Current iQSabs=abs(iQS) "Abs(AC QS current)";
-  Modelica.SIunits.ComplexPower sQS=vQS*conj(iQS) "AC QS apparent power";
-  Modelica.SIunits.ActivePower pQS=real(sQS) "AC QS active power";
-  Modelica.SIunits.ReactivePower qQS=imag(sQS) "AC QS reactive power";
-  Modelica.SIunits.Voltage vDC=pin_pDC.v - pin_nDC.v "DC voltage";
-  Modelica.SIunits.Current iDC=pin_pDC.i "DC current";
-  Modelica.SIunits.Power pDC=vDC*iDC "DC power";
+  SI.ComplexVoltage vQS=pin_pQS.v - pin_nQS.v "AC QS voltage";
+  SI.ComplexCurrent iQS=pin_pQS.i "AC QS current";
+  output SI.Voltage vQSabs=abs(vQS) "Abs(AC QS voltage)";
+  output SI.Current iQSabs=abs(iQS) "Abs(AC QS current)";
+  SI.ComplexPower sQS=vQS*conj(iQS) "AC QS apparent power";
+  SI.ActivePower pQS=real(sQS) "AC QS active power";
+  SI.ReactivePower qQS=imag(sQS) "AC QS reactive power";
+  SI.Voltage vDC=pin_pDC.v - pin_nDC.v "DC voltage";
+  SI.Current iDC=pin_pDC.i "DC current";
+  SI.Power pDC=vDC*iDC "DC power";
   Interfaces.PositivePin pin_pQS annotation (Placement(transformation(
           extent={{-110,110},{-90,90}}), iconTransformation(extent={{-110,
             110},{-90,90}})));

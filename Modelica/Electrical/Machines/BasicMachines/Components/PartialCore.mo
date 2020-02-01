@@ -4,13 +4,13 @@ partial model PartialCore
   parameter Integer m(final min=1) = 3 "Number of phases";
   parameter Real n12(start=1) "Turns ratio 1:2";
   parameter Real n13(start=1) "Turns ratio 1:3";
-  Modelica.SIunits.Voltage v1[m]=plug_p1.pin.v - plug_n1.pin.v;
-  Modelica.SIunits.Current i1[m]=plug_p1.pin.i;
-  Modelica.SIunits.Voltage v2[m]=plug_p2.pin.v - plug_n2.pin.v;
-  Modelica.SIunits.Current i2[m]=plug_p2.pin.i;
-  Modelica.SIunits.Voltage v3[m]=plug_p3.pin.v - plug_n3.pin.v;
-  Modelica.SIunits.Current i3[m]=plug_p3.pin.i;
-  Modelica.SIunits.Current im[m]=i1 + i2/n12 + i3/n13
+  SI.Voltage v1[m]=plug_p1.pin.v - plug_n1.pin.v;
+  SI.Current i1[m]=plug_p1.pin.i;
+  SI.Voltage v2[m]=plug_p2.pin.v - plug_n2.pin.v;
+  SI.Current i2[m]=plug_p2.pin.i;
+  SI.Voltage v3[m]=plug_p3.pin.v - plug_n3.pin.v;
+  SI.Current i3[m]=plug_p3.pin.i;
+  SI.Current im[m]=i1 + i2/n12 + i3/n13
     "Magnetizing current";
   Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_p1(final m=
         m) annotation (Placement(transformation(extent={{-110,90},{-90,110}}), iconTransformation(extent={{-110,90},{-90,110}})));

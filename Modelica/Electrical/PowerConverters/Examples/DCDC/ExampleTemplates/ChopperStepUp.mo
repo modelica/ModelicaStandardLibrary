@@ -1,14 +1,14 @@
 within Modelica.Electrical.PowerConverters.Examples.DCDC.ExampleTemplates;
 partial model ChopperStepUp "Step up chopper including control"
   extends Icons.ExampleTemplate;
-  parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
-  parameter Modelica.SIunits.Voltage Vsource=60 "Source voltage";
-  parameter Modelica.SIunits.Inductance L=25e-3 "Source inductance";
-  parameter Modelica.SIunits.Capacitance C=20e-6 "Smoothing capacitance";
+  parameter SI.Frequency f=1000 "Switching frequency";
+  parameter SI.Voltage Vsource=60 "Source voltage";
+  parameter SI.Inductance L=25e-3 "Source inductance";
+  parameter SI.Capacitance C=20e-6 "Smoothing capacitance";
   parameter Real dutyCycle=0.20 "Duty cycle";
-  parameter Modelica.SIunits.Current ILoad=1.2 "Load current";
-  parameter Modelica.SIunits.Resistance RLoad=V0/ILoad "Load resistance";
-  parameter Modelica.SIunits.Voltage V0=Vsource/(1 - dutyCycle) "No-load output voltage";
+  parameter SI.Current ILoad=1.2 "Load current";
+  parameter SI.Resistance RLoad=V0/ILoad "Load resistance";
+  parameter SI.Voltage V0=Vsource/(1 - dutyCycle) "No-load output voltage";
   Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=Vsource)
              annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},

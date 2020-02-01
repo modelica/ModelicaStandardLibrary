@@ -3,10 +3,10 @@ model CurrentSource "Constant polyphase AC current"
   extends Interfaces.Source;
   import Modelica.ComplexMath.j;
   import Modelica.ComplexMath.exp;
-  parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
-  parameter Modelica.SIunits.Current I[m](start=fill(1, m))
+  parameter SI.Frequency f(start=1) "Frequency of the source";
+  parameter SI.Current I[m](start=fill(1, m))
     "RMS current of the source";
-  parameter Modelica.SIunits.Angle phi[m]=-
+  parameter SI.Angle phi[m]=-
       Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m)
     "Phase shift of the source";
 equation

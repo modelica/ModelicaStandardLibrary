@@ -3,11 +3,11 @@ model TestSaturatingInductor
   "Simple demo to show the behaviour of SaturatingInductor component"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Inductance Lzer=10 "Inductance near current=0";
-  parameter Modelica.SIunits.Inductance Lnom=1 "Nominal inductance at Nominal current";
-  parameter Modelica.SIunits.Current Inom=1 "Nominal current";
-  parameter Modelica.SIunits.Inductance Linf=0.1 "Inductance at large currents";
-  parameter Modelica.SIunits.Current I=sqrt(2) "Source current (peak)";
+  parameter SI.Inductance Lzer=10 "Inductance near current=0";
+  parameter SI.Inductance Lnom=1 "Nominal inductance at Nominal current";
+  parameter SI.Current Inom=1 "Nominal current";
+  parameter SI.Inductance Linf=0.1 "Inductance at large currents";
+  parameter SI.Current I=sqrt(2) "Source current (peak)";
   Modelica.Electrical.Analog.Sources.RampCurrent   rampCurrent(
     I=2*I,
     duration=1,

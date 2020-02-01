@@ -676,9 +676,9 @@ signal <strong>u</strong> exceeds the <strong>reference</strong> signal plus hal
     extends Modelica.Blocks.Icons.PartialBooleanBlock;
 
     parameter Real amplitude=1 "Amplitude of trapezoid";
-    parameter Modelica.SIunits.Time rising(final min=0) = 0
+    parameter SI.Time rising(final min=0) = 0
       "Rising duration of trapezoid";
-    parameter Modelica.SIunits.Time falling(final min=0) = rising
+    parameter SI.Time falling(final min=0) = rising
       "Falling duration of trapezoid";
     parameter Real offset=0 "Offset of output signal";
 
@@ -690,7 +690,7 @@ signal <strong>u</strong> exceeds the <strong>reference</strong> signal plus hal
   protected
     discrete Real endValue "Value of y at time of recent edge";
     discrete Real rate "Current rising/falling rate";
-    discrete Modelica.SIunits.Time T
+    discrete SI.Time T
       "Predicted time of output reaching endValue";
   equation
     y = if time < T then endValue - (T - time)*rate else endValue;
@@ -761,7 +761,7 @@ handled properly.</p>
       annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
   protected
-    discrete Modelica.SIunits.Time entryTime "Time instant when u became true";
+    discrete SI.Time entryTime "Time instant when u became true";
   initial equation
     pre(entryTime) = 0;
   equation
@@ -808,7 +808,7 @@ When the input becomes <strong>false</strong>, the timer stops and the output is
 
   block LogicalDelay "Delay boolean signal"
     extends Blocks.Icons.PartialBooleanBlock;
-    parameter SIunits.Time delayTime(final min=0)=0 "Time delay";
+    parameter SI.Time delayTime(final min=0)=0 "Time delay";
     Blocks.Interfaces.BooleanInput u
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     Blocks.Interfaces.BooleanOutput y1
@@ -816,7 +816,7 @@ When the input becomes <strong>false</strong>, the timer stops and the output is
     Blocks.Interfaces.BooleanOutput y2
     annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
   protected
-    discrete SIunits.Time tSwitch;
+    discrete SI.Time tSwitch;
   initial equation
     tSwitch = time - 2*delayTime;
   equation

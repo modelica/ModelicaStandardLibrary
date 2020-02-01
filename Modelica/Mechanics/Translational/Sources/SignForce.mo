@@ -2,13 +2,13 @@ within Modelica.Mechanics.Translational.Sources;
 model SignForce "Constant force changing sign with speed"
   extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Force f_nominal
+  parameter SI.Force f_nominal
     "Nominal force (if negative, force is acting as load)";
   parameter Modelica.Blocks.Types.Regularization reg=Modelica.Blocks.Types.Regularization.Exp
     "Type of regularization" annotation(Evaluate=true);
-  parameter Modelica.SIunits.Velocity v0(final min=Modelica.Constants.eps, start=0.1)
+  parameter SI.Velocity v0(final min=Modelica.Constants.eps, start=0.1)
     "Regularization below v0";
-  Modelica.SIunits.Velocity v
+  SI.Velocity v
     "Velocity of flange with respect to support (= der(s))";
 equation
   v = der(s);

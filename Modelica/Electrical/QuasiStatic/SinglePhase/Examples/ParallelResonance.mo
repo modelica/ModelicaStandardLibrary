@@ -1,8 +1,8 @@
 within Modelica.Electrical.QuasiStatic.SinglePhase.Examples;
 model ParallelResonance "Parallel resonance circuit"
   extends Modelica.Icons.Example;
-  output Modelica.SIunits.Voltage V_abs=complexToPolar.len "Voltage";
-  output Modelica.SIunits.Angle V_arg=complexToPolar.phi "Voltage phase";
+  output SI.Voltage V_abs=complexToPolar.len "Voltage";
+  output SI.Angle V_arg=complexToPolar.phi "Voltage phase";
   Modelica.Blocks.Sources.Constant I(k=1) annotation (Placement(
         transformation(
         origin={-80,-50},

@@ -5,25 +5,25 @@ model SMEE_LoadDump
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   constant Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.AngularVelocity wNominal=2*pi*smeeData.fsNominal
+  parameter SI.AngularVelocity wNominal=2*pi*smeeData.fsNominal
       /smee.p "Nominal speed";
-  parameter Modelica.SIunits.Impedance ZNominal=3*smeeData.VsNominal^2/
+  parameter SI.Impedance ZNominal=3*smeeData.VsNominal^2/
       smeeData.SNominal "Nominal load impedance";
   parameter Real powerFactor(
     min=0,
     max=1) = 0.8 "Load power factor";
-  parameter Modelica.SIunits.Resistance RLoad=ZNominal*powerFactor
+  parameter SI.Resistance RLoad=ZNominal*powerFactor
     "Load resistance";
-  parameter Modelica.SIunits.Inductance LLoad=ZNominal*sqrt(1 -
+  parameter SI.Inductance LLoad=ZNominal*sqrt(1 -
       powerFactor^2)/(2*pi*smeeData.fsNominal) "Load inductance";
-  parameter Modelica.SIunits.Voltage Ve0=smee.IeOpenCircuit*
+  parameter SI.Voltage Ve0=smee.IeOpenCircuit*
       Modelica.Electrical.Machines.Thermal.convertResistance(
             smee.Re,
             smee.TeRef,
             smee.alpha20e,
             smee.TeOperational) "No load excitation voltage";
   parameter Real k=2*Ve0/smeeData.VsNominal "Voltage controller: gain";
-  parameter Modelica.SIunits.Time Ti=smeeData.Td0Transient/2
+  parameter SI.Time Ti=smeeData.Td0Transient/2
     "Voltage controller: integral time constant";
   output Real controlError=(setPointGain.y - voltageQuasiRMSSensor.V)/
       smeeData.VsNominal;
@@ -157,7 +157,7 @@ model SMEE_LoadDump
         rotation=270,
         origin={-90,30})));
 protected
-  constant Modelica.SIunits.MagneticFlux unitMagneticFlux=1
+  constant SI.MagneticFlux unitMagneticFlux=1
     annotation (HideResult=true);
 public
   Modelica.Blocks.Routing.BooleanReplicator booleanReplicator(nout=m)

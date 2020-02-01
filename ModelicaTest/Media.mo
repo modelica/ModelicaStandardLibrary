@@ -4,7 +4,7 @@ package Media "Test models for Modelica.Media"
   package TestAllProperties
     extends Modelica.Icons.ExamplesPackage;
     model PartialMediumFunctions
-      import SI = Modelica.SIunits;
+
       replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
         "Medium model";
       parameter Real eps_h_is=1e-10;
@@ -142,7 +142,7 @@ package Media "Test models for Modelica.Media"
 
     model FlueGasSixComponents
       "A copy of PartialMediumFunctions, but isentropicEnthalpy gets the additional argument exact=true"
-      import SI = Modelica.SIunits;
+
       extends Modelica.Icons.Example;
       package Medium =
           Modelica.Media.IdealGases.MixtureGases.FlueGasSixComponents
@@ -281,7 +281,7 @@ package Media "Test models for Modelica.Media"
       extends Modelica.Icons.ExamplesPackage;
 
       model PartialMediumFunctionsForIncompressible
-        import SI = Modelica.SIunits;
+
 
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model";
@@ -392,7 +392,7 @@ package Media "Test models for Modelica.Media"
       end PartialMediumFunctionsForIncompressible;
 
       model PartialMediumFunctionsForTwoPhase
-        import SI = Modelica.SIunits;
+
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model";
         parameter Real eps_h_is=1e-10;
@@ -502,7 +502,7 @@ package Media "Test models for Modelica.Media"
       end PartialMediumFunctionsForTwoPhase;
 
       model PartialMediumFunctionsForRealCondensingGases
-        import SI = Modelica.SIunits;
+
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model";
         parameter Real eps_h_is=1e-10;
@@ -768,7 +768,7 @@ is given to compare the approximation.
     model IdealGasN2 "Test IdealGas.SingleMedia.N2 medium model"
       extends Modelica.Icons.Example;
 
-      parameter Modelica.SIunits.Volume V=1 "Size of fixed volume";
+      parameter SI.Volume V=1 "Size of fixed volume";
       parameter Medium.MassFlowRate m_flow_ext=0.01
         "Mass flow rate into volume";
       parameter Medium.EnthalpyFlowRate H_flow_ext=5000
@@ -783,7 +783,7 @@ is given to compare the approximation.
         T(start=300, fixed=true));
 
       Real m(quantity=Medium.mediumName, start=1.0);
-      Modelica.SIunits.InternalEnergy U;
+      SI.InternalEnergy U;
 
       Medium.SpecificHeatCapacity cp=Medium.specificHeatCapacityCp(medium.state);
       Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(medium.state);
@@ -836,7 +836,7 @@ is given to compare the approximation.
     model IdealGasN2Mix "Test mixture gas IdealGas.SingleMedia.N2 medium model"
       extends Modelica.Icons.Example;
 
-      parameter Modelica.SIunits.Volume V=1 "Size of volume";
+      parameter SI.Volume V=1 "Size of volume";
       parameter Medium.MassFlowRate m_flow_ext=0.01
         "Mass flow rate flowing into volume";
       parameter Medium.EnthalpyFlowRate H_flow_ext=5000
@@ -851,7 +851,7 @@ is given to compare the approximation.
         T(start=300, fixed=true));
 
       Real m(quantity=Medium.mediumName, start=1.0);
-      Modelica.SIunits.InternalEnergy U;
+      SI.InternalEnergy U;
 
       Medium.SpecificHeatCapacity cp=Medium.specificHeatCapacityCp(medium.state);
       Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(medium.state);
@@ -919,13 +919,13 @@ is given to compare the approximation.
     model MoistAir "Test Moist Air"
       extends Modelica.Icons.Example;
       package Medium = Modelica.Media.Air.MoistAir "Medium model";
-      Modelica.SIunits.Temperature T = 273.15+100;
-      Modelica.SIunits.AbsolutePressure p = 2E5-1.5e5*time;
+      SI.Temperature T = 273.15+100;
+      SI.AbsolutePressure p = 2E5-1.5e5*time;
       Medium.MassFraction X[Medium.nX] = {0.05,0.95};
       Medium.ThermodynamicState state = Medium.setState_pTX(p,T,X);
-      Modelica.SIunits.SpecificEntropy s = Medium.specificEntropy(state);
-      Modelica.SIunits.SpecificInternalEnergy u = Medium.specificInternalEnergy(state);
-      Modelica.SIunits.Temperature Tsat = Medium.saturationTemperature(p);
+      SI.SpecificEntropy s = Medium.specificEntropy(state);
+      SI.SpecificInternalEnergy u = Medium.specificInternalEnergy(state);
+      SI.Temperature Tsat = Medium.saturationTemperature(p);
       annotation (experiment(StopTime=1));
     end MoistAir;
     annotation (Documentation(info="<html>
@@ -947,11 +947,11 @@ is given to compare the approximation.
 
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model" annotation (choicesAllMatching=true);
-        parameter Modelica.SIunits.AbsolutePressure p_start=Medium.p_default
+        parameter SI.AbsolutePressure p_start=Medium.p_default
           "Initial value of pressure";
-        parameter Modelica.SIunits.Temperature T_start=Medium.T_default
+        parameter SI.Temperature T_start=Medium.T_default
           "Initial value of temperature";
-        parameter Modelica.SIunits.SpecificEnthalpy h_start=Medium.h_default
+        parameter SI.SpecificEnthalpy h_start=Medium.h_default
           "Initial value of specific enthalpy";
         parameter Real X_start[Medium.nX]=Medium.X_default
           "Initial value of mass fractions";
@@ -1010,11 +1010,11 @@ is given to compare the approximation.
 
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model" annotation (choicesAllMatching=true);
-        parameter Modelica.SIunits.AbsolutePressure p_start=1.0e5
+        parameter SI.AbsolutePressure p_start=1.0e5
           "Initial value of pressure";
-        parameter Modelica.SIunits.Temperature T_start=300
+        parameter SI.Temperature T_start=300
           "Initial value of temperature";
-        parameter Modelica.SIunits.SpecificEnthalpy h_start=1
+        parameter SI.SpecificEnthalpy h_start=1
           "Initial value of specific enthalpy";
         parameter Real X_start[Medium.nX]=Medium.reference_X
           "Initial value of mass fractions";

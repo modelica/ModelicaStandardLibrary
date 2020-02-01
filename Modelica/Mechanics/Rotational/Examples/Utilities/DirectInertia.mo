@@ -1,7 +1,7 @@
 within Modelica.Mechanics.Rotational.Examples.Utilities;
 model DirectInertia "Input/output block of a direct inertia model"
   extends Modelica.Blocks.Icons.Block;
-  parameter Modelica.SIunits.Inertia J(min=0)=1 "Inertia";
+  parameter SI.Inertia J(min=0)=1 "Inertia";
   Modelica.Mechanics.Rotational.Components.Inertia inertia(
     J=J,
     phi(start=0, fixed=true),

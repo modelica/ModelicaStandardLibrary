@@ -2,7 +2,7 @@ within Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors;
 model MagneticFluxSensor "Sensor to measure magnetic flux"
   extends Modelica.Icons.RoundSensor;
   extends Interfaces.TwoPortElementary;
-  Modelica.SIunits.ComplexMagneticPotentialDifference V_m
+  SI.ComplexMagneticPotentialDifference V_m
     "Complex magnetic potential difference";
   Modelica.ComplexBlocks.Interfaces.ComplexOutput Phi
     "Complex magnetic flux from por_ p to port_n as output signal"
@@ -10,9 +10,9 @@ model MagneticFluxSensor "Sensor to measure magnetic flux"
         origin={0,-100},
         extent={{10,-10},{-10,10}},
         rotation=90)));
- Modelica.SIunits.MagneticFlux abs_Phi=Modelica.ComplexMath.abs(Phi)
+ SI.MagneticFlux abs_Phi=Modelica.ComplexMath.abs(Phi)
     "Magnitude of complex magnetic flux";
-  Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
+  SI.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
     "Argument of complex magnetic flux";
 
 equation

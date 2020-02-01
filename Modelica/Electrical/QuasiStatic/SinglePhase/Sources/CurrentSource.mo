@@ -1,9 +1,9 @@
 within Modelica.Electrical.QuasiStatic.SinglePhase.Sources;
 model CurrentSource "Constant AC current"
   extends Interfaces.Source;
-  parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
-  parameter Modelica.SIunits.Current I(start=1) "RMS current of the source";
-  parameter Modelica.SIunits.Angle phi(start=0) "Phase shift of the source";
+  parameter SI.Frequency f(start=1) "Frequency of the source";
+  parameter SI.Current I(start=1) "RMS current of the source";
+  parameter SI.Angle phi(start=0) "Phase shift of the source";
 equation
   omega = 2*Modelica.Constants.pi*f;
   i = Complex(I*cos(phi), I*sin(phi));

@@ -5,9 +5,9 @@ partial model FlangeSupport "Shaft and support"
   Modelica.Mechanics.Rotational.Interfaces.Flange_a support
     "Housing and support" annotation (Placement(transformation(extent={{-10,
             -110},{10,-90}})));
-  Modelica.SIunits.Angle phi "Angle between shaft and support";
-  Modelica.SIunits.Torque tau "Torque";
-  Modelica.SIunits.AngularVelocity w
+  SI.Angle phi "Angle between shaft and support";
+  SI.Torque tau "Torque";
+  SI.AngularVelocity w
     "Relative angular velocity of flange and support";
 equation
   phi = flange.phi - support.phi;

@@ -8,7 +8,7 @@ model EddyCurrent
   parameter Boolean useConductance = false
   "Use conductance instead of geometry data and rho"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-  parameter Modelica.SIunits.Conductance G(min=0) = 1/0.098e-6
+  parameter SI.Conductance G(min=0) = 1/0.098e-6
   "Equivalent loss conductance G=A/rho/l"
     annotation(Dialog(enable=useConductance),Evaluate=true);
   parameter SI.Resistivity rho=0.098e-6

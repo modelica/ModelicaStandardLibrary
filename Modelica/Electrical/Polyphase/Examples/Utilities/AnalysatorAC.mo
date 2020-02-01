@@ -3,7 +3,7 @@ model AnalysatorAC "Analyze AC voltage, current and power"
   extends Icons.RoundSensor;
   extends Modelica.Electrical.Polyphase.Interfaces.TwoPlug;
   import Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems;
-  parameter Modelica.SIunits.Frequency f=50 "Mains frequency";
+  parameter SI.Frequency f=50 "Mains frequency";
   final parameter Integer mSystems=numberOfSymmetricBaseSystems(m)
     "Number of base systems";
   final parameter Integer mBasic=integer(m/mSystems)

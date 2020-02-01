@@ -2,12 +2,12 @@ within Modelica.Electrical.Machines.Examples.DCMachines;
 model DCPM_QuasiStatic
   "Test example: Compare DCPM motors transient - quasi-static"
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
-  parameter Modelica.SIunits.Voltage Ve=100 "Actual excitation voltage";
-  parameter Modelica.SIunits.AngularVelocity w0=
-      Modelica.SIunits.Conversions.from_rpm(1500) "No-load speed";
-  parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
-  parameter Modelica.SIunits.Inertia JLoad=0.15
+  parameter SI.Voltage Va=100 "Actual armature voltage";
+  parameter SI.Voltage Ve=100 "Actual excitation voltage";
+  parameter SI.AngularVelocity w0=
+      Modelica.Units.Conversions.from_rpm(1500) "No-load speed";
+  parameter SI.Torque TLoad=63.66 "Nominal load torque";
+  parameter SI.Inertia JLoad=0.15
     "Load's moment of inertia";
   Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm1(
     VaNominal=dcpmData.VaNominal,

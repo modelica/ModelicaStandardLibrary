@@ -8,12 +8,12 @@ partial model BaseStackWithSensors "Partial stack with sensors"
   parameter Real SOCtolerance=1e-9 "SOC tolerance for detection of depleted or overcharged cell"
     annotation(Dialog(tab="Advanced"));
   extends Modelica.Electrical.Analog.Interfaces.TwoPin;
-  output Modelica.SIunits.Current i = p.i "Current into the stack";
-  output Modelica.SIunits.Power power = v*i "Power to the stack";
+  output SI.Current i = p.i "Current into the stack";
+  output SI.Power power = v*i "Power to the stack";
   output Real SOC = socTotal.y "Overall State of charge";
   parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-  parameter Modelica.SIunits.Temperature T=293.15
+  parameter SI.Temperature T=293.15
     "Fixed device temperature if useHeatPort = false"
     annotation(Dialog(enable=not useHeatPort));
   replaceable Modelica.Electrical.Batteries.BaseClasses.BaseCellWithSensors

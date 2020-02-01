@@ -18,9 +18,9 @@ if a positive force is acting on the element and no other force balances this fo
 */
   Boolean contact "= true, if contact, otherwise no contact";
 protected
-  Modelica.SIunits.Force f_c "Spring force";
-  Modelica.SIunits.Force f_d2 "Linear damping force";
-  Modelica.SIunits.Force f_d
+  SI.Force f_c "Spring force";
+  SI.Force f_d2 "Linear damping force";
+  SI.Force f_d
     "Linear damping force which is limited by spring force (|f_d| <= |f_c|)";
 equation
   // Modify contact force, so that it is only "pushing" and not

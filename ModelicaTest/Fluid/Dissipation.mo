@@ -14,37 +14,37 @@ extends Modelica.Icons.ExamplesPackage;
           extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
-          parameter Modelica.SIunits.Diameter d_hyd=2*s;
+          parameter SI.Diameter d_hyd=2*s;
 
           Real abscissa[n]={(length/d_hyd/(max(Re[i], 1e-3)*Pr[i]))^0.5 for i in 1:n};
-          Modelica.SIunits.Length length=L;
-          Modelica.SIunits.Length dimlesslength(start=1e-2);
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/(lambda[i]) for i in
+          SI.Length length=L;
+          SI.Length dimlesslength(start=1e-2);
+          SI.PrandtlNumber Pr[n]={eta[i]*cp[i]/(lambda[i]) for i in
                   1:n};
-          Modelica.SIunits.ReynoldsNumber Re[n]={rho[i]*velocity[i]*d_hyd/eta[i]
+          SI.ReynoldsNumber Re[n]={rho[i]*velocity[i]*d_hyd/eta[i]
               for i in 1:n};
-          Modelica.SIunits.Velocity velocity[n]={m_flow[i]/(rho[i]*h*s) for i in
+          SI.Velocity velocity[n]={m_flow[i]/(rho[i]*h*s) for i in
                   1:n};
 
           //even gap variables
-          parameter Modelica.SIunits.Length h=0.1
+          parameter SI.Length h=0.1
             "Height of cross sectional area"
             annotation (Dialog(group="Geometry"));
-          parameter Modelica.SIunits.Length s=0.05
+          parameter SI.Length s=0.05
             "Distance between parallel plates in cross sectional area"
             annotation (Dialog(group="Geometry"));
-          parameter Modelica.SIunits.Length L=1 "Overflowed length of gap"
+          parameter SI.Length L=1 "Overflowed length of gap"
             annotation (Dialog(group="Geometry"));
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //input record
@@ -117,17 +117,17 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{80,20},{100,40}})));
 
           //output variables
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nusselt number"
+          SI.NusseltNumber Nu_1[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nusselt number"
+          SI.NusseltNumber Nu_2[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nusselt number"
+          SI.NusseltNumber Nu_3[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_4[n] "Nusselt number"
+          SI.NusseltNumber Nu_4[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
 
         protected
-          Modelica.SIunits.MassFlowRate m_flow[n]={0.5*h*lambda[i]*length/(cp[i]
+          SI.MassFlowRate m_flow[n]={0.5*h*lambda[i]*length/(cp[i]
               *d_hyd*dimlesslength^2) for i in 1:n};
         equation
           der(dimlesslength) = 1 - 0.01;
@@ -204,42 +204,42 @@ extends Modelica.Icons.ExamplesPackage;
           extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
-          parameter Modelica.SIunits.Diameter d_hyd=2*s;
+          parameter SI.Diameter d_hyd=2*s;
 
           //even gap variables
-          parameter Modelica.SIunits.Length h=0.1
+          parameter SI.Length h=0.1
             "Height of cross sectional area"
             annotation (Dialog(group="Geometry"));
-          parameter Modelica.SIunits.Length s=0.05
+          parameter SI.Length s=0.05
             "Distance between parallel plates in cross sectional area"
             annotation (Dialog(group="Geometry"));
-          parameter Modelica.SIunits.Length L=1 "Overflowed length of gap"
+          parameter SI.Length L=1 "Overflowed length of gap"
             annotation (Dialog(group="Geometry"));
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //here: Nusselt number as input for inverse calculation
-          Modelica.SIunits.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
-          Modelica.SIunits.MassFlowRate m_flow_1[n](start=ones(n)*1e-3);
-          Modelica.SIunits.MassFlowRate m_flow_2[n](start=ones(n)*1e-3);
-          Modelica.SIunits.MassFlowRate m_flow_3[n](start=ones(n)*1e-3);
-          Modelica.SIunits.MassFlowRate m_flow_4[n](start=ones(n)*1e-3);
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_OUT_1[n]={Nu[i]*lambda[
+          SI.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
+          SI.MassFlowRate m_flow_1[n](start=ones(n)*1e-3);
+          SI.MassFlowRate m_flow_2[n](start=ones(n)*1e-3);
+          SI.MassFlowRate m_flow_3[n](start=ones(n)*1e-3);
+          SI.MassFlowRate m_flow_4[n](start=ones(n)*1e-3);
+          SI.CoefficientOfHeatTransfer kc_OUT_1[n]={Nu[i]*lambda[
               i]/d_hyd for i in 1:n};
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_OUT_2[n]={Nu[i]*lambda[
+          SI.CoefficientOfHeatTransfer kc_OUT_2[n]={Nu[i]*lambda[
               i]/d_hyd for i in 1:n};
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_OUT_3[n]={Nu[i]*lambda[
+          SI.CoefficientOfHeatTransfer kc_OUT_3[n]={Nu[i]*lambda[
               i]/d_hyd for i in 1:n};
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_OUT_4[n]={Nu[i]*lambda[
+          SI.CoefficientOfHeatTransfer kc_OUT_4[n]={Nu[i]*lambda[
               i]/d_hyd for i in 1:n};
 
           //input record
@@ -322,13 +322,13 @@ extends Modelica.Icons.ExamplesPackage;
             offset=1.1e1) annotation ( Placement(
                 transformation(extent={{50,-80},{70,-60}})));
 
-          Modelica.SIunits.ReynoldsNumber Re_1[n]={abs(m_flow_1[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_1[n]={abs(m_flow_1[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd*d_hyd/4) for i in 1:n};
-          Modelica.SIunits.ReynoldsNumber Re_2[n]={abs(m_flow_2[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_2[n]={abs(m_flow_2[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd*d_hyd/4) for i in 1:n};
-          Modelica.SIunits.ReynoldsNumber Re_3[n]={abs(m_flow_3[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_3[n]={abs(m_flow_3[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd*d_hyd/4) for i in 1:n};
-          Modelica.SIunits.ReynoldsNumber Re_4[n]={abs(m_flow_4[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_4[n]={abs(m_flow_4[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd*d_hyd/4) for i in 1:n};
 
         equation
@@ -401,32 +401,32 @@ extends Modelica.Icons.ExamplesPackage;
           extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
-          parameter Modelica.SIunits.Diameter d_hyd=2*s;
+          parameter SI.Diameter d_hyd=2*s;
 
           //even gap variables
-          parameter Modelica.SIunits.Length h=0.1
+          parameter SI.Length h=0.1
             "Height of cross sectional area"
             annotation (Dialog(group="Geometry"));
-          parameter Modelica.SIunits.Length s=0.05
+          parameter SI.Length s=0.05
             "Distance between parallel plates in cross sectional area"
             annotation (Dialog(group="Geometry"));
-          parameter Modelica.SIunits.Length L=1 "Overflowed length of gap"
+          parameter SI.Length L=1 "Overflowed length of gap"
             annotation (Dialog(group="Geometry"));
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //input VARIABLES
           //create identical Reynolds number for different fluid properties >> adjustment of  mass flow rate
-          Modelica.SIunits.MassFlowRate m_flow[:]={mflow_test*eta[1]/eta[3],
+          SI.MassFlowRate m_flow[:]={mflow_test*eta[1]/eta[3],
               mflow_test*eta[2]/eta[3],mflow_test} "mass flow rate"
                                            annotation (Dialog(group="Input"));
 
@@ -503,18 +503,18 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{80,20},{100,40}})));
 
           //output variables
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nusselt number"
+          SI.NusseltNumber Nu_1[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nusselt number"
+          SI.NusseltNumber Nu_2[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nusselt number"
+          SI.NusseltNumber Nu_3[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_4[n] "Nusselt number"
+          SI.NusseltNumber Nu_4[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
 
-          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
+          SI.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.ReynoldsNumber Re_2[n] "Reynolds number"
+          SI.ReynoldsNumber Re_2[n] "Reynolds number"
             annotation (Dialog(group="Output"));
 
         protected
@@ -606,27 +606,27 @@ extends Modelica.Icons.ExamplesPackage;
           extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
-          parameter Modelica.SIunits.Diameter d_hyd=2*s;
+          parameter SI.Diameter d_hyd=2*s;
 
           //even gap variables
-          parameter Modelica.SIunits.Length h=0.1
+          parameter SI.Length h=0.1
             "Height of cross sectional area"
             annotation (Dialog(group="Geometry"));
-          parameter Modelica.SIunits.Length s=0.05
+          parameter SI.Length s=0.05
             "Distance between parallel plates in cross sectional area"
             annotation (Dialog(group="Geometry"));
-          parameter Modelica.SIunits.Length L=1 "Overflowed length of gap"
+          parameter SI.Length L=1 "Overflowed length of gap"
             annotation (Dialog(group="Geometry"));
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //target variables
@@ -637,18 +637,18 @@ extends Modelica.Icons.ExamplesPackage;
   SI.NusseltNumber Nu[n]={kc[i]*d_hyd/lambda[i] for i in 1:n};*/
 
           //here: Nusselt number as input for inverse calculation
-          Modelica.SIunits.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
-          Modelica.SIunits.MassFlowRate m_flow_1[n](start=ones(n)*1e-3);
-          Modelica.SIunits.MassFlowRate m_flow_2[n](start=ones(n)*1e-3);
-          Modelica.SIunits.MassFlowRate m_flow_3[n](start=ones(n)*1e-3);
-          Modelica.SIunits.MassFlowRate m_flow_4[n](start=ones(n)*1e-3);
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_OUT_1[n]={Nu[i]*lambda[
+          SI.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
+          SI.MassFlowRate m_flow_1[n](start=ones(n)*1e-3);
+          SI.MassFlowRate m_flow_2[n](start=ones(n)*1e-3);
+          SI.MassFlowRate m_flow_3[n](start=ones(n)*1e-3);
+          SI.MassFlowRate m_flow_4[n](start=ones(n)*1e-3);
+          SI.CoefficientOfHeatTransfer kc_OUT_1[n]={Nu[i]*lambda[
               i]/d_hyd for i in 1:n};
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_OUT_2[n]={Nu[i]*lambda[
+          SI.CoefficientOfHeatTransfer kc_OUT_2[n]={Nu[i]*lambda[
               i]/d_hyd for i in 1:n};
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_OUT_3[n]={Nu[i]*lambda[
+          SI.CoefficientOfHeatTransfer kc_OUT_3[n]={Nu[i]*lambda[
               i]/d_hyd for i in 1:n};
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_OUT_4[n]={Nu[i]*lambda[
+          SI.CoefficientOfHeatTransfer kc_OUT_4[n]={Nu[i]*lambda[
               i]/d_hyd for i in 1:n};
 
           //input record
@@ -724,13 +724,13 @@ extends Modelica.Icons.ExamplesPackage;
             rho=rho) annotation (Placement(transformation(
                   extent={{80,20},{100,40}})));
 
-          Modelica.SIunits.ReynoldsNumber Re_1[n]={abs(m_flow_1[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_1[n]={abs(m_flow_1[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd*d_hyd/4) for i in 1:n};
-          Modelica.SIunits.ReynoldsNumber Re_2[n]={abs(m_flow_2[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_2[n]={abs(m_flow_2[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd*d_hyd/4) for i in 1:n};
-          Modelica.SIunits.ReynoldsNumber Re_3[n]={abs(m_flow_3[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_3[n]={abs(m_flow_3[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd*d_hyd/4) for i in 1:n};
-          Modelica.SIunits.ReynoldsNumber Re_4[n]={abs(m_flow_4[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_4[n]={abs(m_flow_4[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd*d_hyd/4) for i in 1:n};
 
           /*Modelica.Blocks.Sources.Ramp input_mflow(
@@ -825,35 +825,35 @@ extends Modelica.Icons.ExamplesPackage;
           extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
-          parameter Modelica.SIunits.Diameter d_hyd=2*s;
+          parameter SI.Diameter d_hyd=2*s;
 
-          Modelica.SIunits.Velocity velocity[n]={m_flow[i]/(rho[i]*h*s) for i in
+          SI.Velocity velocity[n]={m_flow[i]/(rho[i]*h*s) for i in
                   1:n};
 
           //even gap variables
-          parameter Modelica.SIunits.Length h=0.1
+          parameter SI.Length h=0.1
             "Height of cross sectional area"
             annotation (Dialog(group="Geometry"));
-          parameter Modelica.SIunits.Length s=0.05
+          parameter SI.Length s=0.05
             "Distance between parallel plates in cross sectional area"
             annotation (Dialog(group="Geometry"));
-          parameter Modelica.SIunits.Length L=1 "Overflowed length of gap"
+          parameter SI.Length L=1 "Overflowed length of gap"
             annotation (Dialog(group="Geometry"));
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //input VARIABLES
           //create identical Reynolds number for different fluid properties >> adjustment of  mass flow rate
-          Modelica.SIunits.MassFlowRate m_flow[:]={mflow_test*eta[1]/eta[3],
+          SI.MassFlowRate m_flow[:]={mflow_test*eta[1]/eta[3],
               mflow_test*eta[2]/eta[3],mflow_test} "mass flow rate"
                                            annotation (Dialog(group="Input"));
 
@@ -874,9 +874,9 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{0,20},{20,40}})));
 
           //output variables
-          Modelica.SIunits.ReynoldsNumber Re_2[n] "Reynolds number"
+          SI.ReynoldsNumber Re_2[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nusselt number"
+          SI.NusseltNumber Nu_2[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
 
         protected
@@ -920,30 +920,30 @@ extends Modelica.Icons.ExamplesPackage;
           extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
-          parameter Modelica.SIunits.Diameter d_hyd=2*s;
+          parameter SI.Diameter d_hyd=2*s;
 
-          Modelica.SIunits.Velocity velocity[n]={m_flow[i]/(rho[i]*h*s) for i in
+          SI.Velocity velocity[n]={m_flow[i]/(rho[i]*h*s) for i in
                   1:n};
 
           //even gap variables
-          parameter Modelica.SIunits.Length h=0.1
+          parameter SI.Length h=0.1
             "Height of cross sectional area"
             annotation (Dialog(group="Geometry"));
-          parameter Modelica.SIunits.Length s=0.05
+          parameter SI.Length s=0.05
             "Distance between parallel plates in cross sectional area"
             annotation (Dialog(group="Geometry"));
-          parameter Modelica.SIunits.Length L=1 "Overflowed length of gap"
+          parameter SI.Length L=1 "Overflowed length of gap"
             annotation (Dialog(group="Geometry"));
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21}
+          parameter SI.Density rho[:]={1.188,998.21}
             "Density of fluid";
 
           //target variables
@@ -954,9 +954,9 @@ extends Modelica.Icons.ExamplesPackage;
    SI.NusseltNumber Nu[n]={kc[i]*d_hyd/lambda[i] for i in 1:n};*/
 
           //here: Nusselt number as input for reverse calculation
-          Modelica.SIunits.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
-          Modelica.SIunits.MassFlowRate m_flow[n](start=ones(n)*1e-1);
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_OUT_1[n]={Nu[i]*lambda[
+          SI.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
+          SI.MassFlowRate m_flow[n](start=ones(n)*1e-1);
+          SI.CoefficientOfHeatTransfer kc_OUT_1[n]={Nu[i]*lambda[
               i]/d_hyd for i in 1:n};
 
           //input record
@@ -976,7 +976,7 @@ extends Modelica.Icons.ExamplesPackage;
             rho=rho) annotation (Placement(transformation(
                   extent={{0,20},{20,40}})));
 
-          Modelica.SIunits.ReynoldsNumber Re[n]={abs(m_flow[i])*d_hyd/(eta[i]*
+          SI.ReynoldsNumber Re[n]={abs(m_flow[i])*d_hyd/(eta[i]*
               Modelica.Constants.pi*d_hyd*d_hyd/4) for i in 1:n};
 
         public
@@ -1015,21 +1015,21 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=size(cp, 1);
 
           //generic variables
-          parameter Modelica.SIunits.Area A_cross=Modelica.Constants.pi*0.1^2/4
+          parameter SI.Area A_cross=Modelica.Constants.pi*0.1^2/4
             "Cross sectional area";
-          parameter Modelica.SIunits.Length perimeter=Modelica.Constants.pi*0.1
+          parameter SI.Length perimeter=Modelica.Constants.pi*0.1
             "Wetted perimeter";
           //parameter SI.Diameter d_hyd=4*A_cross/perimeter "Hydraulic diameter";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //input record
@@ -1088,13 +1088,13 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{60,20},{80,40}})));
 
           //output variables
-          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
+          SI.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nusselt number"
+          SI.NusseltNumber Nu_1[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nusselt number"
+          SI.NusseltNumber Nu_2[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nusselt number"
+          SI.NusseltNumber Nu_3[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
         public
           Modelica.Blocks.Sources.Ramp input_mflow_0(
@@ -1112,7 +1112,7 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{0,-80},{20,-60}})));
 
         protected
-          Modelica.SIunits.MassFlowRate m_flow[n]={input_mflow_0.y*eta[1]/eta[3],
+          SI.MassFlowRate m_flow[n]={input_mflow_0.y*eta[1]/eta[3],
               input_mflow_0.y*eta[2]/eta[3],input_mflow_0.y} "Mass flow rate";
         equation
           //heat transfer calculation
@@ -1164,34 +1164,34 @@ extends Modelica.Icons.ExamplesPackage;
            parameter Integer n=size(cp, 1);
 
            //generic variables
-           parameter Modelica.SIunits.Area A_cross=Modelica.Constants.pi*0.1^2/4
+           parameter SI.Area A_cross=Modelica.Constants.pi*0.1^2/4
             "Cross sectional area";
-           parameter Modelica.SIunits.Length perimeter=Modelica.Constants.pi*0.1
+           parameter SI.Length perimeter=Modelica.Constants.pi*0.1
             "Wetted perimeter";
            //parameter SI.Diameter d_hyd=4*A_cross/perimeter "Hydraulic diameter";
 
            //fluid property variables
-           parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+           parameter SI.SpecificHeatCapacityAtConstantPressure cp[
              :]={1007,4189}
             "Specific heat capacity at constant pressure of fluid";
-           parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+           parameter SI.DynamicViscosity eta[:]={18.24e-6,
                1001.6e-6} "Dynamic viscosity of fluid";
-           parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+           parameter SI.ThermalConductivity lambda[:]={25.69e-3,
                598.5e-3} "Thermal conductivity of fluid";
-           parameter Modelica.SIunits.Density rho[:]={1.188,998.21}
+           parameter SI.Density rho[:]={1.188,998.21}
             "Density of fluid";
 
            //here: Nusselt number as input for inverse calculation
-           Modelica.SIunits.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
-           Modelica.SIunits.MassFlowRate m_flow_1[n](start=ones(n)*1e-1);
-           Modelica.SIunits.MassFlowRate m_flow_2[n](start=ones(n)*1e-1);
-           Modelica.SIunits.MassFlowRate m_flow_3[n](start=ones(n)*1e-1);
+           SI.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
+           SI.MassFlowRate m_flow_1[n](start=ones(n)*1e-1);
+           SI.MassFlowRate m_flow_2[n](start=ones(n)*1e-1);
+           SI.MassFlowRate m_flow_3[n](start=ones(n)*1e-1);
 
-           Modelica.SIunits.CoefficientOfHeatTransfer kc_1[n]={Nu[i]*lambda[i]/
+           SI.CoefficientOfHeatTransfer kc_1[n]={Nu[i]*lambda[i]/
                perimeter for i in 1:n};
-           Modelica.SIunits.CoefficientOfHeatTransfer kc_2[n]={Nu[i]*lambda[i]/
+           SI.CoefficientOfHeatTransfer kc_2[n]={Nu[i]*lambda[i]/
                perimeter for i in 1:n};
-           Modelica.SIunits.CoefficientOfHeatTransfer kc_3[n]={Nu[i]*lambda[i]/
+           SI.CoefficientOfHeatTransfer kc_3[n]={Nu[i]*lambda[i]/
                perimeter for i in 1:n};
 
            //input record
@@ -1250,11 +1250,11 @@ extends Modelica.Icons.ExamplesPackage;
              rho=rho) annotation (Placement(transformation(
                    extent={{60,20},{80,40}})));
 
-           Modelica.SIunits.ReynoldsNumber Re_1[n]={abs(m_flow_1[i])*(perimeter/
+           SI.ReynoldsNumber Re_1[n]={abs(m_flow_1[i])*(perimeter/
                Modelica.Constants.pi)/(eta[i]*A_cross) for i in 1:n};
-           Modelica.SIunits.ReynoldsNumber Re_2[n]={abs(m_flow_2[i])*(perimeter/
+           SI.ReynoldsNumber Re_2[n]={abs(m_flow_2[i])*(perimeter/
                Modelica.Constants.pi)/(eta[i]*A_cross) for i in 1:n};
-           Modelica.SIunits.ReynoldsNumber Re_3[n]={abs(m_flow_3[i])*(perimeter/
+           SI.ReynoldsNumber Re_3[n]={abs(m_flow_3[i])*(perimeter/
                Modelica.Constants.pi)/(eta[i]*A_cross) for i in 1:n};
 
         public
@@ -1312,26 +1312,26 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=2 "Number of various fin geometries";
 
           //heat exchanger variables
-          parameter Modelica.SIunits.Area A_fr=1 "Frontal area";
+          parameter SI.Area A_fr=1 "Frontal area";
 
           //heat exchanger variables geometry no.1
-          parameter Modelica.SIunits.Length D_m_1=0.005
+          parameter SI.Length D_m_1=0.005
             "Major tube diameter for flat tube";
-          parameter Modelica.SIunits.Length F_l_1=0.019 "Fin length";
-          parameter Modelica.SIunits.Length F_p_1=0.0018
+          parameter SI.Length F_l_1=0.019 "Fin length";
+          parameter SI.Length F_p_1=0.0018
             "Fin pitch, fin spacing + fin thickness";
-          parameter Modelica.SIunits.Length L_l_1=0.01607 "Louver length";
-          parameter Modelica.SIunits.Length L_p_1=0.001534 "Louver pitch";
-          parameter Modelica.SIunits.Length T_d_1=0.026 "Tube depth";
-          parameter Modelica.SIunits.Length T_p_1=0.0197 "Tube pitch";
+          parameter SI.Length L_l_1=0.01607 "Louver length";
+          parameter SI.Length L_p_1=0.001534 "Louver pitch";
+          parameter SI.Length T_d_1=0.026 "Tube depth";
+          parameter SI.Length T_p_1=0.0197 "Tube pitch";
 
-          parameter Modelica.SIunits.Length delta_f_1=0.0001 "fin thickness";
-          parameter Modelica.SIunits.Angle Phi_1=28*Modelica.Constants.pi/180
+          parameter SI.Length delta_f_1=0.0001 "fin thickness";
+          parameter SI.Angle Phi_1=28*Modelica.Constants.pi/180
             "Louver angle";
 
           //heat exchanger variables geometry no.2
-          parameter Modelica.SIunits.Length D_h_2=0.002383 "Hydraulic diameter";
-          parameter Modelica.SIunits.Length D_m_2=0.002
+          parameter SI.Length D_h_2=0.002383 "Hydraulic diameter";
+          parameter SI.Length D_m_2=0.002
             "Major tube diameter for flat tube";
           parameter Real alpha_2=0.244
             "Lateral fin spacing (s) / free flow height (h)";
@@ -1340,16 +1340,16 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Real delta_2=0.032 "Fin thickness (t) / Fin length (l)";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp=
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp=
               1007 "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta=18.24e-6
+          parameter SI.DynamicViscosity eta=18.24e-6
             "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda=25.69e-3
+          parameter SI.ThermalConductivity lambda=25.69e-3
             "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho=1.188 "Density of fluid";
+          parameter SI.Density rho=1.188 "Density of fluid";
 
           //input VARIABLES
-          Modelica.SIunits.ReynoldsNumber Re=input_Re.y "Reynolds number"
+          SI.ReynoldsNumber Re=input_Re.y "Reynolds number"
             annotation (Dialog(group="Input"));
 
           //input record
@@ -1397,9 +1397,9 @@ extends Modelica.Icons.ExamplesPackage;
             annotation (Placement(transformation(extent={{40,-20},{60,0}})));
 
           //output variables
-          Modelica.SIunits.MassFlowRate m_flow[n] "Mass flow rate"
+          SI.MassFlowRate m_flow[n] "Mass flow rate"
                                                      annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu[n] "Nusselt number"
+          SI.NusseltNumber Nu[n] "Nusselt number"
                                                   annotation (Dialog(group="Output"));
 
         public
@@ -1446,26 +1446,26 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=2 "Number of various fin geometries";
 
           //heat exchanger variables
-          parameter Modelica.SIunits.Area A_fr=1 "Frontal area";
+          parameter SI.Area A_fr=1 "Frontal area";
 
           //heat exchanger variables geometry no.1
-          parameter Modelica.SIunits.Length D_m_1=0.005
+          parameter SI.Length D_m_1=0.005
             "Major tube diameter for flat tube";
-          parameter Modelica.SIunits.Length F_l_1=0.019 "Fin length";
-          parameter Modelica.SIunits.Length F_p_1=0.0018
+          parameter SI.Length F_l_1=0.019 "Fin length";
+          parameter SI.Length F_p_1=0.0018
             "Fin pitch, fin spacing + fin thickness";
-          parameter Modelica.SIunits.Length L_l_1=0.01607 "Louver length";
-          parameter Modelica.SIunits.Length L_p_1=0.001534 "Louver pitch";
-          parameter Modelica.SIunits.Length T_d_1=0.026 "Tube depth";
-          parameter Modelica.SIunits.Length T_p_1=0.0197 "Tube pitch";
+          parameter SI.Length L_l_1=0.01607 "Louver length";
+          parameter SI.Length L_p_1=0.001534 "Louver pitch";
+          parameter SI.Length T_d_1=0.026 "Tube depth";
+          parameter SI.Length T_p_1=0.0197 "Tube pitch";
 
-          parameter Modelica.SIunits.Length delta_f_1=0.0001 "fin thickness";
-          parameter Modelica.SIunits.Angle Phi_1=28*Modelica.Constants.pi/180
+          parameter SI.Length delta_f_1=0.0001 "fin thickness";
+          parameter SI.Angle Phi_1=28*Modelica.Constants.pi/180
             "louver angle";
 
           //heat exchanger variables geometry no.2
-          parameter Modelica.SIunits.Length D_h_2=0.002383 "Hydraulic diameter";
-          parameter Modelica.SIunits.Length D_m_2=0.002
+          parameter SI.Length D_h_2=0.002383 "Hydraulic diameter";
+          parameter SI.Length D_m_2=0.002
             "Major tube diameter for flat tube";
           parameter Real alpha_2=0.244
             "Lateral fin spacing (s) / free flow height (h)";
@@ -1473,28 +1473,28 @@ extends Modelica.Icons.ExamplesPackage;
             "Fin thickness (t) / lateral fin spacing (s)";
           parameter Real delta_2=0.032 "Fin thickness (t) / Fin length (l)";
 
-          Modelica.SIunits.Length h_2=D_h_2*(1 + alpha_2)/(2*alpha_2)
+          SI.Length h_2=D_h_2*(1 + alpha_2)/(2*alpha_2)
             "Free flow height";
-          Modelica.SIunits.Length l_2=t_2/delta_2 "Fin length";
-          Modelica.SIunits.Length s_2=h_2*alpha_2
+          SI.Length l_2=t_2/delta_2 "Fin length";
+          SI.Length s_2=h_2*alpha_2
             "Lateral fin spacing (free flow width)";
-          Modelica.SIunits.Length t_2=s_2*gamma_2 "Fin thickness";
+          SI.Length t_2=s_2*gamma_2 "Fin thickness";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp=
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp=
               1007 "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta=18.24e-6
+          parameter SI.DynamicViscosity eta=18.24e-6
             "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda=25.69e-3
+          parameter SI.ThermalConductivity lambda=25.69e-3
             "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho=1.188 "Density of fluid";
+          parameter SI.Density rho=1.188 "Density of fluid";
 
           //here: Nusselt number as input for inverse calculation
-          Modelica.SIunits.NusseltNumber Nu=input_Nu.y;
-          Modelica.SIunits.MassFlowRate m_flow[n](start=ones(n)*1e-6);
+          SI.NusseltNumber Nu=input_Nu.y;
+          SI.MassFlowRate m_flow[n](start=ones(n)*1e-6);
 
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_1=Nu*lambda/L_p_1;
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_2=Nu*lambda/D_h_2;
+          SI.CoefficientOfHeatTransfer kc_1=Nu*lambda/L_p_1;
+          SI.CoefficientOfHeatTransfer kc_2=Nu*lambda/D_h_2;
 
           //input record
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con
@@ -1538,9 +1538,9 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow=m_flow[2])
             annotation (Placement(transformation(extent={{40,-20},{60,0}})));
 
-          Modelica.SIunits.ReynoldsNumber Re_1=abs(m_flow[1])*L_p_1/(eta*A_fr*(
+          SI.ReynoldsNumber Re_1=abs(m_flow[1])*L_p_1/(eta*A_fr*(
               (F_l_1 - delta_f_1)*(F_p_1 - delta_f_1)/((F_l_1 + D_m_1)*F_p_1)));
-          Modelica.SIunits.ReynoldsNumber Re_2=abs(m_flow[2])*D_h_2/(eta*A_fr*(
+          SI.ReynoldsNumber Re_2=abs(m_flow[2])*D_h_2/(eta*A_fr*(
               h_2*s_2/((h_2 + t_2 + D_m_2)*(s_2 + t_2))));
 
         public
@@ -1585,66 +1585,66 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=4 "Number of various fin geometries";
 
           //heat exchanger variables
-          parameter Modelica.SIunits.Area A_fr=1 "Frontal area";
-          parameter Modelica.SIunits.Length delta_f=0.0001 "fin thickness";
+          parameter SI.Area A_fr=1 "Frontal area";
+          parameter SI.Length delta_f=0.0001 "fin thickness";
 
           //heat exchanger variables geometry no.1
-          parameter Modelica.SIunits.Length D_c_1=0.00752 "Fin collar diameter";
-          parameter Modelica.SIunits.Length F_p_1=0.00122
+          parameter SI.Length D_c_1=0.00752 "Fin collar diameter";
+          parameter SI.Length F_p_1=0.00122
             "Fin pitch, fin spacing + fin thickness";
-          parameter Modelica.SIunits.Length P_l_1=0.0127
+          parameter SI.Length P_l_1=0.0127
             "Longitudinal tube pitch";
-          parameter Modelica.SIunits.Length P_t_1=0.021 "Transverse tube pitch";
+          parameter SI.Length P_t_1=0.021 "Transverse tube pitch";
           parameter Integer N_1=2 "Number of tube rows";
 
           //heat exchanger variables geometry no.2
-          parameter Modelica.SIunits.Length D_c_2=0.01042 "Fin collar diameter";
-          parameter Modelica.SIunits.Length F_p_2=0.00205
+          parameter SI.Length D_c_2=0.01042 "Fin collar diameter";
+          parameter SI.Length F_p_2=0.00205
             "Fin pitch, fin spacing + fin thickness";
-          parameter Modelica.SIunits.Length L_2=N_2*P_l_2
+          parameter SI.Length L_2=N_2*P_l_2
             "Heat exchanger length";
-          parameter Modelica.SIunits.Length L_h_2=0.0014 "Louver height";
-          parameter Modelica.SIunits.Length L_p_2=0.0024 "Louver pitch";
+          parameter SI.Length L_h_2=0.0014 "Louver height";
+          parameter SI.Length L_p_2=0.0024 "Louver pitch";
           parameter Integer N_2=2 "Number of tube rows";
-          parameter Modelica.SIunits.Length P_l_2=0.01905
+          parameter SI.Length P_l_2=0.01905
             "Longitudinal tube pitch";
-          parameter Modelica.SIunits.Length P_t_2=0.0254
+          parameter SI.Length P_t_2=0.0254
             "Transverse tube pitch";
 
           //heat exchanger variables geometry no.3
-          parameter Modelica.SIunits.Length D_c_3=0.01034 "Fin collar diameter";
-          parameter Modelica.SIunits.Length F_p_3=0.00246
+          parameter SI.Length D_c_3=0.01034 "Fin collar diameter";
+          parameter SI.Length F_p_3=0.00246
             "Fin pitch, fin spacing + fin thickness";
           parameter Integer N_3=2 "Number of tube rows";
-          parameter Modelica.SIunits.Length P_l_3=0.022
+          parameter SI.Length P_l_3=0.022
             "Longitudinal tube pitch";
-          parameter Modelica.SIunits.Length P_t_3=0.0254
+          parameter SI.Length P_t_3=0.0254
             "Transverse tube pitch";
-          parameter Modelica.SIunits.Length delta_f_3=0.00012 "fin thickness";
-          parameter Modelica.SIunits.Length S_h_3=0.00099 "Slit height";
-          parameter Modelica.SIunits.Length S_p_3=0.0022 "Slit pitch";
+          parameter SI.Length delta_f_3=0.00012 "fin thickness";
+          parameter SI.Length S_h_3=0.00099 "Slit height";
+          parameter SI.Length S_p_3=0.0022 "Slit pitch";
 
           //heat exchanger variables geometry no.4
-          parameter Modelica.SIunits.Length D_c_4=0.0103 "Fin collar diameter";
-          parameter Modelica.SIunits.Length F_p_4=0.00169
+          parameter SI.Length D_c_4=0.0103 "Fin collar diameter";
+          parameter SI.Length F_p_4=0.00169
             "Fin pitch, fin spacing + fin thickness";
           parameter Integer N_4=2 "Number of tube rows";
-          parameter Modelica.SIunits.Length P_l_4=0.01905
+          parameter SI.Length P_l_4=0.01905
             "Longitudinal tube pitch";
-          parameter Modelica.SIunits.Length P_t_4=0.0254
+          parameter SI.Length P_t_4=0.0254
             "Transverse tube pitch";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp=
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp=
               1007 "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta=18.24e-6
+          parameter SI.DynamicViscosity eta=18.24e-6
             "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda=25.69e-3
+          parameter SI.ThermalConductivity lambda=25.69e-3
             "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho=1.188 "Density of fluid";
+          parameter SI.Density rho=1.188 "Density of fluid";
 
           //input VARIABLES
-          Modelica.SIunits.ReynoldsNumber Re=input_Re.y "Reynolds number"
+          SI.ReynoldsNumber Re=input_Re.y "Reynolds number"
             annotation (Dialog(group="Input"));
 
           //input record
@@ -1732,9 +1732,9 @@ extends Modelica.Icons.ExamplesPackage;
             annotation (Placement(transformation(extent={{40,-20},{60,0}})));
 
           //output variables
-          Modelica.SIunits.MassFlowRate m_flow[n] "Mass flow rate"
+          SI.MassFlowRate m_flow[n] "Mass flow rate"
                                                      annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu[n] "Nusselt number"
+          SI.NusseltNumber Nu[n] "Nusselt number"
                                                   annotation (Dialog(group="Output"));
 
         public
@@ -1799,72 +1799,72 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=4 "Number of various fin geometries";
 
           //heat exchanger variables
-          parameter Modelica.SIunits.Area A_fr=1 "Frontal area";
-          parameter Modelica.SIunits.Length delta_f=0.0001 "fin thickness";
+          parameter SI.Area A_fr=1 "Frontal area";
+          parameter SI.Length delta_f=0.0001 "fin thickness";
 
           //heat exchanger variables geometry no.1
-          parameter Modelica.SIunits.Length D_c_1=0.00752 "Fin collar diameter";
-          parameter Modelica.SIunits.Length F_p_1=0.00122
+          parameter SI.Length D_c_1=0.00752 "Fin collar diameter";
+          parameter SI.Length F_p_1=0.00122
             "Fin pitch, fin spacing + fin thickness";
-          parameter Modelica.SIunits.Length P_l_1=0.0127
+          parameter SI.Length P_l_1=0.0127
             "Longitudinal tube pitch";
-          parameter Modelica.SIunits.Length P_t_1=0.021 "Transverse tube pitch";
+          parameter SI.Length P_t_1=0.021 "Transverse tube pitch";
           parameter Integer N_1=2 "Number of tube rows";
 
           //heat exchanger variables geometry no.2
-          parameter Modelica.SIunits.Length D_c_2=0.01042 "Fin collar diameter";
-          parameter Modelica.SIunits.Length F_p_2=0.00205
+          parameter SI.Length D_c_2=0.01042 "Fin collar diameter";
+          parameter SI.Length F_p_2=0.00205
             "Fin pitch, fin spacing + fin thickness";
-          parameter Modelica.SIunits.Length L_2=N_2*P_l_2
+          parameter SI.Length L_2=N_2*P_l_2
             "Heat exchanger length";
-          parameter Modelica.SIunits.Length L_h_2=0.0014 "Louver height";
-          parameter Modelica.SIunits.Length L_p_2=0.0024 "Louver pitch";
+          parameter SI.Length L_h_2=0.0014 "Louver height";
+          parameter SI.Length L_p_2=0.0024 "Louver pitch";
           parameter Integer N_2=2 "Number of tube rows";
-          parameter Modelica.SIunits.Length P_l_2=0.01905
+          parameter SI.Length P_l_2=0.01905
             "Longitudinal tube pitch";
-          parameter Modelica.SIunits.Length P_t_2=0.0254
+          parameter SI.Length P_t_2=0.0254
             "Transverse tube pitch";
 
           //heat exchanger variables geometry no.3
-          parameter Modelica.SIunits.Length D_c_3=0.01034 "Fin collar diameter";
-          parameter Modelica.SIunits.Length F_p_3=0.00246
+          parameter SI.Length D_c_3=0.01034 "Fin collar diameter";
+          parameter SI.Length F_p_3=0.00246
             "Fin pitch, fin spacing + fin thickness";
           parameter Integer N_3=2 "Number of tube rows";
-          parameter Modelica.SIunits.Length P_l_3=0.022
+          parameter SI.Length P_l_3=0.022
             "Longitudinal tube pitch";
-          parameter Modelica.SIunits.Length P_t_3=0.0254
+          parameter SI.Length P_t_3=0.0254
             "Transverse tube pitch";
-          parameter Modelica.SIunits.Length delta_f_3=0.00012 "fin thickness";
-          parameter Modelica.SIunits.Length S_h_3=0.00099 "Slit height";
-          parameter Modelica.SIunits.Length S_p_3=0.0022 "Slit pitch";
+          parameter SI.Length delta_f_3=0.00012 "fin thickness";
+          parameter SI.Length S_h_3=0.00099 "Slit height";
+          parameter SI.Length S_p_3=0.0022 "Slit pitch";
 
           //heat exchanger variables geometry no.4
-          parameter Modelica.SIunits.Length D_c_4=0.0103 "Fin collar diameter";
-          parameter Modelica.SIunits.Length F_p_4=0.00169
+          parameter SI.Length D_c_4=0.0103 "Fin collar diameter";
+          parameter SI.Length F_p_4=0.00169
             "Fin pitch, fin spacing + fin thickness";
           parameter Integer N_4=2 "Number of tube rows";
-          parameter Modelica.SIunits.Length P_l_4=0.01905
+          parameter SI.Length P_l_4=0.01905
             "Longitudinal tube pitch";
-          parameter Modelica.SIunits.Length P_t_4=0.0254
+          parameter SI.Length P_t_4=0.0254
             "Transverse tube pitch";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp=
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp=
               1007 "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta=18.24e-6
+          parameter SI.DynamicViscosity eta=18.24e-6
             "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda=25.69e-3
+          parameter SI.ThermalConductivity lambda=25.69e-3
             "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho=1.188 "Density of fluid";
+          parameter SI.Density rho=1.188 "Density of fluid";
 
           //here: Nusselt number as input for inverse calculation
-          Modelica.SIunits.NusseltNumber Nu=input_Nu.y;
-          Modelica.SIunits.MassFlowRate m_flow[n](start=ones(n)*1e-6);
+          SI.NusseltNumber Nu=input_Nu.y;
+          SI.MassFlowRate m_flow[n](start=ones(n)*1e-6);
 
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_1=Nu*lambda/D_c_1;
+          SI.CoefficientOfHeatTransfer kc_1=Nu*lambda/D_c_1;
           //SI.CoefficientOfHeatTransfer kc_2 = Nu*lambda/D_c_2;
           //SI.CoefficientOfHeatTransfer kc_3 = Nu*lambda/D_c_3;
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_4=Nu*lambda/D_c_4;
+          SI.CoefficientOfHeatTransfer kc_4=Nu*lambda/D_c_4;
 
           //input record
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con
@@ -1949,12 +1949,12 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow=m_flow[4])
             annotation (Placement(transformation(extent={{40,-20},{60,0}})));
 
-          Modelica.SIunits.ReynoldsNumber Re_1=abs(m_flow[1])*D_c_1/(eta*A_fr*(
+          SI.ReynoldsNumber Re_1=abs(m_flow[1])*D_c_1/(eta*A_fr*(
               (F_p_1*P_t_1 - F_p_1*D_c_1 - (P_t_1 - D_c_1)*delta_f)/(F_p_1*
               P_t_1)));
           //SI.ReynoldsNumber Re_2 = abs(m_flow[2])*D_c_2/(eta*A_fr*((F_p_2*P_t_2-F_p_2*D_c_2-(P_t_2-D_c_2)*delta_f)/(F_p_2*P_t_2)));
           //SI.ReynoldsNumber Re_3 = abs(m_flow[3])*D_c_3/(eta*A_fr*((F_p_3*P_t_3-F_p_3*D_c_3-(P_t_3-D_c_3)*delta_f_3)/(F_p_3*P_t_3)));
-          Modelica.SIunits.ReynoldsNumber Re_4=abs(m_flow[4])*D_c_4/(eta*A_fr*(
+          SI.ReynoldsNumber Re_4=abs(m_flow[4])*D_c_4/(eta*A_fr*(
               (F_p_4*P_t_4 - F_p_4*D_c_4 - (P_t_4 - D_c_4)*delta_f)/(F_p_4*
               P_t_4)));
         public
@@ -2015,24 +2015,24 @@ extends Modelica.Icons.ExamplesPackage;
           //helical pipe variables
           parameter Real n_nt[:]={1,5,10} "Total number of turns";
 
-          parameter Modelica.SIunits.Diameter d_hyd=0.01;
-          parameter Modelica.SIunits.Length L=10 "Total length of helical pipe";
-          parameter Modelica.SIunits.Length h=1.5*d_hyd
+          parameter SI.Diameter d_hyd=0.01;
+          parameter SI.Length L=10 "Total length of helical pipe";
+          parameter SI.Length h=1.5*d_hyd
             "Distance between turns";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //input VARIABLES
-          Modelica.SIunits.MassFlowRate m_flow[n]={input_mflow_0.y*eta[1]/eta[3],
+          SI.MassFlowRate m_flow[n]={input_mflow_0.y*eta[1]/eta[3],
               input_mflow_0.y*eta[2]/eta[3],input_mflow_0.y} "Mass flow rate"
             annotation (Dialog(group="Input"));
 
@@ -2089,13 +2089,13 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{60,20},{80,40}})));
 
           //output variables
-          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
+          SI.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nusselt number"
+          SI.NusseltNumber Nu_1[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nusselt number"
+          SI.NusseltNumber Nu_2[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nusselt number"
+          SI.NusseltNumber Nu_3[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
 
           Modelica.Blocks.Sources.Ramp input_mflow_0(duration=1, height=1e2)
@@ -2114,8 +2114,8 @@ extends Modelica.Icons.ExamplesPackage;
         protected
           parameter Real frac_dtoL=d_hyd/L;
 
-          Modelica.SIunits.ReynoldsNumber Re=Re_1[1] "Reynolds number";
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
+          SI.ReynoldsNumber Re=Re_1[1] "Reynolds number";
+          SI.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
 
         equation
@@ -2167,33 +2167,33 @@ extends Modelica.Icons.ExamplesPackage;
           //helical pipe variables
           parameter Real n_nt[:]={1,5,10} "Total number of turns";
 
-          parameter Modelica.SIunits.Diameter d_hyd=0.01;
-          parameter Modelica.SIunits.Length L=10 "Total length of helical pipe";
-          parameter Modelica.SIunits.Length h=1.5*d_hyd
+          parameter SI.Diameter d_hyd=0.01;
+          parameter SI.Length L=10 "Total length of helical pipe";
+          parameter SI.Length h=1.5*d_hyd
             "Distance between turns";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //here: Nusselt number as input for inverse calculation
-          Modelica.SIunits.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
-          Modelica.SIunits.MassFlowRate m_flow_1[3](start=ones(n)*1e-6);
-          Modelica.SIunits.MassFlowRate m_flow_2[3](start=ones(n)*1e-6);
-          Modelica.SIunits.MassFlowRate m_flow_3[3](start=ones(n)*1e-6);
+          SI.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
+          SI.MassFlowRate m_flow_1[3](start=ones(n)*1e-6);
+          SI.MassFlowRate m_flow_2[3](start=ones(n)*1e-6);
+          SI.MassFlowRate m_flow_3[3](start=ones(n)*1e-6);
 
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_1[n]={Nu[i]*lambda[i]/
+          SI.CoefficientOfHeatTransfer kc_1[n]={Nu[i]*lambda[i]/
               d_hyd for i in 1:n};
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_2[n]={Nu[i]*lambda[i]/
+          SI.CoefficientOfHeatTransfer kc_2[n]={Nu[i]*lambda[i]/
               d_hyd for i in 1:n};
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_3[n]={Nu[i]*lambda[i]/
+          SI.CoefficientOfHeatTransfer kc_3[n]={Nu[i]*lambda[i]/
               d_hyd for i in 1:n};
 
           //input record
@@ -2248,11 +2248,11 @@ extends Modelica.Icons.ExamplesPackage;
             rho=rho) annotation (Placement(transformation(
                   extent={{60,20},{80,40}})));
 
-          Modelica.SIunits.ReynoldsNumber Re_1[n]={abs(m_flow_1[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_1[n]={abs(m_flow_1[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd^2/4) for i in 1:n};
-          Modelica.SIunits.ReynoldsNumber Re_2[n]={abs(m_flow_2[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_2[n]={abs(m_flow_2[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd^2/4) for i in 1:n};
-          Modelica.SIunits.ReynoldsNumber Re_3[n]={abs(m_flow_3[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_3[n]={abs(m_flow_3[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd^2/4) for i in 1:n};
 
         public
@@ -2309,24 +2309,24 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=size(cp, 1);
 
           //helical pipe variables
-          parameter Modelica.SIunits.Diameter d_hyd=0.02;
-          parameter Modelica.SIunits.Length L=10 "Total length of helical pipe";
-          parameter Modelica.SIunits.Length h=1.5*d_hyd
+          parameter SI.Diameter d_hyd=0.02;
+          parameter SI.Length L=10 "Total length of helical pipe";
+          parameter SI.Length h=1.5*d_hyd
             "Distance between turns";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //input VARIABLES
-          Modelica.SIunits.MassFlowRate m_flow[n]={input_mflow_0.y*eta[1]/eta[3],
+          SI.MassFlowRate m_flow[n]={input_mflow_0.y*eta[1]/eta[3],
               input_mflow_0.y*eta[2]/eta[3],input_mflow_0.y} "Mass flow rate"
             annotation (Dialog(group="Input"));
 
@@ -2383,13 +2383,13 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{60,20},{80,40}})));
 
           //output variables
-          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
+          SI.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nusselt number"
+          SI.NusseltNumber Nu_1[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nusselt number"
+          SI.NusseltNumber Nu_2[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nusselt number"
+          SI.NusseltNumber Nu_3[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
 
           Modelica.Blocks.Sources.Ramp input_mflow_0(
@@ -2418,8 +2418,8 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Real n_nt[n]={L/(d_w[i]*Modelica.Constants.pi)
                                                 for i in 1:n};
 
-          Modelica.SIunits.ReynoldsNumber Re=Re_1[1] "Reynolds number";
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
+          SI.ReynoldsNumber Re=Re_1[1] "Reynolds number";
+          SI.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
 
         equation
@@ -2461,33 +2461,33 @@ extends Modelica.Icons.ExamplesPackage;
           //helical pipe variables
           parameter Real n_nt[:]={1,5,10} "Total number of turns";
 
-          parameter Modelica.SIunits.Diameter d_hyd=0.01;
-          parameter Modelica.SIunits.Length L=10 "Total length of helical pipe";
-          parameter Modelica.SIunits.Length h=1.5*d_hyd
+          parameter SI.Diameter d_hyd=0.01;
+          parameter SI.Length L=10 "Total length of helical pipe";
+          parameter SI.Length h=1.5*d_hyd
             "Distance between turns";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //here: Nusselt number as input for inverse calculation
-          Modelica.SIunits.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
-          Modelica.SIunits.MassFlowRate m_flow_1[3](start=ones(n)*1e-6);
-          Modelica.SIunits.MassFlowRate m_flow_2[3](start=ones(n)*1e-6);
-          Modelica.SIunits.MassFlowRate m_flow_3[3](start=ones(n)*1e-6);
+          SI.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
+          SI.MassFlowRate m_flow_1[3](start=ones(n)*1e-6);
+          SI.MassFlowRate m_flow_2[3](start=ones(n)*1e-6);
+          SI.MassFlowRate m_flow_3[3](start=ones(n)*1e-6);
 
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_1[n]={Nu[i]*lambda[i]/
+          SI.CoefficientOfHeatTransfer kc_1[n]={Nu[i]*lambda[i]/
               d_hyd for i in 1:n};
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_2[n]={Nu[i]*lambda[i]/
+          SI.CoefficientOfHeatTransfer kc_2[n]={Nu[i]*lambda[i]/
               d_hyd for i in 1:n};
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_3[n]={Nu[i]*lambda[i]/
+          SI.CoefficientOfHeatTransfer kc_3[n]={Nu[i]*lambda[i]/
               d_hyd for i in 1:n};
 
           //input record
@@ -2542,11 +2542,11 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow=m_flow_3) annotation (Placement(
                 transformation(extent={{60,20},{80,40}})));
 
-          Modelica.SIunits.ReynoldsNumber Re_1[n]={abs(m_flow_1[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_1[n]={abs(m_flow_1[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd^2/4) for i in 1:n};
-          Modelica.SIunits.ReynoldsNumber Re_2[n]={abs(m_flow_2[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_2[n]={abs(m_flow_2[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd^2/4) for i in 1:n};
-          Modelica.SIunits.ReynoldsNumber Re_3[n]={abs(m_flow_3[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_3[n]={abs(m_flow_3[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd^2/4) for i in 1:n};
 
           Modelica.Blocks.Sources.Ramp input_Nu(
@@ -2603,24 +2603,24 @@ extends Modelica.Icons.ExamplesPackage;
           //helical pipe variables
           parameter Real n_nt[:]={1,5,10} "Total number of turns";
 
-          parameter Modelica.SIunits.Diameter d_hyd=0.01;
-          parameter Modelica.SIunits.Length L=10 "Total length of helical pipe";
-          parameter Modelica.SIunits.Length h=1.5*d_hyd
+          parameter SI.Diameter d_hyd=0.01;
+          parameter SI.Length L=10 "Total length of helical pipe";
+          parameter SI.Length h=1.5*d_hyd
             "Distance between turns";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //input VARIABLES
-          Modelica.SIunits.MassFlowRate m_flow[n]={input_mflow_0.y*eta[1]/eta[3],
+          SI.MassFlowRate m_flow[n]={input_mflow_0.y*eta[1]/eta[3],
               input_mflow_0.y*eta[2]/eta[3],input_mflow_0.y} "Mass flow rate"
             annotation (Dialog(group="Input"));
 
@@ -2677,13 +2677,13 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{60,20},{80,40}})));
 
           //output variables
-          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
+          SI.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nusselt number"
+          SI.NusseltNumber Nu_1[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nusselt number"
+          SI.NusseltNumber Nu_2[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nusselt number"
+          SI.NusseltNumber Nu_3[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
 
           Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=100, f=1)
@@ -2704,8 +2704,8 @@ extends Modelica.Icons.ExamplesPackage;
         protected
           parameter Real frac_dtoL=d_hyd/L;
 
-          Modelica.SIunits.ReynoldsNumber Re=Re_1[1] "Reynolds number";
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
+          SI.ReynoldsNumber Re=Re_1[1] "Reynolds number";
+          SI.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
 
         equation
@@ -2757,33 +2757,33 @@ extends Modelica.Icons.ExamplesPackage;
           //helical pipe variables
           parameter Real n_nt[:]={1,5,10} "Total number of turns";
 
-          parameter Modelica.SIunits.Diameter d_hyd=0.01;
-          parameter Modelica.SIunits.Length L=10 "Total length of helical pipe";
-          parameter Modelica.SIunits.Length h=1.5*d_hyd
+          parameter SI.Diameter d_hyd=0.01;
+          parameter SI.Length L=10 "Total length of helical pipe";
+          parameter SI.Length h=1.5*d_hyd
             "Distance between turns";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //here: Nusselt number as input for inverse calculation
-          Modelica.SIunits.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
-          Modelica.SIunits.MassFlowRate m_flow_1[3](start=ones(n)*1e-6);
-          Modelica.SIunits.MassFlowRate m_flow_2[3](start=ones(n)*1e-6);
-          Modelica.SIunits.MassFlowRate m_flow_3[3](start=ones(n)*1e-6);
+          SI.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
+          SI.MassFlowRate m_flow_1[3](start=ones(n)*1e-6);
+          SI.MassFlowRate m_flow_2[3](start=ones(n)*1e-6);
+          SI.MassFlowRate m_flow_3[3](start=ones(n)*1e-6);
 
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_1[n]={Nu[i]*lambda[i]/
+          SI.CoefficientOfHeatTransfer kc_1[n]={Nu[i]*lambda[i]/
               d_hyd for i in 1:n};
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_2[n]={Nu[i]*lambda[i]/
+          SI.CoefficientOfHeatTransfer kc_2[n]={Nu[i]*lambda[i]/
               d_hyd for i in 1:n};
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_3[n]={Nu[i]*lambda[i]/
+          SI.CoefficientOfHeatTransfer kc_3[n]={Nu[i]*lambda[i]/
               d_hyd for i in 1:n};
 
           //input record
@@ -2838,11 +2838,11 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow=m_flow_3) annotation (Placement(
                 transformation(extent={{60,20},{80,40}})));
 
-          Modelica.SIunits.ReynoldsNumber Re_1[n]={abs(m_flow_1[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_1[n]={abs(m_flow_1[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd^2/4) for i in 1:n};
-          Modelica.SIunits.ReynoldsNumber Re_2[n]={abs(m_flow_2[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_2[n]={abs(m_flow_2[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd^2/4) for i in 1:n};
-          Modelica.SIunits.ReynoldsNumber Re_3[n]={abs(m_flow_3[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_3[n]={abs(m_flow_3[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd^2/4) for i in 1:n};
 
         public
@@ -2902,22 +2902,22 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=size(cp, 1);
 
           //plate variable
-          parameter Modelica.SIunits.Length L=1 "Length of plate";
+          parameter SI.Length L=1 "Length of plate";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //target variables
           //here: mass flow rate as input for normal calculation
-          Modelica.SIunits.Velocity velocity[n]={input_v_0.y*eta[1]/eta[3]*rho[3]/rho[1],
+          SI.Velocity velocity[n]={input_v_0.y*eta[1]/eta[3]*rho[3]/rho[1],
               input_v_0.y*eta[2]/eta[3]*rho[3]/rho[2],input_v_0.y};
 
           //input record
@@ -2935,12 +2935,12 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{0,20},{20,40}})));
 
           //output variables
-          Modelica.SIunits.NusseltNumber Nu[n] "Nusselt number"
+          SI.NusseltNumber Nu[n] "Nusselt number"
                                                  annotation (Dialog(group="Output"));
 
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
+          SI.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
-          Modelica.SIunits.ReynoldsNumber Re[n]={rho[i]*abs(velocity[i])*L/eta[
+          SI.ReynoldsNumber Re[n]={rho[i]*abs(velocity[i])*L/eta[
               i] for i in 1:n} "Reynolds number";
 
         public
@@ -2992,23 +2992,23 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=size(cp, 1);
 
           //plate variable
-          parameter Modelica.SIunits.Length L=1 "Length of plate";
+          parameter SI.Length L=1 "Length of plate";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //here: Nusselt number as input for inverse calculation
-          Modelica.SIunits.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
-          Modelica.SIunits.Velocity velocity[n](start=ones(n)*1e-6);
-          Modelica.SIunits.CoefficientOfHeatTransfer kc[n]={Nu[i]*lambda[i]/L
+          SI.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
+          SI.Velocity velocity[n](start=ones(n)*1e-6);
+          SI.CoefficientOfHeatTransfer kc[n]={Nu[i]*lambda[i]/L
               for i in 1:n};
 
           //input record
@@ -3026,9 +3026,9 @@ extends Modelica.Icons.ExamplesPackage;
             velocity(start={0.0043, 6.2e-5, 0.00025})=abs(velocity)) annotation (Placement(
                 transformation(extent={{0,20},{20,40}})));
 
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
+          SI.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
-          Modelica.SIunits.ReynoldsNumber Re[n]={rho[i]*abs(velocity[i])*L/eta[
+          SI.ReynoldsNumber Re[n]={rho[i]*abs(velocity[i])*L/eta[
               i] for i in 1:n} "Reynolds number";
 
         public
@@ -3069,22 +3069,22 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=size(cp, 1);
 
           //plate variable
-          parameter Modelica.SIunits.Length L=1 "Length of plate";
+          parameter SI.Length L=1 "Length of plate";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //target variables
           //here: mass flow rate as input for normal calculation
-          Modelica.SIunits.Velocity velocity[n]={input_v_0.y*eta[1]/eta[3]*rho[3]/rho[1],
+          SI.Velocity velocity[n]={input_v_0.y*eta[1]/eta[3]*rho[3]/rho[1],
               input_v_0.y*eta[2]/eta[3]*rho[3]/rho[2],input_v_0.y};
 
           //input record
@@ -3103,12 +3103,12 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{0,20},{20,40}})));
 
           //output variables
-          Modelica.SIunits.NusseltNumber Nu[n] "Nusselt number"
+          SI.NusseltNumber Nu[n] "Nusselt number"
                                                  annotation (Dialog(group="Output"));
 
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
+          SI.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
-          Modelica.SIunits.ReynoldsNumber Re[n]={rho[i]*abs(velocity[i])*L/eta[
+          SI.ReynoldsNumber Re[n]={rho[i]*abs(velocity[i])*L/eta[
               i] for i in 1:n} "Reynolds number";
 
           Modelica.Blocks.Sources.Sine input_v_1(
@@ -3161,23 +3161,23 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=size(cp, 1);
 
           //plate variable
-          parameter Modelica.SIunits.Length L=1 "Length of plate";
+          parameter SI.Length L=1 "Length of plate";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //here: Nusselt number as input for reverse calculation
-          Modelica.SIunits.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
-          Modelica.SIunits.Velocity velocity[n](start=ones(n)*1e-6);
-          Modelica.SIunits.CoefficientOfHeatTransfer kc[n]={Nu[i]*lambda[i]/L
+          SI.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
+          SI.Velocity velocity[n](start=ones(n)*1e-6);
+          SI.CoefficientOfHeatTransfer kc[n]={Nu[i]*lambda[i]/L
               for i in 1:n};
 
           //input record
@@ -3195,9 +3195,9 @@ extends Modelica.Icons.ExamplesPackage;
             velocity(start={4.3e-5, 6.2e-7, 2.5e-6})=abs(velocity)) annotation (Placement(
                 transformation(extent={{0,20},{20,40}})));
 
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
+          SI.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
-          Modelica.SIunits.ReynoldsNumber Re[n]={rho[i]*abs(velocity[i])*L/eta[
+          SI.ReynoldsNumber Re[n]={rho[i]*abs(velocity[i])*L/eta[
               i] for i in 1:n} "Reynolds number";
 
         public
@@ -3237,22 +3237,22 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=size(cp, 1);
 
           //plate variable
-          parameter Modelica.SIunits.Length L=1 "Length of plate";
+          parameter SI.Length L=1 "Length of plate";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //target variables
           //here: mass flow rate as input for normal calculation
-          Modelica.SIunits.Velocity velocity[n]={input_v_0.y*eta[1]/eta[3]*rho[3]/rho[1],
+          SI.Velocity velocity[n]={input_v_0.y*eta[1]/eta[3]*rho[3]/rho[1],
               input_v_0.y*eta[2]/eta[3]*rho[3]/rho[2],input_v_0.y};
 
           //input record
@@ -3271,12 +3271,12 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{0,20},{20,40}})));
 
           //output variables
-          Modelica.SIunits.NusseltNumber Nu[n] "Nusselt number"
+          SI.NusseltNumber Nu[n] "Nusselt number"
                                                  annotation (Dialog(group="Output"));
 
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
+          SI.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
-          Modelica.SIunits.ReynoldsNumber Re[n]={rho[i]*abs(velocity[i])*L/eta[
+          SI.ReynoldsNumber Re[n]={rho[i]*abs(velocity[i])*L/eta[
               i] for i in 1:n} "Reynolds number";
 
         public
@@ -3328,23 +3328,23 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=size(cp, 1);
 
           //plate variable
-          parameter Modelica.SIunits.Length L=1 "Length of plate";
+          parameter SI.Length L=1 "Length of plate";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //here: Nusselt number as input for inverse calculation
-          Modelica.SIunits.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
-          Modelica.SIunits.Velocity velocity[n](start=ones(n)*1e-6);
-          Modelica.SIunits.CoefficientOfHeatTransfer kc[n]={Nu[i]*lambda[i]/L
+          SI.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
+          SI.Velocity velocity[n](start=ones(n)*1e-6);
+          SI.CoefficientOfHeatTransfer kc[n]={Nu[i]*lambda[i]/L
               for i in 1:n};
 
           //input record
@@ -3362,9 +3362,9 @@ extends Modelica.Icons.ExamplesPackage;
             velocity(start={4e2, 5.0, 69})=abs(velocity)) annotation (Placement(
                 transformation(extent={{0,20},{20,40}})));
 
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
+          SI.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
-          Modelica.SIunits.ReynoldsNumber Re[n]={rho[i]*abs(velocity[i])*L/eta[
+          SI.ReynoldsNumber Re[n]={rho[i]*abs(velocity[i])*L/eta[
               i] for i in 1:n} "Reynolds number";
 
         public
@@ -3409,22 +3409,22 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=size(cp, 1);
 
           //straight pipe variables
-          parameter Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter";
-          parameter Modelica.SIunits.Length L=1 "Length of straight pipe";
+          parameter SI.Diameter d_hyd=0.1 "Hydraulic diameter";
+          parameter SI.Length L=1 "Length of straight pipe";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //input VARIABLES
-          Modelica.SIunits.MassFlowRate m_flow[n]={input_mflow_0.y*eta[1]/eta[3],
+          SI.MassFlowRate m_flow[n]={input_mflow_0.y*eta[1]/eta[3],
               input_mflow_0.y*eta[2]/eta[3],input_mflow_0.y} "Mass flow rate"
             annotation (Dialog(group="Input"));
 
@@ -3498,22 +3498,22 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{80,20},{100,40}})));
 
           //output variables
-          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
+          SI.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nusselt number"
+          SI.NusseltNumber Nu_1[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nusselt number"
+          SI.NusseltNumber Nu_2[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nusselt number"
+          SI.NusseltNumber Nu_3[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_4[n] "Nusselt number"
+          SI.NusseltNumber Nu_4[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
 
         protected
           parameter Real frac_dtoL=d_hyd/L;
 
-          Modelica.SIunits.ReynoldsNumber Re=Re_1[1] "Reynolds number";
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
+          SI.ReynoldsNumber Re=Re_1[1] "Reynolds number";
+          SI.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
 
         public
@@ -3593,34 +3593,34 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=size(cp, 1);
 
           //straight pipe variables
-          parameter Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter";
-          parameter Modelica.SIunits.Length L=1 "Length of straight pipe";
+          parameter SI.Diameter d_hyd=0.1 "Hydraulic diameter";
+          parameter SI.Length L=1 "Length of straight pipe";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //here: Nusselt number as input for inverse calculation
-          Modelica.SIunits.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
-          Modelica.SIunits.MassFlowRate m_flow_1[3](start=ones(n)*1e-6);
-          Modelica.SIunits.MassFlowRate m_flow_2[3](start=ones(n)*1e-6);
-          Modelica.SIunits.MassFlowRate m_flow_3[3](start=ones(n)*1e-6);
-          Modelica.SIunits.MassFlowRate m_flow_4[3](start=ones(n)*1e-6);
+          SI.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
+          SI.MassFlowRate m_flow_1[3](start=ones(n)*1e-6);
+          SI.MassFlowRate m_flow_2[3](start=ones(n)*1e-6);
+          SI.MassFlowRate m_flow_3[3](start=ones(n)*1e-6);
+          SI.MassFlowRate m_flow_4[3](start=ones(n)*1e-6);
 
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_1[n]={Nu[i]*lambda[i]/
+          SI.CoefficientOfHeatTransfer kc_1[n]={Nu[i]*lambda[i]/
               d_hyd for i in 1:n};
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_2[n]={Nu[i]*lambda[i]/
+          SI.CoefficientOfHeatTransfer kc_2[n]={Nu[i]*lambda[i]/
               d_hyd for i in 1:n};
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_3[n]={Nu[i]*lambda[i]/
+          SI.CoefficientOfHeatTransfer kc_3[n]={Nu[i]*lambda[i]/
               d_hyd for i in 1:n};
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_4[n]={Nu[i]*lambda[i]/
+          SI.CoefficientOfHeatTransfer kc_4[n]={Nu[i]*lambda[i]/
               d_hyd for i in 1:n};
 
           //input record
@@ -3692,13 +3692,13 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow=m_flow_4) annotation (Placement(
                 transformation(extent={{80,20},{100,40}})));
 
-          Modelica.SIunits.ReynoldsNumber Re_1[n]={abs(m_flow_1[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_1[n]={abs(m_flow_1[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd^2/4) for i in 1:n};
-          Modelica.SIunits.ReynoldsNumber Re_2[n]={abs(m_flow_2[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_2[n]={abs(m_flow_2[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd^2/4) for i in 1:n};
-          Modelica.SIunits.ReynoldsNumber Re_3[n]={abs(m_flow_3[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_3[n]={abs(m_flow_3[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd^2/4) for i in 1:n};
-          Modelica.SIunits.ReynoldsNumber Re_4[n]={abs(m_flow_4[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_4[n]={abs(m_flow_4[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd^2/4) for i in 1:n};
 
         public
@@ -3760,22 +3760,22 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=size(cp, 1);
 
           //straight pipe variables
-          parameter Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter";
-          parameter Modelica.SIunits.Length L=1 "Length of straight pipe";
+          parameter SI.Diameter d_hyd=0.1 "Hydraulic diameter";
+          parameter SI.Length L=1 "Length of straight pipe";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //input VARIABLES
-          Modelica.SIunits.MassFlowRate m_flow[n]={input_mflow_0.y*eta[1]/eta[3],
+          SI.MassFlowRate m_flow[n]={input_mflow_0.y*eta[1]/eta[3],
               input_mflow_0.y*eta[2]/eta[3],input_mflow_0.y} "Mass flow rate"
             annotation (Dialog(group="Input"));
 
@@ -3853,22 +3853,22 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{80,20},{100,40}})));
 
           //output variables
-          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
+          SI.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nusselt number"
+          SI.NusseltNumber Nu_1[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nusselt number"
+          SI.NusseltNumber Nu_2[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nusselt number"
+          SI.NusseltNumber Nu_3[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_4[n] "Nusselt number"
+          SI.NusseltNumber Nu_4[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
 
         protected
           parameter Real frac_dtoL=d_hyd/L;
 
-          Modelica.SIunits.ReynoldsNumber Re=Re_1[1] "Reynolds number";
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
+          SI.ReynoldsNumber Re=Re_1[1] "Reynolds number";
+          SI.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
         public
           Modelica.Blocks.Sources.Ramp input_mflow_0(
@@ -3948,34 +3948,34 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=size(cp, 1);
 
           //straight pipe variables
-          parameter Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter";
-          parameter Modelica.SIunits.Length L=1 "Length of straight pipe";
+          parameter SI.Diameter d_hyd=0.1 "Hydraulic diameter";
+          parameter SI.Length L=1 "Length of straight pipe";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //here: Nusselt number as input for inverse calculation
-          Modelica.SIunits.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
-          Modelica.SIunits.MassFlowRate m_flow_1[3](start=ones(n)*1e-6);
-          Modelica.SIunits.MassFlowRate m_flow_2[3](start=ones(n)*1e-6);
-          Modelica.SIunits.MassFlowRate m_flow_3[3](start=ones(n)*1e-6);
-          Modelica.SIunits.MassFlowRate m_flow_4[3](start=ones(n)*1e-6);
+          SI.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
+          SI.MassFlowRate m_flow_1[3](start=ones(n)*1e-6);
+          SI.MassFlowRate m_flow_2[3](start=ones(n)*1e-6);
+          SI.MassFlowRate m_flow_3[3](start=ones(n)*1e-6);
+          SI.MassFlowRate m_flow_4[3](start=ones(n)*1e-6);
 
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_1[n]={Nu[i]*lambda[i]/
+          SI.CoefficientOfHeatTransfer kc_1[n]={Nu[i]*lambda[i]/
               d_hyd for i in 1:n};
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_2[n]={Nu[i]*lambda[i]/
+          SI.CoefficientOfHeatTransfer kc_2[n]={Nu[i]*lambda[i]/
               d_hyd for i in 1:n};
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_3[n]={Nu[i]*lambda[i]/
+          SI.CoefficientOfHeatTransfer kc_3[n]={Nu[i]*lambda[i]/
               d_hyd for i in 1:n};
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_4[n]={Nu[i]*lambda[i]/
+          SI.CoefficientOfHeatTransfer kc_4[n]={Nu[i]*lambda[i]/
               d_hyd for i in 1:n};
 
           //input record
@@ -4051,13 +4051,13 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow=m_flow_4) annotation (Placement(
                 transformation(extent={{80,20},{100,40}})));
 
-          Modelica.SIunits.ReynoldsNumber Re_1[n]={abs(m_flow_1[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_1[n]={abs(m_flow_1[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd^2/4) for i in 1:n};
-          Modelica.SIunits.ReynoldsNumber Re_2[n]={abs(m_flow_2[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_2[n]={abs(m_flow_2[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd^2/4) for i in 1:n};
-          Modelica.SIunits.ReynoldsNumber Re_3[n]={abs(m_flow_3[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_3[n]={abs(m_flow_3[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd^2/4) for i in 1:n};
-          Modelica.SIunits.ReynoldsNumber Re_4[n]={abs(m_flow_4[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_4[n]={abs(m_flow_4[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd^2/4) for i in 1:n};
 
         public
@@ -4118,23 +4118,23 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=size(cp, 1);
 
           //straight pipe variables
-          parameter Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter";
-          parameter Modelica.SIunits.Length L=1 "Length of straight pipe";
+          parameter SI.Diameter d_hyd=0.1 "Hydraulic diameter";
+          parameter SI.Length L=1 "Length of straight pipe";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //input VARIABLES
           //create identical Reynolds number for different fluid properties >> adjustment of  mass flow rate
-          Modelica.SIunits.MassFlowRate m_flow[:]={input_mflow_0.y*eta[1]/eta[3],
+          SI.MassFlowRate m_flow[:]={input_mflow_0.y*eta[1]/eta[3],
               input_mflow_0.y*eta[2]/eta[3],input_mflow_0.y} "Mass flow rate"
             annotation (Dialog(group="Input"));
 
@@ -4174,18 +4174,18 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{40,20},{60,40}})));
 
           //output variables
-          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
+          SI.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nusselt number"
+          SI.NusseltNumber Nu_1[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nusselt number"
+          SI.NusseltNumber Nu_2[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
 
         protected
           parameter Real frac_dtoL=d_hyd/L;
 
-          Modelica.SIunits.ReynoldsNumber Re=Re_1[1] "Reynolds number";
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
+          SI.ReynoldsNumber Re=Re_1[1] "Reynolds number";
+          SI.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
         public
           Modelica.Blocks.Sources.Ramp input_mflow_0(
@@ -4242,25 +4242,25 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=size(cp, 1);
 
           //straight pipe variables
-          parameter Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter";
-          parameter Modelica.SIunits.Length L=1 "Length of straight pipe";
+          parameter SI.Diameter d_hyd=0.1 "Hydraulic diameter";
+          parameter SI.Length L=1 "Length of straight pipe";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp[
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp[
             :]={1007,4189,3384.550}
             "Specific heat capacity at constant pressure of fluid";
-          parameter Modelica.SIunits.DynamicViscosity eta[:]={18.24e-6,
+          parameter SI.DynamicViscosity eta[:]={18.24e-6,
               1001.6e-6,0.114} "Dynamic viscosity of fluid";
-          parameter Modelica.SIunits.ThermalConductivity lambda[:]={25.69e-3,
+          parameter SI.ThermalConductivity lambda[:]={25.69e-3,
               598.5e-3,0.387} "Thermal conductivity of fluid";
-          parameter Modelica.SIunits.Density rho[:]={1.188,998.21,1037.799}
+          parameter SI.Density rho[:]={1.188,998.21,1037.799}
             "Density of fluid";
 
           //here: Nusselt number as input for reverse calculation
-          Modelica.SIunits.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
-          Modelica.SIunits.MassFlowRate m_flow_1[3](start=ones(n)*1e-1);
-          Modelica.SIunits.MassFlowRate m_flow_2[3](start=ones(n)*1);
-          Modelica.SIunits.CoefficientOfHeatTransfer kc[n]={Nu[i]*lambda[i]/
+          SI.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
+          SI.MassFlowRate m_flow_1[3](start=ones(n)*1e-1);
+          SI.MassFlowRate m_flow_2[3](start=ones(n)*1);
+          SI.CoefficientOfHeatTransfer kc[n]={Nu[i]*lambda[i]/
               d_hyd for i in 1:n};
 
           //input record
@@ -4298,9 +4298,9 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow=m_flow_2) annotation (Placement(
                 transformation(extent={{40,20},{60,40}})));
 
-          Modelica.SIunits.ReynoldsNumber Re_1[n]={abs(m_flow_1[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_1[n]={abs(m_flow_1[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd*d_hyd/4) for i in 1:n};
-          Modelica.SIunits.ReynoldsNumber Re_2[n]={abs(m_flow_2[i])*d_hyd/(eta[
+          SI.ReynoldsNumber Re_2[n]={abs(m_flow_2[i])*d_hyd/(eta[
               i]*Modelica.Constants.pi*d_hyd*d_hyd/4) for i in 1:n};
 
         public
@@ -4352,93 +4352,93 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer m=size(m_flow_3, 1);
 
           //boiling in a horizontal pipe (KC=1)
-          parameter Modelica.SIunits.Diameter d_hyd_1=0.01092;
-          parameter Modelica.SIunits.Area A_cross_1=Modelica.Constants.pi*
+          parameter SI.Diameter d_hyd_1=0.01092;
+          parameter SI.Area A_cross_1=Modelica.Constants.pi*
               d_hyd_1^2/4;
-          parameter Modelica.SIunits.Length perimeter_1=Modelica.Constants.pi*
+          parameter SI.Length perimeter_1=Modelica.Constants.pi*
               d_hyd_1;
 
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure
+          parameter SI.SpecificHeatCapacityAtConstantPressure
             cp_1[n]={1341.222455,1341.222455,1341.222455,1346,1346,1346};
-          parameter Modelica.SIunits.DynamicViscosity eta_l_1[n]={
+          parameter SI.DynamicViscosity eta_l_1[n]={
               0.2589963793e-3,0.2589963793e-3,0.2589963793e-3,0.181e-3,0.181e-3,
               0.181e-3};
-          parameter Modelica.SIunits.DynamicViscosity eta_g_1[n]={1.1732415e-5,
+          parameter SI.DynamicViscosity eta_g_1[n]={1.1732415e-5,
               1.1732415e-5,1.1732415e-5,1.172546e-5,1.172546e-5,1.172546e-5};
-          parameter Modelica.SIunits.ThermalConductivity lambda_1[n]={
+          parameter SI.ThermalConductivity lambda_1[n]={
               0.09296757,0.09296757,0.09296757,0.0816653,0.0816653,0.0816653};
-          parameter Modelica.SIunits.Density rho_l_1[n]={1280.569453,
+          parameter SI.Density rho_l_1[n]={1280.569453,
               1280.569453,1280.569453,1164,1164,1164};
-          parameter Modelica.SIunits.Density rho_g_1[n]={16.89048514,
+          parameter SI.Density rho_g_1[n]={16.89048514,
               16.89048514,16.89048514,32.9,32.9,32.9};
           parameter Modelica.Fluid.Dissipation.Utilities.Types.MolarMass_gpmol M_1[n]={102.032,102.032,102.032,
               97.6,97.6,97.6};
-          parameter Modelica.SIunits.SpecificEnthalpy dh_lg_1[n]={193865.4,
+          parameter SI.SpecificEnthalpy dh_lg_1[n]={193865.4,
               193865.4,193865.4,166298.02,166298.02,166298.02};
-          parameter Modelica.SIunits.HeatFlux qdot_A_1[n]={5000,4000,1200,10000,
+          parameter SI.HeatFlux qdot_A_1[n]={5000,4000,1200,10000,
               7000,5000};
-          parameter Modelica.SIunits.Pressure p_1[n]={342402.623,342402.623,
+          parameter SI.Pressure p_1[n]={342402.623,342402.623,
               342402.623,660500,660500,660500};
-          parameter Modelica.SIunits.Pressure p_crit_1[n]={4056000,4056000,
+          parameter SI.Pressure p_crit_1[n]={4056000,4056000,
               4056000,3732000,3732000,3732000};
-          Modelica.SIunits.MassFlowRate m_flow_1[6]={0.028003115,0.018637525,
+          SI.MassFlowRate m_flow_1[6]={0.028003115,0.018637525,
               0.009365590,0.009552902,0.009552902,0.009552902};
           Real mdot_A1[n]={m_flow_1[i]/A_cross_1 for i in 1:n};
 
           //boiling in a vertical pipe (KC=2)
-          parameter Modelica.SIunits.Diameter d_hyd_2=0.0061;
-          parameter Modelica.SIunits.Area A_cross_2=Modelica.Constants.pi*
+          parameter SI.Diameter d_hyd_2=0.0061;
+          parameter SI.Area A_cross_2=Modelica.Constants.pi*
               d_hyd_2^2/4;
-          parameter Modelica.SIunits.Length perimeter_2=Modelica.Constants.pi*
+          parameter SI.Length perimeter_2=Modelica.Constants.pi*
               d_hyd_2;
 
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure
+          parameter SI.SpecificHeatCapacityAtConstantPressure
             cp_2=1128.7126;
-          parameter Modelica.SIunits.DynamicViscosity eta_l_2=0.000264104448;
-          parameter Modelica.SIunits.DynamicViscosity eta_g_2=1.126785138e-5;
-          parameter Modelica.SIunits.ThermalConductivity lambda_2=0.107525;
-          parameter Modelica.SIunits.Density rho_l_2=1334.01138;
+          parameter SI.DynamicViscosity eta_l_2=0.000264104448;
+          parameter SI.DynamicViscosity eta_g_2=1.126785138e-5;
+          parameter SI.ThermalConductivity lambda_2=0.107525;
+          parameter SI.Density rho_l_2=1334.01138;
           parameter Modelica.Fluid.Dissipation.Utilities.Types.MolarMass_gpmol M_2=86.47;
-          parameter Modelica.SIunits.Density rho_g_2=12.8808;
-          parameter Modelica.SIunits.SpecificEnthalpy dh_lg_2=216811.5384;
-          parameter Modelica.SIunits.HeatFlux qdot_A_2=10000;
-          parameter Modelica.SIunits.Pressure p_2=295700;
-          parameter Modelica.SIunits.Pressure p_crit_2=4986000;
-          Modelica.SIunits.MassFlowRate m_flow_2=0.011689866;
+          parameter SI.Density rho_g_2=12.8808;
+          parameter SI.SpecificEnthalpy dh_lg_2=216811.5384;
+          parameter SI.HeatFlux qdot_A_2=10000;
+          parameter SI.Pressure p_2=295700;
+          parameter SI.Pressure p_crit_2=4986000;
+          SI.MassFlowRate m_flow_2=0.011689866;
 
           //condensation in a horizontal pipe (KC=3)
-          parameter Modelica.SIunits.Diameter d_hyd_3=0.00704;
-          parameter Modelica.SIunits.Area A_cross_3=Modelica.Constants.pi*
+          parameter SI.Diameter d_hyd_3=0.00704;
+          parameter SI.Area A_cross_3=Modelica.Constants.pi*
               d_hyd_3^2/4;
-          parameter Modelica.SIunits.Length perimeter_3=Modelica.Constants.pi*
+          parameter SI.Length perimeter_3=Modelica.Constants.pi*
               d_hyd_3;
 
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure
+          parameter SI.SpecificHeatCapacityAtConstantPressure
             cp_3[m]={1301.76461,1902.75,1301.76461,1471,1471,1471};
-          parameter Modelica.SIunits.DynamicViscosity eta_l_3[m]={
+          parameter SI.DynamicViscosity eta_l_3[m]={
               0.0001889385508,0.106e-3,0.0001889385508,0.0001734,0.0001734,
               0.0001734};
-          parameter Modelica.SIunits.ThermalConductivity lambda_3[m]={0.082775,
+          parameter SI.ThermalConductivity lambda_3[m]={0.082775,
               0.0825,0.082775,0.07798,0.07798,0.07798};
-          parameter Modelica.SIunits.Density rho_l_3[m]={1153.0466,1016.75,
+          parameter SI.Density rho_l_3[m]={1153.0466,1016.75,
               1153.0466,1167.5,1167.5,1167.5};
-          parameter Modelica.SIunits.Pressure p_3[m]={1354785.871,2189950,
+          parameter SI.Pressure p_3[m]={1354785.871,2189950,
               1354785.871,886980,886980,886980};
-          parameter Modelica.SIunits.Pressure p_crit_3[m]={4977400,4893000,
+          parameter SI.Pressure p_crit_3[m]={4977400,4893000,
               4977400,4056000,4056000,4056000};
-          Modelica.SIunits.MassFlowRate m_flow_3[6]={0.0087583,0.02530163,
+          SI.MassFlowRate m_flow_3[6]={0.0087583,0.02530163,
               0.02530163,0.02530163,0.01167768,0.00291942};
 
           //mass flow rate quality from 0 to 1
-          Modelica.SIunits.MassFraction x_flow=input_x_0.y
+          SI.MassFraction x_flow=input_x_0.y
             "Mass flow rate quality";
 
           //plotting
-          Modelica.SIunits.NusseltNumber Nu_1[n]={kc_1[i]*d_hyd_1/lambda_1[i]
+          SI.NusseltNumber Nu_1[n]={kc_1[i]*d_hyd_1/lambda_1[i]
               for i in 1:n} "Local Nusselt number";
-          Modelica.SIunits.NusseltNumber NU_2=kc_2*d_hyd_2/lambda_2
+          SI.NusseltNumber NU_2=kc_2*d_hyd_2/lambda_2
             "Local Nusselt number";
-          Modelica.SIunits.NusseltNumber Nu_3[m]={kc_3[i]*d_hyd_3/lambda_3[i]
+          SI.NusseltNumber Nu_3[m]={kc_3[i]*d_hyd_3/lambda_3[i]
               for i in 1:m} "Local Nusselt number";
 
           //input records
@@ -4516,9 +4516,9 @@ extends Modelica.Icons.ExamplesPackage;
             annotation (Placement(transformation(extent={{40,0},{60,20}})));
 
           //output variables
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_1[n];
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_2;
-          Modelica.SIunits.CoefficientOfHeatTransfer kc_3[m];
+          SI.CoefficientOfHeatTransfer kc_1[n];
+          SI.CoefficientOfHeatTransfer kc_2;
+          SI.CoefficientOfHeatTransfer kc_3[m];
 
           Modelica.Blocks.Sources.Ramp input_x_0(duration=1, height=1)
             annotation (Placement(transformation(extent={{-60,-38},{-40,-18}})));
@@ -4577,46 +4577,46 @@ extends Modelica.Icons.ExamplesPackage;
             "Number of different angles of turning of bend";
 
           //bend variables
-          parameter Modelica.SIunits.Area A_cross=Modelica.Constants.pi*d_hyd^2
+          parameter SI.Area A_cross=Modelica.Constants.pi*d_hyd^2
               /4 "Circular cross sectional area of bend";
-          parameter Modelica.SIunits.Angle delta[3]=
+          parameter SI.Angle delta[3]=
               {30,45,90}*Modelica.Constants.pi/180 "Angle of turning";
-          parameter Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter";
-          parameter Modelica.SIunits.Length K=0
+          parameter SI.Diameter d_hyd=0.1 "Hydraulic diameter";
+          parameter SI.Length K=0
             "Roughness (average height of surface asperities)";
-          parameter Modelica.SIunits.Radius R_0[2]={2.26,11.71}*d_hyd
+          parameter SI.Radius R_0[2]={2.26,11.71}*d_hyd
             "Curvature radius";
 
           //fluid property variables
-          Modelica.SIunits.DynamicViscosity eta=1e-3
+          SI.DynamicViscosity eta=1e-3
             "Dynamic viscosity of fluid";
-          Modelica.SIunits.Density rho=1000 "Density of fluid";
+          SI.Density rho=1000 "Density of fluid";
 
           //target variables (here: mass flow rate as input for inverse calculation)
           //intended input variables for records
-          Modelica.SIunits.MassFlowRate input_mdot_1[n](start=zeros(n))
+          SI.MassFlowRate input_mdot_1[n](start=zeros(n))
             "(Input) mass flow rate (for intended incompressible case)";
-          Modelica.SIunits.Pressure input_dp_1[n](start=zeros(n))=ones(n)*
+          SI.Pressure input_dp_1[n](start=zeros(n))=ones(n)*
             input_DP.y "(Input) pressure loss (for intended compressible case)";
 
           //intended output variables for records
-          Modelica.SIunits.MassFlowRate M_FLOW_1[n](start=zeros(n))
+          SI.MassFlowRate M_FLOW_1[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP_1[n](start=zeros(n))={input_dp_1[i] for
+          SI.Pressure DP_1[n](start=zeros(n))={input_dp_1[i] for
             i in 1:n}
             "(Output) pressure loss (for intended incompressible case)";
 
           //target variables (here: mass flow rate as input for inverse calculation)
           //intended input variables for records
-          Modelica.SIunits.MassFlowRate input_mdot_2[m](start=zeros(m))
+          SI.MassFlowRate input_mdot_2[m](start=zeros(m))
             "(Input) mass flow rate (for intended incompressible case)";
-          Modelica.SIunits.Pressure input_dp_2[m](start=zeros(m))=ones(m)*
+          SI.Pressure input_dp_2[m](start=zeros(m))=ones(m)*
             input_DP.y "(Input) pressure loss (for intended compressible case)";
 
           //intended output variables for records
-          Modelica.SIunits.MassFlowRate M_FLOW_2[m](start=zeros(m))
+          SI.MassFlowRate M_FLOW_2[m](start=zeros(m))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP_2[m](start=zeros(m))={input_dp_2[i] for
+          SI.Pressure DP_2[m](start=zeros(m))={input_dp_2[i] for
             i in 1:m}
             "(Output) pressure loss (for intended incompressible case)";
 
@@ -4680,13 +4680,13 @@ extends Modelica.Icons.ExamplesPackage;
             "Relative curvature radius";
 
           //plotting
-          Modelica.SIunits.Velocity velocity_1[n]={input_mdot_1[i]/(rho*A_cross)
+          SI.Velocity velocity_1[n]={input_mdot_1[i]/(rho*A_cross)
               for i in 1:n} "Mean velocity";
-          Modelica.SIunits.ReynoldsNumber Re_1[n]={rho*velocity_1[i]*d_hyd/eta
+          SI.ReynoldsNumber Re_1[n]={rho*velocity_1[i]*d_hyd/eta
               for i in 1:n};
-          Modelica.SIunits.Velocity velocity_2[m]={input_mdot_2[i]/(rho*A_cross)
+          SI.Velocity velocity_2[m]={input_mdot_2[i]/(rho*A_cross)
               for i in 1:m} "Mean velocity";
-          Modelica.SIunits.ReynoldsNumber Re_2[m]={rho*velocity_2[i]*d_hyd/eta
+          SI.ReynoldsNumber Re_2[m]={rho*velocity_2[i]*d_hyd/eta
               for i in 1:m};
 
           Real DP_plot_1[n]={DP_1[i] for i in 1:n} "Pressure loss [Pa]";
@@ -4770,30 +4770,30 @@ extends Modelica.Icons.ExamplesPackage;
             "Number of different angles of turning of bend";
 
           //bend variables
-          parameter Modelica.SIunits.Area A_cross=Modelica.Constants.pi*d_hyd^2
+          parameter SI.Area A_cross=Modelica.Constants.pi*d_hyd^2
               /4 "Circular cross sectional area of bend";
-          parameter Modelica.SIunits.Angle delta[4]=
+          parameter SI.Angle delta[4]=
               {30,45,90,180}*Modelica.Constants.pi/180 "Angle of turning";
-          parameter Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter";
-          parameter Modelica.SIunits.Length K=2e-5
+          parameter SI.Diameter d_hyd=0.1 "Hydraulic diameter";
+          parameter SI.Length K=2e-5
             "Roughness (average height of surface asperities)";
 
           //fluid property variables
-          Modelica.SIunits.DynamicViscosity eta=1e-3
+          SI.DynamicViscosity eta=1e-3
             "Dynamic viscosity of fluid";
-          Modelica.SIunits.Density rho=1000 "Density of fluid";
+          SI.Density rho=1000 "Density of fluid";
 
           //target variables (here: mass flow rate as input for inverse calculation)
           //intended input variables for records
-          Modelica.SIunits.MassFlowRate input_mdot[n](start=zeros(n))
+          SI.MassFlowRate input_mdot[n](start=zeros(n))
             "(Input) mass flow rate (for intended incompressible case)";
-          Modelica.SIunits.Pressure input_dp[n](start=zeros(n))=ones(n)*
+          SI.Pressure input_dp[n](start=zeros(n))=ones(n)*
             input_DP.y "(Input) pressure loss (for intended compressible case)";
 
           //intended output variables for records
-          Modelica.SIunits.MassFlowRate M_FLOW[n](start=zeros(n))
+          SI.MassFlowRate M_FLOW[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
+          SI.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
                 1:n}
             "(Output) pressure loss (for intended incompressible case)";
 
@@ -4826,9 +4826,9 @@ extends Modelica.Icons.ExamplesPackage;
 
           //plotting
           Real DP_plot[n]={DP[i] for i in 1:n} "Pressure loss [Pa]";
-          Modelica.SIunits.Velocity velocity[n]={input_mdot[i]/(rho*A_cross)
+          SI.Velocity velocity[n]={input_mdot[i]/(rho*A_cross)
               for i in 1:n} "Mean velocity";
-          Modelica.SIunits.ReynoldsNumber Re[n]={rho*velocity[i]*d_hyd/eta for
+          SI.ReynoldsNumber Re[n]={rho*velocity[i]*d_hyd/eta for
               i in 1:n};
           Real zeta_TOT[n]={2*abs(DP_plot[i])/(max(rho*(velocity[i])^2, 1e-5)) for i in
                   1:n} "Pressure loss coefficients";
@@ -4890,45 +4890,45 @@ extends Modelica.Icons.ExamplesPackage;
           Modelica.Fluid.Dissipation.Utilities.Types.Roughness roughness=
               Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered
             "Choice of considering surface roughness";
-          Modelica.SIunits.Length K=0
+          SI.Length K=0
             "Roughness (average height of surface asperities)";
-          Modelica.SIunits.Length L=1 "Length";
+          SI.Length L=1 "Length";
           Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow
             geometry[5]={TYP.Annular,
             TYP.Circular,
             TYP.Elliptical,
             TYP.Rectangular,
             TYP.Isosceles} "Choice of geometry for internal flow";
-          Modelica.SIunits.Diameter d_ann=d_hyd "Small diameter";
-          Modelica.SIunits.Diameter D_ann=2*d_ann "Large diameter";
-          Modelica.SIunits.Diameter d_cir=d_hyd "Internal diameter";
-          Modelica.SIunits.Length a_ell=(3/4)*d_hyd
+          SI.Diameter d_ann=d_hyd "Small diameter";
+          SI.Diameter D_ann=2*d_ann "Large diameter";
+          SI.Diameter d_cir=d_hyd "Internal diameter";
+          SI.Length a_ell=(3/4)*d_hyd
             "Half length of long base line";
-          Modelica.SIunits.Length b_ell=0.5*a_ell
+          SI.Length b_ell=0.5*a_ell
             "Half length of short base line";
-          Modelica.SIunits.Length a_rec=d_hyd "Horizontal length";
-          Modelica.SIunits.Length b_rec=a_rec "Vertical length";
-          Modelica.SIunits.Length a_tri=d_hyd*(1 + 2^0.5) "Length of base line";
-          Modelica.SIunits.Length h_tri=0.5*a_tri
+          SI.Length a_rec=d_hyd "Horizontal length";
+          SI.Length b_rec=a_rec "Vertical length";
+          SI.Length a_tri=d_hyd*(1 + 2^0.5) "Length of base line";
+          SI.Length h_tri=0.5*a_tri
             "Height to top angle perpendicular to base line";
           Real beta=tan((a_tri)/2/h_tri) "Top angle";
 
           //fluid property variables
-          Modelica.SIunits.DynamicViscosity eta=1e-3
+          SI.DynamicViscosity eta=1e-3
             "Dynamic viscosity of fluid";
-          Modelica.SIunits.Density rho=1000 "Density of fluid";
+          SI.Density rho=1000 "Density of fluid";
 
           //target variables (here: mass flow rate as input for inverse calculation)
           //intended input variables for records
-          Modelica.SIunits.MassFlowRate input_mdot_1[n](start=zeros(n))
+          SI.MassFlowRate input_mdot_1[n](start=zeros(n))
             "(Input) mass flow rate (for intended incompressible case)";
-          Modelica.SIunits.Pressure input_dp_1[n](start=zeros(n))=ones(n)*
+          SI.Pressure input_dp_1[n](start=zeros(n))=ones(n)*
             input_DP.y "(Input) pressure loss (for intended compressible case)";
 
           //intended output variables for records
-          Modelica.SIunits.MassFlowRate M_FLOW_1[n](start=zeros(n))
+          SI.MassFlowRate M_FLOW_1[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP_1[n](start=zeros(n))={input_dp_1[i] for
+          SI.Pressure DP_1[n](start=zeros(n))={input_dp_1[i] for
             i in 1:n}
             "(Output) pressure loss (for intended incompressible case)";
 
@@ -4980,28 +4980,28 @@ extends Modelica.Icons.ExamplesPackage;
         protected
           Real MIN=Modelica.Constants.eps;
 
-          Modelica.SIunits.Area A_crossT[n]={max(MIN, if geometry[i] == TYP.Annular then
+          SI.Area A_crossT[n]={max(MIN, if geometry[i] == TYP.Annular then
               (Modelica.Constants.pi/4)*((D_ann)^2 - (d_ann)^2) else if
               geometry[i] == TYP.Circular then Modelica.Constants.pi/4*(d_cir)^2 else if
               geometry[i] == TYP.Elliptical then Modelica.Constants.pi*a_ell*b_ell else if
               geometry[i] == TYP.Rectangular then a_rec*b_rec else if geometry[i] == TYP.Isosceles then
               0.5*(a_tri*h_tri) else 0) for i in 1:n} "Cross sectional area";
-          Modelica.SIunits.Length perimeterT[n]={max(MIN, if geometry[i] == TYP.Annular then
+          SI.Length perimeterT[n]={max(MIN, if geometry[i] == TYP.Annular then
                     Modelica.Constants.pi*(D_ann + d_ann) else if geometry[i]
                == TYP.Circular then Modelica.Constants.pi*d_cir else if geometry[i] == TYP.Elliptical then
                     Modelica.Constants.pi*(2*((a_ell)^2) + (b_ell)^2)^0.5 else
               if geometry[i] == TYP.Rectangular then 2*(a_rec + b_rec) else if geometry[i]
                == TYP.Isosceles then a_tri + 2*((h_tri)^2 + (a_tri/2)^2)^0.5 else 0) for i in
                   1:n} "Perimeter";
-          Modelica.SIunits.Diameter d_hydT[n]={4*A_crossT[i]/perimeterT[i] for
+          SI.Diameter d_hydT[n]={4*A_crossT[i]/perimeterT[i] for
               i in 1:n} "Hydraulic diameter";
-          Modelica.SIunits.Area A_cross=(Modelica.Constants.pi/4)*d_hyd^2;
-          Modelica.SIunits.Diameter d_hyd=0.1;
-          Modelica.SIunits.Diameter perimeter=4*A_cross/d_hyd;
+          SI.Area A_cross=(Modelica.Constants.pi/4)*d_hyd^2;
+          SI.Diameter d_hyd=0.1;
+          SI.Diameter perimeter=4*A_cross/d_hyd;
 
-          Modelica.SIunits.Velocity velocity_1[n]={input_mdot_1[i]/(rho*
+          SI.Velocity velocity_1[n]={input_mdot_1[i]/(rho*
               A_crossT[i]) for i in 1:n} "Mean velocity";
-          Modelica.SIunits.ReynoldsNumber Re_1[n]={rho*velocity_1[i]*d_hyd/eta
+          SI.ReynoldsNumber Re_1[n]={rho*velocity_1[i]*d_hyd/eta
               for i in 1:n};
 
           Real DP_plot_1[n]={DP_1[i] for i in 1:n} "Pressure loss [Pa]";
@@ -5079,26 +5079,26 @@ extends Modelica.Icons.ExamplesPackage;
             "Coefficient for pressure loss law [(Pa)^2/{(kg/s)^exp*K}]";
 
           //fluid property variables
-          parameter Modelica.SIunits.SpecificHeatCapacity R_s=287
+          parameter SI.SpecificHeatCapacity R_s=287
             "Specific gas constant of ideal gas";
-          parameter Modelica.SIunits.Density rho_m=p_m/(R_s*T_m)
+          parameter SI.Density rho_m=p_m/(R_s*T_m)
             "Mean density of ideal gas";
-          parameter Modelica.SIunits.Temp_K T_m=(293 + 293)/2
+          parameter SI.Temperature T_m=(293 + 293)/2
             "Mean temperature of ideal gas";
-          parameter Modelica.SIunits.Pressure p_m=(1e5 + 1e5)/2
+          parameter SI.Pressure p_m=(1e5 + 1e5)/2
             "Mean pressure of ideal gas";
 
           //target variables (here: mass flow rate as input for inverse calculation)
           //intended input variables for records
-          Modelica.SIunits.MassFlowRate input_mdot[n](start=zeros(n))
+          SI.MassFlowRate input_mdot[n](start=zeros(n))
             "(Input) mass flow rate (for intended incompressible case)";
-          Modelica.SIunits.Pressure input_dp[n](start=zeros(n))=ones(n)*
+          SI.Pressure input_dp[n](start=zeros(n))=ones(n)*
             input_DP.y "(Input) pressure loss (for intended compressible case)";
 
           //intended output variables for records
-          Modelica.SIunits.MassFlowRate M_FLOW[n](start=zeros(n))
+          SI.MassFlowRate M_FLOW[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
+          SI.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
                 1:n}
             "(Output) pressure loss (for intended incompressible case)";
 
@@ -5185,51 +5185,51 @@ extends Modelica.Icons.ExamplesPackage;
 
           parameter Integer n=size(rho, 1)
             "Number of different fluid density values";
-          parameter Modelica.SIunits.KinematicViscosity nu=1e-6
+          parameter SI.KinematicViscosity nu=1e-6
             "Kinetic viscosity of fluid";
 
           //general variables
-          parameter Modelica.SIunits.Pressure dp_nom=50
+          parameter SI.Pressure dp_nom=50
             "Nominal pressure loss (at nominal values of mass flow rate and density)"
             annotation (Dialog(group="Generic variables"));
           parameter Real exp=2 "Exponent of pressure loss law"
             annotation (Dialog(group="Generic variables"));
-          parameter Modelica.SIunits.MassFlowRate m_flow_nom=1
+          parameter SI.MassFlowRate m_flow_nom=1
             "Nominal mass flow rate (at nominal values of pressure loss and density)"
             annotation (Dialog(group="Generic variables"));
-          parameter Modelica.SIunits.Density rho_nom=1e3
+          parameter SI.Density rho_nom=1e3
             "Nominal density (at nominal values of mass flow rate and pressure loss)"
             annotation (Dialog(group="Generic variables"));
           parameter Real exp_eta=1.5
             "Exponent for dynamic viscosity dependence"
             annotation (Dialog(group="Generic variables"));
-          parameter Modelica.SIunits.DynamicViscosity eta_nom=1e-3
+          parameter SI.DynamicViscosity eta_nom=1e-3
             "Dynamic viscosity at nominal pressure loss"
             annotation (Dialog(group="Generic variables"));
 
           //fluid property PARAMETERS
-          parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp=
+          parameter SI.SpecificHeatCapacityAtConstantPressure cp=
               4190 "Specific heat capacity at constant pressure of fluid"
             annotation (Dialog(group="Fluid properties"));
-          Modelica.SIunits.DynamicViscosity eta[:]={rho[i]*nu for i in 1:n}
+          SI.DynamicViscosity eta[:]={rho[i]*nu for i in 1:n}
             "Dynamic viscosity of fluid" annotation (Dialog(group="Fluid properties"));
-          parameter Modelica.SIunits.ThermalConductivity lambda=0.6
+          parameter SI.ThermalConductivity lambda=0.6
             "Thermal conductivity of fluid"
             annotation (Dialog(group="Fluid properties"));
-          Modelica.SIunits.Density rho[:]={1e3,1.5e3,2e3} "Density of fluid"
+          SI.Density rho[:]={1e3,1.5e3,2e3} "Density of fluid"
             annotation (Dialog(group="Fluid properties"));
 
           //target variables (here: mass flow rate as input for inverse calculation)
           //intended input variables for records
-          Modelica.SIunits.MassFlowRate input_mdot[n](start=zeros(n))
+          SI.MassFlowRate input_mdot[n](start=zeros(n))
             "(Input) mass flow rate (for intended incompressible case)";
-          Modelica.SIunits.Pressure input_dp[n](start=zeros(n))=ones(n)*
+          SI.Pressure input_dp[n](start=zeros(n))=ones(n)*
             input_DP.y "(Input) pressure loss (for intended compressible case)";
 
           //intended output variables for records
-          Modelica.SIunits.MassFlowRate M_FLOW[n](start=zeros(n))
+          SI.MassFlowRate M_FLOW[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
+          SI.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
                 1:n};
 
           //input record
@@ -5314,15 +5314,15 @@ extends Modelica.Icons.ExamplesPackage;
             "Number of different fluid density values";
 
           //general variables
-          Modelica.SIunits.Area A_cross=A_cross_nom "Cross sectional area"
+          SI.Area A_cross=A_cross_nom "Cross sectional area"
             annotation (Dialog(group="Generic variables"));
-          Modelica.SIunits.Area A_cross_nom=Modelica.Constants.pi*0.1^2/4
+          SI.Area A_cross_nom=Modelica.Constants.pi*0.1^2/4
             "Nominal cross sectional area"
             annotation (Dialog(group="Generic variables"));
-          Modelica.SIunits.Pressure dp_nom=50
+          SI.Pressure dp_nom=50
             "Nominal pressure loss (at nominal values of mass flow rate and density)"
             annotation (Dialog(group="Generic variables"));
-          Modelica.SIunits.MassFlowRate m_flow_nom=1
+          SI.MassFlowRate m_flow_nom=1
             "Nominal mass flow rate (at nominal values of pressure loss and density)"
             annotation (Dialog(group="Generic variables"));
           Real exp=2 "Exponent of pressure loss law"
@@ -5330,7 +5330,7 @@ extends Modelica.Icons.ExamplesPackage;
           Integer NominalMassFlowRate=1
             "= true, if use nominal mass flow rate, otherwise nominal volume flow rate"
             annotation (Dialog(group="Generic variables"));
-          Modelica.SIunits.VolumeFlowRate V_flow_nom=m_flow_nom/rho_nom
+          SI.VolumeFlowRate V_flow_nom=m_flow_nom/rho_nom
             "Nominal volume flow rate (at nominal values of pressure loss and density)"
             annotation (Dialog(group="Generic variables"));
           Modelica.Fluid.Dissipation.Utilities.Types.PressureLossCoefficient
@@ -5340,25 +5340,25 @@ extends Modelica.Icons.ExamplesPackage;
             zeta_TOT_nom=1
             "Nominal pressure loss coefficient (for nominal values)"
             annotation (Dialog(group="Generic variables"));
-          Modelica.SIunits.Density rho_nom=1e3
+          SI.Density rho_nom=1e3
             "Nominal density (at nominal values of mass flow rate and pressure loss)"
             annotation (Dialog(group="Generic variables"));
 
           //fluid property variables
-          Modelica.SIunits.Density rho[:]={1e3,1.5e3,2e3} "density of fluid"
+          SI.Density rho[:]={1e3,1.5e3,2e3} "density of fluid"
             annotation (Dialog(group="Fluid properties"));
 
           //target variables (here: mass flow rate as input for inverse calculation)
           //intended input variables for records
-          Modelica.SIunits.MassFlowRate input_mdot[n](start=zeros(n))
+          SI.MassFlowRate input_mdot[n](start=zeros(n))
             "(Input) mass flow rate (for intended incompressible case)";
-          Modelica.SIunits.Pressure input_dp[n](start=zeros(n))=ones(n)*
+          SI.Pressure input_dp[n](start=zeros(n))=ones(n)*
             input_DP.y "(Input) pressure loss (for intended compressible case)";
 
           //intended output variables for records
-          Modelica.SIunits.MassFlowRate M_FLOW[n](start=zeros(n))
+          SI.MassFlowRate M_FLOW[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
+          SI.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
                 1:n}
             "(Output) pressure loss (for intended incompressible case)";
 
@@ -5456,26 +5456,26 @@ extends Modelica.Icons.ExamplesPackage;
           //general variables
           parameter Integer n=3 "Number of grid points";
 
-          parameter Modelica.SIunits.Area A_cross=Modelica.Constants.pi*0.1^2/4
+          parameter SI.Area A_cross=Modelica.Constants.pi*0.1^2/4
             "Circular cross sectional area";
           parameter
             Modelica.Fluid.Dissipation.Utilities.Types.PressureLossCoefficient
             zeta_TOT[n]={0.01,0.1,1} "Pressure loss coefficient";
 
           //fluid property variables
-          Modelica.SIunits.Density rho=1.2 "Density of fluid";
+          SI.Density rho=1.2 "Density of fluid";
 
           //target variables (here: mass flow rate as input for inverse calculation)
           //intended input variables for records
-          Modelica.SIunits.MassFlowRate input_mdot[n](start=zeros(n))
+          SI.MassFlowRate input_mdot[n](start=zeros(n))
             "(Input) mass flow rate (for intended incompressible case)";
-          Modelica.SIunits.Pressure input_dp[n](start=zeros(n))=ones(n)*
+          SI.Pressure input_dp[n](start=zeros(n))=ones(n)*
             input_DP.y "(Input) pressure loss (for intended compressible case)";
 
           //intended output variables for records
-          Modelica.SIunits.MassFlowRate M_FLOW[n](start=zeros(n))
+          SI.MassFlowRate M_FLOW[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
+          SI.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
                 1:n}
             "(Output) pressure loss (for intended incompressible case)";
 
@@ -5553,7 +5553,7 @@ extends Modelica.Icons.ExamplesPackage;
 
           parameter Integer n=size(a, 1) "number of different coefficients a";
 
-          Modelica.SIunits.VolumeFlowRate V_flow[n]={input_mdot[i]/rho for i in
+          SI.VolumeFlowRate V_flow[n]={input_mdot[i]/rho for i in
                   1:n} "Input volume flow rate";
 
           //general variables
@@ -5562,18 +5562,18 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Real b(unit="(Pa.s)/m3") = 0 "Coefficient for linear term";
 
           //fluid property variables
-          Modelica.SIunits.Density rho=1.2 "density of fluid";
+          SI.Density rho=1.2 "density of fluid";
 
           //target variables (here: mass flow rate as input for inverse calculation)
           //intended input variables for records
-          Modelica.SIunits.MassFlowRate input_mdot[n](start=zeros(n))
+          SI.MassFlowRate input_mdot[n](start=zeros(n))
             "(Input) mass flow rate (for intended incompressible case)";
-          Modelica.SIunits.Pressure input_dp[n](start=zeros(n))=ones(n)*
+          SI.Pressure input_dp[n](start=zeros(n))=ones(n)*
             input_DP.y "(Input) pressure loss (for intended compressible case)";
           //intended output variables for records
-          Modelica.SIunits.MassFlowRate M_FLOW[n](start=zeros(n))
+          SI.MassFlowRate M_FLOW[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
+          SI.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
                 1:n}
             "(Output) pressure loss (for intended incompressible case)";
 
@@ -5667,32 +5667,32 @@ extends Modelica.Icons.ExamplesPackage;
             "Ratio of small to large cross sectional area";
 
           //orifice variables
-          Modelica.SIunits.Area A_1=A_2*frac_A1toA2
+          SI.Area A_1=A_2*frac_A1toA2
             "Small cross sectional area of orifice";
-          Modelica.SIunits.Area A_2=1e-2
+          SI.Area A_2=1e-2
             "Large cross sectional area of orifice";
-          Modelica.SIunits.Length C_1=sqrt(4*A_1/Modelica.Constants.pi)*
+          SI.Length C_1=sqrt(4*A_1/Modelica.Constants.pi)*
               Modelica.Constants.pi
             "Perimeter of small cross sectional area of orifice";
-          Modelica.SIunits.Length C_2=sqrt(4*A_2/Modelica.Constants.pi)*
+          SI.Length C_2=sqrt(4*A_2/Modelica.Constants.pi)*
               Modelica.Constants.pi
             "Perimeter of large cross sectional area of orifice";
 
           //fluid property variables
-          Modelica.SIunits.DynamicViscosity eta=1e-3
+          SI.DynamicViscosity eta=1e-3
             "Dynamic viscosity of fluid";
-          Modelica.SIunits.Density rho=1000 "Density of fluid";
+          SI.Density rho=1000 "Density of fluid";
 
           //intended input variables for records
-          Modelica.SIunits.MassFlowRate input_mdot(start=0)
+          SI.MassFlowRate input_mdot(start=0)
             "(Input) mass flow rate (for intended incompressible case)";
-          Modelica.SIunits.Pressure input_dp(start=0)=dpoo*input_DP.y
+          SI.Pressure input_dp(start=0)=dpoo*input_DP.y
             "(Input) pressure loss (for intended compressible case)";
 
           //intended output variables for records
-          Modelica.SIunits.MassFlowRate M_FLOW(start=0)
+          SI.MassFlowRate M_FLOW(start=0)
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP(start=0)=input_dp
+          SI.Pressure DP(start=0)=input_dp
             "(Output) pressure loss (for intended incompressible case)";
 
           //input record
@@ -5725,11 +5725,11 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{-50,20},{-30,40}})));
 
           //plotting
-          Modelica.SIunits.Diameter d_hyd=4*A_1/max(MIN, C_1)
+          SI.Diameter d_hyd=4*A_1/max(MIN, C_1)
             "Hydraulic diameter of small cross sectional area of orifice";
-          Modelica.SIunits.Velocity velocity=abs(M_FLOW)/(rho*max(MIN, A_1))
+          SI.Velocity velocity=abs(M_FLOW)/(rho*max(MIN, A_1))
             "Mean velocity in small cross sectional area";
-          Modelica.SIunits.ReynoldsNumber Re=rho*velocity*d_hyd/eta;
+          SI.ReynoldsNumber Re=rho*velocity*d_hyd/eta;
 
           Real DP_plot=DP "Pressure loss [Pa]";
           Real zeta_TOT=2*abs(DP_plot)/max(MIN, rho*(velocity)^2)
@@ -5793,41 +5793,41 @@ extends Modelica.Icons.ExamplesPackage;
             "Number of different ratios of cross sectional areas";
 
           //orifice variables
-          parameter Modelica.SIunits.Area A_0=1e-3
+          parameter SI.Area A_0=1e-3
             "Cross sectional area of vena contraction";
-          parameter Modelica.SIunits.Area A_1[n]={A_0/A0_2_A1[i] for i in 1:n}
+          parameter SI.Area A_1[n]={A_0/A0_2_A1[i] for i in 1:n}
             "Large cross sectional area of orifice";
-          parameter Modelica.SIunits.Length C_0=sqrt(4*A_0/Modelica.Constants.pi)
+          parameter SI.Length C_0=sqrt(4*A_0/Modelica.Constants.pi)
               *Modelica.Constants.pi "Perimeter of vena contraction";
-          parameter Modelica.SIunits.Length C_1[n]=sqrt(4*A_1/Modelica.Constants.pi)
+          parameter SI.Length C_1[n]=sqrt(4*A_1/Modelica.Constants.pi)
               *Modelica.Constants.pi
             "Perimeter of large cross sectional area of orifice";
           parameter Real A0_2_A1[6]={0.02,0.08,0.20,0.40,0.70,0.90}
             "Ratio of cross sectional areas";
 
-          Modelica.SIunits.Length L(fixed = true, start=0)
+          SI.Length L(fixed = true, start=0)
             "Length of thick edged orifice";
           Real l_bar=L/sqrt(4*A_0/Modelica.Constants.pi)
             "Relative length of orifice";
 
           //fluid property variables
-          Modelica.SIunits.DynamicViscosity eta=1e-3
+          SI.DynamicViscosity eta=1e-3
             "Dynamic viscosity of fluid"
             annotation (Dialog(group="Fluid properties"));
-          Modelica.SIunits.Density rho=1000 "Density of fluid"
+          SI.Density rho=1000 "Density of fluid"
             annotation (Dialog(group="Fluid properties"));
 
           //target variables (here: mass flow rate as input for inverse calculation)
           //intended input variables for records
-          Modelica.SIunits.MassFlowRate input_mdot[n](start=zeros(n))
+          SI.MassFlowRate input_mdot[n](start=zeros(n))
             "(Input) mass flow rate (for intended incompressible case)";
-          Modelica.SIunits.Pressure input_dp[n](start=zeros(n))=ones(n)*
+          SI.Pressure input_dp[n](start=zeros(n))=ones(n)*
             input_DP.y "(Input) pressure loss (for intended compressible case)";
 
           //intended output variables for records
-          Modelica.SIunits.MassFlowRate M_FLOW[n](start=zeros(n))
+          SI.MassFlowRate M_FLOW[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
+          SI.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
                 1:n}
             "(Output) pressure loss (for intended incompressible case)";
 
@@ -5930,36 +5930,36 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=size(K, 1);
 
           //straight pipe variables
-          Modelica.SIunits.Area A_cross=Modelica.Constants.pi*d_hyd^2/4
+          SI.Area A_cross=Modelica.Constants.pi*d_hyd^2/4
             "Circular cross sectional area of straight pipe";
           Modelica.Fluid.Dissipation.Utilities.Types.Roughness roughness=
               Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered
             "Choice of considering surface roughness"
             annotation (Dialog(group="Straight pipe"));
-          Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter"
+          SI.Diameter d_hyd=0.1 "Hydraulic diameter"
             annotation (Dialog(group="Straight pipe"));
-          Modelica.SIunits.Length K[1]={0}
+          SI.Length K[1]={0}
             "Roughness (average height of surface asperities)"
             annotation (Dialog(group="Straight pipe"));
-          Modelica.SIunits.Length L=1 "Length"
+          SI.Length L=1 "Length"
                                  annotation (Dialog(group="Straight pipe"));
 
           //fluid property variables
-          Modelica.SIunits.DynamicViscosity eta=1e-3
+          SI.DynamicViscosity eta=1e-3
             "Dynamic viscosity of fluid";
-          Modelica.SIunits.Density rho=1000 "Density of fluid";
+          SI.Density rho=1000 "Density of fluid";
 
           //target variables (here: mass flow rate as input for inverse calculation)
           //intended input variables for records
-          Modelica.SIunits.MassFlowRate input_mdot[n](start=zeros(n))
+          SI.MassFlowRate input_mdot[n](start=zeros(n))
             "(Input) mass flow rate (for intended incompressible case)";
-          Modelica.SIunits.Pressure input_dp[n](start=zeros(n))=ones(n)*
+          SI.Pressure input_dp[n](start=zeros(n))=ones(n)*
             input_DP.y "(Input) pressure loss (for intended compressible case)";
 
           //intended output variables for records
-          Modelica.SIunits.MassFlowRate M_FLOW[n](start=zeros(n))
+          SI.MassFlowRate M_FLOW[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
+          SI.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
                 1:n}
             "(Output) pressure loss (for intended incompressible case)";
 
@@ -5987,9 +5987,9 @@ extends Modelica.Icons.ExamplesPackage;
               Placement(transformation(extent={{50,20},{70,40}})));
 
           //plotting
-          Modelica.SIunits.Velocity velocity[n]={M_FLOW[i]/(rho*A_cross) for i in
+          SI.Velocity velocity[n]={M_FLOW[i]/(rho*A_cross) for i in
                   1:n} "Mean velocity";
-          Modelica.SIunits.ReynoldsNumber Re[n]={rho*velocity[i]*d_hyd/eta for
+          SI.ReynoldsNumber Re[n]={rho*velocity[i]*d_hyd/eta for
               i in 1:n};
 
           Real DP_plot[n]={DP[i] for i in 1:n} "Pressure loss [Pa]";
@@ -6048,36 +6048,36 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=size(K, 1);
 
           //straight pipe variables
-          Modelica.SIunits.Area A_cross=Modelica.Constants.pi*d_hyd^2/4
+          SI.Area A_cross=Modelica.Constants.pi*d_hyd^2/4
             "Circular cross sectional area of straight pipe";
           Modelica.Fluid.Dissipation.Utilities.Types.Roughness roughness=
               Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered
             "Choice of considering surface roughness"
             annotation (Dialog(group="Straight pipe"));
-          Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter"
+          SI.Diameter d_hyd=0.1 "Hydraulic diameter"
             annotation (Dialog(group="Straight pipe"));
-          Modelica.SIunits.Length K[4]={0,2e-4*d_hyd,2e-3*d_hyd,2e-2*d_hyd}
+          SI.Length K[4]={0,2e-4*d_hyd,2e-3*d_hyd,2e-2*d_hyd}
             "Roughness (average height of surface asperities)"
             annotation (Dialog(group="Straight pipe"));
-          Modelica.SIunits.Length L=1 "Length"
+          SI.Length L=1 "Length"
                                  annotation (Dialog(group="Straight pipe"));
 
           //fluid property variables
-          Modelica.SIunits.DynamicViscosity eta=1e-3
+          SI.DynamicViscosity eta=1e-3
             "Dynamic viscosity of fluid";
-          Modelica.SIunits.Density rho=1000 "Density of fluid";
+          SI.Density rho=1000 "Density of fluid";
 
           //target variables (here: mass flow rate as input for inverse calculation)
           //intended input variables for records
-          Modelica.SIunits.MassFlowRate input_mdot[n](start=zeros(n))
+          SI.MassFlowRate input_mdot[n](start=zeros(n))
             "(Input) mass flow rate (for intended incompressible case)";
-          Modelica.SIunits.Pressure input_dp[n](start=zeros(n))=ones(n)*
+          SI.Pressure input_dp[n](start=zeros(n))=ones(n)*
             input_DP.y "(Input) pressure loss (for intended compressible case)";
 
           //intended output variables for records
-          Modelica.SIunits.MassFlowRate M_FLOW[n](start=zeros(n))
+          SI.MassFlowRate M_FLOW[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
+          SI.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
                 1:n}
             "(Output) pressure loss (for intended incompressible case)";
 
@@ -6111,9 +6111,9 @@ extends Modelica.Icons.ExamplesPackage;
               Placement(transformation(extent={{50,20},{70,40}})));
 
           //plotting
-          Modelica.SIunits.Velocity velocity[n]={M_FLOW[i]/(rho*A_cross) for i in
+          SI.Velocity velocity[n]={M_FLOW[i]/(rho*A_cross) for i in
                   1:n} "Mean velocity";
-          Modelica.SIunits.ReynoldsNumber Re[n]={rho*velocity[i]*d_hyd/eta for
+          SI.ReynoldsNumber Re[n]={rho*velocity[i]*d_hyd/eta for
               i in 1:n};
 
           Real DP_plot[n]={DP[i] for i in 1:n} "Pressure loss [Pa]";
@@ -6178,36 +6178,36 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=size(K, 1);
 
           //straight pipe variables
-          Modelica.SIunits.Area A_cross=Modelica.Constants.pi*d_hyd^2/4
+          SI.Area A_cross=Modelica.Constants.pi*d_hyd^2/4
             "Circular cross sectional area of straight pipe";
           Modelica.Fluid.Dissipation.Utilities.Types.Roughness roughness=
               Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered
             "Choice of considering surface roughness"
             annotation (Dialog(group="Straight pipe"));
-          Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter"
+          SI.Diameter d_hyd=0.1 "Hydraulic diameter"
             annotation (Dialog(group="Straight pipe"));
-          Modelica.SIunits.Length K[4]={0,2e-4*d_hyd,2e-3*d_hyd,2e-2*d_hyd}
+          SI.Length K[4]={0,2e-4*d_hyd,2e-3*d_hyd,2e-2*d_hyd}
             "Roughness (average height of surface asperities)"
             annotation (Dialog(group="Straight pipe"));
-          Modelica.SIunits.Length L=1 "Length"
+          SI.Length L=1 "Length"
                                  annotation (Dialog(group="Straight pipe"));
 
           //fluid property variables
-          Modelica.SIunits.DynamicViscosity eta=1e-3
+          SI.DynamicViscosity eta=1e-3
             "Dynamic viscosity of fluid";
-          Modelica.SIunits.Density rho=1000 "Density of fluid";
+          SI.Density rho=1000 "Density of fluid";
 
           //target variables (here: mass flow rate as input for inverse calculation)
           //intended input variables for records
-          Modelica.SIunits.MassFlowRate input_mdot[n](start=zeros(n))
+          SI.MassFlowRate input_mdot[n](start=zeros(n))
             "(Input) mass flow rate (for intended incompressible case)";
-          Modelica.SIunits.Pressure input_dp[n](start=zeros(n))=ones(n)*
+          SI.Pressure input_dp[n](start=zeros(n))=ones(n)*
             input_DP.y "(Input) pressure loss (for intended compressible case)";
 
           //intended output variables for records
-          Modelica.SIunits.MassFlowRate M_FLOW[n](start=zeros(n))
+          SI.MassFlowRate M_FLOW[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
+          SI.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
                 1:n}
             "(Output) pressure loss (for intended incompressible case)";
 
@@ -6241,9 +6241,9 @@ extends Modelica.Icons.ExamplesPackage;
               Placement(transformation(extent={{50,20},{70,40}})));
 
           //plotting
-          Modelica.SIunits.Velocity velocity[n]={M_FLOW[i]/(rho*A_cross) for i in
+          SI.Velocity velocity[n]={M_FLOW[i]/(rho*A_cross) for i in
                   1:n} "Mean velocity";
-          Modelica.SIunits.ReynoldsNumber Re[n]={rho*velocity[i]*d_hyd/eta for
+          SI.ReynoldsNumber Re[n]={rho*velocity[i]*d_hyd/eta for
               i in 1:n};
 
           Real DP_plot[n]={DP[i] for i in 1:n} "Pressure loss [Pa]";
@@ -6307,21 +6307,21 @@ extends Modelica.Icons.ExamplesPackage;
 
           //straight pipe variables
           parameter Integer n=size(eta_l, 1);
-          parameter Modelica.SIunits.Diameter d_hyd=0.000787;
-          parameter Modelica.SIunits.Area A_cross=PI*d_hyd^2/4;
-          parameter Modelica.SIunits.Length perimeter=PI*d_hyd;
-          parameter Modelica.SIunits.Length length=0.503;
+          parameter SI.Diameter d_hyd=0.000787;
+          parameter SI.Area A_cross=PI*d_hyd^2/4;
+          parameter SI.Length perimeter=PI*d_hyd;
+          parameter SI.Length length=0.503;
 
           //fluid property variables for CO2 at saturation temperatures of 0degC, 10degC, 20degC
-          Modelica.SIunits.DynamicViscosity eta_l[5]={9.835980551e-5,
+          SI.DynamicViscosity eta_l[5]={9.835980551e-5,
               8.77888107e-5,7.368173278e-5,8.77888107e-5,8.77888107e-5};
-          Modelica.SIunits.DynamicViscosity eta_g[n]={1.547810104e-5,
+          SI.DynamicViscosity eta_g[n]={1.547810104e-5,
               1.732575635e-5,2.007174653e-5,1.732575635e-5,1.732575635e-5};
-          Modelica.SIunits.Density rho_l[n]={928.81004020247,863.41525244853,
+          SI.Density rho_l[n]={928.81004020247,863.41525244853,
               776.03258981765,863.41525244853,863.41525244853};
-          Modelica.SIunits.Density rho_g[n]={97.475877361949,134.57734207752,
+          SI.Density rho_g[n]={97.475877361949,134.57734207752,
               192.69422231737,134.57734207752,134.57734207752};
-          Modelica.SIunits.SurfaceTension sigma[n]={4.4317e-3,2.6724e-03,
+          SI.SurfaceTension sigma[n]={4.4317e-3,2.6724e-03,
               1.1607e-03,2.6724e-03,2.6724e-03};
 
           //Two phase pressure loss w.r.t. equation of Friedel
@@ -6370,15 +6370,15 @@ extends Modelica.Icons.ExamplesPackage;
             each x_flow_sta=x_flow)
             annotation (Placement(transformation(extent={{20,0},{40,20}})));
 
-          Modelica.SIunits.MassFlowRate input_mdot[n]={0.0001459354,
+          SI.MassFlowRate input_mdot[n]={0.0001459354,
               0.0001459354,0.0001459354,0.00019458051,0.000097290255}
             "(Input) mass flow rate (for incompressible case)";
-          Modelica.SIunits.MassFlowRate m_flow[n]=input_mdot;
+          SI.MassFlowRate m_flow[n]=input_mdot;
 
           //output variables
-          Modelica.SIunits.Pressure DP_1[n]
+          SI.Pressure DP_1[n]
             "(Output) pressure loss (for incompressible case)";
-          Modelica.SIunits.Pressure DP_2[n]
+          SI.Pressure DP_2[n]
             "(Output) pressure loss (for incompressible case)";
           Real DP_plot_1[n]={DP_1[i]/100000 for i in 1:n};
           Real DP_plot_2[n]={DP_2[i]/100000 for i in 1:n};
@@ -6423,7 +6423,7 @@ extends Modelica.Icons.ExamplesPackage;
             outMax=1) annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
 
         protected
-          Modelica.SIunits.MassFraction x_flow=input_x_0.y
+          SI.MassFraction x_flow=input_x_0.y
             "Mean mass flow rate quality";
 
         equation
@@ -6471,57 +6471,57 @@ extends Modelica.Icons.ExamplesPackage;
               Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry.Gate,
               Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry.Sluice}
             "Choice of geometry for valve";
-          Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter";
+          SI.Diameter d_hyd=0.1 "Hydraulic diameter";
           Real Av=Modelica.Constants.pi
                     *d_hyd^2/4 "Av (metric) flow coefficient [Av]=m^2";
           Real opening=input_opening.y
             "Opening of valve | 0==closed and 1== fully opened";
 
           //fluid property variables
-          Modelica.SIunits.DynamicViscosity eta=1e-3
+          SI.DynamicViscosity eta=1e-3
             "Dynamic viscosity of fluid";
-          Modelica.SIunits.Density rho=1000 "Density of fluid";
+          SI.Density rho=1000 "Density of fluid";
 
           //target variables (here: mass flow rate as input for inverse calculation)
           //compressible case
           //intended input variables for records
-          Modelica.SIunits.MassFlowRate input_mdot_1[n](start=zeros(n))
+          SI.MassFlowRate input_mdot_1[n](start=zeros(n))
             "(Input) mass flow rate (for intended incompressible case)";
-          Modelica.SIunits.Pressure input_dp_1[n](start=zeros(n))=ones(n)*
+          SI.Pressure input_dp_1[n](start=zeros(n))=ones(n)*
             input_DP.y "(Input) pressure loss (for intended compressible case)";
           //variable opening
-          Modelica.SIunits.MassFlowRate input_mdot_2[n](start=zeros(n))
+          SI.MassFlowRate input_mdot_2[n](start=zeros(n))
             "(Input) mass flow rate (for intended incompressible case)";
-          Modelica.SIunits.Pressure input_dp_2[n](start=zeros(n))=ones(n)*1e3
+          SI.Pressure input_dp_2[n](start=zeros(n))=ones(n)*1e3
             "(Input) pressure loss (for intended compressible case)";
 
           //incompressible case
           //constant opening
-          Modelica.SIunits.MassFlowRate input_mdot_3[n](start=zeros(n))=ones(n)
+          SI.MassFlowRate input_mdot_3[n](start=zeros(n))=ones(n)
             *input_mdot.y
             "(Input) mass flow rate (for intended incompressible case)";
-          Modelica.SIunits.Pressure input_dp_3[n](start=zeros(n))
+          SI.Pressure input_dp_3[n](start=zeros(n))
             "(Input) pressure loss (for intended incompressible case)";
 
           //intended output variables for records
           //compressible case
           //constant opening
-          Modelica.SIunits.MassFlowRate M_FLOW_1[n](start=zeros(n))
+          SI.MassFlowRate M_FLOW_1[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP_1[n](start=zeros(n))={input_dp_1[i] for
+          SI.Pressure DP_1[n](start=zeros(n))={input_dp_1[i] for
             i in 1:n}
             "(Output) pressure loss (for intended incompressible case)";
           //variable opening
-          Modelica.SIunits.MassFlowRate M_FLOW_2[n](start=zeros(n))
+          SI.MassFlowRate M_FLOW_2[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP_2[n](start=zeros(n))={input_dp_2[i] for
+          SI.Pressure DP_2[n](start=zeros(n))={input_dp_2[i] for
             i in 1:n}
             "(Output) pressure loss (for intended incompressible case)";
           //incompressible case
           //constant opening
-          Modelica.SIunits.MassFlowRate M_FLOW_3[n](start=zeros(n))
+          SI.MassFlowRate M_FLOW_3[n](start=zeros(n))
             "(Output) mass flow rate (for intended incompressible case)";
-          Modelica.SIunits.Pressure DP_3[n](start=zeros(n))=input_dp_3
+          SI.Pressure DP_3[n](start=zeros(n))=input_dp_3
             "(Output) pressure loss (for intended incompressible case)";
 
           //compressible case
@@ -6932,8 +6932,8 @@ This model executes pressure loss calculations out of the <strong> Fluid.Dissipa
         "Test cases of pressure loss functions for several devices"
         extends Modelica.Icons.Example;
 
-        Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter";
-        Modelica.SIunits.Area A_cross=Modelica.Constants.pi*d_hyd^2/4
+        SI.Diameter d_hyd=0.1 "Hydraulic diameter";
+        SI.Area A_cross=Modelica.Constants.pi*d_hyd^2/4
           "Cross sectional area";
         Real eta=1e-3 "Dynamic viscosity of Water";
         Real rho=1e3 "Density of Water";

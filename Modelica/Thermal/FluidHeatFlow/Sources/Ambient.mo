@@ -8,13 +8,13 @@ model Ambient "Ambient with constant properties"
   parameter Boolean usePressureInput=false
     "Enable / disable pressure input"
     annotation(Evaluate=true, choices(checkBox=true));
-  parameter Modelica.SIunits.Pressure constantAmbientPressure(start=0)
+  parameter SI.Pressure constantAmbientPressure(start=0)
     "Ambient pressure"
     annotation(Dialog(enable=not usePressureInput));
   parameter Boolean useTemperatureInput=false
     "Enable / disable temperature input"
     annotation(Evaluate=true, choices(checkBox=true));
-  parameter Modelica.SIunits.Temperature constantAmbientTemperature(start=293.15, displayUnit="degC")
+  parameter SI.Temperature constantAmbientTemperature(start=293.15, displayUnit="degC")
     "Ambient temperature"
     annotation(Dialog(enable=not useTemperatureInput));
   Modelica.Blocks.Interfaces.RealInput ambientPressure=pAmbient if usePressureInput
@@ -36,8 +36,8 @@ model Ambient "Ambient with constant properties"
         rotation=180,
         origin={100,-60})));
 protected
-  Modelica.SIunits.Pressure pAmbient;
-  Modelica.SIunits.Temperature TAmbient;
+  SI.Pressure pAmbient;
+  SI.Temperature TAmbient;
 
 equation
   if not usePressureInput then

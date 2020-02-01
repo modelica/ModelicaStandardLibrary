@@ -7,10 +7,10 @@ model ConstantActuator
   parameter SI.Inductance L=0.0051 "Coil inductance at mid-stroke";
   parameter SI.Mass m_a=0.012 "Armature mass"
     annotation (Dialog(group="Armature and stopper"));
-  parameter Modelica.SIunits.TranslationalSpringConstant c=1e11
+  parameter SI.TranslationalSpringConstant c=1e11
     "Spring stiffness between impact partners"
     annotation (Dialog(group="Armature and stopper"));
-  parameter Modelica.SIunits.TranslationalDampingConstant d=400
+  parameter SI.TranslationalDampingConstant d=400
     "Damping coefficient between impact partners"
     annotation (Dialog(group="Armature and stopper"));
   parameter SI.Position x_min=-4e-3 "Minimum armature position"

@@ -19,18 +19,18 @@ model DC_ElectricalExcited
       powerBalance(final powerExcitation=ve*ie, final lossPowerExcitation=re.LossPower),
 
     core(final w=airGapDC.w));
-  parameter Modelica.SIunits.Current IeNominal(start=1)
+  parameter SI.Current IeNominal(start=1)
     "Nominal excitation current" annotation (Dialog(tab="Excitation"));
-  parameter Modelica.SIunits.Resistance Re(start=100)
+  parameter SI.Resistance Re(start=100)
     "Field excitation resistance at TeRef"
     annotation (Dialog(tab="Excitation"));
-  parameter Modelica.SIunits.Temperature TeRef(start=293.15)
+  parameter SI.Temperature TeRef(start=293.15)
     "Reference temperature of excitation resistance"
     annotation (Dialog(tab="Excitation"));
   parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20e(start=0)
     "Temperature coefficient of excitation resistance"
     annotation (Dialog(tab="Excitation"));
-  parameter Modelica.SIunits.Inductance Le(start=1)
+  parameter SI.Inductance Le(start=1)
     "Total field excitation inductance"
     annotation (Dialog(tab="Excitation"));
   parameter Real sigmae(
@@ -38,12 +38,12 @@ model DC_ElectricalExcited
     max=0.99,
     start=0) "Stray fraction of total excitation inductance"
     annotation (Dialog(tab="Excitation"));
-  parameter Modelica.SIunits.Temperature TeOperational(start=293.15)
+  parameter SI.Temperature TeOperational(start=293.15)
     "Operational (shunt) excitation temperature" annotation (Dialog(group=
          "Operational temperatures", enable=not useThermalPort));
-  output Modelica.SIunits.Voltage ve=pin_ep.v - pin_en.v
+  output SI.Voltage ve=pin_ep.v - pin_en.v
     "Field excitation voltage";
-  output Modelica.SIunits.Current ie(start=0) = pin_ep.i
+  output SI.Current ie(start=0) = pin_ep.i
     "Field excitation current";
   Machines.BasicMachines.Components.AirGapDC airGapDC(
     final turnsRatio=turnsRatio,
@@ -77,9 +77,9 @@ model DC_ElectricalExcited
     "Negative excitation pin" annotation (Placement(transformation(extent=
            {{-90,-50},{-110,-70}})));
 protected
-  final parameter Modelica.SIunits.Inductance Lme=Le*(1 - sigmae)
+  final parameter SI.Inductance Lme=Le*(1 - sigmae)
     "Main part of excitation inductance";
-  final parameter Modelica.SIunits.Inductance Lesigma=Le*sigmae
+  final parameter SI.Inductance Lesigma=Le*sigmae
     "Stray part of excitation inductance" annotation (Evaluate=true);
 equation
   connect(airGapDC.pin_ap, la.n) annotation (Line(

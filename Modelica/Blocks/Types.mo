@@ -107,11 +107,11 @@ package Types
       input String tableName "Table name";
       input String fileName "File name";
       input Real table[:, :];
-      input Modelica.SIunits.Time startTime;
+      input SI.Time startTime;
       input Integer columns[:];
       input Modelica.Blocks.Types.Smoothness smoothness;
       input Modelica.Blocks.Types.Extrapolation extrapolation;
-      input Modelica.SIunits.Time shiftTime=0.0;
+      input SI.Time shiftTime=0.0;
       input Modelica.Blocks.Types.TimeEvents timeEvents=Modelica.Blocks.Types.TimeEvents.Always;
       input Boolean verboseRead=true "= true: Print info message; = false: No info message";
       output ExternalCombiTimeTable externalCombiTimeTable;

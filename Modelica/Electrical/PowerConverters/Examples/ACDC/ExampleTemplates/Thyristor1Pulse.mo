@@ -2,8 +2,8 @@ within Modelica.Electrical.PowerConverters.Examples.ACDC.ExampleTemplates;
 partial model Thyristor1Pulse "Template of single pulse rectifier"
   extends Icons.ExampleTemplate;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
-  parameter Modelica.SIunits.Frequency f=50 "Frequency";
+  parameter SI.Voltage Vrms=110 "RMS supply voltage";
+  parameter SI.Frequency f=50 "Frequency";
 
   Modelica.Electrical.Analog.Sensors.VoltageSensor voltagesensor
     annotation (Placement(transformation(

@@ -1,9 +1,9 @@
 within Modelica.Mechanics.Translational.Sources;
 model ConstantSpeed "Constant speed, not dependent on force"
   extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
-  parameter Modelica.SIunits.Velocity v_fixed
+  parameter SI.Velocity v_fixed
     "Fixed speed (if negative, force is acting as load)";
-  Modelica.SIunits.Velocity v
+  SI.Velocity v
     "Velocity of flange with respect to support (= der(s))";
 equation
   v = der(s);

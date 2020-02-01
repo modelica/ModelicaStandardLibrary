@@ -2,12 +2,12 @@ within Modelica.Magnetic.FundamentalWave.Examples.Components;
 model PolyphaseInductance "Polyphase inductance"
   extends Modelica.Icons.Example;
   parameter Integer m=3 "Number of phases";
-  parameter Modelica.SIunits.Frequency f=1 "Supply frequency";
-  parameter Modelica.SIunits.Voltage VRMS=100 "RMS supply voltage";
-  parameter Modelica.SIunits.Resistance R=0.1 "Leader cable resistance";
+  parameter SI.Frequency f=1 "Supply frequency";
+  parameter SI.Voltage VRMS=100 "RMS supply voltage";
+  parameter SI.Resistance R=0.1 "Leader cable resistance";
   parameter Real effectiveTurns=5 "Effective number of turns";
-  parameter Modelica.SIunits.Inductance L=1 "Load inductance";
-  final parameter Modelica.SIunits.Reluctance R_m=m*effectiveTurns^2/2/L
+  parameter SI.Inductance L=1 "Load inductance";
+  final parameter SI.Reluctance R_m=m*effectiveTurns^2/2/L
     "Equivalent magnetic reluctance";
   Modelica.Electrical.Analog.Basic.Ground ground_e
     annotation (Placement(transformation(extent={{-70,10},{-50,30}})));

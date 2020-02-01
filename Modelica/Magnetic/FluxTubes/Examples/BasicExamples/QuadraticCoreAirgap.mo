@@ -1,13 +1,13 @@
 within Modelica.Magnetic.FluxTubes.Examples.BasicExamples;
 model QuadraticCoreAirgap "Educational example: iron core with airgap"
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Length l=0.1 "Outer length of iron core";
-  parameter Modelica.SIunits.Length a=0.01 "Side length of square cross section";
+  parameter SI.Length l=0.1 "Outer length of iron core";
+  parameter SI.Length a=0.01 "Side length of square cross section";
   parameter Real mu_r=1000 "Relative permeability of core";
-  parameter Modelica.SIunits.Length delta=0.001 "Length of airgap";
+  parameter SI.Length delta=0.001 "Length of airgap";
   parameter Real sigma=0.1 "Leakage coefficient";
   parameter Integer N=500 "Number of turns of exciting coil";
-  parameter Modelica.SIunits.Current I=1.5 "Maximum exciting current";
+  parameter SI.Current I=1.5 "Maximum exciting current";
   Basic.ElectroMagneticConverter excitingCoil(N=N)
     annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
   Shapes.FixedShape.Cuboid leftLeg(

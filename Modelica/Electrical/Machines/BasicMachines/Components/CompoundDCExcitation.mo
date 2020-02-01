@@ -2,12 +2,12 @@ within Modelica.Electrical.Machines.BasicMachines.Components;
 model CompoundDCExcitation "Compound excitation = shunt + series"
   parameter Real excitationTurnsRatio
     "Ratio of series excitation turns over shunt excitation turns";
-  Modelica.SIunits.Voltage v=pin_p.v - pin_n.v;
-  Modelica.SIunits.Current i=pin_p.i;
-  Modelica.SIunits.Voltage ve=pin_ep.v - pin_en.v;
-  Modelica.SIunits.Current ie=pin_ep.i;
-  Modelica.SIunits.Voltage vse=pin_sep.v - pin_sen.v;
-  Modelica.SIunits.Current ise=pin_sep.i;
+  SI.Voltage v=pin_p.v - pin_n.v;
+  SI.Current i=pin_p.i;
+  SI.Voltage ve=pin_ep.v - pin_en.v;
+  SI.Current ie=pin_ep.i;
+  SI.Voltage vse=pin_sep.v - pin_sen.v;
+  SI.Current ise=pin_sep.i;
   Modelica.Electrical.Analog.Interfaces.PositivePin pin_p
     "Positive pin to airgap"
     annotation (Placement(transformation(extent={{90,110},{110,90}})));

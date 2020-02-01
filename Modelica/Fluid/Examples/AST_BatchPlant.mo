@@ -8,7 +8,7 @@ package AST_BatchPlant
     replaceable package BatchMedium = Modelica.Media.Water.StandardWater constrainedby
       Modelica.Media.Interfaces.PartialTwoPhaseMedium "Component media";
 
-    parameter Modelica.SIunits.Length pipeDiameter = 0.01 "Pipe diameter";
+    parameter SI.Length pipeDiameter = 0.01 "Pipe diameter";
 
     BaseClasses.TankWith3InletOutletArraysWithEvaporatorCondensor B5(
       redeclare package Medium = BatchMedium,
@@ -650,7 +650,7 @@ Documentation for this example can be found on the <a href=\"modelica://Modelica
         p(start=p_ambient),
         T(start=T_start),
         Xi(start=X_start[1:Medium.nXi]));
-      Modelica.SIunits.Height level(
+      SI.Height level(
         stateSelect=StateSelect.prefer,
         min=0,
         max=height) "Level height of tank";
@@ -745,7 +745,7 @@ Documentation for this example can be found on the <a href=\"modelica://Modelica
         annotation (Placement(transformation(extent={{-210,-10},{-190,10}})));
 
     // parameter for Evaporator
-      parameter Modelica.SIunits.Height min_level_for_heating "Minimum level for heating";
+      parameter SI.Height min_level_for_heating "Minimum level for heating";
 
       Medium.SaturationProperties sat
         "State vector to compute saturation properties";
@@ -948,7 +948,7 @@ Full steady state initialization is not supported, because the corresponding ini
             rotation=90)));
         Boolean m_flow_negative( start = true, fixed = true)
         "true= mass flow out of tank";
-        constant Modelica.SIunits.Acceleration g=Modelica.Constants.g_n;
+        constant SI.Acceleration g=Modelica.Constants.g_n;
         input Real aboveLevel;
         input Real d;
         input Real p_ambient;
@@ -1749,7 +1749,7 @@ Implemented trace substances and missing equation for outflow of multi substance
 
     model OneTank
       "Tank with one time-varying top inlet mass flow rate and a bottom outlet into the ambient"
-      import Modelica.SIunits.Conversions.from_bar;
+      import Modelica.Units.Conversions.from_bar;
       extends Modelica.Icons.Example;
 
       Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank(
@@ -1809,7 +1809,7 @@ Implemented trace substances and missing equation for outflow of multi substance
     end OneTank;
 
     model TwoTanks
-      import Modelica.SIunits.Conversions.from_bar;
+      import Modelica.Units.Conversions.from_bar;
       extends Modelica.Icons.Example;
       parameter Boolean stiffCharacteristicForEmptyPort=true
         "= true, if steep pressure loss characteristic for empty pipe port";
@@ -1825,7 +1825,7 @@ Implemented trace substances and missing equation for outflow of multi substance
         crossArea=1,
         height=4,
         level_start=3,
-        T_start=Modelica.SIunits.Conversions.from_degC(50),
+        T_start=Modelica.Units.Conversions.from_degC(50),
         nPorts=1,
         portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(
             diameter=0.1, height=0)})
@@ -1837,7 +1837,7 @@ Implemented trace substances and missing equation for outflow of multi substance
         crossArea=1,
         height=4,
         level_start=1,
-        T_start=Modelica.SIunits.Conversions.from_degC(100),
+        T_start=Modelica.Units.Conversions.from_degC(100),
         nPorts=1,
         portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(
             diameter=0.1, height=0)})
@@ -1858,7 +1858,7 @@ Implemented trace substances and missing equation for outflow of multi substance
 
     model TankWithEmptyingPipe1
       "Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient"
-      import Modelica.SIunits.Conversions.from_bar;
+      import Modelica.Units.Conversions.from_bar;
       extends Modelica.Icons.Example;
 
       Sources.MassFlowSource_T flowSource(
@@ -1929,7 +1929,7 @@ Implemented trace substances and missing equation for outflow of multi substance
 
     model TankWithEmptyingPipe2
       "Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient"
-      import Modelica.SIunits.Conversions.from_bar;
+      import Modelica.Units.Conversions.from_bar;
       extends Modelica.Icons.Example;
 
       inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
@@ -1996,7 +1996,7 @@ Implemented trace substances and missing equation for outflow of multi substance
 
     model TanksWithEmptyingPipe1
       "Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient"
-      import Modelica.SIunits.Conversions.from_bar;
+      import Modelica.Units.Conversions.from_bar;
       extends Modelica.Icons.Example;
 
       inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
@@ -2093,7 +2093,7 @@ Implemented trace substances and missing equation for outflow of multi substance
       "Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient"
       parameter Boolean stiffCharacteristicForEmptyPort=true
         "= true, if steep pressure loss characteristic for empty pipe port";
-      import Modelica.SIunits.Conversions.from_bar;
+      import Modelica.Units.Conversions.from_bar;
       extends Modelica.Icons.Example;
       replaceable package Medium =
          Modelica.Media.Water.ConstantPropertyLiquidWater constrainedby

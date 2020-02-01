@@ -2,21 +2,21 @@ within Modelica.Electrical.QuasiStatic.Polyphase.Examples;
 model UnsymmetricalLoad "Unsymmetrical three-phase load"
   extends Modelica.Icons.Example;
   import Modelica.ComplexMath.abs;
-  output Modelica.SIunits.Current i1_d=symmetricalComponents_1.abs_y[1]
+  output SI.Current i1_d=symmetricalComponents_1.abs_y[1]
     "with neutral, direct component";
-  output Modelica.SIunits.Current i1_i=symmetricalComponents_1.abs_y[2]
+  output SI.Current i1_i=symmetricalComponents_1.abs_y[2]
     "with neutral, inverse component";
-  output Modelica.SIunits.Current i1_0=symmetricalComponents_1.abs_y[3]
+  output SI.Current i1_0=symmetricalComponents_1.abs_y[3]
     "with neutral, zero component";
-  output Modelica.SIunits.Current i1_n=abs(currentSensorN.i)
+  output SI.Current i1_n=abs(currentSensorN.i)
     "with neutral, neutral current";
-  output Modelica.SIunits.Current i2_d=symmetricalComponents_2.abs_y[1]
+  output SI.Current i2_d=symmetricalComponents_2.abs_y[1]
     "w/o neutral, direct component";
-  output Modelica.SIunits.Current i2_i=symmetricalComponents_2.abs_y[2]
+  output SI.Current i2_i=symmetricalComponents_2.abs_y[2]
     "w/o neutral, inverse component";
-  output Modelica.SIunits.Current i2_0=symmetricalComponents_2.abs_y[3]
+  output SI.Current i2_0=symmetricalComponents_2.abs_y[3]
     "w/o neutral, zero component";
-  output Modelica.SIunits.Voltage v2_n=abs(voltageSensorN.v)
+  output SI.Voltage v2_n=abs(voltageSensorN.v)
     "w/o neutral, neutral voltage";
 
   Sources.VoltageSource voltageSource1(

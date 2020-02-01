@@ -5,17 +5,17 @@ model IndirectCooling "Indirect cooling circuit"
     "Outer medium" annotation (choicesAllMatching=true);
   parameter FluidHeatFlow.Media.Medium innerMedium=FluidHeatFlow.Media.Medium()
     "Inner medium" annotation (choicesAllMatching=true);
-  parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC")=293.15
+  parameter SI.Temperature TAmb(displayUnit="degC")=293.15
     "Ambient temperature";
-  output Modelica.SIunits.TemperatureDifference dTSource=
+  output SI.TemperatureDifference dTSource=
     prescribedHeatFlow.port.T-TAmb "Source over Ambient";
-  output Modelica.SIunits.TemperatureDifference dTtoPipe=prescribedHeatFlow.port.T-pipe1.T_q
+  output SI.TemperatureDifference dTtoPipe=prescribedHeatFlow.port.T-pipe1.T_q
     "Source over inner Coolant";
-  output Modelica.SIunits.TemperatureDifference dTinnerCoolant=pipe1.dT
+  output SI.TemperatureDifference dTinnerCoolant=pipe1.dT
     "inner Coolant's temperature increase";
-  output Modelica.SIunits.TemperatureDifference dTCooler=innerPipe.T_q-outerPipe.T_q
+  output SI.TemperatureDifference dTCooler=innerPipe.T_q-outerPipe.T_q
     "Cooler's temperature increase between inner and outer pipes";
-  output Modelica.SIunits.TemperatureDifference dTouterCoolant=outerPipe.dT
+  output SI.TemperatureDifference dTouterCoolant=outerPipe.dT
     "outer Coolant's temperature increase";
   FluidHeatFlow.Sources.Ambient ambient1(
     constantAmbientTemperature=TAmb,

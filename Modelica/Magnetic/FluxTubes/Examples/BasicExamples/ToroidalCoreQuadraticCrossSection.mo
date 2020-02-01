@@ -3,14 +3,14 @@ model ToroidalCoreQuadraticCrossSection
   "Educational example: iron core with airgap"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Modelica.SIunits.Length r_o=0.055 "Outer radius of iron core";
-  parameter Modelica.SIunits.Length r_i=0.045 "Inner radius of iron core";
-  parameter Modelica.SIunits.Length l=0.01 "Length of rectangular cross section";
-  parameter Modelica.SIunits.RelativePermeability mu_r=1000 "Relative permeability of core";
-  parameter Modelica.SIunits.Length delta=0.001 "Length of airgap";
-  parameter Modelica.SIunits.Angle alpha=(1 - delta/(2*pi*(r_o + r_i)/2))*2*pi "Section angle of toroidal core";
+  parameter SI.Length r_o=0.055 "Outer radius of iron core";
+  parameter SI.Length r_i=0.045 "Inner radius of iron core";
+  parameter SI.Length l=0.01 "Length of rectangular cross section";
+  parameter SI.RelativePermeability mu_r=1000 "Relative permeability of core";
+  parameter SI.Length delta=0.001 "Length of airgap";
+  parameter SI.Angle alpha=(1 - delta/(2*pi*(r_o + r_i)/2))*2*pi "Section angle of toroidal core";
   parameter Integer N=500 "Number of exciting coil turns";
-  parameter Modelica.SIunits.Current I=1.5 "Maximum exciting current";
+  parameter SI.Current I=1.5 "Maximum exciting current";
   Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter excitingCoil(N=N)
     annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
   Shapes.FixedShape.HollowCylinderCircumferentialFlux

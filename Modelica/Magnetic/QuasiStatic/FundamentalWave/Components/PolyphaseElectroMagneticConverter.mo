@@ -21,57 +21,57 @@ model PolyphaseElectroMagneticConverter
           extent={{90,-110},{110,-90}})));
   parameter Integer m=3 "Number of phases";
   parameter Real effectiveTurns "Effective number of turns";
-  constant Modelica.SIunits.Angle orientation=0
+  constant SI.Angle orientation=0
     "Orientation of the first winding axis";
   // Local electric polyphase quantities
-  Modelica.SIunits.ComplexVoltage v[m] "Complex voltage";
-  Modelica.SIunits.Voltage abs_v[m]=Modelica.ComplexMath.abs(v)
+  SI.ComplexVoltage v[m] "Complex voltage";
+  SI.Voltage abs_v[m]=Modelica.ComplexMath.abs(v)
     "Magnitude of complex voltage";
-  Modelica.SIunits.Angle arg_v[m]=Modelica.ComplexMath.arg(v)
+  SI.Angle arg_v[m]=Modelica.ComplexMath.arg(v)
     "Argument of complex voltage";
 
-  Modelica.SIunits.ComplexCurrent i[m] "Complex current";
-  Modelica.SIunits.Current abs_i[m]=Modelica.ComplexMath.abs(i)
+  SI.ComplexCurrent i[m] "Complex current";
+  SI.Current abs_i[m]=Modelica.ComplexMath.abs(i)
     "Magnitude of complex current";
-  Modelica.SIunits.Angle arg_i[m]=Modelica.ComplexMath.arg(i)
+  SI.Angle arg_i[m]=Modelica.ComplexMath.arg(i)
     "Argument of complex current";
 
-  Modelica.SIunits.ActivePower P[m]={Modelica.ComplexMath.real(v[k]*
+  SI.ActivePower P[m]={Modelica.ComplexMath.real(v[k]*
       Modelica.ComplexMath.conj(i[k])) for k in 1:m} "Active power";
-  Modelica.SIunits.ActivePower P_total=sum(P) "Total active power";
-  Modelica.SIunits.ReactivePower Q[m]={Modelica.ComplexMath.imag(v[k]*
+  SI.ActivePower P_total=sum(P) "Total active power";
+  SI.ReactivePower Q[m]={Modelica.ComplexMath.imag(v[k]*
       Modelica.ComplexMath.conj(i[k])) for k in 1:m} "Reactive power";
-  Modelica.SIunits.ReactivePower Q_total=sum(Q) "Total reactive power";
-  Modelica.SIunits.ApparentPower S[m]={Modelica.ComplexMath.abs(v[k]*
+  SI.ReactivePower Q_total=sum(Q) "Total reactive power";
+  SI.ApparentPower S[m]={Modelica.ComplexMath.abs(v[k]*
       Modelica.ComplexMath.conj(i[k])) for k in 1:m}
     "Magnitude of complex apparent power";
-  Modelica.SIunits.ApparentPower S_total=sqrt(P_total^2 + Q_total^2)
+  SI.ApparentPower S_total=sqrt(P_total^2 + Q_total^2)
     "Magnitude of total complex apparent power";
   Real pf[m]={cos(Modelica.ComplexMath.arg(Complex(P[k], Q[k]))) for k in 1:m}
     "Power factor";
 
   // Local electromagnetic fundamental wave quantities
-  Modelica.SIunits.ComplexMagneticPotentialDifference V_m
+  SI.ComplexMagneticPotentialDifference V_m
     "Complex magnetic potential difference";
-  Modelica.SIunits.MagneticPotentialDifference abs_V_m=
+  SI.MagneticPotentialDifference abs_V_m=
       Modelica.ComplexMath.abs(V_m)
     "Magnitude of complex magnetic potential difference";
-  Modelica.SIunits.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
+  SI.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
     "Argument of complex magnetic potential difference";
 
-  Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
-  Modelica.SIunits.MagneticPotentialDifference abs_Phi=
+  SI.ComplexMagneticFlux Phi "Complex magnetic flux";
+  SI.MagneticPotentialDifference abs_Phi=
       Modelica.ComplexMath.abs(Phi) "Magnitude of complex magnetic flux";
-  Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
+  SI.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
     "Argument of complex magnetic flux";
 
-  Modelica.SIunits.AngularVelocity omega=der(port_p.reference.gamma);
+  SI.AngularVelocity omega=der(port_p.reference.gamma);
   // A technical solution with a rotator cannot be applied to the equations below
   final parameter Complex N=effectiveTurns*Modelica.ComplexMath.exp(Complex(
       0, orientation)) "Complex effective number of turns";
-  Modelica.SIunits.ComplexVoltage vSymmetricalComponent[m]
+  SI.ComplexVoltage vSymmetricalComponent[m]
     "Symmetrical components of voltages";
-  Modelica.SIunits.ComplexCurrent iSymmetricalComponent[m]
+  SI.ComplexCurrent iSymmetricalComponent[m]
     "Symmetrical components of currents";
 protected
   final parameter Complex sTM[m,m]=

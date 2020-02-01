@@ -39,20 +39,6 @@ convertClass("Modelica.Electrical.Digital.Converters.LogicToXO1",
               "Modelica.Electrical.Digital.Converters.LogicToX01")
 convertClass("Modelica.Electrical.Digital.Converters.LogicToXO1Z",
               "Modelica.Electrical.Digital.Converters.LogicToX01Z")
-convertClass("Modelica.SIunits.Conversions.ConversionIcon",
-              "Modelica.SIunits.Icons.Conversion")
-convertClass("Modelica.SIunits.FluxiodQuantum",
-              "Modelica.SIunits.FluxoidQuantum")
-convertClass("Modelica.SIunits.RadiantExtiance",
-              "Modelica.SIunits.RadiantExitance")
-convertClass("Modelica.SIunits.LoundnessLevel",
-              "Modelica.SIunits.LoudnessLevel")
-convertClass("Modelica.SIunits.Loundness",
-              "Modelica.SIunits.Loudness")
-convertClass("Modelica.SIunits.Conversions.NonSIunits.FirstOrderTemperaturCoefficient",
-              "Modelica.SIunits.LinearTemperatureCoefficientResistance")
-convertClass("Modelica.SIunits.Conversions.NonSIunits.SecondOrderTemperaturCoefficient",
-              "Modelica.SIunits.QuadraticTemperatureCoefficientResistance")
 convertClass("Modelica.Media.Incompressible.TableBased.Polynomials_Temp",
               "Modelica.Math.Polynomials")
 convertClass("Modelica.Math.Vectors.Utilities.roots",
@@ -1881,6 +1867,28 @@ convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.ReactiveP
 convertClass("Modelica.Electrical.Analog.Ideal.IdealGyrator", "Modelica.Electrical.Analog.Basic.Gyrator")
 convertElement({"Modelica.Electrical.Analog.Ideal.IdealGyrator"}, "G", "G1")
 convertModifiers("Modelica.Electrical.Analog.Ideal.IdealGyrator", {"G"}, {"G1(start=%G%)", "G2(start=%G%)"})
+
+// SIunits --> Units, see #712
+convertClass("Modelica.SIunits", "Modelica.Units.SI")
+convertClass("Modelica.SIunits.Icons", "Modelica.Units.Icons")
+convertClass("Modelica.SIunits.Conversions", "Modelica.Units.Conversions")
+convertClass("Modelica.SIunits.Conversions.NonSIunits", "Modelica.Units.NonSI")
+convertClass("Modelica.SIunits.Temp_C", "Modelica.Units.NonSI.Temperature_degC")
+convertClass("Modelica.SIunits.Temp_K", "Modelica.Units.Temperature")
+convertClass("Modelica.SIunits.Conversions.ConversionIcon",
+              "Modelica.Units.Icons.Conversion")
+convertClass("Modelica.SIunits.FluxiodQuantum",
+              "Modelica.Units.SI.FluxoidQuantum")
+convertClass("Modelica.SIunits.RadiantExtiance",
+              "Modelica.Units.SI.RadiantExitance")
+convertClass("Modelica.SIunits.LoundnessLevel",
+              "Modelica.Units.SI.LoudnessLevel")
+convertClass("Modelica.SIunits.Loundness",
+              "Modelica.Units.SI.Loudness")
+convertClass("Modelica.SIunits.Conversions.NonSIunits.FirstOrderTemperaturCoefficient",
+              "Modelica.Units.SI.LinearTemperatureCoefficientResistance")
+convertClass("Modelica.SIunits.Conversions.NonSIunits.SecondOrderTemperaturCoefficient",
+             "Modelica.Units.SI.QuadraticTemperatureCoefficientResistance")
 
 // Automatically extended to handle derived classes
 convertElement("Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet", "quasiStationary", "quasiStatic")

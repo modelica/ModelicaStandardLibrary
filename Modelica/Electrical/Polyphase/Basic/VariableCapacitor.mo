@@ -2,7 +2,7 @@ within Modelica.Electrical.Polyphase.Basic;
 model VariableCapacitor
   "Ideal linear electrical capacitors with variable capacitance"
   extends Interfaces.TwoPlug;
-  parameter Modelica.SIunits.Capacitance Cmin[m]=fill(Modelica.Constants.eps,
+  parameter SI.Capacitance Cmin[m]=fill(Modelica.Constants.eps,
       m) "Minimum capacitance";
   Modelica.Blocks.Interfaces.RealInput C[m](each unit="F") annotation (
       Placement(transformation(

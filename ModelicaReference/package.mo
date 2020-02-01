@@ -362,7 +362,7 @@ When converting between units (in the user-interface for plotting and entering p
 
 <h4>Example usage</h4>
 <p>
-This annotation is used in the Modelica Standard Library for example in <a href=\"modelica://Modelica.SIunits\">Modelica.SIunits</a> for the type definition TemperatureDifference.
+This annotation is used in the Modelica Standard Library for example in <a href=\"modelica://Modelica.Units.SI\">Modelica.Units.SI</a> for the type definition TemperatureDifference.
 </p>
 </html>"));
   end absoluteValue;
@@ -810,7 +810,7 @@ A <code>Selector</code> displays a file dialog to select a file: Parameter <code
 
 <blockquote><pre><strong>model</strong> DialogDemo
   <strong>parameter</strong> Boolean b = true \"Boolean parameter\";
-  <strong>parameter</strong> Modelica.SIunits.Length length \"Real parameter with unit\";
+  <strong>parameter</strong> Modelica.Units.SI.Length length \"Real parameter with unit\";
   <strong>parameter</strong> Integer nInports=0 annotation(Dialog(connectorSizing=true));
   <strong>parameter</strong> Real r1 \"Real parameter in Group 1\" annotation(Dialog(group=\"Group 1\"));
   <strong>parameter</strong> Real r2 \"Disabled Real parameter in group 1\"
@@ -1344,7 +1344,7 @@ Error message, if variable is not assigned
 
 <blockquote><pre><strong>connector</strong> Frame \"Frame of a mechanical system\"
     ...
-  <strong>flow</strong> Modelica.SIunits.Force f[3] <strong>annotation</strong>(unassignedMessage =
+  <strong>flow</strong> Modelica.Units.SI.Force f[3] <strong>annotation</strong>(unassignedMessage =
 \"All Forces cannot be uniquely calculated. The reason could be that the
 mechanism contains a planar loop or that joints constrain the same motion.
 For planar loops, use in one revolute joint per loop the option
@@ -1709,8 +1709,8 @@ Define specialized class <em>connector</em>
 <h4>Examples</h4>
 
 <blockquote><pre><strong>connector</strong> flange
-  Modelica.SIunits.Angle phi;
-  <strong>flow</strong> Modelica.SIunits.Torque tau;
+  Modelica.Units.SI.Angle phi;
+  <strong>flow</strong> Modelica.Units.SI.Torque tau;
 <strong>end</strong> flange;</pre></blockquote>
 
 <h4>Syntax</h4>
@@ -2270,11 +2270,11 @@ Define specialized class <em>model</em>
 <h4>Examples</h4>
 
 <blockquote><pre><strong>model</strong> SlidingMass
-  <strong>parameter</strong> Modelica.SIunits.Mass m=1;
-  <strong>parameter</strong> Modelica.SIunits.Force f=1;
-  Modelica.SIunits.Position s;
-  Modelica.SIunits.Velocity v;
-  Modelica.SIunits.Acceleration a;
+  <strong>parameter</strong> Modelica.Units.SI.Mass m=1;
+  <strong>parameter</strong> Modelica.Units.SI.Force f=1;
+  Modelica.Units.SI.Position s;
+  Modelica.Units.SI.Velocity v;
+  Modelica.Units.SI.Acceleration a;
 <strong>equation</strong>
   <strong>der</strong>(s) = v;
   <strong>der</strong>(v) = a;
@@ -2350,14 +2350,14 @@ Define specialized class <em>record</em>
 <h4>Examples</h4>
 
 <blockquote><pre>  <strong>record</strong> States
-    Modelica.SIunits.Position s;
-    Modelica.SIunits.Velocity v;
+    Modelica.Units.SI.Position s;
+    Modelica.Units.SI.Velocity v;
   <strong>end</strong> States;
 
   <strong>record</strong> System
-    <strong>parameter</strong> Modelica.SIunits.Mass m=1;
-    <strong>parameter</strong> Modelica.SIunits.Force f=1;
-    Modelica.SIunits.Acceleration a;
+    <strong>parameter</strong> Modelica.Units.SI.Mass m=1;
+    <strong>parameter</strong> Modelica.Units.SI.Force f=1;
+    Modelica.Units.SI.Acceleration a;
     States states;
   <strong>end</strong> System;
 
@@ -3686,7 +3686,7 @@ A typical voltage source would then be defined as:
 <blockquote><pre>
 <strong>model</strong> ConstantVoltageSource
   <strong>extends</strong> Modelica.Electrical.Analog.Interfaces.OnePort;
-  <strong>parameter</strong> Modelica.SIunits.Voltage V;
+  <strong>parameter</strong> Modelica.Units.SI.Voltage V;
 <strong>equation</strong>
   v = <strong>homotopy</strong>(actual=V, simplified=0.0);
 <strong>end</strong> ConstantVoltageSource;
@@ -3701,7 +3701,7 @@ Named arguments are used here in order to further improve the readability.
 
 <blockquote><pre>
 <strong>model</strong> PressureLoss
-  <strong>import</strong> SI = Modelica.SIunits;
+  <strong>import</strong> SI = Modelica.Units.SI;
   ...
   <strong>parameter</strong> SI.MassFlowRate m_flow_nominal \"Nominal mass flow rate\";
   <strong>parameter</strong> SI.Pressure     dp_nominal     \"Nominal pressure drop\";
@@ -5282,7 +5282,7 @@ Some more analysis reveals that this local set of equations and unknowns is stru
 
 <blockquote><pre>Example 3:
 
-import SI = Modelica.SIunits;
+import Modelica.Units.SI;
 partial model BaseProperties
    \"Interface of medium model for all type of media\"
    parameter Boolean preferredMediumStates=false;
@@ -5345,7 +5345,7 @@ Therefore, the model is locally balanced.
 The generic medium model BaseProperties is used as a replaceable model in different components, like a dynamic volume or a fixed boundary condition:
 </p>
 
-<blockquote><pre>import SI = Modelica.SIunits
+<blockquote><pre>import Modelica.Units.SI;
 connector FluidPort
   replaceable model Medium = BaseProperties;
 
@@ -5798,8 +5798,8 @@ Declare flow (through) variable, which have to sum up to zero in connections
 <h4>Examples</h4>
 
 <blockquote><pre><strong>connector</strong> Pin
-  Modelica.SIunits.Voltage v;
-  <strong>flow</strong> Modelica.SIunits.Current i;
+  Modelica.Units.SI.Voltage v;
+  <strong>flow</strong> Modelica.Units.SI.Current i;
 <strong>end</strong> Pin;
 
 <strong>model</strong> A
@@ -6072,14 +6072,14 @@ Import classes
 <h4>Examples</h4>
 
 <blockquote><pre><strong>class</strong> Lookup
-  <strong>import</strong> SI = Modelica.SIunits; // #1 (Try to avoid renaming imports!)
+  <strong>import</strong> SI = Modelica.Units.SI; // #1 (Try to avoid renaming imports!)
   <strong>import</strong> Modelica.Math.*; // #2 (Try to avoid wildcard imports!)
   <strong>import</strong> Modelica.Mechanics.Rotational; // #3
-  <strong>import</strong> Modelica.SIUnits.{Molality, Molarity}; // #4
+  <strong>import</strong> Modelica.Units.SI.{Molality, Molarity}; // #4
 
-  SI.Torque torque; // due to #1 (Modelica.SIunits.Torque)
+  SI.Torque torque; // due to #1 (Modelica.Units.SI.Torque)
   Rotational.Components.Inertia inertia; // due to #3 (Modelica.Mechanics.Rotational.Components.Inertia)
-  Molarity c = 1; // due to #4 (Modelica.SIUnits.Molarity)
+  Molarity c = 1; // due to #4 (Modelica.Units.SI.Molarity)
 <strong>equation</strong>
   torque = sin(<strong>time</strong>); // due to #2 (Modelica.Math.sin)
   ...

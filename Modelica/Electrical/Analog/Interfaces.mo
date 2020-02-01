@@ -357,7 +357,7 @@ on the model behaviour.
     "Partial model to include a conditional HeatPort in order to dissipate losses, used for graphical modeling, i.e., for building models by drag-and-drop"
     parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
       annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-    parameter Modelica.SIunits.Temperature T=293.15
+    parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false"
       annotation(Dialog(enable=not useHeatPort));
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
@@ -520,11 +520,11 @@ The device temperature <strong>internalHeatPort.T</strong> can be used to descri
 
   partial model IdealSemiconductor "Ideal semiconductor"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter Modelica.SIunits.Resistance Ron(final min=0) = 1e-5
+    parameter SI.Resistance Ron(final min=0) = 1e-5
       "Forward state-on differential resistance (closed resistance)";
-    parameter Modelica.SIunits.Conductance Goff(final min=0) = 1e-5
+    parameter SI.Conductance Goff(final min=0) = 1e-5
       "Backward state-off conductance (opened conductance)";
-    parameter Modelica.SIunits.Voltage Vknee(final min=0) = 0
+    parameter SI.Voltage Vknee(final min=0) = 0
       "Forward threshold voltage";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
     Boolean off(start=true) "Switching state";
@@ -534,8 +534,8 @@ The device temperature <strong>internalHeatPort.T</strong> can be used to descri
     /* s = 0: knee point
      s < 0: below knee point, blocking
      s > 0: above knee point, conducting */
-    constant Modelica.SIunits.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant Modelica.SIunits.Current unitCurrent=1 annotation (HideResult=true);
+    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
+    constant SI.Current unitCurrent=1 annotation (HideResult=true);
   equation
     v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
     i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
@@ -633,9 +633,9 @@ behavior is <strong>not</strong> modelled.
 
   partial model IdealSwitch "Ideal electrical switch"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter Modelica.SIunits.Resistance Ron(final min=0) = 1e-5
+    parameter SI.Resistance Ron(final min=0) = 1e-5
       "Closed switch resistance";
-    parameter Modelica.SIunits.Conductance Goff(final min=0) = 1e-5
+    parameter SI.Conductance Goff(final min=0) = 1e-5
       "Opened switch conductance";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
   protected
@@ -695,13 +695,13 @@ behavior is <strong>not</strong> modelled. The parameters are not temperature de
 
   partial model IdealSwitchWithArc "Ideal switch with simple arc model"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter Modelica.SIunits.Resistance Ron=1E-5 "Closed switch resistance";
-    parameter Modelica.SIunits.Conductance Goff=1E-5
+    parameter SI.Resistance Ron=1E-5 "Closed switch resistance";
+    parameter SI.Conductance Goff=1E-5
       "Opened switch conductance";
-    parameter Modelica.SIunits.Voltage V0(start=30) "Initial arc voltage";
-    parameter Modelica.SIunits.VoltageSlope dVdt(start=10E3)
+    parameter SI.Voltage V0(start=30) "Initial arc voltage";
+    parameter SI.VoltageSlope dVdt(start=10E3)
       "Arc voltage slope";
-    parameter Modelica.SIunits.Voltage Vmax(start=60) "Max. arc voltage";
+    parameter SI.Voltage Vmax(start=60) "Max. arc voltage";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
     Boolean off(start=true) "Indicates off-state (but maybe not quenched)";
   protected

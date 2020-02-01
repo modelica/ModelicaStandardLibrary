@@ -3,7 +3,7 @@ model EddyCurrent
   "Constant loss model under sinusoidal magnetic conditions"
   import Modelica.Constants.pi;
   extends Magnetic.FundamentalWave.Interfaces.TwoPort;
-  parameter Modelica.SIunits.Conductance G(min=0)
+  parameter SI.Conductance G(min=0)
     "Equivalent symmetric loss conductance";
   extends
     Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(

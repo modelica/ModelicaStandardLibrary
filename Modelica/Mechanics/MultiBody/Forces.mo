@@ -495,7 +495,7 @@ This leads to the following animation
 
   model Force
     "Force acting between two frames, defined by 3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve"
-    import Modelica.SIunits.Conversions.to_unit1;
+    import Modelica.Units.Conversions.to_unit1;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     Interfaces.Frame_resolve frame_resolve if
          resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
@@ -673,7 +673,7 @@ clarity this is not shown in the animation):
 
   model Torque
     "Torque acting between two frames, defined by 3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve"
-    import Modelica.SIunits.Conversions.to_unit1;
+    import Modelica.Units.Conversions.to_unit1;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     Interfaces.Frame_resolve frame_resolve if
          resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
@@ -854,7 +854,7 @@ clarity this is not shown in the animation):
     "Force and torque acting between two frames, defined by 3+3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve"
 
     import Modelica.Mechanics.MultiBody.Types;
-    import Modelica.SIunits.Conversions.to_unit1;
+    import Modelica.Units.Conversions.to_unit1;
 
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
 
@@ -1801,7 +1801,7 @@ in the other flange connector.
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input SIunits.Diameter massDiameter=max(0, (width - 2*coilWidth)*0.9)
+    input SI.Diameter massDiameter=max(0, (width - 2*coilWidth)*0.9)
       "Diameter of mass point sphere" annotation (Dialog(tab="Animation", group=
             "if animation = true and showMass = true", enable=animation and showMass));
     input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
@@ -1817,7 +1817,7 @@ in the other flange connector.
       "= true, if rotation frame_b.R is fixed (to directly connect line forces)"
        annotation (Evaluate=true, choices(checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
 
-    Modelica.SIunits.Position r_rel_a[3]
+    SI.Position r_rel_a[3]
       "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
     Real e_a[3](each final unit="1")
       "Unit vector on the line connecting the origin of frame_a with the origin of frame_b resolved in frame_a (directed from frame_a to frame_b)";
@@ -1945,10 +1945,10 @@ alt=\"model Examples.Elementary.SpringWithMass\">
     parameter SI.Distance length_a=world.defaultForceLength
       "Length of cylinder at frame_a side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input SIunits.Diameter diameter_a=world.defaultForceWidth
+    input SI.Diameter diameter_a=world.defaultForceWidth
       "Diameter of cylinder at frame_a side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input SIunits.Diameter diameter_b=0.6*diameter_a
+    input SI.Diameter diameter_b=0.6*diameter_a
       "Diameter of cylinder at frame_b side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color color_a={100,100,100} "Color at frame_a"
@@ -2051,10 +2051,10 @@ where a mass is hanging on a damper.
     parameter SI.Distance length_a=world.defaultForceLength
       "Length of damper cylinder at frame_a side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input SIunits.Diameter diameter_a=world.defaultForceWidth
+    input SI.Diameter diameter_a=world.defaultForceWidth
       "Diameter of damper cylinder at frame_a side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input SIunits.Diameter diameter_b=0.6*diameter_a
+    input SI.Diameter diameter_b=0.6*diameter_a
       "Diameter of damper cylinder at frame_b side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color color_a={100,100,100} "Color of damper cylinder at frame_a"
@@ -2079,7 +2079,7 @@ where a mass is hanging on a damper.
        final T=293.15);
 
   protected
-    Modelica.SIunits.Force f_d "Damping force";
+    SI.Force f_d "Damping force";
     Visualizers.Advanced.Shape shape_a(
       shapeType="cylinder",
       color=color_a,
@@ -2183,10 +2183,10 @@ and der(s) is the time derivative of s.
     parameter SI.Distance length_a=world.defaultForceLength
       "Length of damper cylinder at frame_a side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input SIunits.Diameter diameter_a=world.defaultForceWidth
+    input SI.Diameter diameter_a=world.defaultForceWidth
       "Diameter of damper cylinder at frame_a side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input SIunits.Diameter diameter_b=0.6*diameter_a
+    input SI.Diameter diameter_b=0.6*diameter_a
       "Diameter of damper cylinder at damper-spring side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color color_a={100,100,100} "Color of damper cylinder at frame_a"
@@ -2329,9 +2329,9 @@ force element) and der(s_damper) is the time derivative of s_damper.
         Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b
         "Frame in which force is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
 
-      Modelica.SIunits.Position r_0[3]
+      SI.Position r_0[3]
         "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
-      Modelica.SIunits.Force f_b_0[3] "frame_b.f resolved in world frame";
+      SI.Force f_b_0[3] "frame_b.f resolved in world frame";
 
     equation
       assert(cardinality(frame_resolve) > 0, "Connector frame_resolve must be connected at least once and frame_resolve.r_0/.R must be set");
@@ -2764,7 +2764,7 @@ values from the outside in order that the model remains balanced
         Modelica.Mechanics.MultiBody.Interfaces.partialGravityAcceleration;
       import Modelica.Mechanics.MultiBody.Types.GravityTypes;
       input GravityTypes gravityType "Type of gravity field" annotation(Dialog);
-      input Modelica.SIunits.Acceleration g[3]
+      input SI.Acceleration g[3]
         "Constant gravity acceleration, resolved in world frame, if gravityType=UniformGravity"
         annotation(Dialog);
       input Real mu(unit="m3/s2")
