@@ -1322,7 +1322,7 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
     Modelica.Electrical.Analog.Interfaces.NegativePin n "Cathode"
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
     Modelica.Electrical.Analog.Interfaces.PositivePin p "Anode"
-      annotation (Placement(transformation(extent={{94,-10},{114,10}})));
+      annotation (Placement(transformation(extent={{90,-10},{110,10}})));
   equation
 
     connect(idealThyristor.n, capacitor.n) annotation (Line(
@@ -1342,34 +1342,33 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
     connect(n, idealThyristor.p) annotation (Line(
         points={{-100,0},{-90,0},{-90,40},{-20,40},{-20,32}}, color={0,0,255}));
     connect(idealThyristor1.p, p) annotation (Line(
-        points={{0,-32},{0,-40},{80,-40},{80,0},{104,0}}, color={0,0,255}));
+        points={{0,-32},{0,-40},{80,-40},{80,0},{100,0}}, color={0,0,255}));
     annotation (defaultComponentName="triac",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
-          Polygon(
-            points={{-30,0},{-30,-100},{70,-50},{-30,0}},
-            lineColor={0,0,255}),
-          Polygon(
-            points={{70,100},{70,0},{-30,50},{70,100}},
-            lineColor={0,0,255}),
-          Line(
-            points={{70,0},{70,-100}}, color={0,0,255}),
-          Line(
-            points={{-30,0},{-30,100}}, color={0,0,255}),
-          Line(
-            points={{-30,0},{-90,0}}, color={0,0,255}),
-          Line(
-            points={{70,0},{110,0}}, color={0,0,255}),
-          Line(
-            points={{-100,-80},{-80,-80},{-30,-50}}, color={0,0,255}),
           Text(
-            extent={{-150,150},{150,110}},
+            extent={{-150,130},{150,90}},
             textString="%name",
             textColor={0,0,255}),
           Line(
             points={{-100,-100},{-100,-80}},
             color={255,0,255},
-            pattern=LinePattern.Dash)}),
+            pattern=LinePattern.Dash),
+          Line(points={{-40,-70},{-40,70}}, color={0,0,255}),
+          Line(points={{40,-72},{40,70}}, color={0,0,255}),
+          Polygon(points={{-40,-70},{40,-30},{-40,10},{-40,-70}},
+                                                               lineColor={0,0,
+                255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Polygon(points={{40,-10},{-40,30},{40,70},{40,-10}}, lineColor={0,0,
+                255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-40,0},{-90,0}}, color={0,0,255}),
+          Line(points={{100,0},{40,0}},color={0,0,255}),
+          Line(points={{-100,-100},{-100,-60},{-40,-30}},
+                                                      color={255,0,255})}),
                                     Documentation(info="<html>
 <p>This is an ideal triac model based on an ideal thyristor model.</p>
 

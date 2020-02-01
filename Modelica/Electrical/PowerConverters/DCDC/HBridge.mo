@@ -84,11 +84,11 @@ equation
           fillPattern=FillPattern.Solid),
         Text(
           extent={{0,-50},{100,-70}},
-          textColor={0,0,127},
+          textColor={0,0,255},
           textString="DC out"),
         Text(
           extent={{-100,70},{0,50}},
-          textColor={0,0,127},
+          textColor={0,0,255},
           textString="DC in"),
         Line(
           points={{-40,0},{-28,0}},

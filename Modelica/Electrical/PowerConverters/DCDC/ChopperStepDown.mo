@@ -62,11 +62,11 @@ equation
             100,100}}), graphics={
         Text(
           extent={{-100,70},{0,50}},
-          textColor={0,0,127},
+          textColor={0,0,255},
           textString="DC in"),
         Text(
           extent={{0,-50},{100,-70}},
-          textColor={0,0,127},
+          textColor={0,0,255},
           textString="DC out"),
         Text(
           extent={{-150,150},{150,110}},
@@ -77,7 +77,7 @@ equation
           lineColor={255,255,255},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
-        Line(points={{-30,20},{-30,0}}, color={217,67,180}),
+        Line(points={{-30,20},{-30,0}}, color={255,0,255}),
         Line(points={{-40,30},{-30,20},{-20,30}}, color={0,0,255}),
         Polygon(
           points={{-20,30},{-26,26},{-24,24},{-20,30}},

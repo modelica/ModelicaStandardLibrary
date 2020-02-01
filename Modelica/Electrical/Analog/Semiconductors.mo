@@ -958,31 +958,25 @@ public
     annotation (defaultComponentName="triac",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
         graphics={
-          Polygon(
-            points={{-30,0},{-30,-100},{70,-50},{-30,0}},
-            lineColor={0,0,255}),
-          Polygon(
-            points={{70,100},{70,0},{-30,50},{70,100}},
-            lineColor={0,0,255}),
-          Line(
-            points={{70,0},{70,-100}},
-            color={0,0,255}),
-          Line(
-            points={{-30,0},{-30,100}},
-            color={0,0,255}),
-          Line(
-            points={{-30,0},{-90,0}},
-            color={0,0,255}),
-          Line(
-            points={{70,0},{110,0}},
-            color={0,0,255}),
-          Line(
-            points={{-100,-90},{-100,-80},{-30,-50}},
-            color={0,0,255}),
           Text(
-            extent={{-150,150},{150,110}},
+            extent={{-150,120},{150,80}},
             textString="%name",
-            textColor={0,0,255})}),
+            textColor={0,0,255}),
+          Line(points={{-40,-70},{-40,70}}, color={0,0,255}),
+          Line(points={{40,-72},{40,70}}, color={0,0,255}),
+          Polygon(points={{-40,-70},{40,-30},{-40,10},{-40,-70}},
+                                                               lineColor={0,0,
+                255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Polygon(points={{40,-10},{-40,30},{40,70},{40,-10}}, lineColor={0,0,
+                255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-40,0},{-90,0}}, color={0,0,255}),
+          Line(points={{90,0},{40,0}}, color={0,0,255}),
+          Line(points={{-100,-100},{-100,-60},{-40,-30}},
+                                                      color={0,0,255})}),
       Documentation(info="<html>
 <p>This is a simple TRIAC model based on the extended thyristor model Modelica.Electrical.Analog.Semiconductors.Thyristor.
 <br>Two thyristors are contrarily connected in parallel, whereas each transistor is connected with a diode.

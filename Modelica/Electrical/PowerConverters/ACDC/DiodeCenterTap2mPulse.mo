@@ -69,11 +69,11 @@ equation
             100,100}}), graphics={
         Text(
           extent={{-100,70},{0,50}},
-          textColor={0,0,127},
+          textColor={0,0,255},
           textString="AC"),
         Text(
           extent={{0,-50},{100,-70}},
-          textColor={0,0,127},
+          textColor={0,0,255},
           textString="DC"),
         Rectangle(
           extent={{-40,24},{40,-24}},

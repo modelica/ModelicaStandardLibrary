@@ -123,11 +123,11 @@ equation
           color={0,0,255}),
         Text(
           extent={{-100,70},{0,50}},
-          textColor={0,0,127},
+          textColor={0,0,255},
           textString="DC"),
         Text(
           extent={{0,-50},{100,-70}},
-          textColor={0,0,127},
+          textColor={0,0,255},
           textString="AC")}),
     Documentation(info="<html>
 <p>

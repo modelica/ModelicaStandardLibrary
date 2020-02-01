@@ -62,11 +62,11 @@ equation
             100,100}}), graphics={
         Text(
           extent={{-100,70},{0,50}},
-          textColor={0,0,127},
+          textColor={0,0,255},
           textString="DC in"),
         Text(
           extent={{0,-50},{100,-70}},
-          textColor={0,0,127},
+          textColor={0,0,255},
           textString="DC out"),
         Text(
           extent={{-150,150},{150,110}},
@@ -82,7 +82,7 @@ equation
         Line(points={{-60,30},{60,30}}, color={0,0,255}),
         Ellipse(extent={{-22,32},{-18,28}},
                                           lineColor={0,0,255}),
-        Line(points={{0,10},{0,-10}},   color={217,67,180},
+        Line(points={{0,10},{0,-10}},   color={255,0,255},
           origin={-40,0},
           rotation=90),
         Line(points={{-20,30},{-20,10}},color={0,0,255}),
@@ -109,7 +109,7 @@ equation
         Line(points={{-10,0},{10,0}},    color={0,0,255},
           origin={-30,0},
           rotation=90),
-        Line(points={{-20,10},{-30,0},{-20,-10}}, color={28,108,200}),
+        Line(points={{-20,10},{-30,0},{-20,-10}}, color={0,0,255}),
         Line(points={{-20,-10},{-20,-30}},
                                         color={0,0,255})}),
     Documentation(info="<html>
