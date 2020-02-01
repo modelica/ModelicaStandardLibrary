@@ -1874,7 +1874,7 @@ convertClass("Modelica.SIunits.Icons", "Modelica.Units.Icons")
 convertClass("Modelica.SIunits.Conversions", "Modelica.Units.Conversions")
 convertClass("Modelica.SIunits.Conversions.NonSIunits", "Modelica.Units.NonSI")
 convertClass("Modelica.SIunits.Temp_C", "Modelica.Units.NonSI.Temperature_degC")
-convertClass("Modelica.SIunits.Temp_K", "Modelica.Units.Temperature")
+convertClass("Modelica.SIunits.Temp_K", "Modelica.Units.SI.Temperature")
 convertClass("Modelica.SIunits.Conversions.ConversionIcon",
               "Modelica.Units.Icons.Conversion")
 convertClass("Modelica.SIunits.FluxiodQuantum",

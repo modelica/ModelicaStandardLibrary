@@ -3054,6 +3054,17 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
     end Issue415;
 
+    model Issue712 "Conversion test for #712"
+      extends Modelica.Icons.Example;
+      Modelica.SIunits.Temp_C x = 1;
+      Modelica.SIunits.Temp_K y = 2;
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/712\">#712</a>.
+</p>
+</html>"));
+    end Issue712;
+
     model Issue1159 "Conversion test for #1159"
       extends Modelica.Icons.Example;
       Modelica.SIunits.LoundnessLevel x(displayUnit="phon") = 1;
