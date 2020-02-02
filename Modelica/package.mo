@@ -2337,13 +2337,23 @@ class Version_4_0_0 "Version 4.0.0 (mmm dd, yyyy)"
 
   annotation (Documentation(info="<html>
 <p>
-Version 4.0.0 is ...
+Version 4.0.0 is <strong>not</strong> backward compatible to previous versions.
+A tested conversion script is provided to transform models and libraries of previous versions 3.x.y to the new version.
 Short Overview:
 </p>
 <ul>
-<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.0.0/ResolvedGitHubIssues.html\">xxx issues (including pull requests)</a>
-    have been addressed for this release.</li>
-<li><strong>xx</strong> component models and blocks, <strong>xx</strong> example models and <strong>xx</strong> functions are newly included.</li>
+<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.0.0/ResolvedGitHubIssues.html\">xxx issues (including pull requests)</a> have been addressed for this release.</li>
+<li>This version is based on the recent Modelica language standard version 3.4.</li>
+<li>The library version (i.e., \"4.0.0\") follows the <a href=\"https://semver.org/\">Semantic Versioning</a> and was decoupled from the version of the utilized version of the Modelica language standard.</li>
+<li>Obsolete classes of previous versions 3.x.y have been removed.</li>
+<li>Obsolete classes, that could not be automatically converted to alternative implementations, have been moved to library ObsoleteModelica4.</li>
+<li>Major emphasis was put on improvements of the overall quality with respect to class naming and package structuring, conventions and style guide-lines, icons, documentation style and example models. The following sublibraries have been renamed.
+  <ol>
+    <li>Modelica.SIunits &rarr; Modelica.Units.{SI, NonSI, Conversions}</li>
+    <li>Modelica.Electrical.MultiPhase &rarr; Modelica.Electrical.Polyphase</li>
+    <li>Modelica.Electrical.QuasiStationary &rarr; Modelica.Electrical.QuasiStatic</li>
+  </ol></li>
+<li>The licenses of the utilized open-source third-party software components as well as the BSD 3-clause license of the Modelica Standard Library itself are available as separat <a href=\"modelica://Modelica/Resources/Licenses\">resources</a>.</li>
 </ul>
 <p>
 The exact difference between package Modelica version 4.0.0 and version 3.2.3 is
@@ -2371,9 +2381,41 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"> </td></tr>
-<tr><td> </td>
-    <td> </td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources</strong></td></tr>
+<tr><td>SineVariableFrequencyAndAmplitude<br>CosineVariableFrequencyAndAmplitude</td>
+    <td></td></tr>
+<tr><td>Sinc</td>
+    <td></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Sources</strong></td></tr>
+<tr><td>SineVoltageVariableFrequencyAndAmplitude<br>CosineVoltageVariableFrequencyAndAmplitude<br>SineCurrentVariableFrequencyAndAmplitude<br>CosineCurrentVariableFrequencyAndAmplitude</td>
+    <td></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Sensors</strong></td></tr>
+<tr><td>SinCosResolver</td>
+    <td></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.PowerConverters</strong></td></tr>
+<tr><td>ACAC</td>
+    <td></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</strong></td></tr>
+<tr><td>HollowCylinderCircumferentialFlux<br>Toroid</td>
+    <td></td></tr>
+<tr><td colspan=\"2\"><strong>Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape</strong></td></tr>
+<tr><td>HollowCylinderCircumferentialFlux<br>Toroid</td>
+    <td></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Visualizers.Advanced</strong></td></tr>
+<tr><td>Vector</td>
+    <td></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.Translational.Components</strong></td></tr>
+<tr><td>RollingResistance</td>
+    <td></td></tr>
+<tr><td>Vehicle</td>
+    <td></td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Math</strong></td></tr>
+<tr><td>BooleanVectors.andTrue</td>
+    <td>Similar to <code>allTrue</code>, but return <code>true</code> on empty input vector.</td></tr>
+<tr><td>Matrices.LAPACK.dgeqp3</td>
+    <td>Compute the QR factorization with column pivoting of square or rectangular matrix.</td></tr>
+<tr><td>Random.Utilities.automaticLocalSeed</td>
+    <td>Create an automatic local seed from the instance name.</td></tr>
 </table>
 
 <p><br>
@@ -2381,9 +2423,14 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"> </td></tr>
-<tr><td> </td>
-    <td> </td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources</strong></td></tr>
+<tr><td>CombiTimeTable</td>
+    <td>Added second derivative and modified Akima interpolation.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Tables</strong></td></tr>
+<tr><td>CombiTable1Ds<br>CombiTable1Dv</td>
+    <td>Added second derivatives and modified Akima interpolation.</td></tr>
+<tr><td>CombiTable2Ds<br>CombiTable2Dv</td>
+    <td>Added second derivatives.</td></tr>
 </table>
 
 <p><br>
@@ -8699,9 +8746,9 @@ For an introduction, have especially a look at:
 This version of the Modelica Standard Library consists of
 </p>
 <ul>
-<li><strong>1288</strong> component models and blocks,</li>
-<li><strong>404</strong> example models, and</li>
-<li><strong>1227</strong> functions</li>
+<li><strong>1416</strong> component models and blocks,</li>
+<li><strong>512</strong> example models, and</li>
+<li><strong>1219</strong> functions</li>
 </ul>
 <p>
 that are directly usable (= number of public, non-partial, non-internal and non-obsolete classes). It is fully compliant
