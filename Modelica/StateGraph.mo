@@ -809,7 +809,7 @@ package Examples
       annotation (Line(points={{30.5,10},{46,10}}));
     connect(transition2.outPort, initialStep.inPort[1]) annotation (Line(points=
              {{51.5,10},{70,10},{70,32},{-62,32},{-62,10},{-49,10}}));
-    annotation (experiment(StopTime=5));
+    annotation (experiment(StopTime=5.5));
   end FirstExample;
 
   model FirstExample_Variant2
@@ -845,7 +845,7 @@ package Examples
               -30},{62,-30},{62,-2}}, color={255,0,255}));
     connect(transition2.outPort, initialStep.inPort[1]) annotation (Line(points=
              {{63.5,10},{82,10},{82,32},{-80,32},{-80,10},{-71,10}}));
-    annotation (experiment(StopTime=5));
+    annotation (experiment(StopTime=5.5));
   end FirstExample_Variant2;
 
   model FirstExample_Variant3
@@ -883,7 +883,7 @@ package Examples
              {{67.5,10},{82,10},{82,32},{-80,32},{-80,10},{-71,10}}));
     connect(SetBoolean1.y, transition2.condition) annotation (Line(points={{
               61.6,-30},{66,-30},{66,-2}}, color={255,0,255}));
-    annotation (experiment(StopTime=5));
+    annotation (experiment(StopTime=5.5));
   end FirstExample_Variant3;
 
   model ExecutionPaths
@@ -1013,7 +1013,7 @@ of the alternative sequence is executed. Note, that alternatives
 have priorities according to the port index (alternative.split[1]
 has a higher priority to fire as alternative.split[2]).
 </p>
-</html>"),      experiment(StopTime=15),
+</html>"),      experiment(StopTime=15.5),
         Diagram(coordinateSystem(extent={{-200,-200},{200,200}})));
   end ExecutionPaths;
 
