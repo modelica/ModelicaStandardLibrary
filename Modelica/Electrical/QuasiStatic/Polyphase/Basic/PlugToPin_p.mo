@@ -1,9 +1,9 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Basic;
 model PlugToPin_p "Connect one (positive) pin"
-  parameter Integer m(final min=1) = 3 "Number of phases";
+  parameter Integer m(final min=1) = 3 "Number of phases" annotation(Evaluate=true);
   parameter Integer k(
     final min=1,
-    final max=m) = 1 "Phase index";
+    final max=m) = 1 "Phase index" annotation(Evaluate=true);
   Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
         transformation(extent={{-30,-10},{-10,10}})));
   QuasiStatic.SinglePhase.Interfaces.PositivePin pin_p

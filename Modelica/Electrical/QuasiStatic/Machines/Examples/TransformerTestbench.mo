@@ -1,7 +1,7 @@
 within Modelica.Electrical.QuasiStatic.Machines.Examples;
 model TransformerTestbench "Transformer test bench"
   extends Modelica.Icons.Example;
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Resistance RL[m]=fill(1/3, m)
     "Load resistance";
   output SI.Voltage VS=polarVS.len "Grid voltage";

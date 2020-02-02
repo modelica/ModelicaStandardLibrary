@@ -1,6 +1,6 @@
 within Modelica.Electrical.Machines.Utilities;
 model DQToThreePhase "Transforms dq to three-phase"
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter Integer p "Number of pole pairs";
   parameter Boolean useRMS=true "If true, inputs dq are multiplied by sqrt(2)";
   extends Modelica.Blocks.Interfaces.MO(final nout=m);

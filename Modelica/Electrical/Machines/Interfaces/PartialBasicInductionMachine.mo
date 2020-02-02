@@ -1,7 +1,7 @@
 within Modelica.Electrical.Machines.Interfaces;
 partial model PartialBasicInductionMachine
   "Partial model for induction machine"
-  final parameter Integer m=3 "Number of phases";
+  final parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter Integer p(min=1, start=2) "Number of pole pairs (Integer)";
   parameter SI.Frequency fsNominal(start=50)
     "Nominal frequency";

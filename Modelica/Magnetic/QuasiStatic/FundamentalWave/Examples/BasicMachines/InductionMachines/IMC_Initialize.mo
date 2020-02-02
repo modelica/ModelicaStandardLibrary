@@ -2,7 +2,7 @@ within Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.Indu
 model IMC_Initialize "Steady-state initialization of induction machine with squirrel cage"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Voltage VNominal=100
     "Nominal RMS voltage per phase";
   parameter SI.Frequency fNominal=imc.fsNominal "Nominal frequency";

@@ -7,7 +7,7 @@ package PowerConverters
       Modelica.Electrical.PowerConverters;
     extends Modelica.Icons.Example;
     import Modelica.Constants.pi;
-    parameter Integer m(final min=3) = 3 "Number of phases";
+    parameter Integer m(final min=3) = 3 "Number of phases" annotation(Evaluate=true);
     parameter SI.Voltage Vrms=110 "RMS supply voltage";
     parameter SI.Frequency f=50 "Frequency";
     parameter SI.Angle constantFiringAngle=30*pi/180
@@ -157,7 +157,7 @@ package PowerConverters
       "Template of 2*m pulse bridge thyristor rectifier"
       extends Modelica.Electrical.PowerConverters.Icons.ExampleTemplate;
       import Modelica.Constants.pi;
-      parameter Integer m(final min=3) = 3 "Number of phases";
+      parameter Integer m(final min=3) = 3 "Number of phases" annotation(Evaluate=true);
       parameter SI.Voltage Vrms=110 "RMS supply voltage";
       parameter SI.Frequency f=50 "Frequency";
 

@@ -1,7 +1,7 @@
 within Modelica.Electrical.Polyphase.Examples;
 model TransformerYY "Test example with polyphase components"
   extends Modelica.Icons.Example;
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Voltage V=1 "Amplitude of Star-Voltage";
   parameter SI.Frequency f=5 "Frequency";
   parameter SI.Inductance Lm=1 "Transformer main inductance";

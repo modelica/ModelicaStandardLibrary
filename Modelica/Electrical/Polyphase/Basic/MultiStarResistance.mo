@@ -1,7 +1,7 @@
 within Modelica.Electrical.Polyphase.Basic;
 model MultiStarResistance "Resistance connection of star points"
   import Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems;
-  parameter Integer m(final min=2) = 3 "Number of phases";
+  parameter Integer m(final min=2) = 3 "Number of phases" annotation(Evaluate=true);
   final parameter Integer mBasic=numberOfSymmetricBaseSystems(m) "Number of symmetric base systems";
   parameter SI.Resistance R=1e6 "Insulation resistance between base systems";
   Polyphase.Interfaces.PositivePlug plug(m=m)

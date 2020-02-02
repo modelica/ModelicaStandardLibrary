@@ -7,7 +7,7 @@ partial model Enable
   parameter Boolean constantEnable=true
     "Constant enabling of firing signals"
     annotation (Dialog(tab="Enable", enable=useConstantEnable));
-  parameter Integer m(final min=1) = 3 "Number of phases";
+  parameter Integer m(final min=1) = 3 "Number of phases" annotation(Evaluate=true);
   PowerConverters.Enable.EnableLogic enableLogic(
     final useConstantEnable=useConstantEnable,
     final constantEnable=constantEnable,

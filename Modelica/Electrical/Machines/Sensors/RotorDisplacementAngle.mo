@@ -1,6 +1,6 @@
 within Modelica.Electrical.Machines.Sensors;
 model RotorDisplacementAngle "Rotor lagging angle"
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter Integer p(min=1) "Number of pole pairs";
   parameter Boolean positiveRange=false "Use only positive output range, if true";
   parameter Real threshold(final min=0)=0 "Below threshold the voltage is considered as zero";

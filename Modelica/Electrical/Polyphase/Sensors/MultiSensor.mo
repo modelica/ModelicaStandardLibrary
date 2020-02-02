@@ -1,7 +1,7 @@
 within Modelica.Electrical.Polyphase.Sensors;
 model MultiSensor "Polyphase sensor to measure current, voltage and power"
   extends Modelica.Icons.RoundSensor;
-  parameter Integer m(min=1) = 3 "Number of phases";
+  parameter Integer m(min=1) = 3 "Number of phases" annotation(Evaluate=true);
   Polyphase.Interfaces.PositivePlug pc(final m=m) "Positive plug, current path"
     annotation (Placement(transformation(extent={{-90,-10},{-110,10}})));
   Polyphase.Interfaces.NegativePlug nc(final m=m) "Negative plug, current path"

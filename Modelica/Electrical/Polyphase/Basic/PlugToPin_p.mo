@@ -1,10 +1,10 @@
 within Modelica.Electrical.Polyphase.Basic;
 model PlugToPin_p "Connect one (positive) Pin"
-  parameter Integer m(final min=1) = 3 "Number of phases";
+  parameter Integer m(final min=1) = 3 "Number of phases" annotation(Evaluate=true);
   parameter Integer k(
     final min=1,
     final max=m,
-    start=1) "Phase index";
+    start=1) "Phase index" annotation(Evaluate=true);
   Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
         transformation(extent={{-30,-10},{-10,10}})));
   Modelica.Electrical.Analog.Interfaces.PositivePin pin_p annotation (

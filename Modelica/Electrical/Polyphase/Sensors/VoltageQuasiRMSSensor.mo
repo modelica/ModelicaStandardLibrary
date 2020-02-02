@@ -3,7 +3,7 @@ model VoltageQuasiRMSSensor
   "Continuous quasi voltage RMS sensor for polyphase system"
   extends Modelica.Icons.RoundSensor;
   extends Polyphase.Interfaces.TwoPlug;
-  parameter Integer m(min=1) = 3 "Number of phases";
+  parameter Integer m(min=1) = 3 "Number of phases" annotation(Evaluate=true);
 
   Modelica.Blocks.Interfaces.RealOutput V(unit="V") "Continuous quasi RMS of voltage"
     annotation (Placement(transformation(

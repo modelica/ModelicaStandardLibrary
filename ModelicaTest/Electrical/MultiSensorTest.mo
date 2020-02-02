@@ -2,7 +2,7 @@ within ModelicaTest.Electrical;
 model MultiSensorTest
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Integer m = 3 "Number of phases";
+  parameter Integer m = 3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Voltage Vrms = 100 "RMS supply voltage";
   parameter SI.Frequency f = 50 "Frequency";
   parameter SI.Resistance R = 10 "Resistance";

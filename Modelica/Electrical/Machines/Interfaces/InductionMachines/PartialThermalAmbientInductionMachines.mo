@@ -1,7 +1,7 @@
 within Modelica.Electrical.Machines.Interfaces.InductionMachines;
 model PartialThermalAmbientInductionMachines
   "Partial thermal ambient for induction machines"
-  parameter Integer m=3 "Number of stator phases";
+  parameter Integer m=3 "Number of stator phases" annotation(Evaluate=true);
   parameter Boolean useTemperatureInputs=false
     "If true, temperature inputs are used; else, temperatures are constant"
     annotation (Evaluate=true);

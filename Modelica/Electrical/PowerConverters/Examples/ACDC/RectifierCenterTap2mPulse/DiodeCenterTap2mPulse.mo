@@ -3,7 +3,7 @@ model DiodeCenterTap2mPulse
   "2*m pulse diode center tap rectifier with resistive load"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Integer m(final min=3) = 3 "Number of phases";
+  parameter Integer m(final min=3) = 3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Voltage Vrms=110 "RMS supply voltage";
   parameter SI.Frequency f=50 "Frequency";
   parameter SI.Resistance R=20 "Load resistance";

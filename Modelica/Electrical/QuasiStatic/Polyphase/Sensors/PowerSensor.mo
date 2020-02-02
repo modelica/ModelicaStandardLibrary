@@ -1,7 +1,7 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Sensors;
 model PowerSensor "Power sensor"
   extends Modelica.Icons.RoundSensor;
-  parameter Integer m(min=1) = 3 "Number of phases";
+  parameter Integer m(min=1) = 3 "Number of phases" annotation(Evaluate=true);
   SI.AngularVelocity omega=der(currentP.reference.gamma);
   Interfaces.PositivePlug currentP(final m=m) annotation (Placement(
         transformation(extent={{-110,-10},{-90,10}})));

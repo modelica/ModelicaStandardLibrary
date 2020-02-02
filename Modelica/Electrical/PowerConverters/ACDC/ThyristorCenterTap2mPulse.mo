@@ -3,7 +3,7 @@ model ThyristorCenterTap2mPulse
   "2*m pulse thyristor rectifier with center tap"
   extends Icons.Converter;
   import Modelica.Constants.pi;
-  // parameter Integer m(final min=3) = 3 "Number of phases";
+  // parameter Integer m(final min=3) = 3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Resistance RonThyristor(final min=0) = 1e-05
     "Closed thyristor resistance";
   parameter SI.Conductance GoffThyristor(final min=0) = 1e-05

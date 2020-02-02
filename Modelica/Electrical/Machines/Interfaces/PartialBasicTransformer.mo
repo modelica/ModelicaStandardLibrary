@@ -2,7 +2,7 @@ within Modelica.Electrical.Machines.Interfaces;
 partial model PartialBasicTransformer
   "Partial model of three-phase transformer"
   extends Machines.Icons.TransientTransformer;
-  final parameter Integer m(min=1) = 3 "Number of phases";
+  final parameter Integer m(min=1) = 3 "Number of phases" annotation(Evaluate=true);
   constant String VectorGroup="Yy00";
   parameter Real n(start=1)
     "Ratio primary voltage (line-to-line) / secondary voltage (line-to-line)";

@@ -2,7 +2,7 @@ within Modelica.Magnetic.FundamentalWave.Interfaces;
 model StateSelector
   "Transform instantaneous values to space phasors and select states"
   import Modelica.Constants.pi;
-  parameter Integer m(min=3) = 3 "Number of phases";
+  parameter Integer m(min=3) = 3 "Number of phases" annotation(Evaluate=true);
   input Real xi[m](each stateSelect=StateSelect.avoid)
     "Instantaneous values" annotation (Dialog);
   input SI.Angle gamma "Angle of rotation" annotation (Dialog);

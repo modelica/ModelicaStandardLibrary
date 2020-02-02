@@ -1,6 +1,6 @@
 within Modelica.Electrical.Polyphase.Sources;
 model SignalVoltage "Polyphase signal voltage source"
-  parameter Integer m(min=1) = 3 "Number of phases";
+  parameter Integer m(min=1) = 3 "Number of phases" annotation(Evaluate=true);
   SI.Current i[m]=plug_p.pin.i
     "Currents flowing into positive plugs";
   Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(

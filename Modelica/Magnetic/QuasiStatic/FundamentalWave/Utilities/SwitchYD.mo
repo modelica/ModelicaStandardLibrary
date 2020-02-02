@@ -1,6 +1,6 @@
 within Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities;
 model SwitchYD "Y-D-switch"
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Resistance Ron=1e-5 "Closed switch resistance";
   parameter SI.Conductance Goff=1e-5 "Opened switch conductance";
   parameter SI.Time delayTime(final min=0)=0 "Time delay";

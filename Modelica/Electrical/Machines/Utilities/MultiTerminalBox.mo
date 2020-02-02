@@ -1,6 +1,6 @@
 within Modelica.Electrical.Machines.Utilities;
 model MultiTerminalBox "Terminal box Y/D-connection"
-  parameter Integer m(min=1) = 3 "Number of phases";
+  parameter Integer m(min=1) = 3 "Number of phases" annotation(Evaluate=true);
   final parameter Integer mSystems=
       Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems(
       m) "Number of symmetric base systems";

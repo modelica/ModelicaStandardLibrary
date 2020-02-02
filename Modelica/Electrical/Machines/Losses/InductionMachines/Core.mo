@@ -3,7 +3,7 @@ model Core "Model of core losses"
   parameter Machines.Losses.CoreParameters coreParameters(m=3)
     "Core parameters";
   //for backwards compatibility present but unused
-  final parameter Integer m=coreParameters.m "Number of phases";
+  final parameter Integer m=coreParameters.m "Number of phases" annotation(Evaluate=true);
   parameter Real turnsRatio(final min=Modelica.Constants.small)
     "Effective number of stator turns / effective number of rotor turns (if used as rotor core)";
   extends

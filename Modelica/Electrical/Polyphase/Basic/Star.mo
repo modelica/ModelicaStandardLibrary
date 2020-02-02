@@ -1,6 +1,6 @@
 within Modelica.Electrical.Polyphase.Basic;
 model Star "Star-connection"
-  parameter Integer m(final min=1) = 3 "Number of phases";
+  parameter Integer m(final min=1) = 3 "Number of phases" annotation(Evaluate=true);
   Interfaces.PositivePlug plug_p(final m=m) annotation (Placement(
         transformation(extent={{-110,-10},{-90,10}})));
   Modelica.Electrical.Analog.Interfaces.NegativePin pin_n annotation (

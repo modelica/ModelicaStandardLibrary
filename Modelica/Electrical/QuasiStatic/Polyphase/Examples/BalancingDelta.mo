@@ -1,7 +1,7 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Examples;
 model BalancingDelta "Balancing an unsymmetrical delta-connected load"
   extends Modelica.Icons.Example;
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Voltage V_LL=100 "Source voltage line-to-line";
   parameter SI.Frequency f=50 "Source frequency";
   parameter SI.Resistance R=10 "Load resistance";

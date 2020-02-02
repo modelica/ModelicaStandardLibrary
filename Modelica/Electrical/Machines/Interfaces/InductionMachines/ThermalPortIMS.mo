@@ -3,7 +3,7 @@ connector ThermalPortIMS
   "Thermal port of induction machine with slipring"
   extends
     Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines;
-  parameter Integer mr=m "Number of rotor phases";
+  parameter Integer mr=m "Number of rotor phases" annotation(Evaluate=true);
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a
     heatPortRotorWinding[mr] "Heat port of rotor windings"
     annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));

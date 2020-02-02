@@ -6,7 +6,7 @@ model EnableLogic
   parameter Boolean constantEnable=true
     "Constant enabling of firing signals"
     annotation (Dialog(enable=useConstantEnable));
-  parameter Integer m(final min=1) = 3 "Number of phases";
+  parameter Integer m(final min=1) = 3 "Number of phases" annotation(Evaluate=true);
   Modelica.Blocks.Sources.BooleanConstant enableConstantSource(final k=
         constantEnable) if useConstantEnable
     "Constant enable signal of fire and notFire" annotation (Placement(

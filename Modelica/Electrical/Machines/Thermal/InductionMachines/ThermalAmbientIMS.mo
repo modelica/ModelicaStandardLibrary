@@ -5,7 +5,7 @@ model ThermalAmbientIMS
     Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines(
       redeclare final Machines.Interfaces.InductionMachines.ThermalPortIMS
       thermalPort(final mr=mr));
-  parameter Integer mr=m "Number of rotor phases";
+  parameter Integer mr=m "Number of rotor phases" annotation(Evaluate=true);
   parameter SI.Temperature Tr(start=TDefault)
     "Temperature of rotor windings"
     annotation (Dialog(enable=not useTemperatureInputs));

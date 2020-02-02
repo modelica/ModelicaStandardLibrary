@@ -2,7 +2,7 @@ within Modelica.Electrical.Machines.Utilities;
 block FromDQ
   "Transform rotor fixed space phasor to instantaneous stator quantities"
   extends Modelica.Blocks.Interfaces.MIMO(final nin=2, final nout=m);
-  parameter Integer m(min=1) = 3 "Number of phases";
+  parameter Integer m(min=1) = 3 "Number of phases" annotation(Evaluate=true);
   parameter Integer p "Number of pole pairs";
   Modelica.Blocks.Math.Gain toGamma(final k=-p) annotation (Placement(
         transformation(

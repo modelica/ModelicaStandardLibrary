@@ -2,7 +2,7 @@ within Modelica.Magnetic.FundamentalWave.Examples.Components;
 model EddyCurrentLosses
   "Comparison of equivalent circuits of eddy current loss models"
   extends Modelica.Icons.Example;
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Resistance R=0.1
     "Resistance of leader cables";
   parameter SI.Conductance Gc=1 "Loss conductance";

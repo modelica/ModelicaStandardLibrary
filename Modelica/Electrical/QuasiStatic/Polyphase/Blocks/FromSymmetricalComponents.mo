@@ -4,7 +4,7 @@ block FromSymmetricalComponents
   extends Modelica.ComplexBlocks.Interfaces.ComplexMIMOs(final n=m,final useConjugateInput=fill(false,m));
   import Modelica.ComplexMath.abs;
   import Modelica.ComplexMath.arg;
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   output Real abs_u[m] = abs(u) "Absolute of input";
   output SI.Angle arg_u[m](displayUnit="deg") = arg(u)
     "Argument of input";

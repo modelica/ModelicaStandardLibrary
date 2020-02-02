@@ -1,6 +1,6 @@
 within Modelica.Electrical.QuasiStatic.Polyphase.Basic;
 model PlugToPins_n "Connect all (negative) pins"
-  parameter Integer m(final min=1) = 3 "Number of phases";
+  parameter Integer m(final min=1) = 3 "Number of phases" annotation(Evaluate=true);
   Interfaces.NegativePlug plug_n(final m=m) annotation (Placement(
         transformation(extent={{-30,-10},{-10,10}})));
   QuasiStatic.SinglePhase.Interfaces.NegativePin pin_n[m]

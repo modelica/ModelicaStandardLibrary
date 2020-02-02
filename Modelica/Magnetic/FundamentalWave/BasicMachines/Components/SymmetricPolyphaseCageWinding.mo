@@ -2,7 +2,7 @@ within Modelica.Magnetic.FundamentalWave.BasicMachines.Components;
 model SymmetricPolyphaseCageWinding "Symmetrical rotor cage"
   import Modelica.Constants.pi;
   extends Magnetic.FundamentalWave.Interfaces.TwoPortExtended;
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter Boolean useHeatPort=false
     "Enable / disable (=fixed temperatures) thermal port"
     annotation (Evaluate=true);

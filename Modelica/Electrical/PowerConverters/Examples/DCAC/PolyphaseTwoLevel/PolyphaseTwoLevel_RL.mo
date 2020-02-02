@@ -2,7 +2,7 @@ within Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel;
 model PolyphaseTwoLevel_RL
   "Polyphase DC to AC converter with R-L load"
   extends Modelica.Icons.Example;
-  parameter Integer m=6 "Number of phases";
+  parameter Integer m=6 "Number of phases" annotation(Evaluate=true);
   parameter SI.Frequency f=1000 "Switching frequency";
   parameter SI.Frequency f1=50
     "Fundamental wave AC frequency";

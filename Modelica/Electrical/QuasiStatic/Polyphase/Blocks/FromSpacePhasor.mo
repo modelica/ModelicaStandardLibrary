@@ -3,7 +3,7 @@ block FromSpacePhasor "Conversion: space phasor -> m phase"
   extends Modelica.Blocks.Icons.Block;
   import Modelica.ComplexMath.j;
   import Modelica.ComplexMath.exp;
-  parameter Integer m(min=1) = 3 "Number of phases";
+  parameter Integer m(min=1) = 3 "Number of phases" annotation(Evaluate=true);
   Modelica.Blocks.Interfaces.RealInput u[2]
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
   Modelica.ComplexBlocks.Interfaces.ComplexOutput y[m]

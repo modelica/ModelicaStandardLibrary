@@ -4,7 +4,7 @@ model MultiSensor "Polyphase sensor to measure current, voltage and power"
   import Modelica.ComplexMath.conj;
   import Modelica.ComplexMath.abs;
   import Modelica.ComplexMath.arg;
-  parameter Integer m(min=1) = 3 "Number of phases";
+  parameter Integer m(min=1) = 3 "Number of phases" annotation(Evaluate=true);
   QuasiStatic.Polyphase.Interfaces.PositivePlug pc(final m=m)
     "Positive plug, current path"
     annotation (Placement(transformation(extent={{-90,-10},{-110,10}})));

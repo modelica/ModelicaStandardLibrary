@@ -3,7 +3,7 @@ model SMPM_OpenCircuit
   "Test example: PermanentMagnetSynchronousMachine with inverter"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   output SI.Voltage Vtr=potentialSensor.phi[1]
     "Transient voltage";
   output SI.Voltage Vqs=potentialSensorQS.abs_v[1]

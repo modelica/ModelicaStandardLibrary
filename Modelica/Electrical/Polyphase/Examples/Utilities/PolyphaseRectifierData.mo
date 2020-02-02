@@ -3,7 +3,7 @@ record PolyphaseRectifierData "Data record for polyphase rectifier"
   extends Icons.Record;
   import Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems;
   import Modelica.Math.isPowerOf2;
-  parameter Integer m(final min=2)=6 "Number of phases";
+  parameter Integer m(final min=2)=6 "Number of phases" annotation(Evaluate=true);
   parameter Integer mSystems=numberOfSymmetricBaseSystems(m)
     "Number of base systems"
     annotation(Dialog(enable=false));

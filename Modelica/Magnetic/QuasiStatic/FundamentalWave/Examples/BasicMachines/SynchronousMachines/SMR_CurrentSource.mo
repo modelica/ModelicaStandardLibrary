@@ -3,7 +3,7 @@ model SMR_CurrentSource
   "Test example: Synchronous reluctance machine fed by current source"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
-  parameter Integer m=3 "Number of phases";
+  parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter SI.Voltage VNominal=100
     "Nominal RMS voltage per phase";
   parameter SI.Frequency fNominal=smrData.fsNominal "Nominal frequency";

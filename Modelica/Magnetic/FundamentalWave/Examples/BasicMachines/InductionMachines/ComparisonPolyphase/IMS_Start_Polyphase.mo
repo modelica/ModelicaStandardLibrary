@@ -4,8 +4,8 @@ model IMS_Start_Polyphase
 
   extends Modelica.Icons.Example;
   constant Integer m3=3 "Number of stator phases of three-phase system";
-  parameter Integer m=5 "Number of stator phases";
-  parameter Integer mr=5 "Number of rotor phases";
+  parameter Integer m=5 "Number of stator phases" annotation(Evaluate=true);
+  parameter Integer mr=5 "Number of rotor phases" annotation(Evaluate=true);
   parameter SI.Voltage VsNominal=100
     "Nominal RMS voltage per phase";
   parameter SI.Frequency fNominal=aimsData.fsNominal "Nominal frequency";
