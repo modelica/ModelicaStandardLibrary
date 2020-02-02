@@ -2613,13 +2613,9 @@ random number generator. This block is used in the example
                 transformation(
                 extent={{-10,-10},{10,10}},
                 origin={110,80}), iconTransformation(extent={{40,70},{60,90}})));
-          Modelica.Blocks.Interfaces.RealOutput phi_motor(unit="rad", displayUnit="deg")
-            "Rotational position"
-            annotation (Placement(transformation(extent={{60,20},{80,40}}),
-                iconTransformation(extent={{90,40},{90,40}})));
-          Modelica.Blocks.Interfaces.RealOutput w(unit="rad/s") "Rotational speed"
-            annotation (Placement(transformation(extent={{60,0},{80,20}}),
-                iconTransformation(extent={{90,40},{90,40}})));
+          output Real phi_motor(unit="rad", displayUnit="deg")=angleSensor.phi
+            "Rotational position";
+          output Real w(unit="rad/s")=speedSensor.w "Rotational speed";
           Modelica.Blocks.Math.Add addNoise
             annotation (Placement(transformation(extent={{60,70},{80,90}})));
           Noise.UniformNoise uniformNoise(
@@ -2675,10 +2671,6 @@ random number generator. This block is used in the example
               points={{81,80},{110,80}}, color={0,0,127}));
           connect(uniformNoise.y, addNoise.u1) annotation (Line(
               points={{47,86},{58,86}}, color={0,0,127}));
-          connect(speedSensor.w, w) annotation (Line(points={{30,11},{30,11},{30,10},{70,
-                  10}}, color={0,0,127}));
-          connect(angleSensor.phi, phi_motor) annotation (Line(points={{10,11},{10,11},{
-                  10,22},{10,30},{70,30}}, color={0,0,127}));
           connect(id.y, dqToThreePhase.d) annotation (Line(points={{-69,70},{-60,
                   70},{-60,56},{-52,56}}, color={0,0,127}));
           connect(iq_rms1, dqToThreePhase.q) annotation (Line(points={{-120,60},
