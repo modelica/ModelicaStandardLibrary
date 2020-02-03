@@ -1733,39 +1733,6 @@ The used sufficient criteria for monotonicity follows from:
 </html>"));
       end BaseModel;
 
-    model TestWallFriction
-        "Pressure drop in pipe due to wall friction (only for test purposes; if needed use Pipes.StaticPipe instead)"
-            extends BaseModel(final data=
-              LossFactorData.wallFriction(
-              length,
-              diameter,
-              roughness));
-      parameter SI.Length length "Length of pipe";
-      parameter SI.Diameter diameter "Inner diameter of pipe";
-      parameter Modelica.Fluid.Types.Roughness roughness(min=1e-10)
-          "Absolute roughness of pipe (> 0 required, details see info layer)";
-      annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                  100,100}}), graphics={
-              Text(
-                extent={{-150,80},{150,120}},
-                textString="%name"),
-              Rectangle(
-                extent={{-100,60},{100,-60}},
-                fillPattern=FillPattern.HorizontalCylinder,
-                fillColor={192,192,192}),
-              Rectangle(
-                extent={{-100,34},{100,-36}},
-                fillPattern=FillPattern.HorizontalCylinder,
-                fillColor={0,127,255}),
-              Text(
-                extent={{-134,-66},{130,-92}},
-                textString="quad. turbulent")}),
-          Documentation(info="<html>
-
-</html>"));
-    end TestWallFriction;
-
       partial model BaseModelNonconstantCrossSectionArea
         "Generic pressure drop component with constant turbulent loss factor data and without an icon, for non-constant cross section area"
 

@@ -1,7 +1,6 @@
 within ModelicaTest.Fluid.TestComponents.Vessels;
 model TestMixingVolumesPressureStates
   "Test case where in one of the mixing volumes a pressure state appears"
-  import Modelica.Fluid;
   extends Modelica.Icons.Example;
   package Medium = Modelica.Media.Water.StandardWater;
   Modelica.Fluid.Vessels.ClosedVolume mixingVolume1(
@@ -14,14 +13,13 @@ model TestMixingVolumesPressureStates
     energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
     massDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
     use_portsData=false)
-                 annotation (Placement(transformation(extent={{-30,38},{-10,58}})));
+    annotation (Placement(transformation(extent={{-30,38},{-10,58}})));
 
   Modelica.Fluid.Sources.MassFlowSource_h flowSource2(nPorts=1,
     m_flow=1,
     h=2e5,
     redeclare package Medium = Medium)
-                   annotation (Placement(transformation(extent={{-100,30},{-80,
-            50}})));
+    annotation (Placement(transformation(extent={{-100,30},{-80,50}})));
   Modelica.Fluid.Vessels.ClosedVolume mixingVolume2(
     V=1e-3,
     p_start=system.p_ambient,
@@ -29,47 +27,41 @@ model TestMixingVolumesPressureStates
     h_start=1e5,
     redeclare package Medium = Medium,
     nPorts=2,
-    use_portsData=false)
-                 annotation (Placement(transformation(extent={{10,38},{30,58}})));
+    use_portsData=false) annotation (Placement(transformation(extent={{10,38},{30,58}})));
   Modelica.Fluid.Sensors.Temperature Tmix_in(
-                                         redeclare package Medium = Medium)
+     redeclare package Medium = Medium)
     annotation (Placement(transformation(extent={{-50,70},{-30,90}})));
   Modelica.Fluid.Sensors.Temperature Tmix_out(
-                                          redeclare package Medium = Medium)
+    redeclare package Medium = Medium)
     annotation (Placement(transformation(extent={{30,68},{50,88}})));
-  Modelica.Fluid.Sources.Boundary_ph sink2(nPorts=1,             redeclare
-      package Medium =
-               Medium,
+  Modelica.Fluid.Sources.Boundary_ph sink2(nPorts=1,
+    redeclare package Medium = Medium,
     h=Medium.h_default,
     p=101325)
     annotation (Placement(transformation(extent={{100,30},{80,50}})));
   inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
       massDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial)
     annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
-  Modelica.Fluid.Pipes.BaseClasses.WallFriction.TestWallFrictionAndGravity
+  ModelicaTest.Fluid.BaseClasses.WallFrictionAndGravity
     simpleGenericOrifice2(
     redeclare package Medium = Medium,
     diameter=0.2,
     length=1,
     redeclare package WallFriction =
         Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar)
-                                annotation (Placement(transformation(extent={{
-            50,30},{70,50}})));
-  Modelica.Fluid.Pipes.BaseClasses.WallFriction.TestWallFrictionAndGravity
+        annotation (Placement(transformation(extent={{50,30},{70,50}})));
+  ModelicaTest.Fluid.BaseClasses.WallFrictionAndGravity
     simpleGenericOrifice1(
     redeclare package Medium = Medium,
     diameter=0.2,
     length=1,
     redeclare package WallFriction =
         Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar)
-                                annotation (Placement(transformation(extent={{
-            -70,30},{-50,50}})));
+        annotation (Placement(transformation(extent={{-70,30},{-50,50}})));
 equation
-  connect(simpleGenericOrifice2.port_b,sink2. ports[1])
-                                                    annotation (Line(
+  connect(simpleGenericOrifice2.port_b,sink2. ports[1]) annotation (Line(
       points={{70,40},{80,40}}, color={0,127,255}));
-  connect(flowSource2.ports[1],simpleGenericOrifice1.port_a)
-                                                          annotation (Line(
+  connect(flowSource2.ports[1],simpleGenericOrifice1.port_a) annotation (Line(
       points={{-80,40},{-70,40}}, color={0,127,255}));
   connect(simpleGenericOrifice1.port_b, Tmix_in.port) annotation (Line(
       points={{-50,40},{-40,40},{-40,70}}, color={0,127,255}));
@@ -83,5 +75,5 @@ equation
   connect(mixingVolume2.ports[1], simpleGenericOrifice2.port_a) annotation (
       Line(
       points={{18,38},{34,38},{34,40},{50,40}}, color={0,127,255}));
-  annotation ( experiment(StopTime=10));
+  annotation (experiment(StopTime=10));
 end TestMixingVolumesPressureStates;

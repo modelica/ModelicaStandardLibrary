@@ -370,6 +370,10 @@ convertMessage("Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.B
                 "No support of automatic conversion for makeshift record MyComplex.")
 convertMessage("Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.MyComplexF",
                 "No support of automatic conversion for makeshift package MyComplexF.")
+convertMessage("Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.TestWallFriction",
+                "No support of automatic conversion for test model.")
+convertMessage("Modelica.Fluid.Pipes.BaseClasses.WallFriction.TestWallFrictionAndGravity",
+                "No support of automatic conversion for test model.")
 
 convertModifiers({"Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe"},
                  fill("",0), {"useHeatPort=false"})
