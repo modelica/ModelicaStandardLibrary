@@ -2332,7 +2332,7 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_4_0_0 "Version 4.0.0 (mmm dd, yyyy)"
+class Version_4_0_0 "Version 4.0.0 (February 03, 2020)"
   extends Modelica.Icons.ReleaseNotes;
 
   annotation (Documentation(info="<html>
@@ -2342,7 +2342,7 @@ A tested conversion script is provided to transform models and libraries of prev
 Short Overview:
 </p>
 <ul>
-<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.0.0/ResolvedGitHubIssues.html\">xxx issues (including pull requests)</a> have been addressed for this release.</li>
+<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.0.0/ResolvedGitHubIssues.html\">512 issues (including pull requests)</a> have been addressed for this release.</li>
 <li>This version is based on the recent Modelica language standard version 3.4.</li>
 <li>The library version (i.e., \"4.0.0\") follows the <a href=\"https://semver.org/\">Semantic Versioning</a> and was decoupled from the version of the utilized version of the Modelica language standard.</li>
 <li>Obsolete classes of previous versions 3.x.y have been removed.</li>
