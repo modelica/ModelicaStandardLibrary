@@ -1,5 +1,5 @@
 within ;
-package Modelica "Modelica Standard Library - Version 4.0.0-dev"
+package Modelica "Modelica Standard Library - Version 4.0.0"
 extends Modelica.Icons.Package;
 
 package UsersGuide "User's Guide"
@@ -8690,12 +8690,12 @@ end UsersGuide;
 
 annotation (
 preferredView="info",
-version="4.0.0-dev",
+version="4.0.0",
 versionBuild=1,
-versionDate="2019-01-23",
-dateModified = "2019-01-23 12:00:00Z",
+versionDate="2020-02-03",
+dateModified = "2020-02-03 19:00:00Z",
 revisionId="$Format:%h %ci$",
-uses(Complex(version="4.0.0-dev"), ModelicaServices(version="4.0.0-dev")),
+uses(Complex(version="4.0.0"), ModelicaServices(version="4.0.0")),
 conversion(
  from(version={"3.0", "3.0.1", "3.1", "3.2", "3.2.1", "3.2.2", "3.2.3"}, script="modelica://Modelica/Resources/Scripts/Conversion/ConvertModelica_from_3.2.3_to_4.0.0.mos")),
 Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={

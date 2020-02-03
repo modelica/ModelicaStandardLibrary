@@ -1,5 +1,5 @@
 within ;
-package ModelicaTest "Library to test components of package Modelica - Version 4.0.0-dev"
+package ModelicaTest "Library to test components of package Modelica - Version 4.0.0"
 extends Modelica.Icons.Package;
 
   import Modelica.Units.SI;
@@ -51,12 +51,12 @@ algorithm
 end testAllFunctions;
 
   annotation (preferredView="info",
-       version="4.0.0-dev",
+       version="4.0.0",
        versionBuild=1,
-       versionDate="2019-01-23",
-       dateModified = "2019-01-23 12:00:00Z",
+       versionDate="2020-02-03",
+       dateModified = "2020-02-03 19:00:00Z",
        revisionId="$Format:%h %ci$",
-       uses(Modelica(version="4.0.0-dev")),
+       uses(Modelica(version="4.0.0")),
     Documentation(info="<html>
 <p>
 This library provides models and functions to test components of

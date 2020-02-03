@@ -7094,10 +7094,10 @@ end Icons;
 
 annotation (
   DocumentationClass=true,
-  version="4.0.0-dev",
+  version="4.0.0",
   versionBuild=1,
-  versionDate="2019-01-23",
-  dateModified = "2019-01-23 12:00:00Z",
+  versionDate="2020-02-03",
+  dateModified = "2020-02-03 19:00:00Z",
   revisionId="$Format:%h %ci$",
   Documentation(info="<html>
 <p>
