@@ -2332,7 +2332,7 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_4_0_0 "Version 4.0.0 (February 03, 2020)"
+class Version_4_0_0 "Version 4.0.0 (February 3, 2020)"
   extends Modelica.Icons.ReleaseNotes;
 
   annotation (Documentation(info="<html>
@@ -2345,7 +2345,7 @@ Short Overview:
 <li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.0.0/ResolvedGitHubIssues.html\">512 issues (including pull requests)</a> have been addressed for this release.</li>
 <li>This version is based on the recent Modelica language standard version 3.4.</li>
 <li>The library version (i.e., \"4.0.0\") follows the <a href=\"https://semver.org/\">Semantic Versioning</a> and was decoupled from the version of the utilized version of the Modelica language standard.</li>
-<li>Obsolete classes of previous versions 3.x.y have been removed.</li>
+<li>Obsolete classes of previous versions 3.x.y have been replaced.</li>
 <li>Obsolete classes, that could not be automatically converted to alternative implementations, have been moved to library ObsoleteModelica4.</li>
 <li>Major emphasis was put on improvements of the overall quality with respect to class naming and package structuring, conventions and style guide-lines, icons, documentation style and example models. The following sublibraries have been renamed.
   <ol>
@@ -2353,7 +2353,7 @@ Short Overview:
     <li>Modelica.Electrical.MultiPhase &rarr; Modelica.Electrical.Polyphase</li>
     <li>Modelica.Electrical.QuasiStationary &rarr; Modelica.Electrical.QuasiStatic</li>
   </ol></li>
-<li>The licenses of the utilized open-source third-party software components as well as the BSD 3-clause license of the Modelica Standard Library itself are available as separat <a href=\"modelica://Modelica/Resources/Licenses\">resources</a>.</li>
+<li>The licenses of the utilized open-source third-party software components as well as the BSD 3-clause license of the Modelica Standard Library itself are available as separate <a href=\"modelica://Modelica/Resources/Licenses\">resources</a>.</li>
 </ul>
 <p>
 The exact difference between package Modelica version 4.0.0 and version 3.2.3 is
@@ -8102,6 +8102,7 @@ main version number is not changed.
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+<tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_4_0_0\">Version 4.0.0</a></td><td>February 3, 2020</td></tr>
 <tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_3\">Version 3.2.3</a></td><td>January 23, 2019</td></tr>
 <tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_2\">Version 3.2.2</a></td><td>April 3, 2016</td></tr>
 <tr><td><a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_2_1\">Version 3.2.1</a></td><td>August 14, 2013</td></tr>
