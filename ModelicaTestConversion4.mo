@@ -1991,23 +1991,19 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 
       package Issue2501Vector "Conversion tests for #2501 New vector visualization"
         extends Modelica.Icons.ExamplesPackage;
-        model DoublePendulum
-          "Simple double pendulum with two revolute joints and two bodies"
+        model DoublePendulum "Simple double pendulum with two revolute joints and two bodies"
 
           extends Modelica.Icons.Example;
           inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
                 transformation(extent={{-100,-96},{-80,-76}})));
           Modelica.Mechanics.MultiBody.Joints.Revolute revolute1(useAxisFlange=true,phi(fixed=true),
-              w(fixed=true)) annotation (Placement(transformation(extent={{-54,-70},{
-                    -34,-50}})));
-          Modelica.Mechanics.Rotational.Components.Damper damper(
-                                                      d=0.1)
+              w(fixed=true)) annotation (Placement(transformation(extent={{-54,-70},{-34,-50}})));
+          Modelica.Mechanics.Rotational.Components.Damper damper(d=0.1)
             annotation (Placement(transformation(extent={{-54,-30},{-34,-10}})));
           Modelica.Mechanics.MultiBody.Parts.BodyBox boxBody1(r={0.5,0,0}, width=0.06)
             annotation (Placement(transformation(extent={{0,-70},{20,-50}})));
           Modelica.Mechanics.MultiBody.Joints.Revolute revolute2(phi(fixed=true), w(
-                fixed=true)) annotation (Placement(transformation(extent={{26,-70},{
-                    46,-50}})));
+                fixed=true)) annotation (Placement(transformation(extent={{26,-70},{46,-50}})));
           Modelica.Mechanics.MultiBody.Parts.BodyBox boxBody2(r={0.5,0,0}, width=0.06)
             annotation (Placement(transformation(extent={{66,-70},{86,-50}})));
           Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque cutForceAndTorque(
@@ -2018,15 +2014,13 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
           Modelica.Mechanics.MultiBody.Joints.Revolute revolute3(
             useAxisFlange=true,
             phi(fixed=true),
-            w(fixed=true))   annotation (Placement(transformation(extent={{-54,32},{
-                    -34,52}})));
+            w(fixed=true)) annotation (Placement(transformation(extent={{-54,32},{-34,52}})));
           Modelica.Mechanics.Rotational.Components.Damper damper1(d=0.1)
             annotation (Placement(transformation(extent={{-54,72},{-34,92}})));
           Modelica.Mechanics.MultiBody.Parts.BodyBox boxBody3(r={0.5,0,0}, width=0.06)
             annotation (Placement(transformation(extent={{0,32},{20,52}})));
           Modelica.Mechanics.MultiBody.Joints.Revolute revolute4(phi(fixed=true), w(
-                fixed=true)) annotation (Placement(transformation(extent={{26,32},{46,
-                    52}})));
+                fixed=true)) annotation (Placement(transformation(extent={{26,32},{46,52}})));
           Modelica.Mechanics.MultiBody.Parts.BodyBox boxBody4(r={0.5,0,0}, width=0.06)
             annotation (Placement(transformation(extent={{66,32},{86,52}})));
           Modelica.Mechanics.MultiBody.Sensors.Distance distance1
@@ -2035,8 +2029,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
             annotation (Placement(transformation(extent={{-14,66},{6,86}})));
           Modelica.Mechanics.MultiBody.Sensors.CutTorque cutTorque(Nm_to_m=1)
             annotation (Placement(transformation(extent={{16,66},{36,86}})));
-          Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(r={0,1,
-                0}) annotation (Placement(transformation(
+          Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(r={0,1,0}) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=90,
                 origin={-72,-32})));
@@ -2502,6 +2495,17 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
 
       end Issue3177torusSurface;
+
+      model Issue3382 "Conversion test for #3382 - Visualizers.Ground"
+        extends Modelica.Icons.Example;
+        inner Modelica.Mechanics.MultiBody.World world;
+        Modelica.Mechanics.MultiBody.Visualizers.Ground ground;
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3382\">#3382</a>.
+</p>
+</html>"));
+      end Issue3382;
     end MultiBody;
 
     package Rotational

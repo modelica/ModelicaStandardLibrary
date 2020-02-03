@@ -951,6 +951,60 @@ vector \"n\" defining the translation axis
 </html>"));
         end Revolute;
       end Joints;
+
+      package Visualizers "3-dimensional visual objects used for animation"
+        extends Modelica.Icons.Package;
+        model Ground "Visualizing the ground (box in z=0)"
+          extends Modelica.Icons.ObsoleteModel;
+           parameter Boolean animation=true
+           "= true, if animation of ground shall be enabled";
+           parameter SI.Position length = 10
+           "Length and width of box (center is at x=y=0)" annotation (Dialog(enable=animation));
+           parameter SI.Position height = 0.02
+           "Height of box (upper surface is at z=0, lower surface is at z=-height)" annotation (Dialog(enable=animation));
+           parameter Modelica.Mechanics.MultiBody.Types.Color groundColor={0,255,0}
+           "Color of box" annotation (Dialog(colorSelector=true, enable=animation));
+
+           Modelica.Mechanics.MultiBody.Visualizers.FixedShape ground(
+             lengthDirection={1,0,0},
+             widthDirection={0,1,0},
+             animation=animation,
+             r_shape={-length/2,0,-height},
+             length=length,
+             height=height,
+             color=groundColor,
+             width=length)
+             annotation (Placement(transformation(extent={{-20,0},{0,20}})));
+           Modelica.Mechanics.MultiBody.Parts.Fixed fixed
+             annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
+        equation
+
+           connect(fixed.frame_b, ground.frame_a) annotation (Line(
+               points={{-40,10},{-20,10}},
+               color={95,95,95},
+               thickness=0.5));
+           annotation (
+             obsolete = "Obsolete model - use ground visualization feature in Modelica.Mechanics.MultiBody.World, or use model Modelica.Mechanics.MultiBody.Visualizers.Rectangle instead",
+             Icon(
+               coordinateSystem(preserveAspectRatio = true, extent = {{-100, -100}, {100, 100}}),
+               graphics = {
+                 Polygon(lineColor = {255, 255, 255}, fillColor = {126, 181, 78}, fillPattern = FillPattern.Solid, points = {{-100, -30}, {20, -90}, {100, 0}, {-10, 40}}),
+                 Text(textColor = {64, 64, 64}, extent = {{20, 70}, {60, 100}}, textString = "z", horizontalAlignment = TextAlignment.Left),
+                 Polygon(lineColor = {255, 255, 255}, fillColor = {14, 111, 1}, fillPattern = FillPattern.Solid, points = {{100, -10}, {20, -100}, {20, -90}, {100, 0}}),
+                 Polygon(lineColor = {255, 255, 255}, fillColor = {14, 111, 1}, fillPattern = FillPattern.Solid, points = {{-100, -40}, {20, -100}, {20, -90}, {-100, -30}}), Line(origin = {6, -8}, points={{-6,-10},{-6,108}}),
+                 Polygon(origin = {6, 0}, points={{-6,102},{-14,72},{2,72},{-6,102}}, fillPattern=FillPattern.Solid),
+                 Text(textColor = {0,0,255}, extent = {{-150, -145}, {150, -105}}, textString = "%name")}),
+             Documentation(info = "<html>
+<p>
+This shape visualizes the x-y plane by a box.
+</p>
+
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Ground.png\">
+</blockquote>
+</html>"));
+        end Ground;
+      end Visualizers;
     end MultiBody;
 
     package Rotational "Library to model 1-dimensional, rotational mechanical systems"

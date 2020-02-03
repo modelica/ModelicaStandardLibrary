@@ -157,6 +157,8 @@ convertClass("Modelica.Mechanics.MultiBody.Sensors.TansformAbsoluteVector",
               "Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector")
 convertClass("Modelica.Mechanics.MultiBody.Sensors.TansformRelativeVector",
               "Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector")
+convertClass("Modelica.Mechanics.MultiBody.Visualizers.Ground",
+              "ObsoleteModelica4.Mechanics.MultiBody.Visualizers.Ground")
 convertClass("Modelica.ComplexBlocks.Sources.LogFrequencySweep",
               "Modelica.Blocks.Sources.LogFrequencySweep")
 convertClass("Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage",

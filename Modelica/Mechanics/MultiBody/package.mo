@@ -1252,8 +1252,7 @@ protected
 equation
   Connections.root(frame_b.R);
 
-  assert(Modelica.Math.Vectors.length(
-                       n) > 1e-10,
+  assert(Modelica.Math.Vectors.length(n) > 1e-10,
     "Parameter n of World object is wrong (length(n) > 0 required)");
   frame_b.r_0 = zeros(3);
   frame_b.R = Frames.nullRotation();
