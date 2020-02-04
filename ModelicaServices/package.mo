@@ -9,6 +9,15 @@ package ModelicaServices "ModelicaServices (Default implementation) - Models and
     class ReleaseNotes "Release notes"
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
+<h4>Version 4.0.0, 2020-02-03</h4>
+
+<ul>
+<li> New animation visualizer
+     <a href=\"modelica://ModelicaServices.Animation.Vector\">Vector</a>
+     for 3D animation of a vector quantity (force, torque etc), see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1891\">#1891</a>.
+     </li>
+</ul>
+
 <h4>Version 3.2.3, 2019-01-23</h4>
 
 <ul>
