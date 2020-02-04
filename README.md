@@ -1,3 +1,5 @@
+<img src="https://github.com/modelica/ModelicaStandardLibrary/raw/master/Modelica/Resources/Images/Logos/Modelica_Libraries.svg?sanitize=true" width="250px">
+
 # Modelica Standard Library
 
 Free library from the Modelica Association to model mechanical (1D/3D), electrical (analog, digital, machines), magnetic, thermal, fluid, control systems and hierarchical state machines. Also numerical functions and functions for strings, files and streams are included.
