@@ -383,9 +383,9 @@ s = Medium.specificEntropy(setState_dTX(d, T, fill(0, Medium.nX)));
       SaturationProperties sat "Saturation temperature and pressure";
     algorithm
       state.p := p;
-
-      if (getPhase_ps(p, s) == 1) then
-        (state.d,state.T,error) := dtofpsOnePhase(
+      state.phase := getPhase_ps(p, s);
+      if state.phase == 1 then
+        (state.d, state.T, error) := dtofpsOnePhase(
               p=p,
               s=s,
               delp=delp,
@@ -394,6 +394,7 @@ s = Medium.specificEntropy(setState_dTX(d, T, fill(0, Medium.nX)));
         state.h := R134aData.R_s*state.T*(f.tau*f.ftau + f.delta*f.fdelta);
       else
         state.h := hofpsTwoPhase(p, s);
+        (state.d, state.T) := dt_ph(p, state.h);
       end if;
 
       annotation (Documentation(info="<html>
@@ -416,6 +417,8 @@ Medium.SpecificEnthalpy h;
 
 h = Medium.specificEnthalpy(setState_psX(p, s, fill(0, Medium.nX)));
 </pre></blockquote>
+</html>", revisions="<html>
+<p>2020-02-05 Stefan Wischhusen: Added missing property calculation for d and T.</p>
 </html>"));
     end setState_psX;
 
