@@ -8,7 +8,7 @@ model SMPM_ResistiveBraking
   parameter SI.AngularVelocity w0(displayUnit="rev/min")=
     2*pi*smpmData.fsNominal/smpmData.p "Initial speed";
   parameter Real k[3]={1,3,5} "Braking resistance stages w.r.t. Rs";
-  parameter SI.Current idq_sr[2](fixed=false)
+  parameter SI.Current idq_sr[2](each fixed=false)
     "Initial stator current space phasor";
   SI.Torque tauElectrical=smpm.tauElectrical "Electrical torque";
   SI.Torque tauShaft=smpm.tauShaft "Shaft torque";
