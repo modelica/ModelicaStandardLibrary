@@ -8714,10 +8714,15 @@ Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
     extent={{-17.8562,-17.8563},{17.8563,17.8562}})}),
 Documentation(info="<html>
 <p>
-Package <strong>Modelica&reg;</strong> is a <strong>standardized</strong> and <strong>free</strong> package
-that is developed together with the Modelica&reg; language from the
-Modelica Association, see
-<a href=\"https://www.Modelica.org\">https://www.Modelica.org</a>.
+<img src=\"modelica://Modelica/Resources/Images/Logos/Modelica_Libraries.svg\" width=\"250\">
+</p>
+
+<p>
+The package <strong>Modelica&reg;</strong> is a <strong>standardized</strong> and <strong>free</strong> package
+that is developed by the \"<strong>Modelica Association Project - Libraries</strong>\".</p>
+<p>
+Its development is coordinated with the Modelica&reg; language from the
+Modelica Association, see <a href=\"https://www.Modelica.org\">https://www.Modelica.org</a>.
 It is also called <strong>Modelica Standard Library</strong>.
 It provides model components in many domains that are based on
 standardized interface definitions. Some typical examples are shown
