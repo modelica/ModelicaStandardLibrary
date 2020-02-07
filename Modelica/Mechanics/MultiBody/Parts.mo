@@ -1910,7 +1910,7 @@ November 3-4, 2003, pp. 149-158</p>
       annotation (Dialog(tab="Advanced"));
     parameter Boolean exact=true
       "= true, if exact calculations; false if influence of bearing on rotor acceleration is neglected to avoid an algebraic loop"
-      annotation (Dialog(tab="Advanced"));
+      annotation (Evaluate=true, Dialog(tab="Advanced"));
 
     SI.Angle phi(start=0, stateSelect=stateSelect)
       "Rotation angle of rotor with respect to frame_a (= flange_a.phi = flange_b.phi)";
@@ -1979,7 +1979,7 @@ November 3-4, 2003, pp. 149-158</p>
         annotation (Dialog(tab="Advanced"));
       parameter Boolean exact=true
         "= true, if exact calculations; false if influence of bearing on rotor acceleration is neglected to avoid an algebraic loop"
-        annotation (Dialog(tab="Advanced"));
+        annotation (Evaluate=true, Dialog(tab="Advanced"));
 
       SI.AngularVelocity w_a[3]
         "Angular velocity of frame_a, resolved in frame_a";

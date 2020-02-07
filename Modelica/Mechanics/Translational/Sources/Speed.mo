@@ -7,7 +7,8 @@ model Speed "Forced movement of a flange according to a reference speed"
       fixed=true,
       stateSelect=StateSelect.prefer));
   parameter Boolean exact=false
-    "Is true/false for exact treatment/filtering of the input signal, respectively";
+    "Is true/false for exact treatment/filtering of the input signal, respectively"
+    annotation (Evaluate=true);
   parameter SI.Frequency f_crit=50
     "If exact=false, critical frequency of filter to filter input signal"
     annotation (Dialog(enable=not exact));
