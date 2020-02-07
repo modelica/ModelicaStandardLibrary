@@ -1200,7 +1200,7 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
 
     parameter Boolean enforceStates=false
       "= true, if relative variables of spherical joint shall be used as states (StateSelect.always)"
-      annotation (Dialog(tab="Advanced"));
+      annotation (Evaluate=true, Dialog(tab="Advanced"));
     parameter Boolean useQuaternions=true
       "= true, if quaternions shall be used as states otherwise use 3 angles as states (provided enforceStates=true)"
       annotation (Evaluate=true, Dialog(tab="Advanced", enable=enforceStates));
@@ -1477,7 +1477,7 @@ frame_b of the joint.
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter Boolean enforceStates=true
       "= true, if relative variables between frame_a and frame_b shall be used as states"
-      annotation (Dialog(tab="Advanced"));
+      annotation (Evaluate=true, Dialog(tab="Advanced"));
     parameter Boolean useQuaternions=true
       "= true, if quaternions shall be used as states otherwise use 3 angles as states"
       annotation (Evaluate=true, Dialog(tab="Advanced"));

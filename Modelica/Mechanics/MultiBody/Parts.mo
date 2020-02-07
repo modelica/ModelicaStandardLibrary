@@ -1032,7 +1032,7 @@ to the setting of parameters \"useQuaternions\" and
         enable=animation));
     parameter Boolean enforceStates=false
       "= true, if absolute variables of body object shall be used as states (StateSelect.always)"
-      annotation (Dialog(tab="Advanced"));
+      annotation (Evaluate=true, Dialog(tab="Advanced"));
     parameter Boolean useQuaternions=true
       "= true, if quaternions shall be used as potential states otherwise use 3 angles as potential states"
       annotation (Evaluate=true, Dialog(tab="Advanced"));
@@ -1294,7 +1294,7 @@ states and of the \"Advanced\" menu parameters, see model
 
     parameter Boolean enforceStates=false
       "= true, if absolute variables of body object shall be used as states (StateSelect.always)"
-      annotation (Dialog(tab="Advanced"));
+      annotation (Evaluate=true, Dialog(tab="Advanced"));
     parameter Boolean useQuaternions=true
       "= true, if quaternions shall be used as potential states otherwise use 3 angles as potential states"
       annotation (Evaluate=true, Dialog(tab="Advanced"));
@@ -1520,7 +1520,7 @@ states and of the \"Advanced\" menu parameters, see model
 
     parameter Boolean enforceStates=false
       "= true, if absolute variables of body object shall be used as states (StateSelect.always)"
-      annotation (Dialog(tab="Advanced"));
+      annotation (Evaluate=true, Dialog(tab="Advanced"));
     parameter Boolean useQuaternions=true
       "= true, if quaternions shall be used as potential states otherwise use 3 angles as potential states"
       annotation (Evaluate=true, Dialog(tab="Advanced"));
