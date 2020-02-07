@@ -621,7 +621,7 @@ the animation may be switched off via parameter animation = <strong>false</stron
       annotation (Evaluate=true,Dialog(tab="Advanced"));
     parameter Boolean useQuaternions=true
       "= true, if quaternions shall be used as potential states otherwise use 3 angles as potential states"
-      annotation (Evaluate=true,Dialog(tab="Advanced"));
+      annotation (Evaluate=true, Evaluate=true,Dialog(tab="Advanced"));
     parameter Types.RotationSequence sequence_angleStates={1,2,3}
       "Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states"
       annotation (Evaluate=true, Dialog(tab="Advanced", enable=not
@@ -1035,7 +1035,7 @@ to the setting of parameters \"useQuaternions\" and
       annotation (Dialog(tab="Advanced"));
     parameter Boolean useQuaternions=true
       "= true, if quaternions shall be used as potential states otherwise use 3 angles as potential states"
-      annotation (Dialog(tab="Advanced"));
+      annotation (Evaluate=true, Dialog(tab="Advanced"));
     parameter Types.RotationSequence sequence_angleStates={1,2,3}
       "Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states"
       annotation (Evaluate=true, Dialog(tab="Advanced", enable=not
@@ -1297,7 +1297,7 @@ states and of the \"Advanced\" menu parameters, see model
       annotation (Dialog(tab="Advanced"));
     parameter Boolean useQuaternions=true
       "= true, if quaternions shall be used as potential states otherwise use 3 angles as potential states"
-      annotation (Dialog(tab="Advanced"));
+      annotation (Evaluate=true, Dialog(tab="Advanced"));
     parameter Types.RotationSequence sequence_angleStates={1,2,3}
       "Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states"
       annotation (Evaluate=true, Dialog(tab="Advanced", enable=not
@@ -1523,7 +1523,7 @@ states and of the \"Advanced\" menu parameters, see model
       annotation (Dialog(tab="Advanced"));
     parameter Boolean useQuaternions=true
       "= true, if quaternions shall be used as potential states otherwise use 3 angles as potential states"
-      annotation (Dialog(tab="Advanced"));
+      annotation (Evaluate=true, Dialog(tab="Advanced"));
     parameter Types.RotationSequence sequence_angleStates={1,2,3}
       "Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states"
       annotation (Evaluate=true, Dialog(tab="Advanced", enable=not

@@ -1203,7 +1203,7 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
       annotation (Dialog(tab="Advanced"));
     parameter Boolean useQuaternions=true
       "= true, if quaternions shall be used as states otherwise use 3 angles as states (provided enforceStates=true)"
-      annotation (Dialog(tab="Advanced", enable=enforceStates));
+      annotation (Evaluate=true, Dialog(tab="Advanced", enable=enforceStates));
     parameter Types.RotationSequence sequence_angleStates={1,2,3}
       "Sequence of rotations to rotate frame_a into frame_b around the 3 angles used as states"
        annotation (Evaluate=true, Dialog(tab="Advanced", enable=enforceStates
@@ -1480,7 +1480,7 @@ frame_b of the joint.
       annotation (Dialog(tab="Advanced"));
     parameter Boolean useQuaternions=true
       "= true, if quaternions shall be used as states otherwise use 3 angles as states"
-      annotation (Dialog(tab="Advanced"));
+      annotation (Evaluate=true, Dialog(tab="Advanced"));
     parameter Types.RotationSequence sequence_angleStates={1,2,3}
       "Sequence of rotations to rotate frame_a into frame_b around the 3 angles used as states"
        annotation (Evaluate=true, Dialog(tab="Advanced", enable=not
