@@ -1812,7 +1812,7 @@ frame_b of the joint.
 
     parameter Types.RotationSequence sequence_start={1,2,3}
       "Sequence of angle rotations"
-      annotation(Evaluate=true,Dialog(enable=use_angle, tab="Angle initialization", group="Angles to rotate frame_a to frame_b along sequence_start"));
+      annotation(Evaluate=true, Dialog(enable=use_angle, tab="Angle initialization", group="Angles to rotate frame_a to frame_b along sequence_start"));
 
     Modelica.Blocks.Interfaces.RealOutput angle_1(final quantity="Angle", final unit="rad", start=0, stateSelect=angle_1_stateSelect) if use_angle
       "First rotation angle or dummy"

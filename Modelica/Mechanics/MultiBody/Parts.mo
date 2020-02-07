@@ -618,10 +618,10 @@ the animation may be switched off via parameter animation = <strong>false</stron
         enable=animation));
     parameter Boolean enforceStates=false
       "= true, if absolute variables of body object shall be used as states (StateSelect.always)"
-      annotation (Evaluate=true,Dialog(tab="Advanced"));
+      annotation (Evaluate=true, Dialog(tab="Advanced"));
     parameter Boolean useQuaternions=true
       "= true, if quaternions shall be used as potential states otherwise use 3 angles as potential states"
-      annotation (Evaluate=true, Evaluate=true,Dialog(tab="Advanced"));
+      annotation (Evaluate=true, Dialog(tab="Advanced"));
     parameter Types.RotationSequence sequence_angleStates={1,2,3}
       "Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states"
       annotation (Evaluate=true, Dialog(tab="Advanced", enable=not
