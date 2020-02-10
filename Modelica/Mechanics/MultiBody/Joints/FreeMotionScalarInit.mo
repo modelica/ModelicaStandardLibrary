@@ -169,18 +169,28 @@ model FreeMotionScalarInit
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animation and use_r));
 
 protected
+  parameter Boolean enforceStates=
+    if use_angle and (Integer(angle_1_stateSelect) + Integer(angle_2_stateSelect) + Integer(angle_3_stateSelect) > 3) then true else false
+    "= true, if either of angle shall be used as states (StateSelect.always)";
+  parameter Boolean enforceStatesDer=
+    if use_angle and use_angle_d and
+      (Integer(angle_d_1_stateSelect) + Integer(angle_d_2_stateSelect) + Integer(angle_d_3_stateSelect) > 3) then true else false
+    "= true, if either of angle_d shall be used as states (StateSelect.always)";
+
   Modelica.Mechanics.MultiBody.Joints.Internal.InitPosition initPosition(
     r_a_0=frame_a.r_0,
     r_b_0=frame_b.r_0,
     R_a=frame_a.R) if use_r annotation (Placement(transformation(extent={{-20,60},{0,80}})));
-  Modelica.Mechanics.MultiBody.Joints.Internal.InitAngle initAngle(sequence_start=sequence_start) if use_angle annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+  Internal.InitAngleAndDerivatives initAngleAndDerivatives(
+    sequence_start = sequence_start,
+    statesAngle=enforceStates,
+    statesAngleDer=enforceStatesDer) if use_angle
+    annotation (Placement(transformation(extent={{-52,-10},{-32,10}})));
   Modelica.Mechanics.MultiBody.Joints.Internal.InitAngularVelocity initAngularVelocity(R_a=frame_a.R, R_b=frame_b.R) if use_w annotation (Placement(transformation(extent={{-20,20},{0,40}})));
   Modelica.Blocks.Continuous.Der derv[3] if use_r and use_v
     annotation (Placement(transformation(extent={{20,60},{40,80}})));
   Modelica.Blocks.Continuous.Der dera[3] if use_r and use_v and use_a
     annotation (Placement(transformation(extent={{60,60},{80,80}})));
-  Modelica.Blocks.Continuous.Der derd[3] if use_angle and use_angle_d
-    annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
   Modelica.Blocks.Continuous.Der derdd[3] if use_angle and use_angle_d and use_angle_dd
     annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
   Modelica.Blocks.Continuous.Der derz[3] if use_w and use_z
@@ -210,14 +220,14 @@ equation
   connect(dera[3].y, a_rel_a_3);
 
   // angle
-  connect(initAngle.angle[1], angle_1);
-  connect(initAngle.angle[2], angle_2);
-  connect(initAngle.angle[3], angle_3);
+  connect(initAngleAndDerivatives.angle[1], angle_1);
+  connect(initAngleAndDerivatives.angle[2], angle_2);
+  connect(initAngleAndDerivatives.angle[3], angle_3);
 
   // angle_d
-  connect(derd[1].y, angle_d_1);
-  connect(derd[2].y, angle_d_2);
-  connect(derd[3].y, angle_d_3);
+  connect(initAngleAndDerivatives.angleDer[1], angle_d_1);
+  connect(initAngleAndDerivatives.angleDer[2], angle_d_2);
+  connect(initAngleAndDerivatives.angleDer[3], angle_d_3);
 
   // angle_dd
   connect(derdd[1].y, angle_dd_1);
@@ -238,18 +248,17 @@ equation
       points={{1,70},{18,70}}, color={0,0,127}));
   connect(derv.y, dera.u) annotation (Line(
       points={{41,70},{58,70}}, color={0,0,127}));
-  connect(initAngle.frame_a, frame_a) annotation (Line(
-      points={{-60,0},{-100,0}},
+  connect(initAngleAndDerivatives.frame_a, frame_a) annotation (Line(
+      points={{-52,0},{-100,0}},
       color={95,95,95},
       thickness=0.5));
-  connect(initAngle.frame_b, frame_b) annotation (Line(
-      points={{-40,0},{100,0}},
+  connect(initAngleAndDerivatives.frame_b, frame_b) annotation (Line(
+      points={{-32,0},{100,0}},
       color={95,95,95},
       thickness=0.5));
-  connect(initAngle.angle, derd.u) annotation (Line(
-      points={{-50,-11},{-50,-20},{-22,-20}}, color={0,0,127}));
-  connect(derd.y, derdd.u) annotation (Line(
-      points={{1,-20},{18,-20}}, color={0,0,127}));
+  connect(initAngleAndDerivatives.angleDer, derdd.u) annotation (Line(
+      points={{-36,-11},{-36,-20},{18,-20}},
+                                 color={0,0,127}));
   connect(zeroForceAndTorque1.frame_a, frame_a) annotation (Line(
       points={{-80,-40},{-88,-40},{-88,0},{-100,0}},
       color={95,95,95},
