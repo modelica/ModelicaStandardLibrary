@@ -1,0 +1,16 @@
+BodyColor
+RodColor
+JointColor
+ForceColor
+TorqueColor
+SpringColor
+SensorColor
+FrameColor
+ArrowColor
+FrameHeadLengthFraction
+FrameHeadWidthFraction
+FrameLabelHeightFraction
+ArrowHeadLengthFraction
+ArrowHeadWidthFraction
+BodyCylinderDiameterFraction
+JointRodDiameterFraction
