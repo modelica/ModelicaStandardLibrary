@@ -436,7 +436,10 @@ convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCon
                 "variableResistor", "variableConductor")
 
 convertElement({"Modelica.Media.Interfaces.PartialMedium.BaseProperties",
+                "Modelica.Media.Interfaces.PartialMixtureMedium.BaseProperties",
                 "Modelica.Media.Interfaces.PartialMixtureMedium.gasConstant",
+                "Modelica.Media.Interfaces.PartialCondensingGases.BaseProperties",
+                "Modelica.Media.Interfaces.PartialRealCondensingGases.BaseProperties",
                 "Modelica.Media.Common.ThermoFluidSpecial.FixedIGProperties",
                 "Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties",
                 "Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_ph",
