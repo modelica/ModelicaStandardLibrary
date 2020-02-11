@@ -729,13 +729,9 @@ required from medium model \"" + mediumName + "\".");
   end specificInternalEnergy;
 
   redeclare function extends specificEntropy "Return specific entropy"
-  protected
-    Real[nX] Y(each unit="mol/mol")=massToMoleFractions(state.X, data.MM)
-      "Molar fractions";
+    extends Modelica.Icons.Function;
   algorithm
-  s :=  s_TX(state.T, state.X) - sum(state.X[i]*Modelica.Constants.R/MMX[i]*
-      (if state.X[i]<Modelica.Constants.eps then Y[i] else
-      Modelica.Math.log(Y[i]*state.p/reference_p)) for i in 1:nX);
+    s := specificEntropyOfpTX(state.p, state.T, state.X);
     annotation(Inline=true,smoothOrder=2);
   end specificEntropy;
 
@@ -1324,23 +1320,37 @@ end lowPressureThermalConductivity;
   protected
     MassFraction[nX] Xfull = if size(X,1) == nX then X else cat(1,X,{1-sum(X)});
 
-    function f_nonlinear "Solve s_TX(p,T,X) for T with given s"
+    function f_nonlinear "Solve specificEntropyOfpTX(p,T,X) for T with given s"
       extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
       input MassFraction[:] Xfull "Mass fractions of composition";
-    protected
-      Real[nX] Y(each unit="mol/mol")=massToMoleFractions(Xfull, data.MM) "Molar fractions";
     algorithm
-      y := s_TX(T=u, X=Xfull) - sum(Xfull[i]*Modelica.Constants.R/MMX[i]*
-        (if Xfull[i] < Modelica.Constants.eps then Y[i] else
-        Modelica.Math.log(Y[i]*p/reference_p)) for i in 1:nX) - s;
+      y := specificEntropyOfpTX(p=p, T=u, X=Xfull) - s;
     end f_nonlinear;
 
   algorithm
     T := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
       function f_nonlinear(p=p, s=s, Xfull=Xfull), 200, 6000);
+    annotation(inverse(s = specificEntropyOfpTX(p,T,Xfull)));
   end T_psX;
+
+  protected
+    function specificEntropyOfpTX
+      "Return specific entropy from pressure, temperature and mass fractions"
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input Temperature T "Temperature";
+      input MassFraction[nX] X "Mass fractions of composition";
+      output SpecificEntropy s "Specific entropy";
+    protected
+      Real[nX] Y(each unit="mol/mol") = massToMoleFractions(X, data.MM) "Molar fractions";
+    algorithm
+      s := s_TX(T, X) - sum(X[i]*Modelica.Constants.R/MMX[i]*
+        (if X[i] < Modelica.Constants.eps then Y[i] else
+        Modelica.Math.log(Y[i]*p/reference_p)) for i in 1:nX);
+      annotation(Inline=true,smoothOrder=2);
+    end specificEntropyOfpTX;
 
   annotation (Documentation(info="<html>
 <p>
