@@ -1317,22 +1317,21 @@ end lowPressureThermalConductivity;
     input SpecificEntropy s "Specific entropy";
     input MassFraction[nX] X "Mass fractions of composition";
     output Temperature T "Temperature";
-  protected
-    MassFraction[nX] Xfull = if size(X,1) == nX then X else cat(1,X,{1-sum(X)});
 
+  protected
     function f_nonlinear "Solve specificEntropyOfpTX(p,T,X) for T with given s"
       extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
-      input MassFraction[:] Xfull "Mass fractions of composition";
+      input MassFraction[nX] X "Mass fractions of composition";
     algorithm
-      y := specificEntropyOfpTX(p=p, T=u, X=Xfull) - s;
+      y := specificEntropyOfpTX(p=p, T=u, X=X) - s;
     end f_nonlinear;
 
   algorithm
     T := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
-      function f_nonlinear(p=p, s=s, Xfull=Xfull), 200, 6000);
-    annotation(inverse(s = specificEntropyOfpTX(p,T,Xfull)));
+      function f_nonlinear(p=p, s=s, X=X), 200, 6000);
+    annotation(inverse(s = specificEntropyOfpTX(p,T,X)));
   end T_psX;
 
   protected
