@@ -2486,7 +2486,7 @@ that can lead to wrong simulation results):
 <tr><td>s0_Tlow_der</td>
     <td>The calculation was wrong. This has been corrected.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Media.R134a.R134a_ph</strong></td></tr>
-<tr><td>setState_dTX</td>
+<tr><td>setState_dTX<br>setState_psX</td>
     <td>The calculation was wrong in two-phase regime. This has been corrected.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Utilities.System</strong></td></tr>
 <tr><td>getTime</td>
