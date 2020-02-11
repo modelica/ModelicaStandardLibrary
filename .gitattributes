@@ -38,3 +38,5 @@ CONTRIBUTING.md export-ignore
 Modelica/Resources/Documentation/Clocked/Modelica_Synchronous.pptx export-ignore
 Modelica/Resources/Documentation/Fluid/Stream-Connectors-Overview-Rationale.ppt export-ignore
 Modelica/Resources/Documentation/Mechanics/Figure_PlanarLoopAnalytic.ppt export-ignore
+Modelica/Resources/Reference export-ignore
+ModelicaTest/Resources/Reference export-ignore

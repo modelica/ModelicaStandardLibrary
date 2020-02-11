@@ -1,0 +1,10 @@
+time
+Itr
+Iqs
+ims.rotor.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+ims.rotor.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+ims.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+ims.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+imsQS.rotor.electroMagneticConverter.port_p.reference.gamma
+loadInertia.phi
+loadInertia.w

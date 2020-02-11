@@ -1,0 +1,3 @@
+time
+inductor.i
+thyristor_v4_1.vControl

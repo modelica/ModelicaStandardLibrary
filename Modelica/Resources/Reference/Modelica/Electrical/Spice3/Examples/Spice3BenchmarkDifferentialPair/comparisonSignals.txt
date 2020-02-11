@@ -1,0 +1,11 @@
+time
+Q1.vbc
+Q1.vbe
+Q2.vbc
+Q2.vbe
+VCC.T0
+VCC.counter
+VCC.counter2
+VEE.T0
+VEE.counter
+VEE.counter2

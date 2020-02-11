@@ -1,0 +1,5 @@
+time
+inertia2.s
+inertia2.v
+mass1.s
+mass1.v

@@ -1,0 +1,3 @@
+time
+magFluxSensor.Phi
+voltageSensor.v

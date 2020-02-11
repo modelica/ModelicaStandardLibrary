@@ -1,0 +1,7 @@
+time
+inertiaLoad.phi
+inertiaLoad.w
+smpm.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+smpm.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+currentController.PI_d.x
+currentController.PI_q.x

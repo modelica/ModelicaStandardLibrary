@@ -1,0 +1,11 @@
+time
+armatureInverter.iDCFilter.y
+armatureInverter.iMotFilter.y
+armatureInverter.idealDcDc.deadTime.y
+armatureInverter.idealDcDc.powerController.y
+armatureInverter.vDCFilter.y
+armatureInverter.vMotFilter.y
+currentController.integrator.y
+dcpm.la.i
+loadInertia.phi
+loadInertia.w

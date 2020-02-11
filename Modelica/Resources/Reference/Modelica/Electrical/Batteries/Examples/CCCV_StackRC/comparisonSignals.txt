@@ -1,0 +1,26 @@
+time
+energy.y
+stack.cell[1, 1].cell.capacitor[1].v
+stack.cell[1, 1].cell.capacitor[2].v
+stack.cell[1, 1].cell.limIntegrator.y
+stack.cell[1, 1].limIntegrator.y
+stack.cell[1, 2].cell.capacitor[1].v
+stack.cell[1, 2].cell.capacitor[2].v
+stack.cell[1, 2].cell.limIntegrator.y
+stack.cell[1, 2].limIntegrator.y
+stack.cell[2, 1].cell.capacitor[1].v
+stack.cell[2, 1].cell.capacitor[2].v
+stack.cell[2, 1].cell.limIntegrator.y
+stack.cell[2, 1].limIntegrator.y
+stack.cell[2, 2].cell.capacitor[1].v
+stack.cell[2, 2].cell.capacitor[2].v
+stack.cell[2, 2].cell.limIntegrator.y
+stack.cell[2, 2].limIntegrator.y
+stack.cell[3, 1].cell.capacitor[1].v
+stack.cell[3, 1].cell.capacitor[2].v
+stack.cell[3, 1].cell.limIntegrator.y
+stack.cell[3, 1].limIntegrator.y
+stack.cell[3, 2].cell.capacitor[1].v
+stack.cell[3, 2].cell.capacitor[2].v
+stack.cell[3, 2].cell.limIntegrator.y
+stack.cell[3, 2].limIntegrator.y

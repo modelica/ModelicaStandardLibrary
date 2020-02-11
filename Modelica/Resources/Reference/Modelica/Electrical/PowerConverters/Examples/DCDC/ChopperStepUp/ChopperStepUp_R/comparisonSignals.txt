@@ -1,0 +1,11 @@
+time
+capacitor.v
+inductor.i
+meanCurrent.x
+meanVoltage.x
+meanCurrent.y
+meanVoltage.y
+chopperStepUp.vDC1
+chopperStepUp.iDC1
+chopperStepUp.vDC2
+chopperStepUp.iDC2

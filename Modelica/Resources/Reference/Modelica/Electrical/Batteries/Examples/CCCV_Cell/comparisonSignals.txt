@@ -1,0 +1,4 @@
+time
+cell.cell.limIntegrator.y
+cell.limIntegrator.y
+energy.y

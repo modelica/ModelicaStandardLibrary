@@ -1,0 +1,9 @@
+time
+smee.idq_dr[1]
+smee.idq_rr[2]
+smee.idq_sr[1]
+smee.idq_sr[2]
+smee.lesigma.i
+speed.phi
+speed.w
+voltageController.I.y

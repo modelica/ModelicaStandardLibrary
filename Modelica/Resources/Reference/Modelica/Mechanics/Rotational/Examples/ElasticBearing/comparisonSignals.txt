@@ -1,0 +1,7 @@
+time
+load.phi
+load.w
+shaft.phi
+shaft.w
+springDamper.phi_rel
+springDamper.w_rel

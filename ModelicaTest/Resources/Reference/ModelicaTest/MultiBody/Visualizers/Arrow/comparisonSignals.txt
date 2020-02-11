@@ -1,0 +1,10 @@
+time
+arrow.arrow.e_x[1]
+arrow.arrow.e_x[2]
+arrow.arrow.e_x[3]
+arrow.arrow.arrowHead.r[1]
+arrow.arrow.arrowHead.r[2]
+arrow.arrow.arrowHead.r[3]
+arrow.arrow.arrowLine.r[1]
+arrow.arrow.arrowLine.r[2]
+arrow.arrow.arrowLine.r[3]

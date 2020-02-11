@@ -1,0 +1,9 @@
+time
+medium.T
+eta
+lambda
+s
+cv
+u
+h
+d

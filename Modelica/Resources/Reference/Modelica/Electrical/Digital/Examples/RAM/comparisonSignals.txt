@@ -1,0 +1,3 @@
+time
+dLATRAM.dataOut[1]
+dLATRAM.dataOut[2]

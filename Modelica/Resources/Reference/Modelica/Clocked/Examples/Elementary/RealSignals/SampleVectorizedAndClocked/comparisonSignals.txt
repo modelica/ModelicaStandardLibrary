@@ -1,0 +1,3 @@
+time
+sample.y[1]
+sample.y[2]

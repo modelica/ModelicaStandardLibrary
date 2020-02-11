@@ -1,0 +1,15 @@
+time
+filter[1].x[1]
+filter[1].x[2]
+filter[2].x[1]
+filter[2].x[2]
+harmonic.mean1.x
+harmonic.mean2.x
+harmonic.y_rms
+harmonic.y_arg
+integrator.y
+potentialSensor.phi[1]
+potentialSensor.phi[2]
+potentialSensor.phi[3]
+toPolar.y[1]
+toPolar.y[2]

@@ -1,0 +1,11 @@
+time
+constantSpeed3.phi
+constantSpeedM.phi
+smee3.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+smee3.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+smee3.stator.stray.port_p.Phi.im
+smee3.stator.stray.port_p.Phi.re
+smeeM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+smeeM.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+smeeM.stator.stray.port_p.Phi.im
+smeeM.stator.stray.port_p.Phi.re

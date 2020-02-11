@@ -1,0 +1,7 @@
+time
+meanCurrent.x
+meanVoltage.x
+rootMeanSquareVoltage.mean.x
+meanCurrent.y
+meanVoltage.y
+rootMeanSquareVoltage.mean.y
