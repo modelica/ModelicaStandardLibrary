@@ -1164,7 +1164,7 @@ which is only valid in the rotor-fixed coordinate system.
       "Complex per unit";
     annotation (Icon(graphics={Text(
             extent={{-80,80},{80,-78}},
-            lineColor={128,128,128},
+            textColor={128,128,128},
             fillColor={128,128,128},
             fillPattern=FillPattern.None,
             fontName="Times New Roman",
