@@ -222,7 +222,7 @@ density and heat capacity as functions of temperature.</li>
              + mediumName + "\".");
       R = Modelica.Constants.R/MM_const;
       cp = Poly.evaluate(poly_Cp,if TinK then T else T_degC);
-      h = if enthalpyOfT then h_T(T) else  h_pT(p,T,densityOfT);
+      h = specificEnthalpyOfT(p,T,densityOfT);
       u = h - (if singleState then  reference_p/d else state.p/d);
       d = Poly.evaluate(poly_rho,if TinK then T else T_degC);
       state.T = T;
@@ -239,8 +239,8 @@ modeled incompressible.
 <p>It should be noted that incompressible media only have 1 state per control volume (usually T),
 but have both T and p as inputs for fully correct properties. The error of using only T-dependent
 properties is small, therefore a Boolean flag enthalpyOfT exists. If it is true, the
-enumeration Choices.independentVariables  is set to  Choices.independentVariables.T otherwise
-it is set to Choices.independentVariables.pT.</p>
+enumeration Choices.IndependentVariables is set to Choices.IndependentVariables.T otherwise
+it is set to Choices.IndependentVariables.pT.</p>
 <p>
 Enthalpy is never a function of T only (h = h(T) + (p-reference_p)/d), but the
 error is also small and non-linear systems can be avoided. In particular,
@@ -317,13 +317,13 @@ which is only exactly true for a fluid with constant density d=d0.
       annotation(Inline=true,smoothOrder=3);
     end setState_ps;
 
-        redeclare function extends setSmoothState
+    redeclare function extends setSmoothState
       "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
-        algorithm
-          state :=ThermodynamicState(p=Media.Common.smoothStep(x, state_a.p, state_b.p, x_small),
-                                     T=Media.Common.smoothStep(x, state_a.T, state_b.T, x_small));
-          annotation(Inline=true,smoothOrder=3);
-        end setSmoothState;
+    algorithm
+      state :=ThermodynamicState(p=Media.Common.smoothStep(x, state_a.p, state_b.p, x_small),
+                                 T=Media.Common.smoothStep(x, state_a.T, state_b.T, x_small));
+      annotation(Inline=true,smoothOrder=3);
+    end setSmoothState;
 
     redeclare function extends specificHeatCapacityCv
       "Specific heat capacity at constant volume (or pressure) of medium"
@@ -417,8 +417,7 @@ which is only exactly true for a fluid with constant density d=d0.
       extends Modelica.Icons.Function;
       input SI.Pressure p "Pressure";
       input SI.Temperature T "Temperature";
-      input Boolean densityOfT = false
-        "Include or neglect density derivative dependence of enthalpy" annotation(Evaluate);
+      input Boolean densityOfT = false "Include or neglect density derivative dependence of enthalpy";
       output SI.SpecificEnthalpy h "Specific enthalpy at p, T";
     algorithm
       h :=h0 + Poly.integralValue(poly_Cp, if TinK then T else Cv.to_degC(T), if TinK then
@@ -463,14 +462,14 @@ which is only exactly true for a fluid with constant density d=d0.
     redeclare function extends specificEnthalpy
       "Return specific enthalpy as a function of the thermodynamic state record"
     algorithm
-      h := if enthalpyOfT then h_T(state.T) else h_pT(state.p,state.T);
+      h := specificEnthalpyOfT(state.p, state.T);
      annotation(Inline=true,smoothOrder=2);
     end specificEnthalpy;
 
     redeclare function extends specificInternalEnergy
       "Return specific internal energy as a function of the thermodynamic state record"
     algorithm
-      u := (if enthalpyOfT then h_T(state.T) else h_pT(state.p,state.T)) - (if singleState then  reference_p else state.p)/density(state);
+      u := specificEnthalpyOfT(state.p,state.T) - (if singleState then reference_p else state.p)/density(state);
      annotation(Inline=true,smoothOrder=2);
     end specificInternalEnergy;
 
@@ -491,13 +490,13 @@ which is only exactly true for a fluid with constant density d=d0.
 
         redeclare function extends f_nonlinear "P is smuggled in via vector"
         algorithm
-          y := if singleState then h_T(x) else h_pT(p,x);
+          y := specificEnthalpyOfT(p,x);
         end f_nonlinear;
 
       end Internal;
     algorithm
      T := Internal.solve(h, T_min, T_max, p, {1}, Internal.f_nonlinear_Data());
-      annotation(Inline=false, LateInline=true, inverse(h=h_pT(p,T)));
+      annotation(Inline=false, LateInline=true, inverse(h=specificEnthalpyOfT(p,T)));
     end T_ph;
 
     function T_ps "Compute temperature from pressure and specific enthalpy"
@@ -787,6 +786,19 @@ Copyright &copy; 2004-2019, Modelica Association and contributors
 </html>"));
     end Polynomials_Temp;
 
+  protected
+    function specificEnthalpyOfT
+      "Return specific enthalpy from pressure and temperature, taking the flag enthalpyOfT into account"
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input Temperature T "Temperature";
+      input Boolean densityOfT = false "Include or neglect density derivative dependence of enthalpy";
+      output SpecificEnthalpy h "Specific enthalpy";
+    algorithm
+      h := if enthalpyOfT then h_T(T) else h_pT(p, T, densityOfT);
+      annotation(Inline=true,smoothOrder=2);
+    end specificEnthalpyOfT;
+
   annotation(Documentation(info="<html>
 <p>
 This is the base package for medium models of incompressible fluids based on
@@ -797,8 +809,8 @@ of density and heat capacity as functions of temperature.
 <p>It should be noted that incompressible media only have 1 state per control volume (usually T),
 but have both T and p as inputs for fully correct properties. The error of using only T-dependent
 properties is small, therefore a Boolean flag enthalpyOfT exists. If it is true, the
-enumeration Choices.independentVariables  is set to  Choices.independentVariables.T otherwise
-it is set to Choices.independentVariables.pT.</p>
+enumeration Choices.IndependentVariables is set to Choices.IndependentVariables.T otherwise
+it is set to Choices.IndependentVariables.pT.</p>
 
 <h4>Using the package TableBased</h4>
 <p>
