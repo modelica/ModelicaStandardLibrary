@@ -1167,7 +1167,7 @@ which is only valid in the rotor-fixed coordinate system.
             textColor={128,128,128},
             fillColor={128,128,128},
             fillPattern=FillPattern.None,
-            fontName="Times New Roman",
+            fontName="serif",
             textString="SI",
             textStyle={TextStyle.Italic})}),
                                      Documentation(info="<html>
