@@ -989,6 +989,7 @@ In case this resistance is high, the amplifier's common is floating with respect
     annotation (Documentation(info="<html>
 <p>This is a Multivibrator with Schmitt trigger according to:</p>
 <p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.3</p>
+<p>As the initialization system has two solutions, one with the op amp output at the lower saturation limit, and the other one with the two voltage inputs very close to each other, the <code>homotopyType</code> parameter is set to get the solver to converge to the former one, which is the required solution.</p>
 </html>"),
       experiment(
         StartTime=0,
