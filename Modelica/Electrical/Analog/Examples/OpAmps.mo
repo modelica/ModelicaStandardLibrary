@@ -940,6 +940,7 @@ In case this resistance is high, the amplifier's common is floating with respect
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(
       Vps=Vps,
       Vns=Vns,
+      homotopyType = Modelica.Blocks.Types.LimiterHomotopy.LowerLimit,
       strict = true) annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Electrical.Analog.Basic.Ground ground
       annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
