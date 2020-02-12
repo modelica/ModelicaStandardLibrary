@@ -1293,20 +1293,22 @@ end lowPressureThermalConductivity;
     input SI.SpecificEnthalpy h_off=h_offset
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     output Temperature T "Temperature";
-  protected
-    MassFraction[nX] Xfull = if size(X,1) == nX then X else cat(1,X,{1-sum(X)});
 
+  protected
     function f_nonlinear "Solve h_TX(T,X) for T with given h"
       extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
       input SpecificEnthalpy h "Specific enthalpy";
-      input MassFraction[:] Xfull "Mass fractions of composition";
+      input MassFraction[nX] X "Mass fractions of composition";
+      input Boolean exclEnthForm "If true, enthalpy of formation Hf is not included in specific enthalpy h";
+      input Modelica.Media.Interfaces.Choices.ReferenceEnthalpy refChoice "Choice of reference enthalpy";
+      input SpecificEnthalpy h_off "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     algorithm
-      y := h_TX(T=u, X=Xfull) - h;
+      y := h_TX(T=u, X=X, exclEnthForm=exclEnthForm, refChoice=refChoice, h_off=h_off) - h;
     end f_nonlinear;
 
   algorithm
     T := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
-      function f_nonlinear(h=h, Xfull=Xfull), 200, 6000);
+      function f_nonlinear(h=h, X=X, exclEnthForm=exclEnthForm, refChoice=refChoice, h_off=h_off), 200, 6000);
     annotation(inverse(h = h_TX(T,X,exclEnthForm,refChoice,h_off)));
   end T_hX;
 
