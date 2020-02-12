@@ -720,8 +720,8 @@ Documentation for this example can be found on the <a href=\"modelica://Modelica
         pipeArea={bottom_pipeArea[i] for i in 1:n_BottomPorts},
         redeclare package Medium = Medium)
           annotation (Placement(transformation(extent={{-80,-80},{-60,-60}})));
-      Modelica.Fluid.Interfaces.FluidPort_b Condensed(redeclare package Medium
-          = Medium)
+      Modelica.Fluid.Interfaces.FluidPort_b Condensed(redeclare package Medium =
+            Medium)
         annotation (Placement(transformation(extent={{192,50},{212,70}})));
 
       // Heat transfer through boundary
@@ -985,10 +985,12 @@ Full steady state initialization is not supported, because the corresponding ini
 
       Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.ControllerUtilities.Port_Sensors
         sensors
-        annotation (Placement(transformation(extent={{-280,-40},{-200,40}})));
+        annotation (Placement(transformation(extent={{-360,-40},{-280,40}}),
+            iconTransformation(extent={{-280,-40},{-200,40}})));
       Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.ControllerUtilities.Port_Actuators
         actuators
-        annotation (Placement(transformation(extent={{200,-20},{240,20}})));
+        annotation (Placement(transformation(extent={{218,-20},{258,20}}),
+            iconTransformation(extent={{200,-20},{240,20}})));
 
       parameter Real w_dilution=0.003 "Dilution";
       parameter Real w_concentrate=0.005 "Concentrate";
@@ -1032,35 +1034,36 @@ Full steady state initialization is not supported, because the corresponding ini
         waitTime=300)
         annotation (Placement(transformation(extent={{-90,30},{-70,50}})));
       Modelica.StateGraph.Parallel Parallel1 annotation (Placement(
-            transformation(extent={{-176,-100},{194,0}})));
+            transformation(extent={{-234,-100},{220,0}})));
       Modelica.StateGraph.Step Step7(nIn=1, nOut=1) annotation (Placement(transformation(
-              extent={{-122,-80},{-102,-60}})));
+              extent={{-166,-80},{-146,-60}})));
       Modelica.StateGraph.Step Step8(nIn=1, nOut=1) annotation (Placement(transformation(
-              extent={{-62,-80},{-42,-60}})));
+              extent={{-110,-80},{-90,-60}})));
       Modelica.StateGraph.Step Step9(nIn=1, nOut=1) annotation (Placement(transformation(
-              extent={{-2,-80},{18,-60}})));
-      Modelica.StateGraph.Step Step10(nIn=1, nOut=1) annotation (Placement(transformation(
-              extent={{58,-80},{78,-60}})));
+              extent={{-54,-80},{-34,-60}})));
+      Modelica.StateGraph.Step Step10(       nOut=1, nIn=1)
+                                                     annotation (Placement(transformation(
+              extent={{76,-80},{96,-60}})));
       Modelica.StateGraph.Step Step11(nIn=1, nOut=1) annotation (Placement(transformation(
-              extent={{118,-80},{138,-60}})));
+              extent={{134,-80},{154,-60}})));
       Modelica.StateGraph.Step Step12(nIn=1, nOut=1) annotation (Placement(transformation(
-              extent={{-62,-40},{-42,-20}})));
-      Modelica.StateGraph.Step Step13(nIn=1, nOut=1) annotation (Placement(transformation(
-              extent={{-2,-40},{18,-20}})));
+              extent={{-80,-40},{-60,-20}})));
+      Modelica.StateGraph.Step Step13b(nIn=1, nOut=1)
+        annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
       Modelica.StateGraph.Step Step14(nIn=1, nOut=1) annotation (Placement(transformation(
-              extent={{58,-40},{78,-20}})));
+              extent={{100,-40},{120,-20}})));
       Modelica.StateGraph.Transition Transition8(condition=T7_idle)
-        annotation (Placement(transformation(extent={{-92,-80},{-72,-60}})));
+        annotation (Placement(transformation(extent={{-138,-80},{-118,-60}})));
       Modelica.StateGraph.Transition Transition9(condition=LIS_501 <= 0.01)
-        annotation (Placement(transformation(extent={{-32,-80},{-12,-60}})));
+        annotation (Placement(transformation(extent={{-82,-80},{-62,-60}})));
       Modelica.StateGraph.Transition Transition10(condition=TIS_702 <= 298)
-        annotation (Placement(transformation(extent={{28,-80},{48,-60}})));
+        annotation (Placement(transformation(extent={{-24,-80},{-4,-60}})));
       Modelica.StateGraph.Transition Transition11(condition=LIS_701 <= 0.01)
-        annotation (Placement(transformation(extent={{88,-80},{108,-60}})));
+        annotation (Placement(transformation(extent={{106,-80},{126,-60}})));
       Modelica.StateGraph.Transition Transition12(condition=TIS_602 <= 298)
-        annotation (Placement(transformation(extent={{-32,-40},{-12,-20}})));
+        annotation (Placement(transformation(extent={{-50,-40},{-30,-20}})));
       Modelica.StateGraph.Transition Transition13(condition=LIS_601 <= 0.01)
-        annotation (Placement(transformation(extent={{28,-40},{48,-20}})));
+        annotation (Placement(transformation(extent={{70,-40},{90,-20}})));
 
       Real LIS_301;
       Real LIS_501;
@@ -1081,6 +1084,20 @@ Full steady state initialization is not supported, because the corresponding ini
         annotation (Placement(transformation(extent={{-104,-148},{-18,-116}})));
       inner Modelica.StateGraph.StateGraphRoot stateGraphRoot
         annotation (Placement(transformation(extent={{-180,140},{-160,160}})));
+      StateGraph.Step Step13(nIn=1, nOut=1)
+        annotation (Placement(transformation(extent={{40,-40},{60,-20}})));
+      StateGraph.Transition Transition13b(
+        condition=true,
+        enableTimer=true,
+        waitTime=1)
+        annotation (Placement(transformation(extent={{10,-40},{30,-20}})));
+      StateGraph.Step Step10b(nIn=1, nOut=1)
+        annotation (Placement(transformation(extent={{10,-80},{30,-60}})));
+      StateGraph.Transition Transition10b(
+        condition=true,
+        enableTimer=true,
+        waitTime=1)
+        annotation (Placement(transformation(extent={{42,-80},{62,-60}})));
     equation
       LIS_301 = sensors.LIS_301;
       LIS_501 = sensors.LIS_501;
@@ -1095,17 +1112,17 @@ Full steady state initialization is not supported, because the corresponding ini
       T7_idle = not actuators.V15 and not actuators.V18 and not actuators.
         T7_Cooling and sensors.LIS_701 < 0.01;
 
-      actuators.P1 = Step10.active;
-      actuators.P2 = Step13.active;
+      actuators.P1 = Step10.active or Step10b.active;
+      actuators.P2 = Step13.active or Step13b.active;
       actuators.T5_Heater = Step6.active;
       actuators.T7_Cooling = Step9.active;
       actuators.T6_Cooling = Step12.active;
-      actuators.V1 = Step10.active;
+      actuators.V1 = Step10.active or Step10b.active;
       actuators.V2 = false;
       actuators.V3 = Step10.active;
       actuators.V4 = false;
-      actuators.V5 = Step13.active;
-      actuators.V6 = Step13.active;
+      actuators.V5 =Step13.active or Step13b.active;
+      actuators.V6 =Step13.active;
       actuators.V8 = Step1.active;
       actuators.V9 = Step2.active;
       actuators.V10 = false;
@@ -1114,12 +1131,12 @@ Full steady state initialization is not supported, because the corresponding ini
       actuators.V15 = Step8.active;
       actuators.V18 = Step10.active;
       actuators.V19 = false;
-      actuators.V20 = Step13.active;
+      actuators.V20 =Step13.active;
       actuators.V21 = false;
-      actuators.V22 = Step10.active;
-      actuators.V23 = Step10.active;
-      actuators.V25 = Step13.active;
-      actuators.V24 = Step13.active;
+      actuators.V22 = Step10.active or Step10b.active;
+      actuators.V23 = Step10.active or Step10b.active;
+      actuators.V25 =Step13.active or Step13b.active;
+      actuators.V24 =Step13.active or Step13b.active;
 
       connect(InitialStep1.outPort[1], Transition1.inPort) annotation (Line(
             points={{-159.5,100},{-144,100}}));
@@ -1147,46 +1164,54 @@ Full steady state initialization is not supported, because the corresponding ini
               161.5,100},{184,100},{184,70},{-160,70},{-160,40},{-121,40}}));
       connect(Step6.outPort[1], Transition7.inPort)
         annotation (Line(points={{-99.5,40},{-84,40}}));
-      connect(Step12.inPort[1], Parallel1.split[1]) annotation (Line(points={{
-              -63,-30},{-134.375,-30},{-134.375,-25}}));
+      connect(Step12.inPort[1], Parallel1.split[1]) annotation (Line(points={{-81,-30},
+              {-182.925,-30},{-182.925,-50}}));
       connect(Step12.outPort[1], Transition12.inPort)
-        annotation (Line(points={{-41.5,-30},{-26,-30}}));
-      connect(Transition12.outPort, Step13.inPort[1])
-        annotation (Line(points={{-20.5,-30},{-3,-30}}));
-      connect(Step13.outPort[1], Transition13.inPort)
-        annotation (Line(points={{18.5,-30},{34,-30}}));
+        annotation (Line(points={{-59.5,-30},{-44,-30}}));
+      connect(Transition12.outPort, Step13b.inPort[1])
+        annotation (Line(points={{-38.5,-30},{-21,-30}}));
       connect(Transition13.outPort, Step14.inPort[1])
-        annotation (Line(points={{39.5,-30},{57,-30}}));
-      connect(Step14.outPort[1], Parallel1.join[1]) annotation (Line(points={{78.5,
-              -30},{152.375,-30},{152.375,-25}}));
-      connect(Step7.inPort[1], Parallel1.split[2]) annotation (Line(points={{
-              -123,-70},{-138,-70},{-138,-75},{-134.375,-75}}));
-      connect(Step7.outPort[1], Transition8.inPort) annotation (Line(points={{
-              -101.5,-70},{-86,-70}}));
+        annotation (Line(points={{81.5,-30},{99,-30}}));
+      connect(Step14.outPort[1], Parallel1.join[1]) annotation (Line(points={{120.5,
+              -30},{168.925,-30},{168.925,-50}}));
+      connect(Step7.inPort[1], Parallel1.split[2]) annotation (Line(points={{-167,-70},
+              {-182,-70},{-182,-50},{-182.925,-50}}));
+      connect(Step7.outPort[1], Transition8.inPort) annotation (Line(points={{-145.5,
+              -70},{-132,-70}}));
       connect(Transition8.outPort, Step8.inPort[1])
-        annotation (Line(points={{-80.5,-70},{-63,-70}}));
+        annotation (Line(points={{-126.5,-70},{-111,-70}}));
       connect(Step8.outPort[1], Transition9.inPort)
-        annotation (Line(points={{-41.5,-70},{-26,-70}}));
+        annotation (Line(points={{-89.5,-70},{-76,-70}}));
       connect(Transition9.outPort, Step9.inPort[1])
-        annotation (Line(points={{-20.5,-70},{-3,-70}}));
+        annotation (Line(points={{-70.5,-70},{-55,-70}}));
       connect(Step9.outPort[1], Transition10.inPort)
-        annotation (Line(points={{18.5,-70},{34,-70}}));
-      connect(Transition10.outPort, Step10.inPort[1])
-        annotation (Line(points={{39.5,-70},{57,-70}}));
+        annotation (Line(points={{-33.5,-70},{-18,-70}}));
       connect(Step10.outPort[1], Transition11.inPort)
-        annotation (Line(points={{78.5,-70},{94,-70}}));
+        annotation (Line(points={{96.5,-70},{112,-70}}));
       connect(Transition11.outPort, Step11.inPort[1])
-        annotation (Line(points={{99.5,-70},{117,-70}}));
-      connect(Step11.outPort[1], Parallel1.join[2]) annotation (Line(points={{138.5,
-              -70},{154,-70},{154,-75},{152.375,-75}}));
-      connect(Transition7.outPort, Parallel1.inPort) annotation (Line(points={{
-              -78.5,40},{-40,40},{-40,20},{-190,20},{-190,-50},{-181.55,-50}}));
+        annotation (Line(points={{117.5,-70},{133,-70}}));
+      connect(Step11.outPort[1], Parallel1.join[2]) annotation (Line(points={{154.5,
+              -70},{174,-70},{174,-50},{168.925,-50}}));
+      connect(Transition7.outPort, Parallel1.inPort) annotation (Line(points={{-78.5,
+              40},{-38,40},{-38,10},{-252,10},{-252,-50},{-240.81,-50}}));
       connect(TransitionWithSignal1.inPort, Parallel1.outPort) annotation (Line(
-            points={{2,-150},{208,-150},{208,-50},{197.7,-50}}));
+            points={{2,-150},{238,-150},{238,-50},{224.54,-50}}));
       connect(TransitionWithSignal1.outPort, InitialStep1.inPort[1]) annotation (Line(
-            points={{-3.5,-150},{-194,-150},{-194,100},{-181,100}}));
+            points={{-3.5,-150},{-270,-150},{-270,100},{-181,100}}));
       connect(BooleanExpression1.y, TransitionWithSignal1.condition) annotation (Line(
             points={{-13.7,-132},{-2,-132},{-2,-138}}, color={255,0,255}));
+      connect(Step13b.outPort[1], Transition13b.inPort)
+        annotation (Line(points={{0.5,-30},{16,-30}}, color={0,0,0}));
+      connect(Transition13b.outPort, Step13.inPort[1])
+        annotation (Line(points={{21.5,-30},{39,-30}}, color={0,0,0}));
+      connect(Step13.outPort[1], Transition13.inPort)
+        annotation (Line(points={{60.5,-30},{76,-30}}, color={0,0,0}));
+      connect(Transition10.outPort, Step10b.inPort[1])
+        annotation (Line(points={{-12.5,-70},{9,-70}}, color={0,0,0}));
+      connect(Step10b.outPort[1], Transition10b.inPort)
+        annotation (Line(points={{30.5,-70},{48,-70}}, color={0,0,0}));
+      connect(Transition10b.outPort, Step10.inPort[1])
+        annotation (Line(points={{53.5,-70},{75,-70}}, color={0,0,0}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-200,-200},{
                 200,200}}), graphics={
@@ -1211,7 +1236,7 @@ Full steady state initialization is not supported, because the corresponding ini
               points={{-24,10},{0,0},{-24,-10},{-24,10}},
               fillPattern=FillPattern.Solid)}),
             Diagram(coordinateSystem(
-              preserveAspectRatio=false, extent={{-200,-160},{200,160}})));
+              preserveAspectRatio=false, extent={{-320,-180},{260,180}})));
     end Controller;
 
     package ControllerUtilities
