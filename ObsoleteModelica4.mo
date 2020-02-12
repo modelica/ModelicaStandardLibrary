@@ -989,11 +989,11 @@ vector \"n\" defining the translation axis
                coordinateSystem(preserveAspectRatio = true, extent = {{-100, -100}, {100, 100}}),
                graphics = {
                  Polygon(lineColor = {255, 255, 255}, fillColor = {126, 181, 78}, fillPattern = FillPattern.Solid, points = {{-100, -30}, {20, -90}, {100, 0}, {-10, 40}}),
-                 Text(textColor = {64, 64, 64}, extent = {{20, 70}, {60, 100}}, textString = "z", horizontalAlignment = TextAlignment.Left),
+                 Text(lineColor = {64, 64, 64}, extent = {{20, 70}, {60, 100}}, textString = "z", horizontalAlignment = TextAlignment.Left),
                  Polygon(lineColor = {255, 255, 255}, fillColor = {14, 111, 1}, fillPattern = FillPattern.Solid, points = {{100, -10}, {20, -100}, {20, -90}, {100, 0}}),
                  Polygon(lineColor = {255, 255, 255}, fillColor = {14, 111, 1}, fillPattern = FillPattern.Solid, points = {{-100, -40}, {20, -100}, {20, -90}, {-100, -30}}), Line(origin = {6, -8}, points={{-6,-10},{-6,108}}),
                  Polygon(origin = {6, 0}, points={{-6,102},{-14,72},{2,72},{-6,102}}, fillPattern=FillPattern.Solid),
-                 Text(textColor = {0,0,255}, extent = {{-150, -145}, {150, -105}}, textString = "%name")}),
+                 Text(lineColor = {0,0,255}, extent = {{-150, -145}, {150, -105}}, textString = "%name")}),
              Documentation(info = "<html>
 <p>
 This shape visualizes the x-y plane by a box.
