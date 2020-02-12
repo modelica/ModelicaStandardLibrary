@@ -2485,6 +2485,12 @@ that can lead to wrong simulation results):
 <tr><td colspan=\"2\"><strong>Modelica.Media.IdealGases.Common.Functions</strong></td></tr>
 <tr><td>s0_Tlow_der</td>
     <td>The calculation was wrong. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.IdealGases.Common.MixtureGasNasa</strong></td></tr>
+<tr><td>T_hX</td>
+    <td>The function inputs <code>exclEnthForm</code>, <code>refChoice</code> and <code>h_off</code> were not considered. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Incompressible.TableBased</strong></td></tr>
+<tr><td>T_ph</td>
+    <td>The pressure negligence was not considered. This has been corrected.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Media.R134a.R134a_ph</strong></td></tr>
 <tr><td>setState_dTX<br>setState_psX</td>
     <td>The calculation was wrong in two-phase regime. This has been corrected.</td></tr>
