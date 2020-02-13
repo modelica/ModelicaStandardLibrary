@@ -22,10 +22,10 @@ equation
           textColor={0,0,255}),
         Line(
           points={{-6,28},{-6,-28}},
-          color={0,128,255}),
+          color={85,170,255}),
         Line(
           points={{6,28},{6,-28}},
-          color={0,128,255})}),
+          color={85,170,255})}),
     Documentation(info="<html>
 
 <p>
