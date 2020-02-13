@@ -20,10 +20,11 @@ equation
           textColor={0,0,255}),
         Line(
           points={{-6,28},{-6,-28}},
-          color={0,128,255}),
+          color={85,170,255}),
         Line(
           points={{6,28},{6,-28}},
-          color={0,128,255}),Line(points={{-90,0},{-6,0}}, color={85,170,255}),
+          color={85,170,255}),
+                             Line(points={{-90,0},{-6,0}}, color={85,170,255}),
           Line(points={{6,0},{90,0}}, color={85,170,255})}), Documentation(info="<html>
 <p>
 The linear capacitor connects the complex currents <code><u>i</u></code> with the complex
