@@ -150,6 +150,18 @@ Based on magnetic flux tubes concepts. Especially to model electromagnetic actua
 </tr>
 
 <tr><td>
+ <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-Clocked.png\">
+ </td>
+ <td>
+ <a href=\"modelica://Modelica.Clocked\">Clocked</a><br>
+ Blocks to precisely define and synchronize sampled data systems with different
+ sampling rates. Continuous-time equations can be automatically discretized and
+ utilized in a sampled data system. The library is based on the clocked
+ synchronous language elements introduced in Modelica 3.3.
+ </td>
+</tr>
+
+<tr><td>
  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-StateGraph.png\">
  </td>
  <td>
