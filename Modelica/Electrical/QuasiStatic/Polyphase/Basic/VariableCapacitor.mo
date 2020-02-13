@@ -23,10 +23,10 @@ equation
           Line(points={{6,0},{90,0}}, color={85,170,255}),
         Line(
           points={{-6,28},{-6,-28}},
-          color={0,128,255}),
+          color={85,170,255}),
         Line(
           points={{6,28},{6,-28}},
-          color={0,128,255}),
+          color={85,170,255}),
         Text(
           extent={{-150,90},{150,50}},
               textString="%name",
