@@ -2908,6 +2908,8 @@ This is a simple model of an inductor with a ferromagnetic core. The used Generi
           A=5e-4,
           MagRel(start=0.5, fixed=true))
           annotation (Placement(transformation(extent={{-10,10},{10,30}})));
+      initial equation
+        core.derHstat = 0.0;
       equation
         connect(winding1.port_n, mag_ground.port) annotation (Line(points={{-20,-10},{-20,-20},{0,-20}}, color={255,127,0}));
         connect(vSource.p, resistor1.p) annotation (Line(points={{-80,10},{-80,20},{-70,20}}, color={0,0,255}));
