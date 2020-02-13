@@ -169,7 +169,7 @@ package HeatExchanger "Demo of a heat exchanger model"
       //Initialization pipe 1
       parameter SI.Temperature Twall_start "Start value of wall temperature"
                                                                             annotation(Dialog(tab="Initialization", group="Wall"));
-      parameter SI.Temperature dT "Start value for pipe_1.T - pipe_2.T"
+      parameter SI.TemperatureDifference dT "Start value for pipe_1.T - pipe_2.T"
         annotation (Dialog(tab="Initialization", group="Wall"));
       parameter Boolean use_T_start=true
         "Use T_start if true, otherwise h_start"

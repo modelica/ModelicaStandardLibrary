@@ -798,8 +798,7 @@ In case this resistance is high, the amplifier's common is floating with respect
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(
       Vps=Vps,
       Vns=Vns,
-      out(i(start=0)),
-      homotopyType=Modelica.Blocks.Types.LimiterHomotopy.LowerLimit)
+      out(i(start=0)))
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Electrical.Analog.Basic.Ground ground
       annotation (Placement(transformation(extent={{-20,-100},{0,-80}})));
@@ -871,8 +870,7 @@ In case this resistance is high, the amplifier's common is floating with respect
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(
       Vps=Vps,
       Vns=Vns,
-      out(i(start=0)),
-      homotopyType=Modelica.Blocks.Types.LimiterHomotopy.UpperLimit)
+      out(i(start=0)))
       annotation (Placement(transformation(extent={{0,10},{20,-10}})));
     Modelica.Electrical.Analog.Basic.Ground ground
       annotation (Placement(transformation(extent={{-20,-100},{0,-80}})));
@@ -941,7 +939,9 @@ In case this resistance is high, the amplifier's common is floating with respect
     parameter SI.Capacitance C=1/f/(2*R*log(1 + 2*R1/R2)) "Calculated capacitance to reach the desired frequency f";
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited opAmp(
       Vps=Vps,
-      Vns=Vns) annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+      Vns=Vns,
+      homotopyType = Modelica.Blocks.Types.LimiterHomotopy.LowerLimit,
+      strict = true) annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Electrical.Analog.Basic.Ground ground
       annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
     Modelica.Electrical.Analog.Sensors.VoltageSensor vOut annotation (Placement(
@@ -989,6 +989,7 @@ In case this resistance is high, the amplifier's common is floating with respect
     annotation (Documentation(info="<html>
 <p>This is a Multivibrator with Schmitt trigger according to:</p>
 <p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.3</p>
+<p>As the initialization system has two solutions, one with the op amp output at the lower saturation limit, and the other one with the two voltage inputs very close to each other, the <code>homotopyType</code> parameter is set to get the solver to converge to the former one, which is the required solution.</p>
 </html>"),
       experiment(
         StartTime=0,
