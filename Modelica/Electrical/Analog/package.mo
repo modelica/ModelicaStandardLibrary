@@ -1,7 +1,6 @@
 within Modelica.Electrical;
 package Analog "Library for analog electrical models"
 
-
   extends Modelica.Icons.Package;
 
   annotation (Documentation(info="<html>

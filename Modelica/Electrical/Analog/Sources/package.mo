@@ -1,10 +1,10 @@
 within Modelica.Electrical.Analog;
-package Examples "Examples that demonstrate the usage of the Analog electrical components"
-  extends Modelica.Icons.ExamplesPackage;
+package Sources "Time-dependent and controlled voltage and current sources"
+
+  extends Modelica.Icons.SourcesPackage;
 
   annotation (Documentation(info="<html>
-<p>This package contains examples that demonstrate the usage of the components of the Electrical.Analog library.</p>
-<p>The examples are simple to understand. They will show a typical behavior of the components, and they will give hints to users.</p>
+<p>This package contains time-dependent and controlled voltage and current sources. Most of the sources use the behavior modeled in the Modelica.Blocks.Sources package. All sources are ideal in the sense that <strong>no</strong> internal resistances are included.</p>
 </html>", revisions="<html>
 <dl>
 <dt>
@@ -21,5 +21,9 @@ Christoph Clau&szlig;
     D-01069 Dresden
 </dd>
 </dl>
+
+<p>
+Copyright &copy; 1998-2020, Modelica Association and contributors
+</p>
 </html>"));
-end Examples;
+end Sources;
