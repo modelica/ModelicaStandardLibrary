@@ -16,7 +16,7 @@ model VariableCurrentSource "Variable polyphase AC current"
         rotation=270), iconTransformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
-        origin={-62,120})));
+        origin={-60,120})));
 equation
   omega = 2*Modelica.Constants.pi*f;
   i = I;

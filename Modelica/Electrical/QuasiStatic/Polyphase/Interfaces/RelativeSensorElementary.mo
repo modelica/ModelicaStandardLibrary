@@ -11,7 +11,7 @@ partial model RelativeSensorElementary "Elementary partial voltage / current sen
           textString="m=%m"),
         Text(
           textColor={0,0,255},
-          extent={{-150,90},{150,130}},
+          extent={{-150,80},{150,120}},
           textString="%name")}), Documentation(info="<html>
 <p>
 The relative sensor partial model relies on the

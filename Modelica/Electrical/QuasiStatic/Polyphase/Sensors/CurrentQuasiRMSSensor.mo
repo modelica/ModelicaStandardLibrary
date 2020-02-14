@@ -34,10 +34,7 @@ equation
   annotation (defaultComponentName="currentRMSSensor",
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
             100,100}}), graphics={
-        Line(points={{0,-70},{0,-100}}, color={85,170,255}),
-        Text(
-          extent={{150,-100},{-150,-70}},
-          textString="m=%m"),
+        Line(points={{0,-70},{0,-100}}, color={0,0,127}),
         Text(
           extent={{-30,-10},{30,-70}},
           textColor={64,64,64},

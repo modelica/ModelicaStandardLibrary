@@ -65,7 +65,7 @@ equation
       points={{-10,4},{-10,60},{-78,60}}, color={85,170,255}));
   annotation (defaultComponentName="switch", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={
-                               Ellipse(extent={{-4,14},{4,6}},  lineColor={
+                               Ellipse(extent={{-4,24},{4,16}}, lineColor={
           85,170,255}),Line(points={{-90,0},{-40,0}}, color={85,170,255}),
           Line(points={{-90,40},{-40,40}}, color={85,170,255}),Line(points={{-40,0},{40,40}},
                              color={85,170,255}),Line(points={{-40,40},{40,0}},

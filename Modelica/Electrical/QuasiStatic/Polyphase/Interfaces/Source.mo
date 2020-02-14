@@ -17,7 +17,7 @@ equation
           extent={{160,-100},{-160,-60}},
           textString="m=%m"),
                            Text(
-              extent={{-160,60},{160,100}},
+              extent={{-150,60},{150,100}},
               textString="%name",
               textColor={0,0,255})}),
     Documentation(info="<html>
