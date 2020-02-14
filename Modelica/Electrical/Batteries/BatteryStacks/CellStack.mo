@@ -19,7 +19,7 @@ For details, see <a href=\"modelica://Modelica.Electrical.Batteries.UsersGuide.C
 </p>
 <h4>Note</h4>
 <p>
-Parameter record array <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.RCData\">rcData</a> contained in
+Parameter record array <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData\">rcData</a> contained in
 parameter record <a href=\"modelica://Modelica.Electrical.Batteries.ParameterRecords.CellData\">cellData</a> is neglected.
 </p>
 </html>"));
