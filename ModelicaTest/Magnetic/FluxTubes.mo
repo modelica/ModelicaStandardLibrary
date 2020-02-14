@@ -19,7 +19,7 @@ package FluxTubes "Test library for Modelica.Magnetic.FluxTubes"
           rotation=270,
           origin={20,70})));
     Modelica.Magnetic.FluxTubes.Basic.LeakageWithCoefficient
-      leakageWithCoefficient(R_mUsefulTot=1) annotation (Placement(transformation(
+      leakageWithCoefficient(c_usefulFlux=0.7, R_mUsefulTot=1) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={0,70})));
