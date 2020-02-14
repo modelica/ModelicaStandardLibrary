@@ -4021,8 +4021,7 @@ a linear damper is connected here.
       inner MultiBody.World world
         annotation (Placement(transformation(extent={{-120,20},{-100,40}})));
       parameter Real tol=1e-4;
-      MultiBody.Forces.Damper damper(d=310)
-                                                              annotation (
+      MultiBody.Forces.Damper damper(d=310) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             origin={-40,-50})));
@@ -4428,9 +4427,8 @@ a linear damper is connected here.
       extends Modelica.Icons.Example;
 
       Modelica.Mechanics.Translational.Components.Fixed fixed annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
-      Modelica.Mechanics.Translational.Components.Mass mass(m=1, L=0)    annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-      Modelica.Mechanics.Translational.Sources.Position position(exact=true, v(fixed=true))
-                                                                             annotation (Placement(transformation(extent={{40,-10},{20,10}})));
+      Modelica.Mechanics.Translational.Components.Mass mass(m=1, L=0) annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+      Modelica.Mechanics.Translational.Sources.Position position(exact=true) annotation (Placement(transformation(extent={{40,-10},{20,10}})));
       MultiBody.Examples.Loops.Utilities.GasForce2 gasForce(
         L=0.2,
         d=0.1,
