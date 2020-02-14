@@ -1,5 +1,6 @@
 within Modelica.Mechanics.MultiBody.Joints.Internal;
 model InitAngleAndDerivatives "Internal model to initialize the angels and their derivatives for Joints.FreeMotionScalarInit"
+  extends Interfaces.PartialTwoFrames;
   extends Modelica.Blocks.Icons.Block;
 
   import Modelica.Units.SI;
@@ -13,11 +14,6 @@ model InitAngleAndDerivatives "Internal model to initialize the angels and their
   parameter Boolean statesAngleDer=false
     "= true, if at least one element of angle derivatives shall be used as state"
     annotation(Evaluate=true);
-
-  Interfaces.Frame_a frame_a
-    annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
-  Interfaces.Frame_b frame_b
-    annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
   Frames.Orientation R_rel
     "Relative orientation object to rotate from frame_a to frame_b";
