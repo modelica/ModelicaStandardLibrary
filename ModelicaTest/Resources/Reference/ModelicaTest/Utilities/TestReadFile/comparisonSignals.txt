@@ -1,3 +1,2 @@
 time
 result
-result
