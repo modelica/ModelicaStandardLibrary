@@ -10,11 +10,13 @@ model Position
     annotation (Dialog(enable=not exact));
   SI.Angle phi(stateSelect=if exact then StateSelect.default else StateSelect.prefer)
     "Rotation angle of flange with respect to support";
-  SI.AngularVelocity w(start=0,stateSelect=if exact then StateSelect.default
-    else StateSelect.prefer)
-    "If exact=false, Angular velocity of flange with respect to support else dummy";
+  SI.AngularVelocity w(start=0,
+    stateSelect=if exact then StateSelect.default else StateSelect.prefer)
+    "If exact=false, Angular velocity of flange with respect to support else dummy"
+    annotation(Dialog(enable=not exact, showStartAttribute = true));
   SI.AngularAcceleration a(start=0)
-    "If exact=false, Angular acceleration of flange with respect to support else dummy";
+    "If exact=false, Angular acceleration of flange with respect to support else dummy"
+    annotation(Dialog(enable=not exact, showStartAttribute = true));
   Modelica.Blocks.Interfaces.RealInput phi_ref(
     final quantity="Angle",
     final unit="rad",
@@ -23,8 +25,7 @@ model Position
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
 
 protected
-  parameter SI.AngularFrequency w_crit=2*Modelica.Constants.pi
-      *f_crit "Critical frequency";
+  parameter SI.AngularFrequency w_crit=2*Modelica.Constants.pi*f_crit "Critical frequency";
   constant Real af=1.3617 "s coefficient of Bessel filter";
   constant Real bf=0.6180 "s*s coefficient of Bessel filter";
 initial equation

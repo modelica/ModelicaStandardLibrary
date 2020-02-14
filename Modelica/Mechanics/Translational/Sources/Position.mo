@@ -10,17 +10,18 @@ model Position
   parameter SI.Frequency f_crit=50
     "If exact=false, critical frequency of filter to filter input signal"
     annotation (Dialog(enable=not exact));
-  SI.Velocity v(start=0, stateSelect=if exact then StateSelect.default
-         else StateSelect.prefer)
-    "If exact=false, absolute velocity of flange else dummy";
+  SI.Velocity v(start=0,
+    stateSelect=if exact then StateSelect.default else StateSelect.prefer)
+    "If exact=false, absolute velocity of flange else dummy"
+    annotation(Dialog(enable=not exact, showStartAttribute = true));
   SI.Acceleration a(start=0)
-    "If exact=false, absolute acceleration of flange else dummy";
+    "If exact=false, absolute acceleration of flange else dummy"
+    annotation(Dialog(enable=not exact, showStartAttribute = true));
   Modelica.Blocks.Interfaces.RealInput s_ref(unit="m")
     "Reference position of flange as input signal" annotation (Placement(
         transformation(extent={{-140,-20},{-100,20}})));
 protected
-  parameter SI.AngularFrequency w_crit=2*Modelica.Constants.pi
-      *f_crit "Critical frequency";
+  parameter SI.AngularFrequency w_crit=2*Modelica.Constants.pi*f_crit "Critical frequency";
   constant Real af=1.3617 "s coefficient of Bessel filter";
   constant Real bf=0.6180 "s*s coefficient of Bessel filter";
 
