@@ -41,7 +41,7 @@ class ReleaseNotes "Release Notes"
 <li>Added active, reactive and apparent power and power factor in interface and machine models, see
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1405\">#1405</a></li>
 <li>Added new interface model
-    <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPortExtended\">PartialTwoPortExtended</a>
+    <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.TwoPortExtended\">TwoPortExtended</a>
     to simplify consistent inclusion of variables, see
     <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1405\">#1405</a></li>
 <li>Changed icon and location of terminal box according to
