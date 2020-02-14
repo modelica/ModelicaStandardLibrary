@@ -1,11 +1,12 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model InitPlanar "Initialize simple planar mechanism using freeMotion joint"
   extends Modelica.Icons.Example;
+
   Modelica.Mechanics.MultiBody.Joints.Revolute revolute1(
     n={0,0,1},
     useAxisFlange=true,
     phi(start=0.1221730476396, fixed=true),
-    w(start=0.7))             annotation (Placement(transformation(extent={{-50,10},{-30,30}})));
+    w(start=0.7)) annotation (Placement(transformation(extent={{-50,10},{-30,30}})));
   Joints.Revolute revolute2(
     n={0,0,1},
     useAxisFlange=false,
@@ -17,11 +18,11 @@ model InitPlanar "Initialize simple planar mechanism using freeMotion joint"
     angle_d_3(
       fixed=true,
       displayUnit="rad/s",
-      start=0.14))              annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
+      start=0.14)) annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
   Sensors.RelativeSensor relativeSensor(get_w_rel=true, get_angles=true) annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
   Modelica.Mechanics.MultiBody.Parts.Body body(m=1.0, r_CM={-0.3,0,0})
     annotation (Placement(transformation(extent={{-70,10},{-90,30}})));
-  Parts.Body                              body1(
+  Parts.Body body1(
     m=1.0,
     r_CM={0.3,0,0},
     r_0(fixed=true),
@@ -37,7 +38,7 @@ model InitPlanar "Initialize simple planar mechanism using freeMotion joint"
   Modelica.Mechanics.Rotational.Components.Damper damper(d=0.05)
     annotation (Placement(transformation(extent={{-50,50},{-30,70}})));
   inner Modelica.Mechanics.MultiBody.World world
-                        annotation (Placement(transformation(extent={{-100,-80},{-80,-60}})));
+    annotation (Placement(transformation(extent={{-100,-80},{-80,-60}})));
 equation
   connect(damper.flange_b, revolute1.axis) annotation (Line(points={{-30,60},{-30,40},{-40,40},{-40,30}}));
   connect(revolute1.support, damper.flange_a) annotation (Line(points={{-46,30},{-46,40},{-50,40},{-50,60}}));
@@ -73,8 +74,9 @@ equation
       points={{70,20},{60,20},{60,-50},{10,-50}},
       color={95,95,95},
       thickness=0.5));
+
   annotation (
-    experiment(__Dymola_Algorithm="Dassl"),
+    experiment(StopTime=1),
     Documentation(info="<html>
 <p>
 This model demonstrates a&nbsp;possible usage of the
