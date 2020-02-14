@@ -46,12 +46,6 @@ animation features of the MultiBody library.
       </td>
   </tr>
 
-  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Ground\">Ground</a></td>
-      <td>Visualizing the ground by a plane:<br>
-      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/GroundSmall.png\">
-      </td>
-  </tr>
-
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Torus\">Torus</a></td>
       <td>Visualizing a torus:<br>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/TorusIcon.png\">
