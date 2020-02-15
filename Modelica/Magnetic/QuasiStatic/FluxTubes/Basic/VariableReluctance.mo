@@ -1,7 +1,7 @@
 within Modelica.Magnetic.QuasiStatic.FluxTubes.Basic;
 model VariableReluctance "Variable reluctance"
 
-  extends Interfaces.TwoPorts;
+  extends Interfaces.TwoPort;
   extends Modelica.Magnetic.QuasiStatic.FluxTubes.Icons.Reluctance;
 
   Blocks.Interfaces.RealInput R_m(quantity="Reluctance", unit="H-1") "Magnetic reluctance"

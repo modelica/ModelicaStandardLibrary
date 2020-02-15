@@ -1,6 +1,6 @@
 within Modelica.Magnetic.QuasiStatic.FluxTubes.Basic;
 model Short "Short cut branch"
-  extends Interfaces.TwoPorts;
+  extends Interfaces.TwoPort;
 equation
   V_m = Complex(0,0);
 annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,

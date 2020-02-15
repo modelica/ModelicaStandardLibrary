@@ -2,7 +2,7 @@ within Modelica.Magnetic.FluxTubes.Basic;
 model EddyCurrent
   "For modelling of eddy current in a conductive magnetic flux tube"
 
-  extends Interfaces.TwoPorts;
+  extends Interfaces.TwoPort;
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
     final T=273.15);
 

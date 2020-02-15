@@ -1,6 +1,6 @@
 within Modelica.Magnetic.QuasiStatic.FluxTubes.Basic;
 model Idle "Idle running branch"
-  extends Interfaces.TwoPorts;
+  extends Interfaces.TwoPort;
 equation
   Phi = Complex(0);
   annotation (

@@ -2,7 +2,7 @@ within Modelica.Magnetic.FluxTubes.Sources;
 model SignalMagneticPotentialDifference
   "Signal-controlled magnetomotive force"
 
-  extends Interfaces.TwoPortsElementary;
+  extends Interfaces.TwoPortElementary;
   Modelica.Blocks.Interfaces.RealInput V_m(unit="A")
     "Magnetic potential difference"
     annotation (Placement(transformation(

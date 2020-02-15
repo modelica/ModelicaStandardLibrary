@@ -1,7 +1,7 @@
 within Modelica.Magnetic.QuasiStatic.FluxTubes.Basic;
 model ConstantPermeance "Constant permeance"
 
-  extends Interfaces.TwoPorts;
+  extends Interfaces.TwoPort;
   extends Modelica.Magnetic.QuasiStatic.FluxTubes.Icons.Reluctance;
 
   parameter SI.Permeance G_m=1 "Magnetic permeance";

@@ -1,7 +1,7 @@
 within Modelica.Magnetic.FluxTubes.BaseClasses;
 partial model Force "Base class for flux tubes with reluctance force generation; constant permeability"
 
-  extends Interfaces.TwoPorts;
+  extends Interfaces.TwoPort;
 
   parameter Boolean useSupport=false
     "= true, if support flange enabled, otherwise implicitly grounded"

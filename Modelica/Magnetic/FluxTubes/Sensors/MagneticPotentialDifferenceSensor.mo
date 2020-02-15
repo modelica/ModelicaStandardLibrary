@@ -2,7 +2,7 @@ within Modelica.Magnetic.FluxTubes.Sensors;
 model MagneticPotentialDifferenceSensor
   "Sensor to measure magnetic potential difference"
   extends Modelica.Icons.RoundSensor;
-  extends Interfaces.TwoPortsElementary;
+  extends Interfaces.TwoPortElementary;
 
   Modelica.Blocks.Interfaces.RealOutput V_m(final quantity=
         "MagneticPotential", final unit="A")

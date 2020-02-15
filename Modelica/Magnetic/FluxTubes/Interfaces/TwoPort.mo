@@ -1,7 +1,7 @@
 within Modelica.Magnetic.FluxTubes.Interfaces;
-partial model TwoPorts "Interface component including flux balance euqation"
+partial model TwoPort "Interface component including flux balance euqation"
 
-  extends TwoPortsExtended;
+  extends TwoPortExtended;
 
 equation
   0 = port_p.Phi + port_n.Phi;
@@ -12,4 +12,4 @@ It is assumed that the magnetic flux flowing into port_p is identical to the flu
 This magnetic flux is provided explicitly as flux Phi.
 </p>
 </html>"));
-end TwoPorts;
+end TwoPort;

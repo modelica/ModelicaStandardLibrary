@@ -1,6 +1,6 @@
 within Modelica.Magnetic.FluxTubes.Sensors;
 model MagneticFluxSensor "Sensor to measure magnetic flux"
-  extends Interfaces.TwoPortsElementary;
+  extends Interfaces.TwoPortElementary;
   extends Modelica.Icons.RoundSensor;
 
   Modelica.Blocks.Interfaces.RealOutput Phi(final quantity="MagneticFlux",

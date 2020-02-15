@@ -1,7 +1,7 @@
 within Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses;
 partial model FixedShape "Base class for flux tubes with fixed shape during simulation"
 
-  extends Interfaces.TwoPorts;
+  extends Interfaces.TwoPort;
 
   parameter SI.RelativePermeability mu_rConst = 1 "Constant relative permeability";
 

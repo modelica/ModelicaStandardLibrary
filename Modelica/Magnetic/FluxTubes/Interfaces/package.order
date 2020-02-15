@@ -1,7 +1,7 @@
 MagneticPort
 PositiveMagneticPort
 NegativeMagneticPort
-TwoPortsElementary
-TwoPortsExtended
-TwoPorts
+TwoPortElementary
+TwoPortExtended
+TwoPort
 ConditionalHeatPort

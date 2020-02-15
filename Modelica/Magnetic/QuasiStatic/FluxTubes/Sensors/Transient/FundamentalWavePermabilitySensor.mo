@@ -18,8 +18,8 @@ model FundamentalWavePermabilitySensor
             {-10,90},{10,110}})));
   Magnetic.FluxTubes.Interfaces.NegativeMagneticPort potentialN
     "Negative port of magnetic potential difference path" annotation (Placement(
-        transformation(extent={{-10,-110},{10,-90}}), iconTransformation(extent
-          ={{-10,-110},{10,-90}})));
+        transformation(extent={{-10,-110},{10,-90}}), iconTransformation(extent=
+           {{-10,-110},{10,-90}})));
   Magnetic.FluxTubes.Sensors.MagneticPotentialDifferenceSensor magneticPotentialDifferenceSensor
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
