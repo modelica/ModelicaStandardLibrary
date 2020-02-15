@@ -2709,7 +2709,7 @@ The differences between these two models in static behaviour can be analysed and
               5,500; 6,-24; 7,24; 8,-24; 9,24; 10,-24; 11,24; 12,-24; 13,24; 14,
               -24; 15,24])
           annotation (Placement(transformation(extent={{-90,50},{-70,70}})));
-        Basic.ElectroMagneticConverterWithLeakageInductance winding1(N=1) "Winding 1" annotation (Placement(transformation(extent={{30,50},{50,70}})));
+        Basic.ElectroMagneticConverterWithLeakageInductance winding1(i(start=0, fixed=true), N=1) "Winding 1" annotation (Placement(transformation(extent={{30,50},{50,70}})));
         Modelica.Electrical.Analog.Basic.Ground elGnd1
           annotation (Placement(transformation(extent={{0,30},{20,50}})));
         Basic.Ground magGnd1
@@ -2719,7 +2719,7 @@ The differences between these two models in static behaviour can be analysed and
               extent={{10,-10},{-10,10}},
               rotation=90,
               origin={-10,60})));
-        Basic.ElectroMagneticConverterWithLeakageInductance winding2(N=1) "Winding 2" annotation (Placement(transformation(extent={{30,-10},{50,10}})));
+        Basic.ElectroMagneticConverterWithLeakageInductance winding2(i(start=0, fixed=true), N=1) "Winding 2" annotation (Placement(transformation(extent={{30,-10},{50,10}})));
         Modelica.Electrical.Analog.Basic.Ground elGnd2
           annotation (Placement(transformation(extent={{0,-30},{20,-10}})));
         Shapes.HysteresisAndMagnets.GenericHystTellinenTable tellinenTable(
@@ -2739,7 +2739,7 @@ The differences between these two models in static behaviour can be analysed and
               extent={{10,-10},{-10,10}},
               rotation=90,
               origin={-10,0})));
-        Basic.ElectroMagneticConverterWithLeakageInductance winding3(N=1) "Winding 3" annotation (Placement(transformation(extent={{30,-70},{50,-50}})));
+        Basic.ElectroMagneticConverterWithLeakageInductance winding3(i(fixed=true, start=0), N=1) "Winding 3" annotation (Placement(transformation(extent={{30,-70},{50,-50}})));
         Modelica.Electrical.Analog.Basic.Ground elGnd3
           annotation (Placement(transformation(extent={{0,-90},{20,-70}})));
         Shapes.HysteresisAndMagnets.GenericHystPreisachEverett preisachEverett(
