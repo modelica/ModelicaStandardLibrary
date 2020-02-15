@@ -2973,6 +2973,8 @@ Then plot the flux density of the Core Core.B over the magnetic field strength C
           I1Fixed=true,
           EddyCurrents=false,
           HFixed=false) annotation (Placement(transformation(extent={{-10,10},{10,30}})));
+      initial equation
+        transformer.core.derHstat = 0.0;
       equation
         connect(SineVoltage.p, resistor1.p) annotation (Line(points={{-60,30},{-60,40},{-50,40}}, color={0,0,255}));
         connect(SineVoltage.n, el_ground1.p) annotation (Line(points={{-60,10},{-60,0},{-40,0}},color={0,0,255}));
