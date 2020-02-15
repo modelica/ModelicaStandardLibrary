@@ -3112,6 +3112,10 @@ The figure shows the magnetic hysteresis in the transformer core. In (a) the con
         Modelica.Blocks.Continuous.Filter pdissCopAvg(f_cut=10)
           "Approx. average copper losses"
           annotation (Placement(transformation(extent={{-50,40},{-40,50}})));
+      initial equation
+        transformer.core1.derHstat = 0.0;
+        transformer.core2.derHstat = 0.0;
+        transformer.core3.derHstat = 0.0;
       equation
         connect(vSource1.n, ground1.p) annotation (Line(points={{-140,-50},{-140,-70},{-110,-70}}, color={0,0,255}));
         connect(vSource2.n, ground1.p) annotation (Line(points={{-120,-50},{-120,-70},{-110,-70}}, color={0,0,255}));
@@ -3525,7 +3529,6 @@ Simple model of a single phase transformer with a primary and a secondary windin
           parameter Real mu_rel2=1
             "Constant relative permeability of secondary leakage (>0 required)" annotation (Dialog(tab="Leakage"));
 
-        protected
           Shapes.HysteresisAndMagnets.GenericHystTellinenEverett core1(
             mat=mat,
             A=a*b,
@@ -3654,7 +3657,6 @@ Simple model of a single phase transformer with a primary and a secondary windin
                 rotation=270,
                 origin={32,90})));
 
-        public
           Modelica.Electrical.Analog.Interfaces.PositivePin p1 "Primary winding 1" annotation (Placement(transformation(extent={{-170,50},{-150,70}}), iconTransformation(extent={{-110,50},{-90,70}})));
           Modelica.Electrical.Analog.Interfaces.PositivePin p2 "Primary winding 2" annotation (Placement(transformation(extent={{-70,50},{-50,70}}), iconTransformation(extent={{-110,-10},{-90,10}})));
           Modelica.Electrical.Analog.Interfaces.PositivePin p3 "Primary winding 3" annotation (Placement(transformation(extent={{50,50},{70,70}}), iconTransformation(extent={{-110,-70},{-90,-50}})));
