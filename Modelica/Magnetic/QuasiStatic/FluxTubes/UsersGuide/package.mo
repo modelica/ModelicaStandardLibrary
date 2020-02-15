@@ -1,7 +1,6 @@
 within Modelica.Magnetic.QuasiStatic.FluxTubes;
 package UsersGuide "User's Guide"
   extends Modelica.Icons.Information;
-
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>The quasi-static flux tubes library is based on the transient library
 <a href=\"modelica://Modelica.Magnetic.FluxTubes\">Magnetic.FluxTubes</a>. The main principles of confined flux and flux tubes apply, too. The quasi-static flux tubes library contains components for modelling of electromagnetic devices with lumped magnetic networks based on quasi-static theory. Models based on this library are suited for quasi-static simulation of transformers at component and system level.</p>
