@@ -74,7 +74,17 @@ package Machines
           Line(
             visible=use_HeatTransfer,
             points={{-100,0},{-52,0}},
-            color={198,0,0})}),
+            color={198,0,0}),
+          Line(points={{-40,0},{40,0}},     color={95,127,95},
+            origin={-70,32},
+            rotation=90),
+          Polygon(
+            points={{15,0},{-15,10},{-15,-10},{15,0}},
+            lineColor={95,127,95},
+            fillColor={95,127,95},
+            fillPattern=FillPattern.Solid,
+            origin={-70,84},
+            rotation=90)}),
       Documentation(info="<html>
 <p> Mixing volume with varying size. The size of the volume is given by:</p>
 <ul>
