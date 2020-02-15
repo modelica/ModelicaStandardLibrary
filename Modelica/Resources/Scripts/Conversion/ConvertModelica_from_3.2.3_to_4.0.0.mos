@@ -232,17 +232,17 @@ convertClass("Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTw
 convertClass("Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.BaseClasses.PartialBasicMachine",
               "Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses.Machine")
 convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPortsElementary",
-              "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.TwoPortsElementary")
+              "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.TwoPortElementary")
 convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPorts",
-              "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.TwoPorts")
+              "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.TwoPort")
 convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialFixedShape",
               "Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.FixedShape")
 convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialLeakage",
               "Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.Leakage")
 convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary",
-              "Modelica.Magnetic.FluxTubes.Interfaces.TwoPortsElementary")
+              "Modelica.Magnetic.FluxTubes.Interfaces.TwoPortElementary")
 convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts",
-              "Modelica.Magnetic.FluxTubes.Interfaces.TwoPorts")
+              "Modelica.Magnetic.FluxTubes.Interfaces.TwoPort")
 convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape",
               "Modelica.Magnetic.FluxTubes.BaseClasses.FixedShape")
 convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialForce",
