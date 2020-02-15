@@ -109,7 +109,6 @@ model Transformer3PhaseYyWithHysteresis
   parameter Real mu_rel2=1
     "Constant relative permeability of secondary leakage (>0 required)" annotation (Dialog(tab="Leakage"));
 
-protected
   Shapes.HysteresisAndMagnets.GenericHystTellinenEverett core1(
     mat=mat,
     A=a*b,
@@ -238,7 +237,6 @@ protected
         rotation=270,
         origin={32,90})));
 
-public
   Modelica.Electrical.Analog.Interfaces.PositivePin p1 "Primary winding 1" annotation (Placement(transformation(extent={{-170,50},{-150,70}}), iconTransformation(extent={{-110,50},{-90,70}})));
   Modelica.Electrical.Analog.Interfaces.PositivePin p2 "Primary winding 2" annotation (Placement(transformation(extent={{-70,50},{-50,70}}), iconTransformation(extent={{-110,-10},{-90,10}})));
   Modelica.Electrical.Analog.Interfaces.PositivePin p3 "Primary winding 3" annotation (Placement(transformation(extent={{50,50},{70,70}}), iconTransformation(extent={{-110,-70},{-90,-50}})));
