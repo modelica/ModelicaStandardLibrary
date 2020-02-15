@@ -74,7 +74,17 @@ package Machines
           Line(
             visible=use_HeatTransfer,
             points={{-100,0},{-52,0}},
-            color={198,0,0})}),
+            color={198,0,0}),
+          Line(points={{-40,0},{40,0}},     color={95,127,95},
+            origin={-70,32},
+            rotation=90),
+          Polygon(
+            points={{15,0},{-15,10},{-15,-10},{15,0}},
+            lineColor={95,127,95},
+            fillColor={95,127,95},
+            fillPattern=FillPattern.Solid,
+            origin={-70,84},
+            rotation=90)}),
       Documentation(info="<html>
 <p> Mixing volume with varying size. The size of the volume is given by:</p>
 <ul>
@@ -134,8 +144,8 @@ package Machines
       N_nominal=1500,
       N(start=N_nominal),
       redeclare replaceable function flowCharacteristic =
-          Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow
-          ( V_flow_nominal={0, V_flow_op, 1.5*V_flow_op},
+          Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow (
+            V_flow_nominal={0, V_flow_op, 1.5*V_flow_op},
             head_nominal={2*head_op, head_op, 0}));
 
     // nominal values
@@ -341,8 +351,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
       annotation(Dialog(group="Characteristics", enable = use_powerCharacteristic),
                  choicesAllMatching=true);
     replaceable function efficiencyCharacteristic =
-      PumpCharacteristics.constantEfficiency(eta_nominal = 0.8) constrainedby
-        PumpCharacteristics.baseEfficiency
+      PumpCharacteristics.constantEfficiency(eta_nominal = 0.8) constrainedby PumpCharacteristics.baseEfficiency
         "Efficiency vs. V_flow at nominal speed and density"
       annotation(Dialog(group="Characteristics",enable = not use_powerCharacteristic),
                  choicesAllMatching=true);
@@ -367,8 +376,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
         annotation (Dialog(tab="Assumptions",group="Heat transfer"));
     replaceable model HeatTransfer =
         Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer
-      constrainedby
-        Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer
+      constrainedby Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer
         "Wall heat transfer"
         annotation (Dialog(tab="Assumptions",group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
     HeatTransfer heatTransfer(
@@ -406,8 +414,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
     // Diagnostics
     replaceable model Monitoring =
       Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.PumpMonitoringBase
-      constrainedby
-        Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.PumpMonitoringBase
+      constrainedby Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.PumpMonitoringBase
         "Optional pump monitoring"
         annotation(Dialog(tab="Advanced", group="Diagnostics"), choicesAllMatching=true);
     Monitoring monitoring(
@@ -441,7 +448,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
       else
         head = homotopy(if s > 0 then (N/N_nominal)^2*flowCharacteristic(V_flow_single*N_nominal/N)
                                else (N/N_nominal)^2*flowCharacteristic(0) - s*unitHead,
-                      if checkValveHomotopy == Types.CheckValveHomotopyType.Open then 
+                      if checkValveHomotopy == Types.CheckValveHomotopyType.Open then
                         N/N_nominal*(flowCharacteristic(V_flow_single_init)+(V_flow_single-V_flow_single_init)*noEvent(if abs(V_flow_single_init)>0 then delta_head_init/(0.1*V_flow_single_init) else 0))
                       else
                         N/N_nominal*flowCharacteristic(0) - s*unitHead);
