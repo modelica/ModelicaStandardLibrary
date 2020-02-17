@@ -40,7 +40,7 @@ protected
 Model <strong>Arrow</strong> defines an arrow that is dynamically
 visualized at the defined location (see variables below).
 If you want an arrow representing something that is not a&nbsp;relative position, use
-<a href=\"Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Vector</a> instead.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Vector</a> instead.
 </p>
 
 <p>

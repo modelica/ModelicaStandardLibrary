@@ -62,7 +62,7 @@ protected
 Model <strong>DoubleArrow</strong> defines a double arrow that is dynamically
 visualized at the defined location (see variables below).
 Nonetheless, visualizing physical vectors by means of
-<a href=\"Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Vector</a>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Vector</a>
 can be better option in many cases.
 </p>
 
