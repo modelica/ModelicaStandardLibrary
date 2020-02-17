@@ -26,7 +26,7 @@ a proper icon and a definition of the angular velocity.
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.RelativeSensorElementary\">RelativeSensorElementary</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PotentialSensor\">PotentialSensor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.AbsoluteSensor\">Polyphase.Interfaces.AbsoluteSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.RelativeSensor\">Polyphase.Interfaces.RelativeSensor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.RelativeSensorElementary\">Polyphase.Interfaces.RelativeSensorElementary</a>
 </p>
 
 </html>"));

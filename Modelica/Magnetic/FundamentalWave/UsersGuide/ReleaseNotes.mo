@@ -84,9 +84,9 @@ the wrong calculation <code>G=(m/2)*GcRef/effectiveTurns^2</code> is now replace
 
 <ul>
 <li>Naming and documentation of
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.TwoPort\">
 PartialTwoPort</a> is exchanged by
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortElementary\">
 PartialTwoPortElementary</a> to match the naming conventions of
 <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces\">
 Rotational.Interfaces</a>

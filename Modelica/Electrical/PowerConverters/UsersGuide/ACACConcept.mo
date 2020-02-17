@@ -3,7 +3,7 @@ class ACACConcept "AC/AC converter concept"
   extends Modelica.Icons.Information;
   annotation (DocumentationClass=true, Documentation(info="<html>
 
-<p>The following DC/DC converter topologies are currently included in the PowerConverters library.</p>
+<p>The following AC/AC converter topologies are currently included in the PowerConverters library.</p>
 
 <ul>
 <li>Single-phase dimmer with <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.SinglePhaseTriac\">triac</a></li>
@@ -13,7 +13,7 @@ class ACACConcept "AC/AC converter concept"
 <h4>Control</h4>
 
 <p>To apply firing signals to the triac, the
-<a href=\"modelica://Modelica.Electrical.PowerConverters.DCDC.Control.Signal2mPulse\">Signal2mPulse adaptor</a> is provided.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM\">SignalPWM model</a> is provided.
 </p>
 <p>
 The <a href=\"modelica://Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle\">Voltage2Angle block</a>

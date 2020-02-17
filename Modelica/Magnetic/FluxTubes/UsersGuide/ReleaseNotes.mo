@@ -11,7 +11,7 @@ class ReleaseNotes "Release Notes"
 <li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">FluxTubes.Shapes.HysteresisAndMagnets</a></li>
 <li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a></li>
 <li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisTableData\">FluxTubes.Material.HysteresisTableData</a></li>
-<li>Updated <a href=\"modelica://Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape\">FluxTubes.Interfaces.PartialFixedShape</a> for differentiability</li>
+<li>Updated <a href=\"modelica://Modelica.Magnetic.FluxTubes.BaseClasses.FixedShape\">FluxTubes.BaseClasses.FixedShape</a> for differentiability</li>
 <li>Updated <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">FluxTubes.UsersGuide.Literature</a></li>
 </ul>
 
