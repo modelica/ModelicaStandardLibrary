@@ -13106,10 +13106,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
     end Types;
   end Utilities;
 annotation (Documentation(info="<html>
-<p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/FD2.png\" alt=\"FD2\"/>
-</p>
-
 <h4>  Library description </h4>
 
 <p>
