@@ -1,7 +1,7 @@
 within Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces;
 partial model RelativeSensor "Partial magnetic voltage or flux sensor"
   extends Modelica.Icons.RoundSensor;
-  extends TwoPorts;
+  extends TwoPort;
   Modelica.ComplexBlocks.Interfaces.ComplexOutput y annotation (Placement(
         transformation(
         origin={0,-110},

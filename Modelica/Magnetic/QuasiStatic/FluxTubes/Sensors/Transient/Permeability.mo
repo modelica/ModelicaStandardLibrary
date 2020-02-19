@@ -1,4 +1,4 @@
-within Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient;
+﻿within Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient;
 model Permeability
 "Determines permeability from flux and magnetic potential difference"
 

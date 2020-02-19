@@ -1,8 +1,8 @@
 MagneticPort
 PositiveMagneticPort
 NegativeMagneticPort
-TwoPortsElementary
-TwoPorts
+TwoPortElementary
+TwoPort
 AbsoluteSensor
 RelativeSensor
 Source

@@ -1,6 +1,6 @@
 within Modelica.Magnetic.FluxTubes.Basic;
 model Short "Short cut branch"
-  extends Interfaces.TwoPortsElementary;
+  extends Interfaces.TwoPortElementary;
 
 equation
   connect(port_p, port_n) annotation (Line(points={{-100,0},{-1,0},{-1,0},{100,0}}, color={255,128,0}));

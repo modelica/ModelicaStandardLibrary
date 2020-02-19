@@ -1,7 +1,7 @@
 within Modelica.Magnetic.FluxTubes.Sources;
 model ConstantMagneticPotentialDifference "Constant magnetomotive force"
 
-  extends Interfaces.TwoPortsElementary;
+  extends Interfaces.TwoPortElementary;
   parameter SI.MagneticPotentialDifference V_m
     "Magnetic potential difference";
   SI.MagneticFlux Phi "Magnetic flux from port_p to port_n";

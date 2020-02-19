@@ -1,5 +1,5 @@
 within Modelica.Magnetic.FluxTubes.Interfaces;
-partial model TwoPortsElementary "Interface component with two magnetic ports for textual programming"
+partial model TwoPortElementary "Interface component with two magnetic ports for textual programming"
 
   FluxTubes.Interfaces.PositiveMagneticPort port_p "Positive magnetic port"
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
@@ -13,4 +13,4 @@ the positive port connector port_p, and the negative port
 connector port_n.
 </p>
 </html>"));
-end TwoPortsElementary;
+end TwoPortElementary;

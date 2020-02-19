@@ -1,7 +1,7 @@
 within Modelica.Magnetic.FluxTubes.Sources;
 model SignalMagneticFlux "Signal-controlled magnetic flux source"
 
-  extends Interfaces.TwoPortsElementary;
+  extends Interfaces.TwoPortElementary;
   Modelica.Blocks.Interfaces.RealInput Phi(unit="Wb") "Magnetic flux" annotation (
       Placement(transformation(
         origin={0,110},

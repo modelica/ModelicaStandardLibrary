@@ -1,7 +1,7 @@
 within Modelica.Magnetic.FluxTubes.Basic;
 model VariablePermeance "Variable permeance"
 
-  extends Interfaces.TwoPorts;
+  extends Interfaces.TwoPort;
   extends Modelica.Magnetic.FluxTubes.Icons.Reluctance;
   Modelica.Blocks.Interfaces.RealInput G_m(quantity="Permeance", unit="H") "Magnetic permeance"
     annotation (Placement(transformation(

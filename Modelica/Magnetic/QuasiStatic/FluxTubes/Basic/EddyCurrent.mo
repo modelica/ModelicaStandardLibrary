@@ -3,7 +3,7 @@ model EddyCurrent
 "For modelling of eddy current in a conductive magnetic flux tube"
 
   constant Complex j=Complex(0, 1);
-  extends Interfaces.TwoPorts;
+  extends Interfaces.TwoPort;
 
   parameter Boolean useConductance = false
   "Use conductance instead of geometry data and rho"

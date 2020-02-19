@@ -1,7 +1,7 @@
 within Modelica.Magnetic.QuasiStatic.FluxTubes.Basic;
 model ConstantReluctance "Constant reluctance"
 
-  extends Interfaces.TwoPorts;
+  extends Interfaces.TwoPort;
   extends Modelica.Magnetic.QuasiStatic.FluxTubes.Icons.Reluctance;
 
   parameter SI.Reluctance R_m=1 "Magnetic reluctance";

@@ -1,7 +1,7 @@
 within Modelica.Magnetic.FluxTubes.BaseClasses;
 partial model FixedShape "Base class for flux tubes with fixed shape during simulation; linear or non-linear material characteristics"
 
-  extends Interfaces.TwoPorts;
+  extends Interfaces.TwoPort;
 
   parameter Boolean nonLinearPermeability=true
     "= true, if non-linear rel. permeability is used, otherwise constant rel. permeability"

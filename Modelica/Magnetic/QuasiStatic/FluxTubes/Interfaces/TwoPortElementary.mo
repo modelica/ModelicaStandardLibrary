@@ -1,5 +1,5 @@
 within Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces;
-partial model TwoPortsElementary "Two magnetic ports for graphical modeling"
+partial model TwoPortElementary "Two magnetic ports for graphical modeling"
 
   FluxTubes.Interfaces.PositiveMagneticPort port_p "Positive quasi-static magnetic port" annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
   FluxTubes.Interfaces.NegativeMagneticPort port_n "Negative quasi-static magnetic port" annotation (Placement(transformation(extent={{90,-10},{110,10}})));
@@ -32,4 +32,4 @@ connector <code>port_n</code>. The total magnetic potential difference
 <code>V_m</code> and the flux flowing into the positive port,
 <code>Phi</code> are also defined in this model.
 </p></html>"));
-end TwoPortsElementary;
+end TwoPortElementary;

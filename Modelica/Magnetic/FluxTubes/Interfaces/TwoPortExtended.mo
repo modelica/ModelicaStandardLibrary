@@ -1,7 +1,7 @@
 within Modelica.Magnetic.FluxTubes.Interfaces;
-partial model TwoPortsExtended "Extended two port interface model with alias variables for magnetic voltage and flux"
+partial model TwoPortExtended "Extended TwoPort interface model with alias variables for magnetic voltage and flux"
 
-  extends TwoPortsElementary;
+  extends TwoPortElementary;
   SI.MagneticPotentialDifference V_m "Magnetic potential difference of ports";
   SI.MagneticFlux Phi(start=0) "Magnetic flux from port_p to port_n";
 
@@ -15,4 +15,4 @@ It is assumed that the magnetic flux flowing into port_p is identical to the flu
 This magnetic flux is provided explicitly as flux Phi.
 </p>
 </html>"));
-end TwoPortsExtended;
+end TwoPortExtended;

@@ -1,6 +1,6 @@
 within Modelica.Magnetic.FluxTubes.BaseClasses;
 partial model Generic "Partial Tellinen hysteresis model"
-  extends Interfaces.TwoPorts;
+  extends Interfaces.TwoPort;
   extends Modelica.Magnetic.FluxTubes.Icons.Reluctance;
 
   // Group Fixed Geometry (Cuboid)
