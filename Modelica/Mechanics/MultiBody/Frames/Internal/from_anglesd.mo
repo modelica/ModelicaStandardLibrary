@@ -26,5 +26,6 @@ This function returns angular velocity&nbsp;<code>w</code> computed from
 1<sup>st</sup> derivatives of the rotation angles <code>angles</code>
 to rotate frame&nbsp;1 into frame&nbsp;2 along axes given by
 <code>sequence</code>.
+</p>
 </html>"));
 end from_anglesd;
