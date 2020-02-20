@@ -3,8 +3,6 @@ package Examples "Library of examples to demonstrate the usage of package Modeli
   extends Modelica.Icons.ExamplesPackage;
   import Modelica.Units.SI;
 
-
-
 annotation (Documentation(info="<html>
 <p>
 This package contains examples to demonstrate the usage of package Modelica.Clocked.

@@ -2,10 +2,6 @@ within Modelica.Clocked.Examples;
 package CascadeControlledDrive "Examples based on a simple drive with cascade controller and different ways to define the sampling and super-sampling"
   extends Modelica.Icons.ExamplesPackage;
 
-
-
-
-
 annotation (Documentation(info="<html>
 <p>
 This package shows the same example in different variants.

@@ -55,7 +55,6 @@ desired, use block
 to generate a periodic clock signal.
 </p>
 
-
 <p>
 If a clock is associated to a clocked continuous-time partition, then an <strong>integrator</strong>
 has to be defined that is used to integrate the partition from the previous

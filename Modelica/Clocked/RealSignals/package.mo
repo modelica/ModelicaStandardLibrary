@@ -3,10 +3,6 @@ package RealSignals "Library of clocked blocks for Real signals"
   extends Modelica.Icons.Package;
   import Modelica.Units.SI;
 
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 This package contains blocks that operate on clocked Real signals.

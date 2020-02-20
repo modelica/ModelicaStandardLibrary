@@ -84,7 +84,6 @@ The block constructs (conceptually) a clock &ldquo;cBase&rdquo;
 and clock y starts at the second clock tick of cBase.
 </p>
 
-
 <h4>Example</h4>
 
 <p>

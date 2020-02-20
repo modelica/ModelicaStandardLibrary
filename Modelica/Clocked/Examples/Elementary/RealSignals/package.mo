@@ -2,33 +2,6 @@ within Modelica.Clocked.Examples.Elementary;
 package RealSignals "Examples that are used for the documentation of the Modelica.Clocked.RealSignals sub-library"
   extends Modelica.Icons.ExamplesPackage;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 annotation (Documentation(info="<html>
 <p>
 This package contains models that have been used to produce

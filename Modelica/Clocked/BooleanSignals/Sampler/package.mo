@@ -2,17 +2,6 @@ within Modelica.Clocked.BooleanSignals;
 package Sampler "Library of sampler and hold blocks for Boolean signals"
   extends Modelica.Icons.Package;
 
-
-
-
-
-
-
-
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 This package contains blocks that mark boundaries of a clocked partition
@@ -62,7 +51,6 @@ the following blocks are provided:<br>&nbsp;
       <td><a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.BackSample\">BackSample</a></td>
       <td>Shift a signal and start the output clock before the input clock with a start value.</td>
     </tr>
-
 
 <tr><td valign=\"top\" rowspan=\"2\">within clocked partition</td>
       <td><a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.AssignClock\">AssignClock</a></td>

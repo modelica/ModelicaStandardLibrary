@@ -213,7 +213,6 @@ in the pre-filter design block
 <img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_FilterDesign.png\" alt=\"ControlledMixingUnit_FilterDesign.png\">
 </p>
 
-
 <p>
 Translating this
 model will generate the continuous-time inverse plant model.

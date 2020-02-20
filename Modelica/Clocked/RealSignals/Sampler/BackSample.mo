@@ -114,7 +114,6 @@ block cannot be used to recover the input signal of ShiftSample
 (for a causal system this is impossible).
 </p>
 
-
 <h4>Example</h4>
 
 <p>

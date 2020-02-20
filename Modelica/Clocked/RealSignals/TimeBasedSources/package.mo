@@ -2,9 +2,6 @@ within Modelica.Clocked.RealSignals;
 package TimeBasedSources "Package of signal source blocks generating clocked simulation time based Real signals"
    extends Modelica.Icons.SourcesPackage;
 
-
-
-
   annotation (Documentation(info="<html>
 <p>
 This package provides <strong>source</strong> components akin to the blocks provided in

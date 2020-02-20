@@ -3,7 +3,6 @@ package ClockSignals "Library of blocks for clocked signals"
   extends Modelica.Icons.Package;
   import Modelica.Units.SI;
 
-
   annotation (Documentation(info="<html>
 <p>
 This package contains blocks that transform a clock signal, by

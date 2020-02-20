@@ -2,11 +2,6 @@ within Modelica.Clocked.Examples;
 package SimpleControlledDrive "Examples based on a simple controlled drive with different ways to define the sampling"
 extends Modelica.Icons.ExamplesPackage;
 
-
-
-
-
-
 annotation (Documentation(info="<html>
 <p>
 This package shows the same example in different variants.

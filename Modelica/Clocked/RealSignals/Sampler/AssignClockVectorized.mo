@@ -84,7 +84,6 @@ This block assigns a clock to the Real <strong>vector</strong> input signal u
 and provides u as vector output signal y.
 </p>
 
-
 <h4>Example</h4>
 
 <p>

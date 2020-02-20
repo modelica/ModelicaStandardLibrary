@@ -70,7 +70,6 @@ Analog to the corresponding Real signal block example there exists an elementary
 <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.Hold\">example</a> for this Boolean block.
 </p>
 
-
 </html>"), Diagram(coordinateSystem(
         preserveAspectRatio=false,
         extent={{-100,-100},{100,100}},

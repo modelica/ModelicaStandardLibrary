@@ -2,8 +2,6 @@ within Modelica.Clocked.RealSignals;
 package TickBasedSources "Package of signal source blocks generating clocked ticked/sample based Real signals"
    extends Modelica.Icons.SourcesPackage;
 
-
-
   annotation (Documentation(info="<html>
 <p>This package provides <strong>source</strong> components akin to the blocks provided in <a href=\"modelica://Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a>, but with the difference that they provide </p>
 <ol>

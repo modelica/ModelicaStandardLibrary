@@ -2,9 +2,6 @@ within Modelica.Clocked.Examples;
 package Elementary "Examples that are used for the documentation of the blocks"
   extends Modelica.Icons.ExamplesPackage;
 
-
-
-
 annotation (Documentation(info="<html>
 <p>
 This package contains models that have been used to produce

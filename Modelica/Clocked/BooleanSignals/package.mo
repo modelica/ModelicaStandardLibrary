@@ -3,9 +3,6 @@ package BooleanSignals "Library of clocked blocks for Boolean signals"
   extends Modelica.Icons.Package;
   import Modelica.Units.SI;
 
-
-
-
   annotation (Documentation(info="<html>
 <p>
 This package contains blocks that operate on clocked Boolean signals.

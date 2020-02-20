@@ -3,9 +3,6 @@ package IntegerSignals "Library of clocked blocks for Integer signals"
   extends Modelica.Icons.Package;
   import Modelica.Units.SI;
 
-
-
-
   annotation (Documentation(info="<html>
 <p>
 This package contains blocks that operate on clocked Integer signals.

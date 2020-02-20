@@ -2,9 +2,6 @@ within Modelica.Clocked.RealSignals;
 package NonPeriodic "Library of blocks that operate on periodically and non-periodically clocked signals"
 extends Modelica.Icons.Package;
 
-
-
-
   annotation (Documentation(info="<html>
 <p>
 This package contains blocks that can be utilized for periodic and non-periodic
