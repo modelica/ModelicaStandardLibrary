@@ -60,10 +60,6 @@ equation
           extent={{-150,-90},{150,-130}},
           textColor={0,0,0},
           textString="%shiftCounter/%resolution")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        initialScale=0.06)),
     Documentation(info="<html>
 <p>
 This block shifts the first activation of clock output y by

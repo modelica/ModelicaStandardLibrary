@@ -108,9 +108,6 @@ equation
           extent = {{100,60},{150,40}},
           textColor = {0,0,255},
           textString = "Load torque")}),
-    Icon(coordinateSystem(
-      preserveAspectRatio = true,
-      extent = {{-100,-100},{100,100}})),
     experiment(StopTime = 1.1),
     Documentation(info="<html>
 <p>

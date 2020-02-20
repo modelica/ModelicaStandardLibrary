@@ -47,16 +47,11 @@ connect(xor1.u1, integerConstant.y) annotation (Line(
 connect(xor1.u2, xor.y) annotation (Line(
     points={{-8,23},{-13,23},{-13,30},{-18,30}},
     color={255,0,255}));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-          -100},{100,100}})),
-    experiment(StopTime=0.2),
+  annotation (    experiment(StopTime=0.2),
     Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
 <a href=\"modelica://Modelica.Clocked.BooleanSignals.Sampler.Sample\">Modelica.Clocked.BooleanSignals.Sampler.Sample</a>.
 </p>
-</html>"),
-    Icon(coordinateSystem(
-        preserveAspectRatio=false,
-        extent={{-100,-100},{100,100}})));
+</html>"));
 end Sample2;

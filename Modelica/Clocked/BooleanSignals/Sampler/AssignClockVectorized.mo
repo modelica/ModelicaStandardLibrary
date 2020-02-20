@@ -71,10 +71,6 @@ equation
           color={175,175,175},
           pattern=LinePattern.Dot,
           thickness=0.5)}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=false,
-        extent={{-100,-100},{100,100}},
-        initialScale=0.06)),
     Documentation(info="<html>
 <p>
 This block for Boolean signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.AssignClockVectorized\">RealSignals.Sampler.AssignClockVectorized</a>).

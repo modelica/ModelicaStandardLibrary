@@ -60,10 +60,6 @@ equation
           extent={{-150,150},{150,110}},
           textString="%name",
           textColor={0,0,255})}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        initialScale=0.06)),
     Documentation(info="<html>
 <p>
 This block shifts the first activation of the clock of the output y by

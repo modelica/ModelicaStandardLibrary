@@ -22,8 +22,7 @@ equation
   connect(pulse.y, assignClock1.u) annotation (Line(
       points={{-39,30},{-23.2,30}},
       color={255,0,255}));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}})), experiment(StopTime=1.0),
+  annotation ( experiment(StopTime=1.0),
   Documentation(info="<html>
 <p>
 Example for block

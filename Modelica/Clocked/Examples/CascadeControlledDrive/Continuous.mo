@@ -90,9 +90,6 @@ equation
           extent={{-89,38},{-39,32}},
           textColor={255,0,0},
           textString="slow controller")}),
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 Original cascade controlled drive with a

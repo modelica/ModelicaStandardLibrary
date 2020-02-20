@@ -33,8 +33,5 @@ partial block PartialSISOHold
           textColor={0,0,0})}),
     Documentation(info="<html>
 
-</html>"), Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        initialScale=0.06)));
+</html>"));
 end PartialSISOHold;

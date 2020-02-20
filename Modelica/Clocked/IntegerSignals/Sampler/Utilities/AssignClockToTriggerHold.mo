@@ -47,9 +47,6 @@ equation
       Line(points={{-20,-70},{-20,70}}),
       Line(points={{20,-70},{20,70}}),
       Line(points={{60,-70},{60,70}})}),
-    Diagram(coordinateSystem(
-      preserveAspectRatio=false,
-      extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This block for Integer signals works similar as the corresponding block for Real signals (see

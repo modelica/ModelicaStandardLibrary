@@ -60,9 +60,6 @@ equation
           textString="reference"),
         Rectangle(extent={{-46,40},{18,-34}}, lineColor={255,0,0}),
         Rectangle(extent={{40,40},{120,-34}}, lineColor={255,0,0})}),
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 Original simple controlled drive with a

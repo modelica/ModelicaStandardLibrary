@@ -34,9 +34,7 @@ equation
   gamma = c*wk0*exp( -weps/T);
   der(c) = -wa11*c - wa12*gamma + wa13;
   der(T) = -wa21*T + wa22*gamma + wa23 + wb*T_c;
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-            -100,-100},{100,100}})),
-                       Icon(coordinateSystem(preserveAspectRatio=false,
+  annotation (                       Icon(coordinateSystem(preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
         Rectangle(
           extent={{-100,40},{100,-100}},

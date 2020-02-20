@@ -97,9 +97,6 @@ connect(periodicClock.y, assignClock1.clock) annotation (Line(
           textString="reference"),
         Rectangle(extent={{-46,40},{14,-48}}, lineColor={255,0,0}),
         Rectangle(extent={{50,40},{132,-48}}, lineColor={255,0,0})}),
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This is the same model as

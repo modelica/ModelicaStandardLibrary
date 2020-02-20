@@ -27,8 +27,7 @@ connect(periodicClock.y, superSample.u) annotation (Line(
       color={175,175,175},
       pattern=LinePattern.Dot,
       thickness=0.5));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-          -100},{100,100}})),             experiment(StopTime=0.08),
+  annotation (             experiment(StopTime=0.08),
   Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block

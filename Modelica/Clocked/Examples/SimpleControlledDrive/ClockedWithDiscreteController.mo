@@ -81,9 +81,6 @@ connect(periodicClock.y, sample2.clock) annotation (Line(
           textString="reference"),
         Rectangle(extent={{-50,40},{6,-40}},  lineColor={255,0,0}),
         Rectangle(extent={{32,40},{104,-40}}, lineColor={255,0,0})}),
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 Simple controlled drive with discrete-timer controller

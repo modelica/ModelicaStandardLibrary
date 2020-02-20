@@ -18,10 +18,7 @@ equation
   else
     y = u;
   end if;
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}})), Diagram(coordinateSystem(
-          preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
-    Documentation(info="<html>
+  annotation (    Documentation(info="<html>
 <p>
 The clocked Real input signal is value discretized
 (the discretization is defined by parameter <strong>bits</strong>).

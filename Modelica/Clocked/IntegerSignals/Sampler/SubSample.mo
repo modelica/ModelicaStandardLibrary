@@ -81,10 +81,6 @@ equation
           lineColor={95,95,95},
           origin={-51,26},
           rotation=-90)}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=false,
-        extent={{-100,-100},{100,100}},
-        initialScale=0.06)),
     Documentation(info="<html>
 <p>
 This block for Integer signals works similarly as the corresponding block for Real signals (see <a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SubSample\">RealSignals.Sampler.SubSample</a>).

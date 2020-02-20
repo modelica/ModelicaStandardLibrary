@@ -85,10 +85,6 @@ equation
           extent={{-150,-100},{150,-140}},
           textString="%factor",
           textColor={0,0,0})}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=false,
-        extent={{-100,-100},{100,100}},
-        initialScale=0.06)),
     Documentation(info="<html>
 <p>
 This block sub-samples the clocked Real input signal u and provides it as

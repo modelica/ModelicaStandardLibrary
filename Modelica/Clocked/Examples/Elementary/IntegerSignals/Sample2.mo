@@ -49,15 +49,11 @@ equation
   connect(sample1.u, step.y) annotation (Line(
       points={{-61.2,30},{-75,30}},
       color={255,127,0}));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
-    experiment(StopTime=0.2),
+  annotation (    experiment(StopTime=0.2),
     Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
 <a href=\"modelica://Modelica.Clocked.IntegerSignals.Sampler.Sample\">Modelica.Clocked.IntegerSignals.Sampler.Sample</a>.
 </p>
-</html>"),
-    Icon(coordinateSystem(
-        preserveAspectRatio=false,
-        extent={{-100,-100},{100,100}})));
+</html>"));
 end Sample2;

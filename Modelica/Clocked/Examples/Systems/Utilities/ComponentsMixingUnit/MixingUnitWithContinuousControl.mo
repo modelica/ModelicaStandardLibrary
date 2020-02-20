@@ -103,7 +103,5 @@ equation
       color={0,0,127}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-120,
             -100},{100,100}})),
-    experiment(StopTime=500),
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}})));
+    experiment(StopTime=500));
 end MixingUnitWithContinuousControl;

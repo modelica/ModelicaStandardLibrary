@@ -32,8 +32,7 @@ connect(const.y, sum.u[2]) annotation (Line(
 connect(sum.y, assignClock1.u) annotation (Line(
     points={{-41.1,28},{-27.2,28}},
     color={255,127,0}));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-          -100},{100,100}})), experiment(StopTime=0.09),
+  annotation ( experiment(StopTime=0.09),
   Documentation(info="<html>
 <p>
 Elementary example for the documentation of block

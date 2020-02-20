@@ -23,8 +23,7 @@ connect(step.y, sample.u) annotation (Line(
 connect(sample.y, assignClock.u) annotation (Line(
     points={{-35.4,30},{-23.2,30}},
     color={255,0,255}));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-          -100},{100,100}})), experiment(StopTime=0.2),
+  annotation ( experiment(StopTime=0.2),
   Documentation(info="<html>
 <p>
 Elementary example for the documentation of block

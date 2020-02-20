@@ -8,6 +8,4 @@ extends Clocked.IntegerSignals.Interfaces.SamplerIcon;
   Modelica.Blocks.Interfaces.IntegerOutput y
     "Connector of clocked, Real output signal"
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-            {100,100}})));
 end PartialSISOSampler;

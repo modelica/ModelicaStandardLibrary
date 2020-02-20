@@ -20,9 +20,5 @@ partial block SamplerIcon
           extent={{-25,-10},{-45,10}},
           lineColor={255,128,0},
           fillColor={255,255,255},
-          fillPattern=FillPattern.Solid)}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        initialScale=0.06)));
+          fillPattern=FillPattern.Solid)}));
 end SamplerIcon;

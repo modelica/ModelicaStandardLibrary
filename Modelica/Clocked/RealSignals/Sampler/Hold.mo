@@ -74,9 +74,5 @@ to -1.0 (= the value of parameter hold.y_start).<br>
    </tr>
 </table>
 &nbsp;
-</html>"),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        initialScale=0.06)));
+</html>"));
 end Hold;

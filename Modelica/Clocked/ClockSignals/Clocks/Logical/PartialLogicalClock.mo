@@ -42,7 +42,6 @@ partial block PartialLogicalClock
   Modelica.Blocks.Routing.BooleanReplicator splitter(nout = nu)
     annotation (Placement(transformation(
       extent = {{6,-6},{-6,6}},
-      rotation = 0,
       origin = {30,-50})));
 
 equation

@@ -134,8 +134,6 @@ equation
         fillPattern=FillPattern.Solid,
         textString="controller")}),
     experiment(StopTime=300),
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}})),
     Documentation(info="<html>
 <p>
 Since a long time, Modelica is used to model advanced nonlinear control systems.

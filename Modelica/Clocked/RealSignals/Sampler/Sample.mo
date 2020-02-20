@@ -16,10 +16,6 @@ equation
    Text(extent={{-150,90},{150,50}},
         textString="%name",
         textColor={0,0,255})}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=false,
-        extent={{-100,-100},{100,100}},
-        initialScale=0.06)),
     Documentation(info="<html>
 <p>
 This block samples the continuous-time, Real input signal u and provides it as

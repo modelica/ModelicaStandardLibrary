@@ -52,8 +52,7 @@ connect(assignClock1.y[1], unitDelay1.u) annotation (Line(
 connect(assignClock1.y[2], unitDelay2.u) annotation (Line(
     points={{-11.4,24.3},{-2,24.3},{-2,-18},{-36,-18}},
     color={255,0,255}));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-          -100},{100,100}})), experiment(StopTime=0.09),
+  annotation ( experiment(StopTime=0.09),
   Documentation(info="<html>
 <p>
 Elementary example for the documentation of block

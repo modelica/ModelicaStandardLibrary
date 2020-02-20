@@ -10,6 +10,4 @@ partial block PartialClockedSISO
     "Connector of clocked, Real output signal"
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=
-            false, extent={{-100,-100},{100,100}})));
 end PartialClockedSISO;

@@ -212,9 +212,5 @@ from above:<br>
     by shiftCounter=1, resolution=1, as shown in the icon of the
     hold block.
 </p>
-</html>"),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=false,
-        extent={{-100,-100},{100,100}},
-        initialScale=0.06)));
+</html>"));
 end HoldWithDAeffects;

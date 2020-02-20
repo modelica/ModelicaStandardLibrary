@@ -44,9 +44,5 @@ This block for Integer signals works similarly as the corresponding block for Re
 Analog to the corresponding Real signal block example there exists an elementary
 <a href=\"modelica://Modelica.Clocked.Examples.Elementary.IntegerSignals.Hold\">example</a> for this Integer block.
 </p>
-</html>"),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=false,
-        extent={{-100,-100},{100,100}},
-        initialScale=0.06)));
+</html>"));
 end Hold;

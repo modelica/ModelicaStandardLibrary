@@ -25,8 +25,7 @@ connect(sample.y, uniformNoise.u) annotation (Line(
 connect(const.y, sample.u) annotation (Line(
     points={{-55,30},{-47.2,30}},
     color={0,0,127}));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-          -100},{100,100}})), experiment(StopTime=1.1),
+  annotation ( experiment(StopTime=1.1),
   Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block

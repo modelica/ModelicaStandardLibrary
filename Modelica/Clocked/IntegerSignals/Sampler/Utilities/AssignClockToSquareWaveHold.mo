@@ -40,9 +40,6 @@ equation
           fillPattern=FillPattern.Solid),
         Line(points={{-80,-70},{-40,-70},{-40,44},{0,44},
               {0,-70},{40,-70},{40,44},{79,44}})}),
-    Diagram(coordinateSystem(
-      preserveAspectRatio=false,
-      extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This block for Integer signals works similar as the corresponding block for Real signals (see

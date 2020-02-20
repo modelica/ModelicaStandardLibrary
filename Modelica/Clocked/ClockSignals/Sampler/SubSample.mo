@@ -75,10 +75,6 @@ equation
           extent={{-150,-90},{150,-130}},
           textString="%factor",
           textColor={0,0,0})}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=false,
-        extent={{-100,-100},{100,100}},
-        initialScale=0.06)),
     Documentation(info="<html>
 <p>
 This block sub-samples the input clock u and provides it as

@@ -17,9 +17,7 @@ equation
  u_buffer = if previous(first) then fill(u,n+1) else cat(1, {u}, previous(u_buffer[1:n]));
  y = shiftSample(u_buffer[n+1], shift, resolution);
 
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-            -100},{100,100}})),
-    Icon(graphics={
+  annotation (    Icon(graphics={
         Line(
           points={{-100,0},{-80,0},{-80,40},{-20,40},{-20,-40},{40,-40},{40,0},{
               100,0}},

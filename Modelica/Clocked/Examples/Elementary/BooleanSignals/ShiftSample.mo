@@ -25,8 +25,7 @@ connect(sample.u, table.y) annotation (Line(
 connect(shiftSample1.u, sample.y) annotation (Line(
     points={{-23.2,30},{-33.4,30}},
     color={255,0,255}));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-          -100},{100,100}})), experiment(StopTime=0.09),
+  annotation ( experiment(StopTime=0.09),
   Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
