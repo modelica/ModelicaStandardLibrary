@@ -255,6 +255,10 @@ convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresis",
               "Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresis")
 convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresisTellinen",
               "Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresisTellinen")
+// Issues #3300, #3424              
+convertModifiers({"Modelica.Magnetic.FluxTubes.Basic.LeakageWithCoefficient",
+                  "Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient"},
+                  fill("",0), {"c_usefulFlux=0.7"})
 convertClass("Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe",
               "Modelica.Thermal.FluidHeatFlow.Components.Pipe")
 convertClass("Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe",

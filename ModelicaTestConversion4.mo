@@ -1361,6 +1361,40 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue496;
+
+      model Issue3300 "Conversion test for #3300"
+        extends Modelica.Icons.Example;
+        parameter Modelica.SIunits.Reluctance R_m = 1 "Reluctance";
+
+        Modelica.Magnetic.FluxTubes.Basic.Ground ground annotation (Placement(transformation(extent={{-50,-40},{-30,-20}})));
+        Modelica.Magnetic.FluxTubes.Sources.ConstantMagneticPotentialDifference magVoltageSource(V_m=1)
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-40,10})));
+        Modelica.Magnetic.FluxTubes.Basic.LeakageWithCoefficient leakage1(R_mUsefulTot=R_m)
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={0,10})));
+        Modelica.Magnetic.FluxTubes.Basic.LeakageWithCoefficient leakage2(c_usefulFlux=0.5, R_mUsefulTot=R_m)
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={30,10})));
+      equation
+        assert(leakage1.c_usefulFlux <> leakage2.c_usefulFlux, "Parameter c_usefulFlux must not be equal to 0.7: conversion failed");
+        connect(magVoltageSource.port_n, ground.port) annotation (Line(points={{-40,-3.55271e-15},{-40,-20}}, color={255,127,0}));
+        connect(ground.port, leakage1.port_n) annotation (Line(points={{-40,-20},{-40,-10},{0,-10},{0,-3.55271e-15}}, color={255,127,0}));
+        connect(ground.port, leakage2.port_n) annotation (Line(points={{-40,-20},{-40,-10},{30,-10},{30,0}}, color={255,127,0}));
+        connect(magVoltageSource.port_p, leakage1.port_p) annotation (Line(points={{-40,20},{-40,30},{0,30},{0,20}}, color={255,127,0}));
+        connect(magVoltageSource.port_p, leakage2.port_p) annotation (Line(points={{-40,20},{-40,30},{30,30},{30,20}}, color={255,127,0}));
+        annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3300\">#3300</a>.
+</p>
+</html>"));
+      end Issue3300;
     end FluxTubes;
 
     package FundamentalWave
