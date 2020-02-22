@@ -2012,7 +2012,9 @@ generator. Simulation results are shown in the next figure:
     model ActuatorWithNoise
       "Demonstrates how to model measurement noise in an actuator"
     extends Modelica.Icons.Example;
-      Utilities.Parts.MotorWithCurrentControl motor
+      Utilities.Parts.MotorWithCurrentControl motor(
+        uniformNoise(
+          useAutomaticLocalSeed=false, fixedLocalSeed=5009189))
         annotation (Placement(transformation(extent={{-86,-10},{-66,10}})));
       Utilities.Parts.Controller controller
         annotation (Placement(transformation(extent={{-60,40},{-80,60}})));
@@ -2144,8 +2146,10 @@ enableNoise = false in the globalSeed component.
         initType=Modelica.Blocks.Types.Init.InitialState)
         "Transfer function of vertical turbulence speed according to MIL-F-8785C"
         annotation (Placement(transformation(extent={{-10,0},{10,20}})));
-      Modelica.Blocks.Noise.BandLimitedWhiteNoise whiteNoise(samplePeriod=
-           0.005)
+      Modelica.Blocks.Noise.BandLimitedWhiteNoise whiteNoise(
+        samplePeriod=0.005,
+        useAutomaticLocalSeed=false,
+        fixedLocalSeed=5009189)
         annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
       constant SI.Velocity unitVelocity = 1 annotation(HideResult=true);
       Modelica.Blocks.Math.Gain compareToSpeed(k=unitVelocity/V)
