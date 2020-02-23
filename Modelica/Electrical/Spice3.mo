@@ -2250,7 +2250,7 @@ by this ground element.
               points={{-20,0},{20,0}},
               color={0,0,255}),
             Text(
-              extent={{-50,-14},{58,-54}},
+              extent={{-150,-14},{150,-54}},
               textColor={0,0,255},
               textString="%name")}));
     end Ground;
@@ -2278,10 +2278,11 @@ The Resistance <em>R</em> is allowed to be positive, zero, or negative.
               fillPattern=FillPattern.Solid),
             Line(points={{-90,0},{-70,0}}, color={0,0,255}),
             Line(points={{70,0},{90,0}}, color={0,0,255}),
+            Text(extent={{-150,-40},{150,-80}}, textString="R=%R"),
             Text(
-              extent={{-136,-46},{140,-62}},
-              textString="R=%R"),
-            Text(extent={{-136,34},{138,54}}, textString="%name")}));
+              extent={{-150,90},{150,50}},
+              textString="%name",
+              textColor={0,0,255})}));
     end R_Resistor;
 
     model C_Capacitor "Ideal linear electrical capacitor"
@@ -2316,12 +2317,15 @@ The Capacitance <em>C</em> is allowed to be positive, zero, or negative.
             Line(
               points={{6,28},{6,-28}},
               color={0,0,255}),
-            Line(points={{-90,0},{-6,0}}),
-            Line(points={{6,0},{90,0}}),
+            Line(points={{-90,0},{-6,0}},
+              color={0,0,255}),
+            Line(points={{6,0},{90,0}},
+              color={0,0,255}),
+            Text(extent={{-150,-40},{150,-80}}, textString="C=%C"),
             Text(
-              extent={{-130,-40},{134,-60}},
-              textString="C=%C"),
-            Text(extent={{-138,42},{136,62}}, textString="%name")}));
+              extent={{-150,90},{150,50}},
+              textString="%name",
+              textColor={0,0,255})}));
     end C_Capacitor;
 
     model L_Inductor "Ideal linear electrical inductor"
@@ -2359,21 +2363,31 @@ The Capacitance <em>C</em> is allowed to be positive, zero, or negative.
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={
-            Ellipse(extent={{-60,-15},{-30,15}}),
-            Ellipse(extent={{-30,-15},{0,15}}),
-            Ellipse(extent={{0,-15},{30,15}}),
-            Ellipse(extent={{30,-15},{60,15}}),
-            Rectangle(
-              extent={{-60,-30},{60,0}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{60,0},{90,0}}),
-            Line(points={{-90,0},{-60,0}}),
+            Line(points={{60,0},{90,0}},
+              color={0,0,255}),
+            Line(points={{-90,0},{-60,0}},
+              color={0,0,255}),
+            Text(extent={{-150,-40},{150,-80}}, textString="L=%L"),
             Text(
-              extent={{-142,-40},{142,-60}},
-              textString="L=%L"),
-            Text(extent={{-136,36},{138,56}}, textString="%name")}));
+              extent={{-150,80},{150,40}},
+              textString="%name",
+              textColor={0,0,255}),
+            Line(
+              points={{-60,0},{-59,6},{-52,14},{-38,14},{-31,6},{-30,0}},
+              color={0,0,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{-30,0},{-29,6},{-22,14},{-8,14},{-1,6},{0,0}},
+              color={0,0,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{0,0},{1,6},{8,14},{22,14},{29,6},{30,0}},
+              color={0,0,255},
+              smooth=Smooth.Bezier),
+            Line(
+              points={{30,0},{31,6},{38,14},{52,14},{59,6},{60,0}},
+              color={0,0,255},
+              smooth=Smooth.Bezier)}));
     end L_Inductor;
 
     model K_CoupledInductors "Inductive coupling via coupling factor"
@@ -2409,13 +2423,10 @@ The Capacitance <em>C</em> is allowed to be positive, zero, or negative.
               points={{60,0},{100,0}},
               color={170,85,255}),
             Text(
-              extent={{-74,76},{74,30}},
-              textColor={170,85,255},
+              extent={{-150,90},{150,50}},
+              textColor={0,0,255},
               textString="%name"),
-            Text(
-              extent={{-72,-24},{76,-70}},
-              textColor={170,85,255},
-              textString="k=%k")}),
+            Text(extent={{-150,-40},{150,-80}}, textString="k=%k")}),
         Documentation(info="<html>
 <p>
 <code>K_CoupledInductors</code> is a component that allows the coupling of two inductors.
@@ -2470,12 +2481,15 @@ VALUE -> gain
               lineColor={0,0,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Text(extent={{-99,-79},{100,-129}}, textString="%name"),
-            Line(points={{-90,50},{-30,50}}),
-            Line(points={{-30,-50},{-90,-50}}),
-            Line(points={{100,50},{30,50},{30,-50},{100,-50}}),
-            Ellipse(extent={{10,20},{50,-20}}),
-            Line(points={{-20,60},{20,60}}),
+            Text(
+              extent={{-150,-80},{150,-120}},
+              textString="%name",
+              textColor={0,0,255}),
+            Line(points={{-90,50},{-30,50}}, color={0,0,255}),
+            Line(points={{-30,-50},{-90,-50}}, color={0,0,255}),
+            Line(points={{100,50},{30,50},{30,-50},{100,-50}}, color={0,0,255}),
+            Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
+            Line(points={{-20,60},{20,60}}, color={0,0,255}),
             Polygon(
               points={{20,60},{10,63},{10,57},{20,60}},
               lineColor={0,0,255},
@@ -2520,23 +2534,26 @@ VALUE -> transConductance
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
-              extent={{-71,70},{69,-70}},
+              extent={{-70,70},{70,-70}},
               lineColor={0,0,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Text(extent={{-100,-80},{99,-129}}, textString="%name"),
-            Line(points={{-91,50},{-31,50}}),
-            Line(points={{-31,-50},{-91,-50}}),
-            Ellipse(extent={{9,20},{49,-20}}),
-            Line(points={{-21,60},{19,60}}),
+            Text(
+              extent={{-150,-80},{150,-120}},
+              textString="%name",
+              textColor={0,0,255}),
+            Line(points={{-90,50},{-30,50}}, color={0,0,255}),
+            Line(points={{-30,-50},{-90,-50}}, color={0,0,255}),
+            Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
+            Line(points={{-20,60},{20,60}}, color={0,0,255}),
             Polygon(
-              points={{19,60},{9,63},{9,57},{19,60}},
+              points={{20,60},{10,63},{10,57},{20,60}},
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{89,50},{29,50},{29,20}}),
-            Line(points={{90,-50},{29,-50},{29,-20}}),
-            Line(points={{9,0},{49,0}})}));
+            Line(points={{90,50},{30,50},{30,20}}, color={0,0,255}),
+            Line(points={{90,-50},{30,-50},{30,-20}}, color={0,0,255}),
+            Line(points={{10,0},{50,0}}, color={0,0,255})}));
     end G_VCC;
 
     model H_CCV "Linear current-controlled voltage source"
@@ -2588,16 +2605,19 @@ VALUE -&gt; transResistance
               lineColor={0,0,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Text(extent={{-99,-80},{100,-130}}, textString="%name"),
-            Line(points={{100,50},{30,50},{30,-50},{100,-50}}),
-            Ellipse(extent={{10,20},{50,-20}}),
-            Line(points={{-20,60},{20,60}}),
+            Text(
+              extent={{-150,-80},{150,-120}},
+              textString="%name",
+              textColor={0,0,255}),
+            Line(points={{100,50},{30,50},{30,-50},{100,-50}}, color={0,0,255}),
+            Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
+            Line(points={{-20,60},{20,60}}, color={0,0,255}),
             Polygon(
               points={{20,60},{10,63},{10,57},{20,60}},
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{-90,50},{-20,50},{-20,-50},{-90,-50}})}));
+            Line(points={{-90,50},{-30,50},{-30,-50},{-90,-50}}, color={0,0,255})}));
     end H_CCV;
 
     model F_CCC "Linear current-controlled current source"
@@ -2648,23 +2668,26 @@ VALUE -&gt; gain
               lineColor={0,0,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Text(extent={{-104,-76},{97,-127}}, textString="%name"),
-            Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}),
-            Ellipse(extent={{10,20},{50,-20}}),
-            Line(points={{-20,60},{20,60}}),
+            Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}, color={0,0,255}),
+            Text(
+              extent={{-150,-80},{150,-120}},
+              textString="%name",
+              textColor={0,0,255}),
+            Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
+            Line(points={{-20,60},{20,60}}, color={0,0,255}),
             Polygon(
               points={{20,60},{10,63},{10,57},{20,60}},
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{90,50},{30,50},{30,20}}),
-            Line(points={{91,-50},{30,-50},{30,-20}}),
-            Line(points={{10,0},{50,0}})}));
+            Line(points={{90,50},{30,50},{30,20}}, color={0,0,255}),
+            Line(points={{91,-50},{30,-50},{30,-20}}, color={0,0,255}),
+            Line(points={{10,0},{50,0}}, color={0,0,255})}));
     end F_CCC;
 
     annotation(preferredView="info",
   Documentation(info="<html>
-<p>This Package contains the basic components of the SPICE3 models. The first letter of the</p><p>name of the component shows the SPICE name, e.g., <strong>R</strong>_Resistor: <strong>R</strong> is the SPICE-name of the component</p><p>resistor which is used in SPICE-Netlists.</p>
+<p>This Package contains the basic components of the SPICE3 models. The first letter of the name of the component shows the SPICE name, e.g., <strong>R</strong>_Resistor: <strong>R</strong> is the SPICE-name of the component resistor which is used in SPICE-Netlists.</p>
 </html>",
      revisions="<html>
 <dl>
