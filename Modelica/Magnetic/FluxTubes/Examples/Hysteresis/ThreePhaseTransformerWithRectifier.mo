@@ -105,6 +105,10 @@ model ThreePhaseTransformerWithRectifier
   Modelica.Blocks.Continuous.Filter pdissCopAvg(f_cut=10)
     "Approx. average copper losses"
     annotation (Placement(transformation(extent={{-50,40},{-40,50}})));
+initial equation
+  transformer.core1.derHstat = 0.0;
+  transformer.core2.derHstat = 0.0;
+  transformer.core3.derHstat = 0.0;
 equation
   connect(vSource1.n, ground1.p) annotation (Line(points={{-140,-50},{-140,-70},{-110,-70}}, color={0,0,255}));
   connect(vSource2.n, ground1.p) annotation (Line(points={{-120,-50},{-120,-70},{-110,-70}}, color={0,0,255}));
