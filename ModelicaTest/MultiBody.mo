@@ -5518,13 +5518,13 @@ and plot gasForce.press over gasForce.s_rel.
               thickness=0.5),
             Text(
               extent={{46,-12},{96,-20}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               pattern=LinePattern.Dash,
               lineThickness=0.5,
               textString="body A is rooted"),
             Text(
               extent={{46,-28},{96,-36}},
-              lineColor={95,95,95},
+              textColor={95,95,95},
               pattern=LinePattern.Dash,
               lineThickness=0.5,
               textString="body B is rooted")}));
