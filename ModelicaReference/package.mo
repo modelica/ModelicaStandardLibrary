@@ -6462,6 +6462,40 @@ or in a \"constrainedby\" clause to define the constraints of a replaceable clas
 </html>"));
 end 'partial';
 
+class StateMachines "State Machines"
+  extends ModelicaReference.Icons.Information;
+  annotation (Documentation(info="<html>
+<p>
+The state machines defined in the Modelica Language are based on the <a href=\"modelica://Synchronous\">synchronous language elements</a>.
+Note that the state machines defined in the Modelica Standard Library are not based on this.
+</p>
+<h4>Examples</h4>
+<blockquote><pre>
+  inner Integer v(start=0); 
+  block Increase       
+    outer output Integer v;     
+  equation        
+    v = previous(v) + 2;
+  end Increase;
+  Increase increase; 
+  block Decrease       
+    outer output Integer v;     
+  equation        
+    v = previous(v) - 1;
+  end Decrease;
+  Decrease decrease; 
+equation
+  initialState(increase);
+  transition(increase, decrease, v>=6, immediate=false);
+  transition(decrease, increase, v==0, immediate=false);
+</pre></blockquote>
+In this example we will start in <strong>increase</strong> and increase <strong>v</strong> until a limit, and then decrease it, and repeat.
+
+<h4>Description</h4>
+A detailed description of the Synchronous Language Elements are given in Chapter 17 of the
+<a href=\"https://www.modelica.org/documents/ModelicaSpec34.pdf\">Modelica Language Specification version 3.4</a>.
+</html>"));
+end StateMachines;
 
 class 'stream' "stream"
   extends ModelicaReference.Icons.Information;
@@ -6711,6 +6745,39 @@ For further details, see the definition of the
 </html>"));
 end 'stream';
 
+class Synhronous "Synhronous Language Elements"
+  extends ModelicaReference.Icons.Information;
+  annotation (Documentation(info="<html>
+<p>
+Synhronous language elements are added to Modelica as an alternative to normal <a href=\"modelica://'when'\">when</a>-clauses to
+making modeling of complex sampled systems safer and easier.
+</p>
+<h4>Examples</h4>
+<blockquote><pre>
+  // Discrete controller
+  when Clock() then
+    E*dc.xd=A*previous(dc.xd)+B*dc.yd;
+      dc.ud=C*previous(dc.xd)+D*dc.yd;
+  end when;
+  
+  // hold controller output:
+  plant.u=hold(dc.ud);
+  
+  // Plant
+  0=f(der(plant.x),plant.x,plant.u);
+  plant.y=g(plant.x);
+  
+  // Sample continuous signal
+  dc.yd=sample(plant.y, Clock(3));
+</pre></blockquote>
+In this example <strong>dc.xd</strong> and <strong>dc.ud</strong> are Clocked variables, and only defined when the Clock is active (every 3rd second).
+At time instants where the associated clock is not active, the value of a clocked variable can be inquired by using an explicit cast operator, e.g., <strong>hold</strong>.
+
+<h4>Description</h4>
+A detailed description of the Synchronous Language Elements are given in Chapter 16 of the
+<a href=\"https://www.modelica.org/documents/ModelicaSpec34.pdf\">Modelica Language Specification version 3.4</a>.
+</html>"));
+end Synhronous;
 
 class 'time' "time"
   extends ModelicaReference.Icons.Information;
@@ -7122,6 +7189,14 @@ Copyright &copy; 2003-2020, Modelica Association and contributors
       <th>Date</th>
       <th>Author</th>
       <th>Comment</th>
+    </tr>
+    <tr>
+      <td></td>
+      <td>2020-02-24</td>
+      <td><a href=\"https://github.com/HansOlsson\">Hans Olsson</a></td>
+      <td>
+      Add minimal parts for synchronous and state machines - making the reference feature-complete.
+      </td>
     </tr>
     <tr>
       <td></td>
