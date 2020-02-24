@@ -2,7 +2,6 @@ within ;
 package ModelicaReference "Modelica Reference"
 extends ModelicaReference.Icons.Information;
 
-
 class ModelicaGrammar "Modelica Grammar"
   extends ModelicaReference.Icons.Information;
 
@@ -332,7 +331,6 @@ readability. The following typographic conventions are used:</p>
 </p>
 </body></html>"));
 end ModelicaGrammar;
-
 
 package Annotations "Annotations"
   extends ModelicaReference.Icons.Information;
@@ -1931,8 +1929,6 @@ The external C-functions may be defined in the following way:
   class 'function' "function"
     extends ModelicaReference.Icons.Information;
 
-
-
 class 'function partial application' "function partial application"
     extends ModelicaReference.Icons.Information;
 
@@ -2742,7 +2738,6 @@ The <code><strong>actualStream</strong>(v)</code> operator is provided for conve
 <strong>actualStream</strong>(port.h_outflow) = <strong>if</strong> port.m_flow &gt; 0 <strong>then inStream</strong>(port.h_outflow)
                                                   <strong>else</strong> port.h_outflow;
 </pre></blockquote>
-
 
 <h4>Example</h4>
 <p>
@@ -4776,7 +4771,6 @@ flow direction.]</em>
 </html>"));
   end 'semiLinear()';
 
-
   class 'sign()' "sign()"
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
@@ -5384,7 +5378,6 @@ log, log10 that are provided for convenience as built-in functions).
 </html>"));
 end Operators;
 
-
 class BalancedModel "Balanced model"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -5781,7 +5774,6 @@ Therefore, FixedBoundary_pTX is a locally balanced model. The predefined boundar
 </html>"));
 end BalancedModel;
 
-
 class 'encapsulated' "encapsulated"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -5822,7 +5814,6 @@ abs cannot be redefined in the global scope, because an existing class
 cannot be redefined at the same level.]</em></p>
 </html>"));
 end 'encapsulated';
-
 
 class 'extends' "extends"
   extends ModelicaReference.Icons.Information;
@@ -6118,7 +6109,6 @@ of a package)</em>] and from <code>class</code>.</p>
 </html>"));
 end 'extends';
 
-
 class 'flow' "flow"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -6204,7 +6194,6 @@ type_prefix :
 whereas variables without the flow prefix are identical in a connection.</p>
 </html>"));
 end 'flow';
-
 
 class 'for' "for"
   extends ModelicaReference.Icons.Information;
@@ -6307,7 +6296,6 @@ prepending the reduction-expression with <code>'function-name('</code>.</p>
 </html>"));
 end 'for';
 
-
 class 'if' "if"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -6392,7 +6380,6 @@ type of the if-expression. If-expressions with <strong>elseif</strong> are defin
 </html>"));
 end 'if';
 
-
 class 'import' "import"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -6468,7 +6455,6 @@ The generated import names are:</p>
 <p><em>Especially the renaming and wildcard import statements should be avoided since they might lead to name-lookup conflicts.</em></p>
 </html>"));
 end 'import';
-
 
 class 'input' "input"
   extends ModelicaReference.Icons.Information;
@@ -6596,7 +6582,6 @@ The prefixes <strong>input</strong> and <strong>output</strong> have a slightly 
 </html>"));
 end 'input';
 
-
 class 'output' "output"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -6723,7 +6708,6 @@ The prefixes <strong>input</strong> and <strong>output</strong> have a slightly 
 
 </html>"));
 end 'output';
-
 
 class 'partial' "partial"
   extends ModelicaReference.Icons.Information;
@@ -7143,7 +7127,6 @@ the time instant at which the simulation is started.</p>
 </html>"));
 end 'time';
 
-
 class 'when' "when"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -7328,7 +7311,6 @@ parameter variable. The start-values of the special functions
 </html>"));
 end 'when';
 
-
 class 'while' "while"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -7368,7 +7350,6 @@ and is formally defined as follows</p>
 </html>"));
 end 'while';
 
-
 class Contact "Contact"
   extends ModelicaReference.Icons.Contact;
 
@@ -7394,7 +7375,6 @@ class Contact "Contact"
 </html>"));
 
 end Contact;
-
 
 package Icons "Library of icons"
   extends ModelicaReference.Icons.IconsPackage;
@@ -7487,7 +7467,6 @@ package Icons "Library of icons"
 </html>"));
   end Package;
 end Icons;
-
 
 annotation (
   DocumentationClass=true,
