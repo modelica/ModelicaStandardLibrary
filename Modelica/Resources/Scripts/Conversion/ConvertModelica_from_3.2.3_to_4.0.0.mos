@@ -1938,6 +1938,6 @@ convertElement("Modelica.Media.Interfaces.PartialTwoPhaseMedium.BaseProperties",
 convertElement("Modelica.Media.R134a.R134a_ph.BaseProperties", "R", "R_s")
 convertElement("Modelica.Media.Water.WaterIF97_base.BaseProperties", "R", "R_s")
 
-// Rename of NoiseExample -> Noise (see #3440)
+// Rename of NoiseExamples -> Noise (see #3440)
 convertClass("Modelica.Blocks.Examples.NoiseExamples",
              "Modelica.Blocks.Examples.Noise")
