@@ -1021,9 +1021,15 @@ Zeunerstra&szlig;e 38<br />
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-36,20})));
-      Basic.C_Capacitor c(C=1e-7)
+      Basic.C_Capacitor c(
+        C=1e-7,
+        IC=0,
+        UIC=true)
         annotation (Placement(transformation(extent={{-32,0},{-12,20}})));
-      Basic.C_Capacitor c1(C=1e-7)
+      Basic.C_Capacitor c1(
+        C=1e-7,
+        IC=0,
+        UIC=true)
         annotation (Placement(transformation(extent={{24,0},{44,20}})));
       Basic.R_Resistor r1(R=22000) annotation (Placement(
             transformation(
@@ -1147,7 +1153,10 @@ Zeunerstra&szlig;e 38<br />
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={60,50})));
-      Modelica.Electrical.Spice3.Basic.C_Capacitor C1(C=1e-6) annotation (
+      Modelica.Electrical.Spice3.Basic.C_Capacitor C1(
+        C=1e-6,
+        IC=0,
+        UIC=true) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
@@ -1167,7 +1176,10 @@ Zeunerstra&szlig;e 38<br />
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={60,-50})));
-      Modelica.Electrical.Spice3.Basic.C_Capacitor C2(C=2.e-3) annotation (
+      Modelica.Electrical.Spice3.Basic.C_Capacitor C2(
+        C=2.e-3,
+        IC=0,
+        UIC=true) annotation (
           Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
