@@ -6466,7 +6466,7 @@ class StateMachines "State Machines"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
-The state machines defined in the Modelica Language are based on the <a href=\"modelica://Synchronous\">synchronous language elements</a>.
+The state machines defined in the Modelica Language are based on the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
 Note that the state machines defined in the Modelica Standard Library are not based on this.
 </p>
 <h4>Examples</h4>
@@ -6745,11 +6745,11 @@ For further details, see the definition of the
 </html>"));
 end 'stream';
 
-class Synhronous "Synhronous Language Elements"
+class Synchronous "Synchronous Language Elements"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
-Synhronous language elements are added to Modelica as an alternative to normal <a href=\"modelica://'when'\">when</a>-clauses to
+Synchronous language elements are added to Modelica as an alternative to normal <a href=\"modelica://ModelicaReference.'when'\">when</a>-clauses to
 making modeling of complex sampled systems safer and easier.
 </p>
 <h4>Examples</h4>
@@ -6777,7 +6777,7 @@ At time instants where the associated clock is not active, the value of a clocke
 A detailed description of the Synchronous Language Elements are given in Chapter 16 of the
 <a href=\"https://www.modelica.org/documents/ModelicaSpec34.pdf\">Modelica Language Specification version 3.4</a>.
 </html>"));
-end Synhronous;
+end Synchronous;
 
 class 'time' "time"
   extends ModelicaReference.Icons.Information;
