@@ -1903,6 +1903,10 @@ convertClass("Modelica.SIunits.Conversions.NonSIunits.FirstOrderTemperaturCoeffi
 convertClass("Modelica.SIunits.Conversions.NonSIunits.SecondOrderTemperaturCoefficient",
              "Modelica.Units.SI.QuadraticTemperatureCoefficientResistance")
 
+// Rename of NoiseExamples -> Noise (see #3440)
+convertClass("Modelica.Blocks.Examples.NoiseExamples",
+             "Modelica.Blocks.Examples.Noise")
+
 // Automatically extended to handle derived classes
 convertElement("Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet", "quasiStationary", "quasiStatic")
 convertElement("Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited", "quasiStationary", "quasiStatic")
@@ -1937,7 +1941,3 @@ convertElement("Modelica.Media.Interfaces.PartialSimpleMedium.BaseProperties", "
 convertElement("Modelica.Media.Interfaces.PartialTwoPhaseMedium.BaseProperties", "R", "R_s")
 convertElement("Modelica.Media.R134a.R134a_ph.BaseProperties", "R", "R_s")
 convertElement("Modelica.Media.Water.WaterIF97_base.BaseProperties", "R", "R_s")
-
-// Rename of NoiseExamples -> Noise (see #3440)
-convertClass("Modelica.Blocks.Examples.NoiseExamples",
-             "Modelica.Blocks.Examples.Noise")
