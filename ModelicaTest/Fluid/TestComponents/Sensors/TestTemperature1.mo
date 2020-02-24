@@ -17,22 +17,19 @@ model TestTemperature1
     massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
     use_portsData=false,
     p_start=101325,
-    V=1e-3)      annotation (Placement(transformation(extent={{-30,30},{-10,50}})));
-
+    V=1e-3) annotation (Placement(transformation(extent={{-30,30},{-10,50}})));
   Modelica.Fluid.Sources.MassFlowSource_h source1(
     nPorts=1,
     m_flow=1,
     h=2e5,
     redeclare package Medium = Medium,
     use_m_flow_in=true)
-                   annotation (Placement(transformation(extent={{-68,30},{-48,
-            50}})));
-  Modelica.Fluid.Sensors.Temperature Tmix1(redeclare package Medium =
-        Medium)
+    annotation (Placement(transformation(extent={{-68,30},{-48,50}})));
+  Modelica.Fluid.Sensors.Temperature Tmix1(
+    redeclare package Medium = Medium)
     annotation (Placement(transformation(extent={{0,60},{20,80}})));
-  Modelica.Fluid.Sources.Boundary_ph sink1( nPorts=1,            redeclare
-      package Medium =
-               Medium,
+  Modelica.Fluid.Sources.Boundary_ph sink1( nPorts=1,
+    redeclare package Medium = Medium,
     h=5e4,
     p=101325)
     annotation (Placement(transformation(extent={{100,30},{80,50}})));
@@ -43,7 +40,7 @@ model TestTemperature1
     offset=-1,
     startTime=2,
     duration=10)
-               annotation (Placement(transformation(extent={{-100,30},{-80,50}})));
+    annotation (Placement(transformation(extent={{-100,30},{-80,50}})));
   Modelica.Fluid.Vessels.ClosedVolume volume2(
     use_T_start=false,
     redeclare package Medium = Medium,
@@ -53,25 +50,21 @@ model TestTemperature1
     massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
     use_portsData=false,
     p_start=101325,
-    V=1e-3)      annotation (Placement(transformation(extent={{-32,-30},{-12,
-            -10}})));
-
+    V=1e-3) annotation (Placement(transformation(extent={{-32,-30},{-12,-10}})));
   Modelica.Fluid.Sources.MassFlowSource_h source2(
     nPorts=1,
     m_flow=1,
     h=2e5,
     redeclare package Medium = Medium,
     use_m_flow_in=true)
-                   annotation (Placement(transformation(extent={{-68,-30},{-48,
-            -10}})));
-  Modelica.Fluid.Sources.Boundary_ph sink2(nPorts=1,            redeclare
-      package Medium =
-               Medium,
+    annotation (Placement(transformation(extent={{-68,-30},{-48,-10}})));
+  Modelica.Fluid.Sources.Boundary_ph sink2(nPorts=1,
+    redeclare package Medium = Medium,
     h=5e4,
     p=101325)
     annotation (Placement(transformation(extent={{100,-30},{80,-10}})));
-  Modelica.Fluid.Sensors.TemperatureTwoPort Tmix2(redeclare package Medium =
-        Medium) annotation (Placement(transformation(extent={{0,-30},{20,-10}})));
+  Modelica.Fluid.Sensors.TemperatureTwoPort Tmix2(
+    redeclare package Medium = Medium) annotation (Placement(transformation(extent={{0,-30},{20,-10}})));
   Modelica.Fluid.Fittings.SimpleGenericOrifice orifice1(
     redeclare package Medium = Medium,
     diameter=diameter_a,
@@ -82,7 +75,7 @@ model TestTemperature1
     diameter=diameter_a) annotation (Placement(transformation(extent={{40,-30},{60,-10}})));
   SI.TemperatureDifference Tdiff = Tmix2.T - Tmix1.T;
 equation
-  assert(abs(Tdiff)/50 < 1e-3, "OnePortTemperature and TwoPortTemperature shall give the same result");
+  assert(abs(Tdiff) < 0.1, "OnePortTemperature and TwoPortTemperature shall give the same result");
   connect(ramp.y, source1.m_flow_in)     annotation (Line(
       points={{-79,40},{-74,40},{-74,48},{-68,48}}, color={0,0,127}));
   connect(ramp.y, source2.m_flow_in)     annotation (Line(
