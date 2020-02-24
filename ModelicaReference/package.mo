@@ -2714,7 +2714,24 @@ The acos function can also be accessed as Modelica.Math.acos.
  = 1.5707963267949</pre></blockquote>
 </html>"));
   end 'acos()';
-
+  
+    class 'activeState()' "activeState()"
+extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+This operator returns true if state is active in a <a href=\"modelica://ModelicaReference.StateMachines\">state machine</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>activeState</strong>(state)</pre></blockquote>
+<h4>Description</h4>
+<p>
+Argument <strong>state</strong> is a block instance. 
+The operator returns <strong>true</strong>, if this instance is a state of a state machine and this state is active at the actual clock tick. 
+If it is not active, the operator returns <strong>false</strong>.
+</p>
+</html>"));
+  end 'activeState()';
+  
   class 'actualStream()' "actualStream()"
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
@@ -3781,6 +3798,20 @@ True during initialization
   off = x &lt; -2 or <strong>initial</strong>();</pre></blockquote>
 </html>"));
   end 'initial()';
+  
+  class 'initialState()' "initialState()"
+    extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Defines the initially active block instance of the <a href=\"modelica://ModelicaReference.StateMachines\">state machine</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>initialState</strong>(state)</pre></blockquote>
+<h4>Description</h4>
+<p>Argument <strong>state</strong> is the block instance that is defined to be the initial state of a state machine. 
+At the first clock tick of the state machine, this state becomes active. </p>
+</html>"));
+  end 'initialState()';
 
   class 'inStream()' "inStream()"
     extends ModelicaReference.Icons.Information;
@@ -4979,7 +5010,65 @@ give more complex stopping criteria than a fixed point in time.]</em></p>
 end</strong> ThrowingBall;</pre></blockquote>
 </html>"));
   end 'terminate()';
-
+  
+  class 'ticksInState()' "ticksInState()"
+extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+This operator returns the number of ticks since a transition was made to the active state in a <a href=\"modelica://ModelicaReference.StateMachines\">state machine</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>ticksInState</strong>()</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns the number of ticks of the clock of the state machine since a transition was made to the currently active state. 
+</p>
+</html>"));
+  end 'ticksInState()';
+  
+    class 'timeInState()' "timeInState()"
+extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+This operator returns the time (in seconds) since a transition was made to the active state in a <a href=\"modelica://ModelicaReference.StateMachines\">state machine</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>timeInState</strong>()</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns the time duration as Real in [s] since a transition was made to the currently active state.
+</p>
+</html>"));
+  end 'timeInState()';
+  
+  class 'transition()' "transition()"
+extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+This operator defines a transition in a <a href=\"modelica://ModelicaReference.StateMachines\">state machine</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>transition</strong>(from, to, condition, immediate, reset, synchronize, priority)</pre></blockquote>
+<h4>Description</h4>
+<p>
+This operator defines a transition from instance <strong>from</strong> to instance <strong>to</strong>. 
+The <strong>from</strong> and <strong>to</strong> instances become states of a state machine. 
+The transition fires when <strong>condition = true</strong> if <strong>immediate = true</strong> (this is called an immediate transition) 
+or <strong>previous(condition)</strong> when <strong>immediate = false</strong> (this is called a delayed transition). 
+Argument <strong>priority</strong> defines the priority of firing when several transitions could fire. 
+In this case the transition with the smallest value of <strong>priority<strong> fires. 
+It is required that priority is greater or equal to 1 and that for all transitions from the same state, the priorities are different. 
+If <strong>reset = true</strong>, the states of the target state are reinitialized, i.e. state machines are restarted in initial state and state variables are reset to their start values. If synchronize=true, any transition is disabled until all state machines of the from-state have reached final states, i.e. states without outgoing transitions.
+</p>
+<p>
+Arguments <strong>from</strong> and <strong>to</strong> are block instances and <strong>condition</strong>
+is a Boolean argument. The optional arguments <strong>immediate</strong>, <strong>reset</strong>, and <strong>synchronize</strong>
+are of type Boolean, have parametric variability and a default of true, true, false respectively. 
+The optional argument <strong>priority</strong> is of type Integer, has parametric variability and a default of 1. 
+</p>
+</html>"));
+  end 'transition()';
+  
   class 'transpose()' "transpose()"
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
@@ -6492,7 +6581,7 @@ equation
 In this example we will start in <strong>increase</strong> and increase <strong>v</strong> until a limit, and then decrease it, and repeat.
 
 <h4>Description</h4>
-A detailed description of the Synchronous Language Elements are given in Chapter 17 of the
+A detailed description of the State Machines using Synchronous Language Elements are given in Chapter 17 of the
 <a href=\"https://www.modelica.org/documents/ModelicaSpec34.pdf\">Modelica Language Specification version 3.4</a>.
 </html>"));
 end StateMachines;
