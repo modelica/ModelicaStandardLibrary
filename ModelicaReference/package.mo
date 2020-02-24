@@ -3086,7 +3086,7 @@ The same restrictions as for the pre() operator apply.</p>
   end 'change()';
 
   class 'Clock()' "Clock()"
-  extends ModelicaReference.Icons.Information;
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Generates clocks as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
@@ -3227,7 +3227,7 @@ connected as a pair of scalar connectors.</p>
   end 'connect()';
 
   class 'Connections.branch()' "Connections.branch()"
-      extends ModelicaReference.Icons.Information;
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Defines <em>required</em> branch of spanning-tree
@@ -3256,7 +3256,7 @@ This definition shall be used if in a model with connectors <code>A</code> and <
   end 'Connections.branch()';
 
   class 'Connections.root()' "Connections.root()"
-      extends ModelicaReference.Icons.Information;
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Defines a <em>definite</em> root node.
@@ -3279,7 +3279,7 @@ This definition shall be used if in a model with connector <code>A</code> the ov
   end 'Connections.root()';
 
   class 'Connections.potentialRoot()' "Connection.potentialRoot()"
-      extends ModelicaReference.Icons.Information;
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Defines a <em>potential</em> root node.
@@ -3305,7 +3305,7 @@ This definition may  be used if in a model with connector <code>A</code> the ove
   end 'Connections.potentialRoot()';
 
   class 'Connections.isRoot()' "Connections.isRoot()"
-      extends ModelicaReference.Icons.Information;
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Returns root status.
@@ -3323,7 +3323,7 @@ Returns true, if the overdetermined type or record instance <code>R</code> in co
   end 'Connections.isRoot()';
 
   class 'Connections.rooted()' "Connections.rooted()"
-      extends ModelicaReference.Icons.Information;
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Returns which node of a connection branch is closer to root.
@@ -3643,7 +3643,7 @@ Boolean vb[3]   = fill(true,3);  // = {true, true, true}
   end 'fill()';
 
   class 'firstTick()' "firstTick()"
-  extends ModelicaReference.Icons.Information;
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Returns true for the first tick of the clock, part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
@@ -3678,10 +3678,10 @@ value changes discontinuously.]</em></p>
   end 'floor()';
 
   class 'hold()' "hold()"
-  extends ModelicaReference.Icons.Information;
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Returns a piecewise constant signal based ona  clocked variable as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+Returns a piecewise constant signal based on a clocked variable as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
 </p>
 <h4>Syntax</h4>
 <blockquote><pre><strong>hold</strong>(u)</pre></blockquote>
@@ -4091,7 +4091,7 @@ when the return value changes discontinuously.]</em></p>
   end 'integer()';
 
   class 'interval()' "interval()"
-  extends ModelicaReference.Icons.Information;
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
@@ -4214,7 +4214,6 @@ C[i_1, ..., i_nA, 1, ..., 1] = A[i_1, ..., i_nA].
 
   class 'max()' "max()"
     extends ModelicaReference.Icons.Information;
-
     annotation (Documentation(info="<html>
 <p>
 Returns the largest element
@@ -4323,7 +4322,7 @@ Integer n = ndims(A);  // = 3
   end 'ndims()';
 
   class 'noClock()' "noClock()"
-  extends ModelicaReference.Icons.Information;
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
@@ -4465,7 +4464,7 @@ for continuous-time variables inside when-clauses.
   end 'pre()';
 
   class 'previous()' "previous()"
-  extends ModelicaReference.Icons.Information;
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Gives the previous value of a clocked expression as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
@@ -4641,8 +4640,8 @@ expressions and need to be a subtype of Real or Integer.
 </html>"));
   end 'sample()';
 
-    class 'sample()clocked' "sample() Clocked"
-  extends ModelicaReference.Icons.Information;
+  class 'sample()clocked' "sample() Clocked"
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Samples a value according to a clock as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
@@ -4768,7 +4767,7 @@ flow direction.]</em>
   end 'semiLinear()';
 
   class 'shiftSample()' "shiftSample()"
-  extends ModelicaReference.Icons.Information;
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Shifts a clocked expressions to delay it as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
@@ -5049,7 +5048,7 @@ String(123, minimumLength=6, leftJustified=false)  // = \"   123\"
   end 'String()';
 
   class 'subSample()' "subSample()"
-  extends ModelicaReference.Icons.Information;
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Subsamples a clocked expressions as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
@@ -5103,8 +5102,8 @@ u, ..., j <strong>in</strong> v) is the same as the type of e(i,...j).
 </html>"));
   end 'sum()';
 
-    class 'superSample()' "superSample()"
-  extends ModelicaReference.Icons.Information;
+  class 'superSample()' "superSample()"
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Supersamples a clocked expressions as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
@@ -5241,7 +5240,7 @@ end</strong> ThrowingBall;</pre></blockquote>
   end 'terminate()';
 
   class 'ticksInState()' "ticksInState()"
-extends ModelicaReference.Icons.Information;
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 This operator returns the number of ticks since a transition was made to the active state in a <a href=\"modelica://ModelicaReference.StateMachines\">state machine</a>.
@@ -5255,8 +5254,8 @@ Returns the number of ticks of the clock of the state machine since a transition
 </html>"));
   end 'ticksInState()';
 
-    class 'timeInState()' "timeInState()"
-extends ModelicaReference.Icons.Information;
+  class 'timeInState()' "timeInState()"
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 This operator returns the time (in seconds) since a transition was made to the active state in a <a href=\"modelica://ModelicaReference.StateMachines\">state machine</a>.
@@ -5271,7 +5270,7 @@ Returns the time duration as Real in [s] since a transition was made to the curr
   end 'timeInState()';
 
   class 'transition()' "transition()"
-extends ModelicaReference.Icons.Information;
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 This operator defines a transition in a <a href=\"modelica://ModelicaReference.StateMachines\">state machine</a>.
@@ -6018,7 +6017,7 @@ another kind):</p>
   <td style=\"background-color:lightgray\">yes</td>
 </tr>
 <tr>
-  <td>exapandable<br>connector</td>
+  <td>expandable<br>connector</td>
   <td></td>
   <td></td>
   <td></td>
