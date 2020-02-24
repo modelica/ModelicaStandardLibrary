@@ -2956,8 +2956,6 @@ Shifts a clocked expressions to undo a delay as part of the <a href=\"modelica:/
   Real x3=backSample(x2, 1, 3);
   // Same as x.
 </pre></blockquote>
-<p>
-</p>
 </html>"));
   end 'backSample()';
 
@@ -4791,8 +4789,6 @@ Shifts a clocked expressions to delay it as part of the <a href=\"modelica://Mod
   Real x2=shiftSample(x, 1, 3);
   // Ticks at 1/10 with value 0/10, and at 4/10 with value 3/10 etc
 </pre></blockquote>
-<p>
-</p>
 </html>"));
   end 'shiftSample()';
 
