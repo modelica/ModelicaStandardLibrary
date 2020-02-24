@@ -1449,8 +1449,7 @@ Compare the sinc signal and an exponentially damped sine.
 </html>"));
   end CompareSincExpSine;
 
-  package NoiseExamples
-    "Library of examples to demonstrate the usage of package Blocks.Noise"
+  package Noise "Library of examples to demonstrate the usage of package Blocks.Noise"
     extends Modelica.Icons.ExamplesPackage;
 
     model UniformNoise
@@ -2044,8 +2043,7 @@ generator. Simulation results are shown in the next figure:
         v_rel(fixed=true),
         s_rel(fixed=true))
                  annotation (Placement(transformation(extent={{22,-10},{42,10}})));
-      inner Noise.GlobalSeed globalSeed(enableNoise=true)
-        annotation (Placement(transformation(extent={{60,60},{80,80}})));
+      inner .Modelica.Blocks.Noise.GlobalSeed globalSeed(enableNoise=true) annotation (Placement(transformation(extent={{60,60},{80,80}})));
     equation
       connect(controller.y1, motor.iq_rms1) annotation (Line(
           points={{-81,50},{-94,50},{-94,6},{-88,6}}, color={0,0,127}));
@@ -2618,7 +2616,7 @@ random number generator. This block is used in the example
           output Real w(unit="rad/s")=speedSensor.w "Rotational speed";
           Modelica.Blocks.Math.Add addNoise
             annotation (Placement(transformation(extent={{60,70},{80,90}})));
-          Noise.UniformNoise uniformNoise(
+          .Modelica.Blocks.Noise.UniformNoise uniformNoise(
             samplePeriod=1/200,
             y_min=-0.01,
             y_max=0.01) annotation (Placement(transformation(extent={{26,76},{46,96}})));
@@ -2879,7 +2877,7 @@ to utilize the blocks from sublibrary
 
 </table>
 </html>"));
-  end NoiseExamples;
+  end Noise;
 
   package BusUsage_Utilities
     "Utility models and connectors for example Modelica.Blocks.Examples.BusUsage"

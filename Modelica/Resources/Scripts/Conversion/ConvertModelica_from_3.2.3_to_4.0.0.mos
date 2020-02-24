@@ -255,7 +255,7 @@ convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresis",
               "Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresis")
 convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresisTellinen",
               "Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresisTellinen")
-// Issues #3300, #3424              
+// Issues #3300, #3424
 convertModifiers({"Modelica.Magnetic.FluxTubes.Basic.LeakageWithCoefficient",
                   "Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient"},
                   fill("",0), {"c_usefulFlux=0.7"})
@@ -1902,6 +1902,10 @@ convertClass("Modelica.SIunits.Conversions.NonSIunits.FirstOrderTemperaturCoeffi
               "Modelica.Units.SI.LinearTemperatureCoefficientResistance")
 convertClass("Modelica.SIunits.Conversions.NonSIunits.SecondOrderTemperaturCoefficient",
              "Modelica.Units.SI.QuadraticTemperatureCoefficientResistance")
+
+// Rename of NoiseExamples -> Noise (see #3440)
+convertClass("Modelica.Blocks.Examples.NoiseExamples",
+             "Modelica.Blocks.Examples.Noise")
 
 // Automatically extended to handle derived classes
 convertElement("Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet", "quasiStationary", "quasiStatic")
