@@ -1,8 +1,6 @@
 within Modelica.Electrical;
 package Spice3 "Library for components of the Berkeley SPICE3 simulator"
-
-
-extends Modelica.Icons.Package;
+  extends Modelica.Icons.Package;
 
   package UsersGuide "User's Guide"
     extends Modelica.Icons.Information;
@@ -306,24 +304,24 @@ Zeunerstra&szlig;e 38<br />
             rotation=270,
             origin={40,-4})));
     equation
-      connect(mn.D,mp. S) annotation (Line(
+      connect(mn.D, mp.S) annotation (Line(
           points={{-4,-14},{-4,8}}, color={0,0,255}));
-      connect(mp.G,mn. G) annotation (Line(
+      connect(mp.G, mn.G) annotation (Line(
           points={{-14,17.9},{-14,-24.1}}, color={0,0,255}));
-      connect(mn.S,mn. B) annotation (Line(
+      connect(mn.S, mn.B) annotation (Line(
           points={{-4,-34},{6,-34},{6,-24}}));
-      connect(mp.B,mp. D) annotation (Line(
+      connect(mp.B, mp.D) annotation (Line(
           points={{6,18},{6,28},{-4,28}}, color={0,0,255}));
       connect(mn.S, ground.p) annotation (Line(
           points={{-4,-34},{-4,-40}}));
-      connect(v.p,mp. D) annotation (Line(
+      connect(v.p, mp.D) annotation (Line(
           points={{40,6},{40,28},{-4,28}}, color={0,0,255}));
-      connect(v.n, ground.p) annotation (Line(
-          points={{40,-14},{40,-40},{-4,-40}}));
-      connect(vin.p,mp. G) annotation (Line(
+      connect(v.n, ground.p) annotation (Line(points={{40,-14},{40,-40},{-4,-40}},
+            color={0,0,255}));
+      connect(vin.p, mp.G) annotation (Line(
           points={{-40,-6},{-40,17.9},{-14,17.9}}, color={0,0,255}));
-      connect(vin.n, ground.p) annotation (Line(
-          points={{-40,-26},{-40,-40},{-4,-40}}));
+      connect(vin.n, ground.p) annotation (Line(points={{-40,-26},{-40,-40},{-4,
+              -40}}, color={0,0,255}));
       annotation (experiment(
           StopTime=1e-11,
           Interval=5e-15,
@@ -418,14 +416,14 @@ Zeunerstra&szlig;e 38<br />
               -60}}, color={0,0,255}));
       connect(mp1.G, vin.p) annotation (Line(
           points={{-38,29.9},{-60,29.9},{-60,-22}}, color={0,0,255}));
-      connect(vin.n, ground.p) annotation (Line(
-          points={{-60,-42},{-60,-60},{-28,-60}}));
+      connect(vin.n, ground.p) annotation (Line(points={{-60,-42},{-60,-60},{-28,
+              -60}}, color={0,0,255}));
       connect(v.p, mp2.D) annotation (Line(
           points={{60,-22},{60,40},{12,40}}, color={0,0,255}));
       connect(mp1.D, mp2.D) annotation (Line(
           points={{-28,40},{12,40}}, color={0,0,255}));
-      connect(v.n, ground.p) annotation (Line(
-          points={{60,-42},{60,-60},{-28,-60}}));
+      connect(v.n, ground.p) annotation (Line(points={{60,-42},{60,-60},{-28,-60}},
+            color={0,0,255}));
       annotation (experiment(StopTime=5),
         Documentation(info="<html>
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit <em>InverterApartModel</em> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
@@ -455,7 +453,7 @@ Zeunerstra&szlig;e 38<br />
         parameter Semiconductors.ModelcardMOS M(GAMMA=0.37, CBD=0, CBS=0);
         extends Semiconductors.M_PMOS(modelcard=M);
         annotation (Documentation(info="<html>
-<p>This model MPmos is inherited by the model <em>InverterExtendedModel</em> to build an inverter circuit. For detailed information</p><p>please see <em>InverterExtendedModel</em>.</p>
+<p>This model MPmos is inherited by the model <em>InverterExtendedModel</em> to build an inverter circuit. For detailed information please see <em>InverterExtendedModel</em>.</p>
 </html>"));
       end MPmos;
 
@@ -463,7 +461,7 @@ Zeunerstra&szlig;e 38<br />
         parameter Semiconductors.ModelcardMOS M(GAMMA=0.37, LAMBDA=0.02, CBD=0, CBS=0);
         extends Semiconductors.M_NMOS(modelcard=M);
         annotation (Documentation(info="<html>
-<p>This model MNmos is inherited by the model <em>InverterExtendedModel</em> to build an inverter circuit. For detailed information</p><p>please see <em>InverterExtendedModel</em>.</p>
+<p>This model MNmos is inherited by the model <em>InverterExtendedModel</em> to build an inverter circuit. For detailed information please see <em>InverterExtendedModel</em>.</p>
 </html>"));
       end MNmos;
 
@@ -523,14 +521,14 @@ Zeunerstra&szlig;e 38<br />
               -60}}, color={0,0,255}));
       connect(vin.p, mp1.G) annotation (Line(
           points={{-60,-12},{-60,26},{-40,26},{-40,29.9}}, color={0,0,255}));
-      connect(vin.n, ground.p) annotation (Line(
-          points={{-60,-32},{-60,-60},{-30,-60}}));
+      connect(vin.n, ground.p) annotation (Line(points={{-60,-32},{-60,-60},{-30,
+              -60}}, color={0,0,255}));
       connect(v.p, mp2.D) annotation (Line(
           points={{56,-12},{56,40},{10,40}}, color={0,0,255}));
       connect(mp2.D, mp1.D) annotation (Line(
           points={{10,40},{-30,40}}, color={0,0,255}));
-      connect(v.n, ground.p) annotation (Line(
-          points={{56,-32},{56,-60},{-30,-60}}));
+      connect(v.n, ground.p) annotation (Line(points={{56,-32},{56,-60},{-30,-60}},
+            color={0,0,255}));
       annotation (experiment(StopTime=5),
         Documentation(info="<html>
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit <em>InverterExtendedModel</em> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
@@ -673,12 +671,12 @@ Zeunerstra&szlig;e 38<br />
               -20.1},{-34,-20.1}}, color={0,0,255}));
       connect(vin.p, mn1.G) annotation (Line(
           points={{-86,-32},{-86,0},{-74,0},{-74,-20.1}}, color={0,0,255}));
-      connect(vin.n, ground.p) annotation (Line(
-          points={{-86,-52},{-86,-60},{-64,-60}}));
+      connect(vin.n, ground.p) annotation (Line(points={{-86,-52},{-86,-60},{-64,
+              -60}}, color={0,0,255}));
       connect(v.p, mp4.D) annotation (Line(
           points={{92,-38},{92,40},{56,40}}, color={0,0,255}));
-      connect(v.n, ground.p) annotation (Line(
-          points={{92,-58},{92,-60},{-64,-60}}));
+      connect(v.n, ground.p) annotation (Line(points={{92,-58},{92,-60},{-64,-60}},
+            color={0,0,255}));
       connect(mp3.D, mp4.D) annotation (Line(
           points={{16,40},{56,40}}, color={0,0,255}));
       connect(mp2.D, mp3.D) annotation (Line(
@@ -910,8 +908,8 @@ Zeunerstra&szlig;e 38<br />
           points={{4,4},{4,34}}, color={0,0,255}));
       connect(v.p, mp1.D) annotation (Line(
           points={{62,44},{-6,44}}, color={0,0,255}));
-      connect(v.n, ground.p) annotation (Line(
-          points={{62,24},{62,-80},{38,-80}}));
+      connect(v.n, ground.p) annotation (Line(points={{62,24},{62,-80},{38,-80}},
+            color={0,0,255}));
       annotation (Documentation(info="<html>
 <p>In nearly every electronic the basic circuit &quot;nor&quot; is used. A nor contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two input voltages have low potential, the output voltage has high potential, otherwise the output voltage has low potential.</p>
 <p>Nor truth table (1 means true, it is represented by the 5V voltage):</p>
@@ -983,20 +981,20 @@ Zeunerstra&szlig;e 38<br />
       Basic.Ground ground
         annotation (Placement(transformation(extent={{-30,-60},{-10,-40}})));
     equation
-      connect(D1.n, D3.p) annotation (Line(
-          points={{10,14},{20,14},{20,2}}));
+      connect(D1.n, D3.p) annotation (Line(points={{10,14},{20,14},{20,2}},
+            color={0,0,255}));
       connect(D2.p, D1.p) annotation (Line(
           points={{-20,2},{-20,14},{-10,14}}, color={0,0,255}));
-      connect(D4.n, D3.n) annotation (Line(
-          points={{11,-30},{20,-30},{20,-18}}));
+      connect(D4.n, D3.n) annotation (Line(points={{11,-30},{20,-30},{20,-18}},
+            color={0,0,255}));
       connect(D4.p, D2.n) annotation (Line(
           points={{-9,-30},{-20,-30},{-20,-18}}, color={0,0,255}));
       connect(D4.p, ground.p) annotation (Line(
           points={{-9,-30},{-20,-30},{-20,-40}}, color={0,0,255}));
-      connect(vsin.n, ground.p) annotation (Line(
-          points={{-44,-18},{-44,-40},{-20,-40}}));
-      connect(D4.n, rout.p) annotation (Line(
-          points={{11,-30},{42,-30},{42,-17}}));
+      connect(vsin.n, ground.p) annotation (Line(points={{-44,-18},{-44,-40},{-20,
+              -40}}, color={0,0,255}));
+      connect(D4.n, rout.p) annotation (Line(points={{11,-30},{42,-30},{42,-17}},
+            color={0,0,255}));
       connect(rout.n, D1.p) annotation (Line(
           points={{42,3},{42,26},{-20,26},{-20,14},{-10,14}}, color={0,0,255}));
       connect(D3.p, vsin.p) annotation (Line(
@@ -1074,20 +1072,20 @@ Zeunerstra&szlig;e 38<br />
             origin={-68,20})));
 
     equation
-      connect(r.n,r1. n) annotation (Line(
-          points={{-36,30},{-6,30}}));
-      connect(r1.n,r2. n) annotation (Line(
-          points={{-6,30},{18,30}}));
-      connect(r2.n,r3. n) annotation (Line(
-          points={{18,30},{50,30}}));
-      connect(r.p,c. p) annotation (Line(
+      connect(r.n, r1.n) annotation (Line(
+          points={{-36,30},{-6,30}}, color={0,0,255}));
+      connect(r1.n, r2.n) annotation (Line(
+          points={{-6,30},{18,30}}, color={0,0,255}));
+      connect(r2.n, r3.n) annotation (Line(
+          points={{18,30},{50,30}}, color={0,0,255}));
+      connect(r.p, c.p) annotation (Line(
           points={{-36,10},{-32,10}}, color={0,0,255}));
-      connect(c.n,r1. p) annotation (Line(
-          points={{-12,10},{-6,10}}));
-      connect(r2.p,c1. p) annotation (Line(
+      connect(c.n, r1.p) annotation (Line(
+          points={{-12,10},{-6,10}}, color={0,0,255}));
+      connect(r2.p, c1.p) annotation (Line(
           points={{18,10},{24,10}}, color={0,0,255}));
-      connect(c1.n,r3. p) annotation (Line(
-          points={{44,10},{50,10}}));
+      connect(c1.n, r3.p) annotation (Line(
+          points={{44,10},{50,10}}, color={0,0,255}));
       connect(r1.p, T2.B) annotation (Line(
           points={{-6,10},{-6,-30},{30.4,-30}}, color={0,0,255}));
       connect(r2.p, T1.B) annotation (Line(
@@ -1095,9 +1093,9 @@ Zeunerstra&szlig;e 38<br />
       connect(T1.C, r.p) annotation (Line(
           points={{-33,-34},{-48,-34},{-48,10},{-36,10}}, color={0,0,255}));
       connect(T1.E, ground1.p) annotation (Line(
-          points={{-33,-14},{-68,-14}}));
+          points={{-33,-14},{-68,-14}}, color={0,0,255}));
       connect(T2.E, ground2.p) annotation (Line(
-          points={{43,-40},{60,-40}}));
+          points={{43,-40},{60,-40}}, color={0,0,255}));
       connect(r3.p, T2.C) annotation (Line(
           points={{50,10},{50,-20},{43,-20}}, color={0,0,255}));
       connect(r3.p, r4.p) annotation (Line(
@@ -1107,7 +1105,7 @@ Zeunerstra&szlig;e 38<br />
       connect(v.p, r.n) annotation (Line(
           points={{-68,30},{-36,30}}, color={0,0,255}));
       connect(v.n, ground1.p) annotation (Line(
-          points={{-68,10},{-68,-14}}));
+          points={{-68,10},{-68,-14}}, color={0,0,255}));
       annotation (
         experiment(StopTime=0.025),
         Documentation(info="<html>
