@@ -2943,7 +2943,7 @@ The atan2 function can also be accessed as Modelica.Math.atan2.
 Shifts a clocked expressions to undo a delay as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
 </p>
 <h4>Syntax</h4>
-<blockquote><pre><strong>backSample</strong>(u, shiftCounter, resolution)<pre></blockquote>
+<blockquote><pre><strong>backSample</strong>(u, shiftCounter, resolution)</pre></blockquote>
 <h4>Examples</h4>
 <blockquote><pre>
 
@@ -3651,7 +3651,7 @@ Boolean vb[3]   = fill(true,3);  // = {true, true, true}
 Returns true for the first tick of the clock, part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
 </p>
 <h4>Syntax</h4>
-<blockquote><pre><strong>firstTick</strong>(u)<pre></blockquote>
+<blockquote><pre><strong>firstTick</strong>(u)</pre></blockquote>
 <h4>Description</h4>
 <p>
 This operator returns <strong>true</strong> at the first tick of the clock of the expression, in which this operator is called.
@@ -3686,7 +3686,7 @@ value changes discontinuously.]</em></p>
 Returns a piecewise constant signal based ona  clocked variable as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
 </p>
 <h4>Syntax</h4>
-<blockquote><pre><strong>hold</strong>(u)<pre></blockquote>
+<blockquote><pre><strong>hold</strong>(u)</pre></blockquote>
 <h4>Description</h4>
 <p>
 Input argument <strong>u</strong> is a clocked Component Expression or a parameter expression.
@@ -4099,7 +4099,7 @@ when the return value changes discontinuously.]</em></p>
 Part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
 </p>
 <h4>Syntax</h4>
-<blockquote><pre><strong>interval</strong>(u)<pre></blockquote>
+<blockquote><pre><strong>interval</strong>(u)</pre></blockquote>
 <h4>Description</h4>
 <p>
 This operator returns the interval between the previous and present tick of the clock of the expression, in which this operator is called.
@@ -4331,7 +4331,7 @@ Integer n = ndims(A);  // = 3
 Part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
 </p>
 <h4>Syntax</h4>
-<blockquote><pre><strong>noClock</strong>(u)<pre></blockquote>
+<blockquote><pre><strong>noClock</strong>(u)</pre></blockquote>
 <h4>Description</h4>
 <p>
 The clock of <strong>y = noClock(u)</strong> is always inferred.
@@ -4473,7 +4473,7 @@ for continuous-time variables inside when-clauses.
 Gives the previous value of a clocked expression as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
 </p>
 <h4>Syntax</h4>
-<blockquote><pre><strong>previous</strong>(u)<pre></blockquote>
+<blockquote><pre><strong>previous</strong>(u)</pre></blockquote>
 <h4>Description</h4>
 <p>
 The return argument has the same type as the input argument.
@@ -4650,8 +4650,8 @@ expressions and need to be a subtype of Real or Integer.
 Samples a value according to a clock as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
 </p>
 <h4>Syntax</h4>
-<blockquote><pre><strong>sample</strong>(u)<pre></blockquote>
-<blockquote><pre><strong>sample</strong>(u, c)<pre></blockquote>
+<blockquote><pre><strong>sample</strong>(u)</pre></blockquote>
+<blockquote><pre><strong>sample</strong>(u, c)</pre></blockquote>
 <h4>Description</h4>
 <p>
  The operator returns a clocked variable that has c as associated clock and has the value of the
@@ -4776,7 +4776,7 @@ flow direction.]</em>
 Shifts a clocked expressions to delay it as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
 </p>
 <h4>Syntax</h4>
-<blockquote><pre><strong>shiftSample</strong>(u, shiftCounter, resolution)<pre></blockquote>
+<blockquote><pre><strong>shiftSample</strong>(u, shiftCounter, resolution)</pre></blockquote>
 <h4>Examples</h4>
 <blockquote><pre>
   Clock u  = Clock(3, 10);
@@ -5059,7 +5059,7 @@ String(123, minimumLength=6, leftJustified=false)  // = \"   123\"
 Subsamples a clocked expressions as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
 </p>
 <h4>Syntax</h4>
-<blockquote><pre><strong>subSample</strong>(u, factor)<pre></blockquote>
+<blockquote><pre><strong>subSample</strong>(u, factor)</pre></blockquote>
 <h4>Description</h4>
 <p>
 The clock of <strong>y = subSample(u,factor)</strong> is <strong>factor</strong>-times slower than the clock of <strong>u</strong>.
@@ -5114,7 +5114,7 @@ u, ..., j <strong>in</strong> v) is the same as the type of e(i,...j).
 Supersamples a clocked expressions as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
 </p>
 <h4>Syntax</h4>
-<blockquote><pre><strong>superSample</strong>(u, factor)<pre></blockquote>
+<blockquote><pre><strong>superSample</strong>(u, factor)</pre></blockquote>
 <h4>Description</h4>
 <p>
 The clock of <strong>y = superSample(u,factor)</strong> is <strong>factor</strong>-times faster than the clock of <strong>u</strong>.
