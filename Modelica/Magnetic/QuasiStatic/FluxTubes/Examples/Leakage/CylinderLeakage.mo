@@ -20,9 +20,9 @@ model CylinderLeakage "Testing cylinder leakage models"
            annotation (Placement(transformation(extent={{20,-10},{40,10}})));
   Shapes.Leakage.QuarterCylinder quarterCylinder2(l=2*pi*0.1)
     annotation (Placement(transformation(extent={{50,-10},{70,10}})));
-  Sources.ConstantMagneticFlux constantSource(f=50, Phi=Complex(re=5E-3,
-      im=0))
-  annotation (Placement(transformation(extent={{-50,-10},{-70,10}})));
+  Sources.ConstantMagneticFlux constantSource(
+    gamma(fixed=true, start=0), f=50, Phi=Complex(re=5E-3, im=0))
+    annotation (Placement(transformation(extent={{-50,-10},{-70,10}})));
   Basic.Ground ground1 annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
