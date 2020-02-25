@@ -12,9 +12,7 @@ BalancedModel
 'input'
 'output'
 'partial'
-StateMachines
 'stream'
-Synchronous
 'time'
 'when'
 'while'
