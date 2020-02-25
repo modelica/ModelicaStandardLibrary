@@ -2,7 +2,6 @@ within ;
 package ModelicaReference "Modelica Reference"
 extends ModelicaReference.Icons.Information;
 
-
 class ModelicaGrammar "Modelica Grammar"
   extends ModelicaReference.Icons.Information;
 
@@ -332,7 +331,6 @@ readability. The following typographic conventions are used:</p>
 </p>
 </body></html>"));
 end ModelicaGrammar;
-
 
 package Annotations "Annotations"
   extends ModelicaReference.Icons.Information;
@@ -1931,8 +1929,6 @@ The external C-functions may be defined in the following way:
   class 'function' "function"
     extends ModelicaReference.Icons.Information;
 
-
-
 class 'function partial application' "function partial application"
     extends ModelicaReference.Icons.Information;
 
@@ -2715,6 +2711,23 @@ The acos function can also be accessed as Modelica.Math.acos.
 </html>"));
   end 'acos()';
 
+    class 'activeState()' "activeState()"
+extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+This operator returns true if state is active in a <a href=\"modelica://ModelicaReference.StateMachines\">state machine</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>activeState</strong>(state)</pre></blockquote>
+<h4>Description</h4>
+<p>
+Argument <strong>state</strong> is a block instance.
+The operator returns <strong>true</strong>, if this instance is a state of a state machine and this state is active at the actual clock tick.
+If it is not active, the operator returns <strong>false</strong>.
+</p>
+</html>"));
+  end 'activeState()';
+
   class 'actualStream()' "actualStream()"
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
@@ -2725,7 +2738,6 @@ The <code><strong>actualStream</strong>(v)</code> operator is provided for conve
 <strong>actualStream</strong>(port.h_outflow) = <strong>if</strong> port.m_flow &gt; 0 <strong>then inStream</strong>(port.h_outflow)
                                                   <strong>else</strong> port.h_outflow;
 </pre></blockquote>
-
 
 <h4>Example</h4>
 <p>
@@ -2924,6 +2936,29 @@ The atan2 function can also be accessed as Modelica.Math.atan2.
 </html>"));
   end 'atan2()';
 
+  class 'backSample()' "backSample()"
+  extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Shifts a clocked expressions to undo a delay as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>backSample</strong>(u, shiftCounter, resolution)</pre></blockquote>
+<h4>Examples</h4>
+<blockquote><pre>
+
+  Real x=sample(time, u);
+  // Ticks at 0, 3/10, 6/10 with values corresponding to time
+
+  Real x2=shiftSample(x, 1, 3);
+  // Ticks at 1/10 with value 0/10, and at 4/10 with value 3/10 etc
+
+  Real x3=backSample(x2, 1, 3);
+  // Same as x.
+</pre></blockquote>
+</html>"));
+  end 'backSample()';
+
   class 'cardinality()' "cardinality()"
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
@@ -3050,6 +3085,47 @@ The same restrictions as for the pre() operator apply.</p>
 </html>"));
   end 'change()';
 
+  class 'Clock()' "Clock()"
+    extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Generates clocks as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+</p>
+<h4>Examples</h4>
+<blockquote><pre>
+  Clock c=Clock(2, 1000); // Defines a clock variable
+  Real interval1(start=2e-3);
+equation
+  when Clock() then
+    // Inferred Clock
+    x=A*previous(x)+B*u;
+  end when;
+  when Clock(2,1000) then
+    // periodic clock that ticks at 0, 0.002, 0.004, ...
+    // Could also use when c then
+    y1 = previous(y1) + 1;
+  end when;
+  when Clock(interval1) then
+    // Clock with a Real interval
+    // The clock starts at the start of the simulation, tstart, or when the controller is switched on.
+    // Here the next clock tick is scheduled at previous(interval1)=interval1.start=2e-3
+    // At the second clock tick at tstart+interval1.start the next clock tick is scheduled at
+    // previous(interval1)=5e-3
+    interval1=previous(interval1)+3e-3;
+  end when;
+  when Clock(angle>0, 0.1) then
+    // clock with a boolean interval, triggers when angle>0 becomes true.
+    y2 = previous(y2) + 1;
+  end when;
+  when Clock(c, \"ImplicitTrapezoid\") then
+    // Solver Clock
+    // Ticks at the same rate as c but uses the ImplicitTrapezoid method to solve the differential equations
+    der(x)=x;
+  end when;
+</pre></blockquote>
+</html>"));
+  end 'Clock()';
+
   class 'connect()' "connect()"
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
@@ -3138,7 +3214,7 @@ connected as a pair of scalar connectors.</p>
   end 'connect()';
 
   class 'Connections.branch()' "Connections.branch()"
-      extends ModelicaReference.Icons.Information;
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Defines <em>required</em> branch of spanning-tree
@@ -3167,7 +3243,7 @@ This definition shall be used if in a model with connectors <code>A</code> and <
   end 'Connections.branch()';
 
   class 'Connections.root()' "Connections.root()"
-      extends ModelicaReference.Icons.Information;
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Defines a <em>definite</em> root node.
@@ -3190,7 +3266,7 @@ This definition shall be used if in a model with connector <code>A</code> the ov
   end 'Connections.root()';
 
   class 'Connections.potentialRoot()' "Connection.potentialRoot()"
-      extends ModelicaReference.Icons.Information;
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Defines a <em>potential</em> root node.
@@ -3216,7 +3292,7 @@ This definition may  be used if in a model with connector <code>A</code> the ove
   end 'Connections.potentialRoot()';
 
   class 'Connections.isRoot()' "Connections.isRoot()"
-      extends ModelicaReference.Icons.Information;
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Returns root status.
@@ -3234,7 +3310,7 @@ Returns true, if the overdetermined type or record instance <code>R</code> in co
   end 'Connections.isRoot()';
 
   class 'Connections.rooted()' "Connections.rooted()"
-      extends ModelicaReference.Icons.Information;
+    extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Returns which node of a connection branch is closer to root.
@@ -3553,6 +3629,22 @@ Boolean vb[3]   = fill(true,3);  // = {true, true, true}
 </html>"));
   end 'fill()';
 
+  class 'firstTick()' "firstTick()"
+    extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Returns true for the first tick of the clock, part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>firstTick</strong>(u)</pre></blockquote>
+<h4>Description</h4>
+<p>
+This operator returns <strong>true</strong> at the first tick of the clock of the expression, in which this operator is called.
+The operator returns <strong>false</strong> at all subsequent ticks of the clock. The optional argument <strong>u</strong> is only used for clock inference.
+</p>
+</html>"));
+  end 'firstTick()';
+
   class 'floor()' "floor()"
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
@@ -3571,6 +3663,25 @@ value changes discontinuously.]</em></p>
  = {-4.0, 3.0}</pre></blockquote>
 </html>"));
   end 'floor()';
+
+  class 'hold()' "hold()"
+    extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Returns a piecewise constant signal based on a clocked variable as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>hold</strong>(u)</pre></blockquote>
+<h4>Description</h4>
+<p>
+Input argument <strong>u</strong> is a clocked Component Expression or a parameter expression.
+The operator returns a piecewise constant signal of the same type of <strong>u</strong>.
+When the clock of <strong>u</strong> ticks, the operator returns u and
+otherwise returns the value of <strong>u</strong> from the last clock activation.
+Before the first clock activation of <strong>u</strong>, the operator returns the start value of <strong>u</strong>.
+</p>
+</html>"));
+  end 'hold()';
 
   class 'homotopy()' "homotopy()"
     extends ModelicaReference.Icons.Information;
@@ -3769,6 +3880,20 @@ True during initialization
 </html>"));
   end 'initial()';
 
+  class 'initialState()' "initialState()"
+    extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Defines the initially active block instance of the <a href=\"modelica://ModelicaReference.StateMachines\">state machine</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>initialState</strong>(state)</pre></blockquote>
+<h4>Description</h4>
+<p>Argument <strong>state</strong> is the block instance that is defined to be the initial state of a state machine.
+At the first clock tick of the state machine, this state becomes active. </p>
+</html>"));
+  end 'initialState()';
+
   class 'inStream()' "inStream()"
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
@@ -3879,8 +4004,7 @@ Additional equations need to be generated for the stream variables of outside co
 <p>
 Neglecting zero flow conditions, the above implicit equations can be
 analytically solved for the inStream(..) operators.
-The details are given in Section 15.2 of the
-<a href=\"https://www.modelica.org/documents/ModelicaSpec32Revision1.pdf\">Modelica Language Specification version 3.2 Revision 1</a>.
+The details are given in <a href=\"https://specification.modelica.org/v3.4/Ch15.html#stream-operator-instream-and-connection-equations\">Section 15.2 (Stream Operator inStream and Connection Equations) of the Modelica 3.4 specification</a>.
 The stream connection equations have singularities and/or multiple solutions if one or more
 of the flow variables become zero. When all the flows are zero, a singularity is always
 present, so it is necessary to approximate the solution in an open neighborhood
@@ -3951,6 +4075,22 @@ when the return value changes discontinuously.]</em></p>
  = {-4, 3}</pre></blockquote>
 </html>"));
   end 'integer()';
+
+  class 'interval()' "interval()"
+    extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>interval</strong>(u)</pre></blockquote>
+<h4>Description</h4>
+<p>
+This operator returns the interval between the previous and present tick of the clock of the expression, in which this operator is called.
+The optional argument u is only used for clock inference.
+</p>
+</html>"));
+  end 'interval()';
 
   class 'linspace()' "linspace()"
     extends ModelicaReference.Icons.Information;
@@ -4060,7 +4200,6 @@ C[i_1, ..., i_nA, 1, ..., 1] = A[i_1, ..., i_nA].
 
   class 'max()' "max()"
     extends ModelicaReference.Icons.Information;
-
     annotation (Documentation(info="<html>
 <p>
 Returns the largest element
@@ -4167,6 +4306,23 @@ Integer n = ndims(A);  // = 3
 </pre></blockquote>
 </html>"));
   end 'ndims()';
+
+  class 'noClock()' "noClock()"
+    extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>noClock</strong>(u)</pre></blockquote>
+<h4>Description</h4>
+<p>
+The clock of <strong>y = noClock(u)</strong> is always inferred.
+At every tick of the clock of <strong>y</strong>, the operator returns the value of <strong>u</strong> from the last tick of the clock of <strong>u</strong>.
+If <strong>noClock(u)</strong> is called before the first tick of the clock of <strong>u</strong>, the start value of <strong>u</strong> is returned.
+</p>
+</html>"));
+  end 'noClock()';
 
   class 'noEvent()' "noEvent()"
     extends ModelicaReference.Icons.Information;
@@ -4292,6 +4448,25 @@ for continuous-time variables inside when-clauses.
 <img src=\"modelica://ModelicaReference/Resources/Images/pre.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
 </html>"));
   end 'pre()';
+
+  class 'previous()' "previous()"
+    extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Gives the previous value of a clocked expression as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>previous</strong>(u)</pre></blockquote>
+<h4>Description</h4>
+<p>
+The return argument has the same type as the input argument.
+Input and return arguments are on the same clock.
+At the first tick of the clock of <strong>u</strong> or after a <a href=\"modelica://ModelicaReference.Operators.'transition()'\">reset transition</a>,
+the start value of <strong>u</strong>  is returned.
+At subsequent activations of the clock of <strong>u</strong>, the value of <strong>u</strong> from the previous clock activation is returned.
+</p>
+</html>"));
+  end 'previous()';
 
   class 'product()' "product()"
     extends ModelicaReference.Icons.Information;
@@ -4451,6 +4626,28 @@ expressions and need to be a subtype of Real or Integer.
 </html>"));
   end 'sample()';
 
+  class 'sample()clocked' "sample() Clocked"
+    extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Samples a value according to a clock as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>sample</strong>(u)</pre></blockquote>
+<blockquote><pre><strong>sample</strong>(u, c)</pre></blockquote>
+<h4>Description</h4>
+<p>
+ The operator returns a clocked variable that has c as associated clock and has the value of the
+ left limit of u when c is active (that is the value of u just before the event of c is triggered).
+ If argument c is not provided, it is inferred
+</p>
+<p>
+The return argument has the same type as the first input argument.
+The optional argument c is of type Clock.
+</p>
+</html>"));
+  end 'sample()clocked';
+
   class 'scalar()' "scalar()"
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
@@ -4554,6 +4751,31 @@ flow direction.]</em>
 </p>
 </html>"));
   end 'semiLinear()';
+
+  class 'shiftSample()' "shiftSample()"
+    extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Shifts a clocked expressions to delay it as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>shiftSample</strong>(u, shiftCounter, resolution)</pre></blockquote>
+<h4>Examples</h4>
+<blockquote><pre>
+  Clock u  = Clock(3, 10);
+  // ticks: 0, 3/10, 6/10, ..
+
+  Clock y1 = shiftSample(u,1,3);
+  // ticks: 1/10, 4/10, ...
+
+  Real x=sample(time, u);
+  // Ticks at 0, 3/10, 6/10 with values corresponding to time
+
+  Real x2=shiftSample(x, 1, 3);
+  // Ticks at 1/10 with value 0/10, and at 4/10 with value 3/10 etc
+</pre></blockquote>
+</html>"));
+  end 'shiftSample()';
 
   class 'sign()' "sign()"
     extends ModelicaReference.Icons.Information;
@@ -4811,6 +5033,24 @@ String(123, minimumLength=6, leftJustified=false)  // = \"   123\"
 </html>"));
   end 'String()';
 
+  class 'subSample()' "subSample()"
+    extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Subsamples a clocked expressions as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>subSample</strong>(u, factor)</pre></blockquote>
+<h4>Description</h4>
+<p>
+The clock of <strong>y = subSample(u,factor)</strong> is <strong>factor</strong>-times slower than the clock of <strong>u</strong>.
+At every <strong>factor</strong> ticks of the clock of <strong>u</strong>, the operator returns the value of <strong>u</strong>.
+The first activation of the clock of <strong>y</strong> coincides with the first activation of the clock of <strong>u</strong>.
+If argument <strong>factor</strong> is not provided or is equal to zero, it is inferred.
+</p>
+</html>"));
+  end 'subSample()';
+
   class 'sum()' "sum()"
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
@@ -4847,6 +5087,24 @@ u, ..., j <strong>in</strong> v) is the same as the type of e(i,...j).
 </pre></blockquote>
 </html>"));
   end 'sum()';
+
+  class 'superSample()' "superSample()"
+    extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Supersamples a clocked expressions as part of the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>superSample</strong>(u, factor)</pre></blockquote>
+<h4>Description</h4>
+<p>
+The clock of <strong>y = superSample(u,factor)</strong> is <strong>factor</strong>-times faster than the clock of <strong>u</strong>.
+At every tick of the clock of <strong>u</strong>, the operator returns the value of <strong>u</strong>.
+The first activation of the clock of <strong>y</strong> coincides with the first activation of the clock of <strong>u</strong>.
+If argument <strong>factor</strong> is not provided or is equal to zero, it is inferred.
+</p>
+</html>"));
+  end 'superSample()';
 
   class 'symmetric()' "symmetric()"
     extends ModelicaReference.Icons.Information;
@@ -4967,6 +5225,64 @@ end</strong> ThrowingBall;</pre></blockquote>
 </html>"));
   end 'terminate()';
 
+  class 'ticksInState()' "ticksInState()"
+    extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+This operator returns the number of ticks since a transition was made to the active state in a <a href=\"modelica://ModelicaReference.StateMachines\">state machine</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>ticksInState</strong>()</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns the number of ticks of the clock of the state machine since a transition was made to the currently active state.
+</p>
+</html>"));
+  end 'ticksInState()';
+
+  class 'timeInState()' "timeInState()"
+    extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+This operator returns the time (in seconds) since a transition was made to the active state in a <a href=\"modelica://ModelicaReference.StateMachines\">state machine</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>timeInState</strong>()</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns the time duration as Real in [s] since a transition was made to the currently active state.
+</p>
+</html>"));
+  end 'timeInState()';
+
+  class 'transition()' "transition()"
+    extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+This operator defines a transition in a <a href=\"modelica://ModelicaReference.StateMachines\">state machine</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>transition</strong>(from, to, condition, immediate, reset, synchronize, priority)</pre></blockquote>
+<h4>Description</h4>
+<p>
+This operator defines a transition from instance <strong>from</strong> to instance <strong>to</strong>.
+The <strong>from</strong> and <strong>to</strong> instances become states of a state machine.
+The transition fires when <strong>condition = true</strong> if <strong>immediate = true</strong> (this is called an immediate transition)
+or <strong>previous(condition)</strong> when <strong>immediate = false</strong> (this is called a delayed transition).
+Argument <strong>priority</strong> defines the priority of firing when several transitions could fire.
+In this case the transition with the smallest value of <strong>priority</strong> fires.
+It is required that priority is greater or equal to 1 and that for all transitions from the same state, the priorities are different.
+If <strong>reset = true</strong>, the states of the target state are reinitialized, i.e. state machines are restarted in initial state and state variables are reset to their start values. If synchronize=true, any transition is disabled until all state machines of the from-state have reached final states, i.e. states without outgoing transitions.
+</p>
+<p>
+Arguments <strong>from</strong> and <strong>to</strong> are block instances and <strong>condition</strong>
+is a Boolean argument. The optional arguments <strong>immediate</strong>, <strong>reset</strong>, and <strong>synchronize</strong>
+are of type Boolean, have parametric variability and a default of true, true, false respectively.
+The optional argument <strong>priority</strong> is of type Integer, has parametric variability and a default of 1.
+</p>
+</html>"));
+  end 'transition()';
+
   class 'transpose()' "transpose()"
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
@@ -5040,7 +5356,6 @@ log, log10 that are provided for convenience as built-in functions).
 </p>
 </html>"));
 end Operators;
-
 
 class BalancedModel "Balanced model"
   extends ModelicaReference.Icons.Information;
@@ -5438,7 +5753,6 @@ Therefore, FixedBoundary_pTX is a locally balanced model. The predefined boundar
 </html>"));
 end BalancedModel;
 
-
 class 'encapsulated' "encapsulated"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -5474,7 +5788,6 @@ abs cannot be redefined in the global scope, because an existing class
 cannot be redefined at the same level.]</em></p>
 </html>"));
 end 'encapsulated';
-
 
 class 'extends' "extends"
   extends ModelicaReference.Icons.Information;
@@ -5649,7 +5962,7 @@ another kind):</p>
   <td style=\"background-color:lightgray\">yes</td>
 </tr>
 <tr>
-  <td>exapandable<br>connector</td>
+  <td>expandable<br>connector</td>
   <td></td>
   <td></td>
   <td></td>
@@ -5734,7 +6047,6 @@ of a package)</em>] and from <code>class</code>.</p>
 </html>"));
 end 'extends';
 
-
 class 'flow' "flow"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -5777,7 +6089,6 @@ a.p.i + b.p.i + c.p.i = 0;</pre></blockquote>
 whereas variables without the flow prefix are identical in a connection.</p>
 </html>"));
 end 'flow';
-
 
 class 'for' "for"
   extends ModelicaReference.Icons.Information;
@@ -5880,7 +6191,6 @@ prepending the reduction-expression with <code>'function-name('</code>.</p>
 </html>"));
 end 'for';
 
-
 class 'if' "if"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -5965,7 +6275,6 @@ type of the if-expression. If-expressions with <strong>elseif</strong> are defin
 </html>"));
 end 'if';
 
-
 class 'import' "import"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -6006,7 +6315,6 @@ The generated import names are:</p>
 <p><em>Especially the renaming and wildcard import statements should be avoided since they might lead to name-lookup conflicts.</em></p>
 </html>"));
 end 'import';
-
 
 class 'input' "input"
   extends ModelicaReference.Icons.Information;
@@ -6090,7 +6398,6 @@ The prefixes <strong>input</strong> and <strong>output</strong> have a slightly 
 
 </html>"));
 end 'input';
-
 
 class 'output' "output"
   extends ModelicaReference.Icons.Information;
@@ -6176,7 +6483,6 @@ The prefixes <strong>input</strong> and <strong>output</strong> have a slightly 
 </html>"));
 end 'output';
 
-
 class 'partial' "partial"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -6234,6 +6540,39 @@ or in a \"constrainedby\" clause to define the constraints of a replaceable clas
 </html>"));
 end 'partial';
 
+class StateMachines "State Machines"
+  extends ModelicaReference.Icons.Information;
+  annotation (Documentation(info="<html>
+<p>
+The state machines defined in the Modelica Language are based on the <a href=\"modelica://ModelicaReference.Synchronous\">synchronous language elements</a>.
+Note that the state machines defined in the Modelica Standard Library are not based on this.
+</p>
+<h4>Examples</h4>
+<blockquote><pre>
+  inner Integer v(start=0);
+  block Increase
+    outer output Integer v;
+  equation
+    v = previous(v) + 2;
+  end Increase;
+  Increase increase;
+  block Decrease
+    outer output Integer v;
+  equation
+    v = previous(v) - 1;
+  end Decrease;
+  Decrease decrease;
+equation
+  initialState(increase);
+  transition(increase, decrease, v>=6, immediate=false);
+  transition(decrease, increase, v==0, immediate=false);
+</pre></blockquote>
+In this example we will start in <strong>increase</strong> and increase <strong>v</strong> until a limit, and then decrease it, and repeat.
+
+<h4>Description</h4>
+A detailed description of the State Machines using Synchronous Language Elements is given in <a href=\"https://specification.modelica.org/v3.4/Ch17.html\">Chapter 17 (State Machines) of the Modelica 3.4 specification</a>.
+</html>"));
+end StateMachines;
 
 class 'stream' "stream"
   extends ModelicaReference.Icons.Information;
@@ -6331,8 +6670,9 @@ operators inside the components provide the \"ideal mixing\" equations:
 
 <p>
 A detailed description of the stream keyword and the inStream operator is given
-in Chapter 15 and Appendix D of the
-<a href=\"https://www.modelica.org/documents/ModelicaSpec32Revision1.pdf\">Modelica Language Specification version 3.2 Revision 1</a>.
+in <a href=\"https://specification.modelica.org/v3.4/Ch15.html\">Chapter 15 (Stream Connectors)</a>
+and <a href=\"https://specification.modelica.org/v3.4/A4.html\">Appendix D (Derivation of Stream Equations)</a>
+of the Modelica 3.4 specification.
 An overview and a rational is provided in a
 <a href=\"modelica://Modelica/Resources/Documentation/Fluid/Stream-Connectors-Overview-Rationale.pdf\">slide set</a>.
 </p>
@@ -6440,6 +6780,38 @@ For further details, see the definition of the
 </html>"));
 end 'stream';
 
+class Synchronous "Synchronous Language Elements"
+  extends ModelicaReference.Icons.Information;
+  annotation (Documentation(info="<html>
+<p>
+Synchronous language elements are added to Modelica as an alternative to normal <a href=\"modelica://ModelicaReference.'when'\">when</a>-clauses to
+making modeling of complex sampled systems safer and easier.
+</p>
+<h4>Examples</h4>
+<blockquote><pre>
+  // Discrete controller
+  when Clock() then
+    E*dc.xd=A*previous(dc.xd)+B*dc.yd;
+      dc.ud=C*previous(dc.xd)+D*dc.yd;
+  end when;
+
+  // hold controller output:
+  plant.u=hold(dc.ud);
+
+  // Plant
+  0=f(der(plant.x),plant.x,plant.u);
+  plant.y=g(plant.x);
+
+  // Sample continuous signal
+  dc.yd=sample(plant.y, Clock(3));
+</pre></blockquote>
+In this example <strong>dc.xd</strong> and <strong>dc.ud</strong> are Clocked variables, and only defined when the Clock is active (every 3rd second).
+At time instants where the associated clock is not active, the value of a clocked variable can be inquired by using an explicit cast operator, e.g., <strong>hold</strong>.
+
+<h4>Description</h4>
+A detailed description of the Synchronous Language Elements is given in <a href=\"https://specification.modelica.org/v3.4/Ch16.html\">Chapter 16 (Synchronous Language Elements) of the Modelica 3.4 specification</a>.
+</html>"));
+end Synchronous;
 
 class 'time' "time"
   extends ModelicaReference.Icons.Information;
@@ -6474,7 +6846,6 @@ the time instant at which the simulation is started.</p>
 
 </html>"));
 end 'time';
-
 
 class 'when' "when"
   extends ModelicaReference.Icons.Information;
@@ -6660,7 +7031,6 @@ parameter variable. The start-values of the special functions
 </html>"));
 end 'when';
 
-
 class 'while' "while"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -6700,7 +7070,6 @@ and is formally defined as follows</p>
 </html>"));
 end 'while';
 
-
 class Contact "Contact"
   extends ModelicaReference.Icons.Contact;
 
@@ -6726,7 +7095,6 @@ class Contact "Contact"
 </html>"));
 
 end Contact;
-
 
 package Icons "Library of icons"
   extends ModelicaReference.Icons.IconsPackage;
@@ -6820,7 +7188,6 @@ package Icons "Library of icons"
   end Package;
 end Icons;
 
-
 annotation (
   DocumentationClass=true,
   version="4.0.0",
@@ -6851,6 +7218,14 @@ Copyright &copy; 2003-2020, Modelica Association and contributors
       <th>Date</th>
       <th>Author</th>
       <th>Comment</th>
+    </tr>
+    <tr>
+      <td></td>
+      <td>2020-02-24</td>
+      <td><a href=\"https://github.com/HansOlsson\">Hans Olsson</a></td>
+      <td>
+      Add minimal parts for synchronous and state machines - making the reference feature-complete.
+      </td>
     </tr>
     <tr>
       <td></td>
