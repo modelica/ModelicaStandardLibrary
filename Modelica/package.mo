@@ -2235,6 +2235,11 @@ class VersionManagement "Version Management"
 Further development and maintenance of the Modelica Standard Library is performed with
 two branches on the public <a href=\"https://github.com/modelica/ModelicaStandardLibrary.git\">GitHub repository</a> of the Modelica Association.
 </p>
+<p>
+Since version 4.0.0 the version numbers of the Modelica Standard Library follow the
+<a href=\"https://semver.org/\">Semantic Versioning</a> convention which provides a
+mechanism for maintaining releases and bug-fixes in a well defined way.
+</p>
 
 <h5>Main development branch</h5>
 <p>
@@ -2252,18 +2257,18 @@ Modelica Standard Library and is not utilized by Modelica users.
 
 <h5>Maintenance branch</h5>
 <p>
-Name: \"maint/3.2.3\"
+Name: \"maint/4.0.x\"
 </p>
 
 <p>
-This branch contains the released Modelica Standard Library version (e.g., v3.2.3)
-where all bug fixes since this release date are included (up to a new release,
-when becoming available; i.e., after a new release, the previous maintenance
-versions are no longer changed).
+This branch contains the released Modelica Standard Library version (e.g., v4.0.0)
+where all bug fixes since this release date are included (also consecutive v4.0.1, v4.0.2, etc.,
+up to when a new minor or major release becomes available; i.e., their will not be any
+further maintenance versions (i.e., v4.0.x) of a previous release).
 These bug fixes might be not yet tested with all test cases or with
 other Modelica libraries. The goal is that a vendor may take this version at
 any time for a new release of its software, in order to incorporate the latest
-bug fixes, without changing the version number of the Modelica Standard Library.
+bug fixes.
 </p>
 
 <h4>Contribution workflow</h4>
@@ -2297,28 +2302,24 @@ There are some special guidelines for changes to the maintenance branch.
 
 <ul>
 <li> Every change to the maintenance branch has to get cherry-picked at the \"master\"
-         branch (see above), too. One exception are pure changes to the
-         \"versionBuild\" annotation as these have no meaning in the development trunk.</li>
-<li> Annotations \"version\" and \"versionDate\" must <u>not</u> be changed in a maintenance release.</li>
-<li> Since the version number can currently not be changed when releasing a new maintenance release
-     (also known as bug fix release) the Modelica Standard Library utilizes the \"versionBuild\" annotation
-     for this purpose. So should there be a new maintenance release in the maintenance branch then the
-     \"versionBuild\" number needs to be incremented by one. At the same time the \"dateModified\" field
-     needs to be updated.<br>
+         branch (see above), too.</li>
+<li> When a new bug-fix release (also known as PATCH release) is due the annotations
+     \"version\" and \"versionDate\" need to be updated.<br>
      Example:
          <blockquote><pre>
-annotation(version      = \"3.2.3\",
-           versionDate  = \"2019-01-23\",
-           versionBuild = 2,
-           dateModified = \"2019-01-23 07:40:19Z\",
+annotation(version      = \"4.0.1\",
+           versionDate  = \"2020-09-29\",
+           dateModified = \"2020-09-29 07:40:19Z\",
            revisionId   = \"$F&#8203;ormat:%h %ci$\")
          </pre></blockquote>
-     The \"revisionId\" field is a special annotation to mark a properly released (maintenance) version from unreleased commits.<br>
+     The \"dateModfied\" is optional but might help identify the exact creation time of a release.
+     The \"revisionId\" field is a special annotation to identify the exact commit that the released
+     version represents.<br>
      Example:
      <blockquote>
-        Running the export command \"<code>git archive -o msl.zip v3.2.3</code>\" will
+        Running the export command \"<code>git archive -o msl.zip v4.0.0</code>\" will
         expand the above \"revisionId\" place holder to something like:
-        <blockquote><pre>revisionId = \"c04e23a0d 2019-01-23 12:00:00 +0200$\"</pre></blockquote>
+        <blockquote><pre>revisionId = \"c04e23a0d 2020-04-01 12:00:00 +0200$\"</pre></blockquote>
      </blockquote>
      </li>
 </ul>
@@ -2335,7 +2336,7 @@ more of the following changes.
 <li> Introducing a new name in the public section of a class
          (model, package, ...) or in any section of a partial class is <strong>not</strong> allowed.
          Since otherwise, a user might use this new name and when storing its model
-         and loading it with an older build-version, an error would occur.</li>
+         and loading it with an older bugfix-version, an error would occur.</li>
 <li> Introducing a new name in the protected section of a non-partial
          class should only be done if absolutely necessary to fix a bug.
          The problem is that this might be non-backward compatible,
@@ -8712,7 +8713,6 @@ end UsersGuide;
 annotation (
 preferredView="info",
 version="4.0.0",
-versionBuild=1,
 versionDate="2020-02-12",
 dateModified = "2020-02-12 19:00:00Z",
 revisionId="$Format:%h %ci$",
