@@ -30,13 +30,7 @@ equation
   B = Phi/A;
   H = B/(mu_0*mu_r);
 
-  annotation (Icon(coordinateSystem(
-      preserveAspectRatio=false,
-      extent={{-100,-100},{100,100}}), graphics={
-      Text(
-        extent={{-150,50},{150,90}},
-        textString="%name",
-        textColor={0,0,255})}), Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 Please refer to the description of  the subpackage
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape\">Shapes.FixedShape</a>
