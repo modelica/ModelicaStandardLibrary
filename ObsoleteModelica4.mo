@@ -218,7 +218,7 @@ for signal buses, see example
           input Boolean verboseRead = true
             "= true: Print info message; = false: No info message";
           external "C" readSuccess = ModelicaStandardTables_CombiTimeTable_read(tableID, forceRead, verboseRead)
-            annotation (Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+            annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
           annotation(__ModelicaAssociation_Impure=true);
         end readTimeTableData;
 
@@ -232,7 +232,7 @@ for signal buses, see example
             "= true: Print info message; = false: No info message";
           output Real readSuccess "Table read success";
           external "C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID, forceRead, verboseRead)
-            annotation (Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+            annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
           annotation(__ModelicaAssociation_Impure=true);
         end readTable1DData;
 
@@ -246,7 +246,7 @@ for signal buses, see example
             "= true: Print info message; = false: No info message";
           output Real readSuccess "Table read success";
           external "C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID, forceRead, verboseRead)
-            annotation (Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+            annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
           annotation(__ModelicaAssociation_Impure=true);
         end readTable2DData;
       end Internal;
