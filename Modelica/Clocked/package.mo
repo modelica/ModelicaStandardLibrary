@@ -77,8 +77,7 @@ revisions="<html>
     Icon(
       coordinateSystem(
         extent = {{-100, -100}, {100, 100}},
-        preserveAspectRatio = true,
-        initialScale = 0.1),
+        preserveAspectRatio = true),
       graphics={
         Ellipse(extent = {{-80, -80}, {80, 80}}),
         Line(points = {{80, 0}, {60, 0}}),
