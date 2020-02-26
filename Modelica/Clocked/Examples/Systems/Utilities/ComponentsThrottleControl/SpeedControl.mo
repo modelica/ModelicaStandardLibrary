@@ -4,8 +4,8 @@ block SpeedControl
 
   parameter Real k_p = 0.0614 "Proportional gain";
   parameter Real k_I = 0.0723 "Integral gain";
-  Modelica.Blocks.Interfaces.RealInput N_des(unit="rad/s") "Desired speed, (rad/s)" annotation (Placement(transformation(extent={{-140,20},{-100,60}})));
-  Modelica.Blocks.Interfaces.RealInput N(unit="rad/s") "Measured speed, (rad/s)" annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
+  Modelica.Blocks.Interfaces.RealInput N_des(unit="rad/s", start=0) "Desired speed, (rad/s)" annotation (Placement(transformation(extent={{-140,20},{-100,60}})));
+  Modelica.Blocks.Interfaces.RealInput N(unit="rad/s", start=0) "Measured speed, (rad/s)" annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
   Modelica.Blocks.Interfaces.RealOutput Theta(start=8.9, unit="deg")
     "Throttle angle (deg)" annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 protected

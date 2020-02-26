@@ -2,7 +2,7 @@ within Modelica.Clocked.IntegerSignals.NonPeriodic;
 block IntegerChange "Indicate Integer signal changing"
   extends Clocked.ClockSignals.Interfaces.ClockedBlockIcon;
 
-  Modelica.Blocks.Interfaces.IntegerInput u
+  Modelica.Blocks.Interfaces.IntegerInput u(start=0)
     "Connector of Integer input signal."
     annotation (Placement(transformation(extent = {{-140,-20},{-100,20}})));
   Modelica.Blocks.Interfaces.BooleanOutput y
