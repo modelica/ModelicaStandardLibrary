@@ -10,7 +10,6 @@ partial package PartialModelicaServices
     extends Modelica.Icons.Package;
   partial model PartialShape "Interface for 3D animation of elementary shapes"
 
-
     import Modelica.Mechanics.MultiBody.Frames;
     import Modelica.Mechanics.MultiBody.Types;
 

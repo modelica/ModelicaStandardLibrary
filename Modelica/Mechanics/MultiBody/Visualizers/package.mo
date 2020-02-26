@@ -2,17 +2,6 @@ within Modelica.Mechanics.MultiBody;
 package Visualizers "3-dimensional visual objects used for animation"
   extends Modelica.Icons.Package;
 
-
-
-
-
-
-
-
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 Package <strong>Visualizers</strong> contains components to visualize

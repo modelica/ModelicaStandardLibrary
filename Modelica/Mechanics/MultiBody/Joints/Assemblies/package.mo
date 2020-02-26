@@ -2,12 +2,6 @@ within Modelica.Mechanics.MultiBody.Joints;
 package Assemblies "Components that aggregate several joints for analytic loop handling"
   extends Modelica.Icons.Package;
 
-
-
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 The joints in this package are mainly designed to be used

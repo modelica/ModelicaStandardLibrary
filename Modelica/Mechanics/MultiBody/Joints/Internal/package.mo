@@ -3,11 +3,6 @@ package Internal "Components used for analytic solution of kinematic loops (use 
 
   extends Modelica.Icons.InternalPackage;
 
-
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 The models in this package should not be used by the user.

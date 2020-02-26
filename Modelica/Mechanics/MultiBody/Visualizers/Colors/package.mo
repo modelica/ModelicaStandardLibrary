@@ -2,7 +2,6 @@ within Modelica.Mechanics.MultiBody.Visualizers;
 package Colors "Library of functions operating on color"
   extends Modelica.Icons.FunctionsPackage;
 
-
   annotation (Documentation(info="<html>
 <p>
 This package contains functions to operate on colors.

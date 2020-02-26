@@ -2,7 +2,6 @@ within Modelica.Mechanics;
 package Translational "Library to model 1-dimensional, translational mechanical systems"
   extends Modelica.Icons.Package;
 
-
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
             {100,100}}), graphics={
         Line(origin={14,53}, points={{-84,-73},{66,-73}}),

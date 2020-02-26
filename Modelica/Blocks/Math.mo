@@ -1799,7 +1799,6 @@ otherwise:
 y = base <strong>^</strong> u;
 </pre></blockquote>
 
-
 </html>"));
   end Power;
 

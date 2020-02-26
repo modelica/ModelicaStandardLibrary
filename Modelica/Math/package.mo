@@ -690,7 +690,6 @@ This library provides functions operating on vectors:
           fillPattern=FillPattern.Solid)}));
 end Vectors;
 
-
 package Matrices "Library of functions operating on matrices"
   package Examples
     "Examples demonstrating the usage of the Math.Matrices functions"
@@ -7802,7 +7801,6 @@ For details of the arguments, see documentation of dgbsv.
           in WORK(1).  No error message related to LWORK is
           issued by XERBLA.  Neither H nor Z are accessed.
 
-
     INFO  (output) INTEGER
           = 0: successful exit
           < 0: if INFO = -i, the i-th argument had an illegal
@@ -8669,7 +8667,6 @@ For details of the arguments, see documentation of dgbsv.
 
     where u(j)**H is the conjugate-transpose of u(j).
 
-
     Arguments
     =========
 
@@ -8861,7 +8858,6 @@ For details of the arguments, see documentation of dgbsv.
                      u(j)**H * A  = lambda(j) * u(j)**H * B.
 
     where u(j)**H is the conjugate-transpose of u(j).
-
 
     Arguments
     =========
@@ -10923,7 +10919,6 @@ Note: A' is a short hand notation of transpose(A):
           fillPattern=FillPattern.Solid)}));
 end Matrices;
 
-
 package Icons "Icons for Math"
   extends Modelica.Icons.IconsPackage;
 
@@ -10987,7 +10982,6 @@ It is expected, that an x-axis is added and a plot of the function.
 
 end Icons;
 
-
 function isEqual "Determine if two Real scalars are numerically identical"
   extends Modelica.Icons.Function;
   input Real s1 "First scalar";
@@ -11031,7 +11025,6 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 </html>"));
 end isEqual;
 
-
 function sin "Sine"
   extends Modelica.Math.Icons.AxisLeft;
   input Modelica.Units.SI.Angle u "Independent variable";
@@ -11070,7 +11063,6 @@ This function returns y = sin(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 end sin;
-
 
 function cos "Cosine"
   extends Modelica.Math.Icons.AxisLeft;
@@ -11111,7 +11103,6 @@ This function returns y = cos(u), with -&infin; &lt; u &lt; &infin;:
 </html>"));
 end cos;
 
-
 function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   extends Modelica.Math.Icons.AxisCenter;
   input Modelica.Units.SI.Angle u "Independent variable";
@@ -11151,7 +11142,6 @@ This function returns y = tan(u), with -&infin; &lt; u &lt; &infin;
 </html>"));
 end tan;
 
-
 function asin "Inverse sine (-1 <= u <= 1)"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u "Independent variable";
@@ -11188,7 +11178,6 @@ This function returns y = asin(u), with -1 &le; u &le; +1:
 </p>
 </html>"));
 end asin;
-
 
 function acos "Inverse cosine (-1 <= u <= 1)"
   extends Modelica.Math.Icons.AxisCenter;
@@ -11227,7 +11216,6 @@ This function returns y = acos(u), with -1 &le; u &le; +1:
 </html>"));
 end acos;
 
-
 function atan "Inverse tangent"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u "Independent variable";
@@ -11265,7 +11253,6 @@ This function returns y = atan(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 end atan;
-
 
 function atan2 "Four quadrant inverse tangent"
   extends Modelica.Math.Icons.AxisCenter;
@@ -11312,7 +11299,6 @@ u1 = sin(y) and u2 = cos(y):
 
 </html>"));
 end atan2;
-
 
 function atan3
   "Four quadrant inverse tangent (select solution that is closest to given angle y0)"
@@ -11385,7 +11371,6 @@ is returned.
 </html>"));
 end atan3;
 
-
 function sinh "Hyperbolic sine"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u "Independent variable";
@@ -11423,7 +11408,6 @@ This function returns y = sinh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 end sinh;
-
 
 function cosh "Hyperbolic cosine"
   extends Modelica.Math.Icons.AxisCenter;
@@ -11465,7 +11449,6 @@ This function returns y = cosh(u), with -&infin; &lt; u &lt; &infin;:
 </html>"));
 end cosh;
 
-
 function tanh "Hyperbolic tangent"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u "Independent variable";
@@ -11503,7 +11486,6 @@ This function returns y = tanh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 end tanh;
-
 
 function asinh "Inverse of sinh (area hyperbolic sine)"
   extends Modelica.Math.Icons.AxisCenter;
@@ -11545,7 +11527,6 @@ asinh(u) (-&infin; &lt; u &lt; &infin;):
 </p>
 </html>"));
 end asinh;
-
 
 function acosh "Inverse of cosh (area hyperbolic cosine)"
   extends Modelica.Math.Icons.AxisLeft;
@@ -11599,7 +11580,6 @@ can become close to 1:
 </html>"));
 end acosh;
 
-
 function exp "Exponential, base e"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u "Independent variable";
@@ -11636,7 +11616,6 @@ This function returns y = exp(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 end exp;
-
 
 function log "Natural (base e) logarithm (u shall be > 0)"
   extends Modelica.Math.Icons.AxisLeft;
@@ -11675,7 +11654,6 @@ with u &gt; 0:
 </p>
 </html>"));
 end log;
-
 
 function log10 "Base 10 logarithm (u shall be > 0)"
   extends Modelica.Math.Icons.AxisLeft;

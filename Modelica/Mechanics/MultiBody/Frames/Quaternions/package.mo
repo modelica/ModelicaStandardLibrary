@@ -2,25 +2,6 @@ within Modelica.Mechanics.MultiBody.Frames;
 package Quaternions "Functions to transform rotational frame quantities based on quaternions (also called Euler parameters)"
   extends Modelica.Icons.FunctionsPackage;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 Package <strong>Frames.Quaternions</strong> contains type definitions and

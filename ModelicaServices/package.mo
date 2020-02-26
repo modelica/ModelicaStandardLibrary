@@ -48,7 +48,6 @@ package ModelicaServices "ModelicaServices (Default implementation) - Models and
      </li>
 </ul>
 
-
 <h4>Version 1.1, 2010-07-30</h4>
 
 <ul>

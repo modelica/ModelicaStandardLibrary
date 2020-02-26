@@ -234,7 +234,6 @@ operator record Complex "Complex number with overloaded operators"
 </html>"));
   end 'String';
 
-
 annotation (
 version="4.0.0",
 versionBuild=1,

@@ -2,35 +2,6 @@ within Modelica.Mechanics.MultiBody.Frames;
 package TransformationMatrices "Functions for transformation matrices"
   extends Modelica.Icons.FunctionsPackage;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 Package <strong>Frames.TransformationMatrices</strong> contains type definitions and

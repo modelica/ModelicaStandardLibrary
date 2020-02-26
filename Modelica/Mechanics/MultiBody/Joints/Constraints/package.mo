@@ -2,10 +2,6 @@ within Modelica.Mechanics.MultiBody.Joints;
 package Constraints "Components that define joints by constraints"
   extends Modelica.Icons.Package;
 
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 This package contains <strong>constraint components</strong>, that is, idealized, massless elements that

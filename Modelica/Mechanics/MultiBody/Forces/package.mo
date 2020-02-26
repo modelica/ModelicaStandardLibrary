@@ -2,18 +2,6 @@ within Modelica.Mechanics.MultiBody;
 package Forces "Components that exert forces and/or torques between frames"
   extends Modelica.Icons.SourcesPackage;
 
-
-
-
-
-
-
-
-
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 This package contains components that exert forces and torques

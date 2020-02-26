@@ -3,8 +3,6 @@ package Internal "Makeshift visualizers for display of three-dimensional fonts u
 
   extends Modelica.Icons.InternalPackage;
 
-
-
   annotation (Documentation(info="<html>
 <p>
 This package contains components to construct 3-dim. fonts

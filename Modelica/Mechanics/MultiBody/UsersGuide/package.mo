@@ -2,9 +2,6 @@ within Modelica.Mechanics.MultiBody;
 package UsersGuide "User's Guide of MultiBody Library"
   extends Modelica.Icons.Information;
 
-
-
-
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 Library <strong>MultiBody</strong> is a <strong>free</strong> Modelica package providing

@@ -2,16 +2,6 @@ within Modelica.Mechanics.MultiBody;
 package Types "Constants and types with choices, especially to build menus"
   extends Modelica.Icons.TypesPackage;
 
-
-
-
-
-
-
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 In this package <strong>types</strong> and <strong>constants</strong> are defined that are used in the

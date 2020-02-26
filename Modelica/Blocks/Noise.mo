@@ -117,7 +117,6 @@ hierarchical level. The following options can be selected:
          with minimal effort (just performing many simulation runs) where
          every simulation run uses a different noise.</td></tr>
 
-
 <tr><td> <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/GlobalSeed_NoNoise.png\"> </td>
     <td> <strong>enableNoise=false</strong>:<br>
          The noise in all Noise instances is switched off and the blocks output a constant
@@ -473,7 +472,6 @@ computed noise has changed the behaviour of the controlled system).
 Many examples how to use the Noise blocks are provided in sublibrary
 <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples\">Blocks.Examples.NoiseExamples</a>.
 </p>
-
 
 <h4>Global Options</h4>
 

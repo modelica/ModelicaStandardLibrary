@@ -385,7 +385,6 @@ used in this function
      </dd>
 </dl>
 
-
 <h4>Example</h4>
 <blockquote>
 ns = realFFTinfo(f_max=170, f_resolution=0.3)
@@ -516,7 +515,6 @@ amplitudes[i] is the amplitude of a sine-function at the i-th frequency.
      <a href=\"http://www.ep.liu.se/ecp/118/053/ecp15118491.pdf\">http://www.ep.liu.se/ecp/118/053/ecp15118491.pdf</a>
      </dd>
 </dl>
-
 
 <h4>Example</h4>
 <blockquote>
@@ -711,7 +709,6 @@ used in this function.
      </dd>
 </dl>
 
-
 <h4>Example</h4>
 <blockquote>
 (info, A, phases) = realFFT({0,0.1,0.2,0.4,0.5, 0.6})
@@ -813,7 +810,6 @@ resulting in:
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/FastFourierTransform/FFT1.png\">
 </blockquote>
-
 
 <h4>References</h4>
 

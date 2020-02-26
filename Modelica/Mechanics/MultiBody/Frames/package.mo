@@ -3,40 +3,6 @@ package Frames "Functions to transform rotational frame quantities"
 
   extends Modelica.Icons.Package;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 Package <strong>Frames</strong> contains type definitions and

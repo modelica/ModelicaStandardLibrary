@@ -429,7 +429,6 @@ package Blocks "Test models for Modelica.Blocks"
       assert(abs(x - 100) < 1e-6, "Wrong solution selected");
     end MustUseHomotopy;
 
-
     MustUseHomotopy mustUseHomotopy
       annotation (Placement(transformation(extent={{320,180},{340,200}})));
     Modelica.Blocks.Continuous.FirstOrder controllerFeedbackPart1(

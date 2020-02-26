@@ -2,7 +2,6 @@ within Modelica.Electrical.Batteries;
 package BatteryStacksWithSensors "Battery cells and stacks with sensors"
   extends Modelica.Icons.Package;
 
-
   annotation (Documentation(info="<html>
 <p>Cells and stacks with measurement</p>
 </html>"),

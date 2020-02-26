@@ -2,10 +2,6 @@ within Modelica.Mechanics.MultiBody.Examples;
 package Rotational3DEffects "Demonstrates the usage of 1-dim. rotational elements with all 3-dim. effects included"
   extends Modelica.Icons.ExamplesPackage;
 
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 This package demonstrates the usage of elements of the Mechanics.Rotational library

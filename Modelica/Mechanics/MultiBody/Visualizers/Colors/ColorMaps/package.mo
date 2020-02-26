@@ -2,13 +2,6 @@ within Modelica.Mechanics.MultiBody.Visualizers.Colors;
 package ColorMaps "Library of functions returning color maps"
   extends Modelica.Icons.FunctionsPackage;
 
-
-
-
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 This package contains functions that return color maps.

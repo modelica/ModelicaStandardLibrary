@@ -2,8 +2,6 @@ within Modelica.Mechanics.MultiBody.UsersGuide.Tutorial;
 package LoopStructures "Loop structures"
   extends Modelica.Icons.Information;
 
-
-
   annotation (Documentation(info="<html>
 <p>
 The MultiBody library has the feature that all components

@@ -564,7 +564,6 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue2899MOS;
 
-
       model Issue2899NPN "Conversion test for #2899"
         extends Modelica.Icons.Example;
         Modelica.Electrical.Analog.Semiconductors.HeatingNPN npn(useHeatPort=true) annotation (Placement(transformation(extent={{-2,40},{18,60}})));

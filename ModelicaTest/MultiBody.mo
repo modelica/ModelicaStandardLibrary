@@ -301,7 +301,6 @@ alt=\"model Examples.Elementary.DoublePendulum\">
     model SphericalAndUniversal
       "One kinematic loop with four bars (with Spherical and Universal joint)"
 
-
       extends Modelica.Icons.Example;
 
       output SI.Angle j1_phi "angle of revolute joint j1";
@@ -2406,7 +2405,6 @@ menu (this sets \"fixed=false\" on parameter \"length\").
     model LineForceWithMass
       "Example to demonstrate how to construct force elements with masses"
 
-
       extends Modelica.Icons.Example;
       parameter Real tol=1e-4;
       SI.Force rod_f_diff[3]=rod1.frame_b.f - rod3.frame_b.f
@@ -2553,7 +2551,6 @@ a linear damper is connected here.
 
     model LineForceWithTwoMasses
       "Example to demonstrate how to construct force elements with masses"
-
 
       extends Modelica.Icons.Example;
       parameter SI.Mass m=1 "Mass of point masses";
@@ -3634,7 +3631,6 @@ a linear damper is connected here.
 
     model Spring
 
-
       extends Modelica.Icons.Example;
       inner MultiBody.World world
         annotation (Placement(transformation(extent={{-96,40},{-76,60}})));
@@ -3722,7 +3718,6 @@ a linear damper is connected here.
     end Spring;
 
     model Spring2
-
 
       extends Modelica.Icons.Example;
       inner MultiBody.World world
@@ -3826,7 +3821,6 @@ a linear damper is connected here.
     end Spring2;
 
     model Damper
-
 
       extends Modelica.Icons.Example;
       inner MultiBody.World world
@@ -4015,7 +4009,6 @@ a linear damper is connected here.
     end Damper;
 
     model Damper2
-
 
       extends Modelica.Icons.Example;
       inner MultiBody.World world
