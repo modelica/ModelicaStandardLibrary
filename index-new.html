@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Modelica Documentation</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link href="Modelica%203.2.3/Resources/helpOM/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div class="container pt-4">
+    <h1>Modelica Language Specification</h1>
+    <p>The <a href="https://github.com/modelica/ModelicaSpecification">Modelica Language Specification</a> version 3.4 was
+      released in April 2017 and is available from <a
+        href="https://modelica.org/documents/ModelicaSpec34.pdf">https://modelica.org/documents/ModelicaSpec34.pdf</a>.</p>
+    <h2 class="pt-2">Modelica Standard Library Documentation</h2>
+    <p>This is a listing of the available documentation of the <a
+        href="https://github.com/modelica/ModelicaStandardLibrary">Modelica Standard Library</a> and its related libraries.
+    </p>
+  </div>
+
+  <div class="container">
+    <template id="md-tool-template">
+      <div class="md-item py-4">
+        <h3 class="md-item__title">Title</h3>
+        <p class="md-item__description">Description</p>
+        <p class="md-item__provider small">Provider</p>
+        <div class="row align-items-end">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label>Tool:</label>
+              <select class="form-control md-item__tool-select"><select>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label>Version:</label>
+              <select class="form-control md-item__version-select"></select>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="form-group">
+              <a href="#" class="btn btn-success md-item__link">Go</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+    
+    <div id="container" class="pb-4"></div>
+  </div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+  var providersInfo = {
+    "dymola": {
+      "title": "Dymola",
+      "web": "http://www.dymola.com",
+      "path": "helpDymola"
+    },
+    "mapleSim": {
+      "title": "MapleSim",
+      "web": "https://www.maplesoft.com/products/maplesim/",
+      "path": "helpMapleSim"
+    },
+    "openModelica": {
+      "title": "OpenModelica",
+      "web": "https://openmodelica.org",
+      "path": "helpOM"
+    },
+    "wolframSystemModeler": {
+      "title": "Wolfram SystemModeler",
+      "web": "https://www.wolfram.com/system-modeler/",
+      "path": "helpWSM"
+    }
+  };
+  var versions = [
+    {
+      "title": "Complex",
+      "description": "Complex number with overloaded operators",
+      "providers": [
+        {
+          "title": "dymola",
+          "versions": ["3.2.3", "4.0.0"],
+        },
+        {
+          "title": "mapleSim",
+          "versions": ["3.2.3", "4.1.0"],
+        },
+        {
+          "title": "openModelica",
+          "versions": ["3.2.3", "4.2.0"],
+        },
+        {
+          "title": "wolframSystemModeler",
+          "versions": ["3.2.3", "4.3.0"],
+        }
+      ]
+    },
+    {
+      "title": "Modelica",
+      "description": "Modelica Standard Library",
+      "providers": [
+        {
+          "title": "dymola",
+          "versions": ["3.2.3", "5.1.0"]
+        },
+        {
+          "title": "mapleSim",
+          "versions": ["3.2.3", "5.0.0"]
+        },
+        {
+          "title": "openModelica",
+          "versions": ["3.2.3", "5.0.0"]
+        },
+        {
+          "title": "wolframSystemModeler",
+          "versions": ["3.2.3", "5.1.0"]
+        }
+      ]
+    },
+    {
+      "title": "ModelicaReference",
+      "description": "Modelica Reference",
+      "providers": [
+        {
+          "title": "dymola",
+          "versions": ["3.2.3", "5.1.0"]
+        },
+        {
+          "title": "mapleSim",
+          "versions": ["3.2.3", "5.0.0"]
+        },
+        {
+          "title": "openModelica",
+          "versions": ["3.2.3", "5.0.0"]
+        },
+        {
+          "title": "wolframSystemModeler",
+          "versions": ["3.2.3", "5.1.0"]
+        }
+      ]
+    },
+    {
+      "title": "ModelicaServices",
+      "description": "ModelicaServices (Default implementation)",
+      "providers": [
+        {
+          "title": "dymola",
+          "versions": ["3.2.3", "5.1.0"]
+        },
+        {
+          "title": "mapleSim",
+          "versions": ["3.2.3", "5.0.0"]
+        },
+        {
+          "title": "openModelica",
+          "versions": ["3.2.3", "5.0.0"]
+        },
+        {
+          "title": "wolframSystemModeler",
+          "versions": ["3.2.3", "5.1.0"]
+        }
+      ]
+    },
+    {
+      "title": "ObsoleteModelica3",
+      "description": "Library that contains components from Modelica Standard Library 2.2.2 that have been removed from version 3.0",
+      "providers": [
+        {
+          "title": "mapleSim",
+          "versions": ["3.2.3", "5.0.0"]
+        },
+        {
+          "title": "openModelica",
+          "versions": ["3.2.3", "5.0.0"]
+        },
+      ]
+    }
+  ];
+
+  var buildSelect = function(select, data, isTitle){
+    data.forEach(function (item) {
+      var option = document.createElement('option');
+      if(isTitle){
+        option.textContent = providersInfo[item.title].title;
+        option.value = item.title;
+      }else{
+        option.textContent = item;
+        option.value = item;
+      }
+      select.appendChild(option);
+    });
+  };
+  var buildTools = function(){
+    var container = document.createElement('div');
+    versions.forEach(function(item, index){
+      var template = document.getElementById('md-tool-template');
+      var clone = document.importNode(template.content, true);
+
+      clone.querySelector('.md-item__title').textContent = item.title;
+      clone.querySelector('.md-item__description').textContent = item.description;
+      clone.querySelector('.md-item__provider').innerHTML = 'Library documentation generated by <a href="' + providersInfo[item.providers[0].title].web + '" target="_blank" rel="noopener">' + providersInfo[item.providers[0].title].title + '</a>';
+
+      buildSelect(clone.querySelector('.md-item__tool-select'), item.providers, true);
+      buildSelect(clone.querySelector('.md-item__version-select'), item.providers[0].versions);
+
+      clone.querySelector('.md-item__link').setAttribute('href', buildLink(item.title, providersInfo[item.providers[0].title].path, item.providers[0].versions[0]));
+      
+      container.appendChild(clone);
+    });
+
+    document.getElementById('container').appendChild(container);
+  }
+  var buildLink = function(title, path, version){
+    var link = '';
+    if(path == 'helpDymola'){
+      link = title + '%20' + version + '/Resources/helpDymola/' + title + '.html';
+    }else if(path == 'helpMapleSim'){
+      link = title + '%20' + version + '/Resources/helpMapleSim/index.html';
+    }else if(path == 'helpOM'){
+      link = 'Modelica%20' + version + '/Resources/helpOM/' + title + '.html';
+    }else{
+      link = 'Modelica%20' + version + '/Resources/helpWSM/' + title + '/' + title +'.html';
+    }
+    return link;
+  }
+
+  $(document).ready(function() {
+    buildTools();
+
+    $('body').on('change', '.md-item__tool-select', function(){
+      var versionSelect = $(this).closest('.md-item').find('.md-item__version-select');
+      var currentTool = $(this).closest('.md-item').find('.md-item__title').text();
+      var toolDetails = versions.find(function(item) {
+        return item.title == currentTool;
+      });
+      var newOption = $(this).val();
+      var selectVersionsArray = toolDetails.providers.find(function(item){
+        return item.title == newOption
+      });
+      versionSelect.empty();
+
+      buildSelect(versionSelect[0], selectVersionsArray.versions, false);
+
+      $(this).closest('.md-item').find('.md-item__provider').html('Library documentation generated by <a href="' + providersInfo[newOption].web + '" target="_blank" rel="noopener">' + providersInfo[newOption].title + '</a>');
+
+      $(this).closest('.md-item').find('.md-item__link').attr(
+        'href',
+        buildLink(currentTool, providersInfo[newOption].path, selectVersionsArray.versions[0])
+      );
+    });
+
+    
+    $('body').on('change', '.md-item__version-select', function(){
+      var currentTool = $(this).closest('.md-item').find('.md-item__title').text();
+      var newOption = $(this).closest('.md-item').find('.md-item__tool-select').val();
+      var version = $(this).val();
+
+      $(this).closest('.md-item').find('.md-item__link').attr(
+        'href',
+        buildLink(currentTool, providersInfo[newOption].path, version)
+      );
+    });
+  });
+</script>
+</html>

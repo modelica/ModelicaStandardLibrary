@@ -15,131 +15,239 @@
   <li><a href="Modelica.Electrical.html">Electrical</a></li>
   <li><a href="Modelica.Electrical.Spice3.html">Spice3</a></li>
   <li><a href="Modelica.Electrical.Spice3.Internal.html">Internal</a></li>
-  <li><a href="Modelica.Electrical.Spice3.Internal.Diode.html">Diode</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.DIODE.html">DIODE</a></li>
   </ul>
 </nav>
 <header>
   <table><tr><td>
-    <h1>Diode</h1>
-    <p>Records and functions for diode model</p>
+    <h1>DIODE</h1>
+    <p>Diode model</p>
   </td><td>
-    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Spice3.Internal.Diode_60x60.png"></div>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Spice3.Internal.DIODE_60x60.png"></div>
   </td></tr></table>
 </header>
-<section id="package-contents">
-  <h1>Package Contents</h1>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>DIODE model</p>
+<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(11)</span></h1>
   <div class="hideable">
-    <table class="shared-styles style-2">
+    <table class="shared-styles style-1">
     <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
     <tbody>
     <tr>
-      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Diode.DiodeModelLineParams_32x32.png"></td>
+      <th>AREA</th>
       <td>
-        <p><a href="Modelica.Electrical.Spice3.Internal.Diode.DiodeModelLineParams.html">DiodeModelLineParams</a></p>
-        <p>Record for Diode model line parameters</p>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Area factor</p>
       </td>
     </tr>
     <tr>
-      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Diode.DiodeModelLineVariables_32x32.png"></td>
+      <th>OFF</th>
       <td>
-        <p><a href="Modelica.Electrical.Spice3.Internal.Diode.DiodeModelLineVariables.html">DiodeModelLineVariables</a></p>
-        <p>Record for Diode model line variables</p>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Optional initial condition: false - IC not used, true - IC used, not implemented yet</p>
       </td>
     </tr>
     <tr>
-      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Diode.DiodeParams_32x32.png"></td>
+      <th>IC</th>
       <td>
-        <p><a href="Modelica.Electrical.Spice3.Internal.Diode.DiodeParams.html">DiodeParams</a></p>
-        <p>Record for Diode device parameters</p>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Initial condition value (VD, not implemented yet</p>
       </td>
     </tr>
     <tr>
-      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Diode.DiodeVariables_32x32.png"></td>
+      <th>TEMP</th>
       <td>
-        <p><a href="Modelica.Electrical.Spice3.Internal.Diode.DiodeVariables.html">DiodeVariables</a></p>
-        <p>Variables for the diode model</p>
+        <p><span>Value:</span> 27</p>
+        <p><span>Type:</span> <a href="Modelica.SIunits.Temp_C.html">Temp_C</a> (°C)</p>
+        <p><span>Description:</span> Operating temperature of the device</p>
       </td>
     </tr>
     <tr>
-      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Diode.DiodeCalc_32x32.png"></td>
+      <th>SENS_AREA</th>
       <td>
-        <p><a href="Modelica.Electrical.Spice3.Internal.Diode.DiodeCalc.html">DiodeCalc</a></p>
-        <p>Diode variables</p>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Flag to request sensitivity WRT area, not implemented yet</p>
       </td>
     </tr>
     <tr>
-      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Diode.CurrentsCapacitances_32x32.png"></td>
+      <th>modelcarddiode</th>
       <td>
-        <p><a href="Modelica.Electrical.Spice3.Internal.Diode.CurrentsCapacitances.html">CurrentsCapacitances</a></p>
-        <p>Diode variables</p>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.ModelcardDIODE.html">ModelcardDIODE</a></p>
+        <p><span>Description:</span> DIODE modelcard</p>
       </td>
     </tr>
     <tr>
-      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Diode.diodeModelLineInitEquations_32x32.png"></td>
+      <th>param</th>
       <td>
-        <p><a href="Modelica.Electrical.Spice3.Internal.Diode.diodeModelLineInitEquations.html">diodeModelLineInitEquations</a></p>
-        <p>Initial precalculation of model line parameters</p>
+        <p><span>Value:</span> Diode.diodeRenameParameters(modelcarddiode, C)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Diode.DiodeModelLineParams.html">DiodeModelLineParams</a></p>
+        <p><span>Description:</span> Model line parameters</p>
       </td>
     </tr>
     <tr>
-      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Diode.diodeInitEquations_32x32.png"></td>
+      <th>dp</th>
       <td>
-        <p><a href="Modelica.Electrical.Spice3.Internal.Diode.diodeInitEquations.html">diodeInitEquations</a></p>
-        <p>Initial calculation</p>
+        <p><span>Value:</span> Diode.diodeRenameParametersDev(TEMP, AREA, IC, OFF, SENS_AREA)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Diode.DiodeParams.html">DiodeParams</a></p>
+        <p><span>Description:</span> Renamed parameters</p>
       </td>
     </tr>
     <tr>
-      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Diode.diodeCalcTempDependencies_32x32.png"></td>
+      <th>m</th>
       <td>
-        <p><a href="Modelica.Electrical.Spice3.Internal.Diode.diodeCalcTempDependencies.html">diodeCalcTempDependencies</a></p>
-        <p>Temperature dependency calculation</p>
+        <p><span>Value:</span> Diode.diodeRenameParametersDevTemp(TEMP)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Model.Model.html">Model</a></p>
+        <p><span>Description:</span> Renamed parameters</p>
       </td>
     </tr>
     <tr>
-      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Diode.diodeNoBypassCode_32x32.png"></td>
+      <th>c1</th>
       <td>
-        <p><a href="Modelica.Electrical.Spice3.Internal.Diode.diodeNoBypassCode.html">diodeNoBypassCode</a></p>
-        <p>Calculation of currents</p>
+        <p><span>Value:</span> Diode.diodeInitEquations(param)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Diode.DiodeVariables.html">DiodeVariables</a></p>
+        <p><span>Description:</span> Precalculated values</p>
       </td>
     </tr>
     <tr>
-      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Diode.diodeCalcAdditionalValues_32x32.png"></td>
+      <th>c2</th>
       <td>
-        <p><a href="Modelica.Electrical.Spice3.Internal.Diode.diodeCalcAdditionalValues.html">diodeCalcAdditionalValues</a></p>
-        <p>Calculation of additional values</p>
-      </td>
-    </tr>
-    <tr>
-      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Diode.diodeRenameParameters_32x32.png"></td>
-      <td>
-        <p><a href="Modelica.Electrical.Spice3.Internal.Diode.diodeRenameParameters.html">diodeRenameParameters</a></p>
-        <p>Technology parameter renaming</p>
-      </td>
-    </tr>
-    <tr>
-      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Diode.diodeRenameParametersDev_32x32.png"></td>
-      <td>
-        <p><a href="Modelica.Electrical.Spice3.Internal.Diode.diodeRenameParametersDev.html">diodeRenameParametersDev</a></p>
-        <p>Temperature calculation</p>
-      </td>
-    </tr>
-    <tr>
-      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Diode.diodeRenameParametersDevTemp_32x32.png"></td>
-      <td>
-        <p><a href="Modelica.Electrical.Spice3.Internal.Diode.diodeRenameParametersDevTemp.html">diodeRenameParametersDevTemp</a></p>
-        <p>Temperature calculation</p>
+        <p><span>Value:</span> Diode.diodeCalcTempDependencies(param, dp, m, c1)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Diode.DiodeCalc.html">DiodeCalc</a></p>
+        <p><span>Description:</span> Precalculated values</p>
       </td>
     </tr>
     </tbody>
     </table>
   </div>
 </section>
-<section id="information">
-<h1>Information</h1>
-<div class="hideable">
-<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
-<p>This package Diode contains functions and record with data of the semiconductor diode model.</p>
-</div>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive electrical pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative electrical pin</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.ModelcardDIODE_32x32.png"></td>
+      <th>modelcarddiode</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.ModelcardDIODE.html">ModelcardDIODE</a></p>
+        <p><span>Description:</span> DIODE modelcard</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.SpiceConstants_32x32.png"></td>
+      <th>C</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.SpiceConstants.html">SpiceConstants</a></p>
+        <p><span>Description:</span> General constants of SPICE simulator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Diode.DiodeModelLineParams_32x32.png"></td>
+      <th>param</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Diode.DiodeModelLineParams.html">DiodeModelLineParams</a></p>
+        <p><span>Description:</span> Model line parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Diode.DiodeParams_32x32.png"></td>
+      <th>dp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Diode.DiodeParams.html">DiodeParams</a></p>
+        <p><span>Description:</span> Renamed parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Model.Model_32x32.png"></td>
+      <th>m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Model.Model.html">Model</a></p>
+        <p><span>Description:</span> Renamed parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Diode.DiodeVariables_32x32.png"></td>
+      <th>c1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Diode.DiodeVariables.html">DiodeVariables</a></p>
+        <p><span>Description:</span> Precalculated values</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Diode.DiodeCalc_32x32.png"></td>
+      <th>c2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Diode.DiodeCalc.html">DiodeCalc</a></p>
+        <p><span>Description:</span> Precalculated values</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Diode.CurrentsCapacitances_32x32.png"></td>
+      <th>cc</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Diode.CurrentsCapacitances.html">CurrentsCapacitances</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Semiconductors.D_DIODE_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Semiconductors.D_DIODE.html">D_DIODE</a></p>
+        <p><span>Modelica.Electrical.Spice3.Semiconductors</span</p>
+        <p>Diode model</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
 </section>
 </div>
 </body>

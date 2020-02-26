@@ -13,15 +13,15 @@
     <li><a href="https://www.wolfram.com/system-modeler/">SystemModeler</a></li>
   <li><a href="ModelicaReference.html">ModelicaReference</a></li>
   <li><a href="ModelicaReference.Operators.html">Operators</a></li>
-  <li><a href="ModelicaReference.Operators.'integer()'.html">'integer()'</a></li>
+  <li><a href="ModelicaReference.Operators.'Integer()'.html">'Integer()'</a></li>
   </ul>
 </nav>
 <header>
   <table><tr><td>
-    <h1>'integer()'</h1>
-    <p>integer()</p>
+    <h1>'Integer()'</h1>
+    <p>Integer()</p>
   </td><td>
-    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'integer()'_60x60.png"></div>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'Integer()'_60x60.png"></div>
   </td></tr></table>
 </header>
 <section id="information">
@@ -29,18 +29,23 @@
 <div class="hideable">
 <p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
 <p>
-Round Real number towards minus infinity
+Returns ordinal number of enumeration
 </p>
 <h4>Syntax</h4>
-<blockquote><pre><strong>integer</strong>(x)</pre></blockquote>
+<blockquote><pre><strong>Integer</strong>(&lt;expression of enumeration type&gt;)</pre></blockquote>
 <h4>Description</h4>
-<p>Returns the largest integer not greater than <code>x</code>.
-The argument shall have type Real. The result has type Integer.</p>
-<p><em>[Note, outside of a when clause state events are triggered
-when the return value changes discontinuously.]</em></p>
+<p>
+Returns the ordinal number of the enumeration value E.enumvalue, to which the expression
+is evaluated, where Integer(E.e1) =1, Integer(E.en) =size(E), for an enumeration
+type E=enumeration(e1, ...,  en).
+</p>
+
 <h4>Examples</h4>
-<pre><strong>integer</strong>({-3.14, 3.14})
- = {-4, 3}</pre>
+<blockquote><pre>
+<strong>type</strong> Size = <strong>enumeration</strong>(small, medium, large, xlarge);
+Size tshirt = Size.large;
+Integer tshirtValue = <strong>Integer</strong>(tshirt);  // = 3
+</pre></blockquote>
 </div>
 </section>
 </div>

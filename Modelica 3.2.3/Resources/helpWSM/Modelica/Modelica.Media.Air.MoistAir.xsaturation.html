@@ -15,27 +15,27 @@
   <li><a href="Modelica.Media.html">Media</a></li>
   <li><a href="Modelica.Media.Air.html">Air</a></li>
   <li><a href="Modelica.Media.Air.MoistAir.html">MoistAir</a></li>
-  <li><a href="Modelica.Media.Air.MoistAir.xsaturation.html">xsaturation</a></li>
+  <li><a href="Modelica.Media.Air.MoistAir.Xsaturation.html">Xsaturation</a></li>
   </ul>
 </nav>
 <header>
   <table><tr><td>
-    <h1>xsaturation</h1>
-    <p>Return absolute humidity per unit mass of dry air at saturation as a function of the thermodynamic state record</p>
+    <h1>Xsaturation</h1>
+    <p>Return absolute humidity per unit mass of moist air at saturation as a function of the thermodynamic state record</p>
   </td><td>
-    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Air.MoistAir.xsaturation_60x60.png"></div>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Air.MoistAir.Xsaturation_60x60.png"></div>
   </td></tr></table>
 </header>
 <section id="information">
 <h1>Information</h1>
 <div class="hideable">
 <p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
-Absolute humidity per unit mass of dry air at saturation is computed from pressure and temperature in the thermodynamic state record.
+Absolute humidity per unit mass of moist air at saturation is computed from pressure and temperature in the state record. Note, that unlike X_sat in the BaseProperties model this mass fraction refers to mass of moist air at saturation.
 </div>
 </section>
 <section id="syntax" >
   <h1>Syntax </h1>
-  <div class="hideable">x_sat = xsaturation(state)
+  <div class="hideable">X_sat = Xsaturation(state)
   </div>
 </section>
 <section id="input" >
@@ -62,10 +62,10 @@ Absolute humidity per unit mass of dry air at saturation is computed from pressu
     <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
     <tbody>
     <tr>
-      <th>x_sat</th>
+      <th>X_sat</th>
       <td>
         <p><span>Type:</span> <a href="Modelica.Media.Air.MoistAir.MassFraction.html">MassFraction</a> (kg/kg)</p>
-        <p><span>Description:</span> Absolute humidity per unit mass of dry air</p>
+        <p><span>Description:</span> Steam mass fraction of sat. boundary</p>
       </td>
     </tr>
     </tbody>
