@@ -19,8 +19,6 @@ equation
   port_a.Q_flow + port_b.Q_flow = 0;
   Q_flow = port_a.Q_flow;
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}})),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={
         Line(points={{-70,0},{-90,0}}, color={191,0,0}),

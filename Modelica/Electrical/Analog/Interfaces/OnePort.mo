@@ -16,6 +16,5 @@ equation
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
-</html>"),
-    Diagram(coordinateSystem(initialScale = 0.1)));
+</html>"));
 end OnePort;

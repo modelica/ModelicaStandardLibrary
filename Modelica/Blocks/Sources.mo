@@ -149,9 +149,6 @@ variable <strong>y</strong> is both a variable and a connector.
           Text(
             extent={{-150,-150},{150,-110}},
             textString="startTime=%startTime")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The Real output y is a clock signal:
@@ -192,9 +189,6 @@ The Real output y is a clock signal:
           Text(
             extent={{-150,-150},{150,-110}},
             textString="k=%k")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The Real output y is a constant signal:
@@ -234,9 +228,6 @@ The Real output y is a constant signal:
           Text(
             extent={{-150,-150},{150,-110}},
             textString="startTime=%startTime")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The Real output y is a step signal:
@@ -281,9 +272,6 @@ The Real output y is a step signal:
             extent={{-150,-150},{150,-110}},
             textString="duration=%duration"),
           Line(points={{31,38},{86,38}})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The Real output y is a ramp signal:
@@ -334,9 +322,6 @@ If parameter duration is set to 0.0, the limiting case of a Step signal is achie
           Text(
             extent={{-147,-152},{153,-112}},
             textString="f=%f")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The Real output y is a sine signal:
@@ -384,9 +369,6 @@ The Real output y is a sine signal:
             textString="f=%f"),
           Line(points={{42,1},{53.3,35.2},{60.5,54.1},{66.9,67.4},{72.6,75.6},{
                 78.2,80.1},{83.8,80.8}})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The Real output y is a cosine signal:
@@ -416,24 +398,20 @@ The Real output y is a cosine signal:
                   annotation (Placement(
           transformation(
           extent={{-20,-20},{20,20}},
-          rotation=0,
           origin={-120,60})));
     Blocks.Interfaces.RealInput f(unit="Hz") if not useConstantFrequency
       "Frequency" annotation (Placement(
           transformation(
           extent={{-20,-20},{20,20}},
-          rotation=0,
           origin={-120,-60})));
   protected
     Blocks.Interfaces.RealInput amplitude_internal "Amplitude" annotation (Placement(
           transformation(
           extent={{-2,-2},{2,2}},
-          rotation=0,
           origin={-80,60})));
     Blocks.Interfaces.RealInput f_internal(unit="Hz") "Frequency" annotation (Placement(
           transformation(
           extent={{-2,-2},{2,2}},
-          rotation=0,
           origin={-80,-60})));
     Blocks.Sources.Constant amplitude_constant(final k=constantAmplitude) if
       useConstantAmplitude
@@ -494,9 +472,6 @@ The Real output y is a cosine signal:
   {64,71.9},{65.6,72.3},{67.2,70.5},{68.8,66.4},{70.4,60},
   {72,51.4},{73.6,40.8},{75.2,28.4},{76.8,14.7},{78.4,0},
   {80,-15.1}},     smooth = Smooth.Bezier)}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 This signal source provides a sinusoidal signal with variable frequency <code>f</code> and variable <code>amplitude</code>,
@@ -526,24 +501,20 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
                   annotation (Placement(
           transformation(
           extent={{-20,-20},{20,20}},
-          rotation=0,
           origin={-120,60})));
     Blocks.Interfaces.RealInput f(unit="Hz") if not useConstantFrequency
       "Frequency" annotation (Placement(
           transformation(
           extent={{-20,-20},{20,20}},
-          rotation=0,
           origin={-120,-60})));
   protected
     Blocks.Interfaces.RealInput amplitude_internal "Amplitude" annotation (Placement(
           transformation(
           extent={{-2,-2},{2,2}},
-          rotation=0,
           origin={-80,60})));
     Blocks.Interfaces.RealInput f_internal(unit="Hz") "Frequency" annotation (Placement(
           transformation(
           extent={{-2,-2},{2,2}},
-          rotation=0,
           origin={-80,-60})));
     Blocks.Sources.Constant amplitude_constant(final k=constantAmplitude) if
       useConstantAmplitude
@@ -604,9 +575,6 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
   {65.6,5.1},{67.2,-2.2},{68.8,-9.5},{70.4,-16.4},{72,-22.8},
   {73.6,-28.4},{75.2,-33},{76.8,-36.6},{78.4,-38.9},{80,-39.8}},
       smooth = Smooth.Bezier)}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 This signal source provides a cosine signal with variable frequency <code>f</code> and variable <code>amplitude</code>,
@@ -661,9 +629,6 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
         { 40,  0.0},{ 44, -2.5},{ 48, -4.7},{ 52, -6.2},{ 56, -7.1},
         { 60, -7.3},{ 64, -6.7},{ 68, -5.6},{ 72, -3.9},{ 76, -2.0},
         { 80,  0.0}}, smooth = Smooth.Bezier)}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The Real output y is a sinc signal: <code> amplitude*(sin(2*&pi;*f*t))/((2*&pi;*f*t))</code>
@@ -714,9 +679,6 @@ The Real output y is a sinc signal: <code> amplitude*(sin(2*&pi;*f*t))/((2*&pi;*
           Text(
             extent={{-147,-152},{153,-112}},
             textString="f=%f")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The Real output y is a sine signal with exponentially changing amplitude:
@@ -774,9 +736,6 @@ The Real output y is a sine signal with exponentially changing amplitude:
           Text(
             extent={{-150,-150},{150,-110}},
             textString="riseTime=%riseTime")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The Real output y is a rising exponential followed
@@ -837,9 +796,6 @@ by a falling exponential signal:
           Text(
             extent={{-147,-152},{153,-112}},
             textString="period=%period")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The Real output y is a pulse signal:
@@ -893,9 +849,6 @@ The Real output y is a pulse signal:
           Text(
             extent={{-147,-152},{153,-112}},
             textString="period=%period")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The Real output y is a saw tooth signal:
@@ -965,9 +918,6 @@ The Real output y is a saw tooth signal:
             textString="period=%period"),
           Line(points={{-81,-70},{-60,-70},{-30,40},{9,40},{39,-70},{61,-70},{
                 90,40}})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The Real output y is a trapezoid signal:
@@ -1113,9 +1063,6 @@ The output is the decimal power of this logarithmic ramp.
           Text(
             extent={{-150,-150},{150,-110}},
             textString="deltaq=%deltaq")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
           Documentation(info="<html>
 <p>
 The goal is to move as <strong>fast</strong> as possible along a distance
@@ -1344,9 +1291,6 @@ a flange according to a given acceleration.
           Text(
             extent={{-32,-74},{97,-96}},
             textString="moving")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The goal is to move as <strong>fast</strong> as possible from start position <strong>q_begin</strong>
@@ -1533,9 +1477,6 @@ a flange according to a given acceleration.
           Text(
             extent={{-150,-150},{150,-110}},
             textString="offset=%offset")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
           Documentation(info="<html>
 <p>
 This block generates an output signal by <strong>linear interpolation</strong> in
@@ -1957,9 +1898,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         fillColor={255,215,136},
         fillPattern=FillPattern.Solid,
         extent={{-48.0,-50.0},{2.0,70.0}}),
-      Line(points={{-48.0,-50.0},{-48.0,70.0},{52.0,70.0},{52.0,-50.0},{-48.0,-50.0},{-48.0,-20.0},{52.0,-20.0},{52.0,10.0},{-48.0,10.0},{-48.0,40.0},{52.0,40.0},{52.0,70.0},{2.0,70.0},{2.0,-51.0}})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})));
+      Line(points={{-48.0,-50.0},{-48.0,70.0},{52.0,70.0},{52.0,-50.0},{-48.0,-50.0},{-48.0,-20.0},{52.0,-20.0},{52.0,10.0},{-48.0,10.0},{-48.0,40.0},{52.0,40.0},{52.0,70.0},{2.0,70.0},{2.0,-51.0}})}));
   end CombiTimeTable;
 
   block BooleanConstant "Generate constant signal of type Boolean"
@@ -1976,9 +1915,6 @@ MATLAB is a registered trademark of The MathWorks, Inc.
             Text(
             extent={{-150,-140},{150,-110}},
             textString="%k")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 The Boolean output y is a constant signal:
@@ -2011,8 +1947,6 @@ The Boolean output y is a constant signal:
           Text(
             extent={{-150,-140},{150,-110}},
             textString="%startTime")}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 The Boolean output y is a step signal:
@@ -2055,9 +1989,6 @@ The Boolean output y is a step signal:
             extent={{-150,-140},{150,-110}},
             textString="%period"), Line(points={{-80,-70},{-40,-70},{-40,44},{0,
                 44},{0,-70},{40,-70},{40,44},{79,44}})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 The Boolean output y is a pulse signal:
@@ -2091,9 +2022,6 @@ The Boolean output y is a pulse signal:
           Text(
             extent={{-150,-140},{150,-110}},
             textString="%period")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 The Boolean output y is a trigger signal where the output y is only <strong>true</strong>
@@ -2329,8 +2257,6 @@ This example is also available in
           Text(
             extent={{-150,-150},{150,-110}},
             textString="k=%k")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 The Integer output y is a constant signal:
@@ -2367,8 +2293,6 @@ The Integer output y is a constant signal:
           Text(
             extent={{-150,-150},{150,-110}},
             textString="startTime=%startTime")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 The Integer output y is a step signal:

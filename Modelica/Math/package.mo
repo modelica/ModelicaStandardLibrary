@@ -10942,8 +10942,6 @@ package Icons "Icons for Math"
             extent={{-150,150},{150,110}},
             textString="%name",
             textColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 Icon for a mathematical function, consisting of an y-axis on the left side.
@@ -11050,9 +11048,6 @@ external "builtin" y = sin(u);
           extent={{12,84},{84,36}},
           textColor={192,192,192},
           textString="sin")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = sin(u), with -&infin; &lt; u &lt; &infin;:
@@ -11089,9 +11084,6 @@ external "builtin" y = cos(u);
           extent={{-36,82},{36,34}},
           textColor={192,192,192},
           textString="cos")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = cos(u), with -&infin; &lt; u &lt; &infin;:
@@ -11127,9 +11119,6 @@ external "builtin" y = tan(u);
           extent={{-90,72},{-18,24}},
           textColor={192,192,192},
           textString="tan")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = tan(u), with -&infin; &lt; u &lt; &infin;
@@ -11165,9 +11154,6 @@ external "builtin" y = asin(u);
           extent={{-88,78},{-16,30}},
           textColor={192,192,192},
           textString="asin")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = asin(u), with -1 &le; u &le; +1:
@@ -11202,9 +11188,6 @@ external "builtin" y = acos(u);
           extent={{-86,-14},{-14,-62}},
           textColor={192,192,192},
           textString="acos")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = acos(u), with -1 &le; u &le; +1:
@@ -11240,9 +11223,6 @@ external "builtin" y = atan(u);
           extent={{-86,68},{-14,20}},
           textColor={192,192,192},
           textString="atan")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = atan(u), with -&infin; &lt; u &lt; &infin;:
@@ -11282,9 +11262,6 @@ external "builtin" y = atan2(u1, u2);
           extent={{-90,-46},{-18,-94}},
           textColor={192,192,192},
           textString="atan2")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = atan2(u1,u2) such that tan(y) = u1/u2 and
@@ -11346,9 +11323,6 @@ algorithm
           extent={{-90,-46},{-18,-94}},
           textColor={192,192,192},
           textString="atan3")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = <strong>atan3</strong>(u1,u2,y0) such that
@@ -11395,9 +11369,6 @@ external "builtin" y = sinh(u);
           extent={{-88,80},{-16,32}},
           textColor={192,192,192},
           textString="sinh")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = sinh(u), with -&infin; &lt; u &lt; &infin;:
@@ -11435,9 +11406,6 @@ external "builtin" y = cosh(u);
           extent={{4,66},{66,20}},
           textColor={192,192,192},
           textString="cosh")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = cosh(u), with -&infin; &lt; u &lt; &infin;:
@@ -11473,9 +11441,6 @@ external "builtin" y = tanh(u);
           extent={{-88,72},{-16,24}},
           textColor={192,192,192},
           textString="tanh")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = tanh(u), with -&infin; &lt; u &lt; &infin;:
@@ -11511,9 +11476,6 @@ algorithm
           extent={{-90,80},{-6,26}},
           textColor={192,192,192},
           textString="asinh")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 The function returns the area hyperbolic sine of its
@@ -11554,9 +11516,6 @@ algorithm
           extent={{-14,2},{76,-54}},
           textColor={192,192,192},
           textString="arcosh")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns the area hyperbolic cosine of its
@@ -11603,9 +11562,6 @@ external "builtin" y = exp(u);
           extent={{-86,50},{-14,2}},
           textColor={192,192,192},
           textString="exp")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = exp(u), with -&infin; &lt; u &lt; &infin;:
@@ -11640,9 +11596,6 @@ external "builtin" y = log(u);
           extent={{-6,-24},{66,-72}},
           textColor={192,192,192},
           textString="log")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = log(10) (the natural logarithm of u),
@@ -11678,9 +11631,6 @@ external "builtin" y = log10(u);
           extent={{-30,-22},{60,-70}},
           textColor={192,192,192},
           textString="log10")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = log10(u),

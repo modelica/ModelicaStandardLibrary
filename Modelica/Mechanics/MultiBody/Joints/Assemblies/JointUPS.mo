@@ -497,9 +497,5 @@ component).
         Line(
           points={{-40,90},{-40,90},{-40,95}},
           color={95,95,95},
-          thickness=0.5)}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        initialScale=0.2)));
+          thickness=0.5)}));
 end JointUPS;

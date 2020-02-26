@@ -95,8 +95,5 @@ equation
         Text(
           extent={{-150,-40},{150,-80}},
           textString="%name",
-          textColor={0,0,255})}),
-   Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})));
+          textColor={0,0,255})}));
 end Thyristor;

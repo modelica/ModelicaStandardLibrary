@@ -81,7 +81,5 @@ equation
                    color={0,0,255}),Line(points={{-40,40},{40,0}}, color={0,0,255}),
           Line(points={{40,40},{96,40}}, color={0,0,255}),
                                            Line(points={{40,0},{96,0}}, color=
-           {0,0,255})}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}})));
+           {0,0,255})}));
 end IdealIntermediateSwitch;

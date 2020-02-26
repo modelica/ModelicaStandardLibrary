@@ -217,9 +217,7 @@ equation
         Text(
           extent={{-100,-50},{-80,-70}},
           textColor={128,128,128},
-          textString="i")}),                                     Diagram(
-        coordinateSystem(preserveAspectRatio=false)),
-    Documentation(info="<html>
+          textString="i")}),    Documentation(info="<html>
 <p>This is a model of a DC-DC inverter. The level of detail of the DC-DC inverter may be chosen from ideal averaging or switching.</p>
 <p>Reference voltage is limited to actual battery voltage.</p>
 <p>Battery voltage and motor current are measured.</p>

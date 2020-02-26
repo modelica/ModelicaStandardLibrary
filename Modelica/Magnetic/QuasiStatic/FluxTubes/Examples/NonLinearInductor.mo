@@ -214,6 +214,5 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
 <li>Effective fundamental wave relative permeability of iron core of transient and quasi-static circuit<br>
     <code>fundamentalWavePermabilitySensor.mur | r_mFeQS.mu_rConst</code></li>
 </ul>
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false)));
+</html>"));
 end NonLinearInductor;

@@ -31,9 +31,6 @@ equation
         fillColor={255,255,255},
         fillPattern=FillPattern.Solid),
       Line(points={{0,50},{0,-50}}, color={255,170,85})}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=false,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This source provides a constant quasi-static magnetic flux <code>Phi</code> at fixed frequency, <code>f</code>.

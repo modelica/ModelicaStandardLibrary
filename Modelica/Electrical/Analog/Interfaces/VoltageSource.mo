@@ -10,9 +10,6 @@ partial model VoltageSource "Interface for voltage sources"
 equation
   v = signalSource.y;
   annotation (
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>

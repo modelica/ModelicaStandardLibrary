@@ -1449,8 +1449,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
       equation
         connect(ground.port_p, symmetricCage.port_p) annotation (Line(points={{-20,-10},{-10,-10},{-10,10},{0,10}}, color={255,128,0}));
         connect(ground.port_p, saliencyCage.port_p) annotation (Line(points={{-20,-10},{-10,-10},{-10,-30},{0,-30}}, color={255,128,0}));
-        annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),
-          Documentation(info="<html>
+        annotation (          Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3030\">#3030</a>.
 </p>

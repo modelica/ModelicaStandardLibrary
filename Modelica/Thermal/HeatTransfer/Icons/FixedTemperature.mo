@@ -16,7 +16,6 @@ model FixedTemperature "Icon of fixed temperature source"
           lineColor={191,0,0},
           fillColor={191,0,0},
           fillPattern=FillPattern.Solid)}),
-    Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
 <p>
 This icon represents a fixed temperature source model.

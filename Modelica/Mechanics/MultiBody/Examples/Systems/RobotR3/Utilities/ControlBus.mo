@@ -9,8 +9,6 @@ expandable connector ControlBus "Data bus for all axes of robot"
   Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.AxisControlBus axisControlBus6 "Bus of axis 6";
 
   annotation (
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}})),
     Documentation(info="<html>
 <p>
 Signal bus that is used to communicate <strong>all signals</strong> of the robot.

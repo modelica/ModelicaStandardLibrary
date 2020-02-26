@@ -80,6 +80,5 @@ both relationships have been precalculated and are interpolated from a table.
         Line(points={{-55,66},{-55,0},{-80,0}}, color={0,0,0}),
         Line(points={{26,-68},{35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,-71.5},{57.5,
               -61.9},{63.9,-47.2},{72,-24.8},{80,0}},       smooth = Smooth.Bezier),
-        Line(points={{0,0},{26,0},{26,-68}}, color={0,0,0})}),
-    Diagram(coordinateSystem(grid={2,2})));
+        Line(points={{0,0},{26,0},{26,-68}}, color={0,0,0})}));
 end VoltageToAngle;

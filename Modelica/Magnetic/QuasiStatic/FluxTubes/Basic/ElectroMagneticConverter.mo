@@ -58,9 +58,6 @@ equation
   port_p.reference.gamma = pin_p.reference.gamma;
   annotation (
     defaultComponentName="converter",
-    Diagram(coordinateSystem(
-        preserveAspectRatio=false,
-        extent={{-100,-100},{100,100}})),
     Icon(coordinateSystem(
       preserveAspectRatio=false,
       extent={{-100,-100},{100,100}}), graphics={

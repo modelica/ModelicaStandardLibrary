@@ -28,7 +28,6 @@ model TestCylinder "Two cylinder system"
     T0=313.15,
     T0fixed=true) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={10,0})));
   Modelica.Mechanics.Translational.Components.Mass mass(m=1)
     annotation (Placement(transformation(extent={{30,-10},{50,10}})));

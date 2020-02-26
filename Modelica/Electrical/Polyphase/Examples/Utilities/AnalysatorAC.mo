@@ -16,7 +16,6 @@ model AnalysatorAC "Analyze AC voltage, current and power"
   Modelica.Blocks.Interfaces.RealOutput pTotal(unit="W") "Total power, mean"  annotation (
      Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={110,-60})));
   Modelica.Blocks.Interfaces.RealOutput iFeed[m](each unit="A")
     "RMS feed currents, first harmonic" annotation (Placement(transformation(
@@ -36,9 +35,7 @@ model AnalysatorAC "Analyze AC voltage, current and power"
         rotation=270,
         origin={60,-110})));
   Sensors.MultiSensor multiSensorAC(m=m)
-    annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-        rotation=0,
-        origin={0,0})));
+    annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   Basic.MultiDelta multiDelta(m=m, kPolygon=kPolygon)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},

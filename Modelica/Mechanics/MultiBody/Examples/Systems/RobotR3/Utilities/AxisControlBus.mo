@@ -16,8 +16,6 @@ expandable connector AxisControlBus "Data bus for one robot axis"
   SI.AngularVelocity motorSpeed "Speed of motor flange" annotation(HideResult=false);
 
   annotation (defaultComponentPrefixes="protected",
-              Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-            -100},{100,100}})),
     Documentation(info="<html>
 <p>
 Signal bus that is used to communicate all signals for <strong>one</strong> axis.

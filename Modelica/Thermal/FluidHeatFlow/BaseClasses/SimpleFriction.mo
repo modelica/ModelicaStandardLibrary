@@ -53,7 +53,5 @@ Linear and quadratic dependency are coupled smoothly at V_flowLaminar / dpLamina
 Quadratic dependency is defined by nominal volume flow and pressure drop (V_flowNominal / dpNominal).
 See also sketch at diagram layer.
 </p>
-</html>"),
-  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})));
+</html>"));
 end SimpleFriction;

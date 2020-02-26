@@ -22,7 +22,6 @@ model DifferentialAmplifier "Differential amplifier"
   Modelica.Electrical.Analog.Basic.Resistor resistanceLoad(R=data.RLoad)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-110,60})));
   Modelica.Electrical.Analog.Sensors.VoltageSensor voltageSensorSource
     annotation (Placement(transformation(
@@ -146,7 +145,6 @@ equation
       Interval=0.0001,
       Tolerance=1e-06),
     Diagram(coordinateSystem(extent={{-140,-100},{140,100}})),
-    Icon(coordinateSystem(extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This model demonstrates a differential amplifier to attenuate the input voltage to a level that can be handled by the measurement instrument.

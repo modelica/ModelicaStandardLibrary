@@ -48,7 +48,6 @@ equation
           fillColor={85,170,255},
           fillPattern=FillPattern.Solid),
                    Line(points={{0,50},{0,-50}}, color={85,170,255})}),
-                                                                 Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
 <p>This source provides a constant RMS phase current <code>I</code> and phase angle <code>phi</code>,
 whereas the frequency sweeps from

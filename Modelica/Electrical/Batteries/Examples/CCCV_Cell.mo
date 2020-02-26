@@ -17,8 +17,7 @@ model CCCV_Cell
     annotation (Placement(transformation(extent={{-30,-40},{-10,-20}})));
   Modelica.Electrical.Batteries.BatteryStacksWithSensors.Cell cell(cellData=cellData) annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
-        rotation=270,
-        origin={0,0})));
+        rotation=270)));
   Analog.Sensors.MultiSensor                     multiSensor
     annotation (Placement(transformation(extent={{-30,30},{-10,50}})));
   Blocks.Continuous.Integrator          energy(u(unit="W"), y(unit="J"))

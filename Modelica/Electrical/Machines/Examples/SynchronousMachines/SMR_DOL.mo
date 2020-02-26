@@ -43,7 +43,6 @@ model SMR_DOL
     annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
   Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
     annotation (Placement(transformation(
-        origin={0,0},
         extent={{-10,10},{10,-10}},
         rotation=270)));
   Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smr.p)

@@ -181,6 +181,5 @@ This model compares a transient-linear magnetic circuit with a quasi-static magn
 <li>Relative permeability of iron core of transient and quasi-static circuit<br>
     <code>r_mFe.mu_rConst | r_mFeQS.mu_rConst</code></li>
 </ul>
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false)));
+</html>"));
 end LinearInductor;

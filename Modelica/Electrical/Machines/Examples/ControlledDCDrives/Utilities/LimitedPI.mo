@@ -191,8 +191,6 @@ equation
           textColor={192,192,192},
           textString="P", visible=not useI),
         Line(visible=not useI, points={{-80,-80},{-80,24},{56,24}},  color = {0,0,127})}),
-                                               Diagram(
-        coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
 <p>
 Proportional - Integral - controller with optional feed-forward and limitation at the output.

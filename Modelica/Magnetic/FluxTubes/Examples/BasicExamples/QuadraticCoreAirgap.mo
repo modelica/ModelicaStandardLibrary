@@ -26,7 +26,6 @@ model QuadraticCoreAirgap "Educational example: iron core with airgap"
     a=a,
     b=a) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={0,50})));
   Shapes.FixedShape.Cuboid rightLeg(
     nonLinearPermeability=false,
@@ -55,7 +54,6 @@ model QuadraticCoreAirgap "Educational example: iron core with airgap"
     a=a,
     b=a) annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
-        rotation=0,
         origin={0,-50})));
   Basic.Ground magneticGround
     annotation (Placement(transformation(extent={{-40,-70},{-20,-50}})));
@@ -84,8 +82,7 @@ model QuadraticCoreAirgap "Educational example: iron core with airgap"
                                                          annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={0,0})));
+        rotation=270)));
   Blocks.Sources.RealExpression usefulReluctance(y=1/airGap.G_m) annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},

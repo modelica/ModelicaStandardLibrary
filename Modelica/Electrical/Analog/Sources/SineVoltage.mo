@@ -16,8 +16,6 @@ model SineVoltage "Sine voltage source"
               19.1,-44},{24.8,-56.2},{29.7,-64},{34.6,-68.6},{39.5,-70},{44.5,
               -67.9},{49.4,-62.5},{54.3,-54.1},{59.9,-41.3},{67,-21.7},{74,0}},
             color={192,192,192})}),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}})),
     Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>

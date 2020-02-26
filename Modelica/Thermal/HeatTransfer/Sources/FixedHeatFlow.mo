@@ -43,8 +43,6 @@ equation
           lineColor={191,0,0},
           fillColor={191,0,0},
           fillPattern=FillPattern.Solid)}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})),
     Documentation(info="<html>
 <p>
 This model allows a specified amount of heat flow rate to be \"injected\"

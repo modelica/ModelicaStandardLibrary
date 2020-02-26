@@ -36,7 +36,6 @@ model SimpleTriac "Simple triac, based on Semiconductors.Thyristor model"
   Modelica.Electrical.Analog.Ideal.IdealDiode idealDiode1(Vknee=0) annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-40,-60})));
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
 equation

@@ -16,8 +16,6 @@ model PulseVoltage "Pulse voltage source"
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={Line(points={{-70,-70},{-40,-70},{-40,70},{0,70},
               {0,-70},{40,-70},{40,70},{80,70}}, color={192,192,192})}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}})),
     Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>

@@ -9,7 +9,6 @@ partial model TwoPin "Component with two electrical pins"
 equation
   v = p.v - n.v;
   annotation (
-    Diagram(coordinateSystem(initialScale = 0.1)),
     Documentation(revisions = "<html>
 <ul>
 <li><em> 1998   </em>

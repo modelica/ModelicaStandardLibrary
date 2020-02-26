@@ -451,7 +451,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
       else
         head = homotopy(if s > 0 then (N/N_nominal)^2*flowCharacteristic(V_flow_single*N_nominal/N)
                                else (N/N_nominal)^2*flowCharacteristic(0) - s*unitHead,
-                      if checkValveHomotopy == Types.CheckValveHomotopyType.Open then 
+                      if checkValveHomotopy == Types.CheckValveHomotopyType.Open then
                         N/N_nominal*(flowCharacteristic(V_flow_single_init)+(V_flow_single-V_flow_single_init)*noEvent(if abs(V_flow_single_init)>0 then delta_head_init/(0.1*V_flow_single_init) else 0))
                       else
                         N/N_nominal*flowCharacteristic(0) - s*unitHead);

@@ -249,9 +249,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         extent={{-60.0,-20.0},{-30.0,0.0}}),
       Rectangle(fillColor={255,215,136},
         fillPattern=FillPattern.Solid,
-        extent={{-60.0,-40.0},{-30.0,-20.0}})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})));
+        extent={{-60.0,-40.0},{-30.0,-20.0}})}));
   end CombiTable1Ds;
 
   block CombiTable1Dv
@@ -503,9 +501,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         extent={{-60.0,-20.0},{-30.0,0.0}}),
       Rectangle(fillColor={255,215,136},
         fillPattern=FillPattern.Solid,
-        extent={{-60.0,-40.0},{-30.0,-20.0}})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})));
+        extent={{-60.0,-40.0},{-30.0,-20.0}})}));
   end CombiTable1Dv;
 
   block CombiTable2Ds "Table look-up in two dimensions (matrix/file)"
@@ -961,9 +957,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       Rectangle(origin={-2.3077,-0.0},
         fillColor={255,215,136},
         fillPattern=FillPattern.Solid,
-        extent={{32.3077,20.0},{62.3077,40.0}})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})));
+        extent={{32.3077,20.0},{62.3077,40.0}})}));
     end CombiTable2DBase;
 
     pure function getTimeTableValue

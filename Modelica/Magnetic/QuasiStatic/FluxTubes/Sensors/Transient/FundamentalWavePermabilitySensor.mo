@@ -110,8 +110,6 @@ equation
         Line(points={{-90,0},{90,0}}, color={255,128,0}),
         Line(points={{0,90},{0,70}}, color={255,128,0}),
         Line(points={{0,-70},{0,-90}}, color={255,128,0})}),
-                              Diagram(
-        coordinateSystem(preserveAspectRatio=false)),
   Documentation(info="<html>
 <p>
 This sensor is used to determined the effective fundamental wave permeability of a saturated lumped circuit reluctance. For this purpose the sensor is placed such way that the magnetic flux and the magnetic potential difference of the investigated reluctance are sensed. The area of cross section and the effective length of the investigated magnetic path have to be provided as parameters.

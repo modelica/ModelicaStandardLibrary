@@ -36,7 +36,6 @@ equation
       points={{-20,0},{-20,30}},
       color={255,170,85}));
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=false)),
     experiment(StopTime=1,Interval=0.001),
   Documentation(info="<html>
 <p>Magnetic circuit with two reluctances, leakage reluctance,  and eddy current loss.</p>

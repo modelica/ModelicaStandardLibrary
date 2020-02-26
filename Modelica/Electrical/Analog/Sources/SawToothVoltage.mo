@@ -8,8 +8,6 @@ model SawToothVoltage "Saw tooth voltage source"
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={Line(points={{-85,-70},{-65,-70},{-5,71},{-5,-70},
               {55,71},{55,-70}}, color={192,192,192})}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}})),
     Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>

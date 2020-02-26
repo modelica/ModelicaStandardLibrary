@@ -12,10 +12,7 @@ model VariableReluctance "Variable reluctance"
 equation
   V_m = Phi*R_m;
 
-  annotation (defaultComponentName="reluctance", Icon(coordinateSystem(
-      preserveAspectRatio=false,
-      extent={{-100,-100},{100,100}})),
-      Documentation(info="<html>
+  annotation (defaultComponentName="reluctance",      Documentation(info="<html>
 <p>
 The reluctance of this model is controlled by a real signal input.
 </p>

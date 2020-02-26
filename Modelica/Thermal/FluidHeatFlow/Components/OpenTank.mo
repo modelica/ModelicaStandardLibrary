@@ -103,9 +103,7 @@ equation
         Line(visible=useHeatPort,
           points={{-90,-100},{-56,-100},{-56,-88}},
           color={238,46,47},
-          thickness=0.5)}),                  Diagram(coordinateSystem(
-          preserveAspectRatio=false)),
-    Documentation(info="<html>
+          thickness=0.5)}),    Documentation(info="<html>
 <p>This is a simple model of an open tank with volume A*h. The level and the temperature of the medium are measured and provided as output.</p>
 <p>Note: If the level of the medium reaches 0 (minimum) or h (maximum), an assertion is triggered.</p>
 <p>Note: The flowPort is assumed to be at the bottom. Therefore the pressure at the flowPort is ambient pressure + level*rho*g.</p>

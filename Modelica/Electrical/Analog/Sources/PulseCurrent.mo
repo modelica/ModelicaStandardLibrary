@@ -16,8 +16,6 @@ model PulseCurrent "Pulse current source"
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={Line(points={{-80,-67},{-50,-67},{-50,73},{-10,
               73},{-10,-67},{30,-67},{30,73},{70,73}}, color={192,192,192})}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}})),
     Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>

@@ -6,8 +6,6 @@ model RampCurrent "Ramp current source"
   extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Ramp
       signalSource(final height=I, final duration=duration));
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}})),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={Line(points={{-80,-60},{-50,-60},{50,60},{80,60}},
             color={192,192,192})}),

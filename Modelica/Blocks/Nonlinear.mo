@@ -85,10 +85,7 @@ a lot by removing one strong nonlinearity from the initialization problem.
           Line(
             visible=strict,
             points={{-80,-70},{-50,-70}},
-            color={255,0,0})}),
-          Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+            color={255,0,0})}));
       end Limiter;
 
   block VariableLimiter "Limit the range of a signal with variable limits"
@@ -177,9 +174,7 @@ a lot by removing one strong nonlinearity from the initialization problem.
           Line(
             visible=strict,
             points={{-80,-70},{-50,-70}},
-            color={255,0,0})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})));
+            color={255,0,0})}));
   end VariableLimiter;
 
   block SlewRateLimiter "Limits the slew rate of a signal"
@@ -295,10 +290,7 @@ function of the input with a slope of 1.
           Text(
             extent={{-150,-150},{150,-110}},
             textColor={160,160,164},
-            textString="uMax=%uMax")}),
-          Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+            textString="uMax=%uMax")}));
       end DeadZone;
 
   block FixedDelay "Delay block with fixed DelayTime"
@@ -331,10 +323,7 @@ y = u(time - delayTime) for time &gt; time.start + delayTime
       Line(
         points={{-62.0,0.0},{-50.7,34.2},{-43.5,53.1},{-37.1,66.4},{-31.4,74.6},{-25.8,79.1},{-20.2,79.8},{-14.6,76.6},{-8.9,69.7},{-3.3,59.4},{3.1,44.1},{11.17,21.2},{28.1,-30.8},{35.3,-50.2},{41.7,-64.2},{47.3,-73.1},{53.0,-78.4},{58.6,-80.0},{64.2,-77.6},{69.9,-71.5},{75.5,-61.9},{81.9,-47.2},{90.0,-24.8},{98.0,0.0}},
         color={160,160,164},
-        smooth=Smooth.Bezier)}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+        smooth=Smooth.Bezier)}));
   end FixedDelay;
 
   block PadeDelay
@@ -534,10 +523,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
         textString="n=%n"),
       Text(visible=balance, textColor={160,160,164},
         extent={{-96,-20},{98,22}},
-            textString="balanced")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+            textString="balanced")}));
   end PadeDelay;
 
   block VariableDelay "Delay block with variable DelayTime"
@@ -578,8 +564,7 @@ the following relationship:
         fillColor={0,0,127},
         points={{6.0,4.0},{-14.0,-2.0},{-6.0,-12.0},{6.0,4.0}}),
       Line(color={0,0,127},
-        points={{-100.0,-60.0},{-76.0,-60.0},{-8.0,-6.0}})}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}})));
+        points={{-100.0,-60.0},{-76.0,-60.0},{-8.0,-6.0}})}));
   end VariableDelay;
 
       annotation (

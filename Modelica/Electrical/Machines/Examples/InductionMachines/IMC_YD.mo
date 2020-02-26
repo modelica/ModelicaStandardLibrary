@@ -44,8 +44,7 @@ model IMC_YD
     f=fill(fNominal, m),
     V=fill(sqrt(2/3)*VNominal, m)) annotation (Placement(transformation(
         origin={-30,90},
-        extent={{10,-10},{-10,10}},
-        rotation=0)));
+        extent={{10,-10},{-10,10}})));
   Modelica.Electrical.Polyphase.Basic.Star star(final m=m) annotation (
       Placement(transformation(extent={{-50,80},{-70,100}})));
   Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(

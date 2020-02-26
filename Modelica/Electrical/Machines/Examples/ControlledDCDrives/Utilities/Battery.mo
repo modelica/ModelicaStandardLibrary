@@ -58,9 +58,7 @@ equation
           extent={{4,72},{92,-32}},
           lineColor={28,108,200},
           fillColor={215,215,215},
-          fillPattern=FillPattern.Solid)}),                      Diagram(
-        coordinateSystem(preserveAspectRatio=false)),
-    Documentation(info="<html>
+          fillPattern=FillPattern.Solid)}),    Documentation(info="<html>
 <p>
 This is a simple model of a DC-source resp. battery, consisting of a constant DC-voltage and an inner resistance.
 </p>

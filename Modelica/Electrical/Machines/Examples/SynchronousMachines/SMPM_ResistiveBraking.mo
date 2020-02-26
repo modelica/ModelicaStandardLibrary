@@ -69,8 +69,7 @@ model SMPM_ResistiveBraking
     ground annotation (Placement(
         transformation(
         origin={-72,0},
-        extent={{-10,-10},{10,10}},
-        rotation=0)));
+        extent={{-10,-10},{10,10}})));
   Modelica.Electrical.Polyphase.Sensors.VoltageQuasiRMSSensor
     voltageRMSSensor(m=m) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},

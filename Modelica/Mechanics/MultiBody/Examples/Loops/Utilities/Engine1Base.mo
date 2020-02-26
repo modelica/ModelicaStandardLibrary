@@ -56,7 +56,6 @@ partial block Engine1Base
         rotation=90)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation mid(r={0.05,0,0})
     annotation (Placement(transformation(extent={{-10,10},{10,-10}},
-        rotation=0,
         origin={20,-40})));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation cylPosition(
     animation=false,

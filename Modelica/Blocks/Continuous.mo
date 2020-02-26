@@ -121,10 +121,7 @@ port has a rising edge.
             Text(
               visible=use_reset,
               extent={{-28,-62},{94,-86}},
-              textString="reset")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+              textString="reset")}));
   end Integrator;
 
   block LimIntegrator "Integrator with limited value of the output and optional reset"
@@ -263,10 +260,7 @@ port has a rising edge.
           Text(
             visible=use_reset,
             extent={{-28,-62},{94,-86}},
-            textString="reset")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+            textString="reset")}));
   end LimIntegrator;
 
   block Derivative "Approximated derivative block"
@@ -351,10 +345,7 @@ If k=0, the block reduces to y=0.
       extent={{-30.0,14.0},{86.0,60.0}},
       textString="DT1"),
     Text(extent={{-150.0,-150.0},{150.0,-110.0}},
-      textString="k=%k")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+      textString="k=%k")}));
   end Derivative;
 
   block FirstOrder "First order transfer function block (= 1 pole)"
@@ -428,10 +419,7 @@ Example:
       extent={{0.0,-60.0},{60.0,0.0}},
       textString="PT1"),
     Text(extent={{-150.0,-150.0},{150.0,-110.0}},
-      textString="T=%T")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+      textString="T=%T")}));
   end FirstOrder;
 
   block SecondOrder "Second order transfer function block (= 2 poles)"
@@ -514,10 +502,7 @@ Example:
           extent={{0.0,-70.0},{60.0,-10.0}},
           textString="PT2"),
       Text(extent={{-150.0,-150.0},{150.0,-110.0}},
-          textString="w=%w")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+          textString="w=%w")}));
   end SecondOrder;
 
   block PI "Proportional-Integral controller"
@@ -610,10 +595,7 @@ This is discussed in the description of package
             textString="PI"),
           Text(
             extent={{-150,-150},{150,-110}},
-            textString="T=%T")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+            textString="T=%T")}));
   end PI;
 
   block PID "PID-controller in additive description form"
@@ -1230,10 +1212,7 @@ y = --------- * u
           textString="b(s)"),
         Text(textColor={0,0,127},
           extent={{-90.0,-90.0},{90.0,-10.0}},
-          textString="a(s)")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+          textString="a(s)")}));
   end TransferFunction;
 
   block StateSpace "Linear state space system"
@@ -1331,10 +1310,7 @@ results in the following equations:
       Line(points={{0,-90},{0,90}},
         color={192,192,192}),
       Line(points={{-90,0},{90,0}},
-        color={192,192,192})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+        color={192,192,192})}));
   end StateSpace;
 
   block Der "Derivative of input (= analytic differentiations)"
@@ -1492,8 +1468,6 @@ the model.
           Text(textColor={192,192,192},
               extent={{-2.0,48.0},{94.0,94.0}},
               textString="%n")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 This block defines the transfer function between the input u
@@ -1590,8 +1564,6 @@ initType=Modelica.Blocks.Types.Init.SteadyState).
             textString="%n"),
           Text(extent={{8.0,-146.0},{8.0,-106.0}},
             textString="f=%f")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>This block defines the transfer function between the
 input u and the output y

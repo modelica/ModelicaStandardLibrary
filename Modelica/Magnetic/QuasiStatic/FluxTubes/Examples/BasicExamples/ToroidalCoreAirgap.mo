@@ -17,7 +17,6 @@ model ToroidalCoreAirgap "Educational example: iron core with airgap"
     d=d,
     alpha=alpha) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={0,30})));
   Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Toroid airGap(
     mu_rConst=1,

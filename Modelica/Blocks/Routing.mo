@@ -182,9 +182,6 @@ equation
           Text(
             extent={{-150,-150},{150,-110}},
             textString="extract=%extract")}),
-    Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>Extract signals from the input connector and transfer them
 to the output connector.</p>
@@ -349,11 +346,7 @@ The output connector is the <strong>concatenation</strong> of the input connecto
           Line(points={{-100,0},{-6,0}}, color={0,0,127}),
           Text(
             extent={{-140,-90},{150,-50}},
-            textString="n=%n")}),
-      Diagram(
-        coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+            textString="n=%n")}));
   end Multiplex;
 
   block Multiplex2 "Multiplexer block for two input connectors"
@@ -389,10 +382,7 @@ explicitly defined via parameters n1 and n2.
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
           Line(points={{-100,60},{-60,60},{0,0}}, color={0,0,127}),
-          Line(points={{-100,-60},{-60,-60},{0,0}}, color={0,0,127})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+          Line(points={{-100,-60},{-60,-60},{0,0}}, color={0,0,127})}));
   end Multiplex2;
 
   block Multiplex3 "Multiplexer block for three input connectors"
@@ -432,10 +422,7 @@ explicitly defined via parameters n1, n2 and n3.</p>
             extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,127})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+            lineColor={0,0,127})}));
   end Multiplex3;
 
   block Multiplex4 "Multiplexer block for four input connectors"
@@ -481,10 +468,7 @@ explicitly defined via parameters n1, n2, n3 and n4.
             extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,127})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+            lineColor={0,0,127})}));
   end Multiplex4;
 
   block Multiplex5 "Multiplexer block for five input connectors"
@@ -535,10 +519,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
             extent={{-15,15},{15,-15}},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,127})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+            lineColor={0,0,127})}));
   end Multiplex5;
 
   block Multiplex6 "Multiplexer block for six input connectors"
@@ -595,10 +576,7 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
           Line(points={{-100,-17},{-60,-17},{-10,-2}}, color={0,0,127}),
           Line(points={{-100,17},{-60,17},{-10,2}}, color={0,0,127}),
           Line(points={{-100,-51},{-60,-51},{-7,-6}}, color={0,0,127}),
-          Line(points={{-100,-85},{-60,-85},{-3,-10}}, color={0,0,127})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+          Line(points={{-100,-85},{-60,-85},{-3,-10}}, color={0,0,127})}));
   end Multiplex6;
 
   block DeMultiplex "DeMultiplexer block for arbitrary number of output connectors"
@@ -636,11 +614,7 @@ The input connector is <strong>split</strong> up into output connectors.
           Line(points={{100,-70},{60,-70},{4,-4}}, color={0,0,127}),
           Text(
             extent={{-140,-90},{150,-50}},
-            textString="n=%n")}),
-      Diagram(
-        coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+            textString="n=%n")}));
   end DeMultiplex;
 
   block DeMultiplex2 "DeMultiplexer block for two output connectors"
@@ -677,10 +651,7 @@ explicitly defined via parameters n1 and n2.
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
           Line(points={{100,-60},{60,-60},{0,0}}, color={0,0,127}),
-          Line(points={{-100,0},{-6,0}}, color={0,0,127})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+          Line(points={{-100,0},{-6,0}}, color={0,0,127})}));
   end DeMultiplex2;
 
   block DeMultiplex3 "DeMultiplexer block for three output connectors"
@@ -721,10 +692,7 @@ explicitly defined via parameters n1, n2 and n3.
           Line(points={{-100,0},{-6,0}}, color={0,0,127}),
           Line(points={{100,70},{60,70},{0,0}}, color={0,0,127}),
           Line(points={{0,0},{100,0}}, color={0,0,127}),
-          Line(points={{100,-70},{60,-70},{0,0}}, color={0,0,127})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+          Line(points={{100,-70},{60,-70},{0,0}}, color={0,0,127})}));
   end DeMultiplex3;
 
   block DeMultiplex4 "DeMultiplexer block for four output connectors"
@@ -770,10 +738,7 @@ explicitly defined via parameters n1, n2, n3 and n4.</p>
           Line(points={{100,90},{60,90},{0,0}}, color={0,0,127}),
           Line(points={{100,30},{60,30},{0,0}}, color={0,0,127}),
           Line(points={{100,-30},{60,-30},{0,0}}, color={0,0,127}),
-          Line(points={{100,-90},{60,-90},{0,0}}, color={0,0,127})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+          Line(points={{100,-90},{60,-90},{0,0}}, color={0,0,127})}));
   end DeMultiplex4;
 
   block DeMultiplex5 "DeMultiplexer block for five output connectors"
@@ -824,10 +789,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.</p>
           Line(points={{100,40},{60,40},{8,4}}, color={0,0,127}),
           Line(points={{100,0},{10,0}}, color={0,0,127}),
           Line(points={{100,-40},{60,-40},{8,-4}}, color={0,0,127}),
-          Line(points={{100,-80},{60,-80},{0,0}}, color={0,0,127})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+          Line(points={{100,-80},{60,-80},{0,0}}, color={0,0,127})}));
   end DeMultiplex5;
 
   block DeMultiplex6 "DeMultiplexer block for six output connectors"
@@ -882,10 +844,7 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.</p>
           Line(points={{100,18},{60,18},{10,2}}, color={0,0,127}),
           Line(points={{100,-18},{60,-18},{10,-2}}, color={0,0,127}),
           Line(points={{100,-54},{60,-54},{8,-6}}, color={0,0,127}),
-          Line(points={{100,-90},{60,-90},{0,-4}}, color={0,0,127})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+          Line(points={{100,-90},{60,-90},{0,-4}}, color={0,0,127})}));
   end DeMultiplex6;
 
   model RealPassThrough "Pass a Real signal through without modification"

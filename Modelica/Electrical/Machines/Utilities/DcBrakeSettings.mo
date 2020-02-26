@@ -191,7 +191,6 @@ record DcBrakeSettings "Setting for DC current braking"
           extent={{96,82},{100,78}},
           lineColor={238,46,47},
           lineThickness=0.5)}),
-      Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
 <p>
 Lets the user choose the layout, and determines the necessary DC current for DC current braking of an induction machine.

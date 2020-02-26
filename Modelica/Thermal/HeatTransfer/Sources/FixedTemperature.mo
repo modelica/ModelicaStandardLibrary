@@ -38,7 +38,5 @@ equation
 This model defines a fixed temperature T at its port in Kelvin,
 i.e., it defines a fixed temperature as a boundary condition.
 </p>
-</html>"),
-       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}})));
+</html>"));
 end FixedTemperature;

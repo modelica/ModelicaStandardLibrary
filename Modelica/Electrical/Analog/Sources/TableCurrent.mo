@@ -9,8 +9,6 @@ model TableCurrent "Current source by linear interpolation in a table"
             100}}), graphics={Line(points={{-66,-36},{-66,84},{34,84},{34,-36},
               {-66,-36},{-66,-6},{34,-6},{34,24},{-66,24},{-66,54},{34,54},{
               34,84},{-16,84},{-16,-37}}, color={192,192,192})}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}})),
     Documentation(info="<html>
 <p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 <p><br>This block generates a current source by <strong>linear interpolation</strong> in a table. The time points and current values are stored in a matrix <strong>table[i,j]</strong>, where the first column table[:,1] contains the time points and the second column contains the current to be interpolated. The table interpolation has the following properties:</p>

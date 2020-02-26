@@ -1886,8 +1886,6 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           thickness=0.5));
       annotation (
         experiment(StopTime=2, Tolerance=1e-006),
-        Diagram(coordinateSystem(extent={{-100,-100},{100,100}},
-              preserveAspectRatio=true)),
         Icon(coordinateSystem(extent={{-100,-100},{100,80}})));
     end FrameForces2;
 
@@ -3625,8 +3623,7 @@ a linear damper is connected here.
           points={{73,-60},{66,-60},{66,-54},{58,-54}}, color={0,0,127}));
       connect(Constant2[4:6].y, forceAndTorque2.torque) annotation (Line(
           points={{73,-60},{66,-60},{66,-66},{58,-66}}, color={0,0,127}));
-      annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(extent={{-100,-100},{100,100}},
-                                 preserveAspectRatio=true)));
+      annotation (experiment(StopTime=1.1));
     end WorldForceAndTorque;
 
     model Spring
@@ -4411,9 +4408,7 @@ a linear damper is connected here.
           points={{-10,30},{0,30}},
           color={95,95,95},
           thickness=0.5));
-      annotation (experiment(StopTime=1.0),Diagram(coordinateSystem(extent={{-100,-100},{100,100}},
-              preserveAspectRatio=true)),
-        Icon(coordinateSystem(extent={{-100,-100},{100,80}})));
+      annotation (experiment(StopTime=1.0),        Icon(coordinateSystem(extent={{-100,-100},{100,80}})));
     end SpringDamperSeries;
 
     model EngineGasForce "Example for gas force computation"
@@ -6254,8 +6249,7 @@ and plot gasForce.press over gasForce.s_rel.
           points={{109,10},{90,10}},  color={0,0,127}));
       annotation (experiment(StopTime=2, Tolerance=1e-006), Diagram(
             coordinateSystem(extent={{-120,-100},{140,100}},
-              preserveAspectRatio=false)),
-        Icon(coordinateSystem(extent={{-100,-100},{100,100}})));
+              preserveAspectRatio=false)));
     end SphericalSpherical2;
 
     model UniversalSpherical
@@ -6444,8 +6438,7 @@ and plot gasForce.press over gasForce.s_rel.
                                     color={0,0,127}));
       annotation (experiment(StopTime=2, Tolerance=1e-006), Diagram(
             coordinateSystem(extent={{-120,-100},{120,100}},
-              preserveAspectRatio=false)),
-        Icon(coordinateSystem(extent={{-100,-100},{100,100}})));
+              preserveAspectRatio=false)));
     end UniversalSpherical;
 
     model PrismaticInit
@@ -6945,7 +6938,6 @@ often possible to use the FreeMotion joint such that the singularity
         numberOfWindings=5,
         s_unstretched=0,
         c=100) annotation (Placement(transformation(
-            origin={0,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       MultiBody.Parts.BodyCylinder bodyCylinder(
@@ -7130,7 +7122,6 @@ often possible to use the FreeMotion joint such that the singularity
         numberOfWindings=5,
         s_unstretched=0,
         c=100) annotation (Placement(transformation(
-            origin={0,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       MultiBody.Parts.BodyCylinder bodyCylinder(
@@ -7313,7 +7304,6 @@ often possible to use the FreeMotion joint such that the singularity
         numberOfWindings=5,
         s_unstretched=0,
         c=100) annotation (Placement(transformation(
-            origin={0,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       MultiBody.Parts.BodyCylinder bodyCylinder(

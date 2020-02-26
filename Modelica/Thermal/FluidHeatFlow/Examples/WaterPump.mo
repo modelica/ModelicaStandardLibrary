@@ -17,7 +17,6 @@ model WaterPump "Water pumping station"
     startTime=0.1,
     amplitude=1.2) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-70,-50})));
   Modelica.Blocks.Math.Gain gain(k=idealPump.wNominal)
     annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
