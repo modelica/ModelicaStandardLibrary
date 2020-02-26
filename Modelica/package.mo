@@ -2336,7 +2336,7 @@ more of the following changes.
 <li> Introducing a new name in the public section of a class
          (model, package, ...) or in any section of a partial class is <strong>not</strong> allowed.
          Since otherwise, a user might use this new name and when storing its model
-         and loading it with an older bugfix-version, an error would occur.</li>
+         and loading it with an older bug-fix version, an error would occur.</li>
 <li> Introducing a new name in the protected section of a non-partial
          class should only be done if absolutely necessary to fix a bug.
          The problem is that this might be non-backward compatible,
