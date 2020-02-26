@@ -163,33 +163,33 @@ package FileSystem
   impure function mkdir "Make directory (POSIX: 'mkdir')"
     extends Modelica.Icons.Function;
     input String directoryName "Make a new directory";
-  external "C" ModelicaInternal_mkdir(directoryName) annotation(Library="ModelicaExternalC");
+  external "C" ModelicaInternal_mkdir(directoryName) annotation(Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
   end mkdir;
 
   impure function rmdir "Remove empty directory (POSIX function 'rmdir')"
     extends Modelica.Icons.Function;
     input String directoryName "Empty directory to be removed";
-  external "C" ModelicaInternal_rmdir(directoryName) annotation(Library="ModelicaExternalC");
+  external "C" ModelicaInternal_rmdir(directoryName) annotation(Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
   end rmdir;
 
   impure function stat "Inquire file information (POSIX function 'stat')"
     extends Modelica.Icons.Function;
     input String name "Name of file, directory, pipe etc.";
     output Types.FileType fileType "Type of file";
-  external "C" fileType = ModelicaInternal_stat(name) annotation(Library="ModelicaExternalC");
+  external "C" fileType = ModelicaInternal_stat(name) annotation(Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
   end stat;
 
   impure function rename "Rename existing file or directory (C function 'rename')"
     extends Modelica.Icons.Function;
     input String oldName "Current name";
     input String newName "New name";
-  external "C" ModelicaInternal_rename(oldName, newName) annotation(Library="ModelicaExternalC");
+  external "C" ModelicaInternal_rename(oldName, newName) annotation(Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
   end rename;
 
   impure function removeFile "Remove existing file (C function 'remove')"
     extends Modelica.Icons.Function;
     input String fileName "File to be removed";
-  external "C" ModelicaInternal_removeFile(fileName) annotation(Library="ModelicaExternalC");
+  external "C" ModelicaInternal_removeFile(fileName) annotation(Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
   end removeFile;
 
   impure function copyFile
@@ -197,7 +197,7 @@ package FileSystem
     extends Modelica.Icons.Function;
     input String fromName "Name of file to be copied";
     input String toName "Name of copy of file";
-  external "C" ModelicaInternal_copyFile(fromName, toName) annotation(Library="ModelicaExternalC");
+  external "C" ModelicaInternal_copyFile(fromName, toName) annotation(Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
   end copyFile;
 
   impure function readDirectory
@@ -209,7 +209,7 @@ package FileSystem
         "Number of names that are returned (inquire with getNumberOfFiles)";
     output String names[nNames]
         "All file and directory names in any order from the desired directory";
-    external "C" ModelicaInternal_readDirectory(directory,nNames,names) annotation(Library="ModelicaExternalC");
+    external "C" ModelicaInternal_readDirectory(directory,nNames,names) annotation(Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
   end readDirectory;
 
 impure function getNumberOfFiles
@@ -218,7 +218,7 @@ impure function getNumberOfFiles
   input String directory "Directory name";
   output Integer result
         "Number of files and directories present in 'directory'";
-  external "C" result = ModelicaInternal_getNumberOfFiles(directory) annotation(Library="ModelicaExternalC");
+  external "C" result = ModelicaInternal_getNumberOfFiles(directory) annotation(Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
 end getNumberOfFiles;
 
   annotation (
