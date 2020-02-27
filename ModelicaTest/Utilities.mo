@@ -419,7 +419,7 @@ extends Modelica.Icons.ExamplesPackage;
     Streams.print("... Test of Modelica.Utilities.Internal.FileSystem and .System");
     Streams.print("... Test of Modelica.Utilities.Internal.FileSystem and .System", logFile);
 
-    // Check Modelica.Utilites.Internal and Modelica.Utilities.System
+    // Check Modelica.Utilities.Internal and Modelica.Utilities.System
     dir1 := System.getWorkDirectory();
     dir2 := dir1 + "/#ModelicaTest";
     fileType := FileSystem.stat(dir2);

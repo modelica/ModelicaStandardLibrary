@@ -1,5 +1,5 @@
 within Modelica.Electrical.Analog.Examples;
-model SeriesResonance "Series resonance ciruit"
+model SeriesResonance "Series resonance circuit"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   Sources.SineVoltageVariableFrequencyAndAmplitude sineVoltage(

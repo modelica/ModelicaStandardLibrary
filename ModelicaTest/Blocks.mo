@@ -2034,7 +2034,7 @@ In this case, the default option can be used, which removes the limitations in t
 <p>The second control loop is initialized in steady state with a value of the set point that causes the control output to hit
 the upper saturation limit. If this is known a priori, then by setting <code>homotopyType = UpperLimit</code> the simplified model just
 assumes the PID output to be yMax, thus making the simplified initialization problem linear.</p>
-<p>The third control looop is similar to the second, except that the lower saturation limit is now engaged.</p>
+<p>The third control loop is similar to the second, except that the lower saturation limit is now engaged.</p>
 <p>The fourth loop does not use any simplified model of the limiter during homotopy - this can be used when it is not
 known a priori if the controller is saturated or not, and it is important to enforce the PID output limitations throughout
 the whole homotopy transformation.</p>

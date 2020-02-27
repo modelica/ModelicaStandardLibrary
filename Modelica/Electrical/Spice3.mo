@@ -536,7 +536,7 @@ Zeunerstra&szlig;e 38<br />
 <p>Input voltages: vin.p.v and v.p.v</p>
 <p>Output voltage of the first inverter: mn1.D.v</p>
 <p>Output voltage of the second Inverter: mn2.D.v</p>
-<p>This example shows one possibility to make the record of the technology parameters available for more than one transistor. For each set of technology parameters an apart model has to be defined (in this example: MPmos ans MNmos). Inside the model definition the technology parameters are appointed (Spice3.Semiconductors.modelcardMOS M(GAMMA=0.37, LAMBDA=0.02)). Every model extends a transistor. In this process the required technology parameters are specified (extends Spice3.Repository.MOS(final mtype=1, modelcard=M). To make transistors available in the circuit instances of the defined models are applied (MPmos mp1; MNmos mn1; MPmos mp2; MNmos mn2;).</p>
+<p>This example shows one possibility to make the record of the technology parameters available for more than one transistor. For each set of technology parameters an apart model has to be defined (in this example: MPmos and MNmos). Inside the model definition the technology parameters are appointed (Spice3.Semiconductors.modelcardMOS M(GAMMA=0.37, LAMBDA=0.02)). Every model extends a transistor. In this process the required technology parameters are specified (extends Spice3.Repository.MOS(final mtype=1, modelcard=M). To make transistors available in the circuit instances of the defined models are applied (MPmos mp1; MNmos mn1; MPmos mp2; MNmos mn2;).</p>
 </html>", revisions="<html>
 <ul>
 <li><em>April 2009</em> by Kristin Majetta initially implemented</li>
@@ -9719,8 +9719,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
           arg1 := tan(arg2);
           gx   := rbpr + 3 * rbpi * (arg1-arg2) / arg2 / arg1 / arg1;
         end if;
-        // keine if-Abfrage falls gx als Widerstand in Top_level genutzt wird !!!
-        // ----------------------------------------------------------------------
+        // no if-case if gx is used as resistance in the Top_level !!!
+        // -----------------------------------------------------------
         if (gx <> 0) then
           gx := 1 / gx;
         end if;

@@ -27,7 +27,7 @@ class References "References"
     <td>B. Johnson, T. Quarles, A. R. Newton, D. O. Pederson, A. Sangiovanni-Vincentelli,
         <em>SPICE3 Version 3e User&#39;s Manual</em>,
         Department of Electrical Engineering and Computer Sciences,
-        University of California, Berkley p. 12, p. 106 - 107, April 1, 1991</td>
+        University of California, Berkeley p. 12, p. 106 - 107, April 1, 1991</td>
   </tr>
 
   <tr>

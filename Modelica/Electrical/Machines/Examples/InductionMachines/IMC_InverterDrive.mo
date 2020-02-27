@@ -202,7 +202,7 @@ This is a model of a complete inverter drive comprising:
 <li>an induction machine with squirrel cage</li>
 <li>a load inertia and quadratic speed dependent load torque (like a fan or pump)</li>
 </ul>
-<p>Please note: Be patient, two switching devices cause many event iteratons which cost performance.</p>
+<p>Please note: Be patient, two switching devices cause many event iterations which cost performance.</p>
 <p>Note that due to the voltage drop the voltage at the machine can't reach the full voltage which means torque reduction.</p>
 <p>Default machine parameters are adapted to nominal phase voltage 400 V and nominal phase current 25 A.</p>
 </html>"));

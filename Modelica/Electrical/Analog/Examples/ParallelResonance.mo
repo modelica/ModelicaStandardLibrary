@@ -1,5 +1,5 @@
 within Modelica.Electrical.Analog.Examples;
-model ParallelResonance "Parallel resonance ciruit"
+model ParallelResonance "Parallel resonance circuit"
   extends Modelica.Icons.Example;
   import Modelica.Constants.pi;
   Sources.SineCurrentVariableFrequencyAndAmplitude sineCurrent(
