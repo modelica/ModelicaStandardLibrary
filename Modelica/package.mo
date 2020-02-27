@@ -2236,9 +2236,13 @@ Further development and maintenance of the Modelica Standard Library is performe
 two branches on the public <a href=\"https://github.com/modelica/ModelicaStandardLibrary.git\">GitHub repository</a> of the Modelica Association.
 </p>
 <p>
-Since version 4.0.0 the version numbers of the Modelica Standard Library follow the
-<a href=\"https://semver.org/\">Semantic Versioning</a> convention which provides a
-mechanism for maintaining releases and bug-fixes in a well defined way.
+Since version 4.0.0 the Modelica Standard Library uses semantic versioning following the 
+convention:
+</p>
+ <blockquote><strong><code>MAJOR.MINOR.BUGFIX</code></strong></blockquote>
+<p> 
+This provides a mechanism for maintaining releases and bug-fixes in a well defined way and is inspired 
+by (but not identical to) <a href=\"https://semver.org\">https://semver.org</a>.
 </p>
 
 <h5>Main development branch</h5>
@@ -2247,7 +2251,7 @@ Name: \"master\"
 </p>
 
 <p>
-This branch contains the actual development version, i.e., all bug fixes
+This branch contains the actual development version, i.e., all bug-fixes
 and new features.
 New features must have been tested before including them.
 However, the exhaustive tests for a new version are (usually) not performed.
@@ -2262,10 +2266,11 @@ Name: \"maint/4.0.x\"
 
 <p>
 This branch contains the released Modelica Standard Library version (e.g., v4.0.0)
-where all bug fixes since this release date are included (also consecutive v4.0.1, v4.0.2, etc.,
-up to when a new minor or major release becomes available; i.e., their will not be any
-further maintenance versions (i.e., v4.0.x) of a previous release).
-These bug fixes might be not yet tested with all test cases or with
+where all bug-fixes since this release date are included 
+(also consecutive <code>BUGFIX</code> versions 4.0.1, 4.0.2, etc.,
+up to when a new <code>MINOR</code> or <code>MAJOR</code>  release becomes available;
+i.e., their will not be any further <code>BUGFIX</code> versions (i.e., 4.0.x) of a previous release).
+These bug-fixes might not yet be tested with all test cases or with
 other Modelica libraries. The goal is that a vendor may take this version at
 any time for a new release of its software, in order to incorporate the latest
 bug fixes.
@@ -2303,7 +2308,7 @@ There are some special guidelines for changes to the maintenance branch.
 <ul>
 <li> Every change to the maintenance branch has to get cherry-picked at the \"master\"
          branch (see above), too.</li>
-<li> When a new bug-fix release (also known as PATCH release) is due the annotations
+<li> When a new <code>BUGFIX</code> release is due the annotations
      \"version\" and \"versionDate\" need to be updated.<br>
      Example:
          <blockquote><pre>
@@ -2325,7 +2330,7 @@ annotation(version      = \"4.0.1\",
 </ul>
 
 <p>
-As a recommendation, a valid bug fix to the maintenance branch may contain one or
+As a recommendation, a valid bug-fix to the maintenance branch may contain one or
 more of the following changes.
 </p>
 
@@ -2357,7 +2362,9 @@ Short Overview:
 <ul>
 <li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.0.0/ResolvedGitHubIssues.html\">512 issues (including pull requests)</a> have been addressed for this release.</li>
 <li>This version is based on the recent Modelica language standard version 3.4.</li>
-<li>The library version (i.e., \"4.0.0\") follows the <a href=\"https://semver.org/\">Semantic Versioning</a> and was decoupled from the version of the utilized version of the Modelica language standard.</li>
+<li>The library version (i.e., \"4.0.0\") follows semantic versioning using the convention <code>MAJOR.MINOR.BUGFIX</code> 
+(see <a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.VersionManagement\">Version Management</a> for details)
+ and was decoupled from the version of the utilized version of the Modelica language standard.</li>
 <li>Obsolete classes of previous versions 3.x.y have been replaced.</li>
 <li>Obsolete classes, that could not be automatically converted to alternative implementations, have been moved to library ObsoleteModelica4.</li>
 <li>Major emphasis was put on improvements of the overall quality with respect to class naming and package structuring, conventions and style guide-lines, icons, documentation style and example models. The following sublibraries have been renamed.
