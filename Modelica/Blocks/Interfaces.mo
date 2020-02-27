@@ -1507,6 +1507,7 @@ of noise blocks.
               extent={{-18,-10},{18,-30}},
               textString="%Name_fder2",
               visible=(use_fder and use_fder2))}),
+              Diagram(coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>
 Adaptor between a physical connector and a signal representation of the connector signals.
@@ -1618,6 +1619,7 @@ Note, the input signals must be consistent to each other
               extent={{-18,-10},{18,-30}},
               textString="%Name_fder2",
               visible=(use_fder and use_fder2))}),
+              Diagram(coordinateSystem(preserveAspectRatio=false)),
         Documentation(info="<html>
 <p>
 Adaptor between a physical connector and a signal representation of the connector signals.
