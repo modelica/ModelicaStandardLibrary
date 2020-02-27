@@ -2236,12 +2236,12 @@ Further development and maintenance of the Modelica Standard Library is performe
 two branches on the public <a href=\"https://github.com/modelica/ModelicaStandardLibrary.git\">GitHub repository</a> of the Modelica Association.
 </p>
 <p>
-Since version 4.0.0 the Modelica Standard Library uses semantic versioning following the 
+Since version 4.0.0 the Modelica Standard Library uses semantic versioning following the
 convention:
 </p>
  <blockquote><strong><code>MAJOR.MINOR.BUGFIX</code></strong></blockquote>
-<p> 
-This provides a mechanism for maintaining releases and bug-fixes in a well defined way and is inspired 
+<p>
+This provides a mechanism for maintaining releases and bug-fixes in a well defined way and is inspired
 by (but not identical to) <a href=\"https://semver.org\">https://semver.org</a>.
 </p>
 
@@ -2266,10 +2266,10 @@ Name: \"maint/4.0.x\"
 
 <p>
 This branch contains the released Modelica Standard Library version (e.g., v4.0.0)
-where all bug-fixes since this release date are included 
+where all bug-fixes since this release date are included
 (also consecutive <code>BUGFIX</code> versions 4.0.1, 4.0.2, etc.,
 up to when a new <code>MINOR</code> or <code>MAJOR</code>  release becomes available;
-i.e., their will not be any further <code>BUGFIX</code> versions (i.e., 4.0.x) of a previous release).
+i.e., there will not be any further <code>BUGFIX</code> versions (i.e., 4.0.x) of a previous release).
 These bug-fixes might not yet be tested with all test cases or with
 other Modelica libraries. The goal is that a vendor may take this version at
 any time for a new release of its software, in order to incorporate the latest
@@ -2362,7 +2362,7 @@ Short Overview:
 <ul>
 <li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-4.0.0/ResolvedGitHubIssues.html\">512 issues (including pull requests)</a> have been addressed for this release.</li>
 <li>This version is based on the recent Modelica language standard version 3.4.</li>
-<li>The library version (i.e., \"4.0.0\") follows semantic versioning using the convention <code>MAJOR.MINOR.BUGFIX</code> 
+<li>The library version (i.e., \"4.0.0\") follows semantic versioning using the convention <code>MAJOR.MINOR.BUGFIX</code>
 (see <a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.VersionManagement\">Version Management</a> for details)
  and was decoupled from the version of the utilized version of the Modelica language standard.</li>
 <li>Obsolete classes of previous versions 3.x.y have been replaced.</li>
