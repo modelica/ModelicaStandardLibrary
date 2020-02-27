@@ -293,7 +293,7 @@ convertClass("Modelica.Blocks.Tables.Internal.readTable2DData",
               "ObsoleteModelica4.Blocks.Tables.Internal.readTable2DData")
 
 // The Modelica_Synchronous library was integrated into the MSL as Modelica.Clocked
-convertElement({"Modelica_Synchronous.RealSignals.TimeBasedSources.Sin"},
+convertElement({"Modelica_Synchronous.RealSignals.TimeBasedSources.Sine"},
                            "freqHz", "f")
 convertClass("Modelica_Synchronous", "Modelica.Clocked")
 
