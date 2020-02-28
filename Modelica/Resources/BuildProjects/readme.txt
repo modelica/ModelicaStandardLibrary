@@ -22,7 +22,7 @@ from the C-code under ../C-Sources
 The intention is that interested tool vendors can build these libraries
 by using the provided build projects as a start.
 
-Note, the tool vendors are responsible for building the binary libaries
+Note, the tool vendors are responsible for building the binary libraries
 and including them in their tools.
 
 May 17, 2018

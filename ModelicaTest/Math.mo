@@ -1355,7 +1355,7 @@ Implementation is according to Abramowitz and Stegun
       end erfSimple;
 
       function cdfInvNormal
-        "Quantile (inverse cummulative distribution function) of the normal distribution with a precision of about 1e-9"
+        "Quantile (inverse cumulative distribution function) of the normal distribution with a precision of about 1e-9"
         extends Modelica.Icons.Function;
         input Real u(min=0, max=1) "Number in the range 0 <= u <= 1";
         output Real y

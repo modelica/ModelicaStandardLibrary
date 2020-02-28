@@ -49,7 +49,7 @@ model OpAmpDetailed "Detailed model of an operational amplifier"
   final parameter SI.VoltageSlope sr_p_val=abs(sr_p)
     "Value of slew rate for increase";
   final parameter SI.VoltageSlope sr_m_val=-abs(sr_m)
-    "Negative alue of slew rate for increase";
+    "Negative value of slew rate for increase";
 
   // output stage
   final parameter SI.Current Imaxso_val=abs(Imaxso) "Orientation out outp";

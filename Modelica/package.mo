@@ -2141,7 +2141,7 @@ design of sensors apply:
     <a href=\"modelica://Modelica.Units.SI\">Modelica.Units.SI</a>,
     e.g. heat flow is indicated by <strong>W</strong>, torque is indicated by <strong>N.m</strong></li>
 <li>The text color of the SI units is {64,64,64} in RGB code</li>
-<li>For a sensor with a single output signal the SI unit shall be placed withing the sensor,
+<li>For a sensor with a single output signal the SI unit shall be placed within the sensor,
     see <strong>Fig.&nbsp;6</strong> and <strong>7</strong>
     <ul>
     <li>In a <a href=\"modelica://Modelica.Icons.RoundSensor\">round sensor</a> the text size shall be
@@ -5650,7 +5650,7 @@ should be automatic):
                                                 A new component<br>\"InverseBlockConstraints\"
                                                 is provided instead that has the same feature, but is \"balanced\".</td></tr>
 
-<tr><td colspan=\"2\"><strong>Electrical.Analog.Baisc.</strong></td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.Analog.Basic.</strong></td></tr>
 <tr><td> HeatingResistor</td>
           <td> The heatPort has to be connected; otherwise the component Resistor (without heatPort) has to be used.<br>
                                                 cardinality() is only used to check whether the heatPort is connected.</td></tr>
@@ -7945,8 +7945,8 @@ class Version_1_5 "Version 1.5 (Dec. 16, 2002)"
 <ul>
 <li>All example models made <strong>encapsulated</strong></li>
 <li>Upper case constants changed to lower case (cf. Modelica.Constants)</li>
-<li>Introduced Modelica.SIunits.Wavelength due to typo \"Wavelenght\"</li>
-<li>Introduced ModelicaAdditions.Blocks.Logical.Interfaces.Comparison due to typo \"Comparision\"</li>
+<li>Introduced Modelica.SIunits.Wavelength due to typo</li>
+<li>Introduced ModelicaAdditions.Blocks.Logical.Interfaces.Comparison due to typo</li>
 <li>Changed these components of *.Blocks to <code>block</code> class, which have not been already of block type</li>
 <li>Changed *.Interfaces.RelativeSensor to <code>partial</code> models</li>
 </ul>

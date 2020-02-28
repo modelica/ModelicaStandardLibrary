@@ -1769,7 +1769,7 @@ package ReferenceMoistAir
         input SI.Pressure p "Pressure";
         input SI.Temperature T "Temperature";
         input Integer region=0
-          "If 0, region is unknown, otherwise known and this input (unsued)";
+          "If 0, region is unknown, otherwise known and this input (unused)";
         output SI.SpecificHeatCapacity cp
           "Specific heat capacity";
       protected

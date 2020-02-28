@@ -1,6 +1,6 @@
 within Modelica.Electrical.Batteries.Icons;
 partial package TransientRecordsPackage
-  "Icon for package containing records wih transient data"
+  "Icon for package containing records with transient data"
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={

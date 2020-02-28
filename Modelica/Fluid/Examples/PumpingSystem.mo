@@ -133,7 +133,7 @@ Water is pumped from a source by a pump (fitted with check valves), through a pi
 <p>
 The water controller is a simple on-off controller, regulating on the gauge pressure measured at the base of the tower; the output of the controller is the rotational speed of the pump, which is represented by the output of a first-order system. A small but nonzero rotational speed is used to represent the standby state of the pumps, in order to avoid singularities in the flow characteristic.
 </p>
-<p>When the simulation starts, the level is above the set point, so the initial state of the pump controller is off. Hence, the check valve of the pump is engaged. In order to facilitate the solution of the initialiation problem, the <code>homotopyType</code> parameter is set accordingly.
+<p>When the simulation starts, the level is above the set point, so the initial state of the pump controller is off. Hence, the check valve of the pump is engaged. In order to facilitate the solution of the initialization problem, the <code>homotopyType</code> parameter is set accordingly.
 </p>
 <p>
 Simulate for 2000 s. When the valve is opened at time t=200, the pump starts turning on and off to keep the reservoir level around 2 meters, which roughly corresponds to a gauge pressure of 200 mbar.

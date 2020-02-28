@@ -11,7 +11,7 @@ block BackSample
     "Connector of clocked, Integer input signal"
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
   Modelica.Blocks.Interfaces.IntegerOutput y
-    "Connector of clocked, Integer output signal (clock of y is faster als clock of u)"
+    "Connector of clocked, Integer output signal (clock of y is faster than clock of u)"
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 equation
   y = backSample(u,backCounter,resolution);

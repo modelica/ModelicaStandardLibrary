@@ -50,7 +50,7 @@ equation
 <p>
 This model shows a transformer, where the transfomer has not 2 states, but only
 1 state since L1=L2=M. Some tools might be not able to detect this. In this
-case, translation or simulation failes with a division by zero.
+case, translation or simulation fails with a division by zero.
 </p>
 </html>"),
     experiment(StopTime=1.1));

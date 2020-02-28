@@ -4,7 +4,7 @@ package HysteresisTableData
 
   annotation (Documentation(info="<html>
 <p>
-Material table data for the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenTable\">GenericHystTellinenTable</a> flux tube element. The records contain two data tables <code>tabris</code> and <code>tabfal</code> describing the rising and the falling branch of the hysteresis envelope curve of the corresponding material. The first colum is the magnetic field strength H and has to be strictly monotonically increasing. The second collumn contains the corresponding values of the magnetic fluxdensity B. Both curves may not intersect each other.
+Material table data for the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenTable\">GenericHystTellinenTable</a> flux tube element. The records contain two data tables <code>tabris</code> and <code>tabfal</code> describing the rising and the falling branch of the hysteresis envelope curve of the corresponding material. The first column is the magnetic field strength H and has to be strictly monotonically increasing. The second column contains the corresponding values of the magnetic fluxdensity B. Both curves may not intersect each other.
 </p>
 
 <p>

@@ -1907,7 +1907,7 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
           connect(Adder[n].c_out,c_out);
           annotation (
             Documentation(info="<html>
-<p>The Adder is a generic n bit adder which is composed as a chain of FullAdder components. n can be chosen by the user, a and b are the n bit input vectors, s is the sum vector, and c_out is the carry bit of the &quot;highes&quot; FullAdder.   All components are built up by Gate components.</p>
+<p>The Adder is a generic n bit adder which is composed as a chain of FullAdder components. n can be chosen by the user, a and b are the n bit input vectors, s is the sum vector, and c_out is the carry bit of the &quot;highest&quot; FullAdder.   All components are built up by Gate components.</p>
 </html>"), Icon(coordinateSystem(
                   preserveAspectRatio=true,
                   extent={{-100,-100},{100,100}}), graphics={

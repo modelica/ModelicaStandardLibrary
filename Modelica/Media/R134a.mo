@@ -2133,7 +2133,7 @@ This function adds the ideal gas contribution of the fundamental equation to the
       output Modelica.Media.Common.HelmholtzDerivs fid
         "Helmholtz derivatives of ideal part";
     protected
-      Modelica.Media.R134a.R134aData.Ideal id "Ideal coeffcients";
+      Modelica.Media.R134a.R134aData.Ideal id "Ideal coefficients";
       Real atau=abs(tau) "|tau|";
       Real adelta=abs(delta) "|delta|";
     algorithm

@@ -768,7 +768,7 @@ Define graphical layout of the parameter menu.
 The annotations <strong><code>tab</code></strong> and <strong><code>group</code></strong> define the placement of the component or of variables in a dialog with optional tab and group specification. If <code><strong>enable</strong> = false</code>, the input field may be disabled [and no input can be given]. If <code><strong>showStartAttribute</strong> = true</code> the dialog should allow the user to set the start-value and the fixed attribute for the variable instead of the value-attribute [this is primarily intended for non-parameter values and avoids introducing a separate parameter for the start-value of the variable].
 </p>
 <p>
-If <code>colorSelector=true</code>, it indicates that an rgb-value selector can be presented for a vector of  three elements and generate values <code>0..255</code> (the annotation should be useable both for vectors of Integers and Reals).
+If <code>colorSelector=true</code>, it indicates that an rgb-value selector can be presented for a vector of  three elements and generate values <code>0..255</code> (the annotation should be usable both for vectors of Integers and Reals).
 </p>
 <p>
 The annotation <strong><code>groupImage</code></strong> references an image using an Modelica URI, and the image is intended to be shown together with the parameter-group (only one image per group is supported). Disabling the input field will not disable the image.

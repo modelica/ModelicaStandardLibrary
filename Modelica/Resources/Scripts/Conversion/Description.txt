@@ -25,7 +25,7 @@ convertModifiers("OldClass",{"OldModifier1=default1","OldModifier2=default2",...
 //
 // Unusual cases:
 // 1. if NewModifier list is empty then the modifier is just removed
-// 2. if "equation" instead of newmodifer then replace modifer by equation
+// 2. if "equation" instead of newmodifer then replace modifier by equation
 // 3. If OldModifer list is empty it is added for all uses of the class
 // 4. If NewModifier is "size=%n%" then create array of component of size [n] if n!=1.
 // Note: simplify is primarily intended for converting enumerations and emulated enumerations
