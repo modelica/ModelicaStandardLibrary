@@ -7937,8 +7937,8 @@ class Version_1_5 "Version 1.5 (Dec. 16, 2002)"
 <ul>
 <li>All example models made <strong>encapsulated</strong></li>
 <li>Upper case constants changed to lower case (cf. Modelica.Constants)</li>
-<li>Introduced Modelica.SIunits.Wavelength due to typo \"Wavelength\"</li>
-<li>Introduced ModelicaAdditions.Blocks.Logical.Interfaces.Comparison due to typo \"Comparison\"</li>
+<li>Introduced Modelica.SIunits.Wavelength due to typo</li>
+<li>Introduced ModelicaAdditions.Blocks.Logical.Interfaces.Comparison due to typo</li>
 <li>Changed these components of *.Blocks to <code>block</code> class, which have not been already of block type</li>
 <li>Changed *.Interfaces.RelativeSensor to <code>partial</code> models</li>
 </ul>
