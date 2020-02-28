@@ -1259,7 +1259,6 @@ The preferredView annotation defines the default view when selecting the class. 
 <blockquote><pre><strong>package</strong> Modelica
   <strong>annotation</strong>(version      = &quot;3.2.3&quot;,
              versionDate  = &quot;2018-08-01&quot;,
-             versionBuild = 1,
              dateModified = &quot;2018-12-12 07:40:19Z&quot;,
              <em>revisionId   = &quot;c04e23a0d 2018-08-01 12:00:00 +0200&quot;</em>);
   ...
@@ -7191,7 +7190,6 @@ end Icons;
 annotation (
   DocumentationClass=true,
   version="4.0.0",
-  versionBuild=1,
   versionDate="2020-02-12",
   dateModified = "2020-02-12 19:00:00Z",
   revisionId="$Format:%h %ci$",
