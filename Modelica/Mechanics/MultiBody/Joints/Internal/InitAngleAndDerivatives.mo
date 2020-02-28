@@ -90,7 +90,7 @@ Compute three rotational angles <code>angle</code> and their derivatives
 The calculation of both <code>angle</code> and <code>angleDer</code>
 depends on whether at least one element of these variables is a&nbsp;state
 or not.
-This decission must be made in the class which uses this block and
+This decision must be made in the class which uses this block and
 indicated accordingly in <code>statesAngle</code> and&nbsp;/&nbsp;or
 <code>statesAngleDer</code>.
 </p>
