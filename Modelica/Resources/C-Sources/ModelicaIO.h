@@ -66,12 +66,17 @@
  *
  * The following macros handle nonnull attributes for GNU C and Microsoft SAL.
  */
+#undef MODELICA_NONNULLATTR
 #if defined(__GNUC__)
 #define MODELICA_NONNULLATTR __attribute__((nonnull))
 #else
 #define MODELICA_NONNULLATTR
 #endif
 #if !defined(__ATTR_SAL)
+#undef _In_
+#undef _In_z_
+#undef _Inout_
+#undef _Out_
 #define _In_
 #define _In_z_
 #define _Inout_
