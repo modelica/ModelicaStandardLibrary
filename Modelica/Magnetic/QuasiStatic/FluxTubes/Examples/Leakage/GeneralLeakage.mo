@@ -11,8 +11,9 @@ model GeneralLeakage "Magnetic circuit with generic leakage mode"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={40,40})));
-  Sources.ConstantMagneticPotentialDifference constantSource(f=50, V_m(re=100,
-        im=0)) annotation (Placement(transformation(
+  Sources.ConstantMagneticPotentialDifference constantSource(
+    gamma(fixed=true, start=0), f=50, V_m(re=100, im=0)) 
+    annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-20,40})));
