@@ -2251,7 +2251,7 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
               fillPattern=FillPattern.Solid), Line(points={{50,0},{92,0}},
                 color={127,0,127})}),
             Documentation(info="<html>
-<p>SISO is a partial model for the connection pattern with <strong>s</strong>ingle (scalar) digital <strong>i</strong>nput and <strong>s</strong>ingle (scalar) digital <strong>o</strong>output. Besides the connectors it provides a rectangle for the icon which can be filled in by the component which inherits the SISO model.</p>
+<p>SISO is a partial model for the connection pattern with <strong>s</strong>ingle (scalar) digital <strong>i</strong>nput and <strong>s</strong>ingle (scalar) digital <strong>o</strong>utput. Besides the connectors it provides a rectangle for the icon which can be filled in by the component which inherits the SISO model.</p>
 </html>"));
         end SISO;
 
@@ -2274,7 +2274,7 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
               fillPattern=FillPattern.Solid), Line(points={{50,0},{90,0}},
                 color={127,0,127})}),
             Documentation(info="<html>
-<p>MISO is a partial model for the connection pattern with <strong>m</strong>ultiple (vector) digital <strong>i</strong>nput and <strong>s</strong>ingle (scalar) digital <strong>o</strong>output. Besides the connectors it provides a rectangle for the icon which can be filled in by the component which inherits the MISO model.</p>
+<p>MISO is a partial model for the connection pattern with <strong>m</strong>ultiple (vector) digital <strong>i</strong>nput and <strong>s</strong>ingle (scalar) digital <strong>o</strong>utput. Besides the connectors it provides a rectangle for the icon which can be filled in by the component which inherits the MISO model.</p>
 </html>"));
         end MISO;
 
@@ -2305,7 +2305,7 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
             Documentation(info="<html>
-<p>MIMO is a partial model for the connection pattern with <strong>m</strong>ultiple (vector) digital <strong>i</strong>nput and <strong>m</strong>ultiple  (vector) digital <strong>o</strong>output. Besides the connectors it provides a rectangle for the icon which can be filled in by the component which inherits the MISO model.</p>
+<p>MIMO is a partial model for the connection pattern with <strong>m</strong>ultiple (vector) digital <strong>i</strong>nput and <strong>m</strong>ultiple  (vector) digital <strong>o</strong>utput. Besides the connectors it provides a rectangle for the icon which can be filled in by the component which inherits the MISO model.</p>
 </html>"));
         end MIMO;
 
