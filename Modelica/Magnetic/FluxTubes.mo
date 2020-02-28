@@ -2709,7 +2709,7 @@ The differences between these two models in static behaviour can be analysed and
               5,500; 6,-24; 7,24; 8,-24; 9,24; 10,-24; 11,24; 12,-24; 13,24; 14,
               -24; 15,24])
           annotation (Placement(transformation(extent={{-90,50},{-70,70}})));
-        Basic.ElectroMagneticConverterWithLeakageInductance winding1(N=1) "Winding 1" annotation (Placement(transformation(extent={{30,50},{50,70}})));
+        Basic.ElectroMagneticConverterWithLeakageInductance winding1(i(start=0, fixed=true), N=1) "Winding 1" annotation (Placement(transformation(extent={{30,50},{50,70}})));
         Modelica.Electrical.Analog.Basic.Ground elGnd1
           annotation (Placement(transformation(extent={{0,30},{20,50}})));
         Basic.Ground magGnd1
@@ -2719,7 +2719,7 @@ The differences between these two models in static behaviour can be analysed and
               extent={{10,-10},{-10,10}},
               rotation=90,
               origin={-10,60})));
-        Basic.ElectroMagneticConverterWithLeakageInductance winding2(N=1) "Winding 2" annotation (Placement(transformation(extent={{30,-10},{50,10}})));
+        Basic.ElectroMagneticConverterWithLeakageInductance winding2(i(start=0, fixed=true), N=1) "Winding 2" annotation (Placement(transformation(extent={{30,-10},{50,10}})));
         Modelica.Electrical.Analog.Basic.Ground elGnd2
           annotation (Placement(transformation(extent={{0,-30},{20,-10}})));
         Shapes.HysteresisAndMagnets.GenericHystTellinenTable tellinenTable(
@@ -2739,7 +2739,7 @@ The differences between these two models in static behaviour can be analysed and
               extent={{10,-10},{-10,10}},
               rotation=90,
               origin={-10,0})));
-        Basic.ElectroMagneticConverterWithLeakageInductance winding3(N=1) "Winding 3" annotation (Placement(transformation(extent={{30,-70},{50,-50}})));
+        Basic.ElectroMagneticConverterWithLeakageInductance winding3(i(fixed=true, start=0), N=1) "Winding 3" annotation (Placement(transformation(extent={{30,-70},{50,-50}})));
         Modelica.Electrical.Analog.Basic.Ground elGnd3
           annotation (Placement(transformation(extent={{0,-90},{20,-70}})));
         Shapes.HysteresisAndMagnets.GenericHystPreisachEverett preisachEverett(
@@ -2908,6 +2908,8 @@ This is a simple model of an inductor with a ferromagnetic core. The used Generi
           A=5e-4,
           MagRel(start=0.5, fixed=true))
           annotation (Placement(transformation(extent={{-10,10},{10,30}})));
+      initial equation
+        core.derHstat = 0.0;
       equation
         connect(winding1.port_n, mag_ground.port) annotation (Line(points={{-20,-10},{-20,-20},{0,-20}}, color={255,127,0}));
         connect(vSource.p, resistor1.p) annotation (Line(points={{-80,10},{-80,20},{-70,20}}, color={0,0,255}));
@@ -2971,6 +2973,8 @@ Then plot the flux density of the Core Core.B over the magnetic field strength C
           I1Fixed=true,
           EddyCurrents=false,
           HFixed=false) annotation (Placement(transformation(extent={{-10,10},{10,30}})));
+      initial equation
+        transformer.core.derHstat = 0.0;
       equation
         connect(SineVoltage.p, resistor1.p) annotation (Line(points={{-60,30},{-60,40},{-50,40}}, color={0,0,255}));
         connect(SineVoltage.n, el_ground1.p) annotation (Line(points={{-60,10},{-60,0},{-40,0}},color={0,0,255}));
@@ -3108,6 +3112,10 @@ The figure shows the magnetic hysteresis in the transformer core. In (a) the con
         Modelica.Blocks.Continuous.Filter pdissCopAvg(f_cut=10)
           "Approx. average copper losses"
           annotation (Placement(transformation(extent={{-50,40},{-40,50}})));
+      initial equation
+        transformer.core1.derHstat = 0.0;
+        transformer.core2.derHstat = 0.0;
+        transformer.core3.derHstat = 0.0;
       equation
         connect(vSource1.n, ground1.p) annotation (Line(points={{-140,-50},{-140,-70},{-110,-70}}, color={0,0,255}));
         connect(vSource2.n, ground1.p) annotation (Line(points={{-120,-50},{-120,-70},{-110,-70}}, color={0,0,255}));
@@ -3521,7 +3529,6 @@ Simple model of a single phase transformer with a primary and a secondary windin
           parameter Real mu_rel2=1
             "Constant relative permeability of secondary leakage (>0 required)" annotation (Dialog(tab="Leakage"));
 
-        protected
           Shapes.HysteresisAndMagnets.GenericHystTellinenEverett core1(
             mat=mat,
             A=a*b,
@@ -3650,7 +3657,6 @@ Simple model of a single phase transformer with a primary and a secondary windin
                 rotation=270,
                 origin={32,90})));
 
-        public
           Modelica.Electrical.Analog.Interfaces.PositivePin p1 "Primary winding 1" annotation (Placement(transformation(extent={{-170,50},{-150,70}}), iconTransformation(extent={{-110,50},{-90,70}})));
           Modelica.Electrical.Analog.Interfaces.PositivePin p2 "Primary winding 2" annotation (Placement(transformation(extent={{-70,50},{-50,70}}), iconTransformation(extent={{-110,-10},{-90,10}})));
           Modelica.Electrical.Analog.Interfaces.PositivePin p3 "Primary winding 3" annotation (Placement(transformation(extent={{50,50},{70,70}}), iconTransformation(extent={{-110,-70},{-90,-50}})));
