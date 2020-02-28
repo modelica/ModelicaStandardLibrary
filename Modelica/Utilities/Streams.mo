@@ -9,7 +9,7 @@ package Streams "Read from files and write to files"
       "File where to print (empty string is the terminal)"
                  annotation(Dialog(saveSelector(filter="Text files (*.txt)",
                         caption="Text file to store the output of print(..)")));
-  external "C" ModelicaInternal_print(string, fileName) annotation(Library="ModelicaExternalC");
+  external "C" ModelicaInternal_print(string, fileName) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -49,7 +49,7 @@ Streams.print(\"x = \" + String(y), \"mytestfile.txt\");
                  annotation(Dialog(loadSelector(filter="Text files (*.txt)",
                         caption="Open text file for reading")));
     output String stringVector[countLines(fileName)] "Content of file";
-    external "C" ModelicaInternal_readFile(fileName,stringVector,size(stringVector,1)) annotation(Library="ModelicaExternalC");
+    external "C" ModelicaInternal_readFile(fileName,stringVector,size(stringVector,1)) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -74,7 +74,7 @@ Note, a fileName can be defined as URI by using the helper function
     output String string "Line of text";
     output Boolean endOfFile
       "If true, end-of-file was reached when trying to read line";
-   external "C" string=  ModelicaInternal_readLine(fileName,lineNumber,endOfFile) annotation(Library="ModelicaExternalC");
+   external "C" string=  ModelicaInternal_readLine(fileName,lineNumber,endOfFile) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -102,7 +102,7 @@ and endOfFile=true. Otherwise endOfFile=false.
                         caption="Open text file for counting lines")));
 
     output Integer numberOfLines "Number of lines in file";
-  external "C" numberOfLines=  ModelicaInternal_countLines(fileName) annotation(Library="ModelicaExternalC");
+  external "C" numberOfLines=  ModelicaInternal_countLines(fileName) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -120,7 +120,7 @@ separated by LF or CR-LF.
   pure function error "Print error message and cancel all actions - in case of an unrecoverable error"
     extends Modelica.Icons.Function;
     input String string "String to be printed to error message window";
-    external "C" ModelicaError(string) annotation(Library="ModelicaExternalC");
+    external "C" ModelicaError(string) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaUtilities.h\"", Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -152,7 +152,7 @@ Streams.error(\"x (= \" + String(x) + \")\\nhas to be in the range 0 .. 1\");
     input String fileName "Name of the file that shall be closed"
                  annotation(Dialog(loadSelector(filter="Text files (*.txt)",
                         caption="Close text file")));
-    external "C" ModelicaStreams_closeFile(fileName) annotation(Library="ModelicaExternalC");
+    external "C" ModelicaStreams_closeFile(fileName) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -172,7 +172,7 @@ file is already closed or does not exist.
     input String matrixName "Name / identifier of the 2D Real array on the file";
     output Integer dim[2] "Number of rows and columns of the 2D Real array";
     external "C" ModelicaIO_readMatrixSizes(fileName, matrixName, dim)
-    annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
+    annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaIO.h\"", Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
     annotation(Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -210,7 +210,7 @@ See <a href=\"modelica://Modelica.Utilities.Examples.ReadRealMatrixFromFile\">Ex
       "= true: Print info message; = false: No info message";
     output Real matrix[nrow, ncol] "2D Real array";
     external "C" ModelicaIO_readRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), verboseRead)
-    annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
+    annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaIO.h\"", Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
     annotation(
 Documentation(info="<html>
 <h4>Syntax</h4>
@@ -253,7 +253,7 @@ See <a href=\"modelica://Modelica.Utilities.Examples.ReadRealMatrixFromFile\">Ex
                          choice="7" "MATLAB v7 MAT file"));
     output Boolean success "true if successful";
     external "C" success = ModelicaIO_writeRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), append, format)
-    annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
+    annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaIO.h\"", Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
     annotation(Documentation(info="<html>
 
 <h4>Syntax</h4>

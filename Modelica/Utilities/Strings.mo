@@ -6,7 +6,7 @@ package Strings "Operations on strings"
     extends Modelica.Icons.Function;
     input String string;
     output Integer result "Number of characters of string";
-  external "C" result = ModelicaStrings_length(string) annotation(Library="ModelicaExternalC");
+  external "C" result = ModelicaStrings_length(string) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStrings.h\"", Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -27,7 +27,7 @@ Returns the number of characters of \"string\".
     input Integer endIndex(min=1) "Character position of substring end";
     output String result
       "String containing substring string[startIndex:endIndex]";
-  external "C" result = ModelicaStrings_substring(string,startIndex,endIndex) annotation(Library="ModelicaExternalC");
+  external "C" result = ModelicaStrings_substring(string,startIndex,endIndex) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStrings.h\"", Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -85,7 +85,7 @@ defined by the optional argument \"string\".
     input String string2;
     input Boolean caseSensitive=true "= false, if case of letters is ignored";
     output Modelica.Utilities.Types.Compare result "Result of comparison";
-  external "C" result = ModelicaStrings_compare(string1, string2, caseSensitive) annotation(Library="ModelicaExternalC");
+  external "C" result = ModelicaStrings_compare(string1, string2, caseSensitive) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStrings.h\"", Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -454,7 +454,7 @@ s2 = Strings.sort(s1);
     input String string "The string to create a hash from";
     output Integer hash "The hash value of string";
     external "C" hash=  ModelicaStrings_hashString(string)
-       annotation(Library="ModelicaExternalC");
+       annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStrings.h\"", Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -1030,7 +1030,7 @@ part of the string is printed.
       output Integer nextIndex
         "Index after the found token (success=true) or index at which scanning failed (success=false)";
       output Real number "Value of Real number";
-      external "C" ModelicaStrings_scanReal(string, startIndex, unsigned, nextIndex, number) annotation(Library="ModelicaExternalC");
+      external "C" ModelicaStrings_scanReal(string, startIndex, unsigned, nextIndex, number) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStrings.h\"", Library="ModelicaExternalC");
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -1077,7 +1077,7 @@ shall not start with '+' or '-'. The default of \"unsigned\" is <strong>false</s
       output Integer nextIndex
         "Index after the found token (success=true) or index at which scanning failed (success=false)";
       output Integer number "Value of Integer number";
-      external "C" ModelicaStrings_scanInteger(string, startIndex, unsigned, nextIndex, number) annotation(Library="ModelicaExternalC");
+      external "C" ModelicaStrings_scanInteger(string, startIndex, unsigned, nextIndex, number) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStrings.h\"", Library="ModelicaExternalC");
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -1121,7 +1121,7 @@ shall not start with '+' or '-'. The default of \"unsigned\" is <strong>false</s
       output Integer nextIndex
         "Index after the found token (success=true) or index at which scanning failed (success=false)";
       output String string2 "Value of String token";
-      external "C" ModelicaStrings_scanString(string, startIndex, nextIndex, string2) annotation(Library="ModelicaExternalC");
+      external "C" ModelicaStrings_scanString(string, startIndex, nextIndex, string2) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStrings.h\"", Library="ModelicaExternalC");
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -1155,7 +1155,7 @@ the second output argument is an empty string.
       output Integer nextIndex
         "Index after the found token (success=true) or index at which scanning failed (success=false)";
       output String identifier "Value of identifier token";
-      external "C" ModelicaStrings_scanIdentifier(string, startIndex, nextIndex, identifier) annotation(Library="ModelicaExternalC");
+      external "C" ModelicaStrings_scanIdentifier(string, startIndex, nextIndex, identifier) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStrings.h\"", Library="ModelicaExternalC");
 
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
@@ -1189,7 +1189,7 @@ the second output argument is an empty string.
       input String string;
       input Integer startIndex(min=1)=1;
       output Integer nextIndex;
-      external "C" nextIndex = ModelicaStrings_skipWhiteSpace(string, startIndex) annotation(Library="ModelicaExternalC");
+      external "C" nextIndex = ModelicaStrings_skipWhiteSpace(string, startIndex) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStrings.h\"", Library="ModelicaExternalC");
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
