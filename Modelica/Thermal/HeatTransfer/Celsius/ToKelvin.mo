@@ -8,8 +8,6 @@ model ToKelvin "Conversion from degree Celsius to Kelvin"
 equation
   Kelvin = Modelica.Units.Conversions.from_degC(Celsius);
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={
         Text(

@@ -2,10 +2,6 @@ within Modelica.Mechanics.MultiBody.UsersGuide;
 package Tutorial "Tutorial"
   extends Modelica.Icons.Information;
 
-
-
-
-
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 This tutorial provides an introduction into the

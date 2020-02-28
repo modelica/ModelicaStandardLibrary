@@ -24,7 +24,6 @@ model QuadraticCoreAirgap "Educational example: iron core with airgap"
     a=a,
     b=a) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={10,50})));
   Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid rightLeg(
     mu_rConst=mu_r,
@@ -49,7 +48,6 @@ model QuadraticCoreAirgap "Educational example: iron core with airgap"
     a=a,
     b=a) annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
-        rotation=0,
         origin={10,-50})));
   Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.Ground magneticGround annotation (Placement(transformation(extent={{-30,-70},{-10,-50}})));
   Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground electricGround1 annotation (Placement(transformation(extent={{-60,-30},{-40,-10}})));

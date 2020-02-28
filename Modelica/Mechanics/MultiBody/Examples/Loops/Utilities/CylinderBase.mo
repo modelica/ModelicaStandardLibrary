@@ -75,7 +75,6 @@ model CylinderBase "One cylinder with analytic handling of kinematic loop"
     rRod2_ib=-{0,pistonLength,0},
     s_offset=-cylinderTopPosition)
     annotation (Placement(transformation(
-        origin={0,0},
         extent={{-20,20},{20,-20}},
         rotation=90)));
   Modelica.Mechanics.MultiBody.Parts.BodyShape connectingRod(

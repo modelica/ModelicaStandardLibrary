@@ -1356,7 +1356,6 @@ Specific entropy of moist air is computed from pressure, temperature and composi
   algorithm
     MM := MMX[Water]*MMX[Air]/(X[Water]*MMX[Air] + X[Air]*MMX[Water]);
 
-
     ds := IdealGases.Common.Functions.s0_Tlow_der(
       dryair,
       T,
@@ -1382,7 +1381,6 @@ Specific entropy of moist air is computed from pressure, temperature and composi
       X[Air],
       0.0,
       1e-9)));
-
 
     annotation (
       Inline=false,

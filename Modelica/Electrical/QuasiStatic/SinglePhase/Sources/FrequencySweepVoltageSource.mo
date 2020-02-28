@@ -45,8 +45,7 @@ equation
         Line(
           points={{-44,0},{-32,14},{-20,32},{-12,42},{-6,30},{0,0},{4,-28},{8,-40},{12,-20},{14,2},{16,30},{18,42},{20,28},{24,-32},{26,-40},{28,0}},
           color={192,192,192},
-          smooth=Smooth.Bezier)}),                               Diagram(coordinateSystem(preserveAspectRatio=false)),
-    Documentation(info="<html>
+          smooth=Smooth.Bezier)}),    Documentation(info="<html>
 <p>This source provides a constant RMS phase voltage <code>V</code> and phase angle <code>phi</code>,
 whereas the frequency sweeps from
 <code>fStart</code> to <code>fStop</code> with <code>duration</code>. The frequency sweeps such

@@ -6,8 +6,7 @@ model DirectCapacitor "Input/output block of a direct capacitor model"
           true, start=0))                                   annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={0,0})));
+        rotation=270)));
   Modelica.Electrical.Analog.Sources.SignalCurrent currentSource annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},

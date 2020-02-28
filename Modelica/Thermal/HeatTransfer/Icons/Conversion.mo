@@ -15,7 +15,6 @@ model Conversion "Conversion of temperatures"
           textColor={0,0,255}),
         Line(points={{-20,4},{20,4},{0,14}}, color={191,0,0}),
         Line(points={{-20,-4},{20,-4},{0,-16}}, color={191,0,0})}),
-    Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
 <p>
 This icon represents part of a temperature conversion model.

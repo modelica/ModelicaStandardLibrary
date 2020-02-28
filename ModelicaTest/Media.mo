@@ -282,7 +282,6 @@ package Media "Test models for Modelica.Media"
 
       model PartialMediumFunctionsForIncompressible
 
-
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model";
         parameter Real eps_h_is=1e-10;

@@ -3,11 +3,6 @@ package Advanced "Visualizers that require basic knowledge about Modelica in ord
 
   extends Modelica.Icons.Package;
 
-
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 Package <strong>Visualizers.Advanced</strong> contains components to visualize

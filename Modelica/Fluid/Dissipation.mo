@@ -6192,7 +6192,6 @@ You can perform an inverse calculation from <strong>kc_evenGapLaminar_KC</strong
 </li>
 </ul>
 
-
 <h4>Restriction</h4>
 <ul>
 <li> laminar regime (Reynolds number &le; 2200)</li>
@@ -7362,7 +7361,6 @@ The mean Nusselt number in turbulent regime <strong> Nu </strong> representing t
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/HeatTransfer/Plate/fig_plate_kc_turbulent.png\" alt=\"fig_plate_kc_turbulent\"/>
 </p>
 
-
 <h4>References</h4>
 <dl>
 
@@ -8167,7 +8165,6 @@ with
 <tr><td><strong> exp              </strong></td><td> as exponent for Reynolds number in laminar regime [-],</td></tr>
 <tr><td><strong> Re               </strong></td><td> as Reynolds number [-], </td></tr>
 </table>
-
 
 <p>
 Note that the coefficient <strong> B </strong> considers the influence of the angle of turning <strong> delta </strong> on the pressure loss coefficient <strong> zeta_TOT </strong> in the laminar regime according to <em>[Idelchik 2006, p. 340, sec. 28]</em>.
@@ -9366,7 +9363,6 @@ This function shall be used within the restricted limits according to the refere
       <strong> turbulent flow regime (Reynolds number Re &ge; 4e3) <em>[VDI-W&auml;rmeatlas 2002, p. Lab 3, fig. 1] </em> </strong></li>
 </ul>
 
-
 <h4>Geometry </h4>
 
 <p>
@@ -10418,7 +10414,6 @@ The following <strong> modelling approaches </strong> can be used to calculate t
 <li>         <strong> momentum flux density </strong> (heterogeneous approach)</li>
 <li>         <strong> kinetic energy flow density </strong> (heterogeneous approach)</li>
 </ul>
-
 
 <p>
 The heterogeneous approaches are analytically derived by minimising the momentum flux or the kinetic energy flow assuming implicitly that the two-phase flow will tend towards the minimum of this quantity.

@@ -18,8 +18,6 @@ equation
   0 = p.i + n.i;
   i = p.i;
   annotation (
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}})),
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={
                             Line(points={{-109,20},{-84,

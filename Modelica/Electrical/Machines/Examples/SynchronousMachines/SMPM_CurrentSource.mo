@@ -78,8 +78,7 @@ model SMPM_CurrentSource
   Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smpm.p)
     annotation (Placement(transformation(
         origin={10,-20},
-        extent={{-10,10},{10,-10}},
-        rotation=0)));
+        extent={{-10,10},{10,-10}})));
   Mechanics.Rotational.Sensors.AngleSensor angleSensor annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},

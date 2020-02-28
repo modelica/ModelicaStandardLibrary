@@ -92,8 +92,7 @@ model SMPM_VoltageSource
   Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smpm.p)
     annotation (Placement(transformation(
         origin={10,-20},
-        extent={{-10,10},{10,-10}},
-        rotation=0)));
+        extent={{-10,10},{10,-10}})));
   Modelica.Electrical.Analog.Basic.Ground groundM annotation (Placement(
         transformation(
         origin={-80,-28},

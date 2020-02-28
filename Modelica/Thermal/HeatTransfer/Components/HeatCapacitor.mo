@@ -44,8 +44,6 @@ equation
         Text(
           extent={{-69,7},{71,-24}},
           textString="%C")}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})),
     Documentation(info="<html>
 <p>
 This is a generic model for the heat capacity of a material.

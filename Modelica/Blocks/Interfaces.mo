@@ -500,10 +500,7 @@ generated signal.
           rotation=270)));
     RealOutput y "Connector of actuator output signal" annotation (Placement(
           transformation(extent={{100,-10},{120,10}})));
-    annotation (Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
-                                      Documentation(info="<html>
+    annotation (                                      Documentation(info="<html>
 <p>
 Block has two continuous Real input signals and one
 continuous Real output signal. The block is designed
@@ -527,10 +524,7 @@ to be used as base class for a corresponding controller.
           rotation=270)));
     RealOutput y[ny] "Connector of actuator output signals" annotation (
         Placement(transformation(extent={{100,-10},{120,10}})));
-    annotation (Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})),
-                                      Documentation(info="<html>
+    annotation (                                      Documentation(info="<html>
 <p>
 Block has two continuous Real input signal vectors and one
 continuous Real output signal vector. The block is designed
@@ -661,8 +655,7 @@ See the base-class <a href=\"modelica://Modelica.Blocks.Interfaces.DiscreteBlock
     connect(u_s, sampler_s.u) annotation (Line(points={{-120,0},{-102,0}}));
     connect(u_m, sampler_m.u)
       annotation (Line(points={{0,-120},{0,-111},{0,-102}}));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}})),             Documentation(info="<html>
+    annotation (             Documentation(info="<html>
 <p>
 Block has two Real input signals and one
 Real output signal
@@ -1121,8 +1114,6 @@ with a 3D icon (e.g., used in Blocks.Logical library).
             lineColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
             fillColor=DynamicSelect({235,235,235}, if y then {0,255,0} else {235,235,235}),
             fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 Basic block for Boolean sources of package Blocks.Sources.

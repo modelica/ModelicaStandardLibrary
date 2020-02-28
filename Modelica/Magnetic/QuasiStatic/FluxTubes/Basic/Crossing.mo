@@ -34,6 +34,5 @@ equation
 This is a simple crossing of two branches. The ports <code>port_p1</code> and <code>port_p2</code> are connected, as well as <code>port_n1</code> and <code>port_n2</code>.
 </p></html>",
       revisions="<html>
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false)));
+</html>"));
 end Crossing;

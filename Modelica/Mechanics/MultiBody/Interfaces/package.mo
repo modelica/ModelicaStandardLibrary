@@ -3,27 +3,6 @@ package Interfaces "Connectors and partial models for 3-dim. mechanical componen
 
   extends Modelica.Icons.InterfacesPackage;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 This package contains connectors and partial models (i.e., models

@@ -11,9 +11,6 @@ partial model CurrentSource "Interface for current sources"
 equation
   i = signalSource.y;
   annotation (
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>

@@ -2,24 +2,6 @@ within Modelica.Mechanics.MultiBody;
 package Sensors "Sensors to measure variables"
   extends Modelica.Icons.SensorsPackage;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 Package <strong>Sensors</strong> contains <strong>ideal measurement</strong>

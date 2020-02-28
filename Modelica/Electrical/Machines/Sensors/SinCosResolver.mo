@@ -43,7 +43,6 @@ equation
               44.1},{48.83,21.2},{31.9,-30.8},{24.7,-50.2},{18.3,-64.2},{12.7,-73.1},
               {7,-78.4},{1.4,-80},{-4.2,-77.6},{-9.9,-71.5},{-15.5,-61.9},{-21.9,
               -47.2},{-30,-24.8},{-38,0}},                  smooth=Smooth.Bezier)}),
-    Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
 <p>
 Simple model of a sin-cos-resolver, i.e. sensing the angle of the flange <code>phi</code> (w.r.t. the optional support) and multiplied by <code>p</code>, providing 4 signals:

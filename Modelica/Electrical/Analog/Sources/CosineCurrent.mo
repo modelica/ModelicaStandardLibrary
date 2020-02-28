@@ -19,8 +19,6 @@ model CosineCurrent "Cosine current source"
           smooth=Smooth.Bezier), Line(points={{35,0},{44.8,29.9},{51.2,46.5},
               {56.8,58.1},{61.7,65.2},{66.7,69.2},{71.6,69.8}}, color={192,
               192,192})}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}})),
     Documentation(revisions="<html>
 <ul>
 <li>Initially implemented by Christian Kral on 2013-05-14</li>

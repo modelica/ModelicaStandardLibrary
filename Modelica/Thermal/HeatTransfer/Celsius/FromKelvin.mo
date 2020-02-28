@@ -18,8 +18,6 @@ equation
           extent={{40,60},{100,0}},
           textColor={64,64,64},
           textString="degC")}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})),
     Documentation(info="<html>
 <p>
 This component converts an input signal from Kelvin to Celsius

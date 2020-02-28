@@ -690,7 +690,6 @@ This library provides functions operating on vectors:
           fillPattern=FillPattern.Solid)}));
 end Vectors;
 
-
 package Matrices "Library of functions operating on matrices"
   package Examples
     "Examples demonstrating the usage of the Math.Matrices functions"
@@ -7802,7 +7801,6 @@ For details of the arguments, see documentation of dgbsv.
           in WORK(1).  No error message related to LWORK is
           issued by XERBLA.  Neither H nor Z are accessed.
 
-
     INFO  (output) INTEGER
           = 0: successful exit
           < 0: if INFO = -i, the i-th argument had an illegal
@@ -8669,7 +8667,6 @@ For details of the arguments, see documentation of dgbsv.
 
     where u(j)**H is the conjugate-transpose of u(j).
 
-
     Arguments
     =========
 
@@ -8861,7 +8858,6 @@ For details of the arguments, see documentation of dgbsv.
                      u(j)**H * A  = lambda(j) * u(j)**H * B.
 
     where u(j)**H is the conjugate-transpose of u(j).
-
 
     Arguments
     =========
@@ -10923,7 +10919,6 @@ Note: A' is a short hand notation of transpose(A):
           fillPattern=FillPattern.Solid)}));
 end Matrices;
 
-
 package Icons "Icons for Math"
   extends Modelica.Icons.IconsPackage;
 
@@ -10947,8 +10942,6 @@ package Icons "Icons for Math"
             extent={{-150,150},{150,110}},
             textString="%name",
             textColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 Icon for a mathematical function, consisting of an y-axis on the left side.
@@ -10986,7 +10979,6 @@ It is expected, that an x-axis is added and a plot of the function.
   end AxisCenter;
 
 end Icons;
-
 
 function isEqual "Determine if two Real scalars are numerically identical"
   extends Modelica.Icons.Function;
@@ -11031,7 +11023,6 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 </html>"));
 end isEqual;
 
-
 function sin "Sine"
   extends Modelica.Math.Icons.AxisLeft;
   input Modelica.Units.SI.Angle u "Independent variable";
@@ -11057,9 +11048,6 @@ external "builtin" y = sin(u);
           extent={{12,84},{84,36}},
           textColor={192,192,192},
           textString="sin")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = sin(u), with -&infin; &lt; u &lt; &infin;:
@@ -11070,7 +11058,6 @@ This function returns y = sin(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 end sin;
-
 
 function cos "Cosine"
   extends Modelica.Math.Icons.AxisLeft;
@@ -11097,9 +11084,6 @@ external "builtin" y = cos(u);
           extent={{-36,82},{36,34}},
           textColor={192,192,192},
           textString="cos")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = cos(u), with -&infin; &lt; u &lt; &infin;:
@@ -11110,7 +11094,6 @@ This function returns y = cos(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 end cos;
-
 
 function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   extends Modelica.Math.Icons.AxisCenter;
@@ -11136,9 +11119,6 @@ external "builtin" y = tan(u);
           extent={{-90,72},{-18,24}},
           textColor={192,192,192},
           textString="tan")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = tan(u), with -&infin; &lt; u &lt; &infin;
@@ -11150,7 +11130,6 @@ This function returns y = tan(u), with -&infin; &lt; u &lt; &infin;
 </p>
 </html>"));
 end tan;
-
 
 function asin "Inverse sine (-1 <= u <= 1)"
   extends Modelica.Math.Icons.AxisCenter;
@@ -11175,9 +11154,6 @@ external "builtin" y = asin(u);
           extent={{-88,78},{-16,30}},
           textColor={192,192,192},
           textString="asin")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = asin(u), with -1 &le; u &le; +1:
@@ -11188,7 +11164,6 @@ This function returns y = asin(u), with -1 &le; u &le; +1:
 </p>
 </html>"));
 end asin;
-
 
 function acos "Inverse cosine (-1 <= u <= 1)"
   extends Modelica.Math.Icons.AxisCenter;
@@ -11213,9 +11188,6 @@ external "builtin" y = acos(u);
           extent={{-86,-14},{-14,-62}},
           textColor={192,192,192},
           textString="acos")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = acos(u), with -1 &le; u &le; +1:
@@ -11226,7 +11198,6 @@ This function returns y = acos(u), with -1 &le; u &le; +1:
 </p>
 </html>"));
 end acos;
-
 
 function atan "Inverse tangent"
   extends Modelica.Math.Icons.AxisCenter;
@@ -11252,9 +11223,6 @@ external "builtin" y = atan(u);
           extent={{-86,68},{-14,20}},
           textColor={192,192,192},
           textString="atan")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = atan(u), with -&infin; &lt; u &lt; &infin;:
@@ -11265,7 +11233,6 @@ This function returns y = atan(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 end atan;
-
 
 function atan2 "Four quadrant inverse tangent"
   extends Modelica.Math.Icons.AxisCenter;
@@ -11295,9 +11262,6 @@ external "builtin" y = atan2(u1, u2);
           extent={{-90,-46},{-18,-94}},
           textColor={192,192,192},
           textString="atan2")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = atan2(u1,u2) such that tan(y) = u1/u2 and
@@ -11312,7 +11276,6 @@ u1 = sin(y) and u2 = cos(y):
 
 </html>"));
 end atan2;
-
 
 function atan3
   "Four quadrant inverse tangent (select solution that is closest to given angle y0)"
@@ -11360,9 +11323,6 @@ algorithm
           extent={{-90,-46},{-18,-94}},
           textColor={192,192,192},
           textString="atan3")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = <strong>atan3</strong>(u1,u2,y0) such that
@@ -11384,7 +11344,6 @@ is returned.
 </p>
 </html>"));
 end atan3;
-
 
 function sinh "Hyperbolic sine"
   extends Modelica.Math.Icons.AxisCenter;
@@ -11410,9 +11369,6 @@ external "builtin" y = sinh(u);
           extent={{-88,80},{-16,32}},
           textColor={192,192,192},
           textString="sinh")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = sinh(u), with -&infin; &lt; u &lt; &infin;:
@@ -11423,7 +11379,6 @@ This function returns y = sinh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 end sinh;
-
 
 function cosh "Hyperbolic cosine"
   extends Modelica.Math.Icons.AxisCenter;
@@ -11451,9 +11406,6 @@ external "builtin" y = cosh(u);
           extent={{4,66},{66,20}},
           textColor={192,192,192},
           textString="cosh")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = cosh(u), with -&infin; &lt; u &lt; &infin;:
@@ -11464,7 +11416,6 @@ This function returns y = cosh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 end cosh;
-
 
 function tanh "Hyperbolic tangent"
   extends Modelica.Math.Icons.AxisCenter;
@@ -11490,9 +11441,6 @@ external "builtin" y = tanh(u);
           extent={{-88,72},{-16,24}},
           textColor={192,192,192},
           textString="tanh")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = tanh(u), with -&infin; &lt; u &lt; &infin;:
@@ -11503,7 +11451,6 @@ This function returns y = tanh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 end tanh;
-
 
 function asinh "Inverse of sinh (area hyperbolic sine)"
   extends Modelica.Math.Icons.AxisCenter;
@@ -11529,9 +11476,6 @@ algorithm
           extent={{-90,80},{-6,26}},
           textColor={192,192,192},
           textString="asinh")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 The function returns the area hyperbolic sine of its
@@ -11545,7 +11489,6 @@ asinh(u) (-&infin; &lt; u &lt; &infin;):
 </p>
 </html>"));
 end asinh;
-
 
 function acosh "Inverse of cosh (area hyperbolic cosine)"
   extends Modelica.Math.Icons.AxisLeft;
@@ -11573,9 +11516,6 @@ algorithm
           extent={{-14,2},{76,-54}},
           textColor={192,192,192},
           textString="arcosh")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns the area hyperbolic cosine of its
@@ -11598,7 +11538,6 @@ can become close to 1:
 </p>
 </html>"));
 end acosh;
-
 
 function exp "Exponential, base e"
   extends Modelica.Math.Icons.AxisCenter;
@@ -11623,9 +11562,6 @@ external "builtin" y = exp(u);
           extent={{-86,50},{-14,2}},
           textColor={192,192,192},
           textString="exp")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = exp(u), with -&infin; &lt; u &lt; &infin;:
@@ -11636,7 +11572,6 @@ This function returns y = exp(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 end exp;
-
 
 function log "Natural (base e) logarithm (u shall be > 0)"
   extends Modelica.Math.Icons.AxisLeft;
@@ -11661,9 +11596,6 @@ external "builtin" y = log(u);
           extent={{-6,-24},{66,-72}},
           textColor={192,192,192},
           textString="log")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = log(10) (the natural logarithm of u),
@@ -11675,7 +11607,6 @@ with u &gt; 0:
 </p>
 </html>"));
 end log;
-
 
 function log10 "Base 10 logarithm (u shall be > 0)"
   extends Modelica.Math.Icons.AxisLeft;
@@ -11700,9 +11631,6 @@ external "builtin" y = log10(u);
           extent={{-30,-22},{60,-70}},
           textColor={192,192,192},
           textString="log10")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This function returns y = log10(u),

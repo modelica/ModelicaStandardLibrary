@@ -75,8 +75,6 @@ equation
 {64,71.9},{65.6,72.3},{67.2,70.5},{68.8,66.4},{70.4,60},
 {72,51.4},{73.6,40.8},{75.2,28.4},{76.8,14.7},{78.4,0},
 {80,-15.1}}, color={192,192,192},  smooth = Smooth.Bezier)}),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}})),
     Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>

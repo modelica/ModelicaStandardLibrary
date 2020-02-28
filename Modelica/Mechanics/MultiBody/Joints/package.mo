@@ -2,23 +2,6 @@ within Modelica.Mechanics.MultiBody;
 package Joints "Components that constrain the motion between two frames"
   extends Modelica.Icons.Package;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   annotation (Documentation(info="<html>
 <p>
 This package contains <strong>joint components</strong>,

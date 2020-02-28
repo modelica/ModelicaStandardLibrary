@@ -88,9 +88,7 @@ equation
         Text(
           extent={{-40,-60},{40,-80}},
           textColor={128,128,128},
-          textString="Mot")}),                                   Diagram(
-        coordinateSystem(preserveAspectRatio=false)),
-    Documentation(info="<html>
+          textString="Mot")}),    Documentation(info="<html>
 <p>This is a model of a switching DC-DC inverter based on a H-bridge.</p>
 </html>"));
 end SwitchingDcDc;

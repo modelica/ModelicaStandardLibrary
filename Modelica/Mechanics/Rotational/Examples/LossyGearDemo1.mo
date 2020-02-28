@@ -70,7 +70,6 @@ gear.mode  :  1 = forward rolling
              -1 = backward rolling
 </pre></blockquote>
 
-
 <p>
 Note, <code>powerLoss</code> (= sum of the power flows of the connectors) and
 <code>gear.powerLoss</code> (= <code>gear.tau_loss</code>*<code>gear.w_a</code>,

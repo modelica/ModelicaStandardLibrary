@@ -77,9 +77,7 @@ equation
               10},{70,10},{70,-10},{80,-10}}, color={0,0,255}),
         Line(points={{-80,-50},{-80,-30},{-70,-30},{-70,-50},{-10,-50},{-10,-30},
               {10,-30},{10,-50},{70,-50},{70,-30},{80,-30},{80,-50}}, color={0,0,
-              0})}),                                             Diagram(
-        coordinateSystem(preserveAspectRatio=false)),
-    Documentation(info="<html>
+              0})}),    Documentation(info="<html>
 <p>
 For a three-phase system, 8 space vectors are available according to the following switching patterns:
 </p>

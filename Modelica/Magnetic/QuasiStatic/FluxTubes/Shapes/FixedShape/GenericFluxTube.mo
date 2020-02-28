@@ -32,5 +32,5 @@ the magnetic reluctance by:</p>
 <li>Added GenericFluxTube</li>
 </ul>
 
-</html>"), Icon(coordinateSystem(preserveAspectRatio=false)));
+</html>"));
 end GenericFluxTube;

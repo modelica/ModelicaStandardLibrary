@@ -3,7 +3,6 @@ within Modelica.Media.Air;
     "ReferenceAir: Detailed dry air model with a large operating range (130 ... 2000 K, 0 ... 2000 MPa) based on Helmholtz equations of state"
     extends Modelica.Icons.VariantsPackage;
 
-
     constant Modelica.Media.Interfaces.Types.TwoPhase.FluidConstants
       airConstants(
       chemicalFormula="N2+O2+Ar",

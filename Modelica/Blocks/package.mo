@@ -1125,7 +1125,6 @@ just potential signals. The user might still add different signal names.
     annotation (Placement(
           transformation(
           extent={{-10,-10},{10,10}},
-          rotation=0,
           origin={-40,-20})));
   equation
     connect(currentSensor.i[1], realFFT.u)
@@ -1172,7 +1171,6 @@ As expected, one can see the 5<sup>th</sup>, 7<sup>th</sup>, 11<sup>th</sup>,
                                                 annotation (Placement(
           transformation(
           extent={{-10,-10},{10,10}},
-          rotation=0,
           origin={-40,-20})));
   equation
     connect(currentSensor.i[1], realFFT.u) annotation (Line(points={{-70,-11},{-70,-20},{-52,-20}},
@@ -1226,8 +1224,7 @@ As expected, one can see the 11<sup>th</sup>, 13<sup>th</sup>, 23<sup>th</sup>, 
           origin={-40,-20})));
     Modelica.Electrical.Analog.Sensors.VoltageSensor voltageSensor annotation (Placement(transformation(
           extent={{-10,10},{10,-10}},
-          rotation=270,
-          origin={0,0})));
+          rotation=270)));
     Modelica.Blocks.Math.TotalHarmonicDistortion thd1(f=f1) annotation (Placement(transformation(extent={{30,10},{50,30}})));
     Modelica.Blocks.Math.TotalHarmonicDistortion thdRMS(f=f1, useFirstHarmonic=false) annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
   equation

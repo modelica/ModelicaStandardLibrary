@@ -22,7 +22,6 @@ model ToroidalCoreQuadraticCrossSection
     r_o=r_o,
     alpha=alpha) annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
-        rotation=0,
         origin={0,30})));
   Shapes.FixedShape.HollowCylinderCircumferentialFlux  airGap(
     nonLinearPermeability=false,

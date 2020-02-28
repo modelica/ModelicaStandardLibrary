@@ -28,8 +28,6 @@ equation
         Text(
           extent={{-150,-80},{150,-110}},
           textString="R=%R")}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})),
     Documentation(info="<html>
 <p>
 This is a model for transport of heat without storing it, same as the

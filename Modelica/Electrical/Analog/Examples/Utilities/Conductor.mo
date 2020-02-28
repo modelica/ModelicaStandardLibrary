@@ -15,8 +15,7 @@ model Conductor "Input/output block of a conductance model"
   Modelica.Electrical.Analog.Basic.Conductor conductor(G=G) annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={0,0})));
+        rotation=270)));
   Modelica.Blocks.Interfaces.RealInput i2(unit="A")
     "Current of right oneport of conduction element" annotation (
       Placement(transformation(extent={{140,-100},{100,-60}})));

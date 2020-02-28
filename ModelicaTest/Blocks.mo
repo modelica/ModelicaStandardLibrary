@@ -429,7 +429,6 @@ package Blocks "Test models for Modelica.Blocks"
       assert(abs(x - 100) < 1e-6, "Wrong solution selected");
     end MustUseHomotopy;
 
-
     MustUseHomotopy mustUseHomotopy
       annotation (Placement(transformation(extent={{320,180},{340,200}})));
     Modelica.Blocks.Continuous.FirstOrder controllerFeedbackPart1(
@@ -703,8 +702,6 @@ package Blocks "Test models for Modelica.Blocks"
     connect(uMin3.y, limiter6.limit2) annotation (Line(points={{167,-124},{172,-124},
             {172,-118},{178,-118}}, color={0,0,127}));
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false,
-           extent={{-100,-100},{100,100}})),
       Diagram(coordinateSystem(preserveAspectRatio=false,
               extent={{-300,-200},{340,200}})),
       experiment(StopTime=100),

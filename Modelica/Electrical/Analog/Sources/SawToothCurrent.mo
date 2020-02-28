@@ -8,8 +8,6 @@ model SawToothCurrent "Saw tooth current source"
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={Line(points={{-70,-71},{-50,-71},{10,70},{10,-71},
               {70,70},{70,-71}}, color={192,192,192})}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}})),
     Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>

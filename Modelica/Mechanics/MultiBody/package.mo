@@ -5,7 +5,6 @@ package MultiBody "Library to model 3-dimensional mechanical systems"
   import Cv = Modelica.Units.Conversions;
   import C = Modelica.Constants;
 
-
 model World
   "World coordinate system + gravity field + default animation definition"
 
@@ -466,7 +465,6 @@ of these axes can be set via parameters.
 </p>
 </html>"));
 end World;
-
 
 annotation (
   Documentation(info="<html>

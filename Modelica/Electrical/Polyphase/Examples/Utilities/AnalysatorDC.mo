@@ -9,7 +9,6 @@ model AnalysatorDC "Analyze DC voltage, current and power"
   Modelica.Blocks.Interfaces.RealOutput pDC(unit="W") "Mean power" annotation (
       Placement(transformation(
         extent={{10,-10},{-10,10}},
-        rotation=0,
         origin={-110,-60})));
   Modelica.Blocks.Interfaces.RealOutput iMean(unit="A") "Mean current" annotation (
       Placement(transformation(
@@ -21,9 +20,7 @@ model AnalysatorDC "Analyze DC voltage, current and power"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={60,-110})));
-  Analog.Sensors.MultiSensor multiSensorDC annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-        rotation=0,
-        origin={0,0})));
+  Analog.Sensors.MultiSensor multiSensorDC annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   Modelica.Blocks.Math.Mean powerTotal(f=f) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},

@@ -11,6 +11,5 @@ partial model Reluctance "Icon for reluctance / permeance components"
         Text(
           extent={{-150,50},{150,90}},
           textString="%name",
-          textColor={0,0,255})}), Diagram(coordinateSystem(
-          preserveAspectRatio=false)));
+          textColor={0,0,255})}));
 end Reluctance;

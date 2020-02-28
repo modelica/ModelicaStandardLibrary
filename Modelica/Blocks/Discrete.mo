@@ -30,8 +30,6 @@ package Discrete
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           extent={{-45.0,-10.0},{-25.0,10.0}})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 Samples the continues input signal with a sampling rate defined
@@ -148,10 +146,7 @@ the output y is identical to parameter yStart.
         textString="1"),
       Text(textColor={0,0,127},
         extent={{-90.0,-90.0},{90.0,-10.0}},
-        textString="z")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+        textString="z")}));
   end UnitDelay;
 
   block TransferFunction "Discrete Transfer Function block"
@@ -237,10 +232,7 @@ y = --------- * u
         textString="b(z)"),
       Text(textColor={0,0,127},
         extent={{-90.0,-90.0},{90.0,-12.0}},
-        textString="a(z)")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+        textString="a(z)")}));
   end TransferFunction;
 
   block StateSpace "Discrete State Space block"
@@ -320,10 +312,7 @@ results in the following equations:
           Text(
             extent={{15,-15},{90,-90}},
             textString="D",
-            textColor={0,0,127})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}})));
+            textColor={0,0,127})}));
   end StateSpace;
 
   block TriggeredSampler "Triggered sampling of continuous signals"
@@ -368,8 +357,6 @@ results in the following equations:
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           extent={{-45.0,-10.0},{-25.0,10.0}})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 Samples the continuous input signal whenever the trigger input
@@ -426,8 +413,6 @@ the initial value defined via parameter <strong>y0</strong>.
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           extent={{-45.0,-10.0},{-25.0,10.0}})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 Samples the continuous input signal whenever the trigger input

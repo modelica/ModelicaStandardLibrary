@@ -12,10 +12,7 @@ model VariablePermeance "Variable permeance"
 equation
   G_m * V_m = Phi;
 
-  annotation (defaultComponentName="permeance", Icon(coordinateSystem(
-      preserveAspectRatio=false,
-      extent={{-100,-100},{100,100}})),
-      Documentation(info="<html>
+  annotation (defaultComponentName="permeance",      Documentation(info="<html>
 <p>
 The permeance of this model is controlled by a real signal input.
 </p>

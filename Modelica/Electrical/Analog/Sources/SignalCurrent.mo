@@ -18,8 +18,6 @@ equation
   0 = p.i + n.i;
   i = p.i;
   annotation (
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}})),
     Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>

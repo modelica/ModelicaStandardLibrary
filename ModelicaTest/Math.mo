@@ -876,7 +876,6 @@ extends Modelica.Icons.ExamplesPackage;
         print("   random = " + String(r2));
       end for;
 
-
       print("\n... Demonstrate how to generate uniform random numbers with xorshift128+ (and 3 different localSeeds):");
 
       // Generate initial state from localSeed and globalSeed
@@ -891,7 +890,6 @@ extends Modelica.Icons.ExamplesPackage;
         (r4c,state4c) := Generators.Xorshift128plus.random(state4c);
         print("   random = " + String(r4a) + ", " + String(r4b) + ", " + String(r4c));
       end for;
-
 
       print("\n... Demonstrate how to generate uniform random numbers with xorshift1024*:");
 

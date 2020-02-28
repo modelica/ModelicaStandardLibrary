@@ -13,13 +13,11 @@ model PolyphaseRectifier "Demonstrate a polyphase diode rectifier"
   Basic.MultiStarResistance multiStar(m=data.m, R=data.RGnd)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-60,-90})));
   Analog.Basic.Resistor resistor2ground(R=data.RGnd)
     annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-30,-90})));
   Analog.Basic.Ground groundAC
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
@@ -190,6 +188,5 @@ as well as DC values per subsystem (rectifier) and total (load):
           color={0,0,0},
           pattern=LinePattern.Dot),
         Line(points={{70,-60},{40,-60}}, color={0,0,0},
-          pattern=LinePattern.Dot)}),
-    Icon(coordinateSystem(extent={{-100,-100},{100,100}})));
+          pattern=LinePattern.Dot)}));
 end PolyphaseRectifier;

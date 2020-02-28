@@ -8,7 +8,6 @@ model Feedback "Subtracting operational amplifier circuit"
   parameter SI.Resistance R3=R1/k "Calculated resistance to reach desired amplification k";
   Basic.Resistor                            r1(final R=R1)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-40,70})));
   Basic.Resistor                            r2(final R=R1)
     annotation (Placement(transformation(extent={{10,-10},{-10,10}},
@@ -19,7 +18,6 @@ model Feedback "Subtracting operational amplifier circuit"
         iconTransformation(extent={{-110,-10},{-90,10}})));
   Basic.Resistor                            r3(final R=R3)
     annotation (Placement(transformation(extent={{10,-10},{-10,10}},
-        rotation=0,
         origin={20,70})));
   Basic.Resistor                            r4(final R=R3)
     annotation (Placement(transformation(extent={{10,-10},{-10,10}},

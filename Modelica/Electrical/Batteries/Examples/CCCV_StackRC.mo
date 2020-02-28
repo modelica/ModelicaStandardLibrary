@@ -38,8 +38,7 @@ model CCCV_StackRC
           stackData.Ns,
           stackData.Np)) annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
-        rotation=90,
-        origin={0,0})));
+        rotation=90)));
   Modelica.Electrical.Batteries.Utilities.BusTranscription busTranscription(
       Np=stackData.Np, Ns=stackData.Ns)
     annotation (Placement(transformation(extent={{30,-30},{50,-10}})));

@@ -564,7 +564,6 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </html>"));
       end Issue2899MOS;
 
-
       model Issue2899NPN "Conversion test for #2899"
         extends Modelica.Icons.Example;
         Modelica.Electrical.Analog.Semiconductors.HeatingNPN npn(useHeatPort=true) annotation (Placement(transformation(extent={{-2,40},{18,60}})));
@@ -1450,8 +1449,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
       equation
         connect(ground.port_p, symmetricCage.port_p) annotation (Line(points={{-20,-10},{-10,-10},{-10,10},{0,10}}, color={255,128,0}));
         connect(ground.port_p, saliencyCage.port_p) annotation (Line(points={{-20,-10},{-10,-10},{-10,-30},{0,-30}}, color={255,128,0}));
-        annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),
-          Documentation(info="<html>
+        annotation (          Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3030\">#3030</a>.
 </p>

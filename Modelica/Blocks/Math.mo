@@ -575,9 +575,7 @@ y = k * u;
           Text(
             extent={{-150,140},{150,100}},
             textString="%name",
-            textColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})));
+            textColor={0,0,255})}));
   end Gain;
 
   block MatrixGain
@@ -615,9 +613,7 @@ results in the following equations:
               100}}), graphics={Text(
             extent={{-90,-60},{90,60}},
             textColor={160,160,164},
-            textString="*K")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})));
+            textString="*K")}));
   end MatrixGain;
 
   block MultiSum "Sum of Reals: y = k[1]*u[1] + k[2]*u[2] + ... + k[n]*u[n]"
@@ -818,9 +814,7 @@ results in the following equations:
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(
-            points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})));
+            points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}})}));
   end Sum;
 
   block Feedback "Output difference between commanded and feedback input"
@@ -873,9 +867,7 @@ results in the following equations:
           Text(
             textColor={0,0,255},
             extent={{-150,40},{150,80}},
-            textString="%name")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})));
+            textString="%name")}));
   end Feedback;
 
   block Add "Output the sum of the two inputs"
@@ -974,9 +966,7 @@ results in the following equations:
             textString="%k3"),
           Text(
             extent={{10,40},{90,-40}},
-            textString="+")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})));
+            textString="+")}));
   end Add3;
 
   block Product "Output product of the two inputs"
@@ -1004,9 +994,7 @@ y = u1 * u2;
           Line(points={{-30,0},{30,0}}),
           Line(points={{-15,25.99},{15,-25.99}}),
           Line(points={{-15,-25.99},{15,25.99}}),
-          Ellipse(lineColor={0,0,127}, extent={{-50,-50},{50,50}})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})));
+          Ellipse(lineColor={0,0,127}, extent={{-50,-50},{50,50}})}));
   end Product;
 
   block Division "Output first input divided by second input"
@@ -1075,8 +1063,6 @@ y = u1 / u2;
             textColor={192,192,192},
             textString="abs"),
           Line(points={{-88,0},{76,0}}, color={192,192,192})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 This blocks computes the output <strong>y</strong>
@@ -1124,8 +1110,6 @@ The Boolean parameter generateEvent decides whether Events are generated at zero
           Rectangle(
             extent={{-2,2},{2,-4}},
             fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 This blocks computes the output <strong>y</strong>
@@ -1172,8 +1156,6 @@ The Boolean parameter generateEvent decides whether Events are generated at zero
             extent={{-8,-4},{64,-52}},
             textColor={192,192,192},
             textString="sqrt")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 This blocks computes the output <strong>y</strong>
@@ -1220,8 +1202,6 @@ Otherwise an error occurs.
             extent={{12,84},{84,36}},
             textColor={192,192,192},
             textString="sin")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 This blocks computes the output <strong>y</strong>
@@ -1270,8 +1250,6 @@ y = <strong>sin</strong>( u );
             extent={{-36,82},{36,34}},
             textColor={192,192,192},
             textString="cos")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 This blocks computes the output <strong>y</strong>
@@ -1319,8 +1297,6 @@ y = <strong>cos</strong>( u );
             extent={{-90,72},{-18,24}},
             textColor={192,192,192},
             textString="tan")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 This blocks computes the output <strong>y</strong>
@@ -1367,8 +1343,6 @@ y = <strong>tan</strong>( u );
             extent={{-88,78},{-16,30}},
             textColor={192,192,192},
             textString="asin")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 This blocks computes the output <strong>y</strong> as the
@@ -1419,8 +1393,6 @@ Otherwise an error occurs.
             extent={{-86,-14},{-14,-62}},
             textColor={192,192,192},
             textString="acos")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 This blocks computes the output <strong>y</strong> as the
@@ -1472,8 +1444,6 @@ Otherwise an error occurs.
             extent={{-86,68},{-14,20}},
             textColor={192,192,192},
             textString="atan")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 This blocks computes the output <strong>y</strong> as the
@@ -1527,8 +1497,6 @@ y= <strong>atan</strong>( u );
             extent={{-90,-46},{-18,-94}},
             textColor={192,192,192},
             textString="atan2")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 This blocks computes the output <strong>y</strong> as the
@@ -1584,8 +1552,6 @@ block <strong>Atan</strong> gives a solution in the range
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 This blocks computes the output <strong>y</strong> as the
@@ -1634,8 +1600,6 @@ y = <strong>sinh</strong>( u );
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 This blocks computes the output <strong>y</strong> as the
@@ -1682,8 +1646,6 @@ y = <strong>cosh</strong>( u );
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 This blocks computes the output <strong>y</strong> as the
@@ -1731,8 +1693,6 @@ y = <strong>tanh</strong>( u );
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 This blocks computes the output <strong>y</strong> as the
@@ -1781,8 +1741,6 @@ y = <strong>exp</strong>( u );
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 This blocks computes the output <strong>y</strong> as the
@@ -1798,7 +1756,6 @@ otherwise:
 <blockquote><pre>
 y = base <strong>^</strong> u;
 </pre></blockquote>
-
 
 </html>"));
   end Power;
@@ -1835,8 +1792,6 @@ y = base <strong>^</strong> u;
             extent={{-6,-24},{66,-72}},
             textColor={192,192,192},
             textString="log")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 This blocks computes the output <strong>y</strong> as the
@@ -1887,8 +1842,6 @@ zero or negative.
             extent={{-30,-22},{60,-70}},
             textColor={192,192,192},
             textString="log10")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 This blocks computes the output <strong>y</strong> as the
@@ -1934,8 +1887,6 @@ zero or negative.
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 This blocks wraps the input angle into the interval ]-pi,pi], if <code>positiveRange == false</code>.
@@ -2809,8 +2760,7 @@ The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if 
             visible=not useFirstHarmonic),
           Text(
             extent={{-150,-110},{150,-150}},
-            textString="f=%f")}), Diagram(coordinateSystem(grid={2,2})),
-      Documentation(info="<html>
+            textString="f=%f")}),      Documentation(info="<html>
 <p>This block determines the total harmonic distortion (THD) over the given period <code>1/f</code>.
 Consider that the input <code>u</code> consists of harmonic RMS components
 <code>U<sub>1</sub></code>, <code>U<sub>2</sub></code>, <code>U<sub>3</sub></code>, etc.

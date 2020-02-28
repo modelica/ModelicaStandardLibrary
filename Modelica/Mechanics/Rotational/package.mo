@@ -2,7 +2,6 @@ within Modelica.Mechanics;
 package Rotational "Library to model 1-dimensional, rotational mechanical systems"
   extends Modelica.Icons.Package;
 
-
   annotation (Documentation(info="<html>
 
 <p>

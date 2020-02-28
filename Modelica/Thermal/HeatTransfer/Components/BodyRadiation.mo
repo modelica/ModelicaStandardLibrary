@@ -108,7 +108,5 @@ where
    e1: Emission value of inner cylinder (0..1)
    e2: Emission value of outer cylinder (0..1)
 </pre></blockquote>
-</html>"),
-       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}})));
+</html>"));
 end BodyRadiation;

@@ -50,7 +50,6 @@ equation
           extent={{-30,-10},{30,-70}},
           textColor={64,64,64},
           textString="rad")}),
-    Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
 <p>
 Simple model of a hall sensor, i.e. measuring the angle of the flange (w.r.t. the optional support), multiplying by the number of phases p to obtain the electrical angle,

@@ -14,7 +14,6 @@ package FluxTubes "Test examples of Modelica.Magnetic.QuasiStatic.FluxTubes"
       V_m(re=200, im=-100))                                                                                                      annotation (Placement(transformation(extent={{-80,30},{-60,50}})));
     Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.Ground ground1 annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
-          rotation=0,
           origin={-90,10})));
     Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterHollowCylinder quarterHollowCylinder(ratio=0.3, l=0.1) annotation (Placement(transformation(extent={{-50,30},{-30,50}})));
     Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.HalfCylinder halfCylinder(l=0.1) annotation (Placement(transformation(extent={{-20,30},{0,50}})));
@@ -24,7 +23,6 @@ package FluxTubes "Test examples of Modelica.Magnetic.QuasiStatic.FluxTubes"
       V_m(re=200, im=-100))                                                                                                      annotation (Placement(transformation(extent={{-80,-50},{-60,-30}})));
     Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.Ground ground2 annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
-          rotation=0,
           origin={-90,-70})));
     Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterSphere quarterSphere(r=0.005) annotation (Placement(transformation(extent={{-50,-50},{-30,-30}})));
     Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterHollowSphere quarterHollowSphere(t=0.2) annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
@@ -73,9 +71,7 @@ package FluxTubes "Test examples of Modelica.Magnetic.QuasiStatic.FluxTubes"
     connect(magFluxSensor1.port_n, halfHollowCylinder.port_n) annotation (Line(points={{-40,70},{40,70},{40,40},{30,40}}, color={255,170,85}));
     connect(magFluxSensor2.port_p, constantSource2.port_p) annotation (Line(points={{-60,-10},{-90,-10},{-90,-40},{-80,-40}}, color={255,170,85}));
     connect(magFluxSensor2.port_n, coaxCylindersEndFaces.port_n) annotation (Line(points={{-40,-10},{90,-10},{90,-40}}, color={255,170,85}));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}})),
-      experiment(Interval=0.001, StartTime=0, StopTime=1, Tolerance=1e-06));
+    annotation (      experiment(Interval=0.001, StartTime=0, StopTime=1, Tolerance=1e-06));
   end NoPhysicalTestLeakage;
 
   model VariableComponents "Test of reluctance and permeance model with signal inputs"

@@ -20,8 +20,6 @@ model ExpSineVoltage "Exponentially damped sine voltage source"
               42.9,23.2},{47.8,17.8},{54.2,5.4},{67.1,-24.5},{73.5,-35.2},{
               79.1,-39.9},{84.7,-39.9},{91.2,-34.5},{96,-27.8}}, color={192,
               192,192})}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}})),
     Documentation(revisions="<html>
 <ul>
 <li><em> 1998   </em>

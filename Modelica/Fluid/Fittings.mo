@@ -808,7 +808,6 @@ of the modeller.
           import Modelica.Fluid.Types.Roughness;
           import lg = Modelica.Math.log10;
 
-
          input SI.Length length "Length of pipe" annotation(Dialog);
          input SI.Diameter diameter "Inner diameter of pipe" annotation(Dialog);
          input Roughness roughness(min=1e-10)

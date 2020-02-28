@@ -724,8 +724,6 @@ signal <strong>u</strong> exceeds the <strong>reference</strong> signal plus hal
           points={{-80,90},{-88,68},{-72,68},{-80,90}}),
         Line(points={{-80,-70},{-60,-70},{-60,24},{8,24},{8,-70},{60,-70}},
           color={255,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>The block TriggeredTrapezoid has a Boolean input and a real
 output signal and requires the parameters <em>amplitude</em>,
@@ -790,8 +788,6 @@ handled properly.</p>
           color={255,0,255}),
         Line(points={{-80,0},{-62,0},{40,90},{40,0},{68,0}},
           color={0,0,127})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>When the Boolean input <strong>u</strong> becomes <strong>true</strong>, the timer starts
 and the output <strong>y</strong> is the time that has elapsed since <strong>u</strong> became <strong>true</strong>.

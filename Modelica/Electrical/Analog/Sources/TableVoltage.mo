@@ -9,8 +9,6 @@ model TableVoltage "Voltage source by linear interpolation in a table"
             100}}), graphics={Line(points={{-58,-36},{-58,84},{42,84},{42,-36},
               {-58,-36},{-58,-6},{42,-6},{42,24},{-58,24},{-58,54},{42,54},{
               42,84},{-8,84},{-8,-37}}, color={192,192,192})}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}})),
     Documentation(info="<html>
 <p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package.  Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 <p><br>This block generates a voltage source by <strong>linear interpolation</strong> in a table. The time points and voltage values are stored in a matrix <strong>table[i,j]</strong>, where the first column table[:,1] contains the time points and the second column contains the voltage to be interpolated. The table interpolation has the following properties:</p>

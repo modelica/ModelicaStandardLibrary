@@ -2,7 +2,6 @@ within Modelica;
 package Utilities "Library of utility functions dedicated to scripting (operating on files, streams, strings, system)"
   extends Modelica.Icons.UtilitiesPackage;
 
-
 package UsersGuide "User's Guide of Utilities Library"
   extends Modelica.Icons.Information;
 

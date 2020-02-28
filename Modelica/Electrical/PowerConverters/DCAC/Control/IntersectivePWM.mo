@@ -95,9 +95,7 @@ equation
           thickness=0.5,
           smooth=Smooth.Bezier), Line(points={{-60,-80},{-48,80},{-40,-80},{-30,
               80},{-20,-80},{-10,80},{0,-80},{10,80},{20,-78},{30,80},{40,-80},{
-              50,80},{60,-80}}, color={238,46,47})}),            Diagram(
-        coordinateSystem(preserveAspectRatio=false)),
-    Documentation(info="<html>
+              50,80},{60,-80}}, color={238,46,47})}),    Documentation(info="<html>
 <p>
 The intersective PWM transforms the input space phasor <u>u</u> to the three-phase voltages,
 and compares them with the reference signals.

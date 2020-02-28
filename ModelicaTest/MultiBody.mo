@@ -301,7 +301,6 @@ alt=\"model Examples.Elementary.DoublePendulum\">
     model SphericalAndUniversal
       "One kinematic loop with four bars (with Spherical and Universal joint)"
 
-
       extends Modelica.Icons.Example;
 
       output SI.Angle j1_phi "angle of revolute joint j1";
@@ -1887,8 +1886,6 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           thickness=0.5));
       annotation (
         experiment(StopTime=2, Tolerance=1e-006),
-        Diagram(coordinateSystem(extent={{-100,-100},{100,100}},
-              preserveAspectRatio=true)),
         Icon(coordinateSystem(extent={{-100,-100},{100,80}})));
     end FrameForces2;
 
@@ -2406,7 +2403,6 @@ menu (this sets \"fixed=false\" on parameter \"length\").
     model LineForceWithMass
       "Example to demonstrate how to construct force elements with masses"
 
-
       extends Modelica.Icons.Example;
       parameter Real tol=1e-4;
       SI.Force rod_f_diff[3]=rod1.frame_b.f - rod3.frame_b.f
@@ -2553,7 +2549,6 @@ a linear damper is connected here.
 
     model LineForceWithTwoMasses
       "Example to demonstrate how to construct force elements with masses"
-
 
       extends Modelica.Icons.Example;
       parameter SI.Mass m=1 "Mass of point masses";
@@ -3628,12 +3623,10 @@ a linear damper is connected here.
           points={{73,-60},{66,-60},{66,-54},{58,-54}}, color={0,0,127}));
       connect(Constant2[4:6].y, forceAndTorque2.torque) annotation (Line(
           points={{73,-60},{66,-60},{66,-66},{58,-66}}, color={0,0,127}));
-      annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(extent={{-100,-100},{100,100}},
-                                 preserveAspectRatio=true)));
+      annotation (experiment(StopTime=1.1));
     end WorldForceAndTorque;
 
     model Spring
-
 
       extends Modelica.Icons.Example;
       inner MultiBody.World world
@@ -3722,7 +3715,6 @@ a linear damper is connected here.
     end Spring;
 
     model Spring2
-
 
       extends Modelica.Icons.Example;
       inner MultiBody.World world
@@ -3826,7 +3818,6 @@ a linear damper is connected here.
     end Spring2;
 
     model Damper
-
 
       extends Modelica.Icons.Example;
       inner MultiBody.World world
@@ -4015,7 +4006,6 @@ a linear damper is connected here.
     end Damper;
 
     model Damper2
-
 
       extends Modelica.Icons.Example;
       inner MultiBody.World world
@@ -4418,9 +4408,7 @@ a linear damper is connected here.
           points={{-10,30},{0,30}},
           color={95,95,95},
           thickness=0.5));
-      annotation (experiment(StopTime=1.0),Diagram(coordinateSystem(extent={{-100,-100},{100,100}},
-              preserveAspectRatio=true)),
-        Icon(coordinateSystem(extent={{-100,-100},{100,80}})));
+      annotation (experiment(StopTime=1.0),        Icon(coordinateSystem(extent={{-100,-100},{100,80}})));
     end SpringDamperSeries;
 
     model EngineGasForce "Example for gas force computation"
@@ -6261,8 +6249,7 @@ and plot gasForce.press over gasForce.s_rel.
           points={{109,10},{90,10}},  color={0,0,127}));
       annotation (experiment(StopTime=2, Tolerance=1e-006), Diagram(
             coordinateSystem(extent={{-120,-100},{140,100}},
-              preserveAspectRatio=false)),
-        Icon(coordinateSystem(extent={{-100,-100},{100,100}})));
+              preserveAspectRatio=false)));
     end SphericalSpherical2;
 
     model UniversalSpherical
@@ -6451,8 +6438,7 @@ and plot gasForce.press over gasForce.s_rel.
                                     color={0,0,127}));
       annotation (experiment(StopTime=2, Tolerance=1e-006), Diagram(
             coordinateSystem(extent={{-120,-100},{120,100}},
-              preserveAspectRatio=false)),
-        Icon(coordinateSystem(extent={{-100,-100},{100,100}})));
+              preserveAspectRatio=false)));
     end UniversalSpherical;
 
     model PrismaticInit
@@ -6952,7 +6938,6 @@ often possible to use the FreeMotion joint such that the singularity
         numberOfWindings=5,
         s_unstretched=0,
         c=100) annotation (Placement(transformation(
-            origin={0,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       MultiBody.Parts.BodyCylinder bodyCylinder(
@@ -7137,7 +7122,6 @@ often possible to use the FreeMotion joint such that the singularity
         numberOfWindings=5,
         s_unstretched=0,
         c=100) annotation (Placement(transformation(
-            origin={0,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       MultiBody.Parts.BodyCylinder bodyCylinder(
@@ -7320,7 +7304,6 @@ often possible to use the FreeMotion joint such that the singularity
         numberOfWindings=5,
         s_unstretched=0,
         c=100) annotation (Placement(transformation(
-            origin={0,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       MultiBody.Parts.BodyCylinder bodyCylinder(

@@ -28,8 +28,7 @@ model SoftStarter "Soft start of an induction machine"
     annotation (Placement(
         transformation(
         origin={-80,-60},
-        extent={{-10,-10},{10,10}},
-        rotation=0)));
+        extent={{-10,-10},{10,10}})));
   Modelica.Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor(m=m)
     annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
@@ -52,8 +51,7 @@ model SoftStarter "Soft start of an induction machine"
     annotation (Placement(
         transformation(
         origin={-60,-60},
-        extent={{-10,-10},{10,10}},
-        rotation=0)));
+        extent={{-10,-10},{10,10}})));
   PowerConverters.ACDC.Control.Signal2mPulse adaptor(
     m=m,
     useConstantFiringAngle=false,
@@ -72,14 +70,12 @@ model SoftStarter "Soft start of an induction machine"
     annotation (Placement(
         transformation(
         extent={{-10,10},{10,-10}},
-        rotation=270,
-        origin={0,0})));
+        rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground ground2
     annotation (Placement(
         transformation(
         origin={0,-30},
-        extent={{-10,-10},{10,10}},
-        rotation=0)));
+        extent={{-10,-10},{10,10}})));
   Modelica.Blocks.Math.RootMeanSquare rootMeanSquare(f=fNominal)
     annotation (Placement(transformation(extent={{40,50},{60,70}})));
   Modelica.Blocks.Math.Harmonic harmonic(f=fNominal,k=1)

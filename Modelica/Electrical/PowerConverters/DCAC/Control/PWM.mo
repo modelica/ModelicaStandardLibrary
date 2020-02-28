@@ -46,9 +46,7 @@ equation
           extent={{-70,-40},{70,-80}},
           textString="f=%f"), Text(
           extent={{-70,20},{70,-20}},
-          textString="%pwmType")}), Diagram(
-        coordinateSystem(preserveAspectRatio=false)),
-    Documentation(info="<html>
+          textString="%pwmType")}),    Documentation(info="<html>
 <p>
 Let the user choose the PWM type from:
 </p>

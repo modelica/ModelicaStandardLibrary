@@ -20,9 +20,7 @@ partial model PartialOpAmp
           points={{-60,70},{70,0},{-60,-72},{-60,70}},
           lineColor={0,0,255},
           fillColor={255,255,255},
-          fillPattern=FillPattern.Solid)}),                      Diagram(
-        coordinateSystem(preserveAspectRatio=false)),
-    Documentation(info="<html>
+          fillPattern=FillPattern.Solid)}),    Documentation(info="<html>
 <p>
 Partial model for operational amplifier circuits, based on the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.
 Different functionality is achieved by different circuits.

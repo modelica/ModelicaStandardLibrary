@@ -98,7 +98,6 @@ package R134a "R134a: Medium model for R134a"
       "Compute isochoric specific heat capacity inside the two-phase region"
       extends Modelica.Icons.Function;
 
-
       input PhaseBoundaryProperties liq "Properties on the boiling curve";
       input PhaseBoundaryProperties vap "Properties on the condensation curve";
       input SI.MassFraction x "Vapour mass fraction";
@@ -577,7 +576,6 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
 <p> This function calculates the Kelvin temperature of R134a from the state variables p (absolute pressure) and h (specific enthalpy). The temperature is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).</p>
 
 <p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)h-Diagram-R134a.png\"/></p>
-
 
 </html>"));
     end temperature_ph;
@@ -2628,7 +2626,6 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
   end R134a_ph;
 
   package R134aData "R134a data required by package R134a_ph"
-
 
     extends Modelica.Icons.Package;
     constant SI.SpecificHeatCapacity R_s=data.R_s;

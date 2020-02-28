@@ -2,8 +2,6 @@ within Modelica.Mechanics.MultiBody.Visualizers.Advanced;
 package SurfaceCharacteristics "Functions returning surface descriptions"
     extends Modelica.Icons.FunctionsPackage;
 
-
-
   annotation (Documentation(info="<html>
 <p>
 This package contains functions that are used to define

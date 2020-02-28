@@ -31,7 +31,6 @@ partial model ChopperStepDown "Step down chopper including control"
   Modelica.Blocks.Math.Mean meanCurrent(f=f, x0=0) annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={90,-40})));
   Modelica.Blocks.Math.Mean meanVoltage(f=f, x0=0) annotation (
       Placement(transformation(
@@ -43,8 +42,7 @@ partial model ChopperStepDown "Step down chopper including control"
     annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={0,0})));
+        rotation=270)));
 equation
   connect(constantVoltage.p, chopperStepDown.dc_p1) annotation (Line(
       points={{-80,10},{-70,10},{-70,6},{-60,6}}, color={0,0,255}));

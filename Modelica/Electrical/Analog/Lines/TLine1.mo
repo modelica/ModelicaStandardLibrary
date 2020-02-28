@@ -55,8 +55,5 @@ equation
         Line(points={{-60,100},{-60,80}}, color={0,0,255}),
         Line(points={{60,100},{60,80}}, color={0,0,255}),
         Line(points={{60,-80},{60,-100}}, color={0,0,255}),
-        Line(points={{-60,-80},{-60,-100}}, color={0,0,255})}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})));
+        Line(points={{-60,-80},{-60,-100}}, color={0,0,255})}));
 end TLine1;

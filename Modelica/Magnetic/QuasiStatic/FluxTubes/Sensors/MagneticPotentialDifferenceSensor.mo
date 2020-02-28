@@ -14,9 +14,7 @@ equation
         Text(
           extent={{-30,-10},{30,-70}},
           textColor={64,64,64},
-          textString="A")}),      Diagram(coordinateSystem(
-        preserveAspectRatio=false)),
-    Documentation(info="<html>
+          textString="A")}),    Documentation(info="<html>
 <p>
 This sensor can be used to measure the complex magnetic potential difference <code>V_m</code>
 in a quasi-static magnetic system.

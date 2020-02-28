@@ -25,8 +25,7 @@ model TestOpenTank "Test the OpenTank model"
     constantVolumeFlow=1,
     T0=293.15) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={0,0})));
+        rotation=90)));
   Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(
     table=[0,0; 0.5,0; 0.5,-1; 0.75, -1; 0.75,1; 1,1; 1,0; 1.5,0])
     annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
@@ -37,9 +36,7 @@ equation
     annotation (Line(points={{0,50},{0,10}}, color={255,0,0}));
   connect(volumeFlow.flowPort_a, ambient.flowPort)
     annotation (Line(points={{0,-10},{0,-50}}, color={255,0,0}));
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-        coordinateSystem(preserveAspectRatio=false)),
-    experiment(StopTime=1.5),
+  annotation (    experiment(StopTime=1.5),
     Documentation(info="<html>
 <p>
 First, the medium is pumped out of the tank (initial level = 0.5 m, T = 40&deg;C) to an (infinite) ambient (T = 20&deg;C):

@@ -22,7 +22,5 @@ This is a simple idle running branch.
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Crossing\">Crossing</a>
 </p>
 
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-            {100,100}})));
+</html>"));
 end Idle;

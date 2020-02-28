@@ -33,8 +33,6 @@ equation
           extent={{-24,20},{66,-40}},
           textColor={64,64,64},
           textString="K")}),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}})),
     Documentation(info="<html>
 <p>
 The relative temperature \"port_a.T - port_b.T\" is determined between

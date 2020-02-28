@@ -30,8 +30,7 @@ equation
      mur = mu/Modelica.Constants.mu_0;
   end if;
 
-  annotation (Diagram(coordinateSystem(
-          preserveAspectRatio=false)), Icon(
+  annotation ( Icon(
         coordinateSystem(preserveAspectRatio=false),
         graphics={Rectangle(
           extent={{-100,100},{100,-100}},

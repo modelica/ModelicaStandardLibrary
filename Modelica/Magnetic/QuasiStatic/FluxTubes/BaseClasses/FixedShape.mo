@@ -36,6 +36,5 @@ Please refer to the description of  the subpackage
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape\">Shapes.FixedShape</a>
 for utilisation of this partial model.
 </p>
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false)));
+</html>"));
 end FixedShape;

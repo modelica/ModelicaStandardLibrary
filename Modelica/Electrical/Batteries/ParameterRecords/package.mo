@@ -2,7 +2,6 @@ within Modelica.Electrical.Batteries;
 package ParameterRecords "Parameter records for batteries"
   extends Modelica.Icons.RecordsPackage;
 
-
   annotation (Documentation(info="<html>
 <p>
 Parameter records for batteries

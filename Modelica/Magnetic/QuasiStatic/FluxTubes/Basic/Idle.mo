@@ -17,7 +17,5 @@ equation
 This is a simple idle running branch. The magnetic flux through this component is equal to zero.
 </p></html>",
       revisions="<html>
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-            {100,100}})));
+</html>"));
 end Idle;

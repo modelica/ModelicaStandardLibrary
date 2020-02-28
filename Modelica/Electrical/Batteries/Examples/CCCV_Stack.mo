@@ -38,8 +38,7 @@ model CCCV_Stack
           stackData.Ns,
           stackData.Np)) annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
-        rotation=90,
-        origin={0,0})));
+        rotation=90)));
   Modelica.Electrical.Batteries.Utilities.BusTranscription busTranscription(
       Np=stackData.Np, Ns=stackData.Ns)
     annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
@@ -54,7 +53,6 @@ model CCCV_Stack
     annotation (Placement(transformation(extent={{-30,30},{-10,50}})));
   Modelica.Blocks.Continuous.Integrator energy(u(unit="W"), y(unit="J"))
     annotation (Placement(transformation(extent={{10,-10},{-10,10}},
-        rotation=0,
         origin={-70,34})));
 equation
   connect(ground.p, cccvCharger.n) annotation (Line(points={{-20,-20},{-50,-20},
