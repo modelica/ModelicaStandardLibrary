@@ -751,6 +751,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 
       model Issue3022SinglePhase "Conversion test for #3022"
         extends Modelica.Icons.Example;
+        import Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.RelativeSensor;
         constant Integer m=3 "Number of phases";
         import Modelica.Constants.pi;
         parameter Modelica.SIunits.Voltage VRMS=100
@@ -834,6 +835,7 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 
       model Issue3022MultiPhase "Conversion test for #3022"
         extends Modelica.Icons.Example;
+        import Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor;
         constant Integer m=3 "Number of phases";
         import Modelica.Constants.pi;
         parameter Modelica.SIunits.Voltage VRMS=100
