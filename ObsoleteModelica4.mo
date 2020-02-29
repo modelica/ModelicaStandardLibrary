@@ -2285,7 +2285,7 @@ u = {0.837, -0.478, -0.239, -0.119};
 
     The matrix P is represented in jpvt as follows: If
        jpvt(j) = i
-    then the jth column of P is the with canonical unit vector.
+    then the jth column of P is the ith canonical unit vector.
 "));
         end dgeqpf;
       end LAPACK;
