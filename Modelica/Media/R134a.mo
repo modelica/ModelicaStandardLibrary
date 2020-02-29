@@ -1960,12 +1960,10 @@ The function cannot be inverted in a numerical way. Please use functions <a href
         if liquid then
           damping := 0.3;
           //damping on the liquid side
-          d := R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dl_coef[int,
-            1:4])*1.02;
+          d := R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dl_coef[int,1:4])*1.5;
           T := Common.CubicSplineEval(localx, T_coef[int, 1:4]);
         else
-          d := R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dv_coef[int,
-            1:4])*0.95;
+          d := R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dv_coef[int,1:4])*0.95;
           T := Common.CubicSplineEval(localx, T_coef[int, 1:4]);
         end if;
       end if;
