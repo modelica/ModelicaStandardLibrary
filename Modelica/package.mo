@@ -2375,10 +2375,21 @@ Short Overview:
   </ol></li>
 <li>The licenses of the utilized open-source third-party software components as well as the BSD 3-clause license of the Modelica Standard Library itself are available as separate <a href=\"modelica://Modelica/Resources/Licenses\">resources</a>.</li>
 </ul>
+
 <p>
 The exact difference between package Modelica version 4.0.0 and version 3.2.3 is
 summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-4.0.0/DifferencesTo323.html\">comparison table</a>.
 </p>
+
+<p>
+The following Modelica packages have been tested that they work together with this release of package Modelica
+(alphabetical list):
+</p>
+
+<ul>
+<li><a href=\"https://github.com/lbl-srg/modelica-buildings/issues/1789\">Buildings</a>&nbsp;&gt;&nbsp;6.0.0 (LBNL)</li>
+<li>IBPSA&nbsp;&gt;&nbsp;3.0.0 (IBPSA Project 1)</li>
+</ul>
 
 <p><br>
 The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
