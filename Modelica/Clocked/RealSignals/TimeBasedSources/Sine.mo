@@ -42,8 +42,7 @@ equation
       smooth=Smooth.Bezier),
     Text(
       extent={{-150,-150},{150,-110}},
-          textString="f=%f",
-          lineColor={0,0,0}),
+          textString="f=%f"),
         Ellipse(
           extent={{-86,6},{-74,-6}},
           lineColor={0,0,127},
