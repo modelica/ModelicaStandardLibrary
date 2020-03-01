@@ -2412,15 +2412,18 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Sensors</strong></td></tr>
 <tr><td>SinCosResolver</td>
     <td>Resolver with two sine and two cosine tracks to be used in drive control applications</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Utilities</strong></td></tr>
+<tr><td>SwitchYDwithArc</td>
+    <td>Wye delta switch with arc model and time delay between the two switching events</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.PowerConverters</strong></td></tr>
 <tr><td>ACAC</td>
-    <td></td></tr>
+    <td>Single-phase and polyphase triac models (AC/AC converters)</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</strong></td></tr>
 <tr><td>HollowCylinderCircumferentialFlux<br>Toroid</td>
-    <td></td></tr>
+    <td>Circumferential flux models of hollow cylinder and toroid with circular cross section</td></tr>
 <tr><td colspan=\"2\"><strong>Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape</strong></td></tr>
 <tr><td>HollowCylinderCircumferentialFlux<br>Toroid</td>
-    <td></td></tr>
+    <td>Circumferential flux models of hollow cylinder and toroid with circular cross section</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Visualizers.Advanced</strong></td></tr>
 <tr><td>Vector</td>
     <td></td></tr>
