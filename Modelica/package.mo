@@ -2429,9 +2429,9 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
     <td></td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.Translational.Components</strong></td></tr>
 <tr><td>RollingResistance</td>
-    <td></td></tr>
+    <td>Resistance of a rolling wheel incorporating the inclination and rolling resistance coefficient</td></tr>
 <tr><td>Vehicle</td>
-    <td></td></tr>
+    <td>Simple vehicle model considering mass and inertia, drag and rolling resistance, inclination resistance</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Math</strong></td></tr>
 <tr><td>BooleanVectors.andTrue</td>
     <td>Similar to <code>allTrue</code>, but return <code>true</code> on empty input vector.</td></tr>
