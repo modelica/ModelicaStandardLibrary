@@ -2408,7 +2408,7 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
     <td></td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Sources</strong></td></tr>
 <tr><td>SineVoltageVariableFrequencyAndAmplitude<br>CosineVoltageVariableFrequencyAndAmplitude<br>SineCurrentVariableFrequencyAndAmplitude<br>CosineCurrentVariableFrequencyAndAmplitude</td>
-    <td></td></tr>
+    <td>Voltage and current sources with variable amplitude and frequency; sine and cosine waveforms are provided</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Sensors</strong></td></tr>
 <tr><td>SinCosResolver</td>
     <td>Resolver with two sine and two cosine tracks to be used in drive control applications</td></tr>
