@@ -2411,7 +2411,7 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
     <td></td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Sensors</strong></td></tr>
 <tr><td>SinCosResolver</td>
-    <td></td></tr>
+    <td>Resolver with two sine and two cosine tracks to be used in drive control applications</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.PowerConverters</strong></td></tr>
 <tr><td>ACAC</td>
     <td></td></tr>
