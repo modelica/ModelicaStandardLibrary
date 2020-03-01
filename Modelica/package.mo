@@ -2504,6 +2504,9 @@ that can lead to wrong simulation results):
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Math</strong></td></tr>
 <tr><td>Pythagoras</td>
     <td>The case with negative <code>y2</code> was not correctly considered if <code>u1IsHypotenuse</code> is <code>true</code>. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Semiconductors</strong></td></tr>
+<tr><td>Diode</td>
+    <td>Fix bug in current equations.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Spice3.Additionals</strong></td></tr>
 <tr><td>poly</td>
     <td>The case with one coefficient and one variable was not correctly considered. This has been corrected.</td></tr>
