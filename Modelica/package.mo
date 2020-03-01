@@ -2460,6 +2460,9 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Ideal</strong></td></tr>
 <tr><td>IdealizedOpAmpLimited</td>
     <td>Add homotopy to operational amplifier.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Semiconductors</strong></td></tr>
+<tr><td>NPN<br>PNP</td>
+    <td>Add optional substrate connector.</td></tr>
 </table>
 
 <p><br>
