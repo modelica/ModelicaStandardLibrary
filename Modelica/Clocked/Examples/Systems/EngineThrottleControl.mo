@@ -1,4 +1,4 @@
-﻿within Modelica.Clocked.Examples.Systems;
+within Modelica.Clocked.Examples.Systems;
 model EngineThrottleControl
   "Closed-loop throttle control synchronized to the crankshaft angle of an
    internal combustion engine"
