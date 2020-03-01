@@ -1152,7 +1152,7 @@ Thus, we have to sample for a&nbsp;period of <code>n*samplePeriod&nbsp;=&nbsp;1/
 The result file &quot;rectifier6pulseFFTresult.mat&quot; can be used to plot
 amplitudes versus frequencies.
 Note that for each frequency three rows exit: one with amplitude zero,
-one with the calculated amplitude, one with apmplitude zero.
+one with the calculated amplitude, one with amplitude zero.
 Thus, the second column (amplitude) can be easily plotted versus the first column (frequency).
 As expected, one can see the 5<sup>th</sup>, 7<sup>th</sup>, 11<sup>th</sup>,
 13<sup>th</sup>, 17<sup>th</sup>, 19<sup>th</sup>, 23<sup>th</sup>, 25<sup>th</sup>,
@@ -1196,7 +1196,7 @@ Thus, we have to sample for a&nbsp;period of <code>n*samplePeriod = 1/f_res = 0.
 <p>
 The resultfile &quot;rectifier12pulseFFTresult.mat&quot; can be used to plot amplitudes versus frequencies.
 Note that for each frequency three rows exit: one with amplitude zero,
-one with the calculated amplitude, one with apmplitude zero.
+one with the calculated amplitude, one with amplitude zero.
 Thus, the second column (amplitude) can be easily plotted versus the first column (frequency).
 As expected, one can see the 11<sup>th</sup>, 13<sup>th</sup>, 23<sup>th</sup>, 25<sup>th</sup>,
 &hellip; harmonic in the result.

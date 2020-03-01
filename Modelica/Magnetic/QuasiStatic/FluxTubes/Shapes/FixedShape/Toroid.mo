@@ -21,7 +21,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
 </p>
 
 <p>
-For toroidal flux tubes with a circumferental magnetic flux, the flux density is a function of the radius.
+For toroidal flux tubes with a circumferential magnetic flux, the flux density is a function of the radius.
 For that reason, the characteristic <code>mu_r(B)</code> is evaluated for the flux density at the flux tube's mean radius.
 </p>
 

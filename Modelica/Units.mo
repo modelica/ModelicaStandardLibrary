@@ -271,8 +271,6 @@ end UsersGuide;
     type AngularFrequency = Real (final quantity="AngularFrequency", final unit=
             "rad/s");
     type Wavelength = Real (final quantity="Wavelength", final unit="m");
-    type Wavelenght = Wavelength;
-    // For compatibility reasons only
     type WaveNumber = Real (final quantity="WaveNumber", final unit="m-1");
     type CircularWaveNumber = Real (final quantity="CircularWaveNumber", final unit=
                "rad/m");

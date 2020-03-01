@@ -1418,11 +1418,11 @@ of noise blocks.
   potential, 1st derivative of potential, and 2nd derivative of potential as outputs (especially useful for FMUs)"
       parameter Boolean use_pder=true "Use output for 1st derivative of potential"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-      parameter Boolean use_pder2=true "Use output for 2nd derivative of potential (only if 1st derivate is used, too)"
+      parameter Boolean use_pder2=true "Use output for 2nd derivative of potential (only if 1st derivative is used, too)"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       parameter Boolean use_fder=true "Use input for 1st derivative of flow"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-      parameter Boolean use_fder2=true "Use input for 2nd derivative of flow (only if 1st derivate is used, too)"
+      parameter Boolean use_fder2=true "Use input for 2nd derivative of flow (only if 1st derivative is used, too)"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       Modelica.Blocks.Interfaces.RealOutput p "Output for potential"
         annotation (Placement(transformation(extent={{20,70},{40,90}})));
@@ -1530,11 +1530,11 @@ Note, the input signals must be consistent to each other
   flow, 1st derivative of flow, and 2nd derivative of flow as outputs (especially useful for FMUs)"
       parameter Boolean use_pder=true "Use input for 1st derivative of potential"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-      parameter Boolean use_pder2=true "Use input for 2nd derivative of potential (only if 1st derivate is used, too)"
+      parameter Boolean use_pder2=true "Use input for 2nd derivative of potential (only if 1st derivative is used, too)"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       parameter Boolean use_fder=true "Use output for 1st derivative of flow"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-      parameter Boolean use_fder2=true "Use output for 2nd derivative of flow (only if 1st derivate is used, too)"
+      parameter Boolean use_fder2=true "Use output for 2nd derivative of flow (only if 1st derivative is used, too)"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       Modelica.Blocks.Interfaces.RealInput p "Input for potential"
         annotation (Placement(transformation(extent={{-40,70},{-20,90}})));

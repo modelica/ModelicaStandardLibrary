@@ -151,7 +151,7 @@ every half-rotation and is implemented as
   src=\"modelica://Modelica/Resources/Images/Clocked/Examples/RotationalClock_Model.png\"
   alt=\"RotationalClock_Model.png\">
 <p>
-It bookeeps the angular of the last time a rotation has been
+It accounts the angular of the last time a rotation has been
 recognized (<code>angular_offset</code>). Given
 <code>angular_offset</code>, the event-condition for rotations is:
 </p><p>
@@ -159,10 +159,10 @@ recognized (<code>angular_offset</code>). Given
 </p><p>
 In our case, <code>angle</code> is the position of the crankshaft of the engine and
 <code>trigger_interval</code> is 180°. In the end,
-<code>crankshaftPositionEvent</code> samples it's own input angle to bookeep
+<code>crankshaftPositionEvent</code> samples it's own input angle to account
 an offset used to decide when to tick; the clock's event condition depends on
-the state present when the condition changed last time from beeing non-satisfied
-to beeing satisfied, i.e., the state when the clock last ticked.
+the state present when the condition changed last time from being non-satisfied
+to being satisfied, i.e., the state when the clock last ticked.
 </p><p>
 <em>This example model is based on the following references:</em>
 </p>

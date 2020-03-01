@@ -205,7 +205,7 @@ package ReferenceMoistAir
   end setSmoothState;
 
   function Xsaturation
-    "Return absolute humitity per unit mass of moist air at saturation as a function of the thermodynamic state record"
+    "Return absolute humidity per unit mass of moist air at saturation as a function of the thermodynamic state record"
     extends Modelica.Icons.Function;
     input ThermodynamicState state "Thermodynamic state record";
     output MassFraction X_sat "Steam mass fraction of sat. boundary";
@@ -217,7 +217,7 @@ package ReferenceMoistAir
   end Xsaturation;
 
   function xsaturation
-    "Return absolute humitity per unit mass of dry air at saturation as a function of the thermodynamic state record"
+    "Return absolute humidity per unit mass of dry air at saturation as a function of the thermodynamic state record"
     extends Modelica.Icons.Function;
     input ThermodynamicState state "Thermodynamic state record";
     output MassFraction x_sat "Absolute humidity per unit mass of dry air";
@@ -4004,11 +4004,11 @@ The package MoistAir can be used as any other medium model (see <a href=\"modeli
 </tr>
 <tr>
 <td>x<sub>w</sub></td>
-<td>Absolutue humidity in kg(water)/kg(dry air)</td>
+<td>Absolute humidity in kg(water)/kg(dry air)</td>
 </tr>
 <tr>
 <td>x<sub>ws</sub></td>
-<td>Absolutue humidity on saturation boundary in kg(water)/kg(dry air)</td>
+<td>Absolute humidity on saturation boundary in kg(water)/kg(dry air)</td>
 </tr>
 <tr>
 <td>&phi;</td>

@@ -191,7 +191,7 @@ package R134a "R134a: Medium model for R134a"
     extends Modelica.Media.Interfaces.PartialTwoPhaseMedium(
       ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
       mediumName="R134a_ph",
-      substanceNames={"tetrafluoroethan"},
+      substanceNames={"tetrafluoroethane"},
       singleState=false,
       SpecificEnthalpy(start=h_default, nominal=5.0e5),
       Density(start=4, nominal=500),
@@ -220,7 +220,7 @@ package R134a "R134a: Medium model for R134a"
       r134aConstants(
       each chemicalFormula="CF3CH2F",
       each structureFormula="1,1,1,2-tetrafluoroethane",
-      each iupacName="tetrafluoroethan",
+      each iupacName="tetrafluoroethane",
       each casRegistryNumber="811-97-2",
       each molarMass=R134aData.data.MM,
       each criticalMolarVolume=R134aData.data.MM/R134aData.data.DCRIT,

@@ -3931,7 +3931,7 @@ to <font color=\"blue\"><strong>existing</strong></font> libraries:
                       Stray Load losses<br>
                       Core losses (only eddy current losses but no hysteresis losses; not for transformers) </td></tr>
 <tr><td> Thermal.* </td>
-    <td> Simple thermal ambients, to be connected to the thermal ports of machines,<br>
+    <td> Simple thermal ambience, to be connected to the thermal ports of machines,<br>
                       as well as material constants and utility functions.</td></tr>
 <tr><td> Icons.* </td>
     <td> Icons for transient and quasi-static electrical machines and transformers.</td></tr>
@@ -5990,7 +5990,7 @@ have been <font color=\"blue\"><strong>improved</strong></font> in a
 
 <tr><td colspan=\"2\"><strong>Math.Vectors.</strong></td></tr>
 <tr><td> normalize</td>
-          <td> Implementation changed, so that the result is awalys continuous<br>
+          <td> Implementation changed, so that the result is always continuous<br>
                                                 (previously, this was not the case for small vectors: normalize(eps,eps)).
                                                 </td></tr>
 

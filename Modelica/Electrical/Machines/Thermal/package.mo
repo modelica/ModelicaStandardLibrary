@@ -10,16 +10,16 @@ package Thermal "Library with models for connecting thermal models"
 <h4>Thermal concept</h4>
 <p>
 Each machine model is equipped with a machine-specific conditional <code>thermalPort</code>.
-If <code>useThermalPort == false</code>, a machine-specific thermal ambient prescribing constant temperatures is used inside the machine.
-If <code>useThermalPort == true</code>, a thermal model or machine-specific thermal ambient prescribing the temperatures has to be connected from outside.
-On the other hand, all losses are dissipated to this internal or external thermal ambient.
+If <code>useThermalPort == false</code>, a machine-specific thermal ambience prescribing constant temperatures is used inside the machine.
+If <code>useThermalPort == true</code>, a thermal model or machine-specific thermal ambience prescribing the temperatures has to be connected from outside.
+On the other hand, all losses are dissipated to this internal or external thermal ambience.
 </p>
 <p>
 The machine specific thermal connector contains <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">heatPort</a>s
 for all relevant loss sources of the machine type, although some of the loss sources are not yet implemented;
 these heatPorts are left unconnected inside the machine, i.e., the HeatFlowRate is zero,
-but they have to be connected to a constant temperature source in the internal or external thermal ambient.
-Simple machine-specific thermal ambients for constant temperatures (<code>useTemperatureInputs == false</code>)
+but they have to be connected to a constant temperature source in the internal or external thermal ambience.
+Simple machine-specific thermal ambience for constant temperatures (<code>useTemperatureInputs == false</code>)
 or temperatures prescribed via signal inputs (<code>useTemperatureInputs == true</code>) are provided in this package.
 </p>
 <h4>Loss sources</h4>
