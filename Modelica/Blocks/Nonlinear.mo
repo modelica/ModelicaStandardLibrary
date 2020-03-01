@@ -349,9 +349,9 @@ y = u(time - delayTime) for time &gt; time.start + delayTime
 
   function padeCoefficients2
     extends Modelica.Icons.Function;
-    input Real T "delay time";
-    input Integer n "order of denominator";
-    input Integer m "order of numerator";
+    input Real T "Delay time";
+    input Integer n "Order of denominator";
+    input Integer m "Order of numerator";
     input Boolean balance=false;
     output Real a1[n] "First row of A";
     output Real b11 "= B[1,1]";
@@ -359,8 +359,8 @@ y = u(time - delayTime) for time &gt; time.start + delayTime
     output Real d "D matrix";
     output Real s[n-1] "Scaling such that x[i] = s[i-1]*x[i-1], i > 1";
     protected
-    Real b[m + 1] "numerator coefficients of transfer function";
-    Real a[n + 1] "denominator coefficients of transfer function";
+    Real b[m + 1] "Numerator coefficients of transfer function";
+    Real a[n + 1] "Denominator coefficients of transfer function";
     Real nm;
     Real bb[n + 1];
     Real A[n,n];

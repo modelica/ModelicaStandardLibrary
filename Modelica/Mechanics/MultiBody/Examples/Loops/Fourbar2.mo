@@ -3,10 +3,10 @@ model Fourbar2
   "One kinematic loop with four bars (with UniversalSpherical joint; 1 non-linear equation)"
   extends Modelica.Icons.Example;
 
-  output SI.Angle j1_phi "angle of revolute joint j1";
-  output SI.Position j2_s "distance of prismatic joint j2";
-  output SI.AngularVelocity j1_w "axis speed of revolute joint j1";
-  output SI.Velocity j2_v "axis velocity of prismatic joint j2";
+  output SI.Angle j1_phi "Angle of revolute joint j1";
+  output SI.Position j2_s "Distance of prismatic joint j2";
+  output SI.AngularVelocity j1_w "Axis speed of revolute joint j1";
+  output SI.Velocity j2_v "Axis velocity of prismatic joint j2";
 
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
         transformation(extent={{-100,-70},{-80,-50}})));

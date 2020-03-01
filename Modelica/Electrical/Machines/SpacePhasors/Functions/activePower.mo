@@ -3,8 +3,8 @@ function activePower
   "Calculate active power of voltage and current input"
   import Modelica.Constants.pi;
   extends Modelica.Icons.Function;
-  input SI.Voltage v[m] "phase voltages";
-  input SI.Current i[m] "phase currents";
+  input SI.Voltage v[m] "Phase voltages";
+  input SI.Current i[m] "Phase currents";
   output SI.Power p "Active power";
 protected
   constant Integer m=3 "Number of phases";

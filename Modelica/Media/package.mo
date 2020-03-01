@@ -7105,7 +7105,7 @@ package Common "Data structures and fundamental functions for fluid properties"
       SI.Pressure[nspecies] compp(
         min=COMPPMIN,
         max=COMPPMAX,
-        nominal=COMPPNOM) "partial pressures of the components";
+        nominal=COMPPNOM) "Partial pressures of the components";
       SI.Velocity a(
         min=VELMIN,
         max=VELMAX,

@@ -2,9 +2,9 @@ within Modelica.Electrical.Analog.Sensors;
 model VoltageSensor "Sensor to measure the voltage between two pins"
   extends Modelica.Icons.RoundSensor;
 
-  Interfaces.PositivePin p "positive pin" annotation (Placement(
+  Interfaces.PositivePin p "Positive pin" annotation (Placement(
         transformation(extent={{-110,-10},{-90,10}})));
-  Interfaces.NegativePin n "negative pin" annotation (Placement(
+  Interfaces.NegativePin n "Negative pin" annotation (Placement(
         transformation(extent={{90,-10},{110,10}})));
   Modelica.Blocks.Interfaces.RealOutput v(unit="V")
     "Voltage between pin p and n (= p.v - n.v) as output signal"

@@ -2,9 +2,9 @@ within Modelica.Electrical.Analog.Sensors;
 model CurrentSensor "Sensor to measure the current in a branch"
   extends Modelica.Icons.RoundSensor;
 
-  Interfaces.PositivePin p "positive pin" annotation (Placement(
+  Interfaces.PositivePin p "Positive pin" annotation (Placement(
         transformation(extent={{-110,-10},{-90,10}})));
-  Interfaces.NegativePin n "negative pin" annotation (Placement(
+  Interfaces.NegativePin n "Negative pin" annotation (Placement(
         transformation(extent={{90,-10},{110,10}})));
   Modelica.Blocks.Interfaces.RealOutput i(unit="A")
     "Current in the branch from p to n as output signal"

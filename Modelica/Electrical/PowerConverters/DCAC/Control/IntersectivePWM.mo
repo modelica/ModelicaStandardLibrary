@@ -10,9 +10,9 @@ block IntersectivePWM "Intersective PWM"
     "Type of reference signal" annotation (Evaluate=true);
   Modelica.Blocks.Interfaces.RealInput u[2] "Reference space phasor"
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-  Modelica.Blocks.Interfaces.BooleanOutput fire_p[m] "positive fire signal"
+  Modelica.Blocks.Interfaces.BooleanOutput fire_p[m] "Positive fire signal"
     annotation (Placement(transformation(extent={{100,50},{120,70}})));
-  Modelica.Blocks.Interfaces.BooleanOutput fire_n[m] "negative fire signal"
+  Modelica.Blocks.Interfaces.BooleanOutput fire_n[m] "Negative fire signal"
     annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
   Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor
     fromSpacePhasor

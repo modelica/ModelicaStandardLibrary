@@ -29,9 +29,9 @@ protected
   Boolean asc(start=true, fixed=true) "=asc without chatter";
   Boolean asc2 "Hstat is ascending der(Hstat)>0";
   Boolean delAsc(start=false)
-    "wipeout history vertex at ascending Hstat";
+    "Wipeout history vertex at ascending Hstat";
   Boolean delDesc(start=false)
-    "wipeout history vertex at descending Hstat";
+    "Wipeout history vertex at descending Hstat";
   Boolean del(start=false) "delAsc or delDesc";
   Boolean init(start=false, fixed=true)
     "If init=1 then J runs on the initial magnetization curve";

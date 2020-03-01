@@ -382,7 +382,7 @@ performed replacements.
 
   function sort "Sort vector of strings in alphabetic order"
     extends Modelica.Icons.Function;
-    input String stringVector1[:] "vector of strings";
+    input String stringVector1[:] "Vector of strings";
     input Boolean caseSensitive=true
       "= false, if lower and upper case are ignored when comparing elements of stringVector1";
     output String stringVector2[size(stringVector1,1)]
@@ -644,7 +644,7 @@ import T = Modelica.Utilities.Types.TokenType;
     input String message=""
       "Message used in error message if scan is not successful";
     output Real number "Value of real number";
-    output Integer nextIndex "index of character after the found number";
+    output Integer nextIndex "Index of character after the found number";
   algorithm
     (nextIndex, number) :=Advanced.scanReal(string, startIndex, unsigned);
     if nextIndex == startIndex then

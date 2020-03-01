@@ -243,22 +243,22 @@ end OpenTank;
 
         // Conservation of kinetic energy
         Medium.Density[nPorts] portInDensities
-        "densities of the fluid at the device boundary";
+        "Densities of the fluid at the device boundary";
         SI.Velocity[nPorts] portVelocities
-        "velocities of fluid flow at device boundary";
+        "Velocities of fluid flow at device boundary";
         SI.EnergyFlowRate[nPorts] ports_E_flow
-        "flow of kinetic and potential energy at device boundary";
+        "Flow of kinetic and potential energy at device boundary";
 
         // Note: should use fluidLevel_start - portsData.height
         Real[nPorts] s(each start = fluidLevel_max)
-        "curve parameters for port flows vs. port pressures; for further details see, Modelica Tutorial: Ideal switching devices";
+        "Curve parameters for port flows vs. port pressures; for further details see, Modelica Tutorial: Ideal switching devices";
         Real[nPorts] ports_penetration
-        "penetration of port with fluid, depending on fluid level and port diameter";
+        "Penetration of port with fluid, depending on fluid level and port diameter";
 
         // treatment of pressure losses at ports
         SI.Area[nPorts] portAreas = {Modelica.Constants.pi/4*portsData_diameter[i]^2 for i in 1:nPorts};
         Medium.AbsolutePressure[nPorts] vessel_ps_static
-        "static pressures inside the vessel at the height of the corresponding ports, zero flow velocity";
+        "Static pressures inside the vessel at the height of the corresponding ports, zero flow velocity";
 
         // determination of turbulent region
         constant SI.ReynoldsNumber Re_turbulent = 100 "cf. suddenExpansion";
@@ -266,9 +266,9 @@ end OpenTank;
 
     protected
         input SI.Height fluidLevel = 0
-        "level of fluid in the vessel for treating heights of ports";
+        "Level of fluid in the vessel for treating heights of ports";
         parameter SI.Height fluidLevel_max = 1
-        "maximum level of fluid in the vessel";
+        "Maximum level of fluid in the vessel";
         parameter SI.Area vesselArea = Modelica.Constants.inf
         "Area of the vessel used to relate to cross flow area of ports";
 
@@ -511,7 +511,7 @@ Ideal heat transfer without thermal resistance.
         "ConstantHeatTransfer: Constant heat transfer coefficient"
       extends PartialVesselHeatTransfer;
       parameter SI.CoefficientOfHeatTransfer alpha0
-          "constant heat transfer coefficient";
+          "Constant heat transfer coefficient";
 
     equation
       Q_flows = {(alpha0+k)*surfaceAreas[i]*(heatPorts[i].T - Ts[i]) for i in 1:n};

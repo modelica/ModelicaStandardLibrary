@@ -3,21 +3,21 @@ model UnsymmetricalLoad "Unsymmetrical three-phase load"
   extends Modelica.Icons.Example;
   import Modelica.ComplexMath.abs;
   output SI.Current i1_d=symmetricalComponents_1.abs_y[1]
-    "with neutral, direct component";
+    "With neutral, direct component";
   output SI.Current i1_i=symmetricalComponents_1.abs_y[2]
-    "with neutral, inverse component";
+    "With neutral, inverse component";
   output SI.Current i1_0=symmetricalComponents_1.abs_y[3]
-    "with neutral, zero component";
+    "With neutral, zero component";
   output SI.Current i1_n=abs(currentSensorN.i)
-    "with neutral, neutral current";
+    "With neutral, neutral current";
   output SI.Current i2_d=symmetricalComponents_2.abs_y[1]
-    "w/o neutral, direct component";
+    "Without neutral, direct component";
   output SI.Current i2_i=symmetricalComponents_2.abs_y[2]
-    "w/o neutral, inverse component";
+    "Without neutral, inverse component";
   output SI.Current i2_0=symmetricalComponents_2.abs_y[3]
-    "w/o neutral, zero component";
+    "Without neutral, zero component";
   output SI.Voltage v2_n=abs(voltageSensorN.v)
-    "w/o neutral, neutral voltage";
+    "Without neutral, neutral voltage";
 
   Sources.VoltageSource voltageSource1(
     m=3,

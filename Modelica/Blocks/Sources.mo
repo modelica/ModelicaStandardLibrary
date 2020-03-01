@@ -1972,7 +1972,7 @@ The Boolean output y is a step signal:
 
   protected
     parameter SI.Time Twidth=period*width/100
-      "width of one pulse" annotation (HideResult=true);
+      "Width of one pulse" annotation (HideResult=true);
     discrete SI.Time pulseStart "Start time of pulse"
       annotation (HideResult=true);
   initial equation

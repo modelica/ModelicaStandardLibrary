@@ -4,7 +4,7 @@ model SimpleGearShift "Simple Gearshift"
   output SI.AngularVelocity wEngine=engine.w
     "Speed of engine";
   output SI.AngularVelocity wLoad=load.w "Speed of load";
-  output Real gearRatio=wLoad/max(wEngine, 1E-6) "gear ratio load/engine";
+  output Real gearRatio=wLoad/max(wEngine, 1E-6) "Gear ratio load/engine";
   Modelica.Mechanics.Rotational.Sources.TorqueStep torqueStep(
     offsetTorque=0,
     startTime=0.5,

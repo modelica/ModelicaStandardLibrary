@@ -19,7 +19,7 @@ model ParallelCooling "Cooling circuit with parallel branches"
   output SI.TemperatureDifference dTCoolant2=pipe2.dT
     "Coolant2's temperature increase";
   output SI.TemperatureDifference dTmixedCoolant=ambient2.T_port-ambient1.T_port
-    "mixed Coolant's temperature increase";
+    "Mixed Coolant's temperature increase";
   FluidHeatFlow.Sources.Ambient ambient1(
     constantAmbientTemperature=TAmb,
     medium=medium,

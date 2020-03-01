@@ -99,8 +99,8 @@ protected
     Real k2 "Constant of quadratic equation solution";
     Real k1a;
     Real k1b;
-    Real d1 "solution 1 of quadratic equation";
-    Real d2 "solution 2 of quadratic equation";
+    Real d1 "Solution 1 of quadratic equation";
+    Real d2 "Solution 2 of quadratic equation";
   algorithm
     /* The position vector r_rel from frame_a to frame_b of the length constraint
        element, resolved in frame_b of the prismatic joint (frame_a and frame_b

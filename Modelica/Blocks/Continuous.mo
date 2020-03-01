@@ -1240,8 +1240,8 @@ y = --------- * u
     output Real x[size(A, 1)](start=x_start) "State vector";
 
   protected
-    parameter Integer nx = size(A, 1) "number of states";
-    parameter Integer ny = size(C, 1) "number of outputs";
+    parameter Integer nx = size(A, 1) "Number of states";
+    parameter Integer ny = size(C, 1) "Number of outputs";
   initial equation
     if initType == Init.SteadyState then
       der(x) = zeros(nx);
@@ -1364,10 +1364,10 @@ the model.
             "Initialization"));
 
     output Real x1[m](start=x1_start)
-      "states 1 of second order filters (der(x1) = x2)";
+      "States 1 of second order filters (der(x1) = x2)";
     output Real x2[m](start=x2_start) "states 2 of second order filters";
     output Real xr(start=xr_start)
-      "state of real pole for uneven order otherwise dummy";
+      "State of real pole for uneven order otherwise dummy";
   protected
     parameter Integer m=integer(n/2);
     parameter Boolean evenOrder = 2*m == n;

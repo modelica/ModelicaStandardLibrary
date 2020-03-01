@@ -3,13 +3,13 @@ package Machines
   "Devices for converting between energy held in a fluid and mechanical energy"
   extends Modelica.Icons.VariantsPackage;
   model SweptVolume
-    "varying cylindric volume depending on the position of the piston"
+    "Varying cylindric volume depending on the position of the piston"
     import Modelica.Constants.pi;
 
     parameter SI.Area pistonCrossArea "Cross sectional area of piston";
     parameter SI.Volume clearance "Remaining volume at zero piston stroke";
 
-    SI.Volume V "fluid volume";
+    SI.Volume V "Fluid volume";
 
     // Mass and energy balance, ports
     extends Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel(
@@ -17,7 +17,7 @@ package Machines
       heatTransfer(surfaceAreas={pistonCrossArea+2*sqrt(pistonCrossArea*pi)*(flange.s+clearance/pistonCrossArea)}));
 
     Modelica.Mechanics.Translational.Interfaces.Flange_b flange
-      "translation flange for piston" annotation (Placement(transformation(
+      "Translation flange for piston" annotation (Placement(transformation(
             extent={{-10,90},{10,110}})));
 
   equation

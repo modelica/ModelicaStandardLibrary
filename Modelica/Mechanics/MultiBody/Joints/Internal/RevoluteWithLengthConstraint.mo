@@ -109,8 +109,8 @@ protected
     Real ksin1 "k1*sin(angle1)";
     Real kcos2 "k2*cos(angle2)";
     Real ksin2 "k2*sin(angle2)";
-    SI.Angle angle1 "solution 1 of nonlinear equation";
-    SI.Angle angle2 "solution 2 of nonlinear equation";
+    SI.Angle angle1 "Solution 1 of nonlinear equation";
+    SI.Angle angle2 "Solution 2 of nonlinear equation";
   algorithm
     /* The position vector r_rel from frame_a to frame_b of the length constraint
        element, resolved in frame_b of the revolute joint is given by

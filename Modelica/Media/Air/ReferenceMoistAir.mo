@@ -61,7 +61,7 @@ package ReferenceMoistAir
       "Steam water mass fraction of saturation boundary in kg_water/kg_moistair";
     Real x_sat
       "Steam water mass content of saturation boundary in kg_water/kg_dryair";
-    AbsolutePressure p_steam_sat "partial saturation pressure of steam";
+    AbsolutePressure p_steam_sat "Partial saturation pressure of steam";
   equation
     assert(T >= 143.15 and T <= 2000,
       "Temperature T is not in the allowed range 143.15 K <= (T =" + String(T)

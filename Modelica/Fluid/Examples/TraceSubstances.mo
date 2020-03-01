@@ -6,7 +6,7 @@ package TraceSubstances "Library demonstrating the usage of trace substances"
     package Medium=Modelica.Media.Air.MoistAir(extraPropertiesNames={"CO2"},
                                                C_nominal={1.519E-3});
     Modelica.Blocks.Sources.Constant C(k=0.3*1.519E-3)
-      "substance concentration, raising to 1000 PPM CO2"
+      "Substance concentration, raising to 1000 PPM CO2"
       annotation (Placement(transformation(extent={{-94,-28},{-74,-8}})));
     Sources.FixedBoundary boundary4(nPorts=1,redeclare package Medium = Medium)
       annotation (Placement(transformation(extent={{80,-20},{60,0}})));

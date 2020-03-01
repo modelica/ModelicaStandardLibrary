@@ -2,7 +2,7 @@ within Modelica.Fluid.Examples;
 package HeatExchanger "Demo of a heat exchanger model"
   extends Modelica.Icons.ExamplesPackage;
 
-  model HeatExchangerSimulation "simulation for the heat exchanger model"
+  model HeatExchangerSimulation "Simulation for the heat exchanger model"
 
   extends Modelica.Icons.Example;
 
@@ -154,7 +154,7 @@ package HeatExchanger "Demo of a heat exchanger model"
 
       // Assumptions
       parameter Boolean allowFlowReversal = system.allowFlowReversal
-        "allow flow reversal, false restricts to design direction (port_a -> port_b)"
+        "Allow flow reversal, false restricts to design direction (port_a -> port_b)"
         annotation(Dialog(tab="Assumptions"), Evaluate=true);
       parameter Modelica.Fluid.Types.Dynamics energyDynamics=system.energyDynamics
         "Formulation of energy balance"
