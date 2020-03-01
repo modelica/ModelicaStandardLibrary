@@ -2454,6 +2454,9 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
     <td>Added second derivatives and modified Akima interpolation.</td></tr>
 <tr><td>CombiTable2Ds<br>CombiTable2Dv</td>
     <td>Added second derivatives.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Ideal</strong></td></tr>
+<tr><td>IdealizedOpAmpLimited</td>
+    <td>Add homotopy to operational amplifier.</td></tr>
 </table>
 
 <p><br>
