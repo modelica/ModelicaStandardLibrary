@@ -8315,7 +8315,7 @@ class Contact "Contact"
 <td align=\"left\">Christian Kral, Jakub Tobolar</td>
 </tr>
 <tr>
-<td align=\"left\">SIunits</td>
+<td align=\"left\">Units</td>
 <td align=\"left\">Christian Kral, Martin Otter</td>
 </tr>
 <tr>
