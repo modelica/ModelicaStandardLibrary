@@ -2403,35 +2403,35 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources</strong></td></tr>
 <tr><td>SineVariableFrequencyAndAmplitude<br>CosineVariableFrequencyAndAmplitude</td>
-    <td>Signal sources with variable amplitude and frequency; sine and cosine waveforms are provided</td></tr>
+    <td>Added signal sources with variable amplitude and frequency; sine and cosine waveforms are provided.</td></tr>
 <tr><td>Sinc</td>
-    <td>Signal source of <code> amplitude*sin(2*&pi;*f*t)/(2*&pi;*f*t)</code></td></tr>
+    <td>Added signal source of <code> amplitude*sin(2*&pi;*f*t)/(2*&pi;*f*t)</code>.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Sources</strong></td></tr>
 <tr><td>SineVoltageVariableFrequencyAndAmplitude<br>CosineVoltageVariableFrequencyAndAmplitude<br>SineCurrentVariableFrequencyAndAmplitude<br>CosineCurrentVariableFrequencyAndAmplitude</td>
-    <td>Voltage and current sources with variable amplitude and frequency; sine and cosine waveforms are provided</td></tr>
+    <td>Added voltage and current sources with variable amplitude and frequency; sine and cosine waveforms are provided.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Sensors</strong></td></tr>
 <tr><td>SinCosResolver</td>
-    <td>Resolver with two sine and two cosine tracks to be used in drive control applications</td></tr>
+    <td>Added resolver with two sine and two cosine tracks to be used in drive control applications.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Utilities</strong></td></tr>
 <tr><td>SwitchYDwithArc</td>
-    <td>Wye delta switch with arc model and time delay between the two switching events</td></tr>
+    <td>Added wye delta switch with arc model and time delay between the two switching events.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.PowerConverters</strong></td></tr>
 <tr><td>ACAC</td>
-    <td>Single-phase and polyphase triac models (AC/AC converters)</td></tr>
+    <td>Added single-phase and polyphase triac models (AC/AC converters).</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</strong></td></tr>
 <tr><td>HollowCylinderCircumferentialFlux<br>Toroid</td>
-    <td>Circumferential flux models of hollow cylinder and toroid with circular cross section</td></tr>
+    <td>Added circumferential flux models of hollow cylinder and toroid with circular cross section.</td></tr>
 <tr><td colspan=\"2\"><strong>Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape</strong></td></tr>
 <tr><td>HollowCylinderCircumferentialFlux<br>Toroid</td>
-    <td>Circumferential flux models of hollow cylinder and toroid with circular cross section</td></tr>
+    <td>Added circumferential flux models of hollow cylinder and toroid with circular cross section.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Visualizers.Advanced</strong></td></tr>
 <tr><td>Vector</td>
     <td></td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.Translational.Components</strong></td></tr>
 <tr><td>RollingResistance</td>
-    <td>Resistance of a rolling wheel incorporating the inclination and rolling resistance coefficient</td></tr>
+    <td>Added resistance of a rolling wheel incorporating the inclination and rolling resistance coefficient.</td></tr>
 <tr><td>Vehicle</td>
-    <td>Simple vehicle model considering mass and inertia, drag and rolling resistance, inclination resistance</td></tr>
+    <td>Added simple vehicle model considering mass and inertia, drag and rolling resistance, inclination resistance.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Math</strong></td></tr>
 <tr><td>BooleanVectors.andTrue</td>
     <td>Similar to <code>allTrue</code>, but return <code>true</code> on empty input vector.</td></tr>
