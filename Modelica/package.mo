@@ -2403,9 +2403,9 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources</strong></td></tr>
 <tr><td>SineVariableFrequencyAndAmplitude<br>CosineVariableFrequencyAndAmplitude</td>
-    <td></td></tr>
+    <td>Signal sources with variable amplitude and frequency; sine and cosine waveforms are provided</td></tr>
 <tr><td>Sinc</td>
-    <td></td></tr>
+    <td>Signal source of <code> amplitude*sin(2*&pi;*f*t)/(2*&pi;*f*t)</code></td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Sources</strong></td></tr>
 <tr><td>SineVoltageVariableFrequencyAndAmplitude<br>CosineVoltageVariableFrequencyAndAmplitude<br>SineCurrentVariableFrequencyAndAmplitude<br>CosineCurrentVariableFrequencyAndAmplitude</td>
     <td>Voltage and current sources with variable amplitude and frequency; sine and cosine waveforms are provided</td></tr>
