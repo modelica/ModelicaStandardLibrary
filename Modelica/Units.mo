@@ -596,10 +596,10 @@ end UsersGuide;
     type PowerFactor = Real (final quantity="PowerFactor", final unit="1");
     type LinearTemperatureCoefficientResistance = Real (
       final quantity="LinearTemperatureCoefficientResistance",
-      final unit="Ohm/K") "First Order Temperature Coefficient";
+      final unit="Ohm/K") "First order temperature coefficient";
     type QuadraticTemperatureCoefficientResistance = Real (
       final quantity="QuadraticTemperatureCoefficientResistance",
-      final unit="Ohm/K2") "Second Order Temperature Coefficient";
+      final unit="Ohm/K2") "Second order temperature coefficient";
     // added to ISO-chapter 5
     type Transconductance = Real (final quantity="Transconductance", final unit=
             "A/V2");
