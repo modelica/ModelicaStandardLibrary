@@ -7776,7 +7776,7 @@ This record MosCalc contains further MOSFET variables (for level 1, 2, 3 and 6).
           intern.m_transconductance := if         (ex.KP > -1e40) then ex.KP else 2e-5;
 
           intern.m_tnom := if (ex.TNOM > -1e40) then ex.TNOM + SpiceConstants.CONSTCtoK else 300.15
-          "parameter measurement temperature (default 27 deg C)";
+          "Parameter measurement temperature (default 27 deg C)";
 
          intern.m_jctSatCurDensity := ex.JS
           "A/(m*m) bulk junction saturation current per sq-meter of junction area (default 0)";

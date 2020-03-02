@@ -315,7 +315,7 @@ If \"searchString\" is not found, a value of \"0\" is returned.
       "String that replaces 'searchString' in 'string'";
     input Integer startIndex=1 "Start search at index startIndex";
     input Boolean replaceAll=true
-      "if false, replace only the first occurrence, otherwise all occurrences";
+      "= false, if only the first occurrence is replaced, otherwise all occurrences";
     input Boolean caseSensitive=true
       "= false, if lower and upper case are ignored when searching for searchString";
     output String result "Resultant string of replacement operation";

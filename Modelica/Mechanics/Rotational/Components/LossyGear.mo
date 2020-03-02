@@ -59,10 +59,10 @@ model LossyGear
 
   Boolean tau_aPos(start=true)
     "Only for backwards compatibility (was previously: true, if torque of flange_a is not negative)";
-  Boolean tau_etaPos(start=true) "true, if torque tau_eta is not negative";
-  Boolean startForward(start=false) "true, if starting to roll forward";
-  Boolean startBackward(start=false) "true, if starting to roll backward";
-  Boolean locked(start=false) "true, if gear is locked";
+  Boolean tau_etaPos(start=true) "= true, if torque tau_eta is not negative";
+  Boolean startForward(start=false) "= true, if starting to roll forward";
+  Boolean startBackward(start=false) "= true, if starting to roll backward";
+  Boolean locked(start=false) "= true, if gear is locked";
 
   Boolean ideal
     "= true, if losses are neglected (that is lossTable = [0, 1, 1, 0, 0])";

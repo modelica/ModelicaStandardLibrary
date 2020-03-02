@@ -716,7 +716,7 @@ Further source terms must be defined by an extending class for fluid flow across
            start = m_flow_start,
            stateSelect = if momentumDynamics == Types.Dynamics.SteadyState then StateSelect.default else
                                      StateSelect.prefer)
-      "mass flow rates between states";
+      "Mass flow rates between states";
 
         // Parameters
         parameter Modelica.Fluid.Types.Dynamics momentumDynamics=system.momentumDynamics
@@ -1029,7 +1029,7 @@ end PartialDistributedVolume;
            each start = m_flow_start,
            each stateSelect = if momentumDynamics == Types.Dynamics.SteadyState then StateSelect.default else
                                      StateSelect.prefer)
-      "mass flow rates between states";
+      "Mass flow rates between states";
 
         // Parameters
         parameter Modelica.Fluid.Types.Dynamics momentumDynamics=system.momentumDynamics

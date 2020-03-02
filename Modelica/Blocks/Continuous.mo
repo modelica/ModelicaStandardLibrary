@@ -1365,7 +1365,7 @@ the model.
 
     output Real x1[m](start=x1_start)
       "States 1 of second order filters (der(x1) = x2)";
-    output Real x2[m](start=x2_start) "states 2 of second order filters";
+    output Real x2[m](start=x2_start) "States 2 of second order filters";
     output Real xr(start=xr_start)
       "State of real pole for uneven order otherwise dummy";
   protected
@@ -4040,7 +4040,7 @@ b2_k = 1/(beta_k^2 + gamma_k^2) b1_k = -2*beta_k/(beta_k^2 + gamma_k^2)
           output Real u "Value of independent variable so that f(u) = 0";
 
           protected
-          constant Real eps=Modelica.Constants.eps "machine epsilon";
+          constant Real eps=Modelica.Constants.eps "Machine epsilon";
           Real a=u_min "Current best minimum interval value";
           Real b=u_max "Current best maximum interval value";
           Real c "Intermediate point a <= c <= b";
@@ -4231,7 +4231,7 @@ function. The solver function is a direct mapping of the Algol 60 procedure
           output Real u "Value of independent variable so that f(u) = 0";
 
           protected
-          constant Real eps=Modelica.Constants.eps "machine epsilon";
+          constant Real eps=Modelica.Constants.eps "Machine epsilon";
           Real a=u_min "Current best minimum interval value";
           Real b=u_max "Current best maximum interval value";
           Real c "Intermediate point a <= c <= b";

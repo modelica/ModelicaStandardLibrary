@@ -932,7 +932,7 @@ Specific internal energy is determined from the thermodynamic state record, assu
     input SI.MassFraction X[:] "Mass fractions of moist air";
     output SI.SpecificInternalEnergy u "Specific internal energy";
   protected
-    SI.AbsolutePressure p_steam_sat "partial saturation pressure of steam";
+    SI.AbsolutePressure p_steam_sat "Partial saturation pressure of steam";
     SI.MassFraction X_liquid "Mass fraction of liquid water";
     SI.MassFraction X_steam "Mass fraction of steam water";
     SI.MassFraction X_air "Mass fraction of air";
@@ -974,7 +974,7 @@ Specific internal energy is determined from pressure p, temperature T and compos
     input Real dX[:](each unit="1/s") "Mass fraction derivatives";
     output Real u_der(unit="J/(kg.s)") "Specific internal energy derivative";
   protected
-    SI.AbsolutePressure p_steam_sat "partial saturation pressure of steam";
+    SI.AbsolutePressure p_steam_sat "Partial saturation pressure of steam";
     SI.MassFraction X_liquid "Mass fraction of liquid water";
     SI.MassFraction X_steam "Mass fraction of steam water";
     SI.MassFraction X_air "Mass fraction of air";

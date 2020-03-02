@@ -481,7 +481,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
     port_a.h_outflow = medium.h;
     port_b.h_outflow = medium.h;
     port_b.p = medium.p
-        "outlet pressure is equal to medium pressure, which includes Wb_flow";
+        "Outlet pressure is equal to medium pressure, which includes Wb_flow";
 
     // Mass balance
     mb_flow = port_a.m_flow + port_b.m_flow;

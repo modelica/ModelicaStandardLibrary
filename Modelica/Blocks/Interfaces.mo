@@ -1559,10 +1559,10 @@ Note, the input signals must be consistent to each other
       parameter String Name_f="f" "Name of flow variable";
       parameter String Name_fder="der(f)" "Name of 1st derivative of flow variable";
       parameter String Name_fder2="der2(f)" "Name of 2nd derivative of flow variable";
-      Real y "output signal" annotation(HideResult=true);
+      Real y "Output signal" annotation(HideResult=true);
       Modelica.Blocks.Interfaces.RealOutput y1 "Optional 1st derivative of output" annotation(HideResult=true);
       Modelica.Blocks.Interfaces.RealOutput y2 "Optional 2nd derivative of output" annotation(HideResult=true);
-      Real u "input signal" annotation(HideResult=true);
+      Real u "Input signal" annotation(HideResult=true);
       Modelica.Blocks.Interfaces.RealInput u1 "Optional 1st derivative of input" annotation (HideResult=true);
       Modelica.Blocks.Interfaces.RealInput u2 "Optional 2nd derivative of input" annotation (HideResult=true);
     equation

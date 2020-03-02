@@ -13,13 +13,13 @@ model GenericHystPreisachEverett
     "Tolerance in Preisach history" annotation(Dialog(group="Advanced"));
   parameter SI.Time t1=1e-6 "Initialization time" annotation(Dialog(group="Advanced"));
 
-  extends BaseClasses.GenericHysteresis(      sigma=mat.sigma);
+  extends BaseClasses.GenericHysteresis(sigma=mat.sigma);
 
 protected
   final parameter Real mu0=mat.K*Modelica.Constants.mu_0;
 
   SI.MagneticFluxDensity J "Polarisation";
-  SI.MagneticFieldStrength hmax(start=0, min=0) "maximum value of h";
+  SI.MagneticFieldStrength hmax(start=0, min=0) "Maximum value of h";
 
   SI.MagneticFieldStrength alpha
     "Current alpha coordinate of Everett-Function everett(alpha,beta)";

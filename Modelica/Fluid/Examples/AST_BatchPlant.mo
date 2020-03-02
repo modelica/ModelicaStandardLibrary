@@ -947,7 +947,7 @@ Full steady state initialization is not supported, because the corresponding ini
             extent={{-10,-10},{10,10}},
             rotation=90)));
         Boolean m_flow_negative( start = true, fixed = true)
-        "true= mass flow out of tank";
+        "= true, if mass flow out of tank";
         constant SI.Acceleration g=Modelica.Constants.g_n;
         input Real aboveLevel;
         input Real d;

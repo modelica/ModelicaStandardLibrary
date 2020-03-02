@@ -1591,9 +1591,9 @@ The used sufficient criteria for monotonicity follows from:
 
         // Variables
         SI.Pressure dp_fg
-          "pressure loss due to friction and gravity";
+          "Pressure loss due to friction and gravity";
         SI.Area A_mean = Modelica.Constants.pi/4*(data.diameter_a^2+data.diameter_b^2)/2
-          "mean cross flow area";
+          "Mean cross flow area";
 
       equation
         Ib_flow = 0;
@@ -1800,9 +1800,9 @@ The used sufficient criteria for monotonicity follows from:
 
         // Variables
         SI.Pressure dp_fg
-          "pressure loss due to friction and gravity";
+          "Pressure loss due to friction and gravity";
         SI.Area A_mean = Modelica.Constants.pi/4*(data.diameter_a^2+data.diameter_b^2)/2
-          "mean cross flow area";
+          "Mean cross flow area";
 
         Medium.ThermodynamicState state_b_des
           "Thermodynamic state at port b for flow a -> b";

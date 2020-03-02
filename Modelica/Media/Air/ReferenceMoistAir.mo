@@ -2683,14 +2683,14 @@ for region 2.
 </html>"));
     end pds_pT;
 
-    function pd_pTX "partial pressure of steam"
+    function pd_pTX "Partial pressure of steam"
       extends Modelica.Icons.Function;
 
       input SI.AbsolutePressure p "Pressure";
       input SI.Temperature T "Temperature";
       input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
         "Mass fractions";
-      output SI.AbsolutePressure pd "partial pressure";
+      output SI.AbsolutePressure pd "Partial pressure";
 
     protected
       Real xw;

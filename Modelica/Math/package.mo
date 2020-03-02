@@ -1326,9 +1326,9 @@ where Q1 consists of the first \"rank\" columns of Q.
     extends Modelica.Icons.Function;
     input Real A[:, :] "Minimize |A*x - a|^2";
     input Real a[size(A, 1)];
-    input Real B[:, size(A, 2)] "subject to B*x=b";
+    input Real B[:, size(A, 2)] "Subject to B*x=b";
     input Real b[size(B, 1)];
-    output Real x[size(A, 2)] "solution vector";
+    output Real x[size(A, 2)] "Solution vector";
 
   protected
     Integer info;
@@ -2696,7 +2696,7 @@ To be more precise:
   protected
     Real eps=1e-25;
     Real eps2 = 10*Modelica.Constants.eps;
-    Real s[size(A, 1)] "singular values";
+    Real s[size(A, 1)] "Singular values";
 
   algorithm
     if min(size(A)) > 0 then
@@ -2760,7 +2760,7 @@ r = 3.0
   protected
     Real LU[size(A, 1), size(A, 1)]
       "LU factorization of matrix A, returned by dgetrf";
-    Real anorm "norm of matrix A";
+    Real anorm "Norm of matrix A";
     String normspec=if inf then "I" else "1" "Specifies the norm 1 or inf";
 
   algorithm
@@ -5432,7 +5432,7 @@ Lapack documentation
       output Real x[max(size(A, 1), size(A, 2))]=cat(
                 1,
                 b,
-                zeros(nx - nrow)) "solution is in first size(A,2) rows";
+                zeros(nx - nrow)) "Solution is in first size(A,2) rows";
       output Integer info;
     protected
       Integer nrow=size(A, 1);
@@ -5672,9 +5672,9 @@ For details of the arguments, see documentation of dgesv.
       extends Modelica.Icons.Function;
       input Real A[:, :] "Minimize |A*x - c|^2";
       input Real c[size(A, 1)];
-      input Real B[:, size(A, 2)] "subject to B*x=d";
+      input Real B[:, size(A, 2)] "Subject to B*x=d";
       input Real d[size(B, 1)];
-      output Real x[size(A, 2)] "solution vector";
+      output Real x[size(A, 2)] "Solution vector";
       output Integer info;
     protected
       Integer nrow_A=size(A, 1);
@@ -7921,7 +7921,7 @@ For details of the arguments, see documentation of dgbsv.
       input Real LU_of_A[:, :] "LU factorization of a real matrix A";
       input Boolean inf=false
         "Is true if infinity norm is used and false for 1-norm";
-      input Real anorm "norm of A";
+      input Real anorm "Norm of A";
       output Real rcond "Reciprocal condition number of A";
       output Integer info;
     protected
