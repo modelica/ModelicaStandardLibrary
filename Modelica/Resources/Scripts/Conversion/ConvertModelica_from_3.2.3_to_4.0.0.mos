@@ -1818,8 +1818,7 @@ convertElement({"Modelica.Magnetic.FundamentalWave.BasicMachines.Components.Symm
 
 convertElement({"Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing"},
                 "rotor.strayReluctance", "rotor.stray")
-convertElement({"Modelica.Magnetic.FundamentalWave.BaseClasses.Machine",
-                "Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing",
+convertElement({"Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing",
                 "Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage",
                 "Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited",
                 "Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet",
