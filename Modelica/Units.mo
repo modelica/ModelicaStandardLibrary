@@ -1633,9 +1633,9 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
               textString="Wh")}));
     end to_Wh;
 
-    function to_kWh "Convert from Joule to kilo Watt hour"
+    function to_kWh "Convert from joule to kilo watt hour"
       extends Modelica.Units.Icons.Conversion;
-      input SI.Energy J "Value in Joule";
+      input SI.Energy J "Value in joule";
       output Modelica.Units.NonSI.Energy_kWh kWh "Value in kWh";
     algorithm
       kWh := J/3.6e6;
@@ -1647,10 +1647,10 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
               textString="kWh")}));
     end to_kWh;
 
-    function from_kWh "Convert from kilo Watt hour to Joule"
+    function from_kWh "Convert from kilo watt hour to joule"
       extends Modelica.Units.Icons.Conversion;
       input Modelica.Units.NonSI.Energy_kWh kWh "Value in kWh";
-      output SI.Energy J "Value in Joule";
+      output SI.Energy J "Value in joule";
     algorithm
       J := 3.6e6*kWh;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
