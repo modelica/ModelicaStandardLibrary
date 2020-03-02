@@ -46,7 +46,7 @@ The axis intersections vary with speed as follows:
 <p>
 Coolant's temperature and enthalpy flow are not affected.<br>
 Setting parameter m (mass of medium within fan/pump) to zero
-leads to neglection of temperature transient cv*m*der(T).<br>
+leads to negligence of temperature transient cv*m*der(T).<br>
 Thermodynamic equations are defined by BaseClasses.TwoPort.
 </p>
 </html>"),

@@ -17,12 +17,12 @@ class References "References"
       <td>[Keil2012]</td>
       <td>Peter Keil and Andreas Jossen,
         <em>Aufbau und Parametrierung von Batteriemodellen</em>,
-        19. Design&amp;Eelektronik-Entwicklerforum Batterien &amp; Ladekonzepte 2012, M&uuml;nchen, Germany</td>
+        19. Design&amp;Elektronik-Entwicklerforum Batterien &amp; Ladekonzepte 2012, M&uuml;nchen, Germany</td>
     </tr>
 
     <tr>
       <td>[Einhorn11a]</td>
-      <td>M. Einhorn, V. Conte, C, Kral, C. Niklas, H. Popp and J. Fleig,
+      <td>M. Einhorn, V. Conte, C. Kral, C. Niklas, H. Popp and J. Fleig,
         <a href=\"https://2011.international.conference.modelica.org/proceedings/pages/papers/17_4_ID_105_a_fv.pdf\">
         <em>A Modelica Library for Simulation of Electric Energy Storages</em></a>,
         8th International Modelica Conference 2011, Dresden, Germany</td>

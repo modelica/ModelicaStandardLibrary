@@ -220,7 +220,7 @@ fRoll = Cr*m*g*cos(alpha)
 </pre>
 </blockquote>
 <p>
-Rolling resistance coeffcient&nbsp;<var>Cr</var> is either constant
+Rolling resistance coefficient&nbsp;<var>Cr</var> is either constant
 or prescribed by the input <code>cr</code>.
 Rolling resistance has a&nbsp;crossover from positive to negative velocity within <code>[-vReg,&nbsp;vReg]</code>.
 </p>

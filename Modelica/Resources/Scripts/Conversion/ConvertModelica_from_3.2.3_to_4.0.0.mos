@@ -1902,6 +1902,8 @@ convertClass("Modelica.SIunits.LoundnessLevel",
               "Modelica.Units.SI.LoudnessLevel")
 convertClass("Modelica.SIunits.Loundness",
               "Modelica.Units.SI.Loudness")
+convertClass("Modelica.SIunits.Wavelenght",
+              "Modelica.Units.SI.Wavelength")
 convertClass("Modelica.SIunits.Conversions.NonSIunits.FirstOrderTemperaturCoefficient",
               "Modelica.Units.SI.LinearTemperatureCoefficientResistance")
 convertClass("Modelica.SIunits.Conversions.NonSIunits.SecondOrderTemperaturCoefficient",

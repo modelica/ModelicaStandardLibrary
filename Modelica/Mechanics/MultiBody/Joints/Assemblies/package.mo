@@ -104,7 +104,7 @@ pair of joints\" from Woernle and Hiller is described in:
     Schliessbedingungen in kinematischen Schleifen mit Anwendung
     bei der R&uuml;ckw&auml;rtstransformation f&uuml;r
     Industrieroboter.</strong><br>
-    Fortschritt-Berichte VDI, Reihe 18, Nr. 59, Duesseldorf: VDI-Verlag 1988,
+    Fortschritt-Berichte VDI, Reihe 18, Nr. 59, D&uuml;sseldorf: VDI-Verlag 1988,
     ISBN 3-18-145918-6.<br>&nbsp;</dd>
 <dt>Hiller M., and Woernle C.:</dt>
 <dd><strong>A Systematic Approach for Solving the Inverse Kinematic

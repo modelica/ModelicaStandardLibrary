@@ -150,9 +150,9 @@ You may try different number of phases 2 &le; <code>m</code>, as well as connect
 </p>
 <ul>
 <li>AC power <code>analysatorAC.pTotal</code> (sum of all phases)</li>
-<li>AC current <code>analysatorAC.iFeed[m]</code> (1st harmonice rms)</li>
-<li>AC voltage <code>analysatorAC.vLN[m]</code> (1st harmonice rms, line to neutral)</li>
-<li>AC voltage <code>analysatorAC.vLL[m]</code> (1st harmonice rms, line to line)</li>
+<li>AC current <code>analysatorAC.iFeed[m]</code> (1st harmonic rms)</li>
+<li>AC voltage <code>analysatorAC.vLN[m]</code> (1st harmonic rms, line to neutral)</li>
+<li>AC voltage <code>analysatorAC.vLL[m]</code> (1st harmonic rms, line to line)</li>
 </ul>
 <p>
 as well as DC values per subsystem (rectifier) and total (load):

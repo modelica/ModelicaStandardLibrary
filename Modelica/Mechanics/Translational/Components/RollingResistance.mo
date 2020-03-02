@@ -104,7 +104,7 @@ flange.f = Cr * fWeight * cos(alpha)
 </blockquote>
 
 <p>
-The rolling resistance coeffcient&nbsp;<var>C<sub>r</sub></var> is either constant
+The rolling resistance coefficient&nbsp;<var>C<sub>r</sub></var> is either constant
 (given by the parameter <code>CrConstant</code>)
 or prescribed by the input <code>cr</code>.
 </p>

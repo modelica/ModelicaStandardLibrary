@@ -1,6 +1,6 @@
 within Modelica.Electrical.Machines.Interfaces.DCMachines;
 model PartialThermalAmbientDCMachines
-  "Partial thermal ambient for DC machines"
+  "Partial thermal ambience for DC machines"
   parameter Boolean useTemperatureInputs=false
     "If true, temperature inputs are used; else, temperatures are constant"
     annotation (Evaluate=true);
@@ -99,6 +99,6 @@ equation
                 fillPattern=FillPattern.Solid,
                 origin={0,68},
                 rotation=90)}), Documentation(info="<html>
-Partial thermal ambient for induction machines
+Partial thermal ambience for induction machines
 </html>"));
 end PartialThermalAmbientDCMachines;
