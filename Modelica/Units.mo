@@ -1155,9 +1155,9 @@ which is only valid in the rotor-fixed coordinate system.
               redeclare Susceptance im "Imaginary part of complex admittance (susceptance)")
       "Complex admittance";
     operator record ComplexPower =
-      Complex(redeclare ActivePower re "Real part of complex power (active power)",
-              redeclare ReactivePower im "Imaginary part of complex power (reactive power)")
-      "Complex electrical power";
+      Complex(redeclare ActivePower re "Real part of complex apparent power (active power)",
+              redeclare ReactivePower im "Imaginary part of complex apparent power (reactive power)")
+      "Complex apparent power";
     operator record ComplexPerUnit =
       Complex(redeclare PerUnit re "Real part of complex per unit quantity",
               redeclare PerUnit im "Imaginary part of complex per unit quantity")
