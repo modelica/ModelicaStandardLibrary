@@ -667,7 +667,7 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
       Integer int "Interval number";
       Integer error "Interval for spline interpolation not found";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
     algorithm
       pred := p/R134aData.data.FPCRIT;
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -697,7 +697,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       Integer int "Interval number";
       Integer error "Interval for spline interpolation not found";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
     algorithm
       pred := p/R134aData.data.FPCRIT;
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -728,7 +728,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       Integer int "Interval number";
       Integer error "Interval for spline interpolation not found";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
     algorithm
       pred := p/R134aData.data.FPCRIT;
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -756,7 +756,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       Integer int "Interval number";
       Integer error "Interval for spline interpolation not found";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -787,7 +787,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       Integer int "Interval number";
       Integer error "Interval for spline interpolation not found";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -821,7 +821,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       Integer int "Interval number";
       Integer error "Interval for spline interpolation not found";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -849,7 +849,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       Integer int "Interval number";
       Integer error "Interval for spline interpolation not found";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -879,7 +879,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       Integer int "Interval number";
       Integer error "Interval for spline interpolation not found";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -913,7 +913,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       Integer int "Interval number";
       Integer error "Interval for spline interpolation not found";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -941,7 +941,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       Integer int "Interval number";
       Integer error "Interval for spline interpolation not found";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -972,7 +972,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       Integer int "Interval number";
       Integer error "Interval for spline interpolation not found";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -1006,7 +1006,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       Integer int "Interval number";
       Integer error "Interval for spline interpolation not found";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -1034,7 +1034,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       Integer int "Interval number";
       Integer error "Interval for spline interpolation not found";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -1065,7 +1065,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       Integer int "Interval number";
       Integer error "Interval for spline interpolation not found";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -1099,7 +1099,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       Integer int "Interval number";
       Integer error "Interval for spline interpolation not found";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -1127,7 +1127,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       Integer int "Interval number";
       Integer error "Interval for spline interpolation not found";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -1162,7 +1162,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       Integer int "Interval number";
       Integer error "Interval for spline interpolation not found";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -1196,7 +1196,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       Integer int "Interval number";
       Integer error "Interval for spline interpolation not found";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -1223,7 +1223,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       Integer int "Interval number";
       Integer error "Interval for spline interpolation not found";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -1258,7 +1258,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       Integer int "Interval number";
       Integer error "Interval for spline interpolation not found";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -1291,7 +1291,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       Integer int "Interval number";
       Integer error "Interval for spline interpolation not found";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -1320,7 +1320,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       Integer int "Interval number";
       Integer error "Interval for spline interpolation not found";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
     algorithm
       Tred := T/R134aData.data.FTCRIT;
       (int,error) := Common.FindInterval(Tred, T_breaks);
@@ -1909,7 +1909,7 @@ The function cannot be inverted in a numerical way. Please use functions <a href
       Boolean supercritical "Is supercritical";
       Integer int "Interval number";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
       Integer i "Newton iteration number";
       Real dh "Difference in h";
       Real dp "Difference in p";
@@ -2031,7 +2031,7 @@ The function shall only be used for one-phase inputs since the fundamental equat
       Boolean found "Iteration converged";
       Integer int "Interval number";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
       Real sl "Liquid entropy";
       Real sv "Vapor entropy";
     algorithm
@@ -2484,7 +2484,7 @@ This function integrates the derivative of temperature w.r.t. time in order to a
       Boolean supercritical "Is supercritcal";
       Integer int "Interval number";
       Real pred "Reduced pressure";
-      Real localx "Oordinate of local spline";
+      Real localx "Abscissa of local spline";
       Integer i "Newton iteration number";
       Real dp "Pressure difference";
       SI.Density deld "Density step";
