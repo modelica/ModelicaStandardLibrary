@@ -334,7 +334,7 @@ y = u(time - delayTime) for time &gt; time.start + delayTime
     parameter Integer n(min=1) = 1 "Order of Pade delay";
     parameter Integer m(min=1,max=n) = n
       "Order of numerator (usually m=n, or m=n-1)";
-    parameter Boolean balance=false
+    parameter Boolean balance=true
       "= true, if state space system is balanced (highly recommended), otherwise textbook version"
       annotation(choices(checkBox=true));
     final output Real x[n]
