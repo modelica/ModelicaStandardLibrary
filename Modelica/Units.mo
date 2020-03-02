@@ -1294,10 +1294,10 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
           textString="1")}));
   end to_unit1;
 
-    function to_degC "Convert from kelvin to degCelsius"
+    function to_degC "Convert from kelvin to degree Celsius"
       extends Modelica.Units.Icons.Conversion;
       input SI.Temperature Kelvin "Value in kelvin";
-      output Modelica.Units.NonSI.Temperature_degC Celsius "Value in Celsius";
+      output Modelica.Units.NonSI.Temperature_degC Celsius "Value in degree Celsius";
     algorithm
       Celsius := Kelvin + Modelica.Constants.T_zero;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1308,9 +1308,9 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
               textString="degC")}));
     end to_degC;
 
-    function from_degC "Convert from degCelsius to kelvin"
+    function from_degC "Convert from degree Celsius to kelvin"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.NonSI.Temperature_degC Celsius "Value in Celsius";
+      input Modelica.Units.NonSI.Temperature_degC Celsius "Value in degree Celsius";
       output SI.Temperature Kelvin "Value in kelvin";
     algorithm
       Kelvin := Celsius - Modelica.Constants.T_zero;
