@@ -1153,7 +1153,7 @@ which is only valid in the rotor-fixed coordinate system.
     operator record ComplexAdmittance =
       Complex(redeclare Conductance re "Real part of complex admittance (conductance)",
               redeclare Susceptance im "Imaginary part of complex admittance (susceptance)")
-      "Complex electrical admittance";
+      "Complex admittance";
     operator record ComplexPower =
       Complex(redeclare ActivePower re "Real part of complex power (active power)",
               redeclare ReactivePower im "Imaginary part of complex power (reactive power)")
