@@ -1352,10 +1352,10 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
               textString="degF")}));
     end from_degF;
 
-    function to_degRk "Convert from kelvin to degRankine"
+    function to_degRk "Convert from kelvin to degree Rankine"
       extends Modelica.Units.Icons.Conversion;
       input SI.Temperature Kelvin "Value in kelvin";
-      output Modelica.Units.NonSI.Temperature_degRk Rankine "Value in Rankine";
+      output Modelica.Units.NonSI.Temperature_degRk Rankine "Value in degree Rankine";
     algorithm
       Rankine := (9/5)*Kelvin;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1366,9 +1366,9 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
               textString="degRk")}));
     end to_degRk;
 
-    function from_degRk "Convert from degRankine to kelvin"
+    function from_degRk "Convert from degree Rankine to kelvin"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.NonSI.Temperature_degRk Rankine "Value in Rankine";
+      input Modelica.Units.NonSI.Temperature_degRk Rankine "Value in degree Rankine";
       output SI.Temperature Kelvin "Value in kelvin";
     algorithm
       Kelvin := (5/9)*Rankine;
