@@ -2535,6 +2535,8 @@ that can lead to wrong simulation results):
 <tr><td>T_ph</td>
     <td>The pressure negligence was not considered. This has been corrected.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Media.R134a.R134a_ph</strong></td></tr>
+<tr><td>setState_pTX</td>
+    <td>Only applicable in one-phase regime: The Newton iteration for the calculation of the density may possibly converge to the wrong root. This has been improved.</td></tr>
 <tr><td>setState_dTX<br>setState_psX</td>
     <td>The calculation was wrong in two-phase regime. This has been corrected.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Utilities.System</strong></td></tr>
