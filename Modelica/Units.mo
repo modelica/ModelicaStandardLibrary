@@ -1579,8 +1579,8 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
 
     function from_Ah "Convert from Ampere hours to Coulomb"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.NonSI.ElectricCharge_Ah AmpereHour "Ampere hours";
-      output Modelica.Units.SI.ElectricCharge Coulomb "Coulomb";
+      input Modelica.Units.NonSI.ElectricCharge_Ah AmpereHour "Value in ampere hours";
+      output Modelica.Units.SI.ElectricCharge Coulomb "Value in coulomb";
     algorithm
       Coulomb := AmpereHour * 3600;
 
@@ -1593,8 +1593,8 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
 
     function to_Ah "Convert from Coulomb to Ampere hours"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.SI.ElectricCharge Coulomb "Coulomb";
-      output Modelica.Units.NonSI.ElectricCharge_Ah AmpereHour "Ampere hours";
+      input Modelica.Units.SI.ElectricCharge Coulomb "Value in coulomb";
+      output Modelica.Units.NonSI.ElectricCharge_Ah AmpereHour "Value in ampere hours";
     algorithm
       AmpereHour := Coulomb/3600;
 
@@ -1607,8 +1607,8 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
 
     function from_Wh "Convert from Watt hour to Joule"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.NonSI.Energy_Wh WattHour "Watt hour";
-      output Modelica.Units.SI.Energy Joule "Joule";
+      input Modelica.Units.NonSI.Energy_Wh WattHour "Value in watt hour";
+      output Modelica.Units.SI.Energy Joule "Value in joule";
     algorithm
       Joule := WattHour * 3600;
 
@@ -1621,8 +1621,8 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
 
     function to_Wh "Convert from Joule to Watt hour"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.SI.Energy Joule "Joule";
-      output Modelica.Units.NonSI.Energy_Wh WattHour "Watt hour";
+      input Modelica.Units.SI.Energy Joule "Value in joule";
+      output Modelica.Units.NonSI.Energy_Wh WattHour "Value in watt hour";
     algorithm
       WattHour := Joule/3600;
 
@@ -1719,8 +1719,8 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
 
     function from_Hz "Convert from Hz to rad/s"
       extends Modelica.Units.Icons.Conversion;
-      input SI.Frequency f "frequency";
-      output SI.AngularVelocity w "angular velocity";
+      input SI.Frequency f "Value in hertz";
+      output SI.AngularVelocity w "Value in radian per second";
 
     algorithm
       w := 2*Modelica.Constants.pi*f;
@@ -1734,8 +1734,8 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
 
     function to_Hz "Convert from rad/s to Hz"
       extends Modelica.Units.Icons.Conversion;
-      input SI.AngularVelocity w "angular velocity";
-      output SI.Frequency f "frequency";
+      input SI.AngularVelocity w "Value in radian per second";
+      output SI.Frequency f "Value in hertz";
     algorithm
       f := w/(2*Modelica.Constants.pi);
       annotation (Inline=true,Icon(graphics={
