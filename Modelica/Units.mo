@@ -1605,7 +1605,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
               textString="Ah")}));
     end to_Ah;
 
-    function from_Wh "Convert from Watt hour to Joule"
+    function from_Wh "Convert from watt hour to joule"
       extends Modelica.Units.Icons.Conversion;
       input Modelica.Units.NonSI.Energy_Wh WattHour "Value in watt hour";
       output Modelica.Units.SI.Energy Joule "Value in joule";
@@ -1619,7 +1619,7 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
               textString="J")}));
     end from_Wh;
 
-    function to_Wh "Convert from Joule to Watt hour"
+    function to_Wh "Convert from joule to watt hour"
       extends Modelica.Units.Icons.Conversion;
       input Modelica.Units.SI.Energy Joule "Value in joule";
       output Modelica.Units.NonSI.Energy_Wh WattHour "Value in watt hour";
