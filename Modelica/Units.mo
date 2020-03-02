@@ -1080,7 +1080,7 @@ end UsersGuide;
       "Complex electric current density";
     operator record ComplexElectricPotential =
       Complex(redeclare Modelica.Units.SI.ElectricPotential re "Imaginary part of complex electric potential",
-              redeclare Modelica.Units.SI.ElectricPotential im "Real part of complex electrical potential")
+              redeclare Modelica.Units.SI.ElectricPotential im "Real part of complex electric potential")
       "Complex electric potential";
     operator record ComplexPotentialDifference =
       Complex(redeclare Modelica.Units.SI.PotentialDifference re "Real part of complex potential difference",
