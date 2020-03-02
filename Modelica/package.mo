@@ -2462,7 +2462,7 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
     <td>Added homotopy to operational amplifier.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Semiconductors</strong></td></tr>
 <tr><td>NPN<br>PNP</td>
-    <td>Add optional substrate connector.</td></tr>
+    <td>Added optional substrate connector.</td></tr>
 </table>
 
 <p><br>
