@@ -1294,9 +1294,9 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
           textString="1")}));
   end to_unit1;
 
-    function to_degC "Convert from Kelvin to degCelsius"
+    function to_degC "Convert from kelvin to degCelsius"
       extends Modelica.Units.Icons.Conversion;
-      input SI.Temperature Kelvin "Value in Kelvin";
+      input SI.Temperature Kelvin "Value in kelvin";
       output Modelica.Units.NonSI.Temperature_degC Celsius "Value in Celsius";
     algorithm
       Celsius := Kelvin + Modelica.Constants.T_zero;
@@ -1308,10 +1308,10 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
               textString="degC")}));
     end to_degC;
 
-    function from_degC "Convert from degCelsius to Kelvin"
+    function from_degC "Convert from degCelsius to kelvin"
       extends Modelica.Units.Icons.Conversion;
       input Modelica.Units.NonSI.Temperature_degC Celsius "Value in Celsius";
-      output SI.Temperature Kelvin "Value in Kelvin";
+      output SI.Temperature Kelvin "Value in kelvin";
     algorithm
       Kelvin := Celsius - Modelica.Constants.T_zero;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1322,9 +1322,9 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
               textString="K")}));
     end from_degC;
 
-    function to_degF "Convert from Kelvin to degFahrenheit"
+    function to_degF "Convert from kelvin to degFahrenheit"
       extends Modelica.Units.Icons.Conversion;
-      input SI.Temperature Kelvin "Value in Kelvin";
+      input SI.Temperature Kelvin "Value in kelvin";
       output Modelica.Units.NonSI.Temperature_degF Fahrenheit "Value in Fahrenheit";
     algorithm
       Fahrenheit := (Kelvin + Modelica.Constants.T_zero)*(9/5) + 32;
@@ -1336,10 +1336,10 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
               textString="degF")}));
     end to_degF;
 
-    function from_degF "Convert from degFahrenheit to Kelvin"
+    function from_degF "Convert from degFahrenheit to kelvin"
       extends Modelica.Units.Icons.Conversion;
       input Modelica.Units.NonSI.Temperature_degF Fahrenheit "Value in Fahrenheit";
-      output SI.Temperature Kelvin "Value in Kelvin";
+      output SI.Temperature Kelvin "Value in kelvin";
     algorithm
       Kelvin := (Fahrenheit - 32)*(5/9) - Modelica.Constants.T_zero;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1352,9 +1352,9 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
               textString="degF")}));
     end from_degF;
 
-    function to_degRk "Convert from Kelvin to degRankine"
+    function to_degRk "Convert from kelvin to degRankine"
       extends Modelica.Units.Icons.Conversion;
-      input SI.Temperature Kelvin "Value in Kelvin";
+      input SI.Temperature Kelvin "Value in kelvin";
       output Modelica.Units.NonSI.Temperature_degRk Rankine "Value in Rankine";
     algorithm
       Rankine := (9/5)*Kelvin;
@@ -1366,10 +1366,10 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
               textString="degRk")}));
     end to_degRk;
 
-    function from_degRk "Convert from degRankine to Kelvin"
+    function from_degRk "Convert from degRankine to kelvin"
       extends Modelica.Units.Icons.Conversion;
       input Modelica.Units.NonSI.Temperature_degRk Rankine "Value in Rankine";
-      output SI.Temperature Kelvin "Value in Kelvin";
+      output SI.Temperature Kelvin "Value in kelvin";
     algorithm
       Kelvin := (5/9)*Rankine;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1784,7 +1784,7 @@ argument):</p>
 <strong>import</strong> Modelica.Units.SI;
 <strong>import</strong> Modelica.Units.Conversions.{from_degC, from_deg, from_rpm};
    ...
-<strong>parameter</strong> SI.Temperature     T   = from_degC(25);   // convert 25 degree Celsius to Kelvin
+<strong>parameter</strong> SI.Temperature     T   = from_degC(25);   // convert 25 degree Celsius to kelvin
 <strong>parameter</strong> SI.Angle           phi = from_deg(180);   // convert 180 degree to radian
 <strong>parameter</strong> SI.AngularVelocity w   = from_rpm(3600);  // convert 3600 revolutions per minutes
                                                    // to radian per seconds
