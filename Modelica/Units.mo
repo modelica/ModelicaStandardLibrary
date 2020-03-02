@@ -1069,7 +1069,7 @@ end UsersGuide;
     operator record ComplexCurrent =
       Complex(redeclare Modelica.Units.SI.Current re "Real part of complex current",
               redeclare Modelica.Units.SI.Current im "Imaginary part of complex current")
-      "Complex electrical current";
+      "Complex electric current";
     operator record ComplexCurrentSlope =
       Complex(redeclare Modelica.Units.SI.CurrentSlope re "Real part of complex current slope",
               redeclare Modelica.Units.SI.CurrentSlope im "Imaginary part of complex current slope")
@@ -1077,7 +1077,7 @@ end UsersGuide;
     operator record ComplexCurrentDensity =
       Complex(redeclare Modelica.Units.SI.CurrentDensity re "Real part of complex current density",
               redeclare Modelica.Units.SI.CurrentDensity im "Imaginary part of complex current density")
-      "Complex electrical current density";
+      "Complex electric current density";
     operator record ComplexElectricPotential =
       Complex(redeclare Modelica.Units.SI.ElectricPotential re "Imaginary part of complex electric potential",
               redeclare Modelica.Units.SI.ElectricPotential im "Real part of complex electrical potential")
