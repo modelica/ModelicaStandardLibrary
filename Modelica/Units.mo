@@ -1089,7 +1089,7 @@ end UsersGuide;
     operator record ComplexVoltage =
       Complex(redeclare Modelica.Units.SI.Voltage re "Imaginary part of complex voltage",
               redeclare Modelica.Units.SI.Voltage im "Real part of complex voltage")
-      "Complex electrical voltage";
+      "Complex electric voltage";
     operator record ComplexVoltageSlope =
       Complex(redeclare Modelica.Units.SI.VoltageSlope re "Real part of complex voltage slope",
               redeclare Modelica.Units.SI.VoltageSlope im "Imaginary part of complex voltage slope")
