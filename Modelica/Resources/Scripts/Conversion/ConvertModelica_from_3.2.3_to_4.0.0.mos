@@ -189,6 +189,8 @@ convertClass("Modelica.Electrical.PowerConverters.DCAC.MultiPhase2Level",
               "Modelica.Electrical.PowerConverters.DCAC.Polyphase2Level")
 convertClass("Modelica.Electrical.QuasiStationary.MultiPhase",
               "Modelica.Electrical.QuasiStatic.Polyphase")
+convertClass("Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.SingleToMultiPhase",
+              "Modelica.Electrical.QuasiStatic.Polyphase.Blocks.SingleToPolyphase")
 convertClass("Modelica.Electrical.MultiPhase",
               "Modelica.Electrical.Polyphase")
 convertClass("Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase",
