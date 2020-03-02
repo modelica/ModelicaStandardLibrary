@@ -2403,32 +2403,35 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources</strong></td></tr>
 <tr><td>SineVariableFrequencyAndAmplitude<br>CosineVariableFrequencyAndAmplitude</td>
-    <td></td></tr>
+    <td>Added signal sources with variable amplitude and frequency; sine and cosine waveforms are provided.</td></tr>
 <tr><td>Sinc</td>
-    <td></td></tr>
+    <td>Added signal source of <code> amplitude*sin(2*&pi;*f*t)/(2*&pi;*f*t)</code>.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Sources</strong></td></tr>
 <tr><td>SineVoltageVariableFrequencyAndAmplitude<br>CosineVoltageVariableFrequencyAndAmplitude<br>SineCurrentVariableFrequencyAndAmplitude<br>CosineCurrentVariableFrequencyAndAmplitude</td>
-    <td></td></tr>
+    <td>Added voltage and current sources with variable amplitude and frequency; sine and cosine waveforms are provided.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Sensors</strong></td></tr>
 <tr><td>SinCosResolver</td>
-    <td></td></tr>
+    <td>Added resolver with two sine and two cosine tracks to be used in drive control applications.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Utilities</strong></td></tr>
+<tr><td>SwitchYDwithArc</td>
+    <td>Added wye delta switch with arc model and time delay between the two switching events.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.PowerConverters</strong></td></tr>
 <tr><td>ACAC</td>
-    <td></td></tr>
+    <td>Added single-phase and polyphase triac models (AC/AC converters).</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</strong></td></tr>
 <tr><td>HollowCylinderCircumferentialFlux<br>Toroid</td>
-    <td></td></tr>
+    <td>Added circumferential flux models of hollow cylinder and toroid with circular cross section.</td></tr>
 <tr><td colspan=\"2\"><strong>Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape</strong></td></tr>
 <tr><td>HollowCylinderCircumferentialFlux<br>Toroid</td>
-    <td></td></tr>
+    <td>Added circumferential flux models of hollow cylinder and toroid with circular cross section.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Visualizers.Advanced</strong></td></tr>
 <tr><td>Vector</td>
     <td></td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.Translational.Components</strong></td></tr>
 <tr><td>RollingResistance</td>
-    <td></td></tr>
+    <td>Added resistance of a rolling wheel incorporating the inclination and rolling resistance coefficient.</td></tr>
 <tr><td>Vehicle</td>
-    <td></td></tr>
+    <td>Added simple vehicle model considering mass and inertia, drag and rolling resistance, inclination resistance.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Math</strong></td></tr>
 <tr><td>BooleanVectors.andTrue</td>
     <td>Similar to <code>allTrue</code>, but return <code>true</code> on empty input vector.</td></tr>
@@ -2451,6 +2454,15 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
     <td>Added second derivatives and modified Akima interpolation.</td></tr>
 <tr><td>CombiTable2Ds<br>CombiTable2Dv</td>
     <td>Added second derivatives.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Basic</strong></td></tr>
+<tr><td>Gyrator</td>
+    <td>Serves as generalized gyrator model as IdealGyrator was removed.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Analog.Ideal</strong></td></tr>
+<tr><td>IdealizedOpAmpLimited</td>
+    <td>Added homotopy to operational amplifier.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Semiconductors</strong></td></tr>
+<tr><td>NPN<br>PNP</td>
+    <td>Added optional substrate connector.</td></tr>
 </table>
 
 <p><br>
@@ -2498,6 +2510,9 @@ that can lead to wrong simulation results):
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Math</strong></td></tr>
 <tr><td>Pythagoras</td>
     <td>The case with negative <code>y2</code> was not correctly considered if <code>u1IsHypotenuse</code> is <code>true</code>. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Semiconductors</strong></td></tr>
+<tr><td>Diode</td>
+    <td>Fixed unit error in current equations.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Spice3.Additionals</strong></td></tr>
 <tr><td>poly</td>
     <td>The case with one coefficient and one variable was not correctly considered. This has been corrected.</td></tr>
