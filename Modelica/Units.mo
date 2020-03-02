@@ -1322,10 +1322,10 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
               textString="K")}));
     end from_degC;
 
-    function to_degF "Convert from kelvin to degFahrenheit"
+    function to_degF "Convert from kelvin to degree Fahrenheit"
       extends Modelica.Units.Icons.Conversion;
       input SI.Temperature Kelvin "Value in kelvin";
-      output Modelica.Units.NonSI.Temperature_degF Fahrenheit "Value in Fahrenheit";
+      output Modelica.Units.NonSI.Temperature_degF Fahrenheit "Value in degree Fahrenheit";
     algorithm
       Fahrenheit := (Kelvin + Modelica.Constants.T_zero)*(9/5) + 32;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1336,9 +1336,9 @@ Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call 
               textString="degF")}));
     end to_degF;
 
-    function from_degF "Convert from degFahrenheit to kelvin"
+    function from_degF "Convert from degree Fahrenheit to kelvin"
       extends Modelica.Units.Icons.Conversion;
-      input Modelica.Units.NonSI.Temperature_degF Fahrenheit "Value in Fahrenheit";
+      input Modelica.Units.NonSI.Temperature_degF Fahrenheit "Value in degree Fahrenheit";
       output SI.Temperature Kelvin "Value in kelvin";
     algorithm
       Kelvin := (Fahrenheit - 32)*(5/9) - Modelica.Constants.T_zero;
