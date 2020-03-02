@@ -1859,6 +1859,10 @@ convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentS
 convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor", "y", "apparentPower")
 convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor", "abs_y", "abs_apparentPower")
 convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor", "arg_y", "arg_apparentPower")
+convertClass("Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.RelativeSensor",
+              "ObsoleteModelica4.Electrical.QuasiStationary.SinglePhase.Interfaces.RelativeSensor")
+convertClass("Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor",
+              "ObsoleteModelica4.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor")
 convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.ReferenceSensor", "y", "gamma")
 convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.FrequencySensor", "y", "f")
 convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PotentialSensor", "y", "v")
