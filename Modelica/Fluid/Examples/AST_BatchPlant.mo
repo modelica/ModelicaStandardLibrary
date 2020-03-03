@@ -28,18 +28,20 @@ package AST_BatchPlant
           Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer (k=
               4.9))
       annotation (Placement(transformation(extent={{-110,-60},{-30,-20}})));
-    Modelica.Fluid.Valves.ValveDiscrete V12(
+    Modelica.Fluid.Valves.ValveDiscreteRamp V12(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100)
+      dp_nominal = 100,
+      Topen = 0.1)
       annotation (Placement(transformation(
           origin={-90,2},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.Fluid.Valves.ValveDiscrete V15(
+    Modelica.Fluid.Valves.ValveDiscreteRamp V15(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100)
+      dp_nominal = 100,
+      Topen = 0.1)
       annotation (Placement(transformation(
           origin={-90,-82},
           extent={{10,-10},{-10,10}},
@@ -61,42 +63,48 @@ package AST_BatchPlant
         waitTime=300)) annotation (Placement(transformation(extent={{60,38},
               {100,78}})));
 
-    Modelica.Fluid.Valves.ValveDiscrete V11(
+    Modelica.Fluid.Valves.ValveDiscreteRamp V11(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100)
+      dp_nominal = 100,
+      Topen = 0.1)
       annotation (Placement(transformation(extent={{-50,80},{-70,100}})));
-    Modelica.Fluid.Valves.ValveDiscrete V8(
+    Modelica.Fluid.Valves.ValveDiscreteRamp V8(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100)
+      dp_nominal = 100,
+      Topen = 0.1)
       annotation (Placement(transformation(
           origin={-90,160},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    Modelica.Fluid.Valves.ValveDiscrete V9(
+    Modelica.Fluid.Valves.ValveDiscreteRamp V9(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100)
+      dp_nominal = 100,
+      Topen = 0.1)
       annotation (Placement(transformation(
           origin={70,160},
           extent={{10,10},{-10,-10}},
           rotation=90)));
-    Modelica.Fluid.Valves.ValveDiscrete V2(
+    Modelica.Fluid.Valves.ValveDiscreteRamp V2(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100)
+      dp_nominal = 100,
+      Topen = 0.1)
       annotation (Placement(transformation(extent={{-60,230},{-40,250}})));
-    Modelica.Fluid.Valves.ValveDiscrete V4(
+    Modelica.Fluid.Valves.ValveDiscreteRamp V4(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100)
+      dp_nominal = 100,
+      Topen = 0.1)
       annotation (Placement(transformation(extent={{40,230},{20,250}})));
-    Modelica.Fluid.Valves.ValveDiscrete V3(
+    Modelica.Fluid.Valves.ValveDiscreteRamp V3(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
       opening_min = 1e-5,
-      dp_nominal = 100)
+      dp_nominal = 100,
+      Topen = 0.1)
       annotation (Placement(transformation(extent={{-150,210},{-130,230}})));
     Fittings.TeeJunctionIdeal volume2(
       redeclare package Medium = BatchMedium)
@@ -104,11 +112,12 @@ package AST_BatchPlant
           origin={-180,220},
           extent={{-10,10},{10,-10}},
           rotation=90)));
-    Modelica.Fluid.Valves.ValveDiscrete V6(
+    Modelica.Fluid.Valves.ValveDiscreteRamp V6(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
       opening_min = 1e-5,
-      dp_nominal = 100)
+      dp_nominal = 100,
+      Topen = 0.1)
       annotation (Placement(transformation(extent={{130,210},{110,230}})));
     Fittings.TeeJunctionIdeal volume8(
       redeclare package Medium = BatchMedium)
@@ -116,82 +125,92 @@ package AST_BatchPlant
           origin={160,220},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.Fluid.Valves.ValveDiscrete V23(
+    Modelica.Fluid.Valves.ValveDiscreteRamp V23(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100)
+      dp_nominal = 100,
+      Topen = 0.1)
       annotation (Placement(transformation(
           origin={-110,-250},
           extent={{-10,10},{10,-10}},
           rotation=180)));
-    Modelica.Fluid.Valves.ValveDiscrete V1(
+    Modelica.Fluid.Valves.ValveDiscreteRamp V1(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 0.1,
-      dp_nominal = 1000)
+      dp_nominal = 1000,
+      Topen = 0.1)
       annotation (Placement(transformation(
           origin={-180,110},
           extent={{-10,10},{10,-10}},
           rotation=90)));
-    Modelica.Fluid.Valves.ValveDiscrete V22(
+    Modelica.Fluid.Valves.ValveDiscreteRamp V22(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 0.1,
-      dp_nominal = 1000)
+      dp_nominal = 1000,
+      Topen = 0.1)
       annotation (Placement(transformation(
           origin={-180,-170},
           extent={{-10,10},{10,-10}},
           rotation=90)));
-    Modelica.Fluid.Valves.ValveDiscrete V5(
+    Modelica.Fluid.Valves.ValveDiscreteRamp V5(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 0.1,
-      dp_nominal = 1000)
+      dp_nominal = 1000,
+      Topen = 0.1)
       annotation (Placement(transformation(
           origin={160,110},
           extent={{10,-10},{-10,10}},
           rotation=270)));
-    Modelica.Fluid.Valves.ValveDiscrete V24(
+    Modelica.Fluid.Valves.ValveDiscreteRamp V24(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100)
+      dp_nominal = 100,
+      Topen = 0.1)
       annotation (Placement(transformation(
           origin={90,-250},
           extent={{10,10},{-10,-10}},
           rotation=180)));
-    Modelica.Fluid.Valves.ValveDiscrete V25(
+    Modelica.Fluid.Valves.ValveDiscreteRamp V25(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 0.1,
-      dp_nominal = 1000)
+      dp_nominal = 1000,
+      Topen = 0.1)
       annotation (Placement(transformation(
           origin={160,-170},
           extent={{10,-10},{-10,10}},
           rotation=270)));
-    Modelica.Fluid.Valves.ValveDiscrete V20(
+    Modelica.Fluid.Valves.ValveDiscreteRamp V20(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100)
+      dp_nominal = 100,
+      Topen = 0.1)
       annotation (Placement(transformation(
           origin={60,-210},
           extent={{10,10},{-10,-10}},
           rotation=90)));
-    Modelica.Fluid.Valves.ValveDiscrete V19(
+    Modelica.Fluid.Valves.ValveDiscreteRamp V19(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100)
+      dp_nominal = 100,
+      Topen = 0.1)
       annotation (Placement(transformation(
           origin={10,-200},
           extent={{-10,10},{10,-10}},
           rotation=180)));
-    Modelica.Fluid.Valves.ValveDiscrete V10(
+    Modelica.Fluid.Valves.ValveDiscreteRamp V10(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100)
+      dp_nominal = 100,
+      Topen = 0.1)
       annotation (Placement(transformation(
           origin={-21,-170},
           extent={{10,10},{-10,-10}},
           rotation=90)));
-    Modelica.Fluid.Valves.ValveDiscrete V21(
+    Modelica.Fluid.Valves.ValveDiscreteRamp V21(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100)
+      dp_nominal = 100,
+      Topen = 0.1)
       annotation (Placement(transformation(
           origin={30,-250},
           extent={{10,10},{-10,-10}},
@@ -199,10 +218,11 @@ package AST_BatchPlant
     Modelica.Fluid.Fittings.TeeJunctionVolume volume5(
       redeclare package Medium = BatchMedium,
       V=0.001) annotation (Placement(transformation(extent={{50,-260},{70,-240}})));
-    Modelica.Fluid.Valves.ValveDiscrete V18(
+    Modelica.Fluid.Valves.ValveDiscreteRamp V18(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      dp_nominal = 100)
+      dp_nominal = 100,
+      Topen = 0.1)
       annotation (Placement(transformation(
           origin={-50,-200},
           extent={{10,10},{-10,-10}},
@@ -256,10 +276,10 @@ package AST_BatchPlant
     inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, dp_small=1000)
                           annotation (Placement(transformation(extent={{180,250},
               {200,270}})));
-    Modelica.Blocks.Logical.TriggeredTrapezoid P1_on(rising=0,
+    Modelica.Blocks.Logical.TriggeredTrapezoid P1_on(rising=0.3,
         amplitude=200)
       annotation (Placement(transformation(extent={{-122,-230},{-142,-210}})));
-    Modelica.Blocks.Logical.TriggeredTrapezoid P2_on(rising=0,
+    Modelica.Blocks.Logical.TriggeredTrapezoid P2_on(rising=0.3,
         amplitude=200)
       annotation (Placement(transformation(extent={{100,-230},{120,-210}})));
     Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts B2(
