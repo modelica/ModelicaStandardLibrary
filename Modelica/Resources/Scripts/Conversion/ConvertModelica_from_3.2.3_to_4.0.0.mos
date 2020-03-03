@@ -1814,21 +1814,11 @@ convertElement("Modelica.Magnetic.FundamentalWave.BasicMachines.Components.Singl
                 {"reluctance"}, {"stray"})
 convertElement("Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited",
                 {"excitation.reluctance"}, {"excitation.stray"})
-convertElement({"Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding",
-                "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding"},
-                "strayReluctance", "stray")
 
-convertElement({"Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing"},
-                "rotor.strayReluctance", "rotor.stray")
-convertElement({"Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing",
-                "Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage",
-                "Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited",
-                "Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet",
-                "Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor"},
-                "stator.strayReluctance", "stator.stray")
 convertElement({"Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing"},
                 "rotor.strayReluctance", "rotor.stray")
-convertElement({"Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine",
+convertElement({"Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding",
+                "Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine",
                 "Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
                 "Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage",
                 "Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited",
@@ -1837,7 +1827,8 @@ convertElement({"Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInduct
                 "stator.strayReluctance", "stator.stray")
 convertElement("Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing",
                 "rotor.strayReluctance", "rotor.stray")
-convertElement({"Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.BaseClasses.PartialBasicMachine",
+convertElement({"Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding",
+                "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.BaseClasses.PartialBasicMachine",
                 "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing",
                 "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage",
                 "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited",
