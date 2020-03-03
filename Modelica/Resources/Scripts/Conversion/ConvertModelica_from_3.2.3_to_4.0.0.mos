@@ -1815,7 +1815,7 @@ convertElement("Modelica.Magnetic.FundamentalWave.BasicMachines.Components.Singl
                 {"reluctance"}, {"stray"})
 convertElement({"Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited",
                 "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited"},
-                {"excitation.reluctance"}, {"excitation.stray"})
+                "excitation.reluctance", "excitation.stray")
 convertElement({"Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding",
                 "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding"},
                 "strayReluctance", "stray")
