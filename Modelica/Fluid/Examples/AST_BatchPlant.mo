@@ -102,7 +102,6 @@ package AST_BatchPlant
     Modelica.Fluid.Valves.ValveDiscreteRamp V3(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      opening_min = 1e-5,
       dp_nominal = 100,
       Topen = 0.1)
       annotation (Placement(transformation(extent={{-150,210},{-130,230}})));
@@ -115,7 +114,6 @@ package AST_BatchPlant
     Modelica.Fluid.Valves.ValveDiscreteRamp V6(
       redeclare package Medium = BatchMedium,
       m_flow_nominal = 1,
-      opening_min = 1e-5,
       dp_nominal = 100,
       Topen = 0.1)
       annotation (Placement(transformation(extent={{130,210},{110,230}})));
