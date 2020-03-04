@@ -329,7 +329,7 @@ equation
     experiment(
       StopTime=30,
       Interval=0.001,
-      Tolerance=1e-06),
+      Tolerance=1e-07),
     Documentation(info="<html>
 <h4>Electrical excited synchronous machine as generator</h4>
 <p>
