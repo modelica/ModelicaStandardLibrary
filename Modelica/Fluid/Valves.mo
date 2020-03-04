@@ -412,6 +412,79 @@ it is open.
 </html>"));
   end ValveDiscrete;
 
+  model ValveDiscreteRamp
+    "Valve for water/steam flows with discrete opening signal and ramp opening"
+    extends Modelica.Fluid.Interfaces.PartialTwoPortTransport;
+    parameter SI.AbsolutePressure dp_nominal
+      "Nominal pressure drop at full opening"
+      annotation(Dialog(group="Nominal operating point"));
+    parameter Medium.MassFlowRate m_flow_nominal
+      "Nominal mass flowrate at full opening";
+    parameter Real opening_min(min=0)=0
+      "Remaining opening if closed, causing small leakage flow";
+    final parameter Types.HydraulicConductance k = m_flow_nominal/dp_nominal
+      "Hydraulic conductance at full opening";
+    parameter SI.Time Topen "Time to fully open the valve";
+    parameter SI.Time Tclose = Topen "Time to fully close the valve";
+
+    Modelica.Blocks.Interfaces.BooleanInput open
+    annotation (Placement(transformation(
+          origin={0,80},
+          extent={{-20,-20},{20,20}},
+          rotation=270)));
+    Blocks.Logical.TriggeredTrapezoid openingGenerator(
+      amplitude=1 - opening_min,                       rising=Topen, falling=
+          Tclose,
+      offset=opening_min)
+                  annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=-90,
+          origin={0,30})));
+
+
+
+  equation
+    m_flow = openingGenerator.y*k*dp;
+
+    // Isenthalpic state transformation (no storage and no loss of energy)
+    port_a.h_outflow = inStream(port_b.h_outflow);
+    port_b.h_outflow = inStream(port_a.h_outflow);
+    connect(open, openingGenerator.u) annotation (Line(points={{0,80},{0,42},{2.22045e-15,
+            42}}, color={255,0,255}));
+    annotation (Placement(transformation(
+          origin={0,90},
+          extent={{-20,-20},{20,20}},
+          rotation=270), iconTransformation(
+          extent={{-20,-20},{20,20}},
+          rotation=270,
+          origin={0,80})),
+    Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={
+          Line(points={{0,50},{0,0}}),
+          Rectangle(
+            extent={{-20,60},{20,50}},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{-100,50},{100,-50},{100,50},{0,0},{-100,-50},{-100,50}},
+            fillColor=DynamicSelect({255,255,255}, if open then {0,255,0} else {255,255,255}),
+            fillPattern=FillPattern.Solid)}),
+    Documentation(info="<html>
+<p>
+This model is similar to <a href=\"modelica://Modelica.Fluid.Valves.ValveDiscrete\">ValveDiscrete</a>,
+except that the valve opens gradually with an opening time <code>Topen</code> and closes gradually with
+a closing time <code>Tclose</code> instead of doing so abruptly. This can help to avoid unrealistic phenomena such
+as reversing flows when accurate fluid models with small compressiblity are employed.
+</p>
+</html>",
+      revisions="<html>
+<ul>
+<li><em>Mar 2020</em>
+    by Francesco Casella (based on ValveLinear and ValveDiscrete).</li>
+</ul>
+</html>"));
+  end ValveDiscreteRamp;
+
   package BaseClasses
     "Base classes used in the Valves package (only of interest to build new component models)"
     extends Modelica.Icons.BasesPackage;
