@@ -1463,7 +1463,7 @@ connector is not connected).
           Documentation(info="<html>
 <p>
 This package was used in Modelica.Media of MSL &le; 3.2.3 and was replaced by
-by function <a href=\"modelica://Modelica.Math.Nonlinear.solveOneNonlinearEquation\">
+the function <a href=\"modelica://Modelica.Math.Nonlinear.solveOneNonlinearEquation\">
 Modelica.Math.Nonlinear.solveOneNonlinearEquation</a>.
 </p>
 
