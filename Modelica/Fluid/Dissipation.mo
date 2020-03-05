@@ -5690,8 +5690,7 @@ This record is used as <strong> input record </strong> for the pressure loss fun
         output SI.Pressure DP "Two phase pressure loss";
 
       protected
-        type TYP =
-            Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseFrictionalPressureLoss;
+        type TYP = Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseFrictionalPressureLoss;
 
         Real MIN=Modelica.Constants.eps;
 
@@ -5709,7 +5708,7 @@ This record is used as <strong> input record </strong> for the pressure loss fun
 
         //SOURCE_5: p.17-1 to 17-5, sec. 17.1 to 17.2: Considering cross sectional void fraction [epsilon=A_g/(A_g+A_l)]
         Real epsilon=
-            Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.VoidFraction(
+          Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.VoidFraction(
             IN_con.voidFractionApproach,
             true,
             IN_var.rho_g,
@@ -5719,19 +5718,19 @@ This record is used as <strong> input record </strong> for the pressure loss fun
         //SOURCE_1: Considering frictional pressure loss w.r.t. to correlation of Friedel
         //SOURCE_2: Considering frictional pressure loss w.r.t. to correlation of Chisholm
         SI.Pressure DP_fric=if IN_con.frictionalPressureLoss == TYP.Friedel then
-            Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseFriedel_DP(
-            IN_con,
-            IN_var,
+          Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseFriedel_DP(
+            Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con(A_cross=IN_con.A_cross, perimeter=IN_con.perimeter, length=IN_con.length),
+            Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var(rho_g=IN_var.rho_g, rho_l=IN_var.rho_l, eta_g=IN_var.eta_g, eta_l=IN_var.eta_l, sigma=IN_var.sigma, x_flow=IN_var.x_flow),
             m_flow) else if IN_con.frictionalPressureLoss == TYP.Chisholm then
-            Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseChisholm_DP(
-            IN_con,
-            IN_var,
+          Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseChisholm_DP(
+            Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con(A_cross=IN_con.A_cross, perimeter=IN_con.perimeter, length=IN_con.length),
+            Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var(rho_g=IN_var.rho_g, rho_l=IN_var.rho_l, eta_g=IN_var.eta_g, eta_l=IN_var.eta_l, sigma=IN_var.sigma, x_flow=IN_var.x_flow),
             m_flow) else 0 "Frictional pressure loss";
 
         //SOURCE_3: p.Lba 4, eq. 22: Considering momentum pressure loss assuming heterogeneous approach for two phase flow
         //Evaporation >> positive momentum pressure loss (assumed vice versa at condensation)
         SI.Pressure DP_mom=if IN_con.momentumPressureLoss then
-            Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseMomentum_DP(
+          Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseMomentum_DP(
             IN_con.voidFractionApproach,
             IN_con.massFlowRateCorrection,
             IN_con.A_cross,
@@ -5744,7 +5743,7 @@ This record is used as <strong> input record </strong> for the pressure loss fun
 
         //SOURCE_3: p.Lbb 1, eq. 4: Considering geodetic pressure loss assuming constant void fraction for flow length
         SI.Pressure DP_geo=if IN_con.geodeticPressureLoss then
-            Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseGeodetic_DP(
+          Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseGeodetic_DP(
             IN_con.voidFractionApproach,
             true,
             IN_con.length,
@@ -5797,7 +5796,7 @@ Generally the pressure loss for two phase flow in a horizontal or a vertical str
           "Choice of frictional pressure loss approach"
           annotation (Dialog(group="Choices"));
         Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach
-          voidFractionApproach =                                                  Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous
+          voidFractionApproach = Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous
           "Choice of void fraction approach" annotation (Dialog(group="Choices"));
 
         Boolean momentumPressureLoss=false "Considering momentum pressure loss"
@@ -5827,7 +5826,7 @@ This record is used as <strong> input record </strong> for the pressure loss fun
         Real x_flow_sta=0 "Mass flow rate quality at start of length"
           annotation (Dialog(group="Fluid properties"));
         extends
-          Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var(      final
+          Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var(final
             x_flow=(x_flow_end + x_flow_sta)/2);
 
         annotation (Documentation(info="<html>
