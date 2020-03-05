@@ -21,7 +21,7 @@ partial model PartialFriction "Partial model of Coulomb friction elements"
     "= true, if w_relfric=0 and start of forward sliding";
   Boolean startBackward(start=false, fixed=true)
     "= true, if w_relfric=0 and start of backward sliding";
-  Boolean locked(start=false) "true, if w_rel=0 and not sliding";
+  Boolean locked(start=false) "= true, if w_rel=0 and not sliding";
   constant Integer Unknown=3 "Value of mode is not known";
   constant Integer Free=2 "Element is not active";
   constant Integer Forward=1 "w_relfric > 0 (forward sliding)";

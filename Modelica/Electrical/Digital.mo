@@ -2333,8 +2333,8 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
               function getMemory "Get Memory"
                 extends Modelica.Icons.Function;
                 input String filename;
-                input Integer n_addr "addr width";
-                input Integer n_data "data width";
+                input Integer n_addr "Addr width";
+                input Integer n_data "Data width";
                 output L m[integer(2^n_addr),n_data] "Memory with data, lowest bit on left side";
                 output String data;
                 output Integer bit;
@@ -6992,16 +6992,16 @@ Z  = L.'Z'
       parameter SI.Time tHL=0 "High->Low delay";
       parameter SI.Time tLH=0 "Low->High delay";
       parameter D.Interfaces.Strength strength = S.'S_X01' "Output strength";
-      D.Interfaces.DigitalInput in1 "data input 1"
+      D.Interfaces.DigitalInput in1 "Data input 1"
         annotation (Placement(transformation(extent={{-100,40},{-80,60}}),
             iconTransformation(extent={{-100,40},{-80,60}})));
-      D.Interfaces.DigitalInput in0 "data input 0"
+      D.Interfaces.DigitalInput in0 "Data input 0"
         annotation (Placement(transformation(extent={{-100,-60},{-80,-40}}),
             iconTransformation(extent={{-100,-60},{-80,-40}})));
-      D.Interfaces.DigitalInput sel "select input"
+      D.Interfaces.DigitalInput sel "Select input"
       annotation (Placement(transformation(extent={{-10,80},{10,100}}),
             iconTransformation(extent={{-10,80},{10,100}})));
-      D.Interfaces.DigitalOutput out "output"
+      D.Interfaces.DigitalOutput out "Output"
         annotation (Placement(transformation(extent={{80,-10},{100,10}}),
             iconTransformation(extent={{80,-10},{100,10}})));
 

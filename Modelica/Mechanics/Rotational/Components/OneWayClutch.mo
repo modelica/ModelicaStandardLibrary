@@ -20,15 +20,15 @@ model OneWayClutch "Parallel connection of freewheel and clutch"
   Real u "Normalized force input signal (0..1)";
   SI.Force fn "Normal force (fn=fn_max*inPort.signal)";
   Boolean startForward(start=false)
-    "true, if w_rel=0 and start of forward sliding or w_rel > w_small";
-  Boolean locked(start=false) "true, if w_rel=0 and not sliding";
+    "= true, if w_rel=0 and start of forward sliding or w_rel > w_small";
+  Boolean locked(start=false) "= true, if w_rel=0 and not sliding";
   Boolean stuck(start=false) "w_rel=0 (locked or start forward sliding)";
 
 protected
   SI.Torque tau0 "Friction torque for w=0 and sliding";
   SI.Torque tau0_max "Maximum friction torque for w=0 and locked";
   Real mu0 "Friction coefficient for w=0 and sliding";
-  Boolean free "true, if frictional element is not active";
+  Boolean free "= true, if frictional element is not active";
   Real sa(final unit="1")
     "Path parameter of tau = f(a_rel) Friction characteristic";
   constant Real eps0=1.0e-4 "Relative hysteresis epsilon";

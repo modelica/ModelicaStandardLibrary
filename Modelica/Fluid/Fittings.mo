@@ -319,9 +319,9 @@ model SimpleGenericOrifice
   Real zeta_nominal;
   Medium.Density d = 0.5*(Medium.density(state_a) + Medium.density(state_b));
   SI.Pressure dp_fg(start=dp_start)
-      "pressure loss due to friction and gravity";
+      "Pressure loss due to friction and gravity";
   SI.Area A_mean = Modelica.Constants.pi/4*diameter^2
-      "mean cross flow area";
+      "Mean cross flow area";
 
   constant SI.ReynoldsNumber Re_turbulent = 10000 "cf. sharpEdgedOrifice";
   SI.MassFlowRate m_flow_turbulent=if not use_Re then m_flow_small else
@@ -815,7 +815,7 @@ of the modeller.
          output LossFactorData data
             "Pressure loss factors for both flow directions";
         protected
-         Real Delta(min=0) = roughness/diameter "relative roughness";
+         Real Delta(min=0) = roughness/diameter "Relative roughness";
        algorithm
          data.diameter_a          := diameter;
          data.diameter_b          := diameter;
@@ -1591,9 +1591,9 @@ The used sufficient criteria for monotonicity follows from:
 
         // Variables
         SI.Pressure dp_fg
-          "pressure loss due to friction and gravity";
+          "Pressure loss due to friction and gravity";
         SI.Area A_mean = Modelica.Constants.pi/4*(data.diameter_a^2+data.diameter_b^2)/2
-          "mean cross flow area";
+          "Mean cross flow area";
 
       equation
         Ib_flow = 0;
@@ -1800,9 +1800,9 @@ The used sufficient criteria for monotonicity follows from:
 
         // Variables
         SI.Pressure dp_fg
-          "pressure loss due to friction and gravity";
+          "Pressure loss due to friction and gravity";
         SI.Area A_mean = Modelica.Constants.pi/4*(data.diameter_a^2+data.diameter_b^2)/2
-          "mean cross flow area";
+          "Mean cross flow area";
 
         Medium.ThermodynamicState state_b_des
           "Thermodynamic state at port b for flow a -> b";

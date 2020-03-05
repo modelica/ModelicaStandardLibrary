@@ -639,7 +639,7 @@ See the examples in <a href=\"modelica://Modelica.Math.Nonlinear.Examples\">Mode
     output Real u "Value of independent variable u so that f(u) = 0";
 
   protected
-    constant Real eps=Modelica.Constants.eps "machine epsilon";
+    constant Real eps=Modelica.Constants.eps "Machine epsilon";
     Real a=u_min "Current best minimum interval value";
     Real b=u_max "Current best maximum interval value";
     Real c "Intermediate point a <= c <= b";

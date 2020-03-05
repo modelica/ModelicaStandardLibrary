@@ -1326,9 +1326,9 @@ where Q1 consists of the first \"rank\" columns of Q.
     extends Modelica.Icons.Function;
     input Real A[:, :] "Minimize |A*x - a|^2";
     input Real a[size(A, 1)];
-    input Real B[:, size(A, 2)] "subject to B*x=b";
+    input Real B[:, size(A, 2)] "Subject to B*x=b";
     input Real b[size(B, 1)];
-    output Real x[size(A, 2)] "solution vector";
+    output Real x[size(A, 2)] "Solution vector";
 
   protected
     Integer info;
@@ -2696,7 +2696,7 @@ To be more precise:
   protected
     Real eps=1e-25;
     Real eps2 = 10*Modelica.Constants.eps;
-    Real s[size(A, 1)] "singular values";
+    Real s[size(A, 1)] "Singular values";
 
   algorithm
     if min(size(A)) > 0 then
@@ -2939,9 +2939,9 @@ r = 3.162;
 
   protected
     Real V[size(A, 2), size(A, 2)] "Right orthogonal matrix";
-    Real sigma[min(size(A, 1), size(A, 2))] "singular values";
-    Integer rank "rank of matrix A";
-    Real eps "tolerance for rank determination";
+    Real sigma[min(size(A, 1), size(A, 2))] "Singular values";
+    Integer rank "Rank of matrix A";
+    Real eps "Tolerance for rank determination";
     Integer n=min(size(A, 1), size(A, 2));
     Integer i=n;
 
@@ -3469,7 +3469,7 @@ is, e.g., described in
   protected
     Integer n=size(A, 1);
     Real R[size(A, 1), size(A, 2)] "rsf of A', i.e., R=U'A'U";
-    Real U[size(A, 1), size(A, 2)] "transformation matrix U for R=U'A'U";
+    Real U[size(A, 1), size(A, 2)] "Transformation matrix U for R=U'A'U";
     Real D[size(A, 1), size(A, 2)] "Matrix D=U'*C*U";
     Real R11[size(A, 1), size(A, 2)];
     Real R22[size(A, 1), size(A, 2)];
@@ -5432,7 +5432,7 @@ Lapack documentation
       output Real x[max(size(A, 1), size(A, 2))]=cat(
                 1,
                 b,
-                zeros(nx - nrow)) "solution is in first size(A,2) rows";
+                zeros(nx - nrow)) "Solution is in first size(A,2) rows";
       output Integer info;
     protected
       Integer nrow=size(A, 1);
@@ -5672,9 +5672,9 @@ For details of the arguments, see documentation of dgesv.
       extends Modelica.Icons.Function;
       input Real A[:, :] "Minimize |A*x - c|^2";
       input Real c[size(A, 1)];
-      input Real B[:, size(A, 2)] "subject to B*x=d";
+      input Real B[:, size(A, 2)] "Subject to B*x=d";
       input Real d[size(B, 1)];
-      output Real x[size(A, 2)] "solution vector";
+      output Real x[size(A, 2)] "Solution vector";
       output Integer info;
     protected
       Integer nrow_A=size(A, 1);
@@ -6848,10 +6848,10 @@ For details of the arguments, see documentation of dgbsv.
       input Real A[:, size(A, 1)] "Square matrix";
       output Real T[size(A, 1), size(A, 2)]=A "Real Schur form with A = Z*T*Z'";
       output Real Z[size(A, 1), size(A, 1)]
-        "orthogonal matrix Z of Schur vectors";
-      output Real eval_real[size(A, 1)] "real part of the eigenvectors of A";
+        "Orthogonal matrix Z of Schur vectors";
+      output Real eval_real[size(A, 1)] "Real part of the eigenvectors of A";
       output Real eval_imag[size(A, 1)]
-        "imaginary part of the eigenvectors of A";
+        "Imaginary part of the eigenvectors of A";
       output Integer info;
 
     protected
@@ -7264,7 +7264,7 @@ For details of the arguments, see documentation of dgbsv.
         "= true, if the equation to be solved is A'*X=B";
       output Real X[size(A, 1), size(B, 2)] "Solution matrix";
       output Integer info;
-      output Real rcond "reciprocal condition number of the matrix A";
+      output Real rcond "Reciprocal condition number of the matrix A";
 
     protected
       Integer n=size(A, 1);
@@ -7845,8 +7845,8 @@ For details of the arguments, see documentation of dgbsv.
       extends Modelica.Icons.Function;
 
       input Real A[:, :] "Real matrix A";
-      input String norm="1" "specifies the norm, i.e., 1, I, F, M";
-      output Real anorm "norm of A";
+      input String norm="1" "Specifies the norm, i.e., 1, I, F, M";
+      output Real anorm "Norm of A";
     protected
       Integer m=size(A, 1);
       Integer n=size(A, 2);
@@ -7921,7 +7921,7 @@ For details of the arguments, see documentation of dgbsv.
       input Real LU_of_A[:, :] "LU factorization of a real matrix A";
       input Boolean inf=false
         "Is true if infinity norm is used and false for 1-norm";
-      input Real anorm "norm of A";
+      input Real anorm "Norm of A";
       output Real rcond "Reciprocal condition number of A";
       output Integer info;
     protected

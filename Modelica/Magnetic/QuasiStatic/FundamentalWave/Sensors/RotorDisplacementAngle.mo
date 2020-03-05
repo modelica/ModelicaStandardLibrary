@@ -26,7 +26,7 @@ model RotorDisplacementAngle "Rotor lagging angle"
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Mechanics.Rotational.Interfaces.Flange_a support if useSupport
-    "support at which the reaction torque is acting" annotation (Placement(
+    "Support at which the reaction torque is acting" annotation (Placement(
         transformation(extent={{90,90},{110,110}})));
   Modelica.Mechanics.Rotational.Components.Fixed fixed if (not useSupport)
     annotation (Placement(transformation(extent={{90,70},{110,90}})));

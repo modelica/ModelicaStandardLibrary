@@ -2,7 +2,7 @@ within Modelica.Electrical.Analog.Sensors;
 model PotentialSensor "Sensor to measure the potential"
   extends Modelica.Icons.RoundSensor;
 
-  Interfaces.PositivePin p "pin to be measured" annotation (Placement(
+  Interfaces.PositivePin p "Pin to be measured" annotation (Placement(
         transformation(extent={{-110,-10},{-90,10}})));
   Modelica.Blocks.Interfaces.RealOutput phi(unit="V")
     "Absolute voltage potential as output signal"

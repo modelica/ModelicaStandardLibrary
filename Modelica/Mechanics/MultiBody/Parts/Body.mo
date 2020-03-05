@@ -112,7 +112,7 @@ model Body
           useQuaternions));
 
   final parameter SI.Inertia I[3, 3]=[I_11, I_21, I_31; I_21, I_22, I_32;
-      I_31, I_32, I_33] "inertia tensor";
+      I_31, I_32, I_33] "Inertia tensor";
   final parameter Frames.Orientation R_start=
       Modelica.Mechanics.MultiBody.Frames.axesRotations(
         sequence_start,

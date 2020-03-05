@@ -10,7 +10,7 @@ model IdealOpAmpLimited "Ideal operational amplifier with limitation"
     annotation (Placement(transformation(extent={{-10,90},{10,110}}), iconTransformation(extent={{-10,90},{10,110}})));
   Interfaces.NegativePin VMin "Negative output voltage limitation"
     annotation (Placement(transformation(extent={{-10,-110},{10,-90}}), iconTransformation(extent={{-10,-110},{10,-90}})));
-  SI.Voltage vin "input voltage";
+  SI.Voltage vin "Input voltage";
 protected
   Real s(start=0, final unit="1") "Auxiliary variable";
   constant SI.Voltage unitVoltage=1 annotation (HideResult=true);

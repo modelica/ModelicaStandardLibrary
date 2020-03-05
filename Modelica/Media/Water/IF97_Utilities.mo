@@ -6331,8 +6331,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     aux.p := max(p, 611.657);
     aux.h := max(h, 1e3);
     aux.R_s := BaseIF97.data.RH2O;
-    aux.vt := 0.0 "initialized in case it is not needed";
-    aux.vp := 0.0 "initialized in case it is not needed";
+    aux.vt := 0.0 "Initialized in case it is not needed";
+    aux.vp := 0.0 "Initialized in case it is not needed";
     if (aux.region == 1) then
       aux.T := BaseIF97.Basic.tph1(aux.p, aux.h);
       g := BaseIF97.Basic.g1(p, aux.T);
@@ -6481,8 +6481,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     aux.p := p;
     aux.s := s;
     aux.R_s := BaseIF97.data.RH2O;
-    aux.vt := 0.0 "initialized in case it is not needed";
-    aux.vp := 0.0 "initialized in case it is not needed";
+    aux.vt := 0.0 "Initialized in case it is not needed";
+    aux.vp := 0.0 "Initialized in case it is not needed";
     if (aux.region == 1) then
       aux.T := BaseIF97.Basic.tps1(p, s);
       g := BaseIF97.Basic.g1(p, aux.T);
@@ -7184,8 +7184,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     aux.R_s := BaseIF97.data.RH2O;
     aux.p := p;
     aux.T := T;
-    aux.vt := 0.0 "initialized in case it is not needed";
-    aux.vp := 0.0 "initialized in case it is not needed";
+    aux.vt := 0.0 "Initialized in case it is not needed";
+    aux.vp := 0.0 "Initialized in case it is not needed";
     if (aux.region == 1) then
       g := BaseIF97.Basic.g1(p, T);
       aux.h := aux.R_s*aux.T*g.tau*g.gtau;
@@ -7618,8 +7618,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     aux.R_s := BaseIF97.data.RH2O;
     aux.rho := rho;
     aux.T := T;
-    aux.vt := 0.0 "initialized in case it is not needed";
-    aux.vp := 0.0 "initialized in case it is not needed";
+    aux.vt := 0.0 "Initialized in case it is not needed";
+    aux.vp := 0.0 "Initialized in case it is not needed";
     if (aux.region == 1) then
       (aux.p,error) := BaseIF97.Inverses.pofdt125(
           d=rho,

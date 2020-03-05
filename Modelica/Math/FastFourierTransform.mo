@@ -552,7 +552,7 @@ which is a complete example where an FFT is computed during simulation and store
        annotation(choices(choice="4" "MATLAB v4 MAT-file",
                           choice="6" "MATLAB v6 MAT-file",
                           choice="7" "MATLAB v7 MAT-file"));
-    output Boolean success "true if successful";
+    output Boolean success "= true, if successful";
   protected
      Integer nA = size(amplitudes,1);
      Real fA[3*size(amplitudes,1),if size(phases,1)==0 then 2 else 3];

@@ -357,14 +357,14 @@ k1=1, k2=3 is shown in the next figure:</p>
   function regSquare2
     "Anti-symmetric approximation of square with discontinuous factor so that the first derivative is non-zero and is continuous"
     extends Modelica.Icons.Function;
-    input Real x "abscissa value";
+    input Real x "Abscissa value";
     input Real x_small(min=0)=0.01
-      "approximation of function for |x| <= x_small";
+      "Approximation of function for |x| <= x_small";
     input Real k1(min=0)=1 "y = (if x>=0 then k1 else k2)*x*|x|";
     input Real k2(min=0)=1 "y = (if x>=0 then k1 else k2)*x*|x|";
     input Boolean use_yd0 = false "= true, if yd0 shall be used";
     input Real yd0(min=0)=1 "Desired derivative at x=0: dy/dx = yd0";
-    output Real y "ordinate value";
+    output Real y "Ordinate value";
   protected
     encapsulated function regSquare2_utility
       "Interpolating with two 3-order polynomials with a prescribed derivative at x=0"
@@ -372,7 +372,7 @@ k1=1, k2=3 is shown in the next figure:</p>
       extends Modelica.Icons.Function;
       import Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero;
        input Real x;
-       input Real x1 "approximation of function abs(x) < x1";
+       input Real x1 "Approximation of function abs(x) < x1";
        input Real k1 "y = (if x>=0 then k1 else -k2)*x*|x|; k1 >= k2";
        input Real k2 "y = (if x>=0 then k1 else -k2)*x*|x|";
        input Boolean use_yd0 = false "= true, if yd0 shall be used";
@@ -796,7 +796,7 @@ The second graph shows the continuous derivative of this regularization function
     output Real y "Interpolated ordinate value";
   protected
     Real h "Distance between x1 and x2";
-    Real t "abscissa scaled with h, i.e., t=[0..1] within x=[x1..x2]";
+    Real t "Abscissa scaled with h, i.e., t=[0..1] within x=[x1..x2]";
     Real h00 "Basis function 00 of cubic Hermite spline";
     Real h10 "Basis function 10 of cubic Hermite spline";
     Real h01 "Basis function 01 of cubic Hermite spline";
@@ -845,7 +845,7 @@ The second graph shows the continuous derivative of this regularization function
     output Real dy_dx "Derivative dy/dx at abscissa value x";
   protected
     Real h "Distance between x1 and x2";
-    Real t "abscissa scaled with h, i.e., t=[0..1] within x=[x1..x2]";
+    Real t "Abscissa scaled with h, i.e., t=[0..1] within x=[x1..x2]";
     Real h00 "Basis function 00 of cubic Hermite spline";
     Real h10 "Basis function 10 of cubic Hermite spline";
     Real h01 "Basis function 01 of cubic Hermite spline";

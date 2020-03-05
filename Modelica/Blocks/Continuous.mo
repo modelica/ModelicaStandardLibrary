@@ -1240,8 +1240,8 @@ y = --------- * u
     output Real x[size(A, 1)](start=x_start) "State vector";
 
   protected
-    parameter Integer nx = size(A, 1) "number of states";
-    parameter Integer ny = size(C, 1) "number of outputs";
+    parameter Integer nx = size(A, 1) "Number of states";
+    parameter Integer ny = size(C, 1) "Number of outputs";
   initial equation
     if initType == Init.SteadyState then
       der(x) = zeros(nx);
@@ -1364,10 +1364,10 @@ the model.
             "Initialization"));
 
     output Real x1[m](start=x1_start)
-      "states 1 of second order filters (der(x1) = x2)";
-    output Real x2[m](start=x2_start) "states 2 of second order filters";
+      "States 1 of second order filters (der(x1) = x2)";
+    output Real x2[m](start=x2_start) "States 2 of second order filters";
     output Real xr(start=xr_start)
-      "state of real pole for uneven order otherwise dummy";
+      "State of real pole for uneven order otherwise dummy";
   protected
     parameter Integer m=integer(n/2);
     parameter Boolean evenOrder = 2*m == n;
@@ -4040,7 +4040,7 @@ b2_k = 1/(beta_k^2 + gamma_k^2) b1_k = -2*beta_k/(beta_k^2 + gamma_k^2)
           output Real u "Value of independent variable so that f(u) = 0";
 
           protected
-          constant Real eps=Modelica.Constants.eps "machine epsilon";
+          constant Real eps=Modelica.Constants.eps "Machine epsilon";
           Real a=u_min "Current best minimum interval value";
           Real b=u_max "Current best maximum interval value";
           Real c "Intermediate point a <= c <= b";
@@ -4231,7 +4231,7 @@ function. The solver function is a direct mapping of the Algol 60 procedure
           output Real u "Value of independent variable so that f(u) = 0";
 
           protected
-          constant Real eps=Modelica.Constants.eps "machine epsilon";
+          constant Real eps=Modelica.Constants.eps "Machine epsilon";
           Real a=u_min "Current best minimum interval value";
           Real b=u_max "Current best maximum interval value";
           Real c "Intermediate point a <= c <= b";

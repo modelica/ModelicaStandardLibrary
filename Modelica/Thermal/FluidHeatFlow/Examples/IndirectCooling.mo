@@ -12,11 +12,11 @@ model IndirectCooling "Indirect cooling circuit"
   output SI.TemperatureDifference dTtoPipe=prescribedHeatFlow.port.T-pipe1.T_q
     "Source over inner Coolant";
   output SI.TemperatureDifference dTinnerCoolant=pipe1.dT
-    "inner Coolant's temperature increase";
+    "Inner Coolant's temperature increase";
   output SI.TemperatureDifference dTCooler=innerPipe.T_q-outerPipe.T_q
     "Cooler's temperature increase between inner and outer pipes";
   output SI.TemperatureDifference dTouterCoolant=outerPipe.dT
-    "outer Coolant's temperature increase";
+    "Outer coolant's temperature increase";
   FluidHeatFlow.Sources.Ambient ambient1(
     constantAmbientTemperature=TAmb,
     medium=outerMedium,

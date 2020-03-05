@@ -13,13 +13,13 @@ model GenericHystPreisachEverett
     "Tolerance in Preisach history" annotation(Dialog(group="Advanced"));
   parameter SI.Time t1=1e-6 "Initialization time" annotation(Dialog(group="Advanced"));
 
-  extends BaseClasses.GenericHysteresis(      sigma=mat.sigma);
+  extends BaseClasses.GenericHysteresis(sigma=mat.sigma);
 
 protected
   final parameter Real mu0=mat.K*Modelica.Constants.mu_0;
 
   SI.MagneticFluxDensity J "Polarisation";
-  SI.MagneticFieldStrength hmax(start=0, min=0) "maximum value of h";
+  SI.MagneticFieldStrength hmax(start=0, min=0) "Maximum value of h";
 
   SI.MagneticFieldStrength alpha
     "Current alpha coordinate of Everett-Function everett(alpha,beta)";
@@ -29,9 +29,9 @@ protected
   Boolean asc(start=true, fixed=true) "=asc without chatter";
   Boolean asc2 "Hstat is ascending der(Hstat)>0";
   Boolean delAsc(start=false)
-    "wipeout history vertex at ascending Hstat";
+    "Wipeout history vertex at ascending Hstat";
   Boolean delDesc(start=false)
-    "wipeout history vertex at descending Hstat";
+    "Wipeout history vertex at descending Hstat";
   Boolean del(start=false) "delAsc or delDesc";
   Boolean init(start=false, fixed=true)
     "If init=1 then J runs on the initial magnetization curve";

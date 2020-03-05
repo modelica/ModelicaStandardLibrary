@@ -16,12 +16,12 @@ block SVPWM "SpaceVector Pulse Width Modulation"
                               true, false,true] "Switching patterns";
   Modelica.Blocks.Interfaces.RealInput u[2] "Reference space phasor"
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-  Modelica.Blocks.Interfaces.BooleanOutput fire_p[m] "positive fire signal"
+  Modelica.Blocks.Interfaces.BooleanOutput fire_p[m] "Positive fire signal"
     annotation (Placement(transformation(extent={{100,50},{120,70}})));
-  Modelica.Blocks.Interfaces.BooleanOutput fire_n[m] "negative fire signal"
+  Modelica.Blocks.Interfaces.BooleanOutput fire_n[m] "Negative fire signal"
     annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
 protected
-  discrete Real uRef(start=0, fixed=true) "length of reference vector";
+  discrete Real uRef(start=0, fixed=true) "Length of reference vector";
   discrete SI.Angle phiRef(start=0, fixed=true) "Angle of reference vector within (-pi, +pi]";
   discrete SI.Angle phiPos(start=0, fixed=true) "Angle of reference vector within [0, 2*pi)";
   Integer ka(start=0, fixed=true), kb(start=0, fixed=true) "Switching patterns limiting the sector";

@@ -329,8 +329,8 @@ partial model PartialTwoPortTransport
                   m_flow_small) if show_T
       "Temperature close to port_b, if show_T = true";
   protected
-  Medium.ThermodynamicState state_a "state for medium inflowing through port_a";
-  Medium.ThermodynamicState state_b "state for medium inflowing through port_b";
+  Medium.ThermodynamicState state_a "State for medium inflowing through port_a";
+  Medium.ThermodynamicState state_b "State for medium inflowing through port_b";
 equation
   // medium states
   state_a = Medium.setState_phX(port_a.p, inStream(port_a.h_outflow), inStream(port_a.Xi_outflow));
@@ -716,7 +716,7 @@ Further source terms must be defined by an extending class for fluid flow across
            start = m_flow_start,
            stateSelect = if momentumDynamics == Types.Dynamics.SteadyState then StateSelect.default else
                                      StateSelect.prefer)
-      "mass flow rates between states";
+      "Mass flow rates between states";
 
         // Parameters
         parameter Modelica.Fluid.Types.Dynamics momentumDynamics=system.momentumDynamics
@@ -1029,7 +1029,7 @@ end PartialDistributedVolume;
            each start = m_flow_start,
            each stateSelect = if momentumDynamics == Types.Dynamics.SteadyState then StateSelect.default else
                                      StateSelect.prefer)
-      "mass flow rates between states";
+      "Mass flow rates between states";
 
         // Parameters
         parameter Modelica.Fluid.Types.Dynamics momentumDynamics=system.momentumDynamics

@@ -12,7 +12,7 @@ block Pulse "Generate pulse signal of type Boolean"
 protected
   SI.Time simTime;
   parameter SI.Duration Twidth=period*width/100
-  "width of one pulse" annotation(HideResult=true);
+  "Width of one pulse" annotation(HideResult=true);
 
   SI.Time next(start=startTime, fixed=true)
   "next = startTime + n*period, for smallest n such that next>simTime";

@@ -404,7 +404,7 @@ impure function createDirectory
       "Inquire whether directory exists; if present and not a directory, trigger an error"
      extends Modelica.Icons.Function;
      input String directoryName;
-     output Boolean exists "true if directory exists";
+     output Boolean exists "= true, if directory exists";
     protected
      Types.FileType fileType = Modelica.Utilities.Internal.FileSystem.stat(
                                              directoryName);

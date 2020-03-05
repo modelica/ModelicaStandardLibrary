@@ -54,7 +54,7 @@ model Transformer1PhaseWithHysteresis
         group="Material"), choicesAllMatching=true);
 
   output SI.Voltage v1 "Primary voltage drop";
-  output SI.Voltage v2 "secondary voltage drop";
+  output SI.Voltage v2 "Secondary voltage drop";
 
   output SI.Resistance R1 "Primary resistance of Winding";
   output SI.Resistance R2 "Secondary resistance of Winding";

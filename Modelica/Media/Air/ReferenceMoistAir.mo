@@ -61,7 +61,7 @@ package ReferenceMoistAir
       "Steam water mass fraction of saturation boundary in kg_water/kg_moistair";
     Real x_sat
       "Steam water mass content of saturation boundary in kg_water/kg_dryair";
-    AbsolutePressure p_steam_sat "partial saturation pressure of steam";
+    AbsolutePressure p_steam_sat "Partial saturation pressure of steam";
   equation
     assert(T >= 143.15 and T <= 2000,
       "Temperature T is not in the allowed range 143.15 K <= (T =" + String(T)
@@ -2683,14 +2683,14 @@ for region 2.
 </html>"));
     end pds_pT;
 
-    function pd_pTX "partial pressure of steam"
+    function pd_pTX "Partial pressure of steam"
       extends Modelica.Icons.Function;
 
       input SI.AbsolutePressure p "Pressure";
       input SI.Temperature T "Temperature";
       input SI.MassFraction X[:]=Modelica.Media.Air.ReferenceMoistAir.reference_X
         "Mass fractions";
-      output SI.AbsolutePressure pd "partial pressure";
+      output SI.AbsolutePressure pd "Partial pressure";
 
     protected
       Real xw;

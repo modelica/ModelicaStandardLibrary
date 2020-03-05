@@ -41,7 +41,7 @@ model MassWithStopAndFriction
       "Friction force (positive, if directed in opposite direction of v_rel)";
     Modelica.Units.SI.Force f0 "Friction force for v=0 and forward sliding";
     Modelica.Units.SI.Force f0_max "Maximum friction force for v=0 and locked";
-    Boolean free "true, if frictional element is not active";
+    Boolean free "= true, if frictional element is not active";
     // Equations to define the following variables are given in this class
     Real sa(unit="1")
       "Path parameter of friction characteristic f = f(a_relfric)";
@@ -49,7 +49,7 @@ model MassWithStopAndFriction
       "= true, if v_rel=0 and start of forward sliding or v_rel > v_small";
     Boolean startBackward(start=false, fixed=true)
       "= true, if v_rel=0 and start of backward sliding or v_rel < -v_small";
-    Boolean locked(start=false) "true, if v_rel=0 and not sliding";
+    Boolean locked(start=false) "= true, if v_rel=0 and not sliding";
     extends PartialRigid(s(start=0, stateSelect=StateSelect.always));
     constant Integer Unknown=3 "Value of mode is not known";
     constant Integer Free=2 "Element is not active";

@@ -4469,13 +4469,13 @@ on the model behaviour.
 
   model MOS "Metal-Oxide Semiconductor Field-Effect Transistor"
 
-    Modelica.Electrical.Analog.Interfaces.PositivePin G "gate node" annotation (Placement(transformation(
+    Modelica.Electrical.Analog.Interfaces.PositivePin G "Gate node" annotation (Placement(transformation(
               extent={{-110,-12},{-90,10}})));
-    Modelica.Electrical.Analog.Interfaces.PositivePin D "drain node" annotation (Placement(transformation(
+    Modelica.Electrical.Analog.Interfaces.PositivePin D "Drain node" annotation (Placement(transformation(
               extent={{-10,90},{10,110}})));
-    Modelica.Electrical.Analog.Interfaces.NegativePin S "source node" annotation (Placement(
+    Modelica.Electrical.Analog.Interfaces.NegativePin S "Source node" annotation (Placement(
             transformation(extent={{-10,-110},{10,-90}})));
-    Modelica.Electrical.Analog.Interfaces.PositivePin B "bulk node" annotation (Placement(transformation(
+    Modelica.Electrical.Analog.Interfaces.PositivePin B "Bulk node" annotation (Placement(transformation(
               extent={{90,-10},{110,10}})));
 
     parameter Integer mtype(start = 0)
@@ -4673,16 +4673,16 @@ on the model behaviour.
 
   model MOS2 "Metal-Oxide Semiconductor Field-Effect Transistor"
 
-    Modelica.Electrical.Analog.Interfaces.PositivePin G "gate node"
+    Modelica.Electrical.Analog.Interfaces.PositivePin G "Gate node"
                                           annotation (Placement(transformation(
               extent={{-110,-12},{-90,10}})));
-    Modelica.Electrical.Analog.Interfaces.PositivePin D "drain node"
+    Modelica.Electrical.Analog.Interfaces.PositivePin D "Drain node"
                                            annotation (Placement(transformation(
               extent={{-10,90},{10,110}})));
-    Modelica.Electrical.Analog.Interfaces.NegativePin S "source node"
+    Modelica.Electrical.Analog.Interfaces.NegativePin S "Source node"
                                             annotation (Placement(
             transformation(extent={{-10,-110},{10,-90}})));
-    Modelica.Electrical.Analog.Interfaces.PositivePin B "bulk node"
+    Modelica.Electrical.Analog.Interfaces.PositivePin B "Bulk node"
                                           annotation (Placement(transformation(
               extent={{90,-10},{110,10}})));
 
@@ -5090,11 +5090,11 @@ on the model behaviour.
 
   model JFET "Junction Field-Effect Transistor"
 
-    Modelica.Electrical.Analog.Interfaces.PositivePin G "gate node" annotation (Placement(transformation(
+    Modelica.Electrical.Analog.Interfaces.PositivePin G "Gate node" annotation (Placement(transformation(
               extent={{-110,-12},{-90,10}})));
-    Modelica.Electrical.Analog.Interfaces.PositivePin D "drain node" annotation (Placement(transformation(
+    Modelica.Electrical.Analog.Interfaces.PositivePin D "Drain node" annotation (Placement(transformation(
               extent={{-10,90},{10,110}})));
-    Modelica.Electrical.Analog.Interfaces.NegativePin S "source node" annotation (Placement(
+    Modelica.Electrical.Analog.Interfaces.NegativePin S "Source node" annotation (Placement(
             transformation(extent={{-10,-110},{10,-90}})));
 
     parameter Integer mtype( start = 0)
@@ -5654,7 +5654,7 @@ on the model behaviour.
 
       function junctionVCrit "Voltage limitation"
       extends Modelica.Icons.Function;
-        input SI.Temperature temp "temperature";
+        input SI.Temperature temp "Temperature";
         input Real ncoeff;
         input SI.Current satcur "Saturation current";
 
@@ -6380,7 +6380,7 @@ on the model behaviour.
 
       record MosfetModelLine "Type of the transistor"
         extends Modelica.Icons.Record;
-        Integer m_type(   start = 1) "device type : 1 = n,  -1 = p";
+        Integer m_type(   start = 1) "Device type : 1 = n,  -1 = p";
 
         annotation (Documentation(info="<html>
 <p>This record contains only one variable and it provides the information on the transistor type (PMOS or nmos).</p>
@@ -7776,7 +7776,7 @@ This record MosCalc contains further MOSFET variables (for level 1, 2, 3 and 6).
           intern.m_transconductance := if         (ex.KP > -1e40) then ex.KP else 2e-5;
 
           intern.m_tnom := if (ex.TNOM > -1e40) then ex.TNOM + SpiceConstants.CONSTCtoK else 300.15
-          "parameter measurement temperature (default 27 deg C)";
+          "Parameter measurement temperature (default 27 deg C)";
 
          intern.m_jctSatCurDensity := ex.JS
           "A/(m*m) bulk junction saturation current per sq-meter of junction area (default 0)";
@@ -7785,9 +7785,9 @@ This record MosCalc contains further MOSFET variables (for level 1, 2, 3 and 6).
          intern.m_bulkJctPotential := ex.PB
           "V bulk junction potential (default 0.8)";
          intern.m_bulkJctBotGradingCoeff := ex.MJ
-          "bulk junction bottom grading coeff. (default 0.5)";
+          "Bulk junction bottom grading coeff. (default 0.5)";
          intern.m_bulkJctSideGradingCoeff := ex.MJSW
-          "bulk junction sidewall grading coeff. (default 0.5)";
+          "Bulk junction sidewall grading coeff. (default 0.5)";
 
          intern.m_oxideThicknessIsGiven := if          (ex.TOX > -1e40) then 1 else 0;
           intern.m_oxideThickness := if         (ex.TOX > -1e40) then ex.TOX else 0;
@@ -9050,7 +9050,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         SI.Length m_dLength "Length";
         Real m_dLengthIsGiven "Length is given value";
         Boolean m_bSensResist( start = false)
-          "flag to request sensitivity WRT resistance";
+          "Flag to request sensitivity WRT resistance";
         Modelica.Units.NonSI.Temperature_degC m_dTemp(start = 27) "Resistor device temperature";
 
         annotation (Documentation(info="<html>
@@ -9223,7 +9223,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
       record BjtModelLineParams "Record for bjt model line parameters"
         extends Modelica.Icons.Record;
-        Real m_type( start = 1) "device type : 1 = n,  -1 = p";
+        Real m_type( start = 1) "Device type : 1 = n,  -1 = p";
 
         SI.Temperature m_tnom(start=Spice3.Internal.SpiceConstants.CKTnomTemp)
           "TNOM, Parameter measurement temperature";
@@ -10457,7 +10457,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
             SI.Length  m_dWidth(start=0) "Width";
             SI.Length  m_dLength(start=0) "Length";
             Boolean m_bSensCapac( start = false)
-          "flag to request sensitivity WRT Capacitor";
+          "Flag to request sensitivity WRT Capacitor";
 
         end Capacitor;
 

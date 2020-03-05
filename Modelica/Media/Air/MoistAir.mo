@@ -58,7 +58,7 @@ package MoistAir "Air: Moist air model (190 ... 647 K)"
       "Steam water mass fraction of saturation boundary in kg_water/kg_moistair";
     MassFraction x_sat
       "Steam water mass content of saturation boundary in kg_water/kg_dryair";
-    AbsolutePressure p_steam_sat "partial saturation pressure of steam";
+    AbsolutePressure p_steam_sat "Partial saturation pressure of steam";
   equation
     assert(T >= 190 and T <= 647, "
 Temperature T is not in the allowed range
@@ -762,7 +762,7 @@ Specific enthalpy of moist air is computed from the thermodynamic state record. 
     input SI.MassFraction X[:] "Mass fractions of moist air";
     output SI.SpecificEnthalpy h "Specific enthalpy at p, T, X";
   protected
-    SI.AbsolutePressure p_steam_sat "partial saturation pressure of steam";
+    SI.AbsolutePressure p_steam_sat "Partial saturation pressure of steam";
     SI.MassFraction X_sat "Absolute humidity per unit mass of moist air";
     SI.MassFraction X_liquid "Mass fraction of liquid water";
     SI.MassFraction X_steam "Mass fraction of steam water";
@@ -806,7 +806,7 @@ Specific enthalpy of moist air is computed from pressure, temperature and compos
     input Real dX[:](each unit="1/s") "Composition derivative";
     output Real h_der(unit="J/(kg.s)") "Time derivative of specific enthalpy";
   protected
-    SI.AbsolutePressure p_steam_sat "partial saturation pressure of steam";
+    SI.AbsolutePressure p_steam_sat "Partial saturation pressure of steam";
     SI.MassFraction X_sat "Absolute humidity per unit mass of moist air";
     SI.MassFraction X_liquid "Mass fraction of liquid water";
     SI.MassFraction X_steam "Mass fraction of steam water";
@@ -932,7 +932,7 @@ Specific internal energy is determined from the thermodynamic state record, assu
     input SI.MassFraction X[:] "Mass fractions of moist air";
     output SI.SpecificInternalEnergy u "Specific internal energy";
   protected
-    SI.AbsolutePressure p_steam_sat "partial saturation pressure of steam";
+    SI.AbsolutePressure p_steam_sat "Partial saturation pressure of steam";
     SI.MassFraction X_liquid "Mass fraction of liquid water";
     SI.MassFraction X_steam "Mass fraction of steam water";
     SI.MassFraction X_air "Mass fraction of air";
@@ -974,7 +974,7 @@ Specific internal energy is determined from pressure p, temperature T and compos
     input Real dX[:](each unit="1/s") "Mass fraction derivatives";
     output Real u_der(unit="J/(kg.s)") "Specific internal energy derivative";
   protected
-    SI.AbsolutePressure p_steam_sat "partial saturation pressure of steam";
+    SI.AbsolutePressure p_steam_sat "Partial saturation pressure of steam";
     SI.MassFraction X_liquid "Mass fraction of liquid water";
     SI.MassFraction X_steam "Mass fraction of steam water";
     SI.MassFraction X_air "Mass fraction of air";
