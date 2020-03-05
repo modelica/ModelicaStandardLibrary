@@ -5719,12 +5719,12 @@ This record is used as <strong> input record </strong> for the pressure loss fun
         //SOURCE_2: Considering frictional pressure loss w.r.t. to correlation of Chisholm
         SI.Pressure DP_fric=if IN_con.frictionalPressureLoss == TYP.Friedel then
           Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseFriedel_DP(
-            Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con(IN_con.A_cross, IN_con.perimeter, IN_con.length),
-            Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var(IN_var.rho_g, IN_var.rho_l, IN_var.eta_g, IN_var.eta_l, IN_var.sigma, IN_var.x_flow),
+            Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con(A_cross=IN_con.A_cross, perimeter=IN_con.perimeter, length=IN_con.length),
+            Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var(rho_g=IN_var.rho_g, rho_l=IN_var.rho_l, eta_g=IN_var.eta_g, eta_l=IN_var.eta_l, sigma=IN_var.sigma, x_flow=IN_var.x_flow),
             m_flow) else if IN_con.frictionalPressureLoss == TYP.Chisholm then
           Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseChisholm_DP(
-            Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con(IN_con.A_cross, IN_con.perimeter, IN_con.length),
-            Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var(IN_var.rho_g, IN_var.rho_l, IN_var.eta_g, IN_var.eta_l, IN_var.sigma, IN_var.x_flow),
+            Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con(A_cross=IN_con.A_cross, perimeter=IN_con.perimeter, length=IN_con.length),
+            Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var(rho_g=IN_var.rho_g, rho_l=IN_var.rho_l, eta_g=IN_var.eta_g, eta_l=IN_var.eta_l, sigma=IN_var.sigma, x_flow=IN_var.x_flow),
             m_flow) else 0 "Frictional pressure loss";
 
         //SOURCE_3: p.Lba 4, eq. 22: Considering momentum pressure loss assuming heterogeneous approach for two phase flow
