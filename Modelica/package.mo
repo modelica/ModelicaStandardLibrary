@@ -2396,6 +2396,10 @@ The tests have been performed with Dymola 2020x:
 <li>Optimization 2.2.4 (DLR)</li>
 <li>PlanarMechanics (Dirk Zimmer) 1.4.1</li>
 <li>VehicleInterfaces (Modelica Association) 1.2.5</li>
+<li>EDrives (EDrives) 1.0.1</li>
+<li>DriveControl (Anton Haumer) 4.0.0</li>
+<li>ElectricalMachines (Anton Haumer) 0.9.1</li>
+<li>EMOTH (Anton Haumer @ OTH Regensburg) 1.4.1</li>
 </ul>
 
 <p><br>
