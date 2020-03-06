@@ -2384,17 +2384,18 @@ summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-4.
 <p>
 The following Modelica packages have been tested that they work together with this release of package Modelica
 (alphabetical list).
-Hereby simulation results of the listed packages have been produced with package Modelica version 3.2.3 and 
-compared with the simulation results produced with version 4.0.0.Beta.1. 
+Hereby simulation results of the listed packages have been produced with package Modelica version 3.2.3 and
+compared with the simulation results produced with version 4.0.0 Beta.1.
 The tests have been performed with Dymola 2020x:
 </p>
 
 <ul>
 <li><a href=\"https://github.com/lbl-srg/modelica-buildings/issues/1789\">Buildings</a>&nbsp;&gt;&nbsp;6.0.0 (LBNL)</li>
 <li>IBPSA&nbsp;&gt;&nbsp;3.0.0 (IBPSA Project 1)</li>
-<li>Commercial DLR library <i>Optimization</i> version 2.2.4</li>
-<li><a href=\"https://github.com/modelica/VehicleInterfaces\">VehicleInterfaces</a> library, version 1.2.5.</li>
-<li><a href=\"https://github.com/dzimmer/PlanarMechanics\">PlanarMechanics</a> library, version 1.4.1.</li>
+<li>Modelica_DeviceDrivers (DLR, ESI ITI, and Linköping University (PELAB)) 1.8.1</li>
+<li>Optimization 2.2.4 (DLR)</li>
+<li>PlanarMechanics (Dirk Zimmer) 1.4.1</li>
+<li>VehicleInterfaces (Modelica Association) 1.2.5</li>
 </ul>
 
 <p><br>
