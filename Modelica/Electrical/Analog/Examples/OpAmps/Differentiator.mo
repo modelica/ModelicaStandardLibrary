@@ -26,7 +26,7 @@ model Differentiator "Differentiating amplifier"
         origin={40,0})));
   OpAmpCircuits.Der der_(
     k=2,                 f=f,
-    c(v(start=0, fixed=true)))
+    v(fixed=true))
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
 equation
   connect(vIn.p, der_.p1)

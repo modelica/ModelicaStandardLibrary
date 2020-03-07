@@ -13,9 +13,7 @@ model LowPass "Low-pass filter"
         rotation=270,
         origin={40,0})));
   OpAmpCircuits.FirstOrder firstOrder(
-    T=1/(2*pi*fG),
-    opAmp(v_in(start=0)),
-    c(v(start=0, fixed=true)))
+    T=1/(2*pi*fG), v(fixed=true))
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   Sources.TrapezoidVoltage                            vIn(
     V=Vin,

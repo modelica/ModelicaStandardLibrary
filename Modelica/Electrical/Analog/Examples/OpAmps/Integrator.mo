@@ -12,8 +12,7 @@ model Integrator "Integrating amplifier"
         origin={40,0})));
   OpAmpCircuits.Integrator integrator(
     k=2,                              f=f,
-    opAmp(v_in(start=0)),
-    c(v(start=0, fixed=true)))
+    v(fixed=true))
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   Sources.TrapezoidVoltage                            vIn(
     V=2*Vin,
