@@ -9,8 +9,8 @@ model CurrentSensor "Current sensor"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={0,-110})));
-  SI.Voltage abs_i=Modelica.ComplexMath.abs(i) "Magnitude of complex current";
-  SI.Angle arg_v=Modelica.ComplexMath.arg(v) "Argument of complex current";
+  SI.Current abs_i=Modelica.ComplexMath.abs(i) "Magnitude of complex current";
+  SI.Angle arg_i=Modelica.ComplexMath.arg(i) "Argument of complex current";
   SI.ComplexVoltage v "Complex voltage";
 equation
   i = pin_p.i;
