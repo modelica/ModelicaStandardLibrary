@@ -15,7 +15,7 @@ model LowPass "Low-pass filter"
   OpAmpCircuits.FirstOrder firstOrder(
     T=1/(2*pi*fG), v(fixed=true))
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  Sources.TrapezoidVoltage                            vIn(
+  Sources.TrapezoidVoltage vIn(
     V=Vin,
     rising=0.2/f,
     width=0.3/f,
@@ -24,7 +24,7 @@ model LowPass "Low-pass filter"
     nperiod=-1,
     offset=0,
     startTime=-(vIn.rising + vIn.width/2))
-                                      annotation (Placement(
+    annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
