@@ -412,6 +412,7 @@ convertModifiers("Modelica.StateGraph.Temporary.NumericValue",
 
 convertModifiers({"Modelica.StateGraph.Interfaces.PartialStep",
                   "Modelica.StateGraph.InitialStep",
+                  "Modelica.StateGraph.InitialStep",
                   "Modelica.StateGraph.InitialStepWithSignal",
                   "Modelica.StateGraph.Step",
                   "Modelica.StateGraph.StepWithSignal"},
@@ -1710,7 +1711,7 @@ convertElement({"Modelica.Media.Interfaces.PartialMedium.BaseProperties",
                 "R", "R_s")
 
 convertModifiers("Modelica.Blocks.Math.LinearDependency",
-                 {"y0", "k1", "k2"}, {"y0=%y0%", "k1=%y0%*%k1%", "k2=%y0%*%k2%"}, true)
+                 {"y0=0", "k1=0", "k2=0"}, {"y0=%y0%", "k1=%y0%*%k1%", "k2=%y0%*%k2%"}, true)
 convertModifiers({"Modelica.Mechanics.MultiBody.Joints.Prismatic"},
                   {"s_offset"}, fill("", 0), true)
 convertModifiers({"Modelica.Mechanics.MultiBody.Joints.Revolute"},
