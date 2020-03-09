@@ -412,7 +412,6 @@ convertModifiers("Modelica.StateGraph.Temporary.NumericValue",
 
 convertModifiers({"Modelica.StateGraph.Interfaces.PartialStep",
                   "Modelica.StateGraph.InitialStep",
-                  "Modelica.StateGraph.InitialStep",
                   "Modelica.StateGraph.InitialStepWithSignal",
                   "Modelica.StateGraph.Step",
                   "Modelica.StateGraph.StepWithSignal"},
