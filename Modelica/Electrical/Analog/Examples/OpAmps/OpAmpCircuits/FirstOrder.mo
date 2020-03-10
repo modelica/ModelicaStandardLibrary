@@ -7,6 +7,7 @@ model FirstOrder "Lowpass filter operational amplifier circuit"
   parameter SI.Resistance R2=k*R1 "Calculated resistance to reach k";
   parameter SI.Time T "Time constant";
   parameter SI.Capacitance C=T/R2 "Calculated capacitance to reach T";
+  SI.Voltage v(start=0)=c.v "Capacitor voltage = state";
   Basic.Resistor                            r1(R=R1)
     annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
   Basic.Resistor                            r2(R=R2)

@@ -6,6 +6,7 @@ model Integrator "Integrating operational amplifier circuit"
   parameter SI.Frequency f "Frequency";
   parameter SI.Resistance R=1000 "Resistance at negative input of OpAmp";
   parameter SI.Capacitance C=1/k/(2*pi*f*R) "Calculated capacitance to reach desired amplification k";
+  SI.Voltage v(start=0)=c.v "Capacitor voltage = state";
   Basic.Capacitor  c(final C=C)
     annotation (Placement(transformation(extent={{30,20},{10,40}})));
   Basic.Resistor r(final R=R)
