@@ -189,6 +189,8 @@ convertClass("Modelica.Electrical.PowerConverters.DCAC.MultiPhase2Level",
               "Modelica.Electrical.PowerConverters.DCAC.Polyphase2Level")
 convertClass("Modelica.Electrical.QuasiStationary.MultiPhase",
               "Modelica.Electrical.QuasiStatic.Polyphase")
+convertClass("Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.SingleToMultiPhase",
+              "Modelica.Electrical.QuasiStatic.Polyphase.Blocks.SingleToPolyphase")
 convertClass("Modelica.Electrical.MultiPhase",
               "Modelica.Electrical.Polyphase")
 convertClass("Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase",
@@ -457,11 +459,7 @@ convertElement({"Modelica.Media.Interfaces.PartialMedium.BaseProperties",
                 "Modelica.Media.Common.FundamentalConstants",
                 "Modelica.Media.Common.AuxiliaryProperties",
                 "Modelica.Media.Common.GibbsDerivs2",
-                "Modelica.Media.Air.ReferenceAir.Air_Utilities.Basic",
                 "Modelica.Media.Air.MoistAir.gasConstant_X",
-                "Modelica.Media.Air.MoistAir.specificInternalEnergy_pTX",
-                "Modelica.Media.Air.ReferenceMoistAir.Utilities.Water95_Utilities",
-                "Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic",
                 "Modelica.Media.IdealGases.Common.DataRecord",
                 "Modelica.Media.R134a.R134a_ph.setState_dTX",
                 "Modelica.Media.R134a.R134aData",
@@ -1708,7 +1706,10 @@ convertElement({"Modelica.Media.Interfaces.PartialMedium.BaseProperties",
                 "Modelica.Media.IdealGases.Common.SingleGasesData.ZrOplus",
                 "Modelica.Media.IdealGases.Common.SingleGasesData.ZrO2"},
                 "R", "R_s")
-
+convertElement({"Modelica.Media.Air.ReferenceAir.Air_Utilities.Basic",
+                "Modelica.Media.Air.ReferenceMoistAir.Utilities.Water95_Utilities",
+                "Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic"},
+                "Constants.R","Constants.R_s")
 convertModifiers("Modelica.Blocks.Math.LinearDependency",
                  {"y0=0", "k1=0", "k2=0"}, {"y0=%y0%", "k1=%y0%*%k1%", "k2=%y0%*%k2%"}, true)
 convertModifiers({"Modelica.Mechanics.MultiBody.Joints.Prismatic"},
@@ -1808,35 +1809,25 @@ convertClass("Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch",
              "Modelica.Electrical.Analog.Ideal.IdealTwoWaySwitch")
 convertClass("Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch",
              "Modelica.Electrical.Analog.Ideal.ControlledIdealTwoWaySwitch")
+
 convertElement("Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding",
                 {"reluctance"}, {"stray"})
-convertElement("Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited",
-                {"excitation.reluctance"}, {"excitation.stray"})
+convertElement({"Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited",
+                "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited"},
+                "excitation.reluctance", "excitation.stray")
 convertElement({"Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding",
                 "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding"},
                 "strayReluctance", "stray")
-
-convertElement({"Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing"},
-                "rotor.strayReluctance", "rotor.stray")
-convertElement({"Modelica.Magnetic.FundamentalWave.BaseClasses.Machine",
-                "Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing",
-                "Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage",
-                "Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited",
-                "Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet",
-                "Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor"},
-                "stator.strayReluctance", "stator.stray")
-convertElement({"Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing"},
+convertElement({"Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
+                "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing"},
                 "rotor.strayReluctance", "rotor.stray")
 convertElement({"Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine",
                 "Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
                 "Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage",
                 "Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited",
                 "Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet",
-                "Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor"},
-                "stator.strayReluctance", "stator.stray")
-convertElement("Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing",
-                "rotor.strayReluctance", "rotor.stray")
-convertElement({"Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.BaseClasses.PartialBasicMachine",
+                "Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor",
+                "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.BaseClasses.PartialBasicMachine",
                 "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing",
                 "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage",
                 "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited",
@@ -1878,7 +1869,6 @@ convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSens
 convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor", "abs_y", "abs_apparentPower")
 convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor", "arg_y", "arg_apparentPower")
 convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.AronSensor", "power", "activePower")
-convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.ReactivePowerSensor", "y", "reactivePower")
 
 // Removal of Modelica.Electrical.Analog.Ideal.IdealGyrator, see #2786
 convertClass("Modelica.Electrical.Analog.Ideal.IdealGyrator", "Modelica.Electrical.Analog.Basic.Gyrator")
