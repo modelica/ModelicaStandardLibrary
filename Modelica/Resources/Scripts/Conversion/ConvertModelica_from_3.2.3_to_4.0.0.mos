@@ -459,10 +459,7 @@ convertElement({"Modelica.Media.Interfaces.PartialMedium.BaseProperties",
                 "Modelica.Media.Common.FundamentalConstants",
                 "Modelica.Media.Common.AuxiliaryProperties",
                 "Modelica.Media.Common.GibbsDerivs2",
-                "Modelica.Media.Air.ReferenceAir.Air_Utilities.Basic",
                 "Modelica.Media.Air.MoistAir.gasConstant_X",
-                "Modelica.Media.Air.ReferenceMoistAir.Utilities.Water95_Utilities",
-                "Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic",
                 "Modelica.Media.IdealGases.Common.DataRecord",
                 "Modelica.Media.R134a.R134a_ph.setState_dTX",
                 "Modelica.Media.R134a.R134aData",
@@ -1709,7 +1706,10 @@ convertElement({"Modelica.Media.Interfaces.PartialMedium.BaseProperties",
                 "Modelica.Media.IdealGases.Common.SingleGasesData.ZrOplus",
                 "Modelica.Media.IdealGases.Common.SingleGasesData.ZrO2"},
                 "R", "R_s")
-
+convertElement({"Modelica.Media.Air.ReferenceAir.Air_Utilities.Basic",
+                "Modelica.Media.Air.ReferenceMoistAir.Utilities.Water95_Utilities",
+                "Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic"},
+                "Constants.R","Constants.R_s")
 convertModifiers("Modelica.Blocks.Math.LinearDependency",
                  {"y0", "k1", "k2"}, {"y0=%y0%", "k1=%y0%*%k1%", "k2=%y0%*%k2%"}, true)
 convertModifiers({"Modelica.Mechanics.MultiBody.Joints.Prismatic"},
@@ -1869,7 +1869,6 @@ convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSens
 convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor", "abs_y", "abs_apparentPower")
 convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor", "arg_y", "arg_apparentPower")
 convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.AronSensor", "power", "activePower")
-convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.ReactivePowerSensor", "y", "reactivePower")
 
 // Removal of Modelica.Electrical.Analog.Ideal.IdealGyrator, see #2786
 convertClass("Modelica.Electrical.Analog.Ideal.IdealGyrator", "Modelica.Electrical.Analog.Basic.Gyrator")
