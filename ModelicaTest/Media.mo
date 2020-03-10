@@ -941,6 +941,16 @@ is given to compare the approximation.
       SI.ThermalConductivity k = Medium.thermalConductivity(state);
       annotation (experiment(StopTime=1));
     end R134a_setState_pTX;
+
+    model WaterIF97_dewEnthalpy "Test dewEnthalpy of WaterIF97"
+      extends Modelica.Icons.Example;
+      replaceable package Medium = Modelica.Media.Water.WaterIF97_fixedregion "Medium model";
+      SI.Temperature T = 273.15 + 25;
+      SI.AbsolutePressure p = 10e5 + 20e5*time;
+      Medium.ThermodynamicState state = Medium.setState_pTX(p, T);
+      SI.SpecificEnthalpy h_dew = Medium.dewEnthalpy(Medium.SaturationProperties(Tsat=Medium.saturationTemperature(state.p), psat=Medium.pressure(state)));
+      annotation (experiment(StopTime=1));
+    end WaterIF97_dewEnthalpy;
   annotation (Documentation(info="<html>
 
 </html>"));
