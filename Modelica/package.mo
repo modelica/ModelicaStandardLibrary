@@ -8210,7 +8210,7 @@ class Contact "Contact"
 <dd>email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a></dd>
 </dl>
 <p>Since end of 2007, the development of the sublibraries of package Modelica is organized by personal and/or organizational <strong>library officers</strong> assigned by the Modelica Association. They are responsible for the maintenance and for the further organization of the development. Other persons may also contribute, but the final decision for library improvements and/or changes is performed by the responsible library officer(s). In order that a new sublibrary or a new version of a sublibrary is ready to be released, the responsible library officers report the changes to the members of the Modelica Association and the library is made available for beta testing to interested parties before a final decision. A new release of a sublibrary is formally decided by voting of the Modelica Association members.</p>
-<p>As of January 20th, 2020, the following library officers are assigned:</p>
+<p>As of March 7th, 2020, the following library officers are assigned:</p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td><strong>Sublibraries</strong> </td>
@@ -8366,7 +8366,11 @@ class Contact "Contact"
 <td align=\"left\">Leo Gall, Martin Otter</td>
 </tr>
 <tr>
-<td align=\"left\">ObsoleteModelica3</td>
+<td align=\"left\">TestConversion4</td>
+<td align=\"left\">Leo Gall, Martin Otter</td>
+</tr>
+<tr>
+<td align=\"left\">ObsoleteModelica4</td>
 <td align=\"left\">Hans Olsson, Martin Otter</td>
 </tr>
 </table>
