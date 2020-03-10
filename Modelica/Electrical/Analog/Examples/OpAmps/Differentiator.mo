@@ -24,25 +24,25 @@ model Differentiator "Differentiating amplifier"
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={40,0})));
-  OpAmpCircuits.Der der_(
+  OpAmpCircuits.Der derivative(
     k=2,
     f=f,
     v(fixed=true))
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
 equation
-  connect(vIn.p, der_.p1)
+  connect(vIn.p, derivative.p1)
     annotation (Line(points={{-40,10},{-10,10}}, color={0,0,255}));
-  connect(vIn.n, der_.n1)
+  connect(vIn.n, derivative.n1)
     annotation (Line(points={{-40,-10},{-10,-10}}, color={0,0,255}));
-  connect(der_.n1, ground.p)
+  connect(derivative.n1, ground.p)
     annotation (Line(points={{-10,-10},{-10,-20}}, color={0,0,255}));
-  connect(der_.p2, vOut.p)
+  connect(derivative.p2, vOut.p)
     annotation (Line(points={{10,10},{40,10}}, color={0,0,255}));
-  connect(der_.n2, vOut.n)
+  connect(derivative.n2, vOut.n)
     annotation (Line(points={{10,-10},{40,-10}}, color={0,0,255}));
   annotation (Documentation(info="<html>
-<p>This is a (inverting) differentiating amplifier. Resistance R can be chosen, capacitance C is defined by the desired time constant resp. frequency.</p>
-<p>Note: <code>vOut</code> measure the negative output voltage.</p>
+<p>This is an (inverting) differentiating amplifier. Resistance R can be chosen, capacitance C is defined by the desired time constant resp. frequency.</p>
+<p>Note: <code>vOut</code> measures the negative output voltage.</p>
 </html>"),
     experiment(
       StartTime=0,
