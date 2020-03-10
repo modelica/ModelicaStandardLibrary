@@ -765,6 +765,12 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
         final parameter Modelica.SIunits.ActivePower P=3*R*IRMS^2 "Total active power";
         final parameter Modelica.SIunits.ReactivePower Q=3*(2*pi*f*L)*IRMS^2 "Total reactive power";
         final parameter Modelica.SIunits.ApparentPower S=3*Z*IRMS^2 "Total apparent power";
+        Modelica.SIunits.Angle reference = referenceSensor.y "Reference angle";
+        Modelica.SIunits.AbsoluteActivity frequency = frequencySensor.y "Frequency";
+        Modelica.SIunits.ComplexElectricPotential potential = potentialSensor.y "Potential";
+        Modelica.SIunits.ComplexVoltage voltage = voltageSensor.y "Voltage";
+        Modelica.SIunits.ComplexCurrent current = currentSensor.y "Current";
+        Modelica.SIunits.ComplexPower power = powerSensor.y "Power";
         Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground ground annotation (Placement(
               transformation(
               origin={-20,-100},
@@ -849,6 +855,12 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
         final parameter Modelica.SIunits.ActivePower P=3*R*IRMS^2 "Total active power";
         final parameter Modelica.SIunits.ReactivePower Q=3*(2*pi*f*L)*IRMS^2 "Total reactive power";
         final parameter Modelica.SIunits.ApparentPower S=3*Z*IRMS^2 "Total apparent power";
+        Modelica.SIunits.Angle reference = referenceSensor.y "Reference angle";
+        Modelica.SIunits.AbsoluteActivity frequency = frequencySensor.y "Frequency";
+        Modelica.SIunits.ComplexElectricPotential potential[m] = potentialSensor.y "Potential";
+        Modelica.SIunits.ComplexVoltage voltage[m] = voltageSensor.y "Voltage";
+        Modelica.SIunits.ComplexCurrent current[m] = currentSensor.y "Current";
+        Modelica.SIunits.ComplexPower power = powerSensor.y "Power";
         Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource sineVoltage(
           final m=m,
           f=f,
