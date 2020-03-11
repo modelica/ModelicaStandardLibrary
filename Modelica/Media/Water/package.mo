@@ -139,6 +139,9 @@ partial package WaterIF97_base
     onePhase=false,
     fluidConstants=waterConstants);
 
+  redeclare record extends SaturationProperties
+  end SaturationProperties;
+
   redeclare record extends ThermodynamicState "Thermodynamic state"
     SpecificEnthalpy h "Specific enthalpy";
     Density d "Density";
