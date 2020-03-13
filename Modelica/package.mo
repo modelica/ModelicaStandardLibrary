@@ -2200,13 +2200,16 @@ and will interpret it in the same way. Short Overview:
     <li><strong>Version 3.2.3 Build 3</strong> with respect to 3.2.3 Build 2:<br>
         About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3+build.3/ResolvedGitHubIssues.html\">8 issues (including pull requests)</a>
         have been addressed for this maintenance release.<br>&nbsp;</li>
+    <li><strong>Version 3.2.3 Build 4</strong> with respect to 3.2.3 Build 3:<br>
+        About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3+build.4/ResolvedGitHubIssues.html\">31 issues (including pull requests)</a>
+        have been addressed for this maintenance release.<br>&nbsp;</li>
     </ul>
     </li>
 </ul>
 
 <p>
 The exact difference between package Modelica version 3.2.3 and version 3.2.2 is
-summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3/DifferencesTo322.html\">comparison table</a>.
+summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3+build.4/DifferencesTo322.html\">comparison table</a>.
 </p>
 
 <p><br>
@@ -2483,15 +2486,36 @@ that can lead to wrong simulation results):
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Math</strong></td></tr>
+<tr><td>Pythagoras</td>
+    <td>The case with negative <code>y2</code> was not correctly considered if <code>u1IsHypotenuse</code> is <code>true</code>. This has been corrected.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources</strong></td></tr>
 <tr><td>TimeTable</td>
     <td>The derivative of the <code>TimeTable</code> output could no longer be determined. This has been corrected.</td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Media.Air</strong></td></tr>
-<tr><td>MoistAir.molarMass<br>ReferenceMoistAir.molarMass</td>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Semiconductors</strong></td></tr>
+<tr><td>Diode</td>
+    <td>Fixed unit error in current equations.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Electrical.Spice3.Additionals</strong></td></tr>
+<tr><td>poly</td>
+    <td>The case with one coefficient and one variable was not correctly considered. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Fluid.Dissipation.PressureLoss.General</strong></td></tr>
+<tr><td>dp_volumeFlowRate_DP<br>dp_volumeFlowRate_MFLOW</td>
+    <td>The mass flow rate was not correctly computed if the pressure drop is a linear function of the volume flow rate. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Air.ReferenceAir</strong></td></tr>
+<tr><td>Air_Base.BaseProperties</td>
+    <td>The unit of the specific gas constant <code>R_s</code> was not correctly considered. This has been corrected.</td></tr>
+<tr><td>molarMass</td>
     <td>The computation of the function output <code>MM</code> was wrong. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.Air.MoistAir</strong></td></tr>
+<tr><td>molarMass</td>
+    <td>The computation of the function output <code>MM</code> was wrong. This has been corrected.</td></tr>
+<tr><td>density_derX<br>s_pTX<br>s_pTX_der</td>
+    <td>The calculation was wrong. This has been corrected.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Media.IdealGases.Common.Functions</strong></td></tr>
 <tr><td>thermalConductivityEstimate</td>
     <td>The computation of the function output <code>lambda</code> was wrong for the modified Eucken correlation, i.e., if <code>method</code> is set to 2. This has been corrected.</td></tr>
+<tr><td>s0_Tlow_der</td>
+    <td>The calculation was wrong. This has been corrected.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Media.IdealGases.Common.SingleGasesData</strong></td></tr>
 <tr><td>CH2<br>CH3<br>CH3OOH<br>C2CL2<br>C2CL4<br>C2CL6<br>C2HCL<br>C2HCL3<br>CH2CO_ketene<br>O_CH_2O<br>HO_CO_2OH<br>CH2BrminusCOOH<br>C2H3CL<br>CH2CLminusCOOH<br>HO2<br>HO2minus<br>OD<br>ODminus</td>
     <td>The coefficients for <code>blow</code>, <code>ahigh</code> and <code>bhigh</code> were wrong. This has been corrected.</td></tr>
@@ -2501,9 +2525,19 @@ that can lead to wrong simulation results):
 <tr><td colspan=\"2\"><strong>Modelica.Media.Incompressible.TableBased</strong></td></tr>
 <tr><td>BaseProperties</td>
     <td>The unit of the gas constant <code>R</code> for table based media was not correctly considered. This has been corrected.</td></tr>
+<tr><td>T_ph</td>
+    <td>The pressure negligence was not considered. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Media.R134a.R134a_ph</strong></td></tr>
+<tr><td>setState_pTX</td>
+    <td>Only applicable in one-phase regime: The Newton iteration for the calculation of the density may possibly converge to the wrong root. This has been improved.</td></tr>
+<tr><td>setState_dTX<br>setState_psX</td>
+    <td>The calculation was wrong in two-phase regime. This has been corrected.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Math.Random.Utilities</strong></td></tr>
 <tr><td>impureRandomInteger</td>
     <td>The function output <code>y</code> was not computed to yield a discrete uniform distribution for a minimum value <code>imin</code> of 1. This has been corrected.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Utilities.System</strong></td></tr>
+<tr><td>getTime</td>
+    <td>The month and year was only correctly returned if the implementing source file (ModelicaInternal.c) was compiled for Windows OS. This has been corrected.</td></tr>
 </table>
 
 </html>"));
