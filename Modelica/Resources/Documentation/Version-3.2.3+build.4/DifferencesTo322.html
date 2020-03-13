@@ -1726,6 +1726,96 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">block StateGraph.Interfaces.PartialStep</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">outerStatePort<br></td><td style="text-align: left; vertical-align: middle;">localActive=localActive<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
+</table>
+
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;"><br> ... <br>  end when;
+</td>
+</tr>
+<tr>
+<td><br></td>
+<td style="vertical-align: middle; text-align: left;">  outerStatePort.subgraphStatePort.activeSteps = if localActive then 1.0 else 0.0;<br>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  for i in 1:nIn loop<br> ... <br>
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model StateGraph.PartialCompositeStep</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">outerState<br></td><td style="text-align: left; vertical-align: middle;">active=active<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
+</table>
+
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;"><br> ... <br>equation<br>&nbsp&nbspconnect(outerState.subgraphStatePort, stateGraphRoot.subgraphStatePort);
+</td>
+</tr>
+<tr>
+<td><br></td>
+<td style="vertical-align: middle; text-align: left;">  outerState.subgraphStatePort.activeSteps = if active then 1.0 else 0.0;<br>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  activeSteps = -integer(innerState.stateGraphRoot.subgraphStatePort.activeSteps);<br> ... <br>
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Electrical.Analog.Examples.CauerLowPassSC</big><br><br>
 <table style="border-collapse: collapse;text-align: left; width: 100%;height: 264px;" 
  cellpadding="5">
@@ -2034,6 +2124,83 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
 </tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">Vns<br></td><td style="text-align: left; vertical-align: middle;">=-Vps<br></td><td style="text-align: left; vertical-align: middle;">=-15<br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">opAmp1<br></td><td style="text-align: left; vertical-align: middle;">strict=false<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td style="text-align: left; vertical-align: middle;">homotopyType=Modelica323.Blocks.Types.LimiterHomotopy.UpperLimit<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">opAmp2<br></td><td style="text-align: left; vertical-align: middle;">strict=false<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Electrical.Analog.Basic.SaturatingInductor</big><br><br>
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">initial equation<br>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(0, 153, 0); font-weight: bold;">  </span>(Lnom - <span style="color: rgb(0, 153, 0); font-weight: bold;">Linf)/(Lzer </span>- <span style="color: rgb(0, 153, 0); font-weight: bold;">Linf)=Ipar/Inom*(pi/2 </span>- <span style="color: rgb(0, 153, 0); font-weight: bold;">atan(Ipar/Inom));</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">(Lnom - <span style="color: rgb(102, 0, 204); font-weight: bold;">Linf) </span><span style="color: rgb(102, 0, 204); font-weight: bold;">= (Lzer </span>- <span style="color: rgb(102, 0, 204); font-weight: bold;">Linf)*Ipar/Inom*(Modelica322.</span><span style="color: rgb(102, 0, 204); font-weight: bold;">Constants.pi/2 </span>-<br> <span style="color: rgb(102, 0, 204); font-weight: bold;"> </span><span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica322.Math.atan(Ipar/Inom));</span>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(0, 153, 0); font-weight: bold;">equation<br> </span><span style="color: rgb(0, 153, 0); font-weight: bold;"> assert(Lzer </span>&gt; <span style="color: rgb(0, 153, 0); font-weight: bold;">Lnom*(1 + eps), "Lzer (= " + String(Lzer) +<br>    ") has to be &gt; </span>Lnom <span style="color: rgb(0, 153, 0); font-weight: bold;">(= " </span>+ <span style="color: rgb(0, 153, 0); font-weight: bold;">String(Lnom) + ")");</span>
+</td>
+<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(102, 0, 204); font-weight: bold;">equation<br>assert(Lzer </span>&gt; Lnom + <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica322.Constants.eps,</span><span style="color: rgb(102, 0, 204); font-weight: bold;"> "Lzer (= " + String(Lzer) +<br>  ") has to be &gt; Lnom (= " + String(Lnom) + ")");</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(0, 153, 0); font-weight: bold;">  </span>assert(Linf &lt; <span style="color: rgb(0, 153, 0); font-weight: bold;">Lnom*(1 - eps), "Linf (= " + String(Linf) +<br>    ") has to be &lt; </span>Lnom (= " + <span style="color: rgb(0, 153, 0); font-weight: bold;">String(Lnom) </span>+ <span style="color: rgb(0, 153, 0); font-weight: bold;">")");</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">assert(Linf &lt; Lnom <span style="color: rgb(102, 0, 204); font-weight: bold;">- Modelica322.Constants.eps, "Linf </span>(= " + <span style="color: rgb(102, 0, 204); font-weight: bold;">String(Linf) </span>+<br> <span style="color: rgb(102, 0, 204); font-weight: bold;"> </span><span style="color: rgb(102, 0, 204); font-weight: bold;">") has to be &lt; Lnom (= " + String(Lnom) + ")");</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(0, 153, 0); font-weight: bold;"> </span><span style="color: rgb(0, 153, 0); font-weight: bold;"> Lact = Linf + (Lzer </span>- <span style="color: rgb(0, 153, 0); font-weight: bold;">Linf)*(if noEvent(abs(i)/Ipar&lt;small) then 1 else atan(i/Ipar)/(i/Ipar));</span>
+</td>
+<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(102, 0, 204); font-weight: bold;">(Lact </span>- <span style="color: rgb(102, 0, 204); font-weight: bold;">Linf)*i/Ipar = (Lzer - Linf)*noEvent(Modelica322.Math.</span><span style="color: rgb(102, 0, 204); font-weight: bold;">atan(i/Ipar));</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  Psi = <span style="color: rgb(0, 153, 0); font-weight: bold;">Linf*i </span><span style="color: rgb(0, 153, 0); font-weight: bold;">+ (Lzer - Linf)*Ipar*atan(i/Ipar);</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">  Psi = <span style="color: rgb(102, 0, 204); font-weight: bold;">Lact*i;</span>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  v = der(Psi);
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Electrical.Analog.Basic.M_Transformer</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">i<br></td><td style="text-align: left; vertical-align: middle;">each fixed=true<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;">fixed=true<br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
@@ -2938,7 +3105,39 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 </tr>
 <tr>
 <td colspan="2"
-style="vertical-align: middle; text-align: left;">  htemp = T_heatPort;<br> ... <br>
+style="vertical-align: middle; text-align: left;">  htemp = T_heatPort;
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  vt_t = k*htemp/q;
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  id = <span style="color: rgb(0, 153, 0); font-weight: bold;">Ids*(exlin(v/(N*vt_t),</span> Maxexp) - <span style="color: rgb(0, 153, 0); font-weight: bold;">1);</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">  id = <span style="color: rgb(102, 0, 204); font-weight: bold;">exlin((v/(N*vt_t)),</span> Maxexp) - <span style="color: rgb(102, 0, 204); font-weight: bold;">1;</span>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  aux = (htemp/TNOM - 1)*EG/(N*vt_t);
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  auxp = exp(aux);
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  i = <span style="color: rgb(0, 153, 0); font-weight: bold;">id*pow(htemp/TNOM,</span> XTI/N)*auxp + v/R;
+</td>
+<td style="vertical-align: middle; text-align: left;">  i = <span style="color: rgb(102, 0, 204); font-weight: bold;">Ids*id*pow(htemp/TNOM,</span> XTI/N)*auxp + v/R;
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  LossPower = i*v;
 </td>
 </tr>
 <br></tbody>
@@ -4847,7 +5046,7 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 
 <br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">block Electrical.PowerConverters.ACDC.Control.Signal2mPulse</big><br><br>
-<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
 <tr>
@@ -4860,7 +5059,7 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">filter<br></td><td style="text-align: left; vertical-align: middle;">each final fCut=fCut<br></td><td style="text-align: left; vertical-align: middle;">each final fCut=2*f<br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">limiter<br></td><td style="text-align: left; vertical-align: middle;">final uMax=min(Modelica323.Constants.pi, firingAngleMax)<br></td><td style="text-align: left; vertical-align: middle;">final uMax=max(Modelica322.Constants.pi, firingAngleMax)<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">filter<br></td><td style="text-align: left; vertical-align: middle;">each final fCut=fCut<br></td><td style="text-align: left; vertical-align: middle;">each final fCut=2*f<br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
@@ -5921,6 +6120,75 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Electrical.Spice3.Basic.C_Capacitor</big><br><br>
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">initial equation<br>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  if UIC then<br>
+</td>
+<td><br></td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">      vinternal = IC;
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  end if;<br>
+</td>
+<td><br></td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;"><br> ... <br>
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Electrical.Spice3.Additionals.poly</big><br><br>
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;"><br> ... <br>  ia =  0;
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  if <span style="color: rgb(0, 153, 0); font-weight: bold;">n </span>== <span style="color: rgb(0, 153, 0); font-weight: bold;">1 and </span><span style="color: rgb(0, 153, 0); font-weight: bold;">na == 1 then</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">  if <span style="color: rgb(102, 0, 204); font-weight: bold;">(na </span>== <span style="color: rgb(102, 0, 204); font-weight: bold;">1) then</span>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">      v =  a[1] * s[1];<br> ... <br>
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">record Electrical.Spice3.Internal.ModelcardMOS</big><br><br>
 <table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
  cellpadding="5">
@@ -6531,70 +6799,75 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(winding1.</span>port_n, mag_ground.port);
+<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(0, 153, 0); font-weight: bold;">initial equation<br></span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(WindingPrim.</span>port_n, mag_ground.port);
-</td>
-</tr>
-<tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(vSource.</span>p, <span style="color: rgb(0, 153, 0); font-weight: bold;">resistor1.</span>p);
-</td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(SineVoltage.</span>p, <span style="color: rgb(102, 0, 204); font-weight: bold;">Rprim.</span>p);
+<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(102, 0, 204); font-weight: bold;">  </span><span style="color: rgb(102, 0, 204); font-weight: bold;">connect(WindingPrim.port_n, mag_ground.port);</span>
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(vSource.</span>n, el_ground1.p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">core.derHstat = 0.0;</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(SineVoltage.</span>n, el_ground1.p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(SineVoltage.p, Rprim.p);</span>
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(winding1.</span>n, el_ground1.p);
+<td style="vertical-align: middle; text-align: left;">
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(WindingPrim.</span>n, el_ground1.p);
+<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(102, 0, 204); font-weight: bold;">  connect(SineVoltage.n, el_ground1.p);</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(0, 153, 0); font-weight: bold;">equation<br> </span> <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(winding1.port_n,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">mag_ground.port);</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(WindingPrim.n,</span><span style="color: rgb(102, 0, 204); font-weight: bold;"> el_ground1.p);</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(vSource.p,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">resistor1.</span>p);
+</td>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(Rprim.n,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">WindingPrim.</span>p);
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(vSource.n,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">el_ground1.p);</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(WindingSec.port_n,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">mag_ground.port);</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(winding1.n,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">el_ground1.</span>p);
+</td>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(WindingSec.p,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">Rsec.</span>p);
 </td>
 </tr>
 <tr>
 <td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(resistor1.</span>n, <span style="color: rgb(0, 153, 0); font-weight: bold;">winding1.</span>p);
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(Rprim.</span>n, <span style="color: rgb(102, 0, 204); font-weight: bold;">WindingPrim.</span>p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(WindingSec.</span>n, <span style="color: rgb(102, 0, 204); font-weight: bold;">el_ground2.</span>p);
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(winding2.</span>port_n, mag_ground.port);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(winding2.port_n,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">mag_ground.port);</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(WindingSec.</span>port_n, mag_ground.port);
-</td>
-</tr>
-<tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(winding2.</span>p, <span style="color: rgb(0, 153, 0); font-weight: bold;">resistor2.</span>p);
-</td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(WindingSec.</span>p, <span style="color: rgb(102, 0, 204); font-weight: bold;">Rsec.</span>p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(Rsec.n,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">el_ground2.p);</span>
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(winding2.</span>n, el_ground2.p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(winding2.p,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">resistor2.p);</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(WindingSec.</span>n, el_ground2.p);
-</td>
-</tr>
-<tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(resistor2.</span>n, el_ground2.p);
-</td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(Rsec.</span>n, el_ground2.p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(WindingPrim.port_p,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">Core.port_p);</span>
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(winding1.</span>port_p, <span style="color: rgb(0, 153, 0); font-weight: bold;">core.</span>port_p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(winding2.n,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">el_ground2.p);</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(WindingPrim.</span>port_p, <span style="color: rgb(102, 0, 204); font-weight: bold;">Core.</span>port_p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(Core.port_n,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">WindingSec.port_p);</span>
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(core.</span>port_n, <span style="color: rgb(0, 153, 0); font-weight: bold;">winding2.</span>port_p);
+<td style="vertical-align: middle; text-align: left;">  connect(resistor2.n, el_ground2.p);<br>  connect(winding1.port_p, core.port_p);<br>  connect(core.port_n, winding2.port_p);<br>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(Core.</span>port_n, <span style="color: rgb(102, 0, 204); font-weight: bold;">WindingSec.</span>port_p);
-</td>
+<td><br></td>
 </tr>
 <br></tbody>
 </table>
@@ -6627,10 +6900,15 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  connect(SineVoltage.p, <span style="color: rgb(0, 153, 0); font-weight: bold;">resistor1.</span>p);
+<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(0, 153, 0); font-weight: bold;">initial equation<br></span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  connect(SineVoltage.p, <span style="color: rgb(102, 0, 204); font-weight: bold;">Rprim.</span>p);
+<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(102, 0, 204); font-weight: bold;">  </span><span style="color: rgb(102, 0, 204); font-weight: bold;">connect(SineVoltage.p, Rprim.p);</span>
 </td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  transformer.core.derHstat = 0.0;<br><br>equation<br>&nbsp&nbspconnect(SineVoltage.p, resistor1.p);<br>
+</td>
+<td><br></td>
 </tr>
 <tr>
 <td colspan="2"
@@ -6698,148 +6976,153 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(vSource1.</span>n, <span style="color: rgb(0, 153, 0); font-weight: bold;">ground1.</span>p);
+<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(0, 153, 0); font-weight: bold;">initial equation<br></span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(VA.</span>n, <span style="color: rgb(102, 0, 204); font-weight: bold;">G1.</span>p);
-</td>
-</tr>
-<tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(vSource2.</span>n, <span style="color: rgb(0, 153, 0); font-weight: bold;">ground1.</span>p);
-</td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(VB.</span>n, <span style="color: rgb(102, 0, 204); font-weight: bold;">G1.</span>p);
+<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(102, 0, 204); font-weight: bold;">  </span><span style="color: rgb(102, 0, 204); font-weight: bold;">connect(VA.n, G1.p);</span>
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(vSource3.</span>n, <span style="color: rgb(0, 153, 0); font-weight: bold;">ground1.</span>p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">transformer.core1.derHstat = 0.</span><span style="color: rgb(0, 153, 0); font-weight: bold;">0;</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(VC.</span>n, <span style="color: rgb(102, 0, 204); font-weight: bold;">G1.</span>p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(VB.n, G1.p);</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">transformer.core2.derHstat = 0.</span><span style="color: rgb(0, 153, 0); font-weight: bold;">0;</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(VC.n, G1.p);</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">transformer.core3.derHstat = 0.</span><span style="color: rgb(0, 153, 0); font-weight: bold;">0;</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(RA.n, TR3PhaseYy.p_A);</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">
+</td>
+<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(102, 0, 204); font-weight: bold;">  connect(RA.p, VA.p);</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(0, 153, 0); font-weight: bold;">equation<br> </span> <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(vSource1.n,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">ground1.p);</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(RB.n,</span><span style="color: rgb(102, 0, 204); font-weight: bold;"> TR3PhaseYy.p_B);</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(vSource2.n,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">ground1.</span>p);
+</td>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(RB.p,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">VB.</span>p);
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(vSource3.n,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">ground1.</span>p);
+</td>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(VC.p,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">RC.</span>p);
 </td>
 </tr>
 <tr>
 <td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(resistor1.</span>n, <span style="color: rgb(0, 153, 0); font-weight: bold;">transformer.p1);</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(RA.</span>n, <span style="color: rgb(102, 0, 204); font-weight: bold;">TR3PhaseYy.p_A);</span>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(RC.</span>n, <span style="color: rgb(102, 0, 204); font-weight: bold;">TR3PhaseYy.p_C);</span>
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(resistor1.</span>p, <span style="color: rgb(0, 153, 0); font-weight: bold;">vSource1.</span>p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(resistor1.p,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">vSource1.</span>p);
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(RA.</span>p, <span style="color: rgb(102, 0, 204); font-weight: bold;">VA.</span>p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(D2.n,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">D1.</span>p);
 </td>
 </tr>
 <tr>
 <td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(resistor2.</span>n, <span style="color: rgb(0, 153, 0); font-weight: bold;">transformer.p2);</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(RB.</span>n, <span style="color: rgb(102, 0, 204); font-weight: bold;">TR3PhaseYy.p_B);</span>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(D4.</span>n, <span style="color: rgb(102, 0, 204); font-weight: bold;">D3.p);</span>
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(resistor2.</span>p, <span style="color: rgb(0, 153, 0); font-weight: bold;">vSource2.</span>p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(resistor2.p,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">vSource2.</span>p);
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(RB.</span>p, <span style="color: rgb(102, 0, 204); font-weight: bold;">VB.</span>p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(D6.n,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">D5.</span>p);
 </td>
 </tr>
 <tr>
 <td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(vSource3.</span>p, <span style="color: rgb(0, 153, 0); font-weight: bold;">resistor3.</span>p);
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(VC.</span>p, <span style="color: rgb(102, 0, 204); font-weight: bold;">RC.</span>p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(D2.</span>p, <span style="color: rgb(102, 0, 204); font-weight: bold;">D4.</span>p);
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(resistor3.</span>n, <span style="color: rgb(0, 153, 0); font-weight: bold;">transformer.p3);</span>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(resistor3.n,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">transformer.p3);</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(RC.</span>n, <span style="color: rgb(102, 0, 204); font-weight: bold;">TR3PhaseYy.p_C);</span>
-</td>
-</tr>
-<tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(diode2.</span>n, <span style="color: rgb(0, 153, 0); font-weight: bold;">diode1.</span>p);
-</td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(D2.</span>n, <span style="color: rgb(102, 0, 204); font-weight: bold;">D1.</span>p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(D4.p,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">D6.p);</span>
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(diode4.</span>n, <span style="color: rgb(0, 153, 0); font-weight: bold;">diode3.</span>p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(diode2.</span>n, <span style="color: rgb(0, 153, 0); font-weight: bold;">diode1.p);</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(D4.</span>n, <span style="color: rgb(102, 0, 204); font-weight: bold;">D3.</span>p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(D1.</span>n, <span style="color: rgb(102, 0, 204); font-weight: bold;">D3.n);</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(diode4.</span>n, <span style="color: rgb(0, 153, 0); font-weight: bold;">diode3.p);</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(D3.</span>n, <span style="color: rgb(102, 0, 204); font-weight: bold;">D5.n);</span>
 </td>
 </tr>
 <tr>
 <td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(diode6.</span>n, <span style="color: rgb(0, 153, 0); font-weight: bold;">diode5.</span>p);
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(D6.</span>n, <span style="color: rgb(102, 0, 204); font-weight: bold;">D5.</span>p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(D5.</span>n, <span style="color: rgb(102, 0, 204); font-weight: bold;">capacitor1.</span>p);
 </td>
 </tr>
 <tr>
 <td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(diode2.</span>p, <span style="color: rgb(0, 153, 0); font-weight: bold;">diode4.</span>p);
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(D2.</span>p, <span style="color: rgb(102, 0, 204); font-weight: bold;">D4.</span>p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(RL.</span>p, <span style="color: rgb(102, 0, 204); font-weight: bold;">capacitor1.</span>p);
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(diode4.</span>p, <span style="color: rgb(0, 153, 0); font-weight: bold;">diode6.</span>p);
-</td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(D4.</span>p, <span style="color: rgb(102, 0, 204); font-weight: bold;">D6.</span>p);
-</td>
-</tr>
-<tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(diode1.</span>n, <span style="color: rgb(0, 153, 0); font-weight: bold;">diode3.</span>n);
-</td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(D1.</span>n, <span style="color: rgb(102, 0, 204); font-weight: bold;">D3.</span>n);
-</td>
-</tr>
-<tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(diode3.</span>n, <span style="color: rgb(0, 153, 0); font-weight: bold;">diode5.</span>n);
-</td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(D3.</span>n, <span style="color: rgb(102, 0, 204); font-weight: bold;">D5.</span>n);
-</td>
-</tr>
-<tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(diode5.</span>n, capacitor1.p);
-</td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(D5.</span>n, capacitor1.p);
-</td>
-</tr>
-<tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(resistorL.</span>p, capacitor1.p);
-</td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(RL.</span>p, capacitor1.p);
-</td>
-</tr>
-<tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(transformer.n1,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">inductor1.</span>p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(diode4.p,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">diode6.</span>p);
 </td>
 <td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(TR3PhaseYy.p_a,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">inductor.</span>p);
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(transformer.n2,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">inductor2.</span>p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(diode1.n,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">diode3.n);</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(TR3PhaseYy.p_b,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">inductor1.</span>p);
-</td>
-</tr>
-<tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(inductor2.</span>n, <span style="color: rgb(0, 153, 0); font-weight: bold;">diode3.</span>p);
-</td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(inductor1.</span>n, <span style="color: rgb(102, 0, 204); font-weight: bold;">D3.</span>p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(TR3PhaseYy.p_b,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">inductor1.p);</span>
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(inductor3.</span>p, <span style="color: rgb(0, 153, 0); font-weight: bold;">transformer.n3);</span>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(diode3.</span>n, <span style="color: rgb(0, 153, 0); font-weight: bold;">diode5.n);</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(inductor2.</span>p, <span style="color: rgb(102, 0, 204); font-weight: bold;">TR3PhaseYy.p_c);</span>
-</td>
-</tr>
-<tr>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(inductor3.</span>n, <span style="color: rgb(0, 153, 0); font-weight: bold;">diode6.</span>n);
-</td>
-<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(inductor2.</span>n, <span style="color: rgb(102, 0, 204); font-weight: bold;">D6.</span>n);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(inductor1.</span>n, <span style="color: rgb(102, 0, 204); font-weight: bold;">D3.p);</span>
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">  connect(capacitor2.n, <span style="color: rgb(0, 153, 0); font-weight: bold;">diode6.</span>p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(diode5.n,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">capacitor1.p);</span>
 </td>
-<td style="vertical-align: middle; text-align: left;">  connect(capacitor2.n, <span style="color: rgb(102, 0, 204); font-weight: bold;">D6.</span>p);
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(inductor2.p,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">TR3PhaseYy.p_c);</span>
 </td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(resistorL.p,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">capacitor1.p);</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(inductor2.n,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">D6.n);</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">connect(transformer.n1,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">inductor1.</span>p);
+</td>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">connect(capacitor2.n,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">D6.</span>p);
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  connect(transformer.n2, inductor2.p);<br>  connect(inductor2.n, diode3.p);<br>  connect(inductor3.p, transformer.n3);<br>  connect(inductor3.n, diode6.n);<br>  connect(capacitor2.n, diode6.p);<br>
+</td>
+<td><br></td>
 </tr>
 <tr>
 <td colspan="2"
@@ -7090,7 +7373,7 @@ style="vertical-align: middle; text-align: left;">  LossPower = LossPowerWinding
 
 <br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer3PhaseYyWithHysteresis</big><br><br>
-<table style="border-collapse: collapse;text-align: left; width: 100%;height: 2222px;" 
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 2244px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
 <tr>
@@ -7103,7 +7386,7 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">N1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">L1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">d1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">rho1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">alpha1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">N2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">L2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">d2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">rho2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">alpha2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">v1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">v2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">R1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">R2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">i1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">i2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">I1Start<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">I1Fixed<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">I2Start<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">I2Fixed<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">L_l1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">A_l1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">mu_rel1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">L_l2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">A_l2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">mu_rel2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">core1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">core2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">core3<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">winding11<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">winding12<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">winding13<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">winding21<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">winding22<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">winding23<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">resistor11<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">resistor21<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">resistor12<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">resistor22<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">resistor23<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">resistor13<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">leakage<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">p1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">p2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">p3<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">n1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">n2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">n3<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">starPoint2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">starPoint1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">N_p<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">l_p<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">d_p<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">rho_p<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">alpha_p<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">N_s<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">l_s<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">d_s<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">rho_s<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">alpha_s<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">v_p<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">v_s<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">R_p<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">R_s<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">i_p<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">i_s<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">IprimStart<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">IprimFixed<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">IsecStart<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">IsecFixed<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">L_lp<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">A_lp<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">mu_relp<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">L_ls<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">A_ls<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">mu_rels<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">CoreA<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">CoreB<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">CoreC<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">WA<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">WB<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">WC<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">Wa<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">Wb<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">Wc<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">RA<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">Ra<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">RB<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">Rb<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">Rc<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">RC<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">Leakage<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">p_A<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">p_B<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">p_C<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">p_a<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">p_b<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">p_c<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">pn<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">pN<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">ground<br></td><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;"><b>protected</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">N1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">L1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">d1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">rho1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">alpha1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">N2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">L2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">d2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">rho2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">alpha2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">v1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">v2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">R1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">R2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">i1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">i2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">I1Start<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">I1Fixed<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">I2Start<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">I2Fixed<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">L_l1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">A_l1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">mu_rel1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">L_l2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">A_l2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">mu_rel2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">core1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">core2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">core3<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">winding11<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">winding12<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">winding13<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">winding21<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">winding22<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">winding23<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">resistor11<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">resistor21<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">resistor12<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">resistor22<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">resistor23<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">resistor13<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">leakage<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">p1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">p2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">p3<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">n1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">n2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">n3<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">starPoint2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">starPoint1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">N_p<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">l_p<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">d_p<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">rho_p<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">alpha_p<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">N_s<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">l_s<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">d_s<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">rho_s<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">alpha_s<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">v_p<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">v_s<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">R_p<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">R_s<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">i_p<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">i_s<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">IprimStart<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">IprimFixed<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">IsecStart<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">IsecFixed<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">L_lp<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">A_lp<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">mu_relp<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">L_ls<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">A_ls<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">mu_rels<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">CoreA<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">CoreB<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">CoreC<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">WA<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">WB<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">WC<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">Wa<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">Wb<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">Wc<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">RA<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">Ra<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">RB<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">Rb<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">Rc<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">RC<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">Leakage<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">p_A<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">p_B<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">p_C<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">p_a<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">p_b<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">p_c<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">pn<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">pN<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
 </table>
 
 <br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
@@ -7879,7 +8162,7 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 
 <br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited</big><br><br>
-<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
 <tr>
@@ -7892,7 +8175,34 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">ir<br></td><td style="text-align: left; vertical-align: middle;"><b>graphical</b><br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">ir<br></td><td style="text-align: left; vertical-align: middle;"><b>graphical</b><br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">irRMS<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
+</table>
+
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  connect(ir, rotorCage.i);
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  connect(irRMS, rotorCage.iRMS);<br>
+</td>
+<td><br></td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  connect(damperCageLossPower, rotorCage.lossPower);<br> ... <br>
+</td>
+</tr>
+<br></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
@@ -8105,7 +8415,7 @@ style="vertical-align: middle; text-align: left;">  connect(strayReluctance.port
 
 <br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding</big><br><br>
-<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 88px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
 <tr>
@@ -8118,7 +8428,7 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">alphaRef<br></td><td style="text-align: left; vertical-align: middle;">=Modelica323.Electrical.Machines.Thermal.convertAlpha(alpha20, TRef, 293.15)<br></td><td style="text-align: left; vertical-align: middle;">=Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20, TRef, 293.15)<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">electroMagneticConverter<br></td><td style="text-align: left; vertical-align: middle;">final orientation={0,Modelica323.Constants.pi/2}<br></td><td style="text-align: left; vertical-align: middle;">final orientation={0,Modelica.Constants.pi/2}<br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">alphaRef<br></td><td style="text-align: left; vertical-align: middle;">=Modelica323.Electrical.Machines.Thermal.convertAlpha(alpha20, TRef, 293.15)<br></td><td style="text-align: left; vertical-align: middle;">=Modelica.Electrical.Machines.Thermal.convertAlpha(alpha20, TRef, 293.15)<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">electroMagneticConverter<br></td><td style="text-align: left; vertical-align: middle;">final orientation={0,Modelica323.Constants.pi/2}<br></td><td style="text-align: left; vertical-align: middle;">final orientation={0,Modelica.Constants.pi/2}<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">iRMS<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
@@ -10772,6 +11082,24 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Mechanics.MultiBody.Visualizers.VoluminousWheel</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">ri<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Length</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Radius</b><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Mechanics.MultiBody.Visualizers.Advanced.Arrow</big><br><br>
 <table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
  cellpadding="5">
@@ -10809,6 +11137,22 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 
 <br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">function Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">ri<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Length</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Radius</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">ro<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Length</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Radius</b><br></td></tr></tbody>
+</table>
+
 <br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
  cellpadding="5">
 <colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
@@ -11616,6 +11960,24 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Fluid.Examples.AST_BatchPlant.BaseClasses.TankWith3InletOutletArraysWithEvaporatorCondensor</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 88px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">height<br></td><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;">min=0<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">level_start<br></td><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;">min=0<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">sat<br></td><td style="text-align: left; vertical-align: middle;"><b>Media.Water.WaterIF97_base.SaturationProperties</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Media.Interfaces.Types.SaturationProperties</b><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Fluid.Examples.AST_BatchPlant.BaseClasses.Controller</big><br><br>
 <table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
  cellpadding="5">
@@ -11631,6 +11993,24 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
 </tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">BooleanExpression1<br></td><td style="text-align: left; vertical-align: middle;">y=time >= 2500<br></td><td style="text-align: left; vertical-align: middle;">y=time > 2500<br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Fluid.Examples.HeatExchanger.BaseClasses.BasicHX</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">roughness_1<br></td><td style="text-align: left; vertical-align: middle;"><b>Fluid.Types.Roughness</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Length</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">roughness_2<br></td><td style="text-align: left; vertical-align: middle;"><b>Fluid.Types.Roughness</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Length</b><br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
@@ -11670,6 +12050,60 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Fluid.Pipes.BaseClasses.PartialStraightPipe</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">perimeter<br></td><td style="text-align: left; vertical-align: middle;">min=0<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">roughness<br></td><td style="text-align: left; vertical-align: middle;"><b>Fluid.Types.Roughness</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Height</b><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Fluid.Pipes.BaseClasses.PartialTwoPortFlow</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">roughnesses<br></td><td style="text-align: left; vertical-align: middle;"><b>Fluid.Types.Roughness</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Height</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">roughnessesFM<br></td><td style="text-align: left; vertical-align: middle;"><b>Fluid.Types.Roughness</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Height</b><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">roughnesses<br></td><td style="text-align: left; vertical-align: middle;"><b>Fluid.Types.Roughness</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Height</b><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow</big><br><br>
 <br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
  cellpadding="5">
@@ -11700,7 +12134,43 @@ style="vertical-align: middle; text-align: left;">  end for;<br> ... <br>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
-<big style="font-family: Arial;">model Fluid.Pipes.BaseClasses.WallFriction.TestWallFrictionAndGravity</big><br><br>
+<big style="font-family: Arial;">model Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">roughnesses<br></td><td style="text-align: left; vertical-align: middle;"><b>Fluid.Types.Roughness</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Height</b><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dp</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">roughness<br></td><td style="text-align: left; vertical-align: middle;"><b>Fluid.Types.Roughness</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Length</b><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dp_staticHead</big><br><br>
 <table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
@@ -11714,11 +12184,333 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">mu_a<br></td><td style="text-align: left; vertical-align: middle;">=if not WallFriction.use_mu then 1e-10 else (if use_nominal then mu_nominal else Medium.dynamicViscosity(state_a))<br></td><td style="text-align: left; vertical-align: middle;">=if not WallFriction.use_mu then 1.e-10 else (if use_nominal then mu_nominal else Medium.dynamicViscosity(state_a))<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">mu_b<br></td><td style="text-align: left; vertical-align: middle;">=if not WallFriction.use_mu then 1e-10 else (if use_nominal then mu_nominal else Medium.dynamicViscosity(state_b))<br></td><td style="text-align: left; vertical-align: middle;">=if not WallFriction.use_mu then 1.e-10 else (if use_nominal then mu_nominal else Medium.dynamicViscosity(state_b))<br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">g_times_height_ab<br></td><td style="text-align: left; vertical-align: middle;">unit="m2/s2"<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">roughness<br></td><td style="text-align: left; vertical-align: middle;"><b>Fluid.Types.Roughness</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Length</b><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.pressureLoss_m_flow</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">roughness<br></td><td style="text-align: left; vertical-align: middle;"><b>Fluid.Types.Roughness</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Length</b><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.pressureLoss_m_flow_staticHead</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">g_times_height_ab<br></td><td style="text-align: left; vertical-align: middle;">unit="m2/s2"<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">roughness<br></td><td style="text-align: left; vertical-align: middle;"><b>Fluid.Types.Roughness</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Length</b><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Pipes.BaseClasses.WallFriction.Laminar.massFlowRate_dp_staticHead</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dp_grav_a<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Pressure</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Real</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dp_grav_b<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Pressure</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Real</b><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Pipes.BaseClasses.WallFriction.Laminar.pressureLoss_m_flow_staticHead</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 110px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dp_grav_a<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Pressure</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Real</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dp_grav_b<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Pressure</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Real</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">m_flow_a<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.MassFlowRate</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Real</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">m_flow_b<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.MassFlowRate</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Real</b><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent.pressureLoss_m_flow_staticHead</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">m_flow_a<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.MassFlowRate</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Real</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">m_flow_b<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.MassFlowRate</b><br></td><td style="text-align: left; vertical-align: middle;"><b>Real</b><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.massFlowRate_dp_staticHead</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">Delta<br></td><td style="text-align: left; vertical-align: middle;">min=0<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.pressureLoss_m_flow_staticHead</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">Delta<br></td><td style="text-align: left; vertical-align: middle;">min=0<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.Internal.m_flow_of_dp_fric</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">Delta<br></td><td style="text-align: left; vertical-align: middle;">min=0<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.Internal.dp_fric_of_m_flow</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">Delta<br></td><td style="text-align: left; vertical-align: middle;">min=0<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Pipes.BaseClasses.WallFriction.Detailed.massFlowRate_dp</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">Delta<br></td><td style="text-align: left; vertical-align: middle;">min=0<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Pipes.BaseClasses.WallFriction.Detailed.pressureLoss_m_flow</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">Delta<br></td><td style="text-align: left; vertical-align: middle;">min=0<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Pipes.BaseClasses.WallFriction.Detailed.massFlowRate_dp_staticHead</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">Delta<br></td><td style="text-align: left; vertical-align: middle;">min=0<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Pipes.BaseClasses.WallFriction.Detailed.pressureLoss_m_flow_staticHead</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">Delta<br></td><td style="text-align: left; vertical-align: middle;">min=0<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Pipes.BaseClasses.WallFriction.Detailed.Internal.m_flow_of_dp_fric</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">Delta<br></td><td style="text-align: left; vertical-align: middle;">min=0<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Pipes.BaseClasses.WallFriction.Detailed.Internal.dp_fric_of_m_flow</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">Delta<br></td><td style="text-align: left; vertical-align: middle;">min=0<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Fluid.Pipes.BaseClasses.WallFriction.TestWallFrictionAndGravity</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 88px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">roughness<br></td><td style="text-align: left; vertical-align: middle;"><b>Fluid.Types.Roughness</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Length</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">mu_a<br></td><td style="text-align: left; vertical-align: middle;">=if not WallFriction.use_mu then 1e-10 else (if use_nominal then mu_nominal else Medium.dynamicViscosity(state_a))<br></td><td style="text-align: left; vertical-align: middle;">=if not WallFriction.use_mu then 1.e-10 else (if use_nominal then mu_nominal else Medium.dynamicViscosity(state_a))<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">mu_b<br></td><td style="text-align: left; vertical-align: middle;">=if not WallFriction.use_mu then 1e-10 else (if use_nominal then mu_nominal else Medium.dynamicViscosity(state_b))<br></td><td style="text-align: left; vertical-align: middle;">=if not WallFriction.use_mu then 1.e-10 else (if use_nominal then mu_nominal else Medium.dynamicViscosity(state_b))<br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Fluid.Machines.ControlledPump</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">head_op<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Position</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Height</b><br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Fluid.Machines.BaseClasses.PartialPump</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 88px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">delta_head_init<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Position</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Height</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">head<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Position</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Height</b><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">unitHead<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Position</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Height</b><br></td></tr></tbody>
+</table>
+
 <br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
  cellpadding="5">
 <colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
@@ -11734,7 +12526,7 @@ style="vertical-align: middle; text-align: left;"><br> ... <br>  if not checkVal
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">      head = homotopy((N/N_nominal)^2*flowCharacteristic(V_flow_single*N_nominal/N),<br>                       <span style="color: rgb(0, 153, 0); font-weight: bold;">N/N_nominal*(flowCharacteristic(0)+V_flow_single*noEvent(if </span><span style="color: rgb(0, 153, 0); font-weight: bold;">abs(V_flow_single_init)&gt;0 then delta_head_init/V_flow_single_init else 0)));</span>
+<td style="vertical-align: middle; text-align: left;">      head = homotopy((N/N_nominal)^2*flowCharacteristic(V_flow_single*N_nominal/N),<br>                       <span style="color: rgb(0, 153, 0); font-weight: bold;">N/N_nominal*(flowCharacteristic(V_flow_single_init)+(V_flow_single-V_flow_single_init)*noEvent(if </span><span style="color: rgb(0, 153, 0); font-weight: bold;">abs(V_flow_single_init)&gt;0 then delta_head_init/(0.1*V_flow_single_init) else 0)));</span>
 </td>
 <td style="vertical-align: middle; text-align: left;">      head = homotopy((N/N_nominal)^2*flowCharacteristic(V_flow_single*N_nominal/N),<br>                       <span style="color: rgb(102, 0, 204); font-weight: bold;">N/N_nominal*(flowCharacteristic(0)+delta_head_init*V_flow_single));</span>
 </td>
@@ -11750,7 +12542,7 @@ style="vertical-align: middle; text-align: left;">  else
 </td>
 </tr>
 <tr>
-<td style="vertical-align: middle; text-align: left;">      head = homotopy(if s &gt; 0 then (N/N_nominal)^2*flowCharacteristic(V_flow_single*N_nominal/N)<br>                               else (N/N_nominal)^2*flowCharacteristic(0) - s*unitHead,<br>                      <span style="color: rgb(0, 153, 0); font-weight: bold;">N/N_nominal*(flowCharacteristic(0)+V_flow_single*noEvent(if </span><span style="color: rgb(0, 153, 0); font-weight: bold;">abs(V_flow_single_init)&gt;0 then delta_head_init/V_flow_single_init else 0)));</span>
+<td style="vertical-align: middle; text-align: left;">      head = homotopy(if s &gt; 0 then (N/N_nominal)^2*flowCharacteristic(V_flow_single*N_nominal/N)<br>                               else (N/N_nominal)^2*flowCharacteristic(0) - s*unitHead,<br>                      <span style="color: rgb(0, 153, 0); font-weight: bold;">N/N_nominal*(flowCharacteristic(V_flow_single_init)+(V_flow_single-V_flow_single_init)*noEvent(if </span><span style="color: rgb(0, 153, 0); font-weight: bold;">abs(V_flow_single_init)&gt;0 then delta_head_init/(0.1*V_flow_single_init) else 0)));</span>
 </td>
 <td style="vertical-align: middle; text-align: left;">      head = homotopy(if s &gt; 0 then (N/N_nominal)^2*flowCharacteristic(V_flow_single*N_nominal/N)<br>                               else (N/N_nominal)^2*flowCharacteristic(0) - s*unitHead,<br>                      <span style="color: rgb(102, 0, 204); font-weight: bold;">N/N_nominal*(flowCharacteristic(0)+delta_head_init*V_flow_single));</span>
 </td>
@@ -11761,6 +12553,96 @@ style="vertical-align: middle; text-align: left;">      V_flow_single = homotopy
 </td>
 </tr>
 <br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Machines.BaseClasses.PumpCharacteristics.baseFlow</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">head<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Position</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Height</b><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Machines.BaseClasses.PumpCharacteristics.linearFlow</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">head_nominal<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Position</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Height</b><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">head_nominal<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Position</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Height</b><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Machines.BaseClasses.PumpCharacteristics.polynomialFlow</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">head_nominal<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Position</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Height</b><br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Fluid.Machines.BaseClasses.PumpMonitoring.PumpMonitoringNPSH</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">NPSHa<br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Position</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Length</b><br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
@@ -11779,6 +12661,24 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
 </tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">Av<br></td><td style="text-align: left; vertical-align: middle;">fixed=CvData == Modelica323.Fluid.Types.CvTypes.Av<br></td><td style="text-align: left; vertical-align: middle;">fixed=if CvData == Modelica322.Fluid.Types.CvTypes.Av then true else false<br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Fluid.Fittings.BaseClasses.QuadraticTurbulent.TestWallFriction</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">roughness<br></td><td style="text-align: left; vertical-align: middle;"><b>Fluid.Types.Roughness</b><br></td><td style="text-align: left; vertical-align: middle;"><b>SIunits.Length</b><br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
@@ -11962,7 +12862,7 @@ style="vertical-align: middle; text-align: left;">  port_a.m_flow + port_b.m_flo
 
 <br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">model Fluid.Interfaces.PartialLumpedVolume</big><br><br>
-<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
 <tr>
@@ -11975,7 +12875,7 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">C_start<br></td><td style="text-align: left; vertical-align: middle;">=Medium.C_default<br></td><td style="text-align: left; vertical-align: middle;">=fill(0, Medium.nC)<br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">C_start<br></td><td style="text-align: left; vertical-align: middle;">=Medium.C_default<br></td><td style="text-align: left; vertical-align: middle;">=fill(0, Medium.nC)<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">medium<br></td><td style="text-align: left; vertical-align: middle;">preferredMediumStates=(if energyDynamics == Dynamics.SteadyState and massDynamics == Dynamics.SteadyState then false else true)<br></td><td style="text-align: left; vertical-align: middle;">preferredMediumStates=true<br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
@@ -12661,6 +13561,108 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 110px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">a<br></td><td style="text-align: left; vertical-align: middle;">=abs(IN_con.a)<br></td><td style="text-align: left; vertical-align: middle;">=max(Modelica322.Constants.eps, abs(IN_con.a))<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">b<br></td><td style="text-align: left; vertical-align: middle;">=abs(IN_con.b)<br></td><td style="text-align: left; vertical-align: middle;">=max(Modelica322.Constants.eps, abs(IN_con.b))<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dp_min<br></td><td style="text-align: left; vertical-align: middle;">=max(Modelica323.Constants.eps, abs(IN_con.dp_min))<br></td><td style="text-align: left; vertical-align: middle;">=IN_con.dp_min<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">V_flow_smooth<br></td><td style="text-align: left; vertical-align: middle;">=if a > 0 and b <= 0 then (dp_min/a)^0.5 else 0<br></td><td style="text-align: left; vertical-align: middle;">=if IN_con.a > 0 then -(b/(2*a) + ((-b/(2*a))^2 + dp_min/a)^0.5) else dp_min/b<br></td></tr></tbody>
+</table>
+
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">algorithm<br>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">assert(a+b&gt;0,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">"Please provide non-zero factors for either a or b of function dp=a*V_flow^2 + b*V_flow");</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">DP </span><span style="color: rgb(102, 0, 204); font-weight: bold;">:= a*Dissipation.Utilities.Functions.General.SmoothPower(<br> </span> <span style="color: rgb(102, 0, 204); font-weight: bold;">        V_flow,<br>     </span><span style="color: rgb(102, 0, 204); font-weight: bold;">     V_flow_smooth,<br>          2) + b*V_flow;</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  DP =  a*(if a&gt;0 and b&lt;=0 then Dissipation.Utilities.Functions.General.SmoothPower(<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspV_flow,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspV_flow_smooth,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp2) elseif a&gt;0 and b&gt;0 then V_flow*abs(V_flow) else 0) + b*V_flow;<br>
+</td>
+<td><br></td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 88px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">a<br></td><td style="text-align: left; vertical-align: middle;">=abs(IN_con.a)<br></td><td style="text-align: left; vertical-align: middle;">=max(Modelica322.Constants.eps, abs(IN_con.a))<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">b<br></td><td style="text-align: left; vertical-align: middle;">=abs(IN_con.b)<br></td><td style="text-align: left; vertical-align: middle;">=max(Modelica322.Constants.eps, abs(IN_con.b))<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">dp_min<br></td><td style="text-align: left; vertical-align: middle;">=max(Modelica323.Constants.eps, abs(IN_con.dp_min))<br></td><td style="text-align: left; vertical-align: middle;">=IN_con.dp_min<br></td></tr></tbody>
+</table>
+
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">algorithm<br>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">assert(a+b&gt;0,</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">"Please provide non-zero factors for either a or </span><span style="color: rgb(0, 153, 0); font-weight: bold;">b of function dp=a*V_flow^2 + b*V_flow");</span>
+</td>
+<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(102, 0, 204); font-weight: bold;">M_FLOW := IN_var.rho*(-b/(2*a) +<br> </span> <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica322.Fluid.Dissipation.Utilities.Functions.General.SmoothPower(<br> </span> <span style="color: rgb(102, 0, 204); font-weight: bold;">(b/(2*a))^2 </span><span style="color: rgb(102, 0, 204); font-weight: bold;">+ (1/a)*dp,</span><br> <span style="color: rgb(102, 0, 204); font-weight: bold;"> (b/(2*a))^2 + (1/a)*dp_min,<br>  0.5));</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">M_FLOW = IN_var.rho*(if a &gt; 0 and b &lt;= 0 then<br>&nbsp&nbspModelica323.Fluid.Dissipation.Utilities.Functions.General.SmoothPower(<br>&nbsp&nbsp(1/a)*dp,<br>&nbsp&nbsp(1/a)*dp_min,<br>&nbsp&nbsp0.5) elseif a &gt; 0 and b &gt; 0 then sign(dp)*(-b/(2*a) + sqrt((b/(2*a))^2 + (1/a)<br>&nbsp&nbsp*abs(dp))) else b*dp);<br>
+</td>
+<td><br></td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">function Fluid.Dissipation.Utilities.Functions.HeatTransfer.TwoPhase.kc_twoPhase_condensationHorizontal_KC</big><br><br>
 <table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
  cellpadding="5">
@@ -12739,6 +13741,52 @@ style="vertical-align: middle; text-align: left;"><br> ... <br>  end for;
 <tr>
 <td colspan="2"
 style="vertical-align: middle; text-align: left;">       X_str = "";<br> ... <br>
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Utilities.regRoot2</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">sqrt_k1<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">sqrt_k2<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
+</table>
+
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">algorithm<br>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  y := smooth(2, if x &gt;= x_small then <span style="color: rgb(0, 153, 0); font-weight: bold;">sqrt_k1*sqrt(x) </span>else<br>                 if x &lt;= -x_small then <span style="color: rgb(0, 153, 0); font-weight: bold;">-sqrt_k2*sqrt(abs(x)) </span>else<br>                 if k1 &gt;= k2 then regRoot2_utility(x,x_small,k1,k2,use_yd0,yd0) else<br>                                 -regRoot2_utility(-x,x_small,k2,k1,use_yd0,yd0));
+</td>
+<td style="vertical-align: middle; text-align: left;">  y := smooth(2, if x &gt;= x_small then <span style="color: rgb(102, 0, 204); font-weight: bold;">sqrt(k1*x) </span>else<br>                 if x &lt;= -x_small then <span style="color: rgb(102, 0, 204); font-weight: bold;">-sqrt(k2*abs(x)) </span>else<br>                 if k1 &gt;= k2 then regRoot2_utility(x,x_small,k1,k2,use_yd0,yd0) else<br>                                 -regRoot2_utility(-x,x_small,k2,k1,use_yd0,yd0));
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">
 </td>
 </tr>
 <br></tbody>
@@ -12879,6 +13927,96 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">model Media.Air.ReferenceAir.Air_Base.BaseProperties</big><br><br>
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  MM = Air_Utilities.Basic.Constants.MM;
+</td>
+<td style="vertical-align: middle; text-align: left;">  MM = <span style="color: rgb(102, 0, 204); font-weight: bold;">ReferenceAir.</span>Air_Utilities.Basic.Constants.MM;
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  if dT_explicit then<br> ... <br>  u = h - p/d;
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  R = <span style="color: rgb(0, 153, 0); font-weight: bold;">Air_Utilities.Basic.</span>Constants.R;
+</td>
+<td style="vertical-align: middle; text-align: left;">  R = Constants.R;
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  h = state.h;<br> ... <br>
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Media.Air.MoistAir.specificInternalEnergy</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">u<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Media.Air.MoistAir.density_derX</big><br><br>
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">algorithm<br>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  dddX[Water] := <span style="color: rgb(0, 153, 0); font-weight: bold;">- </span>pressure(state)*(steam.R - dryair.<span style="color: rgb(0, 153, 0); font-weight: bold;">R)/(((steam.</span>R - dryair.R)<br>    *state.<span style="color: rgb(0, 153, 0); font-weight: bold;">X[Water] </span>+ dryair.<span style="color: rgb(0, 153, 0); font-weight: bold;">R)^2*temperature(state));</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">  dddX[Water] := pressure(state)*(steam.R - dryair.<span style="color: rgb(102, 0, 204); font-weight: bold;">R)/((steam.</span>R - dryair.R)<br>    *state.<span style="color: rgb(102, 0, 204); font-weight: bold;">X[Water]*temperature(state) </span>+ dryair.<span style="color: rgb(102, 0, 204); font-weight: bold;">R*temperature(state))^2;</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  dddX[Air] =  <span style="color: rgb(0, 153, 0); font-weight: bold;">- </span>pressure(state)*(dryair.R - steam.<span style="color: rgb(0, 153, 0); font-weight: bold;">R)/((steam.</span>R <span style="color: rgb(0, 153, 0); font-weight: bold;">+ (dryair.R </span>- steam.R)*<br>    state.<span style="color: rgb(0, 153, 0); font-weight: bold;">X[Air])^2*temperature(state));</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">  dddX[Air] =  pressure(state)*(dryair.R - steam.<span style="color: rgb(102, 0, 204); font-weight: bold;">R)/((dryair.</span>R - steam.R)*<br>    state.<span style="color: rgb(102, 0, 204); font-weight: bold;">X[Air]*temperature(state) </span><span style="color: rgb(102, 0, 204); font-weight: bold;">+ steam.R*temperature(state))^2;</span>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">function Media.Air.MoistAir.molarMass</big><br><br>
 <br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
  cellpadding="5">
@@ -12909,8 +14047,38 @@ style="vertical-align: middle; text-align: left;">
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Media.Air.MoistAir.s_pTX</big><br><br>
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">algorithm<br>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">s := <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica323.</span>Media.IdealGases.Common.Functions.s0_Tlow(dryair, T)*(1 - X[<br>  Water]) + <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica323.</span>Media.IdealGases.Common.Functions.s0_Tlow(steam, T)*X[<br>  Water] - <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica323.</span>Constants.R*(Utilities.smoothMax(<br>  <span style="color: rgb(0, 153, 0); font-weight: bold;">X[Water]/MMX[Water],</span><br>  <span style="color: rgb(0, 153, 0); font-weight: bold;">0.0,</span><br>  <span style="color: rgb(0, 153, 0); font-weight: bold;">1e-9)*Modelica323.</span><span style="color: rgb(0, 153, 0); font-weight: bold;">Math.log(max(Y[Water],</span> <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica323.Constants.eps)*p/<br> </span> <span style="color: rgb(0, 153, 0); font-weight: bold;">reference_p) + Utilities.smoothMax(<br>  (1 - X[Water])/MMX[Air],<br>  </span>0.0,<br>  <span style="color: rgb(0, 153, 0); font-weight: bold;">1e-9)*Modelica323.</span>Math.log(max(Y[Air], <span style="color: rgb(0, 153, 0); font-weight: bold;">Modelica323.</span>Constants.<span style="color: rgb(0, 153, 0); font-weight: bold;">eps)*p/<br> </span> <span style="color: rgb(0, 153, 0); font-weight: bold;">reference_p));</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">s := <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica322.</span>Media.IdealGases.Common.Functions.s0_Tlow(dryair, T)*(1 - X[<br>  Water]) + <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica322.</span>Media.IdealGases.Common.Functions.s0_Tlow(steam, T)*X[<br>  Water] - <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica322.</span>Constants.R*(Utilities.smoothMax(<br>  <span style="color: rgb(102, 0, 204); font-weight: bold;">X[Water]/MMX[Water]*Modelica322.</span><span style="color: rgb(102, 0, 204); font-weight: bold;">Math.log(max(Y[Water],</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica322.Constants.eps)<br> </span>   <span style="color: rgb(102, 0, 204); font-weight: bold;">*p/reference_p),</span><br>  0.0,<br>  <span style="color: rgb(102, 0, 204); font-weight: bold;">1e-9) </span><span style="color: rgb(102, 0, 204); font-weight: bold;">- Utilities.smoothMax(<br>  (1 - X[Water])/MMX[Air]*Modelica322.</span>Math.log(max(Y[Air], <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica322.</span>Constants.<span style="color: rgb(102, 0, 204); font-weight: bold;">eps)<br> </span> <span style="color: rgb(102, 0, 204); font-weight: bold;"> </span><span style="color: rgb(102, 0, 204); font-weight: bold;"> *p/reference_p),<br>  0.0,<br>  1e-9));</span>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">function Media.Air.MoistAir.s_pTX_der</big><br><br>
-<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
 <tr>
@@ -12923,7 +14091,40 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">dX<br></td><td style="text-align: left; vertical-align: middle;">each unit="1/s"<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;">unit="1/s"<br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="2" style="vertical-align: middle;">dX<br></td><td style="text-align: left; vertical-align: middle;">each unit="1/s"<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td style="text-align: left; vertical-align: middle;">  <br></td><td style="text-align: left; vertical-align: middle;">unit="1/s"<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">MM<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr></tbody>
+</table>
+
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">algorithm<br>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(0, 153, 0); font-weight: bold;"> </span><span style="color: rgb(0, 153, 0); font-weight: bold;"> MM </span>:= <span style="color: rgb(0, 153, 0); font-weight: bold;">MMX[Water]*MMX[Air]/(X[Water]*MMX[Air] + X[Air]*MMX[Water]);</span>
+</td>
+<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(102, 0, 204); font-weight: bold;">ds </span>:= <span style="color: rgb(102, 0, 204); font-weight: bold;">Modelica322.Media.IdealGases.</span><span style="color: rgb(102, 0, 204); font-weight: bold;">Common.Functions.s0_Tlow_der(<br>  dryair,<br>  T,<br>  dT)*(1 - X[Water]) +<br>  Modelica322.Media.IdealGases.Common.Functions.s0_Tlow_der(<br>  steam,<br>  T,<br>  dT)*X[Water] + Modelica322.Media.IdealGases.Common.Functions.s0_Tlow(dryair,<br>  T)*dX[Air] + Modelica322.Media.IdealGases.Common.Functions.s0_Tlow(steam, T)*<br>  dX[Water] - Modelica322.Constants.R*(1/MMX[Water]*Utilities.smoothMax_der(<br>  X[Water]*Modelica322.Math.log(max(Y[Water], Modelica322.Constants.eps)*p/<br>    reference_p),<br>  0.0,<br>  1e-9,<br>  (Modelica322.Math.log(max(Y[Water], Modelica322.Constants.eps)*p/reference_p)<br>     + (X[Water]/Y[Water]*(X[Air]*MMX[Water]/(X[Air]*MMX[Water] + X[Water]*MMX[<br>    Air])^2)))*dX[Water] + X[Water]*reference_p/p*dp,<br>  0,<br>  0) - 1/MMX[Air]*Utilities.smoothMax_der(<br>  (1 - X[Water])*Modelica322.Math.log(max(Y[Air], Modelica322.Constants.eps)*p/<br>    reference_p),<br>  0.0,<br>  1e-9,<br>  (Modelica322.Math.log(max(Y[Air], Modelica322.Constants.eps)*p/reference_p)<br>     + (X[Air]/Y[Air]*(X[Water]*MMX[Air]/(X[Air]*MMX[Water] + X[Water]*MMX[Air])<br>    ^2)))*dX[Air] + X[Air]*reference_p/p*dp,<br>  0,<br>  0));</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">ds = IdealGases.Common.Functions.s0_Tlow_der(<br>&nbsp&nbspdryair,<br>&nbsp&nbspT,<br>&nbsp&nbspdT)*(1 - X[Water]) + IdealGases.Common.Functions.s0_Tlow_der(<br>&nbsp&nbspsteam,<br>&nbsp&nbspT,<br>&nbsp&nbspdT)*X[Water] + Modelica323.Media.IdealGases.Common.Functions.s0_Tlow(dryair,<br>&nbsp&nbspT)*dX[Air] + Modelica323.Media.IdealGases.Common.Functions.s0_Tlow(steam, T)*<br>&nbsp&nbspdX[Water] - Modelica323.Constants.R*(1/MMX[Water]*(Utilities.smoothMax_der(<br>&nbsp&nbspX[Water],<br>&nbsp&nbsp0.0,<br>&nbsp&nbsp1e-9,<br>&nbsp&nbspdX[Water],<br>&nbsp&nbsp0.0,<br>&nbsp&nbsp0.0)*(Modelica323.Math.log(max(Y[Water], Modelica323.Constants.eps)*p/<br>&nbsp&nbspreference_p) + MM/MMX[Air]) + dp/p*Utilities.smoothMax(<br>&nbsp&nbspX[Water],<br>&nbsp&nbsp0.0,<br>&nbsp&nbsp1e-9)) + 1/MMX[Air]*(Utilities.smoothMax_der(<br>&nbsp&nbspX[Air],<br>&nbsp&nbsp0.0,<br>&nbsp&nbsp1e-9,<br>&nbsp&nbspdX[Air],<br>&nbsp&nbsp0.0,<br>&nbsp&nbsp0.0)*(Modelica323.Math.log(max(Y[Air], Modelica323.Constants.eps)*p/<br>&nbsp&nbspreference_p) + MM/MMX[Water]) + dp/p*Utilities.smoothMax(<br>&nbsp&nbspX[Air],<br>&nbsp&nbsp0.0,<br>&nbsp&nbsp1e-9)));<br>
+</td>
+<td><br></td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">
+</td>
+</tr>
+<br></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
@@ -13308,6 +14509,52 @@ style="vertical-align: middle; text-align: left;">  end if;<br> ... <br>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Media.IdealGases.Common.Functions.s0_Tlow_der</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 88px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">T_der<br></td><td style="text-align: left; vertical-align: middle;">unit="K/s"<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">s_der<br></td><td style="text-align: left; vertical-align: middle;">Present<br></td><td style="text-align: left; vertical-align: middle;"><br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">s<br></td><td style="text-align: left; vertical-align: middle;"><br></td><td style="text-align: left; vertical-align: middle;">Present<br></td></tr></tbody>
+</table>
+
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">algorithm<br>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">s_der </span>:= data.<span style="color: rgb(0, 153, 0); font-weight: bold;">R*T_der*(data.alow[1]/(T*T*T) </span>+ data.<span style="color: rgb(0, 153, 0); font-weight: bold;">alow[2]/(T*T) </span>+ data.<span style="color: rgb(0, 153, 0); font-weight: bold;">alow[3]/T + data.</span>alow[4] + <span style="color: rgb(0, 153, 0); font-weight: bold;">T*(data.</span>alow[5] + <span style="color: rgb(0, 153, 0); font-weight: bold;">T*(data.</span>alow[6] + <span style="color: rgb(0, 153, 0); font-weight: bold;">T*data.alow[7])));</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">s </span>:= data.<span style="color: rgb(102, 0, 204); font-weight: bold;">R*(data.blow[2] </span><span style="color: rgb(102, 0, 204); font-weight: bold;">- 0.5*data.alow[<br>    1]/(T*T) - data.alow[2]/T </span>+ data.<span style="color: rgb(102, 0, 204); font-weight: bold;">alow[3]*Math.</span><span style="color: rgb(102, 0, 204); font-weight: bold;">log(T) </span>+ <span style="color: rgb(102, 0, 204); font-weight: bold;">T*(<br>    </span>data.alow[4] + <span style="color: rgb(102, 0, 204); font-weight: bold;">T*(0.</span><span style="color: rgb(102, 0, 204); font-weight: bold;">5*data.</span>alow[5] + <span style="color: rgb(102, 0, 204); font-weight: bold;">T*(1/3*data.</span>alow[6] + <span style="color: rgb(102, 0, 204); font-weight: bold;">0.25*data.</span><span style="color: rgb(102, 0, 204); font-weight: bold;">alow[<br>    7]*T))));</span>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
 <big style="font-family: Arial;">function Media.IdealGases.Common.Functions.thermalConductivityEstimate</big><br><br>
 <br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
  cellpadding="5">
@@ -13474,7 +14721,214 @@ style="vertical-align: middle; text-align: left;"><br> ... <br>  assert(T &gt;= 
 </tr>
 <tr>
 <td colspan="2"
-style="vertical-align: middle; text-align: left;">  cp = Poly.evaluate(poly_Cp,if TinK then T else T_degC);<br> ... <br>
+style="vertical-align: middle; text-align: left;">  cp = Poly.evaluate(poly_Cp,if TinK then T else T_degC);
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  h = <span style="color: rgb(0, 153, 0); font-weight: bold;">specificEnthalpyOfT(p,T,densityOfT);</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">  h = <span style="color: rgb(102, 0, 204); font-weight: bold;">if enthalpyOfT then </span><span style="color: rgb(102, 0, 204); font-weight: bold;">h_T(T) else  h_pT(p,T,densityOfT);</span>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  u = h - (if singleState then  reference_p/d else state.p/d);<br> ... <br>
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Media.Incompressible.TableBased.specificEnthalpy</big><br><br>
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">algorithm<br>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  h := <span style="color: rgb(0, 153, 0); font-weight: bold;">specificEnthalpyOfT(state.p, state.T);</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">  h := <span style="color: rgb(102, 0, 204); font-weight: bold;">if enthalpyOfT then h_T(state.T) </span><span style="color: rgb(102, 0, 204); font-weight: bold;">else h_pT(state.p,state.T);</span>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Media.Incompressible.TableBased.specificInternalEnergy</big><br><br>
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">algorithm<br>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  u := <span style="color: rgb(0, 153, 0); font-weight: bold;">specificEnthalpyOfT(state.p,state.T) - </span>(if <span style="color: rgb(0, 153, 0); font-weight: bold;">singleState </span>then <span style="color: rgb(0, 153, 0); font-weight: bold;">reference_p </span>else state.<span style="color: rgb(0, 153, 0); font-weight: bold;">p)/density(state);</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">  u := (if <span style="color: rgb(102, 0, 204); font-weight: bold;">enthalpyOfT </span>then <span style="color: rgb(102, 0, 204); font-weight: bold;">h_T(state.</span><span style="color: rgb(102, 0, 204); font-weight: bold;">T) </span>else <span style="color: rgb(102, 0, 204); font-weight: bold;">h_pT(state.p,</span>state.<span style="color: rgb(102, 0, 204); font-weight: bold;">T)) </span><span style="color: rgb(102, 0, 204); font-weight: bold;">- (if singleState then  reference_p else state.p)/density(state);</span>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Media.R134a.R134a_ph.setState_dTX</big><br><br>
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;"><br> ... <br>  R := R134aData.data.R;
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  sat =  setSat_T(T);<br>  dl =  bubbleDensity(sat);<br>  dv =  dewDensity(sat);<br>  if d &lt; dl and d &gt; dv and T &lt; R134aData.data.FTCRIT then<br>f = Modelica323.Media.Common.HelmholtzDerivs(<br>&nbsp&nbsp&nbsp&nbspd=d,<br>&nbsp&nbsp&nbsp&nbspT=T,<br>&nbsp&nbsp&nbsp&nbspR=R,<br>&nbsp&nbsp&nbsp&nbspdelta=0,<br>&nbsp&nbsp&nbsp&nbsptau=0,<br>&nbsp&nbsp&nbsp&nbspf=0,<br>&nbsp&nbsp&nbsp&nbspfdelta=0,<br>&nbsp&nbsp&nbsp&nbspfdeltadelta=0,<br>&nbsp&nbsp&nbsp&nbspftau=0,<br>&nbsp&nbsp&nbsp&nbspftautau=0,<br>&nbsp&nbsp&nbsp&nbspfdeltatau=0);<br>      state.p =  saturationPressure_sat(sat);<br>      state.h =  (dl*dv/d*(dewEnthalpy(sat) - bubbleEnthalpy(sat))<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp- dv*dewEnthalpy(sat) + dl*bubbleEnthalpy(sat))/(dl - dv);<br>      state.phase =  2;<br>  else<br>
+</td>
+<td><br></td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">      f =  f_R134a(d=d, T=T);<br> ... <br>      state.h =  R*T*(f.tau*f.ftau + f.delta*f.fdelta);
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">   <span style="color: rgb(0, 153, 0); font-weight: bold;">  </span><span style="color: rgb(0, 153, 0); font-weight: bold;"> state.phase =  1;</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">sat.psat = </span> <span style="color: rgb(102, 0, 204); font-weight: bold;">state.p;</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  end if;<br>
+</td>
+<td><br></td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  state.T =  T;
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  state.d =  d;
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">
+</td>
+<td style="vertical-align: middle; text-align: left;"><span style="color: rgb(102, 0, 204); font-weight: bold;">  sat.Tsat =  state.T;</span>
+</td>
+</tr>
+<tr>
+<td><br></td>
+<td style="vertical-align: middle; text-align: left;">  dl =  bubbleDensity(sat);<br>  dv =  dewDensity(sat);<br>  state.phase =  if ((state.d &lt; dl) or (state.d &gt; dv) or (state.p &gt;<br>&nbsp&nbsp&nbsp&nbspR134aData.data.FPCRIT)) then 1 else 2;<br><br>
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Media.R134a.R134a_ph.setState_psX</big><br><br>
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;"><br> ... <br>  state.p := p;
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(0, 153, 0); font-weight: bold;">state.phase </span><span style="color: rgb(0, 153, 0); font-weight: bold;">= </span> <span style="color: rgb(0, 153, 0); font-weight: bold;">getPhase_ps(p, s);</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">  <span style="color: rgb(102, 0, 204); font-weight: bold;">if (getPhase_ps(p,</span> <span style="color: rgb(102, 0, 204); font-weight: bold;">s) == 1) </span><span style="color: rgb(102, 0, 204); font-weight: bold;">then</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">  if state.phase == 1 then<br>
+</td>
+<td><br></td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">      (state.d, state.T, error) =  dtofpsOnePhase(<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspp=p,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsps=s,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspdelp=delp,<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspdels=dels);<br> ... <br>      state.h =  hofpsTwoPhase(p, s);
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">      (state.d, state.T) =  dt_ph(p, state.h);<br>
+</td>
+<td><br></td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">  end if;<br> ... <br>
+</td>
+</tr>
+<br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Media.R134a.R134a_ph.dtofphOnePhase</big><br><br>
+<br><table style="border-collapse: collapse;text-align: left; width: 100%;" 
+ cellpadding="5">
+<colgroup span="3"><col width="50%"><col width="50%"></colgroup><tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><b>Equations in Modelica 3.2.3</b>
+</td>
+<td style="vertical-align: middle; text-align: center;"><b> Equations in Modelica 3.2.2</b>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;"><br> ... <br>          damping =  0.3;
+</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; text-align: left;">          d =  R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dl_coef[int,<span style="color: rgb(0, 153, 0); font-weight: bold;">1:4])*1.5;</span>
+</td>
+<td style="vertical-align: middle; text-align: left;">          d =  R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dl_coef[int,<span style="color: rgb(102, 0, 204); font-weight: bold;"><br>  </span><span style="color: rgb(102, 0, 204); font-weight: bold;">          1:4])*1.02;</span>
+</td>
+</tr>
+<tr>
+<td colspan="2"
+style="vertical-align: middle; text-align: left;">          T =  Common.CubicSplineEval(localx, T_coef[int, 1:4]);<br> ... <br>
 </td>
 </tr>
 <br></tbody>
@@ -15390,6 +16844,12 @@ style="font-weight: bold;">Modelica 3.2.2</span><br>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
 <tr><td style="vertical-align: middle; text-align: left;">package Modelica323.Media.Examples.Utilities</td>
+<td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
+</tr><tr>
+<tr><td style="vertical-align: middle; text-align: left;">function Modelica323.Media.Incompressible.TableBased.specificEnthalpyOfT</td>
+<td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
+</tr><tr>
+<tr><td style="vertical-align: middle; text-align: left;">record Modelica323.Media.Water.WaterIF97_base.SaturationProperties</td>
 <td style="vertical-align: middle; text-align: left;">Present</td><td style="vertical-align: middle; text-align: left;"><br></td>
 </tr><tr>
 <tr><td style="vertical-align: middle; text-align: left;">model Modelica323.Thermal.FluidHeatFlow.Examples.WaterPump</td>
