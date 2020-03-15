@@ -30,6 +30,10 @@
 */
 
 /* Changelog:
+      Mar. 15, 2020: by Thomas Beutlich
+                     Improved fault-tolerance of ModelicaStrings_substring w.r.t.
+                     index arguments (ticket #3503)
+
       Jun. 16, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Utilized hash macros of uthash.h for ModelicaStrings_hashString
                      (ticket #2250)
@@ -105,28 +109,28 @@ _Ret_z_ const char* ModelicaStrings_substring(_In_z_ const char* string,
        An assert is triggered, if startIndex/endIndex are not valid.
      */
     char* substring;
-    int len1 = (int) strlen(string);
+    int len1 = ModelicaStrings_length(string);
     int len2;
 
     /* Check arguments */
-    if ( startIndex < 1 ) {
-        ModelicaFormatError("Wrong call of Utilities.Strings.substring:\n"
-                            "  startIndex = %d (has to be > 0).\n"
-                            "  string     = \"%s\"\n", startIndex, string);
+    if (startIndex < 1) {
+        ModelicaFormatWarning("Negative startIndex (= %d) of Utilities.Strings.substring "
+                              "was set to 1.", startIndex);
+        startIndex = 1;
     }
-    else if ( endIndex == -999 ) {
+    else if (endIndex == -999) {
+        ModelicaFormatWarning("Negative endIndex (= -999) of Utilities.Strings.substring "
+                              "was set to %d.", startIndex);
         endIndex = startIndex;
     }
-    else if ( endIndex < startIndex ) {
-        ModelicaFormatError("Wrong call of  Utilities.Strings.substring:\n"
-                            "  startIndex = %d\n"
-                            "  endIndex   = %d (>= startIndex required)\n"
-                            "  string     = \"%s\"\n", startIndex, endIndex, string);
+    else if (endIndex < startIndex ) {
+        return "";
     }
-    else if ( endIndex > len1 ) {
-        ModelicaFormatError("Wrong call of Utilities.Strings.substring:\n"
-                            "  endIndex = %d (<= %d required (=length(string)).\n"
-                            "  string   = \"%s\"\n", endIndex, len1, string);
+    else if (endIndex > len1) {
+        ModelicaFormatWarning("Argument endIndex (= %d) of Utilities.Strings.substring exceeds "
+                              "the string length (= %d) for string \"%s\" "
+                              "and was set to %d.", endIndex, len1, string, len1);
+        endIndex = len1;
     }
 
     /* Allocate memory and copy string */

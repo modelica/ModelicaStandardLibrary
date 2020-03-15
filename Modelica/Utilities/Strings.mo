@@ -24,7 +24,7 @@ Returns the number of characters of \"string\".
     input String string "String from which a substring is inquired";
     input Integer startIndex(min=1)
       "Character position of substring begin (index=1 is first character in string)";
-    input Integer endIndex(min=1) "Character position of substring end";
+    input Integer endIndex(min=0) "Character position of substring end";
     output String result
       "String containing substring string[startIndex:endIndex]";
   external "C" result = ModelicaStrings_substring(string,startIndex,endIndex) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStrings.h\"", Library="ModelicaExternalC");
@@ -40,13 +40,14 @@ the substring from position startIndex
 up to and including position endIndex of \"string\" .
 </p>
 <p>
-If index, startIndex, or endIndex are not correct, e.g.,
-if endIndex &gt; length(string), an assert is triggered.
+If startIndex or endIndex are not correct, e.g.,
+if endIndex &gt; length(string), a warning is raised.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
 string1 := \"This is line 111\";
 string2 := Strings.substring(string1,9,12); // string2 = \"line\"
+string3 := Strings.substring(string1,9,0); // string3 = \"\"
 </pre></blockquote>
 </html>"));
   end substring;
