@@ -31,7 +31,7 @@
 
 /* Release Notes:
       Jun. 16, 2017: by Thomas Beutlich, ESI ITI GmbH
-                     Utilize hash macros of uthash.h for ModelicaStrings_hashString
+                     Utilized hash macros of uthash.h for ModelicaStrings_hashString
                      (ticket #2250)
 
       Nov. 23, 2016: by Martin Sjoelund, SICS East Swedish ICT AB
@@ -87,11 +87,14 @@
 #endif
 
 #include "ModelicaUtilities.h"
-#if !defined(HASH_FUNCTION) 
+#if !defined(HASH_FUNCTION)
 #define HASH_FUNCTION HASH_AP
 #endif
 #include "uthash.h"
 #undef uthash_fatal /* Ensure that nowhere in this file uses uthash_fatal by accident */
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wtautological-compare"
 
 _Ret_z_ const char* ModelicaStrings_substring(_In_z_ const char* string,
                                       int startIndex, int endIndex) {
@@ -549,3 +552,5 @@ int ModelicaStrings_hashString(_In_z_ const char* str) {
 
     return h.is;
 }
+
+#pragma clang diagnostic pop
