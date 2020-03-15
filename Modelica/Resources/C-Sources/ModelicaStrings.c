@@ -104,40 +104,39 @@
 
 _Ret_z_ const char* ModelicaStrings_substring(_In_z_ const char* string,
                                       int startIndex, int endIndex) {
-    /* Return string1(startIndex:endIndex) if endIndex >= startIndex,
-       or return string1(startIndex:startIndex), if endIndex = 0.
-       An assert is triggered, if startIndex/endIndex are not valid.
+    /* Return string(startIndex:endIndex) if endIndex >= startIndex,
+       or return string(startIndex:startIndex), if endIndex < 0.
+       Warnings are triggered, if startIndex/endIndex are not valid.
      */
     char* substring;
-    int len1 = ModelicaStrings_length(string);
-    int len2;
+    int len = ModelicaStrings_length(string);
 
     /* Check arguments */
     if (startIndex < 1) {
-        ModelicaFormatWarning("Negative startIndex (= %d) of Utilities.Strings.substring "
+        ModelicaFormatWarning("Non-positive startIndex (= %d) of Utilities.Strings.substring "
                               "was set to 1.", startIndex);
         startIndex = 1;
     }
-    else if (endIndex == -999) {
-        ModelicaFormatWarning("Negative endIndex (= -999) of Utilities.Strings.substring "
-                              "was set to %d.", startIndex);
-        endIndex = startIndex;
-    }
-    else if (endIndex < startIndex ) {
+    else if (startIndex > len) {
         return "";
     }
-    else if (endIndex > len1) {
-        ModelicaFormatWarning("Argument endIndex (= %d) of Utilities.Strings.substring exceeds "
-                              "the string length (= %d) for string \"%s\" "
-                              "and was set to %d.", endIndex, len1, string, len1);
-        endIndex = len1;
+    if (endIndex < 0) {
+        ModelicaFormatWarning("Negative endIndex (= %d) of Utilities.Strings.substring "
+                              "was set to %d.", endIndex, startIndex);
+        endIndex = startIndex;
+    }
+    else if (endIndex < startIndex) {
+        return "";
+    }
+    else if (endIndex > len) {
+        endIndex = len;
     }
 
     /* Allocate memory and copy string */
-    len2 = endIndex - startIndex + 1;
-    substring = ModelicaAllocateString((size_t)len2);
-    strncpy(substring, &string[startIndex-1], (size_t)len2);
-    substring[len2] = '\0';
+    len = endIndex - startIndex + 1;
+    substring = ModelicaAllocateString((size_t)len);
+    strncpy(substring, &string[startIndex-1], (size_t)len);
+    substring[len] = '\0';
     return substring;
 }
 
@@ -164,10 +163,10 @@ int ModelicaStrings_compare(_In_z_ const char* string1, _In_z_ const char* strin
         result = (int)(tolower((unsigned char)*string1)) - (int)(tolower((unsigned char)*string2));
     }
 
-    if ( result < 0 ) {
+    if (result < 0) {
         result = 1;
     }
-    else if ( result == 0 ) {
+    else if (result == 0) {
         result = 2;
     }
     else {
