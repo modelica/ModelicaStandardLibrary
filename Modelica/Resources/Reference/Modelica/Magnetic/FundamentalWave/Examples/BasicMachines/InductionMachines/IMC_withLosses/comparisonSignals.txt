@@ -10,6 +10,8 @@ aimc.stator.core.Phi.im
 aimc.stator.core.Phi.re
 aimc.stator.port_p.V_m.im
 aimc.stator.port_p.V_m.re
-aimc.stator.zeroInductor.i0
+// aimc.stator.zeroInductor.i0
+aimc.is[1]
+aimc.is[2]
 loadInertia.w
 powerSensor.flange_a.phi

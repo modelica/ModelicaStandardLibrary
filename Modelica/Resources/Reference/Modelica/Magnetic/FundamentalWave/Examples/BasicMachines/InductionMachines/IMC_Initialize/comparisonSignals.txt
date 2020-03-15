@@ -9,6 +9,8 @@ aimc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.
 aimc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
 aimc.stator.port_p.V_m.im
 aimc.stator.port_p.V_m.re
-aimc.stator.zeroInductor.i0
+// aimc.stator.zeroInductor.i0
+aimc.is[1]
+aimc.is[2]
 loadInertia.phi
 loadInertia.w
