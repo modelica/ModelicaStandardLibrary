@@ -22,9 +22,9 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                                                  int extrapolation);
 
 int main(int argc, char **argv) {
-  double tab[4] = {0.0, 1.0, 1.0, 2.0};
-  int cols[1] = {1};
-  void *table = ModelicaStandardTables_CombiTimeTable_init("abc", "NoName", tab, 2, 2, 0.0, cols, 1, 1, 0);
-  assert(table);
-  return 0;
+    double tab[4] = {0.0, 1.0, 1.0, 2.0};
+    int cols[1] = {1};
+    void *table = ModelicaStandardTables_CombiTimeTable_init("abc", "NoName", tab, 2, 2, 0.0, cols, 1, 1, 0);
+    assert(table);
+    return 0;
 }
