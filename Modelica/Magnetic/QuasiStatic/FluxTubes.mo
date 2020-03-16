@@ -812,9 +812,9 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
                  annotation (Placement(transformation(extent={{20,-10},{40,10}})));
         Shapes.Leakage.QuarterCylinder quarterCylinder2(l=2*pi*0.1)
           annotation (Placement(transformation(extent={{50,-10},{70,10}})));
-        Sources.ConstantMagneticFlux constantSource(f=50, Phi=Complex(re=5E-3,
-            im=0))
-        annotation (Placement(transformation(extent={{-50,-10},{-70,10}})));
+        Sources.ConstantMagneticFlux constantSource(f=50, Phi=Complex(re=5E-3,im=0),
+          gamma(fixed=true, start=0))
+          annotation (Placement(transformation(extent={{-50,-10},{-70,10}})));
         Basic.Ground ground1 annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
@@ -922,8 +922,9 @@ This model compares a transient non-linear magnetic circuit with a linearized qu
               extent={{10,-10},{-10,10}},
               rotation=90,
               origin={40,40})));
-        Sources.ConstantMagneticPotentialDifference constantSource(f=50, V_m(re=100,
-              im=0)) annotation (Placement(transformation(
+        Sources.ConstantMagneticPotentialDifference constantSource(f=50, V_m(re=100,im=0),
+          gamma(start=0, fixed=true)) 
+          annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-20,40})));
