@@ -1,2 +1,4 @@
 time
+smpm.is[1]
+smpm.is[2]
 constantSpeed.phi
