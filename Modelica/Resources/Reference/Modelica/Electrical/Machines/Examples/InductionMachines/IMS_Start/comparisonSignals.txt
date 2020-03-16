@@ -4,7 +4,5 @@ aims.idq_rr[1]
 aims.idq_rr[2]
 aims.idq_sr[1]
 aims.idq_sr[2]
-aimc.ir[1]
-aimc.ir[2]
 loadInertia.phi
 loadInertia.w
