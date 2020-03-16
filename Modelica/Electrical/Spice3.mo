@@ -164,27 +164,23 @@ connect(p_out, n2);
     annotation (Documentation(info="<html>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"><tr>
 <td><p>[B&ouml;hme2009]</p></td>
-<td><p>S. B&ouml;hme, K. Majetta, C. Clauss, P. Schneider, &quot;Spice3 Modelica Library,&quot; <em>7th Modelica Conference</em>, Como, Italy (2009)</p></td>
-<td></td>
+<td><p>S. B&ouml;hme, K. Majetta, C. Clauss, and P. Schneider, &quot;<a href=\"https://2009.international.conference.modelica.org/proceedings/pages/papers/0019/0019_FI.pdf\">SPICE3 Modelica Library</a>&quot;, <em>7th Modelica Conference</em>, Como, Italy, 2009.</p></td>
 </tr>
 <tr>
 <td><p>[Antognetti1988]</p></td>
-<td><p>P. Antognetti, G. Massobrio, <em>Semiconductor Device Modeling with SPICE.</em>, McGraw-Hill Book Company, USA, 1988</p></td>
-<td></td>
+<td><p>P. Antognetti, G. Massobrio, <em>Semiconductor Device Modeling with SPICE</em>, McGraw-Hill Book Company, USA, 1988.</p></td>
 </tr>
 <tr>
 <td><p>[Connelly1992]</p></td>
-<td><p>A. Connelly, A, P. Choi, <em>Macromodeling with SPICE.</em>, Prentice-Hall, New Jersey, USA (1992)</p></td>
-<td></td>
+<td><p>A. Connelly, A, P. Choi, <em>Macromodeling with SPICE</em>, Prentice-Hall, New Jersey, USA, 1992.</p></td>
 </tr>
 <tr>
 <td><p>[Johnson1991]</p></td>
-<td><p>B. Johnson, T. Quarles, A.R. Newton, D. O. Pederson, A. Sangiovanni-Vincentelli, <em>SPICE3 Version 3f User's Manual.</em>, University of Berkeley, Department of Electrical Engineering and Computer Sciences, USA (1991): <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Spice3/Spice_3f3_Users_Manual.pdf\">SPICE3 user's manual</a> (&copy; Regents of the University of California)</p></td>
-<td></td>
+<td><p>B. Johnson, T. Quarles, A. R. Newton, D. O. Pederson, A. Sangiovanni-Vincentelli, <em>SPICE3 Version 3f User's Manual</em>, University of Berkeley, Department of Electrical Engineering and Computer Sciences, USA, 1991, <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Spice3/Spice_3f3_Users_Manual.pdf\">SPICE3 user's manual</a> (&copy; Regents of the University of California).</p></td>
 </tr>
 <tr>
 <td><p>[Kielkowski1994]</p></td>
-<td><p>R. Kielkowski, <em>Inside SPICE - Overcoming the obstacles of circuit simulation.</em>, McGraw-Hill, USA (1994)</p></td>
+<td><p>R. Kielkowski, <em>Inside SPICE - Overcoming the obstacles of circuit simulation</em>, McGraw-Hill, USA, 1994.</p></td>
 </tr>
 </table>
 </html>"));
