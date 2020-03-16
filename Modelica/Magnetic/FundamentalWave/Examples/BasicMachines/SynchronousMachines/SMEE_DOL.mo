@@ -193,11 +193,5 @@ To drive at higher torque, i.e., produce more electric power, excitation has to 
 This noise is caused by the interaction of the high resistance of the switch and the machine, see
 <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2388\">#2388</a>.
 </p>
-</html>"),
-    Diagram(graphics={                      Text(
-                  extent={{10,-72},{90,-80}},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
-                  textStyle={TextStyle.Bold},
-          textString="%m phase quasi-static")}));
+</html>"));
 end SMEE_DOL;
