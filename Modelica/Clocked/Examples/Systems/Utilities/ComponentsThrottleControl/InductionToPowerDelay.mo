@@ -20,7 +20,7 @@ block InductionToPowerDelay
     annotation (Placement(transformation(extent = {{66,-6},{78,6}})));
   RealSignals.NonPeriodic.FractionalDelay delay(
     shift = 1,
-    final resolution = 1)
+    final resolution = 1 "Prepare model for usage in event-clock partitions")
     annotation (Placement(transformation(extent = {{30,-10},{50,10}})));
 
 equation
