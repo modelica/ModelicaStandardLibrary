@@ -16,7 +16,7 @@
 </tr>
 <td> Version: 3.2.3</td><td> Version: 3.2.2</td><tr><td> Version date: 2019-01-23</td><td> Version date: 2016-04-03</td><tr></tbody></table><br><br>
 <big style="font-family: Arial;">model Blocks.Examples.PID_Controller</big><br><br>
-<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 66px;" 
  cellpadding="5">
 <colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
 <tr>
@@ -29,7 +29,7 @@ style="font-weight: bold;">Modelica 3.2.3</span><br>
 <td style="text-align: left; vertical-align: middle;"><span
 style="font-weight: bold;">Modelica 3.2.2</span><br>
 </td>
-</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">driveAngle<br></td><td style="text-align: left; vertical-align: middle;">=1.570796326794897<br></td><td style="text-align: left; vertical-align: middle;">=1.57<br></td></tr></tbody>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">driveAngle<br></td><td style="text-align: left; vertical-align: middle;">=1.570796326794897<br></td><td style="text-align: left; vertical-align: middle;">=1.57<br></td></tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">PI<br></td><td style="text-align: left; vertical-align: middle;">limiter(u(start=0))<br></td><td style="text-align: left; vertical-align: middle;">  <br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>
@@ -13660,6 +13660,24 @@ style="vertical-align: middle; text-align: left;">
 </td>
 </tr>
 <br></tbody>
+</table>
+
+<br><hr style="width: 100%; height: 6px;"><br>
+<big style="font-family: Arial;">function Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_DP</big><br><br>
+<table style="border-collapse: collapse;text-align: left; width: 100%;height: 44px;" 
+ cellpadding="5">
+<colgroup span="3"><col width="10%"><col width="45%"><col width="45%"></colgroup><tbody>
+<tr>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Component</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.3</span><br>
+</td>
+<td style="text-align: left; vertical-align: middle;"><span
+style="font-weight: bold;">Modelica 3.2.2</span><br>
+</td>
+</tr><tr><td colspan="1" rowspan="1" style="vertical-align: middle;">DP_fric<br></td><td style="text-align: left; vertical-align: middle;">=if IN_con.frictionalPressureLoss == TYP.Friedel then Modelica323.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseFriedel_DP(Modelica323.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con(A_cross=IN_con.A_cross, perimeter=IN_con.perimeter, length=IN_con.length), Modelica323.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var(rho_g=IN_var.rho_g, rho_l=IN_var.rho_l, eta_g=IN_var.eta_g, eta_l=IN_var.eta_l, sigma=IN_var.sigma, x_flow=IN_var.x_flow), m_flow) else if IN_con.frictionalPressureLoss == TYP.Chisholm then Modelica323.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseChisholm_DP(Modelica323.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con(A_cross=IN_con.A_cross, perimeter=IN_con.perimeter, length=IN_con.length), Modelica323.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var(rho_g=IN_var.rho_g, rho_l=IN_var.rho_l, eta_g=IN_var.eta_g, eta_l=IN_var.eta_l, sigma=IN_var.sigma, x_flow=IN_var.x_flow), m_flow) else 0<br></td><td style="text-align: left; vertical-align: middle;">=if IN_con.frictionalPressureLoss == TYP.Friedel then Modelica322.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseFriedel_DP(IN_con, IN_var, m_flow) else if IN_con.frictionalPressureLoss == TYP.Chisholm then Modelica322.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseChisholm_DP(IN_con, IN_var, m_flow) else 0<br></td></tr></tbody>
 </table>
 
 <br><hr style="width: 100%; height: 6px;"><br>

@@ -2185,7 +2185,7 @@ and will interpret it in the same way. Short Overview:
 
 <ul>
 <li>This version of the Modelica package is <strong>fully compatible</strong> to Modelica Specification <strong>3.2 revision 2</strong>.<br>&nbsp;</li>
-<li>About <strong>570</strong> issues (including pull requests) have been addressed for this release.
+<li>About <strong>606</strong> issues (including pull requests) have been addressed for this release.
     <ul>
     <li><strong>Version 3.2.3</strong> with respect to 3.2.2:
         <ul>
@@ -2201,7 +2201,7 @@ and will interpret it in the same way. Short Overview:
         About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3+build.3/ResolvedGitHubIssues.html\">8 issues (including pull requests)</a>
         have been addressed for this maintenance release.<br>&nbsp;</li>
     <li><strong>Version 3.2.3 Build 4</strong> with respect to 3.2.3 Build 3:<br>
-        About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3+build.4/ResolvedGitHubIssues.html\">31 issues (including pull requests)</a>
+        About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.3+build.4/ResolvedGitHubIssues.html\">36 issues (including pull requests)</a>
         have been addressed for this maintenance release.<br>&nbsp;</li>
     </ul>
     </li>
