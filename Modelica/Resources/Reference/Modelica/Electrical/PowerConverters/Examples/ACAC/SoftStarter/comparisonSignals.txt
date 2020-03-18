@@ -19,11 +19,11 @@ rootMeanSquare.y
 rootMeanSquare.mean.x
 harmonic.mean1.x
 harmonic.mean2.x
-imc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
-imc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
-imc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
-imc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
-imc.stator.zeroInductor.i0
+// imc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+// imc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+// imc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
+// imc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
+// imc.stator.zeroInductor.i0
 loadInertia.phi
 loadInertia.w
 softStartControl.vRef
