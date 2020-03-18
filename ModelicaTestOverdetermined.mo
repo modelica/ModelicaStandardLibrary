@@ -608,7 +608,7 @@ The initial equations are consistent however and a tool shall reduce them approp
           fillColor={75,138,73},
           fillPattern=FillPattern.Solid)}),
        preferredView="info",
-       versionBuild=3,
+       versionBuild=4,
        version="3.2.3",
        versionDate="2019-01-23",
        dateModified="2019-09-21 12:00:00Z",

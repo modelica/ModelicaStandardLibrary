@@ -7016,7 +7016,7 @@ end Icons;
 annotation (
   DocumentationClass=true,
   version="3.2.3",
-  versionBuild=3,
+  versionBuild=4,
   versionDate="2019-01-23",
   dateModified="2019-09-21 12:00:00Z",
   revisionId="$Format:%h %ci$",
