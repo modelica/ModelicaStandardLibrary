@@ -1578,7 +1578,7 @@ extends Modelica.Icons.ExamplesPackage;
                   textString="Flat tube and slit fin")}),
             experiment(StopTime=1.01));
         end kc_flatTube_KC;
-
+/*
         model kc_roundTube "Verification of function kc_roundTube"
           extends Modelica.Icons.Example;
 
@@ -1790,7 +1790,7 @@ extends Modelica.Icons.ExamplesPackage;
                   textString="Round tube and wavy fin")}),
             experiment(StopTime=1.01));
         end kc_roundTube;
-
+*/
         model kc_roundTube_KC "Verification of function kc_roundTube_KC"
           extends Modelica.Icons.Example;
           //The functions for heat exchanger geometry no.2 and no.3 are too complex for inverting.
