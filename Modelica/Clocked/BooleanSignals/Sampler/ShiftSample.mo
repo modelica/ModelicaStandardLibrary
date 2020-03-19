@@ -3,16 +3,13 @@ block ShiftSample
   "Shift the clocked Boolean input signal by a fraction of the last interval and and provide it as clocked output signal"
   parameter Integer shiftCounter(min=0)=0 "Numerator of shifting formula"
         annotation(Evaluate=true, Dialog(group="Shift first clock activation for 'shiftCounter/resolution*interval(u)' seconds"));
-  parameter Integer resolution(min=1)=1
-    "Denominator of shifting formula (ignored if inferShift=true)"
+  parameter Integer resolution(min=1)=1 "Denominator of shifting formula"
         annotation(Evaluate=true, Dialog(group="Shift first clock activation for 'shiftCounter/resolution*interval(u)' seconds"));
 
-  Modelica.Blocks.Interfaces.BooleanInput
-                                       u
+  Modelica.Blocks.Interfaces.BooleanInput u
     "Connector of clocked, Boolean input signal"
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-  Modelica.Blocks.Interfaces.BooleanOutput
-                                        y
+  Modelica.Blocks.Interfaces.BooleanOutput y
     "Connector of clocked, Boolean output signal (clock of y is faster than clock of u)"
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 equation
