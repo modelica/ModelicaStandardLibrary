@@ -46,6 +46,8 @@ def main(dir, milestone, version):
     while True:
         for issue in data:
             cntTotal = cntTotal + 1
+            if 'pull_request' in issue:
+                cntPR = cntPR + 1
             labels = [l['name'] for l in issue['labels']]
             # Escape asterisk
             for i, l in enumerate(labels):
@@ -64,7 +66,6 @@ def main(dir, milestone, version):
             # Mark pull requests
             if 'pull_request' in issue:
                 t = '(PR) ' + t
-                cntPR = cntPR + 1
             if 'example' in labels:
                 issueType = IssueType.Examples
             elif 'documentation' in labels:
