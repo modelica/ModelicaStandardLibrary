@@ -1246,7 +1246,7 @@ The preferredView annotation defines the default view when selecting the class. 
     extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
-<p>Revision identifier of the <a href=\"http://en.wikipedia.org/wiki/Versions_control\">version management system</a> used to manage this library. It marks the latest submitted change to any file belonging to the package.</p>
+<p>Revision identifier of the <a href=\"https://en.wikipedia.org/wiki/Version_control\">version management system</a> used to manage this library. It marks the latest submitted change to any file belonging to the package.</p>
 <h4>Syntax</h4>
 <blockquote><pre>
 <strong>annotation</strong>&quot;(&quot; revisionId &quot;=&quot; STRING &quot;)&quot;

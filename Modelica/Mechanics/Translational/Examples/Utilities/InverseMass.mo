@@ -52,7 +52,7 @@ equation
           textString="f")}), Documentation(info="<html>
 <p>
 A translational component with pure signal interface which can be applied for
-a FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>)
+a FMU (<a href=\"https://fmi-standard.org\">Functional Mock-up Unit</a>)
 exchange.
 Based on the kinematic inputs applied on a sliding mass
 the output force&nbsp;<code>f</code> is returned.

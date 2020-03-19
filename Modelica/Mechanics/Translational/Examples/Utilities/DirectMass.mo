@@ -64,7 +64,7 @@ equation
           textString="f")}), Documentation(info="<html>
 <p>
 A translational component with pure signal interface which can be applied for
-a FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>)
+a FMU (<a href=\"https://fmi-standard.org\">Functional Mock-up Unit</a>)
 exchange.
 The input force <code>fDrive</code> is applied on one side of a sliding mass
 whereby the input force&nbsp;<code>f</code> is applied

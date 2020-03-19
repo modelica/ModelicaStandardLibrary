@@ -33,7 +33,7 @@ equation
 Adaptor between an electrical oneport and a signal representation of the oneport.
 This component is used to provide a pure signal interface around an Electrical model
 and export this model in form of an input/output block,
-especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
+especially as FMU (<a href=\"https://fmi-standard.org\">Functional Mock-up Unit</a>).
 Examples of the usage of this adaptor are provided in
 <a href=\"modelica://Modelica.Electrical.Analog.Examples.GenerationOfFMUs\">Electrical.Analog.Examples.GenerationOfFMUs</a>.
 This adaptor has current and derivative of current as inputs and voltage and derivative of voltage as output signals.

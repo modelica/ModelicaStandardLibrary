@@ -1403,7 +1403,7 @@ Implementation is according to Abramowitz and Stegun
         annotation (Documentation(info="<html>
 <p>
 Implementation according to:
-<a href=\"http://home.online.no/~pjacklam/notes/invnorm/\">Peter John Acklam</a>.
+<a href=\"https://web.archive.org/web/20151030215612/http://home.online.no/~pjacklam/notes/invnorm/\">Peter John Acklam</a>.
 The relative error is less than 1e-9.
 </p>
 </html>", revisions="<html>

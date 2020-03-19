@@ -1513,7 +1513,7 @@ of noise blocks.
 Adaptor between a physical connector and a signal representation of the connector signals.
 This component is used to provide a pure signal interface around a physical model
 and export this model in form of an input/output block,
-especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
+especially as FMU (<a href=\"https://fmi-standard.org\">Functional Mock-up Unit</a>).
 </p>
 <p>
 This adaptor has flow, optional 1st derivative of flow, and optional 2nd derivative of flow as input and
@@ -1625,7 +1625,7 @@ Note, the input signals must be consistent to each other
 Adaptor between a physical connector and a signal representation of the connector signals.
 This component is used to provide a pure signal interface around a physical model
 and export this model in form of an input/output block,
-especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
+especially as FMU (<a href=\"https://fmi-standard.org\">Functional Mock-up Unit</a>).
 </p>
 <p>
 This adaptor has potential, optional 1st derivative of potential, and optional 2nd derivative of potential as input and
@@ -1710,7 +1710,7 @@ This package contains partial adaptors to implement adaptors in various domains
 between a physical connector and a signal representation of the connector signals.
 This component is used to provide a pure signal interface around a physical model
 and export this model in form of an input/output block,
-especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
+especially as FMU (<a href=\"https://fmi-standard.org\">Functional Mock-up Unit</a>).
 </p>
 </html>"));
   end Adaptors;

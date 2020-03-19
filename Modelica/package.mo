@@ -3360,8 +3360,6 @@ tools might not yet supported the complete Modelica package):
 <li> OpenModelica 1.9.0 Beta4+dev (Windows, Linux, Mac)<br>
      Test reports for the daily builds are available
      <a href=\"https://trac.openmodelica.org/OpenModelica/wiki\">here</a>.
-     Test reports of comparisons with Dymola result files are available
-     <a href=\"https://test.openmodelica.org/hudson/job/OpenModelica_TEST_CLANG/lastCompletedBuild/testReport/(root)/simulation_libraries_msl32/\">here</a>.
      </li>
 <li> SimulationX 3.6</li>
 </ul>

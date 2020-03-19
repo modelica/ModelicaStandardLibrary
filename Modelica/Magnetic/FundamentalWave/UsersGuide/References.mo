@@ -24,7 +24,7 @@ class References "References"
     <tr>
       <td>[Haumer09]</td>
       <td>A. Haumer, and C. Kral,
-        &quot;<a href=\"https://www.modelica.org/events/modelica2009/Proceedings/memorystick/pages/papers/0103/0103.pdf\">The
+        &quot;<a href=\"https://2009.international.conference.modelica.org/proceedings/pages/papers/0103/0103_FI.pdf\">The
         AdvancedMachines Library: Loss Models for Electric Machines</a>,&quot;
         <em>Modelica Conference</em>, 2009.</td>
     </tr>

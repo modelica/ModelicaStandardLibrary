@@ -29,7 +29,7 @@ equation
 Adaptor between a heatport connector and a signal representation of the flange.
 This component is used to provide a pure signal interface around a HeatTransfer model
 and export this model in form of an input/output block,
-especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
+especially as FMU (<a href=\"https://fmi-standard.org\">Functional Mock-up Unit</a>).
 Examples of the usage of this adaptor are provided in
 <a href=\"modelica://Modelica.Thermal.HeatTransfer.Examples.GenerationOfFMUs\">HeatTransfer.Examples.GenerationOfFMUs</a>.
 This adaptor has temperature and derivative of temperature as input signals and heatflow as output signal.

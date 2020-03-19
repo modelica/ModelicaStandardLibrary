@@ -785,8 +785,8 @@ function. The solver function is a direct mapping of the Algol 60 procedure
 <dt> Brent R.P.:</dt>
 <dd> <strong>Algorithms for Minimization without derivatives</strong>.
      Prentice Hall, 1973, pp. 58-59.<br>
-     Download: <a href=\"http://wwwmaths.anu.edu.au/~brent/pd/rpb011i.pdf\">http://wwwmaths.anu.edu.au/~brent/pd/rpb011i.pdf</a><br>
-     Errata and new print: <a href=\"http://wwwmaths.anu.edu.au/~brent/pub/pub011.html\">http://wwwmaths.anu.edu.au/~brent/pub/pub011.html</a>
+     Download: <a href=\"https://maths-people.anu.edu.au/~brent/pd/rpb011i.pdf\">https://maths-people.anu.edu.au/~brent/pd/rpb011i.pdf</a><br>
+     Errata and new print: <a href=\"https://maths-people.anu.edu.au/~brent/pub/pub011.html\">https://maths-people.anu.edu.au/~brent/pub/pub011.html</a>
 </dd>
 </dl>
 </blockquote>
