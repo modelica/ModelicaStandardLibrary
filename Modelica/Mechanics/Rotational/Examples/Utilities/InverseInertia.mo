@@ -57,7 +57,7 @@ equation
           textString="tau")}), Documentation(info="<html>
 <p>
 A rotational component with pure signal interface which can be applied for
-a FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>)
+a FMU (<a href=\"https://fmi-standard.org\">Functional Mock-up Unit</a>)
 exchange.
 Based on the kinematic inputs applied on a component with inertia
 the output torque <code>tau</code> is returned.

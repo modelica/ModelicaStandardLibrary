@@ -85,7 +85,7 @@ d=%d"),   Bitmap(extent={{-72,-44},{84,46}},
 <p>
 A linear 1D translational spring and damper in parallel with pure signal
 interface which can be applied for
-a FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>)
+a FMU (<a href=\"https://fmi-standard.org\">Functional Mock-up Unit</a>)
 exchange.
 </p>
 </html>"));

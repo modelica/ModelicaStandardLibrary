@@ -138,7 +138,7 @@ equation
   annotation (experiment(StopTime=1, Interval=0.001), Documentation(info="<html>
 <p>
 This example demonstrates how to generate an input/output block (e.g. in form of an
-FMU - <a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>) from various Electrical components.
+FMU - <a href=\"https://fmi-standard.org\">Functional Mock-up Unit</a>) from various Electrical components.
 The goal is to export such an input/output block from Modelica and import
 it in another modeling environment. The essential issue is that before
 exporting it must be known in which way the component is utilized in the

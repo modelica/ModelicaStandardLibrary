@@ -29,7 +29,7 @@ equation
 Adaptor between a flange connector and a signal representation of the flange.
 This component is used to provide a pure signal interface around a Rotational model
 and export this model in form of an input/output block,
-especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
+especially as FMU (<a href=\"https://fmi-standard.org\">Functional Mock-up Unit</a>).
 This adaptor has angle, angular velocity and angular acceleration as input signals and
 torque as output signal.
 </p>

@@ -82,7 +82,7 @@ In the literature there are several proposals to fix problem (2). Especially, of
 the following model is used (see, e.g.,
 Lankarani, Nikravesh: Continuous Contact Force Models for Impact
 Analysis in Multibody Systems, Nonlinear Dynamics 5, pp. 193-207, 1994,
-<a href=\"http://www.springerlink.com/content/h50x61270q06p65n/fulltext.pdf\">pdf-download</a>):
+<a href=\"https://link.springer.com/article/10.1007/BF00045676\">pdf-download</a>):
 </p>
 
 <blockquote><pre>

@@ -212,7 +212,7 @@ equation
 This example demonstrates how to couple the components of a parallel resonance circuit (upper part) and a series resonance circuit (lower part)
 not directly but using adaptors between physical connectors and input/output signals.
 Taking into account which derivatives are required, these components can be exported as input/output blocks
-(e.g. in form of an FMU - <a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
+(e.g. in form of an FMU - <a href=\"https://fmi-standard.org\">Functional Mock-up Unit</a>).
 Connecting these input/output blocks should give the same results as connecting the physical components directly.
 </p>
 <p>

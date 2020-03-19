@@ -157,7 +157,7 @@ Note: The reference values (voltage, current, speed) are already propagated to t
 using the nominal operation point.<br>
 See:<br>
 Anton Haumer, Christian Kral, Hansj&ouml;rg Kapeller, Thomas B&auml;uml, Johannes V. Gragger<br>
-<a href=\"https://www.modelica.org/events/modelica2009/Proceedings/memorystick/pages/papers/0103/0103.pdf\">
+<a href=\"https://2009.international.conference.modelica.org/proceedings/pages/papers/0103/0103_FI.pdf\">
 The AdvancedMachines Library: Loss Models for Electric Machines</a><br>
 Modelica 2009, 7<sup>th</sup> International Modelica Conference
 </html>"));

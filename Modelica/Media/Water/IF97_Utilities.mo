@@ -5943,7 +5943,7 @@ white-space:nowrap;
         industrial use. This new industrial standard is called \"IAPWS Industrial
         Formulation for the Thermodynamic Properties of Water and Steam\" (IAPWS-IF97).
         The formulation IAPWS-IF97 replaces the previous industrial standard IFC-67.</p>
-        <p>Based on this new formulation, a new steam table, titled \"<a href=\"http://www.springer.de/cgi-bin/search_book.pl?isbn=3-540-64339-7\">Properties of Water and Steam</a>\" by W. Wagner and A. Kruse, was published by
+        <p>Based on this new formulation, a new steam table, titled \"<a href=\"https://doi.org/10.1007/978-3-662-03529-0\">Properties of Water and Steam</a>\" by W. Wagner and A. Kruse, was published by
         the Springer-Verlag, Berlin - New-York - Tokyo in April 1998. This
         steam table, ref. <a href=\"#steamprop\">[1]</a> is bilingual (English /
         German) and contains a complete description of the equations of

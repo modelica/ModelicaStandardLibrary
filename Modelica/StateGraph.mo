@@ -566,7 +566,7 @@ based on the following references:
      Lund, Sweden, Feb. 13, 2004.<br>&nbsp;</dd>
 
 <dt>Dressler I. (2004):</dt>
-<dd> <a href=\"http://www.control.lth.se/documents/2004/5726.pdf\">
+<dd> <a href=\"http://lup.lub.lu.se/student-papers/record/8848017/file/8859434.pdf\">
      Code Generation From JGrafchart to Modelica</a>.
      Master thesis, supervisor: Karl-Erik &Aring;rz&eacute;n,
      Department of Automatic Control, Lund Institute of Technology,
@@ -584,7 +584,7 @@ based on the following references:
       The Weizmann Institute of Science, Rehovot, Israel.<br>&nbsp;</dd>
 
 <dt>Malmheden M. (2007):</dt>
-<dd> <a href=\"http://www.control.lth.se/documents/2007/5808.pdf\">
+<dd> <a href=\"http://lup.lub.lu.se/student-papers/record/8847773/file/8859375.pdf\">
       ModeGraph - A Mode-Automata-Based Modelica Library for Embedded Control</a>.
       Master thesis, Department of Automatic Control, Lund University, Sweden.<br>&nbsp;
      </dd>

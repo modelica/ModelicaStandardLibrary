@@ -1756,7 +1756,7 @@ they were not deleted yet.")}));
     annotation (experiment(StopTime=1, Interval=0.001), Documentation(info="<html>
 <p>
 This example demonstrates how to generate an input/output block (e.g. in form of an
-FMU - <a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>) from various Rotational components.
+FMU - <a href=\"https://fmi-standard.org\">Functional Mock-up Unit</a>) from various Rotational components.
 The goal is to export such an input/output block from Modelica and import
 it in another modeling environment. The essential issue is that before
 exporting it must be known in which way the component is utilized in the
@@ -1865,7 +1865,7 @@ force law in a target system between two inertias.
               textString="tau")}), Documentation(info="<html>
 <p>
 A rotational component with pure signal interface which can be applied for
-a FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>)
+a FMU (<a href=\"https://fmi-standard.org\">Functional Mock-up Unit</a>)
 exchange.
 The input torque <code>tauDrive</code> is applied on one side of a rotational
 component with inertia whereby the input torque <code>tau</code> is applied
@@ -1937,7 +1937,7 @@ on the other side of it.
               textString="tau")}), Documentation(info="<html>
 <p>
 A rotational component with pure signal interface which can be applied for
-a FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>)
+a FMU (<a href=\"https://fmi-standard.org\">Functional Mock-up Unit</a>)
 exchange.
 Based on the kinematic inputs applied on a component with inertia
 the output torque <code>tau</code> is returned.
@@ -2038,7 +2038,7 @@ d=%d"),       Bitmap(extent={{-72,-44},{84,46}},
 <p>
 A linear 1D rotational spring and damper in parallel with pure signal
 interface which can be applied for
-a FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>)
+a FMU (<a href=\"https://fmi-standard.org\">Functional Mock-up Unit</a>)
 exchange.
 </p>
 </html>"));
@@ -2110,7 +2110,7 @@ exchange.
 <p>
 A linear 1D rotational spring with pure signal
 interface which can be applied for
-a FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>)
+a FMU (<a href=\"https://fmi-standard.org\">Functional Mock-up Unit</a>)
 exchange.
 </p>
 </html>"));
