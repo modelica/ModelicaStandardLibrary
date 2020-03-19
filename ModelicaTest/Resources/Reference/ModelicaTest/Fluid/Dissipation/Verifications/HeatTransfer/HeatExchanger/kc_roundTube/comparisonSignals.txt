@@ -1,11 +1,7 @@
 time
 Re
 m_flow[1]
-m_flow[2]
-m_flow[3]
 m_flow[4]
 Nu[1]
-Nu[2]
-Nu[3]
 Nu[4]
 input_Re.y
