@@ -381,7 +381,7 @@ equation
       points={{-42,74},{-42,78},{-30,78}},
       color={0,127,255},
       thickness=0.5));
-  annotation ( experiment(StopTime=20),
+  annotation (experiment(StopTime=20),
     Documentation(info="<html>
 Test of different dynamic pipe models. The first system uses explicit junctions, in the third system some of the pipe models are replaced by non-symmetric components.
 </html>"));

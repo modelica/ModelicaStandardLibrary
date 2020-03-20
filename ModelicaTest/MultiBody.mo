@@ -1765,7 +1765,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           thickness=0.5));
       connect(Constant1.y, frameForce2.force) annotation (Line(points={{79,50},
               {72,50},{72,10},{62,10}}, color={0,0,127}));
-      annotation ( experiment(StopTime=1.1));
+      annotation (experiment(StopTime=1.1));
     end FrameForces;
 
     model FrameForces2
@@ -2262,7 +2262,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           points={{79,90},{62,90}}, color={0,0,127}));
       connect(Constant2.y, frameTorque2.torque) annotation (Line(
           points={{79,10},{62,10}}, color={0,0,127}));
-      annotation ( experiment(StopTime=1.1));
+      annotation (experiment(StopTime=1.1));
     end FrameTorques;
 
     model FrameTorques2
@@ -2822,7 +2822,7 @@ a linear damper is connected here.
       connect(fixed4.frame_b, torque2.frame_a) annotation (Line(
           points={{80,-20},{60,-20}},
           thickness=0.5));
-      annotation ( experiment(StopTime=1.1));
+      annotation (experiment(StopTime=1.1));
     end Torque;
 
     model Torque2

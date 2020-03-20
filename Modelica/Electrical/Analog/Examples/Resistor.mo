@@ -38,7 +38,7 @@ equation
     annotation (Line(points={{-70,20},{-32,20},{-32,24}}, color={0,0,255}));
   connect(thermalConductor.port_b, fixedTemperature.port) annotation (Line(
       points={{14,34},{32,34}}, color={191,0,0}));
-annotation ( Documentation(info="<html>
+annotation (Documentation(info="<html>
 <p>This is a very simple circuit consisting of a voltage source and a resistor. The loss power in the resistor is transported to the environment via its heatPort.</p>
 </html>"), experiment(StopTime=5));
 end Resistor;

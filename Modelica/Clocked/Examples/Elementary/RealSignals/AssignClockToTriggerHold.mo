@@ -36,7 +36,7 @@ connect(sample.y, clockToTrigger.u) annotation (Line(
 connect(triggeredSampler.trigger, clockToTrigger.y) annotation (Line(
     points={{20,38.2},{20,30},{1,30}},
     color={255,0,255}));
-  annotation ( experiment(StopTime=0.09),
+  annotation (experiment(StopTime=0.09),
   Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block

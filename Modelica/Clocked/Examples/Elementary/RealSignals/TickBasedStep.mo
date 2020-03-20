@@ -19,7 +19,7 @@ connect(periodicClock1.y, assignClock1.clock) annotation (Line(
 connect(step.y, assignClock1.u)       annotation (Line(
     points={{-45,30},{-25.2,30}},
     color={0,0,127}));
-annotation ( experiment(StopTime=1.0), Documentation(info="<html>
+annotation (experiment(StopTime=1.0), Documentation(info="<html>
 <p>
 Example for block
 <a href=\"modelica://Modelica.Clocked.RealSignals.TickBasedSources.Step\">Modelica.Clocked.RealSignals.TickBasedSources.Step</a>.

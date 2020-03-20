@@ -28,7 +28,7 @@ connect(periodicClock.y, sample.clock) annotation (Line(
 connect(fractionalDelay.u, sample.y) annotation (Line(
     points={{-28,30},{-35.4,30}},
     color={0,0,127}));
-  annotation ( experiment(StopTime=0.09),
+  annotation (experiment(StopTime=0.09),
   Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block

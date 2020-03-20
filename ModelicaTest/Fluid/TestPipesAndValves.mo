@@ -36,18 +36,18 @@ extends Modelica.Icons.ExamplesPackage;
     inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial, use_eps_Re=true)
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
   equation
-    connect(source.ports[1], pipe.port_a)         annotation (Line(
+    connect(source.ports[1], pipe.port_a) annotation (Line(
         points={{-60,0},{-55,0},{-55,0},{-50,
             0},{-50,0},{-40,0}}, color={0,127,255}));
-    connect(pipe.port_b, valve.port_a)               annotation (Line(
+    connect(pipe.port_b, valve.port_a) annotation (Line(
         points={{-20,0},{-15,0},{-15,0},{-10,
             0},{-10,0},{0,0}}, color={0,127,255}));
-    connect(valve.port_b, sink.ports[1])                          annotation (Line(
+    connect(valve.port_b, sink.ports[1]) annotation (Line(
         points={{20,0},{25,0},{25,0},{30,
             0},{30,0},{40,0}}, color={0,127,255}));
-    connect(ramp.y, valve.opening)               annotation (Line(
+    connect(ramp.y, valve.opening) annotation (Line(
         points={{25,40},{10,40},{10,8}}, color={0,0,127}));
-    annotation (      experiment(StopTime=3));
+    annotation (experiment(StopTime=3));
   end DynamicPipeClosingValve;
 
   model DynamicPipeInitialization
@@ -99,18 +99,18 @@ extends Modelica.Icons.ExamplesPackage;
         assert(abs(valve.port_a.m_flow - m_flow_initial) < 1e-3, "!!!THE SIMULATION DID NOT START IN STEADY-STATE!!!");
       end when;
     end if;
-    connect(source.ports[1], pipe.port_a)         annotation (Line(
+    connect(source.ports[1], pipe.port_a) annotation (Line(
         points={{-60,0},{-55,0},{-55,0},{-50,
             0},{-50,0},{-40,0}}, color={0,127,255}));
-    connect(pipe.port_b, valve.port_a)               annotation (Line(
+    connect(pipe.port_b, valve.port_a) annotation (Line(
         points={{-20,0},{-15,0},{-15,0},{-10,
             0},{-10,0},{0,0}}, color={0,127,255}));
-    connect(valve.port_b, sink.ports[1])                          annotation (Line(
+    connect(valve.port_b, sink.ports[1]) annotation (Line(
         points={{20,0},{25,0},{25,0},{30,
             0},{30,0},{40,0}}, color={0,127,255}));
-    connect(ramp.y, valve.opening)               annotation (Line(
+    connect(ramp.y, valve.opening) annotation (Line(
         points={{25,40},{10,40},{10,8}}, color={0,0,127}));
-    annotation (      experiment(StopTime=4),
+    annotation (experiment(StopTime=4),
       Documentation(info="<html>
 The simulation shall start in steady-state (see system.energyDynamics on the Assumptions tab).
 This requires the solution of an equation system with complex non-linear expressions for the
@@ -1423,7 +1423,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and
             0},{30,0},{40,0}}, color={0,127,255}));
     connect(ramp.y, valve.opening)               annotation (Line(
         points={{25,40},{10,40},{10,8}}, color={0,0,127}));
-    annotation (      experiment(StopTime=4));
+    annotation (experiment(StopTime=4));
   end LumpedPipeInitialization;
 
   model SeriesPipes1

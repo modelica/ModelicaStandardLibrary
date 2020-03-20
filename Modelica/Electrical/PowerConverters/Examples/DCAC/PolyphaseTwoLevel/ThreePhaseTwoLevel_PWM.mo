@@ -88,7 +88,7 @@ equation
     annotation (Line(points={{21,-40},{28,-40}}, color={0,0,127}));
   connect(filter.y, toPolar.u)
     annotation (Line(points={{51,-40},{58,-40}}, color={0,0,127}));
-  annotation (    experiment(
+  annotation (experiment(
       StopTime=2,
       Interval=0.001,
       Tolerance=1e-05),

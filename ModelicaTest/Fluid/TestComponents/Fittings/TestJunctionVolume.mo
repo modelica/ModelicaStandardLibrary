@@ -72,5 +72,5 @@ equation
           {30,60}}, color={0,127,255}));
   connect(pipe2.port_a, junction.port_3)
     annotation (Line(points={{30,14},{30,-10}}, color={0,127,255}));
-  annotation ( experiment(StopTime=1.01));
+  annotation (experiment(StopTime=1.01));
 end TestJunctionVolume;

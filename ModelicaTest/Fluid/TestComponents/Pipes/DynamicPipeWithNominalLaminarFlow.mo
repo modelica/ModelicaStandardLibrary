@@ -99,7 +99,7 @@ equation
       points={{-50,-40},{-10,-40}}, color={0,127,255}));
   connect(pipeN10nParallel10.port_b, boundary5.ports[1]) annotation (Line(
       points={{10,-40},{50,-40}}, color={0,127,255}));
-  annotation (      experiment(StopTime=1.01),
+  annotation (experiment(StopTime=1.01),
   Documentation(info="<html>
 Test of discretization and nParallel pipes. Cf. ticket #215.
 </html>"));

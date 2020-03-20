@@ -53,5 +53,5 @@ equation
       points={{50,50},{50,40},{17.3333,40}}, color={0,127,255}));
   connect(mixingVolume1.ports[3], mixingVolume2.ports[3]) annotation (Line(
       points={{-17.3333,40},{-17.3333,36},{22.6667,36},{22.6667,40}}, color={0,127,255}));
-  annotation (                       experiment(StopTime=10));
+  annotation (experiment(StopTime=10));
 end TestMixingVolumes;

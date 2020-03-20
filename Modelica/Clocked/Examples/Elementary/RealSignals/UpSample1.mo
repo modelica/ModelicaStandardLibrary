@@ -40,7 +40,7 @@ connect(upSample2.y, add.u2) annotation (Line(
 connect(upSample1.y, add.u1) annotation (Line(
     points={{-13.4,40},{-8,40},{-8,36},{-2,36}},
     color={0,0,127}));
-  annotation ( experiment(StopTime=0.09),
+  annotation (experiment(StopTime=0.09),
   Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block

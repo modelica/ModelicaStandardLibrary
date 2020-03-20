@@ -84,7 +84,7 @@ package Polyphase "Polyphase quasi-static package"
     connect(variableAdmittance.plug_n, voltageSensor.plug_n) annotation (Line(points={{30,-40},{8,-40},{-20,-40},{-20,-36},{-20,-30}}, color={85,170,255}));
     connect(star.plug_p, currentSource.plug_p) annotation (Line(points={{-50,-50},{-50,-50},{-50,-30}}, color={85,170,255}));
     connect(star.pin_n, ground.pin) annotation (Line(points={{-50,-70},{-50,-70},{-50,-80}}, color={85,170,255}));
-    annotation (      experiment(StopTime=1),
+    annotation (experiment(StopTime=1),
       Documentation(info="<html>
 <p>Serial connection of different polyphase basic components</p>
 </html>"));

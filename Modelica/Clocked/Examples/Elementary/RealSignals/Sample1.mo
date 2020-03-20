@@ -25,7 +25,7 @@ equation
       color={175,175,175},
       pattern=LinePattern.Dot,
       thickness=0.5));
-  annotation ( experiment(StopTime=0.2),
+  annotation (experiment(StopTime=0.2),
   Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block

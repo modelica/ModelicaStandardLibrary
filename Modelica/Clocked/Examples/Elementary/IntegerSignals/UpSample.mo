@@ -39,7 +39,7 @@ connect(upSample1.y, sum.u[1]) annotation (Line(
 connect(upSample2.y, sum.u[2]) annotation (Line(
     points={{-13.4,20},{-6,20},{-6,27.9},{2,27.9}},
     color={255,127,0}));
-  annotation ( experiment(StopTime=0.09),
+  annotation (experiment(StopTime=0.09),
   Documentation(info="<html>
 <p>
 Elementary example for the documentation of block

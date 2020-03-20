@@ -43,7 +43,7 @@ equation
       points={{50,70},{50,60},{90,60},{90,50}},
       color={95,95,95},
       thickness=0.5));
-  annotation (    experiment(StopTime=5), Documentation(info="<html>
+  annotation (experiment(StopTime=5), Documentation(info="<html>
 <p>
 This is a model of the mechanical part of one cylinder of an engine.
 The combustion is not modelled. The \"inertia\" component at the lower

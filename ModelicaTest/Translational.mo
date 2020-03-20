@@ -114,7 +114,7 @@ extends Modelica.Icons.ExamplesPackage;
         points={{0,90},{30,90},{30,70}}, color={0,127,0}));
     connect(sine4.y, force.f) annotation (Line(
         points={{-79,30},{-72,30}}, color={0,0,127}));
-    annotation (      experiment(StopTime=1.1));
+    annotation (experiment(StopTime=1.1));
   end AllComponents;
 
   model TestBraking

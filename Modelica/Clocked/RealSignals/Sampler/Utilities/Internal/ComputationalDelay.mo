@@ -19,7 +19,7 @@ equation
      y = shiftSample(previous(ubuf), shiftCounter, resolution);
   end if;
 
-  annotation ( Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 This block delays a clocked Real input signal by the fraction
 shiftCounter/resolution of the last interval.

@@ -37,7 +37,7 @@ equation
   B = Phi/A;
   H = B/(mu_0*mu_r);
 
-  annotation (                                Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 Please refer to the description of  the sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape\">Shapes.FixedShape</a> for utilisation of this partial model.
 </p>

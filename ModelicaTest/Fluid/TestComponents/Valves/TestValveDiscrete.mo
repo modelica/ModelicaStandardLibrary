@@ -43,5 +43,5 @@ equation
       points={{35,30},{60,30},{60,-4},{48,-4}}, color={0,0,127}));
   connect(Opening.y, V1.open) annotation (Line(
       points={{-57,32},{-16,32},{-16,-4}}, color={255,0,255}));
-  annotation ( experiment(StopTime=3));
+  annotation (experiment(StopTime=3));
 end TestValveDiscrete;

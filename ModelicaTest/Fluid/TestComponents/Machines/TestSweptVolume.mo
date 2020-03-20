@@ -56,5 +56,5 @@ equation
       points={{-30,10},{-40,10}}, color={0,127,0}));
   connect(springDamper.flange_b, fixed.flange) annotation (Line(
       points={{-60,10},{-70,10}}, color={0,127,0}));
-  annotation (                           experiment(StopTime=5));
+  annotation (experiment(StopTime=5));
 end TestSweptVolume;

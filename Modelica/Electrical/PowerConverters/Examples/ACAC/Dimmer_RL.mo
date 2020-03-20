@@ -20,7 +20,7 @@ equation
     annotation (Line(points={{-80,-20},{50,-20}}, color={0,0,255}));
   connect(loadInductor.p, loadResistor.n)
     annotation (Line(points={{50,0},{50,20}}, color={0,0,255}));
-  annotation (    experiment(
+  annotation (experiment(
       StopTime=8,
       Interval=0.0001,
       Tolerance=1e-06),

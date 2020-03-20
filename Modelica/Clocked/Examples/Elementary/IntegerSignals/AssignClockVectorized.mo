@@ -53,7 +53,7 @@ connect(sum1.y, assignClock1.u[1]) annotation (Line(
 connect(sum2.y, assignClock1.u[2]) annotation (Line(
     points={{-41.1,10},{-34,10},{-34,24.6},{-25.2,24.6}},
     color={255,127,0}));
-  annotation ( experiment(StopTime=0.09),
+  annotation (experiment(StopTime=0.09),
   Documentation(info="<html>
 <p>
 Elementary example for the documentation of block

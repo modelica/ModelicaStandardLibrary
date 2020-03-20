@@ -105,5 +105,5 @@ equation
                                    annotation (Line(points={{-74,-78},{-44,-78}}, color={0,127,255}));
   connect(V4.opening, Opening.y) annotation (Line(
       points={{-34,-70},{-34,-58},{-62,-58},{-62,72},{-75,72}}, color={0,0,127}));
-  annotation ( experiment(StopTime=1.01));
+  annotation (experiment(StopTime=1.01));
 end TestValveCoefficients;

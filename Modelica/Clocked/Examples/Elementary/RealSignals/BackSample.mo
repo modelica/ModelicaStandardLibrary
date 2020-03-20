@@ -35,7 +35,7 @@ connect(periodicClock.y, sample.clock) annotation (Line(
 connect(shiftSample1.y, backSample1.u) annotation (Line(
     points={{-13.4,30},{-5.2,30}},
     color={0,0,127}));
-  annotation ( experiment(StopTime=0.09),
+  annotation (experiment(StopTime=0.09),
   Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block

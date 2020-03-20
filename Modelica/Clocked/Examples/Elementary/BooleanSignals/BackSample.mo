@@ -33,7 +33,7 @@ connect(shiftSample1.u, sample.y) annotation (Line(
 connect(backSample1.u, shiftSample1.y) annotation (Line(
     points={{12.8,30},{-5.4,30}},
     color={255,0,255}));
-  annotation ( experiment(StopTime=0.09),
+  annotation (experiment(StopTime=0.09),
   Documentation(info="<html>
 <p>
 Elementary example for the documentation of block

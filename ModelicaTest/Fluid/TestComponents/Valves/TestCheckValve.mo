@@ -43,5 +43,5 @@ equation
       points={{35,30},{60,30},{60,-4},{48,-4}}, color={0,0,127}));
   connect(const.y, V1.opening) annotation (Line(
       points={{-39,30},{-16,30},{-16,-4}}, color={0,0,127}));
-  annotation ( experiment(StopTime=2));
+  annotation (experiment(StopTime=2));
 end TestCheckValve;

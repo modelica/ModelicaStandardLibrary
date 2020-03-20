@@ -29,7 +29,7 @@ connect(sample.y, superSampleIpo.u)
                                annotation (Line(
     points={{-33.4,30},{-23.2,30}},
     color={0,0,127}));
-  annotation ( experiment(StopTime=0.06),
+  annotation (experiment(StopTime=0.06),
   Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block

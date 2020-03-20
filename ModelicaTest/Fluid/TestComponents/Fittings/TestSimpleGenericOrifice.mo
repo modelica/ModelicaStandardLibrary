@@ -62,7 +62,7 @@ equation
   connect(expansion2.port_a, ambient_a.ports[2])
                                            annotation (Line(points={{0,20},{-10,
           20},{-10,48},{-20,48}}, color={0,127,255}));
-  annotation (    experiment(StopTime=10, Interval=1e-3),
+  annotation (experiment(StopTime=10, Interval=1e-3),
     Documentation(info="<html>
 </html>"));
 end TestSimpleGenericOrifice;

@@ -84,7 +84,7 @@ connect(hollowCylinderAxialOuter.port_n, hollowCylinderRadialLeft.port_p)
       points={{-50,20},{-60,20},{-60,-10}},
       color={255,170,85}));
   connect(complexRamp.y, source.Phi) annotation (Line(points={{-21,-70},{-34,-70},{-34,-22}}, color={85,170,255}));
-annotation (    Documentation(info="<html>
+annotation (Documentation(info="<html>
 <p>This model tests different types of cylinder sections in one example. The circuit is operated at 50Hz and variable magnetic flux.</p>
 </html>"),
     experiment(StopTime=1,Interval=0.001));

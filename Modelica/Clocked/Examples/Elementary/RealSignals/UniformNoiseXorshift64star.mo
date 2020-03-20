@@ -25,7 +25,7 @@ connect(periodicClock.y, sample.clock) annotation (Line(
 connect(const.y, sample.u) annotation (Line(
     points={{-55,30},{-47.2,30}},
     color={0,0,127}));
-  annotation ( experiment(StopTime=1),
+  annotation (experiment(StopTime=1),
   Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block

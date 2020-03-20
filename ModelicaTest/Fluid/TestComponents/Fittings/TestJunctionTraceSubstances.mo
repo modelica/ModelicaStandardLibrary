@@ -154,5 +154,5 @@ equation
       points={{-34,-16},{-30,-16},{-30,20}}, color={0,127,255}));
   connect(multiPort.ports_b[2], pipe1.port_a) annotation (Line(
       points={{-34,-20},{-24,-20}}, color={0,127,255}));
-  annotation ( experiment(StopTime=1.01));
+  annotation (experiment(StopTime=1.01));
 end TestJunctionTraceSubstances;

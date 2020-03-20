@@ -112,7 +112,7 @@ connect(referenceSensor.port, hollowCylinderAxialFlux1.port_p)
   annotation (Line(
     points={{-20,-60},{-40,-60},{-40,0}},
     color={255,170,85}));
-  annotation (    experiment(StopTime=1,Interval=0.001),
+  annotation (experiment(StopTime=1,Interval=0.001),
   Documentation(info="<html>
 <p>Test of one source and cylindrical components with leakage and various sensors.</p>
 </html>"));

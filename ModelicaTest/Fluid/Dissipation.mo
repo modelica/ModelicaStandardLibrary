@@ -319,7 +319,7 @@ extends Modelica.Icons.ExamplesPackage;
             startTime=0,
             duration=1,
             height=1e4 - 10,
-            offset=1.1e1) annotation ( Placement(
+            offset=1.1e1) annotation (Placement(
                 transformation(extent={{50,-80},{70,-60}})));
 
           SI.ReynoldsNumber Re_1[n]={abs(m_flow_1[i])*d_hyd/(eta[
@@ -893,7 +893,7 @@ extends Modelica.Icons.ExamplesPackage;
           Modelica.Blocks.Sources.Exponentials input_mflow_2(
             riseTime=1e-1,
             riseTimeConst=1e-1,
-            outMax=1e4) annotation ( Placement(
+            outMax=1e4) annotation (Placement(
                 transformation(extent={{0,-80},{20,-60}})));
 
         equation

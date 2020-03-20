@@ -20,7 +20,7 @@ connect(periodicClock1.y, assignClock1.clock) annotation (Line(
     color={175,175,175},
     pattern=LinePattern.Dot,
     thickness=0.5));
-annotation ( experiment(StopTime=1.0), Documentation(info="<html>
+annotation (experiment(StopTime=1.0), Documentation(info="<html>
 <p>
 Example for block
 <a href=\"modelica://Modelica.Clocked.RealSignals.TimeBasedSources.Step\">Modelica.Clocked.RealSignals.TimeBasedSources.Step</a>.

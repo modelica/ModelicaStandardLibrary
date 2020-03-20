@@ -15,7 +15,7 @@ equation
     seedState));
     y = u + noiseMin + (noiseMax - noiseMin)*noise;
 
-  annotation (    Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 This block adds uniformly distributed noise
 in the range noiseMin&nbsp;&hellip;&nbsp;noiseMax to the clocked Real input signal

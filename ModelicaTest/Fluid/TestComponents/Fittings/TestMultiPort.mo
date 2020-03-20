@@ -67,5 +67,5 @@ equation
       points={{-20,-22},{35,-22},{35,-20},{40,-20}}, color={0,127,255}));
   connect(source1.ports[1], multiPort.port_a) annotation (Line(
       points={{-40,-20},{-28,-20}}, color={0,127,255}));
-  annotation ( experiment(StopTime=1.01));
+  annotation (experiment(StopTime=1.01));
 end TestMultiPort;

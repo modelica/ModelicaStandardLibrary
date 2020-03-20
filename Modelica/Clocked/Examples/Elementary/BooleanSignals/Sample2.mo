@@ -47,7 +47,7 @@ connect(xor1.u1, integerConstant.y) annotation (Line(
 connect(xor1.u2, xor.y) annotation (Line(
     points={{-8,23},{-13,23},{-13,30},{-18,30}},
     color={255,0,255}));
-  annotation (    experiment(StopTime=0.2),
+  annotation (experiment(StopTime=0.2),
     Documentation(info="<html>
 <p>
 Elementary example for the documentation of block

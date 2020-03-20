@@ -71,5 +71,5 @@ equation
   connect(mFlow_2m.port_b, Boundary_fixed.ports[4])
                                                 annotation (Line(
       points={{40,-80},{60,-80},{60,-83},{80,-83}}, color={0,127,255}));
-  annotation (    experiment(StopTime=5000, Tolerance=1e-005));
+  annotation (experiment(StopTime=5000, Tolerance=1e-005));
 end TestTankWithTopPorts;

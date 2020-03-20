@@ -11,7 +11,7 @@ package FluxTubes "Test examples of Modelica.Magnetic.QuasiStatic.FluxTubes"
 
     Modelica.Magnetic.QuasiStatic.FluxTubes.Sources.ConstantMagneticPotentialDifference constantSource1(f=50,
       gamma(fixed=true, start=0),
-      V_m(re=200, im=-100))                                                                                                      annotation (Placement(transformation(extent={{-80,30},{-60,50}})));
+      V_m(re=200, im=-100)) annotation (Placement(transformation(extent={{-80,30},{-60,50}})));
     Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.Ground ground1 annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           origin={-90,10})));
@@ -20,7 +20,7 @@ package FluxTubes "Test examples of Modelica.Magnetic.QuasiStatic.FluxTubes"
     Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.HalfHollowCylinder halfHollowCylinder(ratio=0.3, l=0.1) annotation (Placement(transformation(extent={{10,30},{30,50}})));
     Modelica.Magnetic.QuasiStatic.FluxTubes.Sources.ConstantMagneticPotentialDifference constantSource2(f=50,
       gamma(start=0, fixed=true),
-      V_m(re=200, im=-100))                                                                                                      annotation (Placement(transformation(extent={{-80,-50},{-60,-30}})));
+      V_m(re=200, im=-100)) annotation (Placement(transformation(extent={{-80,-50},{-60,-30}})));
     Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.Ground ground2 annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           origin={-90,-70})));
@@ -71,7 +71,7 @@ package FluxTubes "Test examples of Modelica.Magnetic.QuasiStatic.FluxTubes"
     connect(magFluxSensor1.port_n, halfHollowCylinder.port_n) annotation (Line(points={{-40,70},{40,70},{40,40},{30,40}}, color={255,170,85}));
     connect(magFluxSensor2.port_p, constantSource2.port_p) annotation (Line(points={{-60,-10},{-90,-10},{-90,-40},{-80,-40}}, color={255,170,85}));
     connect(magFluxSensor2.port_n, coaxCylindersEndFaces.port_n) annotation (Line(points={{-40,-10},{90,-10},{90,-40}}, color={255,170,85}));
-    annotation (      experiment(Interval=0.001, StartTime=0, StopTime=1, Tolerance=1e-06));
+    annotation (experiment(Interval=0.001, StartTime=0, StopTime=1, Tolerance=1e-06));
   end NoPhysicalTestLeakage;
 
   model VariableComponents "Test of reluctance and permeance model with signal inputs"
@@ -88,7 +88,7 @@ package FluxTubes "Test examples of Modelica.Magnetic.QuasiStatic.FluxTubes"
     Modelica.Magnetic.QuasiStatic.FluxTubes.Sources.ConstantMagneticFlux magFluxSource(
       gamma(fixed=true),
       f=50,
-      Phi=Complex(1, 0))                                                               annotation (Placement(transformation(
+      Phi=Complex(1, 0)) annotation (Placement(transformation(
           extent={{10,-10},{-10,10}},
           rotation=270,
           origin={-40,0})));

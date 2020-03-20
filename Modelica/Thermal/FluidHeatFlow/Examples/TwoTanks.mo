@@ -40,7 +40,7 @@ equation
     annotation (Line(points={{-50,12},{-50,0},{-10,0}}, color={255,0,0}));
   connect(pipe.flowPort_b, openTank2.flowPort)
     annotation (Line(points={{10,0},{50,0},{50,10}}, color={255,0,0}));
-  annotation (    experiment(StopTime=1.5),
+  annotation (experiment(StopTime=1.5),
     Documentation(info="<html>
 <p>
 Two tanks are connected with a pipe:

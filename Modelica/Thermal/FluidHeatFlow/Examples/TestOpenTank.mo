@@ -36,7 +36,7 @@ equation
     annotation (Line(points={{0,50},{0,10}}, color={255,0,0}));
   connect(volumeFlow.flowPort_a, ambient.flowPort)
     annotation (Line(points={{0,-10},{0,-50}}, color={255,0,0}));
-  annotation (    experiment(StopTime=1.5),
+  annotation (experiment(StopTime=1.5),
     Documentation(info="<html>
 <p>
 First, the medium is pumped out of the tank (initial level = 0.5 m, T = 40&deg;C) to an (infinite) ambient (T = 20&deg;C):

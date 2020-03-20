@@ -141,5 +141,5 @@ equation
       points={{4,-20},{19.3333,-20}}, color={0,127,255}));
   connect(pipe6.port_b, volume3.ports[1]) annotation (Line(
       points={{4,-80},{19.3333,-80}}, color={0,127,255}));
-  annotation ( experiment(StopTime=1.01));
+  annotation (experiment(StopTime=1.01));
 end TestMultiPortTraceSubstances;

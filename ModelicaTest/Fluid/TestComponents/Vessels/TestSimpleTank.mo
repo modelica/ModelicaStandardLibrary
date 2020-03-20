@@ -57,5 +57,5 @@ equation
   connect(flowSource.m_flow_in, timeTable.y) annotation (Line(
       points={{-40,48},{-50,48},{-50,50},{-59,50}}, color={0,0,127}));
 
-  annotation (    experiment(StopTime=100));
+  annotation (experiment(StopTime=100));
 end TestSimpleTank;

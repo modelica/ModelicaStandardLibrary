@@ -279,7 +279,7 @@ equation
       points={{-38,10},{-32,10},{-32,20},{-30,20}}, color={0,127,255}));
   connect(multiPort.ports_b[2], pipe8.port_a) annotation (Line(
       points={{-38,6},{-38,8},{-32,8},{-32,-2},{-30,-2}}, color={0,127,255}));
-  annotation (                       experiment(StopTime=20, Tolerance=1e-005),
+  annotation (experiment(StopTime=20, Tolerance=1e-005),
     Documentation(info="<html>
 Test of different dynamic pipe models with trace substances.
 </html>"));

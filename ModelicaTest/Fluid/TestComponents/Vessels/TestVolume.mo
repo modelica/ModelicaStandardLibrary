@@ -23,7 +23,7 @@ model TestVolume
   Modelica.Fluid.Valves.ValveLinear Valve(   redeclare package Medium =
         Modelica.Media.Water.StandardWater,
     dp_nominal=10000,
-    m_flow_nominal=0.1)                                    annotation (Placement(
+    m_flow_nominal=0.1) annotation (Placement(
         transformation(extent={{2,0},{22,20}})));
   Modelica.Blocks.Sources.Step Step1(
     startTime=1,
@@ -40,5 +40,5 @@ equation
       points={{-62,10},{-32,10},{-32,14}}, color={0,127,255}));
   connect(Volume.ports[2], Valve.port_a) annotation (Line(
       points={{-28,14},{-28,10},{2,10}}, color={0,127,255}));
-  annotation (                       experiment(StopTime=5));
+  annotation (experiment(StopTime=5));
 end TestVolume;

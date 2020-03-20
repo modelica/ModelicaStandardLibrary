@@ -26,7 +26,7 @@ connect(table.y, sample.u) annotation (Line(
 connect(sample.y, superSample.u) annotation (Line(
     points={{-33.4,30},{-23.2,30}},
     color={255,127,0}));
-  annotation ( experiment(StopTime=0.2),
+  annotation (experiment(StopTime=0.2),
   Documentation(info="<html>
 <p>
 Elementary example for the documentation of block

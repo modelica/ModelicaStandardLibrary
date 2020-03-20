@@ -12,7 +12,7 @@ equation
           {50,-3.55271e-15}}, color={0,0,255}));
   connect(loadResistor.p, multiSensor.nc)
     annotation (Line(points={{50,20},{50,40},{30,40}}, color={0,0,255}));
-  annotation (    experiment(
+  annotation (experiment(
       StopTime=8,
       Interval=0.0001,
       Tolerance=1e-06),

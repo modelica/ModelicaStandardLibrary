@@ -27,7 +27,7 @@ connect(periodicClock.y, shiftSample.u) annotation (Line(
       color={175,175,175},
       pattern=LinePattern.Dot,
       thickness=0.5));
-  annotation (             experiment(StopTime=0.09),
+  annotation (experiment(StopTime=0.09),
   Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block

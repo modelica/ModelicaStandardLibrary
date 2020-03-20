@@ -23,7 +23,7 @@ equation
 connect(step.y, sample.u) annotation (Line(
     points={{-59,30},{-47.2,30}},
     color={0,0,127}));
-  annotation ( experiment(StopTime=0.2),
+  annotation (experiment(StopTime=0.2),
   Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block

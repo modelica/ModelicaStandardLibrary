@@ -9,7 +9,7 @@ model StackRC "Stack with sensors"
         each useHeatPort=useHeatPort,
         each T=T));
   extends Modelica.Electrical.Batteries.Icons.TransientModel;
-  annotation (                   Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 This is a stack of <code>Ns</code> x <code>Np</code> transient <a href=\"modelica://Modelica.Electrical.Batteries.BatteryStacksWithSensors.CellRC\">cellRC[Np=1, Ns=1]</a> (with RC-elements) with measurement, arranged in a matrix.
 </p>

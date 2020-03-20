@@ -2,7 +2,7 @@ within Modelica.Electrical.Batteries.ParameterRecords;
 package TransientData "Parameter records for transient battery models"
   extends Modelica.Electrical.Batteries.Icons.TransientRecordsPackage;
 
-  annotation (                  Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 Parameter records for transient battery models
 </p>

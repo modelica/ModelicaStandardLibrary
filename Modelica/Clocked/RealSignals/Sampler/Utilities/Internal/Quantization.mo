@@ -18,7 +18,7 @@ equation
   else
     y = u;
   end if;
-  annotation (    Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 The clocked Real input signal is value discretized
 (the discretization is defined by parameter <strong>bits</strong>).

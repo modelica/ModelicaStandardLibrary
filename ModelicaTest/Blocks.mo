@@ -1868,7 +1868,7 @@ This shows the improvements in the numerics when balance=true is set.
 
     connect(Signal.y, hysteresis.u)
       annotation (Line(points={{-15.1,0},{10.2,0}}, color={0,0,127}));
-    annotation ( experiment(StopTime=3));
+    annotation (experiment(StopTime=3));
   end Hysteresis;
 
   model MuxDemux "Test model for the Mux and Demux blocks"

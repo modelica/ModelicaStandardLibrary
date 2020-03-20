@@ -16,7 +16,7 @@ equation
   (r64, state64) = Modelica.Math.Random.Generators.Xorshift64star.random(previous(state64));
    y = u + noiseMin + (noiseMax - noiseMin)*r64;
 
-  annotation (    Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>This block adds uniformly distributed noise in the range noiseMin&nbsp;&hellip;&nbsp;noiseMax to the clocked Real input signal and provides the sum as clocked Real output signal. </p>
 <p>
 It is based on the xorshift64* algorithm.

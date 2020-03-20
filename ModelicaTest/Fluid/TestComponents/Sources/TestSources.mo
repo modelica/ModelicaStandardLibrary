@@ -128,5 +128,5 @@ equation
       points={{36,-30},{36,-26}}, color={0,127,255}));
   connect(junction.port_2, boundary6.ports[1]) annotation (Line(
       points={{46,-40},{52,-40},{52,-58},{76,-58}}, color={0,127,255}));
-  annotation ( experiment(StopTime=2));
+  annotation (experiment(StopTime=2));
 end TestSources;

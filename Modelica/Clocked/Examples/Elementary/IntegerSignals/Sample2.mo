@@ -49,7 +49,7 @@ equation
   connect(sample1.u, step.y) annotation (Line(
       points={{-61.2,30},{-75,30}},
       color={255,127,0}));
-  annotation (    experiment(StopTime=0.2),
+  annotation (experiment(StopTime=0.2),
     Documentation(info="<html>
 <p>
 Elementary example for the documentation of block

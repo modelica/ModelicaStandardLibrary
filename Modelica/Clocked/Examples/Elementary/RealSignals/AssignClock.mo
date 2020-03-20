@@ -31,7 +31,7 @@ connect(unitDelay1.y, add.u1) annotation (Line(
 connect(add.y, assignClock1.u) annotation (Line(
     points={{-37,28},{-27.2,28}},
     color={0,0,127}));
-  annotation ( experiment(StopTime=0.09),
+  annotation (experiment(StopTime=0.09),
   Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block

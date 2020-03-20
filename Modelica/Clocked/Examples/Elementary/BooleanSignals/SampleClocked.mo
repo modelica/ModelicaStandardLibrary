@@ -21,7 +21,7 @@ connect(periodicClock.y, sample.clock) annotation (Line(
 connect(sample.u, step.y) annotation (Line(
     points={{-47.2,30},{-59,30}},
     color={255,0,255}));
-  annotation ( experiment(StopTime=0.2),
+  annotation (experiment(StopTime=0.2),
   Documentation(info="<html>
 <p>
 Elementary example for the documentation of block

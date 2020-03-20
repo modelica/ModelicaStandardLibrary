@@ -28,7 +28,7 @@ connect(sine1.y, sample.u[1]) annotation (Line(
 connect(sine2.y, sample.u[2]) annotation (Line(
     points={{-59,40},{-38,40},{-38,30.6},{-15.2,30.6}},
     color={0,0,127}));
-  annotation ( experiment(StopTime=0.2),
+  annotation (experiment(StopTime=0.2),
   Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block

@@ -66,7 +66,7 @@ package SinglePhase "Single-phase quasi-static package"
     connect(voltageSensor.pin_n, ground.pin) annotation (Line(points={{-20,-30},{-20,-40},{-50,-40}}, color={85,170,255}));
     connect(const6.y, currentSource.I) annotation (Line(points={{-79,-50},{-70,-50},{-70,-26},{-62,-26}}, color={85,170,255}));
     connect(ramp.y, currentSource.f) annotation (Line(points={{-79,-20},{-74,-20},{-70,-20},{-70,-14},{-62,-14}}, color={0,0,127}));
-    annotation (      experiment(StopTime=1),
+    annotation (experiment(StopTime=1),
       Documentation(info="<html>
 <p>Serial connection of different single-phase basic components</p>
 </html>"));

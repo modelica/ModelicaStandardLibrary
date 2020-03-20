@@ -5,7 +5,7 @@ model ReferenceSensor "Sensor of reference angle gamma"
       Placement(transformation(extent={{100,-10},{120,10}})));
 equation
   y = port.reference.gamma;
-  annotation (    Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>This sensor determines the reference angle of the connected quasi-static magnetic system.
 The integral of the angular frequency of the quasi-static magnetic system is equal to the reference angle.
 </p>
