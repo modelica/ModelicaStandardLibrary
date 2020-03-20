@@ -3137,6 +3137,17 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
     end Issue2944;
+
+    model Issue3517 "Conversion test for #3517"
+      extends Modelica.Icons.Example;
+      import SI = Modelica.SIunits;
+      parameter SI.Conversions.NonSIunits.Time_minute p = SI.Conversions.to_minute(42);
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3517\">#3517</a>.
+</p>
+</html>"));
+    end Issue3517;
   end SIunits;
   annotation(uses(Modelica(version="3.2.3"), Complex(version="3.2.3")), Documentation(info="<html>
 <p>
