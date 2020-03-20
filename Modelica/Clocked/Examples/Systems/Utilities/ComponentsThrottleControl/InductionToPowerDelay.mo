@@ -3,22 +3,24 @@ block InductionToPowerDelay
   "Accounts for the induction-to-power stroke lag."
   extends Modelica.Blocks.Icons.Block;
 
-  Modelica.Blocks.Interfaces.RealInput m_a(unit="g")
+  Modelica.Blocks.Interfaces.RealInput m_a(unit = "g")
     "Mass of cylinder air charge (g)"
     annotation (Placement(transformation(extent = {{-140,-20},{-100,20}})));
-  Modelica.Blocks.Interfaces.RealOutput m_a_delayed(unit="g")
+  Modelica.Blocks.Interfaces.RealOutput m_a_delayed(unit = "g")
     "180deg delayed mass of cylinder air charge (g)"
     annotation (Placement(transformation(extent = {{100,-10},{120,10}})));
   ClockSignals.Interfaces.ClockInput clock
     annotation (Placement(transformation(
-        extent={{-20,-20},{20,20}},
-        rotation=90,
-        origin={0,-120})));
+        extent = {{-20,-20},{20,20}},
+        rotation = 90,
+        origin = {0,-120})));
   RealSignals.Sampler.SampleClocked sample
     annotation (Placement(transformation(extent = {{-6,-6},{6,6}})));
   RealSignals.Sampler.Hold hold(y_start = 0.152)
     annotation (Placement(transformation(extent = {{66,-6},{78,6}})));
-  RealSignals.NonPeriodic.FractionalDelay delay(shift = 1)
+  RealSignals.NonPeriodic.FractionalDelay delay(
+    shift = 1,
+    final resolution = 1 "Prepare model for usage in event-clock partitions")
     annotation (Placement(transformation(extent = {{30,-10},{50,10}})));
 
 equation
