@@ -1878,8 +1878,8 @@ i.e.
     Real tau[size(A, 2)];
   algorithm
     assert(nrow >= ncol, "\nInput matrix A[" + String(nrow) + "," + String(ncol)
-       + "] has more columns as rows.
-This is not allowed when calling Modelica.Matrices.QR(A).");
+       + "] has more columns than rows.
+This is not allowed when calling Modelica.Math.Matrices.QR(A).");
     if pivoting then
       (Q,tau,p) := LAPACK.dgeqp3(A);
     else
