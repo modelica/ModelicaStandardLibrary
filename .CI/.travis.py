@@ -12,6 +12,7 @@ python .travis.py [check_function] [path]
 import re
 import os
 import os.path
+import requests
 import sys
 
 from tidylib import tidy_document
@@ -148,6 +149,37 @@ def tidyHTML(file_name):
 
     return len(errors)
 
+links = {}
+def checkLinks(file_name):
+    """
+    Check each external (http(s)) link found in file_name
+    """
+    errors = 0
+    with open(file_name) as file:
+        i = 1
+        for line in file:
+            for match in pattern.finditer(line):
+                tag = match.group(0)
+                tag = tag.strip('< >')
+                if tag.split(' ')[0].lower() != 'a':
+                    continue
+                link = re.search(r'(?<=href=\\")http.*?(?=\\")', tag)
+                if link is None:
+                    continue
+                link = link.group(0)
+                if link in links:
+                    continue
+                try:
+                    rc = requests.get(link).status_code
+                    links[link] = rc
+                except:
+                    rc = 0
+                if rc != 200:
+                    errors = errors + 1
+                    print('File "{0}": {1} -> {2}'.format(file_name, link, rc))
+            i = i + 1
+    return errors
+
 def _walkCheck(func, path):
     error_count = 0
     for subdir, _, files in os.walk(path):
@@ -181,7 +213,7 @@ if __name__ == '__main__':
         check_function = globals()[function]
         error_count = _runCheck(check_function, path)
     except KeyError:
-        print('Invalid check function "{0}" called. Only "checkHTML" and "tidyHTML "are implemented.'.format(function))
+        print('Invalid check function "{0}" called. Only "checkHTML", "tidyHTML" or "checkLinks" are implemented.'.format(function))
         error_count = 1
 
     sys.exit(error_count)
