@@ -1,5 +1,4 @@
 time
-combiTimeTable.nextTimeEvent
 rh1[1]
 rh1[2]
 rh1[3]
