@@ -1,0 +1,42 @@
+echo(false);
+
+setCommandLineOptions("-g=Modelica");
+
+setModelicaPath(".");
+setLanguageStandard("3.3");
+loadModel(Modelica);
+loadModel(ModelicaTest);
+
+if not (isPackage(Modelica) and isPackage(ModelicaTest)) then
+  print(getErrorString());
+  exit(1);
+end if;
+
+names := {c for c guard isExperiment(c) in getClassNames(recursive=true)};
+
+setCommandLineOptions("-g=MetaModelica");
+
+allClasses := stringDelimitList(list(OpenModelica.Scripting.typeNameString(name) for name in OpenModelica.Scripting.getClassNames(recursive=true)),"\n");
+
+setCommandLineOptions("-g=Modelica");
+
+writeFile("all.classes", allClasses);
+
+num := OpenModelica.Scripting.numProcessors();
+
+for i in 1:num loop
+  str := sum("sum(OpenModelica.Scripting.typeNameString(n)+\"
+\" for n in (OpenModelica.Scripting.getUsedClassNames("+OpenModelica.Scripting.typeNameString(name)+")));\n"
+  for name in names[i:num:end]);
+  writeFile(String(i) + ".mos", "
+  setModelicaPath(\".\");
+  setLanguageStandard(\"3.3\");
+  loadModel(ModelicaTest);
+"+str+"
+");
+end for;
+getErrorString();
+system_parallel({OpenModelica.Scripting.getInstallationDirectoryPath() + "/bin/omc " + String(i)+".mos > " + String(i)+".uses" for i in 1:num});
+if 0 <> system("cat "+sum(String(i)+".uses " for i in 1:num)+" > models.uses") then
+  exit(1);
+end if;
