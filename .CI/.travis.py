@@ -12,10 +12,12 @@ python .travis.py [check_function] [path]
 import re
 import os
 import os.path
-import requests
+import urllib2
+import ssl
 import sys
 
 from tidylib import tidy_document
+from concurrent.futures import ProcessPoolExecutor as PoolExecutor
 
 # See https://html.spec.whatwg.org/#void-elements
 void_tags = ('area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'keygen', 'link', 'menuitem', 'meta', 'param', 'source', 'track', 'wbr')
@@ -32,7 +34,7 @@ ignore_ids = ('MISSING_ATTRIBUTE', 'MISMATCHED_ATTRIBUTE_WARN', 'REMOVED_HTML5')
 # HTML Tidy options
 tidy_options = {'doctype': 'omit', 'show-body-only': 1, 'show-warnings': 1, 'show-info': 1, 'mute-id': 1}
 
-def checkHTML(file_name):
+def checkFileHTML(file_name):
     """
     Check each HTML documentation found in file_name for
     - unclosed tags
@@ -107,7 +109,7 @@ def _tidyHTML(doc):
 
     return errors
 
-def tidyHTML(file_name):
+def tidyFileHTML(file_name):
     """
     Run HTML Tidy on each HTML documentation found in file_name
     """
@@ -149,12 +151,11 @@ def tidyHTML(file_name):
 
     return len(errors)
 
-links = {}
-def checkLinks(file_name):
+def getFileURLs(file_name):
     """
-    Check each external (http(s)) link found in file_name
+    Get the external (http(s)) links found in file_name
     """
-    errors = 0
+    urls = []
     with open(file_name) as file:
         i = 1
         for line in file:
@@ -163,22 +164,42 @@ def checkLinks(file_name):
                 tag = tag.strip('< >')
                 if tag.split(' ')[0].lower() != 'a':
                     continue
-                link = re.search(r'(?<=href=\\")http.*?(?=\\")', tag)
-                if link is None:
+                url = re.search(r'(?<=href=\\")http.*?(?=\\")', tag)
+                if url is None:
                     continue
-                link = link.group(0)
-                if link in links:
+                url = url.group(0)
+                if url in urls:
                     continue
-                try:
-                    rc = requests.get(link).status_code
-                    links[link] = rc
-                except:
-                    rc = 0
-                if rc != 200:
-                    errors = errors + 1
-                    print('File "{0}": {1} -> {2}'.format(file_name, link, rc))
+                urls.append(url)
             i = i + 1
-    return errors
+    return {file_name: urls}
+
+def getURLs(path):
+    urls = {}
+    for subdir, _, files in os.walk(path):
+        for file in files:
+            if os.path.splitext(file)[1] == '.mo':
+                file_name = os.path.join(subdir, file)
+                urls.update(getFileURLs(file_name))
+    return urls
+
+def checkURL(url):
+    try:
+        rc = urllib2.urlopen(url).getcode()
+        return (url, rc)
+    except:
+        pass
+    try:
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64)'}
+        rc = urllib2.urlopen(urllib2.Request(url, None, headers), context=ssl._create_unverified_context()).getcode()
+    except urllib2.HTTPError as e:
+        rc = e.code
+        if rc == 429:
+            # Ignore too many requests
+            rc = 200
+    except:
+        rc = 0
+    return (url, rc)
 
 def _walkCheck(func, path):
     error_count = 0
@@ -189,13 +210,42 @@ def _walkCheck(func, path):
                 error_count = error_count + func(file_name)
     return error_count
 
-def _runCheck(func, path):
+def checkHTML(path):
     if os.path.isdir(path):
-        return _walkCheck(func, path)
+        return _walkCheck(checkFileHTML, path)
     elif os.path.isfile(path):
-        return func(path)
+        return checkFileHTML(path)
     else:
         return 1
+
+def tidyHTML(path):
+    if os.path.isdir(path):
+        return _walkCheck(globals()['tidyFileHTML'], path)
+    elif os.path.isfile(path):
+        return tidyFileHTML(path)
+    else:
+        return 1
+
+def checkLinks(path):
+    if os.path.isdir(path):
+        urls = getURLs(path)
+    elif os.path.isfile(path):
+        urls = getFileURLs(path)
+    else:
+        return 1
+
+    all_urls = set()
+    for file_name, url_list in urls.items():
+        all_urls.update(url_list)
+
+    errors = 0
+    with PoolExecutor(max_workers=8) as executor:
+        for url, rc in executor.map(checkURL, all_urls):
+            if rc != 200:
+                errors = errors + 1
+                file_name = next(file_name for file_name, url_list in urls.items() if url in url_list)
+                print('File "{0}": Error {1}for URL "{2}"'.format(file_name, '' if rc == 0 else str(rc) + ' ', url))
+    return errors
 
 if __name__ == '__main__':
     module_dir, _ = os.path.split(__file__)
@@ -211,7 +261,7 @@ if __name__ == '__main__':
 
     try:
         check_function = globals()[function]
-        error_count = _runCheck(check_function, path)
+        error_count = check_function(path)
     except KeyError:
         print('Invalid check function "{0}" called. Only "checkHTML", "tidyHTML" or "checkLinks" are implemented.'.format(function))
         error_count = 1
