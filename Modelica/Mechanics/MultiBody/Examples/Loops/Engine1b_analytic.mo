@@ -37,7 +37,7 @@ equation
       points={{90,-30},{90,-40},{60,-40},{60,4}},
       color={95,95,95},
       thickness=0.5));
-  annotation (experiment(StopTime=5), Documentation(info="<html>
+  annotation (experiment(StopTime=0.5), Documentation(info="<html>
 <p>
 This is the same model as
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b#diagram\">Loops.Engine1b</a>.
