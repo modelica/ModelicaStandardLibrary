@@ -1399,7 +1399,7 @@ of noise blocks.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
+         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
