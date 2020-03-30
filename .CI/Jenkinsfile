@@ -17,7 +17,7 @@ pipeline {
             def buildNumber = env.BUILD_NUMBER as int
             if (buildNumber > 1) milestone(buildNumber - 1)
             milestone(buildNumber)
-            doCountUnused = pullRequest.labels.contains("CI/Count unused classes")
+            doCountUnused = pullRequest.labels.contains("CI: class coverage")
           } else {
             doCountUnused = true
           }
@@ -66,8 +66,8 @@ pipeline {
           }
           steps {
             sh 'hostname'
-            sh 'omc -g=MetaModelica ./.CI/CountClasses.mos'
-            sh 'python ./.CI/CountClasses.py | tee CountClasses.txt'
+            sh 'omc -g=MetaModelica ./.CI/classCoverage/CountClasses.mos'
+            sh 'python ./.CI/classCoverage/CountClasses.py | tee CountClasses.txt'
             archiveArtifacts 'CountClasses.txt'
           }
         }
