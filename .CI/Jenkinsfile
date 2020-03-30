@@ -1,3 +1,5 @@
+def doCountUnused
+
 pipeline {
   agent none
   environment {
@@ -8,15 +10,17 @@ pipeline {
   }
   stages {
     stage('abort running builds') {
-      /* If this is a change request, cancel previous builds if you push a new commit */
-      when {
-        changeRequest()
-      }
       steps {
         script {
-          def buildNumber = env.BUILD_NUMBER as int
-          if (buildNumber > 1) milestone(buildNumber - 1)
-          milestone(buildNumber)
+          /* If this is a change request, cancel previous builds if you push a new commit */
+          if (changeRequest()) {
+            def buildNumber = env.BUILD_NUMBER as int
+            if (buildNumber > 1) milestone(buildNumber - 1)
+            milestone(buildNumber)
+            doCountUnused = pullRequest.labels.contains("CI: class coverage")
+          } else {
+            doCountUnused = true
+          }
         }
       }
     }
@@ -46,6 +50,25 @@ pipeline {
           steps {
             sh 'hostname'
             sh 'moparser -v 3.4 -r Complex.mo Modelica ModelicaReference ModelicaServices ModelicaTest ModelicaTestConversion4.mo ModelicaTestOverdetermined.mo ObsoleteModelica4.mo'
+          }
+        }
+        stage('Count unused classes') {
+          agent {
+            docker {
+              image 'openmodelica/openmodelica:v1.12.0'
+              label 'linux'
+              alwaysPull true
+            }
+          }
+          when {
+            beforeAgent true
+            expression { doCountUnused }
+          }
+          steps {
+            sh 'hostname'
+            sh 'omc -g=MetaModelica ./.CI/classCoverage/CountClasses.mos'
+            sh 'python ./.CI/classCoverage/CountClasses.py | egrep -v "[.]UsersGuide|[.]Icons" | tee CountClasses.txt'
+            archiveArtifacts 'CountClasses.txt'
           }
         }
         stage('UTF-8 checks') {
