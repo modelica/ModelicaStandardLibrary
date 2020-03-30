@@ -3,6 +3,7 @@
 *.bak-mo
 *.exe
 *.exp
+*.pyc
 buildlog.txt
 dsfinal.txt
 dsin.txt

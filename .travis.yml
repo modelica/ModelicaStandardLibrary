@@ -8,6 +8,7 @@ services:
 
 before_install:
   - pip install --user pytidylib
+  - pip install --user futures
   - git clone --branch 5.7.28 --depth=1 https://github.com/htacg/tidy-html5.git && ( cd tidy-html5 && cmake . && make && sudo make install )
   - sudo ldconfig
   - docker pull openmodelica/openmodelica:v1.12.0-minimal
@@ -15,7 +16,8 @@ before_install:
 
 script:
   - python ./.CI/.travis.py tidyHTML ./
-  - python ./.CI/.travis.py checkHTML ./
+  - python ./.CI/.travis.py checkTags ./
+  - if [[ "$TRAVIS_EVENT_TYPE" == "cron" ]]; then python ./.CI/.travis.py checkLinks ./; fi
   - docker run -v "$PWD:/repo" -w "/repo" openmodelica/openmodelica:v1.12.0-minimal omc ./.CI/.travis.mos
   - "! find . -name '*.mo' -exec bash -c 'iconv -o /dev/null -f utf8 -t utf8 \"{}\" |& sed \"s,^,{}: ,\"' ';' | grep '.'"
   - docker run -v "$PWD:/repo" -w "/repo" openmodelica/moparser:3.4 moparser -v 3.4 -r Complex.mo Modelica ModelicaReference ModelicaServices ModelicaTest ModelicaTestConversion4.mo ModelicaTestOverdetermined.mo ObsoleteModelica4.mo
