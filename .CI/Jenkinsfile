@@ -67,7 +67,7 @@ pipeline {
           steps {
             sh 'hostname'
             sh 'omc -g=MetaModelica ./.CI/classCoverage/CountClasses.mos'
-            sh 'python ./.CI/classCoverage/CountClasses.py | tee CountClasses.txt'
+            sh 'python ./.CI/classCoverage/CountClasses.py | egrep -v "[.]UsersGuide|[.]Icons" | tee CountClasses.txt'
             archiveArtifacts 'CountClasses.txt'
           }
         }
