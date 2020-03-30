@@ -70,7 +70,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   annotation (
-    experiment(StopTime=5),
+    experiment(StopTime=0.5),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}),
