@@ -29,8 +29,8 @@ if __name__ == '__main__':
         mod = importlib.import_module('checkHTMLDoc.' + function)
         check_function = getattr(mod, function)
         error_count = check_function(path)
-    except ImportError:
-        print('Invalid check function "{0}" called. Only "checkLinks", "checkTags" and "tidyHTML" are implemented.'.format(function))
+    except ImportError as e:
+        print(str(e))
         error_count = 1
 
     sys.exit(error_count)
