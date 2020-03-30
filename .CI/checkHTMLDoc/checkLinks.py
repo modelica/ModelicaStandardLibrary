@@ -10,7 +10,10 @@ Check Modelica HTML documentation for link validity
 
 import re
 import os
-import urllib2
+try:
+    import urllib2
+except ImportError:
+    import urllib.request as urllib2
 import ssl
 
 from concurrent.futures import ProcessPoolExecutor as PoolExecutor
