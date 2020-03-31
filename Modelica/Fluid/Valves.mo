@@ -6,6 +6,7 @@ package Valves "Components for the regulation and control of fluid flow"
       extends BaseClasses.PartialValve;
       import Modelica.Fluid.Types.CvTypes;
       import Modelica.Constants.pi;
+      import Modelica.Fluid.Utilities;
 
       constant SI.ReynoldsNumber Re_turbulent = 4000
       "cf. straight pipe for fully open valve -- dp_turbulent increases for closing valve";
