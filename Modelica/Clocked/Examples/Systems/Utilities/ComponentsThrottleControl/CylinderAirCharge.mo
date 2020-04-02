@@ -17,10 +17,10 @@ block CylinderAirCharge
       origin = {0,-120})));
   Modelica.Blocks.Math.Add add(k2 = -1)
     annotation (Placement(transformation(extent = {{60,-10},{80,10}})));
-  RealSignals.Sampler.SampleClocked sample
-    annotation (Placement(transformation(extent = {{-6,-26},{6,-14}})));
-  RealSignals.Sampler.Hold hold
-    annotation (Placement(transformation(extent = {{24,-26},{36,-14}})));
+  RealSignals.Sampler.SampleClocked sample1
+    annotation (Placement(transformation(extent={{-6,-26},{6,-14}})));
+  RealSignals.Sampler.Hold hold1
+    annotation (Placement(transformation(extent={{24,-26},{36,-14}})));
   Modelica.Blocks.Continuous.Integrator integrator
     annotation (Placement(transformation(extent = {{-80,-10},{-60,10}})));
 
@@ -29,20 +29,15 @@ equation
     annotation (Line(
       points = {{81,0},{110,0}},
       color = {0,0,127}));
-  connect(clock, sample.clock)
-    annotation (Line(
-      points = {{0,-120},{0,-27.2}},
-      color = {175,175,175},
-      pattern = LinePattern.Dot,
-      thickness = 0.5));
-  connect(sample.y, hold.u)
-    annotation (Line(
-      points = {{6.6,-20},{22.8,-20}},
-      color = {0,0,127}));
-  connect(hold.y, add.u2)
-    annotation (Line(
-      points = {{36.6,-20},{50,-20},{50,-6},{58,-6}},
-      color = {0,0,127}));
+  connect(clock, sample1.clock) annotation (Line(
+      points={{0,-120},{0,-27.2}},
+      color={175,175,175},
+      pattern=LinePattern.Dot,
+      thickness=0.5));
+  connect(sample1.y, hold1.u)
+    annotation (Line(points={{6.6,-20},{22.8,-20}}, color={0,0,127}));
+  connect(hold1.y, add.u2) annotation (Line(points={{36.6,-20},{50,-20},{50,-6},
+          {58,-6}}, color={0,0,127}));
   connect(m_ao_der, integrator.u)
     annotation (Line(
       points = {{-120,0},{-82,0}},
@@ -51,8 +46,6 @@ equation
     annotation (Line(
       points = {{-59,0},{-20,0},{-20,6},{58,6}},
       color = {0,0,127}));
-  connect(integrator.y, sample.u)
-    annotation (Line(
-      points = {{-59,0},{-20,0},{-20,-20},{-7.2,-20}},
-      color = {0,0,127}));
+  connect(integrator.y, sample1.u) annotation (Line(points={{-59,0},{-20,0},{-20,
+          -20},{-7.2,-20}}, color={0,0,127}));
 end CylinderAirCharge;

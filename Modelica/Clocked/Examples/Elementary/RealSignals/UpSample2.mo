@@ -10,8 +10,7 @@ model UpSample2
     offset=0.1,
     startTime=0)
     annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-  Modelica.Clocked.RealSignals.Sampler.SampleClocked
-                                                  sample
+  Modelica.Clocked.RealSignals.Sampler.SampleClocked sample1
     annotation (Placement(transformation(extent={{-48,24},{-36,36}})));
 Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample upSample(
       inferFactor=false, factor=3)
@@ -26,21 +25,17 @@ Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample upSample(
       cBufStart={0,0})
     annotation (Placement(transformation(extent={{6,20},{26,40}})));
 equation
-connect(sine.y, sample.u) annotation (Line(
-    points={{-59,30},{-49.2,30}},
-    color={0,0,127}));
-connect(periodicClock.y, sample.clock) annotation (Line(
-    points={{-55.4,0},{-42,0},{-42,22.8}},
-    color={175,175,175},
-    pattern=LinePattern.Dot,
-    thickness=0.5));
-  connect(upSample.u, sample.y)
-                               annotation (Line(
-    points={{-25.2,30},{-35.4,30}},
-    color={0,0,127}));
-  connect(sample.y, superSampleIpo.u) annotation (Line(
-      points={{-35.4,30},{-32,30},{-32,-38},{10.8,-38}},
-      color={0,0,127}));
+  connect(sine.y, sample1.u)
+    annotation (Line(points={{-59,30},{-49.2,30}}, color={0,0,127}));
+  connect(periodicClock.y, sample1.clock) annotation (Line(
+      points={{-55.4,0},{-42,0},{-42,22.8}},
+      color={175,175,175},
+      pattern=LinePattern.Dot,
+      thickness=0.5));
+  connect(upSample.u, sample1.y)
+    annotation (Line(points={{-25.2,30},{-35.4,30}}, color={0,0,127}));
+  connect(sample1.y, superSampleIpo.u) annotation (Line(points={{-35.4,30},{-32,
+          30},{-32,-38},{10.8,-38}}, color={0,0,127}));
   connect(upSample.y, FIR2.u) annotation (Line(
       points={{-11.4,30},{-8,30},{-8,-4},{4,-4}},
       color={0,0,127}));

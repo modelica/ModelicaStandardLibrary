@@ -9,20 +9,18 @@ model Sample1 "Example of a Sample block for Integer signals"
 Modelica.Blocks.Sources.IntegerStep
                              step(startTime=0.1)
   annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-Modelica.Clocked.IntegerSignals.Sampler.Sample sample
-  annotation (Placement(transformation(extent={{-48,24},{-36,36}})));
+Modelica.Clocked.IntegerSignals.Sampler.Sample sample1
+    annotation (Placement(transformation(extent={{-48,24},{-36,36}})));
 equation
   connect(periodicClock.y, assignClock.clock) annotation (Line(
       points={{-29.4,4},{-16,4},{-16,22.8}},
       color={175,175,175},
       pattern=LinePattern.Dot,
       thickness=0.5));
-connect(step.y, sample.u) annotation (Line(
-    points={{-59,30},{-49.2,30}},
-    color={255,127,0}));
-connect(sample.y, assignClock.u) annotation (Line(
-    points={{-35.4,30},{-23.2,30}},
-    color={255,127,0}));
+  connect(step.y, sample1.u)
+    annotation (Line(points={{-59,30},{-49.2,30}}, color={255,127,0}));
+  connect(sample1.y, assignClock.u)
+    annotation (Line(points={{-35.4,30},{-23.2,30}}, color={255,127,0}));
   annotation (experiment(StopTime=0.2),
   Documentation(info="<html>
 <p>
