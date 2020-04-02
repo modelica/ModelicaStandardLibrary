@@ -1,2 +1,2 @@
 time
-sample.y
+sample1.y
