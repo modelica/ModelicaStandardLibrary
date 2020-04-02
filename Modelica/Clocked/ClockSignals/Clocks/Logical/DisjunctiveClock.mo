@@ -1,4 +1,4 @@
-﻿within Modelica.Clocked.ClockSignals.Clocks.Logical;
+within Modelica.Clocked.ClockSignals.Clocks.Logical;
 block DisjunctiveClock
   "Logical clock ticking whenever any of its input clock signals ticks."
   extends PartialLogicalClock(

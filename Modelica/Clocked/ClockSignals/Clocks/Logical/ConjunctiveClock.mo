@@ -1,4 +1,4 @@
-﻿within Modelica.Clocked.ClockSignals.Clocks.Logical;
+within Modelica.Clocked.ClockSignals.Clocks.Logical;
 block ConjunctiveClock
   "Logical clock ticking whenever all input clocks ticked at least once, then resets and starts the next conjunctive cycle"
   extends PartialLogicalClock(
