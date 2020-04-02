@@ -1,3 +1,2 @@
 time
 sample1.y
-subSample.y
