@@ -2553,6 +2553,17 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
       end Issue3382;
+
+      model Issue3534 "Conversion test for #3534"
+        extends Modelica.Icons.Example;
+        import Modelica.Mechanics.MultiBody.Types;
+        parameter Types.Init initType = Types.Init.PositionVelocityAcceleration;
+      annotation(experiment(StopTime=1), Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3534\">#3534</a>.
+</p>
+</html>"));
+      end Issue3534;
     end MultiBody;
 
     package Rotational
