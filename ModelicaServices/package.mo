@@ -264,6 +264,11 @@ These are:
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</a>
      via inheritance.</li>
 
+<li> <a href=\"modelica://ModelicaServices.Animation.Vector\">Animation.Vector</a>
+     provides a 3-dim. visualization of vector quantities. It is used in
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow</a>, <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow</a> and <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedArrow\">Modelica.Mechanics.MultiBody.Visualizers.FixedArrow</a>
+     via inheritance.</li>
+
 <li> <a href=\"modelica://ModelicaServices.ExternalReferences.loadResource\">ExternalReferences.loadResource</a>
      provides a function to return the absolute path name of an URI or a local file name. It is used in
 <a href=\"modelica://Modelica.Utilities.Files.loadResource\">Modelica.Utilities.Files.loadResource</a>

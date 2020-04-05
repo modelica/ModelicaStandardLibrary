@@ -58,7 +58,7 @@ This model is documented at
         "Color of vector" annotation(Dialog(colorSelector=true));
       input Types.SpecularCoefficient specularCoefficient = 0.7
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)" annotation(Dialog);
-      input Types.VectorQuantity quantity = Types.VectorQuantity.Force "The quantity of the coordinates" annotation(Dialog);
+      parameter Types.VectorQuantity quantity = Types.VectorQuantity.Force "Quantity of the coordinates";
       input Boolean headAtOrigin=false "= true, if the vector is pointing towards the origin of vector frame" annotation(Dialog);
       input Boolean twoHeadedArrow=false "= true, if the arrow has two heads after each other (pointing in the same direction)" annotation(Dialog);
 

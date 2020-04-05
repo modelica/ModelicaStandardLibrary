@@ -1,6 +1,6 @@
 within Modelica.Mechanics.MultiBody.Visualizers.Advanced;
 model Arrow
-  "Visualizing an arrow with variable size; all data have to be set as modifiers (see info layer)"
+  "Visualizing an arrow with variable size"
 
   import Modelica.Mechanics.MultiBody.Types;
   import Modelica.Mechanics.MultiBody.Frames;
@@ -15,12 +15,12 @@ model Arrow
     "Position vector from origin of arrow frame to arrow tail, resolved in arrow frame" annotation(Dialog);
   input Real r_head[3]={0,0,0}
     "Vector from arrow tail to the head of the arrow, resolved in arrow frame" annotation(Dialog);
-  input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
+  input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
     "Color of arrow" annotation(Dialog(colorSelector=true));
   input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
     "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)" annotation(Dialog);
-  input Types.VectorQuantity quantity=Types.VectorQuantity.RelativePosition
-    "The kind of physical quantity represented by the vector" annotation(Dialog);
+  parameter Types.VectorQuantity quantity=Types.VectorQuantity.RelativePosition
+    "Kind of physical quantity represented by the vector" annotation(Dialog);
   input Boolean headAtOrigin=false "= true, if the vector is pointing towards the origin of vector frame" annotation(Dialog);
 protected
   outer Modelica.Mechanics.MultiBody.World world;
@@ -49,7 +49,7 @@ If you want an arrow representing something that is not a&nbsp;relative position
 
 <p>
 The dialog variables <code>R</code>, <code>r</code>, <code>r_tail</code>, <code>r_head</code>, <code>color</code>,
-<code>specularCoefficient</code>, <code>quantity</code>, and <code>headAtOrigin</code>
+<code>specularCoefficient</code>, and <code>headAtOrigin</code>
 are declared as (time varying) <strong>input</strong> variables.
 If the default equation is not appropriate, a&nbsp;corresponding
 modifier equation has to be provided in the
