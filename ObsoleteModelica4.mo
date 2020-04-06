@@ -1005,6 +1005,45 @@ This shape visualizes the x-y plane by a box.
 </html>"));
         end Ground;
       end Visualizers;
+      package Types "Constants and types with choices, especially to build menus"
+        extends Modelica.Icons.TypesPackage;
+        type Init = enumeration(
+          Free "Free (no initialization)",
+          PositionVelocity "Initialize generalized position and velocity variables",
+          SteadyState "Initialize in steady state (velocity and acceleration are zero)",
+          Position "Initialize only generalized position variable(s)",
+          Velocity "Initialize only generalized velocity variable(s)",
+          VelocityAcceleration "Initialize generalized velocity and acceleration variables",
+          PositionVelocityAcceleration "Initialize generalized position, velocity and acceleration variables")
+        "Enumeration defining initialization for MultiBody components"
+        annotation (
+          obsolete = "Obsolete type - use start/fixed attributes instead",
+          Documentation(info="<html>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+<tr><th><strong>Types.Init.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>Free</td>
+    <td>No initialization</td></tr>
+
+<tr><td>PositionVelocity</td>
+    <td>Initialize generalized position and velocity variables</td></tr>
+
+<tr><td>SteadyState</td>
+    <td>Initialize in steady state (velocity and acceleration are zero)</td></tr>
+
+<tr><td>Position </td>
+    <td>Initialize only generalized position variable(s)</td></tr>
+
+<tr><td>Velocity</td>
+    <td>Initialize only generalized velocity variable(s)</td></tr>
+
+<tr><td>VelocityAcceleration</td>
+    <td>Initialize generalized velocity and acceleration variables</td></tr>
+
+<tr><td>PositionVelocityAcceleration</td>
+    <td>Initialize generalized position, velocity and acceleration variables</td></tr>
+</table>
+</html>"));
+      end Types;
     end MultiBody;
 
     package Rotational "Library to model 1-dimensional, rotational mechanical systems"
