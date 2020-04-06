@@ -13,8 +13,8 @@ model EngineThrottleControl
     annotation (Placement(transformation(extent = {{-32,-5},{0,25}})));
   RealSignals.Sampler.Sample sample1
     annotation (Placement(transformation(extent = {{-60,9},{-46,23}})));
-  RealSignals.Sampler.Hold hold(y_start = 8.9)
-    annotation (Placement(transformation(extent = {{8,4},{20,16}})));
+  RealSignals.Sampler.Hold hold1(y_start=8.9)
+    annotation (Placement(transformation(extent={{8,4},{20,16}})));
   Utilities.ComponentsThrottleControl.Engine engine
     annotation (Placement(transformation(extent = {{32,-4},{60,24}})));
   Modelica.Blocks.Sources.Step step1(
@@ -50,14 +50,10 @@ equation
     annotation (Line(
       points = {{-45.3,16},{-35.2,16}},
       color = {0,0,127}));
-  connect(speedControl.Theta, hold.u)
-    annotation (Line(
-      points = {{1.6,10},{6.8,10}},
-      color = {0,0,127}));
-  connect(hold.y, engine.Theta)
-    annotation (Line(
-      points = {{20.6,10},{29.2,10}},
-      color = {0,0,127}));
+  connect(speedControl.Theta, hold1.u)
+    annotation (Line(points={{1.6,10},{6.8,10}}, color={0,0,127}));
+  connect(hold1.y, engine.Theta)
+    annotation (Line(points={{20.6,10},{29.2,10}}, color={0,0,127}));
   connect(torque.flange, engine.flange_b)
     annotation (Line(
       points = {{70,10},{60,10}}));

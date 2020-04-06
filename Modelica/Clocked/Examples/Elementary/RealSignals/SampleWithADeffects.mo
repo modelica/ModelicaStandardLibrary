@@ -7,8 +7,7 @@ model SampleWithADeffects
     startTime=0,
     amplitude=0.95)
     annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-  Modelica.Clocked.RealSignals.Sampler.SampleWithADeffects
-                                                  sample(
+  Modelica.Clocked.RealSignals.Sampler.SampleWithADeffects sample1(
     noisy=true,
     limited=true,
     quantized=true,
@@ -23,12 +22,10 @@ model SampleWithADeffects
       resolution=Modelica.Clocked.Types.Resolution.ms, factor=20)
     annotation (Placement(transformation(extent={{-42,-2},{-30,10}})));
 equation
-  connect(sine.y, sample.u) annotation (Line(
-      points={{-59,30},{-47.2,30}},
-      color={0,0,127}));
-  connect(sample.y, assignClock.u) annotation (Line(
-      points={{-33.4,30},{-23.2,30}},
-      color={0,0,127}));
+  connect(sine.y, sample1.u)
+    annotation (Line(points={{-59,30},{-47.2,30}}, color={0,0,127}));
+  connect(sample1.y, assignClock.u)
+    annotation (Line(points={{-33.4,30},{-23.2,30}}, color={0,0,127}));
   connect(periodicClock.y, assignClock.clock) annotation (Line(
       points={{-29.4,4},{-16,4},{-16,22.8}},
       color={175,175,175},

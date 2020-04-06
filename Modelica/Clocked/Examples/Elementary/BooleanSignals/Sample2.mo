@@ -10,7 +10,7 @@ model Sample2
 Modelica.Blocks.Sources.BooleanStep
                              step(startTime=0.04)
   annotation (Placement(transformation(extent={{-96,20},{-76,40}})));
-  Modelica.Clocked.BooleanSignals.Sampler.Hold  hold
+  Modelica.Clocked.BooleanSignals.Sampler.Hold hold1
     annotation (Placement(transformation(extent={{22,24},{34,36}})));
   Modelica.Clocked.BooleanSignals.Sampler.Sample  sample2
     annotation (Placement(transformation(extent={{6,-6},{-6,6}})));
@@ -29,18 +29,16 @@ equation
 connect(step.y, sample1.u) annotation (Line(
     points={{-75,30},{-61.2,30}},
     color={255,0,255}));
-connect(hold.y, sample2.u) annotation (Line(
-    points={{34.6,30},{39,30},{39,0},{7.2,0}},
-    color={255,0,255}));
+  connect(hold1.y, sample2.u) annotation (Line(points={{34.6,30},{39,30},{39,0},
+          {7.2,0}}, color={255,0,255}));
 connect(sample2.y, xor.u2) annotation (Line(
     points={{-6.6,0},{-47,0},{-47,22},{-41,22}},
     color={255,0,255}));
 connect(xor.u1, sample1.y) annotation (Line(
     points={{-41,30},{-47.4,30}},
     color={255,0,255}));
-connect(hold.u, xor1.y) annotation (Line(
-    points={{20.8,30},{17.4,30},{17.4,31},{15,31}},
-    color={255,0,255}));
+  connect(hold1.u, xor1.y) annotation (Line(points={{20.8,30},{17.4,30},{17.4,
+          31},{15,31}}, color={255,0,255}));
 connect(xor1.u1, integerConstant.y) annotation (Line(
     points={{-8,31},{-8,45.5},{-17,45.5},{-17,61}},
     color={255,0,255}));

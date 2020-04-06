@@ -10,7 +10,7 @@ model Sample2
 Modelica.Blocks.Sources.IntegerStep
                              step(startTime=0.04)
   annotation (Placement(transformation(extent={{-96,20},{-76,40}})));
-  Modelica.Clocked.IntegerSignals.Sampler.Hold  hold
+  Modelica.Clocked.IntegerSignals.Sampler.Hold hold1
     annotation (Placement(transformation(extent={{22,24},{34,36}})));
   Modelica.Clocked.IntegerSignals.Sampler.Sample  sample2
     annotation (Placement(transformation(extent={{6,-6},{-6,6}})));
@@ -40,12 +40,10 @@ equation
   connect(sum1.y, sum2.u[2]) annotation (Line(
       points={{-13.1,28},{-5.55,28},{-5.55,27.9},{2,27.9}},
       color={255,127,0}));
-  connect(hold.u, sum2.y) annotation (Line(
-      points={{20.8,30},{14.9,30}},
-      color={255,127,0}));
-  connect(hold.y, sample2.u) annotation (Line(
-      points={{34.6,30},{50,30},{50,0},{7.2,0}},
-      color={255,127,0}));
+  connect(hold1.u, sum2.y)
+    annotation (Line(points={{20.8,30},{14.9,30}}, color={255,127,0}));
+  connect(hold1.y, sample2.u) annotation (Line(points={{34.6,30},{50,30},{50,0},
+          {7.2,0}}, color={255,127,0}));
   connect(sample1.u, step.y) annotation (Line(
       points={{-61.2,30},{-75,30}},
       color={255,127,0}));

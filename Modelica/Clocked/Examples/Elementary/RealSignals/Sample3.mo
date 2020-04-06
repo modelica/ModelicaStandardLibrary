@@ -11,7 +11,7 @@ Modelica.Blocks.Sources.Step step(startTime=0.04)
   annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
   Modelica.Blocks.Math.Gain gain(k=1.2)
     annotation (Placement(transformation(extent={{-8,20},{12,40}})));
-  Modelica.Clocked.RealSignals.Sampler.Hold hold
+  Modelica.Clocked.RealSignals.Sampler.Hold hold1
     annotation (Placement(transformation(extent={{20,24},{32,36}})));
   Modelica.Blocks.Math.Feedback feedback
     annotation (Placement(transformation(extent={{-36,20},{-16,40}})));
@@ -22,9 +22,8 @@ equation
                           annotation (Line(
     points={{-59,30},{-53.2,30}},
     color={0,0,127}));
-  connect(gain.y, hold.u) annotation (Line(
-      points={{13,30},{18.8,30}},
-      color={0,0,127}));
+  connect(gain.y, hold1.u)
+    annotation (Line(points={{13,30},{18.8,30}}, color={0,0,127}));
   connect(feedback.y, gain.u) annotation (Line(
       points={{-17,30},{-10,30}},
       color={0,0,127}));
@@ -39,9 +38,8 @@ equation
   connect(sample1.y, feedback.u1) annotation (Line(
       points={{-39.4,30},{-34,30}},
       color={0,0,127}));
-  connect(hold.y, sample2.u) annotation (Line(
-      points={{32.6,30},{38,30},{38,0},{7.2,0}},
-      color={0,0,127}));
+  connect(hold1.y, sample2.u) annotation (Line(points={{32.6,30},{38,30},{38,0},
+          {7.2,0}}, color={0,0,127}));
   annotation (experiment(StopTime=0.2),
   Documentation(info="<html>
 <p>
