@@ -1,12 +1,12 @@
 within Modelica.Mechanics.MultiBody.Types;
 type VectorQuantity = enumeration(
-    Force,
-    Torque,
-    Velocity,
-    Acceleration,
-    AngularVelocity,
-    AngularAcceleration,
-    RelativePosition)
+    Force "Force quantity",
+    Torque "Torque quantity",
+    Velocity "Velocity quantity",
+    Acceleration "Acceleration quantity",
+    AngularVelocity "Angular velocity quantity",
+    AngularAcceleration "Angular acceleration quantity",
+    RelativePosition "Relative position")
   "Enumeration defining the kind of physical quantity represented by the vector"
     annotation (Documentation(info="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
