@@ -1,6 +1,6 @@
 within Modelica.Mechanics.MultiBody.Visualizers.Advanced;
 model DoubleArrow
-  "Visualizing a double arrow with variable size; all data have to be set as modifiers (see info layer)"
+  "Visualizing a double arrow with variable size"
 
   import Modelica.Mechanics.MultiBody.Types;
   import Modelica.Mechanics.MultiBody.Frames;
@@ -15,12 +15,12 @@ model DoubleArrow
     "Position vector from origin of arrow frame to double arrow tail, resolved in arrow frame" annotation(Dialog);
   input Real r_head[3]={0,0,0}
     "Vector from double arrow tail to the head of the double arrow, resolved in arrow frame" annotation(Dialog);
-  input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
+  input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
     "Color of double arrow" annotation(Dialog(colorSelector=true));
   input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
     "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"  annotation(Dialog);
-  input Types.VectorQuantity quantity=Types.VectorQuantity.Torque
-    "The kind of physical quantity represented by the vector" annotation(Dialog);
+  parameter Types.VectorQuantity quantity=Types.VectorQuantity.Torque
+    "Kind of physical quantity represented by the vector";
   input Boolean headAtOrigin=true "= true, if the vector is pointing towards the origin of vector frame" annotation(Dialog);
 protected
   outer Modelica.Mechanics.MultiBody.World world;
@@ -72,7 +72,7 @@ can be better option in many cases.
 
 <p>
 The dialog variables <code>R</code>, <code>r</code>, <code>r_tail</code>, <code>r_head</code>, <code>color</code>,
-<code>specularCoefficient</code>, <code>quantity</code>, and <code>headAtOrigin</code>
+<code>specularCoefficient</code>, and <code>headAtOrigin</code>
 are declared as (time varying) <strong>input</strong> variables.
 If the default equation is not appropriate, a&nbsp;corresponding
 modifier equation has to be provided in the

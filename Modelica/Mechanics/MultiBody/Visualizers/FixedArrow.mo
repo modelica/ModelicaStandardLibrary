@@ -17,8 +17,8 @@ model FixedArrow
   input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (Dialog(group="if animation = true", enable=animation));
-  input Types.VectorQuantity quantity=Types.VectorQuantity.RelativePosition
-    "The kind of physical quantity represented by the vector"
+  parameter Types.VectorQuantity quantity=Types.VectorQuantity.RelativePosition
+    "Kind of physical quantity represented by the vector"
     annotation (Dialog(group="if animation = true", enable=animation));
   input Boolean headAtOrigin=false "= true, if the vector is pointing towards the origin of vector frame"
     annotation (Dialog(group="if animation = true", enable=animation));
@@ -74,7 +74,7 @@ can vary dynamically by providing appropriate expressions in the input
 fields of the parameter menu.
 </p>
 <p>
-The <code>quantity</code> variable defines what the vector represents, allowing
+The <code>quantity</code> parameter defines what the vector represents, allowing
 tools to scale e.g. forces and torques differently in a&nbsp;consistent way.
 For the default value <strong>RelativePosition</strong> the obvious scaling is
 1&nbsp;and the relative position is shown as is.

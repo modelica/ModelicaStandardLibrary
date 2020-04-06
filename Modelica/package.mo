@@ -2426,7 +2426,7 @@ The following <font color=\"blue\"><strong>new components</strong></font> have b
     <td>Added circumferential flux models of hollow cylinder and toroid with circular cross section.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Visualizers.Advanced</strong></td></tr>
 <tr><td>Vector</td>
-    <td></td></tr>
+    <td>Added 3-dimensional animation for visualization of vector quantities (force, torque, etc.)</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Mechanics.Translational.Components</strong></td></tr>
 <tr><td>RollingResistance</td>
     <td>Added resistance of a rolling wheel incorporating the inclination and rolling resistance coefficient.</td></tr>
@@ -2486,13 +2486,41 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 <tr><td colspan=\"2\"><strong>Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities</strong></td></tr>
 <tr><td>SwitchYD</td>
     <td>The <a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealCommutingSwitch\">IdealCommutingSwitch</a> is replaced by an <a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a> and an <a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a> to allow a time delay between the two switching actions.</td></tr>
-<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody</strong></td></tr>
-<tr><td>Joints.Prismatic</td>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Forces</strong></td></tr>
+<tr><td>WorldForce</td>
+    <td>The parameters <code>diameter</code> and <code>N_to_m</code> have been removed.</td></tr>
+<tr><td>WorldTorque</td>
+    <td>The parameters <code>diameter</code> and <code>Nm_to_m</code> have been removed.</td></tr>
+<tr><td>WorldForceAndTorque</td>
+    <td>The parameters <code>forceDiameter</code>, <code>torqueDiameter</code>, <code>N_to_m</code>, and <code>Nm_to_m</code> have been removed.</td></tr>
+<tr><td>Force</td>
+    <td>The parameter <code>N_to_m</code> has been removed.</td></tr>
+<tr><td>Torque</td>
+    <td>The parameter <code>Nm_to_m</code> has been removed.</td></tr>
+<tr><td>ForceAndTorque</td>
+    <td>The parameters <code>N_to_m</code> and <code>Nm_to_m</code> have been removed.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Joints</strong></td></tr>
+<tr><td>Prismatic</td>
     <td>The superfluous constant <code>s_offset</code> has been removed.</td></tr>
-<tr><td>Joints.Revolute</td>
+<tr><td>Revolute</td>
     <td>The superfluous constant <code>phi_offset</code> has been removed.</td></tr>
-<tr><td>Parts.Body</td>
+<tr><td>FreeMotion<br>FreeMotionScalarInit</td>
+    <td>The parameter <code>arrowDiameter</code> has been removed.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Parts</strong></td></tr>
+<tr><td>Body</td>
     <td>The superfluous parameter <code>z_a_start</code> has been removed.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Sensors</strong></td></tr>
+<tr><td>AbsoluteSensor<br>RelativeSensor<br>Distance</td>
+    <td>The parameter <code>arrowDiameter</code> has been removed.</td></tr>
+<tr><td>CutForce</td>
+    <td>The parameters <code>forceDiameter</code> and <code>N_to_m</code> have been removed.</td></tr>
+<tr><td>CutForce</td>
+    <td>The parameters <code>torqueDiameter</code> and <code>Nm_to_m</code> have been removed.</td></tr>
+<tr><td>CutForceAndTorque</td>
+    <td>The parameters <code>forceDiameter</code>, <code>torqueDiameter</code>, <code>N_to_m</code>, and <code>Nm_to_m</code> have been removed.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Mechanics.MultiBody.Visualizers</strong></td></tr>
+<tr><td>Advanced.Arrow<br>Advanced.DoubleArrow<br>FixedArrow<br>SignalArrow</td>
+    <td>The parameter <code>diameter</code> has been removed.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Fluid.Machines</strong></td></tr>
 <tr><td>PartialPump</td>
     <td>The superfluous parameter <code>show_NPSHa</code> has been removed.</td></tr>

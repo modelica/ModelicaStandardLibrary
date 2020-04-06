@@ -67,24 +67,24 @@ equation
   connect(basicWorldForce.force, force) annotation (Line(
       points={{16,-60},{-120,-60}}, color={0,0,127}));
   connect(basicWorldTorque.frame_b, frame_b)
-                                    annotation (Line(
+    annotation (Line(
       points={{10,60},{60,60},{60,0},{100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(basicWorldTorque.torque, torque)
-                                  annotation (Line(
+    annotation (Line(
       points={{-12,60},{-120,60}}, color={0,0,127}));
   connect(basicWorldForce.frame_resolve, frame_resolve) annotation (Line(
       points={{28,-50},{28,80},{0,80},{0,100}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(basicWorldTorque.frame_resolve, frame_resolve)
-                                                annotation (Line(
+    annotation (Line(
       points={{0,70},{0,100}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(zeroPosition.frame_resolve, basicWorldTorque.frame_resolve)
-                                                             annotation (Line(
+    annotation (Line(
       points={{58,80},{0,80},{0,70}},
       color={95,95,95},
       pattern=LinePattern.Dot));

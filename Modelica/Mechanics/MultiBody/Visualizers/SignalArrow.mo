@@ -9,15 +9,14 @@ model SignalArrow
   input SI.Position r_tail[3]={0,0,0}
     "Vector from frame_a to arrow tail, resolved in frame_a"
     annotation (Dialog(group="if animation = true", enable=animation));
-  input Modelica.Mechanics.MultiBody.Types.Color color={0,0,255}
-    "Color of arrow"
+  input Types.Color color={0,0,255} "Color of arrow"
     annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
   input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (Dialog(group="if animation = true", enable=animation));
-  input Types.VectorQuantity quantity=Types.VectorQuantity.RelativePosition
-        "The kind of physical quantity represented by the vector"
-     annotation(Dialog(group="if animation = true", enable=animation));
+  parameter Types.VectorQuantity quantity=Types.VectorQuantity.RelativePosition
+    "Kind of physical quantity represented by the vector"
+    annotation(Dialog(group="if animation = true", enable=animation));
   input Boolean headAtOrigin=false "= true, if the vector is pointing towards the origin of vector frame"
     annotation (Dialog(group="if animation = true", enable=animation));
 
@@ -73,7 +72,7 @@ the connector <code>r_head</code> (<code><strong>Real</strong> r_head[3]</code>)
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png\" alt=\"model Visualizers.SignalArrow\">
 </p>
 <p>
-The <code>quantity</code> variable defines what the vector represents, allowing
+The <code>quantity</code> parameter defines what the vector represents, allowing
 tools to scale e.g. forces and torques differently in a&nbsp;consistent way.
 For the default value <strong>RelativePosition</strong> the obvious scaling is
 1&nbsp;and the relative position is shown as is.
