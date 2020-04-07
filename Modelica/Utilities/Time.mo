@@ -526,6 +526,452 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
     end epoch;
 
   end DateTime;
+
+  operator record Duration
+    extends Modelica.Icons.Record;
+
+    Integer d "Days";
+    Integer h "Hours";
+    Integer min "Minutes";
+    Integer s "Seconds";
+    Integer ms "Milliseconds";
+
+    encapsulated operator 'constructor'
+      import Modelica.Utilities.Time.Duration;
+      import Modelica.Icons;
+      extends Icons.FunctionsPackage;
+
+      function fromInput
+        extends Icons.Function;
+
+        input Integer d=0 "Days";
+        input Integer h=0 "Hours";
+        input Integer min=0 "Minutes";
+        input Integer s=0 "Seconds";
+        input Integer ms=0 "Milliseconds";
+        output Duration t(d=d, h=h, min=min, s=s, ms=ms);
+      algorithm
+      end fromInput;
+
+      function fromDateTimes
+        import Modelica.Utilities.Time.DateTime;
+        import Modelica.Math.nearestInteger;
+        extends Icons.Function;
+
+        input DateTime t1 "Start time";
+        input DateTime t2 "End time";
+        output Duration t;
+
+      protected
+        Real diff;
+        Integer sign_;
+        Real e1, e2;
+        DateTime t_tmp;
+        Integer d "Elapsed days";
+        Integer h "Elapsed hours";
+        Integer min "Elapsed minutes";
+        Integer s "Elapsed seconds";
+        Integer ms "Elapsed milliseconds";
+
+      algorithm
+        t_tmp :=t2;
+
+        e1 :=DateTime.epoch(t1, epoch_year=t1.a);
+        e2 :=DateTime.epoch(t_tmp, epoch_year=t1.a);
+
+        diff :=abs(e2 - e1);
+        sign_ :=sign(e2 - e1);
+
+        d := integer(diff/(24*3600));
+        h := integer(diff/3600-d*24);
+        min := integer((diff-(d*24+h)*3600)/60);
+        s := integer(diff - (d*24+h)*3600 - min*60);
+        ms := nearestInteger(rem(diff,1)*1000);
+
+        h := sign_*h;
+        min := sign_*min;
+        s := sign_*s;
+        ms := sign_*ms;
+
+        t :=Duration(d=d, h=h, min=min, s=s, ms=ms);
+
+      end fromDateTimes;
+
+      function fromSeconds "Create duration record from seconds, rounding to the third decimal"
+        extends Icons.Function;
+        import Modelica.Math.nearestInteger;
+
+        input Real seconds "Duration in seconds. Decimal place is converted to ms";
+        output Duration t "Duration with input converted to s and ms";
+
+      protected
+        Integer d, h, min, s, ms;
+        Integer carryover;
+
+      algorithm
+
+        ms := nearestInteger(rem(seconds, 1) * 1000);
+
+        s :=integer(div(seconds, 1));
+        carryover :=div(s, 60);
+        s := rem(s, 60);
+
+        min :=carryover;
+        carryover :=div(min, 60);
+        min :=rem(min, 60);
+
+        h :=carryover;
+        carryover :=div(h, 24);
+        h := rem(h, 24);
+
+        d := carryover;
+
+        t :=Duration(
+            d=d,
+            h=h,
+            min=min,
+            s=s,
+            ms=ms);
+
+      end fromSeconds;
+    end 'constructor';
+
+    encapsulated operator 'String' "Convert Duration to string"
+      import Modelica.Utilities.Time.Duration;
+      import Modelica.Utilities.Strings.replace;
+      import Modelica.Icons;
+      extends Icons.FunctionsPackage;
+
+      function formated "Convert duration to string, using string replace"
+        import Modelica.Utilities.Strings.contains;
+        extends Icons.Function;
+
+        input Duration t;
+        input String format = "%dd %hh %minmin %ss %msms";
+        output String s;
+
+      protected
+        Duration t2;
+
+        encapsulated function string0
+          import Modelica.Utilities.Strings.replace;
+            input Integer s;
+            input Integer l;
+            output String s0;
+        algorithm
+            s0 :=replace(String(s, minimumLength=l, leftJustified=false), " ", "0");
+        end string0;
+
+      algorithm
+
+        t2 :=t;
+
+        if not contains(format, "%d") and not contains(format, "%D") then
+          t2.h :=t2.h + t2.d*24;
+        end if;
+
+        if not contains(format, "%h") and not contains(format, "%H") then
+          t2.min :=t2.min + t2.h*60;
+        end if;
+
+        if not contains(format, "%min") and not contains(format, "%MIN") then
+          t2.s :=t2.s + t2.min*60;
+        end if;
+
+        if not contains(format, "%s") and not contains(format, "%S") then
+          t2.ms :=t2.ms + t2.s*1000;
+        end if;
+
+        s :=replace(format, "%d", String(t2.d));
+        s :=replace(s,      "%D", string0(t2.d, l=2));
+        s :=replace(s,      "%h", String(t2.h));
+        s :=replace(s,      "%H", string0(t2.h, l=2));
+        s :=replace(s, "%min", String(t2.min));
+        s :=replace(s, "%MIN", string0(t2.min, l=2));
+        s :=replace(s, "%s",   String(t2.s));
+        s :=replace(s, "%S",   string0(t2.s, l=2));
+        s :=replace(s, "%ms",  String(t2.ms));
+        s :=replace(s, "%MS",  string0(t2.ms, l=3));
+
+      end formated;
+
+    end 'String';
+
+    encapsulated operator function '=='
+      import Modelica.Utilities.Time.Duration;
+      import Modelica.Icons;
+      extends Icons.Function;
+
+      input Duration t1;
+      input Duration t2;
+      output Boolean result "= t1 == t2";
+
+    protected
+      Duration t1_norm = Duration.normalize(t1);
+      Duration t2_norm = Duration.normalize(t2);
+
+    algorithm
+      result := t1_norm.d == t2_norm.d and
+                t1_norm.h == t2_norm.h and
+                t1_norm.min == t2_norm.min and
+                t1_norm.s == t2_norm.s and
+                t1_norm.ms == t2_norm.ms;
+
+    end '==';
+
+    encapsulated operator function '<>'
+      import Modelica.Utilities.Time.Duration;
+      import Modelica.Icons;
+      extends Icons.Function;
+
+      input Duration t1;
+      input Duration t2;
+      output Boolean result "= t1 <> t2";
+
+    algorithm
+      result := not t1 == t2;
+    end '<>';
+
+    encapsulated operator function '>'
+      import Modelica.Utilities.Time.Duration;
+      import Modelica.Icons;
+      extends Icons.Function;
+
+      input Duration t1;
+      input Duration t2;
+      output Boolean result "= t1 <> t2";
+
+    algorithm
+      result :=Duration.inSeconds(t1) > Duration.inSeconds(t2);
+    end '>';
+
+    encapsulated operator function '>='
+      import Modelica.Utilities.Time.Duration;
+      import Modelica.Icons;
+      extends Icons.Function;
+
+      input Duration t1;
+      input Duration t2;
+      output Boolean result "= t1 >= t2";
+
+    algorithm
+      result :=t1 == t2 or t1 > t2;
+
+    end '>=';
+
+    encapsulated operator function '<'
+      import Modelica.Utilities.Time.Duration;
+      import Modelica.Icons;
+      extends Icons.Function;
+
+      input Duration t1;
+      input Duration t2;
+      output Boolean result "= t1 < t2";
+
+    algorithm
+      result := not t1 == t2 and t2 > t1;
+
+    end '<';
+
+    encapsulated operator function '<='
+      import Modelica.Utilities.Time.Duration;
+      import Modelica.Icons;
+      extends Icons.Function;
+
+      input Duration t1;
+      input Duration t2;
+      output Boolean result "= t1 <= t2";
+
+    algorithm
+      result := t1 == t2 or t1 < t2;
+
+    end '<=';
+
+    encapsulated operator function '+'
+      import Modelica.Utilities.Time.Duration;
+      import Modelica.Icons;
+      extends Icons.Function;
+
+      input Duration t1;
+      input Duration t2;
+      output Duration result "= t1 + t2";
+
+    algorithm
+      result := Duration.normalize(Duration(
+        d=t1.d + t2.d,
+        h=t1.h + t2.h,
+        min=t1.min + t2.min,
+        s=t1.s + t2.s,
+        ms=t1.ms + t2.ms));
+
+    end '+';
+
+    encapsulated operator '-' "Unary and binary minus"
+      import Modelica.Utilities.Time.Duration;
+      import Modelica.Icons;
+
+      extends Icons.FunctionsPackage;
+
+      function subtract "Subtract two durations element wise"
+        extends Icons.Function;
+
+        input Duration t1;
+        input Duration t2;
+        output Duration result "= t1 - t2";
+
+      algorithm
+        result := Duration.normalize(Duration(
+          d=t1.d - t2.d,
+          h=t1.h - t2.h,
+          min=t1.min - t2.min,
+          s=t1.s - t2.s,
+          ms=t1.ms - t2.ms));
+
+      end subtract;
+
+      function negate "Unary minus (multiply duration values by -1)"
+        extends Icons.Function;
+
+        input Duration t;
+        output Duration result "= -t1";
+
+      algorithm
+        result := Duration(
+          d=-t.d,
+          h=-t.h,
+          min=-t.min,
+          s=-t.s,
+          ms=-t.ms);
+
+      end negate;
+    end '-';
+
+    encapsulated operator '*' "Multiplication"
+      import Modelica.Utilities.Time.Duration;
+      import Modelica.Icons;
+
+      extends Icons.FunctionsPackage;
+
+      function multiply1 "Multiply a duration with a real (by converting the duration to seconds)"
+        extends Icons.Function;
+
+        input Duration t;
+        input Real r;
+        output Duration result "= inSeconds(t)*r";
+
+      algorithm
+        result := Duration(seconds=Duration.inSeconds(t)*r);
+
+      end multiply1;
+
+      function multiply2 "Multiply a duration with a real (by converting the duration to seconds)"
+        extends Icons.Function;
+
+        input Real r;
+        input Duration t;
+        output Duration result "= inSeconds(t)*r";
+
+      algorithm
+        result := Duration(seconds=r*Duration.inSeconds(t));
+
+      end multiply2;
+    end '*';
+
+    encapsulated operator '/'  "Divide a duration by a real"
+      import Modelica.Utilities.Time.Duration;
+      import Modelica.Icons;
+
+      extends Icons.FunctionsPackage;
+
+      function divide "Divide a duration by a real. The first ms value can vary by 1 (due to rounding in the fromSeconds constructor)"
+        extends Icons.Function;
+
+        input Duration t;
+        input Real r;
+        output Duration result "= inSeconds(t)/r";
+
+      algorithm
+        result := Duration(seconds=Duration.inSeconds(t)/r);
+
+      end divide;
+
+    end '/';
+
+    encapsulated operator function '0' "Zero-element of addition (= Duration())"
+      import Modelica.Utilities.Time.Duration;
+      import Modelica.Icons;
+      extends Icons.Function;
+
+      output Duration result "= Duration()";
+
+    algorithm
+      result := Duration(d=0, h=0, min=0, s=0, ms=0);
+
+    end '0';
+
+  encapsulated function asVector "Return duration as vector {d, h, min, s, ms}"
+    import Modelica.Utilities.Time.Duration;
+    import Modelica.Icons;
+    extends Icons.Function;
+
+    input Duration t "Value to convert";
+    output Integer[5] t_vec "Elapsed time as vector {d, h, min, s, ms}";
+
+  algorithm
+
+    t_vec :={t.d, t.h, t.min, t.s, t.ms};
+
+  end asVector;
+
+  encapsulated function avg "Return average duration for a vector of durations"
+    import Modelica.Utilities.Time.Duration;
+    import Modelica.Icons;
+    extends Icons.Function;
+
+    input Duration t_vec[:];
+    output Duration t_avg "Average duration";
+
+    protected
+    Integer n = size(t_vec, 1);
+    Real seconds = 0;
+
+  algorithm
+    for i in 1:n loop
+      seconds := seconds + Duration.inSeconds(t_vec[i]);
+    end for;
+
+    t_avg := Duration(seconds=seconds/n);
+
+  end avg;
+
+  encapsulated function inSeconds "Convert Duration to seconds"
+    import Modelica.Utilities.Time.Duration;
+    import Modelica.Icons;
+    extends Icons.Function;
+
+    input Duration t;
+    output Real seconds "Elapsed seconds";
+
+  algorithm
+    seconds :=t.ms/1000 + t.s + 60*(t.min + 60*(t.h + 24*t.d));
+
+  end inSeconds;
+
+  encapsulated function normalize "Reformat duration with usual maximum values for ms, s, min and h and carryover to next bigger unit"
+    import Modelica.Utilities.Time.Duration;
+    import Modelica.Icons;
+    extends Icons.Function;
+
+    input Duration t "Duration";
+    output Duration t_norm "Normalized duration";
+
+  algorithm
+
+    t_norm :=Duration(seconds=Duration.inSeconds(t));
+
+  end normalize;
+
+  end Duration;
     annotation (
 Documentation(info="<html>
 <p>
