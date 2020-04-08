@@ -451,13 +451,7 @@ it is open.
     port_b.h_outflow = inStream(port_a.h_outflow);
     connect(open, openingGenerator.u) annotation (Line(points={{0,80},{0,42},{2.22045e-15,
             42}}, color={255,0,255}));
-    annotation (Placement(transformation(
-          origin={0,90},
-          extent={{-20,-20},{20,20}},
-          rotation=270), iconTransformation(
-          extent={{-20,-20},{20,20}},
-          rotation=270,
-          origin={0,80})),
+    annotation (
     Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={

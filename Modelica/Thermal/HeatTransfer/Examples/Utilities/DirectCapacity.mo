@@ -22,14 +22,14 @@ model DirectCapacity
     "Heat flow to the heat capacity"
     annotation (Placement(transformation(extent={{140,-100},{100,-60}})));
 equation
-  connect(heatFlowToTemperature.f, Q_flow) annotation (Line(points={{22,4,-8},{60,-8},{60,-80},{120,-80}},
+  connect(heatFlowToTemperature.f, Q_flow) annotation (Line(points={{22.4,-8},{60,-8},{60,-80},{120,-80}},
                                    color={0,0,127}));
-  connect(heatFlowToTemperature.p, T) annotation (Line(points={{22,4,8},{60,8},{60,80},{110,80}},
+  connect(heatFlowToTemperature.p, T) annotation (Line(points={{22.4,8},{60,8},{60,80},{110,80}},
                             color={0,0,127}));
-  connect(heatFlowToTemperature.pder, derT) annotation (Line(points={{22,4,5},{80,5},{80,30},{110,30}},
+  connect(heatFlowToTemperature.pder, derT) annotation (Line(points={{22.4,5},{80,5},{80,30},{110,30}},
                                 color={0,0,127}));
   connect(heatCapacitor.port,heatFlowToTemperature. heatPort)
-    annotation (Line(points={{-10,0},{18,4,0}}, color={191,0,0}));
+    annotation (Line(points={{-10,0},{18.4,0}}, color={191,0,0}));
   connect(Q_flowDrive, forceSource.Q_flow)
     annotation (Line(points={{-120,0},{-50,0}}, color={0,0,127}));
   connect(heatCapacitor.port, forceSource.port)
