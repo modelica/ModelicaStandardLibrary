@@ -29,7 +29,7 @@
    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-/* Release Notes:
+/* Changelog:
       Nov. 13, 2019: by Thomas Beutlich
                      Utilized blockwise I/O in ModelicaInternal_copyFile
                      (ticket #3229)

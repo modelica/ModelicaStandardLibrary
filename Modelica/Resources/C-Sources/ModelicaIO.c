@@ -36,7 +36,7 @@
       Modelica.Utilities.Streams.readRealMatrix
       Modelica.Utilities.Streams.writeRealMatrix
 
-   Release Notes:
+   Changelog:
       Jan. 15, 2018: by Thomas Beutlich, ESI ITI GmbH
                      Added support to ignore UTF-8 BOM if reading text file
                      (ticket #2404)

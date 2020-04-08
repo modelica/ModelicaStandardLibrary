@@ -38,7 +38,7 @@
                     - "__declspec(dllexport)" if included in a DLL and the
                       functions shall be visible outside of the DLL
 
-   Release Notes:
+   Changelog:
       Mar. 08, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Added ModelicaIO_readRealTable from ModelicaStandardTables
                      (ticket #2192)

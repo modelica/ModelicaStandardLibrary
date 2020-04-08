@@ -38,7 +38,7 @@
       Modelica.Blocks.Tables.CombiTable2Ds
       Modelica.Blocks.Tables.CombiTable2Dv
 
-   Release Notes:
+   Changelog:
       Nov. 01, 2019: by Thomas Beutlich
                      Added univariate Makima-spline interpolation (ticket #1039)
 

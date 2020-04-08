@@ -29,7 +29,7 @@
    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-/* Release Notes:
+/* Changelog:
       Sep. 23, 2016: by Thomas Beutlich, ESI ITI GmbH
                      Fixed resource leak (ticket #2069)
 
