@@ -137,8 +137,8 @@ random number generators need to be called, \"globalSeed.id_impure\" has to be g
 
 <p>
 Note, the usage of this block is demonstrated with examples
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.AutomaticSeed\">AutomaticSeed</a> and
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.ImpureGenerator\">ImpureGenerator</a>.
+<a href=\"modelica://Modelica.Blocks.Examples.Noise.AutomaticSeed\">AutomaticSeed</a> and
+<a href=\"modelica://Modelica.Blocks.Examples.Noise.ImpureGenerator\">ImpureGenerator</a>.
 </p>
 
 <p>
@@ -188,7 +188,7 @@ A summary of the common properties of the noise blocks is provided in the docume
 <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>.
 This UniformNoise block generates reproducible, random noise at its output according to a uniform distribution.
 This means that random values are uniformly distributed within the range defined by parameters
-y_min and y_max (see example <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.UniformNoiseProperties\">NoiseExamples.UniformNoiseProperties</a>).
+y_min and y_max (see example <a href=\"modelica://Modelica.Blocks.Examples.Noise.UniformNoiseProperties\">Noise.UniformNoiseProperties</a>).
 By default, two or more instances produce different, uncorrelated noise at the same time instant.
 The block can only be used if on the same or a higher hierarchical level,
 model <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.GlobalSeed</a>
@@ -249,7 +249,7 @@ A summary of the common properties of the noise blocks is provided in the docume
 <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>.
 This NormalNoise block generates reproducible, random noise at its output according to a normal distribution.
 This means that random values are normally distributed with expectation value mu and standard deviation sigma.
-(see example <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.NormalNoiseProperties\">NoiseExamples.NormalNoiseProperties</a>).
+(see example <a href=\"modelica://Modelica.Blocks.Examples.Noise.NormalNoiseProperties\">Examples.Noise.NormalNoiseProperties</a>).
 By default, two or more instances produce different, uncorrelated noise at the same time instant.
 The block can only be used if on the same or a higher hierarchical level,
 model <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.GlobalSeed</a>
@@ -337,7 +337,7 @@ standard deviation = (y_max - y_min)/6 (= 99.7 % of the non-truncated normal dis
 </p></blockquote>
 
 <p>
-For an example see <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.Distributions\">NoiseExamples.Distributions</a>.
+For an example see <a href=\"modelica://Modelica.Blocks.Examples.Noise.Distributions\">Examples.Noise.Distributions</a>.
 By default, two or more instances produce different, uncorrelated noise at the same time instant.
 The block can only be used if on the same or a higher hierarchical level,
 model <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.GlobalSeed</a>
@@ -454,7 +454,7 @@ frequency bandwidth 1/samplePeriod: <code>signal power = signal variance = noise
 </p>
 
 <p>
-Example <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.DrydenContinuousTurbulence\">NoiseExamples.DrydenContinuousTurbulence</a>
+Example <a href=\"modelica://Modelica.Blocks.Examples.Noise.DrydenContinuousTurbulence\">Examples.Noise.DrydenContinuousTurbulence</a>
 demonstrates how to utilize this block to model wind gust.
 </p>
 </html>"));
@@ -470,7 +470,7 @@ of a control system and re-simulating, it is important that the noise does not c
 otherwise it is hard to determine whether the changed control system or the differently
 computed noise has changed the behaviour of the controlled system).
 Many examples how to use the Noise blocks are provided in sublibrary
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples\">Blocks.Examples.NoiseExamples</a>.
+<a href=\"modelica://Modelica.Blocks.Examples.Noise\">Blocks.Examples.Noise</a>.
 </p>
 
 <h4>Global Options</h4>
@@ -522,12 +522,12 @@ When using a noise block of this package, at a minimum the following parameters 
 </blockquote>
 
 <p>
-As a simple demonstration, see example <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.UniformNoise\">Blocks.Examples.NoiseExamples.UniformNoise</a>.
+As a simple demonstration, see example <a href=\"modelica://Modelica.Blocks.Examples.Noise.UniformNoise\">Blocks.Examples.Noise.UniformNoise</a>.
 In the next diagram, a simulation result is shown for samplePeriod=0.02 s and uniform distribution with
 y_min=-1, y_max=3:
 </p>
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/UniformNoise.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/UniformNoise.png\">
 </blockquote>
 
 <h4>Advanced tab: General settings</h4>

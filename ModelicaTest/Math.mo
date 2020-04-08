@@ -860,8 +860,8 @@ extends Modelica.Icons.ExamplesPackage;
       output Integer state33[Generators.Xorshift1024star.nState];
     protected
       constant Integer nRandom = 5;
-      constant String name1="Modelica.Blocks.Examples.NoiseExamples.AutomaticSeed.automaticSeed1";
-      constant String name2="Modelica.Blocks.Examples.NoiseExamples.AutomaticSeed.automaticSeed2";
+      constant String name1="Modelica.Blocks.Examples.Noise.AutomaticSeed.automaticSeed1";
+      constant String name2="Modelica.Blocks.Examples.Noise.AutomaticSeed.automaticSeed2";
       constant Integer localSeed1 = automaticLocalSeed(name1);
       constant Integer localSeed2 = automaticLocalSeed(name2);
     algorithm
