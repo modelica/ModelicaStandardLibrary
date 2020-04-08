@@ -601,7 +601,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         extends Icons.Function;
         import Modelica.Math.nearestInteger;
 
-        input Real seconds "Duration in seconds. Decimal place is converted to ms";
+        input Real totalSeconds "Duration in seconds. Decimal place is converted to ms";
         output Duration t "Duration with input converted to s and ms";
 
       protected
@@ -610,9 +610,9 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
 
       algorithm
 
-        ms := nearestInteger(rem(seconds, 1) * 1000);
+        ms := nearestInteger(rem(totalSeconds, 1) * 1000);
 
-        s :=integer(div(seconds, 1));
+        s :=integer(div(totalSeconds, 1));
         carryover :=div(s, 60);
         s := rem(s, 60);
 
@@ -860,7 +860,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         output Duration result "= inSeconds(t)*r";
 
       algorithm
-        result := Duration(seconds=Duration.inSeconds(t)*r);
+        result := Duration(totalSeconds=Duration.inSeconds(t)*r);
 
       end multiply1;
 
@@ -872,7 +872,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         output Duration result "= inSeconds(t)*r";
 
       algorithm
-        result := Duration(seconds=r*Duration.inSeconds(t));
+        result := Duration(totalSeconds=r*Duration.inSeconds(t));
 
       end multiply2;
     end '*';
@@ -891,7 +891,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         output Duration result "= inSeconds(t)/r";
 
       algorithm
-        result := Duration(seconds=Duration.inSeconds(t)/r);
+        result := Duration(totalSeconds=Duration.inSeconds(t)/r);
 
       end divide;
 
@@ -933,27 +933,27 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
 
     protected
     Integer n = size(t_vec, 1);
-    Real seconds = 0;
+    Real totalSeconds = 0;
 
   algorithm
     for i in 1:n loop
-      seconds := seconds + Duration.inSeconds(t_vec[i]);
+      totalSeconds := totalSeconds + Duration.inSeconds(t_vec[i]);
     end for;
 
-    t_avg := Duration(seconds=seconds/n);
+    t_avg := Duration(totalSeconds=totalSeconds/n);
 
   end avg;
 
-  encapsulated function inSeconds "Convert Duration to seconds"
+  encapsulated function inSeconds "Convert Duration to total amount of seconds"
     import Modelica.Utilities.Time.Duration;
     import Modelica.Icons;
     extends Icons.Function;
 
     input Duration t;
-    output Real seconds "Elapsed seconds";
+    output Real totalSeconds "Elapsed seconds";
 
   algorithm
-    seconds :=t.ms/1000 + t.s + 60*(t.min + 60*(t.h + 24*t.d));
+    totalSeconds :=t.ms/1000 + t.s + 60*(t.min + 60*(t.h + 24*t.d));
 
   end inSeconds;
 
@@ -967,7 +967,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
 
   algorithm
 
-    t_norm :=Duration(seconds=Duration.inSeconds(t));
+    t_norm :=Duration(totalSeconds=Duration.inSeconds(t));
 
   end normalize;
 
