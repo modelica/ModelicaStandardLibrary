@@ -484,6 +484,28 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
 
     end '<=';
 
+    encapsulated operator '-' "Unary and binary minus"
+      import Modelica.Utilities.Time.DateTime;
+      import Modelica.Icons;
+
+      extends Icons.FunctionsPackage;
+
+      function subtract "Subtract two durations element wise"
+        extends Icons.Function;
+
+        import Modelica.Utilities.Time.Duration;
+
+        input DateTime t1;
+        input DateTime t2;
+        output Duration result "= t1 - t2";
+
+      algorithm
+        result := Duration.'constructor'.fromDateTimes(t2, t1);
+
+      end subtract;
+
+    end '-';
+
     encapsulated function epoch "Convert time to elapsed seconds since custom epoch year"
       import Modelica.Utilities.Time.DateTime;
       import Modelica.Utilities.Time.isLeapYear;
