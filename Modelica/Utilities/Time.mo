@@ -530,11 +530,11 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
   operator record Duration
     extends Modelica.Icons.Record;
 
-    Integer d "Days";
-    Integer h "Hours";
-    Integer min "Minutes";
-    Integer s "Seconds";
-    Integer ms "Milliseconds";
+    Integer days "Days";
+    Integer hours "Hours";
+    Integer minutes "Minutes";
+    Integer seconds "Seconds";
+    Integer milliseconds "Milliseconds";
 
     encapsulated operator 'constructor'
       import Modelica.Utilities.Time.Duration;
@@ -544,12 +544,12 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
       function fromInput
         extends Icons.Function;
 
-        input Integer d=0 "Days";
-        input Integer h=0 "Hours";
-        input Integer min=0 "Minutes";
-        input Integer s=0 "Seconds";
-        input Integer ms=0 "Milliseconds";
-        output Duration t(d=d, h=h, min=min, s=s, ms=ms);
+        input Integer days=0 "Days";
+        input Integer hours=0 "Hours";
+        input Integer minutes=0 "Minutes";
+        input Integer seconds=0 "Seconds";
+        input Integer milliseconds=0 "Milliseconds";
+        output Duration t(days=days, hours=hours, minutes=minutes, seconds=seconds, milliseconds=milliseconds);
       algorithm
       end fromInput;
 
@@ -567,11 +567,11 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         Integer sign_;
         Real e1, e2;
         DateTime t_tmp;
-        Integer d "Elapsed days";
-        Integer h "Elapsed hours";
-        Integer min "Elapsed minutes";
-        Integer s "Elapsed seconds";
-        Integer ms "Elapsed milliseconds";
+        Integer days "Elapsed days";
+        Integer hours "Elapsed hours";
+        Integer minutes "Elapsed minutes";
+        Integer seconds "Elapsed seconds";
+        Integer milliseconds "Elapsed milliseconds";
 
       algorithm
         t_tmp :=t2;
@@ -582,18 +582,18 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         diff :=abs(e2 - e1);
         sign_ :=sign(e2 - e1);
 
-        d := integer(diff/(24*3600));
-        h := integer(diff/3600-d*24);
-        min := integer((diff-(d*24+h)*3600)/60);
-        s := integer(diff - (d*24+h)*3600 - min*60);
-        ms := nearestInteger(rem(diff,1)*1000);
+        days := integer(diff/(24*3600));
+        hours := integer(diff/3600-days*24);
+        minutes := integer((diff-(days*24+hours)*3600)/60);
+        seconds := integer(diff - (days*24+hours)*3600 - minutes*60);
+        milliseconds := nearestInteger(rem(diff,1)*1000);
 
-        h := sign_*h;
-        min := sign_*min;
-        s := sign_*s;
-        ms := sign_*ms;
+        hours := sign_*hours;
+        minutes := sign_*minutes;
+        seconds := sign_*seconds;
+        milliseconds := sign_*milliseconds;
 
-        t :=Duration(d=d, h=h, min=min, s=s, ms=ms);
+        t :=Duration(days=days, hours=hours, minutes=minutes, seconds=seconds, milliseconds=milliseconds);
 
       end fromDateTimes;
 
@@ -601,37 +601,37 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         extends Icons.Function;
         import Modelica.Math.nearestInteger;
 
-        input Real totalSeconds "Duration in seconds. Decimal place is converted to ms";
-        output Duration t "Duration with input converted to s and ms";
+        input Real totalSeconds "Duration in seconds. Decimal place is converted to milliseconds";
+        output Duration t "Duration with input converted to seconds and milliseconds";
 
       protected
-        Integer d, h, min, s, ms;
+        Integer days, hours, minutes, seconds, milliseconds;
         Integer carryover;
 
       algorithm
 
-        ms := nearestInteger(rem(totalSeconds, 1) * 1000);
+        milliseconds := nearestInteger(rem(totalSeconds, 1) * 1000);
 
-        s :=integer(div(totalSeconds, 1));
-        carryover :=div(s, 60);
-        s := rem(s, 60);
+        seconds :=integer(div(totalSeconds, 1));
+        carryover :=div(seconds, 60);
+        seconds := rem(seconds, 60);
 
-        min :=carryover;
-        carryover :=div(min, 60);
-        min :=rem(min, 60);
+        minutes :=carryover;
+        carryover :=div(minutes, 60);
+        minutes :=rem(minutes, 60);
 
-        h :=carryover;
-        carryover :=div(h, 24);
-        h := rem(h, 24);
+        hours :=carryover;
+        carryover :=div(hours, 24);
+        hours := rem(hours, 24);
 
-        d := carryover;
+        days := carryover;
 
         t :=Duration(
-            d=d,
-            h=h,
-            min=min,
-            s=s,
-            ms=ms);
+            days=days,
+            hours=hours,
+            minutes=minutes,
+            seconds=seconds,
+            milliseconds=milliseconds);
 
       end fromSeconds;
     end 'constructor';
@@ -647,51 +647,51 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         extends Icons.Function;
 
         input Duration t;
-        input String format = "%dd %hh %minmin %ss %msms";
-        output String s;
+        input String format = "%daysd %hoursh %minutesmin %secondss %millisecondsms";
+        output String str;
 
       protected
         Duration t2;
 
-        encapsulated function string0
+        encapsulated function string0 "Create string with minimum length, filled with 0"
           import Modelica.Utilities.Strings.replace;
-            input Integer s;
+            input Integer i;
             input Integer l;
             output String s0;
         algorithm
-            s0 :=replace(String(s, minimumLength=l, leftJustified=false), " ", "0");
+            s0 :=replace(String(i, minimumLength=l, leftJustified=false), " ", "0");
         end string0;
 
       algorithm
 
         t2 :=t;
 
-        if not contains(format, "%d") and not contains(format, "%D") then
-          t2.h :=t2.h + t2.d*24;
+        if not contains(format, "%days") and not contains(format, "%D") then
+          t2.hours :=t2.hours + t2.days*24;
         end if;
 
-        if not contains(format, "%h") and not contains(format, "%H") then
-          t2.min :=t2.min + t2.h*60;
+        if not contains(format, "%hours") and not contains(format, "%H") then
+          t2.minutes :=t2.minutes + t2.hours*60;
         end if;
 
-        if not contains(format, "%min") and not contains(format, "%MIN") then
-          t2.s :=t2.s + t2.min*60;
+        if not contains(format, "%minutes") and not contains(format, "%MIN") then
+          t2.seconds :=t2.seconds + t2.minutes*60;
         end if;
 
-        if not contains(format, "%s") and not contains(format, "%S") then
-          t2.ms :=t2.ms + t2.s*1000;
+        if not contains(format, "%seconds") and not contains(format, "%S") then
+          t2.milliseconds :=t2.milliseconds + t2.seconds*1000;
         end if;
 
-        s :=replace(format, "%d", String(t2.d));
-        s :=replace(s,      "%D", string0(t2.d, l=2));
-        s :=replace(s,      "%h", String(t2.h));
-        s :=replace(s,      "%H", string0(t2.h, l=2));
-        s :=replace(s, "%min", String(t2.min));
-        s :=replace(s, "%MIN", string0(t2.min, l=2));
-        s :=replace(s, "%s",   String(t2.s));
-        s :=replace(s, "%S",   string0(t2.s, l=2));
-        s :=replace(s, "%ms",  String(t2.ms));
-        s :=replace(s, "%MS",  string0(t2.ms, l=3));
+        str :=replace(format, "%days",         String( t2.days));
+        str :=replace(str,    "%D",            string0(t2.days, l=2));
+        str :=replace(str,    "%hours",        String( t2.hours));
+        str :=replace(str,    "%H",            string0(t2.hours, l=2));
+        str :=replace(str,    "%minutes",      String( t2.minutes));
+        str :=replace(str,    "%MIN",          string0(t2.minutes, l=2));
+        str :=replace(str,    "%seconds",      String( t2.seconds));
+        str :=replace(str,    "%S",            string0(t2.seconds, l=2));
+        str :=replace(str,    "%milliseconds", String( t2.milliseconds));
+        str :=replace(str,    "%MS",           string0(t2.milliseconds, l=3));
 
       end formated;
 
@@ -711,11 +711,11 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
       Duration t2_norm = Duration.normalize(t2);
 
     algorithm
-      result := t1_norm.d == t2_norm.d and
-                t1_norm.h == t2_norm.h and
-                t1_norm.min == t2_norm.min and
-                t1_norm.s == t2_norm.s and
-                t1_norm.ms == t2_norm.ms;
+      result := t1_norm.days == t2_norm.days and
+                t1_norm.hours == t2_norm.hours and
+                t1_norm.minutes == t2_norm.minutes and
+                t1_norm.seconds == t2_norm.seconds and
+                t1_norm.milliseconds == t2_norm.milliseconds;
 
     end '==';
 
@@ -798,11 +798,11 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
 
     algorithm
       result := Duration.normalize(Duration(
-        d=t1.d + t2.d,
-        h=t1.h + t2.h,
-        min=t1.min + t2.min,
-        s=t1.s + t2.s,
-        ms=t1.ms + t2.ms));
+        days=t1.days + t2.days,
+        hours=t1.hours + t2.hours,
+        minutes=t1.minutes + t2.minutes,
+        seconds=t1.seconds + t2.seconds,
+        milliseconds=t1.milliseconds + t2.milliseconds));
 
     end '+';
 
@@ -821,11 +821,11 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
 
       algorithm
         result := Duration.normalize(Duration(
-          d=t1.d - t2.d,
-          h=t1.h - t2.h,
-          min=t1.min - t2.min,
-          s=t1.s - t2.s,
-          ms=t1.ms - t2.ms));
+          days=t1.days - t2.days,
+          hours=t1.hours - t2.hours,
+          minutes=t1.minutes - t2.minutes,
+          seconds=t1.seconds - t2.seconds,
+          milliseconds=t1.milliseconds - t2.milliseconds));
 
       end subtract;
 
@@ -837,11 +837,11 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
 
       algorithm
         result := Duration(
-          d=-t.d,
-          h=-t.h,
-          min=-t.min,
-          s=-t.s,
-          ms=-t.ms);
+          days=-t.days,
+          hours=-t.hours,
+          minutes=-t.minutes,
+          seconds=-t.seconds,
+          milliseconds=-t.milliseconds);
 
       end negate;
     end '-';
@@ -883,7 +883,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
 
       extends Icons.FunctionsPackage;
 
-      function divide "Divide a duration by a real. The first ms value can vary by 1 (due to rounding in the fromSeconds constructor)"
+      function divide "Divide a duration by a real. The first milliseconds value can vary by 1 (due to rounding in the fromSeconds constructor)"
         extends Icons.Function;
 
         input Duration t;
@@ -905,21 +905,21 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
       output Duration result "= Duration()";
 
     algorithm
-      result := Duration(d=0, h=0, min=0, s=0, ms=0);
+      result := Duration(days=0, hours=0, minutes=0, seconds=0, milliseconds=0);
 
     end '0';
 
-  encapsulated function asVector "Return duration as vector {d, h, min, s, ms}"
+  encapsulated function asVector "Return duration as vector {days, hours, minutes, seconds, milliseconds}"
     import Modelica.Utilities.Time.Duration;
     import Modelica.Icons;
     extends Icons.Function;
 
     input Duration t "Value to convert";
-    output Integer[5] t_vec "Elapsed time as vector {d, h, min, s, ms}";
+    output Integer[5] t_vec "Elapsed time as vector {days, hours, minutes, seconds, milliseconds}";
 
   algorithm
 
-    t_vec :={t.d, t.h, t.min, t.s, t.ms};
+    t_vec :={t.days, t.hours, t.minutes, t.seconds, t.milliseconds};
 
   end asVector;
 
@@ -953,11 +953,11 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
     output Real totalSeconds "Elapsed seconds";
 
   algorithm
-    totalSeconds :=t.ms/1000 + t.s + 60*(t.min + 60*(t.h + 24*t.d));
+    totalSeconds :=t.milliseconds/1000 + t.seconds + 60*(t.minutes + 60*(t.hours + 24*t.days));
 
   end inSeconds;
 
-  encapsulated function normalize "Reformat duration with usual maximum values for ms, s, min and h and carryover to next bigger unit"
+  encapsulated function normalize "Reformat duration with usual maximum values for milliseconds, seconds, minutes and hours and carryover to next bigger unit"
     import Modelica.Utilities.Time.Duration;
     import Modelica.Icons;
     extends Icons.Function;
