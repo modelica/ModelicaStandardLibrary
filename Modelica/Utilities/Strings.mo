@@ -185,6 +185,50 @@ isEmpty(\"a\");      // returns false
 </html>"));
   end isEmpty;
 
+  function contains "Check if a string contains a substring"
+
+    extends Modelica.Icons.Function;
+
+    input String string "String to check";
+    input String searchString "Substring to look for";
+    input Boolean caseSensitive=true
+      "= false, if lower and upper case are ignored for the search";
+    output Boolean result "= true, if searchString can be found anywhere in string";
+
+  algorithm
+    if length(searchString) > 0 then
+      result := find(string, searchString, 1, caseSensitive) > 0;
+    else
+      result := string == searchString;
+    end if;
+
+    annotation (Documentation(info="<html>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+Strings.<strong>contains</strong>(string, searchString);
+Strings.<strong>contains</strong>(string, searchString, caseSensitive=true);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+    Returns true if \"searchString\" can be found at any position in \"string\". Otherwise, false is returned.
+    The optional argument \"caseSensitive\" controls if substrings match, which differ in case only.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+import Modelica.Utilities.Strings.contains;
+
+contains(\"foobar\", \"OO\");         // returns false
+contains(\"foobar\", \"OO\", false);  // returns true
+contains(\"foo\", \"bar\");           // returns false
+contains(\"foo\", \"\");              // returns false
+contains(\"\", \"\");                 // returns true
+</pre></blockquote>
+</html>"));
+  end contains;
+
   function count "Count the number of non-overlapping occurrences of a string"
     extends Modelica.Icons.Function;
     input String string "String that is analyzed";
