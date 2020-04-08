@@ -12,7 +12,7 @@ model Hold "Example of a Hold block for Integer signals"
     annotation (Placement(transformation(extent={{-68,-6},{-56,6}})));
 Modelica.Clocked.IntegerSignals.Sampler.Hold hold1(y_start=-1)
     annotation (Placement(transformation(extent={{-8,24},{4,36}})));
-Modelica.Clocked.IntegerSignals.Sampler.ShiftSample  shiftSample(
+Modelica.Clocked.IntegerSignals.Sampler.ShiftSample  shiftSample1(
     shiftCounter=2)
   annotation (Placement(transformation(extent={{-30,24},{-18,36}})));
 equation
@@ -23,9 +23,9 @@ equation
       thickness=0.5));
   connect(table.y, sample1.u)
     annotation (Line(points={{-59,30},{-53.2,30}}, color={255,127,0}));
-  connect(sample1.y, shiftSample.u)
+  connect(sample1.y, shiftSample1.u)
     annotation (Line(points={{-39.4,30},{-31.2,30}}, color={255,127,0}));
-  connect(shiftSample.y, hold1.u)
+  connect(shiftSample1.y, hold1.u)
     annotation (Line(points={{-17.4,30},{-9.2,30}}, color={255,127,0}));
   annotation (experiment(StopTime=0.2),
   Documentation(info="<html>
