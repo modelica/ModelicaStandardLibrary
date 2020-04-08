@@ -188,13 +188,13 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
   operator record DateTime
     extends Modelica.Icons.Record;
 
-    Integer a "Year";
-    Integer mon "Month";
-    Integer d "Day";
-    Integer h "Hour";
-    Integer min "Minute";
-    Integer s "Second";
-    Integer ms "Millisecond";
+    Integer millisecond(min=0, max=999) "Millisecond" annotation(absoluteValue=true);
+    Integer second(min=0, max=61) "Second" annotation(absoluteValue=true);
+    Integer minute(min=0, max=59) "Minute" annotation(absoluteValue=true);
+    Integer hour(min=0, max=23) "Hour" annotation(absoluteValue=true);
+    Integer day(min=1, max=31) "Day" annotation(absoluteValue=true);
+    Integer month(min=1, max=12) "Month" annotation(absoluteValue=true);
+    Integer year "Year" annotation(absoluteValue=true);
 
     encapsulated operator 'constructor'
       import Modelica.Utilities.Time.DateTime;
@@ -204,15 +204,15 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
       function fromReadable
         extends Icons.Function;
 
-        input Integer a "Year";
-        input Integer mon "Month";
-        input Integer d "Day";
-        input Integer h "Hour";
-        input Integer min "Minute";
-        input Integer s "Second";
-        input Integer ms "Millisecond";
+        input Integer year "Year";
+        input Integer month "Month";
+        input Integer day "Day";
+        input Integer hour "Hour";
+        input Integer minute "Minute";
+        input Integer second "Second";
+        input Integer millisecond "Millisecond";
 
-        output DateTime t(ms=ms, s=s, min=min, h=h, d=d, mon=mon, a=a);
+        output DateTime t(millisecond=millisecond, second=second, minute=minute, hour=hour, day=day, month=month, year=year);
 
       algorithm
 
@@ -225,17 +225,17 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         output DateTime t;
 
       protected
-        Integer ms "Millisecond";
-        Integer s "Second";
-        Integer min "Minute";
-        Integer h "Hour";
-        Integer d "Day";
-        Integer mon "Month";
-        Integer a "Year";
+        Integer millisecond "Millisecond";
+        Integer second "Second";
+        Integer minute "Minute";
+        Integer hour "Hour";
+        Integer day "Day";
+        Integer month "Month";
+        Integer year "Year";
 
       algorithm
-        (ms, s, min, h, d, mon, a) := getTime();
-        t :=DateTime(ms=ms, s=s, min=min, h=h, d=d, mon=mon, a=a);
+        (millisecond, second, minute, hour, day, month, year) := getTime();
+        t :=DateTime(millisecond=millisecond, second=second, minute=minute, hour=hour, day=day, month=month, year=year);
 
       end fromSystemTime;
 
@@ -257,50 +257,50 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         Integer days, day_of_year, counted_days;
         Integer i, j;
 
-        Integer ms "Millisecond";
-        Integer s "Second";
-        Integer min "Minute";
-        Integer h "Hour";
-        Integer d "Day";
-        Integer mon "Month";
-        Integer a "Year";
+        Integer millisecond "Millisecond";
+        Integer second "Second";
+        Integer minute "Minute";
+        Integer hour "Hour";
+        Integer day "Day";
+        Integer month "Month";
+        Integer year "Year";
 
       algorithm
 
         // get milliseconds
-        ms := nearestInteger(mod(abs(seconds),1)*1000);
+        millisecond := nearestInteger(mod(abs(seconds),1)*1000);
 
         // get seconds
-        s :=nearestInteger(mod(seconds,60));
+        second :=nearestInteger(mod(seconds,60));
 
         // get minutes
-        rem :=seconds - s;
-        min :=nearestInteger(mod(rem/60, 60));
+        rem :=seconds - second;
+        minute :=nearestInteger(mod(rem/60, 60));
 
         // get hours
-        rem :=rem - min*60;
-        h :=nearestInteger(mod(rem/3600, 24));
+        rem :=rem - minute*60;
+        hour :=nearestInteger(mod(rem/3600, 24));
 
         // get number of days since epoch year
-        rem :=rem - h*3600;
+        rem :=rem - hour*3600;
         days :=nearestInteger(rem/(24*3600));
 
         // get year
         if days >= 0 then
          // time is after reference year: count how many years must pass from reference year until 'days' is reached
-         a :=epoch_year;
+         year :=epoch_year;
          counted_days := 0;
-         while counted_days+daysInYear(a) <= days loop
-           counted_days := counted_days + daysInYear(a);
-           a :=a + 1;
+         while counted_days+daysInYear(year) <= days loop
+           counted_days := counted_days + daysInYear(year);
+           year :=year + 1;
          end while;
         else
          // time is before reference year: count years downwards
-         a :=epoch_year - 1;
-         counted_days := if isLeapYear(a) then -366 else -365;
+         year :=epoch_year - 1;
+         counted_days := if isLeapYear(year) then -366 else -365;
          while counted_days > days loop
-           a :=a - 1;
-           counted_days := counted_days - daysInYear(a);
+           year :=year - 1;
+           counted_days := counted_days - daysInYear(year);
          end while;
         end if;
 
@@ -309,18 +309,18 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
 
         // get month
         // use correct column depending on leap and regular year
-        j :=if isLeapYear(a) then 2 else 1;
+        j :=if isLeapYear(year) then 2 else 1;
         for i in 1:12 loop
           if days_passed[j,i] >= day_of_year then
-            mon :=i;
+            month :=i;
             break;
           end if;
         end for;
 
         // get day
-        d :=if mon > 1 then day_of_year - days_passed[j,mon-1] else day_of_year;
+        day :=if month > 1 then day_of_year - days_passed[j,month-1] else day_of_year;
 
-        t :=DateTime(ms=ms, s=s, min=min, h=h, d=d, mon=mon, a=a);
+        t :=DateTime(millisecond=millisecond, second=second, minute=minute, hour=hour, day=day, month=month, year=year);
 
       end fromEpoch;
     end 'constructor';
@@ -335,34 +335,34 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         extends Icons.Function;
 
         input DateTime t;
-        input String format = "%y-%mon-%d %H:%MIN:%S";
-        output String s;
+        input String format = "%Y-%MON-%D %H:%MIN:%S";
+        output String str;
 
       protected
-        encapsulated function string0
+        encapsulated function string0 "Create string with minimum length, filled with 0"
           import Modelica.Utilities.Strings.replace;
-            input Integer s;
+            input Integer i;
             input Integer l;
             output String s0;
         algorithm
-            s0 :=replace(String(s, minimumLength=l, leftJustified=false), " ", "0");
+            s0 :=replace(String(i, minimumLength=l, leftJustified=false), " ", "0");
         end string0;
 
       algorithm
-        s :=replace(format, "%y",   string0(t.a, l=4));
-        s :=replace(s,      "%Y",   string0(t.a, l=4));
-        s :=replace(s,      "%mon", String(t.mon));
-        s :=replace(s,      "%MON", string0(t.mon, l=2));
-        s :=replace(s,      "%d",   String(t.d));
-        s :=replace(s,      "%D",   string0(t.d, l=2));
-        s :=replace(s,      "%h",   String(t.h));
-        s :=replace(s,      "%H",   string0(t.h, l=2));
-        s :=replace(s,      "%min", String(t.min));
-        s :=replace(s,      "%MIN", string0(t.min, l=2));
-        s :=replace(s,      "%s",   String(t.s));
-        s :=replace(s,      "%S",   string0(t.s, l=2));
-        s :=replace(s,      "%ms",  String(t.ms));
-        s :=replace(s,      "%MS",  string0(t.ms, l=2));
+        str :=replace(format, "%year",        String( t.year));
+        str :=replace(str,    "%Y",           string0(t.year, l=4));
+        str :=replace(str,    "%month",       String( t.month));
+        str :=replace(str,    "%MON",         string0(t.month, l=2));
+        str :=replace(str,    "%day",         String( t.day));
+        str :=replace(str,    "%D",           string0(t.day, l=2));
+        str :=replace(str,    "%hour",        String( t.hour));
+        str :=replace(str,    "%H",           string0(t.hour, l=2));
+        str :=replace(str,    "%minute",      String( t.minute));
+        str :=replace(str,    "%MIN",         string0(t.minute, l=2));
+        str :=replace(str,    "%second",      String( t.second));
+        str :=replace(str,    "%S",           string0(t.second, l=2));
+        str :=replace(str,    "%millisecond", String( t.millisecond));
+        str :=replace(str,    "%MS",          string0(t.millisecond, l=3));
 
       end formated;
 
@@ -378,13 +378,13 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
       output Boolean result "= t1 == t2";
 
     algorithm
-      result := t1.a == t2.a and
-                t1.mon == t2.mon and
-                t1.d == t2.d and
-                t1.h == t2.h and
-                t1.min == t2.min and
-                t1.s == t2.s and
-                t1.ms == t2.ms;
+      result := t1.year == t2.year and
+                t1.month == t2.month and
+                t1.day == t2.day and
+                t1.hour == t2.hour and
+                t1.minute == t2.minute and
+                t1.second == t2.second and
+                t1.millisecond == t2.millisecond;
 
     end '==';
 
@@ -411,25 +411,25 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
       output Boolean result "= t1 <> t2";
 
     algorithm
-      if t1.a > t2.a then
+      if t1.year > t2.year then
         result :=true;
       else
-        if t1.a==t2.a and t1.mon > t2.mon then
+        if t1.year==t2.year and t1.month > t2.month then
           result :=true;
         else
-          if t1.mon==t2.mon and t1.d > t2.d then
+          if t1.month==t2.month and t1.day > t2.day then
             result :=true;
           else
-            if t1.d==t2.d and t1.h > t2.h then
+            if t1.day==t2.day and t1.hour > t2.hour then
               result :=true;
             else
-              if t1.h==t2.h and t1.min > t2.min then
+              if t1.hour==t2.hour and t1.minute > t2.minute then
                 result :=true;
               else
-                if t1.min==t2.min and t1.s > t2.s then
+                if t1.minute==t2.minute and t1.second > t2.second then
                   result :=true;
                 else
-                  if t1.s==t2.s and t1.ms > t2.ms then
+                  if t1.second==t2.second and t1.millisecond > t2.millisecond then
                     result :=true;
                   else
                     result :=false;
@@ -502,26 +502,26 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
       Integer j;
 
       // Aux variables for shorter access in code
-      Integer ms=t.ms "Millisecond";
-      Integer s=t.s "Second";
-      Integer min=t.min "Minute";
-      Integer h=t.h "Hour";
-      Integer d=t.d "Day";
-      Integer mon=t.mon "Month";
-      Integer a=t.a "Year";
+      Integer millisecond=t.millisecond "Millisecond";
+      Integer second=t.second "Second";
+      Integer minute=t.minute "Minute";
+      Integer hour=t.hour "Hour";
+      Integer day=t.day "Day";
+      Integer month=t.month "Month";
+      Integer year=t.year "Year";
 
     algorithm
       // get leap years from year 0 until the chosen epoch year
       leap_years_til_epoch :=integer(epoch_year/4) - integer((epoch_year)/100) + integer((epoch_year)/400);
 
       // get leap days of passed years since epoch year
-      leap_days :=integer((a-1)/4) - integer((a-1)/100) + integer((a-1)/400) - leap_years_til_epoch;
+      leap_days :=integer((year-1)/4) - integer((year-1)/100) + integer((year-1)/400) - leap_years_til_epoch;
 
       // get current day of year and consider leap day if current year is leap year and february has passed
-      day_of_year :=d + days_passed[j,mon];
-      j := if isLeapYear(a) then 2 else 1;
+      j := if isLeapYear(year) then 2 else 1;
+      day_of_year :=day + days_passed[j,month];
 
-      seconds :=ms/1000 + s + 60*(min + 60*(h + 24*(day_of_year-1 + leap_days + 365*(a-epoch_year))));
+      seconds :=millisecond/1000 + second + 60*(minute + 60*(hour + 24*(day_of_year-1 + leap_days + 365*(year-epoch_year))));
 
     end epoch;
 
@@ -576,8 +576,8 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
       algorithm
         t_tmp :=t2;
 
-        e1 :=DateTime.epoch(t1, epoch_year=t1.a);
-        e2 :=DateTime.epoch(t_tmp, epoch_year=t1.a);
+        e1 :=DateTime.epoch(t1, epoch_year=t1.year);
+        e2 :=DateTime.epoch(t_tmp, epoch_year=t1.year);
 
         diff :=abs(e2 - e1);
         sign_ :=sign(e2 - e1);
