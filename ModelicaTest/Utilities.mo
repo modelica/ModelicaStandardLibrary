@@ -435,6 +435,258 @@ extends Modelica.Icons.ExamplesPackage;
     ok := true;
   end Time;
 
+  function DateTime "Test constructors of Duration operator record and conversion to epoch"
+
+    import Modelica.Utilities.Streams;
+    import Modelica.Utilities.Time.DateTime;
+    import Modelica.Utilities.Time.Duration;
+
+    extends Modelica.Icons.Function;
+
+    input String logFile="ModelicaTestLog.txt" "Filename where the log is stored";
+    output Boolean ok;
+
+  protected
+    Real act_r, ref_r;
+    String act_s, ref_s;
+    DateTime act_dt, ref_dt;
+    DateTime t1, t2, t3;
+    Integer _ "Dummy to swallow return value";
+
+  algorithm
+
+    Streams.print("... Test of Modelica.Utilities.Time.DateTime");
+    Streams.print("... Test of Modelica.Utilities.Time.DateTime", logFile);
+
+    // ---------------------------------------- //
+    //  constructor and epoch conversion tests  //
+    // ---------------------------------------- //
+
+    // 1 day passed since custom epoch year 2017
+    ref_dt := DateTime(2017,  1,  1,  1,  1,  1, 0);
+    ref_r :=  3661;
+
+    act_dt := DateTime(ref_r, epoch_year=2017);
+    act_r :=  DateTime.epoch(ref_dt, epoch_year=2017);
+
+    assert(ref_dt==act_dt, "constructor test failed (1 day since 2017)");
+    assert(ref_r==act_r, "conversion to epoch failed (1 day since 2017)");
+
+    // 1 day passed since default epoch year 2017
+    ref_dt:= DateTime(1970,  1,  1,  1,  1,  1, 0);
+    ref_r := 3661;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (1 day since 1970)");
+    assert(ref_r==act_r, "conversion to epoch failed (1 day since 1970)");
+
+    // start of new year
+    ref_dt:= DateTime(1999, 12, 31, 23, 59, 59, 0);
+    ref_r := 946684799;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (last second in 1999)");
+    assert(ref_r==act_r, "conversion to epoch failed (last second in 1999)");
+
+    ref_dt:= DateTime(2000,  1,  1,  0,  0,  0, 0);
+    ref_r := 946684800;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (first second in 2000)");
+    assert(ref_r==act_r, "conversion to epoch failed (first second in 2000)");
+
+    // special leap year (new century and multiple of 400)
+    ref_dt:= DateTime(2000,  2, 28, 23, 59, 59, 0);
+    ref_r := 951782399;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (detection of special leap year 1)");
+    assert(ref_r==act_r, "conversion to epoch failed (detection of special leap year 1)");
+
+    ref_dt:= DateTime(2000,  3,  1,  0,  0,  0, 0);
+    ref_r := 951868800;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (detection of special leap year 2)");
+    assert(ref_r==act_r, "conversion to epoch failed (detection of special leap year 2)");
+
+    // no leap year (new century)
+    ref_dt:= DateTime(2100,  2, 28, 23, 59, 59, 0);
+    ref_r := 951782399;
+
+    act_dt:= DateTime(ref_r, epoch_year=2070);
+    act_r := DateTime.epoch(ref_dt, epoch_year=2070);
+
+    assert(ref_dt==act_dt, "constructor test failed (detection of special non-leap year 1)");
+    assert(ref_r==act_r, "conversion to epoch failed (detection of special non-leap year 1)");
+
+    ref_dt:= DateTime(2100,  3,  1,  0,  0,  0, 0);
+    ref_r := 951782400;
+
+    act_dt:= DateTime(ref_r, epoch_year=2070);
+    act_r := DateTime.epoch(ref_dt, epoch_year=2070);
+
+    assert(ref_dt==act_dt, "constructor test failed (detection of special non-leap year 2)");
+    assert(ref_r==act_r, "conversion to epoch failed (detection of special non-leap year 2)");
+
+    // regular year
+    ref_dt:= DateTime(2017,  2, 28, 23, 59, 59, 0);
+    ref_r := 1488326399;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (regular year 1)");
+    assert(ref_r==act_r, "conversion to epoch failed (regular year 1)");
+
+    ref_dt:= DateTime(2017,  3,  1,  0,  0,  0, 0);
+    ref_r := 1488326400;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (regular year 2)");
+    assert(ref_r==act_r, "conversion to epoch failed (regular year 2)");
+
+    // leap year
+    ref_dt:= DateTime(2020,  2, 28, 23, 59, 59, 0);
+    ref_r := 1582934399;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (regular leap year 1)");
+    assert(ref_r==act_r, "conversion to epoch failed (regular leap year 1)");
+
+    ref_dt:= DateTime(2020,  3,  1,  0,  0,  0, 0);
+    ref_r := 1583020800;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (regular leap year 2)");
+    assert(ref_r==act_r, "conversion to epoch failed (regular leap year 2)");
+
+    // end of year
+    ref_dt:= DateTime(2019, 12, 31, 23, 59, 59, 0);
+    ref_r := 1577836799;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (end of regular year)");
+    assert(ref_r==act_r, "conversion to epoch failed (end of regular year)");
+
+    ref_dt:= DateTime(2020, 12, 31, 23, 59, 59, 0);
+    ref_r := 1609459199;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (end of leap year)");
+    assert(ref_r==act_r, "conversion to epoch failed (end of leap year)");
+
+    // lowest value for 32bit integer
+    // this test is not relevant, as datatype Real is used to count
+    // seconds from epoch. Would be needed, if Integer is used instead
+    // (for whatever reason). But it does not hurt to have it, so we keep it.
+    ref_dt:= DateTime(1901, 12, 13, 20, 45, 53, 0);
+    ref_r := -2147483647;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (lowest possible value for 32bit integer)");
+    assert(ref_r==act_r, "conversion to epoch failed (lowest possible value for 32bit integer)");
+
+    // regular year in past
+    ref_dt:= DateTime(1910, 12, 31, 1, 59, 59, 0);
+    ref_r := -1861999201;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (regular year before epoch)");
+    assert(ref_r==act_r, "conversion to epoch failed (regular year before epoch)");
+
+    // leap year in past
+    ref_dt:= DateTime(1912, 12, 31, 1, 59, 59, 0);
+    ref_r := -1798840801;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (leap regular year before epoch)");
+    assert(ref_r==act_r, "conversion to epoch failed (leap regular year before epoch)");
+
+    // compare two DateTime records created from system time. t2 should be a few seconds later than t1
+    t1 :=DateTime();
+    _ :=Modelica.Utilities.System.command("sleep 1") "Sleep 1s on linux";
+    _ :=Modelica.Utilities.System.command("ping -n 2 127.0.0.1 > NUL") "Sleep 1s on windows";
+    t2 :=DateTime();
+
+    assert(  (t2 > t1) and (DateTime.epoch(t2)-DateTime.epoch(t1) < 5),
+      "constructor from system time failed (t1 is younger than t2)");
+
+
+    // ---------------- //
+    //  operator tests  //
+    // ---------------- //
+
+    t1 := DateTime(2019, 12, 31, 23, 59, 59, 999);
+    t2 := DateTime(2020, 01, 01, 00, 00, 00, 0);
+    t3 := DateTime(2020, 01, 01, 00, 00, 00, 1);
+
+    // 'String'.formated
+    ref_s :="2020-01-01 00:00:00";
+    act_s :=String(t3);
+    assert(ref_s==act_s, "default string formating failed. \n"+ref_s+" <> "+act_s);
+
+    ref_s :="0h 0min 0.001s";
+    act_s :=String(t3, format="%hourh %minutemin %second.%MSs");
+    assert(ref_s==act_s, "custom string formating 1 failed. \n"+ref_s+" <> "+act_s);
+
+    // ==
+    assert(t1==t1, "t1==t1 failed");
+
+    // <>
+    assert(t1<>t2, "t1<>t2 failed");
+
+    // >
+    assert(t2>t1, "t2>t1 failed");
+
+    // >=
+    assert(t2>=t1, "t2>=t1 failed");
+    assert(t1>=t1, "t1>=t1 failed");
+
+    // <
+    assert(t2<t3, "t2<t3 failed");
+
+    // <=
+    assert(t2<=t3, "t2<=t3 failed");
+    assert(t3<=t3, "t3<=t3 failed");
+
+    // - subtract
+    assert(t2-t1==Duration(milliseconds=1),  "t2-t1 failed");
+    assert(t1-t2==Duration(milliseconds=-1), "t1-t2 failed");
+
+
+    // return result
+    ok := true;
+
+    annotation ();
+  end DateTime;
+
   function Duration "Test constructors and functions in Duration operator record"
 
     import Modelica.Utilities.Streams;
@@ -690,6 +942,7 @@ extends Modelica.Icons.ExamplesPackage;
     result := ModelicaTest.Utilities.System(logFile);
     result := ModelicaTest.Utilities.Time(logFile);
     result := ModelicaTest.Utilities.Duration(logFile);
+    result := ModelicaTest.Utilities.DateTime(logFile);
     ok := true;
   end testAll;
 
