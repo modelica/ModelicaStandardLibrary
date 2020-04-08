@@ -13,7 +13,6 @@ import requests
 import json
 import re
 import os
-import os.path
 import sys
 from enum import IntEnum
 from collections import defaultdict
