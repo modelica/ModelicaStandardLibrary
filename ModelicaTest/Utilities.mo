@@ -435,6 +435,155 @@ extends Modelica.Icons.ExamplesPackage;
     ok := true;
   end Time;
 
+  function Duration "Test constructors and functions in Duration operator record"
+
+    import Modelica.Utilities.Streams;
+    import Modelica.Utilities.Time.Duration;
+    import Modelica.Utilities.Time.DateTime;
+
+    extends Modelica.Icons.Function;
+
+    input String logFile="ModelicaTestLog.txt" "Filename where the log is stored";
+    output Boolean ok;
+
+  protected
+    Duration d1, d2, d3;
+    Duration act, ref;
+    Real ref_r, act_r;
+    Integer ref_v[:], act_v[:];
+    String act_s, ref_s;
+
+  algorithm
+
+    Streams.print("... Test of Modelica.Utilities.Time.Duration");
+    Streams.print("... Test of Modelica.Utilities.Time.Duration", logFile);
+
+    // preparation of duration variables, used through out the test
+    d1 :=Duration(days=1, hours=1, minutes=1, seconds=1, milliseconds=1);
+    d2 :=Duration(days=0, hours=23, minutes=59, seconds=59, milliseconds=999);
+    d3 :=Duration(days=-1, hours=-1, minutes=-1, seconds=-1, milliseconds=-1);
+
+    // constructors
+    ref := Duration(days=-45, hours=33, minutes=61, seconds=-9871, milliseconds=-1501);
+    act := Duration(totalSeconds=-3775412.501);
+    assert(ref==act, "constructor test 1 failed (fromSeconds vs fromInput)");
+
+    ref := Duration(t1=DateTime(2020, 1, 1, 1, 1, 1, 1), t2=DateTime(2020, 1, 1, 1, 1, 2, 500));
+    act := Duration(totalSeconds=1.499);
+    assert(ref==act, "constructor test 2 failed (fromSeconds vs fromDateTimes, positive result)");
+
+    ref := Duration(t1=DateTime(2020, 1, 1, 1, 1, 2, 500), t2=DateTime(2020, 1, 1, 1, 1, 1, 1));
+    act := Duration(totalSeconds=-1.499);
+    assert(ref==act, "constructor test 3 failed (fromSeconds vs fromDateTimes, negative result)");
+
+    // 'String'.formated
+    ref_s :="1d 1h 1min 1s 1ms";
+    act_s :=String(d1);
+    assert(ref_s==act_s, "default string formating failed. Got "+ref_s+"<>"+act_s);
+
+    ref_s :="25h 01' 01.001''";
+    act_s :=String(d1, format="%Hh %MIN' %S.%MS''");
+    assert(ref_s==act_s, "custom string formating 1 failed. \n"+ref_s+" <> "+act_s);
+
+    // ==
+    assert(d1==d1, "d1==d1 failed");
+
+    // <>
+    assert(d1<>d2, "d1<>d2 failed");
+
+    // >
+    assert(d1>d2, "d1>d2 failed");
+
+    // >=
+    assert(d1>=d2, "d1>=d2 failed");
+    assert(d1>=d1, "d1>=d1 failed");
+
+    // <
+    assert(d3<d1, "d3<d1 failed");
+
+    // <=
+    assert(d3<=d1, "d3<=d1 failed");
+    assert(d3<=d3, "d3<=d3 failed");
+
+    // +
+    ref :=Duration(days=1, hours=24, minutes=60, seconds=60, milliseconds=1000);
+    act :=d1 + d2;
+    assert(ref==act, "d1+d2 failed");
+
+    ref :=Duration(totalSeconds=0);
+    act := Duration.normalize(d1 + d3);
+    assert(ref==act, "d1+d3 failed");
+
+    // - subtract
+    ref :=Duration(days=-1, hours=22, minutes=58, seconds=58, milliseconds=998);
+    act :=d2 - d1;
+    assert(ref==act, "d2-d1 failed");
+
+    ref :=Duration(days=1, hours=-22, minutes=-58, seconds=-58, milliseconds=-998);
+    act :=d1 - d2;
+    assert(ref==act, "d1-d2 failed");
+
+    // - negate
+    ref :=Duration(days=-1, hours=-1, minutes=-1, seconds=-1, milliseconds=-1);
+    act :=-d1;
+    assert(ref==act, "-d1 failed");
+
+    // * multiply 1
+    ref :=Duration(days=2, hours=2, minutes=2, seconds=2, milliseconds=2);
+    act :=d1 * 2;
+    assert(ref==act, "d1*2 failed");
+
+    // * multiply 2
+    ref :=Duration(days=2, hours=2, minutes=2, seconds=2, milliseconds=2);
+    act := 2 * d1;
+    assert(ref==act, "2*d1 failed");
+
+    // / divide
+    ref := Duration(days=0, hours=12, minutes=30, seconds=30, milliseconds=501);
+    // 501ms result from the implementation of the division: fromSeconds is used, which rounds to the closest full milliseconds
+    // 1 / 2 = 0.5, rounded -> 1
+    act := Duration.normalize(d1 / 2);
+    assert(ref==act, "d1/2 failed");
+
+    // '0'
+    // todo
+
+    // asVector
+    ref_v :={0, 23, 59, 59, 999};
+    act_v :=Duration.asVector(d2);
+
+    for i in 1:size(ref_v, 1) loop
+      assert(ref_v[i]==act_v[i], "conversion to vector failed (element "+String(i)+")");
+    end for;
+
+    // avg
+    ref := Duration(days=1, hours=0, minutes=30, seconds=30, milliseconds=500);
+    act := Duration.avg({d1, d2});
+    assert(ref==act, "average of {d1, d2} failed");
+
+    // inSeconds
+    ref_r := 2291959.03;
+    act_r := Duration.inSeconds(Duration(days=27, hours=-12, minutes=30, seconds=559, milliseconds=30));
+    assert(ref_r==act_r, "conversion to total seconds failed");
+
+    // normalize
+    ref_v :={2, 5, 38, 0, 1};
+    act_v :=Duration.asVector(
+              Duration.normalize(
+                Duration(days=1, hours=28, minutes=97, seconds=59, milliseconds=1001)));
+
+    for i in 1:size(ref_v, 1) loop
+      assert(ref_v[i]==act_v[i], "normalization failed (element " +String(i)+")");
+    end for;
+
+    // sum
+    assert(sum(Duration(days=i) for i in 1:2) == Duration(days=3), "sum failed");
+
+    // return result
+    ok := true;
+
+  end Duration;
+
   function Internal "Test functions of Modelica.Utilities.Internal"
     extends Modelica.Icons.Function;
     import Modelica.Utilities.Internal.FileSystem;
@@ -540,6 +689,7 @@ extends Modelica.Icons.ExamplesPackage;
     result := ModelicaTest.Utilities.Internal(logFile);
     result := ModelicaTest.Utilities.System(logFile);
     result := ModelicaTest.Utilities.Time(logFile);
+    result := ModelicaTest.Utilities.Duration(logFile);
     ok := true;
   end testAll;
 
