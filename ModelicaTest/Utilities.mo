@@ -450,7 +450,7 @@ extends Modelica.Icons.ExamplesPackage;
     Real act_r, ref_r;
     String act_s, ref_s;
     DateTime act_dt, ref_dt;
-    DateTime t1, t2, t3;
+    DateTime dt1, dt2, dt3;
     Integer _ "Dummy to swallow return value";
 
   algorithm
@@ -629,27 +629,27 @@ extends Modelica.Icons.ExamplesPackage;
     assert(ref_dt==act_dt, "constructor test failed (leap regular year before epoch)");
     assert(ref_r==act_r, "conversion to epoch failed (leap regular year before epoch)");
 
-    // compare two DateTime records created from system time. t2 should be a few seconds later than t1
-    t1 :=DateTime();
+    // compare two DateTime records created from system time. dt2 should be a few seconds later than dt1
+    dt1 :=DateTime();
     _ :=Modelica.Utilities.System.command("sleep 1") "Sleep 1s on linux";
     _ :=Modelica.Utilities.System.command("ping -n 2 127.0.0.1 > NUL") "Sleep 1s on windows";
-    t2 :=DateTime();
+    dt2 :=DateTime();
 
-    assert(  (t2 > t1) and (DateTime.epoch(t2)-DateTime.epoch(t1) < 5),
-      "constructor from system time failed (t1 is younger than t2)");
+    assert(  (dt2 > dt1) and (DateTime.epoch(dt2)-DateTime.epoch(dt1) < 5),
+      "constructor from system time failed (dt1 is younger than dt2)");
 
 
     // ---------------- //
     //  operator tests  //
     // ---------------- //
 
-    t1 := DateTime(2019, 12, 31, 23, 59, 59, 999);
-    t2 := DateTime(2020, 01, 01, 00, 00, 00, 0);
-    t3 := DateTime(2020, 01, 01, 00, 00, 00, 1);
+    dt1 := DateTime(2019, 12, 31, 23, 59, 59, 999);
+    dt2 := DateTime(2020, 01, 01, 00, 00, 00, 0);
+    dt3 := DateTime(2020, 01, 01, 00, 00, 00, 1);
 
     // 'String'.formated
     ref_s :="2020-01-01 00:00:00";
-    act_s :=String(t3);
+    act_s :=String(dt3);
     assert(ref_s==act_s, "default string formating failed. \n"+ref_s+" <> "+act_s);
 
     ref_s :="Monday, 06. April 20, 13:01:07.999";
@@ -665,28 +665,28 @@ extends Modelica.Icons.ExamplesPackage;
     assert(ref_s==act_s, "custom string formating 1 failed. \n"+ref_s+" <> "+act_s);
 
     // ==
-    assert(t1==t1, "t1==t1 failed");
+    assert(dt1==dt1, "dt1==dt1 failed");
 
     // <>
-    assert(t1<>t2, "t1<>t2 failed");
+    assert(dt1<>dt2, "dt1<>dt2 failed");
 
     // >
-    assert(t2>t1, "t2>t1 failed");
+    assert(dt2>dt1, "dt2>dt1 failed");
 
     // >=
-    assert(t2>=t1, "t2>=t1 failed");
-    assert(t1>=t1, "t1>=t1 failed");
+    assert(dt2>=dt1, "dt2>=dt1 failed");
+    assert(dt1>=dt1, "dt1>=dt1 failed");
 
     // <
-    assert(t2<t3, "t2<t3 failed");
+    assert(dt2<dt3, "dt2<dt3 failed");
 
     // <=
-    assert(t2<=t3, "t2<=t3 failed");
-    assert(t3<=t3, "t3<=t3 failed");
+    assert(dt2<=dt3, "dt2<=dt3 failed");
+    assert(dt3<=dt3, "dt3<=dt3 failed");
 
     // - subtract
-    assert(t2-t1==Duration(milliseconds=1),  "t2-t1 failed");
-    assert(t1-t2==Duration(milliseconds=-1), "t1-t2 failed");
+    assert(dt2-dt1==Duration(milliseconds=1),  "dt2-dt1 failed");
+    assert(dt1-dt2==Duration(milliseconds=-1), "dt1-dt2 failed");
 
 
     // return result
