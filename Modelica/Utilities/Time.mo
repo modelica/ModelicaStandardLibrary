@@ -1306,6 +1306,82 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
 
   end normalize;
 
+    annotation (Documentation(info="<html>
+
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Time.<strong>Duration</strong>();
+Time.<strong>Duration</strong>(days=0, hours=0, minutes=0, seconds=0, milliseconds=0);
+Time.<strong>Duration</strong>(dt1, dt2);
+Time.<strong>Duration</strong>(totalSeconds);
+</pre>
+</blockquote>
+
+<h4>Description</h4>
+<p>
+    The operator record Duration is used for elapsed time.
+    This can be the time between given by DateTime records
+    (i.e. by subtracting them) or a manually specified duration.
+</p>
+<p>
+    There are multiple constructors provided to create a Duration element.
+    See the examples below for details.
+</p>
+
+<p>Here is a brief summary, what the Duration operator record is capable of:</p>
+<ul>
+    <li>
+        Durations can be compared (==, &lt;&gt;, &gt;, &lt;, &ge;, &le;), giving a boolean result.
+    </li>
+    <li>
+        Durations can be added, subtracted and negated (+, -), giving a Duration.
+    </li>
+    <li>
+        Durations can be multiplied and divided by scalars (*, /), giving a Duration.
+    </li>
+    <li>
+        The elements of a Duration can be returned as vector with Duration.asVector().
+    </li>
+    <li>
+        For a vector of Durations, the average can be computed with Duration.avg().
+    </li>
+    <li>
+        Durations can be expressed in seconds only, using Duration.inSeconds().
+    </li>
+    <li>
+        Durations can be normalized with Duration.normalize(),
+        which ensures a representation with hours &lt; 24, min &lt; 60, etc.).
+    </li>
+</ul>
+
+<h4>Example</h4>
+
+The examples below demonstrate the different methods to create a Duration record.
+
+<blockquote>
+<pre>
+import Modelica.Utilities.Time.Duration;
+
+// Create Duration records from direct input
+Duration();                                      // create Duration record using default constructor, which is fromInput
+Duration.'constructor'.fromInput(hours=10);      // explicit call of constructor
+Duration(days=1, seconds=100);                   // automatic selection of constructor fromInput
+
+// Create Duration records from two DateTimes
+import Modelica.Utilities.Time.DateTime;
+dt1 = DateTime.now();
+dt2 = DateTime.now();
+Duration.'constructor'.fromDateTimes(dt1, dt2);  // explicit call of constructor
+Duration(dt1, dt2);                              // automatic selection of constructor via data type
+Duration(dt1=dt1, dt2=dt2);                      // automatic selection of constructor via names
+
+// Create Duration records manually using the elapsed seconds since the given epoch year
+Duration.'constructor'.fromSeconds(1);           // explicit call of constructor
+Duration(totalSeconds=1.5);                      // automatic selection of constructor via name
+</pre>
+</blockquote>
+</html>"));
   end Duration;
     annotation (
 Documentation(info="<html>
