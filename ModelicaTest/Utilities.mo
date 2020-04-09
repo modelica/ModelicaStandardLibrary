@@ -742,8 +742,16 @@ extends Modelica.Icons.ExamplesPackage;
     assert(ref_s==act_s, "default string formating failed. Got "+ref_s+"<>"+act_s);
 
     ref_s :="25h 01' 01.001''";
-    act_s :=String(d1, format="%Hh %MIN' %S.%MS''");
+    act_s :=String(d1, format="%Hh %M' %S.%L''");
     assert(ref_s==act_s, "custom string formating 1 failed. \n"+ref_s+" <> "+act_s);
+
+    ref_s :="25h %01'% 1''";
+    act_s :=String(d1, format="%Hh %%%M'%% %seconds''");
+    assert(ref_s==act_s, "custom string formating 2 failed. \n"+ref_s+" <> "+act_s);
+
+    ref_s :="25h 61s";
+    act_s :=String(d1, format="%Hh %Ss");
+    assert(ref_s==act_s, "custom string formating 3 failed. \n"+ref_s+" <> "+act_s);
 
     // ==
     assert(d1==d1, "d1==d1 failed");
