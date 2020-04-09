@@ -266,7 +266,7 @@ All returned values are of type Integer and have the following meaning:
 </p>
 
 <blockquote>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Argument</th>
     <th>Range</th>
     <th>Description</th></tr>
@@ -302,13 +302,13 @@ All returned values are of type Integer and have the following meaning:
 <h4>Note</h4>
 <p>This function is impure!</p>
 </html>",   revisions="<html>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
 <tr><td> June 22, 2015 </td>
     <td>
 
-<table border=0>
+<table border=\"0\">
 <tr><td>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
 </td><td valign=\"bottom\">
@@ -348,13 +348,12 @@ dow = Internal.Time.<strong>dayOfWeek</strong>(year, mon, day);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-<p>
 Returns the day of the week for a given date using Tomohiko Sakamoto's algorithm.
 The returned Integer number of <code>dow</code> has the following meaning:
 </p>
 
 <blockquote>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Day of week</th>
     <th>Number</th></tr>
 

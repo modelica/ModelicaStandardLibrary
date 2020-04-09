@@ -47,7 +47,7 @@ package Types "Type definitions used in package Modelica.Utilities"
     Integer year "Year" annotation(absoluteValue=true);
     annotation (Documentation(info="<html>
 <blockquote>
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Argument</th>
     <th>Range</th>
     <th>Description</th></tr>
