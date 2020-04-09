@@ -185,7 +185,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
   final constant String months[12] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"} "Array of month names";
   final constant String shortMonths[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"} "Array of abbreviated month names";
 
-  operator record DateTime
+  operator record DateTime "DateTime record with several constructors and overloaded operators"
     extends Modelica.Icons.Record;
 
     Integer millisecond(min=0, max=999) "Millisecond" annotation(absoluteValue=true);
@@ -196,12 +196,12 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
     Integer month(min=1, max=12) "Month" annotation(absoluteValue=true);
     Integer year "Year" annotation(absoluteValue=true);
 
-    encapsulated operator 'constructor'
+    encapsulated operator 'constructor' "Available constructors"
       import Modelica.Utilities.Time.DateTime;
       import Modelica.Icons;
       extends Icons.FunctionsPackage;
 
-      function fromReadable
+      function fromReadable "Create DateTime from human readable format"
         extends Icons.Function;
 
         input Integer year "Year";
@@ -218,7 +218,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
 
       end fromReadable;
 
-      function fromSystemTime "Get system time as elapsed seconds since custom epoch year"
+      function fromSystemTime "Create DateTime from current system time"
         import Modelica.Utilities.Internal.Time.getTime;
         extends Icons.Function;
 
@@ -239,7 +239,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
 
       end fromSystemTime;
 
-      function fromEpoch
+      function fromEpoch "Create DateTime from elapsed seconds since reference year"
         import Modelica.Utilities.Internal.Time.getTime;
         import Modelica.Math.nearestInteger;
         import Modelica.Utilities.Time.isLeapYear;
@@ -331,7 +331,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
       import Modelica.Icons;
       extends Icons.FunctionsPackage;
 
-      function formated
+      function formated "Use a subset of C strftime() conversion specifiers to format a DateTime record as string"
         extends Icons.Function;
 
         import Modelica.Utilities.Internal.Time.dayOfWeek;
@@ -501,7 +501,7 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
 
     end 'String';
 
-    encapsulated operator function '=='
+    encapsulated operator function '==' "Check equality of two DateTime objects"
       import Modelica.Utilities.Time.DateTime;
       import Modelica.Icons;
       extends Icons.Function;
@@ -521,7 +521,7 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
 
     end '==';
 
-    encapsulated operator function '<>'
+    encapsulated operator function '<>' "Check inequality of two DateTime objects"
       import Modelica.Utilities.Time.DateTime;
       import Modelica.Icons;
       extends Icons.Function;
@@ -534,14 +534,14 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
       result := not t1 == t2;
     end '<>';
 
-    encapsulated operator function '>'
+    encapsulated operator function '>' "Check if DateTime t1 is later as t2"
       import Modelica.Utilities.Time.DateTime;
       import Modelica.Icons;
       extends Icons.Function;
 
       input DateTime t1;
       input DateTime t2;
-      output Boolean result "= t1 <> t2";
+      output Boolean result "= t1 > t2";
 
     algorithm
       if t1.year > t2.year then
@@ -575,7 +575,7 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
       end if;
     end '>';
 
-    encapsulated operator function '>='
+    encapsulated operator function '>=' "Check if DateTime t1 is equal to t2 or later"
       import Modelica.Utilities.Time.DateTime;
       import Modelica.Icons;
       extends Icons.Function;
@@ -589,7 +589,7 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
 
     end '>=';
 
-    encapsulated operator function '<'
+    encapsulated operator function '<' "Check if DateTime t1 is earlier as t2"
       import Modelica.Utilities.Time.DateTime;
       import Modelica.Icons;
       extends Icons.Function;
@@ -603,7 +603,7 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
 
     end '<';
 
-    encapsulated operator function '<='
+    encapsulated operator function '<=' "Check if DateTime t1 is equal to t2 or earlier"
       import Modelica.Utilities.Time.DateTime;
       import Modelica.Icons;
       extends Icons.Function;
@@ -623,7 +623,7 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
 
       extends Icons.FunctionsPackage;
 
-      function subtract "Subtract two durations element wise"
+      function subtract "Return time delta between t2 and t1 as Duration"
         extends Icons.Function;
 
         import Modelica.Utilities.Time.Duration;
@@ -639,7 +639,7 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
 
     end '-';
 
-    encapsulated function epoch "Convert time to elapsed seconds since custom epoch year"
+    encapsulated function epoch "Convert DateTime to elapsed seconds since custom epoch year"
       import Modelica.Utilities.Time.DateTime;
       import Modelica.Utilities.Time.isLeapYear;
       import Modelica.Icons;
