@@ -42,7 +42,7 @@
    DEBUG_TIME_EVENTS     : Trace time events of CombiTimeTable
    DUMMY_FUNCTION_USERTAB: Use a dummy function "usertab"
 
-   Release Notes:
+   Changelog:
       Aug. 03, 2019: by Thomas Beutlich
                      Added second derivatives (ticket #2901)
 

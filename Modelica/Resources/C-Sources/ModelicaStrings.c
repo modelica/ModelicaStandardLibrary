@@ -29,7 +29,7 @@
    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-/* Release Notes:
+/* Changelog:
       Jun. 16, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Utilized hash macros of uthash.h for ModelicaStrings_hashString
                      (ticket #2250)
