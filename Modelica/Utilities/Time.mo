@@ -687,6 +687,56 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
        now:=DateTime.'constructor'.fromSystemTime();
     end now;
 
+    annotation (Documentation(info="<html>
+
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Time.<strong>DateTime</strong>();
+Time.<strong>DateTime</strong>(year, month, day, hour, minute, second, millisecond);
+Time.<strong>DateTime</strong>(seconds);
+Time.<strong>DateTime</strong>(seconds, epoch_year);
+</pre>
+</blockquote>
+
+<h4>Description</h4>
+<p>
+    The operator record DateTime stores the required information to address a specific point in time via date and time values.
+</p>
+<p>
+    There are multiple constructors provided to create a DateTime element. See the examples below for details.
+</p>
+<p>
+    DateTimes can be compared (==, &lt;&gt;, &gt;, &lt;, &ge;, &le;), giving a boolean result and subtracted (-), giving a Duration.
+</p>
+<p>
+    DateTimes can be converted to an epoch representation with the function DateTime.epoch(dt, epoch_year).
+</p>
+
+<h4>Example</h4>
+
+The examples below demonstrate the different methods to create a DateTime record.
+
+<blockquote>
+<pre>
+import Modelica.Utilities.Time.DateTime;
+
+// Create DateTime records from the current system time
+DateTime();                              // create DateTime record using default constructor, which is fromSystemTime
+DateTime.'constructor'.fromSystemTime(); // explicit call of constructor
+DateTime.now();                          // convenience function for explicit call of constructor fromSystemTime
+
+// Create DateTime records manually by setting each field
+DateTime.'constructor'.fromReadable(2020, 01, 31, 14, 40, 50, 500); // explicit call of constructor
+DateTime(2020, 01, 31, 14, 40, 50, 500);                            // automatic selection of constructor fromReadable
+
+// Create DateTime records manually using the elapsed seconds since the given epoch year
+DateTime(seconds=1);                          // automatic selection of constructor fromEpoch
+DateTime.'constructor'.fromEpoch(1);          // explicit call of constructor. 1s passed since default epoch year 1970
+DateTime.'constructor'.fromEpoch(1000, 2020); // explicit call of constructor. 1000s passed since custom epoch year 2020
+</pre>
+</blockquote>
+</html>"));
   end DateTime;
 
   operator record Duration "Duration record with several constructors and overloaded operators"
