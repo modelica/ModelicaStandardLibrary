@@ -711,7 +711,7 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
         input Integer minutes=0 "Minutes";
         input Integer seconds=0 "Seconds";
         input Integer milliseconds=0 "Milliseconds";
-        output Duration t(days=days, hours=hours, minutes=minutes, seconds=seconds, milliseconds=milliseconds);
+        output Duration d(days=days, hours=hours, minutes=minutes, seconds=seconds, milliseconds=milliseconds);
       algorithm
       end fromInput;
 
@@ -720,15 +720,15 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
         import Modelica.Math.nearestInteger;
         extends Icons.Function;
 
-        input DateTime t1 "Start time";
-        input DateTime t2 "End time";
-        output Duration t "= t2 - t1";
+        input DateTime dt1 "Start time";
+        input DateTime dt2 "End time";
+        output Duration d "= dt2 - dt1";
 
       protected
         Real diff;
         Integer sign_;
         Real e1, e2;
-        DateTime t_tmp;
+        DateTime dt_tmp;
         Integer days "Elapsed days";
         Integer hours "Elapsed hours";
         Integer minutes "Elapsed minutes";
@@ -736,10 +736,10 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
         Integer milliseconds "Elapsed milliseconds";
 
       algorithm
-        t_tmp :=t2;
+        dt_tmp :=dt2;
 
-        e1 :=DateTime.epoch(t1, epoch_year=t1.year);
-        e2 :=DateTime.epoch(t_tmp, epoch_year=t1.year);
+        e1 :=DateTime.epoch(dt1, epoch_year=dt1.year);
+        e2 :=DateTime.epoch(dt_tmp, epoch_year=dt1.year);
 
         diff :=abs(e2 - e1);
         sign_ :=sign(e2 - e1);
@@ -755,7 +755,7 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
         seconds := sign_*seconds;
         milliseconds := sign_*milliseconds;
 
-        t :=Duration(days=days, hours=hours, minutes=minutes, seconds=seconds, milliseconds=milliseconds);
+        d :=Duration(days=days, hours=hours, minutes=minutes, seconds=seconds, milliseconds=milliseconds);
 
       end fromDateTimes;
 
@@ -764,7 +764,7 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
         import Modelica.Math.nearestInteger;
 
         input Real totalSeconds "Duration in seconds. Decimal place is converted to milliseconds";
-        output Duration t "Duration with input converted to seconds and milliseconds";
+        output Duration d "Duration with input converted to seconds and milliseconds";
 
       protected
         Integer days, hours, minutes, seconds, milliseconds;
@@ -788,7 +788,7 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
 
         days := carryover;
 
-        t :=Duration(
+        d :=Duration(
             days=days,
             hours=hours,
             minutes=minutes,
@@ -808,12 +808,12 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
         import Modelica.Utilities.Strings.contains;
         extends Icons.Function;
 
-        input Duration t;
+        input Duration d;
         input String format = "%daysd %hoursh %minutesmin %secondss %millisecondsms";
         output String str;
 
       protected
-        Duration t2;
+        Duration d2;
 
         encapsulated function string0 "Create string with minimum length, filled with 0"
           import Modelica.Utilities.Strings.replace;
@@ -826,49 +826,49 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
 
       algorithm
 
-        t2 :=t;
+        d2 :=d;
 
         if not contains(format, "%days") and not contains(format, "%d") then
-          t2.hours :=t2.hours + t2.days*24;
+          d2.hours :=d2.hours + d2.days*24;
         end if;
 
         if not contains(format, "%hours") and not contains(format, "%H") then
-          t2.minutes :=t2.minutes + t2.hours*60;
+          d2.minutes :=d2.minutes + d2.hours*60;
         end if;
 
         if not contains(format, "%minutes") and not contains(format, "%M") then
-          t2.seconds :=t2.seconds + t2.minutes*60;
+          d2.seconds :=d2.seconds + d2.minutes*60;
         end if;
 
         if not contains(format, "%seconds") and not contains(format, "%S") then
-          t2.milliseconds :=t2.milliseconds + t2.seconds*1000;
+          d2.milliseconds :=d2.milliseconds + d2.seconds*1000;
         end if;
 
         str :=replace(format, "%%",            "%");
-        str :=replace(str,    "%days",         String( t2.days));
-        str :=replace(str,    "%d",            string0(t2.days, l=2));
-        str :=replace(str,    "%hours",        String( t2.hours));
-        str :=replace(str,    "%H",            string0(t2.hours, l=2));
-        str :=replace(str,    "%minutes",      String( t2.minutes));
-        str :=replace(str,    "%M",            string0(t2.minutes, l=2));
-        str :=replace(str,    "%seconds",      String( t2.seconds));
-        str :=replace(str,    "%S",            string0(t2.seconds, l=2));
-        str :=replace(str,    "%milliseconds", String( t2.milliseconds));
-        str :=replace(str,    "%L",            string0(t2.milliseconds, l=3));
+        str :=replace(str,    "%days",         String( d2.days));
+        str :=replace(str,    "%d",            string0(d2.days, l=2));
+        str :=replace(str,    "%hours",        String( d2.hours));
+        str :=replace(str,    "%H",            string0(d2.hours, l=2));
+        str :=replace(str,    "%minutes",      String( d2.minutes));
+        str :=replace(str,    "%M",            string0(d2.minutes, l=2));
+        str :=replace(str,    "%seconds",      String( d2.seconds));
+        str :=replace(str,    "%S",            string0(d2.seconds, l=2));
+        str :=replace(str,    "%milliseconds", String( d2.milliseconds));
+        str :=replace(str,    "%L",            string0(d2.milliseconds, l=3));
 
         annotation (Documentation(info="<html>
 
 <h4>Syntax</h4>
 <blockquote>
 <pre>
-String(t)
-String(t, format)
+String(d)
+String(d, format)
 </pre>
 </blockquote>
 
 <h4>Description</h4>
 <p>
-    The input value \"t\" of type Duration is converted to a string.
+    The input value \"d\" of type Duration is converted to a string.
 </p>
 <p>
     The content of the output string can be controlled
@@ -985,20 +985,20 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
       import Modelica.Icons;
       extends Icons.Function;
 
-      input Duration t1;
-      input Duration t2;
-      output Boolean result "= t1 == t2";
+      input Duration d1;
+      input Duration d2;
+      output Boolean result "= d1 == d2";
 
     protected
-      Duration t1_norm = Duration.normalize(t1);
-      Duration t2_norm = Duration.normalize(t2);
+      Duration d1_norm = Duration.normalize(d1);
+      Duration d2_norm = Duration.normalize(d2);
 
     algorithm
-      result := t1_norm.days == t2_norm.days and
-                t1_norm.hours == t2_norm.hours and
-                t1_norm.minutes == t2_norm.minutes and
-                t1_norm.seconds == t2_norm.seconds and
-                t1_norm.milliseconds == t2_norm.milliseconds;
+      result := d1_norm.days == d2_norm.days and
+                d1_norm.hours == d2_norm.hours and
+                d1_norm.minutes == d2_norm.minutes and
+                d1_norm.seconds == d2_norm.seconds and
+                d1_norm.milliseconds == d2_norm.milliseconds;
 
     end '==';
 
@@ -1007,85 +1007,85 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
       import Modelica.Icons;
       extends Icons.Function;
 
-      input Duration t1;
-      input Duration t2;
-      output Boolean result "= t1 <> t2";
+      input Duration d1;
+      input Duration d2;
+      output Boolean result "= d1 <> d2";
 
     algorithm
-      result := not t1 == t2;
+      result := not d1 == d2;
     end '<>';
 
-    encapsulated operator function '>' "Check if Duration t1 is larger than t2"
+    encapsulated operator function '>' "Check if Duration d1 is larger than d2"
       import Modelica.Utilities.Time.Duration;
       import Modelica.Icons;
       extends Icons.Function;
 
-      input Duration t1;
-      input Duration t2;
-      output Boolean result "= t1 > t2";
+      input Duration d1;
+      input Duration d2;
+      output Boolean result "= d1 > d2";
 
     algorithm
-      result :=Duration.inSeconds(t1) > Duration.inSeconds(t2);
+      result :=Duration.inSeconds(d1) > Duration.inSeconds(d2);
     end '>';
 
-    encapsulated operator function '>=' "Check if Duration t1 is equal to t2 or larger"
+    encapsulated operator function '>=' "Check if Duration d1 is equal to d2 or larger"
       import Modelica.Utilities.Time.Duration;
       import Modelica.Icons;
       extends Icons.Function;
 
-      input Duration t1;
-      input Duration t2;
-      output Boolean result "= t1 >= t2";
+      input Duration d1;
+      input Duration d2;
+      output Boolean result "= d1 >= d2";
 
     algorithm
-      result :=t1 == t2 or t1 > t2;
+      result :=d1 == d2 or d1 > d2;
 
     end '>=';
 
-    encapsulated operator function '<' "Check if Duration t1 is smaller than t2"
+    encapsulated operator function '<' "Check if Duration d1 is smaller than d2"
       import Modelica.Utilities.Time.Duration;
       import Modelica.Icons;
       extends Icons.Function;
 
-      input Duration t1;
-      input Duration t2;
-      output Boolean result "= t1 < t2";
+      input Duration d1;
+      input Duration d2;
+      output Boolean result "= d1 < d2";
 
     algorithm
-      result := not t1 == t2 and t2 > t1;
+      result := not d1 == d2 and d2 > d1;
 
     end '<';
 
-    encapsulated operator function '<=' "Check if Duration t1 is equal to t2 or smaller"
+    encapsulated operator function '<=' "Check if Duration d1 is equal to d2 or smaller"
       import Modelica.Utilities.Time.Duration;
       import Modelica.Icons;
       extends Icons.Function;
 
-      input Duration t1;
-      input Duration t2;
-      output Boolean result "= t1 <= t2";
+      input Duration d1;
+      input Duration d2;
+      output Boolean result "= d1 <= d2";
 
     algorithm
-      result := t1 == t2 or t1 < t2;
+      result := d1 == d2 or d1 < d2;
 
     end '<=';
 
-    encapsulated operator function '+' "Add Durations t1 and t2 and normalize the sum"
+    encapsulated operator function '+' "Add Durations d1 and d2 and normalize the sum"
       import Modelica.Utilities.Time.Duration;
       import Modelica.Icons;
       extends Icons.Function;
 
-      input Duration t1;
-      input Duration t2;
-      output Duration result "= t1 + t2";
+      input Duration d1;
+      input Duration d2;
+      output Duration result "= d1 + d2";
 
     algorithm
       result := Duration.normalize(Duration(
-        days=t1.days + t2.days,
-        hours=t1.hours + t2.hours,
-        minutes=t1.minutes + t2.minutes,
-        seconds=t1.seconds + t2.seconds,
-        milliseconds=t1.milliseconds + t2.milliseconds));
+        days=d1.days + d2.days,
+        hours=d1.hours + d2.hours,
+        minutes=d1.minutes + d2.minutes,
+        seconds=d1.seconds + d2.seconds,
+        milliseconds=d1.milliseconds + d2.milliseconds));
 
     end '+';
 
@@ -1098,33 +1098,33 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
       function subtract "Subtract two durations element wise and normalize the difference"
         extends Icons.Function;
 
-        input Duration t1;
-        input Duration t2;
-        output Duration result "= t1 - t2";
+        input Duration d1;
+        input Duration d2;
+        output Duration result "= d1 - d2";
 
       algorithm
         result := Duration.normalize(Duration(
-          days=t1.days - t2.days,
-          hours=t1.hours - t2.hours,
-          minutes=t1.minutes - t2.minutes,
-          seconds=t1.seconds - t2.seconds,
-          milliseconds=t1.milliseconds - t2.milliseconds));
+          days=d1.days - d2.days,
+          hours=d1.hours - d2.hours,
+          minutes=d1.minutes - d2.minutes,
+          seconds=d1.seconds - d2.seconds,
+          milliseconds=d1.milliseconds - d2.milliseconds));
 
       end subtract;
 
       function negate "Unary minus (multiply all duration values by -1)"
         extends Icons.Function;
 
-        input Duration t;
-        output Duration result "= -t1";
+        input Duration d;
+        output Duration result "= -d1";
 
       algorithm
         result := Duration(
-          days=-t.days,
-          hours=-t.hours,
-          minutes=-t.minutes,
-          seconds=-t.seconds,
-          milliseconds=-t.milliseconds);
+          days=-d.days,
+          hours=-d.hours,
+          minutes=-d.minutes,
+          seconds=-d.seconds,
+          milliseconds=-d.milliseconds);
 
       end negate;
     end '-';
@@ -1138,12 +1138,12 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
       function multiply1 "Multiply a duration with a real (by converting the duration to seconds)"
         extends Icons.Function;
 
-        input Duration t;
+        input Duration d;
         input Real r;
-        output Duration result "= inSeconds(t)*r";
+        output Duration result "= inSeconds(d)*r";
 
       algorithm
-        result := Duration(totalSeconds=Duration.inSeconds(t)*r);
+        result := Duration(totalSeconds=Duration.inSeconds(d)*r);
 
       end multiply1;
 
@@ -1151,11 +1151,11 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
         extends Icons.Function;
 
         input Real r;
-        input Duration t;
-        output Duration result "= inSeconds(t)*r";
+        input Duration d;
+        output Duration result "= inSeconds(d)*r";
 
       algorithm
-        result := Duration(totalSeconds=r*Duration.inSeconds(t));
+        result := Duration(totalSeconds=r*Duration.inSeconds(d));
 
       end multiply2;
     end '*';
@@ -1170,12 +1170,12 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
         "Divide a duration by a real. The first milliseconds value can vary by 1 (due to rounding in the fromSeconds constructor)"
         extends Icons.Function;
 
-        input Duration t;
+        input Duration d;
         input Real r;
-        output Duration result "= inSeconds(t)/r";
+        output Duration result "= inSeconds(d)/r";
 
       algorithm
-        result := Duration(totalSeconds=Duration.inSeconds(t)/r);
+        result := Duration(totalSeconds=Duration.inSeconds(d)/r);
 
       end divide;
 
@@ -1198,12 +1198,12 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
     import Modelica.Icons;
     extends Icons.Function;
 
-    input Duration t "Value to convert";
-    output Integer[5] t_vec "Duration as vector {days, hours, minutes, seconds, milliseconds}";
+    input Duration d "Value to convert";
+    output Integer[5] d_vec "Duration as vector {days, hours, minutes, seconds, milliseconds}";
 
   algorithm
 
-    t_vec :={t.days, t.hours, t.minutes, t.seconds, t.milliseconds};
+    d_vec :={d.days, d.hours, d.minutes, d.seconds, d.milliseconds};
 
   end asVector;
 
@@ -1212,19 +1212,19 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
     import Modelica.Icons;
     extends Icons.Function;
 
-    input Duration t_vec[:] "Vector of duration";
-    output Duration t_avg "Average duration";
+    input Duration d_vec[:] "Vector of duration";
+    output Duration d_avg "Average duration";
 
     protected
-    Integer n = size(t_vec, 1);
+    Integer n = size(d_vec, 1);
     Real totalSeconds = 0;
 
   algorithm
     for i in 1:n loop
-      totalSeconds := totalSeconds + Duration.inSeconds(t_vec[i]);
+      totalSeconds := totalSeconds + Duration.inSeconds(d_vec[i]);
     end for;
 
-    t_avg := Duration(totalSeconds=totalSeconds/n);
+    d_avg := Duration(totalSeconds=totalSeconds/n);
 
   end avg;
 
@@ -1233,11 +1233,11 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
     import Modelica.Icons;
     extends Icons.Function;
 
-    input Duration t;
+    input Duration d;
     output Real totalSeconds "Elapsed seconds";
 
   algorithm
-    totalSeconds :=t.milliseconds/1000 + t.seconds + 60*(t.minutes + 60*(t.hours + 24*t.days));
+    totalSeconds :=d.milliseconds/1000 + d.seconds + 60*(d.minutes + 60*(d.hours + 24*d.days));
 
   end inSeconds;
 
@@ -1247,12 +1247,12 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
     import Modelica.Icons;
     extends Icons.Function;
 
-    input Duration t "Duration";
-    output Duration t_norm "Normalized duration";
+    input Duration d "Duration";
+    output Duration d_norm "Normalized duration";
 
   algorithm
 
-    t_norm :=Duration(totalSeconds=Duration.inSeconds(t));
+    d_norm :=Duration(totalSeconds=Duration.inSeconds(d));
 
   end normalize;
 
