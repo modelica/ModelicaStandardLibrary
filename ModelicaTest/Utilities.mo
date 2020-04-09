@@ -728,11 +728,11 @@ extends Modelica.Icons.ExamplesPackage;
     act := Duration(totalSeconds=-3775412.501);
     assert(ref==act, "constructor test 1 failed (fromSeconds vs fromInput)");
 
-    ref := Duration(t1=DateTime(2020, 1, 1, 1, 1, 1, 1), t2=DateTime(2020, 1, 1, 1, 1, 2, 500));
+    ref := Duration(dt1=DateTime(2020, 1, 1, 1, 1, 1, 1), dt2=DateTime(2020, 1, 1, 1, 1, 2, 500));
     act := Duration(totalSeconds=1.499);
     assert(ref==act, "constructor test 2 failed (fromSeconds vs fromDateTimes, positive result)");
 
-    ref := Duration(t1=DateTime(2020, 1, 1, 1, 1, 2, 500), t2=DateTime(2020, 1, 1, 1, 1, 1, 1));
+    ref := Duration(dt1=DateTime(2020, 1, 1, 1, 1, 2, 500), dt2=DateTime(2020, 1, 1, 1, 1, 1, 1));
     act := Duration(totalSeconds=-1.499);
     assert(ref==act, "constructor test 3 failed (fromSeconds vs fromDateTimes, negative result)");
 
