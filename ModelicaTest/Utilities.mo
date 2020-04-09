@@ -395,6 +395,7 @@ extends Modelica.Icons.ExamplesPackage;
     extends Modelica.Icons.Function;
     input String logFile="ModelicaTestLog.txt"
       "Filename where the log is stored";
+    input String weekDays[7] = Modelica.Utilities.Time.weekDays "Array of week days";
     output Boolean ok;
   protected
     Modelica.Utilities.Types.TimeType now;
@@ -412,7 +413,7 @@ extends Modelica.Icons.ExamplesPackage;
     Streams.print("    mon  = " + String(now.month));
     Streams.print("    year = " + String(now.year));
     dow := Modelica.Utilities.Time.dayOfWeek(now);
-    Streams.print("    dow  = " + Modelica.Utilities.Time.weekDays[dow]);
+    Streams.print("    dow  = " + weekDays[dow]);
 
     dow := Modelica.Utilities.Time.dayOfWeek(
       Modelica.Utilities.Types.TimeType(year=2019, month=12, day=8, hour=12, minute=0, second=0, millisecond=0));
