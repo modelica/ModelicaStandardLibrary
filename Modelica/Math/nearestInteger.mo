@@ -17,8 +17,8 @@ Math.<strong>nearestInteger</strong>(r);
 
 <h4>Description</h4>
 <p>
-    The input value \"r\" of type Real is converted to the closest Integer value \"i\", 
-    using the <i>round half away from zero</i> rule with the equation:
+    The input value \"r\" of type Real is converted to the closest Integer value \"i\",
+    using the <em>round half away from zero</em> rule with the equation:
 </p>
 <blockquote><pre>
 i = <strong>integer</strong>( <strong>floor</strong>( r + 0.5 ) )  for  r &gt; 0;
@@ -33,7 +33,7 @@ Math.nearestInteger(0.5);                     // = 1
 Math.nearestInteger(-0.4);                    // = 0
 Math.nearestInteger(-0.5);                    // = -1
 Math.nearestInteger(0.3999999999999999+0.1);  // = 0
-Math.nearestInteger(1.39999999999999999+0.1); // = 1 (errorneous border case, see note below)
+Math.nearestInteger(1.39999999999999999+0.1); // = 1 (erroneous border case, see note below)
 </pre></blockquote>
 
 <h4>Note</h4>
