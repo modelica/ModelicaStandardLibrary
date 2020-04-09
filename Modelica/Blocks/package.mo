@@ -1490,7 +1490,7 @@ The result of a simulation is shown in the next diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/UniformNoise.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/UniformNoise.png\">
 </blockquote>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -1581,7 +1581,7 @@ diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/AutomaticSeed1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/AutomaticSeed1.png\">
 </blockquote>
 
 <p>
@@ -1591,7 +1591,7 @@ Again, different noise is generated, see next diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/AutomaticSeed2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/AutomaticSeed2.png\">
 </blockquote>
 
 <p>
@@ -1659,7 +1659,7 @@ Simulation results are shown in the next diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/Distributions.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/Distributions.png\">
 </blockquote>
 
 <p>
@@ -1762,7 +1762,7 @@ Simulation results are shown in the next diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/UniformNoiseProperties1.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/UniformNoiseProperties1.png\"/>
 </blockquote>
 
 <p>
@@ -1866,7 +1866,7 @@ Simulation results are shown in the next diagram:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/NormalNoiseProperties1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/NormalNoiseProperties1.png\">
 </blockquote>
 
 <p>
@@ -1940,7 +1940,7 @@ inputs:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/Densities.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/Densities.png\">
 </blockquote>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -1983,7 +1983,7 @@ generator. Simulation results are shown in the next figure:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/ImpureGenerator.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/ImpureGenerator.png\">
 </blockquote>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -2072,7 +2072,7 @@ This example models an actuator with a noisy sensor (which is in the motor compo
 
 <blockquote>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/ActuatorNoiseDiagram.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/ActuatorNoiseDiagram.png\"/>
 </p></blockquote>
 
 <p>
@@ -2094,7 +2094,7 @@ on the position of the actuator. The effect of the noise can be seen in the moto
 </p>
 
 <blockquote><p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/ActuatorNoise.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/ActuatorNoise.png\"/>
 </p></blockquote>
 
 <p>
@@ -2172,7 +2172,7 @@ The turbulence model of the Dryden form is defined by the power spectral density
 </p>
 
 <blockquote><p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/equation-erVWhiWU.png\" alt=\"Phi_w(Omega)=sigma^2*L_w/pi*((1+3*(L_w*Omega)^2)/(1+(L_w*Omega)^2)^2)\"/>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/equation-erVWhiWU.png\" alt=\"Phi_w(Omega)=sigma^2*L_w/pi*((1+3*(L_w*Omega)^2)/(1+(L_w*Omega)^2)^2)\"/>
 </p></blockquote>
 
 <p>
@@ -2193,7 +2193,7 @@ Using spectral factorization and a fixed airspeed V of the aircraft, a concrete 
 </p>
 
 <blockquote><p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/equation-W0zl2Gay.png\" alt=\"H_w(s) = sigma*sqrt(L_w/(pi*V)) * ((1 + sqrt(3)*L_w/V*s) / (1+L_w/V*s)^2)\"/>,
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/equation-W0zl2Gay.png\" alt=\"H_w(s) = sigma*sqrt(L_w/(pi*V)) * ((1 + sqrt(3)*L_w/V*s) / (1+L_w/V*s)^2)\"/>,
 </p></blockquote>
 
 <p>
@@ -2216,7 +2216,7 @@ This is done automatically in the
 
 <blockquote>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/NoiseExamples/DrydenContinuousTurbulence.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/DrydenContinuousTurbulence.png\"/>
 </p></blockquote>
 
 <h4>
@@ -2281,7 +2281,7 @@ This block determines the probability density y of a uniform distribution for th
 
 <p>
 This block is demonstrated in the example
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.Densities\">Examples.NoiseExamples.Densities</a> .
+<a href=\"modelica://Modelica.Blocks.Examples.Noise.Densities\">Examples.Noise.Densities</a> .
 </p>
 </html>",       revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -2352,7 +2352,7 @@ This block determines the probability density y of a normal distribution for the
 
 <p>
 This block is demonstrated in the example
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.Densities\">Examples.NoiseExamples.Densities</a> .
+<a href=\"modelica://Modelica.Blocks.Examples.Noise.Densities\">Examples.Noise.Densities</a> .
 </p>
 </html>",       revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -2424,7 +2424,7 @@ This block determines the probability density y of a Weibull distribution for th
 
 <p>
 This block is demonstrated in the example
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.Densities\">Examples.NoiseExamples.Densities</a> .
+<a href=\"modelica://Modelica.Blocks.Examples.Noise.Densities\">Examples.Noise.Densities</a> .
 </p>
 </html>",       revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -2465,7 +2465,7 @@ This block is demonstrated in the example
 <p>
 This block demonstrates how to implement a block using the impure
 random number generator. This block is used in the example
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.ImpureGenerator\">Examples.NoiseExamples.ImpureGenerator</a>.
+<a href=\"modelica://Modelica.Blocks.Examples.Noise.ImpureGenerator\">Examples.Noise.ImpureGenerator</a>.
 </p>
 </html>",       revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -2689,7 +2689,7 @@ are used.
 
 <p>
 This motor is used in the
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.ActuatorWithNoise\">Examples.NoiseExamples.ActuatorWithNoise</a>
+<a href=\"modelica://Modelica.Blocks.Examples.Noise.ActuatorWithNoise\">Examples.Noise.ActuatorWithNoise</a>
 actuator example
 </p>
 </html>",         revisions="<html>
@@ -2795,7 +2795,7 @@ actuator example
 <p>
 A simple position controller for a drive system.
 This controller is used in the
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.ActuatorWithNoise\">Examples.NoiseExamples.ActuatorWithNoise</a>
+<a href=\"modelica://Modelica.Blocks.Examples.Noise.ActuatorWithNoise\">Examples.Noise.ActuatorWithNoise</a>
 actuator example
 </p>
 </html>"));
@@ -2821,7 +2821,7 @@ actuator example
 </html>",       info="<html>
 <p>
 Parts used in the
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.ActuatorWithNoise\">Examples.NoiseExamples.ActuatorWithNoise</a>
+<a href=\"modelica://Modelica.Blocks.Examples.Noise.ActuatorWithNoise\">Examples.Noise.ActuatorWithNoise</a>
 actuator example
 </p>
 </html>"));

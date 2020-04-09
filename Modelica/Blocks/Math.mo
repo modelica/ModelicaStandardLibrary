@@ -2348,8 +2348,8 @@ starts at &lt;<em>simulation start time</em>&gt; + t_eps and before that time in
 
 <p>
 This block is demonstrated in the examples
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.UniformNoiseProperties\">UniformNoiseProperties</a> and
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.NormalNoiseProperties\">NormalNoiseProperties</a>.
+<a href=\"modelica://Modelica.Blocks.Examples.Noise.UniformNoiseProperties\">UniformNoiseProperties</a> and
+<a href=\"modelica://Modelica.Blocks.Examples.Noise.NormalNoiseProperties\">NormalNoiseProperties</a>.
 </p>
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
@@ -2472,8 +2472,8 @@ starts at &lt;<em>simulation start time</em>&gt; + t_eps and before that time in
 
 <p>
 This block is demonstrated in the examples
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.UniformNoiseProperties\">UniformNoiseProperties</a> and
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.NormalNoiseProperties\">NormalNoiseProperties</a>.
+<a href=\"modelica://Modelica.Blocks.Examples.Noise.UniformNoiseProperties\">UniformNoiseProperties</a> and
+<a href=\"modelica://Modelica.Blocks.Examples.Noise.NormalNoiseProperties\">NormalNoiseProperties</a>.
 </p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
@@ -2563,8 +2563,8 @@ starts at &lt;<em>simulation start time</em>&gt; + t_eps and before that time in
 
 <p>
 This block is demonstrated in the examples
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.UniformNoiseProperties\">UniformNoiseProperties</a> and
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.NormalNoiseProperties\">NormalNoiseProperties</a>.
+<a href=\"modelica://Modelica.Blocks.Examples.Noise.UniformNoiseProperties\">UniformNoiseProperties</a> and
+<a href=\"modelica://Modelica.Blocks.Examples.Noise.NormalNoiseProperties\">NormalNoiseProperties</a>.
 </p>
 </html>"),
       Icon(graphics={
