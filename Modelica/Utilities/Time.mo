@@ -212,7 +212,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         input Integer second "Second";
         input Integer millisecond "Millisecond";
 
-        output DateTime t(millisecond=millisecond, second=second, minute=minute, hour=hour, day=day, month=month, year=year);
+        output DateTime dt(millisecond=millisecond, second=second, minute=minute, hour=hour, day=day, month=month, year=year);
 
       algorithm
 
@@ -222,7 +222,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         import Modelica.Utilities.Internal.Time.getTime;
         extends Icons.Function;
 
-        output DateTime t;
+        output DateTime dt;
 
       protected
         Integer millisecond "Millisecond";
@@ -235,7 +235,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
 
       algorithm
         (millisecond, second, minute, hour, day, month, year) := getTime();
-        t :=DateTime(millisecond=millisecond, second=second, minute=minute, hour=hour, day=day, month=month, year=year);
+        dt :=DateTime(millisecond=millisecond, second=second, minute=minute, hour=hour, day=day, month=month, year=year);
 
       end fromSystemTime;
 
@@ -248,7 +248,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
 
         input Real seconds "Elapsed seconds since epoch_year";
         input Integer epoch_year = 1970 "Reference year";
-        output DateTime t;
+        output DateTime dt;
 
       protected
         Integer[2,12] days_passed = {{31,59,90,120,151,181,212,243,273,304,334,365},
@@ -320,7 +320,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         // get day
         day :=if month > 1 then day_of_year - days_passed[j,month-1] else day_of_year;
 
-        t :=DateTime(millisecond=millisecond, second=second, minute=minute, hour=hour, day=day, month=month, year=year);
+        dt :=DateTime(millisecond=millisecond, second=second, minute=minute, hour=hour, day=day, month=month, year=year);
 
       end fromEpoch;
     end 'constructor';
@@ -340,7 +340,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         import Modelica.Utilities.Time.months;
         import Modelica.Utilities.Time.shortMonths;
 
-        input DateTime t;
+        input DateTime dt;
         input String format = "%Y-%m-%d %H:%M:%S";
         output String str;
 
@@ -356,31 +356,31 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
 
       algorithm
         str :=replace(format, "%%", "%");
-        str :=replace(str,    "%y", string0(mod(t.year, 100), l=2));
-        str :=replace(str,    "%Y", string0(t.year, l=4));
-        str :=replace(str,    "%m", string0(t.month, l=2));
-        str :=replace(str,    "%d", string0(t.day, l=2));
-        str :=replace(str,    "%H", string0(t.hour, l=2));
-        str :=replace(str,    "%M", string0(t.minute, l=2));
-        str :=replace(str,    "%S", string0(t.second, l=2));
-        str :=replace(str,    "%L", string0(t.millisecond, l=3));
-        str :=replace(str,    "%a", shortWeekDays[dayOfWeek(t.year, t.month, t.day)]);
-        str :=replace(str,    "%A", weekDays[dayOfWeek(t.year, t.month, t.day)]);
-        str :=replace(str,    "%b", shortMonths[t.month]);
-        str :=replace(str,    "%B", months[t.month]);
+        str :=replace(str,    "%y", string0(mod(dt.year, 100), l=2));
+        str :=replace(str,    "%Y", string0(dt.year, l=4));
+        str :=replace(str,    "%m", string0(dt.month, l=2));
+        str :=replace(str,    "%d", string0(dt.day, l=2));
+        str :=replace(str,    "%H", string0(dt.hour, l=2));
+        str :=replace(str,    "%M", string0(dt.minute, l=2));
+        str :=replace(str,    "%S", string0(dt.second, l=2));
+        str :=replace(str,    "%L", string0(dt.millisecond, l=3));
+        str :=replace(str,    "%a", shortWeekDays[dayOfWeek(dt.year, dt.month, dt.day)]);
+        str :=replace(str,    "%A", weekDays[dayOfWeek(dt.year, dt.month, dt.day)]);
+        str :=replace(str,    "%b", shortMonths[dt.month]);
+        str :=replace(str,    "%B", months[dt.month]);
         annotation (Documentation(info="<html>
 
 <h4>Syntax</h4>
 <blockquote>
 <pre>
-String(t)
-String(t, format)
+String(dt)
+String(dt, format)
 </pre>
 </blockquote>
 
 <h4>Description</h4>
 <p>
-    The input value \"t\" of type DateTime is converted to a string.
+    The input value \"dt\" of type DateTime is converted to a string.
 </p>
 <p>
     The content of the output string can be controlled
@@ -506,18 +506,18 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
       import Modelica.Icons;
       extends Icons.Function;
 
-      input DateTime t1;
-      input DateTime t2;
-      output Boolean result "= t1 == t2";
+      input DateTime dt1;
+      input DateTime dt2;
+      output Boolean result "= dt1 == dt2";
 
     algorithm
-      result := t1.year == t2.year and
-                t1.month == t2.month and
-                t1.day == t2.day and
-                t1.hour == t2.hour and
-                t1.minute == t2.minute and
-                t1.second == t2.second and
-                t1.millisecond == t2.millisecond;
+      result := dt1.year == dt2.year and
+                dt1.month == dt2.month and
+                dt1.day == dt2.day and
+                dt1.hour == dt2.hour and
+                dt1.minute == dt2.minute and
+                dt1.second == dt2.second and
+                dt1.millisecond == dt2.millisecond;
 
     end '==';
 
@@ -526,43 +526,43 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
       import Modelica.Icons;
       extends Icons.Function;
 
-      input DateTime t1;
-      input DateTime t2;
-      output Boolean result "= t1 <> t2";
+      input DateTime dt1;
+      input DateTime dt2;
+      output Boolean result "= dt1 <> dt2";
 
     algorithm
-      result := not t1 == t2;
+      result := not dt1 == dt2;
     end '<>';
 
-    encapsulated operator function '>' "Check if DateTime t1 is later as t2"
+    encapsulated operator function '>' "Check if DateTime dt1 is later as dt2"
       import Modelica.Utilities.Time.DateTime;
       import Modelica.Icons;
       extends Icons.Function;
 
-      input DateTime t1;
-      input DateTime t2;
-      output Boolean result "= t1 > t2";
+      input DateTime dt1;
+      input DateTime dt2;
+      output Boolean result "= dt1 > dt2";
 
     algorithm
-      if t1.year > t2.year then
+      if dt1.year > dt2.year then
         result :=true;
       else
-        if t1.year==t2.year and t1.month > t2.month then
+        if dt1.year==dt2.year and dt1.month > dt2.month then
           result :=true;
         else
-          if t1.month==t2.month and t1.day > t2.day then
+          if dt1.month==dt2.month and dt1.day > dt2.day then
             result :=true;
           else
-            if t1.day==t2.day and t1.hour > t2.hour then
+            if dt1.day==dt2.day and dt1.hour > dt2.hour then
               result :=true;
             else
-              if t1.hour==t2.hour and t1.minute > t2.minute then
+              if dt1.hour==dt2.hour and dt1.minute > dt2.minute then
                 result :=true;
               else
-                if t1.minute==t2.minute and t1.second > t2.second then
+                if dt1.minute==dt2.minute and dt1.second > dt2.second then
                   result :=true;
                 else
-                  if t1.second==t2.second and t1.millisecond > t2.millisecond then
+                  if dt1.second==dt2.second and dt1.millisecond > dt2.millisecond then
                     result :=true;
                   else
                     result :=false;
@@ -575,45 +575,45 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
       end if;
     end '>';
 
-    encapsulated operator function '>=' "Check if DateTime t1 is equal to t2 or later"
+    encapsulated operator function '>=' "Check if DateTime dt1 is equal to dt2 or later"
       import Modelica.Utilities.Time.DateTime;
       import Modelica.Icons;
       extends Icons.Function;
 
-      input DateTime t1;
-      input DateTime t2;
-      output Boolean result "= t1 >= t2";
+      input DateTime dt1;
+      input DateTime dt2;
+      output Boolean result "= dt1 >= dt2";
 
     algorithm
-      result :=t1 == t2 or t1 > t2;
+      result :=dt1 == dt2 or dt1 > dt2;
 
     end '>=';
 
-    encapsulated operator function '<' "Check if DateTime t1 is earlier as t2"
+    encapsulated operator function '<' "Check if DateTime dt1 is earlier as dt2"
       import Modelica.Utilities.Time.DateTime;
       import Modelica.Icons;
       extends Icons.Function;
 
-      input DateTime t1;
-      input DateTime t2;
-      output Boolean result "= t1 < t2";
+      input DateTime dt1;
+      input DateTime dt2;
+      output Boolean result "= dt1 < dt2";
 
     algorithm
-      result := not t1 == t2 and t2 > t1;
+      result := not dt1 == dt2 and dt2 > dt1;
 
     end '<';
 
-    encapsulated operator function '<=' "Check if DateTime t1 is equal to t2 or earlier"
+    encapsulated operator function '<=' "Check if DateTime dt1 is equal to dt2 or earlier"
       import Modelica.Utilities.Time.DateTime;
       import Modelica.Icons;
       extends Icons.Function;
 
-      input DateTime t1;
-      input DateTime t2;
-      output Boolean result "= t1 <= t2";
+      input DateTime dt1;
+      input DateTime dt2;
+      output Boolean result "= dt1 <= dt2";
 
     algorithm
-      result := t1 == t2 or t1 < t2;
+      result := dt1 == dt2 or dt1 < dt2;
 
     end '<=';
 
@@ -623,17 +623,17 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
 
       extends Icons.FunctionsPackage;
 
-      function subtract "Return time delta between t2 and t1 as Duration"
+      function subtract "Return time delta between dt2 and dt1 as Duration"
         extends Icons.Function;
 
         import Modelica.Utilities.Time.Duration;
 
-        input DateTime t1;
-        input DateTime t2;
-        output Duration result "= t1 - t2";
+        input DateTime dt1;
+        input DateTime dt2;
+        output Duration result "= dt1 - dt2";
 
       algorithm
-        result := Duration.'constructor'.fromDateTimes(t2, t1);
+        result := Duration.'constructor'.fromDateTimes(dt2, dt1);
 
       end subtract;
 
@@ -645,7 +645,7 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
       import Modelica.Icons;
       extends Icons.Function;
 
-      input DateTime t;
+      input DateTime dt;
       input Integer epoch_year = 1970 "Reference year";
       output Real seconds "Elapsed seconds since epoch_year";
 
@@ -657,13 +657,13 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
       Integer j;
 
       // Aux variables for shorter access in code
-      Integer millisecond=t.millisecond "Millisecond";
-      Integer second=t.second "Second";
-      Integer minute=t.minute "Minute";
-      Integer hour=t.hour "Hour";
-      Integer day=t.day "Day";
-      Integer month=t.month "Month";
-      Integer year=t.year "Year";
+      Integer millisecond=dt.millisecond "Millisecond";
+      Integer second=dt.second "Second";
+      Integer minute=dt.minute "Minute";
+      Integer hour=dt.hour "Hour";
+      Integer day=dt.day "Day";
+      Integer month=dt.month "Month";
+      Integer year=dt.year "Year";
 
     algorithm
       // get leap years from year 0 until the chosen epoch year
