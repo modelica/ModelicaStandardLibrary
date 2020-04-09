@@ -334,8 +334,14 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
       function formated
         extends Icons.Function;
 
+        import Modelica.Utilities.Internal.Time.dayOfWeek;
+        import Modelica.Utilities.Time.weekDays;
+        import Modelica.Utilities.Time.shortWeekDays;
+        import Modelica.Utilities.Time.months;
+        import Modelica.Utilities.Time.shortMonths;
+
         input DateTime t;
-        input String format = "%Y-%MON-%D %H:%MIN:%S";
+        input String format = "%Y-%m-%d %H:%M:%S";
         output String str;
 
       protected
@@ -349,21 +355,148 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         end string0;
 
       algorithm
-        str :=replace(format, "%year",        String( t.year));
-        str :=replace(str,    "%Y",           string0(t.year, l=4));
-        str :=replace(str,    "%month",       String( t.month));
-        str :=replace(str,    "%MON",         string0(t.month, l=2));
-        str :=replace(str,    "%day",         String( t.day));
-        str :=replace(str,    "%D",           string0(t.day, l=2));
-        str :=replace(str,    "%hour",        String( t.hour));
-        str :=replace(str,    "%H",           string0(t.hour, l=2));
-        str :=replace(str,    "%minute",      String( t.minute));
-        str :=replace(str,    "%MIN",         string0(t.minute, l=2));
-        str :=replace(str,    "%second",      String( t.second));
-        str :=replace(str,    "%S",           string0(t.second, l=2));
-        str :=replace(str,    "%millisecond", String( t.millisecond));
-        str :=replace(str,    "%MS",          string0(t.millisecond, l=3));
+        str :=replace(format, "%%", "%");
+        str :=replace(str,    "%y", string0(mod(t.year, 100), l=2));
+        str :=replace(str,    "%Y", string0(t.year, l=4));
+        str :=replace(str,    "%m", string0(t.month, l=2));
+        str :=replace(str,    "%d", string0(t.day, l=2));
+        str :=replace(str,    "%H", string0(t.hour, l=2));
+        str :=replace(str,    "%M", string0(t.minute, l=2));
+        str :=replace(str,    "%S", string0(t.second, l=2));
+        str :=replace(str,    "%L", string0(t.millisecond, l=3));
+        str :=replace(str,    "%a", shortWeekDays[dayOfWeek(t.year, t.month, t.day)]);
+        str :=replace(str,    "%A", weekDays[dayOfWeek(t.year, t.month, t.day)]);
+        str :=replace(str,    "%b", shortMonths[t.month]);
+        str :=replace(str,    "%B", months[t.month]);
+        annotation (Documentation(info="<html>
 
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+String(t)
+String(t, format)
+</pre>
+</blockquote>
+
+<h4>Description</h4>
+<p>
+    The input value \"t\" of type DateTime is converted to a string.
+</p>
+<p>
+    The content of the output string can be controlled
+    via the \"format\" string by setting one or more of the conversion specifiers listed below.
+</p>
+
+<table border=\"1\" cellpadding=\"2\" cellspacing=\"0\">
+    <tr>
+        <th>Specifier</th>
+        <th>Meaning</th>
+        <th>Examples</th>
+    </tr>
+    <tr>
+        <td>%y</td>
+        <td>year without century</td>
+        <td>01, 02, ... 99</td>
+    </tr>
+    <tr>
+        <td>%Y</td>
+        <td>year with century</td>
+        <td>2001, 2002, 2099</td>
+    </tr>
+    <tr>
+        <td>%b</td>
+        <td>abbreviated month name</td>
+        <td>Jan, Feb</td>
+    </tr>
+    <tr>
+        <td>%B</td>
+        <td>full month name</td>
+        <td>January, February</td>
+    </tr>
+    <tr>
+        <td>%m</td>
+        <td>month as number, zero padded to length 2</td>
+        <td>01, 02, ... 12</td>
+    </tr>
+    <tr>
+        <td>%a</td>
+        <td>abbreviated weekday</td>
+        <td>Mon, Tue</td>
+    </tr>
+    <tr>
+        <td>%A</td>
+        <td>full name of weekday</td>
+        <td>Monday, Tuesday</td>
+    </tr>
+    <tr>
+        <td>%d</td>
+        <td>day of month, zero padded to length 2</td>
+        <td>01, 02, ... 31</td>
+    </tr>
+    <tr>
+        <td>%H</td>
+        <td>hour, zero padded to length 2</td>
+        <td>00, 01, ... 24</td>
+    </tr>
+    <tr>
+        <td>%M</td>
+        <td>minute, zero padded to length 2</td>
+        <td>00, 01, ... 60</td>
+    </tr>
+    <tr>
+        <td>%S</td>
+        <td>second, zero padded to length 2</td>
+        <td>00, 01, ... 60</td>
+    </tr>
+    <tr>
+        <td>%%</td>
+        <td>single percent character. Not fully supported. See the Limitations section below.</td>
+        <td>%</td>
+    </tr>
+</table>
+
+<p>Additionally the following conversion specifiers are supported, which are not part of the C standard.</p>
+<table border=\"1\" cellpadding=\"2\" cellspacing=\"0\">
+    <tr>
+        <th>Specifier</th>
+        <th>Meaning</th>
+        <th>Examples</th>
+    </tr>
+    <tr>
+        <td>%L</td>
+        <td>millisecond, zero padded to length 3</td>
+        <td>000, 001, ... 999</td>
+    </tr>
+</table>
+
+<h4>Example</h4>
+<blockquote>
+<pre>
+import Modelica.Utilities.Time.DateTime;
+dt = DateTime(2020, 12, 24, 00, 01, 02, 003);
+
+String(dt)                                       // = \"2020-12-24 00:01:02\"
+String(dt, \"\"%a, %b. %d %Y, %H:%M:%S\"\")          // = \"Thu, Dec. 24 2020, 00:01:02\"
+String(dt, format=\"%A, %d. %B %y, %H:%M:%S.%L\")  // = \"Thursday, 24. December 20, 00:01:02.003\"
+</pre>
+</blockquote>
+
+<h4>Limitations</h4>
+<p>
+    This function uses simple string replace methods to exchange the conversion specifiers with the appropriate values.
+</p>
+<p>
+    When additional % characters are included in the format string (via %%) problems can occur, like shown below.
+</p>
+
+<blockquote>
+<pre>
+// ANTI-EXAMPLE - do not use
+String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
+</pre>
+</blockquote>
+
+</html>"));
       end formated;
 
     end 'String';
