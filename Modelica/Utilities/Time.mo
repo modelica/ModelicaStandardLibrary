@@ -828,7 +828,7 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
 
         t2 :=t;
 
-        if not contains(format, "%days") and not contains(format, "%D") then
+        if not contains(format, "%days") and not contains(format, "%d") then
           t2.hours :=t2.hours + t2.days*24;
         end if;
 
@@ -836,7 +836,7 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
           t2.minutes :=t2.minutes + t2.hours*60;
         end if;
 
-        if not contains(format, "%minutes") and not contains(format, "%MIN") then
+        if not contains(format, "%minutes") and not contains(format, "%M") then
           t2.seconds :=t2.seconds + t2.minutes*60;
         end if;
 
@@ -844,17 +844,138 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
           t2.milliseconds :=t2.milliseconds + t2.seconds*1000;
         end if;
 
-        str :=replace(format, "%days",         String( t2.days));
-        str :=replace(str,    "%D",            string0(t2.days, l=2));
+        str :=replace(format, "%%",            "%");
+        str :=replace(str,    "%days",         String( t2.days));
+        str :=replace(str,    "%d",            string0(t2.days, l=2));
         str :=replace(str,    "%hours",        String( t2.hours));
         str :=replace(str,    "%H",            string0(t2.hours, l=2));
         str :=replace(str,    "%minutes",      String( t2.minutes));
-        str :=replace(str,    "%MIN",          string0(t2.minutes, l=2));
+        str :=replace(str,    "%M",            string0(t2.minutes, l=2));
         str :=replace(str,    "%seconds",      String( t2.seconds));
         str :=replace(str,    "%S",            string0(t2.seconds, l=2));
         str :=replace(str,    "%milliseconds", String( t2.milliseconds));
-        str :=replace(str,    "%MS",           string0(t2.milliseconds, l=3));
+        str :=replace(str,    "%L",            string0(t2.milliseconds, l=3));
 
+        annotation (Documentation(info="<html>
+
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+String(t)
+String(t, format)
+</pre>
+</blockquote>
+
+<h4>Description</h4>
+<p>
+    The input value \"t\" of type Duration is converted to a string.
+</p>
+<p>
+    The content of the output string can be controlled
+    via the \"format\" string by setting one or more of the conversion specifiers listed below.
+</p>
+<p>
+    If higher time value are not included, they are added to the next lower time value.
+    If e.g. days are not part of the format string, but hours, the number of days will be converted 
+    to hours and added to the hours value.
+</p>
+<p>
+    If lower time values are not included, they are neglected.
+    If e.g. only days and hours are part of the format string, minutes, seconds and milliseconds will be ignored.
+</p>
+
+<table border=\"1\" cellpadding=\"2\" cellspacing=\"0\">
+    <tr>
+        <th>Specifier</th>
+        <th>Meaning</th>
+        <th>Examples</th>
+    </tr>
+    <tr>
+        <td>%d</td>
+        <td>number of days, zero padded to length 2</td>
+        <td>01, 02, ...</td>
+    </tr>
+    <tr>
+        <td>%days</td>
+        <td>number of days as simple decimal</td>
+        <td>1, 2, ...</td>
+    </tr>
+    <tr>
+        <td>%H</td>
+        <td>number of hours, zero padded to length 2</td>
+        <td>00, 01, ...</td>
+    </tr>
+    <tr>
+        <td>%hours</td>
+        <td>number of hours as simple decimal</td>
+        <td>0, 1, ...</td>
+    </tr>
+    <tr>
+        <td>%M</td>
+        <td>number of minutes, zero padded to length 2</td>
+        <td>00, 01, ...</td>
+    </tr>
+    <tr>
+        <td>%minutes</td>
+        <td>number of minutes as simple decimal</td>
+        <td>0, 1, ...</td>
+    </tr>
+    <tr>
+        <td>%S</td>
+        <td>number of seconds, zero padded to length 2</td>
+        <td>00, 01, ...</td>
+    </tr>
+    <tr>
+        <td>%seconds</td>
+        <td>number of seconds as simple decimal</td>
+        <td>0, 1, ...</td>
+    </tr>
+    <tr>
+        <td>%L</td>
+        <td>number of milliseconds, zero padded to length 3</td>
+        <td>00, 01, ...</td>
+    </tr>
+    <tr>
+        <td>%milliseconds</td>
+        <td>number of milliseconds as simple decimal</td>
+        <td>0, 1, ...</td>
+    </tr>
+    <tr>
+        <td>%%</td>
+        <td>single percent character. Not fully supported. See the Limitations section below.</td>
+        <td>%</td>
+    </tr>
+</table>
+
+<h4>Example</h4>
+<blockquote>
+<pre>
+import Modelica.Utilities.Time.Duration;
+d = Duration(days=1, hour=2, minutes=3, seconds=4, milliseconds=5);
+
+String(d)                        // = \"1d 2h 3min 4s 5ms\"
+String(d, \"%hoursh %secondss\")   // = \"26h 184s\" (days are included in hours, minutes in seconds, ms stripped off)
+String(d, format=\"%Hh %S.%L''\")  // = \"26h 184.005''\" (days are included in hours, minutes in seconds)
+String(d, format=\"%days'\")          // = \"1\" (only full days are shown, rest is stripped off)
+</pre>
+</blockquote>
+
+<h4>Limitations</h4>
+<p>
+    This function uses simple string replace methods to exchange the conversion specifiers with the appropriate values.
+</p>
+<p>
+    When additional % characters are included in the format string (via %%) problems can occur, like shown below.
+</p>
+
+<blockquote>
+<pre>
+// ANTI-EXAMPLE - do not use
+String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
+</pre>
+</blockquote>
+
+</html>"));
       end formated;
 
     end 'String';
