@@ -196,7 +196,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
   end leapDays;
 
   operator record DateTime "DateTime record with several constructors and overloaded operators"
-    extends Modelica.Icons.Record;
+    extends Modelica.Icons.OperatorRecord;
 
     Integer millisecond(min=0, max=999) "Millisecond" annotation(absoluteValue=true);
     Integer second(min=0, max=61) "Second" annotation(absoluteValue=true);
@@ -208,11 +208,10 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
 
     encapsulated operator 'constructor' "Available constructors"
       import Modelica.Utilities.Time.DateTime;
-      import Modelica.Icons;
-      extends Icons.FunctionsPackage;
+      import Modelica.Icons.Function;
 
       function fromReadable "Create DateTime from human readable format"
-        extends Icons.Function;
+        extends Function;
 
         input Integer year "Year";
         input Integer month(min=1, max=12) "Month";
@@ -230,7 +229,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
 
       function fromSystemTime "Create DateTime from current system time"
         import Modelica.Utilities.Internal.Time.getTime;
-        extends Icons.Function;
+        extends Function;
 
         output DateTime dt "Current date and time";
 
@@ -253,7 +252,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         import Modelica.Math.nearestInteger;
         import Modelica.Utilities.Time.isLeapYear;
         import Modelica.Utilities.Time.daysInYear;
-        extends Icons.Function;
+        extends Function;
 
         input Real seconds "Elapsed seconds since epoch_year";
         input Integer epoch_year = 1970 "Reference year";
@@ -332,16 +331,33 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         dt := DateTime(millisecond=millisecond, second=second, minute=minute, hour=hour, day=day, month=month, year=year);
 
       end fromEpoch;
+      annotation (Documentation(info="<html>
+<p>Here the constructor operator(s) is/are defined.</p>
+</html>"), Icon(
+          graphics={
+            Rectangle(
+              lineColor={200,200,200},
+              fillColor={248,248,248},
+              fillPattern=FillPattern.HorizontalCylinder,
+              extent={{-100,-100},{100,100}},
+              radius=25),
+            Rectangle(
+              lineColor={128,128,128},
+              extent={{-100,-100},{100,100}},
+              radius=25),
+            Text(
+              textColor={128,128,128},
+              extent={{-90,-90},{90,90}},
+              textString="f")}));
     end 'constructor';
 
     encapsulated operator 'String' "Convert DateTime to string"
       import Modelica.Utilities.Time.DateTime;
       import Modelica.Utilities.Strings.replace;
-      import Modelica.Icons;
-      extends Icons.FunctionsPackage;
+      import Modelica.Icons.Function;
 
       function formatted "Use a subset of C strftime() conversion specifiers to format a DateTime record as string"
-        extends Icons.Function;
+        extends Function;
 
         import Modelica.Utilities.Internal.Time.dayOfWeek;
         import Modelica.Utilities.Time.weekDays;
@@ -506,13 +522,30 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
 
 </html>"));
       end formatted;
-
+      annotation (Documentation(info="<html>
+<p>Here the String operator(s) is/are defined.</p>
+</html>"), Icon(
+          graphics={
+            Rectangle(
+              lineColor={200,200,200},
+              fillColor={248,248,248},
+              fillPattern=FillPattern.HorizontalCylinder,
+              extent={{-100,-100},{100,100}},
+              radius=25),
+            Rectangle(
+              lineColor={128,128,128},
+              extent={{-100,-100},{100,100}},
+              radius=25),
+            Text(
+              textColor={128,128,128},
+              extent={{-90,-90},{90,90}},
+              textString="f")}));
     end 'String';
 
     encapsulated operator function '==' "Check equality of two DateTime objects"
       import Modelica.Utilities.Time.DateTime;
-      import Modelica.Icons;
-      extends Icons.Function;
+      import Modelica.Icons.Function;
+      extends Function;
 
       input DateTime dt1;
       input DateTime dt2;
@@ -531,8 +564,8 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
 
     encapsulated operator function '<>' "Check inequality of two DateTime objects"
       import Modelica.Utilities.Time.DateTime;
-      import Modelica.Icons;
-      extends Icons.Function;
+      import Modelica.Icons.Function;
+      extends Function;
 
       input DateTime dt1;
       input DateTime dt2;
@@ -544,8 +577,8 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
 
     encapsulated operator function '>' "Check if DateTime dt1 is later as dt2"
       import Modelica.Utilities.Time.DateTime;
-      import Modelica.Icons;
-      extends Icons.Function;
+      import Modelica.Icons.Function;
+      extends Function;
 
       input DateTime dt1;
       input DateTime dt2;
@@ -585,8 +618,8 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
 
     encapsulated operator function '>=' "Check if DateTime dt1 is equal to dt2 or later"
       import Modelica.Utilities.Time.DateTime;
-      import Modelica.Icons;
-      extends Icons.Function;
+      import Modelica.Icons.Function;
+      extends Function;
 
       input DateTime dt1;
       input DateTime dt2;
@@ -599,8 +632,8 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
 
     encapsulated operator function '<' "Check if DateTime dt1 is earlier as dt2"
       import Modelica.Utilities.Time.DateTime;
-      import Modelica.Icons;
-      extends Icons.Function;
+      import Modelica.Icons.Function;
+      extends Function;
 
       input DateTime dt1;
       input DateTime dt2;
@@ -613,8 +646,8 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
 
     encapsulated operator function '<=' "Check if DateTime dt1 is equal to dt2 or earlier"
       import Modelica.Utilities.Time.DateTime;
-      import Modelica.Icons;
-      extends Icons.Function;
+      import Modelica.Icons.Function;
+      extends Function;
 
       input DateTime dt1;
       input DateTime dt2;
@@ -625,14 +658,12 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
 
     end '<=';
 
-    encapsulated operator '-' "Unary and binary minus"
+    encapsulated operator '-' "Binary minus"
       import Modelica.Utilities.Time.DateTime;
-      import Modelica.Icons;
-
-      extends Icons.FunctionsPackage;
+      import Modelica.Icons.Function;
 
       function subtract "Return time delta between dt2 and dt1 as Duration"
-        extends Icons.Function;
+        extends Function;
 
         import Modelica.Utilities.Time.Duration;
 
@@ -644,14 +675,29 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
         result := Duration.'constructor'.fromDateTimes(dt2, dt1);
 
       end subtract;
-
+    annotation (Documentation(info="<html>
+<p>Here the binary minus operator is defined.</p>
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+              {100,100}}), graphics={
+          Rectangle(
+            lineColor={200,200,200},
+            fillColor={248,248,248},
+            fillPattern=FillPattern.HorizontalCylinder,
+            extent={{-100,-100},{100,100}},
+            radius=25),
+          Rectangle(
+            lineColor={128,128,128},
+            extent={{-100,-100},{100,100}},
+            radius=25),
+          Line(
+            points={{-50,0},{50,0}})}));
     end '-';
 
     encapsulated function epoch "Convert DateTime to elapsed seconds since custom epoch year"
       import Modelica.Utilities.Time.DateTime;
       import Modelica.Utilities.Time.isLeapYear;
-      import Modelica.Icons;
-      extends Icons.Function;
+      import Modelica.Icons.Function;
+      extends Function;
 
       input DateTime dt;
       input Integer epoch_year = 1970 "Reference year";
@@ -690,6 +736,9 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
 
     encapsulated function now "Get current system date and time as DateTime"
       import Modelica.Utilities.Time.DateTime;
+      import Modelica.Icons.Function;
+      extends Function;
+
       output DateTime now "Current date and time";
     algorithm
        now := DateTime.'constructor'.fromSystemTime();
@@ -747,7 +796,7 @@ DateTime.'constructor'.fromEpoch(1000, 2020); // explicit call of constructor. 1
   end DateTime;
 
   operator record Duration "Duration record with several constructors and overloaded operators"
-    extends Modelica.Icons.Record;
+    extends Modelica.Icons.OperatorRecord;
 
     Integer days "Days";
     Integer hours "Hours";
@@ -757,11 +806,10 @@ DateTime.'constructor'.fromEpoch(1000, 2020); // explicit call of constructor. 1
 
     encapsulated operator 'constructor' "Available constructors"
       import Modelica.Utilities.Time.Duration;
-      import Modelica.Icons;
-      extends Icons.FunctionsPackage;
+      import Modelica.Icons.Function;
 
       function fromInput "Create Duration field by field from user input"
-        extends Icons.Function;
+        extends Function;
 
         input Integer days=0 "Days";
         input Integer hours=0 "Hours";
@@ -771,13 +819,13 @@ DateTime.'constructor'.fromEpoch(1000, 2020); // explicit call of constructor. 1
         output Duration d(days=days, hours=hours, minutes=minutes, seconds=seconds, milliseconds=milliseconds) "Duration";
 
       algorithm
-      annotation(Inline = true);
+      annotation (Inline = true);
       end fromInput;
 
       function fromDateTimes "Create Duration from two DateTime records"
         import Modelica.Utilities.Time.DateTime;
         import Modelica.Math.nearestInteger;
-        extends Icons.Function;
+        extends Function;
 
         input DateTime dt1 "Start time";
         input DateTime dt2 "End time";
@@ -819,7 +867,7 @@ DateTime.'constructor'.fromEpoch(1000, 2020); // explicit call of constructor. 1
       end fromDateTimes;
 
       function fromSeconds "Create duration record from total amount of seconds, rounding to the third decimal"
-        extends Icons.Function;
+        extends Function;
         import Modelica.Math.nearestInteger;
 
         input Real totalSeconds "Duration in seconds. Decimal place is converted to milliseconds";
@@ -854,19 +902,35 @@ DateTime.'constructor'.fromEpoch(1000, 2020); // explicit call of constructor. 1
 
         d := Duration(days=days, hours=hours, minutes=minutes, seconds=seconds, milliseconds=milliseconds);
 
-
       end fromSeconds;
+      annotation (Documentation(info="<html>
+<p>Here the constructor operator(s) is/are defined.</p>
+</html>"), Icon(
+          graphics={
+            Rectangle(
+              lineColor={200,200,200},
+              fillColor={248,248,248},
+              fillPattern=FillPattern.HorizontalCylinder,
+              extent={{-100,-100},{100,100}},
+              radius=25),
+            Rectangle(
+              lineColor={128,128,128},
+              extent={{-100,-100},{100,100}},
+              radius=25),
+            Text(
+              textColor={128,128,128},
+              extent={{-90,-90},{90,90}},
+              textString="f")}));
     end 'constructor';
 
     encapsulated operator 'String' "Convert Duration to string"
       import Modelica.Utilities.Time.Duration;
       import Modelica.Utilities.Strings.replace;
-      import Modelica.Icons;
-      extends Icons.FunctionsPackage;
+      import Modelica.Icons.Function;
 
       function formatted "Convert duration to string, using C inspired conversion specifier characters"
         import Modelica.Utilities.Strings.contains;
-        extends Icons.Function;
+        extends Function;
 
         input Duration d "Duration";
         input String format = "%daysd %hoursh %minutesmin %secondss %millisecondsms";
@@ -1036,13 +1100,30 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
 
 </html>"));
       end formatted;
-
+      annotation (Documentation(info="<html>
+<p>Here the String operator(s) is/are defined.</p>
+</html>"), Icon(
+          graphics={
+            Rectangle(
+              lineColor={200,200,200},
+              fillColor={248,248,248},
+              fillPattern=FillPattern.HorizontalCylinder,
+              extent={{-100,-100},{100,100}},
+              radius=25),
+            Rectangle(
+              lineColor={128,128,128},
+              extent={{-100,-100},{100,100}},
+              radius=25),
+            Text(
+              textColor={128,128,128},
+              extent={{-90,-90},{90,90}},
+              textString="f")}));
     end 'String';
 
     encapsulated operator function '==' "Check equality of two Duration objects by normalizing them"
       import Modelica.Utilities.Time.Duration;
-      import Modelica.Icons;
-      extends Icons.Function;
+      import Modelica.Icons.Function;
+      extends Function;
 
       input Duration d1;
       input Duration d2;
@@ -1063,8 +1144,8 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
 
     encapsulated operator function '<>' "Check inequality of two Duration objects by normalizing them"
       import Modelica.Utilities.Time.Duration;
-      import Modelica.Icons;
-      extends Icons.Function;
+      import Modelica.Icons.Function;
+      extends Function;
 
       input Duration d1;
       input Duration d2;
@@ -1076,8 +1157,8 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
 
     encapsulated operator function '>' "Check if Duration d1 is larger than d2"
       import Modelica.Utilities.Time.Duration;
-      import Modelica.Icons;
-      extends Icons.Function;
+      import Modelica.Icons.Function;
+      extends Function;
 
       input Duration d1;
       input Duration d2;
@@ -1089,8 +1170,8 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
 
     encapsulated operator function '>=' "Check if Duration d1 is equal to d2 or larger"
       import Modelica.Utilities.Time.Duration;
-      import Modelica.Icons;
-      extends Icons.Function;
+      import Modelica.Icons.Function;
+      extends Function;
 
       input Duration d1;
       input Duration d2;
@@ -1103,8 +1184,8 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
 
     encapsulated operator function '<' "Check if Duration d1 is smaller than d2"
       import Modelica.Utilities.Time.Duration;
-      import Modelica.Icons;
-      extends Icons.Function;
+      import Modelica.Icons.Function;
+      extends Function;
 
       input Duration d1;
       input Duration d2;
@@ -1117,8 +1198,8 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
 
     encapsulated operator function '<=' "Check if Duration d1 is equal to d2 or smaller"
       import Modelica.Utilities.Time.Duration;
-      import Modelica.Icons;
-      extends Icons.Function;
+      import Modelica.Icons.Function;
+      extends Function;
 
       input Duration d1;
       input Duration d2;
@@ -1131,8 +1212,8 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
 
     encapsulated operator function '+' "Add Durations d1 and d2 and normalize the sum"
       import Modelica.Utilities.Time.Duration;
-      import Modelica.Icons;
-      extends Icons.Function;
+      import Modelica.Icons.Function;
+      extends Function;
 
       input Duration d1;
       input Duration d2;
@@ -1150,12 +1231,26 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
 
     encapsulated operator '-' "Unary and binary minus"
       import Modelica.Utilities.Time.Duration;
-      import Modelica.Icons;
+      import Modelica.Icons.Function;
 
-      extends Icons.FunctionsPackage;
+      function negate "Unary minus (multiply all duration values by -1)"
+        extends Function;
+
+        input Duration d;
+        output Duration result "= -d";
+
+      algorithm
+        result := Duration(
+          days=-d.days,
+          hours=-d.hours,
+          minutes=-d.minutes,
+          seconds=-d.seconds,
+          milliseconds=-d.milliseconds);
+
+      end negate;
 
       function subtract "Subtract two durations element wise and normalize the difference"
-        extends Icons.Function;
+        extends Function;
 
         input Duration d1;
         input Duration d2;
@@ -1170,32 +1265,30 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
           milliseconds=d1.milliseconds - d2.milliseconds));
 
       end subtract;
-
-      function negate "Unary minus (multiply all duration values by -1)"
-        extends Icons.Function;
-
-        input Duration d;
-        output Duration result "= -d1";
-
-      algorithm
-        result := Duration(
-          days=-d.days,
-          hours=-d.hours,
-          minutes=-d.minutes,
-          seconds=-d.seconds,
-          milliseconds=-d.milliseconds);
-
-      end negate;
+    annotation (Documentation(info="<html>
+<p>Here the unary and binary minus operator(s) is/are defined.</p>
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+              {100,100}}), graphics={
+          Rectangle(
+            lineColor={200,200,200},
+            fillColor={248,248,248},
+            fillPattern=FillPattern.HorizontalCylinder,
+            extent={{-100,-100},{100,100}},
+            radius=25),
+          Rectangle(
+            lineColor={128,128,128},
+            extent={{-100,-100},{100,100}},
+            radius=25),
+          Line(
+            points={{-50,0},{50,0}})}));
     end '-';
 
     encapsulated operator '*' "Multiplication"
       import Modelica.Utilities.Time.Duration;
-      import Modelica.Icons;
-
-      extends Icons.FunctionsPackage;
+      import Modelica.Icons.Function;
 
       function multiply1 "Multiply a duration with a real (by converting the duration to seconds)"
-        extends Icons.Function;
+        extends Function;
 
         input Duration d;
         input Real r;
@@ -1207,7 +1300,7 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
       end multiply1;
 
       function multiply2 "Multiply a duration with a real (by converting the duration to seconds)"
-        extends Icons.Function;
+        extends Function;
 
         input Real r;
         input Duration d;
@@ -1217,17 +1310,37 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
         result := Duration(totalSeconds=r*Duration.inSeconds(d));
 
       end multiply2;
+      annotation (
+        Documentation(info="<html>
+<p>Here the multiplication operator(s) is/are defined.</p>
+</html>"),
+        Icon(coordinateSystem(
+            preserveAspectRatio=false,
+            extent={{-100,-100},{100,100}}),
+            graphics={
+            Rectangle(
+              lineColor={200,200,200},
+              fillColor={248,248,248},
+              fillPattern=FillPattern.HorizontalCylinder,
+              extent={{-100,-100},{100,100}},
+              radius=25),
+            Rectangle(
+              lineColor={128,128,128},
+              extent={{-100,-100},{100,100}},
+              radius=25),
+            Line(points={{-40,35},{40,-35}}),
+            Line(points={{-40,-35},{40,35}}),
+            Line(points={{-55,0},{55,0}}),
+            Line(points={{0,55},{0,-55}})}));
     end '*';
 
-    encapsulated operator '/'  "Division"
+    encapsulated operator '/' "Division"
       import Modelica.Utilities.Time.Duration;
-      import Modelica.Icons;
-
-      extends Icons.FunctionsPackage;
+      import Modelica.Icons.Function;
 
       function divide
         "Divide a duration by a real. The first milliseconds value can vary by 1 (due to rounding in the fromSeconds constructor)"
-        extends Icons.Function;
+        extends Function;
 
         input Duration d;
         input Real r;
@@ -1237,13 +1350,31 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
         result := Duration(totalSeconds=Duration.inSeconds(d)/r);
 
       end divide;
-
+      annotation (
+        Documentation(info="<html>
+<p>Here the multiplication operator(s) is/are defined.</p>
+</html>"),
+        Icon(coordinateSystem(
+            preserveAspectRatio=false,
+            extent={{-100,-100},{100,100}}),
+            graphics={
+            Rectangle(
+              lineColor={200,200,200},
+              fillColor={248,248,248},
+              fillPattern=FillPattern.HorizontalCylinder,
+              extent={{-100,-100},{100,100}},
+              radius=25),
+            Rectangle(
+              lineColor={128,128,128},
+              extent={{-100,-100},{100,100}},
+              radius=25),
+            Line(points={{-20,-55},{20,55}})}));
     end '/';
 
     encapsulated operator function '0' "Zero-element of addition (= Duration())"
       import Modelica.Utilities.Time.Duration;
-      import Modelica.Icons;
-      extends Icons.Function;
+      import Modelica.Icons.Function;
+      extends Function;
 
       output Duration result "= Duration()";
 
@@ -1254,8 +1385,8 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
 
   encapsulated function asVector "Return duration as vector {days, hours, minutes, seconds, milliseconds}"
     import Modelica.Utilities.Time.Duration;
-    import Modelica.Icons;
-    extends Icons.Function;
+    import Modelica.Icons.Function;
+    extends Function;
 
     input Duration d "Value to convert";
     output Integer[5] d_vec "Duration as vector {days, hours, minutes, seconds, milliseconds}";
@@ -1268,8 +1399,8 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
 
   encapsulated function avg "Return Duration with averaged values for a vector of durations"
     import Modelica.Utilities.Time.Duration;
-    import Modelica.Icons;
-    extends Icons.Function;
+    import Modelica.Icons.Function;
+    extends Function;
 
     input Duration d_vec[:] "Vector of duration";
     output Duration d_avg "Average duration";
@@ -1289,8 +1420,8 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
 
   encapsulated function inSeconds "Convert Duration to total amount of seconds"
     import Modelica.Utilities.Time.Duration;
-    import Modelica.Icons;
-    extends Icons.Function;
+    import Modelica.Icons.Function;
+    extends Function;
 
     input Duration d;
     output Real totalSeconds "Elapsed seconds";
@@ -1303,8 +1434,8 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
   encapsulated function normalize
     "Recompute duration with usual maximum values for milliseconds, seconds, minutes and hours"
     import Modelica.Utilities.Time.Duration;
-    import Modelica.Icons;
-    extends Icons.Function;
+    import Modelica.Icons.Function;
+    extends Function;
 
     input Duration d "Duration";
     output Duration d_norm "Normalized duration";
