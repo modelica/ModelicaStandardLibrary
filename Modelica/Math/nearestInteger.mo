@@ -17,8 +17,8 @@ Math.<strong>nearestInteger</strong>(r);
 
 <h4>Description</h4>
 <p>
-    The input value \"r\" of type Real is converted to the closest Integer value \"i\",
-    using the <em>round half away from zero</em> rule with the equation:
+The input value \"r\" of type Real is converted to the closest Integer value \"i\",
+using the <em>round half away from zero</em> rule with the equation:
 </p>
 <blockquote><pre>
 i = <strong>integer</strong>( <strong>floor</strong>( r + 0.5 ) )  for  r &gt; 0;
@@ -39,12 +39,12 @@ Math.nearestInteger(1.39999999999999999+0.1); // = 1 (erroneous border case, see
 <h4>Note</h4>
 
 <p>
-    This function does the same conversion as the block
-    <a href=\"modelica://Modelica.Blocks.Math.RealToInteger\">RealToInteger</a>.
+This function does the same conversion as the block
+<a href=\"modelica://Modelica.Blocks.Math.RealToInteger\">RealToInteger</a>.
 </p>
 <p>
-    The underlying equation is simple, but not always correct. Due to floating point arithmetic some border cases
-    are not converted correct, like shown in the example above.
+The underlying equation is simple, but not always correct. Due to floating point arithmetic some border cases
+are not converted correct, like shown in the example above.
 </p>
 </html>"));
 end nearestInteger;
