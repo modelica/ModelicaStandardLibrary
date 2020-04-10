@@ -1,12 +1,17 @@
 within Modelica.Utilities;
 package Time "Functions to work with date and time"
-  extends Modelica.Icons.FunctionsPackage;
+  extends Modelica.Icons.UtilitiesPackage;
+
+  final constant String weekDays[7] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"} "Array of week days";
+  final constant String shortWeekDays[7] = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"} "Array of abbreviated week days";
+  final constant String months[12] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"} "Array of month names";
+  final constant String shortMonths[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"} "Array of abbreviated month names";
 
   impure function getTime "Retrieve the current time (in the local time zone)"
     extends Modelica.Icons.Function;
-    output Types.TimeType now "Current time";
+    output DateTime now "Current date and time";
   algorithm
-    (now.millisecond, now.second, now.minute, now.hour, now.day, now.month, now.year) := Internal.Time.getTime();
+    now := DateTime.now();
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -15,7 +20,7 @@ package Time "Functions to work with date and time"
 <h4>Description</h4>
 <p>
 Returns the local time at the time instant this function was called.
-All returned values are of type Integer and have the following meaning:
+The returned value is of type <a href=\"modelica://Modelica.Utilities.Time.DateTime\">DateTime</a>.
 </p>
 
 <blockquote>
@@ -49,8 +54,8 @@ All returned values are of type Integer and have the following meaning:
 
 <h4>Example</h4>
 <blockquote><pre>
-(ms, sec, min, hour, day, mon, year) = getTime()   // = (281, 30, 13, 10, 15, 2, 2015)
-                                              // Feb. 15, 2015 at 10:13 after 30.281 s
+now = getTime()   // = Modelica.Utilities.Time.DateTime(2015, 2, 15, 10, 13, 30, 281)
+                  // Feb. 15, 2015 at 10:13 after 30.281 s
 </pre></blockquote>
 <h4>Note</h4>
 <p>This function is impure!</p>
@@ -59,14 +64,14 @@ All returned values are of type Integer and have the following meaning:
 
   function dayOfWeek "Return day of week for given date"
     extends Modelica.Icons.Function;
-    input Types.TimeType timeIn "Date";
+    input DateTime dt "Date and time";
     output Integer dow(min=1, max=7) "Day of week: 1 = Monday, ..., 6 = Saturday, 7 = Sunday";
   algorithm
-    dow := Internal.Time.dayOfWeek(timeIn.year, timeIn.month, timeIn.day);
+    dow := Internal.Time.dayOfWeek(dt.year, dt.month, dt.day);
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-dow = Time.<strong>dayOfWeek</strong>(timeIn);
+dow = Time.<strong>dayOfWeek</strong>(dt);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -98,20 +103,31 @@ The returned Integer number of <code>dow</code> has the following meaning:
 
 <h4>Example</h4>
 <blockquote><pre>
-now = getTime()      // = Modelica.Utilities.Types.TimeType(281, 30, 13, 10, 6, 12, 2019)
-                     // Dec. 06, 2019 at 10:13 after 30.281 s
-dow = dayOfWeek(now) // = 5
-                     // Dec. 06, 2019 (Saint Nicholas Day) is a Friday
+dt = getTime()      // = Modelica.Utilities.Time.DateTime(2019, 6, 12, 10, 13, 30, 281)
+                    // Dec. 06, 2019 at 10:13 after 30.281 s
+dow = dayOfWeek(dt) // = 5
+str = weekDays[dow] // = Friday
+                    // Dec. 06, 2019 (Saint Nicholas Day) is a Friday
 </pre></blockquote>
 </html>"));
   end dayOfWeek;
 
-  function daysInYear "Get number of days in year"
+  function daysInYear "Return the number of days in year"
     extends Modelica.Icons.Function;
-    input Integer a  "Year";
-    output Integer days "Number of days in year a";
+    input Integer year "Year";
+    output Integer days "Number of days in year";
   algorithm
-    days := if isLeapYear(a) then 366 else 365;
+    days := if isLeapYear(year) then 366 else 365;
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+days = Time.<strong>daysInYear</strong>(year);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns the number of days in year.
+</p>
+</html>"));
   end daysInYear;
 
   function isLeapYear "Check if a year is a leap year"
@@ -175,15 +191,9 @@ In case of <code>year1</code> &gt; <code>year2</code>, the result is the negativ
 <blockquote><pre>
 days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
                             // for the years 2000, 2004, 2008, 2012 and 2016
-                            // excluding the second year 2020
 </pre></blockquote>
 </html>"));
   end leapDays;
-
-  final constant String weekDays[7] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"} "Array of week days";
-  final constant String shortWeekDays[7] = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"} "Array of abbreviated week days";
-  final constant String months[12] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"} "Array of month names";
-  final constant String shortMonths[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"} "Array of abbreviated month names";
 
   operator record DateTime "DateTime record with several constructors and overloaded operators"
     extends Modelica.Icons.Record;
@@ -205,24 +215,24 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         extends Icons.Function;
 
         input Integer year "Year";
-        input Integer month "Month";
-        input Integer day "Day";
-        input Integer hour "Hour";
-        input Integer minute "Minute";
-        input Integer second "Second";
-        input Integer millisecond "Millisecond";
+        input Integer month(min=1, max=12) "Month";
+        input Integer day(min=1, max=31) "Day";
+        input Integer hour(min=0, max=23) "Hour";
+        input Integer minute(min=0, max=59) "Minute";
+        input Integer second(min=0, max=61) "Second";
+        input Integer millisecond(min=0, max=999)=0 "Millisecond";
 
-        output DateTime dt(millisecond=millisecond, second=second, minute=minute, hour=hour, day=day, month=month, year=year);
+        output DateTime dt(millisecond=millisecond, second=second, minute=minute, hour=hour, day=day, month=month, year=year) "Date and time";
 
       algorithm
-
+      annotation(Inline = true);
       end fromReadable;
 
       function fromSystemTime "Create DateTime from current system time"
         import Modelica.Utilities.Internal.Time.getTime;
         extends Icons.Function;
 
-        output DateTime dt;
+        output DateTime dt "Current date and time";
 
       protected
         Integer millisecond "Millisecond";
@@ -240,7 +250,6 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
       end fromSystemTime;
 
       function fromEpoch "Create DateTime from elapsed seconds since reference year"
-        import Modelica.Utilities.Internal.Time.getTime;
         import Modelica.Math.nearestInteger;
         import Modelica.Utilities.Time.isLeapYear;
         import Modelica.Utilities.Time.daysInYear;
@@ -248,7 +257,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
 
         input Real seconds "Elapsed seconds since epoch_year";
         input Integer epoch_year = 1970 "Reference year";
-        output DateTime dt;
+        output DateTime dt "Date and time";
 
       protected
         Integer[2,12] days_passed = {{31,59,90,120,151,181,212,243,273,304,334,365},
@@ -282,45 +291,45 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         hour :=nearestInteger(mod(rem/3600, 24));
 
         // get number of days since epoch year
-        rem :=rem - hour*3600;
-        days :=nearestInteger(rem/(24*3600));
+        rem := rem - hour*3600;
+        days := nearestInteger(rem/(24*3600));
 
         // get year
         if days >= 0 then
-         // time is after reference year: count how many years must pass from reference year until 'days' is reached
-         year :=epoch_year;
-         counted_days := 0;
-         while counted_days+daysInYear(year) <= days loop
-           counted_days := counted_days + daysInYear(year);
-           year :=year + 1;
-         end while;
+          // time is after reference year: count how many years must pass from reference year until 'days' is reached
+          year := epoch_year;
+          counted_days := 0;
+          while counted_days + daysInYear(year) <= days loop
+            counted_days := counted_days + daysInYear(year);
+            year :=year + 1;
+          end while;
         else
-         // time is before reference year: count years downwards
-         year :=epoch_year - 1;
-         counted_days := if isLeapYear(year) then -366 else -365;
-         while counted_days > days loop
-           year :=year - 1;
-           counted_days := counted_days - daysInYear(year);
-         end while;
+          // time is before reference year: count years downwards
+          year := epoch_year - 1;
+          counted_days := -daysInYear(year);
+          while counted_days > days loop
+            year := year - 1;
+            counted_days := counted_days - daysInYear(year);
+          end while;
         end if;
 
         // compute day in current year
-        day_of_year :=days - counted_days + 1;
+        day_of_year := days - counted_days + 1;
 
         // get month
         // use correct column depending on leap and regular year
-        j :=if isLeapYear(year) then 2 else 1;
+        j := if isLeapYear(year) then 2 else 1;
         for i in 1:12 loop
           if days_passed[j,i] >= day_of_year then
-            month :=i;
+            month := i;
             break;
           end if;
         end for;
 
         // get day
-        day :=if month > 1 then day_of_year - days_passed[j,month-1] else day_of_year;
+        day := if month > 1 then day_of_year - days_passed[j,month-1] else day_of_year;
 
-        dt :=DateTime(millisecond=millisecond, second=second, minute=minute, hour=hour, day=day, month=month, year=year);
+        dt := DateTime(millisecond=millisecond, second=second, minute=minute, hour=hour, day=day, month=month, year=year);
 
       end fromEpoch;
     end 'constructor';
@@ -331,7 +340,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
       import Modelica.Icons;
       extends Icons.FunctionsPackage;
 
-      function formated "Use a subset of C strftime() conversion specifiers to format a DateTime record as string"
+      function formatted "Use a subset of C strftime() conversion specifiers to format a DateTime record as string"
         extends Icons.Function;
 
         import Modelica.Utilities.Internal.Time.dayOfWeek;
@@ -340,36 +349,35 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         import Modelica.Utilities.Time.months;
         import Modelica.Utilities.Time.shortMonths;
 
-        input DateTime dt;
+        input DateTime dt "Date and time";
         input String format = "%Y-%m-%d %H:%M:%S";
-        output String str;
+        output String str "Formatted data and time string";
 
       protected
         encapsulated function string0 "Create string with minimum length, filled with 0"
           import Modelica.Utilities.Strings.replace;
-            input Integer i;
-            input Integer l;
-            output String s0;
+          input Integer i;
+          input Integer l;
+          output String s0;
         algorithm
-            s0 :=replace(String(i, minimumLength=l, leftJustified=false), " ", "0");
+          s0 := replace(String(i, minimumLength=l, leftJustified=false), " ", "0");
         end string0;
 
       algorithm
-        str :=replace(format, "%%", "%");
-        str :=replace(str,    "%y", string0(mod(dt.year, 100), l=2));
-        str :=replace(str,    "%Y", string0(dt.year, l=4));
-        str :=replace(str,    "%m", string0(dt.month, l=2));
-        str :=replace(str,    "%d", string0(dt.day, l=2));
-        str :=replace(str,    "%H", string0(dt.hour, l=2));
-        str :=replace(str,    "%M", string0(dt.minute, l=2));
-        str :=replace(str,    "%S", string0(dt.second, l=2));
-        str :=replace(str,    "%L", string0(dt.millisecond, l=3));
-        str :=replace(str,    "%a", shortWeekDays[dayOfWeek(dt.year, dt.month, dt.day)]);
-        str :=replace(str,    "%A", weekDays[dayOfWeek(dt.year, dt.month, dt.day)]);
-        str :=replace(str,    "%b", shortMonths[dt.month]);
-        str :=replace(str,    "%B", months[dt.month]);
+        str := replace(format, "%%", "%");
+        str := replace(str,    "%y", string0(mod(dt.year, 100), l=2));
+        str := replace(str,    "%Y", string0(dt.year, l=4));
+        str := replace(str,    "%m", string0(dt.month, l=2));
+        str := replace(str,    "%d", string0(dt.day, l=2));
+        str := replace(str,    "%H", string0(dt.hour, l=2));
+        str := replace(str,    "%M", string0(dt.minute, l=2));
+        str := replace(str,    "%S", string0(dt.second, l=2));
+        str := replace(str,    "%L", string0(dt.millisecond, l=3));
+        str := replace(str,    "%a", shortWeekDays[dayOfWeek(dt.year, dt.month, dt.day)]);
+        str := replace(str,    "%A", weekDays[dayOfWeek(dt.year, dt.month, dt.day)]);
+        str := replace(str,    "%b", shortMonths[dt.month]);
+        str := replace(str,    "%B", months[dt.month]);
         annotation (Documentation(info="<html>
-
 <h4>Syntax</h4>
 <blockquote>
 <pre>
@@ -380,11 +388,11 @@ String(dt, format)
 
 <h4>Description</h4>
 <p>
-    The input value \"dt\" of type DateTime is converted to a string.
+The input value <code>dt</code> of type DateTime is converted to a string.
 </p>
 <p>
-    The content of the output string can be controlled
-    via the \"format\" string by setting one or more of the conversion specifiers listed below.
+The content of the output string can be controlled
+via the <code>format</code> string by setting one or more of the conversion specifiers listed below.
 </p>
 
 <table border=\"1\" cellpadding=\"2\" cellspacing=\"0\">
@@ -483,10 +491,10 @@ String(dt, format=\"%A, %d. %B %y, %H:%M:%S.%L\")  // = \"Thursday, 24. December
 
 <h4>Limitations</h4>
 <p>
-    This function uses simple string replace methods to exchange the conversion specifiers with the appropriate values.
+This function uses simple string replace methods to substitute the conversion specifiers with the appropriate values.
 </p>
 <p>
-    When additional % characters are included in the format string (via %%) problems can occur, like shown below.
+When additional % characters are included in the format string (via %%) problems can occur, like shown below.
 </p>
 
 <blockquote>
@@ -497,7 +505,7 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
 </blockquote>
 
 </html>"));
-      end formated;
+      end formatted;
 
     end 'String';
 
@@ -545,27 +553,27 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
 
     algorithm
       if dt1.year > dt2.year then
-        result :=true;
+        result := true;
       else
-        if dt1.year==dt2.year and dt1.month > dt2.month then
-          result :=true;
+        if dt1.year == dt2.year and dt1.month > dt2.month then
+          result := true;
         else
-          if dt1.month==dt2.month and dt1.day > dt2.day then
-            result :=true;
+          if dt1.month == dt2.month and dt1.day > dt2.day then
+            result := true;
           else
-            if dt1.day==dt2.day and dt1.hour > dt2.hour then
-              result :=true;
+            if dt1.day == dt2.day and dt1.hour > dt2.hour then
+              result := true;
             else
-              if dt1.hour==dt2.hour and dt1.minute > dt2.minute then
-                result :=true;
+              if dt1.hour == dt2.hour and dt1.minute > dt2.minute then
+                result := true;
               else
-                if dt1.minute==dt2.minute and dt1.second > dt2.second then
-                  result :=true;
+                if dt1.minute == dt2.minute and dt1.second > dt2.second then
+                  result := true;
                 else
-                  if dt1.second==dt2.second and dt1.millisecond > dt2.millisecond then
-                    result :=true;
+                  if dt1.second == dt2.second and dt1.millisecond > dt2.millisecond then
+                    result := true;
                   else
-                    result :=false;
+                    result := false;
                   end if;
                 end if;
               end if;
@@ -585,7 +593,7 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
       output Boolean result "= dt1 >= dt2";
 
     algorithm
-      result :=dt1 == dt2 or dt1 > dt2;
+      result := dt1 == dt2 or dt1 > dt2;
 
     end '>=';
 
@@ -667,28 +675,27 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
 
     algorithm
       // get leap years from year 0 until the chosen epoch year
-      leap_years_til_epoch :=integer(epoch_year/4) - integer((epoch_year)/100) + integer((epoch_year)/400);
+      leap_years_til_epoch := integer(epoch_year/4) - integer((epoch_year)/100) + integer((epoch_year)/400);
 
       // get leap days of passed years since epoch year
-      leap_days :=integer((year-1)/4) - integer((year-1)/100) + integer((year-1)/400) - leap_years_til_epoch;
+      leap_days := integer((year-1)/4) - integer((year-1)/100) + integer((year-1)/400) - leap_years_til_epoch;
 
-      // get current day of year and consider leap day if current year is leap year and february has passed
+      // get current day of year and consider leap day if current year is leap year and February has passed
       j := if isLeapYear(year) then 2 else 1;
-      day_of_year :=day + days_passed[j,month];
+      day_of_year := day + days_passed[j,month];
 
-      seconds :=millisecond/1000 + second + 60*(minute + 60*(hour + 24*(day_of_year-1 + leap_days + 365*(year-epoch_year))));
+      seconds := millisecond/1000 + second + 60*(minute + 60*(hour + 24*(day_of_year-1 + leap_days + 365*(year-epoch_year))));
 
     end epoch;
 
     encapsulated function now "Get current system date and time as DateTime"
       import Modelica.Utilities.Time.DateTime;
-      output DateTime now;
+      output DateTime now "Current date and time";
     algorithm
-       now:=DateTime.'constructor'.fromSystemTime();
+       now := DateTime.'constructor'.fromSystemTime();
     end now;
 
     annotation (Documentation(info="<html>
-
 <h4>Syntax</h4>
 <blockquote>
 <pre>
@@ -701,16 +708,16 @@ Time.<strong>DateTime</strong>(seconds, epoch_year);
 
 <h4>Description</h4>
 <p>
-    The operator record DateTime stores the required information to address a specific point in time via date and time values.
+The operator record DateTime stores the required information to address a specific point in time via date and time values.
 </p>
 <p>
-    There are multiple constructors provided to create a DateTime element. See the examples below for details.
+There are multiple constructors provided to create a DateTime element. See the examples below for details.
 </p>
 <p>
-    DateTimes can be compared (==, &lt;&gt;, &gt;, &lt;, &ge;, &le;), giving a boolean result and subtracted (-), giving a Duration.
+DateTimes can be compared (==, &lt;&gt;, &gt;, &lt;, &ge;, &le;), giving a boolean result and subtracted (-), giving a Duration.
 </p>
 <p>
-    DateTimes can be converted to an epoch representation with the function DateTime.epoch(dt, epoch_year).
+DateTimes can be converted to an epoch representation with the function DateTime.epoch(dt, epoch_year).
 </p>
 
 <h4>Example</h4>
@@ -761,8 +768,10 @@ DateTime.'constructor'.fromEpoch(1000, 2020); // explicit call of constructor. 1
         input Integer minutes=0 "Minutes";
         input Integer seconds=0 "Seconds";
         input Integer milliseconds=0 "Milliseconds";
-        output Duration d(days=days, hours=hours, minutes=minutes, seconds=seconds, milliseconds=milliseconds);
+        output Duration d(days=days, hours=hours, minutes=minutes, seconds=seconds, milliseconds=milliseconds) "Duration";
+
       algorithm
+      annotation(Inline = true);
       end fromInput;
 
       function fromDateTimes "Create Duration from two DateTime records"
@@ -786,18 +795,18 @@ DateTime.'constructor'.fromEpoch(1000, 2020); // explicit call of constructor. 1
         Integer milliseconds "Elapsed milliseconds";
 
       algorithm
-        dt_tmp :=dt2;
+        dt_tmp := dt2;
 
-        e1 :=DateTime.epoch(dt1, epoch_year=dt1.year);
-        e2 :=DateTime.epoch(dt_tmp, epoch_year=dt1.year);
+        e1 := DateTime.epoch(dt1, epoch_year=dt1.year);
+        e2 := DateTime.epoch(dt_tmp, epoch_year=dt1.year);
 
-        diff :=abs(e2 - e1);
-        sign_ :=sign(e2 - e1);
+        diff := abs(e2 - e1);
+        sign_ := sign(e2 - e1);
 
         days := integer(diff/(24*3600));
-        hours := integer(diff/3600-days*24);
-        minutes := integer((diff-(days*24+hours)*3600)/60);
-        seconds := integer(diff - (days*24+hours)*3600 - minutes*60);
+        hours := integer(diff/3600 - days*24);
+        minutes := integer((diff - (days*24 + hours)*3600)/60);
+        seconds := integer(diff - (days*24 + hours)*3600 - minutes*60);
         milliseconds := nearestInteger(rem(diff,1)*1000);
 
         hours := sign_*hours;
@@ -805,7 +814,7 @@ DateTime.'constructor'.fromEpoch(1000, 2020); // explicit call of constructor. 1
         seconds := sign_*seconds;
         milliseconds := sign_*milliseconds;
 
-        d :=Duration(days=days, hours=hours, minutes=minutes, seconds=seconds, milliseconds=milliseconds);
+        d := Duration(days=days, hours=hours, minutes=minutes, seconds=seconds, milliseconds=milliseconds);
 
       end fromDateTimes;
 
@@ -817,33 +826,34 @@ DateTime.'constructor'.fromEpoch(1000, 2020); // explicit call of constructor. 1
         output Duration d "Duration with input converted to seconds and milliseconds";
 
       protected
-        Integer days, hours, minutes, seconds, milliseconds;
+        Integer days "Days";
+        Integer hours "Hours";
+        Integer minutes "Minutes";
+        Integer seconds "Seconds";
+        Integer milliseconds "Milliseconds";
+
         Integer carryover;
 
       algorithm
 
         milliseconds := nearestInteger(rem(totalSeconds, 1) * 1000);
 
-        seconds :=integer(div(totalSeconds, 1));
-        carryover :=div(seconds, 60);
+        seconds := integer(div(totalSeconds, 1));
+        carryover := div(seconds, 60);
         seconds := rem(seconds, 60);
 
-        minutes :=carryover;
-        carryover :=div(minutes, 60);
-        minutes :=rem(minutes, 60);
+        minutes := carryover;
+        carryover := div(minutes, 60);
+        minutes := rem(minutes, 60);
 
-        hours :=carryover;
-        carryover :=div(hours, 24);
+        hours := carryover;
+        carryover := div(hours, 24);
         hours := rem(hours, 24);
 
         days := carryover;
 
-        d :=Duration(
-            days=days,
-            hours=hours,
-            minutes=minutes,
-            seconds=seconds,
-            milliseconds=milliseconds);
+        d := Duration(days=days, hours=hours, minutes=minutes, seconds=seconds, milliseconds=milliseconds);
+
 
       end fromSeconds;
     end 'constructor';
@@ -854,13 +864,13 @@ DateTime.'constructor'.fromEpoch(1000, 2020); // explicit call of constructor. 1
       import Modelica.Icons;
       extends Icons.FunctionsPackage;
 
-      function formated "Convert duration to string, using C inspired conversion specifier characters"
+      function formatted "Convert duration to string, using C inspired conversion specifier characters"
         import Modelica.Utilities.Strings.contains;
         extends Icons.Function;
 
-        input Duration d;
+        input Duration d "Duration";
         input String format = "%daysd %hoursh %minutesmin %secondss %millisecondsms";
-        output String str;
+        output String str "Formatted duration string";
 
       protected
         Duration d2;
@@ -871,43 +881,42 @@ DateTime.'constructor'.fromEpoch(1000, 2020); // explicit call of constructor. 1
             input Integer l;
             output String s0;
         algorithm
-            s0 :=replace(String(i, minimumLength=l, leftJustified=false), " ", "0");
+            s0 := replace(String(i, minimumLength=l, leftJustified=false), " ", "0");
         end string0;
 
       algorithm
 
-        d2 :=d;
+        d2 := d;
 
         if not contains(format, "%days") and not contains(format, "%d") then
-          d2.hours :=d2.hours + d2.days*24;
+          d2.hours := d2.hours + d2.days*24;
         end if;
 
         if not contains(format, "%hours") and not contains(format, "%H") then
-          d2.minutes :=d2.minutes + d2.hours*60;
+          d2.minutes := d2.minutes + d2.hours*60;
         end if;
 
         if not contains(format, "%minutes") and not contains(format, "%M") then
-          d2.seconds :=d2.seconds + d2.minutes*60;
+          d2.seconds := d2.seconds + d2.minutes*60;
         end if;
 
         if not contains(format, "%seconds") and not contains(format, "%S") then
-          d2.milliseconds :=d2.milliseconds + d2.seconds*1000;
+          d2.milliseconds := d2.milliseconds + d2.seconds*1000;
         end if;
 
-        str :=replace(format, "%%",            "%");
-        str :=replace(str,    "%days",         String( d2.days));
-        str :=replace(str,    "%d",            string0(d2.days, l=2));
-        str :=replace(str,    "%hours",        String( d2.hours));
-        str :=replace(str,    "%H",            string0(d2.hours, l=2));
-        str :=replace(str,    "%minutes",      String( d2.minutes));
-        str :=replace(str,    "%M",            string0(d2.minutes, l=2));
-        str :=replace(str,    "%seconds",      String( d2.seconds));
-        str :=replace(str,    "%S",            string0(d2.seconds, l=2));
-        str :=replace(str,    "%milliseconds", String( d2.milliseconds));
-        str :=replace(str,    "%L",            string0(d2.milliseconds, l=3));
+        str := replace(format, "%%",            "%");
+        str := replace(str,    "%days",         String( d2.days));
+        str := replace(str,    "%d",            string0(d2.days, l=2));
+        str := replace(str,    "%hours",        String( d2.hours));
+        str := replace(str,    "%H",            string0(d2.hours, l=2));
+        str := replace(str,    "%minutes",      String( d2.minutes));
+        str := replace(str,    "%M",            string0(d2.minutes, l=2));
+        str := replace(str,    "%seconds",      String( d2.seconds));
+        str := replace(str,    "%S",            string0(d2.seconds, l=2));
+        str := replace(str,    "%milliseconds", String( d2.milliseconds));
+        str := replace(str,    "%L",            string0(d2.milliseconds, l=3));
 
         annotation (Documentation(info="<html>
-
 <h4>Syntax</h4>
 <blockquote>
 <pre>
@@ -918,20 +927,20 @@ String(d, format)
 
 <h4>Description</h4>
 <p>
-    The input value \"d\" of type Duration is converted to a string.
+The input value <code>d</code> of type Duration is converted to a string.
 </p>
 <p>
-    The content of the output string can be controlled
-    via the \"format\" string by setting one or more of the conversion specifiers listed below.
+The content of the output string can be controlled
+via the <code>format</code> string by setting one or more of the conversion specifiers listed below.
 </p>
 <p>
-    If higher time value are not included, they are added to the next lower time value.
-    If e.g. days are not part of the format string, but hours, the number of days will be converted
-    to hours and added to the hours value.
+If higher time values are not included, they are added to the next lower time value.
+If e.g., days are not part of the format string, but hours, the number of days will be converted
+to hours and added to the hours value.
 </p>
 <p>
-    If lower time values are not included, they are neglected.
-    If e.g. only days and hours are part of the format string, minutes, seconds and milliseconds will be ignored.
+If lower time values are not included, they are neglected.
+If e.g., only days and hours are part of the format string, minutes, seconds and milliseconds will be ignored.
 </p>
 
 <table border=\"1\" cellpadding=\"2\" cellspacing=\"0\">
@@ -1012,10 +1021,10 @@ String(d, format=\"%days'\")          // = \"1\" (only full days are shown, rest
 
 <h4>Limitations</h4>
 <p>
-    This function uses simple string replace methods to exchange the conversion specifiers with the appropriate values.
+This function uses simple string replace methods to exchange the conversion specifiers with the appropriate values.
 </p>
 <p>
-    When additional % characters are included in the format string (via %%) problems can occur, like shown below.
+When additional % characters are included in the format string (via %%) problems can occur, like shown below.
 </p>
 
 <blockquote>
@@ -1026,7 +1035,7 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
 </blockquote>
 
 </html>"));
-      end formated;
+      end formatted;
 
     end 'String';
 
@@ -1075,7 +1084,7 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
       output Boolean result "= d1 > d2";
 
     algorithm
-      result :=Duration.inSeconds(d1) > Duration.inSeconds(d2);
+      result := Duration.inSeconds(d1) > Duration.inSeconds(d2);
     end '>';
 
     encapsulated operator function '>=' "Check if Duration d1 is equal to d2 or larger"
@@ -1088,7 +1097,7 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
       output Boolean result "= d1 >= d2";
 
     algorithm
-      result :=d1 == d2 or d1 > d2;
+      result := d1 == d2 or d1 > d2;
 
     end '>=';
 
@@ -1307,7 +1316,6 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
   end normalize;
 
     annotation (Documentation(info="<html>
-
 <h4>Syntax</h4>
 <blockquote>
 <pre>
@@ -1320,13 +1328,13 @@ Time.<strong>Duration</strong>(totalSeconds);
 
 <h4>Description</h4>
 <p>
-    The operator record Duration is used for elapsed time.
-    This can be the time between given by DateTime records
-    (i.e. by subtracting them) or a manually specified duration.
+The operator record Duration is used for elapsed time.
+This can be the time between given by DateTime records
+(i.e., by subtracting them) or a manually specified duration.
 </p>
 <p>
-    There are multiple constructors provided to create a Duration element.
-    See the examples below for details.
+There are multiple constructors provided to create a Duration element.
+See the examples below for details.
 </p>
 
 <p>Here is a brief summary, what the Duration operator record is capable of:</p>
@@ -1386,7 +1394,7 @@ Duration(totalSeconds=1.5);                      // automatic selection of const
     annotation (
 Documentation(info="<html>
 <p>
-This package contains functions to work with date and time.
+This package contains functions and records to work with date and time.
 </p>
 </html>"));
 end Time;
