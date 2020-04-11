@@ -252,7 +252,7 @@ end FileSystem;
       output Integer day "Day";
       output Integer mon "Month";
       output Integer year "Year";
-      external "C" ModelicaInternal_getTime(ms,sec,min,hour,day,mon,year)
+      external "C" ModelicaInternal_getTime(ms, sec, min, hour, day, mon, year)
         annotation(Library="ModelicaExternalC");
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
@@ -321,6 +321,42 @@ All returned values are of type Integer and have the following meaning:
 </table>
 </html>"));
     end getTime;
+
+    pure function localTime "Retrieve the local time (in the local time zone) from elapsed seconds since reference year"
+      extends Modelica.Icons.Function;
+      input Real seconds "Elapsed seconds since epoch_year";
+      input Integer epoch_year = 1970 "Reference year";
+      output Integer ms "Millisecond";
+      output Integer sec "Second";
+      output Integer min "Minute";
+      output Integer hour "Hour";
+      output Integer day "Day";
+      output Integer mon "Month";
+      output Integer year "Year";
+      external "C90" ModelicaTime_localtime(ms, sec, min, hour, day, mon, year, seconds, epoch_year)
+        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.c\"");
+      annotation (Documentation(info="<html>
+TODO
+</html>"));
+    end localTime;
+
+    pure function stringToTime "Retrieve the local time (in the local time zone) from formatted string"
+      extends Modelica.Icons.Function;
+      input String str "Formatted data and time string";
+      input String format = "%Y-%m-%d %H:%M:%S" "Format string passed to strptime";
+      output Integer ms "Millisecond";
+      output Integer sec "Second";
+      output Integer min "Minute";
+      output Integer hour "Hour";
+      output Integer day "Day";
+      output Integer mon "Month";
+      output Integer year "Year";
+      external "C99" ModelicaTime_strptime(ms, sec, min, hour, day, mon, year, str, format)
+        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.c\"");
+      annotation (Documentation(info="<html>
+TODO
+</html>"));
+    end stringToTime;
 
     function dayOfWeek "Return day of week for given date"
       extends Modelica.Icons.Function;
