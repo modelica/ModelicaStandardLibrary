@@ -6,6 +6,7 @@ to the following object libraries
   ModelicaInternal.c
   ModelicaRandom.c
   ModelicaStrings.c
+  ModelicaTime.c
   win32_dirent.c (for Visual C++ on Windows)
 
 - ModelicaIO (.lib, .dll, .a, .so, depending on tool and OS) containing:
@@ -53,4 +54,4 @@ Additionally, a tool vendor has to provide library "lapack"
 and this library should be used in the linker when a model is compiled
 that uses this library in its library annotation.
 
-January 05, 2018.
+April 11, 2020.
