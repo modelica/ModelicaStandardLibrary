@@ -1,4 +1,4 @@
-/* ModelicaStrings.h - External functions header for Modelica.Functions.Strings
+/* ModelicaStrings.h - External functions header for Modelica.Utilities.Strings
 
    Copyright (C) 2002-2020, Modelica Association and contributors
    All rights reserved.

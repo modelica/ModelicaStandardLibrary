@@ -1,4 +1,4 @@
-/* ModelicaStrings.c - External functions for Modelica.Functions.Strings
+/* ModelicaStrings.c - External functions for Modelica.Utilities.Strings
 
    Copyright (C) 2002-2020, Modelica Association and contributors
    All rights reserved.
