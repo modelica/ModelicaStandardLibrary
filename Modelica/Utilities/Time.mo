@@ -244,14 +244,12 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
 
       algorithm
         (millisecond, second, minute, hour, day, month, year) := getTime();
-        dt :=DateTime(millisecond=millisecond, second=second, minute=minute, hour=hour, day=day, month=month, year=year);
+        dt := DateTime(millisecond=millisecond, second=second, minute=minute, hour=hour, day=day, month=month, year=year);
 
       end fromSystemTime;
 
       function fromEpoch "Create DateTime from elapsed seconds since reference year"
-        import Modelica.Math.nearestInteger;
-        import Modelica.Utilities.Time.isLeapYear;
-        import Modelica.Utilities.Time.daysInYear;
+        import Modelica.Utilities.Internal.Time.localTime;
         extends Function;
 
         input Real seconds "Elapsed seconds since epoch_year";
@@ -259,12 +257,6 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         output DateTime dt "Date and time";
 
       protected
-        Integer[2,12] days_passed = {{31,59,90,120,151,181,212,243,273,304,334,365},
-                                    {31,60,91,121,152,182,213,244,274,305,335,366}};
-        Real rem;
-        Integer days, day_of_year, counted_days;
-        Integer i, j;
-
         Integer millisecond "Millisecond";
         Integer second "Second";
         Integer minute "Minute";
@@ -275,62 +267,34 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
 
       algorithm
 
-        // get milliseconds
-        millisecond := nearestInteger(mod(abs(seconds),1)*1000);
-
-        // get seconds
-        second :=nearestInteger(mod(seconds,60));
-
-        // get minutes
-        rem :=seconds - second;
-        minute :=nearestInteger(mod(rem/60, 60));
-
-        // get hours
-        rem :=rem - minute*60;
-        hour :=nearestInteger(mod(rem/3600, 24));
-
-        // get number of days since epoch year
-        rem := rem - hour*3600;
-        days := nearestInteger(rem/(24*3600));
-
-        // get year
-        if days >= 0 then
-          // time is after reference year: count how many years must pass from reference year until 'days' is reached
-          year := epoch_year;
-          counted_days := 0;
-          while counted_days + daysInYear(year) <= days loop
-            counted_days := counted_days + daysInYear(year);
-            year :=year + 1;
-          end while;
-        else
-          // time is before reference year: count years downwards
-          year := epoch_year - 1;
-          counted_days := -daysInYear(year);
-          while counted_days > days loop
-            year := year - 1;
-            counted_days := counted_days - daysInYear(year);
-          end while;
-        end if;
-
-        // compute day in current year
-        day_of_year := days - counted_days + 1;
-
-        // get month
-        // use correct column depending on leap and regular year
-        j := if isLeapYear(year) then 2 else 1;
-        for i in 1:12 loop
-          if days_passed[j,i] >= day_of_year then
-            month := i;
-            break;
-          end if;
-        end for;
-
-        // get day
-        day := if month > 1 then day_of_year - days_passed[j,month-1] else day_of_year;
-
+        (millisecond, second, minute, hour, day, month, year) := localTime(seconds, epoch_year);
         dt := DateTime(millisecond=millisecond, second=second, minute=minute, hour=hour, day=day, month=month, year=year);
 
       end fromEpoch;
+
+      function fromString "Create DateTime from formatted string"
+        import Modelica.Utilities.Internal.Time.stringToTime;
+        extends Function;
+
+        input String str "Formatted data and time string";
+        input String format = "%Y-%m-%d %H:%M:%S" "Format string passed to strptime";
+        output DateTime dt "Date and time";
+
+      protected
+        Integer millisecond "Millisecond";
+        Integer second "Second";
+        Integer minute "Minute";
+        Integer hour "Hour";
+        Integer day "Day";
+        Integer month "Month";
+        Integer year "Year";
+
+      algorithm
+
+        (millisecond, second, minute, hour, day, month, year) := stringToTime(str, format);
+        dt := DateTime(millisecond=millisecond, second=second, minute=minute, hour=hour, day=day, month=month, year=year);
+
+      end fromString;
       annotation (Documentation(info="<html>
 <p>Here the constructor operator(s) is/are defined.</p>
 </html>"), Icon(
@@ -353,52 +317,24 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
 
     encapsulated operator 'String' "Convert DateTime to string"
       import Modelica.Utilities.Time.DateTime;
-      import Modelica.Utilities.Strings.replace;
       import Modelica.Icons.Function;
 
-      function formatted "Use a subset of C strftime() conversion specifiers to format a DateTime record as string"
+      pure function formatted "Use strftime conversion to format a DateTime record as string"
         extends Function;
 
-        import Modelica.Utilities.Internal.Time.dayOfWeek;
-        import Modelica.Utilities.Time.weekDays;
-        import Modelica.Utilities.Time.shortWeekDays;
-        import Modelica.Utilities.Time.months;
-        import Modelica.Utilities.Time.shortMonths;
-
         input DateTime dt "Date and time";
-        input String format = "%Y-%m-%d %H:%M:%S";
+        input String format = "%Y-%m-%d %H:%M:%S" "Format string passed to strftime";
+        input Integer maxSize = 128 "Maximal length of formatted string";
         output String str "Formatted data and time string";
-
-      protected
-        encapsulated function string0 "Create string with minimum length, filled with 0"
-          import Modelica.Utilities.Strings.replace;
-          input Integer i;
-          input Integer l;
-          output String s0;
-        algorithm
-          s0 := replace(String(i, minimumLength=l, leftJustified=false), " ", "0");
-        end string0;
-
-      algorithm
-        str := replace(format, "%%", "%");
-        str := replace(str,    "%y", string0(mod(dt.year, 100), l=2));
-        str := replace(str,    "%Y", string0(dt.year, l=4));
-        str := replace(str,    "%m", string0(dt.month, l=2));
-        str := replace(str,    "%d", string0(dt.day, l=2));
-        str := replace(str,    "%H", string0(dt.hour, l=2));
-        str := replace(str,    "%M", string0(dt.minute, l=2));
-        str := replace(str,    "%S", string0(dt.second, l=2));
-        str := replace(str,    "%L", string0(dt.millisecond, l=3));
-        str := replace(str,    "%a", shortWeekDays[dayOfWeek(dt.year, dt.month, dt.day)]);
-        str := replace(str,    "%A", weekDays[dayOfWeek(dt.year, dt.month, dt.day)]);
-        str := replace(str,    "%b", shortMonths[dt.month]);
-        str := replace(str,    "%B", months[dt.month]);
+        external "C99" str = ModelicaTime_strftime(dt.second, dt.minute, dt.hour, dt.day, dt.month, dt.year, format, maxSize)
+          annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.c\"");
         annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote>
 <pre>
 String(dt)
 String(dt, format)
+String(dt, format, maxSize)
 </pre>
 </blockquote>
 
@@ -693,45 +629,17 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
             points={{-50,0},{50,0}})}));
     end '-';
 
-    encapsulated function epoch "Convert DateTime to elapsed seconds since custom epoch year"
+    encapsulated pure function epoch "Convert DateTime to elapsed seconds since custom epoch year"
       import Modelica.Utilities.Time.DateTime;
-      import Modelica.Utilities.Time.isLeapYear;
       import Modelica.Icons.Function;
       extends Function;
 
-      input DateTime dt;
+      input DateTime dt "Date and time";
       input Integer epoch_year = 1970 "Reference year";
-      output Real seconds "Elapsed seconds since epoch_year";
+      output Real seconds "Elapsed seconds since epoch_year in the current time zone";
 
-    protected
-      Integer[2,12] days_passed = {{0,31,59,90,120,151,181,212,243,273,304,334},
-                                   {0,31,60,91,121,152,182,213,244,274,305,335}};
-      Integer leap_days, day_of_year;
-      Integer leap_years_til_epoch;
-      Integer j;
-
-      // Aux variables for shorter access in code
-      Integer millisecond=dt.millisecond "Millisecond";
-      Integer second=dt.second "Second";
-      Integer minute=dt.minute "Minute";
-      Integer hour=dt.hour "Hour";
-      Integer day=dt.day "Day";
-      Integer month=dt.month "Month";
-      Integer year=dt.year "Year";
-
-    algorithm
-      // get leap years from year 0 until the chosen epoch year
-      leap_years_til_epoch := integer(epoch_year/4) - integer((epoch_year)/100) + integer((epoch_year)/400);
-
-      // get leap days of passed years since epoch year
-      leap_days := integer((year-1)/4) - integer((year-1)/100) + integer((year-1)/400) - leap_years_til_epoch;
-
-      // get current day of year and consider leap day if current year is leap year and February has passed
-      j := if isLeapYear(year) then 2 else 1;
-      day_of_year := day + days_passed[j,month];
-
-      seconds := millisecond/1000 + second + 60*(minute + 60*(hour + 24*(day_of_year-1 + leap_days + 365*(year-epoch_year))));
-
+      external "C" seconds = ModelicaTime_difftime(dt.second, dt.minute, dt.hour, dt.day, dt.month, dt.year, epoch_year)
+        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.c\"");
     end epoch;
 
     encapsulated function now "Get current system date and time as DateTime"
@@ -1427,7 +1335,7 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
     output Real totalSeconds "Elapsed seconds";
 
   algorithm
-    totalSeconds :=d.milliseconds/1000 + d.seconds + 60*(d.minutes + 60*(d.hours + 24*d.days));
+    totalSeconds := d.milliseconds/1000 + d.seconds + 60*(d.minutes + 60*(d.hours + 24*d.days));
 
   end inSeconds;
 
@@ -1442,7 +1350,7 @@ String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
 
   algorithm
 
-    d_norm :=Duration(totalSeconds=Duration.inSeconds(d));
+    d_norm := Duration(totalSeconds=Duration.inSeconds(d));
 
   end normalize;
 
