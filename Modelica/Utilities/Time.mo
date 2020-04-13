@@ -326,7 +326,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         input String format = "%Y-%m-%d %H:%M:%S" "Format string passed to strftime";
         input Integer maxSize = 128 "Maximal length of formatted string";
         output String str "Formatted data and time string";
-        external "C99" str = ModelicaTime_strftime(dt.second, dt.minute, dt.hour, dt.day, dt.month, dt.year, format, maxSize)
+        external "C99" str = ModelicaTime_strftime(dt.millisecond, dt.second, dt.minute, dt.hour, dt.day, dt.month, dt.year, format, maxSize)
           annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.c\"");
         annotation (Documentation(info="<html>
 <h4>Syntax</h4>
@@ -356,7 +356,7 @@ via the <code>format</code> string by setting one or more of the conversion spec
     <tr>
         <td>%y</td>
         <td>year without century</td>
-        <td>01, 02, ... 99</td>
+        <td>01, 02,&nbsp;&hellip;&nbsp;99</td>
     </tr>
     <tr>
         <td>%Y</td>
@@ -376,7 +376,7 @@ via the <code>format</code> string by setting one or more of the conversion spec
     <tr>
         <td>%m</td>
         <td>month as number, zero padded to length 2</td>
-        <td>01, 02, ... 12</td>
+        <td>01, 02,&nbsp;&hellip;&nbsp;12</td>
     </tr>
     <tr>
         <td>%a</td>
@@ -391,26 +391,26 @@ via the <code>format</code> string by setting one or more of the conversion spec
     <tr>
         <td>%d</td>
         <td>day of month, zero padded to length 2</td>
-        <td>01, 02, ... 31</td>
+        <td>01, 02,&nbsp;&hellip;&nbsp;31</td>
     </tr>
     <tr>
         <td>%H</td>
         <td>hour, zero padded to length 2</td>
-        <td>00, 01, ... 24</td>
+        <td>00, 01,&nbsp;&hellip;&nbsp;24</td>
     </tr>
     <tr>
         <td>%M</td>
         <td>minute, zero padded to length 2</td>
-        <td>00, 01, ... 60</td>
+        <td>00, 01,&nbsp;&hellip;&nbsp;60</td>
     </tr>
     <tr>
         <td>%S</td>
         <td>second, zero padded to length 2</td>
-        <td>00, 01, ... 60</td>
+        <td>00, 01,&nbsp;&hellip;&nbsp;60</td>
     </tr>
     <tr>
         <td>%%</td>
-        <td>single percent character. Not fully supported. See the Limitations section below.</td>
+        <td>single percent character</td>
         <td>%</td>
     </tr>
 </table>
@@ -425,7 +425,7 @@ via the <code>format</code> string by setting one or more of the conversion spec
     <tr>
         <td>%L</td>
         <td>millisecond, zero padded to length 3</td>
-        <td>000, 001, ... 999</td>
+        <td>000, 001,&nbsp;&hellip;&nbsp;999</td>
     </tr>
 </table>
 
@@ -436,26 +436,10 @@ import Modelica.Utilities.Time.DateTime;
 dt = DateTime(2020, 12, 24, 00, 01, 02, 003);
 
 String(dt)                                       // = \"2020-12-24 00:01:02\"
-String(dt, \"\"%a, %b. %d %Y, %H:%M:%S\"\")          // = \"Thu, Dec. 24 2020, 00:01:02\"
+String(dt, \"%a, %b. %d %Y, %H:%M:%S\")            // = \"Thu, Dec. 24 2020, 00:01:02\"
 String(dt, format=\"%A, %d. %B %y, %H:%M:%S.%L\")  // = \"Thursday, 24. December 20, 00:01:02.003\"
 </pre>
 </blockquote>
-
-<h4>Limitations</h4>
-<p>
-This function uses simple string replace methods to substitute the conversion specifiers with the appropriate values.
-</p>
-<p>
-When additional % characters are included in the format string (via %%) problems can occur, like shown below.
-</p>
-
-<blockquote>
-<pre>
-// ANTI-EXAMPLE - do not use
-String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
-</pre>
-</blockquote>
-
 </html>"));
       end formatted;
       annotation (Documentation(info="<html>
@@ -638,7 +622,7 @@ String(dt, format=\"%%b\")  // Should give \"%b\", but gives \"Dec.\" instead
       input Integer epoch_year = 1970 "Reference year";
       output Real seconds "Elapsed seconds since epoch_year in the current time zone";
 
-      external "C" seconds = ModelicaTime_difftime(dt.second, dt.minute, dt.hour, dt.day, dt.month, dt.year, epoch_year)
+      external "C" seconds = ModelicaTime_difftime(dt.millisecond, dt.second, dt.minute, dt.hour, dt.day, dt.month, dt.year, epoch_year)
         annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.c\"");
     end epoch;
 
