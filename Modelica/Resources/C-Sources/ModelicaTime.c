@@ -35,13 +35,17 @@
 #endif
 
 #include "ModelicaTime.h"
-
-#include <math.h>
-#include <stdlib.h>
-#include <time.h>
 #include "ModelicaUtilities.h"
 #include "strptime.h"
 #include "repl_str.h"
+
+#include <math.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
+#if !defined(NO_LOCALE)
+#include <locale.h>
+#endif
 
 #if !defined(NO_TIME)
 time_t epoch(int sec, int min, int hour, int mday, int mon, int year) {
@@ -166,7 +170,7 @@ _Ret_z_ const char* ModelicaTime_strftime(int ms, int sec, int min, int hour,
         char ms_str[32];
         size_t retLen;
 
-        /* Special handling of milliseconds by additional %L format specifier */
+        /* Special handling of milliseconds by non-standard %L format specifier */
         format2 = repl_str(format, "%%", "%|");
         sprintf(ms_str, "%03d", ms);
         format3 = repl_str(format2, "%L", ms_str);
@@ -174,7 +178,21 @@ _Ret_z_ const char* ModelicaTime_strftime(int ms, int sec, int min, int hour,
         format2 = repl_str(format3, "%|", "%%");
         free(format3);
 
+#if !defined(NO_LOCALE) && (defined(_MSC_VER) && _MSC_VER >= 1400)
+        {
+            _locale_t loc = _create_locale(LC_TIME, "C");
+            retLen = _strftime_l(timePtr, maxSize, format2, tlocal, loc);
+            _free_locale(loc);
+        }
+#elif !defined(NO_LOCALE) && (defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3))
+        {
+            locale_t loc = newlocale(LC_TIME, "C", NULL);
+            retLen = strftime_l(timePtr, maxSize, format2, tlocal, loc);
+            freelocale(loc);
+        }
+#else
         retLen = strftime(timePtr, maxSize, format2, tlocal);
+#endif
         free(format2);
         if (retLen > 0 && retLen <= maxSize) {
             return (const char*)timePtr;
