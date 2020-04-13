@@ -31,7 +31,7 @@
 
 /* The following #define's are available.
 
-   NO_TIME        : Functions localtime and mktime are not present
+   NO_TIME        : Functions localtime or mktime are not present
    MODELICA_EXPORT: Prefix used for function calls. If not defined, blank is used
                     Useful definition:
                     - "__declspec(dllexport)" if included in a DLL and the
@@ -80,13 +80,13 @@
 #define _Ret_z_
 #endif
 
-MODELICA_EXPORT double ModelicaTime_difftime(int sec, int min, int hour,
-    int mday, int mon, int year, int refYear);
+MODELICA_EXPORT double ModelicaTime_difftime(int ms, int sec, int min,
+    int hour, int mday, int mon, int year, int refYear);
 MODELICA_EXPORT void ModelicaTime_localtime(_Out_ int* ms, _Out_ int* sec,
     _Out_ int* min, _Out_ int* hour, _Out_ int* mday, _Out_ int* mon,
     _Out_ int* year, double seconds, int refYear) MODELICA_NONNULLATTR;
 MODELICA_EXPORT MODELICA_RETURNNONNULLATTR const char* ModelicaTime_strftime(
-    int sec, int min, int hour, int mday, int mon, int year,
+    int ms, int sec, int min, int hour, int mday, int mon, int year,
     _In_z_ const char* format, int _maxSize) MODELICA_NONNULLATTR;
 MODELICA_EXPORT void ModelicaTime_strptime(_Out_ int* ms, _Out_ int* sec,
     _Out_ int* min, _Out_ int* hour, _Out_ int* mday, _Out_ int* mon,

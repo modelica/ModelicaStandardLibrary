@@ -27,11 +27,19 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* Adapted to the needs of the Modelica Standard Library:
+
+   Changelog:
+      Apr. 13, 2020: by Thomas Beutlich
+                     Renamed to strptime_ms to also consider milliseconds by
+                     the %L format specifier
+*/
+
 #include <ctype.h>
 #include <string.h>
 #include <time.h>
 
-#ifdef _MSC_VER 
+#ifdef _MSC_VER
 #define strncasecmp _strnicmp
 #define strcasecmp _stricmp
 #endif
@@ -85,7 +93,7 @@ static const unsigned char *find_string (const unsigned char *, int *, const cha
 
 
 static const char *
-strptime (const char *buf, const char *fmt, struct tm *tm)
+strptime_ms (const char *buf, const char *fmt, struct tm *tm, int* ms)
 {
   unsigned char c;
   const unsigned char *bp, *ep;
@@ -172,7 +180,7 @@ literal:
     case 'x':  /* The date, using the locale's format. */
       new_fmt = "%m/%d/%y";
       recurse:
-      bp = (const unsigned char *)strptime((const char *)bp, new_fmt, tm);
+      bp = (const unsigned char *)strptime_ms((const char *)bp, new_fmt, tm, ms);
       LEGAL_ALT(ALT_E);
       continue;
 
@@ -496,6 +504,9 @@ literal:
       LEGAL_ALT(0);
       continue;
 
+    case 'L':  /* The milliseconds. */
+      bp = conv_num(bp, ms, 0, 999);
+      continue;
 
     default:  /* Unknown/unsupported conversion. */
       return NULL;

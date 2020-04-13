@@ -40,9 +40,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include "ModelicaUtilities.h"
-#if !defined(__APPLE_CC__) 
 #include "strptime.h"
-#endif
+#include "repl_str.h"
 
 #if !defined(NO_TIME)
 time_t epoch(int sec, int min, int hour, int mday, int mon, int year) {
@@ -66,8 +65,8 @@ time_t epoch(int sec, int min, int hour, int mday, int mon, int year) {
 }
 #endif
 
-double ModelicaTime_difftime(int sec, int min, int hour, int mday, int mon,
-                             int year, int refYear) {
+double ModelicaTime_difftime(int ms, int sec, int min, int hour, int mday,
+                             int mon, int year, int refYear) {
     /* Get elapsed seconds w.r.t. reference year */
 #if defined(NO_TIME)
     return 0.0;
@@ -76,11 +75,11 @@ double ModelicaTime_difftime(int sec, int min, int hour, int mday, int mon,
     if (1970 == refYear) {
         /* Avoid calling mktime for New Year 1970 in local time zone */
         const time_t startTime = epoch(0, 0, 0, 2, 1, 1970);
-        return difftime(endTime, startTime) + 86400.0;
+        return difftime(endTime, startTime) + 86400.0 + ms/1000.0;
     }
     else {
         const time_t startTime = epoch(0, 0, 0, 1, 1, refYear);
-        return difftime(endTime, startTime);
+        return difftime(endTime, startTime) + ms/1000.0;
     }
 #endif
 }
@@ -137,13 +136,13 @@ void ModelicaTime_localtime(_Out_ int* ms, _Out_ int* sec, _Out_ int* min,
 #endif
 }
 
-_Ret_z_ const char* ModelicaTime_strftime(int sec, int min, int hour, int mday, int mon,
-                                  int year, _In_z_ const char* format, int _maxSize) {
+_Ret_z_ const char* ModelicaTime_strftime(int ms, int sec, int min, int hour,
+                                  int mday, int mon, int year,
+                                  _In_z_ const char* format, int _maxSize) {
     /* Formatted time to string conversion */
 #if defined(NO_TIME)
     return "";
 #else
-    size_t retLen;
     struct tm* tlocal;
     const size_t maxSize = (size_t)_maxSize;
     char* timePtr = ModelicaAllocateString(maxSize);
@@ -161,12 +160,28 @@ _Ret_z_ const char* ModelicaTime_strftime(int sec, int min, int hour, int mday, 
     tlocal = localtime(&calendarTime);          /* Time fields in local time zone */
 #endif
 
-    retLen = strftime(timePtr, maxSize, format, tlocal);
-    if (retLen > 0 && retLen <= maxSize) {
-        return (const char*)timePtr;
-    }
-    else {
-        return "";
+    {
+        char* format2;
+        char* format3;
+        char ms_str[32];
+        size_t retLen;
+
+        /* Special handling of milliseconds by additional %L format specifier */
+        format2 = repl_str(format, "%%", "%|");
+        sprintf(ms_str, "%03d", ms);
+        format3 = repl_str(format2, "%L", ms_str);
+        free(format2);
+        format2 = repl_str(format3, "%|", "%%");
+        free(format3);
+
+        retLen = strftime(timePtr, maxSize, format2, tlocal);
+        free(format2);
+        if (retLen > 0 && retLen <= maxSize) {
+            return (const char*)timePtr;
+        }
+        else {
+            return "";
+        }
     }
 #endif
 }
@@ -186,10 +201,12 @@ void ModelicaTime_strptime(_Out_ int* ms, _Out_ int* sec, _Out_ int* min,
     *year = 0;
 #else
     struct tm tlocal;
+    int tmp = 0;
 
     memset(&tlocal, 0, sizeof(struct tm));
-    if (strptime(buf, format, &tlocal)) {
+    if (NULL != strptime_ms(buf, format, &tlocal, &tmp)) {
         /* Do not memcpy as you do not know which sizes are in the struct */
+        *ms = tmp;
         *sec = tlocal.tm_sec;
         *min = tlocal.tm_min;
         *hour = tlocal.tm_hour;
@@ -198,6 +215,7 @@ void ModelicaTime_strptime(_Out_ int* ms, _Out_ int* sec, _Out_ int* min,
         *year = 1900 + tlocal.tm_year; /* Correct for 4-digit year */
     }
     else {
+        *ms   = 0;
         *sec  = 0;
         *min  = 0;
         *hour = 0;
@@ -205,6 +223,5 @@ void ModelicaTime_strptime(_Out_ int* ms, _Out_ int* sec, _Out_ int* min,
         *mon  = 0;
         *year = 0;
     }
-    *ms = 0;
 #endif
 }

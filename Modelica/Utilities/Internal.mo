@@ -211,14 +211,14 @@ package FileSystem
     external "C" ModelicaInternal_readDirectory(directory,nNames,names) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
   end readDirectory;
 
-impure function getNumberOfFiles
+  impure function getNumberOfFiles
       "Get number of files and directories in a directory (POSIX functions opendir, readdir, closedir)"
-  extends Modelica.Icons.Function;
-  input String directory "Directory name";
-  output Integer result
+    extends Modelica.Icons.Function;
+    input String directory "Directory name";
+    output Integer result
         "Number of files and directories present in 'directory'";
-  external "C" result = ModelicaInternal_getNumberOfFiles(directory) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
-end getNumberOfFiles;
+    external "C" result = ModelicaInternal_getNumberOfFiles(directory) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaInternal.h\"", Library="ModelicaExternalC");
+  end getNumberOfFiles;
 
   annotation (
 Documentation(info="<html>
