@@ -276,7 +276,7 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
         import Modelica.Utilities.Internal.Time.stringToTime;
         extends Function;
 
-        input String str "Formatted data and time string";
+        input String str "Formatted date and time string";
         input String format = "%Y-%m-%d %H:%M:%S" "Format string passed to strptime";
         output DateTime dt "Date and time";
 
@@ -319,16 +319,18 @@ days = leapDays(2000, 2020) // = 5 leap days in range [2000, 2019]
       import Modelica.Utilities.Time.DateTime;
       import Modelica.Icons.Function;
 
-      pure function formatted "Use strftime conversion to format a DateTime record as string"
+      function formatted "Use strftime conversion to format a DateTime record as string"
+        import Modelica.Utilities.Internal.Time.timeToString;
         extends Function;
 
         input DateTime dt "Date and time";
         input String format = "%Y-%m-%d %H:%M:%S" "Format string passed to strftime";
         input Integer maxSize = 128 "Maximal length of formatted string";
-        output String str "Formatted data and time string";
-        external "C99" str = ModelicaTime_strftime(dt.millisecond, dt.second, dt.minute, dt.hour, dt.day, dt.month, dt.year, format, maxSize)
-          annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.c\"");
-        annotation (Documentation(info="<html>
+        output String str "Formatted date and time string";
+
+      algorithm
+        str := timeToString(dt.millisecond, dt.second, dt.minute, dt.hour, dt.day, dt.month, dt.year, format, maxSize);
+        annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote>
 <pre>
@@ -613,8 +615,9 @@ String(dt, format=\"%A, %d. %B %y, %H:%M:%S.%L\")  // = \"Thursday, 24. December
             points={{-50,0},{50,0}})}));
     end '-';
 
-    encapsulated pure function epoch "Convert DateTime to elapsed seconds since custom epoch year"
+    encapsulated function epoch "Convert DateTime to elapsed seconds since custom epoch year"
       import Modelica.Utilities.Time.DateTime;
+      import Modelica.Utilities.Internal.Time.diffTime;
       import Modelica.Icons.Function;
       extends Function;
 
@@ -622,8 +625,9 @@ String(dt, format=\"%A, %d. %B %y, %H:%M:%S.%L\")  // = \"Thursday, 24. December
       input Integer epoch_year = 1970 "Reference year";
       output Real seconds "Elapsed seconds since epoch_year in the current time zone";
 
-      external "C" seconds = ModelicaTime_difftime(dt.millisecond, dt.second, dt.minute, dt.hour, dt.day, dt.month, dt.year, epoch_year)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.c\"");
+    algorithm
+      seconds := diffTime(dt.millisecond, dt.second, dt.minute, dt.hour, dt.day, dt.month, dt.year, epoch_year);
+      annotation (Inline=true);
     end epoch;
 
     encapsulated function now "Get current system date and time as DateTime"
@@ -633,7 +637,8 @@ String(dt, format=\"%A, %d. %B %y, %H:%M:%S.%L\")  // = \"Thursday, 24. December
 
       output DateTime now "Current date and time";
     algorithm
-       now := DateTime.'constructor'.fromSystemTime();
+      now := DateTime.'constructor'.fromSystemTime();
+      annotation (Inline=true);
     end now;
 
     annotation (Documentation(info="<html>
