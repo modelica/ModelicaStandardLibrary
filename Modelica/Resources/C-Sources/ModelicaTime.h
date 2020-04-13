@@ -31,6 +31,7 @@
 
 /* The following #define's are available.
 
+   NO_LOCALE      : locale.h is not present (e.g. on AVR).
    NO_TIME        : Functions localtime or mktime are not present
    MODELICA_EXPORT: Prefix used for function calls. If not defined, blank is used
                     Useful definition:
