@@ -243,6 +243,25 @@ end FileSystem;
 
   package Time "Internal package with external functions as interface to date and time"
     extends Modelica.Icons.InternalPackage;
+
+    pure function diffTime "Convert local time to elapsed seconds since custom epoch year"
+      extends Modelica.Icons.Function;
+      input Integer ms "Millisecond";
+      input Integer sec "Second";
+      input Integer min "Minute";
+      input Integer hour "Hour";
+      input Integer day "Day";
+      input Integer mon "Month";
+      input Integer year "Year";
+      input Integer epoch_year = 1970 "Reference year";
+      output Real seconds "Elapsed seconds since epoch_year in the current time zone";
+      external "C" seconds = ModelicaTime_difftime(ms, sec, min, hour, day, mon, year, epoch_year)
+        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.c\"");
+      annotation (Documentation(info="<html>
+TODO
+</html>"));
+    end diffTime;
+
     impure function getTime "Retrieve the local time (in the local time zone)"
       extends Modelica.Icons.Function;
       output Integer ms "Millisecond";
@@ -342,7 +361,7 @@ TODO
 
     pure function stringToTime "Retrieve the local time (in the local time zone) from formatted string"
       extends Modelica.Icons.Function;
-      input String str "Formatted data and time string";
+      input String str "Formatted date and time string";
       input String format = "%Y-%m-%d %H:%M:%S" "Format string passed to strptime";
       output Integer ms "Millisecond";
       output Integer sec "Second";
@@ -358,12 +377,31 @@ TODO
 </html>"));
     end stringToTime;
 
+    pure function timeToString "Convert the local time (in the local time zone) to string"
+      extends Modelica.Icons.Function;
+      input Integer ms "Millisecond";
+      input Integer sec "Second";
+      input Integer min "Minute";
+      input Integer hour "Hour";
+      input Integer day "Day";
+      input Integer mon "Month";
+      input Integer year "Year";
+      input String format = "%Y-%m-%d %H:%M:%S" "Format string passed to strftime";
+      input Integer maxSize = 128 "Maximal length of formatted string";
+      output String str "Formatted date and time string";
+      external "C99" str = ModelicaTime_strftime(ms, sec, min, hour, day, mon, year, format, maxSize)
+        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.c\"");
+      annotation (Documentation(info="<html>
+TODO
+</html>"));
+    end timeToString;
+
     function dayOfWeek "Return day of week for given date"
       extends Modelica.Icons.Function;
       input Integer year "Year";
       input Integer mon=1 "Month";
       input Integer day=1 "Day of month";
-      output Integer dow(min=1, max=7) "Day of week: 1 = Monday, ..., 6 = Saturday, 7 = Sunday"; 
+      output Integer dow(min=1, max=7) "Day of week: 1 = Monday, ..., 6 = Saturday, 7 = Sunday";
     protected
       constant Integer t[:] = {0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4};
       Integer y = year;
