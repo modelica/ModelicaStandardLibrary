@@ -865,7 +865,7 @@ DateTime.'constructor'.fromEpoch(1000, 2020); // explicit call of constructor. 1
           d2.milliseconds := d2.milliseconds + d2.seconds*1000;
         end if;
 
-        str := replace(format, "%%",            "%");
+        str := replace(format, "%%",            "%|");
         str := replace(str,    "%days",         String( d2.days));
         str := replace(str,    "%d",            string0(d2.days, l=2));
         str := replace(str,    "%hours",        String( d2.hours));
@@ -876,6 +876,7 @@ DateTime.'constructor'.fromEpoch(1000, 2020); // explicit call of constructor. 1
         str := replace(str,    "%S",            string0(d2.seconds, l=2));
         str := replace(str,    "%milliseconds", String( d2.milliseconds));
         str := replace(str,    "%L",            string0(d2.milliseconds, l=3));
+        str := replace(str   , "%|",            "%");
 
         annotation (Documentation(info="<html>
 <h4>Syntax</h4>
@@ -962,7 +963,7 @@ If e.g., only days and hours are part of the format string, minutes, seconds and
     </tr>
     <tr>
         <td>%%</td>
-        <td>single percent character. Not fully supported. See the Limitations section below.</td>
+        <td>single percent character</td>
         <td>%</td>
     </tr>
 </table>
@@ -979,22 +980,6 @@ String(d, format=\"%Hh %S.%L''\")  // = \"26h 184.005''\" (days are included in 
 String(d, format=\"%days'\")          // = \"1\" (only full days are shown, rest is stripped off)
 </pre>
 </blockquote>
-
-<h4>Limitations</h4>
-<p>
-This function uses simple string replace methods to exchange the conversion specifiers with the appropriate values.
-</p>
-<p>
-When additional % characters are included in the format string (via %%) problems can occur, like shown below.
-</p>
-
-<blockquote>
-<pre>
-// ANTI-EXAMPLE - do not use
-String(d, format=\"%%days\")  // Should give \"%days\", but gives \"1\" instead
-</pre>
-</blockquote>
-
 </html>"));
       end formatted;
       annotation (Documentation(info="<html>
