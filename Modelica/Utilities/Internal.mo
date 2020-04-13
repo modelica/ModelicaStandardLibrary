@@ -290,25 +290,25 @@ All returned values are of type Integer and have the following meaning:
     <th>Range</th>
     <th>Description</th></tr>
 
-<tr><td>ms</td> <td>0 .. 999</td>
+<tr><td>ms</td> <td>0&nbsp;&hellip;&nbsp;999</td>
     <td>Milli-seconds after seconds</td></tr>
 
-<tr><td>sec</td> <td>0 .. 59</td>
+<tr><td>sec</td> <td>0&nbsp;&hellip;&nbsp;59</td>
     <td>Seconds after minute</td></tr>
 
-<tr><td>min</td> <td>0 .. 59</td>
+<tr><td>min</td> <td>0&nbsp;&hellip;&nbsp;59</td>
     <td>Minutes after hour</td></tr>
 
-<tr><td>hour</td> <td>0 .. 23</td>
+<tr><td>hour</td> <td>0&nbsp;&hellip;&nbsp;23</td>
     <td>Hours after midnight</td></tr>
 
-<tr><td>day</td> <td>1 .. 31</td>
+<tr><td>day</td> <td>1&nbsp;&hellip;&nbsp;31</td>
     <td>Day of month</td></tr>
 
-<tr><td>mon</td> <td>1 .. 12</td>
+<tr><td>mon</td> <td>1&nbsp;&hellip;&nbsp;12</td>
     <td>Current month</td></tr>
 
-<tr><td>year</td> <td>&ge; 2015</td>
+<tr><td>year</td> <td>&ge; 1970</td>
     <td>Current year</td></tr>
 </table>
 </blockquote>
