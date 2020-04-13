@@ -27,11 +27,11 @@ static char *repl_str(const char *str, const char *from, const char *to) {
     char *pret, *ret = NULL;
     const char *pstr2, *pstr = str;
     size_t i, count = 0;
-    #if (__STDC_VERSION__ >= 199901L)
+#if (__STDC_VERSION__ >= 199901L)
     uintptr_t *pos_cache_tmp, *pos_cache = NULL;
-    #else
+#else
     ptrdiff_t *pos_cache_tmp, *pos_cache = NULL;
-    #endif
+#endif
     size_t cache_sz = 0;
     size_t cpylen, orglen, retlen, tolen, fromlen = strlen(from);
 
@@ -42,7 +42,13 @@ static char *repl_str(const char *str, const char *from, const char *to) {
         /* Increase the cache size when necessary. */
         if (cache_sz < count) {
             cache_sz += cache_sz_inc;
+#if defined(__cplusplus) && __STDC_VERSION__ >= 199901L
+            pos_cache_tmp = (uintptr_t*)realloc(pos_cache, sizeof(*pos_cache) * cache_sz);
+#elif defined(__cplusplus)
+            pos_cache_tmp = (ptrdiff_t*)realloc(pos_cache, sizeof(*pos_cache) * cache_sz);
+#else
             pos_cache_tmp = realloc(pos_cache, sizeof(*pos_cache) * cache_sz);
+#endif
             if (pos_cache_tmp == NULL) {
                 goto end_repl_str;
             } else pos_cache = pos_cache_tmp;
@@ -63,7 +69,11 @@ static char *repl_str(const char *str, const char *from, const char *to) {
         tolen = strlen(to);
         retlen = orglen + (tolen - fromlen) * count;
     } else  retlen = orglen;
+#if defined(__cplusplus)
+    ret = (char*)malloc(retlen + 1);
+#else
     ret = malloc(retlen + 1);
+#endif
     if (ret == NULL) {
         goto end_repl_str;
     }
