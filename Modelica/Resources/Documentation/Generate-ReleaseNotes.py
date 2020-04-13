@@ -28,7 +28,7 @@ IssueType = IntEnum(
     ]
 )
 
-def main(dir, milestone, version):
+def main(dir, milestone, version, auth):
     owner = 'modelica'
     repo = 'ModelicaStandardLibrary'
     template = 'Modelica-ReleaseNotes-Template.html'
@@ -36,8 +36,11 @@ def main(dir, milestone, version):
     # Filter closed issues (including pull requests) on milestone in ascending order
     p = {'state': 'closed', 'milestone': milestone, 'page': 1, 'per_page': 100, 'direction': 'asc'}
     url = 'https://api.github.com/repos/{0}/{1}/issues'.format(owner, repo)
-    r = requests.get(url, params=p)
+    r = requests.get(url, params=p, auth=auth)
     data = json.loads(r.text or r.content)
+    if not isinstance(data, list):
+        print(data)
+        return
     issues = defaultdict(lambda: defaultdict(list))
     cntTotal = 0
     cntPR = 0
@@ -82,8 +85,11 @@ def main(dir, milestone, version):
             for l in labels:
                 issues[l][issueType].append((t, n, url))
         if 'next' in r.links:
-            r = requests.get(r.links['next']['url'])
+            r = requests.get(r.links['next']['url'], auth=auth)
             data = json.loads(r.text or r.content)
+            if not isinstance(data, list):
+                print(data)
+                return
         else:
             break
 
@@ -147,4 +153,7 @@ if __name__ == '__main__':
         milestone = sys.argv[1]
         version = sys.argv[2]
 
-    main(module_dir, milestone, version)
+    # Specify user authorization in case of exceeded rate limit
+    # auth = ('user name', 'access token') or ('client id', 'client secret')
+    auth = None
+    main(module_dir, milestone, version, auth)
