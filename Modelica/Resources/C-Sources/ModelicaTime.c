@@ -75,15 +75,28 @@ double ModelicaTime_difftime(int ms, int sec, int min, int hour, int mday,
 #if defined(NO_TIME)
     return 0.0;
 #else
-    const time_t endTime = epoch(sec, min, hour, mday, mon, year);
-    if (1970 == refYear) {
-        /* Avoid calling mktime for New Year 1970 in local time zone */
-        const time_t startTime = epoch(0, 0, 0, 2, 1, 1970);
-        return difftime(endTime, startTime) + 86400.0 + ms/1000.0;
+    if (1 == mday && 1 == mon) {
+        if (year == refYear) {
+            return ms/1000.0;
+        }
+        else if (1970 == year) {
+            /* Avoid calling mktime for New Year 1970 in local time zone */
+            const time_t endTime = epoch(sec, min, hour, 2, 1, 1970);
+            const time_t startTime = epoch(0, 0, 0, 1, 1, refYear);
+            return difftime(endTime, startTime) - 86400.0 + ms/1000.0;
+        }
     }
-    else {
-        const time_t startTime = epoch(0, 0, 0, 1, 1, refYear);
-        return difftime(endTime, startTime) + ms/1000.0;
+    {
+        const time_t endTime = epoch(sec, min, hour, mday, mon, year);
+        if (1970 == refYear) {
+            /* Avoid calling mktime for New Year 1970 in local time zone */
+            const time_t startTime = epoch(0, 0, 0, 2, 1, 1970);
+            return difftime(endTime, startTime) + 86400.0 + ms/1000.0;
+        }
+        else {
+            const time_t startTime = epoch(0, 0, 0, 1, 1, refYear);
+            return difftime(endTime, startTime) + ms/1000.0;
+        }
     }
 #endif
 }
