@@ -52,13 +52,15 @@ time_t epoch(int sec, int min, int hour, int mday, int mon, int year) {
     struct tm tlocal;
     time_t calendarTime;
 
-    memset(&tlocal, 0, sizeof(struct tm));
     tlocal.tm_sec = sec;
     tlocal.tm_min = min;
     tlocal.tm_hour = hour;
     tlocal.tm_mday = mday;
     tlocal.tm_mon = mon - 1;
     tlocal.tm_year = year - 1900;
+    tlocal.tm_isdst = -1;
+    tlocal.tm_wday = 0;
+    tlocal.tm_yday = 0;
 
     calendarTime = mktime(&tlocal);
     if (-1 == calendarTime) {
