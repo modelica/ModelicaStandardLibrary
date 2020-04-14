@@ -972,7 +972,7 @@ If e.g., only days and hours are part of the format string, minutes, seconds and
 <blockquote>
 <pre>
 import Modelica.Utilities.Time.Duration;
-d = Duration(days=1, hour=2, minutes=3, seconds=4, milliseconds=5);
+d = Duration(days=1, hours=2, minutes=3, seconds=4, milliseconds=5);
 
 String(d)                        // = \"1d 2h 3min 4s 5ms\"
 String(d, \"%hoursh %secondss\")   // = \"26h 184s\" (days are included in hours, minutes in seconds, ms stripped off)
