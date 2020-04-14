@@ -846,7 +846,7 @@ extends Modelica.Icons.ExamplesPackage;
     end for;
 
     // sum
-    assert(sum(Duration(days=i) for i in 1:2) == Duration(days=3), "sum failed");
+    assert(sum(Duration(i, 0, 0, 0, 0) for i in 1:2) == Duration(3, 0, 0, 0, 0), "sum failed");
 
     // return result
     ok := true;

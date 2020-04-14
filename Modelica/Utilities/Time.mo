@@ -708,11 +708,11 @@ DateTime.'constructor'.fromEpoch(1000, 2020); // explicit call of constructor. 1
       function fromInput "Create Duration field by field from user input"
         extends Function;
 
-        input Integer days=0 "Days";
-        input Integer hours=0 "Hours";
-        input Integer minutes=0 "Minutes";
-        input Integer seconds=0 "Seconds";
-        input Integer milliseconds=0 "Milliseconds";
+        input Integer days "Days";
+        input Integer hours "Hours";
+        input Integer minutes "Minutes";
+        input Integer seconds "Seconds";
+        input Integer milliseconds "Milliseconds";
         output Duration d(days=days, hours=hours, minutes=minutes, seconds=seconds, milliseconds=milliseconds) "Duration";
 
       algorithm
@@ -767,7 +767,7 @@ DateTime.'constructor'.fromEpoch(1000, 2020); // explicit call of constructor. 1
         extends Function;
         import Modelica.Math.nearestInteger;
 
-        input Real totalSeconds "Duration in seconds. Decimal place is converted to milliseconds";
+        input Real totalSeconds=0 "Duration in seconds. Decimal place is converted to milliseconds";
         output Duration d "Duration with input converted to seconds and milliseconds";
 
       protected
@@ -1385,9 +1385,9 @@ The examples below demonstrate the different methods to create a Duration record
 import Modelica.Utilities.Time.Duration;
 
 // Create Duration records from direct input
-Duration();                                      // create Duration record using default constructor, which is fromInput
-Duration.'constructor'.fromInput(hours=10);      // explicit call of constructor
-Duration(days=1, seconds=100);                   // automatic selection of constructor fromInput
+Duration.'constructor'.fromInput(10, 0, 0, 0, 0);                  // explicit call of constructor
+Duration(days=10, hours=0, minutes=0, seconds=00, milliseconds=0); // automatic selection of constructor fromInput
+Duration(10, 0, 0, 0, 0);                                          // automatic selection of constructor fromInput
 
 // Create Duration records from two DateTimes
 import Modelica.Utilities.Time.DateTime;
@@ -1398,6 +1398,7 @@ Duration(dt1, dt2);                              // automatic selection of const
 Duration(dt1=dt1, dt2=dt2);                      // automatic selection of constructor via names
 
 // Create Duration records manually using the elapsed seconds since the given epoch year
+Duration();                                      // create Duration record using default constructor, which is fromSeconds
 Duration.'constructor'.fromSeconds(1);           // explicit call of constructor
 Duration(totalSeconds=1.5);                      // automatic selection of constructor via name
 </pre>
