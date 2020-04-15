@@ -815,7 +815,9 @@ extends Modelica.Icons.ExamplesPackage;
     assert(ref==act, "d1/2 failed");
 
     // '0'
-    // todo
+    ref := Duration(days=0, hours=0, minutes=0, seconds=0, milliseconds=0);
+    act := Duration.'0'();
+    assert(ref==act, "'0' failed");
 
     // asVector
     ref_v :={0, 23, 59, 59, 999};
