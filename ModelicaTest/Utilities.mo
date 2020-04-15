@@ -392,19 +392,20 @@ extends Modelica.Icons.ExamplesPackage;
 
   function Time "Test functions of Modelica.Utilities.Time"
     import Modelica.Utilities.Streams;
+    import Modelica.Utilities.Time.{DateTime, dayOfWeek, getTime, isLeapYear, leapDays};
     extends Modelica.Icons.Function;
     input String logFile="ModelicaTestLog.txt"
       "Filename where the log is stored";
     input String weekDays[7] = Modelica.Utilities.Time.weekDays "Array of week days";
     output Boolean ok;
   protected
-    Modelica.Utilities.Types.TimeType now;
+    DateTime now;
     Integer dow(min=1, max=7) "Day of week";
   algorithm
     Streams.print("... Test of Modelica.Utilities.Time");
     Streams.print("... Test of Modelica.Utilities.Time", logFile);
 
-    now := Modelica.Utilities.Time.getTime();
+    now := getTime();
     Streams.print("    ms   = " + String(now.millisecond));
     Streams.print("    sec  = " + String(now.second));
     Streams.print("    min  = " + String(now.minute));
@@ -412,26 +413,25 @@ extends Modelica.Icons.ExamplesPackage;
     Streams.print("    day  = " + String(now.day));
     Streams.print("    mon  = " + String(now.month));
     Streams.print("    year = " + String(now.year));
-    dow := Modelica.Utilities.Time.dayOfWeek(now);
+    dow := dayOfWeek(now);
     Streams.print("    dow  = " + weekDays[dow]);
 
-    dow := Modelica.Utilities.Time.dayOfWeek(
-      Modelica.Utilities.Types.TimeType(year=2019, month=12, day=8, hour=12, minute=0, second=0, millisecond=0));
+    dow := dayOfWeek(DateTime(year=2019, month=12, day=8, hour=12, minute=0, second=0, millisecond=0));
     assert(7 == dow, "Time.dayOfWeek failed");
 
-    assert(not Modelica.Utilities.Time.isLeapYear(1900), "Time.isLeapYear failed");
-    assert(Modelica.Utilities.Time.isLeapYear(2000), "Time.isLeapYear failed");
-    assert(not Modelica.Utilities.Time.isLeapYear(2019), "Time.isLeapYear failed");
-    assert(Modelica.Utilities.Time.isLeapYear(2020), "Time.isLeapYear failed");
+    assert(not isLeapYear(1900), "Time.isLeapYear failed");
+    assert(isLeapYear(2000), "Time.isLeapYear failed");
+    assert(not isLeapYear(2019), "Time.isLeapYear failed");
+    assert(isLeapYear(2020), "Time.isLeapYear failed");
 
-    assert(0 == Modelica.Utilities.Time.leapDays(2000, 2000), "Time.leapDays failed");
-    assert(5 == Modelica.Utilities.Time.leapDays(2000, 2020), "Time.leapDays failed");
-    assert(-5 == Modelica.Utilities.Time.leapDays(2020, 2000), "Time.leapDays failed");
-    assert(5 == Modelica.Utilities.Time.leapDays(-2020, -2000), "Time.leapDays failed");
-    assert(98 == Modelica.Utilities.Time.leapDays(1600, 2001), "Time.leapDays failed");
-    assert(97 == Modelica.Utilities.Time.leapDays(1601, 2001), "Time.leapDays failed");
-    assert(97 == Modelica.Utilities.Time.leapDays(1600, 2000), "Time.leapDays failed");
-    assert(96 == Modelica.Utilities.Time.leapDays(1601, 2000), "Time.leapDays failed");
+    assert(0 == leapDays(2000, 2000), "Time.leapDays failed");
+    assert(5 == leapDays(2000, 2020), "Time.leapDays failed");
+    assert(-5 == leapDays(2020, 2000), "Time.leapDays failed");
+    assert(5 == leapDays(-2020, -2000), "Time.leapDays failed");
+    assert(98 == leapDays(1600, 2001), "Time.leapDays failed");
+    assert(97 == leapDays(1601, 2001), "Time.leapDays failed");
+    assert(97 == leapDays(1600, 2000), "Time.leapDays failed");
+    assert(96 == leapDays(1601, 2000), "Time.leapDays failed");
 
     ok := true;
   end Time;
