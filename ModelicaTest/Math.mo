@@ -33,10 +33,10 @@ extends Modelica.Icons.ExamplesPackage;
     assert(Math.isPowerOf2(4), "isPowerOf2(4) is wrong");
     assert(not Math.isPowerOf2(9), "isPowerOf2(9) is wrong");
 
-    assert(Math.nearestInteger(1.4999)==1, "nearesetInteger(1.4999) failed");
-    assert(Math.nearestInteger(1.5)==2, "nearesetInteger(1.5) failed");
-    assert(Math.nearestInteger(-1.4999)==-1, "nearesetInteger(-1.4999) failed");
-    assert(Math.nearestInteger(-1.5)==-2, "nearesetInteger(-1.5) failed");
+    assert(Math.nearestInteger(1.4999)==1, "nearestInteger(1.4999) failed");
+    assert(Math.nearestInteger(1.5)==2, "nearestInteger(1.5) failed");
+    assert(Math.nearestInteger(-1.4999)==-1, "nearestInteger(-1.4999) failed");
+    assert(Math.nearestInteger(-1.5)==-2, "nearestInteger(-1.5) failed");
     // Test deactivated - would fail with current implementation
     // assert(Math.nearestInteger(1.49999999999999999999)==1, "nearestInteger border case failed");
 
