@@ -199,7 +199,7 @@ isEmpty(\"a\");      // returns false
     if length(searchString) > 0 then
       result := find(string, searchString, 1, caseSensitive) > 0;
     else
-      result := string == searchString;
+      result := true;
     end if;
 
     annotation (Documentation(info="<html>
@@ -212,8 +212,11 @@ Strings.<strong>contains</strong>(string, searchString, caseSensitive=true);
 
 <h4>Description</h4>
 <p>
-    Returns true if \"searchString\" can be found at any position in \"string\". Otherwise, false is returned.
+    Returns true if \"searchString\" is a substring of \"string\". Otherwise, false is returned.
     The optional argument \"caseSensitive\" controls if substrings match, which differ in case only.
+</p>
+<p>
+    Empty strings are treated as substring of all strings. Therefore, the result is always true if \"searchString\" is empty.
 </p>
 
 <h4>Example</h4>
@@ -225,6 +228,7 @@ contains(\"foobar\", \"OO\", false);  // returns true
 contains(\"foo\", \"bar\");           // returns false
 contains(\"foo\", \"\");              // returns false
 contains(\"\", \"\");                 // returns true
+contains(\"foo\", \"\");              // returns true
 </pre></blockquote>
 </html>"));
   end contains;
