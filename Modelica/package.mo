@@ -2400,6 +2400,16 @@ compared with the simulation results produced with version 4.0.0 Beta.1. The tes
     <td>LBNL</td>
   </tr>
   <tr>
+    <td>Clara</td>
+    <td>1.5.0</td>
+    <td>XRG Simulation GmbH and TLK-Thermo GmbH</td>
+  </tr>
+  <tr>
+    <td>ClaraPlus</td>
+    <td>1.3.0</td>
+    <td>XRG Simulation GmbH and TLK-Thermo GmbH</td>
+  </tr>
+  <tr>
     <td>DriveControl</td>
     <td>4.0.0</td>
     <td>Anton Haumer</td>
@@ -2458,6 +2468,26 @@ compared with the simulation results produced with version 4.0.0 Beta.1. The tes
     <td>PlanarMechanics</td>
     <td>1.4.1</td>
     <td>Dirk Zimmer</td>
+  </tr>
+  <tr>
+    <td>ThermalSystems</td>
+    <td>1.6.0</td>
+    <td>TLK-Thermo GmbH</td>
+  </tr>
+  <tr>
+    <td>TIL</td>
+    <td>3.9.0</td>
+    <td>TLK-Thermo GmbH</td>
+  </tr>
+  <tr>
+    <td>TILMedia</td>
+    <td>3.9.0</td>
+    <td>TLK-Thermo GmbH</td>
+  </tr>
+  <tr>
+    <td>TSMedia</td>
+    <td>1.6.0</td>
+    <td>TLK-Thermo GmbH</td>
   </tr>
   <tr>
     <td>VehicleInterfaces</td>
