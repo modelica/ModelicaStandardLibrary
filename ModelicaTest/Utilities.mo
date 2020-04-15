@@ -686,8 +686,8 @@ extends Modelica.Icons.ExamplesPackage;
     assert(dt3<=dt3, "dt3<=dt3 failed");
 
     // - subtract
-    assert(dt2-dt1==Duration(milliseconds=1),  "dt2-dt1 failed");
-    assert(dt1-dt2==Duration(milliseconds=-1), "dt1-dt2 failed");
+    assert(dt2-dt1==Duration(days=0, hours=0, minutes=0, seconds=0, milliseconds=1),  "dt2-dt1 failed");
+    assert(dt1-dt2==Duration(days=0, hours=0, minutes=0, seconds=0, milliseconds=-1), "dt1-dt2 failed");
 
 
     // return result
