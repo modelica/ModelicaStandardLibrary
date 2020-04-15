@@ -79,7 +79,7 @@ double ModelicaTime_difftime(int ms, int sec, int min, int hour, int mday,
 #else
     if (1 == mday && 1 == mon) {
         if (year == refYear) {
-            return ms/1000.0;
+            return 60 * (60 * hour + min) + sec + ms/1000.0;
         }
         else if (1970 == year) {
             /* Avoid calling mktime for New Year 1970 in local time zone */
