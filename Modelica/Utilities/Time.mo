@@ -730,9 +730,7 @@ DateTime.'constructor'.fromEpoch(1000, 2020); // explicit call of constructor. 1
 
       protected
         Real diff;
-        Integer sign_;
         Real e1, e2;
-        DateTime dt_tmp;
         Integer days "Elapsed days";
         Integer hours "Elapsed hours";
         Integer minutes "Elapsed minutes";
@@ -740,13 +738,10 @@ DateTime.'constructor'.fromEpoch(1000, 2020); // explicit call of constructor. 1
         Integer milliseconds "Elapsed milliseconds";
 
       algorithm
-        dt_tmp := dt2;
-
         e1 := DateTime.epoch(dt1, epoch_year=dt1.year);
-        e2 := DateTime.epoch(dt_tmp, epoch_year=dt1.year);
+        e2 := DateTime.epoch(dt2, epoch_year=dt1.year);
 
         diff := abs(e2 - e1);
-        sign_ := sign(e2 - e1);
 
         days := integer(diff/(24*3600));
         hours := integer(diff/3600 - days*24);
@@ -754,12 +749,10 @@ DateTime.'constructor'.fromEpoch(1000, 2020); // explicit call of constructor. 1
         seconds := integer(diff - (days*24 + hours)*3600 - minutes*60);
         milliseconds := nearestInteger(rem(diff,1)*1000);
 
-        hours := sign_*hours;
-        minutes := sign_*minutes;
-        seconds := sign_*seconds;
-        milliseconds := sign_*milliseconds;
-
         d := Duration(days=days, hours=hours, minutes=minutes, seconds=seconds, milliseconds=milliseconds);
+        if e2 < e1 then
+          d := -d;
+        end if;
 
       end fromDateTimes;
 
@@ -876,7 +869,7 @@ DateTime.'constructor'.fromEpoch(1000, 2020); // explicit call of constructor. 1
         str := replace(str,    "%S",            string0(d2.seconds, l=2));
         str := replace(str,    "%milliseconds", String( d2.milliseconds));
         str := replace(str,    "%L",            string0(d2.milliseconds, l=3));
-        str := replace(str   , "%|",            "%");
+        str := replace(str,    "%|",            "%");
 
         annotation (Documentation(info="<html>
 <h4>Syntax</h4>
