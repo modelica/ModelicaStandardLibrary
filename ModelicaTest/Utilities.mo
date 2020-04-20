@@ -685,10 +685,21 @@ extends Modelica.Icons.ExamplesPackage;
     assert(dt2<=dt3, "dt2<=dt3 failed");
     assert(dt3<=dt3, "dt3<=dt3 failed");
 
-    // - subtract
+    // + add Duration
+    dt0 := DateTime("2020-04-20 04:30:00");
+    d := Duration(days=11, hours=2, minutes=3, seconds=100, milliseconds=0);
+    ref_dt := DateTime("2020-05-01 06:34:40");
+    assert(dt0+d==ref_dt,  "DateTime+Duration failed");
+    assert(d+dt0==ref_dt,  "Duration+DateTime failed");
+
+    // - subtract DateTime
     assert(dt2-dt1==Duration(days=0, hours=0, minutes=0, seconds=0, milliseconds=1),  "dt2-dt1 failed");
     assert(dt1-dt2==Duration(days=0, hours=0, minutes=0, seconds=0, milliseconds=-1), "dt1-dt2 failed");
 
+    // - subtract Duration
+    act_dt := DateTime("2020-04-20 04:30:00") - Duration(days=10, hours=2, minutes=3, seconds=4, milliseconds=0);
+    ref_dt := DateTime("2020-04-10 02:26:56");
+    assert(act_dt==ref_dt,  "DateTime-Duration failed");
 
     // return result
     ok := true;

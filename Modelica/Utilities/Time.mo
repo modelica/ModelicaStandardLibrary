@@ -580,11 +580,61 @@ String(dt, format=\"%A, %d. %B %y, %H:%M:%S.%L\")  // = \"Thursday, 24. December
 
     end '<=';
 
+    encapsulated operator '+' "Add to DateTime"
+      function add_Duration1 "Add Duration d to DateTime dt"
+
+        import Modelica.Utilities.Time.{DateTime, Duration};
+        import Modelica.Icons.Function;
+        extends Function;
+
+        input DateTime dt;
+        input Duration d;
+        output DateTime result "= dt + d";
+
+      algorithm
+        result := DateTime.'constructor'.fromEpoch(DateTime.epoch(dt) + Duration.inSeconds(d));
+
+      end add_Duration1;
+
+      function add_Duration2 "Add Duration d to DateTime dt - swapped input"
+
+        import Modelica.Utilities.Time.{DateTime, Duration};
+        import Modelica.Icons.Function;
+        extends Function;
+
+        input Duration d;
+        input DateTime dt;
+        output DateTime result "= d + dt";
+
+      algorithm
+        result := DateTime.'+'.add_Duration1(dt, d);
+
+      end add_Duration2;
+
+      annotation (Icon(graphics={
+          Rectangle(
+            lineColor={200,200,200},
+            fillColor={248,248,248},
+            fillPattern=FillPattern.HorizontalCylinder,
+            extent={{-100,-102},{100,98}},
+            radius=25),
+          Rectangle(
+            lineColor={128,128,128},
+            extent={{-100,-102},{100,98}},
+            radius=25),
+          Line(
+            points={{-50,0},{50,0}}),
+          Line(
+            points={{-50,0},{50,0}},
+              origin={0,0},
+              rotation=90)}));
+    end '+';
+
     encapsulated operator '-' "Binary minus"
       import Modelica.Utilities.Time.DateTime;
       import Modelica.Icons.Function;
 
-      function subtract "Return time delta between dt2 and dt1 as Duration"
+      function subtract_DateTime "Return time delta between dt2 and dt1 as Duration"
         extends Function;
 
         import Modelica.Utilities.Time.Duration;
@@ -596,7 +646,22 @@ String(dt, format=\"%A, %d. %B %y, %H:%M:%S.%L\")  // = \"Thursday, 24. December
       algorithm
         result := Duration.'constructor'.fromDateTimes(dt2, dt1);
 
-      end subtract;
+      end subtract_DateTime;
+
+      function subtract_Duration "Subtract Duration d from DateTime dt"
+        extends Function;
+
+        import Modelica.Utilities.Time.Duration;
+
+        input DateTime dt;
+        input Duration d;
+        output DateTime result "= dt - d";
+
+      algorithm
+        result := DateTime.'constructor'.fromEpoch(DateTime.epoch(dt) - Duration.inSeconds(d));
+
+      end subtract_Duration;
+
     annotation (Documentation(info="<html>
 <p>Here the binary minus operator is defined.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
