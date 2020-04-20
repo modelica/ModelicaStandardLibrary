@@ -737,6 +737,14 @@ extends Modelica.Icons.ExamplesPackage;
     act := Duration(totalSeconds=-1.499);
     assert(ref==act, "constructor test 3 failed (fromSeconds vs fromDateTimes, negative result)");
 
+    ref := Duration(days=-8, hours=-23, minutes=-30, seconds=-0, milliseconds=0);
+    act := Duration(DateTime("2020-1-10 0:0:0"), DateTime("2020-1-1 0:30:0"));
+    assert(ref==act, "constructor test 4a failed (fromInput vs fromDateTimes, negative result)");
+
+    ref_r := -775800.0;
+    act_r := Duration.inSeconds(act);
+    assert(ref_r==act_r, "constructor test 4b failed (real vs fromDateTimes in seconds, negative result)");
+
     // 'String'.formated
     ref_s :="1d 1h 1min 1s 1ms";
     act_s :=String(d1);
