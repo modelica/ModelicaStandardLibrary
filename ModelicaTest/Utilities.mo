@@ -445,13 +445,15 @@ extends Modelica.Icons.ExamplesPackage;
     extends Modelica.Icons.Function;
 
     input String logFile="ModelicaTestLog.txt" "Filename where the log is stored";
+    input Boolean test_past = true "Optionally run / skip tests for DateTimes before epoch year 1970";
     output Boolean ok;
 
   protected
     Real act_r, ref_r;
     String act_s, ref_s;
     DateTime act_dt, ref_dt;
-    DateTime dt1, dt2, dt3;
+    DateTime dt0, dt1, dt2, dt3;
+    Duration d;
     Integer _ "Dummy to swallow return value";
 
   algorithm
@@ -597,38 +599,40 @@ extends Modelica.Icons.ExamplesPackage;
     assert(ref_dt==act_dt, "constructor test failed (end of leap year)");
     assert(ref_r==act_r, "conversion to epoch failed (end of leap year)");
 
-    // lowest value for 32bit integer
-    // this test is not relevant, as datatype Real is used to count
-    // seconds from epoch. Would be needed, if Integer is used instead
-    // (for whatever reason). But it does not hurt to have it, so we keep it.
-    ref_dt:= DateTime(1901, 12, 13, 20, 45, 53, 0);
-    ref_r := -2147483647;
+    if test_past then
+      // lowest value for 32bit integer
+      // this test is not relevant, as datatype Real is used to count
+      // seconds from epoch. Would be needed, if Integer is used instead
+      // (for whatever reason). But it does not hurt to have it, so we keep it.
+      ref_dt:= DateTime(1901, 12, 13, 20, 45, 53, 0);
+      ref_r := -2147483647;
 
-    act_dt:= DateTime(ref_r);
-    act_r := DateTime.epoch(ref_dt);
+      act_dt:= DateTime(ref_r);
+      act_r := DateTime.epoch(ref_dt);
 
-    assert(ref_dt==act_dt, "constructor test failed (lowest possible value for 32bit integer)");
-    assert(ref_r==act_r, "conversion to epoch failed (lowest possible value for 32bit integer)");
+      assert(ref_dt==act_dt, "constructor test failed (lowest possible value for 32bit integer)");
+      assert(ref_r==act_r, "conversion to epoch failed (lowest possible value for 32bit integer)");
 
-    // regular year in past
-    ref_dt:= DateTime(1910, 12, 31, 1, 59, 59, 0);
-    ref_r := -1861999201;
+      // regular year in past
+      ref_dt:= DateTime(1910, 12, 31, 1, 59, 59, 0);
+      ref_r := -1861999201;
 
-    act_dt:= DateTime(ref_r);
-    act_r := DateTime.epoch(ref_dt);
+      act_dt:= DateTime(ref_r);
+      act_r := DateTime.epoch(ref_dt);
 
-    assert(ref_dt==act_dt, "constructor test failed (regular year before epoch)");
-    assert(ref_r==act_r, "conversion to epoch failed (regular year before epoch)");
+      assert(ref_dt==act_dt, "constructor test failed (regular year before epoch)");
+      assert(ref_r==act_r, "conversion to epoch failed (regular year before epoch)");
 
-    // leap year in past
-    ref_dt:= DateTime(1912, 12, 31, 1, 59, 59, 0);
-    ref_r := -1798840801;
+      // leap year in past
+      ref_dt:= DateTime(1912, 12, 31, 1, 59, 59, 0);
+      ref_r := -1798840801;
 
-    act_dt:= DateTime(ref_r);
-    act_r := DateTime.epoch(ref_dt);
+      act_dt:= DateTime(ref_r);
+      act_r := DateTime.epoch(ref_dt);
 
-    assert(ref_dt==act_dt, "constructor test failed (leap regular year before epoch)");
-    assert(ref_r==act_r, "conversion to epoch failed (leap regular year before epoch)");
+      assert(ref_dt==act_dt, "constructor test failed (leap regular year before epoch)");
+      assert(ref_r==act_r, "conversion to epoch failed (leap regular year before epoch)");
+    end if;
 
     // compare two DateTime records created from system time. dt2 should be a few seconds later than dt1
     dt1 :=DateTime();
