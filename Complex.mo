@@ -236,8 +236,8 @@ operator record Complex "Complex number with overloaded operators"
 
 annotation (
 version="4.0.0",
-versionDate="2020-03-11",
-dateModified = "2020-03-11 19:00:00Z",
+versionDate="2020-05-04",
+dateModified = "2020-05-04 19:00:00Z",
 revisionId="$Format:%h %ci$",
 conversion(
  noneFromVersion="3.2.2",
