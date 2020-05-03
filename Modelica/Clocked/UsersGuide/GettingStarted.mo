@@ -1,5 +1,5 @@
 within Modelica.Clocked.UsersGuide;
-package GettingStarted "Getting started"
+class GettingStarted "Getting started"
   extends Modelica.Icons.Information;
 
   annotation (Documentation(info="<html>
