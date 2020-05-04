@@ -7064,7 +7064,7 @@ The critical Reynolds number <strong>Re_crit</strong> in a helical pipe depends 
 <h4>Geometry </h4>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/HeatTransfer/HelicalPipe/pic_helicalPipe.png\" alt=\"pic_helicalPipe\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/HeatTransfer/HelicalPipe/helicalPipe.png\" alt=\"helicalPipe\"/>
 </p>
 
 <h4>Calculation</h4>
