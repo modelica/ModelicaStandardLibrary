@@ -2375,10 +2375,131 @@ Short Overview:
   </ol></li>
 <li>The licenses of the utilized open-source third-party software components as well as the BSD 3-clause license of the Modelica Standard Library itself are available as separate <a href=\"modelica://Modelica/Resources/Licenses\">resources</a>.</li>
 </ul>
+
 <p>
 The exact difference between package Modelica version 4.0.0 and version 3.2.3 is
 summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-4.0.0/DifferencesTo323.html\">comparison table</a>.
 </p>
+
+<p>
+The following <font color=\"blue\"><strong>Modelica packages</strong></font> have been tested that they work together with this release of package Modelica
+(alphabetical list).
+Hereby simulation results of the listed packages have been produced with package Modelica version 3.2.3 and
+compared with the simulation results produced with version 4.0.0 Beta.1. The tests have been performed with Dymola 2020/2020x:
+</p>
+
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+  <tr>
+    <th>Library</th>
+    <th>Version</th>
+    <th>Library provider</th>
+  </tr>
+  <tr>
+    <td><a href=\"https://github.com/lbl-srg/modelica-buildings/issues/1789\">Buildings</a></td>
+    <td>&nbsp;&gt;&nbsp;6.0.0</td>
+    <td>LBNL</td>
+  </tr>
+  <tr>
+    <td>Clara</td>
+    <td>1.5.0</td>
+    <td>XRG Simulation GmbH and TLK-Thermo GmbH</td>
+  </tr>
+  <tr>
+    <td>ClaraPlus</td>
+    <td>1.3.0</td>
+    <td>XRG Simulation GmbH and TLK-Thermo GmbH</td>
+  </tr>
+  <tr>
+    <td>DriveControl</td>
+    <td>4.0.0</td>
+    <td>Anton Haumer</td>
+  </tr>
+  <tr>
+    <td>EDrives</td>
+    <td>1.0.1</td>
+    <td>Anton Haumer and Christian Kral</td>
+  </tr>
+  <tr>
+    <td>ElectricalMachines</td>
+    <td>0.9.1</td>
+    <td>Anton Haumer</td>
+  </tr>
+  <tr>
+    <td>ElectroMechanicalDrives</td>
+    <td>2.2.0</td>
+    <td>Christian Kral</td>
+  </tr>
+  <tr>
+    <td>EMOTH</td>
+    <td>1.4.1</td>
+    <td>Anton Haumer</td>
+  </tr>
+  <tr>
+    <td>HanserModelica</td>
+    <td>1.1.0</td>
+    <td>Christian Kral</td>
+  </tr>
+  <tr>
+    <td>IBPSA</td>
+    <td>&nbsp;&gt;&nbsp;3.0.0</td>
+    <td>IBPSA Project 1</td>
+  </tr>
+  <tr>
+    <td>KeywordIO</td>
+    <td>0.9.0</td>
+    <td>Christian Kral</td>
+  </tr>
+  <tr>
+    <td>Modelica_DeviceDrivers</td>
+    <td>1.8.1</td>
+    <td>DLR, ESI ITI, and Linköping University (PELAB)</td>
+  </tr>
+  <tr>
+    <td>Optimization</td>
+    <td>2.2.4</td>
+    <td>DLR</td>
+  </tr>
+  <tr>
+    <td>PhotoVoltaics</td>
+    <td>1.6.0</td>
+    <td>Christian Kral</td>
+  </tr>
+  <tr>
+    <td>PlanarMechanics</td>
+    <td>1.4.1</td>
+    <td>Dirk Zimmer</td>
+  </tr>
+  <tr>
+    <td>ThermalSystems</td>
+    <td>1.6.0</td>
+    <td>TLK-Thermo GmbH</td>
+  </tr>
+  <tr>
+    <td>TIL</td>
+    <td>3.9.0</td>
+    <td>TLK-Thermo GmbH</td>
+  </tr>
+  <tr>
+    <td>TILMedia</td>
+    <td>3.9.0</td>
+    <td>TLK-Thermo GmbH</td>
+  </tr>
+  <tr>
+    <td>TSMedia</td>
+    <td>1.6.0</td>
+    <td>TLK-Thermo GmbH</td>
+  </tr>
+  <tr>
+    <td>VehicleInterfaces</td>
+    <td>1.2.5</td>
+    <td>Modelica Association</td>
+  </tr>
+  <tr>
+    <td>WindPowerPlants</td>
+    <td>1.2.0</td>
+    <td>Christian Kral</td>
+  </tr>
+</table>
 
 <p><br>
 The following <font color=\"blue\"><strong>new libraries</strong></font> have been added:
