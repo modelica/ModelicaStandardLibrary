@@ -5,7 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Modelica Documentation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-    <link href="Modelica%203.2.3/Resources/helpOM/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+    <link rel="stylesheet" href="Modelica%203.2.3/Resources/helpOM/style.css" />
   </head>
   <body class="md-body">
     <nav class="navbar navbar-light bg-light">
@@ -28,6 +29,9 @@
       <template id="md-tool-select">
         <div class="md-item p-0">
           <div class="row align-items-end">
+            <div class="col">
+              <input type="text" placeholder="Type your search..." class="form-control form-control-sm md-search-input">
+            </div>
             <div class="col">
               <div class="form-group m-0">
                 <!-- <label>Library:</label> -->
@@ -66,6 +70,7 @@
   </body>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 
   <script>
     var data = {
@@ -316,6 +321,14 @@
         );
       });
 
+
+      docsearch({
+        apiKey: '97b18f2173101844a41539b817e99337',
+        indexName: 'modelica',
+        inputSelector: '.md-search-input',
+        debug: true // Set debug to true if you want to inspect the dropdown
+        });
     });
   </script>
+
 </html>
