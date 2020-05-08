@@ -598,7 +598,7 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
     SI.Angle x=2*pi*f*(time - startTime);
   equation
     y = offset + (if time < startTime then 0 else amplitude*
-      (if noEvent(time - startTime)<eps then 1 else (sin(x))/x));
+      (if noEvent(time - startTime < eps) then 1 else (sin(x))/x));
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
