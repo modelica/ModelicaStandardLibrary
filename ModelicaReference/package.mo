@@ -433,7 +433,7 @@ Automatically display a list of matching choices in a graphical parameter menu.
 Choices menus of replaceable elements can be automatically constructed showing the names of all classes that are either directly or indirectly derived by inheritance from the constraining class of the declaration.
 </p>
 <p>
-This can be recommended by having  <code><strong>annotation</strong> choicesAllMatching = true;</code> and disabled by having  <code><strong>annotation</strong> choicesAllMatching = false;</code>.
+This can be recommended by having <code><strong>annotation</strong> choicesAllMatching = true;</code> and disabled by having <code><strong>annotation</strong> choicesAllMatching = false;</code>.
 </p>
 
 <h4>Examples</h4>
@@ -1622,7 +1622,7 @@ Define specialized class <em>block</em>
 
 <h4>Syntax</h4>
 
-<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>block</strong>
+<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial</strong>] <strong>block</strong>
    IDENT class_specifier
 
 class_specifier :
@@ -1666,7 +1666,7 @@ Define class
 <strong>end</strong> MyTable;</pre></blockquote>
 
 <h4>Syntax</h4>
-<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>class</strong>
+<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial</strong>] <strong>class</strong>
    IDENT class_specifier
 
 class_specifier :
@@ -1711,7 +1711,7 @@ Define specialized class <em>connector</em>
 <strong>end</strong> flange;</pre></blockquote>
 
 <h4>Syntax</h4>
-<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>connector</strong>
+<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial</strong>] <strong>connector</strong>
    IDENT class_specifier
 
 class_specifier :
@@ -1908,7 +1908,7 @@ The external C-functions may be defined in the following way:
   <strong>return</strong> (void*) table;
 }
 
-<strong>void </strong>closeMyTable(void* object) { /* Release table storage */
+<strong>void</strong> closeMyTable(void* object) { /* Release table storage */
   MyTable* table = (MyTable*) object;
   <strong>if</strong> ( object == NULL ) return;
   free(table->array);
@@ -2064,7 +2064,7 @@ Such errors will only be reported when and if the function is called.
 Pure Modelica functions are not assumed to be thread-safe.</li>
 <li>A Modelica function which does not have the pure function properties is impure.</li>
 </ul>
-<p>The declaration of functions follow these rules:</p>
+<p>The declaration of functions follows these rules:</p>
 <ul>
 <li>Functions defined in Modelica (non-external) are normally assumed to be pure (the exception is the deprecated case below),
 if they are impure they shall be marked with the impure keyword. They can be explicitly marked as pure.</li>
@@ -2088,11 +2088,13 @@ Define specialized class <em>function</em>
   y = <strong>if abs</strong>(x) &lt; Modelica.Constants.eps <strong>then</strong> 1 <strong>else</strong> Modelica.Math.sin(x)/x;
 <strong>end</strong> si;</pre></blockquote>
 
+<div>
 <img src=\"modelica://ModelicaReference/Resources/Images/function.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
+</div>
 
 <h4>Syntax</h4>
 
-<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] [ <strong>pure </strong> | <strong>impure </strong>] <strong>function</strong>
+<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial</strong>] [ <strong>pure</strong> | <strong>impure</strong>] <strong>function</strong>
    IDENT class_specifier
 
 class_specifier :
@@ -2277,7 +2279,7 @@ Define specialized class <em>model</em>
 <strong>end</strong> SlidingMass;</pre></blockquote>
 
 <h4>Syntax</h4>
-<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>model</strong>
+<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial</strong>] <strong>model</strong>
    IDENT class_specifier
 
 class_specifier :
@@ -2319,7 +2321,7 @@ Define specialized class <em>package</em>
 <strong>end</strong> Library;</pre></blockquote>
 
 <h4>Syntax</h4>
-<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>package</strong>
+<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial</strong>] <strong>package</strong>
    IDENT class_specifier
 
 class_specifier :
@@ -2365,7 +2367,7 @@ Define specialized class <em>record</em>
   <strong>end</strong> SlidingMass;</pre></blockquote>
 
 <h4>Syntax</h4>
-<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>record</strong>
+<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial</strong>] <strong>record</strong>
    IDENT class_specifier
 
 class_specifier :
@@ -2403,7 +2405,7 @@ Define specialized class <em>type</em>
 <blockquote><pre><strong>type</strong> R0Plus = Real(min=0);</pre></blockquote>
 
 <h4>Syntax</h4>
-<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial </strong>] <strong>type</strong>
+<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial</strong>] <strong>type</strong>
    IDENT class_specifier
 
 class_specifier :
@@ -2675,7 +2677,7 @@ Absolute value of Real or Integer variable.
 <h4>Syntax</h4>
 <blockquote><code><strong>abs</strong>(v)</code></blockquote>
 <h4>Description</h4>
-<p>Is expanded into &quot;noEvent(<strong>if </strong>v &ge; 0
+<p>Is expanded into &quot;noEvent(<strong>if</strong> v &ge; 0
 <strong>then</strong> v <strong>else</strong> -v)&quot;. Argument v
 needs to be an Integer or Real expression.</p>
 <h4>Examples</h4>
@@ -2702,7 +2704,9 @@ Argument u needs to be an Integer or Real expression.</p>
 The acos function can also be accessed as Modelica.Math.acos.
 </p>
 
+<div>
 <img src=\"modelica://ModelicaReference/Resources/Images/acos.png\" alt=\"acos\">
+</div>
 
 <h4>Examples</h4>
 <blockquote><pre><strong>acos</strong>(0)
@@ -2747,15 +2751,15 @@ der(U) = c.m_flow*actualStream(c.h_outflow); // (1)energy balance equation
 h_port = actualStream(port.h);               // (2)monitoring the enthalpy at a port
 </pre></blockquote>
 <p>
-In the case of equation (1), although the  <code><strong>actualStream()</strong></code> operator is discontinuous, the product with the flow variable is not, because <code><strong>actualStream())</strong></code> is discontinuous when the flow is zero by construction.
-Therefore, a tool might infer that the expression is  <code><strong>smooth(0, ...)</strong></code> automatically, and decide whether or not to generate an event.
-If a user wants to avoid events entirely, he/she may enclose the right-hand side of (1) with the  <code><strong>noEvent()</strong></code> operator.
+In the case of equation (1), although the <code><strong>actualStream()</strong></code> operator is discontinuous, the product with the flow variable is not, because <code><strong>actualStream())</strong></code> is discontinuous when the flow is zero by construction.
+Therefore, a tool might infer that the expression is <code><strong>smooth(0, ...)</strong></code> automatically, and decide whether or not to generate an event.
+If a user wants to avoid events entirely, he/she may enclose the right-hand side of (1) with the <code><strong>noEvent()</strong></code> operator.
 </p>
 <p>
 Equations like (2) might be used for monitoring purposes (e.g. plots), in order to inspect what the <em>actual</em> enthalpy of the fluid flowing through a port is.
 In this case, the user will probably want to see the change due to flow reversal at the exact instant, so an event should be generated.
-If the user does not bother, then he/she should enclose the right-hand side of (2) with  <code><strong>noEvent()</strong></code>.
-Since the output of <code><strong>actualStream()</strong></code> will be discontinuous, it should not be used by itself to model physical behaviour (e.g., to compute densities used in momentum balances) -  <code><strong>inStream()</strong></code> should be used for this purpose. The operator  <code><strong>actualStream()</strong></code> should be used to model physical behaviour only when multiplied by the corresponding flow variable (like in the above energy balance equation), because this removes the discontinuity.
+If the user does not bother, then he/she should enclose the right-hand side of (2) with <code><strong>noEvent()</strong></code>.
+Since the output of <code><strong>actualStream()</strong></code> will be discontinuous, it should not be used by itself to model physical behaviour (e.g., to compute densities used in momentum balances) - <code><strong>inStream()</strong></code> should be used for this purpose. The operator <code><strong>actualStream()</strong></code> should be used to model physical behaviour only when multiplied by the corresponding flow variable (like in the above energy balance equation), because this removes the discontinuity.
 </p>
 </html>"));
   end 'actualStream()';
@@ -2812,7 +2816,9 @@ Argument u needs to be an Integer or Real expression.</p>
 The asin function can also be accessed as Modelica.Math.asin.
 </p>
 
+<div>
 <img src=\"modelica://ModelicaReference/Resources/Images/asin.png\" alt=\"asin\">
+</div>
 
 <h4>Examples</h4>
 <blockquote><pre><strong>asin</strong>(0)
@@ -2897,7 +2903,9 @@ Argument u needs to be an Integer or Real expression.</p>
 The atan function can also be accessed as Modelica.Math.atan.
 </p>
 
+<div>
 <img src=\"modelica://ModelicaReference/Resources/Images/atan.png\" alt=\"atan\">
+</div>
 
 <h4>Examples</h4>
 <blockquote><pre><strong>atan</strong>(1)
@@ -2927,7 +2935,9 @@ Arguments u1 and u2 need to be Integer or Real expressions.
 The atan2 function can also be accessed as Modelica.Math.atan2.
 </p>
 
+<div>
 <img src=\"modelica://ModelicaReference/Resources/Images/atan2.png\" alt=\"atan2\">
+</div>
 
 <h4>Examples</h4>
 <blockquote><pre><strong>atan2</strong>(1,0)
@@ -3080,7 +3090,9 @@ The same restrictions as for the pre() operator apply.</p>
   <strong>end when</strong>;
 <strong>end</strong> BothEdges;</pre></blockquote>
 
+<div>
 <img src=\"modelica://ModelicaReference/Resources/Images/change.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
+</div>
 </html>"));
   end 'change()';
 
@@ -3190,7 +3202,7 @@ connected as a pair of scalar connectors.</p>
 <p>The two main tasks are to:</p>
 
 <ul>
-  <li>Build connection sets from <strong>connect </strong>statements.</li>
+  <li>Build connection sets from <strong>connect</strong> statements.</li>
   <li>Generate equations for the complete model.</li>
 </ul>
 
@@ -3348,7 +3360,9 @@ Argument u needs to be an Integer or Real expression.</p>
 The cosine function can also be accessed as Modelica.Math.cos.
 </p>
 
+<div>
 <img src=\"modelica://ModelicaReference/Resources/Images/cos.png\" alt=\"cos\">
+</div>
 
 <h4>Examples</h4>
 <blockquote><pre><strong>cos</strong>(3.14159265358979)
@@ -3372,7 +3386,9 @@ Argument u needs to be an Integer or Real expression.</p>
 The cosh function can also be accessed as Modelica.Math.cosh.
 </p>
 
+<div>
 <img src=\"modelica://ModelicaReference/Resources/Images/cosh.png\" alt=\"cosh\">
+</div>
 
 <h4>Examples</h4>
 <blockquote><pre><strong>cosh</strong>(1)
@@ -3445,7 +3461,9 @@ time in order to avoid extrapolation in the delay buffer.]</em></p>
   y = <strong>delay</strong>(x, 1);
 <strong>end</strong> Delay;</pre></blockquote>
 
+<div>
 <img src=\"modelica://ModelicaReference/Resources/Images/delay.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
+</div>
 </html>"));
   end 'delay()';
 
@@ -3574,7 +3592,9 @@ classes).</p>
   <strong>end when</strong>;
 <strong>end</strong> RisingEdge;</pre></blockquote>
 
+<div>
 <img src=\"modelica://ModelicaReference/Resources/Images/edge.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
+</div>
 </html>"));
   end 'edge()';
 
@@ -3594,7 +3614,9 @@ Argument u needs to be an Integer or Real expression.</p>
 The exponential function can also be accessed as Modelica.Math.exp.
 </p>
 
+<div>
 <img src=\"modelica://ModelicaReference/Resources/Images/exp.png\" alt=\"exp\">
+</div>
 
 <h4>Examples</h4>
 <blockquote><pre><strong>exp</strong>(1)
@@ -4134,7 +4156,9 @@ Argument u needs to be an Integer or Real expression.</p>
 The natural logarithm can also be accessed as Modelica.Math.log.
 </p>
 
+<div>
 <img src=\"modelica://ModelicaReference/Resources/Images/log.png\" alt=\"log\">
+</div>
 
 <h4>Examples</h4>
 <blockquote><pre><strong>log</strong>(1)
@@ -4158,7 +4182,9 @@ Argument u needs to be an Integer or Real expression.</p>
 The base 10 logarithm can also be accessed as Modelica.Math.log10.
 </p>
 
+<div>
 <img src=\"modelica://ModelicaReference/Resources/Images/log10.png\" alt=\"log10\">
+</div>
 
 <h4>Examples</h4>
 <blockquote><pre><strong>log10</strong>(1)
@@ -4444,7 +4470,9 @@ for continuous-time variables inside when-clauses.
   y = u &gt; 0.5 or <strong>pre</strong>(y) and u &gt;= -0.5;
 <strong>end</strong> Hysteresis;</pre></blockquote>
 
+<div>
 <img src=\"modelica://ModelicaReference/Resources/Images/pre.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
+</div>
 </html>"));
   end 'pre()';
 
@@ -4621,7 +4649,9 @@ expressions and need to be a subtype of Real or Integer.
   <strong>end when</strong>;
 <strong>end</strong> Sampling;</pre></blockquote>
 
+<div>
 <img src=\"modelica://ModelicaReference/Resources/Images/sample.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
+</div>
 </html>"));
   end 'sample()';
 
@@ -4810,7 +4840,9 @@ Argument u needs to be an Integer or Real expression.</p>
 The sine function can also be accessed as Modelica.Math.sin.
 </p>
 
+<div>
 <img src=\"modelica://ModelicaReference/Resources/Images/sin.png\" alt=\"sin\">
+</div>
 
 <h4>Examples</h4>
 <blockquote><pre><strong>sin</strong>(3.14159265358979)
@@ -4834,7 +4866,9 @@ Argument u needs to be an Integer or Real expression.</p>
 The sinh function can also be accessed as Modelica.Math.sinh.
 </p>
 
+<div>
 <img src=\"modelica://ModelicaReference/Resources/Images/sinh.png\" alt=\"sinh\">
+</div>
 
 <h4>Examples</h4>
 <blockquote><pre><strong>sinh</strong>(1)
@@ -5146,7 +5180,9 @@ Argument u needs to be an Integer or Real expression.</p>
 The tangent function can also be accessed as Modelica.Math.tan.
 </p>
 
+<div>
 <img src=\"modelica://ModelicaReference/Resources/Images/tan.png\" alt=\"tan\">
+</div>
 
 <h4>Examples</h4>
 <blockquote><pre><strong>tan</strong>(3.14159265358979)
@@ -5171,7 +5207,9 @@ Argument u needs to be an Integer or Real expression.</p>
 The tanh function can also be accessed as Modelica.Math.tanh.
 </p>
 
+<div>
 <img src=\"modelica://ModelicaReference/Resources/Images/tanh.png\" alt=\"tanh\">
+</div>
 
 <h4>Examples</h4>
 <blockquote><pre><strong>tanh</strong>(1)
@@ -5426,7 +5464,7 @@ The local number of unknowns of a model or block class is the sum based on the c
 </ul>
 
 <p>
-<strong>Definition 2: Local Equation Size </strong>
+<strong>Definition 2: Local Equation Size</strong>
 </p>
 
 <p>
@@ -6220,7 +6258,7 @@ In equation sections:
 </p>
 <blockquote><pre>   <strong>if</strong> expression <strong>then</strong>
      { equation \";\" }
-   { <strong>elseif </strong>expression <strong>then</strong>
+   { <strong>elseif</strong> expression <strong>then</strong>
      { equation \";\" }
    }
    [ <strong>else</strong>
@@ -6232,7 +6270,7 @@ In algorithm sections:
 </p>
 <blockquote><pre>   <strong>if</strong> expression <strong>then</strong>
      { algorithm \";\" }
-   { <strong>elseif </strong>expression <strong>then</strong>
+   { <strong>elseif</strong> expression <strong>then</strong>
      { algorithm \";\" }
    }
    [ <strong>else</strong>
@@ -6253,7 +6291,7 @@ body is then executed. In an equation section, the equations in the body are see
 that must be satisfied. The bodies that are not selected have no effect on that model evaluation.
 </p>
 <p>
-If clauses in <strong>equation </strong>sections which do not have exclusively parameter expressions as
+If clauses in <strong>equation</strong> sections which do not have exclusively parameter expressions as
 switching conditions shall have an <strong>else</strong> clause and each branch shall have the <em>same
 number</em> of <em>equations</em>. <em>[If this condition is violated, the single assignment rule
 would not hold, because the number of equations may change during simulation although the number
