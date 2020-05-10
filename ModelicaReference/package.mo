@@ -2085,7 +2085,7 @@ Define specialized class <em>function</em>
   <strong>input</strong> Real x;
   <strong>output</strong> Real y;
 <strong>algorithm</strong>
-  y = <strong>if abs</strong>(x) &lt; Modelica.Constants.eps <strong>then</strong> 1 <strong>else</strong> Modelica.Math.sin(x)/x;
+  y = <strong>if</strong> noEvent(abs(x) &lt; Modelica.Constants.eps) <strong>then</strong> 1 <strong>else</strong> Modelica.Math.sin(x)/x;
 <strong>end</strong> si;</pre></blockquote>
 
 <img src=\"modelica://ModelicaReference/Resources/Images/function.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
