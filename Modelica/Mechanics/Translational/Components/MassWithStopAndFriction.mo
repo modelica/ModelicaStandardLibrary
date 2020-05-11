@@ -193,9 +193,9 @@ The frictional force f is given for positive velocity v by:
 f = F_Coulomb + F_prop * v + F_Stribeck * exp (-fexp * v)
 </pre></blockquote>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Components/Stribeck.png\" alt=\"Stribeck friction\">
-</p>
+</div>
 
 <p>
 The distance between the left and the right connector is given by parameter L.

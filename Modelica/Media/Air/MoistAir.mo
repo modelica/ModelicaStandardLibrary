@@ -1546,10 +1546,10 @@ The thermodynamic model may be used for <strong>temperatures</strong> ranging fr
 <h4>Application</h4>
 <p>The model's main area of application is all processes that involve moist air cooling under near atmospheric pressure with possible moisture condensation. This is the case in all domestic and industrial air conditioning applications. Another large domain of moist air applications covers all processes that deal with dehydration of bulk material using air as a transport medium. Engineering tasks involving moist air are often performed (or at least visualized) by using charts that contain all relevant thermodynamic data for a moist air system. These so called psychrometric charts can be generated from the medium properties in this package. The model <a href=\"modelica://Modelica.Media.Examples.PsychrometricData\">PsychrometricData</a> may be used for this purpose in order to obtain data for figures like those below (the plotting itself is not part of the model though).</p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Media/Air/Mollier.png\"><br>
 <img src=\"modelica://Modelica/Resources/Images/Media/Air/PsycroChart.png\">
-</p>
+</div>
 
 <p>
 <strong>Legend:</strong> blue - constant specific enthalpy, red - constant temperature, black - constant relative humidity</p>

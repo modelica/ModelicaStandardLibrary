@@ -618,9 +618,9 @@ with the relative positions of the nodes of a discretized pipe with nNodes nodes
 at the left and at the right side of the pipe), see next figure:
 </p>
 
-<blockquote><p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/Vectors/relNodePositions.png\">
-</p></blockquote>
+</div>
 
 <h4>Example</h4>
 
@@ -11053,9 +11053,9 @@ external "builtin" y = sin(u);
 This function returns y = sin(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/sin.png\">
-</p>
+</div>
 </html>"));
 end sin;
 
@@ -11089,9 +11089,9 @@ external "builtin" y = cos(u);
 This function returns y = cos(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/cos.png\">
-</p>
+</div>
 </html>"));
 end cos;
 
@@ -11125,9 +11125,9 @@ This function returns y = tan(u), with -&infin; &lt; u &lt; &infin;
 (if u is a multiple of (2n-1)*pi/2, y = tan(u) is +/- infinity).
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/tan.png\">
-</p>
+</div>
 </html>"));
 end tan;
 
@@ -11159,9 +11159,9 @@ external "builtin" y = asin(u);
 This function returns y = asin(u), with -1 &le; u &le; +1:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/asin.png\">
-</p>
+</div>
 </html>"));
 end asin;
 
@@ -11193,9 +11193,9 @@ external "builtin" y = acos(u);
 This function returns y = acos(u), with -1 &le; u &le; +1:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/acos.png\">
-</p>
+</div>
 </html>"));
 end acos;
 
@@ -11228,9 +11228,9 @@ external "builtin" y = atan(u);
 This function returns y = atan(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/atan.png\">
-</p>
+</div>
 </html>"));
 end atan;
 
@@ -11270,9 +11270,9 @@ u1 is not zero. Usually u1, u2 is provided in such a form that
 u1 = sin(y) and u2 = cos(y):
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/atan2.png\">
-</p>
+</div>
 
 </html>"));
 end atan2;
@@ -11334,9 +11334,9 @@ allows to specify which of the infinite many solutions
 shall be returned:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/atan3.png\">
-</p>
+</div>
 
 <p>
 Note, for the default case (y0=0), exactly the same result as with atan2(..)
@@ -11374,9 +11374,9 @@ external "builtin" y = sinh(u);
 This function returns y = sinh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/sinh.png\">
-</p>
+</div>
 </html>"));
 end sinh;
 
@@ -11411,9 +11411,9 @@ external "builtin" y = cosh(u);
 This function returns y = cosh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/cosh.png\">
-</p>
+</div>
 </html>"));
 end cosh;
 
@@ -11446,9 +11446,9 @@ external "builtin" y = tanh(u);
 This function returns y = tanh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/tanh.png\">
-</p>
+</div>
 </html>"));
 end tanh;
 
@@ -11484,9 +11484,9 @@ and there is no restriction on the input argument u of
 asinh(u) (-&infin; &lt; u &lt; &infin;):
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/asinh.png\">
-</p>
+</div>
 </html>"));
 end asinh;
 
@@ -11533,9 +11533,9 @@ Therefore, this function should not be used in a model, if u
 can become close to 1:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/acosh.png\">
-</p>
+</div>
 </html>"));
 end acosh;
 
@@ -11567,9 +11567,9 @@ external "builtin" y = exp(u);
 This function returns y = exp(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/exp.png\">
-</p>
+</div>
 </html>"));
 end exp;
 
@@ -11602,9 +11602,9 @@ This function returns y = log(10) (the natural logarithm of u),
 with u &gt; 0:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/log.png\">
-</p>
+</div>
 </html>"));
 end log;
 
@@ -11637,9 +11637,9 @@ This function returns y = log10(u),
 with u &gt; 0:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/log10.png\">
-</p>
+</div>
 </html>"));
 end log10;
 

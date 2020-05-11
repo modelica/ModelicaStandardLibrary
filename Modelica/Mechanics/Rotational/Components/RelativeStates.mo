@@ -41,9 +41,9 @@ in the following way:
 An example is given in the next figure
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/Components/relativeStates.png\" alt=\"Model with relative states\">
-</p>
+</div>
 
 <p>
 Here, the relative angle and the relative angular velocity between

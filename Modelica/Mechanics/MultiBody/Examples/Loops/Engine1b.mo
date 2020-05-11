@@ -102,7 +102,7 @@ not numerically as in this model (Engine1b).
 </p>
 <p>
 An animation of this example is shown in the figure below.
-</p><p>
+</p><div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Engine.png\" alt=\"model Examples.Loops.Engine\">
-</p></html>"));
+</div></html>"));
 end Engine1b;

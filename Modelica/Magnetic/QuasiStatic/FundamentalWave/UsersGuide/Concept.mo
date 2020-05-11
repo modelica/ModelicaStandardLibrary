@@ -10,9 +10,9 @@ class Concept "Fundamental wave concept"
 Let us assume that the air gap model contains stator and rotor magnetic ports which relate to the different sides of the machine. The angle relationship between these ports is
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_relationship.png\"/>,
-</p>
+</div>
 
 <p>where
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_s.png\"/>
@@ -31,9 +31,9 @@ and rotor,
 respectively, by means of:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_f.png\"/>
-</p>
+</div>
 
 <p>
 This is a strict consequence of the electromagnetic coupling between the quasi-static electric and the quasi-static magnetic domain.</p>
@@ -51,30 +51,30 @@ This is a strict consequence of the electromagnetic coupling between the quasi-s
 The complex magnetic flux with respect a stator and rotor magnetic port are equal,
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Phi(ref)=Phi,re+jPhi,im.png\"/>,
-</p>
+</div>
 
 <p>
 but the reference phase angles are different according to the relationship explained above. The stator and rotor reference angles refer to quasi-static magnetic connectors. The complex magnetic flux of the (stator) port with respect to the <strong>stator fixed</strong> reference frame is then calculated by</p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Phi_s_ref.png\"/>.
-</p>
+</div>
 
 <p>
 The complex magnetic flux of the (rotor) magnetic port with respect to the <strong>rotor fixed</strong> reference frame is then calculated by</p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Phi_r_ref.png\"/>.
-</p>
+</div>
 
 <p>
 The two stator and rotor fixed complex fluxes are related by</p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Phi_r_s.png\"/>.
-</p>
+</div>
 
 </html>"));
 end Concept;

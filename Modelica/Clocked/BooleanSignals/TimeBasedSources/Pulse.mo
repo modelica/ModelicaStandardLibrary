@@ -156,9 +156,9 @@ but adapted to work in clocked partitions (by internal sampling of the continuou
 The Boolean output y is a pulse signal:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Pulse.png\" alt=\"Pulse.png\">
-</p>
+</div>
 <h4>Example</h4>
 <p>
 See model <a href=\"modelica://Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedPulse\">Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedPulse</a>.

@@ -112,9 +112,9 @@ The electromagnetic energy conversion is given by <em>Ampere</em>'s law and <em>
     N * d&Phi;/dt = -v
 </pre>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Basic/converter_signs.png\" alt=\"converter signs\">
-</p>
+</div>
 
 <p>
 V<sub>m</sub> is the magnetic potential difference applied to the magnetic circuit due to the current i through the coil (Ampere's law).

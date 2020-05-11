@@ -20,9 +20,9 @@ as instance name. The following
 values for shapeType are possible, e.g., shapeType=\"box\":
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Shape.png\" alt=\"model Visualizers.FixedShape\">
-</p>
+</div>
 
 <p>
 The dark blue arrows in the figure above are directed along

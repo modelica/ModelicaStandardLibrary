@@ -241,18 +241,18 @@ its center at the center of mass.
 Note, that
 the animation may be switched off via parameter animation = <strong>false</strong>.
 </p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/BodyShape.png\" alt=\"Parts.BodyShape\">
-</p>
+</div>
 
 <p>
 The following shapes can be defined via parameter <strong>shapeType</strong>,
 e.g., shapeType=\"cone\":
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/FixedShape.png\" alt=\"Visualizers.FixedShape\">
-</p>
+</div>
 
 <p>
 A BodyShape component has potential states. For details of these

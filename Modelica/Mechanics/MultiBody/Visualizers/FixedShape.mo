@@ -63,9 +63,9 @@ The following shapes are currently supported via
 parameter <strong>shapeType</strong> (e.g., shapeType=\"box\"):<br>&nbsp;
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Shape.png\" alt=\"model Visualizers.FixedShape\">
-</p>
+</div>
 
 <p>
 The dark blue arrows in the figure above are directed along

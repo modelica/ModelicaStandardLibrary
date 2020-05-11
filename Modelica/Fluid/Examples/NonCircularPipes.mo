@@ -55,8 +55,8 @@ Although the hydraulic diameter of both pipes are the same, the different cross 
 velocities and by this different outlet pressures (7.324 bar for the circular pipe versus 9.231 bar for the
 circular ring pipe).
 </p>
-<p><img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/NonCircularPipes.png\" border=\"1\"
-     alt=\"NonCircularPipes.png\"></p>
+<div><img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/NonCircularPipes.png\" border=\"1\"
+     alt=\"NonCircularPipes.png\"></div>
 </html>", revisions="<html>
 <ul>
 <li>

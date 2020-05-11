@@ -32,10 +32,10 @@ This blocks computes the output <code>y</code> as the
 y= <strong>atan</strong>(uInternal);
 </pre></blockquote>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/atan.png\"
      alt=\"atan.png\">
-</p>
+</div>
 
 </html>"));
 end Atan;

@@ -173,8 +173,8 @@ Documentation(info="<html>
 The Real output y is a ramp signal. The signal is defined in terms of clock ticks instead of simulation time:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/TickBasedSources_Ramp.png\" alt=\"TickBasedSources_Ramp.png\"/>
-</p>
+</div>
 </html>"));
 end Ramp;

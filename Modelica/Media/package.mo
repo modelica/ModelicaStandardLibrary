@@ -133,9 +133,9 @@ all loaded packages that inherit from PartialMedium. An example
 is given in the next figure:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/MediumUsage/mediumMenu.png\" alt=\"medium selection menu\">
-</p>
+</div>
 
 <p>
 A selected medium model leads, e.g., to the following equation:
@@ -1561,9 +1561,9 @@ derived from the partial differential equations along the
 flow direction of a pipe:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/MediumDefinition/BalanceEquations1.png\">
-</p>
+</div>
 
 <p>
 Note, F<sub>F</sub> is the fanning friction factor.
@@ -1571,9 +1571,9 @@ The energy balance can be given in different forms.
 Usually, it is given as:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/MediumDefinition/EnergyBalance1.png\">
-</p>
+</div>
 
 <p>
 This form describes the change of the internal energy, kinetic
@@ -1584,9 +1584,9 @@ balance above, results in the following alternative form
 of the energy balance:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/MediumDefinition/EnergyBalance2.png\">
-</p>
+</div>
 
 <p>
 This form has the advantage that the kinetic and potential
@@ -2513,10 +2513,10 @@ is given to compare the approximation.
 <p>This model produces psychrometric data from the moist air model in this library to be plotted in charts. The two most common chart varieties are the Mollier Diagram and the Psychrometric Chart. The first is widely used in some European countries while the second is more common in the Anglo-American world. Specific enthalpy is plotted over absolute humidity in the Mollier Diagram, it is the other way round in the Psychrometric Chart.<br>
 It must be noted that the relationship of both axis variables is not right-angled, the absolute humidity follows a slope which equals the enthalpy of vaporization at 0 &deg;C. For better reading and in order to reduce the fog region the humidity axis is rotated to obtain a right-angled plot. Both charts usually contain additional information as isochores or auxiliary scales for e.g., heat ratios. Those information are omitted in this model and the charts below. Other important features of psychrometric chart data are that all mass specific variables (like absolute humidity, specific enthalpy etc.) are expressed in terms of kg dry air and that their baseline of 0 enthalpy is found at 0 &deg;C and zero humidity.</p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Media/Air/Mollier.png\"><br>
 <img src=\"modelica://Modelica/Resources/Images/Media/Air/PsycroChart.png\">
-</p>
+</div>
 
 <p>
 <strong>Legend:</strong> blue - constant specific enthalpy, red - constant temperature, black - constant relative humidity</p>

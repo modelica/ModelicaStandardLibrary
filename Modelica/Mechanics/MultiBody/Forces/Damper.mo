@@ -72,9 +72,9 @@ In the following figure a typical animation is shown
 where a mass is hanging on a damper.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Damper.png\">
-</p>
+</div>
 
 </html>"),
     Icon(coordinateSystem(

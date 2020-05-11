@@ -63,9 +63,9 @@ joints <strong>analytically</strong> and only one body is used that holds the to
 mass of the crank shaft:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6_CAD_small.png\">
-</p>
+</div>
 
 <p>
 This model is about 20 times faster as the EngineV6 example and <strong>no</strong> linear or

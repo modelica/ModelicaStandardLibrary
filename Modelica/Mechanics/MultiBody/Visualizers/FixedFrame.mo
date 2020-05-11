@@ -193,9 +193,9 @@ labels. A typical example is shown in the following figure:
 <br>&nbsp;
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/FixedFrame.png\" alt=\"model Visualizers.FixedFrame\">
-</p>
+</div>
 
 <p>
 The sizes of the axes, the axes colors and the specular coefficient

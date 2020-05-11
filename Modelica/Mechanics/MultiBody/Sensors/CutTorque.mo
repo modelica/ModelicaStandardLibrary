@@ -102,8 +102,8 @@ and the green arrow is the cut torque acting at frame_b and
 with negative sign at frame_a.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutTorque.png\">
-</p>
+</div>
 </html>"));
 end CutTorque;

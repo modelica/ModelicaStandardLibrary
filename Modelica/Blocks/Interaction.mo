@@ -61,10 +61,10 @@ The two versions of the block are shown in the following image (in the right var
 name of the variable value that is displayed is also shown below the icon):
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Interaction/Show/RealValue.png\"
      alt=\"RealValue.png\">
-</p>
+</div>
 
 <p>
 The usage is demonstrated, e.g., in example
@@ -125,10 +125,10 @@ The two versions of the block are shown in the following image (in the right var
 name of the variable value that is displayed is also shown below the icon):
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Interaction/Show/IntegerValue.png\"
      alt=\"IntegerValue.png\">
-</p>
+</div>
 
 <p>
 The usage is demonstrated, e.g., in example
@@ -188,10 +188,10 @@ The two versions of the block are shown in the following image (in the right var
 name of the variable value that is displayed is also shown below the icon):
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Interaction/Show/BooleanValue.png\"
      alt=\"BooleanValue.png\">
-</p>
+</div>
 
 <p>
 The usage is demonstrated, e.g., in example

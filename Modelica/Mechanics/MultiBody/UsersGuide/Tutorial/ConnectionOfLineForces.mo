@@ -16,9 +16,9 @@ For an example, see model
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.ThreeSprings\">ThreeSprings</a>:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ThreeSprings.png\">
-</p>
+</div>
 
 <p>
 Here, three springs are connected together at one point, without having a body
@@ -42,9 +42,9 @@ frame in the line force icon is marked with a red circle and with the text \"R=0
 This is shown in the next figure, where this option is selected for spring3.frame_b:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/ThreeSpringsDiagramLayer.png\">
-</p>
+</div>
 
 <p>
 Note, if this flag is not set to <strong>true</strong>, a translation error will occur.
@@ -64,9 +64,9 @@ on the orientation object that was arbitrarily set in parallel to the world fram
 A typical example is shown in the next figure:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/ThreeSprings2DiagramLayer.png\">
-</p>
+</div>
 
 <p>
 Here, spring3.frame_b.R is defined to be in parallel to the world frame.

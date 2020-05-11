@@ -127,9 +127,9 @@ but adapted to work in clocked partitions (by internal sampling of the continuou
 The Boolean output y is a step signal:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/BooleanStep.png\" alt=\"BooleanStep.png\">
-</p>
+</div>
 
 <h4>Example</h4>
 <p>

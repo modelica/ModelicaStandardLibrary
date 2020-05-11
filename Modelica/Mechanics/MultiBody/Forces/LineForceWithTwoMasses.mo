@@ -368,9 +368,9 @@ The composition diagram of this example
 is displayed in the figure below.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/LineForceWithTwoMassesDiagram.png\">
-</p>
+</div>
 
 <p>
 The animation view at time = 0 is shown in the next figure.
@@ -381,9 +381,9 @@ Both implementations yield the same result. However, the implementation
 with the LineForceWithTwoMasses component is simpler.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/LineForceWithTwoMasses2.png\">
-</p>
+</div>
 
 <p>
 In the translational library there is the implicit assumption that

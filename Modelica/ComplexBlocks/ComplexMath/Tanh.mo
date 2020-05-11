@@ -32,10 +32,10 @@ This blocks computes the output <code>y</code> as the
 y = <strong>tanh</strong>(uInternal);
 </pre></blockquote>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/tanh.png\"
      alt=\"tanh.png\">
-</p>
+</div>
 
 </html>"));
 end Tanh;

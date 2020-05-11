@@ -8945,9 +8945,9 @@ Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
     fillPattern=FillPattern.Solid,
     extent={{-17.8562,-17.8563},{17.8563,17.8562}})}),
 Documentation(info="<html>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Logos/Modelica_Libraries.svg\" width=\"250\">
-</p>
+</div>
 
 <p>
 The package <strong>Modelica&reg;</strong> is a <strong>standardized</strong> and <strong>free</strong> package
@@ -8961,9 +8961,9 @@ standardized interface definitions. Some typical examples are shown
 in the next figure:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/UsersGuide/ModelicaLibraries.png\">
-</p>
+</div>
 
 <p>
 For an introduction, have especially a look at:

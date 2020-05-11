@@ -8,35 +8,35 @@ class Introduction "Introduction to phasors"
 The purely sinusoidal voltage
 </p>
 
-<p>
+<div>
 <img
  border=\"0\"
  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Introduction/img1.png\"
  alt=\"v=\\sqrt{2}V_{\\mathrm{RMS}}\\cos(\\omega t+\\varphi_{v})\">
-</p>
+</div>
 
 <p>
 in the time domain can be represented by a complex
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Glossar\">rms</a> phasor
 </p>
 
-<p>
+<div>
 <img
  border=\"0\"
  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Introduction/img2.png\"
  alt=\"\\underline{v}=V_{\\mathrm{RMS}}e^{j\\varphi_{v}}.\">
-</p>
+</div>
 
 <p>For these quasi-static
 phasor the following relationship applies:</p>
 
-<p>
+<div>
 <img
  border=\"0\"
  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Introduction/img3.png\"
  alt=\"\\begin{displaymath}
 v=\\mathrm{Re}(\\sqrt{2}\\underline{v}e^{j\\omega t})\\end{displaymath}\">
-</p>
+</div>
 
 <p>
 This equation is also illustrated in Fig. 1.

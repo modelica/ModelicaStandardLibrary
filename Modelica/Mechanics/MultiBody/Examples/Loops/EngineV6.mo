@@ -150,9 +150,9 @@ modeling of one cylinder, see example
 An animation of the engine is shown in the figure below.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6.png\" alt=\"model Examples.Loops.EngineV6\">
-</p>
+</div>
 
 <p>
 Simulate for 3 s with about 50000 output intervals, and plot the variables <strong>engineSpeed_rpm</strong>,

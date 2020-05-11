@@ -313,25 +313,25 @@ such that
 Typical screenshots for two different configurations
 are shown below. The first one with k1=k2=1:
 </p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Utilities/regRoot2_a.png\"
      alt=\"regRoot2_a.png\">
-</p>
+</div>
 <p>
 and the second one with k1=1 and k2=3:
 </p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Utilities/regRoot2_b.png\"
       alt=\"regRoot2_b.png\">
-</p>
+</div>
 
 <p>
 The (smooth) derivative of the function with
 k1=1, k2=3 is shown in the next figure:</p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Utilities/regRoot2_c.png\"
      alt=\"regRoot2_c.png\">
-</p>
+</div>
 
 <p>
 <strong>Literature</strong>
@@ -462,20 +462,20 @@ such that
 <p>
 A typical screenshot for k1=1, k2=3 is shown in the next figure:
 </p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Utilities/regSquare2_b.png\"
      alt=\"regSquare2_b.png\">
-</p>
+</div>
 
 <p>
 The (smooth, non-zero) derivative of the function with
 k1=1, k2=3 is shown in the next figure:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Utilities/regSquare2_c.png\"
      alt=\"regSquare2_b.png\">
-</p>
+</div>
 
 <p>
 <strong>Literature</strong>
@@ -759,17 +759,17 @@ allows to implement the exact solution in the limit of
 Typical screenshots for two different configurations
 are shown below. The first one illustrates five different settings of <code>xi</code> and <code>yid</code>:
 </p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Utilities/regFun3_a.png\"
       alt=\"regFun3_a.png\">
-</p>
+</div>
 <p>
 The second graph shows the continuous derivative of this regularization function:
 </p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Utilities/regFun3_b.png\"
      alt=\"regFun3_a.png\">
-</p>
+</div>
 
 <p>
 <strong>Literature</strong>

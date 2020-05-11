@@ -74,8 +74,8 @@ and the green arrow is the cut force acting at frame_b and
 with negative sign at frame_a.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutForce.png\">
-</p>
+</div>
 </html>"));
 end BasicCutForce;

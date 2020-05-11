@@ -203,9 +203,9 @@ animation in the following figure (the axes vectors are not part of the
 default animation):
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointRRP.png\" alt=\"model Joints.Assemblies.JointRRP\">
-</p>
+</div>
 
 <p>
 This joint aggregation introduces neither constraints nor state variables and

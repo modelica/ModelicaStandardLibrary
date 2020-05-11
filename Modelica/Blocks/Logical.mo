@@ -608,10 +608,10 @@ This block transforms a <strong>Real</strong> input signal <strong>u</strong> in
 output signal <strong>y</strong>:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Logical/Hysteresis.png\"
      alt=\"Hysteresis.png\">
-</p>
+</div>
 
 <ul>
 <li> When the output was <strong>false</strong> and the input becomes
@@ -732,10 +732,10 @@ output signal <strong>y</strong> represents a trapezoidal signal dependent on th
 input signal <strong>u</strong>.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Logical/TriggeredTrapezoid.png\"
      alt=\"TriggeredTrapezoid.png\">
-</p>
+</div>
 
 <p>The behaviour is as follows: Assume the initial input to be false. In this
 case, the output will be <em>offset</em>. After a rising edge (i.e., the input
@@ -794,10 +794,10 @@ and the output <strong>y</strong> is the time that has elapsed since <strong>u</
 When the input becomes <strong>false</strong>, the timer stops and the output is reset to zero.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Logical/Timer.png\"
      alt=\"Timer.png\">
-</p>
+</div>
 
 </html>"));
   end Timer;
@@ -980,10 +980,10 @@ to describe logical networks. A typical example for a logical
 network built with package Logical is shown in the next figure:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Logical/LogicalNetwork1.png\"
      alt=\"LogicalNetwork1.png\">
-</p>
+</div>
 
 <p>
 The actual value of Boolean input and/or output signals is displayed

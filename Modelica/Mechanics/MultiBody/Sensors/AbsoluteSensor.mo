@@ -367,9 +367,9 @@ component is shown. The light blue coordinate system is
 frame_a and the yellow arrow is the animated sensor.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/AbsoluteSensor.png\">
-</p>
+</div>
 
 <p>
 Velocity, acceleration, angular velocity and angular acceleration are

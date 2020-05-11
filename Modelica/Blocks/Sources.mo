@@ -154,10 +154,10 @@ variable <strong>y</strong> is both a variable and a connector.
 The Real output y is a clock signal:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/ContinuousClock.png\"
      alt=\"ContinuousClock.png\">
-</p>
+</div>
 </html>"));
   end ContinuousClock;
 
@@ -194,10 +194,10 @@ The Real output y is a clock signal:
 The Real output y is a constant signal:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Constant.png\"
      alt=\"Constant.png\">
-</p>
+</div>
 </html>"));
   end Constant;
 
@@ -233,10 +233,10 @@ The Real output y is a constant signal:
 The Real output y is a step signal:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Step.png\"
      alt=\"Step.png\">
-</p>
+</div>
 
 </html>"));
   end Step;
@@ -277,10 +277,10 @@ The Real output y is a step signal:
 The Real output y is a ramp signal:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Ramp.png\"
      alt=\"Ramp.png\">
-</p>
+</div>
 
 <p>
 If parameter duration is set to 0.0, the limiting case of a Step signal is achieved.
@@ -327,10 +327,10 @@ If parameter duration is set to 0.0, the limiting case of a Step signal is achie
 The Real output y is a sine signal:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Sine.png\"
      alt=\"Sine.png\">
-</p>
+</div>
 </html>"));
   end Sine;
 
@@ -374,10 +374,10 @@ The Real output y is a sine signal:
 The Real output y is a cosine signal:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Cosine.png\"
      alt=\"Cosine.png\">
-</p>
+</div>
 </html>"));
   end Cosine;
 
@@ -633,10 +633,10 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
 <p>
 The Real output y is a sinc signal: <code> amplitude*(sin(2*&pi;*f*t))/((2*&pi;*f*t))</code>
 </p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Sinc.png\"
      alt=\"Sinc.png\">
-</p>
+</div>
 </html>"));
   end Sinc;
 
@@ -684,10 +684,10 @@ The Real output y is a sinc signal: <code> amplitude*(sin(2*&pi;*f*t))/((2*&pi;*
 The Real output y is a sine signal with exponentially changing amplitude:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/ExpSine.png\"
      alt=\"ExpSine.png\">
-</p>
+</div>
 </html>"));
   end ExpSine;
 
@@ -742,10 +742,10 @@ The Real output y is a rising exponential followed
 by a falling exponential signal:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Exponentials.png\"
      alt=\"Exponentials.png\">
-</p>
+</div>
 </html>"));
   end Exponentials;
 
@@ -801,10 +801,10 @@ by a falling exponential signal:
 The Real output y is a pulse signal:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Pulse.png\"
      alt=\"Pulse.png\">
-</p>
+</div>
 </html>"));
   end Pulse;
 
@@ -854,10 +854,10 @@ The Real output y is a pulse signal:
 The Real output y is a saw tooth signal:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/SawTooth.png\"
      alt=\"SawTooth.png\">
-</p>
+</div>
 </html>"));
   end SawTooth;
 
@@ -923,10 +923,10 @@ The Real output y is a saw tooth signal:
 The Real output y is a trapezoid signal:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Trapezoid.png\"
      alt=\"Trapezoid\">
-</p>
+</div>
 </html>"));
   end Trapezoid;
 
@@ -952,10 +952,10 @@ The output is the decimal power of this logarithmic ramp.
 </p>
 <p>For <code>time &lt; startTime</code> the output is equal to <code>wMin</code>.</p>
 <p>For <code>time &gt; startTime+duration</code> the output is equal to <code>wMax</code>.</p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/LogFrequencySweep.png\"
      alt=\"LogFrequencySweep.png\">
-</p>
+</div>
 
 </html>"),
       Icon(graphics={
@@ -1073,10 +1073,10 @@ This source block generates the <strong>acceleration</strong> qdd of this signal
 as output:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/KinematicPTP.png\"
      alt=\"KinematicPTP.png\">
-</p>
+</div>
 
 <p>
 After integrating the output two times, the position q is
@@ -1304,10 +1304,10 @@ to move faster, given the <strong>maximally</strong> allowed <strong>velocity</s
 the <strong>maximally</strong> allowed <strong>acceleration</strong> qdd_max:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/KinematicPTP2.png\"
      alt=\"KinematicPTP2.png\">
-</p>
+</div>
 
 <p>
 If vectors q_begin/q_end have more than 1 element,
@@ -1528,10 +1528,10 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     e.g., time = 5.0, the output y = 23.0 (i.e., extrapolation).
 </pre></blockquote>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/TimeTable.png\"
      alt=\"TimeTable.png\">
-</p>
+</div>
 
 </html>", revisions="<html>
 <h4>Release Notes</h4>
@@ -1681,10 +1681,10 @@ in a table. The time points and function values are stored in a matrix
 time points and the other columns contain the data to be interpolated.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/CombiTimeTable.png\"
      alt=\"CombiTimeTable.png\">
-</p>
+</div>
 
 <p>
 Via parameter <strong>columns</strong> it can be defined which columns of the
@@ -1920,10 +1920,10 @@ MATLAB is a registered trademark of The MathWorks, Inc.
 The Boolean output y is a constant signal:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/BooleanConstant.png\"
      alt=\"BooleanConstant.png\">
-</p>
+</div>
 </html>"));
   end BooleanConstant;
 
@@ -1952,10 +1952,10 @@ The Boolean output y is a constant signal:
 The Boolean output y is a step signal:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/BooleanStep.png\"
      alt=\"BooleanStep.png\">
-</p>
+</div>
 </html>"));
   end BooleanStep;
 
@@ -1994,10 +1994,10 @@ The Boolean output y is a step signal:
 The Boolean output y is a pulse signal:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Pulse.png\"
      alt=\"Pulse.png\">
-</p>
+</div>
 </html>"));
   end BooleanPulse;
 
@@ -2029,10 +2029,10 @@ at sample times (defined by parameter <strong>period</strong>) and is otherwise
 <strong>false</strong>.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/SampleTrigger.png\"
      alt=\"SampleTrigger.png\">
-</p>
+</div>
 </html>"));
   end SampleTrigger;
 
@@ -2137,10 +2137,10 @@ extrapolation = 1: Hold the <strong>startValue</strong> or last value of the tab
     is used as ordinate value for the output.</li>
 </ul>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/BooleanTable.png\"
      alt=\"BooleanTable.png\">
-</p>
+</div>
 
 <p>
 The precise semantics is:
@@ -2262,10 +2262,10 @@ This example is also available in
 The Integer output y is a constant signal:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/IntegerConstant.png\"
      alt=\"IntegerConstant.png\">
-</p>
+</div>
 </html>"));
   end IntegerConstant;
 
@@ -2298,10 +2298,10 @@ The Integer output y is a constant signal:
 The Integer output y is a step signal:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/IntegerStep.png\"
      alt=\"IntegerStep.png\">
-</p>
+</div>
 </html>"));
   end IntegerStep;
 
@@ -2433,10 +2433,10 @@ table = [  0, 1;
 results in the following output:
 </p>
 
-<blockquote><p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/IntegerTable.png\"
      alt=\"IntegerTable.png\">
-</p></blockquote>
+</div>
 
 </html>"));
   end IntegerTable;

@@ -57,7 +57,7 @@ der(b) = dhR/diffHyst * der(hystR);
 der(b) = dhF/diffHyst * der(hystF);
 </pre></blockquote>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"><tr>
-<td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Tellinen/TellinenDesc1.png\"/></p></td>
+<td><div><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Tellinen/TellinenDesc1.png\"/></div></td>
 </tr>
 </table>
 <strong>Fig. 1:</strong> Description of the Tellinen hysteresis model.

@@ -186,9 +186,9 @@ animation (note, that
 the animation may be switched off via parameter animation = <strong>false</strong>):
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/BodyBox.png\" alt=\"Parts.BodyBox\">
-</p>
+</div>
 
 <p>
 A BodyBox component has potential states. For details of these

@@ -27,9 +27,9 @@ heating of an electrical motor is modelled, see the following screen shot
 of this example:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Thermal/HeatTransfer/driveWithHeatTransfer.png\" alt=\"driveWithHeatTransfer\">
-</p>
+</div>
 
 <p>
 The <strong>filled</strong> and <strong>non-filled red squares</strong> at the left and

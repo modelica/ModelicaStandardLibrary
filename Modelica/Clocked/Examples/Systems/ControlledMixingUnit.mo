@@ -183,9 +183,9 @@ These equations are collected together in input/output block
 <a href=\"modelica://Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit\">Utilities.ComponentsMixingUnit.MixingUnit</a>.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_PlantModel.png\" alt=\"ControlledMixingUnit_PlantModel.png\">
-</p>
+</div>
 
 <p>
 The design of the control system proceeds now in the following steps:
@@ -207,9 +207,9 @@ in the pre-filter design block
 <a href=\"modelica://Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.FilterOrder\">Utilities.ComponentsMixingUnit.FilterOrder</a>:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_FilterDesign.png\" alt=\"ControlledMixingUnit_FilterDesign.png\">
-</p>
+</div>
 
 <p>
 Translating this
@@ -236,9 +236,9 @@ at hand, as
 well as in the following figure:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_Controller.png\" alt=\"ControlledMixingUnit_Controller.png\">
-</p>
+</div>
 
 <p>
 It consists of the filter discussed above. The input to the filter is the reference
@@ -274,9 +274,9 @@ concentration). Changing all parameters of the inverse plant model by 50 %
 still results in a reasonable control behavior as shown in the next two figures:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/ControlledMixingUnit_Result.png\" alt=\"ControlledMixingUnit_Result.png\">
-</p>
+</div>
 
 <p>
 The green curve in the upper window is the (clocked) output of the filter,

@@ -34,10 +34,10 @@ This blocks computes the output <code>y</code> as the
 y = <strong>cosh</strong>(uInternal);
 </pre></blockquote>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/cosh.png\"
      alt=\"cosh.png\">
-</p>
+</div>
 
 </html>"));
 end Cosh;

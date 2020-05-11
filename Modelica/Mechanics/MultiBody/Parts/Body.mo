@@ -295,9 +295,9 @@ the radius of the sphere, e.g., since frame_a is located at the
 center of mass, the cylinder is not displayed. Note, that
 the animation may be switched off via parameter animation = <strong>false</strong>.
 </p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/Body.png\" alt=\"Parts.Body\">
-</p>
+</div>
 
 <p>
 <strong>States of Body Components</strong>

@@ -250,9 +250,9 @@ animation in the following figure (the axes vectors are not part of the
 default animation):
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointUSP.png\" alt=\"model Joints.Assemblies.JointUSP\">
-</p>
+</div>
 
 <p>
 This joint aggregation has no mass and no inertia and

@@ -677,9 +677,9 @@ vector \"n\" defining the translation axis
 (here: n = {1,1,0}).
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Prismatic.png\">
-</p>
+</div>
 
 </html>"));
         end Prismatic;
@@ -944,9 +944,9 @@ vector \"n\" defining the translation axis
 (here: n = {0,0,1}, phi.start = 45<sup>o</sup>).
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Revolute.png\">
-</p>
+</div>
 
 </html>"));
         end Revolute;

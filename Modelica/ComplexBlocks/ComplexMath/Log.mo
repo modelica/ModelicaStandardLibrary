@@ -36,10 +36,10 @@ y = <strong>log</strong>(uInternal);
 An error occurs if the elements of the input <code>u</code> is zero.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/log.png\"
      alt=\"log.png\">
-</p>
+</div>
 
 </html>"));
 end Log;

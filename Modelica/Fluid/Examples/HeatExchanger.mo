@@ -91,7 +91,7 @@ package HeatExchanger "Demo of a heat exchanger model"
             1e-005),
       Documentation(info="<html>
 <p>The simulation start in steady state with counterflow operation. At time t = 50, the mass flow rate on the secondary circuit is changed to a negative value in 5 seconds. After a transient, the heat exchanger operates in co-current flow.</p>
-<p><img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/HeatExchanger/HeatExchanger.png\" alt=\"HeatExchanger.png\"/></p>
+<div><img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/HeatExchanger/HeatExchanger.png\" alt=\"HeatExchanger.png\"/></div>
 </html>"));
   end HeatExchangerSimulation;
 

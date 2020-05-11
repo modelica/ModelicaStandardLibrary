@@ -13,10 +13,10 @@ with <strong>linear damping</strong> in the joint, is first build-up as
 Modelica composition diagram, resulting in:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/PendulumSchematic1.png\"
 alt=\"Modelica composition diagram of simple pendulum\">
-</p>
+</div>
 
 <p>
 In the following figure the location of the used
@@ -24,9 +24,9 @@ model components is shown. Drag these components in the diagram layer
 and connect them according to the figure:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/PendulumSchematic2.png\">
-</p>
+</div>
 
 <p>
 Every model that uses model components from the MultiBody library
@@ -61,11 +61,11 @@ In the following figures the definition of this reference configuration
 is shown in the parameter menus of the revolute joint and the body:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/ActuatedRevoluteParameters.png\">
 <br>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/BodyParameters.png\">
-</p>
+</div>
 
 <p>
 Translate and simulate the model.
@@ -80,9 +80,9 @@ to the size of the sphere (half of the sphere size).
 With default settings, the following animation is defined:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/Pendulum.png\">
-</p>
+</div>
 
 <p>
 The world coordinate system is visualized as coordinate system

@@ -129,9 +129,9 @@ equation
 <p>
 Educational example of a magnetic circuit containing an iron core and an airgap:
 </p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/MagneticCircuit.png\" alt=\"Magnetic circuit with iron core and airgap\">
-</p>
+</div>
 <p>
 A current ramp is applied in positive electric direction through the exciting coil, causing a rising magnetomotive force (mmf) in positive magnetic direction of the electromagnetic converter.
 The mmf in turn causes a magnetic flux through the circuit in the direction indicated by the flux sensor.

@@ -27,9 +27,9 @@ equation
 The Complex output y is a constant signal:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Constant.png\"
      alt=\"Constant.png\">
-</p>
+</div>
 </html>"));
 end ComplexConstant;

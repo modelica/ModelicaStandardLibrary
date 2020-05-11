@@ -131,9 +131,9 @@ where the different effects are visualized:
      pulling/sticking occurs.</li>
 </ol>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Components/ElastoGap.png\" alt=\"Elasto gap\">
-</p>
+</div>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={Line(points={{-98,0},{-48,0}}, color={0,127,0}),

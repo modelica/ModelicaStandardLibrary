@@ -122,9 +122,9 @@ Documentation(info="<html>
 <p>
 The Real output y is a step signal:
 </p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Step.png\" alt=\"Step.png\">
-</p>
+</div>
 
 <h4>Example</h4>
 <p>

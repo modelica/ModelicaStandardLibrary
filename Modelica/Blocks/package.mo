@@ -2070,10 +2070,9 @@ generator. Simulation results are shown in the next figure:
 This example models an actuator with a noisy sensor (which is in the motor component):
 </p>
 
-<blockquote>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/ActuatorNoiseDiagram.png\"/>
-</p></blockquote>
+</div>
 
 <p>
 The drive train consists of a synchronous motor with a current controller (= motor) and a gear box.
@@ -2093,9 +2092,9 @@ shown with and without noise. The noise is not very strong, such that it has no 
 on the position of the actuator. The effect of the noise can be seen in the motor torque.
 </p>
 
-<blockquote><p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/ActuatorNoise.png\"/>
-</p></blockquote>
+</div>
 
 <p>
 Note, the noise in all components can be easily switched off by setting parameter
@@ -2163,17 +2162,15 @@ that varies randomly in space
 (see also <a href=\"https://en.wikipedia.org/wiki/Continuous_gusts\">wikipedia</a>).
 </p>
 
-<h4>
-Turbulence model for vertical gust speed at low altitudes
-</h4>
+<h4>Turbulence model for vertical gust speed at low altitudes</h4>
 
 <p>
 The turbulence model of the Dryden form is defined by the power spectral density of the vertical turbulent velocity:
 </p>
 
-<blockquote><p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/equation-erVWhiWU.png\" alt=\"Phi_w(Omega)=sigma^2*L_w/pi*((1+3*(L_w*Omega)^2)/(1+(L_w*Omega)^2)^2)\"/>
-</p></blockquote>
+</div>
 
 <p>
 The spectrum is parametrized with the following parameters:
@@ -2192,17 +2189,15 @@ The spectrum is parametrized with the following parameters:
 Using spectral factorization and a fixed airspeed V of the aircraft, a concrete forming filter for the vertical turbulence can be found as
 </p>
 
-<blockquote><p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/equation-W0zl2Gay.png\" alt=\"H_w(s) = sigma*sqrt(L_w/(pi*V)) * ((1 + sqrt(3)*L_w/V*s) / (1+L_w/V*s)^2)\"/>,
-</p></blockquote>
+</div>
 
 <p>
 for which V * (H_w(i Omega/V) * H_w(-i Omega/V) = Phi_w(Omega).
 </p>
 
-<h4>
-The input to the filter
-</h4>
+<h4>The input to the filter</h4>
 
 <p>
 The input to the filter is white noise with a normal distribution, zero mean, and a power spectral density of 1.
@@ -2214,14 +2209,11 @@ This is done automatically in the
 
 <h4>Example output</h4>
 
-<blockquote>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Examples/Noise/DrydenContinuousTurbulence.png\"/>
-</p></blockquote>
+</div>
 
-<h4>
-Reference
-</h4>
+<h4>Reference</h4>
 
 <ol>
 <li>Dryden Wind Turbulence model in US military standard

@@ -118,11 +118,11 @@ the ElastoGap elements this design can be modelled easily.
 Drawing of spool.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Examples/PreLoad1.png\" alt=\"Preload 1\"><br>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Examples/PreLoad3.png\" alt=\"Preload 3\"><br>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Examples/PreLoad4.png\" alt=\"Preload 4\"><br>
-</p>
+</div>
 
 <p>
 Simulate for 100&nbsp;s and plot the spool position <code>spool.s</code>
@@ -131,9 +131,9 @@ For positive force, the spool moves in positive direction - in figure below
 the start value <code>spool.s.start</code> influences the offset.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Examples/PreLoad2.png\" alt=\"Preload 2\">
-</p>
+</div>
 </html>"),
     experiment(StopTime=100, Interval=0.1));
 end PreLoad;

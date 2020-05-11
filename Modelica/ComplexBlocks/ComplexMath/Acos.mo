@@ -32,10 +32,10 @@ This blocks computes the output <code>y</code> as the
 y = <strong>acos</strong>(uInternal);
 </pre></blockquote>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/acos.png\"
      alt=\"acos.png\">
-</p>
+</div>
 
 </html>"));
 end Acos;

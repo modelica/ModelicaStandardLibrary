@@ -231,9 +231,9 @@ frame_b of the joint.
 (here: angles_start = {45, 45, 45}<sup>o</sup>).
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Spherical.png\">
-</p>
+</div>
 </html>"),
          Icon(coordinateSystem(
         preserveAspectRatio=true,

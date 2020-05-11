@@ -62,9 +62,9 @@ shown at the location of its frame_a.
 <br>&nbsp;
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png\" alt=\"model Visualizers.FixedArrow\">
-</p>
+</div>
 
 <p>
 The direction of the arrow specified with vector

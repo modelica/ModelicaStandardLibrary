@@ -32,10 +32,10 @@ This blocks computes the output <code>y</code> as the
 y = <strong>sinh</strong>(uInternal);
 </pre></blockquote>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/sinh.png\"
      alt=\"sinh.png\">
-</p>
+</div>
 
 </html>"));
 end Sinh;

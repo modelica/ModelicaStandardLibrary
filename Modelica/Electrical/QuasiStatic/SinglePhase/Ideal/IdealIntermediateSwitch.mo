@@ -64,9 +64,9 @@ connected to the pin n2. Otherwise, the pin p1 is connected to n1, and
 p2 is connected to n2.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/SinglePhase/Ideal/IdealIntermediateSwitch1.png\" alt=\"IdealIntermediateSwitch1\">
-</p>
+</div>
 
 <p>
 In order to prevent singularities during switching, the opened
@@ -74,9 +74,9 @@ switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/SinglePhase/Ideal/IdealIntermediateSwitch2.png\" alt=\"IdealIntermediateSwitch2\">
-</p>
+</div>
 
 <p>
 The limiting case is also allowed, i.e., the resistance Ron of the

@@ -39,10 +39,10 @@ The capacitance <code>C</code> is given as input signal.
 The abstraction of a variable capacitor at quasi-static operation assumes:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/SinglePhase/Basic/dc_dt.png\"
      alt=\"dc_dt.png\">.
-</p>
+</div>
 
 <h4>See also</h4>
 <p>

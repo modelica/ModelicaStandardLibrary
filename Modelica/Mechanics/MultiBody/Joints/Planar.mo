@@ -170,9 +170,9 @@ vectors \"n\" and \"n_x\"
 s_y.start = 0.5, phi.start = 45<sup>o</sup>).
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Planar.png\">
-</p>
+</div>
 </html>"),
          Icon(coordinateSystem(
         preserveAspectRatio=true,

@@ -317,9 +317,9 @@ a <strong>rigid rod</strong>, see default animation figure (the arrows are not
 part of the default animation):
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/UniversalSpherical.png\" alt=\"model Joints.UniversalSpherical\">
-</p>
+</div>
 
 <p>
 This joint aggregation has no mass and no inertia and introduces the constraint
