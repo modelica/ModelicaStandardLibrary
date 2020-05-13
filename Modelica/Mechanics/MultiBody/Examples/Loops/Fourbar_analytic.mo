@@ -79,7 +79,7 @@ equation
 This is a third version of the \"four-bar\" mechanism, see figure:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar_analytic.png\" alt=\"model Examples.Loops.Fourbar_analytic\">
+<div><img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar_analytic.png\" alt=\"model Examples.Loops.Fourbar_analytic\"></div>
 
 <p>
 In this case

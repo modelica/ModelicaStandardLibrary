@@ -99,6 +99,6 @@ equation
     The generated clocked signals of the disjunctive and conjunctive clock are
     therefore:
     </p>
-    <img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/LogicalSample_Result.png\" alt=\"LogicalSample_Result.png\">.
+    <div><img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/LogicalSample_Result.png\" alt=\"LogicalSample_Result.png\"></div>.
     </html>"));
 end LogicalSample;
