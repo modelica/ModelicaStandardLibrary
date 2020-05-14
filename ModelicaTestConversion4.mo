@@ -135,9 +135,11 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
       Modelica.Blocks.Continuous.LimPID pid1(initType=InitPID(3), yMax=1);
       Modelica.Blocks.Continuous.LimPID pid2(initType=InitPID.DoNotUse_InitialIntegratorState, yMax=1);
       Modelica.Blocks.Continuous.LimPID pid3(initType=InitPID.SteadyState, yMax=1);
-      Modelica.Blocks.Continuous.PID pid4(initType=Modelica.Blocks.Types.InitPID(3), Td=0.5, Ti=0.5);
-      Modelica.Blocks.Continuous.PID pid5(initType=Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState, Td=0.5, Ti=0.5);
-      Modelica.Blocks.Continuous.PID pid6(initType=Modelica.Blocks.Types.InitPID.NoInit, Td=0.5, Ti=0.5);
+      Modelica.Blocks.Continuous.LimPID pid4(yMax=1);
+      Modelica.Blocks.Continuous.PID pid5(initType=Modelica.Blocks.Types.InitPID(3), Td=0.5, Ti=0.5);
+      Modelica.Blocks.Continuous.PID pid6(initType=Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState, Td=0.5, Ti=0.5);
+      Modelica.Blocks.Continuous.PID pid7(initType=Modelica.Blocks.Types.InitPID.NoInit, Td=0.5, Ti=0.5);
+      Modelica.Blocks.Continuous.PID pid8(Td=0.5, Ti=0.5);
       Modelica.Blocks.Sources.Clock clock;
     equation
       connect(clock.y, pid1.u_s);
@@ -146,9 +148,12 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
       connect(clock.y, pid2.u_m);
       connect(clock.y, pid3.u_s);
       connect(clock.y, pid3.u_m);
-      connect(clock.y, pid4.u);
+      connect(clock.y, pid4.u_s);
+      connect(clock.y, pid4.u_m);
       connect(clock.y, pid5.u);
       connect(clock.y, pid6.u);
+      connect(clock.y, pid7.u);
+      connect(clock.y, pid8.u);
       annotation(experiment(StopTime=1), Documentation(info="<html>
 <p>
 Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/2892\">#2892</a>.

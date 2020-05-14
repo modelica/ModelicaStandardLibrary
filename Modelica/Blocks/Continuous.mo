@@ -793,7 +793,7 @@ to compute u by an algebraic equation.
       annotation(Evaluate=true, choices(checkBox=true));
     parameter Real kFF=1 "Gain of feed-forward input"
       annotation(Dialog(enable=withFeedForward));
-    parameter Init initType = Init.NoInit
+    parameter Init initType = Init.InitialState
       "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
       annotation(Evaluate=true, Dialog(group="Initialization"));
     parameter Real xi_start=0

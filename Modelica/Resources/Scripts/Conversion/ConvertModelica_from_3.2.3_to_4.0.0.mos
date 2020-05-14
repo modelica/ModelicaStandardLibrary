@@ -130,9 +130,9 @@ convertClass("Modelica.Blocks.Interfaces.Adaptors.ReceiveBoolean",
 convertClass("Modelica.Blocks.Interfaces.Adaptors.ReceiveInteger",
               "ObsoleteModelica4.Blocks.Interfaces.Adaptors.ReceiveInteger")
 convertClass("Modelica.Blocks.Types.Init.DoNotUse_InitialIntegratorState",
-              "Modelica.Blocks.Types.Init.NoInit")
+              "Modelica.Blocks.Types.Init.InitialState")
 convertClass("Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState",
-              "Modelica.Blocks.Types.Init.NoInit")
+              "Modelica.Blocks.Types.Init.InitialState")
 convertClass("Modelica.Blocks.Types.InitPID",
               "Modelica.Blocks.Types.Init")
 convertClass("Modelica.Icons.RotationalSensor",
