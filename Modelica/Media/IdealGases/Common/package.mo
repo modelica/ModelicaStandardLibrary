@@ -28,7 +28,7 @@ ideal gas equations according to:
 <p>
 The equations have the following structure:
 </p>
-<img src=\"modelica://Modelica/Resources/Images/Media/IdealGases/Common/singleEquations.png\">
+<div><img src=\"modelica://Modelica/Resources/Images/Media/IdealGases/Common/singleEquations.png\"></div>
 <p>
 The polynomials for h(T) and s0(T) are derived via integration from the one for cp(T)  and contain the integration constants b1, b2 that define the reference specific enthalpy and entropy. For entropy differences the reference pressure p0 is arbitrary, but not for absolute entropies. It is chosen as 1 standard atmosphere (101325 Pa).
 </p>

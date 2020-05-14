@@ -85,7 +85,7 @@ is represented by a cylinder. This allows to define simple shaped
 3-dimensional characters. An example is shown in the
 following figure:<br>&nbsp;
 </p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Internal/FixedLines.png\" alt=\"model Visualizers.Internal.FixedLines\">
+<div><img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Internal/FixedLines.png\" alt=\"model Visualizers.Internal.FixedLines\"></div>
 <p>&nbsp;<br>
 The two letters \"x\" and \"y\" are constructed with 4 lines
 by providing the following data for parameter <strong>lines</strong>

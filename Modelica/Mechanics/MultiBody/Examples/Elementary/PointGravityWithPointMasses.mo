@@ -62,6 +62,6 @@ These are the two cases where the rotation is automatically set to
 a default value, when the physical system does not provide the equations.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/PointGravityWithPointMasses.png\">
+<div><img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/PointGravityWithPointMasses.png\"></div>
 </html>"));
 end PointGravityWithPointMasses;

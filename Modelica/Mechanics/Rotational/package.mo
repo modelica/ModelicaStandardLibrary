@@ -11,7 +11,7 @@ drive trains with frictional losses. A typical, simple example is shown
 in the next figure:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveExample.png\">
+<div><img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveExample.png\"></div>
 
 <p>
 For an introduction, have especially a look at:

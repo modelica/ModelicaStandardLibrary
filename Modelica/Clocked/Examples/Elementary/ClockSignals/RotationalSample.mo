@@ -47,6 +47,6 @@ equation
     the same pace; every half second it is doubled or halved respectively. The
     generated clocked signals are therefore:
     </p>
-    <img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/RotationalSample_Result.png\" alt=\"RotationalSample_Result.png\">.
+    <div><img src=\"modelica://Modelica/Resources/Images/Clocked/Examples/RotationalSample_Result.png\" alt=\"RotationalSample_Result.png\"></div>.
     </html>"));
 end RotationalSample;

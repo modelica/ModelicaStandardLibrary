@@ -90,7 +90,7 @@ equation
 This is a second version of the \"four-bar\" mechanism, see figure:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar2.png\" alt=\"model Examples.Loops.Fourbar2\">
+<div><img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar2.png\" alt=\"model Examples.Loops.Fourbar2\"></div>
 
 <p>
 In this case

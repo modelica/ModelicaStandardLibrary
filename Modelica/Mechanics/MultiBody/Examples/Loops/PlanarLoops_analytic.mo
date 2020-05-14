@@ -180,7 +180,7 @@ In the following figure the parameter vectors of this example are visualized in 
 animation view.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/PlanarLoops2.png\" alt=\"model Examples.Loops.PlanarLoops2\">
+<div><img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/PlanarLoops2.png\" alt=\"model Examples.Loops.PlanarLoops2\"></div>
 </html>"),
     Diagram(coordinateSystem(extent={{-120,-100},{120,100}})),
     Icon(coordinateSystem(extent={{-120,-100},{120,100}})));

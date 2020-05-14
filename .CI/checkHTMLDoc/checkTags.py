@@ -33,6 +33,7 @@ def _checkFileTags(file_name):
     found_invalid = []
     found_mismatch = []
     found_case = []
+    found_inline = []
     with open(file_name) as file:
         stack = []
         i = 1
@@ -46,6 +47,8 @@ def _checkFileTags(file_name):
                         found_invalid.append((i, tag))
                     if tag != tag.lower():
                         found_case.append((i, tag))
+                if tag == 'img' and len(stack) == 1:
+                    found_inline.append((i, tag))
                 if tag == 'html':
                     if bool(stack):
                         found_mismatch.append((i, tag))
@@ -77,8 +80,10 @@ def _checkFileTags(file_name):
         print('File "{0}": line {1} - Warning: HTML tag "{2}" misuse.'.format(file_name, i, tag))
     for i, tag in found_case:
         print('File "{0}": line {1} - Warning: HTML tag "{2}" misspelling. Use lower case.'.format(file_name, i, tag))
+    for i, tag in found_inline:
+        print('File "{0}": line {1} - Warning: HTML tag "{2}" misuse. Wrap in "div" tag.'.format(file_name, i, tag))
 
-    return len(found_mismatch) + len(found_invalid) + len(found_case)
+    return len(found_mismatch) + len(found_invalid) + len(found_case) + len(found_inline)
 
 def _walkCheck(func, path):
     error_count = 0
