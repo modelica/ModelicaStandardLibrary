@@ -2877,8 +2877,8 @@ Obsolete saliency cage model, see
   end Magnetic;
   annotation (uses(Modelica(version="4.0.0")),
               version="4.0.0",
-              versionDate="2020-05-04",
-              dateModified = "2020-05-04 19:00:00Z",
+              versionDate="2020-05-15",
+              dateModified = "2020-05-15 19:00:00Z",
               revisionId="$Format:%h %ci$",
 Documentation(info="<html>
 <p>

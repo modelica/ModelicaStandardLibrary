@@ -3,7 +3,7 @@ class ReleaseNotes "Release Notes"
   extends Modelica.Icons.ReleaseNotes;
   annotation (Documentation(info="<html>
 
-  <h5>4.0.0, 2020-05-04</h5>
+  <h5>4.0.0, 2020-05-15</h5>
   <ul>
   <li>Move models of package Interfaces.Partials to
       <a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Interfaces\">Interfaces</a> and
