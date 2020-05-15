@@ -2592,12 +2592,18 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Modelica.Blocks</strong></td></tr>
-<tr><td>Nonlinear.Limiter<br>Nonlinear.VariableLimiter<br>Continuous.LimPID</td>
+<tr><td>Nonlinear.Limiter<br>Nonlinear.VariableLimiter</td>
     <td>The superfluous parameter <code>limitsAtInit</code> has been removed.</td></tr>
+<tr><td>Continuous.PID</td>
+    <td>The initialization option <code>initType</code>&nbsp;=&nbsp;<code>InitPID.DoNotUse_InitialIntegratorState</code> to only initialize the integrator state has been removed. This option has been converted to both initialize the integrator state and the derivative state, i.e., <code>initType</code>&nbsp;=&nbsp;<code>Init.InitialState</code>.</td></tr>
+<tr><td>Continuous.LimPID</td>
+    <td>The superfluous parameter <code>limitsAtInit</code> has been removed.<br>The initialization option <code>initType</code>&nbsp;=&nbsp;<code>InitPID.DoNotUse_InitialIntegratorState</code> to only initialize the integrator state has been removed. This option has been converted to both initialize the integrator state and the derivative state, i.e., <code>initType</code>&nbsp;=&nbsp;<code>Init.InitialState</code>.</td></tr>
 <tr><td>Nonlinear.DeadZone</td>
     <td>The superfluous parameter <code>deadZoneAtInit</code> has been removed.</td></tr>
 <tr><td>Interfaces.PartialNoise<br>Noise.UniformNoise<br>Noise.NormalNoise<br>Noise.TruncatedNormalNoise<br>Noise.BandLimitedWhiteNoise</td>
     <td>As a side-effect of the updated computation in Modelica.Math.Random.Utilities.automaticLocalSeed the <code>localSeed</code> parameter is computed differently if <code>useAutomaticLocalSeed</code> is set to true.</td></tr>
+<tr><td>Types.InitPID</td>
+    <td>The enumeration type has been converted to <code>Types.Init</code> with exception of the alternative <code>InitPID.DoNotUse_InitialIntegratorState</code>, that was converted to <code>Init.InitialState</code> leading to a different initialization behaviour.</td></tr>
 <tr><td colspan=\"2\"><strong>Modelica.Electrical.Machines.Utilities</strong></td></tr>
 <tr><td>SwitchYD</td>
     <td>The <a href=\"modelica://Modelica.Electrical.Polyphase.Ideal.IdealCommutingSwitch\">IdealCommutingSwitch</a> is replaced by an <a href=\"modelica://Modelica.Electrical.Polyphase.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a> and an <a href=\"modelica://Modelica.Electrical.Polyphase.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a> to allow a time delay between the two switching actions.</td></tr>
