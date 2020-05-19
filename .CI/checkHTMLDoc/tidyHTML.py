@@ -59,16 +59,16 @@ def _tidyFileHTML(file_name):
                 if tag == 'html':
                     # Fill with empty lines to get matching line numbers from HTML Tidy
                     doc = ['\n']*(i - 1)
-                    doc.append(line[match.span()[1]:])
+                    doc.append(line[match.end():])
                     in_line = i
                 elif tag == '/html':
                     if in_line != i:
                         del doc[-1]
-                        cont = line[:match.span()[0]]
+                        cont = line[:match.start()]
                     else:
                         # Single line
                         cont = doc.pop()
-                        cont = cont[:(match.span()[0] - len(line))]
+                        cont = cont[:(match.start() - len(line))]
                     doc.append(cont)
                     # Call HTML Tidy
                     errors = errors + _tidyHTML(doc)
