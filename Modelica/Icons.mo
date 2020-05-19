@@ -550,7 +550,7 @@ This icon is indicates a record.
 </html>"));
   end Record;
 
-  partial operator record OperatorRecord "Icon for operator records"
+  partial class OperatorRecord "Icon for operator records"
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Text(
