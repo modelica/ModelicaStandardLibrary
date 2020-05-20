@@ -2385,7 +2385,7 @@ summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-4.
 The following <font color=\"blue\"><strong>Modelica packages</strong></font> have been tested that they work together with this release of package Modelica
 (alphabetical list).
 Hereby simulation results of the listed packages have been produced with package Modelica version 3.2.3 and
-compared with the simulation results produced with version 4.0.0 Beta.1. The tests have been performed with Dymola 2020/2020x:
+compared with the simulation results produced with version 4.0.0 Beta.1. The tests have been performed with Dymola 2020/2020x/2021:
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -2398,6 +2398,11 @@ compared with the simulation results produced with version 4.0.0 Beta.1. The tes
     <td><a href=\"https://github.com/lbl-srg/modelica-buildings/issues/1789\">Buildings</a></td>
     <td>&nbsp;&gt;&nbsp;6.0.0</td>
     <td>LBNL</td>
+  </tr>
+  <tr>
+    <td>BrushlessDCDrives</td>
+    <td>1.1.1</td>
+    <td>Dassault Syst&egrave;mes</td>
   </tr>
   <tr>
     <td>Clara</td>
@@ -2415,6 +2420,11 @@ compared with the simulation results produced with version 4.0.0 Beta.1. The tes
     <td>Anton Haumer</td>
   </tr>
   <tr>
+    <td>DymolaModels</td>
+    <td>1.1</td>
+    <td>Dassault Syst&egrave;mes</td>
+  </tr>
+  <tr>
     <td>EDrives</td>
     <td>1.0.1</td>
     <td>Anton Haumer and Christian Kral</td>
@@ -2423,6 +2433,16 @@ compared with the simulation results produced with version 4.0.0 Beta.1. The tes
     <td>ElectricalMachines</td>
     <td>0.9.1</td>
     <td>Anton Haumer</td>
+  </tr>
+  <tr>
+    <td>ElectricPowerSystems</td>
+    <td>1.3.1</td>
+    <td>Dassault Syst&egrave;mes</td>
+  </tr>
+  <tr>
+    <td>ElectrifiedPowertrains</td>
+    <td>1.3.2</td>
+    <td>Dassault Syst&egrave;mes</td>
   </tr>
   <tr>
     <td>ElectroMechanicalDrives</td>
@@ -2468,6 +2488,11 @@ compared with the simulation results produced with version 4.0.0 Beta.1. The tes
     <td>PlanarMechanics</td>
     <td>1.4.1</td>
     <td>Dirk Zimmer</td>
+  </tr>
+  <tr>
+    <td>Testing</td>
+    <td>1.3</td>
+    <td>Dassault Syst&egrave;mes</td>
   </tr>
   <tr>
     <td>ThermalSystems</td>
