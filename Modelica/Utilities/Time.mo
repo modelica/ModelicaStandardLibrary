@@ -1095,7 +1095,7 @@ String(d, format=\"%days'\")          // = \"1\" (only full days are shown, rest
       result := not d1 == d2;
     end '<>';
 
-    encapsulated operator function '>' "Check if Duration d1 is larger than d2"
+    encapsulated operator function '>' "Check if Duration d1 is greater than d2"
       import Modelica.Utilities.Time.Duration;
       import Modelica.Icons.Function;
       extends Function;
@@ -1108,7 +1108,7 @@ String(d, format=\"%days'\")          // = \"1\" (only full days are shown, rest
       result := Duration.inSeconds(d1) > Duration.inSeconds(d2);
     end '>';
 
-    encapsulated operator function '>=' "Check if Duration d1 is equal to d2 or larger"
+    encapsulated operator function '>=' "Check if Duration d1 is greater than d2 or equal"
       import Modelica.Utilities.Time.Duration;
       import Modelica.Icons.Function;
       extends Function;
@@ -1122,7 +1122,7 @@ String(d, format=\"%days'\")          // = \"1\" (only full days are shown, rest
 
     end '>=';
 
-    encapsulated operator function '<' "Check if Duration d1 is smaller than d2"
+    encapsulated operator function '<' "Check if Duration d1 is less than d2"
       import Modelica.Utilities.Time.Duration;
       import Modelica.Icons.Function;
       extends Function;
@@ -1136,7 +1136,7 @@ String(d, format=\"%days'\")          // = \"1\" (only full days are shown, rest
 
     end '<';
 
-    encapsulated operator function '<=' "Check if Duration d1 is equal to d2 or smaller"
+    encapsulated operator function '<=' "Check if Duration d1 is less than d2 or equal"
       import Modelica.Utilities.Time.Duration;
       import Modelica.Icons.Function;
       extends Function;
