@@ -160,8 +160,8 @@ are defined that contain medium specific values for the min, max and
 nominal attributes. Furthermore, Medium.MassFlowRate is defined as:
 </p>
 <blockquote><pre>
-<strong>type</strong> MassFlowRate =
-  SI.MassFlowRate(quantity=\"MassFlowRate.\" + mediumName);
+<strong>type</strong> MassFlowRate = SI.MassFlowRate(
+  quantity = \"MassFlowRate.\" + mediumName);
 </pre></blockquote>
 <p>
 Generally, with the current library design, it is necessary to explicitly select the medium
