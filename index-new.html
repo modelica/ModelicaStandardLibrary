@@ -326,8 +326,12 @@
         apiKey: '97b18f2173101844a41539b817e99337',
         indexName: 'modelica',
         inputSelector: '.md-search-input',
-        debug: true // Set debug to true if you want to inspect the dropdown
-        });
+        debug: true, // Set debug to true if you want to inspect the dropdown
+        algoliaOptions: {
+          hitsPerPage: 16,
+          "facetFilters": ["version:3.2.3", "tool:OM", "library:ModelicaServices"] // Test only for https://github.com/algolia/docsearch-configs/pull/1948
+        }
+      });
     });
   </script>
 
