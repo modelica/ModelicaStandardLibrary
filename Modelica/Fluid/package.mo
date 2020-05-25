@@ -144,13 +144,13 @@ Modelica.Fluid.Interfaces.FluidPort reduces to
 <blockquote><pre>
 <strong>connector</strong> FluidPort
   <strong>replaceable package</strong> Medium = Modelica.Media.Interfaces.PartialMedium
-           \"Medium model of the fluid\";
-  <strong>flow</strong> Medium.MassFlowRate m_flow;
-           \"Mass flow rate from the connection point into the component\";
+    \"Medium model of the fluid\";
+  <strong>flow</strong> Medium.MassFlowRate m_flow
+    \"Mass flow rate from the connection point into the component\";
   Medium.AbsolutePressure p
-           \"Thermodynamic pressure in the connection point\";
+    \"Thermodynamic pressure in the connection point\";
   <strong>stream</strong> Medium.SpecificEnthalpy h_outflow
-            \"Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0\";
+    \"Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0\";
 <strong>end</strong> FluidPort;
 </pre></blockquote>
 <p>
@@ -160,8 +160,8 @@ are defined that contain medium specific values for the min, max and
 nominal attributes. Furthermore, Medium.MassFlowRate is defined as:
 </p>
 <blockquote><pre>
-<strong>type</strong> MassFlowRate =
-   SI.MassFlowRate(quantity=\"MassFlowRate.\" + mediumName);
+<strong>type</strong> MassFlowRate = SI.MassFlowRate(
+  quantity = \"MassFlowRate.\" + mediumName);
 </pre></blockquote>
 <p>
 Generally, with the current library design, it is necessary to explicitly select the medium
@@ -222,14 +222,16 @@ terms in the energy balance are neglected for simplicity.
 </p>
 
 <blockquote><pre>
-model MixingVolume \"Volume that mixes two flows\"
-  replaceable package Medium = Modelica.Media.Interfaces.PartialPureSubstance;
-  FluidPort port_a, port_b;
-  parameter SI.Volume V \"Volume of device\";
+<strong>model</strong> MixingVolume \"Volume that mixes two flows\"
+  <strong>import</strong> Modelica.Units.SI;
+  <strong>replaceable package</strong> Medium = Modelica.Media.Interfaces.PartialPureSubstance;
+  FluidPort port_a(redeclare package Medium = Medium) \"Fluid connector a\";
+  FluidPort port_b(redeclare package Medium = Medium) \"Fluid connector b\";
+  <strong>parameter</strong> SI.Volume V \"Volume of device\";
   SI.Mass             m \"Mass in device\";
   SI.Energy           U \"Inner energy in device\";
   Medium.BaseProperties medium(preferredMediumStates=true) \"Medium in the device\";
-equation
+<strong>equation</strong>
   // Definition of port variables
   port_a.p         = medium.p;
   port_b.p         = medium.p;
@@ -239,29 +241,32 @@ equation
   // Total quantities
   m = V*medium.d;
   U = m*medium.u;
-   // Mass and energy balance (actualStream(..) is a built-in operator for streams to
+  // Mass and energy balance (actualStream(..) is a built-in operator for streams to
   // compute the right h, depending on the flow direction)
   der(m) = port_a.m_flow + port_b.m_flow;
   der(U) = port_a.m_flow*actualStream(port_a.h_outflow) +
            port_b.m_flow*actualStream(port_b.h_outflow);
-end MixingVolume;
+<strong>end</strong> MixingVolume;
 </pre></blockquote>
 
 <p>
 The second example is the model of a component describing a lumped pressure loss
 between two ports, with no energy storage and no heat transfer. An isenthalpic
 transformation is assumed (changes in kinetic and potential energy between
-inlet and outlet are neglected)
+inlet and outlet are neglected).
 </p>
 <blockquote><pre>
-model PressureLoss \"Pressure loss component\"
-  replaceable package Medium=Modelica.Media.Interfaces.PartialPureSubstance;
-  FluidPort port_a, port_b:
+<strong>model</strong> PressureLoss \"Pressure loss component\"
+  <strong>replaceable package</strong> Medium = Modelica.Media.Interfaces.PartialPureSubstance;
+  FluidPort port_a(redeclare package Medium = Medium) \"Fluid connector a\";
+  FluidPort port_b(redeclare package Medium = Medium) \"Fluid connector b\";
   Medium.ThermodynamicState port_a_state_inflow \"State at port_a if inflowing\";
   Medium.ThermodynamicState port_b_state_inflow \"State at port_b if inflowing\";
-  Medium density d_a, d_b \"Density at ports a and b if inflowing\";
-  replaceable function f \"Function to compute the mass flow rate\";
-equation
+  Medium.Density d_a \"Density at port a if inflowing\";
+  Medium.Density d_b \"Density at port b if inflowing\";
+  <strong>replaceable</strong> function f = SomeSpecificMassFlowFunction
+    \"Function to compute the mass flow rate\";
+<strong>equation</strong>
   // Medium states for inflowing fluid
   port_a_state_inflow = Medium.setState_phX(port_a.p, inStream(port_a.h_outflow));
   port_b_state_inflow = Medium.setState_phX(port_b.p, inStream(port_b.h_outflow));
@@ -272,15 +277,15 @@ equation
   port_a.h_outflow = inStream(port_b.h_outflow);
   port_b.h_outflow = inStream(port_a.h_outflow);
   // (Regularized) Momentum balance
-  port_a.m_flow = f(port_a.p, port_b.p, d_a, d_b);
-end PressureLoss;
+  port_a.m_flow = f(port_a.p - port_b.p, d_a, d_b);
+<strong>end</strong> PressureLoss;
 </pre></blockquote>
 
 <p>
 If many such components are connected in series between two models with storage, the
 specific enthalpies are propagated in both directions and available to all pressure
-loss components, without problems when the mass flow goes through zero. The function
-f then uses either d_a or d_b depending on the sign of port_a.p-port_b.p, with a
+loss components, without problems when the mass flow goes through zero. The function&nbsp;f
+then uses either d_a or d_b depending on the sign of port_a.p-port_b.p, with a
 suitable regularization around zero to avoid discontinuities.
 </p>
 
@@ -297,20 +302,22 @@ composition can be characterized by mass fraction vectors.
 </p>
 <blockquote><pre>
 <strong>connector</strong> FluidPort
-   <strong>replaceable package</strong> Medium = Modelica.Media.Interfaces.PartialMedium
-      \"Medium model of the fluid\";
-   <strong>flow</strong> Medium.MassFlowRate m_flow;
-      \"Mass flow rate from the connection point into the component\"
-   Medium.AbsolutePressure p
-      \"Thermodynamic pressure in the connection point\";
-   <strong>stream</strong> Medium.SpecificEnthalpy h_outflow
-       \"Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0\";
-   <strong>stream</strong> Medium.MassFraction Xi_outflow[Medium.nXi]
-       \"Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0\";
-   <strong>stream</strong> Medium.ExtraProperty C_outflow[Medium.nC]
-       \"Properties c_i/m close to the connection point if m_flow &lt; 0\";
-  <strong>end</strong> FluidPort;
+  <strong>replaceable package</strong> Medium = Modelica.Media.Interfaces.PartialMedium
+    \"Medium model of the fluid\";
+  <strong>flow</strong> Medium.MassFlowRate m_flow
+    \"Mass flow rate from the connection point into the component\";
+  Medium.AbsolutePressure p
+    \"Thermodynamic pressure in the connection point\";
+  <strong>stream</strong> Medium.SpecificEnthalpy h_outflow
+    \"Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0\";
+  <strong>stream</strong> Medium.MassFraction Xi_outflow[Medium.nXi]
+    \"Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0\";
+  <strong>stream</strong> Medium.ExtraProperty C_outflow[Medium.nC]
+    \"Properties c_i/m close to the connection point if m_flow &lt; 0\";
+<strong>end</strong> FluidPort;
 </pre></blockquote>
+
+<p>
 The mass fraction vectors Xi and C are also stream quantities, as they are carried by the mass
 flow rate. The corresponding connection equations are sum(m_flow*Xi) and sum(m_flow*C), which correspond to mass balances for the single substances. The vector Xi contains the mass fractions
 of the main components of the fluid, and is used together with p and h to determine the
@@ -318,6 +325,7 @@ thermodynamic state of the fluid. The vector C contains the mass fraction of the
 which are accounted for in mass balances, but is ignored when computing the fluid properties. This
 allows to easily declare and use medium models with trace components starting from existing medium
 models (e.g., adding CO<sub>2</sub> traces to Moist Air for air conditioning models).
+</p>
 
 <h4>Approximations in balance equations at connection point</h4>
 <p>
@@ -456,17 +464,16 @@ with the following code fragment
 (from Interfaces.PartialTwoPortTransport):
 </p>
 <blockquote><pre>
-  <strong>replaceable package</strong> Medium =
-                 Modelica.Media.Interfaces.PartialMedium
-                 <strong>annotation</strong>(choicesAllMatching = <strong>true</strong>);
+  <strong>replaceable package</strong> Medium = Modelica.Media.Interfaces.PartialMedium
+    <strong>annotation</strong>(choicesAllMatching = <strong>true</strong>);
 
   Interfaces.FluidPort_a port_a(<strong>redeclare package</strong> Medium = Medium);
   Interfaces.FluidPort_b port_b(<strong>redeclare package</strong> Medium = Medium);
 
   Medium.ThermodynamicState port_a_state_inflow
-                  \"Medium state close to port_a for inflowing mass flow\";
+    \"Medium state close to port_a for inflowing mass flow\";
   Medium.ThermodynamicState port_b_state_inflow
-                  \"Medium state close to port_b for inflowing mass flow\";
+    \"Medium state close to port_b for inflowing mass flow\";
 
 <strong>equation</strong>
   // Isenthalpic state transformation (no storage and no loss of energy)
