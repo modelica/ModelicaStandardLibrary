@@ -464,17 +464,16 @@ with the following code fragment
 (from Interfaces.PartialTwoPortTransport):
 </p>
 <blockquote><pre>
-  <strong>replaceable package</strong> Medium =
-                 Modelica.Media.Interfaces.PartialMedium
-                 <strong>annotation</strong>(choicesAllMatching = <strong>true</strong>);
+  <strong>replaceable package</strong> Medium = Modelica.Media.Interfaces.PartialMedium
+    <strong>annotation</strong>(choicesAllMatching = <strong>true</strong>);
 
   Interfaces.FluidPort_a port_a(<strong>redeclare package</strong> Medium = Medium);
   Interfaces.FluidPort_b port_b(<strong>redeclare package</strong> Medium = Medium);
 
   Medium.ThermodynamicState port_a_state_inflow
-                  \"Medium state close to port_a for inflowing mass flow\";
+    \"Medium state close to port_a for inflowing mass flow\";
   Medium.ThermodynamicState port_b_state_inflow
-                  \"Medium state close to port_b for inflowing mass flow\";
+    \"Medium state close to port_b for inflowing mass flow\";
 
 <strong>equation</strong>
   // Isenthalpic state transformation (no storage and no loss of energy)
