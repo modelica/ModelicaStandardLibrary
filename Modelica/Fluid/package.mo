@@ -222,16 +222,16 @@ terms in the energy balance are neglected for simplicity.
 </p>
 
 <blockquote><pre>
-model MixingVolume \"Volume that mixes two flows\"
-  import Modelica.Units.SI;
-  replaceable package Medium = Modelica.Media.Interfaces.PartialPureSubstance;
+<strong>model</strong> MixingVolume \"Volume that mixes two flows\"
+  <strong>import</strong> Modelica.Units.SI;
+  <strong>replaceable package</strong> Medium = Modelica.Media.Interfaces.PartialPureSubstance;
   FluidPort port_a(redeclare package Medium = Medium) \"Fluid connector a\";
   FluidPort port_b(redeclare package Medium = Medium) \"Fluid connector b\";
-  parameter SI.Volume V \"Volume of device\";
+  <strong>parameter</strong> SI.Volume V \"Volume of device\";
   SI.Mass             m \"Mass in device\";
   SI.Energy           U \"Inner energy in device\";
   Medium.BaseProperties medium(preferredMediumStates=true) \"Medium in the device\";
-equation
+<strong>equation</strong>
   // Definition of port variables
   port_a.p         = medium.p;
   port_b.p         = medium.p;
@@ -246,7 +246,7 @@ equation
   der(m) = port_a.m_flow + port_b.m_flow;
   der(U) = port_a.m_flow*actualStream(port_a.h_outflow) +
            port_b.m_flow*actualStream(port_b.h_outflow);
-end MixingVolume;
+<strong>end</strong> MixingVolume;
 </pre></blockquote>
 
 <p>
@@ -256,16 +256,17 @@ transformation is assumed (changes in kinetic and potential energy between
 inlet and outlet are neglected).
 </p>
 <blockquote><pre>
-model PressureLoss \"Pressure loss component\"
-  replaceable package Medium = Modelica.Media.Interfaces.PartialPureSubstance;
+<strong>model</strong> PressureLoss \"Pressure loss component\"
+  <strong>replaceable package</strong> Medium = Modelica.Media.Interfaces.PartialPureSubstance;
   FluidPort port_a(redeclare package Medium = Medium) \"Fluid connector a\";
   FluidPort port_b(redeclare package Medium = Medium) \"Fluid connector b\";
   Medium.ThermodynamicState port_a_state_inflow \"State at port_a if inflowing\";
   Medium.ThermodynamicState port_b_state_inflow \"State at port_b if inflowing\";
   Medium.Density d_a \"Density at port a if inflowing\";
   Medium.Density d_b \"Density at port b if inflowing\";
-  replaceable function f = SomeSpecificMassFlowFunction \"Function to compute the mass flow rate\";
-equation
+  <strong>replaceable</strong> function f = SomeSpecificMassFlowFunction
+    \"Function to compute the mass flow rate\";
+<strong>equation</strong>
   // Medium states for inflowing fluid
   port_a_state_inflow = Medium.setState_phX(port_a.p, inStream(port_a.h_outflow));
   port_b_state_inflow = Medium.setState_phX(port_b.p, inStream(port_b.h_outflow));
@@ -277,7 +278,7 @@ equation
   port_b.h_outflow = inStream(port_a.h_outflow);
   // (Regularized) Momentum balance
   port_a.m_flow = f(port_a.p - port_b.p, d_a, d_b);
-end PressureLoss;
+<strong>end</strong> PressureLoss;
 </pre></blockquote>
 
 <p>
