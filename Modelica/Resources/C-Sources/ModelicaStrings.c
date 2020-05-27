@@ -93,8 +93,10 @@
 #include "uthash.h"
 #undef uthash_fatal /* Ensure that nowhere in this file uses uthash_fatal by accident */
 
+#if defined(__clang__)
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wtautological-compare"
+#endif
 
 _Ret_z_ const char* ModelicaStrings_substring(_In_z_ const char* string,
                                       int startIndex, int endIndex) {
@@ -553,4 +555,6 @@ int ModelicaStrings_hashString(_In_z_ const char* str) {
     return h.is;
 }
 
+#if defined(__clang__)
 #pragma clang diagnostic pop
+#endif
