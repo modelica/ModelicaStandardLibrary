@@ -68,9 +68,6 @@
 
 #if !defined(__BORLANDC__) && !defined(__LCC__) && !(defined(_MSC_VER) && _MSC_VER < 1400)
 #define HAVE_SAFE_MATH 1
-#if !defined(PSNIP_SAFE_FORCE_PORTABLE) && defined(_MSC_VER) && _MSC_VER < 1600
-#define PSNIP_SAFE_FORCE_PORTABLE
-#endif
 #include "safe-math.h"
 #else
 #undef HAVE_SAFE_MATH
