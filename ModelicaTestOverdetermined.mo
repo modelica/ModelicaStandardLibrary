@@ -609,8 +609,8 @@ The initial equations are consistent however and a tool shall reduce them approp
           fillPattern=FillPattern.Solid)}),
        preferredView="info",
        version="4.0.0",
-       versionDate="2020-05-15",
-       dateModified = "2020-05-15 19:00:00Z",
+       versionDate="2020-06-04",
+       dateModified = "2020-06-04 11:00:00Z",
        revisionId="$Id::                                       $",
        uses(Modelica(version="4.0.0")),
     Documentation(info="<html>
