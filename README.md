@@ -10,10 +10,9 @@ Note, the usage of a Modelica library requires a Modelica simulation environment
 
 ![ModelicaLibraries](Modelica/Resources/Images/UsersGuide/ModelicaLibraries.png)
 
-
 ## Current release
 
-[Modelica Standard Library v3.2.3+build.3 (2019-09-21)](../../releases/tag/v3.2.3+build.3)
+[Modelica Standard Library v3.2.3+build.4 (2020-06-04)](../../releases/tag/v3.2.3+build.4)
 
 ## Older Releases
 
