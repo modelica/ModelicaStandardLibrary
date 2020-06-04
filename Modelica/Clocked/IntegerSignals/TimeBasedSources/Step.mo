@@ -147,9 +147,9 @@ equation
 The Integer output y is a step signal:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/IntegerStep.png\" alt=\"IntegerStep.png\">
-</p>
+</div>
 
 <h4>Example</h4>
 <p>

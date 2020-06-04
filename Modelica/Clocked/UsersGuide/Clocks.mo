@@ -13,9 +13,9 @@ Chapter 16 (for Modelica Language Version &ge; 3.3).
 A <strong>Clock</strong> type is a base data type (introduced in Modelica 3.3, additionally to Real, Integer, Boolean, String) that defines when a particular partition consisting of a set of equations is active. Starting with Modelica Language Version 3.3, every variable and every equation is either continuous-time or is associated exactly to one clock. This feature is visualized in the figure below where c(ti) is a clock that is active at particular time instants ti and r(ti) is a variable that is associated to this clock. A clocked variable has only a value when the corresponding clock is active:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Clocked/Clocks/clockSignals.png\" alt=\"Clock variables and clocked variables\">
-</p>
+</div>
 
 <p>
 Similarly to RealInput, RealOutput etc., clock input and output connectors, called ClockInput and ClockOutput, are defined in sublibrary
@@ -25,9 +25,9 @@ one of the blocks of sublibrary
 <a href=\"modelica://Modelica.Clocked.ClockSignals.Clocks\">ClockSignals.Clocks</a>:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Clocked/Clocks/clocks.png\" alt=\"Sublibrary ClockSignals.Clocks\">
-</p>
+</div>
 
 <p>
 The output signals of the blocks in the above figure are clock signals,
@@ -43,10 +43,10 @@ is sub-sampled with a factor 3 and therefore a clock signal with a period of 0.3
 is generated:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Clocked/Clocks/subSampledClockExample.png\" alt=\"Sub-sample example model\"><br>
 <img src=\"modelica://Modelica/Resources/Images/Clocked/Clocks/subSampledClockResult.png\" alt=\"Sub-sample example plot\">
-</p>
+</div>
 
 <p>
 As usual in synchronous languages, a clock is represented by a <strong>true</strong> value

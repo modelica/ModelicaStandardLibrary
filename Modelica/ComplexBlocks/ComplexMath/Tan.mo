@@ -33,10 +33,10 @@ as <strong>tan</strong> of the input <code>u</code>. Optionally, the input <code
 y = <strong>tan</strong>(uInternal);
 </pre></blockquote>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/tan.png\"
      alt=\"tan.png\">
-</p>
+</div>
 
 </html>"));
 end Tan;

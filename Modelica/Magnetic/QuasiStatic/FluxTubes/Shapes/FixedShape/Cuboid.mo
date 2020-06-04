@@ -30,7 +30,7 @@ the magnetic reluctance by:</p>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/A_cuboid.png\">
 </dd></dl>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/CuboidParallelFlux_qs.png\">
-</p></html>"));
+</div></html>"));
 end Cuboid;

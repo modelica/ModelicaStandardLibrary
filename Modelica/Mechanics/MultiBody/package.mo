@@ -476,9 +476,9 @@ Typical animations generated with this library are shown
 in the next figure:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/MultiBody.png\">
-</p>
+</div>
 
 <p>
 For an introduction, have especially a look at:

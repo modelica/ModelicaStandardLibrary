@@ -1211,10 +1211,10 @@ as <strong>sine</strong> of the input <strong>u</strong>:
 y = <strong>sin</strong>( u );
 </pre></blockquote>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/sin.png\"
      alt=\"sin.png\">
-</p>
+</div>
 
 </html>"));
   end Sin;
@@ -1259,10 +1259,10 @@ as <strong>cos</strong> of the input <strong>u</strong>:
 y = <strong>cos</strong>( u );
 </pre></blockquote>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/cos.png\"
      alt=\"cos.png\">
-</p>
+</div>
 
 </html>"));
   end Cos;
@@ -1306,10 +1306,10 @@ as <strong>tan</strong> of the input <strong>u</strong>:
 y = <strong>tan</strong>( u );
 </pre></blockquote>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/tan.png\"
      alt=\"tan.png\">
-</p>
+</div>
 
 </html>"));
   end Tan;
@@ -1357,10 +1357,10 @@ be less or equal to one (<strong>abs</strong>( u ) <= 1).
 Otherwise an error occurs.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/asin.png\"
      alt=\"atan.png\">
-</p>
+</div>
 
 </html>"));
   end Asin;
@@ -1407,10 +1407,10 @@ be less or equal to one (<strong>abs</strong>( u ) <= 1).
 Otherwise an error occurs.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/acos.png\"
      alt=\"acos.png\">
-</p>
+</div>
 
 </html>"));
   end Acos;
@@ -1453,10 +1453,10 @@ This blocks computes the output <strong>y</strong> as the
 y= <strong>atan</strong>( u );
 </pre></blockquote>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/atan.png\"
      alt=\"atan.png\">
-</p>
+</div>
 
 </html>"));
   end Atan;
@@ -1514,10 +1514,10 @@ block <strong>Atan</strong> gives a solution in the range
 -90 deg &le; y &le; 90 deg.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/atan2.png\"
      alt=\"atan2.png\">
-</p>
+</div>
 
 </html>"));
   end Atan2;
@@ -1561,10 +1561,10 @@ This blocks computes the output <strong>y</strong> as the
 y = <strong>sinh</strong>( u );
 </pre></blockquote>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/sinh.png\"
      alt=\"sinh.png\">
-</p>
+</div>
 
 </html>"));
   end Sinh;
@@ -1609,10 +1609,10 @@ This blocks computes the output <strong>y</strong> as the
 y = <strong>cosh</strong>( u );
 </pre></blockquote>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/cosh.png\"
      alt=\"cosh.png\">
-</p>
+</div>
 
 </html>"));
   end Cosh;
@@ -1655,10 +1655,10 @@ This blocks computes the output <strong>y</strong> as the
 y = <strong>tanh</strong>( u );
 </pre></blockquote>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/tanh.png\"
      alt=\"tanh.png\">
-</p>
+</div>
 
 </html>"));
   end Tanh;
@@ -1702,10 +1702,10 @@ This blocks computes the output <strong>y</strong> as the
 y = <strong>exp</strong>( u );
 </pre></blockquote>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/exp.png\"
      alt=\"exp.png\">
-</p>
+</div>
 
 </html>"));
   end Exp;
@@ -1805,10 +1805,10 @@ An error occurs if the input <strong>u</strong> is
 zero or negative.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/log.png\"
      alt=\"log.png\">
-</p>
+</div>
 
 </html>"));
   end Log;
@@ -1855,10 +1855,10 @@ An error occurs if the input <strong>u</strong> is
 zero or negative.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/log10.png\"
      alt=\"log10.png\">
-</p>
+</div>
 
 </html>"));
   end Log10;
@@ -2766,9 +2766,9 @@ Consider that the input <code>u</code> consists of harmonic RMS components
 <code>U<sub>1</sub></code>, <code>U<sub>2</sub></code>, <code>U<sub>3</sub></code>, etc.
 The total RMS component is then determined by:</p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Math/Urms.png\">
-</p>
+</div>
 
 <p>
 The calculation of the total harmonic distortion is based on the parameter <code>useFirstHarmonic</code>.

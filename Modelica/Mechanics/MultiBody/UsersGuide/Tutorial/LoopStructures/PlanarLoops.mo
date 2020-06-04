@@ -10,9 +10,9 @@ shown that has a simple combustion model. It is available as
 MultiBody.Examples.Loops.EngineV6</a>.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_1.png\">
-</p>
+</div>
 
 <p>
 The Modelica schematic of one cylinder
@@ -21,9 +21,9 @@ cylinder appropriately together results in the engine schematic displayed
 above.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_2.png\">
-</p>
+</div>
 
 <p>
 In the next figure the animation of the engine is
@@ -34,9 +34,9 @@ the revolute joint axes. All 6 cylinders together form a coupled set of 6
 loops that have together 1 degree of freedom.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_3.png\" width=\"303\" height=\"136\">
-</p>
+</div>
 
 <p>
 All planar loops, and especially the engine, result in

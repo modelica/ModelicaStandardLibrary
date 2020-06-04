@@ -44,10 +44,10 @@ Definition of relationship between pressure drop and volume flow rate:
 <li>-V_flowLaminar &lt; VolumeFlow &lt; +V_flowLaminar: laminar, i.e., linear dependency of pressure drop on volume flow.</li>
 <li>-V_flowLaminar &gt; VolumeFlow or VolumeFlow &lt; +V_flowLaminar: turbulent, i.e., quadratic dependency of pressure drop on volume flow.</li>
 </ul>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Thermal/FluidHeatFlow/BaseClasses/SimpleFriction.png\"
      alt=\"SimpleFriction.png\">
-</p>
+</div>
 <p>
 Linear and quadratic dependency are coupled smoothly at V_flowLaminar / dpLaminar.
 Quadratic dependency is defined by nominal volume flow and pressure drop (V_flowNominal / dpNominal).

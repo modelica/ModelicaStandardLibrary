@@ -196,9 +196,9 @@ the parameter <code>n</code>, which has to be given in the local coordinate syst
 of <code>frame_a</code>. The default animation of this component is
 shown in the figure below.</p>
 
-<p>
+<div>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/Rotor1D.png\" alt=\"model Parts.Rotor1D\">
-</p>
+</div>
 
 <p>This component is a replacement for
 <a href=\"modelica://Modelica.Mechanics.Rotational.Components.Inertia\">Modelica.Mechanics.Rotational.Components.Inertia</a>
@@ -315,9 +315,9 @@ to the vector of the rotor's axis. The axis of rotation of the rotor is defined 
 the parameter <code>n</code>, which has to be given in the local coordinate system
 of <code>frame_a</code>. The default animation of this component is
 shown in the figure below.</p>
-<p>
+<div>
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/Rotor1D.png\" alt=\"model Parts.Rotor1D\">
-</p>
+</div>
 <p>This component is a replacement for
 <a href=\"modelica://Modelica.Mechanics.Rotational.Components.Inertia\">Modelica.Mechanics.Rotational.Components.Inertia</a>
 for the case, that a 1-dim.-rotational mechanical system should be attached with a 3-dim.

@@ -21,10 +21,10 @@ equation
 
   annotation (Documentation(info="<html>
 <p>The axial cylinder models is characterized by the outer diameter, <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/r_o.png\"/>, the inner diameter, <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/r_i.png\"/>, length, <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/l.png\"/>. The magnetic reluctance is determined by:</p>
-<p><img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m_cuboid.png\"/></p>
+<div><img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m_cuboid.png\"/></div>
 <p>The area of cross section yields:</p>
-<p><img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/A_axial.png\"/></p>
-<p><img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/HollowCylinderAxialFlux_qs.png\"/></p>
+<div><img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/A_axial.png\"/></div>
+<div><img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/HollowCylinderAxialFlux_qs.png\"/></div>
 <p>A hollow cylinder is depicted in the above figure left for <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/alpha2pi.png\"/>. A solid cylindric flux tube an be considered by setting the inner radius, <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/r_i.png\"/>, equal to zero.</p>
 <p>A circular sector of the area of cross section with central angle <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/alpha.png\"/> is depicted in the above figure right.</p>
 </html>"));

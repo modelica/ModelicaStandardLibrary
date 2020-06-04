@@ -159,9 +159,9 @@ An example how to use this model is given in the
 following figure:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Torque1.png\">
-</p>
+</div>
 
 <p>
 This leads to the following animation (the yellow cylinder
@@ -171,9 +171,9 @@ also on the opposite side of this cylinder, but for
 clarity this is not shown in the animation):
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Torque2.png\">
-</p>
+</div>
 
 </html>"));
 end Torque;

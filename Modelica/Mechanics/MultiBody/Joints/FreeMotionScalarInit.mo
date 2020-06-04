@@ -288,9 +288,9 @@ frame_b of the joint.
        angle_1(start = 45<sup>o</sup>), angle_2(start = 45<sup>o</sup>), angle_3(start = 45<sup>o</sup>)).
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/FreeMotion.png\">
-</p>
+</div>
 
 <p>
 A example to use this joint for the initialization of a planar double pendulum by providing

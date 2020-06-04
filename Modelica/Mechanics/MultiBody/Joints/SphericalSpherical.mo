@@ -248,9 +248,9 @@ represented by two red spheres, the connecting rod by a grey cylinder
 and the point mass in the middle of the rod by a light blue sphere:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/SphericalSpherical.png\" alt=\"model Joints.SphericalSpherical\">
-</p>
+</div>
 
 <p>
 This joint introduces <strong>one constraint</strong> defining that the distance between

@@ -34,9 +34,9 @@ in the following way:
 An example is given in the next figure
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Components/relativeStates.png\" alt=\"Relative states\">
-</p>
+</div>
 
 <p>
 Here, the relative position and the relative velocity between

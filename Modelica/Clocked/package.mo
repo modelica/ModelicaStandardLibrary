@@ -21,9 +21,9 @@ controller is used in the partition and the sample
 rate is defined at one location with a clock:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Clocked/SimpleSampledSystem.png\" alt=\"Simple sampled-data system\">
-</p>
+</div>
 <p>
 The initial version of this library was developed and released under the name <strong>Modelica_Synchronous</strong> library
 before the library became a package of the Modelica Standard Library using the name <strong>Modelica.Clocked</strong>.

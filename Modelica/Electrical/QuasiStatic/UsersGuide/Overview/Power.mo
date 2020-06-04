@@ -22,20 +22,20 @@ will be investigated.
 <p>
 The instantaneous voltage and current are in phase:
 </p>
-<p>
+<div>
 <img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/v_r.png\"
                    alt=\"v_r.png\"><br>
 <img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/i_r.png\"
                    alt=\"i_r.png\">
-</p>
+</div>
 
 <p>
 Therefore, the instantaneous power is
 </p>
-<p>
+<div>
 <img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/power_r.png\"
                    alt=\"power_r.png\">
-</p>
+</div>
 
 <p>A graphical representation of these equations is depicted in Fig. 1</p>
 
@@ -50,30 +50,30 @@ Therefore, the instantaneous power is
 </table>
 
 <p>Real power of the resistor is the average of instantaneous power:</p>
-<p>
+<div>
 <img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/p_r.png\"
                    alt=\"p_r.png\">
-</p>
+</div>
 
 <h5>Power of an inductor</h5>
 
 <p>
 The instantaneous voltage leads the current by a quarter of the period:
 </p>
-<p>
+<div>
 <img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/v_l.png\"
                    alt=\"v_l.png\"><br>
 <img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/i_l.png\"
                    alt=\"i_l.png\">
-</p>
+</div>
 
 <p>
 Therefore, the instantaneous power is
 </p>
-<p>
+<div>
 <img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/power_l.png\"
                    alt=\"power_l.png\">
-</p>
+</div>
 
 <p>A graphical representation of these equations is depicted in Fig. 2</p>
 
@@ -88,30 +88,30 @@ Therefore, the instantaneous power is
 </table>
 
 <p>Reactive power of the inductor is:</p>
-<p>
+<div>
 <img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/q_l.png\"
                    alt=\"q_l.png\">
-</p>
+</div>
 
 <h5>Power of a capacitor</h5>
 
 <p>
 The instantaneous voltage lags the current by a quarter of the period:
 </p>
-<p>
+<div>
 <img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/v_c.png\"
                    alt=\"v_c.png\"><br>
 <img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/i_c.png\"
                    alt=\"i_c.png\">
-</p>
+</div>
 
 <p>
 Therefore, the instantaneous power is
 </p>
-<p>
+<div>
 <img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/power_c.png\"
                    alt=\"power_c.png\">
-</p>
+</div>
 
 <p>A graphical representation of these equations is depicted in Fig. 3</p>
 
@@ -126,18 +126,18 @@ Therefore, the instantaneous power is
 </table>
 
 <p>Reactive power of the capacitor is:</p>
-<p>
+<div>
 <img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/q_c.png\"
                    alt=\"q_c.png\">
-</p>
+</div>
 
 <h5>Complex apparent power</h5>
 
 <p>For an arbitrary component with two pins, real and reactive power can be determined by the complex phasors:</p>
-<p>
+<div>
 <img border=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/UsersGuide/Overview/Power/s.png\"
                    alt=\"s.png\">
-</p>
+</div>
 
 <p>
 In this equation <sup>*</sup> represents the conjugate complex operator

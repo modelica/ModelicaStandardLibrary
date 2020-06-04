@@ -31,10 +31,10 @@ This blocks computes the output <code>y</code> as the
 y = <strong>asin</strong>(uInternal);
 </pre></blockquote>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/asin.png\"
      alt=\"asin.png\">
-</p>
+</div>
 
 </html>"));
 end Asin;

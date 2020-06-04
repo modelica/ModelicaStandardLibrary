@@ -262,10 +262,10 @@ can be switched of by setting the first parameter <strong>animation</strong>
 to <strong>false</strong> or by setting <strong>enableAnimation</strong> in the <strong>world</strong>
 object to <strong>false</strong> to switch off animation of all components.
 </p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulum.png\"
 alt=\"model Examples.Elementary.DoublePendulum\">
-</p>
+</div>
 </html>"));
   end SphericalDoublePendulum;
 
@@ -377,9 +377,9 @@ alt=\"model Examples.Elementary.DoublePendulum\">
 This is a second version of the \"four-bar\" mechanism, see figure:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar2.png\" alt=\"model Examples.Loops.Fourbar2\">
-</p>
+</div>
 
 <p>
 In this case
@@ -2528,10 +2528,10 @@ is a default line force element with a point mass to approximate the mass proper
 component):
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceWithMasses.png\"
 alt=\"model Examples.Elementary.ForceWithMasses\">
-</p>
+</div>
 
 <p>
 A JointUPS consists of
@@ -2700,10 +2700,10 @@ is a default line force element with a point mass to approximate the mass proper
 component):
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceWithMasses.png\"
 alt=\"model Examples.Elementary.ForceWithMasses\">
-</p>
+</div>
 
 <p>
 A JointUPS consists of

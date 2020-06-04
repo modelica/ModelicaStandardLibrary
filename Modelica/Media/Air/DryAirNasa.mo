@@ -47,9 +47,9 @@ package DryAirNasa "Air: Detailed dry air model as ideal gas (200..6000 K)"
   end thermalConductivity;
 
   annotation (Documentation(info="<html>
-<p>
+<div>
     <img src=\"modelica://Modelica/Resources/Images/Media/Air/Air.png\">
-</p>
+</div>
 
 <p>
 Ideal gas medium model for dry air based on the package <a href=\"modelica://Modelica.Media.IdealGases\">IdealGases</a> with additional functions for dynamic viscosity and thermal conductivity in a limited temperature range.

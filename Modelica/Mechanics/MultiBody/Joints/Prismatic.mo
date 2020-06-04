@@ -188,9 +188,9 @@ vector \"n\" defining the translation axis
 (here: n = {1,1,0}).
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Prismatic.png\">
-</p>
+</div>
 
 </html>"));
 end Prismatic;

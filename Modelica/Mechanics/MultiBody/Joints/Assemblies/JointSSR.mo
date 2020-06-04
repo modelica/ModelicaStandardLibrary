@@ -216,9 +216,9 @@ animation in the following figure (the axes vectors are not part of the
 default animation):
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointSSR.png\" alt=\"model Joints.Assemblies.JointSSR\">
-</p>
+</div>
 
 <p>
 Besides an optional point mass in the middle of rod 1,

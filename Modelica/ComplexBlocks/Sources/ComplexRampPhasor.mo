@@ -64,18 +64,18 @@ The output y is a complex phasor with constant angle and a ramped magnitude.
 <p>
 In case of <code>useLogRamp == false</code> the magnitude ramp is linear:
 </p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/ComplexBlocks/Sources/ComplexRampPhasorLinear.png\"
      alt=\"ComplexRampPhasorLinear.png\">
-</p>
+</div>
 
 <p>
 In case of <code>useLogRamp == true</code> the magnitude ramp appears linear on a logarithmic scale:
 </p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/ComplexBlocks/Sources/ComplexRampPhasorLog.png\"
      alt=\"ComplexRampPhasorLog.png\">
-</p>
+</div>
 
 </html>"));
 end ComplexRampPhasor;

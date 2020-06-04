@@ -34,10 +34,10 @@ as <strong>sine</strong> of the input <code>u</code>. Optionally, the input <cod
 y = <strong>sin</strong>(uInternal);
 </pre></blockquote>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/sin.png\"
      alt=\"sin.png\">
-</p>
+</div>
 
 </html>"));
 end Sin;

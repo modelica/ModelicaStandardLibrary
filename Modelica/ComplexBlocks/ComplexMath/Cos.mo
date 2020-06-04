@@ -33,10 +33,10 @@ as <strong>cos</strong> of the input <code>u</code>. Optionally, the input <code
 y = <strong>cos</strong>(uInternal);
 </pre></blockquote>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Math/cos.png\"
      alt=\"cos.png\">
-</p>
+</div>
 
 </html>"));
 end Cos;

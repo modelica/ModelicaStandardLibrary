@@ -94,10 +94,10 @@ equation
 <p>Like in the picture below, the lossy transmission line OLine is a single-conductor lossy transmission line which consists of segments of lumped resistors and inductors in series and conductor and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.</p>
 <p>To get a symmetric line model, the first resistor and inductor are cut into two parts (R1 and R_Nplus1, L1 and L_Nplus1). These two new resistors and inductors have the half of the resistance respectively inductance the original resistor respectively inductor.</p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/OLine.png\"
      alt=\"OLine.png\">
-</p>
+</div>
 
 <p>The capacitances are calculated with: C=c*length/N.
 <br> The conductances are calculated with: G=g*length/N.

@@ -13,11 +13,11 @@ animation of a double pendulum is shown in the figure below, together
 with its schematic.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulumSmall.png\">
 
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/DoublePendulumDiagramSmall.png\" alt=\"double pendulum (diagram layer)\">
-</p>
+</div>
 
 <p>
 Note, that all components - the coordinate system of the world frame,

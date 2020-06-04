@@ -108,9 +108,9 @@ frame_b of the joint
 phi_b.start = 45<sup>o</sup>).
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Universal.png\">
-</p>
+</div>
 </html>"),
     Icon(coordinateSystem(
         preserveAspectRatio=true,

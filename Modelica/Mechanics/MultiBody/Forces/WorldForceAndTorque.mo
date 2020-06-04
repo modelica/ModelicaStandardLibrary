@@ -181,17 +181,17 @@ An example how to use this model is given in the
 following figure:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque1.png\">
-</p>
+</div>
 
 <p>
 This leads to the following animation
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque2.png\">
-</p>
+</div>
 
 </html>"));
 end WorldForceAndTorque;

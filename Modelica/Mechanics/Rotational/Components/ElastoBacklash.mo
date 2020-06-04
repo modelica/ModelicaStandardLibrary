@@ -186,9 +186,9 @@ where the different effects are visualized:
      pulling/sticking occurs.</li>
 </ol>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/Components/elastoBacklash.png\" alt=\"Results of simulation with the ElastoBacklash model\">
-</p>
+</div>
 
 <p>
 See also the discussion

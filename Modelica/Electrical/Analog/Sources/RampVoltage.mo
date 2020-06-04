@@ -18,9 +18,9 @@ model RampVoltage "Ramp voltage source"
 </html>",
         info="<html>
 <p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/RampVoltage.png\"
      alt=\"RampVoltage.png\">
-</p>
+</div>
 </html>"));
 end RampVoltage;

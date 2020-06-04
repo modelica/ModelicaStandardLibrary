@@ -256,8 +256,8 @@ reference speeds and reference accelerations.
 For current settings, the termination condition should indeed be fulfilled right before the simulation stops.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/RobotR3/r3_fullRobot.png\" alt=\"model Examples.Systems.RobotR3.FullRobot\">
-</p>
+</div>
 </html>"));
 end FullRobot;

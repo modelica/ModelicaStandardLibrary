@@ -121,9 +121,9 @@ Fixed.frame_b on the right side are not part of the
 component animation and that the animation may be switched off via parameter
 animation = <strong>false</strong>.
 </p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/Fixed.png\" alt=\"Parts.Fixed\">
-</p>
+</div>
 
 </html>"));
 end Fixed;

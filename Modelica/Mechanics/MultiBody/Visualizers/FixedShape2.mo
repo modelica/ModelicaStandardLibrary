@@ -116,9 +116,9 @@ The following shapes are currently supported via
 parameter <strong>shapeType</strong> (e.g., shapeType=\"box\"):<br>&nbsp;
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Shape.png\" alt=\"model Visualizers.FixedShape2\">
-</p>
+</div>
 
 <p>&nbsp;<br>
 The dark blue arrows in the figure above are directed along
@@ -219,8 +219,8 @@ with respect to frame_a is specified via parameter
 vector&nbsp;<strong>r</strong>.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/FixedTranslation.png\" alt=\"Parts.FixedTranslation\">
-</p>
+</div>
 </html>"));
 end FixedShape2;

@@ -28,9 +28,9 @@ Following below, the concept of magnetic flux tubes is outlined in short. For a 
 <li>the normal component of field strength and magnetic potential difference.</li>
 </ul>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/magnetic_flux_tube_schematic_qs.png\" alt=\"Magnetic flux tube\">
-</p>
+</div>
 
 <p>A <strong>flux tube</strong> confines the magnetic flux. Flied lines, and flux tubes, respectively are always closed. So there is no flux entering or leaving a flux tube. The total flux of a configuration can be represented by parallel flux tubes, representing different flux paths. This is considered by connecting the elements of a lumped circuit model, such that the sum of all fluxes of a connection is equivalent to zero.</p>
 

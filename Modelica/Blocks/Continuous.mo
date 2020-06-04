@@ -1480,10 +1480,10 @@ always \"normalized\". Step responses of the Butterworth filter of
 different orders are shown in the next figure:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Continuous/Butterworth.png\"
      alt=\"Butterworth.png\">
-</p>
+</div>
 
 <p>
 If transients at the simulation start shall be avoided, the filter
@@ -1605,15 +1605,15 @@ y = ------------- * u
 
 </pre></blockquote>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Continuous/CriticalDampingNormalized.png\"
      alt=\"CriticalDampingNormalized.png\">
-</p>
+</div>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Continuous/CriticalDampingNonNormalized.png\"
      alt=\"CriticalDampingNonNormalized.png\">
-</p>
+</div>
 
 </html>"));
   end CriticalDamping;

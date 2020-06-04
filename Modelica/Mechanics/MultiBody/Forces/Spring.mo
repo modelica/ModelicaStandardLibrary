@@ -154,10 +154,10 @@ spring is shown. The blue sphere in the middle of the
 spring characterizes the location of the point mass.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/SpringWithMass.png\"
 alt=\"model Examples.Elementary.SpringWithMass\">
-</p>
+</div>
 
 </html>"));
 end Spring;

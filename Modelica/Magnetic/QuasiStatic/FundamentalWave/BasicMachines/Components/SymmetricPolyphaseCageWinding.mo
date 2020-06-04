@@ -120,9 +120,9 @@ equation
           textColor={0,0,255},
           textString="%name")}),
     Documentation(info="<html>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Machines/Components/rotorcage.png\">
-</p>
+</div>
 
 <p>
 The symmetric rotor cage model of this library does not consist of rotor bars and end rings. Instead the symmetric cage is modeled by an equivalent symmetrical winding. The rotor cage model consists of

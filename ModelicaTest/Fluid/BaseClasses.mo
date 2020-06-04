@@ -365,10 +365,10 @@ are used, where the friction loss factor &lambda; is shown
 in the next figure:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Pipes/BaseClasses/PipeFriction1.png\"
      alt=\"PipeFriction1.png\">
-</p>
+</div>
 
 <p>
 By default, the correlations are computed with media data

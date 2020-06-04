@@ -54,8 +54,8 @@ whereas the frequency sweeps from
 <code>fStart</code> to <code>fStop</code> with <code>duration</code>. The frequency sweeps such
 way that on a logarithmic frequency scale, the frequency curve appears linear.</p>
 
-<p><img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/SinglePhase/Sources/FrequencySweepSource.png\"
-     alt=\"FrequencySweepSource.png\"></p>
+<div><img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/SinglePhase/Sources/FrequencySweepSource.png\"
+     alt=\"FrequencySweepSource.png\"></div>
 
 </html>"));
 end FrequencySweepVoltageSource;

@@ -129,9 +129,9 @@ equation
 The Boolean output y is a step signal. The signal is defined in terms of clock ticks instead of simulation time:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Clocked/BooleanSignals/TickBasedSources_Step.png\" alt=\"TickBasedSources_Step\">
-</p>
+</div>
 
 <h4>Example</h4>
 <p>

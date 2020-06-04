@@ -130,8 +130,8 @@ two visualized frames are not part of the component animation and that
 the animation may be switched off via parameter animation = <strong>false</strong>.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/FixedTranslation.png\" alt=\"Parts.FixedTranslation\">
-</p>
+</div>
 </html>"));
 end FixedTranslation;

@@ -185,9 +185,9 @@ animation (note, that
 the animation may be switched off via parameter animation = <strong>false</strong>):
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/BodyCylinder.png\" alt=\"Parts.BodyCylinder\">
-</p>
+</div>
 
 <p>
 A BodyCylinder component has potential states. For details of these

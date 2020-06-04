@@ -13,9 +13,9 @@ of an
 phase induction machine is related with the self inductance of on stator phase,
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lss.png\">,
 by:</p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lm_m_Lss.png\">
-</p>
+</div>
 
 <h4>Parameters of equivalent polyphase induction machines models</h4>
 
@@ -39,17 +39,17 @@ phase induction machine. It is also assumed that</p>
 <p>of the three and
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/m.png\">
 phase induction machine are equal. In this case the two parameter sets are related by:</p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Rs_3m.png\"><br>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lssigma_3m.png\"><br>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/L0_3m.png\"><br>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lm_3m.png\"></p>
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lm_3m.png\"></div>
 <p>
 This way the same torque is generated and the machine currents are related by:
 </p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/is_3m.png\">
-</p>
+</div>
 
 <p>
 The same applies for the rotor parameters of a

@@ -35,10 +35,10 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
     e.g., time = 5.0, the current i = 23.0 (i.e., extrapolation).
 </pre></blockquote>
 <p><br> Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/TableCurrent.png\"
      alt=\"TableCurrent.png\">
-</p>
+</div>
 </html>",
         revisions="<html>
 <ul>

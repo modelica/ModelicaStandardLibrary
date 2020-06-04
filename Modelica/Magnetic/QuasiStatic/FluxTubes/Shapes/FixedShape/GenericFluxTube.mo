@@ -23,9 +23,9 @@ the magnetic reluctance by:</p>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/R_m_generic.png\">,
 </dd></dl>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FluxTubes/GenericFluxTube_qs.png\">
-</p></html>",
+</div></html>",
     revisions="<html>
 <h5>Version 3.2.2, 2014-01-15 (Christian&nbsp;Kral)</h5>
 <ul>

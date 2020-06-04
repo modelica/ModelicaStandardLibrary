@@ -10,9 +10,9 @@ sine waves with an angular displacement of
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/2pi_3.png\"/>.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/i123.png\"/>,
-</p>
+</div>
 
 <p>
 Electrical three-phase machines have (usually) symmetrical three-phase windings which
@@ -26,9 +26,9 @@ The associated three-phase winding is depicted in Fig. 2(a). The winding axis ar
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/2pi_3.png\"/>:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/orientationk_3.png\"/>
-</p>
+</div>
 
 <p>
 So there is a strong coherence between angular displacement in the time and
@@ -74,13 +74,13 @@ as depicted in Fig. 1 and 2.
 Mathematically, this symmetry is expressed in terms of phase currents by:
 </p>
 
-<p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/ik_odd.png\"/></p>
+<div><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/ik_odd.png\"/></div>
 
 <p>
 The orientation of the winding axis of such winding is given by:
 </p>
 
-<p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/orientationk_m.png\"/></p>
+<div><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/orientationk_m.png\"/></div>
 
 <h5>Even number of phases</h5>
 

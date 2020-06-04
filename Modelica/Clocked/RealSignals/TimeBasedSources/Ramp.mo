@@ -144,9 +144,9 @@ Documentation(info="<html>
 The Real output y is a ramp signal:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Ramp.png\" alt=\"Ramp.png\">
-</p>
+</div>
 
 <h4>Example</h4>
 <p>

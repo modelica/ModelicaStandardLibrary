@@ -51,8 +51,8 @@ not numerically as in
 </p>
 <p>
 An animation of this example is shown in the figure below.
-</p><p>
+</p><div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Engine.png\" alt=\"model Examples.Loops.Engine\">
-</p>
+</div>
 </html>"));
 end Engine1b_analytic;

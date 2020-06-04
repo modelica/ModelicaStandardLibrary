@@ -48,10 +48,10 @@ branch current <code><u>i</u></code> by <code><u>v</u> = j*&omega;*L*<u>i</u></c
 The abstraction of a variable inductor at quasi-static operation assumes:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/SinglePhase/Basic/dl_dt.png\"
      alt=\"dl_dt.png\">
-</p>
+</div>
 
 <h4>See also</h4>
 <p>

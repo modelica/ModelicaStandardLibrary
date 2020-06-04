@@ -127,11 +127,11 @@ The user chooses a model with <strong>three</strong> inductors, that means the p
 <p>The following example shows how the parameter vector is used to fill in the inductance matrix. To specify the inductance matrix of a three inductances transformer (<em>N=3</em>):
 </p>
 
-<p>
+<div>
 <img
  src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Basic/M_Transformer-eq.png\"
  alt=\"L_m\">
-</p>
+</div>
 
 <p>
 the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N+1))/2=(3*(3+1))/2=6</em>. The parameter vector must be filled like this: <em>L=[1,0.1,0.2,2,0.3,3] </em>.</p>

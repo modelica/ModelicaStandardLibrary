@@ -43,9 +43,9 @@ If you want an arrow representing something that is not a&nbsp;relative position
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Vector</a> instead.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png\" alt=\"model Visualizers.Advanced.Arrow\">
-</p>
+</div>
 
 <p>
 The dialog variables <code>R</code>, <code>r</code>, <code>r_tail</code>, <code>r_head</code>, <code>color</code>,

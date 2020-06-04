@@ -582,10 +582,10 @@ package AST_BatchPlant
 <p>
 Documentation for this example can be found on the <a href=\"modelica://Modelica.Fluid.Examples.AST_BatchPlant\">enclosing package</a>.
 </p>
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/AST_BatchPlant/BatchPlant_StandardWater.png\" border=\"1\"
      alt=\"BatchPlant_StandardWater.png\">
-</p>
+</div>
 </html>"),
       Diagram(coordinateSystem(preserveAspectRatio=false,extent={{-200,-280},{200,
               280}})));
@@ -2260,19 +2260,19 @@ control system. A picture of the batch plant is shown in the figure
 below.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/AST_BatchPlant/AST_BatchPlant1.jpg\" border=\"1\"
      alt=\"AST_BatchPlant1.jpg\">
-</p>
+</div>
 
 <p>
 The flow sheet diagram is shown in the next figure.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/AST_BatchPlant/AST_BatchPlant2.png\" border=\"1\"
      alt=\"AST_BatchPlant2.png\">
-</p>
+</div>
 
 <p>
 Pure water from tank B1 and concentrated sodium chloride

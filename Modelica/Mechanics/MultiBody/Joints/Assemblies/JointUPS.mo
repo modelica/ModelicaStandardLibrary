@@ -313,9 +313,9 @@ see the default animation in the following figure (the axes vectors
 are not part of the default animation):
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointUPS.png\" alt=\"model Joints.Assemblies.JointUPS\">
-</p>
+</div>
 
 <p>
 This joint aggregation has no mass and no inertia and

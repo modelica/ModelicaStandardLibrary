@@ -135,9 +135,9 @@ V<sub>m</sub> = N * i
 N * d&Phi;/dt = -v
 </pre></blockquote>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Basic/converter_signs.png\" alt=\"converter signs\">
-</p>
+</div>
 
 <p>
 V<sub>m</sub> is the magnetic potential difference applied to the magnetic circuit due to the current i through the coil (Ampere's law).
