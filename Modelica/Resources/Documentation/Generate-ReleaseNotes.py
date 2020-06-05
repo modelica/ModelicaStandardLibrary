@@ -99,7 +99,7 @@ def main(dir, milestone, version, auth):
     with open(os.path.join(path, 'ResolvedGitHubIssues.md'), 'w') as f:
         url = 'https://github.com/{0}/{1}/milestone/{2}'.format(owner, repo, milestone)
         f.write('# GitHub issues resolved for v{0}\n'.format(version))
-        f.write('As part of this release {0} [issues]({1}) (including {2} pull requests (PR)) were closed.\n\n'.format(cntTotal, url, cntPR))
+        f.write('As part of this release {0} [issues]({1}) were closed.\n\n'.format(cntTotal, url))
         pattern = r'[\#\1](https://github.com/{0}/{1}/issues/\1)'.format(owner, repo)
         for label, data in sorted(issues.items()):
             f.write('## {0}\n'.format(label[3:]))
@@ -144,11 +144,11 @@ def main(dir, milestone, version, auth):
 if __name__ == '__main__':
     module_dir, module_name = os.path.split(__file__)
     if len(sys.argv) == 1:
-        milestone = 4
-        version = '4.0.0'
+        milestone = 62
+        version = '4.0.1'
     elif len(sys.argv) == 2:
         milestone = sys.argv[1]
-        version = '4.0.0'
+        version = '4.0.1'
     elif len(sys.argv) > 2:
         milestone = sys.argv[1]
         version = sys.argv[2]
