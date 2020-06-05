@@ -38,6 +38,10 @@
       Modelica.Blocks.Tables.CombiTable2D
 
    Release Notes:
+      May 27, 2020:  by Thomas Beutlich
+                     Fixed invalid memory access in error messages of
+                     isValidCombiTimeTable and isValidCombiTable1D (ticket #3562)
+
       Oct. 04, 2018: by Thomas Beutlich, ESI ITI GmbH
                      Fixed event detection of CombiTimeTable (ticket #2724)
                      Fixed left extrapolation of CombiTimeTable (ticket #2724)
@@ -4624,8 +4628,8 @@ static int isValidCombiTimeTable(CombiTimeTable* tableID,
                 if (1 == cleanUp) {
                     ModelicaStandardTables_CombiTimeTable_close(tableID);
                 }
-                ModelicaFormatError("The column index %d is out of range "
-                    "for table matrix \"%s(%lu,%lu)\".\n", tableID->cols[iCol],
+                ModelicaFormatError("The column index %lu is out of range "
+                    "for table matrix \"%s(%lu,%lu)\".\n", (unsigned long)col,
                     tableName, (unsigned long)nRow, (unsigned long)nCol);
             }
         }
@@ -4731,8 +4735,8 @@ static int isValidCombiTable1D(CombiTable1D* tableID,
                 if (1 == cleanUp) {
                     ModelicaStandardTables_CombiTable1D_close(tableID);
                 }
-                ModelicaFormatError("The column index %d is out of range "
-                    "for table matrix \"%s(%lu,%lu)\".\n", tableID->cols[iCol],
+                ModelicaFormatError("The column index %lu is out of range "
+                    "for table matrix \"%s(%lu,%lu)\".\n", (unsigned long)col,
                     tableName, (unsigned long)nRow, (unsigned long)nCol);
             }
         }
