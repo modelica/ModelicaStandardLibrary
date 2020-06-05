@@ -1,7 +1,9 @@
-<?xml version="1.0"?><!DOCTYPE html>
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.UsersGuide.ReleaseNotes.Version_1_5</title>
@@ -361,12 +363,10 @@ block Step "Generate step signals of type Real"
 Modelica.Math.exp.</p>
 <p><em>Modelica.Blocks.Sources.TimeTable</em></p>
 <p>Interface definition changed from</p>
-<pre>
-parameter Real table[:, :]=[0, 0; 1, 1; 2, 4] "Table matrix (time = first column)";
+<pre>    parameter Real table[:, :]=[0, 0; 1, 1; 2, 4] "Table matrix (time = first column)";
 </pre>
 <p>to</p>
-<pre>
-parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4] "Table matrix (time = first column)";
+<pre>    parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4] "Table matrix (time = first column)";
 </pre>
 <p>Did the same for subfunction
 <em>getInterpolationCoefficients</em>.</p>
@@ -452,6 +452,6 @@ SIunits.HeatFlowRate q;</code></p>
 <p><em>MultiBody.Parts.InertialSystem</em></p>
 <p>Icon corrected.</p>
 <hr/>
-Generated at 2019-09-25T10:30:33Z by <a href="http://openmodelica.org">OpenModelica 1.13.2</a>
+Generated at 2020-06-05T07:38:22Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-420-gc007a39</a>
 </body>
 </html>

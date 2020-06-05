@@ -1,7 +1,9 @@
-<?xml version="1.0"?><!DOCTYPE html>
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <title>ModelicaReference.BalancedModel</title>
@@ -235,8 +237,7 @@ end Circuit;
 balanced model, but we can check that Circuit is locally balanced.
 Counting on model Circuit results in the following balance
 sheet:</p>
-<pre>
-Locally unknown variables (8): p.i, p.v, n.i, n.v, and 2 flow variables for t (t.p.i, t.n.i)
+<pre>Locally unknown variables (8): p.i, p.v, n.i, n.v, and 2 flow variables for t (t.p.i, t.n.i)
                                                    and 2 flow variable for c (c.p.i, c.n.i).
 Local equations:     p.v = t.p.v;
                        0 = p.i - t.p.i;
@@ -288,8 +289,7 @@ property that T,d,u can be computed from p,h,Xi. A particular
 medium may have different "independent variables" from which all
 other intrinsic thermodynamic variables can be recursively
 computed. For example, a simple air model could be defined as:</p>
-<pre>
-model SimpleAir "Medium model of simple air. Independent variables: p,T"
+<pre>model SimpleAir "Medium model of simple air. Independent variables: p,T"
    extends BaseProperties(nXi = 0,
         p(stateSelect = if preferredMediumStates then StateSelect.prefer
                                    else StateSelect.default),
@@ -428,6 +428,6 @@ demonstrates, that an "input" just defines the number of equations
 have to be provided, but that it not necessarily defines the
 computational causality.</p>
 <hr/>
-Generated at 2019-09-25T10:30:33Z by <a href="http://openmodelica.org">OpenModelica 1.13.2</a>
+Generated at 2020-06-05T07:38:22Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-420-gc007a39</a>
 </body>
 </html>

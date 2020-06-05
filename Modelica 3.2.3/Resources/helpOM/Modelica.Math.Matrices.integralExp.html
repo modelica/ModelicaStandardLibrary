@@ -1,7 +1,9 @@
-<?xml version="1.0"?><!DOCTYPE html>
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.Math.Matrices.integralExp</title>
@@ -22,8 +24,7 @@ integral gamma = integral(phi*dt)*B.</p>
 <p>The function uses a Taylor series expansion with Balancing and
 scaling/squaring to approximate the integral <strong>Ψ</strong> of
 the matrix exponential <strong>Φ</strong>=e^(AT):</p>
-<pre>
-AT^2   A^2 * T^3          A^k * T^(k+1)
+<pre>                                 AT^2   A^2 * T^3          A^k * T^(k+1)
         <strong>Ψ</strong> = int(e^(As))ds = IT + ---- + --------- + ... + --------------
                                   2!        3!                (k+1)!
 </pre>
@@ -48,8 +49,7 @@ Scaling halfen T  k-times, until the norm of A*T is less than
 series expansion. The re-scaling based on the equation 
 exp(A*2T) = exp(AT)^2. The needed re-scaling formula for psi thus
 becomes:</p>
-<pre>
-<strong>Φ</strong> = <strong>Φ</strong>'*<strong>Φ</strong>'
+<pre>         <strong>Φ</strong> = <strong>Φ</strong>'*<strong>Φ</strong>'
    I + A*<strong>Ψ</strong> = I + 2A*<strong>Ψ</strong>' + A^2*<strong>Ψ</strong>'^2
          <strong>Ψ</strong> = A*<strong>Ψ</strong>'^2 + 2*<strong>Ψ</strong>'
 </pre>
@@ -57,8 +57,7 @@ becomes:</p>
 psi is the re-scaled matrix.</p>
 <p>The function is normally used to discretize a state-space system
 as the zero-order-hold equivalent:</p>
-<pre>
-x(k+1) = <strong>Φ</strong>*x(k) + <strong>Γ</strong>*u(k)
+<pre>      x(k+1) = <strong>Φ</strong>*x(k) + <strong>Γ</strong>*u(k)
         y(k) = C*x(k) + D*u(k)
 </pre>
 <p>The zero-order-hold sampling, also known as step-invariant
@@ -101,6 +100,6 @@ end integralExp;</pre></blockquote>
 Implemented.</li>
 </ul>
 <hr/>
-Generated at 2019-09-25T10:30:33Z by <a href="http://openmodelica.org">OpenModelica 1.13.2</a>
+Generated at 2020-06-05T07:38:22Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-420-gc007a39</a>
 </body>
 </html>

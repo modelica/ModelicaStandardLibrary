@@ -1,7 +1,9 @@
-<?xml version="1.0"?><!DOCTYPE html>
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <title>ModelicaReference.Operators.'inStream()'</title>
@@ -75,8 +77,7 @@ of an inside connector, the balance equation of the transported
 property must be added under the assumption of flow going into the
 connector</p>
 <blockquote>
-<pre>
-// Implicit definition of the inStream() operator applied to inside connector i
+<pre>// Implicit definition of the inStream() operator applied to inside connector i
 0 = <strong>sum</strong>(m<sub>j</sub>.c.m_flow*(<strong>if</strong> m<sub>j</sub>.c.m_flow &gt; 0 <strong>or</strong> j==i <strong>then</strong> h_mix_in<sub>i</sub> <strong>else</strong> m<sub>j</sub>.c.h_outflow) <strong>for</strong> j <strong>in</strong> 1:N) +
     <strong>sum</strong>(-c<sub>k</sub>.m_flow* (<strong>if</strong> c<sub>k</sub>.m_flow &gt; 0 <strong>then</strong> h_mix_in<sub>i</sub> <strong>else</strong> inStream(c<sub>k</sub>.h_outflow) <strong>for</strong> k <strong>in</strong> 1:M);
 <strong>inStream</strong>(m<sub>i</sub>.c.h_outflow) = h_mix_in<sub>i</sub>;
@@ -127,6 +128,6 @@ variable in the connection set is greater than a small value
 the implicit equation system is given, that fulfills the above
 requirements.</p>
 <hr/>
-Generated at 2019-09-25T10:30:33Z by <a href="http://openmodelica.org">OpenModelica 1.13.2</a>
+Generated at 2020-06-05T07:38:22Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-420-gc007a39</a>
 </body>
 </html>

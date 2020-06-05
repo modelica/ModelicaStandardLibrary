@@ -1,7 +1,9 @@
-<?xml version="1.0"?><!DOCTYPE html>
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <title>
@@ -21,13 +23,27 @@ which is the input voltage and "Outputvoltage" which is the
 amplified output voltage.</p>
 <p>Original SPICE3 netlist of the Differential pair:</p>
 <pre>
-SIMPLE DIFFERENTIAL PAIR<br/>VCC 7 0 12<br/>VEE 8 0 -12<br/>VIN 1 0 AC 1<br/>RS1 1 2 1K<br/>RS2 6 0 1K<br/>Q1 3 2 4 MOD1<br/>Q2 5 6 4 MOD1<br/>RC1 7 3 10K<br/>RC2 7 5 10K<br/>RE 4 8 10K<br/>.MODEL MOD1 NPN BF=50 VAF=50 IS=1.E-12 RB=100 CJC=.5PF TF=.6NS<br/>.TF V(5) VIN<br/>.AC DEC 10 1 100MEG<br/>.END
+SIMPLE DIFFERENTIAL PAIR<br/>
+VCC 7 0 12<br/>
+VEE 8 0 -12<br/>
+VIN 1 0 AC 1<br/>
+RS1 1 2 1K<br/>
+RS2 6 0 1K<br/>
+Q1 3 2 4 MOD1<br/>
+Q2 5 6 4 MOD1<br/>
+RC1 7 3 10K<br/>
+RC2 7 5 10K<br/>
+RE 4 8 10K<br/>
+.MODEL MOD1 NPN BF=50 VAF=50 IS=1.E-12 RB=100 CJC=.5PF TF=.6NS<br/>
+.TF V(5) VIN<br/>
+.AC DEC 10 1 100MEG<br/>
+.END
 </pre>
 <p>In the Modelica representation the tiny capacity CJC was set to
 1e-9F to get a higher numerical robustness. In future the numerical
 behavior will be analysed to be able to apply the original value
 CJC=.5PF.</p>
 <hr/>
-Generated at 2019-09-25T10:30:33Z by <a href="http://openmodelica.org">OpenModelica 1.13.2</a>
+Generated at 2020-06-05T07:38:22Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-420-gc007a39</a>
 </body>
 </html>

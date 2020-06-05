@@ -1,7 +1,9 @@
-<?xml version="1.0"?><!DOCTYPE html>
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <title>Modelica.Math.Matrices.exp</title>
@@ -20,8 +22,7 @@ phi = Matrices.<strong>exp</strong>(A,T=1);
 e<sup><strong>A</strong>T</sup> of matrix <strong>A</strong>,
 i.e.</p>
 <blockquote>
-<pre>
-(<strong>A</strong>T)^2   (<strong>A</strong>T)^3
+<pre>                            (<strong>A</strong>T)^2   (<strong>A</strong>T)^3
      <font size="4"> <strong>Φ</strong></font> = e^(<strong>A</strong>T) = <strong>I</strong> + <strong>A</strong>T + ------ + ------ + ....
                               2!       3!
 </pre></blockquote>
@@ -30,8 +31,7 @@ real elements and T is a real number, e.g., the sampling time.
 <strong>A</strong> may be singular. With the exponential of a
 matrix it is, e.g., possible to compute the solution of a linear
 system of differential equations</p>
-<pre>
-der(<strong>x</strong>) = <strong>A</strong>*<strong>x</strong>   -&gt;   <strong>x</strong>(t0 + T) = e^(<strong>A</strong>T)*x(t0)
+<pre>    der(<strong>x</strong>) = <strong>A</strong>*<strong>x</strong>   -&gt;   <strong>x</strong>(t0 + T) = e^(<strong>A</strong>T)*x(t0)
 </pre>
 <h4>Algorithmic details:</h4>
 <p>The algorithm is taken from</p>
@@ -83,6 +83,6 @@ end exp;</pre></blockquote>
 Implemented.</li>
 </ul>
 <hr/>
-Generated at 2019-09-25T10:30:33Z by <a href="http://openmodelica.org">OpenModelica 1.13.2</a>
+Generated at 2020-06-05T07:38:22Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-420-gc007a39</a>
 </body>
 </html>

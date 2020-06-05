@@ -1,7 +1,9 @@
-<?xml version="1.0"?><!DOCTYPE html>
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <title>ModelicaReference.'when'</title>
@@ -62,8 +64,7 @@ parameter expressions as switching conditions.</li>
    <strong>end when</strong>;</pre>
 <p><em>Algorithms are activated when either x becomes &gt; 2 or
 sample(0,2) becomes true or x becomes less than 5:</em></p>
-<pre>
-<strong>when</strong> {x &gt; 2, sample(0,2), x &lt; 5} <strong>then</strong>
+<pre>   <strong>when</strong> {x &gt; 2, sample(0,2), x &lt; 5} <strong>then</strong>
      y1 := sin(x);
      y3 := 2*x + y1 + y2;
    <strong>end when</strong>;</pre>
@@ -123,8 +124,7 @@ the assignment to y1 and y3 in the algorithm.]</em></p>
 b1[N] and Boolean b2 are necessary because the
 <strong>edge</strong>() operator can only be applied to
 variables</p>
-<pre>
-Boolean b1[N](start={x.start&gt;1,<strong> ..., </strong>y.start&gt;p});
+<pre>   Boolean b1[N](start={x.start&gt;1,<strong> ..., </strong>y.start&gt;p});
    Boolean b2(start=x.start&gt;y.start);
  <strong>algorithm</strong>
    b1:={x&gt;1, ..., y&gt;p};
@@ -166,6 +166,6 @@ functions <strong>initial</strong>, <strong>terminal</strong>, and
    <strong>end when</strong>;</pre>
 <p><em>]</em></p>
 <hr/>
-Generated at 2019-09-25T10:30:33Z by <a href="http://openmodelica.org">OpenModelica 1.13.2</a>
+Generated at 2020-06-05T07:38:22Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-420-gc007a39</a>
 </body>
 </html>

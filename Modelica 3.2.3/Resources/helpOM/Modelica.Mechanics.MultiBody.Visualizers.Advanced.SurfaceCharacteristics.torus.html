@@ -1,7 +1,9 @@
-<?xml version="1.0"?><!DOCTYPE html>
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta content="HTML Tidy for HTML5 for Linux version 5.2.0" name="generator"/>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <title>
@@ -26,9 +28,9 @@ stopAngle  =  135 degree
 <blockquote>
 <pre>function torus
   extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(final multiColoredSurface = false);
-  input Modelica.SIunits.Radius ri = 1 "Inner radius of torus" annotation(
+  input Modelica.SIunits.Length ri = 1 "Major radius (distance from center of torus to center of tube)" annotation(
     Dialog);
-  input Modelica.SIunits.Radius ro = 0.2 "Outer radius of torus (=width/2)" annotation(
+  input Modelica.SIunits.Length ro = 0.2 "Minor radius (radius of tube)" annotation(
     Dialog);
   input Modelica.SIunits.Angle opening = 0 "Opening angle of torus" annotation(
     Dialog);
@@ -38,6 +40,6 @@ stopAngle  =  135 degree
     Dialog);
 end torus;</pre></blockquote>
 <hr/>
-Generated at 2019-09-25T10:30:33Z by <a href="http://openmodelica.org">OpenModelica 1.13.2</a>
+Generated at 2020-06-05T07:38:22Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-420-gc007a39</a>
 </body>
 </html>
