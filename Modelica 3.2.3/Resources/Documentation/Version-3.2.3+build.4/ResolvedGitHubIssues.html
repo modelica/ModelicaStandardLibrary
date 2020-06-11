@@ -1,0 +1,126 @@
+<!-- See https://github.com/jgm/pandoc-templates -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>MSL 3.2.3+build.4 GitHub issues</title>
+  <style type="text/css">
+      h1, h2, h3, li, p{font-family: sans-serif;}
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="github-issues-resolved-for-v3.2.3build.4">GitHub issues resolved for v3.2.3+build.4</h1>
+<p>As part of this release 36 <a href="https://github.com/modelica/ModelicaStandardLibrary/milestone/59">issues</a> were closed.</p>
+<h2 id="msl-general--">--MSL-general--</h2>
+<h3 id="examples">Examples</h3>
+<ul>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2968">#2968</a> Missing reference results</li>
+</ul>
+<h2 id="blocks">Blocks</h2>
+<h3 id="bugs">Bugs</h3>
+<ul>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3288">#3288</a> (PR) Fix Pythagoras</li>
+</ul>
+<h3 id="examples-1">Examples</h3>
+<ul>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3506">#3506</a> (PR) Fix initial condition of Modelica.Blocks.Examples.PID_Controller</li>
+</ul>
+<h2 id="c-sources">C-Sources</h2>
+<h3 id="bugs-1">Bugs</h3>
+<ul>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3068">#3068</a> (PR) Fix uninitialized memory and realpath behaviour in ModelicaInternal_fullPathName</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3093">#3093</a> (PR) Fix uninitialized memory in ModelicaInternal_readLine, ModelicaStrings_scanIdentifier and ModelicaStrings_scanString</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3128">#3128</a> (PR) Fix compilation of ModelicaMatIO.c if HAVE_ZLIB=0 is defined</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3147">#3147</a> (PR) Fix month and year correction in ModelicaInternal_getTime</li>
+</ul>
+<h2 id="electrical.analog">Electrical.Analog</h2>
+<h3 id="bugs-2">Bugs</h3>
+<ul>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3067">#3067</a> (PR) Cures <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/3064">#3064</a> SaturatingInductor</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3151">#3151</a> (PR) Fix diode current formula of HeatingDiode</li>
+</ul>
+<h3 id="miscellaneous">Miscellaneous</h3>
+<ul>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2923">#2923</a> Oddly located name and connector of Modelica.Electrical.Analog.Sources.SignalVoltage icon</li>
+</ul>
+<h2 id="electrical.quasistationary">Electrical.QuasiStationary</h2>
+<h3 id="bugs-3">Bugs</h3>
+<ul>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3344">#3344</a> (PR) Fix for-loop variable in quasi-static MutualInductor</li>
+</ul>
+<h2 id="electrical.spice3">Electrical.Spice3</h2>
+<h3 id="bugs-4">Bugs</h3>
+<ul>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3239">#3239</a> (PR) Add conditional initial equation capacitor</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3372">#3372</a> (PR) Specify case with one coefficient and one variable in Modelica.Electrical.Spice3.Additionals.poly</li>
+</ul>
+<h2 id="fluid">Fluid</h2>
+<h3 id="bugs-5">Bugs</h3>
+<ul>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3156">#3156</a> (PR) Avoid division by zero in derivative of regRoot2 function</li>
+</ul>
+<h3 id="miscellaneous-1">Miscellaneous</h3>
+<ul>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3260">#3260</a> (PR) Fix issue <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/3236">#3236</a> by using a simpler medium model for the HeatingSystem example and by improving state selection in PartialLumpedVolume</li>
+</ul>
+<h2 id="fluid.dissipation">Fluid.Dissipation</h2>
+<h3 id="bugs-6">Bugs</h3>
+<ul>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3405">#3405</a> (PR) Fix mass flow rate calculation</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3501">#3501</a> (PR) Fix arguments of dp_twoPhaseFriedel_DP and dp_twoPhaseChisholm_DP</li>
+</ul>
+<h2 id="magnetic.fluxtubes">Magnetic.FluxTubes</h2>
+<h3 id="examples-2">Examples</h3>
+<ul>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3410">#3410</a> (PR) Fix initial conditions of Magnetic.FluxTubes hysteresis examples</li>
+</ul>
+<h2 id="magnetic.quasistatic">Magnetic.QuasiStatic</h2>
+<h3 id="examples-3">Examples</h3>
+<ul>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3500">#3500</a> (PR) Add StopTime annotation to Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.Leakage.GeneralLeakage</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3504">#3504</a> (PR) Fix initial conditions of quasi-static Leakage examples</li>
+</ul>
+<h2 id="mechanics.multibody">Mechanics.MultiBody</h2>
+<h3 id="bugs-7">Bugs</h3>
+<ul>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3175">#3175</a> (PR) Remove undeclared variable from Dialog.enable</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3250">#3250</a> (PR) Change limits of parameter ri of VoluminousWheel</li>
+</ul>
+<h2 id="media">Media</h2>
+<h3 id="bugs-8">Bugs</h3>
+<ul>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3069">#3069</a> (PR) Fix Media.Air.MoistAir.{density_derX, s_pTX, s_pTX_der}</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3070">#3070</a> (PR) Add mediumName for Modelica.Media.CompressibleLiquids.{LinearColdWater, LinearWater_pT_Ambient}</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3071">#3071</a> (PR) Fix algorithm of IdealGases.Common.Functions.s0_Tlow_der</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3170">#3170</a> (PR) Bug in pressure influence in moist air function s_pTX and s_pTX_der</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3203">#3203</a> (PR) Fix specific gas constant in BaseProperties of ReferenceAir</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3209">#3209</a> (PR) Fix definition of specificInternalEnergy in MoistAir</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3298">#3298</a> (PR) Fix two-phase calculation of setState_dTX for R134a</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3397">#3397</a> (PR) Add missing property calculation for d and T in Modelica.Media.R134a.R134a_ph.setState_psX</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3407">#3407</a> (PR) Fix consideration of pressure negligence for T_ph</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3491">#3491</a> (PR) Fix Modelica.Media.R134a.R134a_ph.setState_pTX (only applicable for one-phase)</li>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3495">#3495</a> (PR) Add missing redeclaration of SaturationProperties for WaterIF97</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<h3 id="miscellaneous-2">Miscellaneous</h3>
+<ul>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3272">#3272</a> (PR) Bump library version of libmodelicastandardtables</li>
+</ul>
+<h2 id="stategraph">StateGraph</h2>
+<h3 id="bugs-9">Bugs</h3>
+<ul>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3141">#3141</a> (PR) Fix <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2028">#2028</a> by adding balance equation</li>
+</ul>
+<h2 id="utilities">Utilities</h2>
+<h3 id="bugs-10">Bugs</h3>
+<ul>
+<li><a href="https://github.com/modelica/ModelicaStandardLibrary/pull/3333">#3333</a> (PR) Do not mark Modelica.Utilities.Files.splitPathName as impure</li>
+</ul>
+</body>
+</html>
