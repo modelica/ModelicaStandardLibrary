@@ -79,22 +79,26 @@
         "dymola": {
           "title": "Dymola",
           "web": "http://www.dymola.com",
-          "path": "helpDymola"
+          "path": "helpDymola",
+          "toolName": "Dymola"
         },
         "mapleSim": {
           "title": "MapleSim",
           "web": "https://www.maplesoft.com/products/maplesim/",
-          "path": "helpMapleSim"
+          "path": "helpMapleSim",
+          "toolName": "MapleSim"
         },
         "openModelica": {
           "title": "OpenModelica",
           "web": "https://openmodelica.org",
-          "path": "helpOM"
+          "path": "helpOM",
+          "toolName": "OM"
         },
         "wolframSystemModeler": {
           "title": "Wolfram SystemModeler",
           "web": "https://www.wolfram.com/system-modeler/",
-          "path": "helpWSM"
+          "path": "helpWSM",
+          "toolName": "WSM"
         }
       },
       "versions": [
@@ -265,6 +269,14 @@
       return link;
     }
 
+    var updateSearch = function(version, tool, library){
+      search.algoliaOptions.facetFilters = [
+        "version:" + version,
+        "tool:" + tool,
+        "library:" + library,
+      ]
+    }
+
     $(document).ready(function() {
       buildTools(data.versions[0], data.versions, data.providersInfo);
       initSelects(data.versions[0], data.versions, data.providersInfo);
@@ -288,6 +300,8 @@
           'href',
           buildLink(title, data.providersInfo[tool].path, version)
         );
+
+        updateSearch(version, data.providersInfo[tool].toolName, title);
       });
 
       $('body').on('change', '.md-item__tool-select', function(){
@@ -309,6 +323,8 @@
           'href',
           buildLink(title, data.providersInfo[tool].path, selectVersionsArray.versions[0])
         );
+
+        updateSearch(selectVersionsArray.versions[0], data.providersInfo[tool].toolName, title);
       });
 
       $('body').on('change', '.md-item__version-select', function(){
@@ -320,17 +336,18 @@
           'href',
           buildLink(title, data.providersInfo[tool].path, version)
         );
+
+        updateSearch(version, data.providersInfo[tool].toolName, title);
       });
 
 
-      docsearch({
+      search = docsearch({
         apiKey: '97b18f2173101844a41539b817e99337',
         indexName: 'modelica',
         inputSelector: '.md-search-input',
         debug: true, // Set debug to true if you want to inspect the dropdown
         algoliaOptions: {
           hitsPerPage: 16,
-          "facetFilters": ["version:3.2.3", "tool:OM", "library:ModelicaServices"] // Test only for https://github.com/algolia/docsearch-configs/pull/1948
         }
       });
     });
