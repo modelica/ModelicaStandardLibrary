@@ -29,34 +29,21 @@
     <div class="container">
       <template id="md-tool-select">
         <div class="md-item p-0">
-          <div class="row align-items-end">
-            <div class="col">
-              <input type="text" placeholder="Type your search..." class="form-control form-control-sm md-search-input">
+          <form class="form-inline align-items-end">
+            <input type="text" placeholder="Type your search..." class="form-control form-control-sm md-search-input mb-2 mr-sm-2">
+            <div class="input-group mb-2 mr-sm-2">
+              <select class="form-control form-control-sm md-item__title-select"></select>
             </div>
-            <div class="col">
-              <div class="form-group m-0">
-                <!-- <label>Library:</label> -->
-                <select class="form-control form-control-sm md-item__title-select"></select>
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-group m-0">
-                <!-- <label>Tool:</label> -->
+            <div class="input-group mb-2 mr-sm-2">
                 <select class="form-control form-control-sm md-item__tool-select"></select>
-              </div>
             </div>
-            <div class="col">
-              <div class="form-group m-0">
-                <!-- <label>Version:</label> -->
+            <div class="input-group mb-2 mr-sm-2">
                 <select class="form-control form-control-sm md-item__version-select"></select>
-              </div>
             </div>
-            <div class="col">
-              <div class="form-group m-0">
+            <div class="input-group mb-2 mr-sm-2">
                 <a href="#" class="btn btn-link btn-sm md-item__link">Documentation</a>
-              </div>
             </div>
-          </div>
+          </form>
         </div>
       </template>
       <template id="md-tool-template">
