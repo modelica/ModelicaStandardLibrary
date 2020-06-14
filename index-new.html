@@ -12,7 +12,7 @@
     <nav class="navbar navbar-light bg-light">
       <div class="container justify-content-between flex-nowrap">
         <span class="navbar-brand mb-0">
-          <img src="Modelica%203.2.3/Resources/Images/logo.svg" alt="Modelica logo" class="md-logo">
+          <a href="https://modelica.org/"><img src="Modelica%203.2.3/Resources/Images/logo.svg" alt="Modelica logo" class="md-logo"></a>
         </span>
         <div id="head-selects"></div>
       </div>
@@ -41,15 +41,15 @@
                 <select class="form-control form-control-sm md-item__version-select"></select>
             </div>
             <div class="input-group mb-2 mr-sm-2">
-                <a href="#" class="btn btn-link btn-sm md-item__link">Documentation</a>
+                <a href="#" target="_blank" rel="noopener" class="btn btn-link btn-sm md-item__link">Documentation</a>
             </div>
           </form>
         </div>
       </template>
       <template id="md-tool-template">
         <div class="md-item p-0">
-          <p class="md-item__description">Description</p>
-          <p class="md-item__provider small">Provider</p>
+          <div class="md-item__description">Description</div>
+          <div class="md-item__provider small">Provider</div>
         </div>
       </template>
       
@@ -135,7 +135,7 @@
         },
         {
           "title": "ModelicaServices",
-          "description": "ModelicaServices (Default implementation)",
+          "description": "Modelica Services",
           "providers": [
             {
               "title": "dymola",
@@ -179,7 +179,7 @@
         },
         {
           "title": "ObsoleteModelica3",
-          "description": "Library that contains components from Modelica Standard Library 2.2.2 that have been removed from version 3.0",
+          "description": "Obsolete Modelica",
           "providers": [
             {
               "title": "mapleSim",
@@ -334,6 +334,8 @@
         inputSelector: '.md-search-input',
         debug: false, // Set debug to true if you want to inspect the dropdown
         algoliaOptions: {
+          advancedSyntax: true,
+          typoTolerance: false,
           hitsPerPage: 16,
           facetFilters: ["version:3.2.3", "tool:Dymola", "library:Modelica"]
         }
