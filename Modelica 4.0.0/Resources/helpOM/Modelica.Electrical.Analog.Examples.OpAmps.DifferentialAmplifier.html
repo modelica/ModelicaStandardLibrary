@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Electrical.Analog.Examples.OpAmps.DifferentialAmplifier</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.html">Analog</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.Examples.OpAmps.html">OpAmps</a>.<span class="omc-h1">DifferentialAmplifier</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This model demonstrates a differential amplifier to attenuate
+the input voltage to a level that can be handled by the measurement
+instrument.</p>
+<p>Two sinusoidal source voltages with a phase shift of 120° (e.g.,
+two phases of a three-phase system) feed a load resistor. The
+voltage at the load resistor has to be measured but is too high for
+direct measurement.</p>
+<h4>Notes</h4>
+<ul>
+<li>The output of the amplifier is inverted with respect to the
+differential input, as well as attenuated by the factor
+1/data.k.</li>
+<li>The influence of the measurement instrument's input resistance
+on the measurement result is small.</li>
+<li>The current consumption of the amplifier inputs at the source
+circuit is small (<code>resistor1.i</code> and
+<code>resistor2.i</code>).</li>
+<li>The common of the source and the common of the amplifier are
+connected by a ground resistor. In case this resistance is low, a
+small current is flowing between the amplifier's common and the
+source's common (<code>resistorGround.i</code>). In case this
+resistance is high, the amplifier's common is floating with respect
+to the source's common with a high voltage
+(<code>resistorGround.v</code>).</li>
+</ul>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.HysteresisLosses</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Magnetic.html">Magnetic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.html">Hysteresis</a>.<span class="omc-h1">HysteresisLosses</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<h4>Hysteresis power losses</h4>
+<p>The total power loss (<code>LossPower</code>) of an hysteresis
+flux tube element is the sum of the power loss due to the static
+ferromagnetic hysteresis (<code>LossPowerStat</code>) and the power
+loss due to eddy currents (<code>LossPowerEddy</code>).</p>
+<table border="0" cellpadding="2" cellspacing="0">
+<tr>
+<td><img src="../../../Modelica%204.0.0/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/HysteresisLosses/Eqn_LossPower01.png"/></td>
+</tr>
+</table>
+<p>The two components <code>LossPowerStat</code> and
+<code>LossPowerEddy</code> can be calculated as follows.</p>
+<table border="0" cellpadding="2" cellspacing="0">
+<tr>
+<td><img src="../../../Modelica%204.0.0/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/HysteresisLosses/Eqn_LossPower02.png"/></td>
+</tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="0">
+<tr>
+<td><img src="../../../Modelica%204.0.0/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/HysteresisLosses/Eqn_LossPower03.png"/></td>
+</tr>
+</table>
+<p>Where <code>σ<sub>cl</sub></code> is the classical eddy current
+factor (see <a href="Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.DynamicHysteresis.html">
+UsersGuide.Hysteresis.DynamicHysteresis</a>) and V the volume of
+the core material. The equations show that
+<code>LossPowerStat</code> acts as power sink and power source
+(magnetic energy storage) whereas <code>LossPowerEddy</code> is
+always positive (Power sink). By means of an simple example the
+following figures show the time course of the magnetic flux
+density, the magnetic field strength and the hysteresis losses. The
+pulsating course of the power loss (see Fig. 3c) makes it difficult
+to estimate an average loss. For this reason, the hysteresis flux
+tube elements are capable of directly computing the moving average
+of the power losses. Therefore, <code>t_avg</code> of the
+"LossesAndHeat" tab of the elements parameter dialog may be
+adjusted to set an adequate time interval (see Fig. 3d).</p>
+<table border="0" cellpadding="2" cellspacing="0">
+<caption align="bottom"><strong>Fig. 1:</strong> Diagram of a
+simple transformer with ferromagnetic core (model available at
+<a href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis.SinglePhaseTransformerWithHysteresis1.html">
+Examples.Hysteresis.SinglePhaseTransformerWithHysteresis1</a>)</caption>
+<tr>
+<td><img src="../../../Modelica%204.0.0/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/HysteresisLosses/PowerLoss_Hysteresis01.png"/></td>
+</tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="0">
+<caption align="bottom"><strong>Fig. 2:</strong> Simulated total
+dynamic hysteresis loop with its static and eddy current
+fractions</caption>
+<tr>
+<td><img src="../../../Modelica%204.0.0/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/HysteresisLosses/PowerLoss_Hysteresis02.png"/></td>
+</tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="0">
+<caption align="bottom"><strong>Fig. 3:</strong> Simulated outputs
+of the <code>Core</code> component of Fig. 1</caption>
+<tr>
+<td><img src="../../../Modelica%204.0.0/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/HysteresisLosses/PowerLoss_Hysteresis03.png"/></td>
+</tr>
+</table>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

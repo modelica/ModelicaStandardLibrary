@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow</title>
+</head>
+<body>
+<h1><a href="Icons/f7f71c8dc519feac1bc110595a6fb6dc313373f4.svg"><img class="svgiconhead" src="Icons/f7f71c8dc519feac1bc110595a6fb6dc313373f4.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.html">Advanced</a>.<span class="omc-h1">DoubleArrow</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Model <strong>DoubleArrow</strong> defines a double arrow that
+is dynamically visualized at the defined location (see variables
+below). Nonetheless, visualizing physical vectors by means of
+<a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector.html">
+Vector</a> can be better option in many cases.</p>
+<p><img alt="model Visualizers.Advanced.DoubleArrow" src="../../../Modelica%204.0.0/Resources/Images/Mechanics/MultiBody/Visualizers/Advanced/DoubleArrow.png"/></p>
+<p>The dialog variables <code>R</code>, <code>r</code>,
+<code>r_tail</code>, <code>r_head</code>, <code>color</code>,
+<code>specularCoefficient</code>, and <code>headAtOrigin</code> are
+declared as (time varying) <strong>input</strong> variables. If the
+default equation is not appropriate, a corresponding modifier
+equation has to be provided in the model where an
+<strong>Arrow</strong> instance is used, e.g., in the form</p>
+<blockquote>
+<pre>
+Visualizers.Advanced.DoubleArrow doubleArrow(r_head = {sin(time),cos(time},0})
+</pre></blockquote>
+<p>Variable <strong>color</strong> is an Integer vector with
+3 elements, {r, g, b}, and specifies the color of
+the shape. {r, g, b} are the "red", "green" and "blue"
+color parts. Note, r, g and b are given in the range
+0 … 255. The predefined type <a href="Modelica.Mechanics.MultiBody.Types.Color.html">MultiBody.Types.Color</a>
+contains a menu definition of the colors used in the MultiBody
+library together with a color editor.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

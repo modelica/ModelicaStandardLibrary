@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Math.Random.Generators</title>
+</head>
+<body>
+<h1><a href="Icons/d961ac5188ef8bfb45a1a066b0a0f1b9ff643a0e.svg"><img class="svgiconhead" src="Icons/d961ac5188ef8bfb45a1a066b0a0f1b9ff643a0e.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Random.html">Random</a>.<span class="omc-h1">Generators</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This package contains various pseudo random number generators. A
+random number generator is a package that consists of the following
+elements:</p>
+<ul>
+<li>Integer <strong>nState</strong> is a constant that defines the
+length of the internal state vector (in order that an appropriate
+Integer vector of this length can be declared, depending on the
+selected random number generator).</li>
+<li>Function <strong>initialState(..)</strong> is used to
+initialize the state of the random number generator by providing
+Integer seeds and calling the random number generator often enough
+that statistically relevant random numbers are returned by every
+call of function random(..).</li>
+<li>Function <strong>random(..)</strong> is used to return a random
+number of type Real in the range 0.0 &lt; random ≤ 1.0 for every
+call. Furthermore, the updated (internal) state of the random
+number generator is returned as well.</li>
+</ul>
+<p>The Generators package contains the <strong>xorshift</strong>
+suite of random number generators from Sebastiano Vigna (from 2014;
+based on work of George Marsaglia). The properties of these random
+number generators are summarized below and compared with the often
+used Mersenne Twister (MT19937-64) generator. The table is based on
+<a href="http://xorshift.di.unimi.it/">http://xorshift.di.unimi.it/</a> and
+on the articles:</p>
+<blockquote>
+<p>Sebastiano Vigna: <a href="http://vigna.di.unimi.it/ftp/papers/xorshift.pdf">An experimental
+exploration of Marsaglia's xorshift generators, scrambled</a>,
+2014.<br/>
+Sebastiano Vigna: <a href="http://vigna.di.unimi.it/ftp/papers/xorshiftplus.pdf">Further
+scramblings of Marsaglia's xorshift generators</a>, 2014.<br/></p>
+</blockquote>
+<p>Summary of the properties of the random number generators:</p>
+<blockquote>
+<table border="1" cellpadding="2" cellspacing="0">
+<tr>
+<th>Property</th>
+<th>xorshift64*</th>
+<th>xorshift128+</th>
+<th>xorshift1024*</th>
+<th>MT19937-64</th>
+</tr>
+<tr>
+<td>Period</td>
+<td>2^64</td>
+<td>2^128</td>
+<td>2^1024</td>
+<td>2^19937</td>
+</tr>
+<tr>
+<td>Length of state (# 32 bit integer)</td>
+<td>2</td>
+<td>4</td>
+<td>33</td>
+<td>624</td>
+</tr>
+<tr>
+<td>Statistic failures (Big Crush)</td>
+<td>363</td>
+<td>64</td>
+<td>51</td>
+<td>516</td>
+</tr>
+<tr>
+<td>Systematic failures (Big Crush)</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>Worst case startup</td>
+<td>&gt; 1 call</td>
+<td>&gt; 20 calls</td>
+<td>&gt; 100 calls</td>
+<td>&gt; 100000 calls</td>
+</tr>
+<tr>
+<td>Run time (MT=1.0)</td>
+<td>0.39</td>
+<td>0.27</td>
+<td>0.33</td>
+<td>1.0</td>
+</tr>
+</table>
+</blockquote>
+<p>Further explanations of the properties above:</p>
+<ul>
+<li>The <strong>period</strong> defines the number of random
+numbers generated before the sequence begins to repeat itself.
+According to "<a href="http://xorshift.di.unimi.it/">A long period
+does not imply high quality</a>" a period of 2^1024 is by far large
+enough for even massively parallel simulations with huge number of
+random number computations per simulation. A period of 2^128 might
+be not enough for massively parallel simulations.</li>
+<li><strong>Length of state (# 32 bit integer)</strong> defines the
+number of "int" (that is Modelica Integer) elements used for the
+internal state vector.</li>
+<li><strong>Big Crush</strong> is part of <a href="http://simul.iro.umontreal.ca/testu01/tu01.html">TestU01</a> a
+huge framework for testing random number generators. According to
+these tests, the statistical properties of the xorshift random
+number generators are better than the ones of the Mersenne Twister
+random number generator.</li>
+<li><strong>Worst case startup</strong> means how many calls are
+needed until getting from a bad seed to random numbers with
+appropriate statistical properties. Here, the xorshift random
+number suite has much better properties than the Mersenne Twister.
+When initializing a random number generator, the above property is
+taken into account and appropriate random numbers are generated, so
+that a subsequent call of random(..) will generate statistically
+relevant random numbers, even if the user provides a bad initial
+seed (such as localSeed=1). This means, any Integer number can be
+given as initial seed without influencing the quality of the
+generated random numbers.</li>
+<li><strong>Run time</strong> shows that the xorshift random number
+generators are all much faster than the Mersenne Twister random
+number generator, although this is not really relevant for most
+simulations, because the execution time of the other parts of the
+simulations is usually much larger.</li>
+</ul>
+<p>The xorshift random number generators are used in the following
+way in the <a href="Modelica.Blocks.Noise.html">Blocks.Noise</a> package:</p>
+<ol>
+<li>Xorshift64star (xorshift64*) is used to generate the initial
+internal state vectors of the other generators from two Integer
+values, due to the very good startup properties.</li>
+<li>Xorshift128plus (xorshift128+) is the random number generator
+used by the blocks in <a href="Modelica.Blocks.Noise.html">Blocks.Noise</a>. Since these
+blocks hold the internal state vector for every block instance, and
+the internal state vector is copied whenever a new random number is
+drawn, it is important that the internal state vector is short (and
+still has good statistical properties as shown in the table
+above).</li>
+<li>Xorshift1024star (xorshift1024*) is the basis of the impure
+function <a href="Modelica.Math.Random.Utilities.impureRandom.html">Math.Random.Utilities.impureRandom</a>
+which in turn is used with <a href="Modelica.Blocks.Noise.GlobalSeed.html">Blocks.Noise.GlobalSeed</a>.
+The internal state vector is not exposed. It is updated internally,
+whenever a new random number is drawn.</li>
+</ol>
+<p>Note, the generators produce 64 bit random numbers. These
+numbers are mapped to the 52 bit mantissa of double numbers in the
+range 0.0 .. 1.0.</p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Random.Generators.Xorshift64star.html"><img class="svgiconsmall" src="Icons/6874a5bd96576f55b1954ab83520c645a7fa94ad.svg"/></a> <a href="Modelica.Math.Random.Generators.Xorshift64star.html">Xorshift64star</a></td>
+<td>Random number generator xorshift64*</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Random.Generators.Xorshift128plus.html"><img class="svgiconsmall" src="Icons/2a32e9afda6f3b23568d7c6296bd1deaea59b1dd.svg"/></a> <a href="Modelica.Math.Random.Generators.Xorshift128plus.html">Xorshift128plus</a></td>
+<td>Random number generator xorshift128+</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Random.Generators.Xorshift1024star.html"><img class="svgiconsmall" src="Icons/49d649059462b1639b92adecca77172a6dd8c1ab.svg"/></a> <a href="Modelica.Math.Random.Generators.Xorshift1024star.html">Xorshift1024star</a></td>
+<td>Random number generator xorshift1024*</td>
+</tr>
+</table>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<table border="1" cellpadding="2" cellspacing="0">
+<tr>
+<th>Date</th>
+<th align="left">Description</th>
+</tr>
+<tr>
+<td>June 22, 2015</td>
+<td>
+<table border="0">
+<tr>
+<td><img alt="DLR logo" src="../../../Modelica%204.0.0/Resources/Images/Logos/dlr_logo.png"/></td>
+<td valign="bottom">Initial version implemented by A. Klöckner, F.
+v.d. Linden, D. Zimmer, M. Otter.<br/>
+<a href="http://www.dlr.de/rmc/sr/en">DLR Institute of System
+Dynamics and Control</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

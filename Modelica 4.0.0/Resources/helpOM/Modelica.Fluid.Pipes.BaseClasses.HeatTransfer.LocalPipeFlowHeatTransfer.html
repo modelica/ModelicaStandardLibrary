@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.LocalPipeFlowHeatTransfer</title>
+</head>
+<body>
+<h1><a href="Icons/c7602e7c902b08f3dfd9cde8baf2eac686522c63.svg"><img class="svgiconhead" src="Icons/c7602e7c902b08f3dfd9cde8baf2eac686522c63.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Pipes.html">Pipes</a>.<a class="omc-h1-a" href="Modelica.Fluid.Pipes.BaseClasses.html">BaseClasses</a>.<a class="omc-h1-a" href="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.html">HeatTransfer</a>.<span class="omc-h1">LocalPipeFlowHeatTransfer</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Heat transfer model for laminar and turbulent flow in pipes.
+Range of validity:</p>
+<ul>
+<li>fully developed pipe flow</li>
+<li>forced convection</li>
+<li>one phase Newtonian fluid</li>
+<li>(spatial) constant wall temperature in the laminar region</li>
+<li>0 ≤ Re ≤ 1e6, 0.6 ≤ Pr ≤ 100, d/L ≤ 1</li>
+<li>The correlation holds for non-circular pipes only in the
+turbulent region. Use diameter=4*crossArea/perimeter as
+characteristic length.</li>
+</ul>
+<p>The correlation takes into account the spatial position along
+the pipe flow, which changes discontinuously at flow reversal.
+However, the heat transfer coefficient itself is continuous around
+zero flow rate, but not its derivative.</p>
+<h4>References</h4>
+<dl>
+<dt>Verein Deutscher Ingenieure (1997):</dt>
+<dd><strong>VDI Wärmeatlas</strong>. Springer Verlag, Ed. 8,
+1997.</dd>
+</dl>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

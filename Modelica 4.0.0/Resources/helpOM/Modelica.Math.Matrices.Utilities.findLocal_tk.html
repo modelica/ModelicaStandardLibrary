@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Math.Matrices.Utilities.findLocal_tk</title>
+</head>
+<body>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.Utilities.html">Utilities</a>.<span class="omc-h1">findLocal_tk</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+tk = Matrices.Utilities.<strong>findLocal_tk</strong>(Rk, Vk);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Function <code>findLocal_tk()</code> is an auxiliary function
+called in iterative solver for algebraic Riccati equation based on
+Newton's method with exact line search like <a href="Modelica.Math.Matrices.Utilities.continuousRiccatiIterative.html">
+continuousRiccatiIterative</a><br/>
+and <a href="Modelica.Math.Matrices.Utilities.discreteRiccatiIterative.html">
+discreteRiccatiIterative</a>.<br/>
+The function computes the local minimum of the function
+f_k(t_k)</p>
+<blockquote>
+<pre>
+f_k(t_k) = alpha_k*(1-t_k)^2 + 2*beta_k*(1-t)*t^2 + gamma_k*t^4
+</pre></blockquote>
+<p>by calculating the zeros of the derivation d f_k/d t_k. It is
+known that the function f_k(t_k) has a local minimum at some value
+t_k_min in [0, 2].<br/>
+With t_k_min the norm of the next residual of the algorithm will be
+minimized.<br/>
+See [1] for more information</p>
+<h4>References</h4>
+<blockquote>
+<pre>
+[1] Benner, P., Byers, R.
+    An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
+    IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
+</pre></blockquote>
+<h4>See also</h4>
+<a href="Modelica.Math.Matrices.Utilities.continuousRiccatiIterative.html">Matrices.Utilities.continuousRiccatiIterative</a><br/>
+<a href="Modelica.Math.Matrices.Utilities.discreteRiccatiIterative.html">
+Matrices.Utilities.discreteRiccatiIterative</a><br/>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>function findLocal_tk
+  extends Modelica.Icons.Function;
+  import Modelica.Math.Matrices;
+  import Modelica.Math.Polynomials;
+  input Real Rk[:, size(Rk, 1)];
+  input Real Vk[size(Rk, 1), size(Rk, 2)];
+  output Real tk;
+end findLocal_tk;</pre></blockquote>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<ul>
+<li><em>2010/04/30</em> by Marcus Baur, DLR-RM</li>
+</ul>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

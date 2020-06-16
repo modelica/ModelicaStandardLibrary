@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Mechanics.MultiBody.Frames.resolveDyade2</title>
+</head>
+<body>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a>.<span class="omc-h1">resolveDyade2</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+D2 = Frames.<strong>resolveDyade2</strong>(R, D1);
+</pre></blockquote>
+<h4>Description</h4>
+<p>The function call <code>Frames.<strong>Dyade2</strong>(R12,
+D1)</code> returns the second order tensor D resolved in
+frame 2 (= D2) from its representation in frame 1 (= D1)
+using the orientation object R12 that describes the orientation to
+rotate frame 1 into frame 2.</p>
+<h4>See also</h4>
+<p><a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolveDyade2.html">
+TransformationMatrices.resolveDyade2</a>.</p>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>function resolveDyade2
+  extends Modelica.Icons.Function;
+  input Orientation R "Orientation object to rotate frame 1 into frame 2";
+  input Real D1[3, 3] "Second order tensor resolved in frame 1";
+  output Real D2[3, 3] "Second order tensor resolved in frame 2";
+end resolveDyade2;</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

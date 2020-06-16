@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Electrical.PowerConverters.ACAC.PolyphaseTriac</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.PowerConverters.html">PowerConverters</a>.<a class="omc-h1-a" href="Modelica.Electrical.PowerConverters.ACAC.html">ACAC</a>.<span class="omc-h1">PolyphaseTriac</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Simplified model of <code>m</code> <a href="Modelica.Electrical.PowerConverters.ACAC.SinglePhaseTriac.html">
+triodes for alternating current</a>, each built from two
+antiparallel thyristors. <code>thyristor1</code> has to be fired
+during the positive halfwave of the voltage.
+<code>thyristor2</code> has to be fired during the negative
+halfwave of the voltage.</p>
+<p>Note: A real triac is fired in positive direction
+(<code>thyristor1</code>) by a positive gate current and in
+negative direction (<code>thyristor2</code>) by a negative gate
+current. The triac goes in blocking condition when the current
+falls to zero.</p>
+<p>This behaviour is simulated by the two firing gates
+<code>fire1</code> and <code>fire2</code>:</p>
+<ul>
+<li><code>fire1=false</code> and <code>fire2=false</code>: gate
+current = 0, stay in blocking condition</li>
+<li><code>fire1=true</code> and <code>fire2=false</code>: gate
+current &gt; 0, fire <code>thyristor1</code></li>
+<li><code>fire1=false</code> and <code>fire2=true</code>: gate
+current &lt; 0, fire <code>thyristor2</code></li>
+<li><code>fire1=true</code> and <code>fire2=true</code>:
+forbidden</li>
+</ul>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

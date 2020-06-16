@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+ModelicaReference.Annotations.defaultConnectionStructurallyInconsistent</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Annotations.html">Annotations</a>.<span class="omc-h1">defaultConnectionStructurallyInconsistent</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>A model or block definition may contain the annotation
+<code>defaultConnectionStructurallyInconsistent</code>.</p>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+   <strong>annotation</strong>"(" defaultConnectionStructurallyInconsistent "=" ( <strong>false</strong> | <strong>true</strong> ) ")
+</pre></blockquote>
+<h4>Description</h4>
+<p>If <code>true</code>, it is stated that a default connection
+will result in a structurally inconsistent <code>model</code> or
+<code>block</code>. A "default connection" is constructed by
+instantiating the respective <code>model</code> or
+<code>block</code> and for every input <code>u</code> providing an
+equation <code>0=f(u)</code>, and for every (potential,flow) pair
+of the form <code>(v,i)</code>, providing an equation of the form
+<code>0=f(v,i)</code>.</p>
+<h4>Example usage</h4>
+<p>It is useful to check all models/blocks of a Modelica package in
+a simple way. One check is to default connect every model/block and
+to check whether the resulting class is structurally consistent (=
+a stronger requirement as "balanced").</p>
+<p>It is rarely needed; but can be used for
+InverseBlockConstraints, in order to prevent a wrong error message.
+Additionally, when a user defined model is structurally
+inconsistent, a tool should try to pinpoint in which class the
+error is present. This annotation avoids then to show a wrong error
+message.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Mechanics.MultiBody.Sensors.Internal.BasicAbsolutePosition</title>
+</head>
+<body>
+<h1><a href="Icons/3ecc1d1638b26ebc7ed16355a7a37d411b9e412b.svg"><img class="svgiconhead" src="Icons/3ecc1d1638b26ebc7ed16355a7a37d411b9e412b.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Sensors.html">Sensors</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Sensors.Internal.html">Internal</a>.<span class="omc-h1">BasicAbsolutePosition</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This basic sensor is aimed to be used within advanced sensors
+where the absolute position vector of the origin of frame_a should
+be determined. This vector is provided at the output signal
+connector <strong>r</strong>.</p>
+<p>Via parameter <strong>resolveInFrame</strong> it is defined in
+which frame the position vector is resolved:</p>
+<table border="1" cellpadding="2" cellspacing="0">
+<tr>
+<th><strong>resolveInFrame =<br/>
+Types.ResolveInFrameA.</strong></th>
+<th><strong>Meaning</strong></th>
+</tr>
+<tr>
+<td>world</td>
+<td>Resolve vector in world frame</td>
+</tr>
+<tr>
+<td>frame_a</td>
+<td>Resolve vector in frame_a</td>
+</tr>
+<tr>
+<td>frame_resolve</td>
+<td>Resolve vector in frame_resolve</td>
+</tr>
+</table>
+<p>In this basic sensor model, <strong>the connector frame_resolve
+is always enabled and must be connected</strong>. If resolveInFrame
+= Types.ResolveInFrameA.frame_resolve, the vector r is
+resolved in the frame to which frame_resolve is connected.</p>
+<h4>Example</h4>
+<p>If resolveInFrame = Types.ResolveInFrameA.frame_a, the output
+vector is computed as:</p>
+<blockquote>
+<pre>
+r = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0);
+</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Math.Matrices.integralExp</title>
+</head>
+<body>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<span class="omc-h1">integralExp</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+(phi,gamma) = Matrices.<strong>integralExp</strong>(A,B);
+(phi,gamma) = Matrices.<strong>integralExp</strong>(A,B,T=1);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function computes the exponential phi =
+e^(<strong>A</strong>T) of matrix <strong>A</strong> and the
+integral gamma = integral(phi*dt)*B.</p>
+<p>The function uses a Taylor series expansion with Balancing and
+scaling/squaring to approximate the integral <strong>Ψ</strong> of
+the matrix exponential <strong>Φ</strong>=e^(AT):</p>
+<blockquote>
+<pre>
+                         AT^2   A^2 * T^3          A^k * T^(k+1)
+<strong>Ψ</strong> = int(e^(As))ds = IT + ---- + --------- + ... + --------------
+                          2!        3!                (k+1)!
+</pre></blockquote>
+<p><strong>Φ</strong> is calculated through <strong>Φ</strong> = I
++ A*<strong>Ψ</strong>, so A may be singular. <strong>Γ</strong> is
+simply <strong>Ψ</strong>*B.</p>
+<p>The algorithm runs in the following steps:</p>
+<ol>
+<li>Balancing</li>
+<li>Scaling</li>
+<li>Taylor series expansion</li>
+<li>Re-scaling</li>
+<li>Re-Balancing</li>
+</ol>
+<p>Balancing put the bad condition of a square matrix <em>A</em>
+into a diagonal transformation matrix <em>D</em>. This reduce the
+effort of following calculations. Afterwards the result have to be
+re-balanced by transformation D*A<small>transf</small>
+*inv(D).<br/>
+Scaling halfen T  k-times, until the norm of A*T is less than
+0.5. This guarantees minimum rounding errors in the following
+series expansion. The re-scaling based on the equation 
+exp(A*2T) = exp(AT)^2. The needed re-scaling formula for psi thus
+becomes:</p>
+<blockquote>
+<pre>
+      <strong>Φ</strong> = <strong>Φ</strong>'*<strong>Φ</strong>'
+I + A*<strong>Ψ</strong> = I + 2A*<strong>Ψ</strong>' + A^2*<strong>Ψ</strong>'^2
+      <strong>Ψ</strong> = A*<strong>Ψ</strong>'^2 + 2*<strong>Ψ</strong>'
+</pre></blockquote>
+<p>where psi' is the scaled result from the series expansion while
+psi is the re-scaled matrix.</p>
+<p>The function is normally used to discretize a state-space system
+as the zero-order-hold equivalent:</p>
+<blockquote>
+<pre>
+x(k+1) = <strong>Φ</strong>*x(k) + <strong>Γ</strong>*u(k)
+  y(k) = C*x(k) + D*u(k)
+</pre></blockquote>
+<p>The zero-order-hold sampling, also known as step-invariant
+method, gives exact values of the state variables, under the
+assumption that the control signal u is constant between the
+sampling instants. Zero-order-hold sampling is described in</p>
+<dl>
+<dt>K. J. Åström, B. Wittenmark:</dt>
+<dd><strong>Computer Controlled Systems - Theory and
+Design</strong><br/>
+Third Edition, p. 32</dd>
+</dl>
+<blockquote>
+<pre><strong>Syntax:</strong>
+      (phi,gamma) = Matrices.expIntegral(A,B,T)
+                       A,phi: [n,n] square matrices
+                     B,gamma: [n,m] input matrix
+                           T: scalar, e.g., sampling time
+</pre></blockquote>
+<p>The Algorithm to calculate psi is taken from</p>
+<dl>
+<dt>H. D. Joos, G. Grübel:</dt>
+<dd><strong>RASP'91 Regulator Analysis and Synthesis
+Programs</strong><br/>
+DLR - Control Systems Group 1991</dd>
+</dl>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>function integralExp
+  extends Modelica.Icons.Function;
+  input Real A[:, size(A, 1)];
+  input Real B[size(A, 1), :];
+  input Real T = 1;
+  output Real phi[size(A, 1), size(A, 1)] "= exp(A*T)";
+  output Real gamma[size(A, 1), size(B, 2)] "= integral(phi)*B";
+end integralExp;</pre></blockquote>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<p><strong>Release Notes:</strong></p>
+<ul>
+<li><em>July 5, 2002</em> by H. D. Joos and Nico Walther<br/>
+Implemented.</li>
+</ul>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

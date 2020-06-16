@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Electrical.QuasiStatic.Polyphase.Sensors.AronSensor</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStatic.html">QuasiStatic</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStatic.Polyphase.html">Polyphase</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStatic.Polyphase.Sensors.html">Sensors</a>.<span class="omc-h1">AronSensor</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Contains two <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor.html">
+power meters</a> to measure total active power in a three-phase
+system.</p>
+<p>This device works only in three-phase systems without
+neutral.</p>
+<p>The rationale behind this sensor is that power exchanged between
+two parts of a circuit is the sum of the products of currents in
+the <em>m</em> wires connecting the two parts times wires'
+potentials evaluated with reference to an arbitrary potential
+<em>v</em><sub>ref</sub>:</p>
+<p>
+<em>P</em>=(<em>v</em><sub>1</sub>-<em>v</em><sub>ref</sub>)*<em>i</em><sub>1</sub>+(<em>v</em><sub>2</sub>-<em>v</em><sub>ref</sub>)*<em>i</em><sub>2</sub>+…+(<em>v</em><sub>m</sub>-<em>v</em><sub>ref</sub>)*<em>i</em><sub>m</sub></p>
+<p>In case of a three-phase system without neutral we may want to
+measure power flowing in a line, connecting, say, the left part of
+the circuit to its right part. The wires connecting the two parts
+are only three (i.e., <em>m</em>=3) and therefore all currents
+between these two parts are <em>i</em><sub>1</sub>,
+<em>i</em><sub>2</sub>, <em>i</em><sub>3</sub>. </p>
+<p>Since the voltage to be taken as reference is arbitrary, we can
+take the voltage of conductor 2. Therefore our power becomes:</p>
+<p>
+<em>P</em>=(<em>v</em><sub>1</sub>-<em>v</em><sub>2</sub>)*<em>i</em><sub>1</sub>+(<em>v</em><sub>2</sub>-<em>v</em><sub>2</sub>)*<em>i</em><sub>2</sub>+(<em>v</em><sub>3</sub>-<em>v</em><sub>2)</sub>*<em>i</em><sub>3</sub>
+=
+(<em>v</em><sub>1</sub>-<em>v</em><sub>2</sub>)*i<sub>1</sub>+(<em>v</em><sub>3</sub>-<em>v</em><sub>2</sub>)*
+i<sub>3</sub></p>
+<p>In this way, we can just sum up the power from two wattmeters to
+get the three-phase power.</p>
+<p>Note, that this formula does not work if there are additional
+current paths between the left and right parts of our circuits,
+e.g., if both have grounds (and current flows through it).</p>
+<p>For more information on why power flowing in a circuit between
+two subcircuits is the sum of products of voltages times currents,
+the voltages being measured to an arbitrary reference potential,
+see [<a href="Modelica.Electrical.Polyphase.UsersGuide.References.html">Ceraolo2014</a>,
+par. 3.8.1].</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

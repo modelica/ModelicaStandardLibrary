@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Clocked.RealSignals.Periodic.FIRbyCoefficients</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Clocked.html">Clocked</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.html">RealSignals</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.Periodic.html">Periodic</a>.<span class="omc-h1">FIRbyCoefficients</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This block computes the output y as a linear combination of the
+input u and of its past values (= FIR filter):</p>
+<blockquote>
+<pre>
+y(i) = a[1]*u(i) + a[2]*u(i-1) + a[3]*u(i-2) + …
+</pre></blockquote>
+<p>where y(i) and u(i) are the values of y and u at clock tick i
+and a[:] are the filter coefficients.</p>
+<p>At the first clock tick i=1 the past values are filled with u at
+this clock tick (= steady state initialization).</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

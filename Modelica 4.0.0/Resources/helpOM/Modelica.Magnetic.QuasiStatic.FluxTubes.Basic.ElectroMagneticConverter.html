@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter</title>
+</head>
+<body>
+<h1><a href="Icons/647394484b5609e80fe27c2450e1069bab2d122d.svg"><img class="svgiconhead" src="Icons/647394484b5609e80fe27c2450e1069bab2d122d.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Magnetic.html">Magnetic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.QuasiStatic.html">QuasiStatic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.QuasiStatic.FluxTubes.html">FluxTubes</a>.<a class="omc-h1-a" href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.html">Basic</a>.<span class="omc-h1">ElectroMagneticConverter</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>The electromagnetic energy conversion is given by
+<em>Ampere</em>'s law and <em>Faraday</em>'s law respectively:</p>
+<pre>
+    V<sub>m</sub> = N * i
+    N * dΦ/dt = -v
+</pre>
+<p><img alt="converter signs" src="../../../Modelica%204.0.0/Resources/Images/Magnetic/FluxTubes/Basic/converter_signs.png"/></p>
+<p>V<sub>m</sub> is the magnetic potential difference applied to
+the magnetic circuit due to the current i through the coil
+(Ampere's law). There exists a left-hand assignment between the
+current i (fingers) and the magnetic potential difference
+V<sub>m</sub> (thumb).<br/>
+<strong>Note:</strong> There exists a right-hand assignment between
+the current through the coil i (fingers) and the magnetomotive
+force mmf. The mmf has the opposite direction compared with
+V<sub>m</sub>. It is not used in Modelica.</p>
+<p>For the complete magnetic circuit the sum of all magnetic
+potential differences counted with the correct sign in a reference
+direction is equal to zero: sum(V<sub>m</sub>) = 0.<br/>
+The magnetic flux Φ in each passive component is related to the
+magnetic potential difference V<sub>m</sub> by the equivalent of
+Ohms' law: V<sub>m</sub> = R<sub>m</sub> * Φ<br/>
+<strong>Note:</strong> The magnetic resistance R<sub>m</sub>
+depends on geometry and material properties. For ferromagnetic
+materials R<sub>m</sub> is not constant due to saturation.</p>
+<p>Therefore the sign (actual direction) of Φ (magnetic flux
+through the converter) depends on the associated branch of the
+magnetic circuit.<br/>
+v is the induced voltage in the coil due to the derivative of
+magnetic flux Φ (Faraday's law).<br/>
+<strong>Note:</strong> The negative sign of the induced voltage v
+is due to <em>Lenz</em>'s law.</p>
+<p><strong>Note:</strong> The image shows a right-handed coil. If a
+left-handed coil has to be modeled instead of a right-handed coil,
+the parameter N (Number of turns) can be set to a negative
+value.</p>
+<p>The flux linkage Ψ and the static inductance L_stat = |Ψ/i| are
+calculated for information only. Note that L_stat is set to |Ψ/eps|
+if |i| &lt; eps (= 100*Modelica.Constants.eps).</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

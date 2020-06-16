@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Electrical.Polyphase.Examples.PolyphaseRectifier</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Polyphase.html">Polyphase</a>.<a class="omc-h1-a" href="Modelica.Electrical.Polyphase.Examples.html">Examples</a>.<span class="omc-h1">PolyphaseRectifier</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This example demonstrates a polyphase system with a rectifier
+per subsystem.</p>
+<p>Note that the interaction between the subsystems is damped by
+the DC resistors and inductors.</p>
+<p>You may try different number of phases 2 ≤ <code>m</code>, as
+well as connect the rectifiers with different number of parallel
+branches, and investigate AC values:</p>
+<ul>
+<li>AC power <code>analysatorAC.pTotal</code> (sum of all
+phases)</li>
+<li>AC current <code>analysatorAC.iFeed[m]</code> (1st harmonic
+rms)</li>
+<li>AC voltage <code>analysatorAC.vLN[m]</code> (1st harmonic rms,
+line to neutral)</li>
+<li>AC voltage <code>analysatorAC.vLL[m]</code> (1st harmonic rms,
+line to line)</li>
+</ul>
+<p>as well as DC values per subsystem (rectifier) and total
+(load):</p>
+<ul>
+<li>DC power total <code>analysatorAC.pDC</code> (mean)</li>
+<li>DC current total <code>analysatorAC.iDC</code> (mean)</li>
+<li>DC voltage total <code>analysatorAC.vDC</code> (mean)</li>
+</ul>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

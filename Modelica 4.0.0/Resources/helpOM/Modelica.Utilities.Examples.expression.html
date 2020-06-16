@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Utilities.Examples.expression</title>
+</head>
+<body>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Utilities.Examples.html">Examples</a>.<span class="omc-h1">expression</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+             result = <strong>expression</strong>(string);
+(result, nextIndex) = <strong>expression</strong>(string, startIndex=1, message="");
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function is nearly the same as
+Examples.<strong>calculator</strong>. The essential difference is
+that function "expression" might be used in other parsing
+operations: After the expression is parsed and evaluated, the
+function returns with the value of the expression as well as the
+position of the character directly after the expression.</p>
+<p>This function demonstrates how a simple expression calculator
+can be implemented in form of a recursive decent parser using
+basically the Strings.scanToken(..) and scanDelimiters(..)
+function. There are 2 local functions (term, primary) that
+implement the corresponding part of the grammar.</p>
+<p>The following operations are supported (pi=3.14.. is a
+predefined constant):</p>
+<blockquote>
+<pre>
++, -
+*, /
+(expression)
+sin(expression)
+cos(expression)
+tan(expression)
+sqrt(expression)
+asin(expression)
+acos(expression)
+atan(expression)
+exp(expression)
+log(expression)
+pi
+</pre></blockquote>
+<p>The optional argument "startIndex" defines at which position
+scanning of the expression starts.</p>
+<p>In case of error, the optional argument "message" is appended to
+the error message, in order to give additional information where
+the error occurred.</p>
+<p>This function parses the following grammar</p>
+<blockquote>
+<pre>
+expression: [ add_op ] term { add_op term }
+add_op    : "+" | "-"
+term      : primary { mul_op primary }
+mul_op    : "*" | "/"
+primary   : UNSIGNED_NUMBER
+            | pi
+            | ( expression )
+            | functionName( expression )
+function  :   sin
+            | cos
+            | tan
+            | sqrt
+            | asin
+            | acos
+            | atan
+            | exp
+            | log
+</pre></blockquote>
+<p>Note, in Examples.readRealParameter it is shown, how the
+expression function can be used as part of another scan
+operation.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+expression("2+3*(4-1)");  // returns 11
+expression("sin(pi/6)");  // returns 0.5
+</pre></blockquote>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>function expression
+  import Modelica.Utilities.Types;
+  import Modelica.Utilities.Strings;
+  import Modelica.Math;
+  import Modelica.Constants;
+  extends Modelica.Icons.Function;
+  input String string "Expression that is evaluated";
+  input Integer startIndex = 1 "Start scanning of expression at character startIndex";
+  input String message = "" "Message used in error message if scan is not successful";
+  output Real result "Value of expression";
+  output Integer nextIndex "Index after the scanned expression";
+end expression;</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

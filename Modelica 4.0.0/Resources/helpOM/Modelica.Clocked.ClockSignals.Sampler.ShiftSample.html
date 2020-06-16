@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Clocked.ClockSignals.Sampler.ShiftSample</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Clocked.html">Clocked</a>.<a class="omc-h1-a" href="Modelica.Clocked.ClockSignals.html">ClockSignals</a>.<a class="omc-h1-a" href="Modelica.Clocked.ClockSignals.Sampler.html">Sampler</a>.<span class="omc-h1">ShiftSample</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This block shifts the first activation of clock output y by
+fraction shiftCounter/resolution of the period (or for a
+non-periodic signal by a fraction of the last interval). Here,
+<strong>shiftCounter</strong> and <strong>resolution</strong> are
+positive Integer parameters.</p>
+<p>To be more precise: The block constructs (conceptually) a clock
+“cBase”</p>
+<blockquote>
+<pre>
+<strong>Clock</strong> cBase = <strong>subSample</strong>(<strong>superSample</strong>(u, resolution), shiftCounter)
+</pre></blockquote>
+<p>and clock y starts at the second clock tick of cBase.</p>
+<h4>Example</h4>
+<p>The following <a href="Modelica.Clocked.Examples.Elementary.ClockSignals.ShiftSample.html">
+example</a> generates a periodic clock of 20 ms period, and then
+shifts it with shiftCounter = 4 and resolution = 3:<br/></p>
+<table border="0" cellpadding="2" cellspacing="0">
+<tr>
+<td width="50"></td>
+<td valign="bottom"><img alt="ShiftSample_Model.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/ClockSignals/ShiftSample_Model.png"/></td>
+<td valign="bottom">    <img alt="ShiftSample_Result.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/ClockSignals/ShiftSample_Result.png"/></td>
+</tr>
+<tr>
+<td></td>
+<td align="center">model</td>
+<td align="center">simulation result</td>
+</tr>
+</table>
+<p>The first activation of clock output y of block shiftSample1 is
+shifted in time (4/3*20ms). The parameter values
+<strong>shiftCounter</strong> = 4 and <strong>resolution</strong> =
+3 are visible at the bottom of the icon.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

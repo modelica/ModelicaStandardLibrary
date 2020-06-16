@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Mechanics.Rotational.Components.OneWayClutch</title>
+</head>
+<body>
+<h1><a href="Icons/f5ae0b79f10687df3af1bc4be4261238486e582f.svg"><img class="svgiconhead" src="Icons/f5ae0b79f10687df3af1bc4be4261238486e582f.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.html">Rotational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.Components.html">Components</a>.<span class="omc-h1">OneWayClutch</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This component models a <strong>one-way clutch</strong>, i.e., a
+component with two flanges where friction is present between the
+two flanges and these flanges are pressed together via a normal
+force. These flanges may be sliding with respect to each other.</p>
+<p>A one-way-clutch is an element where a clutch is connected
+in parallel to a free wheel. This special element is provided,
+because such a parallel connection introduces an ambiguity into the
+model (the constraint torques are not uniquely defined when both
+elements are stuck) and this element resolves it by introducing
+<strong>one</strong> constraint torque only instead of two
+constraints.</p>
+<p>Note, initial values have to be chosen for the model such that
+the relative speed of the one-way-clutch ≥ 0. Otherwise, the
+configuration is physically not possible and an error occurs.</p>
+<p>The normal force fn has to be provided as input signal
+f_normalized in a normalized form
+(0 ≤ f_normalized ≤ 1),
+fn = fn_max * f_normalized, where fn_max has to
+be provided as parameter.</p>
+<p>The friction in the clutch is modeled in the following way. When
+the relative angular velocity is positive, the friction torque is a
+function of the velocity dependent friction coefficient mu(w_rel),
+of the normal force fn, and of a geometry constant cgeo which
+takes into account the geometry of the device and the assumptions
+on the friction distributions:</p>
+<blockquote>
+<pre>
+frictional_torque = <strong>cgeo</strong> * <strong>mu</strong>(w_rel) * <strong>fn</strong>
+</pre></blockquote>
+<p>Typical values of coefficients of friction
+<strong>mu</strong>:</p>
+<ul>
+<li>0.2 … 0.4 for dry operation,</li>
+<li>0.05 … 0.1 when operating in oil.</li>
+</ul>
+<p>The geometry constant is calculated - under the assumption of a
+uniform rate of wear at the friction surfaces - in the following
+way:</p>
+<blockquote>
+<pre>
+<strong>cgeo</strong> = <strong>N</strong>*(<strong>r0</strong> + <strong>ri</strong>)/2
+</pre></blockquote>
+<p>where <strong>ri</strong> is the inner radius,
+<strong>ro</strong> is the outer radius and <strong>N</strong>
+is the number of friction interfaces,</p>
+<p>The positive part of the friction characteristic
+<strong>mu</strong>(w_rel), w_rel &gt;= 0, is defined via
+table mu_pos (first column = w_rel, second column = mu). Currently,
+only linear interpolation in the table is supported.</p>
+<p>When the relative angular velocity w_rel becomes zero, the
+elements connected by the friction element become stuck, i.e., the
+relative angle remains constant. In this phase the friction torque
+is calculated from a torque balance due to the requirement that the
+relative acceleration shall be zero. The elements begin to slide
+when the friction torque exceeds a threshold value, called the
+maximum static friction torque, computed via:</p>
+<blockquote>
+<pre>
+frictional_torque = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(w_rel=0) * <strong>fn</strong>,   (<strong>peak</strong> &gt;= 1)
+</pre></blockquote>
+<p>This procedure is implemented in a "clean" way by state events
+and leads to continuous/discrete systems of equations if friction
+elements are dynamically coupled. The method is described in (see
+also a short sketch in <a href="Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction.html">
+UsersGuide.ModelingOfFriction</a>):</p>
+<dl>
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
+<dd><strong>Hybrid Modeling in Modelica based on the Synchronous
+Data Flow Principle</strong>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
+</dl>
+<p>See also the discussion <a href="Modelica.Mechanics.Rotational.UsersGuide.StateSelection.html">
+State Selection</a> in the User's Guide of the Rotational
+library.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

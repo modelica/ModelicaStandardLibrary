@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Mechanics.MultiBody.Sensors.RelativeSensor</title>
+</head>
+<body>
+<h1><a href="Icons/e83e98fb66a530d905a239ade4c1fca59e4ddc88.svg"><img class="svgiconhead" src="Icons/e83e98fb66a530d905a239ade4c1fca59e4ddc88.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Sensors.html">Sensors</a>.<span class="omc-h1">RelativeSensor</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Relative kinematic quantities between frame_a and frame_b are
+determined and provided at the conditional output signal
+connectors. For example, if parameter "get_r_rel =
+<strong>true</strong>", the connector "r_rel" is enabled and
+contains the relative vector from frame_a to frame_b. The following
+quantities can be provided as output signals:</p>
+<ol>
+<li>Relative position vector (= r_rel)</li>
+<li>Relative velocity vector (= v_rel)</li>
+<li>Relative acceleration vector (= a_rel)</li>
+<li>Three angles to rotate frame_a into frame_b (= angles)</li>
+<li>Relative angular velocity vector (= w_rel)</li>
+<li>Relative angular acceleration vector (= z_rel)</li>
+</ol>
+<p>Via parameter <strong>resolveInFrame</strong> it is defined, in
+which frame a vector is resolved (before differentiation):</p>
+<table border="1" cellpadding="2" cellspacing="0">
+<tr>
+<th><strong>resolveInFrame =<br/>
+Types.ResolveInFrameAB.</strong></th>
+<th><strong>Meaning</strong></th>
+</tr>
+<tr>
+<td>world</td>
+<td>Resolve vectors in world frame</td>
+</tr>
+<tr>
+<td>frame_a</td>
+<td>Resolve vectors in frame_a</td>
+</tr>
+<tr>
+<td>frame_b</td>
+<td>Resolve vectors in frame_b</td>
+</tr>
+<tr>
+<td>frame_resolve</td>
+<td>Resolve vectors in frame_resolve</td>
+</tr>
+</table>
+<p>If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the
+conditional connector "frame_resolve" is enabled and the vectors
+are resolved in the frame, to which frame_resolve is connected.
+Note, if this connector is enabled, it must be connected.</p>
+<p>In the following figure the animation of a RelativeSensor
+component is shown. The light blue coordinate system is frame_a,
+the dark blue coordinate system is frame_b, and the yellow arrow is
+the animated sensor.</p>
+<p><img src="../../../Modelica%204.0.0/Resources/Images/Mechanics/MultiBody/Sensors/RelativeSensor.png"/></p>
+<p>Note, derivatives of relative kinematic quantities are always
+performed with respect to the frame, in which the vector to be
+differentiated is resolved. After differentiation, it is possible
+via parameter <strong>resolveInFrameAfterDifferentiation</strong>
+(in the "Advanced" menu) to resolve the differentiated vector in
+another frame.</p>
+<p>For example, if resolveInFrame =
+<strong>Types.ResolveInFrameAB.frame_b</strong>, then</p>
+<blockquote>
+<pre>
+r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0);
+v_rel = <strong>der</strong>(r_rel);
+</pre></blockquote>
+<p>is returned (r_rel = resolve2(frame_b.R, frame_b.r_0 -
+frame_a.r0)), i.e., the derivative of the relative distance from
+frame_a to frame_b, resolved in frame_b. If
+<strong>resolveInFrameAfterDifferentiation</strong> =
+Types.ResolveInFrameAB.world, then v_rel is additionally
+transformed to:</p>
+<blockquote>
+<pre>
+v_rel = resolve1(frame_b.R, <strong>der</strong>(r_rel))
+</pre></blockquote>
+<p>The cut-force and the cut-torque in frame_resolve are always
+zero, whether frame_resolve is connected or not.</p>
+<p>If <strong>get_angles</strong> = <strong>true</strong>, the 3
+angles to rotate frame_a into frame_b along the axes defined by
+parameter <strong>sequence</strong> are returned. For example, if
+sequence = {3,1,2} then frame_a is rotated around angles[1] along
+the z-axis, afterwards it is rotated around angles[2] along the
+x-axis, and finally it is rotated around angles[3] along the y-axis
+and is then identical to frame_b. The 3 angles are returned in the
+range</p>
+<blockquote>
+<pre>
+-π &lt;= angles[i] &lt;= π
+</pre></blockquote>
+<p>There are <strong>two solutions</strong> for "angles[1]" in this
+range. Via parameter <strong>guessAngle1</strong> (default = 0) the
+returned solution is selected such that |angles[1] - guessAngle1|
+is minimal. The relative transformation matrix between frame_a and
+frame_b may be in a singular configuration with respect to
+"sequence", i.e., there is an infinite number of angle values
+leading to the same relative transformation matrix. In this case,
+the returned solution is selected by setting angles[1] =
+guessAngle1. Then angles[2] and angles[3] can be uniquely
+determined in the above range.</p>
+<p>The parameter <strong>sequence</strong> has the restriction that
+only values 1,2,3 can be used and that sequence[1] ≠ sequence[2]
+and sequence[2] ≠ sequence[3]. Often used values are:</p>
+<blockquote>
+<pre>
+sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
+         = <strong>{3,1,3}</strong>  // Euler angle sequence
+         = <strong>{3,2,1}</strong>
+</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

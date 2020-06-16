@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>ModelicaReference.Operators.'product()'</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Operators.html">Operators</a>.<span class="omc-h1">'product()'</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Returns the scalar product</p>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+<strong>product</strong>(A)
+<strong>product</strong>(e(i, ..., j) <strong>for</strong> i <strong>in</strong> u, ..., j <strong>in</strong> v)
+</pre></blockquote>
+<h4>Description</h4>
+<p>The first form returns the scalar product of all the elements of
+array expression A:<br/>
+A[1,...,1]*A[2,...,1]*....*A[end,...,1]*A[end,...,end]</p>
+<p>The second form is a reduction expression and returns the
+product of the expression e(i, ..., j) evaluated for all
+combinations of i in u, ..., j in v:</p>
+<blockquote>
+<pre>
+e(u[1],...,v[1]) * e(u[2],...,v[1]) * ... *
+e(u[end],...,v[1]) * ... * e(u[end],...,v[end])
+</pre></blockquote>
+<p>The type of <strong>product</strong>(e(i, ..., j)
+<strong>for</strong> i <strong>in</strong> u, ..., j
+<strong>in</strong> v) is the same as the type of e(i,...j).</p>
+<h4>Examples</h4>
+<blockquote>
+<pre>
+{<strong>product</strong>(j <strong>for</strong> j <strong>in</strong> 1:i) <strong>for</strong> i <strong>in</strong> 0:4} // = {1,1,2,6,24}
+</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

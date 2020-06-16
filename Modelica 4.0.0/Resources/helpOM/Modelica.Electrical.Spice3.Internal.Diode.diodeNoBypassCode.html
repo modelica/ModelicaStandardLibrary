@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Electrical.Spice3.Internal.Diode.diodeNoBypassCode</title>
+</head>
+<body>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.html">Spice3</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.Internal.html">Internal</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.Internal.Diode.html">Diode</a>.<span class="omc-h1">diodeNoBypassCode</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This function diodeNoBypassCode calculates the currents (and the
+capacitances) that are necessary for the currents to be used in the
+top-level model.</p>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>function diodeNoBypassCode
+  extends Modelica.Icons.Function;
+  input DiodeModelLineParams in_p "Input record model line parameters for diode";
+  input DiodeParams in_dp "Input record with parameters for diode";
+  input DiodeCalc in_c "Input record DiodeCalc";
+  input Model.Model in_m "Input record model";
+  input Boolean in_m_mbInit;
+  input SI.Voltage[2] in_m_pVoltageValues;
+  output CurrentsCapacitances out_cc "Output record with calculated currents and capacitances";
+  output Types.Capacitance m_dCap "Output capacitance";
+end diodeNoBypassCode;</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

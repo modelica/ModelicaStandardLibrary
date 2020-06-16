@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Mechanics.Translational.UsersGuide.SignConventions</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.html">Translational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">SignConventions</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>The variables of a component of this library can be accessed in
+the usual way. However, since most of these variables are basically
+elements of <strong>vectors</strong>, i.e., have a direction, the
+question arises how the signs of variables shall be interpreted.
+The basic idea is explained at hand of the following figure:</p>
+<div><img alt="drive2" src="../../../Modelica%204.0.0/Resources/Images/Mechanics/Translational/UsersGuide/drive2.png"/></div>
+<p>First, one has to define a <strong>positive</strong> direction
+of this line, called <strong>axis of movement</strong>. In the top
+of the figure this is characterized by an arrow and a corresponding
+text. The simple rule is now: If a variable of a component is
+positive and can be interpreted as the element of a vector (e.g.,
+force or velocity vector), the corresponding vector is directed
+into the positive direction of the axis of movement. In the
+following figure, the right-most mass of the figure above is
+displayed with the positive vector direction displayed according to
+this rule:</p>
+<div><img alt="drive3" src="../../../Modelica%204.0.0/Resources/Images/Mechanics/Translational/UsersGuide/drive3.png"/></div>
+<p>The cut-force <code>mass2.flange_a.f</code> of the right mass is
+directed into the direction of movement if the values are positive.
+Similarly, the velocity <code>mass2.v</code> of the right mass is
+also directed into the direction of movement if the values are
+positive</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

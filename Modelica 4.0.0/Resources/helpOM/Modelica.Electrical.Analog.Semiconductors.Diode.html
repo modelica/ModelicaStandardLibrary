@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Electrical.Analog.Semiconductors.Diode</title>
+</head>
+<body>
+<h1><a href="Icons/37bbd06fc688af315e86b011a2af7f0c25756637.svg"><img class="svgiconhead" src="Icons/37bbd06fc688af315e86b011a2af7f0c25756637.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.html">Analog</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.Semiconductors.html">Semiconductors</a>.<span class="omc-h1">Diode</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>The simple diode is an electrical one port, where a heat port is
+added, which is defined in the Modelica.Thermal library. It
+consists of the diode itself and a parallel ohmic resistance
+<em>R</em>. If <em>useTemperatureDependency</em> is set to
+<em>true</em>, the diode formula is:</p>
+<blockquote>
+<pre>
+           v/N/vt_t
+i = Ids (e          - 1)
+</pre></blockquote>
+where <em>vt_t</em> depends on the temperature of the heat port:
+<blockquote>
+<pre>
+vt_t = k*temp/q
+</pre></blockquote>
+<p>If <em>useTemperatureDependency</em> is set to <em>false</em>,
+the diode formula utilizes the voltage equivalent of the
+temperature, i.e.,</p>
+<blockquote>
+<pre>
+           v/Vt
+i = Ids (e      - 1).
+</pre></blockquote>
+<p>If the exponent <em>v/N/vt_t</em> or <em>v/Vt</em>,
+respectively, reaches the limit <em>Maxexp</em>, the diode
+characteristic is linearly continued to avoid overflow.<br/>
+The thermal power is calculated by <em>i*v</em>.</p>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<ul>
+<li><em>March 11, 2009</em> by Christoph Clauss<br/>
+conditional heat port added<br/></li>
+<li><em>April 5, 2004</em> by Christoph Clauss<br/>
+implemented<br/></li>
+</ul>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

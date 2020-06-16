@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Math.Random.Generators.Xorshift1024star.initialState</title>
+</head>
+<body>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Random.html">Random</a>.<a class="omc-h1-a" href="Modelica.Math.Random.Generators.html">Generators</a>.<a class="omc-h1-a" href="Modelica.Math.Random.Generators.Xorshift1024star.html">Xorshift1024star</a>.<span class="omc-h1">initialState</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+state = Xorshift1024star.<strong>initialState</strong>(localSeed, globalSeed);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Generates an initial state vector for the Xorshift1024star
+random number generator (= xorshift1024* algorithm), from two
+Integer numbers given as input (arguments localSeed, globalSeed).
+Any Integer numbers can be given (including zero or negative
+number). The function returns a reasonable initial state vector
+with the following strategy:</p>
+<p>The <a href="Modelica.Math.Random.Generators.Xorshift64star.html">Xorshift64star</a>
+random number generator is used to fill the internal state vector
+with 64 bit random numbers.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  <strong>parameter</strong> Integer localSeed;
+  <strong>parameter</strong> Integer globalSeed;
+  Integer state[Xorshift1024star.nState];
+<strong>initial equation</strong>
+  state = initialState(localSeed, globalSeed);
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Random.Generators.Xorshift1024star.random.html">
+Random.Generators.Xorshift1024star.random</a>.</p>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>function initialState
+  extends Modelica.Icons.Function;
+  input Integer localSeed "The local seed to be used for generating initial states";
+  input Integer globalSeed "The global seed to be combined with the local seed";
+  output Integer state[nState] "The generated initial states";
+end initialState;</pre></blockquote>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<table border="1" cellpadding="2" cellspacing="0">
+<tr>
+<th>Date</th>
+<th align="left">Description</th>
+</tr>
+<tr>
+<td>June 22, 2015</td>
+<td>
+<table border="0">
+<tr>
+<td><img alt="DLR logo" src="../../../Modelica%204.0.0/Resources/Images/Logos/dlr_logo.png"/></td>
+<td valign="bottom">Initial version implemented by A. Klöckner, F.
+v.d. Linden, D. Zimmer, M. Otter.<br/>
+<a href="http://www.dlr.de/rmc/sr/en">DLR Institute of System
+Dynamics and Control</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

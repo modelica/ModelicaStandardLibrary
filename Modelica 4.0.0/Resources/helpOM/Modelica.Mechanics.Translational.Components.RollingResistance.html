@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Mechanics.Translational.Components.RollingResistance</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.html">Translational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.Components.html">Components</a>.<span class="omc-h1">RollingResistance</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Simplified model of the resistance of a rolling wheel,
+dependent on vertical wheel load (due to gravity, i.e. static
+only), inclination and rolling resistance coefficient:</p>
+<blockquote>
+<pre>
+flange.f = Cr * fWeight * cos(alpha)
+</pre></blockquote>
+<p>The rolling resistance coefficient <var>C<sub>r</sub></var>
+is either constant (given by the parameter <code>CrConstant</code>)
+or prescribed by the input <code>cr</code>.</p>
+<p>The inclination is either constant (parameter
+<code>inclinationConstant</code>) or prescribed by the input
+<code>inclination</code>. This corresponds to the road rise over
+running distance of 100 m which, in general, is written as
+a percentage and is equal to tan(<var>α</var>). For example
+for a road rising by 10 m over 100 m the
+grade = 10 % and, thus, the inclination is 0.1.
+Positive inclination means driving uphill, negative inclination
+means driving downhill, in case of positive vehicle velocity.</p>
+<h4>Note</h4>
+<p>The rolling resistance is independent of velocity here, but
+changes its direction with the direction of velocity. To avoid
+numerical problems around zero velocity, the rolling resistance is
+regularized accordingly within <code>[-v0, v0]</code>.
+Therefore static friction at vehicle's standstill is not taken into
+account.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

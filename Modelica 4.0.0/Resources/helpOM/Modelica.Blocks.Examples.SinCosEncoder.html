@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Blocks.Examples.SinCosEncoder</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Examples.html">Examples</a>.<span class="omc-h1">SinCosEncoder</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This examples demonstrates robust evaluation of a
+sin-cos-encoder.</p>
+<p>The sin-cos-encoder provides four tracks:</p>
+<ul>
+<li>cosine</li>
+<li>minus sine</li>
+<li>sine</li>
+<li>minus cosine</li>
+</ul>
+<p>All four tracks have the same amplitude and the same offset &gt;
+amplitude. Offset is used to detect loss of a track. To remove
+offset, (minus sine) is subtracted from (sine) and (minus cosine)
+from (cosine), resulting in a cosine and a sine signal with doubled
+amplitude but without offset.</p>
+<p>Interpreting cosine and sine as real and imaginary part of a
+phasor, one could calculate the angle of the phasor (i.e. transform
+rectangular coordinates to polar coordinates). This is not very
+robust if the signals are superimposed with some noise. Therefore
+the phasor is rotated by an angle that is obtained by a controller.
+The controller aims at imaginary part equal to zero. The resulting
+angle is continuous, i.e. differentiating the angle results in
+2*π*frequency. If desired, the angle can be wrapped to the interval
+[-π, +π].</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

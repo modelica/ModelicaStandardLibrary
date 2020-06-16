@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapTurbulent</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.html">HeatTransfer</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.html">Channel</a>.<span class="omc-h1">kc_evenGapTurbulent</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Calculation of the mean convective heat transfer coefficient
+<strong>kc</strong> for a developed turbulent fluid flow through an
+even gap at heat transfer from both sides.</p>
+<h4>Functions <strong>kc_evenGapTurbulent</strong> and
+<strong>kc_evenGapTurbulent_KC</strong></h4>
+<p>There are basically three differences:</p>
+<ul>
+<li>The function <strong>kc_evenGapTurbulent</strong> is using
+<strong>kc_evenGapTurbulent_KC</strong> but offers additional
+output variables like e.g. Reynolds number or Nusselt number and
+failure status (an output of <strong>1</strong> means that the
+function is not valid for the inputs).</li>
+<li>Generally the function <strong>kc_evenGapTurbulent_KC</strong>
+is numerically best used for the calculation of the mean convective
+heat transfer coefficient <strong>kc</strong> at known mass flow
+rate.</li>
+<li>You can perform an inverse calculation from
+<strong>kc_evenGapTurbulent_KC</strong>, where an unknown mass flow
+rate is calculated out of a given mean convective heat transfer
+coefficient <strong>kc</strong></li>
+</ul>
+<h4>Restriction</h4>
+<ul>
+<li>identical and constant wall temperatures</li>
+<li>hydraulic diameter per gap length (d_hyd / L) ≤ 1</li>
+<li>0.5 ≤ Prandtl number Pr ≤ 100)</li>
+<li>turbulent regime (3e4 ≤ Reynolds number ≤ 1e6)</li>
+<li>developed fluid flow</li>
+<li>heat transfer from both sides of the gap (target =
+Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevBoth)</li>
+</ul>
+<h4>Geometry</h4>
+<p><img alt="gap" src="../../../Modelica%204.0.0/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/HeatTransfer/Channel/gap.png"/></p>
+<h4>Calculation</h4>
+<p>The mean convective heat transfer coefficient
+<strong>kc</strong> for an even gap is calculated through the
+corresponding Nusselt number <strong>Nu_turb</strong> according to
+<em>Gnielinski in [VDI 2002, p. Gb 7, sec. 2.4]</em></p>
+<blockquote>
+<pre>
+Nu_turb =(zeta/8)*Re*Pr/{1+12.7*[zeta/8]^(0.5)*[Pr^(2/3) -1]}*{1+[d_hyd/L]^(2/3)}
+</pre></blockquote>
+<p>where the pressure loss coefficient <strong>zeta</strong>
+according to <em>Konakov in [VDI 2002, p. Ga 5, eq. 27]</em> is
+determined by</p>
+<blockquote>
+<pre>
+zeta =  1/[1.8*log10(Re) - 1.5]^2
+</pre></blockquote>
+<p>resulting to the corresponding mean convective heat transfer
+coefficient <strong>kc</strong></p>
+<blockquote>
+<pre>
+kc =  Nu_turb * lambda / d_hyd
+</pre></blockquote>
+<p>with</p>
+<table>
+<tr>
+<td><strong>cp</strong></td>
+<td>as specific heat capacity at constant pressure [J/(kg.K)],</td>
+</tr>
+<tr>
+<td><strong>d_hyd = 2*s</strong></td>
+<td>as hydraulic diameter of gap [m],</td>
+</tr>
+<tr>
+<td><strong>eta</strong></td>
+<td>as dynamic viscosity of fluid [Pa.s],</td>
+</tr>
+<tr>
+<td><strong>h</strong></td>
+<td>as height of cross sectional area in gap [m],</td>
+</tr>
+<tr>
+<td><strong>kc</strong></td>
+<td>as mean convective heat transfer coefficient [W/(m2.K)],</td>
+</tr>
+<tr>
+<td><strong>lambda</strong></td>
+<td>as heat conductivity of fluid [W/(m.K)],</td>
+</tr>
+<tr>
+<td><strong>L</strong></td>
+<td>as overflowed length of gap (normal to cross sectional area)
+[m] ,</td>
+</tr>
+<tr>
+<td><strong>Nu_turb</strong></td>
+<td>as mean Nusselt number for turbulent regime [-],</td>
+</tr>
+<tr>
+<td><strong>Pr = eta*cp/lambda</strong></td>
+<td>as Prandtl number [-],</td>
+</tr>
+<tr>
+<td><strong>rho</strong></td>
+<td>as fluid density [kg/m3],</td>
+</tr>
+<tr>
+<td><strong>s</strong></td>
+<td>as distance between parallel plates of cross sectional area
+[m],</td>
+</tr>
+<tr>
+<td><strong>Re = rho*v*d_hyd/eta</strong></td>
+<td>as Reynolds number [-],</td>
+</tr>
+<tr>
+<td><strong>v</strong></td>
+<td>as mean velocity in gap [m/s],</td>
+</tr>
+<tr>
+<td><strong>zeta</strong></td>
+<td>as pressure loss coefficient [-].</td>
+</tr>
+</table>
+<p>Note that the fluid flow properties shall be calculated with an
+arithmetic mean temperature out of the fluid flow temperatures at
+the entrance and the exit of the gap.</p>
+<h4>Verification</h4>
+<p>The mean Nusselt number <strong>Nu_turb</strong> representing
+the mean convective heat transfer coefficient <strong>kc</strong>
+in dependence of the chosen fluid flow and heat transfer situations
+(targets) is shown in the figure below.</p>
+<ul>
+<li>Target 2: Developed fluid flow and heat transfer from both
+sides of the gap</li>
+</ul>
+<p><img alt="kc_evenGapTurbulent" src="../../../Modelica%204.0.0/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/HeatTransfer/Channel/kc_evenGapTurbulent.png"/></p>
+<h4>References</h4>
+<dl>
+<dt>VDI:</dt>
+<dd><strong>VDI - Wärmeatlas: Berechnungsblätter für den
+Wärmeübergang</strong>. Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Clocked.Examples.Systems.EngineThrottleControl</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Clocked.html">Clocked</a>.<a class="omc-h1-a" href="Modelica.Clocked.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Clocked.Examples.Systems.html">Systems</a>.<span class="omc-h1">EngineThrottleControl</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This example shows how to model a non-periodic synchronous
+sampled data systems with the <code>Modelica.Clocked
+library</code>. This is demonstrated at hand of a closed-loop
+throttle control synchronized to the crankshaft angle of an
+internal combustion engine. This system has the following
+properties:</p>
+<ul>
+<li>The engine speed is regulated with a throttle actuator.</li>
+<li>Controller execution is synchronized with the engine crankshaft
+angle.</li>
+<li>The influence of disturbances, such as a change in load torque,
+is reduced.</li>
+</ul>
+<p>The complete system is shown in the figure below
+(diagram-layer):</p>
+<img alt="EngineThrottleControl_Model.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/Examples/EngineThrottleControl_Model.png"/>
+<p>Block <code>speedControl</code> is the discrete control system.
+The boundaries of this controller are defined by
+<code>sample1</code>, <code>sample2</code> and <code>hold</code>.
+The sampling is done in terms of sensors within the engine which
+observe its crankshaft angle; every 180° rotation of the
+crankshaft, the engine internally synchronizes is throttles. The
+respective synchronization points are provided as clocked outputs
+that in turn are used to trigger the external controller. The speed
+controller therefore is automatically executed every half-rotation
+of the engine's crankshaft in sync with the engine's internal
+throttle-cycle. The following diagram illustrates the engine's
+respective internal setup:</p>
+<img alt="Engine_Model.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/Examples/Engine_Model.png"/>
+<p>The <code>crankshaftPositionEvent</code>-clock is the
+event-clock synchronizing the engine's internal throttle-cycle and
+external control. It produces a clock tick for every half-rotation
+and is implemented as <a href="Modelica.Clocked.ClockSignals.Clocks.Rotational.RotationalClock.html">
+RotationalClock</a>.</p>
+<p>The following diagram illustrates the logic of such a rotational
+clock:</p>
+<img alt="RotationalClock_Model.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/Examples/RotationalClock_Model.png"/>
+<p>It accounts the angular of the last time a rotation has been
+recognized (<code>angular_offset</code>). Given
+<code>angular_offset</code>, the event-condition for rotations
+is:</p>
+<p><code>abs(angle - angular_offset) &gt;=
+abs(trigger_interval)</code></p>
+<p>In our case, <code>angle</code> is the position of the
+crankshaft of the engine and <code>trigger_interval</code> is 180°.
+In the end, <code>crankshaftPositionEvent</code> samples it's own
+input angle to account an offset used to decide when to tick; the
+clock's event condition depends on the state present when the
+condition changed last time from being non-satisfied to being
+satisfied, i.e., the state when the clock last ticked.</p>
+<p><em>This example model is based on the following
+references:</em></p>
+<dl>
+<dt>Crossley, P.R. and Cook, J. (1991):</dt>
+<dd><strong>A nonlinear engine model for drivetrain system
+development</strong>. International Conference on Control,
+Edinburgh, UK, March.<br/>
+ </dd>
+<dt>Simulink® (R2010b) demo model
+<code>sldemo_enginewc.mdl</code>:</dt>
+<dd><strong>Engine Timing Model with Closed Loop Control</strong>.
+The <code>EngineThrottleControl</code> example uses the same
+parameter values as the <code>sldemo_enginewc.mdl</code> demo model
+which is shipped with the Simulink® software developed by The
+MathWorks, Inc. Hence, the simulation results of these models can
+be compared conveniently.<br/>
+ </dd>
+</dl>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

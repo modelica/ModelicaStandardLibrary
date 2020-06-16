@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_DP</title>
+</head>
+<body>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.PressureLoss.html">PressureLoss</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.html">StraightPipe</a>.<span class="omc-h1">dp_twoPhaseOverall_DP</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Calculation of pressure loss for <strong>two phase flow</strong>
+in a horizontal <strong>or</strong> vertical straight pipe for an
+overall flow regime considering frictional, momentum and geodetic
+pressure loss.</p>
+<p>Generally the pressure loss for two phase flow in a horizontal
+or a vertical straight pipe can be calculated for the following
+fluid flow regimes:</p>
+<p><strong>Horizontal fluid flow</strong> [(a) bubble flow, (b)
+stratified flow, (c) wavy flow, (d) slug flow, (e) annular
+flow]:</p>
+<p><img alt="twoPhaseFlowRegimes_horizontal" src="../../../Modelica%204.0.0/Resources/Images/Fluid/Dissipation/PressureLoss/StraightPipe/twoPhaseFlowRegimes_horizontal.png"/></p>
+<p><strong>Vertical fluid flow</strong> [(a) bubble flow, (b) plug
+slug flow, (c) foam flow, (d) annular streak flow, (e) annular
+flow]:</p>
+<p><img alt="twoPhaseFlowRegimes_vertical" src="../../../Modelica%204.0.0/Resources/Images/Fluid/Dissipation/PressureLoss/StraightPipe/twoPhaseFlowRegimes_vertical.png"/></p>
+<p><a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_twoPhaseOverall.html">
+See more information</a>.</p>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>function dp_twoPhaseOverall_DP
+  extends Modelica.Icons.Function;
+  input Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_con IN_con "Input record for function dp_twoPhaseOverall_DP" annotation(
+    Dialog(group = "Constant inputs"));
+  input Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_var IN_var "Input record for function dp_twoPhaseOverall_DP" annotation(
+    Dialog(group = "Variable inputs"));
+  input SI.MassFlowRate m_flow "Mass flow rate" annotation(
+    Dialog(group = "Input"));
+  output SI.Pressure DP "Two phase pressure loss";
+end dp_twoPhaseOverall_DP;</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

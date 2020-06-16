@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Utilities.Files.temporaryFileName</title>
+</head>
+<body>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Utilities.Files.html">Files</a>.<span class="omc-h1">temporaryFileName</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+fileName = Files.<strong>temporaryFileName</strong>();
+</pre></blockquote>
+<h4>Description</h4>
+<p>Return arbitrary name of a file that does not exist and is in a
+directory where access rights allow to write to this file (useful
+for temporary output of files).</p>
+<p>The created temporary file is not automatically deleted when
+closed, but needs to be explicitly deleted, e.g. by
+<strong><a href="Modelica.Utilities.Files.removeFile.html">removeFile</a></strong>(fileName).</p>
+<p><strong>Warning:</strong> The underlying C implementation of
+<strong>ModelicaInternal_temporaryFileName</strong> calls the
+standard C function <strong>tmpnam</strong>, which has a race
+condition security problem in the case another process creates a
+file with the same fileName just after <strong>tmpnam</strong>
+generated the full path name.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+fileName = Files.temporaryFileName();
+   -&gt; fileName is the absolute path name of the temporary file
+Streams.print(String(System.getPid()), fileName);
+   -&gt; Create the temporary file
+      Warning: Possible race condition on file access
+Files.removeFile(fileName);
+   -&gt; Explicitly delete the temporary file (after use)
+</pre></blockquote>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>impure function temporaryFileName
+  extends Modelica.Icons.Function;
+  output String fileName "Full path name of temporary file";
+end temporaryFileName;</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

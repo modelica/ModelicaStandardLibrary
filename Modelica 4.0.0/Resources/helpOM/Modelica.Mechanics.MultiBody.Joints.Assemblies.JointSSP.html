@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP</title>
+</head>
+<body>
+<h1><a href="Icons/6a9f382e282f4661beedfb91fd7a564be6c3b1ad.svg"><img class="svgiconhead" src="Icons/6a9f382e282f4661beedfb91fd7a564be6c3b1ad.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Joints.Assemblies.html">Assemblies</a>.<span class="omc-h1">JointSSP</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This component consists of a <strong>spherical</strong> joint 1
+at frame_a, a <strong>prismatic</strong> joint at frame_b and a
+<strong>spherical</strong> joint 2 which is connected via rod 1 to
+the spherical joint 1 and via rod 2 to the prismatic joint, see the
+default animation in the following figure (the axes vectors are not
+part of the default animation):</p>
+<p><img alt="model Joints.Assemblies.JointSSP" src="../../../Modelica%204.0.0/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointSSP.png"/></p>
+<p>Besides an optional point mass in the middle of rod 1, this
+joint aggregation has no mass and no inertia, and introduces
+neither constraints nor potential state variables. It should be
+used in kinematic loops whenever possible since the non-linear
+system of equations introduced by this joint aggregation is solved
+<strong>analytically</strong> (i.e., a solution is always computed,
+if a unique solution exists).</p>
+<p>An additional <strong>frame_ib</strong> is present. It is
+<strong>fixed</strong> in rod 2 connecting the prismatic and the
+spherical joint at the side of the prismatic joint that is
+connected to this rod (= rod2.frame_a = prismatic.frame_a).</p>
+<p>An additional <strong>frame_im</strong> is present. It is
+<strong>fixed</strong> in rod 2 connecting the prismatic and the
+spherical joint at the side of spherical joint 2 that is connected
+to this rod (= rod2.frame_b). It is always parallel to
+<strong>frame_ib</strong>.</p>
+<p>The easiest way to define the parameters of this joint is by
+moving the MultiBody system in a <strong>reference
+configuration</strong> where <strong>all frames</strong> of all
+components are <strong>parallel</strong> to each other
+(alternatively, at least frame_b and frame_ib of the JointSSP joint
+should be parallel to each other when defining an instance of this
+component).</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

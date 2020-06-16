@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Mechanics.MultiBody.Visualizers.Torus</title>
+</head>
+<body>
+<h1><a href="Icons/c5a009fd4c965aa1ce54e37398029d7f62cc4fbf.svg"><img class="svgiconhead" src="Icons/c5a009fd4c965aa1ce54e37398029d7f62cc4fbf.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a>.<span class="omc-h1">Torus</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Model <strong>Torus</strong> visualizes a torus. The center of
+the torus is located at connector frame_a (visualized by the red
+coordinate system in the figure below). The left image below shows
+a torus with <var>R</var> = 0.5 m and
+<var>r</var> = 0.2 m. The right images below shows
+the torus with the additional parameter settings:</p>
+<blockquote>
+<pre>
+opening    =   45 degree
+startAngle = -135 degree
+stopAngle  =  135 degree
+</pre></blockquote>
+<blockquote><img src="../../../Modelica%204.0.0/Resources/Images/Mechanics/MultiBody/Visualizers/Torus.png"/></blockquote>
+<p>In the advanced menu the discretization of the surface
+visualization can be defined by the number <var>n<sub>R</sub></var>
+of points along the major radius of the torus and by the number
+<var>n<sub>r</sub></var> of points along the minor radius of the
+torus. In case the torus is closed (that is,
+<code>opening</code> = 0 degree), the actual number
+of points is one less (that is
+<var>n<sub>R</sub></var> - 1,
+<var>n<sub>r</sub></var> - 1), because the first and the
+last point of the parametrization coincide in this case.</p>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<ul>
+<li>July 2010 by Martin Otter<br/>
+Adapted to the new Surface model.</li>
+<li>July 2005 by Dirk Zimmer (practical training at DLR)<br/>
+First version to visualize a multi-level tyre wheel model.</li>
+</ul>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

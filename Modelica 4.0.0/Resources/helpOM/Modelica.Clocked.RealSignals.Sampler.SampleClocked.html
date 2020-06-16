@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Clocked.RealSignals.Sampler.SampleClocked</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Clocked.html">Clocked</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.html">RealSignals</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.Sampler.html">Sampler</a>.<span class="omc-h1">SampleClocked</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This block is similar to the <a href="Modelica.Clocked.RealSignals.Sampler.Sample.html">Sample</a>
+block. The only difference is that a clock signal is provided via a
+second input and the output is associated to this clock.</p>
+<p>Note, it does not make much sense to vectorize this block,
+because then also the clock input is vectorized. Instead, if the
+input signal is a vector, use block <a href="Modelica.Clocked.RealSignals.Sampler.SampleVectorizedAndClocked.html">
+SampleVectorizedAndClocked</a> that has a <strong>vector</strong>
+Real input and output, as well as a <strong>scalar</strong> clock
+input.</p>
+<h4>Example</h4>
+<p>The following <a href="Modelica.Clocked.Examples.Elementary.RealSignals.SampleClocked.html">
+example</a> samples a sine signal with a periodic clock of 20 ms
+period:<br/></p>
+<table border="0" cellpadding="2" cellspacing="0">
+<tr>
+<td width="50"></td>
+<td valign="bottom"><img alt="SampleClocked_Model.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/RealSignals/SampleClocked_Model.png"/></td>
+<td valign="bottom">    <img alt="SampleClocked_Result.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/RealSignals/SampleClocked_Result.png"/></td>
+</tr>
+<tr>
+<td></td>
+<td align="center">model</td>
+<td align="center">simulation result<br/></td>
+</tr>
+</table>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

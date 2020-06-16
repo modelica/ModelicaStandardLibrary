@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Magnetic.FluxTubes.Sources.SignalMagneticPotentialDifference</title>
+</head>
+<body>
+<h1><a href="Icons/c5d74d3de0232cc9e90f37c69c3e3726213f3750.svg"><img class="svgiconhead" src="Icons/c5d74d3de0232cc9e90f37c69c3e3726213f3750.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Magnetic.html">Magnetic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.Sources.html">Sources</a>.<span class="omc-h1">SignalMagneticPotentialDifference</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>In electromagnetic devices, a change of a coil's magnetic flux
+linkage Ψ reacts on the electrical subsystem in that a voltage v is
+induced due to <em>Faraday</em>'s law:</p>
+<blockquote>
+<pre>
+v = - dΨ/dt
+</pre></blockquote>
+<p>This reaction can possibly be neglected for</p>
+<ul>
+<li>modelling of electromagnetic actuators under quasi-static
+conditions (slow current change, slow armature motion),</li>
+<li>modelling of current-controlled electromagnetic actuators
+(ideal current source) and</li>
+<li>for system simulation where the system dynamics is not governed
+by an electromagnetic actuator, but by the surrounding
+subsystems.</li>
+</ul>
+<p>In these cases, the magnetic potential difference or
+magnetomotive force imposed by a coil can easily be modelled with a
+signal-controlled source. Except for the neglected dynamics,
+steady-state actuator forces will be calculated properly in
+actuator models based on these sources.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

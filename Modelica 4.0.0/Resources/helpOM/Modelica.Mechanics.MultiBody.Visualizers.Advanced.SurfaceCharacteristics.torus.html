@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus</title>
+</head>
+<body>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.html">Advanced</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.html">SurfaceCharacteristics</a>.<span class="omc-h1">torus</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Function <strong>torus</strong> computes the X, Y and Z arrays
+to visualize a torus with model <a href="Modelica.Mechanics.MultiBody.Visualizers.Torus.html">Torus</a>.
+The left image below shows a torus with
+<var>R</var> = 0.5 m and
+<var>r</var> = 0.2 m. The right images below shows
+the torus with the additional parameter settings:</p>
+<blockquote>
+<pre>
+opening    =   45 degree
+startAngle = -135 degree
+stopAngle  =  135 degree
+</pre></blockquote>
+<blockquote><img src="../../../Modelica%204.0.0/Resources/Images/Mechanics/MultiBody/Visualizers/Torus.png"/></blockquote>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>function torus
+  extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(final multiColoredSurface = false);
+  input SI.Length R = 1 "Major radius (distance from center of torus to center of tube)" annotation(
+    Dialog);
+  input SI.Length r = 0.2 "Minor radius (radius of tube)" annotation(
+    Dialog);
+  input SI.Angle opening = 0 "Opening angle of torus" annotation(
+    Dialog);
+  input SI.Angle startAngle = -Modelica.Constants.pi "Start angle of torus slice" annotation(
+    Dialog);
+  input SI.Angle stopAngle = Modelica.Constants.pi "End angle of torus slice" annotation(
+    Dialog);
+end torus;</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

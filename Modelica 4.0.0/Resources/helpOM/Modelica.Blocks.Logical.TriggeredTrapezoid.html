@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Blocks.Logical.TriggeredTrapezoid</title>
+</head>
+<body>
+<h1><a href="Icons/3e72daa93e0e5b8e94f611fc1844417ef2349ab9.svg"><img class="svgiconhead" src="Icons/3e72daa93e0e5b8e94f611fc1844417ef2349ab9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Logical.html">Logical</a>.<span class="omc-h1">TriggeredTrapezoid</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>The block TriggeredTrapezoid has a Boolean input and a real
+output signal and requires the parameters <em>amplitude</em>,
+<em>rising</em>, <em>falling</em> and <em>offset</em>. The output
+signal <strong>y</strong> represents a trapezoidal signal dependent
+on the input signal <strong>u</strong>.</p>
+<p><img alt="TriggeredTrapezoid.png" src="../../../Modelica%204.0.0/Resources/Images/Blocks/Logical/TriggeredTrapezoid.png"/></p>
+<p>The behaviour is as follows: Assume the initial input to be
+false. In this case, the output will be <em>offset</em>. After a
+rising edge (i.e., the input changes from false to true), the
+output is rising during <em>rising</em> to the sum of
+<em>offset</em> and <em>amplitude</em>. In contrast, after a
+falling edge (i.e., the input changes from true to false), the
+output is falling during <em>falling</em> to a value of
+<em>offset</em>.</p>
+<p>Note, that the case of edges before expiration of rising or
+falling is handled properly.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

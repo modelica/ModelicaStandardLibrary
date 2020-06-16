@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Electrical.PowerConverters.ACAC.Control.SoftStartControl</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.PowerConverters.html">PowerConverters</a>.<a class="omc-h1-a" href="Modelica.Electrical.PowerConverters.ACAC.html">ACAC</a>.<a class="omc-h1-a" href="Modelica.Electrical.PowerConverters.ACAC.Control.html">Control</a>.<span class="omc-h1">SoftStartControl</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This block models the functionality of a soft starter
+controller, controlling the output <code>vRef</code> in the range
+[0,1] with respect to nominal voltage.</p>
+<p>Boolean input <code>start = true</code> causes the output
+<code>vRef</code> to be risen according to a ramp: <code>vRef =
+vStart + (1 - vStart)*(time - t0)/tRampUp</code>.</p>
+<p>In case the current exceeds the specified maximum current
+<code>iMax</code> during the starting ramp, the ramp is stopped.
+When the current falls below the lower threshold of current control
+<code>iMin &lt; iMax</code>, the ramp is continued.</p>
+<p>Note: It is recommended to filter the measured current, e.g.
+using <a href="Modelica.Blocks.Continuous.Filter.html">Modelica.Blocks.Continuous.Filter</a></p>
+<p>Boolean input <code>start = false</code> causes the output
+<code>vRef</code> to be lowered according to a ramp: <code>vRef =
+-(time - t0)/tRampDown</code>.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

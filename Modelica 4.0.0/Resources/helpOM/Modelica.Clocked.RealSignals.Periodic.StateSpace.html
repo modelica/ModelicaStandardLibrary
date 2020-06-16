@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Clocked.RealSignals.Periodic.StateSpace</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Clocked.html">Clocked</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.html">RealSignals</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.Periodic.html">Periodic</a>.<span class="omc-h1">StateSpace</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This block defines the state space representation of a
+discrete-time block with input vector u, output vector y and state
+vector x:</p>
+<blockquote>
+<pre>
+x = A * previous(x) + B * u
+y = C * previous(x) + D * u
+</pre></blockquote>
+<p>where previous(x) is the value of the clocked state x at the
+previous clock tick. The input is a vector of length nu, the output
+is a vector of length ny and nx is the number of states.
+Accordingly</p>
+<blockquote>
+<pre>
+A has the dimension: A(nx,nx),
+B has the dimension: B(nx,nu),
+C has the dimension: C(ny,nx),
+D has the dimension: D(ny,nu)
+</pre></blockquote>
+<p>Example:</p>
+<blockquote>
+<pre>
+  parameter: A = [0.12, 2;3, 1.5]
+  parameter: B = [2, 7;3, 1]
+  parameter: C = [0.1, 2]
+  parameter: D = zeros(ny,nu)
+
+results in the following equations:
+  [x[1]]   [0.12  2.00] [previous(x[1])]   [2.0  7.0] [u[1]]
+  [    ] = [          ]*[              ] + [        ]*[    ]
+  [x[2]]   [3.00  1.50] [previous(x[2])]   [0.1  2.0] [u[2]]
+
+                        [previous(x[1])]            [u[1]]
+  y[1]   = [0.1  2.0] * [              ] + [0  0] * [    ]
+                        [previous(x[2])]            [u[2]]
+</pre></blockquote>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<p><strong>Release Notes:</strong></p>
+<ul>
+<li><em>August 13, 2012</em> by <a href="http://www.dlr.de/rm/">Bernhard Thiele</a>:<br/>
+Used the code from Blocks.Discrete.StateSpace and converted it into
+the Modelica 3.3 clocked equation style.</li>
+</ul>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

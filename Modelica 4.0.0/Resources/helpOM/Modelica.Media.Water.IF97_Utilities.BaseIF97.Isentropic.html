@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</title>
+</head>
+<body>
+<h1><a href="Icons/8d190c3d03b50847ccb877befff0f7f6c87aa3cd.svg"><img class="svgiconhead" src="Icons/8d190c3d03b50847ccb877befff0f7f6c87aa3cd.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.Water.html">Water</a>.<a class="omc-h1-a" href="Modelica.Media.Water.IF97_Utilities.html">IF97_Utilities</a>.<a class="omc-h1-a" href="Modelica.Media.Water.IF97_Utilities.BaseIF97.html">BaseIF97</a>.<span class="omc-h1">Isentropic</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<h4>Package description</h4>
+<h4>Package contents</h4>
+<ul>
+<li>Function <strong>hofpT1</strong> computes h(p,T) in region
+1.</li>
+<li>Function <strong>handsofpT1</strong> computes (s,h)=f(p,T) in
+region 1, needed for two-phase properties.</li>
+<li>Function <strong>hofps1</strong> computes h(p,s) in region
+1.</li>
+<li>Function <strong>hofpT2</strong> computes h(p,T) in region
+2.</li>
+<li>Function <strong>handsofpT2</strong> computes (s,h)=f(p,T) in
+region 2, needed for two-phase properties.</li>
+<li>Function <strong>hofps2</strong> computes h(p,s) in region
+2.</li>
+<li>Function <strong>hofdT3</strong> computes h(d,T) in region
+3.</li>
+<li>Function <strong>hofpsdt3</strong> computes
+h(p,s,dguess,Tguess) in region 3, where dguess and Tguess are
+initial guess values for the density and temperature consistent
+with p and s.</li>
+<li>Function <strong>hofps4</strong> computes h(p,s) in region
+4.</li>
+<li>Function <strong>hofpT5</strong> computes h(p,T) in region
+5.</li>
+<li>Function <strong>water_hisentropic</strong> computes
+h(p,s,phase) in all regions. The phase input is needed due to
+discontinuous derivatives at the phase boundary.</li>
+<li>Function <strong>water_hisentropic_dyn</strong> computes
+h(p,s,dguess,Tguess,phase) in all regions. The phase input is
+needed due to discontinuous derivatives at the phase boundary.
+Tguess and dguess are initial guess values for the density and
+temperature consistent with p and s. This function should be
+preferred in dynamic simulations where good guesses are often
+available.</li>
+</ul>
+<h4>Version Info and Revision history</h4>
+<ul>
+<li>First implemented: <em>July, 2000</em> by Hubertus
+Tummescheit</li>
+</ul>
+<address>Author: Hubertus Tummescheit,<br/>
+Modelon AB<br/>
+Ideon Science Park<br/>
+SE-22370 Lund, Sweden<br/>
+email: hubertus@modelon.se</address>
+<ul>
+<li>Initial version: July 2000</li>
+<li>Documentation added: December 2002</li>
+</ul>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT1.html">
+<img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT1.html">hofpT1</a></td>
+<td>Intermediate function for isentropic specific enthalpy in
+region 1</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.handsofpT1.html">
+<img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.handsofpT1.html">handsofpT1</a></td>
+<td>Special function for specific enthalpy and specific entropy in
+region 1</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps1.html">
+<img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps1.html">hofps1</a></td>
+<td>Function for isentropic specific enthalpy in region 1</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT2.html">
+<img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT2.html">hofpT2</a></td>
+<td>Intermediate function for isentropic specific enthalpy in
+region 2</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.handsofpT2.html">
+<img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.handsofpT2.html">handsofpT2</a></td>
+<td>Function for isentropic specific enthalpy and specific entropy
+in region 2</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps2.html">
+<img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps2.html">hofps2</a></td>
+<td>Function for isentropic specific enthalpy in region 2</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofdT3.html">
+<img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofdT3.html">hofdT3</a></td>
+<td>Function for isentropic specific enthalpy in region 3</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps3.html">
+<img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps3.html">hofps3</a></td>
+<td>Isentropic specific enthalpy in region 3 h(p,s)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpsdt3.html">
+<img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpsdt3.html">hofpsdt3</a></td>
+<td>Isentropic specific enthalpy in region 3 h(p,s) with given good
+guess in d and T</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps4.html">
+<img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps4.html">hofps4</a></td>
+<td>Isentropic specific enthalpy in region 4 h(p,s)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT5.html">
+<img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT5.html">hofpT5</a></td>
+<td>Specific enthalpy in region 5 h(p,T)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.water_hisentropic.html">
+<img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.water_hisentropic.html">water_hisentropic</a></td>
+<td>Isentropic specific enthalpy from p,s (preferably use
+water_hisentropic_dyn in dynamic simulation!)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.water_hisentropic_dyn.html">
+<img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.water_hisentropic_dyn.html">water_hisentropic_dyn</a></td>
+<td>Isentropic specific enthalpy from p,s and good guesses of d and
+T</td>
+</tr>
+</table>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

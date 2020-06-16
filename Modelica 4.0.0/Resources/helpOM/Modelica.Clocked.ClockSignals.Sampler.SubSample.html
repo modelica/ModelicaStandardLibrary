@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Clocked.ClockSignals.Sampler.SubSample</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Clocked.html">Clocked</a>.<a class="omc-h1-a" href="Modelica.Clocked.ClockSignals.html">ClockSignals</a>.<a class="omc-h1-a" href="Modelica.Clocked.ClockSignals.Sampler.html">Sampler</a>.<span class="omc-h1">SubSample</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This block sub-samples the input clock u and provides it as
+output clock y.</p>
+<p>To be more precise: The clock y is factor-times slower than the
+clock u. The first activation of clock y coincides with the first
+activation of clock u. The sub-sampling factor is defined by
+Integer parameter <strong>factor</strong>.</p>
+<h4>Example</h4>
+<p>The following <a href="Modelica.Clocked.Examples.Elementary.ClockSignals.SubSample.html">
+example</a> generates a periodic clock of 20 ms period, and then
+sub-samples the resulting clock signal with a factor of
+3:<br/></p>
+<table border="0" cellpadding="2" cellspacing="0">
+<tr>
+<td width="50"></td>
+<td valign="bottom"><img alt="SubSample_Model.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/ClockSignals/SubSample_Model.png"/></td>
+<td valign="bottom">    <img alt="SubSample_Result.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/ClockSignals/SubSample_Result.png"/></td>
+</tr>
+<tr>
+<td></td>
+<td align="center">model</td>
+<td align="center">simulation result</td>
+</tr>
+</table>
+<p>As can be seen, subSample.y picks every third-value of
+periodicClock.y due to the sub-sampling, and the sub-sampling
+factor = 3 is displayed in the icon of the subSample block. Note
+the down-arrow in the icon of the subSample block indicates that
+clock subSample.y is slower as clock subSample.u.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

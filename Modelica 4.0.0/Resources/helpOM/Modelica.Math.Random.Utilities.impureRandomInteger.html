@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Math.Random.Utilities.impureRandomInteger</title>
+</head>
+<body>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Random.html">Random</a>.<a class="omc-h1-a" href="Modelica.Math.Random.Utilities.html">Utilities</a>.<span class="omc-h1">impureRandomInteger</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+r = <strong>impureRandomInteger</strong>(id, imin=1, imax=Modelica.Constants.Integer_inf);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Returns an Integer random number in the range imin ≤ random ≤
+imax with the xorshift1024* algorithm, (the random number in the
+range 0 ... 1 returned by the xorshift1024* algorithm is mapped to
+an Integer number in the range imin ... imax). The dummy input
+Integer argument id must be the output argument of a call to
+function <a href="Modelica.Math.Random.Utilities.initializeImpureRandom.html">initializeImpureRandom</a>,
+in order that the sorting order is correct (so that
+impureRandomInteger is always called after initializeImpureRandom).
+For every call of impureRandomInteger(id), a different random
+number is returned, so the function is impure.</p>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Random.Utilities.initializeImpureRandom.html">initializeImpureRandom</a>,
+<a href="Modelica.Math.Random.Generators.html">Random.Generators</a></p>
+<h4>Note</h4>
+<p>This function is impure!</p>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>impure function impureRandomInteger
+  extends Modelica.Icons.Function;
+  input Integer id "Identification number from initializeImpureRandom(..) function (is needed for correct sorting)";
+  input Integer imin = 1 "Minimum integer to generate";
+  input Integer imax = 268435456 "Maximum integer to generate (default = 2^28)";
+  output Integer y "A random number with a uniform distribution on the interval [imin,imax]";
+end impureRandomInteger;</pre></blockquote>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<table border="1" cellpadding="2" cellspacing="0">
+<tr>
+<th>Date</th>
+<th align="left">Description</th>
+</tr>
+<tr>
+<td>June 2, 2017</td>
+<td>Correct probabilities - especially for small ranges, by Hans
+Olsson, <a href="https://www.3ds.com">Dassault Systèmes</a></td>
+</tr>
+<tr>
+<td>June 22, 2015</td>
+<td>
+<table border="0">
+<tr>
+<td><img alt="DLR logo" src="../../../Modelica%204.0.0/Resources/Images/Logos/dlr_logo.png"/></td>
+<td valign="bottom">Initial version implemented by A. Klöckner, F.
+v.d. Linden, D. Zimmer, M. Otter.<br/>
+<a href="http://www.dlr.de/rmc/sr/en">DLR Institute of System
+Dynamics and Control</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Fluid.Types.Roughness</title>
+</head>
+<body>
+<h1><a href="Icons/6d031983365ed5409ba9cbad6c7e11d445acbfe0.svg"><img class="svgiconhead" src="Icons/6d031983365ed5409ba9cbad6c7e11d445acbfe0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Types.html">Types</a>.<span class="omc-h1">Roughness</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This Real type defines the absolute roughness of the inner
+surface of a pipe or fitting, i.e., the absolute average height of
+surface asperities. It has usually to be estimated. In
+<em>[Idelchik 1994, pp. 105-109, Table 2-5; Miller 1990, p. 190,
+Table 8-1]</em> many examples are given. As a short summary:</p>
+<table border="1" cellpadding="2" cellspacing="0">
+<tr>
+<td align="center" colspan="2"><strong>Type of pipe</strong></td>
+<td align="center">Roughness</td>
+</tr>
+<tr>
+<td><strong>Smooth pipes</strong></td>
+<td>Drawn brass, copper, aluminium, glass, etc.</td>
+<td>0.0025 mm</td>
+</tr>
+<tr>
+<td rowspan="3"><strong>Steel pipes</strong></td>
+<td>New smooth pipes</td>
+<td>0.025 mm</td>
+</tr>
+<tr>
+<td>Mortar lined, average finish</td>
+<td>0.1 mm</td>
+</tr>
+<tr>
+<td>Heavy rust</td>
+<td>1 mm</td>
+</tr>
+<tr>
+<td rowspan="3"><strong>Concrete pipes</strong></td>
+<td>Steel forms, first class workmanship</td>
+<td>0.025 mm</td>
+</tr>
+<tr>
+<td>Steel forms, average workmanship</td>
+<td>0.1 mm</td>
+</tr>
+<tr>
+<td>Block linings</td>
+<td>1 mm</td>
+</tr>
+</table>
+<h4>References</h4>
+<dl>
+<dt>Idelchik I.E. (1994):</dt>
+<dd><a href="http://www.bookfinder.com/dir/i/Handbook_of_Hydraulic_Resistance/0849399084/">
+<strong>Handbook of Hydraulic Resistance</strong></a>. 3rd edition,
+Begell House, ISBN 0-8493-9908-4</dd>
+<dt>Miller D. S. (1990):</dt>
+<dd><strong>Internal flow systems</strong>. 2nd edition.
+Cranfield:BHRA(Information Services).</dd>
+</dl>
+<h4><a id="definition" name="definition">Definition</a></h4>
+<blockquote>
+<pre>type Roughness = Modelica.Icons.TypeReal(final quantity = "Length", final unit = "m", displayUnit = "mm", min = 0);</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

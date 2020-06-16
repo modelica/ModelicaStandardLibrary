@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Units.UsersGuide.Conventions</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Units.html">Units</a>.<a class="omc-h1-a" href="Modelica.Units.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">Conventions</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>The following conventions are used in package
+<code>Modelica.Units.SI</code>:</p>
+<ul>
+<li>Modelica quantity names are defined according to the
+recommendations of ISO 31. Some of these name are rather long, such
+as "ThermodynamicTemperature". Shorter alias names are defined,
+e.g., "type Temperature = ThermodynamicTemperature;".</li>
+<li>Modelica units are defined according to the SI base units
+without multiples (only exception "kg").</li>
+<li>For some quantities, more convenient units for an engineer are
+defined as "displayUnit", i.e., the default unit for display
+purposes (e.g., displayUnit="deg" for quantity="Angle").</li>
+<li>The type name is identical to the quantity name, following the
+convention of type names.</li>
+<li>All quantity and unit attributes are defined as final in order
+that they cannot be redefined to another value.</li>
+<li>Similar quantities, such as "Length, Breadth, Height,
+Thickness, Radius" are defined as the same quantity (here:
+"Length").</li>
+<li>The ordering of the type declarations in this package follows
+ISO 31:
+<blockquote>
+<pre>
+Chapter  1: <strong>Space and Time</strong>
+Chapter  2: <strong>Periodic and Related Phenomena</strong>
+Chapter  3: <strong>Mechanics</strong>
+Chapter  4: <strong>Heat</strong>
+Chapter  5: <strong>Electricity and Magnetism</strong>
+Chapter  6: <strong>Light and Related Electromagnetic Radiations</strong>
+Chapter  7: <strong>Acoustics</strong>
+Chapter  8: <strong>Physical Chemistry</strong>
+Chapter  9: <strong>Atomic and Nuclear Physics</strong>
+Chapter 10: <strong>Nuclear Reactions and Ionizing Radiations</strong>
+Chapter 11: (not defined in ISO 31-1992)
+Chapter 12: <strong>Characteristic Numbers</strong>
+Chapter 13: <strong>Solid State Physics</strong>
+</pre></blockquote>
+</li>
+<li>Conversion functions between SI and other units are available
+in the subpackage <code>Conversions</code>.</li>
+</ul>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

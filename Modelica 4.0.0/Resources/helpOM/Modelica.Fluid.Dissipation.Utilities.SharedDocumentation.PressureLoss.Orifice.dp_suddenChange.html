@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_suddenChange</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.html">PressureLoss</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.html">Orifice</a>.<span class="omc-h1">dp_suddenChange</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<h4>Restriction</h4>
+<p>This function shall be used within the restricted limits
+according to the referenced literature.</p>
+<ul>
+<li><strong>Smooth surface</strong></li>
+<li><strong>Turbulent flow regime</strong></li>
+<li><strong>Reynolds number for sudden expansion Re &gt;
+3.3e3</strong> <em>[Idelchik 2006, p. 208, diag. 4-1]</em></li>
+<li><strong>Reynolds number for sudden contraction Re &gt;
+1e4</strong> <em>[Idelchik 2006, p. 216-217, diag. 4-9]</em></li>
+</ul>
+<h4>Geometry</h4>
+<p><img alt="suddenChangeSection" src="../../../Modelica%204.0.0/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/Orifice/suddenChangeSection.png"/></p>
+<h4>Calculation</h4>
+<p>The local pressure loss <strong>dp</strong> is generally
+determined by:</p>
+<blockquote>
+<pre>
+dp = 0.5 * zeta_LOC * rho * |v_1|*v_1
+</pre></blockquote>
+<p>with</p>
+<table>
+<tr>
+<td><strong>rho</strong></td>
+<td>as density of fluid [kg/m3],</td>
+</tr>
+<tr>
+<td><strong>v_1</strong></td>
+<td>as average flow velocity in small cross sectional area
+[m/s].</td>
+</tr>
+<tr>
+<td><strong>zeta_LOC</strong></td>
+<td>as local resistance coefficient [-],</td>
+</tr>
+</table>
+<p>The local resistance coefficient <strong>zeta_LOC</strong> of a
+sudden expansion can be calculated for different ratios of cross
+sectional areas by:</p>
+<blockquote>
+<pre>
+zeta_LOC = (1 - A_1/A_2)^2  <em>[Idelchik 2006, p. 208, diag. 4-1]</em>
+</pre></blockquote>
+<p>and for sudden contraction:</p>
+<blockquote>
+<pre>
+zeta_LOC = 0.5*(1 - A_1/A_2)^0.75  <em>[Idelchik 2006, p. 216-217, diag. 4-9]</em>
+</pre></blockquote>
+<p>with</p>
+<table>
+<tr>
+<td><strong>A_1</strong></td>
+<td>small cross sectional area [m^2],</td>
+</tr>
+<tr>
+<td><strong>A_2</strong></td>
+<td>large cross sectional area [m^2].</td>
+</tr>
+</table>
+<h4>Verification</h4>
+<p>The local resistance coefficient <strong>zeta_LOC</strong> of a
+sudden expansion in dependence of the cross sectional area ratio
+<strong>A_1/A_2</strong> is shown in the figure below.</p>
+<p><img alt="suddenChangeExpansion" src="../../../Modelica%204.0.0/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/Orifice/suddenChangeExpansion.png"/></p>
+<p>The local resistance coefficient <strong>zeta_LOC</strong> of a
+sudden contraction in dependence of the cross sectional area ratio
+<strong>A_1/A_2</strong> is shown in the figure below.</p>
+<p><img alt="suddenChangeContraction" src="../../../Modelica%204.0.0/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/Orifice/suddenChangeContraction.png"/></p>
+<h4>References</h4>
+<dl>
+<dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
+<dd><strong>Inline integration: A new mixed symbolic / numeric
+approach for solving differential-algebraic equation
+systems.</strong>. In Proceedings of European Simulation
+MultiConference, Prague, 1995.</dd>
+<dt>Idelchik,I.E.:</dt>
+<dd><strong>Handbook of hydraulic resistance</strong>. Jaico
+Publishing House, Mumbai, 3rd edition, 2006.</dd>
+</dl>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

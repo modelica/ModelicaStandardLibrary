@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Thermal.HeatTransfer.Examples.GenerationOfFMUs</title>
+</head>
+<body>
+<h1><a href="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg"><img class="svgiconhead" src="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Thermal.html">Thermal</a>.<a class="omc-h1-a" href="Modelica.Thermal.HeatTransfer.html">HeatTransfer</a>.<a class="omc-h1-a" href="Modelica.Thermal.HeatTransfer.Examples.html">Examples</a>.<span class="omc-h1">GenerationOfFMUs</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This example demonstrates how to generate an input/output block
+(e.g. in form of an FMU - <a href="https://fmi-standard.org">Functional Mock-up Unit</a>) from
+various HeatTransfer components. The goal is to export such an
+input/output block from Modelica and import it in another modeling
+environment. The essential issue is that before exporting it must
+be known in which way the component is utilized in the target
+environment. Depending on the target usage, different flange
+variables need to be in the interface with either input or output
+causality. Note, this example model can be used to test the FMU
+export/import of a Modelica tool. Just export the components marked
+in the icons as "toFMU" as FMUs and import them back. The models
+should then still work and give the same results as a pure Modelica
+model.</p>
+<p><strong>Connecting two masses</strong><br/>
+The upper part (DirectCapacity, InverseCapacity) demonstrates how
+to export two heat capacitors and connect them together in a target
+system. This requires that one of the capacitors (here:
+DirectCapacity) is defined to have states and the temperature and
+derivative of temperature are provided in the interface. The other
+capacitor (here: InverseCapacity) requires heat flow according to
+the provided input temperature and derivative of temperature.</p>
+<p><strong>Connecting a conduction element that needs only
+temperature</strong><br/>
+The lower part (Conductor) demonstrates how to export a conduction
+element that needs only temperatures for its conduction law and
+connect this conduction law in a target system between two
+capacitors.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

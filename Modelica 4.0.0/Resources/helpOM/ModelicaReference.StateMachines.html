@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>ModelicaReference.StateMachines</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<span class="omc-h1">StateMachines</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>The state machines defined in the Modelica Language are based on
+the <a href="ModelicaReference.Synchronous.html">synchronous
+language elements</a>. Note that the state machines defined in the
+Modelica Standard Library are not based on this.</p>
+<h4>Examples</h4>
+<blockquote>
+<pre>
+  inner Integer v(start=0);
+  block Increase
+    outer output Integer v;
+  equation
+    v = previous(v) + 2;
+  end Increase;
+  Increase increase;
+  block Decrease
+    outer output Integer v;
+  equation
+    v = previous(v) - 1;
+  end Decrease;
+  Decrease decrease;
+equation
+  initialState(increase);
+  transition(increase, decrease, v&gt;=6, immediate=false);
+  transition(decrease, increase, v==0, immediate=false);
+</pre></blockquote>
+In this example we will start in <strong>increase</strong> and
+increase <strong>v</strong> until a limit, and then decrease it,
+and repeat.
+<h4>Description</h4>
+A detailed description of the State Machines using Synchronous
+Language Elements is given in <a href="https://specification.modelica.org/v3.4/Ch17.html">Chapter 17
+(State Machines) of the Modelica 3.4 specification</a>.
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

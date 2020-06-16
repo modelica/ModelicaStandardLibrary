@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Math.Matrices.toString</title>
+</head>
+<body>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<span class="omc-h1">toString</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Matrices.<strong>toString</strong>(A);
+Matrices.<strong>toString</strong>(A, name="", significantDigits=6);
+</pre></blockquote>
+<h4>Description</h4>
+<p>The function call
+"<code>Matrices.<strong>toString</strong>(A)</code>" returns the
+string representation of matrix <strong>A</strong>. With the
+optional arguments "name" and "significantDigits", a name and the
+number of the digits are defined. The default values of name and
+significantDigits are "" and 6 respectively. If name=="" then the
+prefix "&lt;name&gt; =" is left out.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+A = [2.12, -4.34; -2.56, -1.67];
+
+toString(A);
+// = "
+//      2.12   -4.34
+//     -2.56   -1.67";
+
+toString(A,"A",1);
+// = "A =
+//         2     -4
+//        -3     -2"
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Vectors.toString.html">Vectors.toString</a></p>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>function toString
+  extends Modelica.Icons.Function;
+  import Modelica.Utilities.Strings;
+  input Real M[:, :] "Real matrix";
+  input String name = "" "Independent variable name used for printing";
+  input Integer significantDigits = 6 "Number of significant digits that are shown";
+  output String s = "" "String expression of matrix M";
+end toString;</pre></blockquote>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

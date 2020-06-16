@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.html">Machines</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Examples.SynchronousMachines.html">SynchronousMachines</a>.<span class="omc-h1">SMEE_DOL</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>An electrically excited synchronous generator is started direct
+on line utilizing the damper cage (and the shorted excitation
+winding) at 0 seconds.</p>
+<p>At t = 0.5 seconds, the excitation voltage is raised to achieve
+the no-load excitation current. Note, that reactive power of the
+stator goes to zero.</p>
+<p>At t = 2 second, a driving torque step is applied to the shaft
+(i.e. the turbine is activated). Note, that active and reactive
+power of the stator changes. To drive at higher torque, i.e.,
+produce more electric power, excitation has to be adapted.</p>
+<p>Simulate for 3 seconds and plot:</p>
+<ul>
+<li><code>smee.tauElectrical</code></li>
+<li><code>smee.wMechanical</code></li>
+<li><code>smee.ie</code></li>
+<li><code>rotorDisplacementAngle.rotorDisplacementAngle</code></li>
+<li><code>currentQuasiRMSSensor.I</code></li>
+<li><code>electricalPowerSensor.P</code></li>
+<li><code>electricalPowerSensor.Q</code></li>
+<li><code>mechanicalMultiSensor.power</code></li>
+</ul>
+<p>Default machine parameters are used.</p>
+<h5>Note</h5>
+<p>The mains switch is closed at time = 0 in order to avoid non
+physical noise calculated by the
+<code>rotorDisplacementAngle</code>. This noise is caused by the
+interaction of the high resistance of the switch and the machine,
+see <a href="https://github.com/modelica/ModelicaStandardLibrary/issues/2388">#2388</a>.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

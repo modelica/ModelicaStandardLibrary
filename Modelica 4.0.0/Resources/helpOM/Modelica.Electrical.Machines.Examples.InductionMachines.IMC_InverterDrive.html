@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Electrical.Machines.Examples.InductionMachines.IMC_InverterDrive</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.html">Machines</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Examples.InductionMachines.html">InductionMachines</a>.<span class="omc-h1">IMC_InverterDrive</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This is a model of a complete inverter drive comprising:</p>
+<ul>
+<li>a grid model and a line choke</li>
+<li><a href="Modelica.Electrical.PowerConverters.ACDC.DiodeBridge2mPulse.html">
+a diode rectifier</a></li>
+<li>a buffer capacitor</li>
+<li><a href="Modelica.Electrical.PowerConverters.DCAC.Polyphase2Level.html">
+a switching inverter</a></li>
+<li><a href="Modelica.Electrical.PowerConverters.DCAC.Control.PWM.html">a
+pulse width modulation</a></li>
+<li><a href="Modelica.Electrical.Machines.Utilities.VfController.html">a
+voltage/frequency characteristic</a></li>
+<li>the reference frequency ramped up</li>
+<li>an induction machine with squirrel cage</li>
+<li>a load inertia and quadratic speed dependent load torque (like
+a fan or pump)</li>
+</ul>
+<p>Please note: Be patient, two switching devices cause many event
+iterations which cost performance.</p>
+<p>Note that due to the voltage drop the voltage at the machine
+can't reach the full voltage which means torque reduction.</p>
+<p>Default machine parameters are adapted to nominal phase voltage
+400 V and nominal phase current 25 A.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

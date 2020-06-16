@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>ModelicaReference.Annotations.inverse</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Annotations.html">Annotations</a>.<span class="omc-h1">inverse</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Every function with one output argument may have one or more
+"<code>inverse</code>" annotations to define inverses of this
+function.</p>
+<h4>Syntax</h4>
+<blockquote>
+<pre><strong>function</strong> f1
+  <strong>input</strong> A1 u1;
+  ...
+  <strong>input</strong> T1 uk;
+  ...
+  <strong>input</strong> Am um = am;
+  ...
+  <strong>input</strong> An un;
+  <strong>output</strong> T2 y;
+  <strong>annotation</strong>(<strong>inverse</strong>(uk = f2(..., y, ....), ui = f3(..., y, ...), ...));
+<strong>algorithm</strong>
+  ...
+<strong>end</strong> f1;</pre></blockquote>
+<h4>Description</h4>
+<p>The meaning is that function "<code>f2</code>" is one inverse to
+function "<code>f1</code>" where the previous output
+"<code>y</code>" is now an input and the previous input
+"<code>uk</code>" is now an output. More than one inverse can be
+defined within the same inverse annotation. Several inverses are
+separated by commas. <em>(The inverse requires that for all valid
+values of the input arguments of <code>f2(...,y, ...)</code> and
+<code>uk</code> being calculated as <code>uk := f2(..., y,
+...)</code> implies the equality <code>y = f1(..., uk, ...,)</code>
+up to a certain precision.)</em></p>
+<p>Function "<code>f1</code>" can have any number and types of
+arguments with and without default value. The restriction is that
+the number of unknown variables in the output argument of both
+"<code>f1</code>" and "<code>f2</code>" must be the same and that
+"<code>f2</code>" must have exactly the same arguments as
+"<code>f1</code>" (with the same defaults, if an argument um has a
+default), but the order of the arguments may be permuted.</p>
+<h4>Examples</h4>
+<blockquote>
+<pre><strong>function</strong> h_pTX
+  <strong>input</strong> Real p    "pressure";
+  <strong>input</strong> Real T    "temperature";
+  <strong>input</strong> Real X[:] "mass fractions";
+  <strong>output</strong> Real h   "specific enthalpy";
+  <strong>annotation</strong>(<strong>inverse</strong>(T = T_phX(p,h,X)));
+<strong>algorithm</strong>
+  ...
+<strong>end</strong> h_pTX;
+
+<strong>function</strong> T_phX
+  <strong>input</strong> Real  p    "pressure";
+  <strong>input</strong> Real  h    "specific enthalpy";
+  <strong>input</strong> Real  X[:] "mass fractions";
+  <strong>output</strong> Real T    "temperature";
+<strong>algorithm</strong>
+  ...
+<strong>end</strong> T_phX;</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

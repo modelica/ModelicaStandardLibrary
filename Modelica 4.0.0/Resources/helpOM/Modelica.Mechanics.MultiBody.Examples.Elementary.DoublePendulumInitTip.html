@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumInitTip</title>
+</head>
+<body>
+<h1><a href="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg"><img class="svgiconhead" src="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Examples.Elementary.html">Elementary</a>.<span class="omc-h1">DoublePendulumInitTip</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This example demonstrates at hand of a double pendulum, how
+non-standard initialization can be defined: The absolute position
+of the pendulum tip, and its absolute speed shall be initially
+defined. This can be performed with the <a href="Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit.html">
+Joints.FreeMotionScalarInit</a> joint that allows to initialize
+individual elements of its relative vectors. In this case, the x-,
+and y-coordinates of the relative position vector (visualized by
+the yellow arrow in the figure below) and of its derivative shall
+have a defined value at initial time. The configuration of the
+double pendulum at the initial time is shown below, where the tip
+position is required to have the coordinates x=0.7, y=0.3.</p>
+<p>Setting only the tip's start position results in an ambiguous
+initialization since two valid solutions for
+<code>revolute1.phi</code> and <code>revolute2.phi</code> exist.
+Moreover, the calculated angles <code>revolute1.phi</code> and
+<code>revolute2.phi</code> can be a multiple of expected solution
+<code>phi1</code> and <code>phi2</code>,</p>
+<ul>
+<li>revolute1.phi(k1) = phi1 + 2 π k1,</li>
+<li>revolute2.phi(k2) = phi2 + 2 π k2.</li>
+</ul>
+<p>To clearly indicate the preferred solution, guess initial angles
+can be additionally given. In this example, it is simply done by
+<code>revolute2.phi.start = Modelica.Constants.pi/2</code>.</p>
+<blockquote><img src="../../../Modelica%204.0.0/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulumInitTip.png"/></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

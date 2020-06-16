@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Fluid.UsersGuide.ComponentDefinition.BalanceEquations</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Fluid.UsersGuide.ComponentDefinition.html">ComponentDefinition</a>.<span class="omc-h1">BalanceEquations</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>For one-dimensional flow along the coordinate "x", the following
+partial differential equations hold</p>
+<table border="1" cellpadding="2" cellspacing="0">
+<tr>
+<td>Mass balance</td>
+<td><img alt="massBalance.png" src="../../../Modelica%204.0.0/Resources/Images/Fluid/UsersGuide/ComponentDefinition/massBalance.png"/></td>
+</tr>
+<tr>
+<td>Momentum balance</td>
+<td><img alt="momentumBalance.png" src="../../../Modelica%204.0.0/Resources/Images/Fluid/UsersGuide/ComponentDefinition/momentumBalance.png"/></td>
+</tr>
+<tr>
+<td>Energy balance 1</td>
+<td><img alt="energyBalance1.png" src="../../../Modelica%204.0.0/Resources/Images/Fluid/UsersGuide/ComponentDefinition/energyBalance1.png"/></td>
+</tr>
+<tr>
+<td>Pipe friction</td>
+<td><img alt="pipeFriction.png" src="../../../Modelica%204.0.0/Resources/Images/Fluid/UsersGuide/ComponentDefinition/pipeFriction.png"/></td>
+</tr>
+<tr>
+<td></td>
+<td>x: independent spatial coordinate (flow is along coordinate
+x)<br/>
+t: time<br/>
+v(x,t): mean velocity<br/>
+p(x,t): mean pressure<br/>
+T(x,t): mean temperature<br/>
+ρ(x,t): mean density<br/>
+u(x,t): specific internal energy<br/>
+z(x): height over ground<br/>
+A(x): area perpendicular to direction x<br/>
+g: gravity constant<br/>
+f: Fanning friction factor<br/>
+S: circumference</td>
+</tr>
+</table>
+<p>An alternative energy balance can be derived by multiplying the
+momentum balance with "v" and subtracting it from the energy
+balance 1 above. This results in the "energy balance 2":</p>
+<table border="1" cellpadding="2" cellspacing="0">
+<tr>
+<td>Energy balance 2</td>
+<td><img alt="energyBalance2.png" src="../../../Modelica%204.0.0/Resources/Images/Fluid/UsersGuide/ComponentDefinition/energyBalance2.png"/></td>
+</tr>
+</table>
+<p>This formulation separates the internal energy of the fluid from
+the kinetic energy of fluid flow. The internal energy is treated by
+the energy balance 2, the kinetic energy is treated by the momentum
+balance equally well. The evaluation of medium properties, which
+are independent of the kinetic energy, and the formulation of many
+fluid models is simplified with the energy balance 2. The overall
+conservation of energy is achieved by considering the mutual
+dependencies of energy and momentum balance.</p>
+<p>Some components in the library, like DynamicPipe, provide a
+rigorous implementation of mass, momentum and energy balance, using
+the energy balance 2 equation. Other components, like Valves and
+Fittings, neglect the impact of changes of the kinetic energy and
+potential energy on the energy balance, because they are usually
+irrelevant compared to changes due to heat flows. The StaticPipe
+component neglects the effect of kinetic energy, but includes the
+potential energy in the balance, which might be substantial.</p>
+<p>All modelling assumptions and simplifications are stated in the
+component documentation; please note that some of the assumptions
+might be stated in the base classes the component inherits
+from.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

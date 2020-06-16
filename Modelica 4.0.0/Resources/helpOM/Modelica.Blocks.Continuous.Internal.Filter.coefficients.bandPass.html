@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Blocks.Continuous.Internal.Filter.coefficients.bandPass</title>
+</head>
+<body>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Continuous.html">Continuous</a>.<a class="omc-h1-a" href="Modelica.Blocks.Continuous.Internal.html">Internal</a>.<a class="omc-h1-a" href="Modelica.Blocks.Continuous.Internal.Filter.html">Filter</a>.<a class="omc-h1-a" href="Modelica.Blocks.Continuous.Internal.Filter.coefficients.html">coefficients</a>.<span class="omc-h1">bandPass</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<pre>Return band pass filter coefficients at given cut-off frequency</pre>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>function bandPass
+  import Modelica.Constants.pi;
+  extends Modelica.Icons.Function;
+  input Real cr_in[:] "Coefficients of real poles";
+  input Real c0_in[:] "Coefficients of s^0 term if conjugate complex pole";
+  input Real c1_in[size(c0_in, 1)] "Coefficients of s^1 term if conjugate complex pole";
+  input SI.Frequency f_min "Band of band pass filter is f_min (A=-3db) .. f_max (A=-3db)";
+  input SI.Frequency f_max "Upper band frequency";
+  output Real cr[0] "Coefficient of real pole";
+  output Real c0[size(cr_in, 1) + 2 * size(c0_in, 1)] "Coefficients of s^0 term if conjugate complex pole";
+  output Real c1[size(cr_in, 1) + 2 * size(c0_in, 1)] "Coefficients of s^1 term if conjugate complex pole";
+  output Real cn "Numerator coefficient of the PT2 terms";
+end bandPass;</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Electrical.Digital.Examples.HalfAdder</title>
+</head>
+<body>
+<h1><a href="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg"><img class="svgiconhead" src="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Digital.html">Digital</a>.<a class="omc-h1-a" href="Modelica.Electrical.Digital.Examples.html">Examples</a>.<span class="omc-h1">HalfAdder</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This example demonstrates an adding circuit for binary numbers,
+which internally realizes the interconnection to And and to Xor in
+the final sum.</p>
+<br/>
+<br/>
+1 + 0 = 1<br/>
+0 + 1 = 1<br/>
+1 + 1 = 10<br/>
+0 + 0 = 0<br/>
+<br/>
+<strong>a</strong> + <strong>b</strong> = <strong>s</strong><br/>
+(The carry of this adding is <strong>c</strong>.)<br/>
+<br/>
+and<br/>
+<br/>
+<strong>a</strong> * <strong>b</strong> = <strong>s</strong><br/>
+(It is an interconnection to And.)<br/>
+<br/>
+<strong>a</strong> * <strong>b</strong> + <strong>a</strong> *
+<strong>b</strong> = <strong>a</strong> Xor <strong>b</strong> =
+<strong>c</strong><br/>
+(It is an interconnection to Xor.)<br/>
+<blockquote>
+<pre>
+<strong>a</strong>     <strong>b</strong>     <strong>c</strong>      <strong>s</strong>     <strong>t</strong>
+
+1     0     1      0     1
+0     1     1      0     2
+1     1     0      1     3
+0     0     0      0     4
+</pre></blockquote>
+<p><strong>t</strong> is the pick-up instant of the next bit(s) in
+the simulation. The simulation stop time should be 5 seconds.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

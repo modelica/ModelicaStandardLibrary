@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Math.Matrices.continuousRiccati</title>
+</head>
+<body>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<span class="omc-h1">continuousRiccati</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+                        X = Matrices.<strong>continuousRiccati</strong>(A, B, R, Q);
+(X, alphaReal, alphaImag) = Matrices.<strong>continuousRiccati</strong>(A, B, R, Q, true);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Function <strong>continuousRiccati</strong> computes the
+solution <strong>X</strong> of the continuous-time algebraic
+Riccati equation</p>
+<blockquote>
+<pre>
+<strong>A</strong>'*<strong>X</strong> + <strong>X</strong>*<strong>A</strong> - <strong>X</strong>*<strong>G</strong>*<strong>X</strong> + <strong>Q</strong> = <strong>0</strong>
+</pre></blockquote>
+<p>with <code><strong>G</strong> =
+<strong>B</strong>*inv(<strong>R</strong>)*<strong>B</strong>'</code>
+using the Schur vector approach proposed by Laub [1].</p>
+<p>It is assumed that <strong>Q</strong> is symmetric and positive
+semidefinite and <strong>R</strong> is symmetric, nonsingular and
+positive definite, (<strong>A</strong>,<strong>B</strong>) is
+stabilizable and (<strong>A</strong>,<strong>Q</strong>) is
+detectable.</p>
+<p><strong>These assumptions are not checked in this function
+!!</strong><br/></p>
+<p>The assumptions guarantee that the Hamiltonian matrix</p>
+<blockquote>
+<pre>
+<strong>H</strong> = [<strong>A</strong>, -<strong>G</strong>; -<strong>Q</strong>, -<strong>A</strong>']
+</pre></blockquote>
+<p>has no pure imaginary eigenvalue and can be put to an ordered
+real Schur form</p>
+<blockquote>
+<pre>
+<strong>U</strong>'*<strong>H</strong>*<strong>U</strong> = <strong>S</strong> = [<strong>S</strong>11, <strong>S</strong>12; <strong>0</strong>, <strong>S</strong>22]
+</pre></blockquote>
+<p>with orthogonal similarity transformation <strong>U</strong>.
+<strong>S</strong> is ordered in such a way, that
+<strong>S</strong>11 contains the n stable eigenvalues of the
+closed loop system with system matrix <strong>A</strong> -
+<strong>B</strong>*inv(<strong>R</strong>)*<strong>B</strong>'*<strong>X</strong>.
+If <strong>U</strong> is partitioned to</p>
+<blockquote>
+<pre>
+<strong>U</strong> = [<strong>U</strong>11, <strong>U</strong>12; <strong>U</strong>21, <strong>U</strong>22]
+</pre></blockquote>
+<p>with dimensions according to <strong>S</strong>, the solution
+<strong>X</strong> is calculated by</p>
+<blockquote>
+<pre>
+<strong>X</strong>*<strong>U</strong>11 = <strong>U</strong>21.
+</pre></blockquote>
+<p>With optional input <code>refinement=true</code> a subsequent
+iterative refinement based on Newton's method with exact line
+search is applied. See <a href="Modelica.Math.Matrices.Utilities.continuousRiccatiIterative.html">
+continuousRiccatiIterative</a> for more information.</p>
+<h4>References</h4>
+<blockquote>
+<pre>
+[1] Laub, A.J.
+    A Schur Method for Solving Algebraic Riccati equations.
+    IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
+</pre></blockquote>
+<h4>Example</h4>
+<blockquote>
+<pre>
+A = [0.0, 1.0;
+     0.0, 0.0];
+
+B = [0.0;
+     1.0];
+
+R = [1];
+
+Q = [1.0, 0.0;
+     0.0, 2.0];
+
+X = continuousRiccati(A, B, R, Q);
+
+results in:
+
+X = [2.0, 1.0;
+     1.0, 2.0];
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Matrices.Utilities.continuousRiccatiIterative.html">
+Matrices.Utilities.continuousRiccatiIterative</a>, <a href="Modelica.Math.Matrices.discreteRiccati.html">Matrices.discreteRiccati</a></p>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>function continuousRiccati
+  extends Modelica.Icons.Function;
+  import Modelica.Math.Matrices;
+  input Real A[:, size(A, 1)] "Square matrix A in CARE";
+  input Real B[size(A, 1), :] "Matrix B in CARE";
+  input Real R[size(B, 2), size(B, 2)] = identity(size(B, 2)) "Matrix R in CARE";
+  input Real Q[size(A, 1), size(A, 1)] = identity(size(A, 1)) "Matrix Q in CARE";
+  input Boolean refine = false "True for subsequent refinement";
+  output Real X[size(A, 1), size(A, 2)] "Stabilizing solution of CARE";
+  output Real alphaReal[2 * size(A, 1)] "Real parts of eigenvalue=alphaReal+i*alphaImag";
+  output Real alphaImag[2 * size(A, 1)] "Imaginary parts of eigenvalue=alphaReal+i*alphaImag";
+end continuousRiccati;</pre></blockquote>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<ul>
+<li><em>2010/05/31</em> by Marcus Baur, DLR-RM</li>
+</ul>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

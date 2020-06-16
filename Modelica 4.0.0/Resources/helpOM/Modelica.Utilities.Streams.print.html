@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Utilities.Streams.print</title>
+</head>
+<body>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Utilities.Streams.html">Streams</a>.<span class="omc-h1">print</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Streams.<strong>print</strong>(string);
+Streams.<strong>print</strong>(string,fileName);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Function <strong>print</strong>(..) opens automatically the
+given file, if it is not yet open. If the file does not exist, it
+is created. If the file does exist, the given string is appended to
+the file. If this is not desired, call "Files.remove(fileName)"
+before calling print ("remove(..)" is silent, if the file does not
+exist). The Modelica environment may close the file whenever
+appropriate. This can be enforced by calling
+<strong>Streams.close</strong>(fileName). After every call of
+"print(..)" a "new line" is printed automatically.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+Streams.print("x = " + String(x));
+Streams.print("y = " + String(y));
+Streams.print("x = " + String(y), "mytestfile.txt");
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Utilities.Streams.html">Streams</a>,
+<a href="Modelica.Utilities.Streams.error.html">Streams.error</a>,
+<a href="ModelicaReference.Operators.%27String()%27.html">ModelicaReference.Operators.'String()'</a></p>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>impure function print
+  extends Modelica.Icons.Function;
+  input String string = "" "String to be printed";
+  input String fileName = "" "File where to print (empty string is the terminal)" annotation(
+    Dialog(saveSelector(filter = "Text files (*.txt)", caption = "Text file to store the output of print(..)")));
+end print;</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

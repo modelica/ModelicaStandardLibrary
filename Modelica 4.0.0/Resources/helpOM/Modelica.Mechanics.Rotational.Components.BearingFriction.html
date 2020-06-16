@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Mechanics.Rotational.Components.BearingFriction</title>
+</head>
+<body>
+<h1><a href="Icons/169b9a1fc2585be04de4332afbbbb11223310ef0.svg"><img class="svgiconhead" src="Icons/169b9a1fc2585be04de4332afbbbb11223310ef0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.html">Rotational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.Components.html">Components</a>.<span class="omc-h1">BearingFriction</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This element describes <strong>Coulomb friction</strong> in
+<strong>bearings</strong>, i.e., a frictional torque acting between
+a flange and the housing. The positive sliding friction torque
+"tau" has to be defined by table "tau_pos" as function of the
+absolute angular velocity "w". E.g.</p>
+<blockquote>
+<pre>
+ w | tau
+---+-----
+ 0 |   0
+ 1 |   2
+ 2 |   5
+ 3 |   8
+</pre></blockquote>
+<p>gives the following table:</p>
+<blockquote>
+<pre>
+tau_pos = [0, 0; 1, 2; 2, 5; 3, 8];
+</pre></blockquote>
+<p>Currently, only linear interpolation in the table is supported.
+Outside of the table, extrapolation through the last two table
+entries is used. It is assumed that the negative sliding friction
+force has the same characteristic with negative values. Friction is
+modelled in the following way:</p>
+<p>When the absolute angular velocity "w" is not zero, the friction
+torque is a function of w and of a constant normal force. This
+dependency is defined via table tau_pos and can be determined by
+measurements, e.g., by driving the gear with constant velocity and
+measuring the needed motor torque (= friction torque).</p>
+<p>When the absolute angular velocity becomes zero, the elements
+connected by the friction element become stuck, i.e., the absolute
+angle remains constant. In this phase the friction torque is
+calculated from a torque balance due to the requirement, that the
+absolute acceleration shall be zero. The elements begin to slide
+when the friction torque exceeds a threshold value, called the
+maximum static friction torque, computed via:</p>
+<blockquote>
+<pre>
+maximum_static_friction = <strong>peak</strong> * sliding_friction(w=0)  (<strong>peak</strong> &gt;= 1)
+</pre></blockquote>
+<p>This procedure is implemented in a "clean" way by state events
+and leads to continuous/discrete systems of equations if friction
+elements are dynamically coupled which have to be solved by
+appropriate numerical methods. The method is described in (see also
+a short sketch in <a href="Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction.html">
+UsersGuide.ModelingOfFriction</a>):</p>
+<dl>
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
+<dd><strong>Hybrid Modeling in Modelica based on the Synchronous
+Data Flow Principle</strong>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
+</dl>
+<p>More precise friction models take into account the elasticity of
+the material when the two elements are "stuck", as well as other
+effects, like hysteresis. This has the advantage that the friction
+element can be completely described by a differential equation
+without events. The drawback is that the system becomes stiff
+(about 10-20 times slower simulation) and that more material
+constants have to be supplied which requires more sophisticated
+identification. For more details, see the following references,
+especially (Armstrong and Canudas de Wit 1996):</p>
+<dl>
+<dt>Armstrong B. (1991):</dt>
+<dd><strong>Control of Machines with Friction</strong>. Kluwer
+Academic Press, Boston MA.<br/></dd>
+<dt>Armstrong B., and Canudas de Wit C. (1996):</dt>
+<dd><strong>Friction Modeling and Compensation.</strong> The
+Control Handbook, edited by W.S.Levine, CRC Press, pp.
+1369-1382.<br/></dd>
+<dt>Canudas de Wit C., Olsson H., Åström K.J., and Lischinsky P.
+(1995):</dt>
+<dd><strong>A new model for control of systems with
+friction.</strong> IEEE Transactions on Automatic Control, Vol. 40,
+No. 3, pp. 419-425.</dd>
+</dl>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

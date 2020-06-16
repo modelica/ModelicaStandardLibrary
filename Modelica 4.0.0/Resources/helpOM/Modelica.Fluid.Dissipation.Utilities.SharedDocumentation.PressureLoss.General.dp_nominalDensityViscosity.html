@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_nominalDensityViscosity</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.html">PressureLoss</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.html">General</a>.<span class="omc-h1">dp_nominalDensityViscosity</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Calculation of a generic pressure loss in dependence of nominal
+fluid variables (e.g., nominal density, nominal dynamic viscosity)
+at an operation point via interpolation. This generic function
+considers the pressure loss law via a pressure loss exponent and
+the influence of density and dynamic viscosity on pressure
+loss.</p>
+<h4>Calculation</h4>
+<p>The geometry parameters of energy devices necessary for the
+pressure loss calculations are often not exactly known. Therefore
+the modelling of the detailed pressure loss calculation has to be
+simplified. This function uses nominal variables (e.g., nominal
+pressure loss) at a known operation point of the energy device to
+interpolate the actual pressure loss according to a pressure loss
+law (exponent).</p>
+<p>The generic pressure loss <strong>dp</strong> is determined
+for:</p>
+<ul>
+<li>compressible case [Mass flow rate = f(dp)]:
+<blockquote>
+<pre>
+m_flow = m_flow_nom*[(dp/dp_nom)*(rho/rho_nom)]^(1/exp)*(eta_nom/eta)^(exp_eta/exp)
+  </pre></blockquote>
+</li>
+<li>incompressible case [Pressure loss = f(m_flow)]:
+<blockquote>
+<pre>
+dp = dp_nom*(m_flow/m_flow_nom)^exp*(rho_nom/rho)*(eta/eta_nom)^exp_eta
+  </pre></blockquote>
+</li>
+</ul>
+<p>with</p>
+<table>
+<tr>
+<td><strong>dp</strong></td>
+<td>as pressure loss [Pa],</td>
+</tr>
+<tr>
+<td><strong>dp_nom</strong></td>
+<td>as nominal pressure loss [Pa],</td>
+</tr>
+<tr>
+<td><strong>eta</strong></td>
+<td>as dynamic viscosity of fluid [kg/(ms)].</td>
+</tr>
+<tr>
+<td><strong>eta_nom</strong></td>
+<td>as nominal dynamic viscosity of fluid [kg/(ms)].</td>
+</tr>
+<tr>
+<td><strong>m_flow</strong></td>
+<td>as mass flow rate [kg/s],</td>
+</tr>
+<tr>
+<td><strong>m_flow_nom</strong></td>
+<td>as nominal mass flow rate [kg/s],</td>
+</tr>
+<tr>
+<td><strong>exp</strong></td>
+<td>as exponent of pressure loss calculation [-],</td>
+</tr>
+<tr>
+<td><strong>exp_eta</strong></td>
+<td>as exponent of dynamic viscosity dependence [-],</td>
+</tr>
+<tr>
+<td><strong>rho</strong></td>
+<td>as fluid density [kg/m3],</td>
+</tr>
+<tr>
+<td><strong>rho_nom</strong></td>
+<td>as nominal fluid density [kg/m3].</td>
+</tr>
+</table>
+<p>To avoid numerical difficulties this pressure loss function is
+linear smoothed for</p>
+<ul>
+<li>small mass flow rates, where
+<blockquote>
+<pre>
+m_flow ≤ (0.01*rho/rho_nom*(1/eta*eta_nom)^(exp_eta))^(1/exp) and
+  </pre></blockquote>
+</li>
+<li>small pressure losses, where
+<blockquote>
+<pre>
+dp ≤ 0.01*dp_nom)
+ </pre></blockquote>
+</li>
+</ul>
+<p>Note that the density (rho) and dynamic viscosity (eta) of the
+fluid are defined through the definition of the kinematic viscosity
+(nue).</p>
+<blockquote>
+<pre>
+nue = eta / rho
+</pre></blockquote>
+<p>Therefore if you set both the exponent of dynamic viscosity
+(exp_eta == 1) and additionally a relation of density and dynamic
+viscosity there will be no difference for varying densities because
+the dynamic viscosities will vary in the same manner.</p>
+<h4>Verification</h4>
+<p><strong>Incompressible case</strong> [Pressure loss =
+f(m_flow)]:</p>
+<p>The generic pressure loss <strong>DP</strong> in dependence of
+the mass flow rate <strong>m_flow</strong> with different fluid
+densities and dynamic viscosity dependence as parameters is shown
+for a turbulent pressure loss regime (exp == 2) in the figure
+below.</p>
+<p><img alt="dp_nominalDensityViscosity_i" src="../../../Modelica%204.0.0/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/General/dp_nominalDensityViscosity_i.png"/></p>
+<p><strong>Compressible case</strong> [Mass flow rate = f(dp)]:</p>
+<p>The generic mass flow rate <strong>M_FLOW</strong> in dependence
+of the pressure loss <strong>dp</strong> at different fluid
+densities and dynamic viscosity as parameters is shown for a
+turbulent pressure loss regime (exp == 2) in the figure below.</p>
+<p><img alt="dp_nominalDensityViscosity_c" src="../../../Modelica%204.0.0/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/General/dp_nominalDensityViscosity_c.png"/></p>
+<h4>References</h4>
+<dl>
+<dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
+<dd><strong>Inline integration: A new mixed symbolic / numeric
+approach for solving differential-algebraic equation
+systems.</strong>. In Proceedings of European Simulation
+MultiConference, Prague, 1995.</dd>
+<dt>Wischhusen, S.:</dt>
+<dd><strong>Dynamische Simulation zur wirtschaftlichen Bewertung
+von komplexen Energiesystemen.</strong>. PhD thesis, Technische
+Universität Hamburg-Harburg, 2005.</dd>
+</dl>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

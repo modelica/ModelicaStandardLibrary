@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Math.Nonlinear.Examples.QuadratureLobatto3</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Nonlinear.html">Nonlinear</a>.<a class="omc-h1-a" href="Modelica.Math.Nonlinear.Examples.html">Examples</a>.<span class="omc-h1">QuadratureLobatto3</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Technically, this example demonstrates how to utilize a function
+as input argument to a function in a model.</p>
+<p>From a modeling point of view, the example demonstrates in very
+simplified way the basic approach to model distributed systems with
+the Ritz method. The displacement field <code>u(c,t)</code> of a
+particle (where <code>c</code> is the undeformed position and
+<code>t</code> is time) is hereby approximated by space-dependent
+mode shapes <code>Φ(c)</code> and time-dependent modal amplitudes
+<code>q(t)</code>, that is <code>u</code> = <code>Φ(c)*q(t)</code>.
+When inserting this decomposition in the equations of motion and
+then integrating over all particles, terms such as <code>∫(Φ(c)
+dc)*q(t)</code> appear, where the time-invariant integral term can
+be computed beforehand once with the <a href="Modelica.Math.Nonlinear.quadratureLobatto.html">Lobatto
+method</a>. By this approach the partial differential equations are
+transformed to a system of ordinary differential equations.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>ModelicaReference.'input'</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<span class="omc-h1">'input'</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Define causality and/or block diagram connection semantic
+(depending on context)</p>
+<h4>Examples</h4>
+<blockquote>
+<pre><strong>connector</strong> RealInput = <strong>input</strong> Real;
+<strong>connector</strong> RealOutput = <strong>output</strong> Real;
+
+<strong>block</strong> Integrator
+  RealInput  u;
+  RealOutput y;
+<strong>protected</strong>
+  Real x;
+<strong>equation</strong>
+  <strong>der</strong>(x) = u;
+  y = x;
+<strong>end</strong> Integrator;</pre></blockquote>
+<h4>Syntax</h4>
+<p>See section on <code>type_prefix</code> in the <a href="ModelicaReference.ModelicaGrammar.html">Modelica
+Grammar</a>.</p>
+<h4>Description</h4>
+<p>The prefixes <strong>input</strong> and <strong>output</strong>
+have a slightly different semantic meaning depending on the context
+where they are used:</p>
+<ul>
+<li>In functions, these prefixes define the computational causality
+of the function body, i.e., given the variables declared as input,
+the variables declared as output are computed in the function
+body.<br/>
+ </li>
+<li>In simulation models and blocks (i.e., on the top level of a
+model or block that shall be simulated), these prefixes define the
+interaction with the environment where the simulation model or
+block is used. Especially, the input prefix defines that values for
+such a variable have to be provided from the simulation environment
+and the output prefix defines that the values of the corresponding
+variable can be directly utilized in the simulation
+environment.<br/>
+ </li>
+<li>In component models and blocks, the input prefix defines that a
+binding equation has to be provided for the corresponding variable
+when the component is utilized in order to guarantee a locally
+balanced model (i.e., the number of local equations is identical to
+the local number of unknowns). Example:
+<blockquote>
+<pre>  <strong>block</strong> FirstOrder
+     <strong>input</strong> Real u;
+       ...
+  <strong>end</strong> FirstOrder;
+
+  <strong>model</strong> UseFirstOrder
+     FirstOrder firstOrder(u=time); // binding equation for u
+      ...
+  <strong>end</strong> UseFirstOrder;
+</pre></blockquote>
+The output prefix does not have a particular effect in a model or
+block component and is ignored.<br/>
+ </li>
+<li>In connectors, prefixes input and output define that the
+corresponding connectors can only be connected according to block
+diagram semantics (e.g., a connector with an output variable can
+only be connected to a connector where the corresponding variable
+is declared as input). There is the restriction that connectors
+which have at least one variable declared as input must be
+externally connected (in order to get a locally balanced model,
+where the number of local unknowns is identical to the number of
+unknown equations). Together with the block diagram semantics rule
+this means, that such connectors must be connected exactly once
+externally.<br/>
+ </li>
+<li>In records, prefixes input and output are not allowed, since
+otherwise a record could not be, e.g., passed as input argument to
+a function.</li>
+</ul>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

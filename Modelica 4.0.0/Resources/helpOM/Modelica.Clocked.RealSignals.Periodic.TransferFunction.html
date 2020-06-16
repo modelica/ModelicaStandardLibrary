@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Clocked.RealSignals.Periodic.TransferFunction</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Clocked.html">Clocked</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.html">RealSignals</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.Periodic.html">Periodic</a>.<span class="omc-h1">TransferFunction</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>The <strong>discrete transfer function</strong> block defines
+the transfer function between the input signal u and the output
+signal y. The numerator has the order nb-1, the denominator has the
+order na-1.</p>
+<blockquote>
+<pre>
+       b(1)*z^(nb-1) + b(2)*z^(nb-2) + … + b(nb)
+y(z) = -------------------------------------------- * u(z)
+       a(1)*z^(na-1) + a(2)*z^(na-2) + … + a(na)
+</pre></blockquote>
+<p>State variables <strong>x</strong> are defined according to
+<strong>controller canonical</strong> form. Initial values of the
+states can be set as start values of <strong>x</strong>.</p>
+<p>Example:</p>
+<blockquote>
+<pre>
+TransferFunction g(b = {2,4}, a = {1,3});
+</pre></blockquote>
+<p>results in the following transfer function:</p>
+<blockquote>
+<pre>
+     2*z + 4
+y = --------- * u
+      z + 3
+</pre></blockquote>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<p><strong>Release Notes:</strong></p>
+<ul>
+<li><em>August 13, 2012</em> by <a href="http://www.dlr.de/rm/">Bernhard Thiele</a>:<br/>
+Used the original code from Blocks.Discrete.TransferFunction and
+converted it into the Modelica 3.3 clocked equation style.</li>
+<li><em>November 15, 2000</em> by <a href="http://www.dynasim.se">Hans Olsson</a>:<br/>
+Converted to when-semantics of Modelica 1.4 with special care to
+avoid unnecessary algebraic loops.</li>
+<li><em>June 18, 2000</em> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br/>
+Realized based on a corresponding model of Dieter Moormann and
+Hilding Elmqvist.</li>
+</ul>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

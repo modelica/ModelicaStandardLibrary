@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>ModelicaReference.Operators.'matrix()'</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Operators.html">Operators</a>.<span class="omc-h1">'matrix()'</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Returns the first two dimensions of an array as matrix</p>
+<h4>Syntax</h4>
+<blockquote>
+<pre><strong>matrix</strong>(A)</pre></blockquote>
+<h4>Description</h4>
+<p>Returns <strong>promote</strong>(A,2), if A is a scalar or
+vector and otherwise returns the elements of the first two
+dimensions as a matrix. <strong>size</strong>(A,i) = 1 is required
+for 2 &lt; i ≤ <strong>ndims</strong>(A).</p>
+<p>Function <strong>promote</strong>(A,n) fills dimensions of size
+1 from the right to array A up to dimension n, where "n &gt;
+<strong>ndims</strong>(A)" is required. Let C =
+<strong>promote</strong>(A,n), with nA = <strong>ndims</strong>(A),
+then</p>
+<blockquote>
+<pre>
+<strong>ndims</strong>(C) = n,
+<strong>size</strong>(C,j) = <strong>size</strong>(A,j) for 1 ≤ j ≤ nA,
+<strong>size</strong>(C,j) = 1 for nA+1 ≤ j ≤ n,
+C[i_1, ..., i_nA, 1, ..., 1] = A[i_1, ..., i_nA].
+</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

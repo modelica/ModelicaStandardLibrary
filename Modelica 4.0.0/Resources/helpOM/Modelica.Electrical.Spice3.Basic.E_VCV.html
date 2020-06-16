@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Electrical.Spice3.Basic.E_VCV</title>
+</head>
+<body>
+<h1><a href="Icons/92478ee02af407e4b5af6db7ed26fb1a5137be23.svg"><img class="svgiconhead" src="Icons/92478ee02af407e4b5af6db7ed26fb1a5137be23.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.html">Spice3</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.Basic.html">Basic</a>.<span class="omc-h1">E_VCV</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>The linear voltage-controlled voltage source is a TwoPort. The
+right port voltage at pin p2 (=p2.v) is controlled by the left port
+voltage at pin p1 (=p1.v) via</p>
+<blockquote>
+<pre>
+p2.v = p1.v * gain.
+</pre></blockquote>
+<p>The left port current is zero. Any voltage gain can be
+chosen.</p>
+<p>The corresponding SPICE description</p>
+<blockquote>
+<pre>
+Ename N+ N- NC+ NC- VALUE
+</pre></blockquote>
+<p>is translated to Modelica:</p>
+<blockquote>
+<pre>
+Ename -&gt; Spice3.Basic.E_VCV Ename
+(Ename is the name of the Modelica instance)
+N+ -&gt; p2.v
+N- -&gt; n2.v
+NC+ -&gt; p1.v
+NC- -&gt; n1.v
+VALUE -&gt; gain
+</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

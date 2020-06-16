@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Mechanics.Translational.UsersGuide.FlangeConnectors</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.html">Translational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">FlangeConnectors</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>A flange is described by the connector class <strong><a href="Modelica.Mechanics.Translational.Interfaces.Flange_a.html">Flange_a</a></strong>
+or <strong><a href="Modelica.Mechanics.Translational.Interfaces.Flange_b.html">Flange_b</a></strong>.
+As already noted in section <a href="Modelica.Mechanics.Translational.UsersGuide.Overview.html">Overview</a>,
+the two connector classes are completely identical. There is only a
+difference in the icons, in order to easier identify a flange
+variable in a diagram. Both connector classes contain the following
+variables:</p>
+<blockquote>
+<pre>
+SI.Position   s "Absolute position of flange";
+<strong>flow</strong> SI.Force f "Cut force directed into flange";
+</pre></blockquote>
+<p>If needed, the velocity <code>v</code> and the acceleration
+<code>a</code> of a flange connector can be determined by
+differentiation of the flange position <code>s</code>:</p>
+<blockquote>
+<pre>
+v = <strong>der</strong>(s);    a = <strong>der</strong>(v);
+</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

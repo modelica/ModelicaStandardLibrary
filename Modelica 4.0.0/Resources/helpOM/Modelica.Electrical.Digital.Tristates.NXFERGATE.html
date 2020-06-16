@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Electrical.Digital.Tristates.NXFERGATE</title>
+</head>
+<body>
+<h1><a href="Icons/78e09e7ce1325931da490cc5ebd7e43481c2f8a8.svg"><img class="svgiconhead" src="Icons/78e09e7ce1325931da490cc5ebd7e43481c2f8a8.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Digital.html">Digital</a>.<a class="omc-h1-a" href="Modelica.Electrical.Digital.Tristates.html">Tristates</a>.<span class="omc-h1">NXFERGATE</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Description in VHDL is given by
+http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
+<p><strong>Truth Table</strong></p>
+<table border="1" cellpadding="2" cellspacing="0">
+<tr>
+<td><strong>DataIn</strong></td>
+<td><strong>Enable</strong></td>
+<td><strong>DataOut</strong></td>
+</tr>
+<tr>
+<td>*</td>
+<td>U</td>
+<td>U</td>
+</tr>
+<tr>
+<td>*</td>
+<td>X</td>
+<td>UX</td>
+</tr>
+<tr>
+<td>*</td>
+<td>0</td>
+<td>Z</td>
+</tr>
+<tr>
+<td>*</td>
+<td>1</td>
+<td>DataIn</td>
+</tr>
+<tr>
+<td>*</td>
+<td>Z</td>
+<td>UX</td>
+</tr>
+<tr>
+<td>*</td>
+<td>W</td>
+<td>UX</td>
+</tr>
+<tr>
+<td>*</td>
+<td>L</td>
+<td>Z</td>
+</tr>
+<tr>
+<td>*</td>
+<td>H</td>
+<td>DataIn</td>
+</tr>
+<tr>
+<td>*</td>
+<td>-</td>
+<td>UX</td>
+</tr>
+</table>
+<blockquote>
+<pre>
+UX: if dataIn == U then U else X
+</pre></blockquote>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<ul>
+<li><em>January 15, 2010</em> created by Ulrich Donath<br/></li>
+</ul>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

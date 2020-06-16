@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Mechanics.MultiBody.Frames.to_T_inv</title>
+</head>
+<body>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a>.<span class="omc-h1">to_T_inv</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+T_inv = Frames.<strong>to_T_inv</strong>(R);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function returns a real matrix T_inv 
+<!--<a href="modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation">transformation matrix</a>&nbsp;T_inv-->
+computed from an <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">orientation
+object</a> R. The matrix T_inv is considered to be an inverse
+transformation matrix.</p>
+<h4>See also</h4>
+<p><a href="Modelica.Mechanics.MultiBody.Frames.from_T_inv.html">from_T_inv</a>,
+<a href="Modelica.Mechanics.MultiBody.Frames.to_T.html">to_T</a>,
+<a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_T_inv.html">
+TransformationMatrices.to_T_inv</a>, <a href="Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T_inv.html">
+Quaternions.to_T_inv</a>.</p>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>function to_T_inv
+  extends Modelica.Icons.Function;
+  input Orientation R "Orientation object to rotate frame 1 into frame 2";
+  output Real T_inv[3, 3] "Inverse transformation matrix to transform vector from frame 2 into frame 1 (v1=T_inv*v2)";
+end to_T_inv;</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

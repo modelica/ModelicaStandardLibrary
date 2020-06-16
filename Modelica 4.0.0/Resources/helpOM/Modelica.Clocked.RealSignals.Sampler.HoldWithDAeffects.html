@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Clocked.html">Clocked</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.html">RealSignals</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.Sampler.html">Sampler</a>.<span class="omc-h1">HoldWithDAeffects</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This block is similar to the <a href="Modelica.Clocked.RealSignals.Sampler.Hold.html">Hold</a>
+block. The only difference is that simulated real-world effects are
+applied on the clocked input signal u before transforming the
+signal to a continuous-time signal with a zero-order hold. In
+particular:</p>
+<ul>
+<li>The output is delayed by a fraction of the clock period, if
+parameter <strong>computationalDelay</strong> = true. The delay is
+defined by shiftCounter/resolution*interval(), where
+<strong>shiftCounter</strong> and <strong>resolution</strong> are
+Integer parameters and interval() is the time duration from the
+previous to the current clock tick. The maximal possible
+computational delay is one clock duration, and therefore there is
+the restriction that shiftCounter ≤ resolution.</li>
+<li>The output is limited, if parameter <strong>limited</strong> =
+true.</li>
+<li>The output is value discretized in the form of an
+Digital-Analog converter with a definable number of bits, if
+parameters <strong>limited</strong> = true, and
+<strong>quantized</strong> = true.</li>
+</ul>
+<h4>Example</h4>
+<p>The following <a href="Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects1.html">
+example</a> samples a sine signal with an amplitude of 2.0 with a
+periodic clock of 20 ms period and delays it for 2 sample periods.
+The resulting signal is hold with the HoldWithDAeffects block. As a
+result, the clock of hold.u starts ticking at 40 ms. The output
+hold.y of the block is a continuous-time signal that is present
+from the start of the simulation. Before the first tick of the
+clock of hold.u, it is set to 0.5 (= the value of parameter
+hold.y_start). Additionally, the following effects are added to the
+hold block:</p>
+<ul>
+<li>The output is limited to +/- 1.9.</li>
+<li>A computational delay of half of a sample period (= 1/2*20 ms =
+10 ms) is defined.<br/></li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0">
+<tr>
+<td width="50"></td>
+<td valign="bottom"><img alt="HoldWithDAeffects1_Model.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/RealSignals/HoldWithDAeffects1_Model.png"/></td>
+<td valign="bottom">    <img alt="HoldWithDAeffects1_Result.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/RealSignals/HoldWithDAeffects1_Result.png"/></td>
+</tr>
+<tr>
+<td></td>
+<td align="center">model</td>
+<td align="center">simulation result</td>
+</tr>
+</table>
+<p><br/>
+Due to the limitation of the output signal, the values of hold.u ≥
+1.9 are limited to 1.9.</p>
+<p>If the hold output is delayed by one sample period, then the
+<strong>previous</strong>(…) value of the input is output, and the
+first tick is delayed by one sample period, as shown by the
+<a href="Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects2.html">
+modified example</a> from above:<br/></p>
+<table border="0" cellpadding="2" cellspacing="0">
+<tr>
+<td width="50"></td>
+<td valign="bottom"><img alt="HoldWithDAeffects2_Model.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/RealSignals/HoldWithDAeffects2_Model.png"/></td>
+<td valign="bottom">    <img alt="HoldWithDAeffects2_Result.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/RealSignals/HoldWithDAeffects2_Result.png"/></td>
+</tr>
+<tr>
+<td></td>
+<td align="center">model</td>
+<td align="center">simulation result</td>
+</tr>
+</table>
+<p><br/>
+Note, the computational delay of one sample period is defined by
+shiftCounter=1, resolution=1, as shown in the icon of the hold
+block.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

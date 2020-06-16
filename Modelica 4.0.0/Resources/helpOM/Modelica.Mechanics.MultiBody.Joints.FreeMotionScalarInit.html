@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit</title>
+</head>
+<body>
+<h1><a href="Icons/6fd1d0faaccb915fe658ff25f9a0e1bb88bd54a1.svg"><img class="svgiconhead" src="Icons/6fd1d0faaccb915fe658ff25f9a0e1bb88bd54a1.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a>.<span class="omc-h1">FreeMotionScalarInit</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Joint which does not constrain the motion between frame_a and
+frame_b. Such a joint is meaningful if the
+<strong>relative</strong> distance and orientation between frame_a
+and frame_b, and their derivatives, shall be used as
+<strong>states</strong> or shall be used for non-standard
+<strong>initialization</strong>. This joint allows to
+<strong>initialize</strong> every <strong>scalar</strong> element
+of the relative quantities, as well as to define
+<strong>StateSelect</strong> attributes for every
+<strong>scalar</strong> element separately.</p>
+<p>In the following figure the animation of a FreeMotionScalarInit
+joint is shown. The light blue coordinate system is frame_a and the
+dark blue coordinate system is frame_b of the joint. (here:
+r_rel_a_1(start = 0.5), r_rel_a_2(start = 0), r_rel_a_3(start =
+0.5), angle_1(start = 45<sup>o</sup>), angle_2(start =
+45<sup>o</sup>), angle_3(start = 45<sup>o</sup>)).</p>
+<p><img src="../../../Modelica%204.0.0/Resources/Images/Mechanics/MultiBody/Joints/FreeMotion.png"/></p>
+<p>A example to use this joint for the initialization of a planar
+double pendulum by providing its tip position, is shown in <a href="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumInitTip.html">
+Examples.Elementary.DoublePendulumInitTip</a>.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

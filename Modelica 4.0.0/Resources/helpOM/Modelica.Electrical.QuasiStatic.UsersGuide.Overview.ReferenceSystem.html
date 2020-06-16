@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ReferenceSystem</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStatic.html">QuasiStatic</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStatic.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.html">Overview</a>.<span class="omc-h1">ReferenceSystem</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>The reference angle <code>gamma</code>:</p>
+<ul>
+<li>defines the angular frequency <code>omega</code> of the
+voltages and currents of a circuit by means of <code>omega =
+der(gamma)</code>.</li>
+<li>is not a global quantity since it propagated through the
+connector. Therefore, independent circuits of different frequencies
+can be modeled in one model.</li>
+<li>is present only once in a polyphase connector; a polyphase
+component has only one reference angle common to all phases.</li>
+<li>can be either constant or variable, but it has to be consistent
+in one contiguous circuit.</li>
+<li>is defined by the sources.</li>
+</ul>
+<p>Designing new components, the guidelines of <a href="https://specification.modelica.org/v3.4/Ch9.html#overconstrained-equation-operators-for-connection-graphs">
+Section 9.4.1 (Overconstrained Equation Operators for Connection
+Graphs) of the Modelica 3.4 specification</a> have to be taken into
+account.</p>
+<h4>See also</h4>
+<a href="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Introduction.html">Introduction</a>,
+<a href="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit.html">
+AC circuit</a>, <a href="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Power.html">
+Power</a>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

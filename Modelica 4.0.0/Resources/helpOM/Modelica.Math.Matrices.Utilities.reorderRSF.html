@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Math.Matrices.Utilities.reorderRSF</title>
+</head>
+<body>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.Utilities.html">Utilities</a>.<span class="omc-h1">reorderRSF</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+              To = Matrices.Utilities.<strong>reorderRSF</strong>(T, Q, alphaReal, alphaImag);
+(To, Qo, wr, wi) = Matrices.Utilities.<strong>reorderRSF</strong>(T, Q, alphaReal, alphaImag, iscontinuous);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Function <strong>reorderRSF</strong>() reorders a real Schur
+form such that the stable eigenvalues of the system are in the
+1-by-1 and 2-by-2 diagonal blocks of the block
+<strong>upper</strong> triangular matrix. If the Schur form is
+referenced to a continuous system the staple eigenvalues are in the
+left complex half plane. The stable eigenvalues of a discrete
+system are inside the complex unit circle.<br/>
+This function is used for example to solve algebraic Riccati
+equations (<a href="Modelica.Math.Matrices.continuousRiccati.html">continuousRiccati</a>,
+<a href="Modelica.Math.Matrices.discreteRiccati.html">discreteRiccati</a>).
+In this context the Schur form as well as the corresponding
+eigenvalues and the transformation matrix <strong>Q</strong> are
+known, why the eigenvalues and the transformation matrix are inputs
+to <strong>reorderRSF()</strong>.<br/>
+The Schur vector matrix <strong>Qo</strong> is also reordered
+according to <strong>To</strong>. The vectors <strong>wr</strong>
+and <strong>wi</strong> contains the real and imaginary parts of
+the reordered eigenvalues respectively.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+T := [-1,2, 3,4;
+       0,2, 6,5;
+       0,0,-3,5;
+       0,0, 0,6];
+To := Matrices.Utilities.reorderRSF(T,identity(4),{-1, 2, -3, 6},{0, 0, 0, 0}, true);
+
+// To = [-1.0, -0.384, 3.585, 4.0;
+//        0.0, -3.0,   6.0,   0.64;
+//        0.0,  0.0,   2.0,   7.04;
+//        0.0,  0.0,   0.0,   6.0]
+</pre></blockquote>
+<p>See also <a href="Modelica.Math.Matrices.realSchur.html">Matrices.realSchur</a></p>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>function reorderRSF
+  extends Modelica.Icons.Function;
+  import Modelica.Math.Matrices.LAPACK;
+  input Real T[:, :] "Real Schur form";
+  input Real Q[:, size(T, 2)] "Schur vector Matrix";
+  input Real alphaReal[size(T, 1)] "Real part of eigenvalue=alphaReal+i*alphaImag";
+  input Real alphaImag[size(T, 1)] "Imaginary part of eigenvalue=alphaReal+i*alphaImag";
+  input Boolean iscontinuous = true "= true, if the according system is continuous. False for discrete systems";
+  output Real To[size(T, 1), size(T, 2)] "Reordered Schur form";
+  output Real Qo[size(T, 1), size(T, 2)] "Reordered Schur vector matrix";
+  output Real wr[size(T, 2)] "Reordered eigenvalues, real part";
+  output Real wi[size(T, 2)] "Reordered eigenvalues, imaginary part";
+end reorderRSF;</pre></blockquote>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<ul>
+<li><em>2010/04/30</em> by Marcus Baur, DLR-RM</li>
+</ul>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

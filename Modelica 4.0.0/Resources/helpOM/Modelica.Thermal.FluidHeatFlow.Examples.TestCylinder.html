@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Thermal.FluidHeatFlow.Examples.TestCylinder</title>
+</head>
+<body>
+<h1><a href="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg"><img class="svgiconhead" src="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Thermal.html">Thermal</a>.<a class="omc-h1-a" href="Modelica.Thermal.FluidHeatFlow.html">FluidHeatFlow</a>.<a class="omc-h1-a" href="Modelica.Thermal.FluidHeatFlow.Examples.html">Examples</a>.<span class="omc-h1">TestCylinder</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Test of a system with 2 cylinders (with same volume):</p>
+<ul>
+<li>cylinder1: A = 0.1 m2, L=10. m, initial position of piston at
+s=L/2</li>
+<li>cylinder2: A = 1.0 m2, L=1.0 m, initial position of piston at
+s=L/2</li>
+</ul>
+<p>A force is applied that presses from 0.25 s to 0.50 s with 1 Nm
+on piston1. Due to the ratio of areas 10:1</p>
+<ul>
+<li>the force at piston2 is ten times the force at piston1</li>
+<li>movement of piston1 is ten times the movement of piston2</li>
+</ul>
+<p>At piston2 a mass is mounted which is moved and presses the
+springDamper. When the force at piston1 is removed, the
+springDamper pushes back the mass and a damped oscillation
+occurs.</p>
+<p>Note: Take care of the initial conditions. The unstretched
+spring length is cylinder2.L/2, i.e. when piston2 is the middle of
+its cylinder the spring applies no force to the mass (and
+piston2).</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

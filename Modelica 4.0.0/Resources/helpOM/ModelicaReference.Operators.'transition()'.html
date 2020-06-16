@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>ModelicaReference.Operators.'transition()'</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Operators.html">Operators</a>.<span class="omc-h1">'transition()'</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This operator defines a transition in a <a href="ModelicaReference.StateMachines.html">state machine</a>.</p>
+<h4>Syntax</h4>
+<blockquote>
+<pre><strong>transition</strong>(from, to, condition, immediate, reset, synchronize, priority)</pre></blockquote>
+<h4>Description</h4>
+<p>This operator defines a transition from instance
+<strong>from</strong> to instance <strong>to</strong>. The
+<strong>from</strong> and <strong>to</strong> instances become
+states of a state machine. The transition fires when
+<strong>condition = true</strong> if <strong>immediate =
+true</strong> (this is called an immediate transition) or
+<strong>previous(condition)</strong> when <strong>immediate =
+false</strong> (this is called a delayed transition). Argument
+<strong>priority</strong> defines the priority of firing when
+several transitions could fire. In this case the transition with
+the smallest value of <strong>priority</strong> fires. It is
+required that priority is greater or equal to 1 and that for all
+transitions from the same state, the priorities are different. If
+<strong>reset = true</strong>, the states of the target state are
+reinitialized, i.e. state machines are restarted in initial state
+and state variables are reset to their start values. If
+synchronize=true, any transition is disabled until all state
+machines of the from-state have reached final states, i.e. states
+without outgoing transitions.</p>
+<p>Arguments <strong>from</strong> and <strong>to</strong> are
+block instances and <strong>condition</strong> is a Boolean
+argument. The optional arguments <strong>immediate</strong>,
+<strong>reset</strong>, and <strong>synchronize</strong> are of
+type Boolean, have parametric variability and a default of true,
+true, false respectively. The optional argument
+<strong>priority</strong> is of type Integer, has parametric
+variability and a default of 1.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

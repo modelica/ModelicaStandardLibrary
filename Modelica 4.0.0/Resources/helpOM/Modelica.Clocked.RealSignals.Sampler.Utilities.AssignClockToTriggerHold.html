@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToTriggerHold</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Clocked.html">Clocked</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.html">RealSignals</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.Sampler.html">Sampler</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.Sampler.Utilities.html">Utilities</a>.<span class="omc-h1">AssignClockToTriggerHold</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This block creates a Boolean, continuous time, trigger signal
+whenever the clock of the input signal is active.</p>
+<p>A particular use-case in which that block might be useful is the
+combination of "old-style" sampled blocks (i.e., "unclocked"
+discrete control functions implemented using equations between
+"when trigger then" clauses) with clocked blocks.</p>
+<h4>Example</h4>
+<p>The following <a href="Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockToTriggerHold.html">
+example</a> samples a sine signal with a periodic clock of 20 ms
+period. After that a continuous time Boolean trigger signal is
+generated at every clock tick of that sampled signal. The generated
+signal is used as trigger signal for an "old-style" <a href="Modelica.Blocks.Discrete.TriggeredSampler.html">TriggeredSampler</a>
+block from the Modelica.Blocks.Discrete package:<br/></p>
+<table border="0" cellpadding="2" cellspacing="0">
+<tr>
+<td width="50"></td>
+<td valign="bottom"><img alt="AssignClockToTriggerHold_Model.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/RealSignals/AssignClockToTriggerHold_Model.png"/></td>
+<td valign="bottom">    <img alt="AssignClockToTriggerHold_Result.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/RealSignals/AssignClockToTriggerHold_Result.png"/></td>
+</tr>
+<tr>
+<td></td>
+<td align="center">model</td>
+<td align="center">simulation result</td>
+</tr>
+</table>
+<p>Note, that it is clearly visible in the plot that the
+"old-style" discrete variables have an implicit zero-order hold
+semantics, while the new clocked variables are only active whenever
+their associated clock ticks. Just compare variable sample.y
+(clocked) with triggeredSampler.y (unclocked) to observe the
+difference.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>ModelicaReference.'flow'</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<span class="omc-h1">'flow'</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Declare flow (through) variable, which have to sum up to zero in
+connections</p>
+<h4>Examples</h4>
+<blockquote>
+<pre><strong>connector</strong> Pin
+  Modelica.Units.SI.Voltage v;
+  <strong>flow</strong> Modelica.Units.SI.Current i;
+<strong>end</strong> Pin;
+
+<strong>model</strong> A
+  Pin p;
+<strong>end</strong> A;
+
+<strong>model</strong> Composition
+  A a;
+  A b;
+  A c;
+<strong>equation
+  connect</strong>(a.p, b.p);
+  <strong>connect</strong>(a.p, c.p);
+<strong>end</strong> Composition;</pre></blockquote>
+<p>From the connect statements in model Composition, the following
+connect equations are derived:</p>
+<blockquote>
+<pre>a.p.v = b.p.v;
+a.p.v = c.p.v;
+a.p.i + b.p.i + c.p.i = 0;</pre></blockquote>
+<h4>Syntax</h4>
+<p>See section on <code>type_prefix</code> in the <a href="ModelicaReference.ModelicaGrammar.html">Modelica
+Grammar</a>.</p>
+<h4>Description</h4>
+<p>The flow prefix is used in order to generate equations for
+through variables, which sum up to zero in connections, whereas
+variables without the flow prefix are identical in a
+connection.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

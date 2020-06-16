@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Mechanics.MultiBody.Joints.RollingWheel</title>
+</head>
+<body>
+<h1><a href="Icons/e55c5ec34e70bb926a88acf85b61a0da7ab89911.svg"><img class="svgiconhead" src="Icons/e55c5ec34e70bb926a88acf85b61a0da7ab89911.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a>.<span class="omc-h1">RollingWheel</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>A joint for a wheel rolling on the x-y plane of the world frame.
+The rolling contact is considered being ideal, i.e. there is no
+slip between the wheel and the ground. This is simply gained by two
+non-holonomic constraint equations on velocity level defined for
+both longitudinal and lateral direction of the wheel. There is also
+a holonomic constraint equation on position level granting a
+permanent contact of the wheel to the ground, i.e. the wheel can
+not take off.</p>
+<p>The origin of the frame frame_a is placed in the intersection of
+the wheel spin axis with the wheel middle plane and rotates with
+the wheel itself. The y-axis of frame_a is identical with the wheel
+spin axis, i.e. the wheel rotates about y-axis of frame_a. A wheel
+body collecting the mass and inertia should be connected to this
+frame.</p>
+<h4>Note</h4>
+<p>To work properly, the gravity acceleration vector g of the world
+must point in the negative z-axis, i.e.</p>
+<blockquote>
+<pre>
+<span style="font-family:'Courier New',courier; color:#0000ff;">inner</span> <span style="font-family:'Courier New',courier; color:#ff0000;">Modelica.Mechanics.MultiBody.World</span> world(n={0,0,-1});
+</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

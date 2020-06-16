@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Blocks.Math.RealFFT</title>
+</head>
+<body>
+<h1><a href="Icons/5e34d49ffee983ad5120594a921efe4697e09ec3.svg"><img class="svgiconhead" src="Icons/5e34d49ffee983ad5120594a921efe4697e09ec3.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Math.html">Math</a>.<span class="omc-h1">RealFFT</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This block samples the input signal, calculates the Fast Fourier
+Transform by function <a href="Modelica.Math.FastFourierTransform.realFFT.html">Math.realFFT</a>,
+and (when simulation terminates) writes the output to result file
+resultFileName by function <a href="Modelica.Math.FastFourierTransform.realFFTwriteToFile.html">Math.realFFTwriteToFile</a>.</p>
+<p>The number of sampling points as well as the samplePeriod is
+calculated from desired maximum frequency f_max and frequency
+resolution f_res.</p>
+<h4>Note</h4>
+<p>The user has to take care that enough points can be sampled
+before the simulation ends: startTime + (ns - 1)*samplePeriod &lt;=
+stopTime.</p>
+<p>The result file is written as mat, first column = frequency,
+second column = amplitudes, third column = phases. The frequency
+points are separated by rows with amplitude and phase = 0, so one
+can plot the result directly as frequency lines.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

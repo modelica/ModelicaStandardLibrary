@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Fluid.Machines.BaseClasses.PartialPump</title>
+</head>
+<body>
+<h1><a href="Icons/72e4f655d21a69d9c3a6de56d9d47e60c1c9eb47.svg"><img class="svgiconhead" src="Icons/72e4f655d21a69d9c3a6de56d9d47e60c1c9eb47.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Machines.html">Machines</a>.<a class="omc-h1-a" href="Modelica.Fluid.Machines.BaseClasses.html">BaseClasses</a>.<span class="omc-h1">PartialPump</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This is the base model for pumps.</p>
+<p>The model describes a centrifugal pump, or a group of
+<code>nParallel</code> identical pumps. The pump model is based on
+the theory of kinematic similarity: the pump characteristics are
+given for nominal operating conditions (rotational speed and fluid
+density), and then adapted to actual operating condition, according
+to the similarity equations.</p>
+<p><strong>Pump characteristics</strong></p>
+<p>The nominal hydraulic characteristic (head vs. volume flow rate)
+is given by the replaceable function
+<code>flowCharacteristic</code>.</p>
+<p>The pump energy balance can be specified in two alternative
+ways:</p>
+<ul>
+<li><code>use_powerCharacteristic = false</code> (default option):
+the replaceable function <code>efficiencyCharacteristic</code>
+(efficiency vs. volume flow rate in nominal conditions) is used to
+determine the efficiency, and then the power consumption. The
+default is a constant efficiency of 0.8.</li>
+<li><code>use_powerCharacteristic = true</code>: the replaceable
+function <code>powerCharacteristic</code> (power consumption vs.
+volume flow rate in nominal conditions) is used to determine the
+power consumption, and then the efficiency. Use
+<code>powerCharacteristic</code> to specify a non-zero power
+consumption for zero flow rate.</li>
+</ul>
+<p>Several functions are provided in the package
+<code>PumpCharacteristics</code> to specify the characteristics as
+a function of some operating points at nominal conditions.</p>
+<p>Depending on the value of the <code>checkValve</code> parameter,
+the model either supports reverse flow conditions, or includes a
+built-in check valve to avoid flow reversal.</p>
+<p>It is possible to take into account the mass and energy storage
+of the fluid inside the pump by specifying its volume
+<code>V</code>, and by selecting appropriate dynamic mass and
+energy balance assumptions (see below); this is recommended to
+avoid singularities in the computation of the outlet enthalpy in
+case of zero flow rate. If zero flow rate conditions are always
+avoided, this dynamic effect can be neglected by leaving the
+default value <code>V = 0</code>, thus avoiding fast state
+variables in the model.</p>
+<p><strong>Dynamics options</strong></p>
+<p>Steady-state mass and energy balances are assumed per default,
+neglecting the holdup of fluid in the pump; this configuration
+works well if the flow rate is always positive. Dynamic mass and
+energy balance can be used by setting the corresponding dynamic
+parameters. This is recommended to avoid singularities at zero or
+reversing mass flow rate. If the initial conditions imply non-zero
+mass flow rate, it is possible to use the
+<code>SteadyStateInitial</code> condition, otherwise it is
+recommended to use <code>FixedInitial</code> in order to avoid
+undetermined initial conditions.</p>
+<p><strong>Heat transfer</strong></p>
+<p>The Boolean parameter <code>use_HeatTransfer</code> can be set
+to true if heat exchanged with the environment should be taken into
+account or to model a housing. This might be desirable if a pump
+with realistic <code>powerCharacteristic</code> for zero flow
+operates while a valve prevents fluid flow.</p>
+<p><strong>Diagnostics of Cavitation</strong></p>
+<p>The replaceable Monitoring submodel can be configured to
+PumpMonitoringNPSH, in order to compute the Net Positive Suction
+Head available and check for cavitation, provided a two-phase
+medium model is used (see Advanced tab).</p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Machines.BaseClasses.PartialPump.flowCharacteristic.html">
+<img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Fluid.Machines.BaseClasses.PartialPump.flowCharacteristic.html">flowCharacteristic</a></td>
+<td>Head vs. V_flow characteristic at nominal speed and
+density</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Machines.BaseClasses.PartialPump.powerCharacteristic.html">
+<img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Fluid.Machines.BaseClasses.PartialPump.powerCharacteristic.html">powerCharacteristic</a></td>
+<td>Power consumption vs. V_flow at nominal speed and density</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Machines.BaseClasses.PartialPump.efficiencyCharacteristic.html">
+<img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Fluid.Machines.BaseClasses.PartialPump.efficiencyCharacteristic.html">efficiencyCharacteristic</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Machines.BaseClasses.PartialPump.HeatTransfer.html">
+<img class="svgiconsmall" src="Icons/93242764075bb414413235c4ec382aee7e4325c1.svg"/></a> <a href="Modelica.Fluid.Machines.BaseClasses.PartialPump.HeatTransfer.html">HeatTransfer</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Machines.BaseClasses.PartialPump.Monitoring.html"><img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg"/></a> <a href="Modelica.Fluid.Machines.BaseClasses.PartialPump.Monitoring.html">Monitoring</a></td>
+<td></td>
+</tr>
+</table>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<ul>
+<li><em>8 Jan 2013</em> by Rüdiger Franke:<br/>
+moved NPSH diagnostics from PartialPump to replaceable sub-model
+PumpMonitoring.PumpMonitoringNPSH (see ticket #646)</li>
+<li><em>Dec 2008</em> by Rüdiger Franke:<br/>
+<ul>
+<li>Replaced simplified mass and energy balances with rigorous
+formulation (base class PartialLumpedVolume)</li>
+<li>Introduced optional HeatTransfer model defining Qb_flow</li>
+<li>Enabled events when the checkValve is operating to support the
+opening of a discrete valve before port_a</li>
+</ul>
+</li>
+<li><em>31 Oct 2005</em> by <a href="mailto:francesco.casella@polimi.it">Francesco Casella</a>:<br/>
+Model added to the Fluid library</li>
+</ul>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

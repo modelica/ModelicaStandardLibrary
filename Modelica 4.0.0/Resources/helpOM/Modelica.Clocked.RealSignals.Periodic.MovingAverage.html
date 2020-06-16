@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Clocked.RealSignals.Periodic.MovingAverage</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Clocked.html">Clocked</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.html">RealSignals</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.Periodic.html">Periodic</a>.<span class="omc-h1">MovingAverage</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This block computes the output y as the average of the input u
+and of its past values (= moving average filter):</p>
+<blockquote>
+<pre>
+y(i) = ( u(i) + u(i-1) + u(i-2) + … ) / n
+</pre></blockquote>
+<p>where y(i) and u(i) are the values of y and u at clock tick i,
+and n are the number of u and past u values that are taken into
+account.</p>
+<p>This block could also be implemented with block <a href="Modelica.Clocked.RealSignals.Periodic.FIRbyCoefficients.html">
+FIRbyCoefficients</a> by using the coefficients a = fill(1/n, n).
+However, block <em>MovingAverage</em> is a more efficient
+implementation since it can be implemented recursively, contrary to
+a general FIR filter.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

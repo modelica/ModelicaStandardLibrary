@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>ModelicaReference.Operators.'hold()'</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Operators.html">Operators</a>.<span class="omc-h1">'hold()'</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Returns a piecewise constant signal based on a clocked variable
+as part of the <a href="ModelicaReference.Synchronous.html">synchronous language
+elements</a>.</p>
+<h4>Syntax</h4>
+<blockquote>
+<pre><strong>hold</strong>(u)</pre></blockquote>
+<h4>Description</h4>
+<p>Input argument <strong>u</strong> is a clocked Component
+Expression or a parameter expression. The operator returns a
+piecewise constant signal of the same type of <strong>u</strong>.
+When the clock of <strong>u</strong> ticks, the operator returns u
+and otherwise returns the value of <strong>u</strong> from the last
+clock activation. Before the first clock activation of
+<strong>u</strong>, the operator returns the start value of
+<strong>u</strong>.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

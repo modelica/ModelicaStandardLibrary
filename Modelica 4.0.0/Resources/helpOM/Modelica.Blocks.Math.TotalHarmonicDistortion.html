@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Blocks.Math.TotalHarmonicDistortion</title>
+</head>
+<body>
+<h1><a href="Icons/dfec19ac25c59a3751a95b72f32ba8ea627fd279.svg"><img class="svgiconhead" src="Icons/dfec19ac25c59a3751a95b72f32ba8ea627fd279.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Math.html">Math</a>.<span class="omc-h1">TotalHarmonicDistortion</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This block determines the total harmonic distortion (THD) over
+the given period <code>1/f</code>. Consider that the input
+<code>u</code> consists of harmonic RMS components
+<code>U<sub>1</sub></code>, <code>U<sub>2</sub></code>,
+<code>U<sub>3</sub></code>, etc. The total RMS component is then
+determined by:</p>
+<p><img src="../../../Modelica%204.0.0/Resources/Images/Blocks/Math/Urms.png"/></p>
+<p>The calculation of the total harmonic distortion is based on the
+parameter <code>useFirstHarmonic</code>. The default value
+<code>useFirstHarmonic = true</code> represents the
+<strong>standard</strong> THD calculation used in <a href="http://www.electropedia.org/iev/iev.nsf/display?openform&amp;ievref=551-20-13">
+electrical engineering</a>. The non-default value
+<code>useFirstHarmonic = false</code> calculates the THD typically
+used for the assessment of audio signals.</p>
+<p>If <code>useFirstHarmonic = true</code>, the total higher
+harmonic content (harmonic order numbers &gt; 1) refers to the RMS
+value of the fundamental wave:<br/>
+<img src="../../../Modelica%204.0.0/Resources/Images/Blocks/Math/THD1.png"/></p>
+<p>If <code>useFirstHarmonic = false</code>, the total higher
+harmonic content (harmonic order numbers &gt; 1) refers to the
+total RMS:<br/>
+<img src="../../../Modelica%204.0.0/Resources/Images/Blocks/Math/THDrms.png"/></p>
+<p>In case of a zero input signal or within the first period of
+calculation, the boolean output signal <code>valid</code> becomes
+<code>false</code> to indicate that the calculation result is not
+valid. Valid calculations are indicated by <code>valid =
+true</code>.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

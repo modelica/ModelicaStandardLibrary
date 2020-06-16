@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>ModelicaReference.Operators.'der()'</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Operators.html">Operators</a>.<span class="omc-h1">'der()'</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Time derivative of expression or<br/>
+partial derivative of function</p>
+<h4>Syntax</h4>
+<blockquote>
+<pre><strong>der</strong>(expr) or
+IDENT "=" <strong>der</strong> "(" name "," IDENT { "," IDENT } ")" comment</pre></blockquote>
+<h4>Description</h4>
+<p>The first form is the time derivative of expression expr. If the
+expression expr is a scalar it needs to be a subtype of Real. The
+expression and all its subexpressions must be differentiable. If
+expr is an array, the operator is applied to all elements of the
+array. For Real parameters and constants the result is a zero
+scalar or array of the same size as the variable.</p>
+<p>The second form is the partial derivative of a function and may
+only be used as declarations of functions. The semantics is that a
+function [and only a function] can be specified in this form,
+defining that it is the partial derivative of the function to the
+right of the equal sign (looked up in the same way as a short class
+definition - the looked up name must be a function), and partially
+differentiated with respect to each IDENT in order (starting from
+the first one). The IDENT must be Real inputs to the function. The
+comment allows a user to comment the function (in the info-layer
+and as one-line description, and as icon).</p>
+<h4>Examples</h4>
+<blockquote>
+<pre>  Real x, xdot1, xdot2;
+<strong>equation</strong>
+  xdot1 = <strong>der</strong>(x);
+  xdot2 = <strong>der</strong>(x*sin(x));
+</pre></blockquote>
+<p>The specific enthalpy can be computed from a Gibbs-function as
+follows:</p>
+<blockquote>
+<pre><strong>function</strong> Gibbs
+  <strong>input</strong> Real p,T;
+  <strong>output</strong> Real g;
+<strong>algorithm</strong>
+  ...
+<strong>end</strong> Gibbs;
+
+<strong>function</strong> Gibbs_T=<strong>der</strong>(Gibbs, T);
+
+<strong>function</strong> specificEnthalpy
+  <strong>input</strong> Real p,T;
+  <strong>output</strong> Real h;
+<strong>algorithm</strong>
+  h:=Gibbs(p,T)-T*Gibbs_T(p,T);
+<strong>end</strong> specificEnthalpy;
+</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

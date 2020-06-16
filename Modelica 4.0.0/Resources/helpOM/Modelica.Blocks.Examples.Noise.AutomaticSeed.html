@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Blocks.Examples.Noise.AutomaticSeed</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Blocks.Examples.Noise.html">Noise</a>.<span class="omc-h1">AutomaticSeed</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This example demonstrates manual and automatic seed selection of
+<a href="Modelica.Blocks.Noise.UniformNoise.html">UniformNoise</a>
+blocks, as well as starting the noise at startTime = 0.5 s with an
+output value of y = -1 before this time. All noise blocks in this
+example generate uniform noise in the band y_min=-1 .. y_max=3 with
+samplePeriod = 0.01 s.</p>
+<p>The blocks automaticSeed1, automaticSeed2, automaticSeed3 use
+the default option to automatically initialize the pseudo random
+number generators of the respective block. As a result, different
+noise is generated, see next diagram:</p>
+<blockquote><img src="../../../Modelica%204.0.0/Resources/Images/Blocks/Examples/Noise/AutomaticSeed1.png"/></blockquote>
+<p>The blocks manualSeed1, manualSeed2, manualSeed3 use manual
+selection of the local seed (useAutomaticLocalSeed = false). They
+use a fixedLocalSeed of 1, 2, and 3 respectively. Again, different
+noise is generated, see next diagram:</p>
+<blockquote><img src="../../../Modelica%204.0.0/Resources/Images/Blocks/Examples/Noise/AutomaticSeed2.png"/></blockquote>
+<p>Try to set fixedLocalSeed = 1 in block manualSeed2. As a result,
+the blocks manualSeed1 and manualSeed2 will produce exactly the
+same noise.</p>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<table border="1" cellpadding="2" cellspacing="0">
+<tr>
+<th>Date</th>
+<th align="left">Description</th>
+</tr>
+<tr>
+<td>June 22, 2015</td>
+<td>
+<table border="0">
+<tr>
+<td><img alt="DLR logo" src="../../../Modelica%204.0.0/Resources/Images/Logos/dlr_logo.png"/></td>
+<td valign="bottom">Initial version implemented by A. Klöckner, F.
+v.d. Linden, D. Zimmer, M. Otter.<br/>
+<a href="http://www.dlr.de/rmc/sr/en">DLR Institute of System
+Dynamics and Control</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

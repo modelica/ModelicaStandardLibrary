@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Math.FastFourierTransform.Internal.prime235Factorization</title>
+</head>
+<body>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.FastFourierTransform.html">FastFourierTransform</a>.<a class="omc-h1-a" href="Modelica.Math.FastFourierTransform.Internal.html">Internal</a>.<span class="omc-h1">prime235Factorization</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<p>(success, e2, e3, e5) =
+<strong>prime235Factorization</strong>(n);</p>
+</blockquote>
+<h4>Description</h4>
+<p>Compute the factorization of input Integer n in prime numbers 2,
+3, and 5. If this is possible, success = true and e2 is the number
+of prime numbers2, e3 the number of prime numbers 3 and e5 the
+number of prime numbers 5. If this is not possible, success =
+false, and e2, e3, e5 are dummy values.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+(success, e2, e3, e5) = prime235Factorization(60)   // success=true, e2=2, e3=1, e5=1 (= 2^2*3^1*5^1)
+(success, e2, e3, e5) = prime235Factorization(7)    // success=false
+</pre></blockquote>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>function prime235Factorization
+  extends Modelica.Icons.Function;
+  input Integer n;
+  output Boolean success "= true, if factorization in 2,3,5 is possible";
+  output Integer e2 "n = 2^e2*3^e3*5^e5";
+  output Integer e3 "n = 2^e2*3^e3*5^e5";
+  output Integer e5 "n = 2^e2*3^e3*5^e5";
+end prime235Factorization;</pre></blockquote>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<table border="1" cellpadding="2" cellspacing="0">
+<tr>
+<th>Date</th>
+<th align="left">Description</th>
+</tr>
+<tr>
+<td>Nov. 29, 2015</td>
+<td>Initial version implemented by Martin R. Kuhn and Martin Otter
+(<a href="http://www.dlr.de/rmc/sr/en">DLR Institute of System
+Dynamics and Control</a>.</td>
+</tr>
+</table>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

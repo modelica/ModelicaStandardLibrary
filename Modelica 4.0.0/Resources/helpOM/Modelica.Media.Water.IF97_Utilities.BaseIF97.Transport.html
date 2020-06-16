@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport</title>
+</head>
+<body>
+<h1><a href="Icons/8d190c3d03b50847ccb877befff0f7f6c87aa3cd.svg"><img class="svgiconhead" src="Icons/8d190c3d03b50847ccb877befff0f7f6c87aa3cd.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.Water.html">Water</a>.<a class="omc-h1-a" href="Modelica.Media.Water.IF97_Utilities.html">IF97_Utilities</a>.<a class="omc-h1-a" href="Modelica.Media.Water.IF97_Utilities.BaseIF97.html">BaseIF97</a>.<span class="omc-h1">Transport</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<h4>Package description</h4>
+<h4>Package contents</h4>
+<ul>
+<li>Function <strong>visc_dTp</strong> implements a function to
+compute the industrial formulation of the dynamic viscosity of
+water as a function of density and temperature. The details are
+described in the document <a href="../../../Modelica%204.0.0/Resources/Documentation/Media/Water/IF97documentation/visc.pdf">
+visc.pdf</a>.</li>
+<li>Function <strong>cond_dTp</strong> implements a function to
+compute the industrial formulation of the thermal conductivity of
+water as a function of density, temperature and pressure.
+<strong>Important note</strong>: Obviously only two of the three
+inputs are really needed, but using three inputs speeds up the
+computation and the three variables are known in most models
+anyways. The inputs d,T and p have to be consistent. The details
+are described in the document <a href="../../../Modelica%204.0.0/Resources/Documentation/Media/Water/IF97documentation/surf.pdf">
+surf.pdf</a>.</li>
+<li>Function <strong>surfaceTension</strong> implements a function
+to compute the surface tension between vapour and liquid water as a
+function of temperature. The details are described in the document
+<a href="../../../Modelica%204.0.0/Resources/Documentation/Media/Water/IF97documentation/thcond.pdf">
+thcond.pdf</a>.</li>
+</ul>
+<h4>Version Info and Revision history</h4>
+<ul>
+<li>First implemented: <em>October, 2002</em> by Hubertus
+Tummescheit</li>
+</ul>
+<address>Authors: Hubertus Tummescheit and Jonas Eborn<br/>
+Modelon AB<br/>
+Ideon Science Park<br/>
+SE-22370 Lund, Sweden<br/>
+email: hubertus@modelon.se</address>
+<ul>
+<li>Initial version: October 2002</li>
+</ul>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.visc_dTp.html">
+<img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.visc_dTp.html">visc_dTp</a></td>
+<td>Dynamic viscosity eta(d,T,p), industrial formulation</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.cond_dTp.html">
+<img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.cond_dTp.html">cond_dTp</a></td>
+<td>Thermal conductivity lam(d,T,p) (industrial use version) only
+in one-phase region</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.surfaceTension.html">
+<img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.surfaceTension.html">surfaceTension</a></td>
+<td>Surface tension in region 4 between steam and water</td>
+</tr>
+</table>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

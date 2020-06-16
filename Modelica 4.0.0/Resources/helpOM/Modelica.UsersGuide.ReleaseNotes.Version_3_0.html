@@ -1,0 +1,1119 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.UsersGuide.ReleaseNotes.Version_3_0</title>
+</head>
+<body>
+<h1><a href="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg"><img class="svgiconhead" src="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.<span class="omc-h1">Version_3_0</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Version 3.0 is <strong>not</strong> backward compatible to
+previous versions. A conversion script is provided to transform
+models and libraries of previous versions to the new version.
+Therefore, conversion should be automatic.</p>
+<p>The following changes are present for the whole library:</p>
+<ul>
+<li>In the Modelica language version 3.0, several restrictions have
+been introduced to allow better checking, e.g., models on all
+levels must be balanced (number of equations = number of unknown
+variables - unknown variables that have to be defined when using
+the component). A few models of the Modelica Standard Library did
+not fulfill these new restrictions and had either to be moved to
+library <a href="https://github.com/modelica-deprecated/ObsoleteModelica3">ObsoleteModelica3</a>
+(e.g., Blocks.Math.TwoInputs) or had to be differently implemented
+(e.g., Media.Interfaces.PartialMedium.BaseProperties). The Modelica
+Standard Library version 3.0 fulfills all the restrictions of the
+Modelica Language version 3.0.<br/>
+ </li>
+<li>The graphical annotations describing the layout of icon and
+diagram layer are changed from Modelica language version 1 to
+Modelica language version 3. This gives several significant
+improvements:<br/>
+Especially, the coordinate systems of icon and diagram layers are
+no longer coupled and therefore the size of the icon layer can be
+changed independently of the size of the diagram layer. Also it can
+be defined that the aspect ratio of a component icon is kept when
+changing its size in a model. This flag is set so that all icons of
+the Modelica Standard Library keep its aspect ratios. This is
+slightly non-backward compatible: If the aspect ratio was not kept
+when using a component from the Modelica Standard Library, it is
+now resized so that the aspect ratio is maintained.<br/>
+ </li>
+<li>All non-standard annotations removed by:<br/>
+(1) Removing the annotation since without effect (e.g.,
+"__Dymola_experimentSetupOutput", "Window", "Terminal"
+removed).<br/>
+(2) Renaming the annotation to a standard name (e.g., "Hide"
+renamed to "HideResult").<br/>
+(3) Renaming the annotation to a vendor specific name (e.g.,
+"checkBox" renamed to "__Dymola_checkBox").<br/>
+ </li>
+<li>All emulated enumerations (defined via packages and constants)
+have been replaced by "real" enumerations. User models are
+automatically correctly converted, provided the user models used
+the package constants previously. <strong>Existing models that use
+directly literal values for enumerations, might give in some cases
+wrong results</strong> (if the first constant of the emulated
+enumeration had value zero, whereas the first value of an
+enumeration is one).<br/>
+ </li>
+<li>The operator "cardinality" will be removed in one of the next
+versions of the Modelica language, since it is a reflective
+operator and its usage significantly reduces the possibilities of
+advanced model checks (e.g., to guarantee that a model is
+"balanced", i.e., the number of equations and unknowns is
+identical, for all valid usages of the component). As a preparation
+for this change, all models that contain the "cardinality(..)"
+operator are rewritten: If possible the operator is removed. If
+this is not possible, it is only used in asserts to check that,
+e.g., a connector is connected at least once or is connected
+exactly once. In the next Modelica language version new language
+elements will be introduced to specify such a property check
+without the cardinality operator. Once these language elements are
+available, the cardinality operator will be removed completely from
+the Modelica Standard Library.<br/>
+The changes with respect to the cardinality(..) operator are
+usually not backward compatible. This is the reason for the changes
+of the Rotational and Translational library (see below).<br/>
+ </li>
+<li>The design of the <strong>Rotational</strong> and
+<strong>Translational</strong> libraries have been changed
+(especially to remove the cardinality(..) operator, see above):
+<ul>
+<li>Components have a <strong>useSupport</strong> flag to enable or
+disable a support flange. If the support flange is enabled, it must
+be connected. If it is disabled, it must not be connected and the
+component is then internally grounded. The grounding is visualized
+in the icon.</li>
+<li>The relative angle/distance and the relative speed of all
+force/torque elements (that need the relative speed) are by default
+defined with "StateSelect.prefer", i.e., to use these variables as
+preferred states. This improves the numerics if the absolute angle
+or the absolute distance are continuously increasing during
+operation (e.g., driving shaft of the wheels of a car). The effect
+is that relative angles/distances and speeds are used as states and
+the size of these variables is limited. Previously, the default was
+to use the absolute angle/distance and absolute speed of every
+inertia/mass which has the disadvantage that the absolute angle and
+or distance are state variables that grow in size
+continuously.<br/>
+A significant advantage is also, that default initialization is
+usually better, because a default value of zero for a relative
+angle/distance is usually what the user would like to have.
+Previously, say, the load was initialized to a non-zero angle and
+then the elastically coupled motor inertia had to be explicitly
+also initialized with this value. This is now, no longer needed.
+Since the default nominal value of 1 is usually too large for a
+relative quantity, the nominal values of the relative
+angle/distance was changed to 1e-4.</li>
+<li>The two libraries have been restructured in sublibraries to
+cope with the growing number of components.</li>
+<li>Finally, the Translational library has been made as similar as
+possible to the Rotational library by, e.g., adding missing
+components.<br/>
+ </li>
+</ul>
+</li>
+<li>The initialization of the MultiBody, Rotational and
+Translational libraries have been significantly simplified by
+removing the "initType" parameters and only using start/fixed
+values. This design assumes that a tool has special support for
+start/fixed values in the parameter menu.<br/>
+ </li>
+<li>Nearly all parameters defined in the Modelica Standard Library
+had been defined with a default equation, e.g.,
+<blockquote>
+<pre><strong>parameter</strong> Modelica.SIunits.Resistance R=1; </pre></blockquote>
+Physical parameters, such as a resistance, mass, gear ratio, do not
+have a meaningful default and in nearly all cases, the user of the
+corresponding component has to provide values for such parameters.
+If the user forgets this, a tool cannot provide diagnostics, since
+a default value is present in the library (such as 1 Ohm for the
+resistance). In most cases the model will simulate but will give
+wrong results due to wrong parameter values. To improve this
+situation, all physical parameter declarations in the Modelica
+Standard Library have been changed, so that the previous default
+becomes a start value. For example, the above declaration is
+changed to:
+<blockquote>
+<pre><strong>parameter</strong> Modelica.SIunits.Resistance R(start=1);  </pre></blockquote>
+This is a backward compatible change and completely equivalent from
+the perspective of the Modelica language. It is, however, advised
+that tools will print a warning or optionally an error message, if
+the start value of a parameter is defined, but no value for the
+parameter is given via a modification. Furthermore, it is expected,
+that the input field of a parameter menu is empty, if no default
+equation is defined, but only a start value. This shows clearly to
+the modeler that a value has to be provided.</li>
+</ul>
+<p><br/>
+The following <font color="blue"><strong>new
+components</strong></font> have been added to <font color="blue"><strong>existing</strong></font> libraries (note, the names
+in parentheses are the new sublibrary names that are introduced in
+version 3.0):</p>
+<table border="1" cellpadding="2" cellspacing="0" style="border-collapse:collapse;">
+<tr>
+<td colspan="2"><strong>Blocks.Examples.</strong></td>
+</tr>
+<tr>
+<td>InverseModel</td>
+<td>Demonstrates the construction of an inverse model.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Blocks.Math.</strong></td>
+</tr>
+<tr>
+<td>InverseBlockConstraints</td>
+<td>Construct inverse model by requiring that two inputs and two
+outputs are identical (replaces the previously, unbalanced,
+TwoInputs and TwoOutputs blocks).</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Electrical.Machines.Utilities</strong></td>
+</tr>
+<tr>
+<td>TransformerData</td>
+<td>A record that calculates required impedances (parameters) from
+nominal data of transformers.</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Mechanics.MultiBody.Examples.Rotational3DEffects</strong></td>
+</tr>
+<tr>
+<td>GyroscopicEffects<br/>
+ActuatedDrive<br/>
+MovingActuatedDrive<br/>
+GearConstraint</td>
+<td>New examples to demonstrate the usage of the Rotational library
+in combination with multi-body components.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Mechanics.MultiBody.Sensors</strong></td>
+</tr>
+<tr>
+<td>AbsolutePosition<br/>
+AbsoluteVelocity<br/>
+AbsoluteAngles<br/>
+AbsoluteAngularVelocity<br/>
+RelativePosition<br/>
+RelativeVelocity<br/>
+RelativeAngles<br/>
+RelativeAngularVelocity</td>
+<td>New sensors to measure one vector.</td>
+</tr>
+<tr>
+<td>TransformAbsoluteVector<br/>
+TransformRelativeVector</td>
+<td>Transform absolute and/or relative vector into another
+frame.</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Mechanics.Rotational.(Components)</strong></td>
+</tr>
+<tr>
+<td>Disc</td>
+<td>Right flange is rotated by a fixed angle with respect to left
+flange</td>
+</tr>
+<tr>
+<td>IdealRollingWheel</td>
+<td>Simple 1-dim. model of an ideal rolling wheel without
+inertia</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Mechanics.Translational.Sensors</strong></td>
+</tr>
+<tr>
+<td>RelPositionSensor<br/>
+RelSpeedSensor<br/>
+RelAccSensor<br/>
+PowerSensor</td>
+<td>Relative position sensor, i.e., distance between two
+flanges<br/>
+Relative speed sensor<br/>
+Relative acceleration sensor<br/>
+Ideal power sensor</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Mechanics.Translational(.Components)</strong></td>
+</tr>
+<tr>
+<td>SupportFriction<br/>
+Brake<br/>
+InitializeFlange</td>
+<td>Model of friction due to support<br/>
+Model of a brake, base on Coulomb friction<br/>
+Initializes a flange with pre-defined position, speed and
+acceleration .</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Mechanics.Translational(.Sources)</strong></td>
+</tr>
+<tr>
+<td>Force2<br/>
+LinearSpeedDependentForce<br/>
+QuadraticSpeedDependentForce<br/>
+ConstantForce<br/>
+ConstantSpeed<br/>
+ForceStep</td>
+<td>Force acting on 2 flanges<br/>
+Force linearly dependent on flange speed<br/>
+Force quadratic dependent on flange speed<br/>
+Constant force source<br/>
+Constant speed source<br/>
+Force step</td>
+</tr>
+</table>
+<p><br/>
+The following <font color="blue"><strong>existing
+components</strong></font> have been <font color="blue"><strong>changed</strong></font> in a <font color="blue"><strong>non-backward compatible</strong></font> way (the
+conversion script transforms models and libraries of previous
+versions to the new version. Therefore, conversion should be
+automatic):</p>
+<table border="1" cellpadding="2" cellspacing="0" style="border-collapse:collapse;">
+<tr>
+<td colspan="2"><strong>Blocks.Continuous.</strong></td>
+</tr>
+<tr>
+<td>CriticalDamping</td>
+<td>New parameter "normalized" to define whether filter is provided
+in normalized or non-normalized form. Default is "normalized =
+true". The previous implementation was a non-normalized filter. The
+conversion script automatically introduces the modifier
+"normalized=false" for existing models.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Blocks.Interfaces.</strong></td>
+</tr>
+<tr>
+<td>RealInput<br/>
+RealOutput</td>
+<td>Removed "SignalType", since extending from a replaceable class
+and this is not allowed in Modelica 3.<br/>
+The conversion script removes modifiers to SignalType.</td>
+</tr>
+<tr>
+<td>RealSignal<br/>
+IntegerSignal<br/>
+BooleanSignal</td>
+<td>Moved to library <a href="https://github.com/modelica-deprecated/ObsoleteModelica3">ObsoleteModelica3</a>,
+since these connectors are no longer allowed in Modelica 3<br/>
+(prefixes input and/or output are required).</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Blocks.Interfaces.Adaptors.</strong></td>
+</tr>
+<tr>
+<td>AdaptorReal<br/>
+AdaptorBoolean<br/>
+AdaptorInteger</td>
+<td>Moved to library <a href="https://github.com/modelica-deprecated/ObsoleteModelica3">ObsoleteModelica3</a>,
+since the models are not "balanced". These are completely obsolete
+adaptors<br/>
+between the Real, Boolean, Integer signal connectors of version 1.6
+and version ≥ 2.1 of the Modelica Standard Library.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Blocks.Math.</strong></td>
+</tr>
+<tr>
+<td>ConvertAllUnits</td>
+<td>Moved to library <a href="https://github.com/modelica-deprecated/ObsoleteModelica3">ObsoleteModelica3</a>,
+since extending from a replaceable class and this is not allowed in
+Modelica 3.<br/>
+It would be possible to rewrite this model to use a replaceable
+component. However, the information about the conversion<br/>
+cannot be visualized in the icon in this case.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Blocks.Math.UnitConversions.</strong></td>
+</tr>
+<tr>
+<td>TwoInputs<br/>
+TwoOutputs</td>
+<td>Moved to library <a href="https://github.com/modelica-deprecated/ObsoleteModelica3">ObsoleteModelica3</a>,
+since the models are not "balanced". A new component<br/>
+"InverseBlockConstraints" is provided instead that has the same
+feature, but is "balanced".</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Electrical.Analog.Basic.</strong></td>
+</tr>
+<tr>
+<td>HeatingResistor</td>
+<td>The heatPort has to be connected; otherwise the component
+Resistor (without heatPort) has to be used.<br/>
+cardinality() is only used to check whether the heatPort is
+connected.</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Electrical.Polyphase.Examples.</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>Changed the instance names of components used in the examples
+to more up-to-date style.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Electrical.Machines.</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>Moved package <code>Machines.Examples.Utilities</code> to
+<code>Machines.Utilities</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Removed all nonSIunits; especially in DCMachines<br/>
+parameter NonSIunits.AngularVelocity_rpm rpmNominal was replaced
+by<br/>
+parameter SIunits.AngularVelocity wNominal</td>
+</tr>
+<tr>
+<td></td>
+<td>Changed the following component variable and parameter names to
+be more concise:<br/>
+Removed suffix "DamperCage" from all synchronous machines since the
+user can choose whether the damper cage is present or not.<br/>
+<code>RotorAngle ... RotorDisplacementAngle<br/>
+J_Rotor ... Jr<br/>
+Rr ........ Rrd (damper of synchronous machines)<br/>
+Lrsigma ... Lrsigmad (damper of synchronous machines)<br/>
+phi_mechanical ... phiMechanical<br/>
+w_mechanical ..... wMechanical<br/>
+rpm_mechanical ... rpmMechanical<br/>
+tau_electrical ... tauElectrical<br/>
+tau_shaft ........ tauShaft<br/>
+TurnsRatio ....... turnsRatio (AIMS)<br/>
+VsNom ............ VsNominal (AIMS)<br/>
+Vr_Lr ............ VrLockedRotor (AIMS)<br/>
+DamperCage ....... useDamperCage (synchronous machines)<br/>
+V0 ............... VsOpenCicuit (SMPM)<br/>
+Ie0 .............. IeOpenCicuit (SMEE)</code></td>
+</tr>
+<tr>
+<td>Interfaces.</td>
+<td>Moved as much code as possible from specific machine models to
+partials to reduce redundant code.</td>
+</tr>
+<tr>
+<td>Interfaces.Adapter</td>
+<td>Removed to avoid cardinality; instead, the following solution
+has been implemented:</td>
+</tr>
+<tr>
+<td>Sensors.RotorDisplacementAngle<br/>
+Interfaces.PartialBasicMachine</td>
+<td>Introduced <code>parameter Boolean useSupport=false "enable /
+disable (=fixed stator) support"</code><br/>
+The rotational support connector is only present with
+<code>useSupport = true;</code><br/>
+otherwise the stator is fixed internally.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Electrical.Machines.Examples.</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>Changed the names of the examples to more meaningful
+names.<br/>
+Changed the instance names of components used in the examples to
+more up-to-date style.</td>
+</tr>
+<tr>
+<td>SMEE_Generator</td>
+<td>Initialization of <code>smee.phiMechanical</code> with
+<code>fixed=true</code></td>
+</tr>
+<tr>
+<td colspan="2"><strong>Mechanics.MultiBody.</strong></td>
+</tr>
+<tr>
+<td>World</td>
+<td>Changed default value of parameter driveTrainMechanics3D from
+false to true.<br/>
+3-dim. effects in Rotor1D, Mounting1D and BevelGear1D are therefore
+taken<br/>
+into account by default (previously this was only the case, if
+world.driveTrainMechanics3D was explicitly set).</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Mechanics.MultiBody.Forces.</strong></td>
+</tr>
+<tr>
+<td>FrameForce<br/>
+FrameTorque<br/>
+FrameForceAndTorque</td>
+<td>Models removed, since functionality now available via Force,
+Torque, ForceAndTorque</td>
+</tr>
+<tr>
+<td>WorldForce<br/>
+WorldTorque<br/>
+WorldForceAndTorque<br/>
+Force<br/>
+Torque<br/>
+ForceAndTorque</td>
+<td>Connector frame_resolve is optionally enabled via parameter
+resolveInFrame<br/>
+. Forces and torques and be resolved in all meaningful frames
+defined by enumeration resolveInFrame.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Mechanics.MultiBody.Frames.</strong></td>
+</tr>
+<tr>
+<td>length<br/>
+normalize</td>
+<td>Removed functions, since available also in
+Modelica.Math.Vectors<br/>
+The conversion script changes the references correspondingly.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Mechanics.MultiBody.Joints.</strong></td>
+</tr>
+<tr>
+<td>Prismatic<br/>
+ActuatedPrismatic<br/>
+Revolute<br/>
+ActuatedRevolute<br/>
+Cylindrical<br/>
+Universal<br/>
+Planar<br/>
+Spherical<br/>
+FreeMotion</td>
+<td>Changed initialization, by replacing initial value parameters
+with start/fixed attributes.<br/>
+When start/fixed attributes are properly supported in the parameter
+menu by a Modelica tool,<br/>
+the initialization is considerably simplified for the user and the
+implementation is much simpler.<br/>
+Replaced parameter "enforceStates" by the more general built-in
+enumeration stateSelect=StateSelection.xxx.<br/>
+The conversion script automatically transforms from the "old" to
+the "new" forms.</td>
+</tr>
+<tr>
+<td>Revolute<br/>
+ActuatedRevolute</td>
+<td>Parameter "planarCutJoint" in the "Advanced" menu of "Revolute"
+and of "ActuatedRevolute" removed.<br/>
+A new joint "RevolutePlanarLoopConstraint" introduced that defines
+the constraints of a revolute joint<br/>
+as cut-joint in a planar loop. This change was needed in order that
+the revolute joint can be properly used<br/>
+in advanced model checking.<br/>
+ActuatedRevolute joint removed. Flange connectors of Revolute
+joint<br/>
+can be enabled with parameter useAxisFlange.</td>
+</tr>
+<tr>
+<td>Prismatic<br/>
+ActuatedPrismatic</td>
+<td>ActuatedPrismatic joint removed. Flange connectors of Prismatic
+joint<br/>
+can be enabled with parameter useAxisFlange.</td>
+</tr>
+<tr>
+<td>Assemblies</td>
+<td>Assembly joint implementation slightly changed, so that
+annotation "structurallyIncomplete"<br/>
+could be removed (all Assembly joint models are now
+"balanced").</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Mechanics.MultiBody.Joints.Internal</strong></td>
+</tr>
+<tr>
+<td>RevoluteWithLengthConstraint<br/>
+PrismaticWithLengthConstraint</td>
+<td>These joints should not be used by a user of the MultiBody
+library. They are only provided to built-up the
+MultiBody.Joints.Assemblies.JointXYZ joints. These two joints have
+been changed in a slightly not backward compatible way, in order
+that the usage in the Assemblies.JointXYZ joints results in
+balanced models (<strong>no conversion is provided for this change
+since the user should not have used these joints and the conversion
+would be too complicated</strong>): In releases before version 3.0
+of the Modelica Standard Library, it was possible to activate the
+torque/force projection equation (= cut-torque/-force projected to
+the rotation/translation axis must be identical to the drive
+torque/force of flange axis) via parameter
+<strong>axisTorqueBalance</strong>. This is no longer possible,
+since otherwise this model would not be "balanced" (= same number
+of unknowns as equations). Instead, when using this model in
+version 3.0 and later versions, the torque/force projection
+equation must be provided in the Advanced menu of joints
+Joints.SphericalSpherical and Joints.UniversalSpherical via the new
+parameter "constraintResidue".</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Mechanics.MultiBody.Parts.</strong></td>
+</tr>
+<tr>
+<td>BodyBox<br/>
+BodyCylinder</td>
+<td>Changed unit of parameter density from g/cm3 to the SI unit
+kg/m3 in order to allow stricter unit checking.<br/>
+The conversion script multiplies previous density values with
+1000.</td>
+</tr>
+<tr>
+<td>Body<br/>
+BodyShape<br/>
+BodyBox<br/>
+BodyCylinder<br/>
+PointMass Rotor1D</td>
+<td>Changed initialization, by replacing initial value parameters
+with start/fixed attributes.<br/>
+When start/fixed attributes are properly supported in the parameter
+menu by a Modelica tool,<br/>
+the initialization is considerably simplified for the user and the
+implementation is much simpler.<br/>
+The conversion script automatically transforms from the "old" to
+the "new" form of initialization.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Mechanics.MultiBody.Sensors.</strong></td>
+</tr>
+<tr>
+<td>AbsoluteSensor<br/>
+RelativeSensor<br/>
+CutForceAndTorque</td>
+<td>New design of sensor components: Via Boolean parameters<br/>
+signal connectors for the respective vectors are
+enabled/disabled.<br/>
+It is not possible to automatically convert models to this new
+design.<br/>
+Instead, references in existing models are changed to
+ObsoleteModelice3.<br/>
+This means that these models must be manually adapted.</td>
+</tr>
+<tr>
+<td>CutForce<br/>
+CutTorque</td>
+<td>Slightly new design. The force and/or torque component can be
+resolved in world, frame_a, or frame_resolved.<br/>
+Existing models are automatically converted.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Mechanics.Rotational.</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>Moved components to structured sub-packages (Sources,
+Components)</td>
+</tr>
+<tr>
+<td>Inertia<br/>
+SpringDamper<br/>
+RelativeStates</td>
+<td>Changed initialization, by replacing initial value parameters
+with start/fixed attributes.<br/>
+When start/fixed attributes are properly supported in the parameter
+menu by a Modelica tool,<br/>
+the initialization is considerably simplified for the user and the
+implementation is much simpler.<br/>
+Parameter "stateSelection" in "Inertia" and "SpringDamper" replaced
+by the built-in enumeration<br/>
+stateSelect=StateSelection.xxx. Introduced the "stateSelect"
+enumeration in "RelativeStates".<br/>
+The conversion script automatically transforms from the "old" to
+the "new" forms.</td>
+</tr>
+<tr>
+<td>LossyGear<br/>
+GearBox</td>
+<td>Renamed gear ratio parameter "i" to "ratio", in order to have a
+consistent naming convention.<br/>
+Existing models are automatically converted.</td>
+</tr>
+<tr>
+<td>SpringDamper<br/>
+ElastoBacklash<br/>
+Clutch<br/>
+OneWayClutch</td>
+<td>Relative quantities (phi_rel, w_rel) are used as states, if
+possible (due to StateSelect.prefer).<br/>
+In most cases, relative states in drive trains are better suited as
+absolute states.<br/>
+This change might give changes in the selected states of existing
+models.<br/>
+This might give rise to problems if, e.g., the initialization was
+not completely defined in a user model,<br/>
+since the default initialization heuristic may give different
+initial values.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Mechanics.Translational.</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>Moved components to structured sub-packages (Sources,
+Components)</td>
+</tr>
+<tr>
+<td></td>
+<td>Adaptions corresponding to Rotational</td>
+</tr>
+<tr>
+<td>Stop</td>
+<td>Renamed to Components.MassWithStopAndFriction to be more
+concise.<br/>
+MassWithStopAndFriction is not available with a support
+connector,<br/>
+since the reaction force can't be modeled in a meaningful way due
+to reinit of velocity v.<br/>
+Until a sound implementation of a hard stop is available, the old
+model may be used.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Media.</strong></td>
+</tr>
+<tr>
+<td>constant nX<br/>
+constant nXi<br/>
+constant reference_X<br/>
+BaseProperties</td>
+<td>The package constant nX = nS, now always, even for single
+species media. This also allows to define mixtures with only 1
+element. The package constant nXi=if fixedX then 0 else if reducedX
+or nS==1 then nS - 1 else nS. This required that all BaseProperties
+for single species media get an additional equation to define the
+composition X as {1.0} (or reference_X, which is {1.0} for single
+species). This will also mean that all user defined single species
+media need to be updated by that equation.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>SIunits.</strong></td>
+</tr>
+<tr>
+<td>CelsiusTemperature</td>
+<td>Removed, since no SI unit. The conversion script changes
+references to SIunits.Conversions.NonSIunits.Temperature_degC</td>
+</tr>
+<tr>
+<td>ThermodynamicTemperature<br/>
+TemperatureDifference</td>
+<td>Added annotation "absoluteValue=true/false" in order that unit
+checking is possible<br/>
+(the unit checker needs to know for a unit that has an offset,
+whether it is used as absolute or as a relative number)</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>SIunits.Conversions.NonSIunits.</strong></td>
+</tr>
+<tr>
+<td>Temperature_degC<br/>
+Temperature_degF<br/>
+Temperature_degRk</td>
+<td>Added annotation "absoluteValue=true" in order that unit
+checking is possible<br/>
+(the unit checker needs to know for a unit that has an offset,
+whether it is used as absolute or as a relative number)</td>
+</tr>
+<tr>
+<td colspan="2"><strong>StateGraph.Examples.</strong></td>
+</tr>
+<tr>
+<td>ControlledTanks</td>
+<td>The connectors of the ControlledTanks did not fulfill the new
+restrictions of Modelica 3. This has been fixed.</td>
+</tr>
+<tr>
+<td>Utilities</td>
+<td>Replacing inflow, outflow by connectors inflow1, inflow2,
+outflow1, outflow2 with appropriate input/output prefixes in order
+to fulfill the restrictions of Modelica 3 to arrive at balanced
+models. No conversion is provided, since too difficult and since
+the non-backward compatible change is in an example.</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Thermal.FluidHeatFlow.Sensors.</strong></td>
+</tr>
+<tr>
+<td><br/>
+pSensor<br/>
+TSensor<br/>
+dpSensor<br/>
+dTSensor<br/>
+m_flowSensor<br/>
+V_flowSensor<br/>
+H_flowSensor</td>
+<td>renamed to:<br/>
+PressureSensor<br/>
+TemperatureSensor<br/>
+RelPressureSensor<br/>
+RelTemperatureSensor<br/>
+MassFlowSensor<br/>
+VolumeFlowSensor<br/>
+EnthalpyFlowSensor</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Thermal.FluidHeatFlow.Sources.</strong></td>
+</tr>
+<tr>
+<td>Ambient<br/>
+PrescribedAmbient</td>
+<td>available as one combined component Ambient<br/>
+Boolean parameters usePressureInput and useTemperatureInput decide
+whether pressure and/or temperature are constant or prescribed</td>
+</tr>
+<tr>
+<td>ConstantVolumeFlow<br/>
+PrescribedVolumeFlow</td>
+<td>available as one combined component VolumeFlow<br/>
+Boolean parameter useVolumeFlowInput decides whether volume flow is
+constant or prescribed</td>
+</tr>
+<tr>
+<td>ConstantPressureIncrease<br/>
+PrescribedPressureIncrease</td>
+<td>available as one combined component PressureIncrease<br/>
+Boolean parameter usePressureIncreaseInput decides whether pressure
+increase is constant or prescribed</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Thermal.FluidHeatFlow.Examples.</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>Changed the instance names of components used in the examples
+to more up-to-date style.</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Thermal.HeatTransfer.(Components)</strong></td>
+</tr>
+<tr>
+<td>HeatCapacitor</td>
+<td>Initialization changed: SteadyStateStart removed. Instead
+start/fixed values for T and der_T<br/>
+(initial temperature and its derivative).</td>
+</tr>
+<tr>
+<td><br/>
+<br/>
+HeatCapacitor<br/>
+ThermalConductor<br/>
+ThermalConvection<br/>
+BodyRadiation<br/>
+<br/>
+TemperatureSensor<br/>
+RelTemperatureSensor<br/>
+HeatFlowSensor<br/>
+<br/>
+FixedTemperature<br/>
+PrescribedTemperature<br/>
+FixedHeatFlow<br/>
+PrescribedHeatFlow</td>
+<td>Moved components to sub-packages:<br/>
+<br/>
+Components.HeatCapacitor<br/>
+Components.ThermalConductor<br/>
+Components.ThermalConvection<br/>
+Components.BodyRadiation<br/>
+<br/>
+Sensors.TemperatureSensor<br/>
+Sensors.RelTemperatureSensor<br/>
+Sensors.HeatFlowSensor<br/>
+<br/>
+Sources.FixedTemperature<br/>
+Sources.PrescribedTemperature<br/>
+Sources.FixedHeatFlow<br/>
+Sources.PrescribedHeatFlow</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Thermal.FluidHeatFlow.Examples.</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>Changed the instance names of components used in the examples
+to more up-to-date style.</td>
+</tr>
+</table>
+<p><br/>
+The following <font color="blue"><strong>existing
+components</strong></font> have been <font color="blue"><strong>improved</strong></font> in a <font color="blue"><strong>backward compatible</strong></font> way:</p>
+<table border="1" cellpadding="2" cellspacing="0" style="border-collapse:collapse;">
+<tr>
+<td><strong>Modelica.*</strong></td>
+<td>Parameter declarations, input and output function arguments
+without description strings improved<br/>
+by providing meaningful description texts.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Modelica.Blocks.Continuous.</strong></td>
+</tr>
+<tr>
+<td>TransferFunction</td>
+<td>Internal scaling of the controller canonical states introduced
+in order to enlarge the range of transfer functions where the
+default relative tolerance of the simulator is sufficient.</td>
+</tr>
+<tr>
+<td>Butterworth<br/>
+CriticalDamping</td>
+<td>Documentation improved and plots of the filter characteristics
+added.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Electrical.Analog.Basic.</strong></td>
+</tr>
+<tr>
+<td>EMF</td>
+<td>New parameter "useSupport" to optionally enable a support
+connector.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Icons.</strong></td>
+</tr>
+<tr>
+<td>RectangularSensor<br/>
+RoundSensor</td>
+<td>Removed drawing from the diagram layer (kept drawing only in
+icon layer),<br/>
+in order that this icon can be used in situations where components
+are dragged in the diagram layer.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Math.Vectors.</strong></td>
+</tr>
+<tr>
+<td>normalize</td>
+<td>Implementation changed, so that the result is always
+continuous<br/>
+(previously, this was not the case for small vectors:
+normalize(eps,eps)).</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Mechanics.MultiBody.</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>Renamed non-standard keywords defineBranch, defineRoot,
+definePotentialRoot, isRooted to the standard names:<br/>
+Connections.branch/.root/.potentialRoot/.isRooted.</td>
+</tr>
+<tr>
+<td>Frames</td>
+<td>Added annotation "Inline=true" to all one-line functions (which
+should be all inlined).</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Mechanics.MultiBody.Parts.</strong></td>
+</tr>
+<tr>
+<td>Mounting1D<br/>
+Rotor1D<br/>
+BevelGear1D</td>
+<td>Changed implementation so that no longer modifiers for
+connector variables are used,<br/>
+because this violates the restrictions on "balanced models" of
+Modelica 3.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Mechanics.Rotational.</strong></td>
+</tr>
+<tr>
+<td>InitializeFlange</td>
+<td>Changed implementation so that counting unknowns and equations
+is possible without actual values of parameters.</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Thermal.FluidHeatFlow.Interfaces.</strong></td>
+</tr>
+<tr>
+<td>TwoPort</td>
+<td>Introduced <code>parameter Real tapT(final min=0, final
+max=1)=1</code><br/>
+that defines the temperature of the heatPort between inlet and
+outlet.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>StateGraph.</strong></td>
+</tr>
+<tr>
+<td>InitialStep<br/>
+InitialStepWithSignal<br/>
+Step<br/>
+StepWithSignal</td>
+<td>Changed implementation so that no longer modifiers for output
+variables are used,<br/>
+because this violates the restrictions on "balanced models" of
+Modelica 3.</td>
+</tr>
+</table>
+<p><br/>
+The following <font color="red"><strong>critical
+errors</strong></font> have been fixed (i.e., errors that can lead
+to wrong simulation results):</p>
+<table border="1" cellpadding="2" cellspacing="0" style="border-collapse:collapse;">
+<tr>
+<td colspan="2"><strong>Electrical.Analog.Examples.</strong></td>
+</tr>
+<tr>
+<td>CauerLowPassSC</td>
+<td>Wrong calculation of Capacitor1 both in Rn and Rp corrected
+(C=clock/R instead of C=clock*R)</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Mechanics.MultiBody.Parts.</strong></td>
+</tr>
+<tr>
+<td>Rotor1D</td>
+<td>The 3D reaction torque was not completely correct and gave in
+some situations a wrong result. This bug should not influence the
+movement of a multi-body system, but only the constraint torques
+are sometimes not correct.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Mechanics.Rotational.</strong></td>
+</tr>
+<tr>
+<td>ElastoBacklash</td>
+<td>If the damping torque was too large, the reaction torque could
+"pull" which is unphysical. The component was newly written by
+limiting the damping torque in such a case so that "pulling"
+torques can no longer occur. Furthermore, during initialization the
+characteristics is made continuous to reduce numerical errors. The
+relative angle and relative angular velocities are used as states,
+if possible (StateSelect.prefer), since relative quantities lead
+usually to better behavior.</td>
+</tr>
+<tr>
+<td>Position<br/>
+Speed<br/>
+Accelerate<br/>
+Move</td>
+<td>The movement of the flange was wrongly defined as absolute;
+this is corrected as relative to connector support.<br/>
+For Accelerate, it was necessary to rename RealInput a to a_ref, as
+well as the start values phi_start to phi.start and w_start to
+w.start. The conversion script performs the necessary conversion of
+existing models automatically.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Media.Interfaces.</strong></td>
+</tr>
+<tr>
+<td>PartialSimpleIdealGasMedium</td>
+<td>Inconsistency in reference temperature corrected. This may give
+different results for functions:<br/>
+specificEnthalpy, specificInternalEnergy, specificGibbsEnergy,
+specificHelmholtzEnergy.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Media.Air.</strong></td>
+</tr>
+<tr>
+<td>specificEntropy</td>
+<td>Small bug in entropy computation of ideal gas mixtures
+corrected.</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Media.IdealGases.Common.MixtureGasNasa</strong></td>
+</tr>
+<tr>
+<td>specificEntropy</td>
+<td>Small bug in entropy computation of ideal gas mixtures
+corrected.</td>
+</tr>
+</table>
+<p><br/>
+The following <font color="red"><strong>uncritical
+errors</strong></font> have been fixed (i.e., errors that do
+<font color="red"><strong>not</strong></font> lead to wrong
+simulation results, but, e.g., units are wrong or errors in
+documentation):</p>
+<table border="1" cellpadding="2" cellspacing="0" style="border-collapse:collapse;">
+<tr>
+<td colspan="2"><strong>Blocks.Tables.</strong></td>
+</tr>
+<tr>
+<td>CombiTable2D</td>
+<td>Documentation improved.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Electrica.Digital.Gates</strong></td>
+</tr>
+<tr>
+<td>AndGate<br/>
+NandGate<br/>
+OrGate<br/>
+NorGate<br/>
+XorGate<br/>
+XnorGate</td>
+<td>The number of inputs was not correctly propagated to the
+included base model.<br/>
+This gave a translation error, if the number of inputs was changed
+(and not the default used).</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Electrica.Digital.Sources</strong></td>
+</tr>
+<tr>
+<td>Pulse</td>
+<td>Model differently implemented, so that warning message about
+"cannot properly initialize" is gone.</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Mechanics.Rotational.</strong></td>
+</tr>
+<tr>
+<td>BearingFriction<br/>
+Clutch<br/>
+OneWayClutch<br/>
+Brake<br/>
+Gear</td>
+<td>Declaration of table parameter changed from table[:,:] to
+table[:,2].</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.</strong></td>
+</tr>
+<tr>
+<td>GasForce</td>
+<td>Unit of variable "press" corrected (from Pa to bar)</td>
+</tr>
+<tr>
+<td colspan="2"><strong>StateGraph.Examples.</strong></td>
+</tr>
+<tr>
+<td>SimpleFriction</td>
+<td>The internal parameter k is defined and calculated with the
+appropriate unit.</td>
+</tr>
+<tr>
+<td colspan="2">
+<strong>Thermal.FluidHeatFlow.Interfaces.</strong></td>
+</tr>
+<tr>
+<td>SimpleFriction</td>
+<td>The internal parameter k is defined and calculated with the
+appropriate unit.</td>
+</tr>
+</table>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

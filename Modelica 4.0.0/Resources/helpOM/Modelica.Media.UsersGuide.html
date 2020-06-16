@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Media.UsersGuide</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<span class="omc-h1">UsersGuide</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Library <strong>Modelica.Media</strong> is a
+<strong>free</strong> Modelica package providing a standardized
+interface to fluid media models and specific media models based on
+this interface. A fluid medium model defines
+<strong>algebraic</strong> equations for the intensive
+thermodynamic variables used in the <strong>mass</strong> and
+<strong>energy</strong> balance of component models. Optionally,
+additional medium properties can be computed such as dynamic
+viscosity or thermal conductivity. Medium models are defined for
+<strong>single</strong> and <strong>multiple substance</strong>
+fluids with <strong>one</strong> and <strong>multiple
+phases</strong>.</p>
+<p>A large part of the library provides specific medium models that
+can be directly utilized. This library can be used in all types of
+Modelica fluid libraries that may have different connectors and
+design philosophies. It is particularly utilized in the
+Modelica.Fluid library (1D therm-fluid flow components for single
+and multiple substance flow with one and multiple phases). The
+Modelica.Media library has the following main features:</p>
+<ul>
+<li>Balance equations and media model equations are decoupled. This
+means that the used medium model does usually not have an influence
+on how the balance equations are formulated. For example, the same
+balance equations are used for media that use pressure and
+temperature, or pressure and specific enthalpy as independent
+variables, as well as for incompressible and compressible media
+models. A Modelica tool will have enough information to generate as
+efficient code as a traditional (coupled) definition. This feature
+is described in more detail in section <a href="Modelica.Media.UsersGuide.MediumDefinition.StaticStateSelection.html">
+Static State Selection</a>.</li>
+<li>Optional variables, such as dynamic viscosity, are only
+computed if needed in the corresponding component.</li>
+<li>The independent variables of a medium model do not influence
+the definition of a fluid connector port. Especially, the media
+models are implemented in such a way that a connector may have the
+minimum number of independent medium variables in a connector and
+still get the same efficiency as if all medium variables are passed
+by the connector from one component to the next one (the latter
+approach has the restriction that a fluid port can only connect two
+components and not more). Note, the Modelica.Fluid library uses the
+first approach, i.e., having a set of independent medium variables
+in a connector.</li>
+<li>The medium models are implemented with regards to efficient
+dynamic simulation. For example, two phase medium models trigger
+state events at phase boundaries (because the medium variables are
+not differentiable at this point).</li>
+</ul>
+<p>This User's Guide has the following main parts:</p>
+<ul>
+<li><a href="Modelica.Media.UsersGuide.MediumUsage.html">Medium usage</a>
+describes how to use a medium model from this library in a
+component model.</li>
+<li><a href="Modelica.Media.UsersGuide.MediumDefinition.html">Medium
+definition</a> describes how a new fluid medium model has to be
+implemented.</li>
+<li><a href="Modelica.Media.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>
+summarizes the changes of the library releases.</li>
+<li><a href="Modelica.Media.UsersGuide.Contact.html">Contact</a> provides
+information about the authors of the library as well as
+acknowledgements.</li>
+</ul>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Media.UsersGuide.MediumUsage.html"><img class="svgiconsmall" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a href="Modelica.Media.UsersGuide.MediumUsage.html">MediumUsage</a></td>
+<td>Medium usage</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.UsersGuide.MediumDefinition.html"><img class="svgiconsmall" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a href="Modelica.Media.UsersGuide.MediumDefinition.html">MediumDefinition</a></td>
+<td>Medium definition</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.UsersGuide.ReleaseNotes.html"><img class="svgiconsmall" src="Icons/7e5916c8ded3e7489f5937a6ee55f7f07d893583.svg"/></a> <a href="Modelica.Media.UsersGuide.ReleaseNotes.html">ReleaseNotes</a></td>
+<td>Release notes</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.UsersGuide.Contact.html"><img class="svgiconsmall" src="Icons/f3ef749b2ec71fc61c5a4ace7b026be8fc76f39a.svg"/></a> <a href="Modelica.Media.UsersGuide.Contact.html">Contact</a></td>
+<td>Contact</td>
+</tr>
+</table>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

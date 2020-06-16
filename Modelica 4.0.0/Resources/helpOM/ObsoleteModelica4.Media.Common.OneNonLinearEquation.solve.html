@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+ObsoleteModelica4.Media.Common.OneNonLinearEquation.solve</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ObsoleteModelica4.html">ObsoleteModelica4</a>.<a class="omc-h1-a" href="ObsoleteModelica4.Media.html">Media</a>.<a class="omc-h1-a" href="ObsoleteModelica4.Media.Common.html">Common</a>.<a class="omc-h1-a" href="ObsoleteModelica4.Media.Common.OneNonLinearEquation.html">OneNonLinearEquation</a>.<span class="omc-h1">solve</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<pre>Solve f_nonlinear(x_zero)=y_zero; f_nonlinear(x_min) - y_zero and f_nonlinear(x_max)-y_zero must have different sign</pre>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>function solve
+  import Modelica.Utilities.Streams.error;
+  extends Modelica.Icons.Function;
+  extends Modelica.Icons.ObsoleteModel;
+  input Real y_zero "Determine x_zero, such that f_nonlinear(x_zero) = y_zero";
+  input Real x_min "Minimum value of x";
+  input Real x_max "Maximum value of x";
+  input Real pressure = 0.0 "Disregarded variables (here always used for pressure)";
+  input Real[:] X = fill(0, 0) "Disregarded variables (here always used for composition)";
+  input f_nonlinear_Data f_nonlinear_data "Additional data for function f_nonlinear";
+  input Real x_tol = 100 * Modelica.Constants.eps "Relative tolerance of the result";
+  output Real x_zero "f_nonlinear(x_zero) = y_zero";
+end solve;</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

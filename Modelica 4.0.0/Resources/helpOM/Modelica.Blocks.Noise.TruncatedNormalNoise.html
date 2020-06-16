@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Blocks.Noise.TruncatedNormalNoise</title>
+</head>
+<body>
+<h1><a href="Icons/96277739117564751c74115e3d72cfdf0db7d64a.svg"><img class="svgiconhead" src="Icons/96277739117564751c74115e3d72cfdf0db7d64a.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Noise.html">Noise</a>.<span class="omc-h1">TruncatedNormalNoise</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>A summary of the common properties of the noise blocks is
+provided in the documentation of package <a href="Modelica.Blocks.Noise.html">Blocks.Noise</a>. This
+TruncatedNormalNoise block generates reproducible, random noise at
+its output according to a truncated normal distribution. This means
+that normally distributed random values are truncated to the band
+y_min ... y_max. Measurement noise has often this distribution
+form. By default, the standard parameters of the truncated normal
+distribution are derived from y_min ... y_max:</p>
+<blockquote>
+<p>mean value = (y_max + y_min)/2,<br/>
+standard deviation = (y_max - y_min)/6 (= 99.7 % of the
+non-truncated normal distribution are within y_min ... y_max).</p>
+</blockquote>
+<p>For an example see <a href="Modelica.Blocks.Examples.Noise.Distributions.html">Examples.Noise.Distributions</a>.
+By default, two or more instances produce different, uncorrelated
+noise at the same time instant. The block can only be used if on
+the same or a higher hierarchical level, model <a href="Modelica.Blocks.Noise.GlobalSeed.html">Blocks.Noise.GlobalSeed</a>
+is dragged to provide global settings for all instances.</p>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<table border="1" cellpadding="2" cellspacing="0">
+<tr>
+<th>Date</th>
+<th align="left">Description</th>
+</tr>
+<tr>
+<td>June 22, 2015</td>
+<td>
+<table border="0">
+<tr>
+<td><img alt="DLR logo" src="../../../Modelica%204.0.0/Resources/Images/Logos/dlr_logo.png"/></td>
+<td valign="bottom">Initial version implemented by A. Klöckner, F.
+v.d. Linden, D. Zimmer, M. Otter.<br/>
+<a href="http://www.dlr.de/rmc/sr/en">DLR Institute of System
+Dynamics and Control</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

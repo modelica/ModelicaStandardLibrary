@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Mechanics.MultiBody.World</title>
+</head>
+<body>
+<h1><a href="Icons/ef8109fc9719eba7028cdbb4a4c0b0788b73bc82.svg"><img class="svgiconhead" src="Icons/ef8109fc9719eba7028cdbb4a4c0b0788b73bc82.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<span class="omc-h1">World</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Model <strong>World</strong> represents a global coordinate
+system fixed in ground. This model serves several purposes:</p>
+<ul>
+<li>It is used as <strong>inertial system</strong> in which the
+equations of all elements of the MultiBody library are
+defined.</li>
+<li>It is the world frame of an <strong>animation window</strong>
+in which all elements of the MultiBody library are visualized.</li>
+<li>It is used to define the <strong>gravity field</strong> in
+which a multi-body model is present. Default is a uniform gravity
+field where the gravity acceleration vector g is the same at every
+position. Additionally, a point gravity field or no gravity can be
+selected. Also, function gravityAcceleration can be redeclared to a
+user-defined function that computes the gravity acceleration, see
+example <a href="Modelica.Mechanics.MultiBody.Examples.Elementary.UserDefinedGravityField.html">
+Examples.Elementary.UserDefinedGravityField</a>.</li>
+<li>It is used to define <strong>default settings</strong> of
+animation properties (e.g., the diameter of a sphere representing
+by default the center of mass of a body, or the diameters of the
+cylinders representing a revolute joint).</li>
+<li>It is used to define a <strong>visual representation</strong>
+of the world model (= 3 coordinate axes with labels), of the
+defined gravity field and of a ground plane perpendicular to the
+gravity direction.<br/>
+<img alt="MultiBody.World" src="../../../Modelica%204.0.0/Resources/Images/Mechanics/MultiBody/world.png"/></li>
+</ul>
+<p>Since the gravity field function is required from all bodies
+with mass and the default settings of animation properties are
+required from nearly every component, exactly one instance of model
+World needs to be present in every model on the top level. The
+basic declaration needs to be:</p>
+<blockquote>
+<pre>
+<strong>inner</strong> Modelica.Mechanics.MultiBody.World world
+</pre></blockquote>
+<p>Note, it must be an <strong>inner</strong> declaration with
+instance name <strong>world</strong> in order that this world
+object can be accessed from all objects in the model. When dragging
+the "World" object from the package browser into the diagram layer,
+this declaration is automatically generated (this is defined via
+annotations in model World).</p>
+<p>All vectors and tensors of a mechanical system are resolved in a
+frame that is local to the corresponding component. Usually, if all
+relative joint coordinates vanish, the local frames of all
+components are parallel to each other, as well as to the world
+frame (this holds as long as a Parts.FixedRotation, component is
+<strong>not</strong> used). In this "reference configuration" it is
+therefore alternatively possible to resolve all vectors in the
+world frame, since all frames are parallel to each other. This is
+often very convenient. In order to give some visual support in such
+a situation, in the icon of a World instance two axes of the world
+frame are shown and the labels of these axes can be set via
+parameters.</p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.World.gravityAcceleration.html"><img class="svgiconsmall" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a href="Modelica.Mechanics.MultiBody.World.gravityAcceleration.html">gravityAcceleration</a></td>
+<td></td>
+</tr>
+</table>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

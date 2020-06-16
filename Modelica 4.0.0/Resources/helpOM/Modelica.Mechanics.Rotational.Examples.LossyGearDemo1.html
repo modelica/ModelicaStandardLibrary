@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Mechanics.Rotational.Examples.LossyGearDemo1</title>
+</head>
+<body>
+<h1><a href="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg"><img class="svgiconhead" src="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.html">Rotational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.Examples.html">Examples</a>.<span class="omc-h1">LossyGearDemo1</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This model contains two inertias which are connected by an ideal
+gear where the friction between the teeth of the gear is modeled in
+a physical meaningful way (friction may lead to stuck mode which
+locks the motion of the gear). The friction is defined by an
+efficiency factor (= 0.5) for forward and backward driving
+condition leading to a torque dependent friction loss. Simulate for
+about 0.5 seconds. The friction in the gear will take all modes
+(forward and backward rolling, as well as stuck).</p>
+<p>You may plot:</p>
+<blockquote>
+<pre>
+Inertia1.w,
+Inertia2.w : angular velocities of inertias
+powerLoss  : power lost in the gear
+gear.mode  :  1 = forward rolling
+              0 = stuck (w=0)
+             -1 = backward rolling
+</pre></blockquote>
+<p>Note, <code>powerLoss</code> (= sum of the power flows of the
+connectors) and <code>gear.powerLoss</code> (=
+<code>gear.tau_loss</code>*<code>gear.w_a</code>, where
+<code>gear.tau_loss</code> is determined in a non-trivial way from
+the stuck/sliding situation of the bearing and teeth friction; =
+equation (16) in [<a href="Modelica.Mechanics.Rotational.UsersGuide.References.html">Pelchen2002</a>])
+should be identical, or the difference should be close to zero, if
+model <a href="Modelica.Mechanics.Rotational.Components.LossyGear.html">LossyGear</a>
+is correctly implemented.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

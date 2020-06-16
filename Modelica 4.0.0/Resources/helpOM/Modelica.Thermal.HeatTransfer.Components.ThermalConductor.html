@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Thermal.HeatTransfer.Components.ThermalConductor</title>
+</head>
+<body>
+<h1><a href="Icons/3e13cb3e1f5de8e2221416832a81951df44bc4f0.svg"><img class="svgiconhead" src="Icons/3e13cb3e1f5de8e2221416832a81951df44bc4f0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Thermal.html">Thermal</a>.<a class="omc-h1-a" href="Modelica.Thermal.HeatTransfer.html">HeatTransfer</a>.<a class="omc-h1-a" href="Modelica.Thermal.HeatTransfer.Components.html">Components</a>.<span class="omc-h1">ThermalConductor</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This is a model for transport of heat without storing it; see
+also: <a href="Modelica.Thermal.HeatTransfer.Components.ThermalResistor.html">
+ThermalResistor</a>. It may be used for complicated geometries
+where the thermal conductance G (= inverse of thermal resistance)
+is determined by measurements and is assumed to be constant over
+the range of operations. If the component consists mainly of one
+type of material and a regular geometry, it may be calculated,
+e.g., with one of the following equations:</p>
+<ul>
+<li>
+<p>Conductance for a <strong>box</strong> geometry under the
+assumption that heat flows along the box length:</p>
+<blockquote>
+<pre>
+G = k*A/L
+k: Thermal conductivity (material constant)
+A: Area of box
+L: Length of box
+    </pre></blockquote>
+</li>
+<li>
+<p>Conductance for a <strong>cylindrical</strong> geometry under
+the assumption that heat flows from the inside to the outside
+radius of the cylinder:</p>
+<blockquote>
+<pre>
+G = 2*pi*k*L/log(r_out/r_in)
+pi   : Modelica.Constants.pi
+k    : Thermal conductivity (material constant)
+L    : Length of cylinder
+log  : Modelica.Math.log;
+r_out: Outer radius of cylinder
+r_in : Inner radius of cylinder
+    </pre></blockquote>
+</li>
+</ul>
+<blockquote>
+<pre>
+Typical values for k at 20 degC in W/(m.K):
+  aluminium   220
+  concrete      1
+  copper      384
+  iron         74
+  silver      407
+  steel        45 .. 15 (V2A)
+  wood         0.1 ... 0.2
+</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Math.Distributions.TruncatedWeibull.cumulative</title>
+</head>
+<body>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Distributions.html">Distributions</a>.<a class="omc-h1-a" href="Modelica.Math.Distributions.TruncatedWeibull.html">TruncatedWeibull</a>.<span class="omc-h1">cumulative</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Weibull.<strong>cumulative</strong>(u, u_min=0, u_max=1, lambda=1, k=1);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function computes the cumulative distribution function
+according to a <strong>truncated Weibull</strong> distribution with
+minimum value <strong>u_min</strong>, maximum value
+<strong>u_max</strong>, scale parameter of original distribution
+<strong>lambda</strong> and shape parameter of original
+distribution <strong>k</strong>. The returned value y is in the
+range:</p>
+<blockquote>0 ≤ y ≤ 1</blockquote>
+<p>Plot of the function:</p>
+<blockquote><img src="../../../Modelica%204.0.0/Resources/Images/Math/Distributions/TruncatedWeibull.cumulative.png"/></blockquote>
+<p>For more details<br/>
+of the Weibull distribution, see <a href="http://en.wikipedia.org/wiki/Weibull_distribution">Wikipedia</a>,<br/>
+
+of truncated distributions, see <a href="http://en.wikipedia.org/wiki/Truncated_distribution">Wikipedia</a>.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+cumulative(0.5)             // = 0.6224593312018546
+cumulative(0.5,0,0.8,0.5,2) // = 0.6850805314988328
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Distributions.TruncatedWeibull.density.html">TruncatedWeibull.density</a>,
+<a href="Modelica.Math.Distributions.TruncatedWeibull.quantile.html">TruncatedWeibull.quantile</a>.</p>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>function cumulative
+  import Modelica.Math.Distributions.Weibull;
+  extends Modelica.Math.Distributions.Interfaces.partialTruncatedCumulative;
+  input Real lambda(min = 0) = 1 "Scale parameter of the Weibull distribution" annotation(
+    Dialog);
+  input Real k(min = 0) "Shape parameter of the Weibull distribution" annotation(
+    Dialog);
+end cumulative;</pre></blockquote>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<table border="1" cellpadding="2" cellspacing="0">
+<tr>
+<th>Date</th>
+<th align="left">Description</th>
+</tr>
+<tr>
+<td>June 22, 2015</td>
+<td>
+<table border="0">
+<tr>
+<td><img alt="DLR logo" src="../../../Modelica%204.0.0/Resources/Images/Logos/dlr_logo.png"/></td>
+<td valign="bottom">Initial version implemented by A. Klöckner, F.
+v.d. Linden, D. Zimmer, M. Otter.<br/>
+<a href="http://www.dlr.de/rmc/sr/en">DLR Institute of System
+Dynamics and Control</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>ModelicaReference.Operators.'cardinality()'</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Operators.html">Operators</a>.<span class="omc-h1">'cardinality()'</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Number of connectors in connection. This is a deprecated
+operator. It should no longer be used, since it will be removed in
+one of the next Modelica releases.</p>
+<h4>Syntax</h4>
+<blockquote>
+<pre><strong>cardinality</strong>(c)</pre></blockquote>
+<h4>Description</h4>
+<p>Returns the number of (inside and outside) occurrences of
+connector instance c in a connect statement as an Integer
+number.</p>
+<p><em>[The cardinality operator allows the definition of
+connection dependent equations in a model.]</em></p>
+<p>Instead of the cardinality(..) operator, often conditional
+connectors can be used, that are enabled/disabled via Boolean
+parameters.</p>
+<h4>Examples</h4>
+<blockquote>
+<pre><strong>connector</strong> Pin
+  Real      v;
+  <strong>flow</strong> Real i;
+<strong>end</strong> Pin;
+<strong>model</strong> Resistor
+   <strong>Pin</strong> p, n;
+<strong>equation</strong>
+   // Handle cases if pins are not connected
+      <strong>if cardinality</strong>(p) == 0 <strong>and cardinality</strong>(n) == 0 <strong>then</strong>
+         p.v = 0;
+         n.v = 0;
+      <strong>elseif cardinality</strong>(p) == 0 <strong>then</strong>
+         p.i = 0;
+      <strong>elseif cardinality</strong>(n) == 0 <strong>then</strong>
+         n.i = 0;
+      <strong>end if</strong>;
+   // Equations of resistor
+      ...
+<strong>end</strong> Resistor;</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

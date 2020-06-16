@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Clocked.html">Clocked</a>.<a class="omc-h1-a" href="Modelica.Clocked.ClockSignals.html">ClockSignals</a>.<a class="omc-h1-a" href="Modelica.Clocked.ClockSignals.Clocks.html">Clocks</a>.<span class="omc-h1">PeriodicRealClock</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This component generates a periodic clock that starts ticking
+when the simulation starts. The <strong>period</strong> is defined
+in seconds by a <strong>Real</strong> number. If clocks are
+synchronized relatively to each other then only one of the clocks
+can be defined with PeriodicRealClock.</p>
+<p>For an introduction to clocks see <a href="Modelica.Clocked.UsersGuide.Clocks.html">UsersGuide.Clocks</a>.
+If exact, integer based, time synchronization with absolute period
+definitions is desired, use block <a href="Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock.html">
+PeriodicExactClock</a> to generate a periodic clock signal.</p>
+<p>If a clock is associated to a clocked continuous-time partition,
+then an <strong>integrator</strong> has to be defined that is used
+to integrate the partition from the previous to the current clock
+tick. This is performed by setting parameter
+<strong>useSolver</strong> = <strong>true</strong> and defining the
+integration method as String with parameter
+<strong>solver</strong>. Both parameters are in tab
+<strong>Advanced</strong>. For an example, see <a href="Modelica.Clocked.Examples.Systems.ControlledMixingUnit.html">
+Examples.Systems.ControlledMixingUnit</a>.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

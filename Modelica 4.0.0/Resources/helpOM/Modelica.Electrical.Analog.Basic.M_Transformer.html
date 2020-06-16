@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Electrical.Analog.Basic.M_Transformer</title>
+</head>
+<body>
+<h1><a href="Icons/98eca594fb620baf2674bebe836b76721b2df23a.svg"><img class="svgiconhead" src="Icons/98eca594fb620baf2674bebe836b76721b2df23a.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.html">Analog</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.Basic.html">Basic</a>.<span class="omc-h1">M_Transformer</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>The model <em>M_Transformer</em> is a model of a transformer
+with the possibility to choose the number of inductors. Inside the
+model, an inductance matrix is built based on the inductance of the
+inductors and the coupling inductances between the inductors given
+as a parameter vector from the user of the model.</p>
+<p>An example shows that approach:<br/>
+The user chooses a model with <strong>three</strong> inductors,
+that means the parameter <em><strong>N</strong></em> has to be
+<strong>3</strong>. Then he has to specify the inductances of the
+three inductors and the three coupling inductances. The coupling
+inductances are no real existing devices, but effects that occur
+between two inductors. The inductances (main diagonal of the
+inductance matrix) and the coupling inductances have to be
+specified in the parameter vector <em>L</em>. The length
+<em>dimL</em> of the parameter vector is calculated as follows:
+<em><strong>dimL=(N*(N+1))/2</strong></em></p>
+<p>The following example shows how the parameter vector is used to
+fill in the inductance matrix. To specify the inductance matrix of
+a three inductances transformer (<em>N=3</em>):</p>
+<p><img alt="L_m" src="../../../Modelica%204.0.0/Resources/Images/Electrical/Analog/Basic/M_Transformer-eq.png"/></p>
+<p>the user has to allocate the parameter vector <em>L[6]</em> ,
+since <em>Nv=(N*(N+1))/2=(3*(3+1))/2=6</em>. The parameter vector
+must be filled like this: <em>L=[1,0.1,0.2,2,0.3,3]</em> .</p>
+<p>Inside the model, two loops are used to fill the inductance
+matrix to guarantee that it is filled in a symmetric way.</p>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<table border="1" cellpadding="2" cellspacing="0">
+<tr>
+<th>Version</th>
+<th>Revision</th>
+<th>Date</th>
+<th>Author</th>
+<th>Comment</th>
+</tr>
+<tr>
+<td></td>
+<td>4163</td>
+<td>2010-09-11</td>
+<td>Dietmar Winkler</td>
+<td>Documentation corrected according to documentation
+guidelines.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>2008-11-24</td>
+<td>Kristin Majetta</td>
+<td>Documentation added.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>2008-11-16</td>
+<td>Kristin Majetta</td>
+<td>Initially implemented</td>
+</tr>
+</table>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

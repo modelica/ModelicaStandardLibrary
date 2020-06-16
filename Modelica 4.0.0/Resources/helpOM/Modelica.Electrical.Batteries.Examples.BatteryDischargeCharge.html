@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Electrical.Batteries.Examples.BatteryDischargeCharge</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Batteries.html">Batteries</a>.<a class="omc-h1-a" href="Modelica.Electrical.Batteries.Examples.html">Examples</a>.<span class="omc-h1">BatteryDischargeCharge</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Two batteries with a nominal charge of 10 A.h starting with an
+initial SOC = 95 % are compared:</p>
+<ul>
+<li><code>battery1</code> is a battery OCV linearly dependent on
+SOC, without self-discharge and not comprising RC-elements.</li>
+<li><code>battery2</code> is a battery OCV dependency on SOC is
+specified by a table, with self-discharge and including
+RC-elements.</li>
+</ul>
+<p>Two <a href="Modelica.Electrical.Batteries.ParameterRecords.CellData.html">
+parameter records</a> <code>cellData1</code> and
+<code>cellData2</code> are used to parameterize the battery
+models.</p>
+<p>First the batteries are discharged with 7 current pulses of 50 A
+for 1 minute, and breaks between the pulses of 1 minute, ending at
+SOC = 5 %.<br/>
+Subsequently, the batteries are charged again with 7 current pulses
+of 50 A for 1 minute, and breaks between the pulses of 1 minute,
+ending at SOC = 95 % again.<br/>
+In the end, the batteries are in no-load condition to reveal
+self-discharge effects. Note that self-discharge of
+<code>battery2</code> is set to an unrealistic high value, to show
+self-discharge within a rather short time span.<br/>
+The parameters of the RC-elements of <code>battery2</code> are set
+to estimated values, just to demonstrate the effects.</p>
+<p>Simulate and plot terminal voltage <code>battery1.v</code> and
+<code>battery2.v</code> as well as state of charge
+<code>battery1.SOC</code> and <code>battery2.SOC</code>.</p>
+<p>Plotting <code>energy1.y</code> and <code>energy2.y</code>, it
+is remarkable that first energy is delivered by the battery, but
+then due to the losses more energy is consumed to recharge the
+battery.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

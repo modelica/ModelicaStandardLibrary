@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_ResistiveBraking</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.html">Machines</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Examples.SynchronousMachines.html">SynchronousMachines</a>.<span class="omc-h1">SMPM_ResistiveBraking</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>The voltages induced by the permanent magnets of the synchronous
+machine is shortened over the inductance and resistance of the
+stator winding and the (optional) external braking resistors. The
+currents driven by these voltages cause a braking torque.</p>
+<p>The external braking resistor is implemented with three stages
+which get shortened at different points during braking. Note that
+the first (smallest) stage is not shortened, which ensures a
+minimum damping to avoid oscillations of angular velocity around
+zero. The total braking resistance (sum of all stages) has to be
+adapted to the angular velocity at which braking starts.</p>
+<p>Plot tauElectrical and tauShaft versus wMechanical.</p>
+<p>Default machine parameters are used.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

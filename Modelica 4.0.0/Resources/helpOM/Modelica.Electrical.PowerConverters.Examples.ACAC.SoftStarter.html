@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Electrical.PowerConverters.Examples.ACAC.SoftStarter</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.PowerConverters.html">PowerConverters</a>.<a class="omc-h1-a" href="Modelica.Electrical.PowerConverters.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Electrical.PowerConverters.Examples.ACAC.html">ACAC</a>.<span class="omc-h1">SoftStarter</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This model demonstrates a soft start of an induction machine:
+Voltage ramp is started at 0.1 s and should ramp up to nominal
+voltage within 4s, but current is limited to 2.5 times nominal
+current. At 5.5 s a voltage ramp down within 3 s is required.</p>
+<p>Reference voltage is controlled by the <a href="Modelica.Electrical.PowerConverters.ACAC.Control.SoftStartControl.html">
+softStartControl block</a>, reference voltage is converted to
+firing angle by the <a href="Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle.html">
+voltageToAngle block</a>. Firing angle is processed by the <a href="Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse.html">
+Signal2mPulse adaptor</a> to firing signals which are applied to
+the <a href="Modelica.Electrical.PowerConverters.ACAC.PolyphaseTriac.html">
+triac</a>.</p>
+<p>Compare starting with firing angle by <a href="Modelica.Electrical.Machines.Examples.InductionMachines.IMC_DOL.html">
+starting direct on line</a>, <a href="Modelica.Electrical.Machines.Examples.InductionMachines.IMC_YD.html">
+star-delta starting</a>, and <a href="Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Transformer.html">
+starting via a transformer</a>.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

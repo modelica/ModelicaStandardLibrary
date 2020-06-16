@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>ModelicaReference.'time'</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<span class="omc-h1">'time'</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Built-in variable time</p>
+<h4>Examples</h4>
+<blockquote>
+<pre><strong>encapsulated model</strong> SineSource
+  <strong>import</strong> Modelica.Math.sin;
+  <strong>connector</strong> OutPort=<strong>output</strong> Real;
+  OutPort y=sin(time); // Uses the built-in variable time.
+<strong>end</strong> SineSource;</pre></blockquote>
+<h4>Syntax</h4>
+<blockquote>
+<pre><strong>time</strong></pre></blockquote>
+<h4>Description</h4>
+<p>All declared variables are functions of the independent variable
+<strong>time</strong>. Time is a built-in variable available in all
+classes, which is treated as an input variable. It is implicitly
+defined as:</p>
+<blockquote>
+<pre><strong>input</strong> Real time (<strong>final</strong> quantity = "Time",
+                 <strong>final</strong> unit     = "s");</pre></blockquote>
+<p>The value of the <strong>start</strong> attribute of time is set
+to the time instant at which the simulation is started.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

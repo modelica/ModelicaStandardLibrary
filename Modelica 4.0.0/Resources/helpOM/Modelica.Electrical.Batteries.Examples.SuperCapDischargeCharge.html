@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Electrical.Batteries.Examples.SuperCapDischargeCharge</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Batteries.html">Batteries</a>.<a class="omc-h1-a" href="Modelica.Electrical.Batteries.Examples.html">Examples</a>.<span class="omc-h1">SuperCapDischargeCharge</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>A supercap with a capacitance of 500 F, starting initially at
+nominal voltage 48 V, is discharged with 5 current pulses of 240 A
+for 10 seconds, and breaks between the pulses of 10 seconds.
+Subsequently, the supercap is charged again with 5 current pulses
+of 240 A for 10 seconds, and breaks between the pulses of 10
+seconds. In the end, the supercap is in no-load condition to reveal
+self-discharge effects.</p>
+<p>Note that self-discharge is set to an unrealistic high value, to
+show self-discharge within a rather short time span.<br/>
+The other parameters of the supercap is set to estimated but
+realistic values:</p>
+<ul>
+<li><code>C = 500 F</code></li>
+<li><code>Vnom = 48 V</code></li>
+<li><code>Qnom = C*Vnom = 24,000 As</code></li>
+<li><code>Ri = 2 mΩ</code></li>
+</ul>
+<p>Simulate and plot terminal voltage <code>supercap.v</code>.</p>
+<p>Plotting <code>energy.y</code>, it is remarkable that first
+energy is delivered by the supercap, but then due to the losses
+more energy is consumed to recharge the supercap.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

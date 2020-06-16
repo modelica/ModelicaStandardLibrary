@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Math.FastFourierTransform.realFFTinfo</title>
+</head>
+<body>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.FastFourierTransform.html">FastFourierTransform</a>.<span class="omc-h1">realFFTinfo</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+<strong>realFFTinfo</strong>(f_max, f_resolution, f_max_factor=5);
+</pre></blockquote>
+<h4>Description</h4>
+<p>From the maximum interested frequency f_max (in [Hz]) and the
+frequency resolution f_resolution (in [Hz]) the function computes
+the key FFT data as used by the FFT blocks and prints them to the
+output window.</p>
+<h4>Example</h4>
+<blockquote>realFFTinfo(f_max=170, f_resolution=0.3)</blockquote>
+<p>results in the following output:</p>
+<blockquote>
+<pre>
+... Real FFT properties
+ Desired:
+    f_max         = 170 Hz
+    f_resolution  = 0.3 Hz
+    f_max_factor  = 5
+ Calculated:
+    Number of sample points    = 5760 (= 2^7*3^2*5^1)
+    Sampling frequency         = 1728 Hz (= 0.3*5760)
+    Sampling period            = 0.000578704 s (= 1/1728)
+    Maximum FFT frequency      = 864 Hz (= 0.3*5760/2; f={0,0.3,0.6,...,864} Hz)
+    Number of frequency points = 2881 (= 5760/2+1)
+    Simulation time            = 3.33275 s
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.FastFourierTransform.realFFTsamplePoints.html">
+realFFTsamplePoints</a>, <a href="Modelica.Math.FastFourierTransform.realFFT.html">realFFT</a>,
+<a href="Modelica.Math.FastFourierTransform.realFFTwriteToFile.html">realFFTwriteToFile</a></p>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>function realFFTinfo
+  extends Modelica.Icons.Function;
+  import Modelica.Utilities.Streams.print;
+  input SI.Frequency f_max "Maximum frequency";
+  input SI.Frequency f_resolution "Frequency resolution";
+  input Integer f_max_factor(min = 1) = 5 "Maximum FFT frequency &gt;= f_max*f_max_factor (sample frequency = 2*Maximum FFT Frequency)";
+end realFFTinfo;</pre></blockquote>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<table border="1" cellpadding="2" cellspacing="0">
+<tr>
+<th>Date</th>
+<th align="left">Description</th>
+</tr>
+<tr>
+<td>Nov. 29, 2015</td>
+<td>Initial version implemented by Martin R. Kuhn and Martin Otter
+(<a href="http://www.dlr.de/rmc/sr/en">DLR Institute of System
+Dynamics and Control</a>.</td>
+</tr>
+</table>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

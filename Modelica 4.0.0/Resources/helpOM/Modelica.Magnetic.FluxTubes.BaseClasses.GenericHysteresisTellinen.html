@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresisTellinen</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Magnetic.html">Magnetic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.BaseClasses.html">BaseClasses</a>.<span class="omc-h1">GenericHysteresisTellinen</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>A reluctance with the Tellinen hysteresis model. The major
+hysteresis loop is defined by the hyperbolic tangent function.</p>
+<h4>The Tellinen Hysteresis Model</h4>
+<p>The Tellinen hysteresis model is a simple model to describe the
+magnetic hysteresis behavior of ferromagnetic materials. It only
+uses the rising (hystR) and falling (hystF) branch of the major
+hysteresis loop and their derivatives der(hystR) and der(hystF).
+See Fig. 1 and the following equations for a short description of
+the Tellinen hysteresis model.</p>
+<blockquote>
+<pre>
+diffHyst = hystF - hystR;
+dhR = hystF - b;
+dhF = b - hystR;
+</pre></blockquote>
+<p>if the magnetic field intensity increases (der(h)&gt;0)</p>
+<blockquote>
+<pre>
+der(b) = dhR/diffHyst * der(hystR);
+</pre></blockquote>
+<p>if the magnetic field intensity decreases (der(h)&lt;0)</p>
+<blockquote>
+<pre>
+der(b) = dhF/diffHyst * der(hystF);
+</pre></blockquote>
+<table border="0" cellpadding="2" cellspacing="0">
+<tr>
+<td>
+<p><img src="../../../Modelica%204.0.0/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Tellinen/TellinenDesc1.png"/></p>
+</td>
+</tr>
+</table>
+<strong>Fig. 1:</strong> Description of the Tellinen hysteresis
+model.
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

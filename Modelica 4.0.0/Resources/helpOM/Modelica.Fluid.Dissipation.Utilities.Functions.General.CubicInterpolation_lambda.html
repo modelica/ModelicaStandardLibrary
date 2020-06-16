@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_lambda</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.Functions.html">Functions</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.Functions.General.html">General</a>.<span class="omc-h1">CubicInterpolation_lambda</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+lambda2 = <strong>CubicInterpolation_lambda</strong>(Re, Re1, Re2, Delta);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Function <strong>CubicInterpolation_lambda</strong>(..)
+approximates the modified friction coefficient
+<code>lambda2</code>=<code>lambda*Re^2</code> in the transition
+regime between laminar and turbulent flow of the Moody diagram by a
+(direct) cubic Hermite spline interpolation. See <a href="Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction.html">
+Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction</a>
+(especially <strong>Region 2</strong>) for a detailed
+explanation.</p>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>function CubicInterpolation_lambda
+  extends Modelica.Icons.Function;
+  import Modelica.Math;
+  input SI.ReynoldsNumber Re "Reynolds number (= independent variable)";
+  input SI.ReynoldsNumber Re1 "Boundary Reynolds number for laminar regime";
+  input SI.ReynoldsNumber Re2 "Boundary Reynolds number for turbulent regime";
+  input Real Delta "Relative roughness";
+  output Real lambda2 "Interpolated modified friction coefficient in transition regime";
+end CubicInterpolation_lambda;</pre></blockquote>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+2018-11-20 Stefan Wischhusen: Renamed function from
+CubicInterpolation_MFLOW to CubicInterpolation_lambda.
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Blocks.Continuous.CriticalDamping</title>
+</head>
+<body>
+<h1><a href="Icons/c11ad3c3177d08fed361c42f93fba136816ae9da.svg"><img class="svgiconhead" src="Icons/c11ad3c3177d08fed361c42f93fba136816ae9da.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Continuous.html">Continuous</a>.<span class="omc-h1">CriticalDamping</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This block defines the transfer function between the input u and
+the output y as an n-th order filter with <em>critical damping</em>
+characteristics and cut-off frequency f. It is implemented as a
+series of first order filters. This filter type is especially
+useful to filter the input of an inverse model, since the filter
+does not introduce any transients.</p>
+<p>If parameter <strong>normalized</strong> = <strong>true</strong>
+(default), the filter is normalized such that the amplitude of the
+filter transfer function at the cut-off frequency f is 1/sqrt(2) (=
+3 dB). Otherwise, the filter is not normalized, i.e., it is
+unmodified. A normalized filter is usually much better for
+applications, since filters of different orders are "comparable",
+whereas non-normalized filters usually require to adapt the cut-off
+frequency, when the order of the filter is changed. Figures of the
+filter step responses are shown below. Note, in versions before
+version 3.0 of the Modelica Standard library, the CriticalDamping
+filter was provided only in non-normalized form.</p>
+<p>If transients at the simulation start shall be avoided, the
+filter should be initialized in steady state (e.g., using option
+initType=Modelica.Blocks.Types.Init.SteadyState).</p>
+<p>The critical damping filter is defined as</p>
+<blockquote>
+<pre>
+α = <strong>if</strong> normalized <strong>then</strong> <strong>sqrt</strong>(2^(1/n) - 1) <strong>else</strong> 1 // frequency correction factor
+ω = 2*π*f/α
+          1
+y = ------------- * u
+     (s/w + 1)^n
+
+</pre></blockquote>
+<p><img alt="CriticalDampingNormalized.png" src="../../../Modelica%204.0.0/Resources/Images/Blocks/Continuous/CriticalDampingNormalized.png"/></p>
+<p><img alt="CriticalDampingNonNormalized.png" src="../../../Modelica%204.0.0/Resources/Images/Blocks/Continuous/CriticalDampingNonNormalized.png"/></p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

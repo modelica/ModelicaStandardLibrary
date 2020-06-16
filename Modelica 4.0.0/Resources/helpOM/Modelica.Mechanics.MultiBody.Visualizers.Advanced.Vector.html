@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.html">Advanced</a>.<span class="omc-h1">Vector</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Model <strong>Vector</strong> defines a vector that is
+dynamically visualized at the defined location (see variables
+below). The vector length does not represent a physical
+length, but a different 3-dimensional quantity (such as force,
+torque, speed, …), except for <strong>RelativePosition</strong>.
+That allows the vectors of similar quantities to be scaled
+appropriately during post-processing. This is useful, even for
+<strong>RelativePosition</strong> and in that case to disable or
+exaggerate the relative positions.</p>
+<p>The dialog variables <code>R</code>, <code>r</code>,
+<code>coordinates</code>, <code>color</code>,
+<code>specularCoefficient</code>, <code>quantity</code>,
+<code>headAtOrigin</code>, and <code>twoHeadedArrow</code> are
+declared as (time varying) <strong>input</strong> variables. If the
+default equation is not appropriate, a corresponding modifier
+equation has to be provided in the model where
+a <strong>Vector</strong> instance is used, e.g., in the
+form</p>
+<blockquote>
+<pre>
+Visualizers.Advanced.Vector vectorForce(coordinates = {sin(time),cos(time),0});
+</pre></blockquote>
+<p>Variable <code>color</code> is an Integer vector with
+3 elements, {r, g, b}, and specifies the color of
+the shape. {r, g, b} are the "red", "green" and "blue"
+color parts. Note, r, g and b are given in the range
+0 … 255. The predefined type <a href="Modelica.Mechanics.MultiBody.Types.Color.html">MultiBody.Types.Color</a>
+contains a menu definition of the colors used in the MultiBody
+library together with a color editor.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

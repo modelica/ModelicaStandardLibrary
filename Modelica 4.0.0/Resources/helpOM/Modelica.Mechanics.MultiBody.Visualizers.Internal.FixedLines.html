@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Mechanics.MultiBody.Visualizers.Internal.FixedLines</title>
+</head>
+<body>
+<h1><a href="Icons/0378ba4e130ef9b98dc5601650df945ed1f9d30b.svg"><img class="svgiconhead" src="Icons/0378ba4e130ef9b98dc5601650df945ed1f9d30b.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.Internal.html">Internal</a>.<span class="omc-h1">FixedLines</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>With model <strong>FixedLines</strong> a set of lines is defined
+that are located relatively to frame_a. Every line is represented
+by a cylinder. This allows to define simple shaped 3-dimensional
+characters. An example is shown in the following figure:<br/>
+ </p>
+<div><img alt="model Visualizers.Internal.FixedLines" src="../../../Modelica%204.0.0/Resources/Images/Mechanics/MultiBody/Visualizers/Internal/FixedLines.png"/></div>
+<p> <br/>
+The two letters "x" and "y" are constructed with 4 lines by
+providing the following data for parameter
+<strong>lines</strong></p>
+<blockquote>
+<pre>
+lines = {[0, 0; 1, 1],[0, 1; 1, 0],[1.5, -0.5; 2.5, 1],[1.5, 1; 2, 0.25]}
+</pre></blockquote>
+<p>Via parameter vectors <strong>n_x</strong> and
+<strong>n_y</strong> a two-dimensional coordinate system is
+defined. The points defined with parameter <strong>lines</strong>
+are with respect to this coordinate system. For example "[0, 0; 1,
+1]" defines a line that starts at {0,0} and ends at {1,1}. The
+diameter and color of all line cylinders are identical.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Fluid.Pipes.BaseClasses.WallFriction</title>
+</head>
+<body>
+<h1><a href="Icons/18f85713b799c9265a689dbd6af5286d753ae121.svg"><img class="svgiconhead" src="Icons/18f85713b799c9265a689dbd6af5286d753ae121.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Pipes.html">Pipes</a>.<a class="omc-h1-a" href="Modelica.Fluid.Pipes.BaseClasses.html">BaseClasses</a>.<span class="omc-h1">WallFriction</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This package provides functions to compute pressure losses due
+to <strong>wall friction</strong> in a pipe. Every correlation is
+defined by a package that is derived by inheritance from the
+package WallFriction.PartialWallFriction. The details of the
+underlying pipe wall friction model are described in the <a href="Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction.html">
+UsersGuide</a>. Basically, different variants of the equation</p>
+<blockquote>
+<pre>
+dp = λ(Re,Δ)*(L/D)*ρ*v*|v|/2
+</pre></blockquote>
+<p>are used, where the friction loss factor λ is shown in the next
+figure:</p>
+<p><img alt="PipeFriction1.png" src="../../../Modelica%204.0.0/Resources/Images/Fluid/Pipes/BaseClasses/PipeFriction1.png"/></p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.html">
+<img class="svgiconsmall" src="Icons/18f85713b799c9265a689dbd6af5286d753ae121.svg"/></a> <a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.html">PartialWallFriction</a></td>
+<td>Partial wall friction characteristic (base package of all wall
+friction characteristics)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.NoFriction.html"><img class="svgiconsmall" src="Icons/641577677b0d072d8c8b27677f1faac990ed8400.svg"/></a> <a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.NoFriction.html">NoFriction</a></td>
+<td>No pipe wall friction, no static head</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.html"><img class="svgiconsmall" src="Icons/18f85713b799c9265a689dbd6af5286d753ae121.svg"/></a> <a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.html">Laminar</a></td>
+<td>Pipe wall friction for laminar flow in circular tubes (linear
+correlation)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent.html">
+<img class="svgiconsmall" src="Icons/18f85713b799c9265a689dbd6af5286d753ae121.svg"/></a> <a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent.html">QuadraticTurbulent</a></td>
+<td>Pipe wall friction for turbulent flow in circular tubes (simple
+characteristic, mu not used)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.html">
+<img class="svgiconsmall" src="Icons/18f85713b799c9265a689dbd6af5286d753ae121.svg"/></a> <a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.html">LaminarAndQuadraticTurbulent</a></td>
+<td>Pipe wall friction for laminar and turbulent flow in circular
+tubes (simple characteristic)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed.html"><img class="svgiconsmall" src="Icons/18f85713b799c9265a689dbd6af5286d753ae121.svg"/></a> <a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed.html">Detailed</a></td>
+<td>Pipe wall friction for laminar and turbulent flow (detailed
+characteristic)</td>
+</tr>
+</table>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

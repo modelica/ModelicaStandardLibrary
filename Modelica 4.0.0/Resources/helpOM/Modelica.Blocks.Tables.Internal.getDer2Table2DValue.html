@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Blocks.Tables.Internal.getDer2Table2DValue</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Tables.html">Tables</a>.<a class="omc-h1-a" href="Modelica.Blocks.Tables.Internal.html">Internal</a>.<span class="omc-h1">getDer2Table2DValue</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<pre>Second derivative of interpolated 2-dim. table defined by matrix</pre>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>pure function getDer2Table2DValue
+  extends Modelica.Icons.Function;
+  input Modelica.Blocks.Types.ExternalCombiTable2D tableID "External table object";
+  input Real u1 "Value of first independent variable";
+  input Real u2 "Value of second independent variable";
+  input Real der_u1 "Derivative of first independent variable";
+  input Real der_u2 "Derivative of second independent variable";
+  input Real der2_u1 "Second derivative of first independent variable";
+  input Real der2_u2 "Second derivative of second independent variable";
+  output Real der2_y "Second derivative of interpolated value";
+end getDer2Table2DValue;</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

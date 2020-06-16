@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Clocked.RealSignals.Sampler.BackSample</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Clocked.html">Clocked</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.html">RealSignals</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.Sampler.html">Sampler</a>.<span class="omc-h1">BackSample</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This block shifts the first activation of the clock of the
+output y by fraction backCounter/resolution of the period (or for a
+non-periodic signal by a fraction of the last interval) before the
+first activation of the clock of u. The output y is set to the last
+available value of the input u. Here, <strong>backCounter</strong>
+and <strong>resolution</strong> are positive Integer
+parameters.</p>
+<p>To be more precise: The block constructs (conceptually) a clock
+“cBase”</p>
+<blockquote>
+<pre>
+<strong>Clock</strong> cBase = <strong>subSample</strong>(<strong>superSample</strong>(u, resolution), backCounter)
+</pre></blockquote>
+<p>and the first clock tick of y is shifted before the first tick
+of the clock of u, such that this duration is identical to the
+duration between the first and second clock tick of cBase. Before
+the first tick of the clock of u, the block outputs the value of
+parameter <strong>y_start</strong>. After that, the block returns
+the last available value of u.</p>
+<p>Note, for <a href="Modelica.Clocked.ClockSignals.Clocks.EventClock.html">EventClock</a>s
+there is the restriction that block <strong>BackSample</strong> can
+only shift the number of ticks of the EventClock clock, but cannot
+introduce new ticks, due to the restriction of operator
+<strong>superSample</strong> on EventClocks.</p>
+<p>Also note, that this block does not simply shift the signal in
+time, since only the value of u from the last tick of the clock of
+u is used for the output. In particular, a
+<strong>BackSample</strong> block following a
+<strong>ShiftSample</strong> block cannot be used to recover the
+input signal of ShiftSample (for a causal system this is
+impossible).</p>
+<h4>Example</h4>
+<p>The following <a href="Modelica.Clocked.Examples.Elementary.RealSignals.BackSample.html">
+example</a> samples a sine signal with a periodic clock of 20 ms
+period, shift-samples it with shiftCounter = 4 and resolution = 3
+and then back-samples it with backCounter=4 and resolution =
+3:<br/></p>
+<table border="0" cellpadding="2" cellspacing="0">
+<tr>
+<td width="50"></td>
+<td valign="bottom"><img alt="BackSample_Model.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/RealSignals/BackSample_Model.png"/></td>
+<td valign="bottom">    <img alt="BackSample_Result.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/RealSignals/BackSample_Result.png"/></td>
+</tr>
+<tr>
+<td></td>
+<td align="center">model</td>
+<td align="center">simulation result</td>
+</tr>
+</table>
+<p>The first activation of output y of block backSample1 is shifted
+(4/3*20ms) before the first activation of output y of block
+shiftSample1. As a consequence, the activation times of the output
+y are coincident with the input signal of the shiftSample1 block.
+However, as described above, the output of block backSample1
+<strong>does not</strong> recover the original sampled sine signal!
+For the first two ticks the output holds the value of the parameter
+<strong>y_start</strong> = 0.5. After that the output at a clock
+tick of block backSample1 is the <em>last</em> value of the output
+of the shiftSample1 block. The parameter values
+<strong>y_start</strong> = 0.5, <strong>shiftCounter</strong> = 4
+and <strong>resolution</strong> = 3 are visible at the bottom of
+the icon.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

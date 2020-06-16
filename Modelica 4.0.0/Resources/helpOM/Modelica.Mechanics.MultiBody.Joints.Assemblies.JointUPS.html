@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS</title>
+</head>
+<body>
+<h1><a href="Icons/95824272f245b49c0be28b59d3b253311c9d2bd8.svg"><img class="svgiconhead" src="Icons/95824272f245b49c0be28b59d3b253311c9d2bd8.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Joints.Assemblies.html">Assemblies</a>.<span class="omc-h1">JointUPS</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This component consists of a <strong>universal</strong> joint at
+frame_a, a <strong>spherical</strong> joint at frame_b and a
+<strong>prismatic</strong> joint along the line connecting the
+origin of frame_a and the origin of frame_b, see the default
+animation in the following figure (the axes vectors are not part of
+the default animation):</p>
+<p><img alt="model Joints.Assemblies.JointUPS" src="../../../Modelica%204.0.0/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointUPS.png"/></p>
+<p>This joint aggregation has no mass and no inertia and introduces
+neither constraints nor potential state variables. It is especially
+useful to build up more complicated force elements where the mass
+and/or inertia of the force element shall be taken into
+account.</p>
+<p>The universal joint is defined in the following way:</p>
+<ul>
+<li>The rotation <strong>axis</strong> of revolute joint
+<strong>1</strong> is along parameter vector n1_a which is fixed in
+frame_a.</li>
+<li>The rotation <strong>axis</strong> of revolute joint
+<strong>2</strong> is perpendicular to axis 1 and to the line
+connecting the universal and the spherical joint.</li>
+</ul>
+<p>The definition of axis 2 of the universal joint is performed
+according to the most often occurring case for the sake of
+simplicity. Otherwise, the treatment is much more complicated and
+the number of operations is considerably higher, if axis 2 is not
+orthogonal to axis 1 and to the connecting rod.</p>
+<p>Note, there is a <strong>singularity</strong> when axis 1 and
+the connecting line are parallel to each other. Therefore, if
+possible n1_a should be selected in such a way that it is
+perpendicular to nAxis_ia in the initial configuration (i.e., the
+distance to the singularity is as large as possible).</p>
+<p>An additional <strong>frame_ia</strong> is present. It is
+<strong>fixed</strong> on the line connecting the universal and the
+spherical joint at the origin of <strong>frame_a</strong>. The
+placement of frame_ia on this line is implicitly defined by the
+universal joint (frame_a and frame_ia coincide when the angles of
+the two revolute joints of the universal joint are zero) and by
+parameter vector <strong>nAxis_ia</strong>, an axis vector directed
+along the line from the origin of frame_a to the spherical joint,
+resolved in frame_<strong>ia</strong>.</p>
+<p>An additional <strong>frame_ib</strong> is present. It is
+<strong>fixed</strong> in the line connecting the prismatic and the
+spherical joint at the origin of <strong>frame_b</strong>. It is
+always parallel to <strong>frame_ia</strong>.</p>
+<p>Note, this joint aggregation can be used in cases where in
+reality a rod with spherical joints at each end are present. Such a
+system has an additional degree of freedom to rotate the rod along
+its axis. In practice this rotation is usually of no interest and
+is mathematically removed by replacing one of the spherical joints
+by a universal joint.</p>
+<p>The easiest way to define the parameters of this joint is by
+moving the MultiBody system in a <strong>reference
+configuration</strong> where <strong>all frames</strong> of all
+components are <strong>parallel</strong> to each other
+(alternatively, at least frame_a, frame_ia and frame_ib of the
+JointUSP joint should be parallel to each other when defining an
+instance of this component).</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

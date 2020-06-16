@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Mechanics.Rotational.UsersGuide.RequirementsForSimulationTool</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.html">Rotational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">RequirementsForSimulationTool</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This library is designed in a fully object oriented way in order
+that components can be connected together in every meaningful
+combination (e.g., direct connection of two springs or two
+inertias). As a consequence, most models lead to a system of
+differential-algebraic equations (DAE) of
+<strong>index 3</strong> (= constraint equations have to be
+differentiated twice in order to arrive at a state space
+representation) and the Modelica translator or the simulator has to
+cope with this system representation. According to our present
+knowledge, this requires that the Modelica translator is able to
+symbolically differentiate equations (otherwise it is e.g., not
+possible to provide consistent initial conditions; even if
+consistent initial conditions are present, most numerical DAE
+integrators can cope at most with index 2 DAEs).</p>
+<p>The elements of this library can be connected together in an
+arbitrary way. However, difficulties may occur, if the elements
+which can <strong>lock</strong> the <strong>relative
+motion</strong> between two flanges are connected
+<strong>rigidly</strong> together such that essentially the
+<strong>same relative motion</strong> can be locked. The reason is
+that the cut-torque in the locked phase is not uniquely defined if
+the elements are locked at the same time instant (i.e., there does
+not exist a unique solution) and some simulation systems may not be
+able to handle this situation, since this leads to a singularity
+during simulation. Currently, this type of problem can occur with
+the Coulomb friction elements such as
+<strong>BearingFriction</strong>, <strong>Clutch</strong>,
+<strong>Brake</strong> or <strong>LossyGear</strong> when the
+elements become stuck:</p>
+<div><img alt="driveConnections3" src="../../../Modelica%204.0.0/Resources/Images/Mechanics/Rotational/UsersGuide/driveConnections3.png"/></div>
+<p>In the figure above, two typical situations are shown: In the
+upper part of the figure, the series connection of rigidly attached
+<code>bearingFriction1</code> and <code>clutch</code> components
+are shown. This does not hurt, because the
+<code>bearingFriction1</code> element can lock the relative motion
+between the element and the housing (<code>fixed1</code>), whereas
+the clutch element can lock the relative motion between the two
+connected flanges. On the contrary, the drive train in the lower
+part of the figure may give rise to simulation problems, because
+the <code>bearingFriction2</code> element and the
+<code>brake</code> element can lock the relative motion between a
+flange and the housing and these flanges are rigidly connected
+together, i.e., essentially the same relative motion can be locked.
+These difficulties may be solved by either introducing a compliance
+between these flanges or by combining the bearing friction and
+brake element into one component and resolving the ambiguity of the
+frictional torque in the stuck mode of that component. A tool may
+handle this situation also <strong>automatically</strong>, by
+picking one solution of the infinitely many, e.g., the one where
+the difference to the value of the previous time instant is as
+small as possible.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

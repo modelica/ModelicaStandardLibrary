@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Blocks.Examples.Rectifier12pulseFFT</title>
+</head>
+<body>
+<h1><a href="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg"><img class="svgiconhead" src="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Examples.html">Examples</a>.<span class="omc-h1">Rectifier12pulseFFT</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This example is based on a <a href="Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse.html">12-pulse
+rectifier example</a>, calculating the harmonics with the <a href="Modelica.Blocks.Math.RealFFT.html">FFT block</a>.</p>
+<p>Sampling starts after the initial transients are settled -
+waiting for <code>2 periods = 2/f =
+0.04 s = realFFT.startTime</code>. Choosing
+a maximum frequency
+<code>f_max = 2000 Hz</code>, a frequency
+resolution <code>f_res = 5 Hz</code> (both given in
+the block <code>realFFT</code>) and the default oversampling factor
+<code>f_max_factor = 5</code>, we have to acquire
+<code>n = 2*f_max/f_res*f_max_factor = 4000</code>
+sampling intervals. The resulting sampling interval is
+<code>samplePeriod = 1/(n*f_res) = 0.05 ms</code>.
+Thus, we have to sample for a period of <code>n*samplePeriod =
+1/f_res = 0.2 s</code>.</p>
+<p>The resultfile "rectifier12pulseFFTresult.mat" can be used to
+plot amplitudes versus frequencies. Note that for each frequency
+three rows exit: one with amplitude zero, one with the calculated
+amplitude, one with amplitude zero. Thus, the second column
+(amplitude) can be easily plotted versus the first column
+(frequency). As expected, one can see the 11<sup>th</sup>,
+13<sup>th</sup>, 23<sup>th</sup>, 25<sup>th</sup>, … harmonic in
+the result.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

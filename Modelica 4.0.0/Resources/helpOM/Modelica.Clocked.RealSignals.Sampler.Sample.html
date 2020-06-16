@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Clocked.RealSignals.Sampler.Sample</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Clocked.html">Clocked</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.html">RealSignals</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.Sampler.html">Sampler</a>.<span class="omc-h1">Sample</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This block samples the continuous-time, Real input signal u and
+provides it as clocked output signal y. The clock of the output
+signal is inferred (that is, it needs to be defined somewhere else
+in the clocked partition). If this is not desired, use block
+<a href="Modelica.Clocked.RealSignals.Sampler.SampleClocked.html">SampleClocked</a>
+instead, to explicitly assign a clock to the output signal.</p>
+<p>To be more precise: The input signal u(t) must be a
+continuous-time signal. The output signal y(ti) is associated to a
+clock (defined somewhere else). At a clock tick, the left limit of
+u is assigned to y: <code>y(ti) = u(ti-eps)</code> (= the value of
+u just before the clock became active). Since the operator returns
+the left limit of u, it introduces an infinitesimal small delay
+between the continuous-time and the clocked partition. This
+corresponds to the reality, where a sampled data system cannot act
+infinitely fast and even for a very idealized simulation, an
+infinitesimal small delay is present. As a result, algebraic loops
+between clocked and continuous-time partitions cannot occur.</p>
+<h4>Examples</h4>
+<p>The following <a href="Modelica.Clocked.Examples.Elementary.RealSignals.Sample1.html">
+example</a> samples a sine signal with a periodic clock of 20 ms
+period:<br/></p>
+<table border="0" cellpadding="2" cellspacing="0">
+<tr>
+<td width="50"></td>
+<td valign="bottom"><img alt="Sample1_Model.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/RealSignals/Sample1_Model.png"/></td>
+<td valign="bottom">    <img alt="Sample1_Result.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/RealSignals/Sample1_Result.png"/></td>
+</tr>
+<tr>
+<td></td>
+<td align="center">model</td>
+<td align="center">simulation result</td>
+</tr>
+</table>
+<p><br/>
+In the following <a href="Modelica.Clocked.Examples.Elementary.RealSignals.Sample2.html">
+example</a> the continuous-time input signal contains a
+discontinuous value change at the 0.1 s clock tick. It can be seen
+that the Sample block samples the left limit of the step
+signal:<br/></p>
+<table border="0" cellpadding="2" cellspacing="0">
+<tr>
+<td width="50"></td>
+<td valign="bottom"><img alt="Sample2_Model.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/RealSignals/Sample2_Model.png"/></td>
+<td valign="bottom">    <img alt="Sample2_Result.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/RealSignals/Sample2_Result.png"/></td>
+</tr>
+<tr>
+<td></td>
+<td align="center">model</td>
+<td align="center">simulation result</td>
+</tr>
+</table>
+<p><br/>
+In the following <a href="Modelica.Clocked.Examples.Elementary.RealSignals.Sample3.html">
+example</a> a direct feedthrough in the continuous-time and in the
+clocked partition is present. Without a time-delay, this would
+result in an algebraic loop. However, since block Sample samples
+the left limit of a continuous-time signal, sampling introduces a
+delay of one sample period that breaks the algebraic
+loop:<br/></p>
+<table border="0" cellpadding="2" cellspacing="0">
+<tr>
+<td width="50"></td>
+<td valign="bottom"><img alt="Sample3_Model.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/RealSignals/Sample3_Model.png"/></td>
+</tr>
+<tr>
+<td></td>
+<td align="center">model<br/></td>
+</tr>
+<tr>
+<td></td>
+<td valign="bottom"><img alt="Sample3_Result.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/RealSignals/Sample3_Result.png"/></td>
+</tr>
+<tr>
+<td></td>
+<td align="center">simulation result</td>
+</tr>
+</table>
+<p>Note, the reason for the delay is that sample2.y (= the green,
+clocked signal) is the left limit of hold.y (= the red,
+continuous-time signal).</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Electrical.Machines.Losses.InductionMachines.StrayLoad</title>
+</head>
+<body>
+<h1><a href="Icons/bed4580c010a958a0e0774c22d64b5b2a7d01612.svg"><img class="svgiconhead" src="Icons/bed4580c010a958a0e0774c22d64b5b2a7d01612.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.html">Machines</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Losses.html">Losses</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Losses.InductionMachines.html">InductionMachines</a>.<span class="omc-h1">StrayLoad</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Stray load losses are modeled similar to standards EN 60034-2
+and IEEE 112, i.e., they are dependent on square of current, but
+without scaling them to zero at no-load current.</p>
+<p>For an estimation of dependency on varying angular velocity
+see:<br/>
+W. Lang, Über die Bemessung verlustarmer Asynchronmotoren mit
+Käfigläufer für Pulsumrichterspeisung, Doctoral Thesis, Technical
+University of Vienna, 1984.</p>
+<p>The stray load losses are modeled such way that they do not
+cause a voltage drop in the electric circuit. Instead, the
+dissipated losses are considered through an equivalent braking
+torque at the shaft.</p>
+<p>The stray load loss torque is</p>
+<blockquote>
+<pre>
+tau = PRef/wRef * (i/IRef)^2 * (w/wRef)^power_w
+</pre></blockquote>
+<p>where <code>i</code> is the current of the machine and
+<code>w</code> is the actual angular velocity. The dependency of
+the stray load torque on the angular velocity is modeled by the
+exponent <code>power_w</code>.</p>
+<h4>See also</h4>
+<p><a href="Modelica.Electrical.Machines.Losses.StrayLoadParameters.html">
+StrayLoad parameters</a></p>
+<p>If it is desired to neglect stray load losses, set
+<code>strayLoadParameters.PRef = 0</code> (this is the
+default).</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

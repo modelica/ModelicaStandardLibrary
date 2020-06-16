@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Mechanics.MultiBody.Examples.Elementary.LineForceWithTwoMasses</title>
+</head>
+<body>
+<h1><a href="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg"><img class="svgiconhead" src="Icons/165d616f0025879ea1cf4f1792f54364f598a67f.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Examples.Elementary.html">Elementary</a>.<span class="omc-h1">LineForceWithTwoMasses</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>It is demonstrated how to implement line force components that
+shall have mass properties. Two alternative implementations are
+given:</p>
+<ul>
+<li>With <a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS.html">
+JointUPS</a>:<br/>
+Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS is an
+aggregation of a universal, a prismatic and a spherical joint that
+approximates a real force component, such as a hydraulic cylinder.
+At the two frames of the prismatic joint (frame_ia, frame_ib of
+jointUPS) two bodies are attached. The parameters are selected such
+that the center of masses of the two bodies are located on the line
+connecting frame_a and frame_b of the jointUPS component. Both
+bodies have the same mass and the inertia tensor is set to zero,
+i.e., the two bodies are treated as point masses.</li>
+<li>With <a href="Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses.html">
+LineForceWithTwoMasses</a>:<br/>
+Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses is a
+line force component with the built-in property that two point
+masses are located on the line on which the line force is acting.
+The parameters are selected in such a way that the same system as
+with the jointUPS component is described.</li>
+</ul>
+<p>In both cases, a linear 1-dimensional translational damper from
+the Modelica.Mechanics.Translational library is used as line force
+between the two attachment points. Simulate this system and plot
+the differences of the cut forces at both sides of the line force
+component ("rod_f_diff" and "body_f_diff"). Both vectors should be
+zero (depending on the chosen relative tolerance of the
+integration, the difference is in the order of
+1e-10 … 1e-15).</p>
+<p>Note, that the implementation with the LineForceWithTwoMasses
+component is simpler and more convenient. An animation of this
+simulation is shown in the figure below. The system on the left
+side in the front is the animation with the LineForceWithTwoMasses
+component whereas the system on the right side in the back is the
+animation with the JointUPS component.</p>
+<blockquote><img src="../../../Modelica%204.0.0/Resources/Images/Mechanics/MultiBody/Examples/Elementary/LineForceWithTwoMasses2.png"/></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

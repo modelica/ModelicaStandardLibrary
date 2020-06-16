@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Magnetic.FluxTubes.Examples.BasicExamples.QuadraticCoreAirgap</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Magnetic.html">Magnetic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.Examples.BasicExamples.html">BasicExamples</a>.<span class="omc-h1">QuadraticCoreAirgap</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Educational example of a magnetic circuit containing an iron
+core and an airgap:</p>
+<p><img alt="Magnetic circuit with iron core and airgap" src="../../../Modelica%204.0.0/Resources/Images/Magnetic/FluxTubes/Examples/MagneticCircuit.png"/></p>
+<p>A current ramp is applied in positive electric direction through
+the exciting coil, causing a rising magnetomotive force (mmf) in
+positive magnetic direction of the electromagnetic converter. The
+mmf in turn causes a magnetic flux through the circuit in the
+direction indicated by the flux sensor. From that magnetic flux,
+flux density can be calculated in every element of the magnetic
+circuit. Flux density is used to derive magnetic field strength.
+Magnetic field strength times length of the flux line gives
+magnetic potential difference of each element. The sum of all
+magnetic potential differences is covered by the mmf of the
+exciting coil.</p>
+<p>Using the parameter values, the results can be validated by
+analytic calculations:</p>
+<table border="1" cellpadding="2" cellspacing="0">
+<tr>
+<th>element</th>
+<th>cross section</th>
+<th>length</th>
+<th>rel. permeability</th>
+<th>B</th>
+<th>H</th>
+<th>mmf</th>
+</tr>
+<tr>
+<td>left leg</td>
+<td>a*a</td>
+<td>l - a</td>
+<td>μ<sub>r</sub></td>
+<td>flux / cross section</td>
+<td>B/(μ<sub>r</sub>*μ<sub>0</sub>)</td>
+<td>H*length</td>
+</tr>
+<tr>
+<td>upper yoke</td>
+<td>a*a</td>
+<td>l - a</td>
+<td>μ<sub>r</sub></td>
+<td>flux / cross section</td>
+<td>B/(μ<sub>r</sub>*μ<sub>0</sub>)</td>
+<td>H*length</td>
+</tr>
+<tr>
+<td>right leg</td>
+<td>a*a</td>
+<td>l - a - delta</td>
+<td>μ<sub>r</sub></td>
+<td>flux / cross section</td>
+<td>B/(μ<sub>r</sub>*μ<sub>0</sub>)</td>
+<td>H*length</td>
+</tr>
+<tr>
+<td>airgap</td>
+<td>a*a</td>
+<td>delta</td>
+<td>1</td>
+<td>useful flux / cross section</td>
+<td>B/μ<sub>0</sub></td>
+<td>H*length</td>
+</tr>
+<tr>
+<td>lower yoke</td>
+<td>a*a</td>
+<td>l - a</td>
+<td>μ<sub>r</sub></td>
+<td>flux / cross section</td>
+<td>B/(μ<sub>r</sub>*μ<sub>0</sub>)</td>
+<td>H*length</td>
+</tr>
+<tr>
+<td>total</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Σ mmf = N*I</td>
+</tr>
+</table>
+<p>Note that there is a leakage flux path present. Therefore the
+total magnetic flux of in core splits into</p>
+<ul>
+<li>the useful flux through the airgap and</li>
+<li>the leakage flux through the leakage element.</li>
+</ul>
+<p>However, the magnetic voltage across the airgap and the leakage
+model are equal. The ratio of the useful flux over the flux in the
+core is equal to <code>1 - σ</code>. In the core the magnetic flux
+is the same in every element as they are connected in series. For
+the calculation of the length of flux lines inside the core, a
+medium flux line (dashed line) is used.</p>
+<p>Additionally, a measuring coil is placed in the airgap. Due to
+Faraday's law, the time derivative of flux causes an induced
+voltage both in the exciting coil (in positive direction) and in
+the measuring coil (in negative direction). Since current and
+therefore flux are a linear time dependent ramp, induced voltages
+are constant during that ramp and zero otherwise. Note that usage
+of nonlinear magnetic material would change that result due the
+nonlinear relationship between magnetic field strength and flux
+density.</p>
+<p>Note the proper usage of electric and magnetic grounds to define
+zero potential.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

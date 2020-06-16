@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Clocked.RealSignals.Sampler.SuperSampleInterpolated</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Clocked.html">Clocked</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.html">RealSignals</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.Sampler.html">Sampler</a>.<span class="omc-h1">SuperSampleInterpolated</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This block super-samples the clocked Real input signal u and
+provides it linearly interpolated between the u-values as clocked
+output signal y.</p>
+<p>To be more precise: The clock of y is factor-times faster than
+the clock of u. At every tick of the clock of y, the value of y is
+set to the value of the linearly interpolated value between the
+last available values of u. The first activation of the clock of y
+coincides with the first activation of the clock of u. By default,
+the super-sampling factor is inferred, that is, it must be defined
+somewhere else. If parameter <strong>inferFactor</strong> = false,
+then the super-sampling factor is defined by Integer parameter
+<strong>factor</strong>.</p>
+<p>For control applications, this block is better suited as block
+<a href="Modelica.Clocked.RealSignals.Sampler.SuperSample.html">SuperSample</a>
+since it does not induce "vibrations".</p>
+<h4>Example</h4>
+<p>The following <a href="Modelica.Clocked.Examples.Elementary.RealSignals.SuperSampleInterpolated.html">
+example</a> samples a sine signal with a periodic clock of 20 ms
+period, and then super-samples the resulting clocked signal with a
+factor of 3 and interpolates the result linearly:<br/></p>
+<table border="0" cellpadding="2" cellspacing="0">
+<tr>
+<td width="50"></td>
+<td valign="bottom"><img alt="SuperSampleInterpolated_Model.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/RealSignals/SuperSampleInterpolated_Model.png"/></td>
+<td valign="bottom">    <img alt="SuperSampleInterpolated_Result.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/RealSignals/SuperSampleInterpolated_Result.png"/></td>
+</tr>
+<tr>
+<td></td>
+<td align="center">model</td>
+<td align="center">simulation result</td>
+</tr>
+</table>
+<p>As can be seen, block superSampleIpo introduces 3 additional
+clock ticks for the output y and determines the values at these
+clock ticks, so that the last two available values of the input u
+are linearly interpolated. The super-sampling factor = 3 is
+displayed in the icon of the superSampleIpo block. Note the
+up-arrow in the icon of the SuperSampleInterpolation block
+indicates that the clock of superSampleIpo.y is faster as the clock
+of superSampleIpo.u.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

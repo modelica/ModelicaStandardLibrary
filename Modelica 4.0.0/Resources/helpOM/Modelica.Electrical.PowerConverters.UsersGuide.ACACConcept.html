@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Electrical.PowerConverters.UsersGuide.ACACConcept</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.PowerConverters.html">PowerConverters</a>.<a class="omc-h1-a" href="Modelica.Electrical.PowerConverters.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">ACACConcept</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>The following AC/AC converter topologies are currently included
+in the PowerConverters library.</p>
+<ul>
+<li>Single-phase dimmer with <a href="Modelica.Electrical.PowerConverters.ACAC.SinglePhaseTriac.html">
+triac</a></li>
+<li>Polyphase induction machine soft starter with <a href="Modelica.Electrical.PowerConverters.ACAC.PolyphaseTriac.html">
+triac</a></li>
+</ul>
+<h4>Control</h4>
+<p>To apply firing signals to the triac, the <a href="Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM.html">
+SignalPWM model</a> is provided.</p>
+<p>The <a href="Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle.html">
+Voltage2Angle block</a> calculates phase angle from reference
+voltage.</p>
+<p>To control the soft start of an induction machine, the <a href="Modelica.Electrical.PowerConverters.ACAC.Control.SoftStartControl.html">
+SoftStartControl block</a> is provided. It applies a voltage ramp
+during start, setting the ramp on hold whenever the measured
+current exceeds the maximum current. Furthermore, a ramp down can
+be applied for stopping the drive.</p>
+<h4>Examples</h4>
+<p>Some examples are provided at <a href="Modelica.Electrical.PowerConverters.Examples.ACAC.html">Examples.ACAC</a>.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

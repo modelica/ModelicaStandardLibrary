@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Math.acosh</title>
+</head>
+<body>
+<h1><a href="Icons/929d489936040a4488b3c4d12fbfdbb1d5f6b129.svg"><img class="svgiconhead" src="Icons/929d489936040a4488b3c4d12fbfdbb1d5f6b129.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<span class="omc-h1">acosh</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This function returns the area hyperbolic cosine of its input
+argument u. The valid range of u is</p>
+<blockquote>
+<pre>
++1 ≤ u &lt; +∞
+</pre></blockquote>
+<p>If the function is called with u &lt; 1, an error occurs. The
+function cosh(u) has two inverse functions (the curve looks similar
+to a sqrt(..) function). acosh(..) returns the inverse that is
+positive. At u=1, the derivative dy/du is infinite. Therefore, this
+function should not be used in a model, if u can become close to
+1:</p>
+<p><img src="../../../Modelica%204.0.0/Resources/Images/Math/acosh.png"/></p>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>function acosh
+  extends Modelica.Math.Icons.AxisLeft;
+  input Real u "Independent variable";
+  output Real y "Dependent variable y=acosh(u)";
+end acosh;</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

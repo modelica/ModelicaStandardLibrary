@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+ObsoleteModelica4.Math.Matrices.Utilities.householderReflection</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ObsoleteModelica4.html">ObsoleteModelica4</a>.<a class="omc-h1-a" href="ObsoleteModelica4.Math.html">Math</a>.<a class="omc-h1-a" href="ObsoleteModelica4.Math.Matrices.html">Matrices</a>.<a class="omc-h1-a" href="ObsoleteModelica4.Math.Matrices.Utilities.html">Utilities</a>.<span class="omc-h1">householderReflection</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Matrices.<strong>householderReflection</strong>(A,u);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function computes the Householder reflection
+(transformation)</p>
+<blockquote><strong>Ar</strong> =
+<strong>Q</strong>*<strong>A</strong></blockquote>
+with
+<blockquote><strong>Q</strong> = <strong>I</strong>
+-2*<strong>u</strong>*<strong>u</strong>'/(<strong>u</strong>'*<strong>u</strong>)</blockquote>
+<p>where <strong>u</strong> is Householder vector, i.e., the normal
+vector of the reflection plane.</p>
+<p>Householder reflection is widely used in numerical linear
+algebra, e.g., to perform QR decompositions.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+// First step of QR decomposition
+  import   ObsoleteModelica4.Math.Vectors.Utilities;
+
+  Real A[3,3] = [1,2,3;
+                 3,4,5;
+                 2,1,4];
+  Real Ar[3,3];
+  Real u[:];
+
+  u=Utilities.householderVector(A[:,1],{1,0,0});
+  // u= {0.763, 0.646, 0}
+
+  Ar=householderReflection(A,u);
+ // Ar = [-6.0828,   -5.2608,   -4.4388;
+ //        0.0,      -1.1508,   -2.3016;
+ //        0.0,       2.0,       0.0]
+
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="ObsoleteModelica4.Math.Matrices.Utilities.householderSimilarityTransformation.html">
+Matrices.Utilities.housholderSimilarityTransformation</a>,<br/>
+<a href="ObsoleteModelica4.Math.Vectors.Utilities.householderReflection.html">
+Vectors.Utilities.householderReflection</a>,<br/>
+<a href="ObsoleteModelica4.Math.Vectors.Utilities.householderVector.html">
+Vectors.Utilities.householderVector</a></p>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>function householderReflection
+  extends Modelica.Icons.Function;
+  extends Modelica.Icons.ObsoleteModel;
+  import Modelica.Math.Vectors;
+  input Real A[:, :] "Rectangular matrix";
+  input Real u[size(A, 1)] "Householder vector";
+  output Real RA[size(A, 1), size(A, 2)] "Reflection of A";
+end householderReflection;</pre></blockquote>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<ul>
+<li><em>2010/04/30</em> by Marcus Baur, DLR-RM</li>
+</ul>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

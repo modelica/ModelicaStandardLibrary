@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Clocked.BooleanSignals.Sampler</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Clocked.html">Clocked</a>.<a class="omc-h1-a" href="Modelica.Clocked.BooleanSignals.html">BooleanSignals</a>.<span class="omc-h1">Sampler</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This package contains blocks that mark boundaries of a clocked
+partition and transform a <strong>Boolean</strong> signal from one
+partition to the next. Especially, the following blocks are
+provided:<br/>
+ </p>
+<table border="1" cellpadding="3" cellspacing="0">
+<tr>
+<th align="left"><strong>Boundary Type</strong></th>
+<th align="left"><strong>Block Name</strong></th>
+<th align="left"><strong>Description</strong></th>
+</tr>
+<tr>
+<td rowspan="3" valign="top">continuous-time → clocked</td>
+<td><a href="Modelica.Clocked.BooleanSignals.Sampler.Sample.html">Sample</a></td>
+<td>Sample a continuous-time signal.</td>
+</tr>
+<tr>
+<td><a href="Modelica.Clocked.BooleanSignals.Sampler.SampleClocked.html">SampleClocked</a></td>
+<td>Sample and associate a clock to the sampled
+<strong>scalar</strong> signal.</td>
+</tr>
+<tr>
+<td><a href="Modelica.Clocked.BooleanSignals.Sampler.SampleVectorizedAndClocked.html">
+SampleVectorizedAndClocked</a></td>
+<td>Sample an input vector and associate a clock to the sampled
+<strong>vector</strong> signal.</td>
+</tr>
+<tr>
+<td valign="top">clocked → continuous-time</td>
+<td><a href="Modelica.Clocked.BooleanSignals.Sampler.Hold.html">Hold</a></td>
+<td>Hold a clocked signal with zero-order hold.</td>
+</tr>
+<tr>
+<td rowspan="4" valign="top">clocked → clocked</td>
+<td><a href="Modelica.Clocked.BooleanSignals.Sampler.SubSample.html">SubSample</a></td>
+<td>Sub-sample a signal (output clock is slower as input
+clock).</td>
+</tr>
+<tr>
+<td><a href="Modelica.Clocked.BooleanSignals.Sampler.SuperSample.html">SuperSample</a></td>
+<td>Super-sample a signal (output clock is faster as input
+clock).</td>
+</tr>
+<tr>
+<td><a href="Modelica.Clocked.BooleanSignals.Sampler.ShiftSample.html">ShiftSample</a></td>
+<td>Shift a signal (output clock is delayed with respect to input
+clock).</td>
+</tr>
+<tr>
+<td><a href="Modelica.Clocked.BooleanSignals.Sampler.BackSample.html">BackSample</a></td>
+<td>Shift a signal and start the output clock before the input
+clock with a start value.</td>
+</tr>
+<tr>
+<td rowspan="2" valign="top">within clocked partition</td>
+<td><a href="Modelica.Clocked.BooleanSignals.Sampler.AssignClock.html">AssignClock</a></td>
+<td>Assign a clock to a clocked <strong>scalar</strong>
+signal.</td>
+</tr>
+<tr>
+<td><a href="Modelica.Clocked.BooleanSignals.Sampler.AssignClockVectorized.html">
+AssignClockVectorized</a></td>
+<td>Assign a clock to a clocked <strong>vector</strong>
+signal.</td>
+</tr>
+</table>
+<p>Additionally, package <a href="Modelica.Clocked.BooleanSignals.Sampler.Utilities.html">Utilities</a>
+contains utility blocks that are used as building blocks for
+user-relevant blocks.</p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Clocked.BooleanSignals.Sampler.Sample.html">Sample</a></td>
+<td>Sample the continuous-time, Boolean input signal and provide it
+as clocked output signal (clock is inferred)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Clocked.BooleanSignals.Sampler.SampleClocked.html">SampleClocked</a></td>
+<td>Sample the continuous-time, Boolean input signal and provide it
+as clocked output signal. The clock is provided as input
+signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Clocked.BooleanSignals.Sampler.SampleVectorizedAndClocked.html">
+SampleVectorizedAndClocked</a></td>
+<td>Sample the continuous-time, Boolean input signal vector and
+provide it as clocked output signal vector. The clock is provided
+as input signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Clocked.BooleanSignals.Sampler.Hold.html">Hold</a></td>
+<td>Hold the clocked, Boolean input signal and provide it as
+continuous-time output signal (zero order hold)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Clocked.BooleanSignals.Sampler.SubSample.html">SubSample</a></td>
+<td>Sub-sample the clocked Boolean input signal and provide it as
+clocked output signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Clocked.BooleanSignals.Sampler.SuperSample.html">SuperSample</a></td>
+<td>Super-sample the clocked Boolean input signal and provide it as
+clocked output signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Clocked.BooleanSignals.Sampler.ShiftSample.html">ShiftSample</a></td>
+<td>Shift the clocked Boolean input signal by a fraction of the
+last interval and and provide it as clocked output signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Clocked.BooleanSignals.Sampler.BackSample.html">BackSample</a></td>
+<td>Shift clock of Boolean input signal backwards in time (and
+access the most recent value of the input at this new clock)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Clocked.BooleanSignals.Sampler.AssignClock.html">AssignClock</a></td>
+<td>Assign a clock to a clocked Boolean signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Clocked.BooleanSignals.Sampler.AssignClockVectorized.html">
+AssignClockVectorized</a></td>
+<td>Assign a clock to a clocked Boolean signal vector</td>
+</tr>
+<tr>
+<td><a href="Modelica.Clocked.BooleanSignals.Sampler.Utilities.html">Utilities</a></td>
+<td>Utility components that are usually not directly used</td>
+</tr>
+</table>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

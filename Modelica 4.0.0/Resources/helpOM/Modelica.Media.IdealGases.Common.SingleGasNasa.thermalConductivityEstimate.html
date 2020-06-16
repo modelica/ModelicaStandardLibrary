@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Media.IdealGases.Common.SingleGasNasa.thermalConductivityEstimate</title>
+</head>
+<body>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.html">IdealGases</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.Common.html">Common</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.Common.SingleGasNasa.html">SingleGasNasa</a>.<span class="omc-h1">thermalConductivityEstimate</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This function provides two similar methods for estimating the
+thermal conductivity of polyatomic gases. The Eucken method (input
+method == 1) gives good results for low temperatures, but it tends
+to give an underestimated value of the thermal conductivity
+(lambda) at higher temperatures.<br/>
+The Modified Eucken method (input method == 2) gives good results
+for high-temperatures, but it tends to give an overestimated value
+of the thermal conductivity (lambda) at low temperatures.</p>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>function thermalConductivityEstimate
+  extends Modelica.Icons.Function;
+  input Modelica.Media.Interfaces.Types.SpecificHeatCapacity Cp "Constant pressure heat capacity";
+  input Modelica.Media.Interfaces.Types.DynamicViscosity eta "Dynamic viscosity";
+  input Integer method(min = 1, max = 2) = 1 "1: Eucken Method, 2: Modified Eucken Method";
+  input IdealGases.Common.DataRecord data "Ideal gas data";
+  output Modelica.Media.Interfaces.Types.ThermalConductivity lambda "Thermal conductivity [W/(m.k)]";
+end thermalConductivityEstimate;</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

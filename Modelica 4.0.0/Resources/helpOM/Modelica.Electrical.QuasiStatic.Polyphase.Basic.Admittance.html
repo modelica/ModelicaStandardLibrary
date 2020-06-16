@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStatic.html">QuasiStatic</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStatic.Polyphase.html">Polyphase</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.html">Basic</a>.<span class="omc-h1">Admittance</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>The admittance model represents a <strong>parallel</strong>
+connection of a resistor and either a capacitor or inductor in each
+phase.<br/>
+<img src="../../../Modelica%204.0.0/Resources/Images/Electrical/QuasiStatic/SinglePhase/Basic/GB_admittance.png"/>
+</p>
+<p>The linear admittance connects the voltage <code><u>v</u></code>
+with the current <code><u>i</u></code> by <code><u>i</u> =
+<u>Y</u>*<u>v</u></code> in each phase, using <code>m</code>
+<a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance.html">
+single-phase admittances</a>. The resistive components are modeled
+temperature dependent, so the real parts <code>G_actual =
+real(<u>Y</u>)</code> are determined from the actual operating
+temperatures and the reference input conductances
+<code>real(Y_ref)</code>. <a href="Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort.html">
+Conditional heat ports</a> are considered. The reactive components
+<code>B_actual = imag(<u>Y</u>)</code> are equal to
+<code>imag(Y_ref)</code> if <code>frequencyDependent =
+false</code>. Frequency dependency is considered by
+<code>frequencyDependent = true</code>, distinguishing two
+cases:</p>
+<dl>
+<dt>(a) <code>imag(Y_ref) &gt; 0</code>: capacitive case</dt>
+<dd>The actual susceptances <code>B_actual</code> are proportional
+to <code>f/f_ref</code></dd>
+<dt>(b) <code>imag(Y_ref) &lt; 0</code>: inductive case</dt>
+<dd>The actual susceptances <code>B_actual</code> are proportional
+to <code>f_ref/f</code></dd>
+</dl>
+<h4>See also</h4>
+<p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance.html">
+Admittance</a>, <a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor.html">
+Resistor</a>, <a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor.html">
+Conductor</a>, <a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Capacitor.html">
+Capacitor</a>, <a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance.html">
+Impedance</a>, <a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableResistor.html">
+Variable resistor</a>, <a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor.html">
+Variable conductor</a>, <a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor.html">
+Variable capacitor</a>, <a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor.html">
+Variable inductor</a>, <a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance.html">
+Variable impedance</a>, <a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance.html">
+Variable admittance</a></p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

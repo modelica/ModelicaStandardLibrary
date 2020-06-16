@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque</title>
+</head>
+<body>
+<h1><a href="Icons/508b8cf3542226c4e4000ff6cc5162640758df6b.svg"><img class="svgiconhead" src="Icons/508b8cf3542226c4e4000ff6cc5162640758df6b.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Sensors.html">Sensors</a>.<span class="omc-h1">CutForceAndTorque</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>The cut-force and cut-torque acting between the two frames to
+which this model is connected, are determined and provided at the
+output signal connectors <strong>force</strong> (= frame_a.f) and
+<strong>torque</strong> (= frame_a.t). If parameter
+<strong>positiveSign</strong> = <strong>false</strong>, the
+negative cut-force and cut-torque is provided (= frame_b.f,
+frame_b.t).</p>
+<p>Via parameter <strong>resolveInFrame</strong> it is defined, in
+which frame the two vectors are resolved:</p>
+<table border="1" cellpadding="2" cellspacing="0">
+<tr>
+<th><strong>resolveInFrame =<br/>
+Types.ResolveInFrameA.</strong></th>
+<th><strong>Meaning</strong></th>
+</tr>
+<tr>
+<td>world</td>
+<td>Resolve vector in world frame</td>
+</tr>
+<tr>
+<td>frame_a</td>
+<td>Resolve vector in frame_a</td>
+</tr>
+<tr>
+<td>frame_resolve</td>
+<td>Resolve vector in frame_resolve</td>
+</tr>
+</table>
+<p>If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the
+conditional connector "frame_resolve" is enabled and the output
+vectors force and torque are resolved in the frame, to which
+frame_resolve is connected. Note, if this connector is enabled, it
+must be connected.</p>
+<p>In the following figure the animation of a CutForceAndTorque
+sensor is shown. The dark blue coordinate system is frame_b, and
+the green arrows are the cut force and the cut torque,
+respectively, acting at frame_b and with negative sign at
+frame_a.</p>
+<p><img src="../../../Modelica%204.0.0/Resources/Images/Mechanics/MultiBody/Sensors/CutForceAndTorque.png"/></p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

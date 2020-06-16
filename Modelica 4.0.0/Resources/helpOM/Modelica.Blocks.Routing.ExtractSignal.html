@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Blocks.Routing.ExtractSignal</title>
+</head>
+<body>
+<h1><a href="Icons/0c2869019575992132fad6fccb4fa31d0d75a5c8.svg"><img class="svgiconhead" src="Icons/0c2869019575992132fad6fccb4fa31d0d75a5c8.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Routing.html">Routing</a>.<span class="omc-h1">ExtractSignal</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Extract signals from the input connector and transfer them to
+the output connector.</p>
+<p>The extracting scheme is given by the integer vector 'extract'.
+This vector specifies, which input signals are taken and in which
+order they are transferred to the output vector. Note, that the
+dimension of 'extract' has to match the number of outputs.
+Additionally, the dimensions of the input connector signals and the
+output connector signals have to be explicitly defined via the
+parameters 'nin' and 'nout'.</p>
+<p>Example:</p>
+<blockquote>
+<pre>
+nin  = 7 "Number of inputs";
+nout = 4 "Number of outputs";
+extract[nout] = {6,3,3,2} "Extracting vector";
+</pre></blockquote>
+<p>extracts four output signals (nout=4) from the seven elements of
+the input vector (nin=7):</p>
+<blockquote>
+<pre>
+output no. 1 is set equal to input no. 6
+output no. 2 is set equal to input no. 3
+output no. 3 is set equal to input no. 3
+output no. 4 is set equal to input no. 2
+</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

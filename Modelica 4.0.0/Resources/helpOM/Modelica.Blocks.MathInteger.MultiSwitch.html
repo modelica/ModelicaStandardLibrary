@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Blocks.MathInteger.MultiSwitch</title>
+</head>
+<body>
+<h1><a href="Icons/5c040213b24a5476c141bb09787aace4a9ff537d.svg"><img class="svgiconhead" src="Icons/5c040213b24a5476c141bb09787aace4a9ff537d.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.MathInteger.html">MathInteger</a>.<span class="omc-h1">MultiSwitch</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This block has a vector of Boolean input signals u[nu] and a
+vector of (time varying) Integer expressions expr[nu]. The output
+signal y is set to expr[i], if i is the first element in the input
+vector u that is true. If all input signals are false, y is set to
+parameter "y_default" or the last value is kept, if
+use_pre_as_default = <strong>true</strong>.</p>
+<blockquote>
+<pre>
+// Conceptual equation (not valid Modelica)
+i = 'first element of u[:] that is true';
+y = <strong>if</strong> i==0 <strong>then</strong> (<strong>if</strong> use_pre_as_default <strong>then</strong> pre(y)
+                                        <strong>else</strong> y_default)
+    <strong>else</strong> expr[i];
+</pre></blockquote>
+<p>The input connector is a vector of Boolean input signals. When a
+connection line is drawn, the dimension of the input vector is
+enlarged by one and the connection is automatically connected to
+this new free index (thanks to the connectorSizing annotation).</p>
+<p>The usage is demonstrated, e.g., in example <a href="Modelica.Blocks.Examples.IntegerNetwork1.html">Modelica.Blocks.Examples.IntegerNetwork1</a>.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

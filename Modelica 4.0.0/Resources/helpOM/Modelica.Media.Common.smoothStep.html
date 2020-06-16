@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Media.Common.smoothStep</title>
+</head>
+<body>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.Common.html">Common</a>.<span class="omc-h1">smoothStep</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This function is used to approximate the equation</p>
+<blockquote>
+<pre>
+y = <strong>if</strong> x &gt; 0 <strong>then</strong> y1 <strong>else</strong> y2;
+</pre></blockquote>
+<p>by a smooth characteristic, so that the expression is continuous
+and differentiable:</p>
+<blockquote>
+<pre>
+y = <strong>smooth</strong>(1, <strong>if</strong> x &gt;  x_small <strong>then</strong> y1 <strong>else</strong>
+              <strong>if</strong> x &lt; -x_small <strong>then</strong> y2 <strong>else</strong> f(y1, y2));
+</pre></blockquote>
+<p>In the region -x_small &lt; x &lt; x_small a 2nd order
+polynomial is used for a smooth transition from y1 to y2.</p>
+<p>If <strong>mass fractions</strong> X[:] are approximated with
+this function then this can be performed for all
+<strong>nX</strong> mass fractions, instead of applying it for nX-1
+mass fractions and computing the last one by the mass fraction
+constraint sum(X)=1. The reason is that the approximating function
+has the property that sum(X) = 1, provided sum(X_a) = sum(X_b) = 1
+(and y1=X_a[i], y2=X_b[i]). This can be shown by evaluating the
+approximating function in the abs(x) &lt; x_small region (otherwise
+X is either X_a or X_b):</p>
+<blockquote>
+<pre>
+X[1]  = smoothStep(x, X_a[1] , X_b[1] , x_small);
+X[2]  = smoothStep(x, X_a[2] , X_b[2] , x_small);
+   ...
+X[nX] = smoothStep(x, X_a[nX], X_b[nX], x_small);
+</pre></blockquote>
+<p>or</p>
+<blockquote>
+<pre>
+X[1]  = c*(X_a[1]  - X_b[1])  + (X_a[1]  + X_b[1])/2
+X[2]  = c*(X_a[2]  - X_b[2])  + (X_a[2]  + X_b[2])/2;
+   ...
+X[nX] = c*(X_a[nX] - X_b[nX]) + (X_a[nX] + X_b[nX])/2;
+c     = (x/x_small)*((x/x_small)^2 - 3)/4
+</pre></blockquote>
+<p>Summing all mass fractions together results in</p>
+<blockquote>
+<pre>
+sum(X) = c*(sum(X_a) - sum(X_b)) + (sum(X_a) + sum(X_b))/2
+       = c*(1 - 1) + (1 + 1)/2
+       = 1
+</pre></blockquote>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>function smoothStep
+  extends Modelica.Icons.Function;
+  input Real x "Abscissa value";
+  input Real y1 "Ordinate value for x &gt; 0";
+  input Real y2 "Ordinate value for x &lt; 0";
+  input Real x_small(min = 0) = 1e-5 "Approximation of step for -x_small &lt;= x &lt;= x_small; x_small &gt; 0 required";
+  output Real y "Ordinate value to approximate y = if x &gt; 0 then y1 else y2";
+end smoothStep;</pre></blockquote>
+<h2><a id="revisions" name="revisions">Revisions</a></h2>
+<ul>
+<li><em>April 29, 2008</em> by <a href="mailto:Martin.Otter@DLR.de">Martin Otter</a>:<br/>
+Designed and implemented.</li>
+<li><em>August 12, 2008</em> by <a href="mailto:Michael.Sielemann@dlr.de">Michael Sielemann</a>:<br/>
+Minor modification to cover the limit case <code>x_small -&gt;
+0</code> without division by zero.</li>
+</ul>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

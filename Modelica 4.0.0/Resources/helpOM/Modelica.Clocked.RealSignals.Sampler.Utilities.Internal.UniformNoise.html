@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoise</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Clocked.html">Clocked</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.html">RealSignals</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.Sampler.html">Sampler</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.Sampler.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.html">Internal</a>.<span class="omc-h1">UniformNoise</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This block adds uniformly distributed noise in the range
+noiseMin … noiseMax to the clocked Real input signal and
+provides the sum as clocked Real output signal.</p>
+<p>The Integer[3] parameter vector <strong>firstSeed</strong> is
+used to initialize the basic random number generator. The 3
+elements of firstSeed need to be in the range [0, 255]. The use of
+the same seed vector will lead to the same sequence of numbers when
+these are computed serially. This is usually not desired.
+Therefore, for every usage of block <strong>Noise</strong> a
+different firstSeed should be defined.</p>
+<p>This noise generator is based on a function that generates a
+random real number uniformly in the semi-open range [0.0, 1.0). The
+function uses the standard Wichmann-Hill generator, combining three
+pure multiplicative congruential generators of modulus 30269, 30307
+and 30323. Its period (how many numbers it generates before
+repeating the sequence exactly) is 6,953,607,871,644. While of much
+higher quality than the rand() function supplied by most C
+libraries, the theoretical properties are much the same as for a
+single linear congruential generator of large modulus. For more
+details, see the underlying function <a href="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.random.html">
+Internal.random</a>.</p>
+<h4>Example</h4>
+<p>The following <a href="Modelica.Clocked.Examples.Elementary.RealSignals.UniformNoise.html">
+example</a> samples zero signal with a periodic clock of 20 ms
+period, and adds noise in the range from
+-0.1 … 0.1:<br/></p>
+<table border="0" cellpadding="2" cellspacing="0">
+<tr>
+<td width="50"></td>
+<td valign="bottom"><img alt="UniformNoise_Model.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/RealSignals/UniformNoise_Model.png"/></td>
+<td valign="bottom">    <img alt="UniformNoise_Result.png" src="../../../Modelica%204.0.0/Resources/Images/Clocked/RealSignals/UniformNoise_Result.png"/></td>
+</tr>
+<tr>
+<td></td>
+<td align="center">model</td>
+<td align="center">simulation result</td>
+</tr>
+</table>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

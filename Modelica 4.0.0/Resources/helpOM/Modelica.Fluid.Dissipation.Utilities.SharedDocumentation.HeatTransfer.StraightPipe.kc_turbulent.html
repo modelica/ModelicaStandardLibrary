@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_turbulent</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.html">HeatTransfer</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.html">StraightPipe</a>.<span class="omc-h1">kc_turbulent</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Calculation of mean convective heat transfer coefficient
+<strong>kc</strong> of a straight pipe for a hydrodynamically
+developed turbulent fluid flow at uniform wall temperature
+<strong>or</strong> uniform heat flux with neglecting
+<strong>or</strong> considering of pressure loss influence.</p>
+<h4>Functions <strong>kc_turbulent</strong> and
+<strong>kc_turbulent_KC</strong></h4>
+<p>There are basically three differences:</p>
+<ul>
+<li>The function <strong>kc_turbulent</strong> is using
+<strong>kc_turbulent_KC</strong> but offers additional output
+variables like e.g. Reynolds number or Nusselt number and failure
+status (an output of <strong>1</strong> means that the function is
+not valid for the inputs).</li>
+<li>Generally the function <strong>kc_turbulent_KC</strong> is
+numerically best used for the calculation of the mean convective
+heat transfer coefficient <strong>kc</strong> at known mass flow
+rate.</li>
+<li>You can perform an inverse calculation from
+<strong>kc_turbulent_KC</strong>, where an unknown mass flow rate
+is calculated out of a given mean convective heat transfer
+coefficient <strong>kc</strong></li>
+</ul>
+<h4>Restriction</h4>
+<ul>
+<li>circular cross sectional area</li>
+<li>hydrodynamically developed fluid flow</li>
+<li>hydraulic diameter / length ≤ 1</li>
+<li>0.6 ≤ Prandtl number ≤ 1000</li>
+<li>turbulent flow regime (1e4 ≤ Reynolds number ≤ 1e6)</li>
+</ul>
+<h4>Geometry</h4>
+<p><img alt="straightPipe" src="../../../Modelica%204.0.0/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/PressureLoss/StraightPipe/straightPipe.png"/></p>
+<h4>Calculation</h4>
+<p><strong>Neglect pressure loss influence (roughness ==
+1):</strong></p>
+<p>The mean convective heat transfer coefficient
+<strong>kc</strong> for smooth straight pipes is calculated through
+its corresponding Nusselt number <strong>Nu</strong> according to
+<em>[Dittus and Boelter in Bejan 2003, p. 424, eq. 5.76]</em></p>
+<blockquote>
+<pre>
+Nu = 0.023 * Re^(4/5) * Pr^(1/3).
+</pre></blockquote>
+<p><strong>Consider pressure loss influence (roughness ==
+2):</strong></p>
+<p>The mean convective heat transfer coefficient
+<strong>kc</strong> for rough straight pipes is calculated through
+its corresponding Nusselt number <strong>Nu</strong> according to
+<em>[Gnielinski in VDI 2002, p. Ga 5, eq. 26]</em></p>
+<blockquote>
+<pre>
+Nu = (zeta/8)*Re*Pr/(1 + 12.7*(zeta/8)^0.5*(Pr^(2/3)-1))*(1+(d_hyd/L)^(2/3)),
+</pre></blockquote>
+<p>where the influence of the pressure loss on the heat transfer
+calculation is considered through</p>
+<blockquote>
+<pre>
+zeta =  (1.8*log10(Re)-1.5)^-2.
+</pre></blockquote>
+<p>The mean convective heat transfer coefficient
+<strong>kc</strong> in dependence of the chosen calculation
+(neglecting or considering of pressure loss influence) results
+into:</p>
+<blockquote>
+<pre>
+kc =  Nu * lambda / d_hyd
+</pre></blockquote>
+<p>with</p>
+<table>
+<tr>
+<td><strong>d_hyd</strong></td>
+<td>as hydraulic diameter of straight pipe [m],</td>
+</tr>
+<tr>
+<td><strong>kc</strong></td>
+<td>as mean convective heat transfer coefficient [W/(m2K)],</td>
+</tr>
+<tr>
+<td><strong>lambda</strong></td>
+<td>as heat conductivity of fluid [W/(mK)],</td>
+</tr>
+<tr>
+<td><strong>L</strong></td>
+<td>as length of straight pipe [m],</td>
+</tr>
+<tr>
+<td><strong>Nu = kc*d_hyd/lambda</strong></td>
+<td>as mean Nusselt number [-],</td>
+</tr>
+<tr>
+<td><strong>Pr = eta*cp/lambda</strong></td>
+<td>as Prandtl number [-],</td>
+</tr>
+<tr>
+<td><strong>Re = rho*v*d_hyd/eta</strong></td>
+<td>as Reynolds number [-],</td>
+</tr>
+<tr>
+<td><strong>v</strong></td>
+<td>as mean velocity [m/s],</td>
+</tr>
+<tr>
+<td><strong>zeta</strong></td>
+<td>as pressure loss coefficient [-].</td>
+</tr>
+</table>
+<p>Note that there is no significant difference for the calculation
+of the mean Nusselt number <strong>Nu</strong> at a uniform wall
+temperature (UWT) or a uniform heat flux (UHF) as heat transfer
+boundary in the turbulent regime (Bejan 2003, p.303).</p>
+<h4>Verification</h4>
+<p>The mean Nusselt number <strong>Nu</strong> representing the
+mean convective heat transfer coefficient <strong>kc</strong> for
+Prandtl numbers of different fluids is shown in the figures
+below.</p>
+<p><img alt="kc_turbulent" src="../../../Modelica%204.0.0/Resources/Images/Fluid/Dissipation/Utilities/SharedDocumentation/HeatTransfer/StraightPipe/kc_turbulent.png"/></p>
+<p>Note that the higher the Prandtl number <strong>Pr</strong>
+there is a higher difference in Nusselt numbers <strong>Nu</strong>
+comparing the neglect and consideration of pressure loss.</p>
+<h4>References</h4>
+<dl>
+<dt>Bejan,A.:</dt>
+<dd><strong>Heat transfer handbook</strong>. Wiley, 2003.</dd>
+<dt>VDI:</dt>
+<dd><strong>VDI - Wärmeatlas: Berechnungsblätter für den
+Wärmeübergang</strong>. Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

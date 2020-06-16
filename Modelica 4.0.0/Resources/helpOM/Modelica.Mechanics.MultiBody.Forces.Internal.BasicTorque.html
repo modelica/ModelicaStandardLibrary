@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Mechanics.MultiBody.Forces.Internal.BasicTorque</title>
+</head>
+<body>
+<h1><a href="Icons/2d3df5a6b0ed537300cfda90b0ad4b5076a3fe95.svg"><img class="svgiconhead" src="Icons/2d3df5a6b0ed537300cfda90b0ad4b5076a3fe95.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Forces.html">Forces</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Forces.Internal.html">Internal</a>.<span class="omc-h1">BasicTorque</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>The <strong>3</strong> signals of the <strong>torque</strong>
+connector are interpreted as the x-, y- and z-coordinates of a
+<strong>torque</strong> acting at the frame connector to which
+frame_b of this component is attached. Via parameter
+<strong>resolveInFrame</strong> it is defined, in which frame these
+coordinates shall be resolved:</p>
+<table border="1" cellpadding="2" cellspacing="0">
+<tr>
+<th><strong>Types.ResolveInFrameAB.</strong></th>
+<th><strong>Meaning</strong></th>
+</tr>
+<tr>
+<td>world</td>
+<td>Resolve input torque in world frame</td>
+</tr>
+<tr>
+<td>frame_a</td>
+<td>Resolve input torque in frame_a</td>
+</tr>
+<tr>
+<td>frame_b</td>
+<td>Resolve input torque in frame_b (= default)</td>
+</tr>
+<tr>
+<td>frame_resolve</td>
+<td>Resolve input torque in frame_resolve (frame_resolve must be
+connected)</td>
+</tr>
+</table>
+<p>If resolveInFrame = ResolveInFrameAB.frame_resolve, the torque
+coordinates are with respect to the frame, that is connected to
+<strong>frame_resolve</strong>.</p>
+<p>If resolveInFrame is not ResolveInFrameAB.frame_resolve, then
+the position vector and the orientation object of frame_resolve
+must be set to constant values from the outside in order that the
+model remains balanced (these constant values are ignored).</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

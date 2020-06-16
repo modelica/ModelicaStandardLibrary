@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>ModelicaReference.Classes.'block'</title>
+</head>
+<body>
+<h1><a href="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"><img class="svgiconhead" src="Icons/eabc7a5a0dbfbc22298176ba9276e1c5aef3dfa9.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Classes.html">Classes</a>.<span class="omc-h1">'block'</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Define specialized class <em>block</em></p>
+<h4>Examples</h4>
+<blockquote>
+<pre><strong>block</strong> Integrator
+  <strong>input</strong> Real u;
+  <strong>output</strong> Real y;
+<strong>protected</strong>
+  Real x;
+<strong>equation
+  der</strong>(x) = u;
+  y = x;
+<strong>end</strong> Integrator;</pre></blockquote>
+<h4>Syntax</h4>
+<blockquote>
+<pre>   [ <strong>encapsulated</strong> ][ <strong>partial</strong>] <strong>block</strong>
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <strong>end</strong> IDENT
+   | "=" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | "=" <strong>enumeration</strong> "(" ( [enum_list] | ":" ) ")" comment</pre></blockquote>
+<p>See <a href="ModelicaReference.ModelicaGrammar.html">Modelica Grammar</a>
+for further details.</p>
+<h4>Description</h4>
+<p>A block class is the same as a model class with the restriction
+that each connector component of a block must have prefixes input
+and/or output for all connector variables. The purpose is to model
+input/output blocks of block diagrams. Due to the restrictions on
+input and output prefixes, connections between blocks are only
+possible according to block diagram semantic.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

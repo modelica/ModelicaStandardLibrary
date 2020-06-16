@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Mechanics.Translational.Examples.Vehicle</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.html">Translational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.Examples.html">Examples</a>.<span class="omc-h1">Vehicle</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Vehicles <code>vehicle</code> and <code>vehicle1</code> are
+accelerated and decelerated by a driving torque. Nominal
+torque is defined as the sum of driving resistances at nominal
+velocity <code>vNom</code> times wheel
+radius <code>R</code>.</p>
+<p>Starting at 5 s, the <code>vehicle</code> is accelerated by
+a multiple of nominal torque until it nearly reaches nominal
+velocity, then driven by nominal torque. Between 20 s and
+25 s, an inclination of 5 % occurs and driving torque is
+increased to a multiple of nominal torque temporarily. Between
+50 s and 55 s, the driving torque is set below zero,
+causing the vehicle to decelerate. After 55 s, the vehicle
+decelerates due to the driving resistances.</p>
+<p>Coupling the <code>trailer</code> with the same data but without
+drive, the driving torque of <code>vehicle1</code> has to be
+doubled to achieve the same acceleration and velocity. Force and
+power between the two vehicles is measured.</p>
+<h4>Note</h4>
+<p>Since the <code>trailer</code> is coupled tightly with the
+<code>vehicle1</code>, initialization of the trailer has to be
+removed.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_ElectricalExcited</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.html">Machines</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.BasicMachines.html">BasicMachines</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.html">SynchronousMachines</a>.<span class="omc-h1">SM_ElectricalExcited</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p><strong>Model of a three-phase electrical excited synchronous
+machine with damper cage.</strong><br/>
+Resistance and stray inductance of stator is modeled directly in
+stator phases, then using space phasor transformation and a
+rotor-fixed <em>AirGap</em> model. Resistance and stray inductance
+of rotor's squirrel cage is modeled in two axis of the rotor-fixed
+coordinate system. Electrical excitation is modelled by converting
+excitation current and voltage to d-axis space phasors. The machine
+models take the following loss effects into account:</p>
+<ul>
+<li>heat losses in the temperature dependent stator winding
+resistances</li>
+<li>heat losses in the temperature dependent excitation winding
+resistance</li>
+<li>optional, when enabled: heat losses in the temperature
+dependent damper cage resistances</li>
+<li>brush losses in the excitation circuit</li>
+<li>friction losses</li>
+<li>core losses (only eddy current losses, no hysteresis
+losses)</li>
+<li>stray load losses</li>
+</ul>
+<p>Whether a damper cage is present or not, can be selected with
+Boolean parameter useDamperCage (default = true).<br/>
+<strong>Default values for machine's parameters (a realistic
+example) are:</strong><br/></p>
+<table>
+<tr>
+<td>number of pole pairs p</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>stator's moment of inertia</td>
+<td>0.29</td>
+<td>kg.m2</td>
+</tr>
+<tr>
+<td>rotor's moment of inertia</td>
+<td>0.29</td>
+<td>kg.m2</td>
+</tr>
+<tr>
+<td>nominal frequency fNominal</td>
+<td>50</td>
+<td>Hz</td>
+</tr>
+<tr>
+<td>nominal voltage per phase</td>
+<td>100</td>
+<td>V RMS</td>
+</tr>
+<tr>
+<td>no-load excitation current<br/>
+@ nominal voltage and frequency</td>
+<td>10</td>
+<td>A DC</td>
+</tr>
+<tr>
+<td>warm excitation resistance</td>
+<td>2.5</td>
+<td>Ohm</td>
+</tr>
+<tr>
+<td>nominal current per phase</td>
+<td>100</td>
+<td>A RMS</td>
+</tr>
+<tr>
+<td>nominal apparent power</td>
+<td>-30000</td>
+<td>VA</td>
+</tr>
+<tr>
+<td>power factor</td>
+<td>-1.0</td>
+<td>ind./cap.</td>
+</tr>
+<tr>
+<td>nominal excitation current</td>
+<td>19</td>
+<td>A</td>
+</tr>
+<tr>
+<td>efficiency w/o excitation</td>
+<td>97.1</td>
+<td>%</td>
+</tr>
+<tr>
+<td>nominal torque</td>
+<td>-196.7</td>
+<td>Nm</td>
+</tr>
+<tr>
+<td>nominal speed</td>
+<td>1500</td>
+<td>rpm</td>
+</tr>
+<tr>
+<td>nominal rotor angle</td>
+<td>-57.23</td>
+<td>degree</td>
+</tr>
+<tr>
+<td>stator resistance</td>
+<td>0.03</td>
+<td>Ohm per phase at reference temperature</td>
+</tr>
+<tr>
+<td>reference temperature TsRef</td>
+<td>20</td>
+<td>°C</td>
+</tr>
+<tr>
+<td>temperature coefficient alpha20s</td>
+<td>0</td>
+<td>1/K</td>
+</tr>
+<tr>
+<td>stator reactance Xd</td>
+<td>1.6</td>
+<td>Ohm per phase in d-axis</td>
+</tr>
+<tr>
+<td>giving Kc</td>
+<td>0.625</td>
+<td></td>
+</tr>
+<tr>
+<td>stator reactance Xq</td>
+<td>1.6</td>
+<td>Ohm per phase in q-axis</td>
+</tr>
+<tr>
+<td>stator stray reactance Xss</td>
+<td>0.1</td>
+<td>Ohm per phase</td>
+</tr>
+<tr>
+<td>damper resistance in d-axis</td>
+<td>0.04</td>
+<td>Ohm at reference temperature</td>
+</tr>
+<tr>
+<td>damper resistance in q-axis</td>
+<td>same as d-axis</td>
+<td></td>
+</tr>
+<tr>
+<td>reference temperature TrRef</td>
+<td>20</td>
+<td>°C</td>
+</tr>
+<tr>
+<td>temperature coefficient alpha20r</td>
+<td>0</td>
+<td>1/K</td>
+</tr>
+<tr>
+<td>damper stray reactance in d-axis XDds</td>
+<td>0.05</td>
+<td>Ohm</td>
+</tr>
+<tr>
+<td>damper stray reactance in q-axis XDqs</td>
+<td>same as d-axis</td>
+<td></td>
+</tr>
+<tr>
+<td>excitation resistance</td>
+<td>2.5</td>
+<td>Ohm at reference temperature</td>
+</tr>
+<tr>
+<td>reference temperature TeRef</td>
+<td>20</td>
+<td>°C</td>
+</tr>
+<tr>
+<td>temperature coefficient alpha20e</td>
+<td>0</td>
+<td>1/K</td>
+</tr>
+<tr>
+<td>excitation stray inductance</td>
+<td>2.5</td>
+<td>% of total excitation inductance</td>
+</tr>
+<tr>
+<td>stator operational temperature TsOperational</td>
+<td>20</td>
+<td>°C</td>
+</tr>
+<tr>
+<td>damper operational temperature TrOperational</td>
+<td>20</td>
+<td>°C</td>
+</tr>
+<tr>
+<td>excitation operational temperature TeOperational</td>
+<td>20</td>
+<td>°C</td>
+</tr>
+<tr>
+<td>These values give the following inductances:</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>main field inductance in d-axis</td>
+<td>(Xd - Xss)/(2*pi*fNominal)</td>
+<td></td>
+</tr>
+<tr>
+<td>main field inductance in q-axis</td>
+<td>(Xq - Xss)/(2*pi*fNominal)</td>
+<td></td>
+</tr>
+<tr>
+<td>stator stray inductance per phase</td>
+<td>Xss/(2*pi*fNominal)</td>
+<td></td>
+</tr>
+<tr>
+<td>damper stray inductance in d-axis</td>
+<td>XDds/(2*pi*fNominal)</td>
+<td></td>
+</tr>
+<tr>
+<td>damper stray inductance in q-axis</td>
+<td>XDqs/(2*pi*fNominal)</td>
+<td></td>
+</tr>
+</table>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

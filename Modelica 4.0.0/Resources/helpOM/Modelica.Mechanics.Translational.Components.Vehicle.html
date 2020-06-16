@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Mechanics.Translational.Components.Vehicle</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.html">Translational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.Components.html">Components</a>.<span class="omc-h1">Vehicle</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>This is a simple model of a ground vehicle, comprising the
+mass, the aerodynamic drag, the rolling resistance and the
+inclination resistance (caused by the road grade). For all
+particular resistances, significant variables can be either given
+by a parameter or input by a time-variable signal.</p>
+<p>The vehicle can be driven at the rotational flange
+<code>flangeR</code>, e.g. by an electric motor and a gearbox.
+It is possible to use the vehicle as a passive trailer,
+leaving the rotational flange <code>flangeR</code> unconnected.</p>
+<p>At the translational flange <code>flangeT</code> the vehicle can
+be coupled with another vehicle, e.g. as a trailer or to pull
+a trailer. It is possible to leave the translational flange
+<code>flangeT</code> unconnected.</p>
+<p>The velocity <code>v</code> and the driven
+distance <code>s</code> of the vehicle are provided as
+variables; the vehicle can be initialized using these
+variables.</p>
+<h4>Mass and inertia</h4>
+<p>Both the translational vehicle mass and the rotational inertias
+(e.g. the wheels) are accelerated when the vehicle is accelerated.
+This nature is usually put into account for fundamental vehicle
+analyses done either in the rotational or translational domain,
+e.g. when analysing vehicle's driveline. Then, the vehicle
+mass <code>m</code> can be expressed as an additional
+equivalent inertia
+<code>J_eq = m * R<sup>2</sup></code> or vice
+versa rotational inertia <code>J</code> as an additional
+equivalent mass <code>m_eq = J/R<sup>2</sup></code>,
+where <code>R</code> is the wheel radius. Since this model
+introduces rolling resistance and inclination resistance as well
+where just the vehicle mass plays a role, the approach of
+equivalent mass/inertia would lead to incorrect simulation results
+and shall therefore not be applied here.</p>
+<h4>Drag resistance</h4>
+<blockquote>
+<pre>
+fDrag = Cd*rho*A*(v - vWind)^2/2
+</pre></blockquote>
+<p>Wind velocity is measured in the same direction as velocity of
+<code>flangeT</code>. Wind velocity is either constant or
+prescribed by the input <code>vWind</code>.</p>
+<h4>Rolling resistance</h4>
+<blockquote>
+<pre>
+fRoll = Cr*m*g*cos(alpha)
+</pre></blockquote>
+<p>Rolling resistance coefficient <var>Cr</var> is either
+constant or prescribed by the input <code>cr</code>. Rolling
+resistance has a crossover from positive to negative velocity
+within <code>[-vReg, vReg]</code>.</p>
+<p>The inclination angle <var>α</var> is either constant or
+prescribed by the input <code>inclination</code> =
+tan(<var>α</var>). This corresponds to the road rise over running
+distance of 100 m which, in general, is written as
+a percentage. For example for a road rising by 10 m
+over 100 m the grade = 10 % and, thus, the
+parameter <code>inclinationConstant = 0.1</code>.
+Positive inclination means driving uphill, negative inclination
+means driving downhill, in case of positive vehicle velocity.</p>
+<h4>Inclination resistance</h4>
+<blockquote>
+<pre>
+fGrav = m*g*sin(alpha)
+</pre></blockquote>
+<p>With the inclination angle <var>α</var> described
+above.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>
+Modelica.Mechanics.MultiBody.Frames.Orientation.equalityConstraint</title>
+</head>
+<body>
+<h1><a href="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"><img class="svgiconhead" src="Icons/c3b1f545b438258b4f9489ab914560d42d5f12c0.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a>.<span class="omc-h1">equalityConstraint</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+residue = Orientation.<strong>equalityConstraint</strong>(R1, R2);
+</pre></blockquote>
+<h4>Description</h4>
+<p>The function call
+<code>Orientation.<strong>equalityConstrain</strong>(R1,R2)</code>
+returns the Real residue vector with 3 elements. This vector has
+zero elements if orientation objects R1 and R2 are identical (=
+describe the same orientation). The residue vector is determined by
+computing the relative orientation object between R1 and R2 and
+using the outer-diagonal elements of this matrix to formulate the
+residue in such a way that only identical orientation objects lead
+to a zero residue vector.</p>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>encapsulated function equalityConstraint
+  import Modelica;
+  import Modelica.Mechanics.MultiBody.Frames;
+  extends Modelica.Icons.Function;
+  input Frames.Orientation R1 "Orientation object to rotate frame 0 into frame 1";
+  input Frames.Orientation R2 "Orientation object to rotate frame 0 into frame 2";
+  output Real residue[3] "The rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small rotation (should be zero)";
+end equalityConstraint;</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

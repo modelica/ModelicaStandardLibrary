@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Blocks.Tables.Internal.getDer2Table1DValue</title>
+</head>
+<body>
+<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Tables.html">Tables</a>.<a class="omc-h1-a" href="Modelica.Blocks.Tables.Internal.html">Internal</a>.<span class="omc-h1">getDer2Table1DValue</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<pre>Second derivative of interpolated 1-dim. table defined by matrix</pre>
+<h4><a id="interface" name="interface">Interface</a></h4>
+<blockquote>
+<pre>pure function getDer2Table1DValue
+  extends Modelica.Icons.Function;
+  input Modelica.Blocks.Types.ExternalCombiTable1D tableID "External table object";
+  input Integer icol "Column number";
+  input Real u "Abscissa value";
+  input Real der_u "Derivative of abscissa value";
+  input Real der2_u " Second derivative of abscissa value";
+  output Real der2_y "Second derivative of interpolated value";
+end getDer2Table1DValue;</pre></blockquote>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>

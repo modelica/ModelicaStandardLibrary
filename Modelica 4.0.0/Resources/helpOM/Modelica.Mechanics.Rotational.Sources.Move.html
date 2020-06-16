@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="HTML Tidy for HTML5 for Linux version 5.6.0" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Modelica.Mechanics.Rotational.Sources.Move</title>
+</head>
+<body>
+<h1><a href="Icons/074fcef0b830126b33551292901ab28309e9c088.svg"><img class="svgiconhead" src="Icons/074fcef0b830126b33551292901ab28309e9c088.svg"/></a> <a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.html">Rotational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.Sources.html">Sources</a>.<span class="omc-h1">Move</span></h1>
+<h2><a id="info" name="info">Information</a></h2>
+<p>Flange <strong>flange</strong> is <strong>forced</strong> to
+move relative to flange support with a predefined motion according
+to the input signals:</p>
+<blockquote>
+<pre>
+u[1]: angle of flange
+u[2]: angular velocity of flange
+u[3]: angular acceleration of flange
+</pre></blockquote>
+<p>The user has to guarantee that the input signals are consistent
+to each other, i.e., that u[2] is the derivative of u[1] and that
+u[3] is the derivative of u[2]. There are, however, also
+applications where by purpose these conditions do not hold. For
+example, if only the position dependent terms of a mechanical
+system shall be calculated, one may provide angle = angle(t) and
+set the angular velocity and the angular acceleration to zero.</p>
+<p>The input signals can be provided from one of the signal
+generator blocks of the block library Modelica.Blocks.Sources.</p>
+<hr/>
+Generated at 2020-06-05T21:39:08Z by <a href="http://openmodelica.org">OpenModelica 1.16.0~dev-442-g2e5bc9f</a>
+</body>
+</html>
