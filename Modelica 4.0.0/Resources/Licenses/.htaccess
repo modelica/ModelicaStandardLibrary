@@ -1,3 +1,0 @@
-Options +Indexes
-IndexIgnore .htaccess
-IndexOptions FancyIndexing DescriptionWidth=300 NameWidth=*
