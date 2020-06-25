@@ -109,7 +109,7 @@ operator record Complex "Complex number with overloaded operators"
        */
       end for;
 
-    annotation(Inline=true, Documentation(info="<html>
+    annotation(Inline=true, smoothOrder=100, Documentation(info="<html>
 <p>This function returns the scalar product of two given arrays of Complex numbers.</p>
 </html>"));
     end scalarProduct;
