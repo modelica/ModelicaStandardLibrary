@@ -46,7 +46,7 @@ operator record Complex "Complex number with overloaded operators"
       output Complex c2 "= -c1";
     algorithm
       c2 := Complex(-c1.re, -c1.im);
-      annotation(Inline=true, Documentation(info="<html>
+      annotation(Inline=true, smoothOrder=100, Documentation(info="<html>
 <p>This function returns the binary minus of the given Complex number.</p>
 </html>"));
     end negate;
@@ -58,7 +58,7 @@ operator record Complex "Complex number with overloaded operators"
       output Complex c3 "= c1 - c2";
     algorithm
       c3 := Complex(c1.re - c2.re, c1.im - c2.im);
-      annotation(Inline=true, Documentation(info="<html>
+      annotation(Inline=true, smoothOrder=100, Documentation(info="<html>
 <p>This function returns the difference of two given Complex numbers.</p>
 </html>"));
     end subtract;
@@ -89,7 +89,7 @@ operator record Complex "Complex number with overloaded operators"
     algorithm
       c3 := Complex(c1.re*c2.re - c1.im*c2.im, c1.re*c2.im + c1.im*c2.re);
 
-    annotation(Inline=true, Documentation(info="<html>
+    annotation(Inline=true, smoothOrder=100, Documentation(info="<html>
 <p>This function returns the product of two given Complex numbers.</p>
 </html>"));
     end multiply;
@@ -109,7 +109,7 @@ operator record Complex "Complex number with overloaded operators"
        */
       end for;
 
-    annotation(Inline=true, Documentation(info="<html>
+    annotation(Inline=true, smoothOrder=100, Documentation(info="<html>
 <p>This function returns the scalar product of two given arrays of Complex numbers.</p>
 </html>"));
     end scalarProduct;
@@ -148,7 +148,7 @@ operator record Complex "Complex number with overloaded operators"
     output Complex c3 "= c1 + c2";
   algorithm
     c3 := Complex(c1.re + c2.re, c1.im + c2.im);
-    annotation(Inline=true, Documentation(info="<html>
+    annotation(Inline=true, smoothOrder=100, Documentation(info="<html>
 <p>This function returns the sum of two given Complex numbers.</p>
 </html>"));
   end '+';
@@ -161,7 +161,7 @@ operator record Complex "Complex number with overloaded operators"
   algorithm
     c3 := Complex((+c1.re*c2.re + c1.im*c2.im)/(c2.re*c2.re + c2.im*c2.im),
                   (-c1.re*c2.im + c1.im*c2.re)/(c2.re*c2.re + c2.im*c2.im));
-    annotation(Inline=true, Documentation(info="<html>
+    annotation(Inline=true, smoothOrder=100, Documentation(info="<html>
 <p>This function returns the quotient of two given Complex numbers.</p>
 </html>"));
   end '/';
@@ -178,7 +178,7 @@ operator record Complex "Complex number with overloaded operators"
     Real im=lnz*c2.im + phi*c2.re;
   algorithm
     c3 := Complex(exp(re)*cos(im), exp(re)*sin(im));
-    annotation(Inline=true, Documentation(info="<html>
+    annotation(Inline=true, smoothOrder=100, Documentation(info="<html>
 <p>This function returns the given Complex numbers c1 to the power of the Complex number c2.</p>
 </html>"));
   end '^';
