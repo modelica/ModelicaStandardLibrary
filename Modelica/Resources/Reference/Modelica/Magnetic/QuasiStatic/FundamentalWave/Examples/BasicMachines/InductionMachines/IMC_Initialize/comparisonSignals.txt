@@ -9,7 +9,7 @@ imc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.r
 imc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
 imc.stator.port_p.V_m.im
 imc.stator.port_p.V_m.re
-imc.stator.zeroInductor.i0
+// imc.stator.zeroInductor.i0
 imcQS.rotorCage.port_p.reference.gamma
 loadInertia.phi
 loadInertia.w
