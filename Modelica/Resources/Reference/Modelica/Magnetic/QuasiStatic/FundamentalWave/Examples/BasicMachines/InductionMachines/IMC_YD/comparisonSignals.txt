@@ -3,7 +3,7 @@ imc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Ph
 imc.rotorCage.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
 imc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.re
 imc.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
-imc.stator.zeroInductor.i0
+// imc.stator.zeroInductor.i0
 imcQS.rotorCage.port_p.reference.gamma
 loadInertia.phi
 loadInertia.w
