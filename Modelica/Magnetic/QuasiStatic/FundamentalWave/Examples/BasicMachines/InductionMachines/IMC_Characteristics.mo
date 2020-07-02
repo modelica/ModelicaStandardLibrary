@@ -111,14 +111,13 @@ equation
                   textStyle={TextStyle.Bold},
           textString="%m phase quasi-static")}),
     Documentation(info="<html>
-
 <p>
 This examples allows the investigation of characteristic curves of quasi-static polyphase induction machines with squirrel cage rotor
 as a function of rotor speed.
 </p>
 
 <p>
-Simulate for 1 second and plot (versus imcQS.wMechanical or perUnitSpeed):
+Simulate for 1 second and plot (versus <code>imcQS.wMechanical</code> or <code>speedPerUnit</code>):
 </p>
 
 <ul>

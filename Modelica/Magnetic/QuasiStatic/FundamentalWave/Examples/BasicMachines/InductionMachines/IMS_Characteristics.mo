@@ -128,14 +128,13 @@ equation
   annotation (
     experiment(Interval=0.001, StopTime=1, Tolerance=1e-06),
     Documentation(info="<html>
-
 <p>
 This examples allows the investigation of characteristic curves of quasi-static polyphase induction machines with slip ring rotor
 as a function of rotor speed.
 </p>
 
 <p>
-Simulate for 1 second and plot (versus imsQS.wMechanical or perUnitSpeed):
+Simulate for 1 second and plot (versus <code>imsQS.wMechanical</code> or <code>speedPerUnit</code>):
 </p>
 
 <ul>
