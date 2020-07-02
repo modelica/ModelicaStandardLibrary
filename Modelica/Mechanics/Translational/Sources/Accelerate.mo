@@ -24,17 +24,16 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-The input signal <strong>a</strong> in [m/s2] moves the 1D translational flange
-connector flange with a predefined <em>acceleration</em>, i.e., the flange
-is <em>forced</em> to move relative to the support connector  with this acceleration. The velocity and the
-position of the flange are also predefined and are determined by
+The input signal <strong>a_ref</strong> in [m/s2] moves the 1D translational flange
+connector flange with a&nbsp;predefined <em>acceleration</em>, i.e., the flange
+is <em>forced</em> to move relative to the support connector with this acceleration.
+The velocity and the position of the flange are also predefined and are determined by
 integration of the acceleration.
 </p>
 <p>
-The acceleration \"a(t)\" can be provided from one of the signal generator
-blocks of the block library Modelica.Blocks.Source.
+The acceleration <var>a<sub>ref</sub></var>(<var>t</var>) can be provided from one
+of the signal generator blocks of the block library Modelica.Blocks.Source.
 </p>
-
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
       graphics={

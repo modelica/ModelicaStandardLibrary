@@ -28,7 +28,7 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-The input signal <strong>a</strong> defines an <strong>angular acceleration</strong>
+The input signal <strong>a_ref</strong> defines an <strong>angular acceleration</strong>
 in [rad/s2]. Flange <strong>flange</strong> is <strong>forced</strong> to move relative to flange support with
 this acceleration. The angular velocity <strong>w</strong> and the rotation angle
 <strong>phi</strong> of the flange are automatically determined by integration of
