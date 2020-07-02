@@ -1006,12 +1006,11 @@ y = u1 * u2;
       Documentation(info="<html>
 <p>
 This block computes the output <strong>y</strong>
-by <em>dividing</em> the two inputs <strong>u1</strong> and <strong>u2</strong>:
+by <em>dividing</em> the two inputs <strong>u1</strong> (dividend) and <strong>u2</strong> (divisor):
 </p>
 <blockquote><pre>
 y = u1 / u2;
 </pre></blockquote>
-
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
