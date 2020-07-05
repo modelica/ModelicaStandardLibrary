@@ -6959,8 +6959,8 @@ often possible to use the FreeMotion joint such that the singularity
         r={0.4,0,0},
         r_CM={0.2,0,0},
         width=0.05,
-        r_0(start={0.2,-0.5,0.1}, fixed=true),
-        v_0(fixed=true),
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
+        v_0(each fixed=true),
         angles_fixed=true,
         w_0_fixed=true,
         enforceStates=true,
@@ -6981,8 +6981,8 @@ often possible to use the FreeMotion joint such that the singularity
         I_22=0.1,
         I_33=0.1,
         enforceStates=true,
-        r_0(start={0.2,-0.5,0.1}, fixed=true),
-        v_0(fixed=true),
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
+        v_0(each fixed=true),
         m=1,
         r_CM={0,-0.3,0},
         angles_fixed=true,
@@ -7003,8 +7003,8 @@ often possible to use the FreeMotion joint such that the singularity
         r={0,-0.3,0},
         width=0.05,
         enforceStates=true,
-        r_0(start={0.2,-0.5,0.1}, fixed=true),
-        v_0(fixed=true),
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
+        v_0(each fixed=true),
         angles_fixed=true,
         w_0_fixed=true) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
@@ -7031,8 +7031,8 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder bodyCylinder(
         r={0,-0.3,0},
         diameter=0.05,
-        r_0(start={0.2,-0.5,0.1}, fixed=true),
-        v_0(fixed=true),
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
+        v_0(each fixed=true),
         enforceStates=true,
         angles_fixed=true,
         w_0_fixed=true) annotation (Placement(transformation(
@@ -7043,8 +7043,8 @@ often possible to use the FreeMotion joint such that the singularity
         m=1,
         sphereDiameter=0.1,
         stateSelect=StateSelect.always,
-        r_0(start={0.2,-0.5,0.1}, fixed=true),
-        v_0(fixed=true)) annotation (Placement(transformation(
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
+        v_0(each fixed=true)) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
             origin={30,-30})));
@@ -8450,9 +8450,9 @@ often possible to use the FreeMotion joint such that the singularity
           g=0) annotation(Placement(transformation(extent={{-140,40},{-120,60}})));
         Modelica.Mechanics.MultiBody.Joints.FreeMotion freeMotion1(
           animation=false,
-          r_rel_a(fixed=true),
-          v_rel_a(fixed=true),
-          a_rel_a(fixed=false),
+          r_rel_a(each fixed=true),
+          v_rel_a(each fixed=true),
+          a_rel_a(each fixed=false),
           angles_fixed=true,
           w_rel_a_fixed=true,
           useQuaternions=false) annotation(Placement(transformation(extent={{-119,92},
@@ -8506,7 +8506,7 @@ often possible to use the FreeMotion joint such that the singularity
           color={0,128,0},
           r_0(
             start={0,0,0},
-            fixed=false)) annotation(Placement(transformation(extent={{96,112},{116,132}})));
+            each fixed=false)) annotation(Placement(transformation(extent={{96,112},{116,132}})));
         Modelica.Mechanics.MultiBody.Parts.BodyCylinder cyl2(
           r={0.4,0,0},
           diameter=0.2) annotation(Placement(transformation(extent={{160,112},{180,
@@ -8521,9 +8521,9 @@ often possible to use the FreeMotion joint such that the singularity
           r={0.4,0,0}) annotation(Placement(transformation(extent={{36,92},{56,112}})));
         Modelica.Mechanics.MultiBody.Joints.FreeMotion freeMotion2(
           animation=false,
-          r_rel_a(fixed=true),
-          v_rel_a(fixed=true),
-          a_rel_a(fixed=false),
+          r_rel_a(each fixed=true),
+          v_rel_a(each fixed=true),
+          a_rel_a(each fixed=false),
           angles_fixed=true,
           w_rel_a_fixed=true,
           useQuaternions=false) annotation(Placement(transformation(extent={{-119,-58},
@@ -8598,7 +8598,7 @@ often possible to use the FreeMotion joint such that the singularity
           color={0,128,0},
           r_0(
             start={0,0,0},
-            fixed=false)) annotation(Placement(transformation(extent={{100,-80},{120,
+            each fixed=false)) annotation(Placement(transformation(extent={{100,-80},{120,
                   -60}})));
         Modelica.Mechanics.MultiBody.Parts.BodyCylinder cyl4(
           r={0.4,0,0},
