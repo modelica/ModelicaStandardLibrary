@@ -14,7 +14,7 @@ model SignalGenerator "Rectangle-Triangle generator"
     Vps=Vps,
     Vns=Vns,
     strict=false,
-    homotopyType=Modelica.Blocks.Types.LimiterHomotopy.UpperLimit)
+    homotopyType=Modelica.Blocks.Types.LimiterHomotopy.LowerLimit)
     annotation (Placement(transformation(extent={{-60,10},{-40,-10}})));
   Modelica.Electrical.Analog.Basic.Resistor r2(R=R2, i(start=Vps/R2))
     annotation (Placement(transformation(
