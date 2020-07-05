@@ -6,5 +6,5 @@ smee.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[1].Phi.
 smee.stator.electroMagneticConverter.singlePhaseElectroMagneticConverter[2].Phi.im
 smee.stator.stray.port_p.Phi.im
 smee.stator.stray.port_p.Phi.re
-smee.stator.zeroInductor.i0
+// smee.stator.zeroInductor.i0
 smeeQS.short.port_p.reference.gamma
