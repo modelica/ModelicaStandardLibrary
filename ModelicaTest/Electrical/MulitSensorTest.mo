@@ -43,7 +43,7 @@ model MulitSensorTest
   Modelica.Electrical.MultiPhase.Basic.Resistor resistorM(m=m, R=fill(R, m)) annotation (Placement(transformation(extent={{40,10},
             {60,30}})));
   Modelica.Electrical.MultiPhase.Basic.Inductor inductorM(m=m, L=fill(L, m),
-    i(start=zeros(m), fixed=true))                                           annotation (Placement(transformation(extent={{70,10},
+    i(start=zeros(m), each fixed=true)) annotation (Placement(transformation(extent={{70,10},
             {90,30}})));
   Modelica.Electrical.MultiPhase.Sensors.MultiSensor multiSensorM(m=m)
     annotation (Placement(transformation(extent={{10,10},{30,30}})));
