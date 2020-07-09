@@ -5851,569 +5851,6 @@ Lapack documentation
 "));
     end dgehrd;
 
-    pure function dgeqp3 "Compute QR factorization with column pivoting of square or rectangular matrix A"
-
-      extends Modelica.Icons.Function;
-      input Real A[:, :] "Square or rectangular matrix";
-      input Integer lwork=max(1, 3*size(A, 2) + 1) "Length of work array";
-      output Real QR[size(A, 1), size(A, 2)]=A
-        "QR factorization in packed format";
-      output Real tau[min(size(A, 1), size(A, 2))]
-        "The scalar factors of the elementary reflectors of Q";
-      output Integer p[size(A, 2)]=zeros(size(A, 2)) "Pivot vector";
-      output Integer info;
-    protected
-      Integer m=size(A, 1);
-      Integer lda=max(1, size(A, 1));
-      Integer ncol=size(A, 2) "Column dimension of A";
-      Real work[lwork] "Work array";
-
-    external"FORTRAN 77" dgeqp3(
-              m,
-              ncol,
-              QR,
-              lda,
-              p,
-              tau,
-              work,
-              lwork,
-              info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
-    Purpose
-    =======
-
-    DGEQP3 computes a QR factorization with column pivoting of a
-    matrix A:  A*P = Q*R  using Level 3 BLAS.
-
-    Arguments
-    =========
-
-    M       (input) INTEGER
-            The number of rows of the matrix A. M >= 0.
-
-    N       (input) INTEGER
-            The number of columns of the matrix A.  N >= 0.
-
-    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
-            On entry, the M-by-N matrix A.
-            On exit, the upper triangle of the array contains the
-            min(M,N)-by-N upper trapezoidal matrix R; the elements below
-            the diagonal, together with the array TAU, represent the
-            orthogonal matrix Q as a product of min(M,N) elementary
-            reflectors.
-
-    LDA     (input) INTEGER
-            The leading dimension of the array A. LDA >= max(1,M).
-
-    JPVT    (input/output) INTEGER array, dimension (N)
-            On entry, if JPVT(J).ne.0, the J-th column of A is permuted
-            to the front of A*P (a leading column); if JPVT(J)=0,
-            the J-th column of A is a free column.
-            On exit, if JPVT(J)=K, then the J-th column of A*P was the
-            the K-th column of A.
-
-    TAU     (output) DOUBLE PRECISION array, dimension (min(M,N))
-            The scalar factors of the elementary reflectors.
-
-    WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
-            On exit, if INFO=0, WORK(1) returns the optimal LWORK.
-
-    LWORK   (input) INTEGER
-            The dimension of the array WORK. LWORK >= 3*N+1.
-            For optimal performance LWORK >= 2*N+( N+1 )*NB, where NB
-            is the optimal blocksize.
-
-            If LWORK = -1, then a workspace query is assumed; the routine
-            only calculates the optimal size of the WORK array, returns
-            this value as the first entry of the WORK array, and no error
-            message related to LWORK is issued by XERBLA.
-
-    INFO    (output) INTEGER
-            = 0: successful exit.
-            < 0: if INFO = -i, the i-th argument had an illegal value.
-
-    Further Details
-    ===============
-
-    The matrix Q is represented as a product of elementary reflectors
-
-       Q = H(1) H(2) . . . H(k), where k = min(m,n).
-
-    Each H(i) has the form
-
-       H(i) = I - tau * v * v'
-
-    where tau is a real/complex scalar, and v is a real/complex vector
-    with v(1:i-1) = 0 and v(i) = 1; v(i+1:m) is stored on exit in
-    A(i+1:m,i), and tau in TAU(i).
-
-    Based on contributions by
-      G. Quintana-Orti, Depto. de Informatica, Universidad Jaime I, Spain
-      X. Sun, Computer Science Dept., Duke University, USA
-"));
-    end dgeqp3;
-
-    pure function dgesdd "Determine singular value decomposition"
-      extends Modelica.Icons.Function;
-      input Real A[:, :];
-      output Real sigma[min(size(A, 1), size(A, 2))];
-      output Real U[size(A, 1), size(A, 1)]=zeros(size(A, 1), size(A, 1));
-      output Real VT[size(A, 2), size(A, 2)]=zeros(size(A, 2), size(A, 2));
-      output Integer info;
-    protected
-      Integer m=size(A, 1);
-      Integer n=size(A, 2);
-      Real Awork[size(A, 1), size(A, 2)]=A;
-      Integer lda=max(1, size(A, 1));
-      Integer ldu=max(1, size(A, 1));
-      Integer ldvt=max(1, size(A, 2));
-      Integer lwork=max(1, 3*(3*min(size(A, 1), size(A, 2))*min(size(A, 1),
-          size(A, 2)) + max(max(size(A, 1), size(A, 2)), 4*min(size(A, 1), size(
-          A, 2))*min(size(A, 1), size(A, 2)) + 4*min(size(A, 1), size(A, 2)))));
-      Integer iwork=max(1, 8*min(size(A, 1), size(A, 2)));
-      Real work[max(1, 3*(3*min(size(A, 1), size(A, 2))*min(size(A, 1), size(A,
-        2)) + max(max(size(A, 1), size(A, 2)), 4*min(size(A, 1), size(A, 2))*
-        min(size(A, 1), size(A, 2)) + 4*min(size(A, 1), size(A, 2)))))];
-
-    external"FORTRAN 77" dgesdd(
-              "A",
-              m,
-              n,
-              Awork,
-              lda,
-              sigma,
-              U,
-              ldu,
-              VT,
-              ldvt,
-              work,
-              lwork,
-              iwork,
-              info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
-    Purpose
-    =======
-
-    DGESDD computes the singular value decomposition (SVD) of a real
-    M-by-N matrix A, optionally computing the left and right singular
-    vectors.  If singular vectors are desired, it uses a
-    divide-and-conquer algorithm.
-
-    The SVD is written
-
-         A = U * SIGMA * transpose(V)
-
-    where SIGMA is an M-by-N matrix which is zero except for its
-    min(m,n) diagonal elements, U is an M-by-M orthogonal matrix, and
-    V is an N-by-N orthogonal matrix.  The diagonal elements of SIGMA
-    are the singular values of A; they are real and non-negative, and
-    are returned in descending order.  The first min(m,n) columns of
-    U and V are the left and right singular vectors of A.
-
-    Note that the routine returns VT = V**T, not V.
-
-    The divide and conquer algorithm makes very mild assumptions about
-    floating point arithmetic. It will work on machines with a guard
-    digit in add/subtract, or on those binary machines without guard
-    digits which subtract like the Cray X-MP, Cray Y-MP, Cray C-90, or
-    Cray-2. It could conceivably fail on hexadecimal or decimal machines
-    without guard digits, but we know of none.
-
-    Arguments
-    =========
-
-    JOBZ    (input) CHARACTER*1
-            Specifies options for computing all or part of the matrix U:
-            = 'A':  all M columns of U and all N rows of V**T are
-                    returned in the arrays U and VT;
-            = 'S':  the first min(M,N) columns of U and the first
-                    min(M,N) rows of V**T are returned in the arrays U
-                    and VT;
-            = 'O':  If M >= N, the first N columns of U are overwritten
-                    on the array A and all rows of V**T are returned in
-                    the array VT;
-                    otherwise, all columns of U are returned in the
-                    array U and the first M rows of V**T are overwritten
-                    in the array A;
-            = 'N':  no columns of U or rows of V**T are computed.
-
-    M       (input) INTEGER
-            The number of rows of the input matrix A.  M >= 0.
-
-    N       (input) INTEGER
-            The number of columns of the input matrix A.  N >= 0.
-
-    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
-            On entry, the M-by-N matrix A.
-            On exit,
-            if JOBZ = 'O',  A is overwritten with the first N columns
-                            of U (the left singular vectors, stored
-                            columnwise) if M >= N;
-                            A is overwritten with the first M rows
-                            of V**T (the right singular vectors, stored
-                            rowwise) otherwise.
-            if JOBZ .ne. 'O', the contents of A are destroyed.
-
-    LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,M).
-
-    S       (output) DOUBLE PRECISION array, dimension (min(M,N))
-            The singular values of A, sorted so that S(i) >= S(i+1).
-
-    U       (output) DOUBLE PRECISION array, dimension (LDU,UCOL)
-            UCOL = M if JOBZ = 'A' or JOBZ = 'O' and M < N;
-            UCOL = min(M,N) if JOBZ = 'S'.
-            If JOBZ = 'A' or JOBZ = 'O' and M < N, U contains the M-by-M
-            orthogonal matrix U;
-            if JOBZ = 'S', U contains the first min(M,N) columns of U
-            (the left singular vectors, stored columnwise);
-            if JOBZ = 'O' and M >= N, or JOBZ = 'N', U is not referenced.
-
-    LDU     (input) INTEGER
-            The leading dimension of the array U.  LDU >= 1; if
-            JOBZ = 'S' or 'A' or JOBZ = 'O' and M < N, LDU >= M.
-
-    VT      (output) DOUBLE PRECISION array, dimension (LDVT,N)
-            If JOBZ = 'A' or JOBZ = 'O' and M >= N, VT contains the
-            N-by-N orthogonal matrix V**T;
-            if JOBZ = 'S', VT contains the first min(M,N) rows of
-            V**T (the right singular vectors, stored rowwise);
-            if JOBZ = 'O' and M < N, or JOBZ = 'N', VT is not referenced.
-
-    LDVT    (input) INTEGER
-            The leading dimension of the array VT.  LDVT >= 1; if
-            JOBZ = 'A' or JOBZ = 'O' and M >= N, LDVT >= N;
-            if JOBZ = 'S', LDVT >= min(M,N).
-
-    WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
-            On exit, if INFO = 0, WORK(1) returns the optimal LWORK;
-
-    LWORK   (input) INTEGER
-            The dimension of the array WORK. LWORK >= 1.
-            If JOBZ = 'N',
-              LWORK >= 3*min(M,N) + max(max(M,N),7*min(M,N)).
-            If JOBZ = 'O',
-              LWORK >= 3*min(M,N) +
-                       max(max(M,N),5*min(M,N)*min(M,N)+4*min(M,N)).
-            If JOBZ = 'S' or 'A'
-              LWORK >= 3*min(M,N) +
-                       max(max(M,N),4*min(M,N)*min(M,N)+4*min(M,N)).
-            For good performance, LWORK should generally be larger.
-            If LWORK = -1 but other input arguments are legal, WORK(1)
-            returns the optimal LWORK.
-
-    IWORK   (workspace) INTEGER array, dimension (8*min(M,N))
-
-    INFO    (output) INTEGER
-            = 0:  successful exit.
-            < 0:  if INFO = -i, the i-th argument had an illegal value.
-            > 0:  DBDSDC did not converge, updating process failed.
-
-    Further Details
-    ===============
-
-    Based on contributions by
-       Ming Gu and Huan Ren, Computer Science Division, University of
-       California at Berkeley, USA
-"));
-    end dgesdd;
-
-    pure function dgesvd "Determine singular value decomposition"
-      extends Modelica.Icons.Function;
-      input Real A[:, :];
-      output Real sigma[min(size(A, 1), size(A, 2))];
-      output Real U[size(A, 1), size(A, 1)]=zeros(size(A, 1), size(A, 1));
-      output Real VT[size(A, 2), size(A, 2)]=zeros(size(A, 2), size(A, 2));
-      output Integer info;
-    protected
-      Integer m=size(A, 1);
-      Integer n=size(A, 2);
-      Real Awork[size(A, 1), size(A, 2)]=A;
-      Integer lwork=5*size(A, 1) + 5*size(A, 2);
-      Real work[5*size(A, 1) + 5*size(A, 2)];
-
-    external"FORTRAN 77" dgesvd(
-              "A",
-              "A",
-              m,
-              n,
-              Awork,
-              m,
-              sigma,
-              U,
-              m,
-              VT,
-              n,
-              work,
-              lwork,
-              info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
-    Purpose
-    =======
-
-    DGESVD computes the singular value decomposition (SVD) of a real
-    M-by-N matrix A, optionally computing the left and/or right singular
-    vectors. The SVD is written
-
-         A = U * SIGMA * transpose(V)
-
-    where SIGMA is an M-by-N matrix which is zero except for its
-    min(m,n) diagonal elements, U is an M-by-M orthogonal matrix, and
-    V is an N-by-N orthogonal matrix.  The diagonal elements of SIGMA
-    are the singular values of A; they are real and non-negative, and
-    are returned in descending order.  The first min(m,n) columns of
-    U and V are the left and right singular vectors of A.
-
-    Note that the routine returns V**T, not V.
-
-    Arguments
-    =========
-
-    JOBU    (input) CHARACTER*1
-            Specifies options for computing all or part of the matrix U:
-            = 'A':  all M columns of U are returned in array U:
-            = 'S':  the first min(m,n) columns of U (the left singular
-                    vectors) are returned in the array U;
-            = 'O':  the first min(m,n) columns of U (the left singular
-                    vectors) are overwritten on the array A;
-            = 'N':  no columns of U (no left singular vectors) are
-                    computed.
-
-    JOBVT   (input) CHARACTER*1
-            Specifies options for computing all or part of the matrix
-            V**T:
-            = 'A':  all N rows of V**T are returned in the array VT;
-            = 'S':  the first min(m,n) rows of V**T (the right singular
-                    vectors) are returned in the array VT;
-            = 'O':  the first min(m,n) rows of V**T (the right singular
-                    vectors) are overwritten on the array A;
-            = 'N':  no rows of V**T (no right singular vectors) are
-                    computed.
-
-            JOBVT and JOBU cannot both be 'O'.
-
-    M       (input) INTEGER
-            The number of rows of the input matrix A.  M >= 0.
-
-    N       (input) INTEGER
-            The number of columns of the input matrix A.  N >= 0.
-
-    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
-            On entry, the M-by-N matrix A.
-            On exit,
-            if JOBU = 'O',  A is overwritten with the first min(m,n)
-                            columns of U (the left singular vectors,
-                            stored columnwise);
-            if JOBVT = 'O', A is overwritten with the first min(m,n)
-                            rows of V**T (the right singular vectors,
-                            stored rowwise);
-            if JOBU .ne. 'O' and JOBVT .ne. 'O', the contents of A
-                            are destroyed.
-
-    LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,M).
-
-    S       (output) DOUBLE PRECISION array, dimension (min(M,N))
-            The singular values of A, sorted so that S(i) >= S(i+1).
-
-    U       (output) DOUBLE PRECISION array, dimension (LDU,UCOL)
-            (LDU,M) if JOBU = 'A' or (LDU,min(M,N)) if JOBU = 'S'.
-            If JOBU = 'A', U contains the M-by-M orthogonal matrix U;
-            if JOBU = 'S', U contains the first min(m,n) columns of U
-            (the left singular vectors, stored columnwise);
-            if JOBU = 'N' or 'O', U is not referenced.
-
-    LDU     (input) INTEGER
-            The leading dimension of the array U.  LDU >= 1; if
-            JOBU = 'S' or 'A', LDU >= M.
-
-    VT      (output) DOUBLE PRECISION array, dimension (LDVT,N)
-            If JOBVT = 'A', VT contains the N-by-N orthogonal matrix
-            V**T;
-            if JOBVT = 'S', VT contains the first min(m,n) rows of
-            V**T (the right singular vectors, stored rowwise);
-            if JOBVT = 'N' or 'O', VT is not referenced.
-
-    LDVT    (input) INTEGER
-            The leading dimension of the array VT.  LDVT >= 1; if
-            JOBVT = 'A', LDVT >= N; if JOBVT = 'S', LDVT >= min(M,N).
-
-    WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
-            On exit, if INFO = 0, WORK(1) returns the optimal LWORK;
-            if INFO > 0, WORK(2:MIN(M,N)) contains the unconverged
-            superdiagonal elements of an upper bidiagonal matrix B
-            whose diagonal is in S (not necessarily sorted). B
-            satisfies A = U * B * VT, so it has the same singular values
-            as A, and singular vectors related by U and VT.
-
-    LWORK   (input) INTEGER
-            The dimension of the array WORK.
-            LWORK >= MAX(1,3*MIN(M,N)+MAX(M,N),5*MIN(M,N)).
-            For good performance, LWORK should generally be larger.
-
-            If LWORK = -1, then a workspace query is assumed; the routine
-            only calculates the optimal size of the WORK array, returns
-            this value as the first entry of the WORK array, and no error
-            message related to LWORK is issued by XERBLA.
-
-    INFO    (output) INTEGER
-            = 0:  successful exit.
-            < 0:  if INFO = -i, the i-th argument had an illegal value.
-            > 0:  if DBDSQR did not converge, INFO specifies how many
-                  superdiagonals of an intermediate bidiagonal form B
-                  did not converge to zero. See the description of WORK
-                  above for details.
-"));
-    end dgesvd;
-
-    pure function dgesvd_sigma "Determine singular values"
-      extends Modelica.Icons.Function;
-      input Real A[:, :];
-      output Real sigma[min(size(A, 1), size(A, 2))];
-      output Integer info;
-    protected
-      Integer m=size(A, 1);
-      Integer n=size(A, 2);
-      Real Awork[size(A, 1), size(A, 2)]=A;
-      Real U[size(A, 1), size(A, 1)];
-      Real VT[size(A, 2), size(A, 2)];
-      Integer lwork=5*size(A, 1) + 5*size(A, 2);
-      Real work[5*size(A, 1) + 5*size(A, 2)];
-
-    external"FORTRAN 77" dgesvd(
-              "N",
-              "N",
-              m,
-              n,
-              Awork,
-              m,
-              sigma,
-              U,
-              m,
-              VT,
-              n,
-              work,
-              lwork,
-              info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
-    Purpose
-    =======
-
-    DGESVD computes the singular value decomposition (SVD) of a real
-    M-by-N matrix A, optionally computing the left and/or right singular
-    vectors. The SVD is written
-
-         A = U * SIGMA * transpose(V)
-
-    where SIGMA is an M-by-N matrix which is zero except for its
-    min(m,n) diagonal elements, U is an M-by-M orthogonal matrix, and
-    V is an N-by-N orthogonal matrix.  The diagonal elements of SIGMA
-    are the singular values of A; they are real and non-negative, and
-    are returned in descending order.  The first min(m,n) columns of
-    U and V are the left and right singular vectors of A.
-
-    Note that the routine returns V**T, not V.
-
-    Arguments
-    =========
-
-    JOBU    (input) CHARACTER*1
-            Specifies options for computing all or part of the matrix U:
-            = 'A':  all M columns of U are returned in array U:
-            = 'S':  the first min(m,n) columns of U (the left singular
-                    vectors) are returned in the array U;
-            = 'O':  the first min(m,n) columns of U (the left singular
-                    vectors) are overwritten on the array A;
-            = 'N':  no columns of U (no left singular vectors) are
-                    computed.
-
-    JOBVT   (input) CHARACTER*1
-            Specifies options for computing all or part of the matrix
-            V**T:
-            = 'A':  all N rows of V**T are returned in the array VT;
-            = 'S':  the first min(m,n) rows of V**T (the right singular
-                    vectors) are returned in the array VT;
-            = 'O':  the first min(m,n) rows of V**T (the right singular
-                    vectors) are overwritten on the array A;
-            = 'N':  no rows of V**T (no right singular vectors) are
-                    computed.
-
-            JOBVT and JOBU cannot both be 'O'.
-
-    M       (input) INTEGER
-            The number of rows of the input matrix A.  M >= 0.
-
-    N       (input) INTEGER
-            The number of columns of the input matrix A.  N >= 0.
-
-    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
-            On entry, the M-by-N matrix A.
-            On exit,
-            if JOBU = 'O',  A is overwritten with the first min(m,n)
-                            columns of U (the left singular vectors,
-                            stored columnwise);
-            if JOBVT = 'O', A is overwritten with the first min(m,n)
-                            rows of V**T (the right singular vectors,
-                            stored rowwise);
-            if JOBU .ne. 'O' and JOBVT .ne. 'O', the contents of A
-                            are destroyed.
-
-    LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,M).
-
-    S       (output) DOUBLE PRECISION array, dimension (min(M,N))
-            The singular values of A, sorted so that S(i) >= S(i+1).
-
-    U       (output) DOUBLE PRECISION array, dimension (LDU,UCOL)
-            (LDU,M) if JOBU = 'A' or (LDU,min(M,N)) if JOBU = 'S'.
-            If JOBU = 'A', U contains the M-by-M orthogonal matrix U;
-            if JOBU = 'S', U contains the first min(m,n) columns of U
-            (the left singular vectors, stored columnwise);
-            if JOBU = 'N' or 'O', U is not referenced.
-
-    LDU     (input) INTEGER
-            The leading dimension of the array U.  LDU >= 1; if
-            JOBU = 'S' or 'A', LDU >= M.
-
-    VT      (output) DOUBLE PRECISION array, dimension (LDVT,N)
-            If JOBVT = 'A', VT contains the N-by-N orthogonal matrix
-            V**T;
-            if JOBVT = 'S', VT contains the first min(m,n) rows of
-            V**T (the right singular vectors, stored rowwise);
-            if JOBVT = 'N' or 'O', VT is not referenced.
-
-    LDVT    (input) INTEGER
-            The leading dimension of the array VT.  LDVT >= 1; if
-            JOBVT = 'A', LDVT >= N; if JOBVT = 'S', LDVT >= min(M,N).
-
-    WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
-            On exit, if INFO = 0, WORK(1) returns the optimal LWORK;
-            if INFO > 0, WORK(2:MIN(M,N)) contains the unconverged
-            superdiagonal elements of an upper bidiagonal matrix B
-            whose diagonal is in S (not necessarily sorted). B
-            satisfies A = U * B * VT, so it has the same singular values
-            as A, and singular vectors related by U and VT.
-
-    LWORK   (input) INTEGER
-            The dimension of the array WORK.
-            LWORK >= MAX(1,3*MIN(M,N)+MAX(M,N),5*MIN(M,N)).
-            For good performance, LWORK should generally be larger.
-
-            If LWORK = -1, then a workspace query is assumed; the routine
-            only calculates the optimal size of the WORK array, returns
-            this value as the first entry of the WORK array, and no error
-            message related to LWORK is issued by XERBLA.
-
-    INFO    (output) INTEGER
-            = 0:  successful exit.
-            < 0:  if INFO = -i, the i-th argument had an illegal value.
-            > 0:  if DBDSQR did not converge, INFO specifies how many
-                  superdiagonals of an intermediate bidiagonal form B
-                  did not converge to zero. See the description of WORK
-                  above for details.
-"));
-    end dgesvd_sigma;
-
     pure function dgels_vec
       "Solve overdetermined or underdetermined real linear equations A*x=b with a b vector"
 
@@ -6850,6 +6287,108 @@ Lapack documentation
 "));
     end dgelsy_vec;
 
+    pure function dgeqp3 "Compute QR factorization with column pivoting of square or rectangular matrix A"
+
+      extends Modelica.Icons.Function;
+      input Real A[:, :] "Square or rectangular matrix";
+      input Integer lwork=max(1, 3*size(A, 2) + 1) "Length of work array";
+      output Real QR[size(A, 1), size(A, 2)]=A
+        "QR factorization in packed format";
+      output Real tau[min(size(A, 1), size(A, 2))]
+        "The scalar factors of the elementary reflectors of Q";
+      output Integer p[size(A, 2)]=zeros(size(A, 2)) "Pivot vector";
+      output Integer info;
+    protected
+      Integer m=size(A, 1);
+      Integer lda=max(1, size(A, 1));
+      Integer ncol=size(A, 2) "Column dimension of A";
+      Real work[lwork] "Work array";
+
+    external"FORTRAN 77" dgeqp3(
+              m,
+              ncol,
+              QR,
+              lda,
+              p,
+              tau,
+              work,
+              lwork,
+              info) annotation (Library={"lapack"});
+      annotation (Documentation(info="Lapack documentation
+    Purpose
+    =======
+
+    DGEQP3 computes a QR factorization with column pivoting of a
+    matrix A:  A*P = Q*R  using Level 3 BLAS.
+
+    Arguments
+    =========
+
+    M       (input) INTEGER
+            The number of rows of the matrix A. M >= 0.
+
+    N       (input) INTEGER
+            The number of columns of the matrix A.  N >= 0.
+
+    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+            On entry, the M-by-N matrix A.
+            On exit, the upper triangle of the array contains the
+            min(M,N)-by-N upper trapezoidal matrix R; the elements below
+            the diagonal, together with the array TAU, represent the
+            orthogonal matrix Q as a product of min(M,N) elementary
+            reflectors.
+
+    LDA     (input) INTEGER
+            The leading dimension of the array A. LDA >= max(1,M).
+
+    JPVT    (input/output) INTEGER array, dimension (N)
+            On entry, if JPVT(J).ne.0, the J-th column of A is permuted
+            to the front of A*P (a leading column); if JPVT(J)=0,
+            the J-th column of A is a free column.
+            On exit, if JPVT(J)=K, then the J-th column of A*P was the
+            the K-th column of A.
+
+    TAU     (output) DOUBLE PRECISION array, dimension (min(M,N))
+            The scalar factors of the elementary reflectors.
+
+    WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+            On exit, if INFO=0, WORK(1) returns the optimal LWORK.
+
+    LWORK   (input) INTEGER
+            The dimension of the array WORK. LWORK >= 3*N+1.
+            For optimal performance LWORK >= 2*N+( N+1 )*NB, where NB
+            is the optimal blocksize.
+
+            If LWORK = -1, then a workspace query is assumed; the routine
+            only calculates the optimal size of the WORK array, returns
+            this value as the first entry of the WORK array, and no error
+            message related to LWORK is issued by XERBLA.
+
+    INFO    (output) INTEGER
+            = 0: successful exit.
+            < 0: if INFO = -i, the i-th argument had an illegal value.
+
+    Further Details
+    ===============
+
+    The matrix Q is represented as a product of elementary reflectors
+
+       Q = H(1) H(2) . . . H(k), where k = min(m,n).
+
+    Each H(i) has the form
+
+       H(i) = I - tau * v * v'
+
+    where tau is a real/complex scalar, and v is a real/complex vector
+    with v(1:i-1) = 0 and v(i) = 1; v(i+1:m) is stored on exit in
+    A(i+1:m,i), and tau in TAU(i).
+
+    Based on contributions by
+      G. Quintana-Orti, Depto. de Informatica, Universidad Jaime I, Spain
+      X. Sun, Computer Science Dept., Duke University, USA
+"));
+    end dgeqp3;
+
     pure function dgeqrf "Compute a QR factorization without pivoting"
       extends Modelica.Icons.Function;
 
@@ -6940,6 +6479,171 @@ Lapack documentation
     and tau in TAU(i).
 "));
     end dgeqrf;
+
+    pure function dgesdd "Determine singular value decomposition"
+      extends Modelica.Icons.Function;
+      input Real A[:, :];
+      output Real sigma[min(size(A, 1), size(A, 2))];
+      output Real U[size(A, 1), size(A, 1)]=zeros(size(A, 1), size(A, 1));
+      output Real VT[size(A, 2), size(A, 2)]=zeros(size(A, 2), size(A, 2));
+      output Integer info;
+    protected
+      Integer m=size(A, 1);
+      Integer n=size(A, 2);
+      Real Awork[size(A, 1), size(A, 2)]=A;
+      Integer lda=max(1, size(A, 1));
+      Integer ldu=max(1, size(A, 1));
+      Integer ldvt=max(1, size(A, 2));
+      Integer lwork=max(1, 3*(3*min(size(A, 1), size(A, 2))*min(size(A, 1),
+          size(A, 2)) + max(max(size(A, 1), size(A, 2)), 4*min(size(A, 1), size(
+          A, 2))*min(size(A, 1), size(A, 2)) + 4*min(size(A, 1), size(A, 2)))));
+      Integer iwork=max(1, 8*min(size(A, 1), size(A, 2)));
+      Real work[max(1, 3*(3*min(size(A, 1), size(A, 2))*min(size(A, 1), size(A,
+        2)) + max(max(size(A, 1), size(A, 2)), 4*min(size(A, 1), size(A, 2))*
+        min(size(A, 1), size(A, 2)) + 4*min(size(A, 1), size(A, 2)))))];
+
+    external"FORTRAN 77" dgesdd(
+              "A",
+              m,
+              n,
+              Awork,
+              lda,
+              sigma,
+              U,
+              ldu,
+              VT,
+              ldvt,
+              work,
+              lwork,
+              iwork,
+              info) annotation (Library="lapack");
+      annotation (Documentation(info="Lapack documentation
+    Purpose
+    =======
+
+    DGESDD computes the singular value decomposition (SVD) of a real
+    M-by-N matrix A, optionally computing the left and right singular
+    vectors.  If singular vectors are desired, it uses a
+    divide-and-conquer algorithm.
+
+    The SVD is written
+
+         A = U * SIGMA * transpose(V)
+
+    where SIGMA is an M-by-N matrix which is zero except for its
+    min(m,n) diagonal elements, U is an M-by-M orthogonal matrix, and
+    V is an N-by-N orthogonal matrix.  The diagonal elements of SIGMA
+    are the singular values of A; they are real and non-negative, and
+    are returned in descending order.  The first min(m,n) columns of
+    U and V are the left and right singular vectors of A.
+
+    Note that the routine returns VT = V**T, not V.
+
+    The divide and conquer algorithm makes very mild assumptions about
+    floating point arithmetic. It will work on machines with a guard
+    digit in add/subtract, or on those binary machines without guard
+    digits which subtract like the Cray X-MP, Cray Y-MP, Cray C-90, or
+    Cray-2. It could conceivably fail on hexadecimal or decimal machines
+    without guard digits, but we know of none.
+
+    Arguments
+    =========
+
+    JOBZ    (input) CHARACTER*1
+            Specifies options for computing all or part of the matrix U:
+            = 'A':  all M columns of U and all N rows of V**T are
+                    returned in the arrays U and VT;
+            = 'S':  the first min(M,N) columns of U and the first
+                    min(M,N) rows of V**T are returned in the arrays U
+                    and VT;
+            = 'O':  If M >= N, the first N columns of U are overwritten
+                    on the array A and all rows of V**T are returned in
+                    the array VT;
+                    otherwise, all columns of U are returned in the
+                    array U and the first M rows of V**T are overwritten
+                    in the array A;
+            = 'N':  no columns of U or rows of V**T are computed.
+
+    M       (input) INTEGER
+            The number of rows of the input matrix A.  M >= 0.
+
+    N       (input) INTEGER
+            The number of columns of the input matrix A.  N >= 0.
+
+    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+            On entry, the M-by-N matrix A.
+            On exit,
+            if JOBZ = 'O',  A is overwritten with the first N columns
+                            of U (the left singular vectors, stored
+                            columnwise) if M >= N;
+                            A is overwritten with the first M rows
+                            of V**T (the right singular vectors, stored
+                            rowwise) otherwise.
+            if JOBZ .ne. 'O', the contents of A are destroyed.
+
+    LDA     (input) INTEGER
+            The leading dimension of the array A.  LDA >= max(1,M).
+
+    S       (output) DOUBLE PRECISION array, dimension (min(M,N))
+            The singular values of A, sorted so that S(i) >= S(i+1).
+
+    U       (output) DOUBLE PRECISION array, dimension (LDU,UCOL)
+            UCOL = M if JOBZ = 'A' or JOBZ = 'O' and M < N;
+            UCOL = min(M,N) if JOBZ = 'S'.
+            If JOBZ = 'A' or JOBZ = 'O' and M < N, U contains the M-by-M
+            orthogonal matrix U;
+            if JOBZ = 'S', U contains the first min(M,N) columns of U
+            (the left singular vectors, stored columnwise);
+            if JOBZ = 'O' and M >= N, or JOBZ = 'N', U is not referenced.
+
+    LDU     (input) INTEGER
+            The leading dimension of the array U.  LDU >= 1; if
+            JOBZ = 'S' or 'A' or JOBZ = 'O' and M < N, LDU >= M.
+
+    VT      (output) DOUBLE PRECISION array, dimension (LDVT,N)
+            If JOBZ = 'A' or JOBZ = 'O' and M >= N, VT contains the
+            N-by-N orthogonal matrix V**T;
+            if JOBZ = 'S', VT contains the first min(M,N) rows of
+            V**T (the right singular vectors, stored rowwise);
+            if JOBZ = 'O' and M < N, or JOBZ = 'N', VT is not referenced.
+
+    LDVT    (input) INTEGER
+            The leading dimension of the array VT.  LDVT >= 1; if
+            JOBZ = 'A' or JOBZ = 'O' and M >= N, LDVT >= N;
+            if JOBZ = 'S', LDVT >= min(M,N).
+
+    WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+            On exit, if INFO = 0, WORK(1) returns the optimal LWORK;
+
+    LWORK   (input) INTEGER
+            The dimension of the array WORK. LWORK >= 1.
+            If JOBZ = 'N',
+              LWORK >= 3*min(M,N) + max(max(M,N),7*min(M,N)).
+            If JOBZ = 'O',
+              LWORK >= 3*min(M,N) +
+                       max(max(M,N),5*min(M,N)*min(M,N)+4*min(M,N)).
+            If JOBZ = 'S' or 'A'
+              LWORK >= 3*min(M,N) +
+                       max(max(M,N),4*min(M,N)*min(M,N)+4*min(M,N)).
+            For good performance, LWORK should generally be larger.
+            If LWORK = -1 but other input arguments are legal, WORK(1)
+            returns the optimal LWORK.
+
+    IWORK   (workspace) INTEGER array, dimension (8*min(M,N))
+
+    INFO    (output) INTEGER
+            = 0:  successful exit.
+            < 0:  if INFO = -i, the i-th argument had an illegal value.
+            > 0:  DBDSDC did not converge, updating process failed.
+
+    Further Details
+    ===============
+
+    Based on contributions by
+       Ming Gu and Huan Ren, Computer Science Division, University of
+       California at Berkeley, USA
+"));
+    end dgesdd;
 
     pure function dgesv
       "Solve real system of linear equations A*X=B with a B matrix"
@@ -7048,6 +6752,302 @@ Same as function LAPACK.dgesv, but right hand side is a vector and not a matrix.
 For details of the arguments, see documentation of dgesv.
 "));
     end dgesv_vec;
+
+    pure function dgesvd "Determine singular value decomposition"
+      extends Modelica.Icons.Function;
+      input Real A[:, :];
+      output Real sigma[min(size(A, 1), size(A, 2))];
+      output Real U[size(A, 1), size(A, 1)]=zeros(size(A, 1), size(A, 1));
+      output Real VT[size(A, 2), size(A, 2)]=zeros(size(A, 2), size(A, 2));
+      output Integer info;
+    protected
+      Integer m=size(A, 1);
+      Integer n=size(A, 2);
+      Real Awork[size(A, 1), size(A, 2)]=A;
+      Integer lwork=5*size(A, 1) + 5*size(A, 2);
+      Real work[5*size(A, 1) + 5*size(A, 2)];
+
+    external"FORTRAN 77" dgesvd(
+              "A",
+              "A",
+              m,
+              n,
+              Awork,
+              m,
+              sigma,
+              U,
+              m,
+              VT,
+              n,
+              work,
+              lwork,
+              info) annotation (Library="lapack");
+      annotation (Documentation(info="Lapack documentation
+    Purpose
+    =======
+
+    DGESVD computes the singular value decomposition (SVD) of a real
+    M-by-N matrix A, optionally computing the left and/or right singular
+    vectors. The SVD is written
+
+         A = U * SIGMA * transpose(V)
+
+    where SIGMA is an M-by-N matrix which is zero except for its
+    min(m,n) diagonal elements, U is an M-by-M orthogonal matrix, and
+    V is an N-by-N orthogonal matrix.  The diagonal elements of SIGMA
+    are the singular values of A; they are real and non-negative, and
+    are returned in descending order.  The first min(m,n) columns of
+    U and V are the left and right singular vectors of A.
+
+    Note that the routine returns V**T, not V.
+
+    Arguments
+    =========
+
+    JOBU    (input) CHARACTER*1
+            Specifies options for computing all or part of the matrix U:
+            = 'A':  all M columns of U are returned in array U:
+            = 'S':  the first min(m,n) columns of U (the left singular
+                    vectors) are returned in the array U;
+            = 'O':  the first min(m,n) columns of U (the left singular
+                    vectors) are overwritten on the array A;
+            = 'N':  no columns of U (no left singular vectors) are
+                    computed.
+
+    JOBVT   (input) CHARACTER*1
+            Specifies options for computing all or part of the matrix
+            V**T:
+            = 'A':  all N rows of V**T are returned in the array VT;
+            = 'S':  the first min(m,n) rows of V**T (the right singular
+                    vectors) are returned in the array VT;
+            = 'O':  the first min(m,n) rows of V**T (the right singular
+                    vectors) are overwritten on the array A;
+            = 'N':  no rows of V**T (no right singular vectors) are
+                    computed.
+
+            JOBVT and JOBU cannot both be 'O'.
+
+    M       (input) INTEGER
+            The number of rows of the input matrix A.  M >= 0.
+
+    N       (input) INTEGER
+            The number of columns of the input matrix A.  N >= 0.
+
+    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+            On entry, the M-by-N matrix A.
+            On exit,
+            if JOBU = 'O',  A is overwritten with the first min(m,n)
+                            columns of U (the left singular vectors,
+                            stored columnwise);
+            if JOBVT = 'O', A is overwritten with the first min(m,n)
+                            rows of V**T (the right singular vectors,
+                            stored rowwise);
+            if JOBU .ne. 'O' and JOBVT .ne. 'O', the contents of A
+                            are destroyed.
+
+    LDA     (input) INTEGER
+            The leading dimension of the array A.  LDA >= max(1,M).
+
+    S       (output) DOUBLE PRECISION array, dimension (min(M,N))
+            The singular values of A, sorted so that S(i) >= S(i+1).
+
+    U       (output) DOUBLE PRECISION array, dimension (LDU,UCOL)
+            (LDU,M) if JOBU = 'A' or (LDU,min(M,N)) if JOBU = 'S'.
+            If JOBU = 'A', U contains the M-by-M orthogonal matrix U;
+            if JOBU = 'S', U contains the first min(m,n) columns of U
+            (the left singular vectors, stored columnwise);
+            if JOBU = 'N' or 'O', U is not referenced.
+
+    LDU     (input) INTEGER
+            The leading dimension of the array U.  LDU >= 1; if
+            JOBU = 'S' or 'A', LDU >= M.
+
+    VT      (output) DOUBLE PRECISION array, dimension (LDVT,N)
+            If JOBVT = 'A', VT contains the N-by-N orthogonal matrix
+            V**T;
+            if JOBVT = 'S', VT contains the first min(m,n) rows of
+            V**T (the right singular vectors, stored rowwise);
+            if JOBVT = 'N' or 'O', VT is not referenced.
+
+    LDVT    (input) INTEGER
+            The leading dimension of the array VT.  LDVT >= 1; if
+            JOBVT = 'A', LDVT >= N; if JOBVT = 'S', LDVT >= min(M,N).
+
+    WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+            On exit, if INFO = 0, WORK(1) returns the optimal LWORK;
+            if INFO > 0, WORK(2:MIN(M,N)) contains the unconverged
+            superdiagonal elements of an upper bidiagonal matrix B
+            whose diagonal is in S (not necessarily sorted). B
+            satisfies A = U * B * VT, so it has the same singular values
+            as A, and singular vectors related by U and VT.
+
+    LWORK   (input) INTEGER
+            The dimension of the array WORK.
+            LWORK >= MAX(1,3*MIN(M,N)+MAX(M,N),5*MIN(M,N)).
+            For good performance, LWORK should generally be larger.
+
+            If LWORK = -1, then a workspace query is assumed; the routine
+            only calculates the optimal size of the WORK array, returns
+            this value as the first entry of the WORK array, and no error
+            message related to LWORK is issued by XERBLA.
+
+    INFO    (output) INTEGER
+            = 0:  successful exit.
+            < 0:  if INFO = -i, the i-th argument had an illegal value.
+            > 0:  if DBDSQR did not converge, INFO specifies how many
+                  superdiagonals of an intermediate bidiagonal form B
+                  did not converge to zero. See the description of WORK
+                  above for details.
+"));
+    end dgesvd;
+
+    pure function dgesvd_sigma "Determine singular values"
+      extends Modelica.Icons.Function;
+      input Real A[:, :];
+      output Real sigma[min(size(A, 1), size(A, 2))];
+      output Integer info;
+    protected
+      Integer m=size(A, 1);
+      Integer n=size(A, 2);
+      Real Awork[size(A, 1), size(A, 2)]=A;
+      Real U[size(A, 1), size(A, 1)];
+      Real VT[size(A, 2), size(A, 2)];
+      Integer lwork=5*size(A, 1) + 5*size(A, 2);
+      Real work[5*size(A, 1) + 5*size(A, 2)];
+
+    external"FORTRAN 77" dgesvd(
+              "N",
+              "N",
+              m,
+              n,
+              Awork,
+              m,
+              sigma,
+              U,
+              m,
+              VT,
+              n,
+              work,
+              lwork,
+              info) annotation (Library="lapack");
+      annotation (Documentation(info="Lapack documentation
+    Purpose
+    =======
+
+    DGESVD computes the singular value decomposition (SVD) of a real
+    M-by-N matrix A, optionally computing the left and/or right singular
+    vectors. The SVD is written
+
+         A = U * SIGMA * transpose(V)
+
+    where SIGMA is an M-by-N matrix which is zero except for its
+    min(m,n) diagonal elements, U is an M-by-M orthogonal matrix, and
+    V is an N-by-N orthogonal matrix.  The diagonal elements of SIGMA
+    are the singular values of A; they are real and non-negative, and
+    are returned in descending order.  The first min(m,n) columns of
+    U and V are the left and right singular vectors of A.
+
+    Note that the routine returns V**T, not V.
+
+    Arguments
+    =========
+
+    JOBU    (input) CHARACTER*1
+            Specifies options for computing all or part of the matrix U:
+            = 'A':  all M columns of U are returned in array U:
+            = 'S':  the first min(m,n) columns of U (the left singular
+                    vectors) are returned in the array U;
+            = 'O':  the first min(m,n) columns of U (the left singular
+                    vectors) are overwritten on the array A;
+            = 'N':  no columns of U (no left singular vectors) are
+                    computed.
+
+    JOBVT   (input) CHARACTER*1
+            Specifies options for computing all or part of the matrix
+            V**T:
+            = 'A':  all N rows of V**T are returned in the array VT;
+            = 'S':  the first min(m,n) rows of V**T (the right singular
+                    vectors) are returned in the array VT;
+            = 'O':  the first min(m,n) rows of V**T (the right singular
+                    vectors) are overwritten on the array A;
+            = 'N':  no rows of V**T (no right singular vectors) are
+                    computed.
+
+            JOBVT and JOBU cannot both be 'O'.
+
+    M       (input) INTEGER
+            The number of rows of the input matrix A.  M >= 0.
+
+    N       (input) INTEGER
+            The number of columns of the input matrix A.  N >= 0.
+
+    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+            On entry, the M-by-N matrix A.
+            On exit,
+            if JOBU = 'O',  A is overwritten with the first min(m,n)
+                            columns of U (the left singular vectors,
+                            stored columnwise);
+            if JOBVT = 'O', A is overwritten with the first min(m,n)
+                            rows of V**T (the right singular vectors,
+                            stored rowwise);
+            if JOBU .ne. 'O' and JOBVT .ne. 'O', the contents of A
+                            are destroyed.
+
+    LDA     (input) INTEGER
+            The leading dimension of the array A.  LDA >= max(1,M).
+
+    S       (output) DOUBLE PRECISION array, dimension (min(M,N))
+            The singular values of A, sorted so that S(i) >= S(i+1).
+
+    U       (output) DOUBLE PRECISION array, dimension (LDU,UCOL)
+            (LDU,M) if JOBU = 'A' or (LDU,min(M,N)) if JOBU = 'S'.
+            If JOBU = 'A', U contains the M-by-M orthogonal matrix U;
+            if JOBU = 'S', U contains the first min(m,n) columns of U
+            (the left singular vectors, stored columnwise);
+            if JOBU = 'N' or 'O', U is not referenced.
+
+    LDU     (input) INTEGER
+            The leading dimension of the array U.  LDU >= 1; if
+            JOBU = 'S' or 'A', LDU >= M.
+
+    VT      (output) DOUBLE PRECISION array, dimension (LDVT,N)
+            If JOBVT = 'A', VT contains the N-by-N orthogonal matrix
+            V**T;
+            if JOBVT = 'S', VT contains the first min(m,n) rows of
+            V**T (the right singular vectors, stored rowwise);
+            if JOBVT = 'N' or 'O', VT is not referenced.
+
+    LDVT    (input) INTEGER
+            The leading dimension of the array VT.  LDVT >= 1; if
+            JOBVT = 'A', LDVT >= N; if JOBVT = 'S', LDVT >= min(M,N).
+
+    WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+            On exit, if INFO = 0, WORK(1) returns the optimal LWORK;
+            if INFO > 0, WORK(2:MIN(M,N)) contains the unconverged
+            superdiagonal elements of an upper bidiagonal matrix B
+            whose diagonal is in S (not necessarily sorted). B
+            satisfies A = U * B * VT, so it has the same singular values
+            as A, and singular vectors related by U and VT.
+
+    LWORK   (input) INTEGER
+            The dimension of the array WORK.
+            LWORK >= MAX(1,3*MIN(M,N)+MAX(M,N),5*MIN(M,N)).
+            For good performance, LWORK should generally be larger.
+
+            If LWORK = -1, then a workspace query is assumed; the routine
+            only calculates the optimal size of the WORK array, returns
+            this value as the first entry of the WORK array, and no error
+            message related to LWORK is issued by XERBLA.
+
+    INFO    (output) INTEGER
+            = 0:  successful exit.
+            < 0:  if INFO = -i, the i-th argument had an illegal value.
+            > 0:  if DBDSQR did not converge, INFO specifies how many
+                  superdiagonals of an intermediate bidiagonal form B
+                  did not converge to zero. See the description of WORK
+                  above for details.
+"));
+    end dgesvd_sigma;
 
     pure function dgesvx
       "Solve real system of linear equations op(A)*X=B, op(A) is A or A' according to the Boolean input transposed"
