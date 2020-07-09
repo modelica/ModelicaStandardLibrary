@@ -24,7 +24,7 @@ Returns the number of characters of \"string\".
     input String string "String from which a substring is inquired";
     input Integer startIndex(min=1)
       "Character position of substring begin (index=1 is first character in string)";
-    input Integer endIndex(min=1) "Character position of substring end";
+    input Integer endIndex "Character position of substring end";
     output String result
       "String containing substring string[startIndex:endIndex]";
   external "C" result = ModelicaStrings_substring(string,startIndex,endIndex) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStrings.h\"", Library="ModelicaExternalC");
@@ -38,15 +38,20 @@ string2 = Strings.<strong>substring</strong>(string, startIndex, endIndex);
 This function returns
 the substring from position startIndex
 up to and including position endIndex of \"string\" .
+The substring computation has the following properties:
 </p>
-<p>
-If index, startIndex, or endIndex are not correct, e.g.,
-if endIndex &gt; length(string), an assert is triggered.
-</p>
+<ul>
+<li>If the <code>startIndex</code> is non-positive, it is set to 1 and a warning is raised.</li>
+<li>If the <code>startIndex</code> exceeds the string length, the returned substring is empty.</li>
+<li>If the <code>endIndex</code> is negative, it is set to the <code>startIndex</code> and a warning is raised. The returned substring is the single character at position <code>startIndex</code> of <code>string</code>.</li>
+<li>If the <code>endIndex</code> is non-negative and less than the <code>startIndex</code>, the returned substring is empty.</li>
+<li>If the <code>endIndex</code> exceeds the string length, it is set to the string length.</li>
+</ul>
 <h4>Example</h4>
 <blockquote><pre>
 string1 := \"This is line 111\";
 string2 := Strings.substring(string1,9,12); // string2 = \"line\"
+string3 := Strings.substring(string1,9,0); // string3 = \"\"
 </pre></blockquote>
 </html>"));
   end substring;
