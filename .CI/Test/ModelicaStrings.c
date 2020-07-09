@@ -7,5 +7,5 @@ const char* ModelicaStrings_substring(const char* string,
                                       int startIndex, int endIndex);
 
 int main(int argc, char **argv) {
-  assert(0 == strcmp("bcd", ModelicaStrings_substring("abcdef",2,4)));
+    assert(0 == strcmp("bcd", ModelicaStrings_substring("abcdef",2,4)));
 }
