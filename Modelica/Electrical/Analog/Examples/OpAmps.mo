@@ -711,7 +711,9 @@ package OpAmps "Examples with operational amplifiers"
     parameter SI.Capacitance C=1/f/(2*R*log(1 + 2*R1/R2)) "Calculated capacitance to reach the desired frequency f";
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
       Vps=Vps,
-      Vns=Vns) annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+      Vns=Vns,
+      homotopyType = Modelica.Blocks.Types.LimiterHomotopy.LowerLimit,
+      strict = true) annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Electrical.Analog.Basic.Ground ground
       annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
     Modelica.Electrical.Analog.Sensors.VoltageSensor vOut annotation (Placement(

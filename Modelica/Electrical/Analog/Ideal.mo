@@ -762,6 +762,12 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
 </ul>
 <p>Supply voltage is either defined by parameter Vps and Vns or by (optional) pins s_p and s_n.</p>
 <p>In the first case the necessary power is drawn from an implicit internal supply, in the second case from the external supply.</p>
+<p>If initializion is problematic for a model containing this as a component you can set the <strong>homotopyType</strong> parameter.
+Using <strong>Linear</strong> ignores the saturation initially which simplifies the initialization, and may help if the component
+is connected with negative feedback; but generally fails if the feedback is positive.
+Using <strong>LowerLimit</strong> (or <strong>UpperLimit</strong>) gives a fixed value within the saturation bounds, which works with positive feedback.
+However, it does not work if the intent is to initialize the input to give a specific output.
+</p>
 </html>"));
   end IdealizedOpAmpLimted;
 
