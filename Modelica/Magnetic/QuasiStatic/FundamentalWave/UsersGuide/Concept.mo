@@ -52,7 +52,7 @@ The complex magnetic flux with respect a stator and rotor magnetic port are equa
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Phi(ref)=Phi,re+jPhi,im.png\"/>,
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Phi(ref)=Phi,re_jPhi,im.png\"/>,
 </div>
 
 <p>
