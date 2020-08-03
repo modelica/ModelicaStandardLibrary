@@ -435,7 +435,7 @@ using function <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\"
       annotation(Dialog(loadSelector(filter="MATLAB MAT files (*.mat)", caption="Open MATLAB MAT file")));
     parameter String matrixName = "Matrix_A" "Matrix name in file";
     final parameter Integer dim[2] = Modelica.Utilities.Streams.readMatrixSize(file,matrixName) "Dimension of matrix";
-    final parameter Real A[:,:] = Modelica.Utilities.Streams.readRealMatrix(file,matrixName,dim1[1],dim1[2]) "Matrix data";
+    final parameter Real A[:,:] = Modelica.Utilities.Streams.readRealMatrix(file,matrixName,dim[1],dim[2]) "Matrix data";
 
     final parameter String file1 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v4.mat") "File name of check matrix 1";
     final parameter String file2 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v6.mat") "File name of check matrix 2";
