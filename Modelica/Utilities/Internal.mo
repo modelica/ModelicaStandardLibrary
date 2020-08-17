@@ -2,7 +2,7 @@ within Modelica.Utilities;
 package Internal
   "Internal components that a user should usually not directly utilize"
   extends Modelica.Icons.InternalPackage;
-partial package PartialModelicaServices
+package PartialModelicaServices
     "Interfaces of components requiring a tool specific implementation"
     extends Modelica.Icons.InternalPackage;
   package Animation "Models and functions for 3-dim. animation"
@@ -51,7 +51,7 @@ This model is documented at
 
   end PartialShape;
 
-    model PartialSurface "Interface for 3D animation of surfaces"
+    partial model PartialSurface "Interface for 3D animation of surfaces"
 
         import Modelica.Mechanics.MultiBody.Frames;
         import Modelica.Mechanics.MultiBody.Types;
