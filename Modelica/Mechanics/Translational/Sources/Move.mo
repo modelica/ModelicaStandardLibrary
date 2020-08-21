@@ -52,7 +52,7 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Flange <strong>flange_b</strong> is <strong>forced</strong> to move relative to the support connector with a predefined motion
+Flange <strong>flange</strong> is <strong>forced</strong> to move relative to the support connector with a predefined motion
 according to the input signals:
 </p>
 <blockquote><pre>
@@ -63,7 +63,7 @@ u[3]: acceleration of flange
 <p>
 The user has to guarantee that the input signals are consistent to each other,
 i.e., that u[2] is the derivative of u[1] and that
-u[3] is the derivative of u. There are, however,
+u[3] is the derivative of u[2]. There are, however,
 also applications where by purpose these conditions do not hold. For example,
 if only the position dependent terms of a mechanical system shall be
 calculated, one may provide position = position(t) and set the velocity
