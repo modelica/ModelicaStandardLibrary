@@ -15,7 +15,7 @@ createPlot(id = 1,
  grid = true,
  color = true,
  online = false,
- filename = "fullRobot.mat");
+ filename = "FullRobot.mat");
 
 // Animation commands
 animationRemove(id = 1);
