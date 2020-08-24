@@ -259,7 +259,7 @@ Simulate for 1 second and plot (versus time):
 </p>
 
 <ul>
-<li><code>currentRMSsensor.I|currentSensorQS.abs_i[1]</code>: (equivalent) RMS stator current</li>
+<li><code>currentQuasiRMSSensor|currentQuasiRMSSensorQS.I</code>: (equivalent) RMS stator current</li>
 <li><code>smpm|smpmQS.wMechanical</code>: machine speed</li>
 <li><code>smpm|smpmQS.tauElectrical</code>: machine torque</li>
 </ul>
