@@ -138,9 +138,9 @@ Simulate for 1 second and plot (versus <code>imsQS.wMechanical</code> or <code>s
 </p>
 
 <ul>
-<li><code>currentSensorQS.abs_i[1]</code>: (equivalent) RMS stator current</li>
+<li><code>iSensorQS.I</code>: (equivalent) RMS stator current</li>
 <li><code>imsQS.tauElectrical</code>: machine torque</li>
-<li><code>imscQS.powerBalance.powerStator</code>: stator power</li>
+<li><code>imsQS.powerBalance.powerStator</code>: stator power</li>
 <li><code>imsQS.powerBalance.powerMechanical</code>: mechanical power</li>
 </ul>
 <p>Default machine parameters are used. The rotor resistance may be varied to demonstrate the impact on the characteristic curves</p>

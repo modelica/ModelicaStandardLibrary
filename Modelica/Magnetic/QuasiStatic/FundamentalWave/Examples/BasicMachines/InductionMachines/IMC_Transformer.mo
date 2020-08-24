@@ -254,9 +254,9 @@ at start time tStart2 the machine is fed directly from the voltage source, final
 Simulate for 2.5 seconds and plot (versus time):</p>
 
 <ul>
-<li>currentQuasiRMSSensor.I: stator current RMS</li>
-<li>aimc.wMechanical: motor's speed</li>
-<li>aimc.tauElectrical: motor's torque</li>
+<li><code>currentQuasiRMSSensor|currentQuasiRMSSensorQS.I</code>: (equivalent) stator current RMS</li>
+<li><code>imc|imcQS.wMechanical</code>: machine speed</li>
+<li><code>imc|imcQS.tauElectrical</code>: machine torque</li>
 </ul>
 <p>Default machine parameters are used.</p>
 </html>"),
