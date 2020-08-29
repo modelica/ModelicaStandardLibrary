@@ -7,15 +7,12 @@ protected
   parameter SI.Angle phi[m]=
       Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m);
   parameter Real TransformationMatrix[2, m]=2/m*{+cos(+phi),+sin(+phi)};
-  parameter Real InverseTransformation[m, 2]={{+cos(-phi[k]),-sin(-phi[k])}
-      for k in 1:m};
 public
   Modelica.Blocks.Interfaces.RealOutput zero "Zero sequence component"
     annotation (Placement(transformation(extent={{100,-70},{120,-90}})));
 equation
   m*zero = sum(u);
   y = TransformationMatrix*u;
-  //u = fill(zero,m) + InverseTransformation*y;
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={Line(points={{0,0},{80,80},{60,72},{72,

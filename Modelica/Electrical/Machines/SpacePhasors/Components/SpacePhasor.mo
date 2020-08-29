@@ -9,8 +9,6 @@ model SpacePhasor
 protected
   parameter Real TransformationMatrix[2, m]=2/m*{{cos(+(k - 1)/m*2*pi)
       for k in 1:m},{+sin(+(k - 1)/m*2*pi) for k in 1:m}};
-  parameter Real InverseTransformation[m, 2]={{cos(-(k - 1)/m*2*pi),-sin(
-      -(k - 1)/m*2*pi)} for k in 1:m};
 public
   Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_p(final m=m)
     annotation (Placement(transformation(extent={{-110,90},{-90,110}})));
@@ -28,10 +26,8 @@ equation
   i*turnsRatio = -plug_n.pin.i;
   m*zero.v = sum(v);
   spacePhasor.v_ = TransformationMatrix*v;
-  //v  = fill(zero.v,m) + InverseTransformation*spacePhasor.v_;
   -m*zero.i = sum(i);
   -spacePhasor.i_ = TransformationMatrix*i;
-  //-i  = fill(zero.i,m) + InverseTransformation*spacePhasor.i_;
   ground.v = 0;
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={

@@ -6,7 +6,6 @@ block FromSpacePhasor
 protected
   parameter SI.Angle phi[m]=
       Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m);
-  parameter Real TransformationMatrix[2, m]=2/m*{+cos(+phi),+sin(+phi)};
   parameter Real InverseTransformation[m, 2]={{+cos(-phi[k]),-sin(-phi[k])}
       for k in 1:m};
 public
@@ -14,8 +13,6 @@ public
     annotation (Placement(transformation(extent={{-140,-60},{-100,-100}})));
 equation
   y = fill(zero, m) + InverseTransformation*u;
-  //m*zero = sum(y);
-  //u = TransformationMatrix *y;
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={Line(points={{0,0},{-80,80},{-60,
           72},{-72,60},{-80,80}}, color={0,0,255}),Line(points={{0,0},{-80,
