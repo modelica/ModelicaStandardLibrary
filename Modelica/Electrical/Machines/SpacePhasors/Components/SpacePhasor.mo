@@ -7,6 +7,8 @@ model SpacePhasor
   SI.Voltage v[m] "Instantaneous phase voltages";
   SI.Current i[m] "Instantaneous phase currents";
 protected
+  parameter Real InverseTransformation[m, 2]={{cos(-(k - 1)/m*2*pi),-sin(
+      -(k - 1)/m*2*pi)} for k in 1:m};
   parameter Real TransformationMatrix[2, m]=2/m*{{cos(+(k - 1)/m*2*pi)
       for k in 1:m},{+sin(+(k - 1)/m*2*pi) for k in 1:m}};
 public
