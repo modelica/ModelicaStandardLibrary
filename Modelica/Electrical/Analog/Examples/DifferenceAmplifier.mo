@@ -126,7 +126,7 @@ Christoph Clau&szlig;
 </dd>
 </dl>
 </html>"),
-    experiment(StopTime=1),
+    experiment(StopTime=1e-8),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
             100,100}}), graphics={Text(
           extent={{-98,106},{22,60}},
