@@ -60,11 +60,11 @@ equation
     fire_p= fire[ka + 1, :];
   elseif (time - T0)/samplePeriod < (t0/4 + ta/2 + tb/2) then
     fire_p= fire[kb + 1, :];
-  elseif (time - T0)/samplePeriod < (t0/4 + ta/2 + tb/2 + t0/4) then
+  elseif (time - T0)/samplePeriod < (t0/4 + ta/2 + tb/2 + t0/2) then
     fire_p= fill(true, m);
-  elseif (time - T0)/samplePeriod < (t0/4 + ta/2 + tb/2 + t0/4 + tb/2) then
+  elseif (time - T0)/samplePeriod < (t0/4 + ta/2 + tb/2 + t0/2 + tb/2) then
     fire_p= fire[kb + 1, :];
-  elseif (time - T0)/samplePeriod < (t0/4 + ta/2 + tb/2 + t0/4 + tb/2 + ta/2) then
+  elseif (time - T0)/samplePeriod < (t0/4 + ta/2 + tb/2 + t0/2 + tb/2 + ta/2) then
     fire_p= fire[ka + 1, :];
   else
     fire_p= fill(false, m);
