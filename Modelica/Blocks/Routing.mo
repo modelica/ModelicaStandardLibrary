@@ -237,6 +237,12 @@ equation
 
   y = if not allowOutOfRange or index > 0 and index <= nin then
               k*u else outOfRangeValue;
+
+  if not allowOutOfRange then
+    assert(index <= nin and index > 0,
+          "Extractor: Selected input is out of range. Please check input \"index\"");
+  end if;
+
   annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
