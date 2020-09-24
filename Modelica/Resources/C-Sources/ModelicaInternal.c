@@ -978,14 +978,16 @@ void ModelicaInternal_readFile(_In_z_ const char* fileName,
     if (mismatchedEnding) {
 		 fp = ModelicaStreams_openFileForReading(fileName, 0);
 		 for(iLines = 1;iLines <= nLines;iLines++) {
-			 line = (char*)(string[iLines - 1]);
+			 size_t lineLen;
+       int c;
+       line = (char*)(string[iLines - 1]);
 			 c = fgetc(fp);
 			 lineLen = 0;
 			 while (c != '\n' && c != EOF) {
 				 if (line[lineLen] != '\0') line[lineLen] = c; else {
 					 fclose(fp);
-					 ModelicaFormatError("Error when reading line %i from file\n\"%s\":\n"
-						 "%s\n", iLines, fileName, strerror(errno));
+					 ModelicaFormatError("Error when reading line %lu from file\n\"%s\":\n"
+						 "%s\n", (unsigned long)iLines, fileName, strerror(errno));
 				 }
 				 c = fgetc(fp);
 				 lineLen++;
