@@ -911,6 +911,7 @@ void ModelicaInternal_readFile(_In_z_ const char* fileName,
     char* line;
     size_t iLines;
     size_t nc;
+    int mismatchedEnding = 0;
     char localbuf[200]; /* To avoid fseek */
 
     /* Read data from file */
@@ -943,7 +944,9 @@ void ModelicaInternal_readFile(_In_z_ const char* fileName,
         }
 
         /* Read next line */
-        if (lineLen<=sizeof(localbuf)) {
+		    if (mismatchedEnding) {
+			   ; /* do nothing */
+		   } else if (lineLen<=sizeof(localbuf)) {
             memcpy(line, localbuf, lineLen);
         }
         else {
@@ -958,12 +961,38 @@ void ModelicaInternal_readFile(_In_z_ const char* fileName,
                 ModelicaFormatError("Error when reading line %lu from file\n\"%s\"\n",
                     (unsigned long)iLines, fileName);
             }
+            if (strncmp(line, localbuf, sizeof(localbuf)) != 0) {
+				      /* Something went wrong, could be Unix file endings on Windows, work around that by re-reading entire file */
+				      /* We will then re-read it afterwards - after allocating all the strings */
+				      mismatchedEnding = 1;
+				      fclose(fp);
+				      fp=ModelicaStreams_openFileForReading(fileName, iLines);
+			     }
         }
+        if (mismatchedEnding) memset(line, 'a', lineLen);
         line[lineLen] = '\0';
         string[iLines-1] = line;
         iLines++;
     }
     fclose(fp);
+    if (mismatchedEnding) {
+		 fp = ModelicaStreams_openFileForReading(fileName, 0);
+		 for(iLines = 1;iLines <= nLines;iLines++) {
+			 line = (char*)(string[iLines - 1]);
+			 c = fgetc(fp);
+			 lineLen = 0;
+			 while (c != '\n' && c != EOF) {
+				 if (line[lineLen] != '\0') line[lineLen] = c; else {
+					 fclose(fp);
+					 ModelicaFormatError("Error when reading line %i from file\n\"%s\":\n"
+						 "%s\n", iLines, fileName, strerror(errno));
+				 }
+				 c = fgetc(fp);
+				 lineLen++;
+			 }
+		 }
+		 fclose(fp);
+	 }
 }
 
 _Ret_z_ const char* ModelicaInternal_readLine(_In_z_ const char* fileName,
@@ -1017,6 +1046,12 @@ _Ret_z_ const char* ModelicaInternal_readLine(_In_z_ const char* fileName,
         if ( fread(line, sizeof(char), lineLen, fp) != lineLen ) {
             goto Modelica_ERROR3;
         }
+        if (strncmp(line, localbuf, sizeof(localbuf)) != 0) {
+			    /* Something went wrong, could be Unix file endings on Windows, work around that by re-reading entire file */
+			    CacheFileForReading(fp, fileName, lineNumber);
+			    fp = ModelicaStreams_openFileForReading(fileName, lineNumber - 1);
+			    if (fread(line, sizeof(char), lineLen, fp) != lineLen) goto Modelica_ERROR3;
+		    }
         fgetc(fp); /* Read the EOF/new-line. */
     }
     CacheFileForReading(fp, fileName, lineNumber);
