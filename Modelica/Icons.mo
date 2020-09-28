@@ -173,23 +173,19 @@ package Icons "Library of icons"
     annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
         graphics={
           Ellipse(
-            origin={0.0,0.0},
             extent={{-70.0,-70.0},{-10.0,-10.0}},
             lineColor={76,76,76},
             fillColor={76,76,76},
             fillPattern=FillPattern.Solid),
           Ellipse(
-            origin={0.0,0.0},
             extent={{70.0,-70.0},{10.0,-10.0}},
             fillPattern=FillPattern.Solid),
           Ellipse(
-            origin={0.0,0.0},
             extent={{70.0,70.0},{10.0,10.0}},
             lineColor={128,128,128},
             fillColor={128,128,128},
             fillPattern=FillPattern.Solid),
           Ellipse(
-            origin={0.0,0.0},
             extent={{-70.0,70.0},{-10.0,10.0}},
             lineColor={128,128,128},
             fillColor={255,255,255},
