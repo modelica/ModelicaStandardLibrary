@@ -170,23 +170,22 @@ package Icons "Library of icons"
 
   partial package VariantsPackage "Icon for package containing variants"
     extends Modelica.Icons.Package;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-              {100,100}}), graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
+        graphics={
           Ellipse(
             origin={10.0,10.0},
+            lineColor={76,76,76},
             fillColor={76,76,76},
-            pattern=LinePattern.None,
             fillPattern=FillPattern.Solid,
             extent={{-80.0,-80.0},{-20.0,-20.0}}),
           Ellipse(
             origin={10.0,10.0},
-            pattern=LinePattern.None,
             fillPattern=FillPattern.Solid,
             extent={{0.0,-80.0},{60.0,-20.0}}),
           Ellipse(
             origin={10.0,10.0},
+            lineColor={128,128,128},
             fillColor={128,128,128},
-            pattern=LinePattern.None,
             fillPattern=FillPattern.Solid,
             extent={{0.0,0.0},{60.0,60.0}}),
           Ellipse(
