@@ -77,11 +77,13 @@ Basic model for Coulomb friction that models the stuck phase in a reliable way.
 </p>
 
 <p>
-This procedure is implemented in a &quot;clean&quot; way by state events and
-leads to a mixed continuous/discrete systems of equations if friction elements
-are dynamically coupled which have to be solved by appropriate
-numerical methods. The method is described in
-(see also a short sketch in <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
+This procedure is implemented in a&nbsp;&quot;clean&quot; way
+by state events and leads to a&nbsp;mixed continuous/discrete
+systems of equations if friction elements are dynamically coupled
+which have to be solved by appropriate numerical methods.
+The method is described in [Otter1999]
+(see also a&nbsp;short sketch in
+<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>).
 </p>
 <p>
 The parameter <code>w_small</code> is introduced for particular
@@ -90,17 +92,24 @@ For such &ndash; rather rare &ndash; cases the friction handling
 logic is no longer correct. On the other hand, introducing
 <code>w_small</code> in general leads to problems when more
 friction elements are connected together. To omit such problems
-in most common situations, the parameter has a&nbsp;large value
-per default. Thus, the effect of <code>w_small</code>
-doesn&apos;t apply.
-The user has to set <code>w_small</code> to a&nbsp;small value only
-when the special case with reinit occurs.
+in the most common situations, the parameter has a&nbsp;large
+value per default, thus eliminating its effect.
+The user has to <strong>set <code>w_small</code> to
+a&nbsp;small value only when</strong> the special case with
+<strong>reinit occurs</strong>.
 </p>
 
-<dl>
-<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
-<dd><strong>Hybrid Modeling in Modelica based on the Synchronous
-    Data Flow Principle</strong>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
-</dl>
+<h4>References</h4>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <tr>
+    <td>[Otter1999]</td>
+    <td>Otter M., Elmqvist H., and Mattsson S.E.,
+        &quot;<a href=\"https://ieeexplore.ieee.org/document/808640\">Hybrid
+        Modeling in Modelica based on the Synchronous Data Flow Principle</a>&quot;,
+        <em>CACSD'99</em>,
+        Aug. 22.-26, Hawaii 1999.
+    </td>
+  </tr>
+</table> 
 </html>"));
 end PartialFriction;
