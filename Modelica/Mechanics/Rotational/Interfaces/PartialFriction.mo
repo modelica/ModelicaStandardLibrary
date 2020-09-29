@@ -77,12 +77,26 @@ Basic model for Coulomb friction that models the stuck phase in a reliable way.
 </p>
 
 <p>
-This procedure is implemented in a \"clean\" way by state events and
+This procedure is implemented in a &quot;clean&quot; way by state events and
 leads to a mixed continuous/discrete systems of equations if friction elements
 are dynamically coupled which have to be solved by appropriate
 numerical methods. The method is described in
 (see also a short sketch in <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
 </p>
+<p>
+The parameter <code>w_small</code> is introduced for particular
+cases where a&nbsp;reinit is triggered at zero velocity. 
+For such &ndash; rather rare &ndash; cases the friction handling
+logic is no longer correct. On the other hand, introducing
+<code>w_small</code> in general leads to problems when more
+friction elements are connected together. To omit such problems
+in most common situations, the parameter has a&nbsp;large value
+per default. Thus, the effect of <code>w_small</code>
+doesn&apos;t apply.
+The user has to set <code>w_small</code> to a&nbsp;small value only
+when the special case with reinit occurs.
+</p>
+
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
 <dd><strong>Hybrid Modeling in Modelica based on the Synchronous
