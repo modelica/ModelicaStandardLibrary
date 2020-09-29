@@ -200,16 +200,16 @@ package Icons "Library of icons"
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
         graphics={
-          Polygon(origin={20.0,0.0},
+          Polygon(
             lineColor={64,64,64},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
-            points={{-10.0,70.0},{10.0,70.0},{40.0,20.0},{80.0,20.0},{80.0,-20.0},{40.0,-20.0},{10.0,-70.0},{-10.0,-70.0}}),
+            points={{10,70},{30,70},{60,20},{100,20},{100,-20},{60,-20},{30,-70},{10,-70}}),
           Polygon(
             lineColor={102,102,102},
             fillColor={102,102,102},
             fillPattern=FillPattern.Solid,
-            points={{-100.0,20.0},{-60.0,20.0},{-30.0,70.0},{-10.0,70.0},{-10.0,-70.0},{-30.0,-70.0},{-60.0,-20.0},{-100.0,-20.0}})}),
+            points={{-100,20},{-60,20},{-30,70},{-10,70},{-10,-70},{-30,-70},{-60,-20},{-100,-20}})}),
       Documentation(info="<html>
 <p>This icon indicates packages containing interfaces.</p>
 </html>"));
