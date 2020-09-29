@@ -368,75 +368,34 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         initialScale=0.2), graphics={
-        Text(
-          extent={{-140,-41},{140,-66}},
-          textColor={0,0,255},
-          textString="%name"),
         Ellipse(
           extent={{-100,-30},{-40,30}},
+          startAngle=90,
+          endAngle=270,
+          lineColor={0,0,0},
+          fillColor={192,192,192},
           fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
+          closure=EllipseClosure.Radial),
         Ellipse(
-          extent={{-93,-22},{-48,23}},
-          lineColor={160,160,164},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{-70,40},{-39,-33}},
-          lineColor={255,255,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Line(
-          points={{-70,28},{-70,-30}},
-          thickness=0.5),
-        Ellipse(
-          extent={{-89,-18},{-48,18}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
-        Ellipse(
-          extent={{-84,-12},{-53,13}},
-          lineColor={160,160,164},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Polygon(
-          points={{-81,-17},{-92,-1},{-83,16},{-57,24},{-81,-17}},
-          pattern=LinePattern.None,
+          extent={{-94,-24},{-46,24}},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Line(
-          points={{-70,30},{-70,-10}},
-          thickness=0.5),
-        Line(
-          points={{-61,16},{-79,-15}},
-          thickness=0.5),
-        Line(
-          points={{-50,0},{-50,80},{-80,80},{-80,100}},
-          color={95,95,95},
-          thickness=0.5),
-        Ellipse(
-          extent={{-40,-30},{20,30}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
-        Ellipse(
-          extent={{-33,-22},{12,23}},
-          lineColor={192,192,192},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{-44,31},{-14,-30}},
+          startAngle=89,
+          endAngle=271,
           lineColor={255,255,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{-23,10},{-3,-10}},
-          fillPattern=FillPattern.Solid),
+          closure=EllipseClosure.Radial),
+          Ellipse(
+          extent={{-94,-24},{-46,24}},
+          startAngle=90,
+          endAngle=270,
+          lineColor={0,0,0},
+          closure=EllipseClosure.None),
         Rectangle(
-          extent={{19,6},{61,-6}},
+          extent={{-50,5},{-10,-5}},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={192,192,192}),
         Rectangle(
-          extent={{-50,5},{-21,-5}},
+          extent={{10,6},{61,-6}},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={192,192,192}),
         Rectangle(
@@ -453,24 +412,8 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           fillPattern=FillPattern.Solid),
         Rectangle(extent={{60,30},{76,-30}}),
         Rectangle(extent={{85,30},{100,-30}}),
-        Text(
-          extent={{40,109},{77,91}},
-          textColor={128,128,128},
-          textString="ib"),
-        Text(
-          extent={{-124,109},{-95,92}},
-          textColor={128,128,128},
-          textString="ia"),
         Line(
           points={{60,30},{60,80},{80,80},{80,100}},
-          color={95,95,95},
-          thickness=0.5),
-        Text(
-          extent={{-43,108},{-10,92}},
-          textColor={128,128,128},
-          textString="im"),
-        Line(
-          points={{19,6},{19,80},{0,80},{0,100}},
           color={95,95,95},
           thickness=0.5),
         Line(
@@ -480,5 +423,85 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         Line(
           points={{90,30},{90,40},{95,40}},
           color={95,95,95},
-          thickness=0.5)}));
+          thickness=0.5),
+          Ellipse(
+            extent={{14,-24},{-34,24}},
+            startAngle=70,
+            endAngle=290,
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Sphere,
+            closure=EllipseClosure.Radial),
+          Ellipse(
+            extent={{8,-18},{-28,18}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            startAngle=69,
+            endAngle=291,
+            lineColor={255,255,255},
+            closure=EllipseClosure.Radial),
+          Ellipse(
+            extent={{8,-18},{-28,18}},
+            startAngle=70,
+            endAngle=290,
+            lineColor={0,0,0},
+            closure=EllipseClosure.None),
+          Ellipse(
+            extent={{-20,10},{0,-10}},
+            fillPattern=FillPattern.Sphere,
+            fillColor={192,192,192}),
+        Line(
+          points={{-70,28},{-70,-30}},
+          thickness=0.5),
+        Ellipse(
+          extent={{-48,-14},{-92,14}},
+          fillPattern=FillPattern.Sphere,
+          fillColor={192,192,192},
+          startAngle=124,
+          endAngle=303),
+        Ellipse(
+          extent={{-54,-8},{-90,10}},
+          lineColor={255,255,255},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          startAngle=0,
+          endAngle=360),
+        Line(
+          points={{-50,0},{-50,80},{-80,80},{-80,100}},
+          color={95,95,95},
+          thickness=0.5),
+        Line(
+          points={{-70,30},{-70,-6}},
+          thickness=0.5),
+        Ellipse(
+          extent={{-54,-8},{-90,10}},
+          lineColor={95,95,95},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          startAngle=129,
+          endAngle=289,
+          closure=EllipseClosure.None),
+        Line(
+          points={{-56,14},{-84,-14}},
+          thickness=0.5),
+        Line(
+          points={{14,0},{14,80},{0,80},{0,100}},
+          color={95,95,95},
+          thickness=0.5),
+        Text(
+          extent={{40,110},{77,90}},
+          textColor={128,128,128},
+          textString="ib"),
+        Text(
+          extent={{-124,110},{-95,90}},
+          textColor={128,128,128},
+          textString="ia"),
+        Text(
+          extent={{-43,110},{-10,90}},
+          textColor={128,128,128},
+          textString="im"),
+        Text(
+          extent={{-140,-45},{140,-70}},
+          textColor={0,0,255},
+          textString="%name")}));
 end JointUSR;

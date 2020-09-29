@@ -1,6 +1,5 @@
 within Modelica.Mechanics.MultiBody.Forces;
-model LineForceWithMass
-  "General line force component with an optional point mass on the connection line"
+model LineForceWithMass "General line force component with an optional point mass on the connection line"
 
   import Modelica.Mechanics.MultiBody.Types;
   extends Interfaces.LineForceBase;
@@ -141,47 +140,21 @@ equation
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
         Ellipse(
-          extent={{-95,-40},{-15,40}},
+          extent={{-100,-40},{-20,40}},
+          startAngle=70,
+          endAngle=290,
+          lineColor={0,0,0},
+          fillColor={192,192,192},
           fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
+          closure=EllipseClosure.Radial),
         Ellipse(
-          extent={{-85,-30},{-25,30}},
+          extent={{-90,-30},{-30,30}},
           fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{15,-40},{95,40}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
-        Ellipse(
-          extent={{23,-30},{83,29}},
-          lineColor={128,128,128},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Text(
-          extent={{-150,-50},{150,-90}},
-          textString="%name",
-          textColor={0,0,255}),
-        Rectangle(
-          extent={{-40,41},{44,-40}},
+          fillPattern=FillPattern.Solid,
+          startAngle=69,
+          endAngle=291,
           lineColor={255,255,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{-70,15},{-41,-13}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
-        Ellipse(
-          extent={{40,14},{69,-14}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
-        Line(points={{-56,0},{-56,23},{-30,23},{-30,70},{-60,70},{-60,101}}),
-        Line(points={{55,-1},{55,20},{30,20},{30,70},{60,70},{60,100}}),
-        Line(
-          points={{-56,0},{55,-1}},
-          pattern=LinePattern.Dot),
-        Ellipse(
-          extent={{-8,8},{8,-8}},
-          fillPattern=FillPattern.Solid),
+          closure=EllipseClosure.Radial),
         Ellipse(visible=fixedRotationAtFrame_a, extent={{-70,30},{-130,-30}}, lineColor={255,0,0}),
         Text(visible=fixedRotationAtFrame_a,
           extent={{-62,50},{-140,30}},
@@ -191,7 +164,55 @@ equation
         Text(visible=fixedRotationAtFrame_b,
           extent={{62,50},{140,30}},
           textColor={255,0,0},
-          textString="R=0")}),
+          textString="R=0"),
+          Ellipse(
+            extent={{-90,-30},{-30,30}},
+            startAngle=70,
+            endAngle=290,
+            lineColor={0,0,0},
+            closure=EllipseClosure.None),
+          Ellipse(
+            extent={{-74,14},{-46,-14}},
+            fillPattern=FillPattern.Sphere,
+            fillColor={192,192,192}),
+          Ellipse(
+            extent={{100,-40},{20,40}},
+            startAngle=70,
+            endAngle=290,
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Sphere,
+            closure=EllipseClosure.Radial),
+          Ellipse(
+            extent={{90,-30},{30,30}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            startAngle=69,
+            endAngle=291,
+            lineColor={255,255,255},
+            closure=EllipseClosure.Radial),
+          Ellipse(
+            extent={{90,-30},{30,30}},
+            startAngle=70,
+            endAngle=290,
+            lineColor={0,0,0},
+            closure=EllipseClosure.None),
+          Ellipse(
+            extent={{46,14},{74,-14}},
+            fillPattern=FillPattern.Sphere,
+            fillColor={192,192,192}),
+          Line(points={{-60,0},{-30,30},{-30,70},{-60,70},{-60,100}}),
+          Line(points={{60,0},{30,30},{30,70},{60,70},{60,100}}),
+          Line(
+            points={{-60,0},{60,0}},
+            pattern=LinePattern.Dot),
+          Ellipse(
+            extent={{-8,8},{8,-8}},
+            fillPattern=FillPattern.Solid),
+        Text(
+          extent={{-150,-50},{150,-90}},
+          textString="%name",
+          textColor={0,0,255})}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={

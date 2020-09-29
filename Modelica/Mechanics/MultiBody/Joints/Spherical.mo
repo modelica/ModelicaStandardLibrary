@@ -235,27 +235,29 @@ frame_b of the joint.
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Spherical.png\">
 </div>
 </html>"),
-         Icon(coordinateSystem(
+    Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
-        Ellipse(
-          extent={{-70,-70},{70,70}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
-        Ellipse(
-          extent={{-49,-50},{51,50}},
-          lineColor={128,128,128},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{30,70},{71,-68}},
-          lineColor={255,255,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
         Rectangle(
           extent={{-100,10},{-68,-10}},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={192,192,192}),
+        Ellipse(
+          extent={{-70,-70},{70,70}},
+          fillPattern=FillPattern.Sphere,
+          fillColor={192,192,192},
+          lineColor={0,0,0},
+          closure=EllipseClosure.Radial,
+          startAngle=60,
+          endAngle=300),
+        Ellipse(
+          extent={{-50,-50},{50,50}},
+          lineColor={255,255,255},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          closure=EllipseClosure.Radial,
+          startAngle=59,
+          endAngle=301),
         Rectangle(
           extent={{23,10},{100,-10}},
           fillPattern=FillPattern.HorizontalCylinder,
@@ -264,6 +266,12 @@ frame_b of the joint.
           extent={{-24,25},{26,-25}},
           fillPattern=FillPattern.Sphere,
           fillColor={160,160,164}),
+        Ellipse(
+          extent={{-50,-50},{50,50}},
+          startAngle=60,
+          endAngle=300,
+          lineColor={128,128,128},
+          closure=EllipseClosure.None),
         Text(
           extent={{-150,-115},{150,-75}},
           textString="%name",

@@ -197,46 +197,66 @@ equation
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
         Ellipse(
-          extent={{-95,-40},{-15,40}},
+          extent={{-100,-40},{-20,40}},
+          startAngle=70,
+          endAngle=290,
+          lineColor={0,0,0},
+          fillColor={192,192,192},
           fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
+          closure=EllipseClosure.Radial),
         Ellipse(
-          extent={{-84,-30},{-24,30}},
+          extent={{-90,-30},{-30,30}},
           fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{15,-40},{95,40}},
-          fillPattern=FillPattern.Sphere,
+          fillPattern=FillPattern.Solid,
+          startAngle=69,
+          endAngle=291,
+          lineColor={255,255,255},
+          closure=EllipseClosure.Radial),
+          Ellipse(
+            extent={{-90,-30},{-30,30}},
+            startAngle=70,
+            endAngle=290,
+            lineColor={0,0,0},
+            closure=EllipseClosure.None),
+          Ellipse(
+            extent={{100,-40},{20,40}},
+            startAngle=70,
+            endAngle=290,
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Sphere,
+            closure=EllipseClosure.Radial),
+          Ellipse(
+            extent={{90,-30},{30,30}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            startAngle=69,
+            endAngle=291,
+            lineColor={255,255,255},
+            closure=EllipseClosure.Radial),
+          Ellipse(
+            extent={{90,-30},{30,30}},
+            startAngle=70,
+            endAngle=290,
+            lineColor={0,0,0},
+            closure=EllipseClosure.None),
+        Rectangle(
+          extent={{-60,6},{60,-6}},
+          fillPattern=FillPattern.HorizontalCylinder,
           fillColor={192,192,192}),
-        Ellipse(
-          extent={{25,-29},{85,30}},
-          lineColor={128,128,128},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
+          Ellipse(
+            extent={{-74,14},{-46,-14}},
+            fillPattern=FillPattern.Sphere,
+            fillColor={192,192,192}),
+          Ellipse(
+            extent={{46,14},{74,-14}},
+            fillPattern=FillPattern.Sphere,
+            fillColor={192,192,192}),
         Text(
           extent={{-150,90},{150,50}},
           textString="%name",
           textColor={0,0,255}),
-        Rectangle(
-          extent={{-40,40},{41,-41}},
-          lineColor={255,255,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{-51,6},{48,-4}},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={192,192,192}),
-        Ellipse(
-          extent={{-68,15},{-39,-13}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
-        Ellipse(
-          extent={{39,14},{68,-14}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
-        Text(
-          extent={{-150,-60},{150,-90}},
-          textString="%rodLength")}),
+        Text(extent={{-150,-50},{150,-80}}, textString="%rodLength")}),
     Documentation(info="<html>
 <p>
 Joint that has a spherical joint on each of its two ends.
