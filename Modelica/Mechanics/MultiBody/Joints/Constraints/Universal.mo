@@ -90,6 +90,52 @@ equation
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
+        Rectangle(
+          extent={{-100,11},{100,-10}},
+          fillPattern=FillPattern.HorizontalCylinder,
+          fillColor={235,235,235}),
+        Ellipse(
+          extent={{-80,-80},{80,80}},
+          lineColor={160,160,164},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          startAngle=90,
+          endAngle=270),
+        Ellipse(
+          extent={{-60,-60},{60,60}},
+          lineColor={255,255,255},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          startAngle=89,
+          endAngle=271,
+          closure=EllipseClosure.Radial),
+        Line(
+          points={{0,80},{0,-80}},
+          thickness=0.5),
+        Ellipse(
+          extent={{-60,-60},{60,60}},
+          lineColor={160,160,164},
+          startAngle=90,
+          endAngle=270,
+          closure=EllipseClosure.None),
+        Ellipse(
+          extent={{70,-40},{-70,40}},
+          lineColor={160,160,164},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          startAngle=120,
+          endAngle=299),
+        Ellipse(
+          extent={{-50,-22},{50,24}},
+          lineColor={255,255,255},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Line(
+          points={{40,40},{-40,-40}},
+          thickness=0.5),
+        Line(
+          points={{0,72},{0,-20}},
+          thickness=0.5),
         Text(
           extent={{-100,-70},{100,-100}},
           textColor={95,95,95},
@@ -125,54 +171,6 @@ equation
           textColor={95,95,95},
           textString="lock: x, y, z",
           visible=x_locked and y_locked and z_locked),
-        Rectangle(
-          extent={{-96,15},{-61,-15}},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={235,235,235}),
-        Ellipse(
-          extent={{-76,-80},{84,80}},
-          lineColor={160,160,164},
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{-56,-60},{64,60}},
-          lineColor={160,160,164},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{16,82},{84,-82}},
-          lineColor={255,255,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{60,15},{104,-15}},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={235,235,235}),
-        Line(
-          points={{16,78},{16,-78}},
-          thickness=0.5),
-        Ellipse(
-          extent={{-48,-40},{84,40}},
-          lineColor={160,160,164},
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{-28,-20},{64,26}},
-          lineColor={160,160,164},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Polygon(
-          points={{-18,-54},{-56,0},{-18,50},{44,52},{-18,-54}},
-          pattern=LinePattern.None,
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Line(
-          points={{16,78},{16,-20}},
-          thickness=0.5),
-        Line(
-          points={{36,38},{-8,-36}},
-          thickness=0.5),
         Text(
           extent={{-150,120},{150,80}},
           textColor={0,0,255},
