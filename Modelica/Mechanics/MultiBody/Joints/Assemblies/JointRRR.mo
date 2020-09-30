@@ -284,7 +284,7 @@ are connected by rigid rods.
           color={95,95,95},
           thickness=0.5),
         Text(
-          extent={{-128,-29},{136,-47}},
+          extent={{-130,-30},{130,-50}},
           textString="n_a=%n_a"),
         Line(
           points={{0,57},{0,86},{0,86},{0,100}},

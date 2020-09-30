@@ -126,10 +126,6 @@ phi_b.start = 45<sup>o</sup>).
           fillPattern=FillPattern.Solid,
           startAngle=90,
           endAngle=270),
-        Text(
-          extent={{-150,-80},{150,-120}},
-          textString="%name",
-          textColor={0,0,255}),
         Ellipse(
           extent={{-60,-60},{60,60}},
           lineColor={255,255,255},
@@ -164,5 +160,9 @@ phi_b.start = 45<sup>o</sup>).
           thickness=0.5),
         Line(
           points={{0,72},{0,-20}},
-          thickness=0.5)}));
+          thickness=0.5),
+        Text(
+          extent={{-150,120},{150,80}},
+          textString="%name",
+          textColor={0,0,255})}));
 end Universal;

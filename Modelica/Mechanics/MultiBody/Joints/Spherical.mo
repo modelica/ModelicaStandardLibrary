@@ -273,7 +273,7 @@ frame_b of the joint.
           lineColor={128,128,128},
           closure=EllipseClosure.None),
         Text(
-          extent={{-150,-115},{150,-75}},
+          extent={{-150,120},{150,80}},
           textString="%name",
           textColor={0,0,255})}));
 end Spherical;

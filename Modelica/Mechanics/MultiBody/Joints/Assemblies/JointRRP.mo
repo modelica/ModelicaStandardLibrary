@@ -250,7 +250,7 @@ and 1 prismatic joint are connected by rigid rods.
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
         Text(
-          extent={{-139,-53},{141,-78}},
+          extent={{-140,-55},{140,-80}},
           textColor={0,0,255},
           textString="%name"),
         Text(
@@ -282,7 +282,7 @@ and 1 prismatic joint are connected by rigid rods.
           points={{54,5},{5,47},{8,53},{58,11},{54,5}},
           fillPattern=FillPattern.Solid),
         Text(
-          extent={{-128,-29},{139,-47}},
+          extent={{-130,-30},{130,-50}},
           textString="n_a=%n_a"),
         Line(
           points={{0,57},{0,86},{0,86},{0,100}},
