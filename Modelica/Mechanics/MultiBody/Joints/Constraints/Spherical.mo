@@ -143,9 +143,8 @@ equation
           lineColor={255,255,255},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
-          closure=EllipseClosure.Radial,
-          startAngle=59,
-          endAngle=301),
+          startAngle=55,
+          endAngle=305),
         Ellipse(
           extent={{-24,25},{26,-25}},
           fillPattern=FillPattern.Sphere,
@@ -155,7 +154,9 @@ equation
           startAngle=60,
           endAngle=300,
           lineColor={128,128,128},
-          closure=EllipseClosure.None),
+          closure=EllipseClosure.None,
+          fillColor={0,0,0},
+          fillPattern=FillPattern.Solid),
         Line(
           points={{-81,-66},{-23,25},{40,-39},{97,71}},
           color={255,0,0},

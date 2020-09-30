@@ -1,8 +1,8 @@
 within Modelica.Mechanics.MultiBody.Forces;
 model LineForceWithMass "General line force component with an optional point mass on the connection line"
-
   import Modelica.Mechanics.MultiBody.Types;
   extends Interfaces.LineForceBase;
+
   Modelica.Mechanics.Translational.Interfaces.Flange_a flange_b
     "1-dim. translational flange (connect force of Translational library between flange_a and flange_b)"
     annotation (Placement(transformation(
@@ -151,52 +151,40 @@ equation
           extent={{-90,-30},{-30,30}},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
-          startAngle=69,
-          endAngle=291,
-          lineColor={255,255,255},
+          startAngle=65,
+          endAngle=295,
+          lineColor={255,255,255}),
+        Ellipse(
+          extent={{-90,-30},{-30,30}},
+          startAngle=70,
+          endAngle=290,
+          lineColor={0,0,0},
+          closure=EllipseClosure.None),
+        Ellipse(
+          extent={{20,-40},{100,40}},
+          startAngle=-110,
+          endAngle=110,
+          lineColor={0,0,0},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Sphere,
           closure=EllipseClosure.Radial),
-        Ellipse(visible=fixedRotationAtFrame_a, extent={{-70,30},{-130,-30}}, lineColor={255,0,0}),
-        Text(visible=fixedRotationAtFrame_a,
-          extent={{-62,50},{-140,30}},
-          textColor={255,0,0},
-          textString="R=0"),
-        Ellipse(visible=fixedRotationAtFrame_b, extent={{70,30},{130,-30}}, lineColor={255,0,0}),
-        Text(visible=fixedRotationAtFrame_b,
-          extent={{62,50},{140,30}},
-          textColor={255,0,0},
-          textString="R=0"),
-          Ellipse(
-            extent={{-90,-30},{-30,30}},
-            startAngle=70,
-            endAngle=290,
-            lineColor={0,0,0},
-            closure=EllipseClosure.None),
+        Ellipse(
+          extent={{30,-30},{90,30}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          startAngle=-115,
+          endAngle=115,
+          lineColor={255,255,255}),
+        Ellipse(
+          extent={{30,-30},{90,30}},
+          startAngle=-110,
+          endAngle=110,
+          lineColor={0,0,0},
+          closure=EllipseClosure.None),
           Ellipse(
             extent={{-74,14},{-46,-14}},
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
-          Ellipse(
-            extent={{100,-40},{20,40}},
-            startAngle=70,
-            endAngle=290,
-            lineColor={0,0,0},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Sphere,
-            closure=EllipseClosure.Radial),
-          Ellipse(
-            extent={{90,-30},{30,30}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            startAngle=69,
-            endAngle=291,
-            lineColor={255,255,255},
-            closure=EllipseClosure.Radial),
-          Ellipse(
-            extent={{90,-30},{30,30}},
-            startAngle=70,
-            endAngle=290,
-            lineColor={0,0,0},
-            closure=EllipseClosure.None),
           Ellipse(
             extent={{46,14},{74,-14}},
             fillPattern=FillPattern.Sphere,
@@ -212,7 +200,17 @@ equation
         Text(
           extent={{-150,-50},{150,-90}},
           textString="%name",
-          textColor={0,0,255})}),
+          textColor={0,0,255}),
+        Ellipse(visible=fixedRotationAtFrame_a, extent={{-70,30},{-130,-30}}, lineColor={255,0,0}),
+        Text(visible=fixedRotationAtFrame_a,
+          extent={{-62,50},{-140,30}},
+          textColor={255,0,0},
+          textString="R=0"),
+        Ellipse(visible=fixedRotationAtFrame_b, extent={{70,30},{130,-30}}, lineColor={255,0,0}),
+        Text(visible=fixedRotationAtFrame_b,
+          extent={{62,50},{140,30}},
+          textColor={255,0,0},
+          textString="R=0")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={

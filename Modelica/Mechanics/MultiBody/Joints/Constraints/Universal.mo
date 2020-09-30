@@ -119,12 +119,12 @@ equation
           endAngle=270,
           closure=EllipseClosure.None),
         Ellipse(
-          extent={{70,-40},{-70,40}},
+          extent={{-70,-40},{70,40}},
           lineColor={160,160,164},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid,
-          startAngle=120,
-          endAngle=299),
+          startAngle=-120,
+          endAngle=60),
         Ellipse(
           extent={{-50,-22},{50,24}},
           lineColor={255,255,255},

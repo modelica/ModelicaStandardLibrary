@@ -256,8 +256,8 @@ frame_b of the joint.
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           closure=EllipseClosure.Radial,
-          startAngle=59,
-          endAngle=301),
+          startAngle=55,
+          endAngle=305),
         Rectangle(
           extent={{23,10},{100,-10}},
           fillPattern=FillPattern.HorizontalCylinder,

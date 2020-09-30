@@ -368,6 +368,31 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         initialScale=0.2), graphics={
+        Rectangle(
+          extent={{10,6},{61,-6}},
+          fillPattern=FillPattern.HorizontalCylinder,
+          fillColor={192,192,192}),
+        Ellipse(
+          extent={{-34,-24},{14,24}},
+          startAngle=-110,
+          endAngle=110,
+          lineColor={0,0,0},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Sphere,
+          closure=EllipseClosure.Radial),
+        Ellipse(
+          extent={{-28,-18},{8,18}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          startAngle=-115,
+          endAngle=115,
+          lineColor={255,255,255}),
+          Ellipse(
+          extent={{-28,-18},{8,18}},
+          startAngle=-110,
+          endAngle=110,
+          lineColor={0,0,0},
+          closure=EllipseClosure.None),
         Ellipse(
           extent={{-100,-30},{-40,30}},
           startAngle=90,
@@ -380,10 +405,9 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           extent={{-94,-24},{-46,24}},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
-          startAngle=89,
-          endAngle=271,
-          lineColor={255,255,255},
-          closure=EllipseClosure.Radial),
+          startAngle=85,
+          endAngle=275,
+          lineColor={255,255,255}),
           Ellipse(
           extent={{-94,-24},{-46,24}},
           startAngle=90,
@@ -392,10 +416,6 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           closure=EllipseClosure.None),
         Rectangle(
           extent={{-50,5},{-10,-5}},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={192,192,192}),
-        Rectangle(
-          extent={{10,6},{61,-6}},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={192,192,192}),
         Rectangle(
@@ -425,28 +445,6 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           color={95,95,95},
           thickness=0.5),
           Ellipse(
-            extent={{14,-24},{-34,24}},
-            startAngle=70,
-            endAngle=290,
-            lineColor={0,0,0},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Sphere,
-            closure=EllipseClosure.Radial),
-          Ellipse(
-            extent={{8,-18},{-28,18}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            startAngle=69,
-            endAngle=291,
-            lineColor={255,255,255},
-            closure=EllipseClosure.Radial),
-          Ellipse(
-            extent={{8,-18},{-28,18}},
-            startAngle=70,
-            endAngle=290,
-            lineColor={0,0,0},
-            closure=EllipseClosure.None),
-          Ellipse(
             extent={{-20,10},{0,-10}},
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
@@ -454,13 +452,13 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           points={{-70,28},{-70,-30}},
           thickness=0.5),
         Ellipse(
-          extent={{-48,-14},{-92,14}},
+          extent={{-92,-14},{-48,14}},
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192},
-          startAngle=124,
-          endAngle=303),
+          startAngle=-123,
+          endAngle=57),
         Ellipse(
-          extent={{-54,-8},{-90,10}},
+          extent={{-86,-8},{-54,8}},
           lineColor={255,255,255},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
@@ -474,12 +472,12 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           points={{-70,30},{-70,-6}},
           thickness=0.5),
         Ellipse(
-          extent={{-54,-8},{-90,10}},
+          extent={{-86,-8},{-54,8}},
           lineColor={95,95,95},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
-          startAngle=129,
-          endAngle=289,
+          startAngle=-114,
+          endAngle=61,
           closure=EllipseClosure.None),
         Line(
           points={{-56,14},{-84,-14}},
