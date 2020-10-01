@@ -1,0 +1,440 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Spice3.Internal.Mos</title>
+<meta name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="&quot;Records and functions for MOSFETs level 1,2,3,6&quot;">
+<style type="text/css">
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; vertical-align: top; }
+th      { padding: 2px; vertical-align: top; font-weight: bold; }
+table   { border-collapse: collapse; }
+table[class^="ModelicaTable"] td { border: 1px solid #808080; }
+table[class^="ModelicaTable"] th { border: 1px solid #808080; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
+</style>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Mos<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Spice3.Internal.Mos"></a><a href="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</a>.Mos</h2>
+<p>
+<span class="ModelicaDescription">Records and functions for MOSFETs level 1,2,3,6</span><br>
+</p>
+<h3>Information</h3>
+
+<p>This package Mos contains functions and records with data of the MOSFET models level 1, 2, 3 and 6.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_InternalPackage.html#Modelica.Icons.InternalPackage"
+>Modelica.Icons.InternalPackage</a> (Icon for an internal package (indicating that the package should not be directly utilized by user)).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice5a4ebbd1f00f6297aramsS.png" alt="Modelica.Electrical.Spice3.Internal.Mos.MosModelLineParams" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosModelLineParams"
+>MosModelLineParams</a>
+</td>
+<td>Record for Mosfet model line parameters (for level 1, 2, 3 and 6)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice5a4ebbd1f00f6297aramsS.png" alt="Modelica.Electrical.Spice3.Internal.Mos.MosModelLineVariables" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosModelLineVariables"
+>MosModelLineVariables</a>
+</td>
+<td>Record for Mosfet model line variables (for level 1)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice5a4ebbd1f00f6297aramsS.png" alt="Modelica.Electrical.Spice3.Internal.Mos.MosCalc" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosCalc"
+>MosCalc</a>
+</td>
+<td>Further MOSFET variables (for level 1, 2, 3 and 6)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice5a4ebbd1f00f6297aramsS.png" alt="Modelica.Electrical.Spice3.Internal.Mos.DEVqmeyer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.DEVqmeyer"
+>DEVqmeyer</a>
+</td>
+<td>Meyer capacities and charge</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice5a4ebbd1f00f6297aramsS.png" alt="Modelica.Electrical.Spice3.Internal.Mos.CurrrentsCapacitances" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.CurrrentsCapacitances"
+>CurrrentsCapacitances</a>
+</td>
+<td>Currents and Capacities</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice853b7cf85bd55160tionsS.png" alt="Modelica.Electrical.Spice3.Internal.Mos.mosCalcInitEquations" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.mosCalcInitEquations"
+>mosCalcInitEquations</a>
+</td>
+<td>Mosfet initial precalculations (level 1)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice853b7cf85bd55160tionsS.png" alt="Modelica.Electrical.Spice3.Internal.Mos.mosCalcCalcTempDependencies" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.mosCalcCalcTempDependencies"
+>mosCalcCalcTempDependencies</a>
+</td>
+<td>Precalculation relating to temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice853b7cf85bd55160tionsS.png" alt="Modelica.Electrical.Spice3.Internal.Mos.mosCalcNoBypassCode" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.mosCalcNoBypassCode"
+>mosCalcNoBypassCode</a>
+</td>
+<td>Calculation of currents and capacities (level 1)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice853b7cf85bd55160tionsS.png" alt="Modelica.Electrical.Spice3.Internal.Mos.mosCalcDEVqmeyer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.mosCalcDEVqmeyer"
+>mosCalcDEVqmeyer</a>
+</td>
+<td>Calculation of Meyer capacities</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice853b7cf85bd55160tionsS.png" alt="Modelica.Electrical.Spice3.Internal.Mos.mos2CalcInitEquationsRevised" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.mos2CalcInitEquationsRevised"
+>mos2CalcInitEquationsRevised</a>
+</td>
+<td>Mosfet initial precalculations (level 2)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice853b7cf85bd55160tionsS.png" alt="Modelica.Electrical.Spice3.Internal.Mos.mos2CalcCalcTempDependenciesRevised" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.mos2CalcCalcTempDependenciesRevised"
+>mos2CalcCalcTempDependenciesRevised</a>
+</td>
+<td>Precalculation relating to temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice853b7cf85bd55160tionsS.png" alt="Modelica.Electrical.Spice3.Internal.Mos.mos2CalcNoBypassCodeRevised" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.mos2CalcNoBypassCodeRevised"
+>mos2CalcNoBypassCodeRevised</a>
+</td>
+<td>Calculation of currents and capacities (level 2)</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MosModelLineParams<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice5a4ebbd1f00f6297aramsI.png" alt="Modelica.Electrical.Spice3.Internal.Mos.MosModelLineParams" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Mos.MosModelLineParams"></a><a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</a>.MosModelLineParams</h2>
+<p>
+<span class="ModelicaDescription">Record for Mosfet model line parameters (for level 1, 2, 3 and 6)</span>
+</p>
+<h3>Information</h3>
+
+<p>This record MosModelLineParams contains the model line parameters that are used for the MOSFET transistors level 1, 2, 3 and 6 in SPICE3.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.MosfetModelLineParams"
+>Spice3.Internal.Mosfet.MosfetModelLineParams</a> (Record for Mosfet model line parameters).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>m_jctSatCurDensity</td><td>JS, Bulk jct. sat. current density, input - use tSatCurDens</td></tr>
+<tr><td>m_sheetResistance</td><td>RSH, Sheet resistance [Ohm]</td></tr>
+<tr><td>m_bulkJctPotential</td><td>PB, Bulk junction potential, input - use tBulkPot</td></tr>
+<tr><td>m_bulkJctBotGradingCoeff</td><td>MJ, Bottom grading coefficient [1/K]</td></tr>
+<tr><td>m_bulkJctSideGradingCoeff</td><td>MJSW, Side grading coefficient [1/K]</td></tr>
+<tr><td>m_oxideThickness</td><td>TOX, Oxide thickness unit: micron</td></tr>
+<tr><td>m_gateSourceOverlapCapFactor</td><td>CGS0, Gate-source overlap cap</td></tr>
+<tr><td>m_gateDrainOverlapCapFactor</td><td>CGD0, Gate-drain overlap cap</td></tr>
+<tr><td>m_gateBulkOverlapCapFactor</td><td>CGB0, Gate-bulk overlap cap</td></tr>
+<tr><td>m_fNcoef</td><td>KF, Flicker noise coefficient</td></tr>
+<tr><td>m_fNexp</td><td>AF, Flicker noise exponent</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MosModelLineVariables<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice5a4ebbd1f00f6297aramsI.png" alt="Modelica.Electrical.Spice3.Internal.Mos.MosModelLineVariables" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Mos.MosModelLineVariables"></a><a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</a>.MosModelLineVariables</h2>
+<p>
+<span class="ModelicaDescription">Record for Mosfet model line variables (for level 1)</span>
+</p>
+<h3>Information</h3>
+
+<p>This record MosModelLineVariables contains the model line variables that are used for the MOSFET transistors level 1 SPICE3.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MosCalc<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice5a4ebbd1f00f6297aramsI.png" alt="Modelica.Electrical.Spice3.Internal.Mos.MosCalc" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Mos.MosCalc"></a><a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</a>.MosCalc</h2>
+<p>
+<span class="ModelicaDescription">Further MOSFET variables (for level 1, 2, 3 and 6)</span>
+</p>
+<h3>Information</h3>
+
+<blockquote><pre>
+This record MosCalc contains further MOSFET variables (for level 1, 2, 3 and 6).
+</pre></blockquote>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.MosfetCalc"
+>Spice3.Internal.Mosfet.MosfetCalc</a> (Mosfet Variables).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>m_mode</td><td>Mode</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DEVqmeyer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice5a4ebbd1f00f6297aramsI.png" alt="Modelica.Electrical.Spice3.Internal.Mos.DEVqmeyer" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Mos.DEVqmeyer"></a><a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</a>.DEVqmeyer</h2>
+<p>
+<span class="ModelicaDescription">Meyer capacities and charge</span>
+</p>
+<h3>Information</h3>
+
+<p>This record DEVqmeyer contains values that are needed for the calculation of the Meyer capacities and charge.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CurrrentsCapacitances<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice5a4ebbd1f00f6297aramsI.png" alt="Modelica.Electrical.Spice3.Internal.Mos.CurrrentsCapacitances" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Mos.CurrrentsCapacitances"></a><a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</a>.CurrrentsCapacitances</h2>
+<p>
+<span class="ModelicaDescription">Currents and Capacities</span>
+</p>
+<h3>Information</h3>
+
+<p>This record CurrentsCapacities contains values for the currents and the capacities inside the MOSFET models level 1, 2, 3 and 6.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE mosCalcInitEquations<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice853b7cf85bd55160tionsI.png" alt="Modelica.Electrical.Spice3.Internal.Mos.mosCalcInitEquations" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Mos.mosCalcInitEquations"></a><a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</a>.mosCalcInitEquations</h2>
+<p>
+<span class="ModelicaDescription">Mosfet initial precalculations (level 1)</span>
+</p>
+<h3>Information</h3>
+
+<p>This function mosCalcInitEquations does the initial precalculation of the MOSFET parameters (level 1).</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>in_p</td><td>Input record model line parameters for MOS1</td></tr>
+<tr><td>in_C</td><td>Input record SPICE constants</td></tr>
+<tr><td>in_vp</td><td>Input record model line variables</td></tr>
+<tr><td>in_m</td><td>Input record MOSFET parameters</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>out_c</td><td>Output record Mos1 calculated values</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE mosCalcCalcTempDependencies<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice853b7cf85bd55160tionsI.png" alt="Modelica.Electrical.Spice3.Internal.Mos.mosCalcCalcTempDependencies" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Mos.mosCalcCalcTempDependencies"></a><a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</a>.mosCalcCalcTempDependencies</h2>
+<p>
+<span class="ModelicaDescription">Precalculation relating to temperature</span>
+</p>
+<h3>Information</h3>
+
+<p>This function mosCalcCalcTempDependencies does precalculation relating to the temperature (level 1).</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>in_p</td><td>Input record model line parameters for MOS1</td></tr>
+<tr><td>in_C</td><td>Input record SPICE constants</td></tr>
+<tr><td>in_vp</td><td>Input record model line variables</td></tr>
+<tr><td>in_m</td><td>Input record MOSFET parameters</td></tr>
+<tr><td>in_c</td><td>Input record Mos1Calc</td></tr>
+<tr><td>in_m_type</td><td>Type of MOS transistor</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>out_c</td><td>Output record with calculated values</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE mosCalcNoBypassCode<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice853b7cf85bd55160tionsI.png" alt="Modelica.Electrical.Spice3.Internal.Mos.mosCalcNoBypassCode" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Mos.mosCalcNoBypassCode"></a><a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</a>.mosCalcNoBypassCode</h2>
+<p>
+<span class="ModelicaDescription">Calculation of currents and capacities (level 1)</span>
+</p>
+<h3>Information</h3>
+
+<p>This function mosCalcNoBypassCode calculates the currents (and the capacitances) that are necessary for the currents sum in the toplevelmodel (level 1).</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>in_m</td><td>Input record MOSFET parameters</td></tr>
+<tr><td>in_m_type</td><td>Type of MOS transistor</td></tr>
+<tr><td>in_c</td><td>Input record Mos1Calc</td></tr>
+<tr><td>in_p</td><td>Input record model line parameters for MOS1</td></tr>
+<tr><td>in_C</td><td>Input record SPICE constants</td></tr>
+<tr><td>in_vp</td><td>Input record model line variables</td></tr>
+<tr><td>in_m_bInit</td><td>&nbsp;</td></tr>
+<tr><td>in_m_pVoltageValues[4]</td><td>[V]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>out_cc</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE mosCalcDEVqmeyer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice853b7cf85bd55160tionsI.png" alt="Modelica.Electrical.Spice3.Internal.Mos.mosCalcDEVqmeyer" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Mos.mosCalcDEVqmeyer"></a><a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</a>.mosCalcDEVqmeyer</h2>
+<p>
+<span class="ModelicaDescription">Calculation of Meyer capacities</span>
+</p>
+<h3>Information</h3>
+
+<p>This function mosCalcDEVqmeyer calculates the Meyer capacities and charge for the Meyer model.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>vgs</td><td>[V]</td></tr>
+<tr><td>vgd</td><td>[V]</td></tr>
+<tr><td>vgb</td><td>[V]</td></tr>
+<tr><td>in_c</td><td>Input variable set</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>out_qm</td><td>Qmeyer values</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE mos2CalcInitEquationsRevised<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice853b7cf85bd55160tionsI.png" alt="Modelica.Electrical.Spice3.Internal.Mos.mos2CalcInitEquationsRevised" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Mos.mos2CalcInitEquationsRevised"></a><a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</a>.mos2CalcInitEquationsRevised</h2>
+<p>
+<span class="ModelicaDescription">Mosfet initial precalculations (level 2)</span>
+</p>
+<h3>Information</h3>
+
+<p>This function mos2CalcInitEquationsRevised does the initial precalculation of the MOSFET parameters (level 2).</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>in_p</td><td>Input record Mos2 values</td></tr>
+<tr><td>in_m</td><td>Input record MOSFET parameters</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>out_c</td><td>Output record Mos2 calculated values</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE mos2CalcCalcTempDependenciesRevised<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice853b7cf85bd55160tionsI.png" alt="Modelica.Electrical.Spice3.Internal.Mos.mos2CalcCalcTempDependenciesRevised" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Mos.mos2CalcCalcTempDependenciesRevised"></a><a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</a>.mos2CalcCalcTempDependenciesRevised</h2>
+<p>
+<span class="ModelicaDescription">Precalculation relating to temperature</span>
+</p>
+<h3>Information</h3>
+
+<p>This function mos2CalcCalcTempDependenciesRevised does precalculation relating to the temperature (level 2).</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>in_p</td><td>Output record Mos1 calculated values</td></tr>
+<tr><td>in_m</td><td>Input record MOSFET parameters</td></tr>
+<tr><td>in_c</td><td>Input record Mos2Calc</td></tr>
+<tr><td>in_m_type</td><td>Type of MOS transistor</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>out_c</td><td>Output record with calculated values</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE mos2CalcNoBypassCodeRevised<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice853b7cf85bd55160tionsI.png" alt="Modelica.Electrical.Spice3.Internal.Mos.mos2CalcNoBypassCodeRevised" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Internal.Mos.mos2CalcNoBypassCodeRevised"></a><a href="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</a>.mos2CalcNoBypassCodeRevised</h2>
+<p>
+<span class="ModelicaDescription">Calculation of currents and capacities (level 2)</span>
+</p>
+<h3>Information</h3>
+
+<p>This function mos2CalcNoBypassCodeRevised calculates the currents (and the capacitances) that are necessary for the currents sum in the toplevelmodel (level 2).</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>in_m</td><td>Input record MOSFET parameters</td></tr>
+<tr><td>in_m_type</td><td>Type of MOS transistor</td></tr>
+<tr><td>in_c</td><td>Input record Mos2Calc</td></tr>
+<tr><td>in_p</td><td>Input record model line parameters</td></tr>
+<tr><td>in_m_bInit</td><td>&nbsp;</td></tr>
+<tr><td>in_m_pVoltageValues[4]</td><td>[V]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>out_cc</td><td>Calculated currents and capacitances</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Thu Oct  1 16:07:48 2020.
+</address>
+</body>
+</html>
