@@ -270,7 +270,7 @@ equation
         Text(
           extent={{-150,-50},{150,-90}},
           textString="%name",
-          lineColor={0,0,255}),
+          textColor={0,0,255}),
         Ellipse(visible=fixedRotationAtFrame_a, extent={{-70,30},{-130,-30}}, lineColor={255,0,0}),
         Text(visible=fixedRotationAtFrame_a,
           extent={{-62,50},{-140,30}},
