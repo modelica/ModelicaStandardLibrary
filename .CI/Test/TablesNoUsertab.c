@@ -1,16 +1,8 @@
-#include <string.h>
-#include <assert.h>
-
+#include "../../Modelica/Resources/C-Sources/ModelicaStandardTables.h"
 #include "Common.c"
 
-void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
-                                                 const char* fileName,
-                                                 double* table, size_t nRow,
-                                                 size_t nColumn,
-                                                 double startTime,
-                                                 int* columns,
-                                                 size_t nCols, int smoothness,
-                                                 int extrapolation);
+#include <assert.h>
+#include <string.h>
 
 int main(int argc, char **argv) {
     double tab[4] = {0.0, 1.0, 1.0, 2.0};

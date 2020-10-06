@@ -1,10 +1,8 @@
-#include <string.h>
-#include <assert.h>
-
+#include "../../Modelica/Resources/C-Sources/ModelicaStrings.h"
 #include "Common.c"
 
-const char* ModelicaStrings_substring(const char* string,
-                                      int startIndex, int endIndex);
+#include <assert.h>
+#include <string.h>
 
 int main(int argc, char **argv) {
     assert(0 == strcmp("a", ModelicaStrings_substring("abc",-1,-1)));
