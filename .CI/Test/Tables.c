@@ -1,7 +1,8 @@
-#include <string.h>
-#include <assert.h>
-
+#include "../../Modelica/Resources/C-Sources/ModelicaStandardTables.h"
 #include "Common.c"
+
+#include <assert.h>
+#include <string.h>
 
 int usertab(char* tableName, int nipo, int dim[], int* colWise,
                  double** table) {
@@ -11,15 +12,6 @@ int usertab(char* tableName, int nipo, int dim[], int* colWise,
     dim[1] = 2;
     return 0; /* OK */
 }
-
-void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
-                                                 const char* fileName,
-                                                 double* table, size_t nRow,
-                                                 size_t nColumn,
-                                                 double startTime,
-                                                 int* columns,
-                                                 size_t nCols, int smoothness,
-                                                 int extrapolation);
 
 int main(int argc, char **argv) {
     double tab[4] = {0.0, 1.0, 1.0, 2.0};
