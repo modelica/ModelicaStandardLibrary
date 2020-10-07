@@ -148,7 +148,7 @@ equation
         Ellipse(
           extent={{-24,25},{26,-25}},
           fillPattern=FillPattern.Sphere,
-          fillColor={160,160,164}),
+          fillColor={192,192,192}),
         Ellipse(
           extent={{-50,-50},{50,50}},
           startAngle=60,
