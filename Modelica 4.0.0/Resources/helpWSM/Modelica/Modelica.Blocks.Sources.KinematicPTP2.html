@@ -1,0 +1,261 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Sources.KinematicPTP2</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Sources.html">Sources</a></li>
+  <li><a href="Modelica.Blocks.Sources.KinematicPTP2.html">KinematicPTP2</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>KinematicPTP2</h1>
+    <p>Move as fast as possible from start to end position within given kinematic constraints with output signals q, qd=der(q), qdd=der(qd)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Sources.KinematicPTP2_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The goal is to move as <strong>fast</strong> as possible from start position <strong>q_begin</strong>
+to end position <strong>q_end</strong>
+under given <strong>kinematical constraints</strong>. The positions can be translational or
+rotational definitions (i.e., q_begin/q_end is given). In robotics such a movement is called <strong>PTP</strong> (Point-To-Point).
+This source block generates the <strong>position</strong> q(t), the
+<strong>speed</strong> qd(t) = der(q), and the <strong>acceleration</strong> qdd = der(qd)
+as output. The signals are constructed in such a way that it is not possible
+to move faster, given the <strong>maximally</strong> allowed <strong>velocity</strong> qd_max and
+the <strong>maximally</strong> allowed <strong>acceleration</strong> qdd_max:
+</p>
+
+<p>
+<img src="resources/Modelica.Blocks.Sources.KinematicPTP2_info_001.png"
+     alt="KinematicPTP2.png">
+</p>
+
+<p>
+If vectors q_begin/q_end have more than 1 element,
+the output vectors are constructed such that all signals
+are in the same periods in the acceleration, constant velocity
+and deceleration phase. This means that only one of the signals
+is at its limits whereas the others are synchronized in such a way
+that the end point is reached at the same time instant.
+</p>
+
+<p>
+This element is useful to generate a reference signal for a controller
+which controls, e.g., a drive train, or to drive
+a flange according to a given acceleration.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>q_begin</th>
+      <td>
+        <p><span>Value:</span> {0}</p>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Start position</p>
+      </td>
+    </tr>
+    <tr>
+      <th>q_end</th>
+      <td>
+        <p><span>Value:</span> {1}</p>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> End position</p>
+      </td>
+    </tr>
+    <tr>
+      <th>qd_max</th>
+      <td>
+        <p><span>Value:</span> {1}</p>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Maximum velocities der(q)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>qdd_max</th>
+      <td>
+        <p><span>Value:</span> {1}</p>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Maximum accelerations der(qd)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startTime</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Time instant at which movement starts</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nout</th>
+      <td>
+        <p><span>Value:</span> max([size(q_begin, 1); size(q_end, 1); size(qd_max, 1); size(qdd_max, 1)])</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of output signals (= dimension of q, qd, qdd, moving)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>endTime</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Time instant at which movement stops</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>q</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[nout]</a></p>
+        <p><span>Description:</span> Reference position of path planning</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>qd</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[nout]</a></p>
+        <p><span>Description:</span> Reference speed of path planning</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>qdd</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[nout]</a></p>
+        <p><span>Description:</span> Reference acceleration of path planning</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanOutput_16x16.png"></td>
+      <th>moving</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanOutput.html">BooleanOutput[nout]</a></p>
+        <p><span>Description:</span> = true, if end position not yet reached; = false, if end position reached or axis is completely at rest</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.CascadeControlledDrive.Continuous_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.CascadeControlledDrive.Continuous.html">Continuous</a></p>
+        <p><span>Modelica.Clocked.Examples.CascadeControlledDrive</span></p>
+        <p>Drive with continuous-time cascade controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.CascadeControlledDrive.SubClocked_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.CascadeControlledDrive.SubClocked.html">SubClocked</a></p>
+        <p><span>Modelica.Clocked.Examples.CascadeControlledDrive</span></p>
+        <p>Drive with clocked cascade controller where clocks are defined with sub-sampling and partitions with super-sampling</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.CascadeControlledDrive.SuperSampled_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.CascadeControlledDrive.SuperSampled.html">SuperSampled</a></p>
+        <p><span>Modelica.Clocked.Examples.CascadeControlledDrive</span></p>
+        <p>Drive with clocked cascade controller where fastest partition is defined with a clock and slower partition is defined with super-sampling</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.CascadeControlledDrive.AbsoluteClocks_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.CascadeControlledDrive.AbsoluteClocks.html">AbsoluteClocks</a></p>
+        <p><span>Modelica.Clocked.Examples.CascadeControlledDrive</span></p>
+        <p>Drive with clocked cascade controller where all partitions are defined with exact (integer) clock that need to be compatible to each other</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.ControlledDCDrives.PositionControlledDCPM_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.PositionControlledDCPM.html">PositionControlledDCPM</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.ControlledDCDrives</span></p>
+        <p>Position controlled DC PM drive with H-bridge from battery</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathPlanning1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathPlanning1.html">PathPlanning1</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities</span></p>
+        <p>Generate reference angles for fastest kinematic movement</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathPlanning6_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathPlanning6.html">PathPlanning6</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities</span></p>
+        <p>Generate reference angles for fastest kinematic movement</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

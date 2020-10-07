@@ -1,0 +1,170 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.Utilities.regSquare2</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Fluid.Utilities.regSquare2.html">regSquare2</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>regSquare2</h1>
+    <p>Anti-symmetric approximation of square with discontinuous factor so that the first derivative is non-zero and is continuous</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Utilities.regSquare2_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Approximates the function
+</p>
+<blockquote><pre>
+y = <strong>if</strong> x &ge; 0 <strong>then</strong> k1*x*x <strong>else</strong> -k2*x*x, with k1, k2 > 0
+</pre></blockquote>
+<p>
+in such a way that within the region -x_small &le; x &le; x_small,
+the function is described by two polynomials of third order
+(one in the region -x_small .. 0 and one within the region 0 .. x_small)
+such that
+</p>
+
+<ul>
+<li> The derivative at x=0 is non-zero (in order that the
+     inverse of the function does not have an infinite derivative).</li>
+<li> The overall function is continuous with a
+     continuous first derivative everywhere.</li>
+<li> If parameter use_yd0 = <strong>false</strong>, the two polynomials
+     are constructed such that the second derivatives at x=0
+     are identical. If use_yd0 = <strong>true</strong>, the derivative
+     at x=0 is explicitly provided via the additional argument
+     yd0. If necessary, the derivative yd0 is automatically
+     reduced in order that the polynomials are strict monotonically
+     increasing <em>[Fritsch and Carlson, 1980]</em>.</li>
+</ul>
+
+<p>
+A typical screenshot for k1=1, k2=3 is shown in the next figure:
+</p>
+<p>
+<img src="resources/Modelica.Fluid.Utilities.regSquare2_info_001.png"
+     alt="regSquare2_b.png">
+</p>
+
+<p>
+The (smooth, non-zero) derivative of the function with
+k1=1, k2=3 is shown in the next figure:
+</p>
+
+<p>
+<img src="resources/Modelica.Fluid.Utilities.regSquare2_info_002.png"
+     alt="regSquare2_b.png">
+</p>
+
+<p>
+<strong>Literature</strong>
+</p>
+
+<dl>
+<dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
+<dd> <strong>Monotone piecewise cubic interpolation</strong>.
+     SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
+</dl>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">y = regSquare2(x, x_small, k1, k2, use_yd0, yd0)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>x</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Abscissa value</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x_small</th>
+      <td>
+        <p><span>Default Value:</span> 0.01</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Approximation of function for |x| <= x_small</p>
+      </td>
+    </tr>
+    <tr>
+      <th>k1</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> y = (if x>=0 then k1 else k2)*x*|x|</p>
+      </td>
+    </tr>
+    <tr>
+      <th>k2</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> y = (if x>=0 then k1 else k2)*x*|x|</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_yd0</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if yd0 shall be used</p>
+      </td>
+    </tr>
+    <tr>
+      <th>yd0</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Desired derivative at x=0: dy/dx = yd0</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Ordinate value</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

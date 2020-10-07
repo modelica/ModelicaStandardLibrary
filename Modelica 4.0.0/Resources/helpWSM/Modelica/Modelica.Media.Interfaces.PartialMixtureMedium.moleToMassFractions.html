@@ -1,0 +1,78 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Media.Interfaces.PartialMixtureMedium.moleToMassFractions</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Media.Interfaces.PartialMixtureMedium.html">PartialMixtureMedium</a></li>
+  <li><a href="Modelica.Media.Interfaces.PartialMixtureMedium.moleToMassFractions.html">moleToMassFractions</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>moleToMassFractions</h1>
+    <p>Return mass fractions X from mole fractions</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Interfaces.PartialMixtureMedium.moleToMassFractions_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">X = moleToMassFractions(moleFractions, MMX)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>moleFractions</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.MoleFraction.html">MoleFraction[:]</a></p>
+        <p><span>Description:</span> Mole fractions of mixture</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MMX</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMixtureMedium.MolarMass.html">MolarMass[:]</a> (kg/mol)</p>
+        <p><span>Description:</span> Molar masses of components</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>X</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.MassFraction.html">MassFraction[size(moleFractions, 1)]</a></p>
+        <p><span>Description:</span> Mass fractions of gas mixture</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

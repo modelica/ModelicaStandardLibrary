@@ -1,0 +1,212 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Matrices.LAPACK.dgelsy</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.LAPACK.html">LAPACK</a></li>
+  <li><a href="Modelica.Math.Matrices.LAPACK.dgelsy.html">dgelsy</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>dgelsy</h1>
+    <p>Compute the minimum-norm solution to a real linear least squares problem with rank deficient A</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgelsy_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<pre>Lapack documentation
+    Purpose
+    =======
+
+    DGELSY computes the minimum-norm solution to a real linear least
+    squares problem:
+        minimize || A * X - B ||
+    using a complete orthogonal factorization of A.  A is an M-by-N
+    matrix which may be rank-deficient.
+
+    Several right hand side vectors b and solution vectors x can be
+    handled in a single call; they are stored as the columns of the
+    M-by-NRHS right hand side matrix B and the N-by-NRHS solution
+    matrix X.
+
+    The routine first computes a QR factorization with column pivoting:
+        A * P = Q * [ R11 R12 ]
+                    [  0  R22 ]
+    with R11 defined as the largest leading submatrix whose estimated
+    condition number is less than 1/RCOND.  The order of R11, RANK,
+    is the effective rank of A.
+
+    Then, R22 is considered to be negligible, and R12 is annihilated
+    by orthogonal transformations from the right, arriving at the
+    complete orthogonal factorization:
+       A * P = Q * [ T11 0 ] * Z
+                   [  0  0 ]
+    The minimum-norm solution is then
+       X = P * Z' [ inv(T11)*Q1'*B ]
+                  [        0       ]
+    where Q1 consists of the first RANK columns of Q.
+
+    This routine is basically identical to the original xGELSX except
+    three differences:
+      o The call to the subroutine xGEQPF has been substituted by
+        the call to the subroutine xGEQP3. This subroutine is a Blas-3
+        version of the QR factorization with column pivoting.
+      o Matrix B (the right hand side) is updated with Blas-3.
+      o The permutation of matrix B (the right hand side) is faster and
+        more simple.
+
+    Arguments
+    =========
+
+    M       (input) INTEGER
+            The number of rows of the matrix A.  M >= 0.
+
+    N       (input) INTEGER
+            The number of columns of the matrix A.  N >= 0.
+
+    NRHS    (input) INTEGER
+            The number of right hand sides, i.e., the number of
+            columns of matrices B and X. NRHS >= 0.
+
+    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+            On entry, the M-by-N matrix A.
+            On exit, A has been overwritten by details of its
+            complete orthogonal factorization.
+
+    LDA     (input) INTEGER
+            The leading dimension of the array A.  LDA >= max(1,M).
+
+    B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
+            On entry, the M-by-NRHS right hand side matrix B.
+            On exit, the N-by-NRHS solution matrix X.
+
+    LDB     (input) INTEGER
+            The leading dimension of the array B. LDB >= max(1,M,N).
+
+    JPVT    (input/output) INTEGER array, dimension (N)
+            On entry, if JPVT(i) .ne. 0, the i-th column of A is permuted
+            to the front of AP, otherwise column i is a free column.
+            On exit, if JPVT(i) = k, then the i-th column of AP
+            was the k-th column of A.
+
+    RCOND   (input) DOUBLE PRECISION
+            RCOND is used to determine the effective rank of A, which
+            is defined as the order of the largest leading triangular
+            submatrix R11 in the QR factorization with pivoting of A,
+            whose estimated condition number < 1/RCOND.
+
+    RANK    (output) INTEGER
+            The effective rank of A, i.e., the order of the submatrix
+            R11.  This is the same as the order of the submatrix T11
+            in the complete orthogonal factorization of A.
+
+    WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+            On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
+
+    LWORK   (input) INTEGER
+            The dimension of the array WORK.
+            The unblocked strategy requires that:
+               LWORK >= MAX( MN+3*N+1, 2*MN+NRHS ),
+            where MN = min( M, N ).
+            The block algorithm requires that:
+               LWORK >= MAX( MN+2*N+NB*(N+1), 2*MN+NB*NRHS ),
+            where NB is an upper bound on the blocksize returned
+            by ILAENV for the routines DGEQP3, DTZRZF, STZRQF, DORMQR,
+            and DORMRZ.
+
+            If LWORK = -1, then a workspace query is assumed; the routine
+            only calculates the optimal size of the WORK array, returns
+            this value as the first entry of the WORK array, and no error
+            message related to LWORK is issued by XERBLA.
+
+    INFO    (output) INTEGER
+            = 0: successful exit
+            < 0: If INFO = -i, the i-th argument had an illegal value.</pre>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(X, info, rank) = dgelsy(A, B, rcond)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,:]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),:]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rcond</th>
+      <td>
+        <p><span>Default Value:</span> 0.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Reciprocal condition number to estimate rank</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>X</th>
+      <td>
+        <p><span>Default Value:</span> cat(1, B, zeros(max(nrow, ncol) - nrow, nrhs))</p>
+        <p><span>Type:</span> Real[max(size(A, 1), size(A, 2)),size(B, 2)]</p>
+        <p><span>Description:</span> Solution is in first size(A,2) rows</p>
+      </td>
+    </tr>
+    <tr>
+      <th>info</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rank</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Effective rank of A</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

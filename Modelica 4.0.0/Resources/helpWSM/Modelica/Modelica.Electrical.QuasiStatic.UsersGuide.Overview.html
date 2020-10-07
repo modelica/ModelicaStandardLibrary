@@ -1,0 +1,122 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.QuasiStatic.UsersGuide.Overview</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.html">Overview</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Overview</h1>
+    <p>Overview</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.QuasiStatic.UsersGuide.Overview_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Introduction_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Introduction.html">Introduction</a></p>
+        <p>Introduction to phasors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit.html">ACCircuit</a></p>
+        <p>AC circuit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Power_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Power.html">Power</a></p>
+        <p>Real and reactive power</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ReferenceSystem_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ReferenceSystem.html">ReferenceSystem</a></p>
+        <p>Reference system</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The <a href="Modelica.Electrical.QuasiStatic.html">Modelica.Electrical.QuasiStatic</a>
+library addresses the analysis of electrical circuits with purely sinusoidal
+voltages and currents. The main characteristics of the library are:
+</p>
+
+<ul>
+  <li>Only pure sinusoidal voltages and currents are taken into account.
+      Higher harmonic voltages and currents are not considered.</li>
+  <li>Any electrical transient effects are neglected.</li>
+  <li>The electrical components of this library are strictly linear.</li>
+  <li>The angular frequency <code>omega</code> of the voltages and currents of
+      a circuit are determined from a reference angle <code>gamma</code> by means of
+      <code>omega = der(gamma)</code>.</li>
+  <li>The reference angle <code>gamma</code> is not a global quantity
+      since it propagated through the connector.
+      Therefore, independent circuits of different frequencies can be modeled in one model.</li>
+  <li>The connectors contain the real and the imaginary part of the voltage and the current
+      <a href="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Introduction.html">RMS phasors</a></li>
+
+</ul>
+
+<p>
+The main intention of this library is the modeling of quasi-static behavior
+of single-phase and polyphase
+<a href="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit.html">AC circuits</a>
+with fixed and variable frequency. Quasi-static theory and applications can be
+found in
+[<a href="Modelica.Electrical.QuasiStatic.UsersGuide.References.html">Dorf1993</a>],
+[<a href="Modelica.Electrical.QuasiStatic.UsersGuide.References.html">Burton1994</a>],
+[<a href="Modelica.Electrical.QuasiStatic.UsersGuide.References.html">Landolt1936</a>],
+[<a href="Modelica.Electrical.QuasiStatic.UsersGuide.References.html">Philippow1967</a>],
+[<a href="Modelica.Electrical.QuasiStatic.UsersGuide.References.html">Weyh1967</a>],
+[<a href="Modelica.Electrical.QuasiStatic.UsersGuide.References.html">Vaske1973</a>].
+</p>
+
+<h4>Note</h4>
+<p>
+A general electrical circuit can be a DC circuit, an AC circuit with periodic sinusoidal or non-sinusoidal voltages and currents
+or a transient circuit without particular waveform of voltages and currents.
+Therefore a coupling model between a quasi-static circuit and a general (transient) electrical circuit
+has to be designed carefully taking the specific application into account.
+As an example, you may look at the <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Utilities.IdealACDCConverter.html">
+ideal AC DC converter</a>, which is used in the
+<a href="Modelica.Electrical.QuasiStatic.SinglePhase.Examples.Rectifier.html">rectifier example</a>.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

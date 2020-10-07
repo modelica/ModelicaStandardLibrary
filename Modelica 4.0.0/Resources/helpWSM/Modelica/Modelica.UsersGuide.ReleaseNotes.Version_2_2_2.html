@@ -1,0 +1,1011 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: UsersGuide.ReleaseNotes.Version_2_2_2</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a></li>
+  <li><a href="Modelica.UsersGuide.ReleaseNotes.Version_2_2_2.html">Version_2_2_2</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Version_2_2_2</h1>
+    <p>Version 2.2.2 (Aug. 31, 2007)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.UsersGuide.ReleaseNotes.Version_2_2_2_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Version 2.2.2 is backward compatible to version 2.2.1 and 2.2 with
+the following exceptions:
+</p>
+<ul>
+<li> Removal of package Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache
+         (this was not yet utilized).</li>
+<li> Removal of the media packages in
+         Modelica.Media.IdealGases.SingleGases that are not type compatible
+         to Modelica.Media.Interfaces.PartialMedium, because a FluidConstants
+         record definition is missing,
+         for details, see
+          <a href="Modelica.Media.IdealGases.html">Modelica.Media.IdealGases</a>
+         (this is seen as a bug fix).</li>
+</ul>
+
+<p>
+An overview of the differences between version 2.2.2 and the previous
+version 2.2.1 is given below. The exact differences (but without
+differences in the documentation) are available in
+<a href="resources/Modelica.UsersGuide.ReleaseNotes.Version_2_2_2_info_001.html">Differences-Modelica-221-222.html</a>.
+This comparison file was generated automatically with Dymola's
+ModelManagement.compare function.
+</p>
+
+<p>
+In this version, <strong>no</strong> new libraries have been added. The <strong>documentation</strong>
+of the whole library was improved.
+</p>
+
+<p><br>
+The following <font color="blue"><strong>new components</strong></font> have been added
+to <font color="blue"><strong>existing</strong></font> libraries:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
+<tr><td colspan="2"><strong>Blocks.Logical.</strong></td></tr>
+<tr><td> TerminateSimulation</td>
+          <td> Terminate a simulation by a given condition.</td>
+</tr>
+
+<tr><td colspan="2"><strong>Blocks.Routing.</strong></td></tr>
+<tr><td> RealPassThrough<br>
+                   IntegerPassThrough<br>
+                   BooleanPassThrough</td>
+          <td> Pass a signal from input to output
+                   (useful in combination with a bus due to restrictions
+                   of expandable connectors).</td>
+</tr>
+
+<tr><td colspan="2"><strong>Blocks.Sources.</strong></td></tr>
+<tr><td> KinematicPTP2 </td>
+          <td> Directly gives q,qd,qdd as output (and not just qdd as KinematicPTP).
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Electrical.Machines.Examples.</strong></td></tr>
+<tr><td> TransformerTestbench </td>
+          <td> Transformer Testbench
+          </td></tr>
+<tr><td> Rectifier6pulse </td>
+          <td> 6-pulse rectifier with 1 transformer
+          </td>
+</tr>
+<tr><td> Rectifier12pulse </td>
+          <td> 12-pulse rectifier with 2 transformers
+          </td>
+</tr>
+<tr><td> AIMC_Steinmetz </td>
+          <td> Induction machine squirrel cage with Steinmetz connection
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Electrical.Machines.BasicMachines.Components.</strong></td></tr>
+<tr><td> BasicAIM </td>
+          <td> Partial model for induction machine
+          </td></tr>
+<tr><td> BasicSM </td>
+          <td> Partial model for synchronous machine
+          </td></tr>
+<tr><td> PartialAirGap </td>
+          <td> Partial air gap model
+          </td></tr>
+<tr><td> BasicDCMachine </td>
+          <td> Partial model for DC machine
+          </td></tr>
+<tr><td> PartialAirGapDC </td>
+          <td> Partial air gap model of a DC machine
+          </td></tr>
+<tr><td> BasicTransformer </td>
+          <td> Partial model of three-phase transformer
+          </td></tr>
+<tr><td> PartialCore </td>
+          <td> Partial model of transformer core with 3 windings
+          </td></tr>
+<tr><td> IdealCore </td>
+          <td> Ideal transformer with 3 windings
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Electrical.Machines.BasicMachines.</strong></td></tr>
+<tr><td> Transformers </td>
+          <td> Sub-Library for technical 3phase transformers
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Electrical.Machines.Interfaces.</strong></td></tr>
+<tr><td> Adapter </td>
+          <td> Adapter to model housing of electrical machine
+          </td>
+</tr>
+<tr><td colspan="2"><strong>Math.</strong></td></tr>
+<tr><td> Vectors </td>
+          <td> New library of functions operating on vectors
+          </td>
+</tr>
+<tr><td> atan3 </td>
+          <td> Four quadrant inverse tangent (select solution that is closest to given angle y0)
+          </td>
+</tr>
+<tr><td> asinh </td>
+          <td> Inverse of sinh (area hyperbolic sine)
+          </td>
+</tr>
+<tr><td> acosh </td>
+          <td> Inverse of cosh (area hyperbolic cosine)
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Math.Vectors</strong></td></tr>
+<tr><td> isEqual </td>
+          <td> Determine if two Real vectors are numerically identical
+          </td>
+</tr>
+<tr><td> norm </td>
+          <td> Return the p-norm of a vector
+          </td></tr>
+<tr><td> length </td>
+          <td> Return length of a vector (better as norm(), if further symbolic processing is performed)
+          </td></tr>
+<tr><td> normalize </td>
+          <td> Return normalized vector such that length = 1 and prevent zero-division for zero vector
+          </td></tr>
+<tr><td> reverse </td>
+          <td> Reverse vector elements (e.g., v[1] becomes last element)
+          </td></tr>
+<tr><td> sort </td>
+          <td> Sort elements of vector in ascending or descending order
+          </td></tr>
+
+<tr><td colspan="2"><strong>Math.Matrices</strong></td></tr>
+<tr><td> solve2 </td>
+          <td> Solve real system of linear equations A*X=B with a B matrix
+                   (Gaussian elimination with partial pivoting)
+          </td>
+</tr>
+<tr><td> LU_solve2 </td>
+          <td> Solve real system of linear equations P*L*U*X=B with a B matrix
+                   and an LU decomposition (from LU(..))
+          </td></tr>
+
+<tr><td colspan="2"><strong>Mechanics.Rotational.</strong></td></tr>
+<tr><td> InitializeFlange </td>
+          <td> Initialize a flange according to given signals
+                   (useful if initialization signals are provided by a signal bus).
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.Interfaces.PartialMedium.</strong></td></tr>
+<tr><td> density_pTX </td>
+          <td> Return density from p, T, and X or Xi
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.Interfaces.PartialTwoPhaseMedium.</strong></td></tr>
+<tr><td> BaseProperties </td>
+          <td> Base properties (p, d, T, h, u, R, MM, x) of a two phase medium
+          </td>
+</tr>
+<tr><td> molarMass </td>
+          <td> Return the molar mass of the medium
+          </td>
+</tr>
+<tr><td> saturationPressure_sat </td>
+          <td> Return saturation pressure
+          </td>
+</tr>
+<tr><td> saturationTemperature_sat </td>
+          <td> Return saturation temperature
+          </td>
+</tr>
+<tr><td> saturationTemperature_derp_sat </td>
+          <td> Return derivative of saturation temperature w.r.t. pressure
+          </td>
+</tr>  <tr><td> setState_px </td>
+          <td> Return thermodynamic state from pressure and vapour quality
+          </td>
+</tr>  <tr><td> setState_Tx </td>
+          <td> Return thermodynamic state from temperature and vapour quality
+          </td>
+</tr>  <tr><td> vapourQuality </td>
+          <td> Return vapour quality
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.Interfaces.</strong></td></tr>
+<tr><td> PartialLinearFluid </td>
+          <td> Generic pure liquid model with constant cp,
+                   compressibility and thermal expansion coefficients
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.Air.MoistAir.</strong></td></tr>
+<tr><td> massFraction_pTphi </td>
+          <td> Return the steam mass fraction from relative humidity and T
+          </td>
+</tr>
+<tr><td> saturationTemperature </td>
+          <td> Return saturation temperature from (partial) pressure
+                   via numerical inversion of function saturationPressure
+          </td>
+</tr>
+<tr><td> enthalpyOfWater </td>
+          <td> Return specific enthalpy of water (solid/liquid) near
+                   atmospheric pressure from temperature
+          </td>
+</tr>
+<tr><td> enthalpyOfWater_der </td>
+          <td> Return derivative of enthalpyOfWater()" function
+          </td>
+</tr>
+<tr><td> PsychrometricData </td>
+          <td> Model to generate plot data for psychrometric chart
+          </td>
+</tr>
+<tr><td colspan="2"><strong>Media.CompressibleLiquids.</strong><br>
+          New sub-library for simple compressible liquid models</td></tr>
+<tr><td> LinearColdWater </td>
+          <td> Cold water model with linear compressibility
+          </td>
+</tr>
+<tr><td> LinearWater_pT_Ambient </td>
+          <td> Liquid, linear compressibility water model at 1.01325 bar
+                   and 25 degree Celsius
+          </td>
+</tr>
+<tr><td colspan="2"><strong>SIunits.</strong></td></tr>
+<tr><td> TemperatureDifference </td>
+          <td> Type for temperature difference
+          </td>
+</tr>
+</table>
+
+<p><br>
+The following <font color="blue"><strong>existing components</strong></font>
+have been <font color="blue"><strong>improved</strong></font>:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
+<tr><td colspan="2"><strong>Blocks.Examples.</strong></td></tr>
+<tr><td> BusUsage</td>
+          <td> Example changed from the "old" to the "new" bus concept with
+                   expandable connectors.</td></tr>
+
+<tr><td colspan="2"><strong>Blocks.Discrete.</strong></td></tr>
+<tr><td> ZeroOrderHold</td>
+          <td> Sample output ySample moved from "protected" to "public"
+                   section with new attributes (start=0, fixed=true).
+          </td>
+</tr>
+<tr><td> TransferFunction</td>
+          <td> Discrete state x with new attributes (each start=0, each fixed=0).
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Electrical.</strong></td></tr>
+<tr><td> Analog<br>Polyphase</td>
+          <td> Improved some icons.
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Electrical.Digital.Interfaces.</strong></td></tr>
+<tr><td> MISO</td>
+          <td> Removed "algorithm" from this partial block.
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Electrical.Digital.Delay.</strong></td></tr>
+<tr><td> DelayParams</td>
+          <td> Removed "algorithm" from this partial block.
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Electrical.Digital.Delay.</strong></td></tr>
+<tr><td> DelayParams</td>
+          <td> Removed "algorithm" from this partial block.
+          </td>
+</tr>
+<tr><td> TransportDelay</td>
+          <td>  If delay time is zero, an infinitely small delay is
+                        introduced via pre(x) (previously "x" was used).
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Electrical.Digital.Sources.</strong></td></tr>
+<tr><td> Clock<br>Step</td>
+          <td> Changed if-conditions from "xxx < time" to "time >= xxx"
+                   (according to the Modelica specification, in the second case
+                   a time event should be triggered, i.e., this change leads
+                   potentially to a faster simulation).
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Electrical.Digital.Converters.</strong></td></tr>
+<tr><td> BooleanToLogic<br>
+                   LogicToBoolean<br>
+                   RealToLogic<br>
+                   LogicToReal</td>
+          <td> Changed from "algorithm" to "equation" section
+                   to allow better symbolic preprocessing
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Electrical.</strong></td></tr>
+<tr><td> Machines</td>
+          <td> Slightly improved documentation, typos in
+                   documentation corrected
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Electrical.Machines.Examples.</strong></td></tr>
+<tr><td> AIMS_start</td>
+          <td> Changed QuadraticLoadTorque1(TorqueDirection=true) to
+                   QuadraticLoadTorque1(TorqueDirection=false) since more realistic
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Electrical.Machines.Interfaces.</strong></td></tr>
+<tr><td> PartialBasicMachine</td>
+          <td> Introduced support flange to model the
+                   reaction torque to the housing
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Electrical.Machines.Sensors.</strong></td></tr>
+<tr><td> Rotorangle</td>
+          <td> Introduced support flange to model the
+                   reaction torque to the housing
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Mechanics.MultiBody.Examples.Elementary.</strong></td></tr>
+<tr><td> PointMassesWithGravity</td>
+          <td> Added two point masses connected by a line force to demonstrate
+                   additionally how this works. Connections of point masses
+                   with 3D-elements are demonstrated in the new example
+                   PointMassesWithGravity (there is the difficulty that the orientation
+                   is not defined in a PointMass object and therefore some
+                   special handling is needed in case of a connection with
+                   3D-elements, where the orientation of the point mass is not
+                   determined by these elements.</td>
+</tr>
+
+<tr><td colspan="2"><strong>Mechanics.MultiBody.Examples.Systems.</strong></td></tr>
+<tr><td> RobotR3</td>
+          <td> Changed from the "old" to the "new" bus concept with expandable connectors.
+                   Replaced the non-standard Modelica function "constrain()" by
+                   standard Modelica components. As a result, the non-standard function
+                   constrain() is no longer used in the Modelica Standard Library.</td>
+</tr>
+
+<tr><td colspan="2"><strong>Mechanics.MultiBody.Frames.Orientation.</strong></td></tr>
+<tr><td> equalityConstraint</td>
+          <td> Use a better residual for the equalityConstraint function.
+                   As a result, the non-linear equation system of a kinematic
+                   loop is formulated in a better way (the range where the
+                   desired result is a unique solution of the non-linear
+                   system of equations becomes much larger).</td>
+</tr>
+
+<tr><td colspan="2"><strong>Mechanics.MultiBody.</strong></td></tr>
+<tr><td> Visualizers.</td>
+          <td> Removed (misleading) annotation "structurallyIncomplete"
+                   in the models of this sub-library
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Mechanics.Rotational.</strong></td></tr>
+<tr><td> Examples</td>
+          <td> For all models in this sub-library:
+                   <ul>
+                   <li> Included a housing object in all examples to compute
+                                all support torques.</li>
+                   <li> Replaced initialization by modifiers via the
+                                initialization menu parameters of Inertia components.</li>
+                   <li> Removed "encapsulated" and unnecessary "import".</li>
+                   <li> Included "StopTime" in the annotations.</li>
+                   </ul>
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Mechanics.Rotational.Interfaces.</strong></td></tr>
+<tr><td> FrictionBase</td>
+          <td> Introduced "fixed=true" for Boolean variables startForward,
+                   startBackward, mode.
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Mechanics.Translational.Interfaces.</strong></td></tr>
+<tr><td> FrictionBase</td>
+          <td> Introduced "fixed=true" for Boolean variables startForward,
+                   startBackward, mode.
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.UsersGuide.MediumUsage.</strong></td></tr>
+<tr><td> TwoPhase</td>
+          <td> Improved documentation and demonstrating the newly introduced functions
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.Examples.</strong></td></tr>
+<tr><td> WaterIF97</td>
+          <td> Provided (missing) units for variables V, dV, H_flow_ext, m, U.
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong> Media.Interfaces.</strong></td></tr>
+<tr><td> PartialMedium</td>
+          <td> Final modifiers are removed from nX and nXi, to allow
+                   customized medium models such as mixtures of refrigerants with oil, etc.
+          </td>
+</tr>
+<tr><td> PartialCondensingGases</td>
+          <td> Included attributes "min=1, max=2" for input argument FixedPhase
+                   for functions setDewState and setBubbleState (in order to guarantee
+                   that input arguments are correct).
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong> Media.Interfaces.PartialMedium.</strong></td></tr>
+<tr><td> BaseProperties</td>
+          <td> New Boolean parameter "standardOrderComponents".
+                   If true, last element vector X is computed from 1-sum(Xi) (= default)
+                   otherwise, no equation is provided for it in PartialMedium.
+          </td>
+</tr>
+<tr><td> IsentropicExponent</td>
+          <td> "max" value changed from 1.7 to 500000
+          </td>
+</tr>
+<tr><td> setState_pTX<br>
+                   setState_phX<br>
+                   setState_psX<br>
+                   setState_dTX<br>
+                   specificEnthalpy_pTX<br>
+                   temperature_phX<br>
+                   density_phX<br>
+                   temperature_psX<br>
+                   density_psX<br>
+                   specificEnthalpy_psX</td>
+          <td> Introduced default value "reference_X" for input argument "X".
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong> Media.Interfaces.PartialSimpleMedium.</strong></td></tr>
+<tr><td> setState_pTX<br>
+                   setState_phX<br>
+                   setState_psX<br>
+                   setState_dTX</td>
+          <td> Introduced default value "reference_X" for input argument "X".
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong> Media.Interfaces.PartialSimpleIdealGasMedium.</strong></td></tr>
+<tr><td> setState_pTX<br>
+                   setState_phX<br>
+                   setState_psX<br>
+                   setState_dTX</td>
+          <td> Introduced default value "reference_X" for input argument "X".
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong> Media.Air.MoistAir.</strong></td></tr>
+<tr><td> setState_pTX<br>
+                   setState_phX<br>
+                   setState_dTX</td>
+          <td> Introduced default value "reference_X" for input argument "X".
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong> Media.IdealGases.Common.SingleGasNasa.</strong></td></tr>
+<tr><td> setState_pTX<br>
+                   setState_phX<br>
+                   setState_psX<br>
+                   setState_dTX</td>
+          <td> Introduced default value "reference_X" for input argument "X".
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong> Media.IdealGases.Common.MixtureGasNasa.</strong></td></tr>
+<tr><td> setState_pTX<br>
+                   setState_phX<br>
+                   setState_psX<br>
+                   setState_dTX<br>
+                   h_TX</td>
+          <td> Introduced default value "reference_X" for input argument "X".
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong> Media.Common.</strong></td></tr>
+<tr><td> IF97PhaseBoundaryProperties<br>
+                   gibbsToBridgmansTables </td>
+          <td> Introduced unit for variables vt, vp.
+          </td>
+</tr>
+<tr><td> SaturationProperties</td>
+          <td> Introduced unit for variable dpT.
+          </td>
+</tr>
+<tr><td> BridgmansTables</td>
+          <td> Introduced unit for dfs, dgs.
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong> Media.Common.ThermoFluidSpecial.</strong></td></tr>
+<tr><td> gibbsToProps_ph<br>
+                   gibbsToProps_ph<br>
+                   gibbsToBoundaryProps<br>
+                   gibbsToProps_dT<br>
+                   gibbsToProps_pT</td>
+          <td> Introduced unit for variables vt, vp.
+          </td></tr>
+<tr><td> TwoPhaseToProps_ph</td>
+          <td> Introduced unit for variables dht, dhd, detph.
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong> Media.</strong></td></tr>
+<tr><td> MoistAir</td>
+          <td> Documentation of moist air model significantly improved.
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong> Media.MoistAir.</strong></td></tr>
+<tr><td> enthalpyOfVaporization</td>
+          <td> Replaced by linear correlation since simpler and more
+                   accurate in the entire region.
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong> Media.Water.IF97_Utilities.BaseIF97.Regions.</strong></td></tr>
+<tr><td> drhovl_dp</td>
+          <td> Introduced unit for variable dd_dp.
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong> Thermal.</strong></td></tr>
+<tr><td> FluidHeatFlow</td>
+          <td> Introduced new parameter tapT (0..1) to define the
+                   temperature of the HeatPort as linear combination of the
+                   flowPort_a (tapT=0) and flowPort_b (tapT=1) temperatures.
+          </td>
+</tr>
+</table>
+
+<p><br>
+The following <font color="red"><strong>critical errors</strong></font> have been fixed (i.e., errors
+that can lead to wrong simulation results):
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
+<tr><td colspan="2"><strong>Electrical.Machines.BasicMachines.Components.</strong></td></tr>
+<tr><td> ElectricalExcitation</td>
+          <td> Excitation voltage ve is calculated as
+                   "spacePhasor_r.v_[1]*TurnsRatio*3/2" instead of
+                   "spacePhasor_r.v_[1]*TurnsRatio
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Mechanics.MultiBody.Parts.</strong></td></tr>
+<tr><td> FixedRotation</td>
+          <td> Bug corrected that the torque balance was wrong in the
+                   following cases (since vector r was not transformed
+                   from frame_a to frame_b; note this special case occurs very seldom in practice):
+                   <ul><li> frame_b is in the spanning tree closer to the root
+                                        (usually this is frame_a).</li>
+                           <li> vector r from frame_a to frame_b is not zero.</li>
+                   </ul>
+           </td>
+</tr>
+
+<tr><td> PointMass</td>
+         <td> If a PointMass model is connected so that no equations are present
+                  to compute its orientation object, the orientation was arbitrarily
+                  set to a unit rotation. In some cases this can lead to a wrong overall
+                  model, depending on how the PointMass model is used. For this reason,
+                  such cases lead now to an error (via an assert(..)) with an explanation
+                  how to fix this.
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.Interfaces.PartialPureSubstance.</strong></td></tr>
+<tr><td> pressure_dT<br>
+                   specificEnthalpy_dT
+          </td>
+          <td> Changed wrong call from "setState_pTX" to "setState_dTX"
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.Interfaces.PartialTwoPhaseMedium.</strong></td></tr>
+<tr><td> pressure_dT<br>
+                   specificEnthalpy_dT
+          </td>
+          <td> Changed wrong call from "setState_pTX" to "setState_dTX"
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.Common.ThermoFluidSpecial.</strong></td></tr>
+<tr><td> gibbsToProps_dT<br>
+                   helmholtzToProps_ph<br>
+                   helmholtzToProps_pT<br>
+                   helmholtzToProps_dT</td>
+          <td> Bugs in equations corrected </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.Common.</strong></td></tr>
+<tr><td> helmholtzToBridgmansTables<br>
+                   helmholtzToExtraDerivs</td>
+          <td> Bugs in equations corrected </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.IdealGases.Common.SingleGasNasa.</strong></td></tr>
+<tr><td> density_derp_T</td>
+          <td> Bug in equation of partial derivative corrected </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.Water.IF97_Utilities.</strong></td></tr>
+<tr><td> BaseIF97.Inverses.dtofps3<br>
+                   isentropicExponent_props_ph<br>
+                   isentropicExponent_props_pT<br>
+                   isentropicExponent_props_dT</td>
+          <td> Bugs in equations corrected </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.Air.MoistAir.</strong></td></tr>
+<tr><td> h_pTX</td>
+          <td> Bug in setState_phX due to wrong vector size in h_pTX corrected.
+                   Furthermore, syntactical errors corrected:
+                   <ul><li> In function massFractionpTphi an equation
+                                        sign is used in an algorithm.</li>
+                           <li> Two consecutive semicolons removed</li>
+                   </ul>
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.Water.</strong></td></tr>
+<tr><td> waterConstants</td>
+          <td> Bug in equation of criticalMolarVolume corrected.
+          </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.Water.IF97_Utilities.BaseIF97.Regions.</strong></td></tr>
+<tr><td> region_ph<br>
+                   region_ps</td>
+          <td> Bug in region determination corrected.
+          </td>
+</tr>
+
+<tr><td> boilingcurve_p<br>
+                   dewcurve_p</td>
+          <td> Bug in equation of plim corrected.
+          </td>
+</tr>
+</table>
+
+<p><br>
+The following <font color="red"><strong>uncritical errors</strong></font> have been fixed (i.e., errors
+that do <font color="red"><strong>not</strong></font> lead to wrong simulation results, but, e.g.,
+units are wrong or errors in documentation):
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2" style="border-collapse:collapse;">
+<tr><td colspan="2"><strong>Blocks.</strong></td></tr>
+<tr><td> Examples</td>
+          <td> Corrected typos in description texts of bus example models.
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Blocks.Continuous.</strong></td></tr>
+<tr><td> LimIntegrator</td>
+          <td> removed incorrect smooth(0,..) because expression might be discontinuous.
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Blocks.Math.UnitConversions.</strong></td></tr>
+<tr><td> block_To_kWh<br>block_From_kWh</td>
+          <td> Corrected unit from "kWh" to (syntactically correct) "kW.h".
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Electrical.Analog.Examples.</strong></td></tr>
+<tr><td> HeatingNPN_OrGate</td>
+          <td> Included start values, so that initialization is
+                                                successful </td>
+</tr>
+
+<tr><td colspan="2"><strong>Electrical.Analog.Lines.</strong></td></tr>
+<tr><td> OLine</td>
+          <td> Corrected unit from "Siemens/m" to "S/m".
+           </td></tr>
+<tr><td> TLine2</td>
+          <td> Changed wrong type of parameter NL (normalized length) from
+                   SIunits.Length to Real.
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Electrical.Digital.Delay.</strong></td></tr>
+<tr><td> TransportDelay</td>
+          <td> Syntax error corrected
+                   (":=" in equation section is converted by Dymola silently to "=").
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Electrical.Digital</strong></td></tr>
+<tr><td> Converters</td>
+          <td> Syntax error corrected
+                   (":=" in equation section is converted by Dymola silently to "=").
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Electrical.Polyphase.Basic.</strong></td></tr>
+<tr><td> Conductor</td>
+          <td> Changed wrong type of parameter G from SIunits.Resistance to
+                   SIunits.Conductance.
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Electrical.Polyphase.Interfaces.</strong></td></tr>
+<tr><td> Plug<br></td>
+          <td> Made used "pin" connectors non-graphical (otherwise,
+                   there are difficulties to connect to Plug).
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Electrical.Polyphase.Sources.</strong></td></tr>
+<tr><td> SineCurrent</td>
+          <td> Changed wrong type of parameter offset from SIunits.Voltage to
+                   SIunits.Current.
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Mechanics.MultiBody.Examples.Loops.</strong></td></tr>
+<tr><td> EngineV6</td>
+          <td> Corrected wrong crankAngleOffset of some cylinders
+                   and improved the example.
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Mechanics.MultiBody.Examples.Loops.Utilities.</strong></td></tr>
+<tr><td> GasForce</td>
+          <td> Wrong units corrected:
+                   "SIunitsPosition x,y" to "Real x,y";
+           "SIunits.Pressure press" to "SIunits.Conversions.NonSIunits.Pressure_bar"
+           </td>
+</tr>
+<tr><td> GasForce2</td>
+          <td> Wrong unit corrected: "SIunits.Position x" to "Real x".
+           </td>
+</tr>
+<tr><td> EngineV6_analytic</td>
+          <td> Corrected wrong crankAngleOffset of some cylinders.
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Mechanics.MultiBody.Interfaces.</strong></td></tr>
+<tr><td> PartialLineForce</td>
+          <td> Corrected wrong unit: "SIunits.Position eRod_a" to "Real eRod_a";
+           </td>
+</tr>
+<tr><td> FlangeWithBearingAdaptor </td>
+          <td> If includeBearingConnector = false, connector "fr"
+                           + "ame" was not
+                   removed. As long as the connecting element to "frame" determines
+                   the non-flow variables, this is fine. In the corrected version, "frame"
+                   is conditionally removed in this case.</td>
+</tr>
+
+<tr><td colspan="2"><strong>Mechanics.MultiBody.Forces.</strong></td></tr>
+<tr><td> ForceAndTorque</td>
+          <td> Corrected wrong unit: "SIunits.Force t_b_0" to "SIunits.Torque t_b_0".
+           </td>
+</tr>
+<tr><td> LineForceWithTwoMasses</td>
+          <td> Corrected wrong unit: "SIunits.Position e_rel_0" to "Real e_rel_0".
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Mechanics.MultiBody.Frames.</strong></td></tr>
+<tr><td> axisRotation</td>
+          <td> Corrected wrong unit: "SIunits.Angle der_angle" to
+                        "SIunits.AngularVelocity der_angle".
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Mechanics.MultiBody.Joints.Assemblies.</strong></td></tr>
+<tr><td> JointUSP<br>JointSSP</td>
+          <td> Corrected wrong unit: "SIunits.Position aux"  to "Real"
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Mechanics.MultiBody.Sensors.</strong></td></tr>
+<tr><td> AbsoluteSensor</td>
+          <td> Corrected wrong units: "SIunits.Acceleration angles" to
+                   "SIunits.Angle angles" and
+                   "SIunits.Velocity w_abs_0" to "SIunits.AngularVelocity w_abs_0"
+           </td>
+</tr>
+<tr><td> RelativeSensor</td>
+          <td> Corrected wrong units: "SIunits.Acceleration angles" to
+                   "SIunits.Angle angles"
+           </td>
+</tr>
+<tr><td> Distance</td>
+          <td> Corrected wrong units: "SIunits.Length L2" to "SIunits.Area L2" and
+                   SIunits.Length s_small2" to "SIunits.Area s_small2"
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Mechanics.MultiBody.Visualizers.Advanced.</strong></td></tr>
+<tr><td> Shape</td>
+          <td> Changed "MultiBody.Types.Color color" to "Real color[3]", since
+                   "Types.Color" is "Integer color[3]" and there have been backward
+                   compatibility problems with models using "color" before it was changed
+                   to "Types.Color".
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Mechanics.Rotational.Interfaces.</strong></td></tr>
+<tr><td> FrictionBase</td>
+          <td> Rewrote equations with new variables "unitAngularAcceleration" and
+                   "unitTorque" in order that the equations are correct with respect
+                   to units (previously, variable "s" can be both a torque and an
+                   angular acceleration and this lead to unit incompatibilities)
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Mechanics.Rotational.</strong></td></tr>
+<tr><td> OneWayClutch<br>LossyGear</td>
+          <td> Rewrote equations with new variables "unitAngularAcceleration" and
+                   "unitTorque" in order that the equations are correct with respect
+                   to units (previously, variable "s" can be both a torque and an
+                   angular acceleration and this lead to unit incompatibilities)
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Mechanics.Translational.Interfaces.</strong></td></tr>
+<tr><td> FrictionBase</td>
+          <td> Rewrote equations with new variables "unitAngularAcceleration" and
+                   "unitTorque" in order that the equations are correct with respect
+                   to units (previously, variable "s" can be both a torque and an
+                   angular acceleration and this lead to unit incompatibilities)
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Mechanics.Translational.</strong></td></tr>
+<tr><td> Speed</td>
+          <td> Corrected unit of v_ref from SIunits.Position to SIunits.Velocity
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.Examples.Tests.Components.</strong></td></tr>
+<tr><td> PartialTestModel<br>PartialTestModel2</td>
+          <td> Corrected unit of h_start from "SIunits.Density" to "SIunits.SpecificEnthalpy"
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.Examples.SolveOneNonlinearEquation.</strong></td></tr>
+<tr><td> Inverse_sh_T
+                   InverseIncompressible_sh_T<br>
+                   Inverse_sh_TX</td>
+          <td> Rewrote equations so that dimensional (unit) analysis is correct"
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.Incompressible.Examples.</strong></td></tr>
+<tr><td> TestGlycol</td>
+          <td> Rewrote equations so that dimensional (unit) analysis is correct"
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.Interfaces.PartialTwoPhaseMedium.</strong></td></tr>
+<tr><td> dBubbleDensity_dPressure<br>dDewDensity_dPressure</td>
+          <td> Changed wrong type of ddldp from "DerDensityByEnthalpy"
+                   to "DerDensityByPressure".
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.Common.ThermoFluidSpecial.</strong></td></tr>
+<tr><td> ThermoProperties</td>
+          <td> Changed wrong units:
+                   "SIunits.DerEnergyByPressure dupT" to "Real dupT" and
+                   "SIunits.DerEnergyByDensity dudT" to "Real dudT"
+           </td>
+</tr>
+<tr><td> ThermoProperties_ph</td>
+          <td> Changed wrong unit from "SIunits.DerEnergyByPressure duph" to "Real duph"
+           </td>
+</tr>
+<tr><td> ThermoProperties_pT</td>
+          <td> Changed wrong unit from "SIunits.DerEnergyByPressure dupT" to "Real dupT"
+           </td>
+</tr>
+<tr><td> ThermoProperties_dT</td>
+          <td>  Changed wrong unit from "SIunits.DerEnergyByDensity dudT" to "Real dudT"
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.IdealGases.Common.SingleGasNasa.</strong></td></tr>
+<tr><td> cp_Tlow_der</td>
+          <td> Changed wrong unit from "SIunits.Temperature dT" to "Real dT".
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.Water.IF97_Utilities.BaseIF97.Basic.</strong></td></tr>
+<tr><td> p1_hs<br>
+                   h2ab_s<br>
+                   p2a_hs<br>
+                   p2b_hs<br>
+                   p2c_hs<br>
+                   h3ab_p<br>
+                   T3a_ph<br>
+                   T3b_ph<br>
+                   v3a_ph<br>
+                   v3b_ph<br>
+                   T3a_ps<br>
+                   T3b_ps<br>
+                   v3a_ps<br>
+                   v3b_ps</td>
+          <td> Changed wrong unit of variables h/hstar, s, sstar from
+                   "SIunits.Enthalpy" to "SIunits.SpecificEnthalpy",
+                   "SIunits.SpecificEntropy", "SIunits.SpecificEntropy
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.Water.IF97_Utilities.BaseIF97.Transport.</strong></td></tr>
+<tr><td> cond_dTp</td>
+          <td> Changed wrong unit of TREL, rhoREL, lambdaREL from
+                   "SIunits.Temperature", "SIunit.Density", "SIunits.ThermalConductivity"
+                   to "Real".
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.Water.IF97_Utilities.BaseIF97.Inverses.</strong></td></tr>
+<tr><td> tofps5<br>tofpst5</td>
+          <td> Changed wrong unit of pros from "SIunits.SpecificEnthalpy" to
+                   "SIunits.SpecificEntropy".
+           </td>
+</tr>
+
+<tr><td colspan="2"><strong>Media.Water.IF97_Utilities.</strong></td></tr>
+<tr><td> waterBaseProp_ph</td>
+          <td> Improved calculation at the limits of the validity.
+           </td>
+</tr>
+
+        <tr><td colspan="2"><strong>Thermal.</strong></td></tr>
+<tr><td> FluidHeatFlow<br>HeatTransfer</td>
+          <td> Corrected wrong unit "SIunits.Temperature" of difference temperature
+                        variables with "SIunits.TemperatureDifference".
+           </td>
+</tr>
+
+</table>
+</div>
+</section>
+</div>
+</body>
+</html>

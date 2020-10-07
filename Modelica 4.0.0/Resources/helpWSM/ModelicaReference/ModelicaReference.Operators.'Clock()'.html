@@ -1,0 +1,71 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Operators.'Clock()'</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Operators.html">Operators</a></li>
+  <li><a href="ModelicaReference.Operators.'Clock()'.html">'Clock()'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'Clock()'</h1>
+    <p>Clock()</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'Clock()'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Generates clocks as part of the <a href="ModelicaReference.Synchronous.html">synchronous language elements</a>.
+</p>
+<h4>Examples</h4>
+<blockquote><pre>
+  Clock c=Clock(2, 1000); // Defines a clock variable
+  Real interval1(start=2e-3);
+equation
+  when Clock() then
+    // Inferred Clock
+    x=A*previous(x)+B*u;
+  end when;
+  when Clock(2,1000) then
+    // periodic clock that ticks at 0, 0.002, 0.004, ...
+    // Could also use when c then
+    y1 = previous(y1) + 1;
+  end when;
+  when Clock(interval1) then
+    // Clock with a Real interval
+    // The clock starts at the start of the simulation, tstart, or when the controller is switched on.
+    // Here the next clock tick is scheduled at previous(interval1)=interval1.start=2e-3
+    // At the second clock tick at tstart+interval1.start the next clock tick is scheduled at
+    // previous(interval1)=5e-3
+    interval1=previous(interval1)+3e-3;
+  end when;
+  when Clock(angle>0, 0.1) then
+    // clock with a boolean interval, triggers when angle>0 becomes true.
+    y2 = previous(y2) + 1;
+  end when;
+  when Clock(c, "ImplicitTrapezoid") then
+    // Solver Clock
+    // Ticks at the same rate as c but uses the ImplicitTrapezoid method to solve the differential equations
+    der(x)=x;
+  end when;
+</pre></blockquote>
+</div>
+</section>
+</div>
+</body>
+</html>

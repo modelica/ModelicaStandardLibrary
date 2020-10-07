@@ -1,0 +1,234 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Noise.UniformNoise</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Noise.html">Noise</a></li>
+  <li><a href="Modelica.Blocks.Noise.UniformNoise.html">UniformNoise</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>UniformNoise</h1>
+    <p>Noise generator with uniform distribution</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Noise.UniformNoise_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+A summary of the common properties of the noise blocks is provided in the documentation of package
+<a href="Modelica.Blocks.Noise.html">Blocks.Noise</a>.
+This UniformNoise block generates reproducible, random noise at its output according to a uniform distribution.
+This means that random values are uniformly distributed within the range defined by parameters
+y_min and y_max (see example <a href="Modelica.Blocks.Examples.Noise.UniformNoiseProperties.html">Noise.UniformNoiseProperties</a>).
+By default, two or more instances produce different, uncorrelated noise at the same time instant.
+The block can only be used if on the same or a higher hierarchical level,
+model <a href="Modelica.Blocks.Noise.GlobalSeed.html">Blocks.Noise.GlobalSeed</a>
+is dragged to provide global settings for all instances.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>samplePeriod</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Period.html">Period</a> (s)</p>
+        <p><span>Description:</span> Period for sampling the raw random numbers</p>
+      </td>
+    </tr>
+    <tr>
+      <th>enableNoise</th>
+      <td>
+        <p><span>Value:</span> globalSeed.enableNoise</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true: y = noise, otherwise y = y_off</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_off</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Sets y = y_off if enableNoise=false (or time<startTime, see below)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useGlobalSeed</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true: use global seed, otherwise ignore it</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useAutomaticLocalSeed</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true: use automatic local seed, otherwise use fixedLocalSeed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fixedLocalSeed</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Local seed (any Integer number)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startTime</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Start time for sampling the raw random numbers</p>
+      </td>
+    </tr>
+    <tr>
+      <th>localSeed</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> The actual localSeed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_min</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Lower limit of y</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_max</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Upper limit of y</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Connector of Real output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Noise.GlobalSeed_32x32.png"></td>
+      <th>globalSeed</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Noise.GlobalSeed.html">GlobalSeed</a></p>
+        <p><span>Description:</span> Definition of global seed via inner/outer</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Noise.UniformNoise_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Noise.UniformNoise.html">UniformNoise</a></p>
+        <p><span>Modelica.Blocks.Examples.Noise</span></p>
+        <p>Demonstrates the most simple usage of the UniformNoise block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Noise.AutomaticSeed_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Noise.AutomaticSeed.html">AutomaticSeed</a></p>
+        <p><span>Modelica.Blocks.Examples.Noise</span></p>
+        <p>Demonstrates noise with startTime and automatic local seed for UniformNoise</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Noise.Distributions_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Noise.Distributions.html">Distributions</a></p>
+        <p><span>Modelica.Blocks.Examples.Noise</span></p>
+        <p>Demonstrates noise with different types of distributions</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Noise.UniformNoiseProperties_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Noise.UniformNoiseProperties.html">UniformNoiseProperties</a></p>
+        <p><span>Modelica.Blocks.Examples.Noise</span></p>
+        <p>Demonstrates the computation of properties for uniformly distributed noise</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Noise.Utilities.Parts.MotorWithCurrentControl_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Noise.Utilities.Parts.MotorWithCurrentControl.html">MotorWithCurrentControl</a></p>
+        <p><span>Modelica.Blocks.Examples.Noise.Utilities.Parts</span></p>
+        <p>Synchronous machine with current controller and measurement noise</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

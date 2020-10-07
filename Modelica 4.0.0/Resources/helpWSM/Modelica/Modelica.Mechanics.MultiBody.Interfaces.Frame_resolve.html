@@ -1,0 +1,285 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Interfaces.Frame_resolve</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve.html">Frame_resolve</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Frame_resolve</h1>
+    <p>Coordinate system fixed to the component used to express in which coordinate system a vector is resolved (non-filled rectangular icon)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Basic definition of a coordinate system that is fixed to a mechanical
+component. In the origin of the coordinate system the cut-force
+and the cut-torque is acting. This coordinate system is used to
+express in which coordinate system a vector is resolved.
+A component that uses a Frame_resolve connector has to set the
+cut-force and cut-torque of this frame to zero. When connecting
+from a Frame_resolve connector to another frame connector,
+by default the connecting line has line style "dotted".
+This component has a non-filled rectangular icon.
+</p>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.Orientation_32x32.png"></td>
+      <th>R</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object to rotate the world frame into the connector frame</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(26)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.WorldForce_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.WorldForce.html">WorldForce</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span></p>
+        <p>External force acting at frame_b, defined by 3 input signals and resolved in frame world, frame_b or frame_resolve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.WorldTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.WorldTorque.html">WorldTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span></p>
+        <p>External torque acting at frame_b, defined by 3 input signals and resolved in frame world, frame_b or frame_resolve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque.html">WorldForceAndTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span></p>
+        <p>External force and torque acting at frame_b, defined by 3+3 input signals and resolved in frame world, frame_b or in frame_resolve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Force_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.Force.html">Force</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span></p>
+        <p>Force acting between two frames, defined by 3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Torque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.Torque.html">Torque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span></p>
+        <p>Torque acting between two frames, defined by 3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.ForceAndTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.ForceAndTorque.html">ForceAndTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span></p>
+        <p>Force and torque acting between two frames, defined by 3+3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Internal.BasicForce_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.Internal.BasicForce.html">BasicForce</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces.Internal</span></p>
+        <p>Force acting between two frames, defined by 3 input signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Internal.BasicTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.Internal.BasicTorque.html">BasicTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces.Internal</span></p>
+        <p>Torque acting between two frames, defined by 3 input signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Internal.BasicWorldForce_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.Internal.BasicWorldForce.html">BasicWorldForce</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces.Internal</span></p>
+        <p>External force acting at frame_b, defined by 3 input signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Internal.BasicWorldTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.Internal.BasicWorldTorque.html">BasicWorldTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces.Internal</span></p>
+        <p>External torque acting at frame_b, defined by 3 input signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition.html">ZeroPosition</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Interfaces</span></p>
+        <p>Set absolute position vector of frame_resolve to a zero vector and the orientation object to a null rotation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor.html">AbsoluteSensor</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure absolute kinematic quantities of frame connector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.RelativeSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.RelativeSensor.html">RelativeSensor</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure relative kinematic quantities between two frame connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.AbsolutePosition_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.AbsolutePosition.html">AbsolutePosition</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure absolute position vector of the origin of a frame connector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.AbsoluteVelocity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.AbsoluteVelocity.html">AbsoluteVelocity</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure absolute velocity vector of origin of frame connector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.AbsoluteAngularVelocity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.AbsoluteAngularVelocity.html">AbsoluteAngularVelocity</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure absolute angular velocity of frame connector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.RelativePosition_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.RelativePosition.html">RelativePosition</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure relative position vector between the origins of two frame connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.RelativeVelocity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.RelativeVelocity.html">RelativeVelocity</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure relative velocity vector between the origins of two frame connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.RelativeAngularVelocity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.RelativeAngularVelocity.html">RelativeAngularVelocity</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure relative angular velocity between two frame connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector.html">TransformAbsoluteVector</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Transform absolute vector in to another frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector.html">TransformRelativeVector</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Transform relative vector in to another frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteBaseSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteBaseSensor.html">PartialAbsoluteBaseSensor</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors.Internal</span></p>
+        <p>Base class for absolute sensor models defined by equations (frame_resolve must be connected exactly once)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeBaseSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeBaseSensor.html">PartialRelativeBaseSensor</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors.Internal</span></p>
+        <p>Base class for relative sensor models defined by equations (frame_resolve must be connected exactly once)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.Internal.BasicTransformAbsoluteVector_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicTransformAbsoluteVector.html">BasicTransformAbsoluteVector</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors.Internal</span></p>
+        <p>Transform absolute vector into another frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor.html">PartialCutForceSensor</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors.Internal</span></p>
+        <p>Base class to measure cut force and/or torque between two frames, defined by components</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceBaseSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceBaseSensor.html">PartialCutForceBaseSensor</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors.Internal</span></p>
+        <p>Base class to measure cut force and/or torque between two frames, defined by equations (frame_resolve must be connected exactly once)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

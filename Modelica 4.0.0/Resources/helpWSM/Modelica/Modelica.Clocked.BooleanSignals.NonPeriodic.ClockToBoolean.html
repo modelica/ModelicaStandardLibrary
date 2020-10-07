@@ -1,0 +1,120 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.BooleanSignals.NonPeriodic.ClockToBoolean</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.BooleanSignals.html">BooleanSignals</a></li>
+  <li><a href="Modelica.Clocked.BooleanSignals.NonPeriodic.html">NonPeriodic</a></li>
+  <li><a href="Modelica.Clocked.BooleanSignals.NonPeriodic.ClockToBoolean.html">ClockToBoolean</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ClockToBoolean</h1>
+    <p>Block to translate clock signals to continuous Boolean events (each time the input clock ticks a rising Boolean output edge is produced).</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.BooleanSignals.NonPeriodic.ClockToBoolean_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Clocked.BooleanSignals.NonPeriodic.ClockToBoolean_diagram_large.png"><img src="resources/diagrams/Modelica.Clocked.BooleanSignals.NonPeriodic.ClockToBoolean_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Clocked.ClockSignals.Interfaces.ClockInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.ClockSignals.Interfaces.ClockInput.html">ClockInput</a></p>
+        <p><span>Description:</span> Connector of clock input signal.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanOutput.html">BooleanOutput</a></p>
+        <p><span>Description:</span> Connector of continuous Boolean output signal.</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.SampleClocked_32x32.png"></td>
+      <th>input_sample</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.BooleanSignals.Sampler.SampleClocked.html">SampleClocked</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.MathBoolean.Not_32x32.png"></td>
+      <th>input_tick</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.MathBoolean.Not.html">Not</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.Hold_32x32.png"></td>
+      <th>input_hold</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.BooleanSignals.Sampler.Hold.html">Hold</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.MathBoolean.ChangingEdge_32x32.png"></td>
+      <th>input_ticked</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.MathBoolean.ChangingEdge.html">ChangingEdge</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.ClockSignals.Clocks.Logical.PartialLogicalClock_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.ClockSignals.Clocks.Logical.PartialLogicalClock.html">PartialLogicalClock</a></p>
+        <p><span>Modelica.Clocked.ClockSignals.Clocks.Logical</span></p>
+        <p>Logical clock combining arbitrary many input clock signals according to a replaceable logical combinator</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

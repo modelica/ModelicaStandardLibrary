@@ -1,0 +1,112 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Units</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Units.html">Units</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Units</h1>
+    <p>Library of type and unit definitions</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Units_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.UsersGuide_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Units.UsersGuide.html">UsersGuide</a></p>
+        <p>User's Guide of Units Library</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Units.SI.html">SI</a></p>
+        <p>Library of SI unit definitions</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.NonSI_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Units.NonSI.html">NonSI</a></p>
+        <p>Type definitions of non SI and other units</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.Conversions_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Units.Conversions.html">Conversions</a></p>
+        <p>Conversion functions to/from non SI units and type definitions of non SI units</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.Icons_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Units.Icons.html">Icons</a></p>
+        <p>Icons for Units</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This package provides predefined types, such as <em>Mass</em>,
+<em>Angle</em>, <em>Time</em>, based on the international standard
+on units, e.g.,
+</p>
+
+<blockquote><pre>
+<strong>type</strong> Angle = Real(<strong>final</strong> quantity = "Angle",
+                  <strong>final</strong> unit     = "rad",
+                  displayUnit   = "deg");
+</pre></blockquote>
+
+<p>
+Some of the types are derived SI units that are utilized in package Modelica
+(such as ComplexCurrent, which is a complex number where both the real and imaginary
+part have the SI unit Ampere).
+</p>
+
+<p>
+Furthermore, conversion functions from non SI-units to SI-units and vice versa
+are provided in subpackage
+<a href="Modelica.Units.Conversions.html">Conversions</a>.
+</p>
+
+<p>
+For an introduction how units are used in the Modelica Standard Library
+with package Units, have a look at:
+<a href="Modelica.Units.UsersGuide.HowToUseUnits.html">How to use Units</a>.
+</p>
+
+<p>
+Copyright &copy; 1998-2020, Modelica Association and contributors
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

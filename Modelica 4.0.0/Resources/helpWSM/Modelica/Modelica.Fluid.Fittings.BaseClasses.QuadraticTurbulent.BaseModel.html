@@ -1,0 +1,361 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModel</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Fittings.html">Fittings</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.html">BaseClasses</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.html">QuadraticTurbulent</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModel.html">BaseModel</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>BaseModel</h1>
+    <p>Generic pressure drop component with constant turbulent loss factor data and without an icon</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModel_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This model computes the pressure loss of a pipe
+segment (orifice, bending etc.) with a minimum amount of data
+provided via parameter <strong>data</strong>.
+If available, data should be provided for <strong>both flow directions</strong>,
+i.e., flow from port_a to port_b and from port_b to port_a,
+as well as for the <strong>laminar</strong> and the <strong>turbulent</strong> region.
+It is also an option to provide the loss factor <strong>only</strong> for the
+<strong>turbulent</strong> region for a flow from port_a to port_b.
+</p>
+<p>
+The following equations are used:
+</p>
+<blockquote><pre>
+&Delta;p = 0.5*&zeta;*&rho;*v*|v|
+   = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
+     Re = |v|*D*&rho;/&mu;
+</pre></blockquote>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><td><strong>flow type</strong></td>
+    <td><strong>&zeta;</strong> = </td>
+    <td><strong>flow region</strong></td></tr>
+<tr><td>turbulent</td>
+    <td><strong>zeta1</strong> = const.</td>
+    <td>Re &ge;  Re_turbulent, v &ge; 0</td></tr>
+<tr><td></td>
+    <td><strong>zeta2</strong> = const.</td>
+    <td>Re &ge; Re_turbulent, v &lt; 0</td></tr>
+<tr><td>laminar</td>
+    <td><strong>c0</strong>/Re</td>
+    <td>both flow directions, Re small; c0 = const.</td></tr>
+</table>
+<p>
+where
+</p>
+<ul>
+<li> &Delta;p is the pressure drop: &Delta;p = port_a.p - port_b.p</li>
+<li> v is the mean velocity.</li>
+<li> &rho; is the density.</li>
+<li> &zeta; is the loss factor that depends on the geometry of
+     the pipe. In the turbulent flow regime, it is assumed that
+     &zeta; is constant and is given by "zeta1" and
+     "zeta2" depending on the flow direction.<br>
+     When the Reynolds number Re is below "Re_turbulent", the
+     flow is laminar for small flow velocities. For higher
+     velocities there is a transition region from
+     laminar to turbulent flow. The loss factor for
+     laminar flow at small velocities is defined by the often occurring
+     approximation c0/Re. If c0 is different for the two
+     flow directions, the mean value has to be used
+     (c0 = (c0_ab + c0_ba)/2).</li>
+<li> The equation "&Delta;p = 0.5*&zeta;*&rho;*v*|v|" is either with
+     respect to port_a or to port_b, depending on the definition
+     of the particular loss factor &zeta; (in some references loss
+     factors are defined with respect to port_a, in other references
+     with respect to port_b).</li>
+<li> Re = |v|*D_Re*&rho;/&mu; = |m_flow|*D_Re/(A_Re*&mu;)
+     is the Reynolds number at the smallest cross
+     section area. This is often at port_a or at port_b, but can
+     also be between the two ports. In the record, the diameter
+     D_Re of this smallest cross section area has to be provided, as
+     well, as Re_turbulent, the absolute value of the
+     Reynolds number at which
+     the turbulent flow starts. If Re_turbulent is different for
+     the two flow directions, use the smaller value as Re_turbulent.</li>
+<li> D is the diameter of the pipe. If the pipe has not a
+     circular cross section, D = 4*A/P, where A is the cross section
+     area and P is the wetted perimeter.</li>
+<li> A is the cross section area with A = &pi;(D/2)^2.</li>
+<li> &mu; is the dynamic viscosity.</li>
+</ul>
+<p>
+The laminar and the transition region is usually of
+not much technical interest because the operating point is
+mostly in the turbulent regime. For simplification and for
+numerical reasons, this whole region is described by two
+polynomials of third order, one polynomial for m_flow &ge; 0
+and one for m_flow &lt; 0. The polynomials start at
+Re = |m_flow|*4/(&pi;*D_Re*&mu;), where D_Re is the
+smallest diameter between port_a and port_b.
+The common derivative
+of the two polynomials at Re = 0 is
+computed from the equation "c0/Re". Note, the pressure drop
+equation above in the laminar region is always defined
+with respect to the smallest diameter D_Re.
+</p>
+<p>
+If no data for c0 is available, the derivative at Re = 0 is computed in such
+a way, that the second derivatives of the two polynomials
+are identical at Re = 0. The polynomials are constructed, such that
+they smoothly touch the characteristic curves in the turbulent
+regions. The whole characteristic is therefore <strong>continuous</strong>
+and has a <strong>finite</strong>, <strong>continuous first derivative everywhere</strong>.
+In some cases, the constructed polynomials would "vibrate". This is
+avoided by reducing the derivative at Re=0 in such a way that
+the polynomials are guaranteed to be monotonically increasing.
+The used sufficient criteria for monotonicity follows from:
+</p>
+
+<dl>
+<dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
+<dd> <strong>Monotone piecewise cubic interpolation</strong>.
+     SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
+</dl>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(12)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>dp_start</th>
+      <td>
+        <p><span>Value:</span> dp_nominal</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialTwoPortTransport.Medium.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Guess value of dp = port_a.p - port_b.p</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_flow_small</th>
+      <td>
+        <p><span>Value:</span> if system.use_eps_Re then system.eps_m_flow * m_flow_nominal else system.m_flow_small</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialTwoPortTransport.Medium.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Small mass flow rate for regularization of zero flow</p>
+      </td>
+    </tr>
+    <tr>
+      <th>show_T</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if temperatures at port_a and port_b are computed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>show_V_flow</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if volume flow rate at inflowing port is computed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>allowFlowReversal</th>
+      <td>
+        <p><span>Value:</span> system.allowFlowReversal</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true to allow flow reversal, false restricts to design direction (m_flow >= 0)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>momentumDynamics</th>
+      <td>
+        <p><span>Value:</span> Types.Dynamics.SteadyState</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Dynamics.html">Dynamics</a></p>
+        <p><span>Description:</span> Formulation of momentum balance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_flow_start</th>
+      <td>
+        <p><span>Value:</span> system.m_flow_start</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialLumpedFlow.Medium.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Start value of mass flow rates</p>
+      </td>
+    </tr>
+    <tr>
+      <th>data</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.html">LossFactorData</a></p>
+        <p><span>Description:</span> Loss factor data</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_flow_nominal</th>
+      <td>
+        <p><span>Value:</span> if system.use_eps_Re then system.m_flow_nominal else 1e2 * system.m_flow_small</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Nominal mass flow rate</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_Re</th>
+      <td>
+        <p><span>Value:</span> system.use_eps_Re</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if turbulent region is defined by Re, otherwise by m_flow_small</p>
+      </td>
+    </tr>
+    <tr>
+      <th>from_dp</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, use m_flow = f(dp) else dp = f(m_flow)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>show_Re</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if Reynolds number is included for plotting</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>pathLength</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length flow path</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Fluid.Interfaces.FluidPort_a_16x16.png"></td>
+      <th>port_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.FluidPort_a.html">FluidPort_a</a></p>
+        <p><span>Description:</span> Fluid connector a (positive design flow direction is from port_a to port_b)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Fluid.Interfaces.FluidPort_b_16x16.png"></td>
+      <th>port_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.FluidPort_b.html">FluidPort_b</a></p>
+        <p><span>Description:</span> Fluid connector b (positive design flow direction is from port_a to port_b)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Interfaces.PartialTwoPortTransport.Medium.ThermodynamicState_32x32.png"></td>
+      <th>state_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialTwoPortTransport.Medium.ThermodynamicState.html">ThermodynamicState</a></p>
+        <p><span>Description:</span> State for medium inflowing through port_a</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Interfaces.PartialTwoPortTransport.Medium.ThermodynamicState_32x32.png"></td>
+      <th>state_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialTwoPortTransport.Medium.ThermodynamicState.html">ThermodynamicState</a></p>
+        <p><span>Description:</span> State for medium inflowing through port_b</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.System_32x32.png"></td>
+      <th>system</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.System.html">System</a></p>
+        <p><span>Description:</span> System properties</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData_32x32.png"></td>
+      <th>data</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.html">LossFactorData</a></p>
+        <p><span>Description:</span> Loss factor data</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModel.Medium.ThermodynamicState_32x32.png"></td>
+      <th>state_nominal</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModel.Medium.ThermodynamicState.html">ThermodynamicState</a></p>
+        <p><span>Description:</span> Medium state to compute nominal pressure drop</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.SharpEdgedOrifice_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.SharpEdgedOrifice.html">SharpEdgedOrifice</a></p>
+        <p><span>Modelica.Fluid.Fittings</span></p>
+        <p>Pressure drop due to sharp edged orifice (for both flow directions)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

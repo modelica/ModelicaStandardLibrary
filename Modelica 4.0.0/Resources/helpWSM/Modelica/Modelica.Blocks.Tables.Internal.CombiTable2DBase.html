@@ -1,0 +1,166 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Tables.Internal.CombiTable2DBase</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Tables.html">Tables</a></li>
+  <li><a href="Modelica.Blocks.Tables.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Blocks.Tables.Internal.CombiTable2DBase.html">CombiTable2DBase</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>CombiTable2DBase</h1>
+    <p>Base class for variants of table look-up in two dimensions</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Tables.Internal.CombiTable2DBase_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>tableOnFile</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if table is defined on file or in function usertab</p>
+      </td>
+    </tr>
+    <tr>
+      <th>table</th>
+      <td>
+        <p><span>Value:</span> fill(0.0, 0, 2)</p>
+        <p><span>Type:</span> Real[:,:]</p>
+        <p><span>Description:</span> Table matrix (grid u1 = first column, grid u2 = first row; e.g., table=[0, 0; 0, 1])</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tableName</th>
+      <td>
+        <p><span>Value:</span> "NoName"</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Table name on file or in function usertab (see docu)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fileName</th>
+      <td>
+        <p><span>Value:</span> "NoName"</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> File where matrix is stored</p>
+      </td>
+    </tr>
+    <tr>
+      <th>verboseRead</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if info message that file is loading is to be printed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>smoothness</th>
+      <td>
+        <p><span>Value:</span> Modelica.Blocks.Types.Smoothness.LinearSegments</p>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Types.Smoothness.html">Smoothness</a></p>
+        <p><span>Description:</span> Smoothness of table interpolation</p>
+      </td>
+    </tr>
+    <tr>
+      <th>extrapolation</th>
+      <td>
+        <p><span>Value:</span> Modelica.Blocks.Types.Extrapolation.LastTwoPoints</p>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Types.Extrapolation.html">Extrapolation</a></p>
+        <p><span>Description:</span> Extrapolation of data outside the definition range</p>
+      </td>
+    </tr>
+    <tr>
+      <th>verboseExtrapolation</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if warning messages are to be printed if table input is outside the definition range</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u_min</th>
+      <td>
+        <p><span>Value:</span> getTable2DAbscissaUmin(tableID)</p>
+        <p><span>Type:</span> Real[2]</p>
+        <p><span>Description:</span> Minimum abscissa value defined in table</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u_max</th>
+      <td>
+        <p><span>Value:</span> getTable2DAbscissaUmax(tableID)</p>
+        <p><span>Type:</span> Real[2]</p>
+        <p><span>Description:</span> Maximum abscissa value defined in table</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td></td>
+      <th>tableID</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Types.ExternalCombiTable2D.html">ExternalCombiTable2D</a></p>
+        <p><span>Description:</span> External table object</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Tables.CombiTable2Dv_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Tables.CombiTable2Dv.html">CombiTable2Dv</a></p>
+        <p><span>Modelica.Blocks.Tables</span></p>
+        <p>Table look-up in two dimensions (matrix/file) with vector inputs and vector output of size n</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Tables.CombiTable2Ds_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Tables.CombiTable2Ds.html">CombiTable2Ds</a></p>
+        <p><span>Modelica.Blocks.Tables</span></p>
+        <p>Table look-up in two dimensions (matrix/file)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

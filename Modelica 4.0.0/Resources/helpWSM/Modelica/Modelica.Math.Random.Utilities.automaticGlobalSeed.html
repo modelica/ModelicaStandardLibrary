@@ -1,0 +1,95 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Random.Utilities.automaticGlobalSeed</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Random.html">Random</a></li>
+  <li><a href="Modelica.Math.Random.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Math.Random.Utilities.automaticGlobalSeed.html">automaticGlobalSeed</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>automaticGlobalSeed</h1>
+    <p>Creates an automatic integer seed (typically from the current time and process id; this is an impure function)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Random.Utilities.automaticGlobalSeed_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+seed = Utilities.<strong>automaticGlobalSeed</strong>();
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>Returns an automatically computed seed (Integer). Typically, this seed is computed from:</p>
+<ol>
+<li> The current local time by computing the number of milli-seconds up to the current hour</li>
+<li> The process id (added to the first part by multiplying it with the prime number 6007).</li>
+</ol>
+<p>
+If getTime and getPid functions are not available on the target where this Modelica function
+is called, other means to compute a seed may be used.
+</p>
+
+<p>
+Note, this is an impure function that returns always a different value, when it is newly called.
+This function should be only called once during initialization.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+<strong>parameter</strong> Boolean useAutomaticSeed = false;
+<strong>parameter</strong> Integer fixedSeed = 67867967;
+<strong>final parameter</strong> Integer seed = <strong>if</strong> useAutomaticSeed <strong>then</strong>
+                              Random.Utilities.automaticGlobalSeed() <strong>else</strong> fixedSeed;
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Random.Utilities.automaticLocalSeed.html">automaticLocalSeed</a>.
+</p>
+<h4>Note</h4>
+<p>This function is impure!</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">seed = automaticGlobalSeed()
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>seed</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Automatically generated seed</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

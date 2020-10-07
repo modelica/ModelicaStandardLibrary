@@ -1,0 +1,571 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Media.Air.ReferenceAir.Air_Base</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Air.html">Air</a></li>
+  <li><a href="Modelica.Media.Air.ReferenceAir.html">ReferenceAir</a></li>
+  <li><a href="Modelica.Media.Air.ReferenceAir.Air_Base.html">Air_Base</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Air_Base</h1>
+    <p>Properties of dry air calculated using the equation of state by Lemmon et. al.</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.ThermodynamicState_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.ThermodynamicState.html">ThermodynamicState</a></p>
+        <p>Thermodynamic state</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.BaseProperties_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.BaseProperties.html">BaseProperties</a></p>
+        <p>Base properties of air</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.density_ph_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.density_ph.html">density_ph</a></p>
+        <p>Computes density as a function of pressure and specific enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.temperature_ph_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.temperature_ph.html">temperature_ph</a></p>
+        <p>Computes temperature as a function of pressure and specific enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.temperature_ps_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.temperature_ps.html">temperature_ps</a></p>
+        <p>Compute temperature from pressure and specific enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.density_ps_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.density_ps.html">density_ps</a></p>
+        <p>Computes density as a function of pressure and specific enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.pressure_dT_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.pressure_dT.html">pressure_dT</a></p>
+        <p>Computes pressure as a function of density and temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.specificEnthalpy_dT_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.specificEnthalpy_dT.html">specificEnthalpy_dT</a></p>
+        <p>Computes specific enthalpy as a function of density and temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.specificEnthalpy_pT_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.specificEnthalpy_pT.html">specificEnthalpy_pT</a></p>
+        <p>Computes specific enthalpy as a function of pressure and temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.specificEnthalpy_ps_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.specificEnthalpy_ps.html">specificEnthalpy_ps</a></p>
+        <p>Computes specific enthalpy as a function of pressure and temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.density_pT_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.density_pT.html">density_pT</a></p>
+        <p>Computes density as a function of pressure and temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.dynamicViscosity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.dynamicViscosity.html">dynamicViscosity</a></p>
+        <p>Return dynamic viscosity as a function of the thermodynamic state record</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.thermalConductivity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.thermalConductivity.html">thermalConductivity</a></p>
+        <p>Thermal conductivity of air</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.pressure_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.pressure.html">pressure</a></p>
+        <p>Return pressure of ideal gas</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.temperature_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.temperature.html">temperature</a></p>
+        <p>Return temperature of ideal gas</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.density_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.density.html">density</a></p>
+        <p>Return density of ideal gas</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.specificEnthalpy_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.specificEnthalpy.html">specificEnthalpy</a></p>
+        <p>Return specific enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.specificInternalEnergy_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.specificInternalEnergy.html">specificInternalEnergy</a></p>
+        <p>Return specific internal energy</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.specificGibbsEnergy_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.specificGibbsEnergy.html">specificGibbsEnergy</a></p>
+        <p>Return specific Gibbs energy</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.specificHelmholtzEnergy_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.specificHelmholtzEnergy.html">specificHelmholtzEnergy</a></p>
+        <p>Return specific Helmholtz energy</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.specificEntropy_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.specificEntropy.html">specificEntropy</a></p>
+        <p>Specific entropy of air</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.specificHeatCapacityCp_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.specificHeatCapacityCp.html">specificHeatCapacityCp</a></p>
+        <p>Specific heat capacity at constant pressure of air</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.specificHeatCapacityCv_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.specificHeatCapacityCv.html">specificHeatCapacityCv</a></p>
+        <p>Specific heat capacity at constant volume of air</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.isentropicExponent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.isentropicExponent.html">isentropicExponent</a></p>
+        <p>Return isentropic exponent</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.isothermalCompressibility_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.isothermalCompressibility.html">isothermalCompressibility</a></p>
+        <p>Isothermal compressibility of air</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.isobaricExpansionCoefficient_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.isobaricExpansionCoefficient.html">isobaricExpansionCoefficient</a></p>
+        <p>Isobaric expansion coefficient of air</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.velocityOfSound_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.velocityOfSound.html">velocityOfSound</a></p>
+        <p>Return velocity of sound as a function of the thermodynamic state record</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.density_derh_p_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.density_derh_p.html">density_derh_p</a></p>
+        <p>Density derivative by specific enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.density_derp_h_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.density_derp_h.html">density_derp_h</a></p>
+        <p>Density derivative by pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.setState_dTX_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.setState_dTX.html">setState_dTX</a></p>
+        <p>Return thermodynamic state of air as function of d and T</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.setState_phX_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.setState_phX.html">setState_phX</a></p>
+        <p>Return thermodynamic state of air as function of p and h</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.setState_psX_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.setState_psX.html">setState_psX</a></p>
+        <p>Return thermodynamic state of air as function of p and s</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.setState_pTX_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.setState_pTX.html">setState_pTX</a></p>
+        <p>Return thermodynamic state of air as function of p and T</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.setSmoothState_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.setSmoothState.html">setSmoothState</a></p>
+        <p>Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.isentropicEnthalpy_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.isentropicEnthalpy.html">isentropicEnthalpy</a></p>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_Base.molarMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_Base.molarMass.html">molarMass</a></p>
+        <p>Return the molar mass of the medium</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="constants" >
+  <h1>Package Constants <span class="count">(23)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>ThermoStates</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.Choices.IndependentVariables.html">IndependentVariables</a></p>
+        <p><span>Description:</span> Enumeration type for independent variables</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mediumName</th>
+      <td>
+        <p><span>Value:</span> "Air"</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Name of the medium</p>
+      </td>
+    </tr>
+    <tr>
+      <th>substanceNames</th>
+      <td>
+        <p><span>Value:</span> {"air"}</p>
+        <p><span>Type:</span> String[:]</p>
+        <p><span>Description:</span> Names of the mixture substances. Set substanceNames={mediumName} if only one substance.</p>
+      </td>
+    </tr>
+    <tr>
+      <th>extraPropertiesNames</th>
+      <td>
+        <p><span>Value:</span> fill("", 0)</p>
+        <p><span>Type:</span> String[:]</p>
+        <p><span>Description:</span> Names of the additional (extra) transported properties. Set extraPropertiesNames=fill("",0) if unused</p>
+      </td>
+    </tr>
+    <tr>
+      <th>singleState</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if u and d are not a function of pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>reducedX</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true if medium contains the equation sum(X) = 1.0; set reducedX=true if only one substance (see docu for details)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fixedX</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true if medium contains the equation X = reference_X</p>
+      </td>
+    </tr>
+    <tr>
+      <th>reference_p</th>
+      <td>
+        <p><span>Value:</span> 101325</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Reference pressure of Medium: default 1 atmosphere</p>
+      </td>
+    </tr>
+    <tr>
+      <th>reference_T</th>
+      <td>
+        <p><span>Value:</span> 298.15</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Reference temperature of Medium: default 25 deg Celsius</p>
+      </td>
+    </tr>
+    <tr>
+      <th>reference_X</th>
+      <td>
+        <p><span>Value:</span> fill(1 / nX, nX)</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.MassFraction.html">MassFraction[nX]</a> (kg/kg)</p>
+        <p><span>Description:</span> Default mass fractions of medium</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p_default</th>
+      <td>
+        <p><span>Value:</span> 101325</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Default value for pressure of medium (for initialization)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_default</th>
+      <td>
+        <p><span>Value:</span> Modelica.Units.Conversions.from_degC(20)</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Default value for temperature of medium (for initialization)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>h_default</th>
+      <td>
+        <p><span>Value:</span> specificEnthalpy_pTX(p_default, T_default, X_default)</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> Default value for specific enthalpy of medium (for initialization)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>X_default</th>
+      <td>
+        <p><span>Value:</span> reference_X</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.MassFraction.html">MassFraction[nX]</a> (kg/kg)</p>
+        <p><span>Description:</span> Default value for mass fractions of medium (for initialization)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>C_default</th>
+      <td>
+        <p><span>Value:</span> fill(0, nC)</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.ExtraProperty.html">ExtraProperty[nC]</a></p>
+        <p><span>Description:</span> Default value for trace substances of medium (for initialization)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nS</th>
+      <td>
+        <p><span>Value:</span> size(substanceNames, 1)</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of substances</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nX</th>
+      <td>
+        <p><span>Value:</span> nS</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of mass fractions</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nXi</th>
+      <td>
+        <p><span>Value:</span> if fixedX then 0 else if reducedX then nS - 1 else nS</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of structurally independent mass fractions (see docu for details)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nC</th>
+      <td>
+        <p><span>Value:</span> size(extraPropertiesNames, 1)</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of extra (outside of standard mass-balance) transported properties</p>
+      </td>
+    </tr>
+    <tr>
+      <th>C_nominal</th>
+      <td>
+        <p><span>Value:</span> 1.0e-6 * ones(nC)</p>
+        <p><span>Type:</span> Real[nC]</p>
+        <p><span>Description:</span> Default for the nominal values for the extra properties</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ph_explicit</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> True if explicit in pressure and specific enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dT_explicit</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> True if explicit in density and temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>pT_explicit</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> True if explicit in pressure and temperature</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This model calculates medium properties
+for air in the <strong>liquid</strong>, <strong>gas</strong> and <strong>two phase</strong> regions.
+Three variable pairs can be the independent variables of the model:
+</p>
+<ol>
+<li>Pressure <strong>p</strong> and specific enthalpy <strong>h</strong> are the most natural choice for general applications. This is the recommended choice for most general purpose applications.</li>
+<li>Pressure <strong>p</strong> and temperature <strong>T</strong> are the most natural choice for applications where air is always in the same phase (liquid or gas).</li>
+<li>Density <strong>d</strong> and temperature <strong>T</strong> are explicit variables of the Helmholtz function in the near-critical region and can be the best choice for applications with super-critical or near-critical states.</li>
+</ol>
+<p>
+The following quantities are always computed:
+</p>
+<table border="1" cellspacing="0" cellpadding="2">
+  <tr><td><strong>Variable</strong></td>
+      <td><strong>Unit</strong></td>
+      <td><strong>Description</strong></td></tr>
+  <tr><td>T</td>
+      <td>K</td>
+      <td>temperature</td></tr>
+  <tr><td>u</td>
+      <td>J/kg</td>
+      <td>specific internal energy</td></tr>
+  <tr><td>d</td>
+      <td>kg/m^3</td>
+      <td>density</td></tr>
+  <tr><td>p</td>
+      <td>Pa</td>
+      <td>pressure</td></tr>
+  <tr><td>h</td>
+      <td>J/kg</td>
+      <td>specific enthalpy</td></tr>
+</table>
+<p>
+In some cases additional medium properties are needed.
+A component that needs these optional properties has to call
+one of the functions listed in
+<a href="Modelica.Media.UsersGuide.MediumUsage.OptionalProperties.html">
+Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
+<a href="Modelica.Media.UsersGuide.MediumUsage.TwoPhase.html">
+Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
+</p>
+<p>Many further properties can be computed. Using the well-known Bridgman's Tables, all first partial derivatives of the standard thermodynamic variables can be computed easily.</p>
+</div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_dT_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_dT.html">Air_dT</a></p>
+        <p><span>Modelica.Media.Air.ReferenceAir</span></p>
+        <p>ReferenceAir.Air_dT: Detailed dry air model (130 ... 2000 K) explicit in d and T</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_pT_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_pT.html">Air_pT</a></p>
+        <p><span>Modelica.Media.Air.ReferenceAir</span></p>
+        <p>ReferenceAir.Air_pT: Detailed dry air model (130 ... 2000 K) explicit in p and T</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Air.ReferenceAir.Air_ph_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Air.ReferenceAir.Air_ph.html">Air_ph</a></p>
+        <p><span>Modelica.Media.Air.ReferenceAir</span></p>
+        <p>ReferenceAir.Air_ph: Detailed dry air model (130 ... 2000 K) explicit in p and h</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

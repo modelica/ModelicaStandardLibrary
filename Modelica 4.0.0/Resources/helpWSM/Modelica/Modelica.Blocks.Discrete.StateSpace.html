@@ -1,0 +1,205 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Discrete.StateSpace</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Discrete.html">Discrete</a></li>
+  <li><a href="Modelica.Blocks.Discrete.StateSpace.html">StateSpace</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>StateSpace</h1>
+    <p>Discrete State Space block</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Discrete.StateSpace_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The <strong>discrete state space</strong> block defines the relation
+between the input u and the output y in state space form:
+</p>
+<blockquote><pre>
+x = A * pre(x) + B * u
+y = C * pre(x) + D * u
+</pre></blockquote>
+<p>
+where pre(x) is the value of the discrete state x at
+the previous sample time instant.
+The input is a vector of length nu, the output is a vector
+of length ny and nx is the number of states. Accordingly
+</p>
+<blockquote><pre>
+A has the dimension: A(nx,nx),
+B has the dimension: B(nx,nu),
+C has the dimension: C(ny,nx),
+D has the dimension: D(ny,nu)
+</pre></blockquote>
+<p>
+Example:
+</p>
+<blockquote><pre>
+parameter: A = [0.12, 2;3, 1.5]
+parameter: B = [2, 7;3, 1]
+parameter: C = [0.1, 2]
+parameter: D = zeros(ny,nu)
+
+results in the following equations:
+  [x[1]]   [0.12  2.00] [pre(x[1])]   [2.0  7.0] [u[1]]
+  [    ] = [          ]*[         ] + [        ]*[    ]
+  [x[2]]   [3.00  1.50] [pre(x[2])]   [0.1  2.0] [u[2]]
+                             [pre(x[1])]            [u[1]]
+       y[1]   = [0.1  2.0] * [         ] + [0  0] * [    ]
+                             [pre(x[2])]            [u[2]]
+</pre></blockquote>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>samplePeriod</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Sample period of component</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startTime</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> First sample time instant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nin</th>
+      <td>
+        <p><span>Value:</span> size(B, 2)</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of inputs</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nout</th>
+      <td>
+        <p><span>Value:</span> size(C, 1)</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of outputs</p>
+      </td>
+    </tr>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Value:</span> [1, 0; 0, 1]</p>
+        <p><span>Type:</span> Real[:,size(A, 1)]</p>
+        <p><span>Description:</span> Matrix A of state space model</p>
+      </td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>
+        <p><span>Value:</span> [1; 1]</p>
+        <p><span>Type:</span> Real[size(A, 1),:]</p>
+        <p><span>Description:</span> Matrix B of state space model</p>
+      </td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>
+        <p><span>Value:</span> [1, 1]</p>
+        <p><span>Type:</span> Real[:,size(A, 1)]</p>
+        <p><span>Description:</span> Matrix C of state space model</p>
+      </td>
+    </tr>
+    <tr>
+      <th>D</th>
+      <td>
+        <p><span>Value:</span> zeros(size(C, 1), size(B, 2))</p>
+        <p><span>Type:</span> Real[size(C, 1),size(B, 2)]</p>
+        <p><span>Description:</span> Matrix D of state space model</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>sampleTrigger</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> True, if sample time instant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>firstTrigger</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Rising edge signals first sample instant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1)]</p>
+        <p><span>Description:</span> State vector</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput[nin]</a></p>
+        <p><span>Description:</span> Connector of Real input signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[nout]</a></p>
+        <p><span>Description:</span> Connector of Real output signals</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

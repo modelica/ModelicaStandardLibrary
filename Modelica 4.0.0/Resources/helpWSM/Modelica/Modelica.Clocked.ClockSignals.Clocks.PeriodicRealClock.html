@@ -1,0 +1,276 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.ClockSignals.Clocks.PeriodicRealClock</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.ClockSignals.html">ClockSignals</a></li>
+  <li><a href="Modelica.Clocked.ClockSignals.Clocks.html">Clocks</a></li>
+  <li><a href="Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock.html">PeriodicRealClock</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PeriodicRealClock</h1>
+    <p>Generate a periodic clock signal with a period defined by a Real number</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This component generates a periodic clock that starts ticking when
+the simulation starts. The <strong>period</strong> is defined in seconds
+by a <strong>Real</strong> number. If clocks are synchronized relatively to each other
+then only one of the clocks can be defined with PeriodicRealClock.
+</p>
+
+<p>
+For an introduction to clocks see
+<a href="Modelica.Clocked.UsersGuide.Clocks.html">UsersGuide.Clocks</a>.
+If exact, integer based, time synchronization with absolute period definitions is
+desired, use block
+<a href="Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock.html">PeriodicExactClock</a>
+to generate a periodic clock signal.
+</p>
+
+<p>
+If a clock is associated to a clocked continuous-time partition, then an <strong>integrator</strong>
+has to be defined that is used to integrate the partition from the previous
+to the current clock tick. This is performed by setting parameter <strong>useSolver</strong>
+= <strong>true</strong> and defining the integration method as String with
+parameter <strong>solver</strong>. Both parameters are in tab <strong>Advanced</strong>.
+For an example, see
+<a href="Modelica.Clocked.Examples.Systems.ControlledMixingUnit.html">Examples.Systems.ControlledMixingUnit</a>.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useSolver</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if solverMethod shall be explicitly defined</p>
+      </td>
+    </tr>
+    <tr>
+      <th>solverMethod</th>
+      <td>
+        <p><span>Value:</span> "ExplicitEuler"</p>
+        <p><span>Type:</span> <a href="../ModelicaServices/ModelicaServices.Types.SolverMethod.html">SolverMethod</a></p>
+        <p><span>Description:</span> Integration method used for discretized continuous-time partitions</p>
+      </td>
+    </tr>
+    <tr>
+      <th>period</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Period of clock (defined as Real number)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Clocked.ClockSignals.Interfaces.ClockOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.ClockSignals.Interfaces.ClockOutput.html">ClockOutput</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(19)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteTextbookController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteTextbookController.html">ClockedWithDiscreteTextbookController</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discrete textbook controller (period is not used in the controller)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteController.html">ClockedWithDiscreteController</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discrete controller (period is used in the controller)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscretizedContinuousController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscretizedContinuousController.html">ClockedWithDiscretizedContinuousController</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discretized continuous-time controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWith_AD_DA_Effects_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWith_AD_DA_Effects.html">ClockedWith_AD_DA_Effects</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discrete controller and simulated AD and DA effects</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.CascadeControlledDrive.SubClocked_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.CascadeControlledDrive.SubClocked.html">SubClocked</a></p>
+        <p><span>Modelica.Clocked.Examples.CascadeControlledDrive</span></p>
+        <p>Drive with clocked cascade controller where clocks are defined with sub-sampling and partitions with super-sampling</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.CascadeControlledDrive.SuperSampled_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.CascadeControlledDrive.SuperSampled.html">SuperSampled</a></p>
+        <p><span>Modelica.Clocked.Examples.CascadeControlledDrive</span></p>
+        <p>Drive with clocked cascade controller where fastest partition is defined with a clock and slower partition is defined with super-sampling</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.ControlledMixingUnit_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Systems.ControlledMixingUnit.html">ControlledMixingUnit</a></p>
+        <p><span>Modelica.Clocked.Examples.Systems</span></p>
+        <p>Simple example of a mixing unit where a (discretized) nonlinear inverse plant model is used as feedforward controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedStep_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedStep.html">TimeBasedStep</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of using the clocked simulation time based Step source block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.TickBasedStep_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.TickBasedStep.html">TickBasedStep</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of using the clocked tick based Step source block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedSine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedSine.html">TimeBasedSine</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of using the clocked time based Sine source block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.TickBasedSine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.TickBasedSine.html">TickBasedSine</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of using the clocked tick based Sine source block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedRamp_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedRamp.html">TimeBasedRamp</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of using the clocked time based Ramp source block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.TickBasedRamp_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.TickBasedRamp.html">TickBasedRamp</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of using the clocked tick based Ramp source block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.IntegerSignals.TimeBasedStep_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.IntegerSignals.TimeBasedStep.html">TimeBasedStep</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.IntegerSignals</span></p>
+        <p>Example of using the clocked simulation time based Integer Step source block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.IntegerSignals.TickBasedStep_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.IntegerSignals.TickBasedStep.html">TickBasedStep</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.IntegerSignals</span></p>
+        <p>Example of using the clocked simulation tick/sample based Integer Step source block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedStep_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedStep.html">TimeBasedStep</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.BooleanSignals</span></p>
+        <p>Example of using the clocked simulation time based Boolean Step source block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedStep_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedStep.html">TickBasedStep</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.BooleanSignals</span></p>
+        <p>Example of using the clocked simulation tick/sample based Boolean Step source block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedPulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.BooleanSignals.TimeBasedPulse.html">TimeBasedPulse</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.BooleanSignals</span></p>
+        <p>Example of using the clocked simulation time based Boolean Pulse source block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedPulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedPulse.html">TickBasedPulse</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.BooleanSignals</span></p>
+        <p>Example of using the clock tick based Boolean Pulse source block</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

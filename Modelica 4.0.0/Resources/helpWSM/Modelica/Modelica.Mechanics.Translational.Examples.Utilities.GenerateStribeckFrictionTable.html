@@ -1,0 +1,124 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.Translational.Examples.Utilities.GenerateStribeckFrictionTable</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Translational.html">Translational</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Examples.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Examples.Utilities.GenerateStribeckFrictionTable.html">GenerateStribeckFrictionTable</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>GenerateStribeckFrictionTable</h1>
+    <p>Generate Stribeck friction table for example Friction for the SupportFriction</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Translational.Examples.Utilities.GenerateStribeckFrictionTable_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Returns a table with the friction characteristic
+table[nTable,&nbsp;2]&nbsp;=&nbsp;[0,&nbsp;f1;&nbsp;&hellip;;&nbsp;v_max,&nbsp;fn],
+where the first column is the velocity&nbsp;v in the range 0&nbsp;&hellip;&nbsp;v_max
+and the second column is the friction force according to the Stribeck curve:
+</p>
+
+<blockquote><pre>
+f = F_Coulomb + F_prop*v + F_Stribeck*exp(-fexp*v);
+</pre></blockquote>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">table = GenerateStribeckFrictionTable(F_prop, F_Coulomb, F_Stribeck, fexp, v_max, nTable)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>F_prop</th>
+      <td>
+        <p><span>Type:</span> Real (N·s/m)</p>
+        <p><span>Description:</span> Velocity dependent friction coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>F_Coulomb</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Force.html">Force</a> (N)</p>
+        <p><span>Description:</span> Constant friction: Coulomb force</p>
+      </td>
+    </tr>
+    <tr>
+      <th>F_Stribeck</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Force.html">Force</a> (N)</p>
+        <p><span>Description:</span> Stribeck effect</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fexp</th>
+      <td>
+        <p><span>Type:</span> Real (s/m)</p>
+        <p><span>Description:</span> Exponential decay</p>
+      </td>
+    </tr>
+    <tr>
+      <th>v_max</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Generate table from v=0 ... v_max</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nTable</th>
+      <td>
+        <p><span>Default Value:</span> 100</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of table points</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>table</th>
+      <td>
+        <p><span>Type:</span> Real[nTable,2]</p>
+        <p><span>Description:</span> Friction table</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

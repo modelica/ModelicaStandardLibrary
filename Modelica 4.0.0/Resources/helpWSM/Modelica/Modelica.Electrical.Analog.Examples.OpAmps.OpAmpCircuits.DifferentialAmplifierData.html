@@ -1,0 +1,172 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Analog.Examples.OpAmps.OpAmpCircuits.DifferentialAmplifierData</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Analog.html">Analog</a></li>
+  <li><a href="Modelica.Electrical.Analog.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.Analog.Examples.OpAmps.html">OpAmps</a></li>
+  <li><a href="Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits.html">OpAmpCircuits</a></li>
+  <li><a href="Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits.DifferentialAmplifierData.html">DifferentialAmplifierData</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>DifferentialAmplifierData</h1>
+    <p>Data record for differential amplifier</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits.DifferentialAmplifierData_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Summarizes parameters for:
+</p>
+<ul>
+<li>Source</li>
+<li>Differential amplifier</li>
+<li>Measurement instrument</li>
+</ul>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(12)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>VSource</th>
+      <td>
+        <p><span>Value:</span> 400</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Source RMS voltage line-to-line</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fSource</th>
+      <td>
+        <p><span>Value:</span> 50</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Source frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>RLoad</th>
+      <td>
+        <p><span>Value:</span> 10</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Load resistance of source</p>
+      </td>
+    </tr>
+    <tr>
+      <th>RGround</th>
+      <td>
+        <p><span>Value:</span> 100e3</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Resistance of ground connection</p>
+      </td>
+    </tr>
+    <tr>
+      <th>V0</th>
+      <td>
+        <p><span>Value:</span> 10e3</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> No-load differential amplification</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VSupply</th>
+      <td>
+        <p><span>Value:</span> 15</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Supply voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>k</th>
+      <td>
+        <p><span>Value:</span> 100</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Attenuation factor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R1</th>
+      <td>
+        <p><span>Value:</span> 100e3</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Resistor 1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R2</th>
+      <td>
+        <p><span>Value:</span> R1</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Resistor 2</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R3</th>
+      <td>
+        <p><span>Value:</span> R1 / k</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Resistor 3</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R4</th>
+      <td>
+        <p><span>Value:</span> R3</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Resistor 4</p>
+      </td>
+    </tr>
+    <tr>
+      <th>RInstrument</th>
+      <td>
+        <p><span>Value:</span> 100e3</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Input resistance of instrument</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.OpAmps.DifferentialAmplifier_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.OpAmps.DifferentialAmplifier.html">DifferentialAmplifier</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples.OpAmps</span></p>
+        <p>Differential amplifier</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

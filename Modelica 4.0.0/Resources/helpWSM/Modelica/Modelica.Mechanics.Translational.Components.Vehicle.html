@@ -1,0 +1,411 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.Translational.Components.Vehicle</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Translational.html">Translational</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Components.html">Components</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Components.Vehicle.html">Vehicle</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Vehicle</h1>
+    <p>Simple vehicle model</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Translational.Components.Vehicle_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.Translational.Components.Vehicle_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.Translational.Components.Vehicle_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This is a simple model of a&nbsp;ground vehicle, comprising the mass, the aerodynamic drag, the rolling resistance and
+the inclination resistance (caused by the road grade).
+For all particular resistances, significant variables can be either given by a&nbsp;parameter or input by a&nbsp;time-variable signal.
+</p>
+<p>
+The vehicle can be driven at the rotational flange <code>flangeR</code>, e.g. by an electric motor and a&nbsp;gearbox.
+It is possible to use the vehicle as a&nbsp;passive trailer, leaving the rotational flange <code>flangeR</code> unconnected.
+</p>
+<p>
+At the translational flange <code>flangeT</code> the vehicle can be coupled with another vehicle,
+e.g. as a&nbsp;trailer or to pull a&nbsp;trailer.
+It is possible to leave the translational flange <code>flangeT</code> unconnected.
+</p>
+<p>
+The velocity&nbsp;<code>v</code> and the driven distance&nbsp;<code>s</code> of the vehicle are provided as variables;
+the vehicle can be initialized using these variables.
+</p>
+
+<h4>Mass and inertia</h4>
+<p>
+Both the translational vehicle mass and the rotational inertias (e.g. the wheels)
+are accelerated when the vehicle is accelerated.
+This nature is usually put into account for fundamental vehicle analyses
+done either in the rotational or translational domain, e.g. when analysing
+vehicle&apos;s driveline.
+Then, the vehicle mass&nbsp;<code>m</code> can be expressed as an additional
+equivalent inertia <code>J_eq&nbsp;=&nbsp;m&nbsp;*&nbsp;R<sup>2</sup></code> or
+vice versa rotational inertia&nbsp;<code>J</code> as an additional
+equivalent mass <code>m_eq&nbsp;=&nbsp;J/R<sup>2</sup></code>,
+where&nbsp;<code>R</code> is the wheel radius.
+Since this model introduces rolling resistance and inclination resistance as well
+where just the vehicle mass plays a&nbsp;role,
+the approach of equivalent mass/inertia would lead to incorrect simulation results
+and shall therefore not be applied here.
+</p>
+
+<h4>Drag resistance</h4>
+<blockquote>
+<pre>
+fDrag = Cd*rho*A*(v - vWind)^2/2
+</pre>
+</blockquote>
+<p>
+Wind velocity is measured in the same direction as velocity of <code>flangeT</code>.
+Wind velocity is either constant or prescribed by the input <code>vWind</code>.
+</p>
+
+<h4>Rolling resistance</h4>
+<blockquote>
+<pre>
+fRoll = Cr*m*g*cos(alpha)
+</pre>
+</blockquote>
+<p>
+Rolling resistance coefficient&nbsp;<var>Cr</var> is either constant
+or prescribed by the input <code>cr</code>.
+Rolling resistance has a&nbsp;crossover from positive to negative velocity within <code>[-vReg,&nbsp;vReg]</code>.
+</p>
+<p>
+The inclination angle&nbsp;<var>&alpha;</var> is either constant or prescribed by
+the input <code>inclination</code> = tan(<var>&alpha;</var>).
+This corresponds to the road rise over running distance of 100&nbsp;m which,
+in general, is written as a&nbsp;percentage.
+For example for a&nbsp;road rising by 10&nbsp;m over 100&nbsp;m the
+grade&nbsp;=&nbsp;10&nbsp;% and, thus, the parameter
+<code>inclinationConstant&nbsp;=&nbsp;0.1</code>.
+Positive inclination means driving uphill, negative inclination means
+driving downhill, in case of positive vehicle velocity.
+</p>
+
+<h4>Inclination resistance</h4>
+<blockquote>
+<pre>
+fGrav = m*g*sin(alpha)
+</pre>
+</blockquote>
+<p>
+With the inclination angle&nbsp;<var>&alpha;</var> described above.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(14)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Mass.html">Mass</a> (kg)</p>
+        <p><span>Description:</span> Total mass of vehicle</p>
+      </td>
+    </tr>
+    <tr>
+      <th>g</th>
+      <td>
+        <p><span>Value:</span> Modelica.Constants.g_n</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Acceleration.html">Acceleration</a> (m/s²)</p>
+        <p><span>Description:</span> Constant gravity acceleration</p>
+      </td>
+    </tr>
+    <tr>
+      <th>J</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Total rotational inertia of drive train</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Wheel radius</p>
+      </td>
+    </tr>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Cross section of vehicle</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Cd</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Drag resistance coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rho</th>
+      <td>
+        <p><span>Value:</span> 1.2</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Density.html">Density</a> (kg/m³)</p>
+        <p><span>Description:</span> Density of air</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useWindInput</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Enable signal input for wind velocity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>vWindConstant</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Velocity.html">Velocity</a> (m/s)</p>
+        <p><span>Description:</span> Constant wind velocity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useCrInput</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Enable signal input for Cr</p>
+      </td>
+    </tr>
+    <tr>
+      <th>CrConstant</th>
+      <td>
+        <p><span>Value:</span> 0.015</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Constant rolling resistance coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>vReg</th>
+      <td>
+        <p><span>Value:</span> 1e-3</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Velocity.html">Velocity</a> (m/s)</p>
+        <p><span>Description:</span> Velocity for regularization around 0</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useInclinationInput</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Enable signal input for inclination</p>
+      </td>
+    </tr>
+    <tr>
+      <th>inclinationConstant</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Constant inclination = tan(angle)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flangeT</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> Translational flange</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_a_16x16.png"></td>
+      <th>flangeR</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> Rotational flange</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>inclination</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Inclination=tan(angle)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>cr</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Rolling resistance coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>vWind</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Wind velocity</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(12)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sources.QuadraticSpeedDependentForce_32x32.png"></td>
+      <th>fDrag</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Sources.QuadraticSpeedDependentForce.html">QuadraticSpeedDependentForce</a></p>
+        <p><span>Description:</span> Drag resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.RollingResistance_32x32.png"></td>
+      <th>fRoll</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.RollingResistance.html">RollingResistance</a></p>
+        <p><span>Description:</span> Rolling resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sources.Force_32x32.png"></td>
+      <th>fGrav</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Sources.Force.html">Force</a></p>
+        <p><span>Description:</span> Inclination resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Inertia_32x32.png"></td>
+      <th>inertia</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Inertia</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.IdealRollingWheel_32x32.png"></td>
+      <th>idealRollingWheel</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.IdealRollingWheel.html">IdealRollingWheel</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Mass_32x32.png"></td>
+      <th>mass</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Mass.html">Mass</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sources.Speed_32x32.png"></td>
+      <th>windSpeed</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Sources.Speed.html">Speed</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>gravForceGain</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>constInclination</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>constWindSpeed</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Atan_32x32.png"></td>
+      <th>atan</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Atan.html">Atan</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Sin_32x32.png"></td>
+      <th>sin</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Sin.html">Sin</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Vehicle_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Vehicle.html">Vehicle</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span></p>
+        <p>One-dimensional vehicle with driving resistances</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

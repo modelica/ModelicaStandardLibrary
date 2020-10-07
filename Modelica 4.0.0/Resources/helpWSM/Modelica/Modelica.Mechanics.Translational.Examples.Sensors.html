@@ -1,0 +1,136 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.Translational.Examples.Sensors</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Translational.html">Translational</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Examples.Sensors.html">Sensors</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Sensors</h1>
+    <p>Sensors for translational systems</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Translational.Examples.Sensors_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.Translational.Examples.Sensors_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.Translational.Examples.Sensors_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+These sensors measure
+</p>
+
+<blockquote><pre>
+force f in N
+position s in m
+velocity v in m/s
+acceleration a in m/s2
+</pre></blockquote>
+
+<p>
+In this example, the measured velocity and acceleration is independent of
+the flange the sensor is connected to. In contrast, the measured position
+depends on the flange (flange_a or flange_b) and the
+length&nbsp;<var>L</var> of the component.
+Plot <code>positionSensor1.s</code>, <code>positionSensor2.s</code> and <code>mass.s</code>
+to see the difference.
+</p>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.ForceSensor_32x32.png"></td>
+      <th>forceSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Sensors.ForceSensor.html">ForceSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.MultiSensor_32x32.png"></td>
+      <th>multiSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Sensors.MultiSensor.html">MultiSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.SpeedSensor_32x32.png"></td>
+      <th>speedSensor1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Sensors.SpeedSensor.html">SpeedSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.PositionSensor_32x32.png"></td>
+      <th>positionSensor1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Sensors.PositionSensor.html">PositionSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.AccSensor_32x32.png"></td>
+      <th>accSensor1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Sensors.AccSensor.html">AccSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.PositionSensor_32x32.png"></td>
+      <th>positionSensor2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Sensors.PositionSensor.html">PositionSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Mass_32x32.png"></td>
+      <th>mass</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Mass.html">Mass</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sources.Force_32x32.png"></td>
+      <th>force</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Sources.Force.html">Force</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Sine_32x32.png"></td>
+      <th>sineForce</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Sine.html">Sine</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

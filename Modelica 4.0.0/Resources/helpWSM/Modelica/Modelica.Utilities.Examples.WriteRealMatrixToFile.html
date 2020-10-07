@@ -1,0 +1,97 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Utilities.Examples.WriteRealMatrixToFile</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Utilities.Examples.WriteRealMatrixToFile.html">WriteRealMatrixToFile</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>WriteRealMatrixToFile</h1>
+    <p>Demonstrate usage of function Streams.writeRealMatrix</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Examples.WriteRealMatrixToFile_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Example model that shows how to write a Real matrix in MATLAB MAT format on file
+using function <a href="Modelica.Utilities.Streams.writeRealMatrix.html">writeRealMatrix</a>.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Value:</span> [11, 12; 21, 22; 31, 32]</p>
+        <p><span>Type:</span> Real[3,2]</p>
+        <p><span>Description:</span> Matrix stored in different formats on files</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>success1</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true if writing to Test_RealMatrix_v4.mat is successful</p>
+      </td>
+    </tr>
+    <tr>
+      <th>success2</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true if appending to Test_RealMatrix_v4.mat is successful</p>
+      </td>
+    </tr>
+    <tr>
+      <th>success3</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true if writing to Test_RealMatrix_v6.mat is successful</p>
+      </td>
+    </tr>
+    <tr>
+      <th>success4</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true if writing to Test_RealMatrix_v7.mat is successful</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

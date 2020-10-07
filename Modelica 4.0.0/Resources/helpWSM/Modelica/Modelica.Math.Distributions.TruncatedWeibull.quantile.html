@@ -1,0 +1,166 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Distributions.TruncatedWeibull.quantile</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Distributions.html">Distributions</a></li>
+  <li><a href="Modelica.Math.Distributions.TruncatedWeibull.html">TruncatedWeibull</a></li>
+  <li><a href="Modelica.Math.Distributions.TruncatedWeibull.quantile.html">quantile</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>quantile</h1>
+    <p>Quantile of truncated Weibull distribution</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Distributions.TruncatedWeibull.quantile_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Weibull.<strong>quantile</strong>(u, y_min=0, y_max=1, lambda=1, k=1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the inverse cumulative distribution function (= quantile) according to a
+<strong>truncated Weibull</strong> distribution with
+minimum value <strong>u_min</strong>, maximum value <strong>u_max</strong>,
+scale parameter of original distribution <strong>lambda</strong> and
+shape parameter of original distribution <strong>k</strong>.
+Input argument u must be in the range:
+</p>
+
+<blockquote>
+<p>
+0 &le; u &le; 1
+</p>
+</blockquote>
+
+<p>
+Output argument y is in the range:
+</p>
+
+<blockquote>
+<p>
+y_min &le; y &le; y_max
+</p>
+</blockquote>
+
+<p>
+Plot of the function:
+</p>
+
+<blockquote>
+<img src="resources/Modelica.Math.Distributions.TruncatedWeibull.quantile_info_001.png">
+</blockquote>
+
+<p>
+For more details<br>
+of the Weibull distribution, see
+<a href="http://en.wikipedia.org/wiki/Weibull_distribution">Wikipedia</a>,<br>
+of truncated distributions, see
+<a href="http://en.wikipedia.org/wiki/Truncated_distribution">Wikipedia</a>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+quantile(0.001)           // = 0.0006323204312624211;
+quantile(0.5,0,1,0.5,0.9) // = 0.256951787882498
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Distributions.TruncatedWeibull.density.html">TruncatedWeibull.density</a>,
+<a href="Modelica.Math.Distributions.TruncatedWeibull.cumulative.html">TruncatedWeibull.cumulative</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">y = quantile(u, y_min, y_max, lambda, k)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Random number in the range 0 <= u <= 1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_min</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Lower limit of y</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_max</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Upper limit of y</p>
+      </td>
+    </tr>
+    <tr>
+      <th>lambda</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Scale parameter of the Weibull distribution</p>
+      </td>
+    </tr>
+    <tr>
+      <th>k</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Shape parameter of the Weibull distribution</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Random number u transformed according to the given distribution</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

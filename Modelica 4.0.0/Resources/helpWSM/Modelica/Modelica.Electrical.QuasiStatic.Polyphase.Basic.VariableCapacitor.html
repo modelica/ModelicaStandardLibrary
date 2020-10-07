@@ -1,0 +1,166 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.Polyphase.html">Polyphase</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.html">Basic</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor.html">VariableCapacitor</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>VariableCapacitor</h1>
+    <p>Polyphase variable capacitor</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableCapacitor_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The linear capacitors connect the complex currents <code><u>i</u></code> with the complex
+voltages <code><u>v</u></code> by <code><u>v</u>*j*&omega;*C = <u>i</u></code>,
+using <code>m</code> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor.html">single-phase variable Capacitors</a>.
+The capacitances <code>C</code> are given as <code>m</code> input signals.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor.html">VariableCapacitor</a>,
+<a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor.html">Resistor</a>,
+<a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor.html">Conductor</a>,
+<a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Capacitor.html">Capacitor</a>,
+<a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor.html">Inductor</a>,
+<a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance.html">Impedance</a>,
+<a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance.html">Admittance</a>,
+<a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableResistor.html">Variable resistor</a>,
+<a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor.html">Variable conductor</a>,
+<a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableInductor.html">Variable inductor</a>
+<a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance.html">Variable impedance</a>,
+<a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance.html">Variable admittance</a>
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Value:</span> 3</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of phases</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug_16x16.png"></td>
+      <th>plug_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug.html">PositivePlug</a></p>
+        <p><span>Description:</span> Positive quasi-static polyphase plug</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug_16x16.png"></td>
+      <th>plug_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug.html">NegativePlug</a></p>
+        <p><span>Description:</span> Negative quasi-static polyphase plug</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>C</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput[m]</a></p>
+        <p><span>Description:</span> Variable capacitance</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_p_32x32.png"></td>
+      <th>plugToPins_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_p.html">PlugToPins_p</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_n_32x32.png"></td>
+      <th>plugToPins_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_n.html">PlugToPins_n</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexVoltage_32x32.png"></td>
+      <th>v</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexVoltage.html">ComplexVoltage[m]</a></p>
+        <p><span>Description:</span> Complex voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexCurrent_32x32.png"></td>
+      <th>i</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexCurrent.html">ComplexCurrent[m]</a></p>
+        <p><span>Description:</span> Complex current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor_32x32.png"></td>
+      <th>variableCapacitor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor.html">VariableCapacitor[m]</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

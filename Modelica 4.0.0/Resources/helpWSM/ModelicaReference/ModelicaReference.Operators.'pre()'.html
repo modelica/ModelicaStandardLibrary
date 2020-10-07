@@ -1,0 +1,93 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Operators.'pre()'</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Operators.html">Operators</a></li>
+  <li><a href="ModelicaReference.Operators.'pre()'.html">'pre()'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'pre()'</h1>
+    <p>pre()</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'pre()'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Refer to left limit
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>pre</strong>(y)</pre></blockquote>
+<h4>Description</h4>
+<p>Returns the &quot;left limit&quot; y(t<sup>pre</sup>)
+of variable y(t) at a time instant t. At an event instant,
+y(t<sup>pre</sup>) is the value of y after the last event
+iteration at time instant t. The
+<strong>pre</strong> operator can be applied if the following three
+conditions are fulfilled simultaneously:</p>
+<ul>
+  <li>variable y is a subtype of a simple type</li>
+  <li>y is a discrete-time expression</li>
+  <li>the operator is <strong>not</strong> applied in a <strong>function</strong> class</li>
+</ul>
+<p>The first value of <strong>pre</strong>(y) is
+determined in the initialization phase.</p>
+<p>A new event is triggered if at least for one variable v
+&quot;<strong>pre</strong>(v) &lt;&gt; v&quot; after the active model
+equations are evaluated at an event instant. In this case
+the model is at once reevaluated. This evaluation sequence
+is called &quot;<em>event iteration</em>&quot;. The integration
+is restarted, if for all v used in <strong>pre</strong>-operators the
+following condition holds: &quot;<strong>pre</strong>(v) == v&quot;.</p>
+<p><em>[If v and <strong>pre</strong>(v) are only used in when clauses,
+the translator might mask event iteration for variable v since
+v cannot change during event iteration. It is a &quot;quality
+of implementation&quot; to find the minimal loops for event
+iteration, i.e., not all parts of the model need to be
+reevaluated.</em></p>
+<p><em>The language allows mixed algebraic systems of equations
+where the unknown variables are of type Real, Integer, Boolean,
+or an enumeration. These systems of equations can be solved by
+a global fix point iteration scheme, similarly to the event
+iteration, by fixing the Boolean,  Integer, and/or enumeration
+unknowns during one iteration. Again, it is a quality of
+implementation to solve these systems more efficiently, e.g.,
+by applying the fix point iteration scheme to a subset of the
+model equations.]</em></p>
+<p><em>Note that <strong>pre</strong>(v) requires the argument to be a variable and a discrete-time expression,
+this formulation was chosen to allow using <strong>pre</strong>(v) both for discrete-time variables and
+for continuous-time variables inside when-clauses.
+</em></p>
+<h4>Examples</h4>
+<blockquote><pre><strong>model</strong> Hysteresis
+  Real u;
+  Boolean y;
+<strong>equation</strong>
+  u = Modelica.Math.sin(<strong>time</strong>);
+  y = u &gt; 0.5 or <strong>pre</strong>(y) and u &gt;= -0.5;
+<strong>end</strong> Hysteresis;</pre></blockquote>
+
+<div>
+<img src="resources/ModelicaReference.Operators.'pre()'_info_001.png" width="400" height="280" alt="Simulation result">
+</div>
+</div>
+</section>
+</div>
+</body>
+</html>

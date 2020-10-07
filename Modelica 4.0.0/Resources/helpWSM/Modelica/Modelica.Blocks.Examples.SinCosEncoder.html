@@ -1,0 +1,161 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Examples.SinCosEncoder</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Blocks.Examples.SinCosEncoder.html">SinCosEncoder</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SinCosEncoder</h1>
+    <p>Evaluation of a sinusoidal encoder</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Examples.SinCosEncoder_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Blocks.Examples.SinCosEncoder_diagram_large.png"><img src="resources/diagrams/Modelica.Blocks.Examples.SinCosEncoder_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This examples demonstrates robust evaluation of a sin-cos-encoder.
+</p>
+<p>
+The sin-cos-encoder provides four tracks:
+</p>
+<ul>
+<li>cosine</li>
+<li>minus sine</li>
+<li>sine</li>
+<li>minus cosine</li>
+</ul>
+<p>
+All four tracks have the same amplitude and the same offset &gt; amplitude. Offset is used to detect loss of a track.
+To remove offset, (minus sine) is subtracted from (sine) and (minus cosine) from (cosine),
+resulting in a cosine and a sine signal with doubled amplitude but without offset.
+</p>
+<p>
+Interpreting cosine and sine as real and imaginary part of a phasor, one could calculate the angle of the phasor (i.e. transform rectangular coordinates to polar coordinates).
+This is not very robust if the signals are superimposed with some noise.
+Therefore the phasor is rotated by an angle that is obtained by a controller. The controller aims at imaginary part equal to zero.
+The resulting angle is continuous, i.e. differentiating the angle results in 2*&pi;*frequency.
+If desired, the angle can be wrapped to the interval [-&pi;, +&pi;].
+</p>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(12)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Ramp_32x32.png"></td>
+      <th>ramp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Ramp.html">Ramp</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.CosineVariableFrequencyAndAmplitude_32x32.png"></td>
+      <th>cosB</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.CosineVariableFrequencyAndAmplitude.html">CosineVariableFrequencyAndAmplitude</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.CosineVariableFrequencyAndAmplitude_32x32.png"></td>
+      <th>cosBminus</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.CosineVariableFrequencyAndAmplitude.html">CosineVariableFrequencyAndAmplitude</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude_32x32.png"></td>
+      <th>sinA</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude.html">SineVariableFrequencyAndAmplitude</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude_32x32.png"></td>
+      <th>sinAminus</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude.html">SineVariableFrequencyAndAmplitude</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Feedback_32x32.png"></td>
+      <th>feedbackCos</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Feedback.html">Feedback</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Feedback_32x32.png"></td>
+      <th>feedbackSin</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Feedback.html">Feedback</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator_32x32.png"></td>
+      <th>rotator</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator.html">Rotator</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Integrator_32x32.png"></td>
+      <th>integrator</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Integrator.html">Integrator</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Der_32x32.png"></td>
+      <th>der1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Der.html">Der</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.WrapAngle_32x32.png"></td>
+      <th>wrapAngle</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.WrapAngle.html">WrapAngle</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar_32x32.png"></td>
+      <th>toPolar</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar.html">ToPolar</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

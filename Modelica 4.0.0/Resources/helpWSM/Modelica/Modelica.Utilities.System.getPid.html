@@ -1,0 +1,76 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Utilities.System.getPid</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.System.html">System</a></li>
+  <li><a href="Modelica.Utilities.System.getPid.html">getPid</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>getPid</h1>
+    <p>Retrieve the current process id</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.System.getPid_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+pid = System.<strong>getPid</strong>();
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns the pid (process identification) of the process in which this function
+is called. This is an impure function and the returned value depends on the
+operating system.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+getPid()   // = 3044
+</pre></blockquote>
+<h4>Note</h4>
+<p>This function is impure!</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">pid = getPid()
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>pid</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Process ID</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,350 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Tables.CombiTable1Dv</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Tables.html">Tables</a></li>
+  <li><a href="Modelica.Blocks.Tables.CombiTable1Dv.html">CombiTable1Dv</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>CombiTable1Dv</h1>
+    <p>Table look-up in one dimension (matrix/file) with n inputs and n outputs</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Tables.CombiTable1Dv_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+<strong>Univariate constant</strong>, <strong>linear</strong> or <strong>cubic Hermite
+spline interpolation</strong> in <strong>one</strong> dimension of a
+<strong>table</strong>.
+Via parameter <strong>columns</strong> it can be defined how many columns of the
+table are interpolated. If, e.g., columns={2,4}, it is assumed that 2 input
+and 2 output signals are present and that the first output interpolates
+the first input via column 2 and the second output interpolates the
+second input via column 4 of the table matrix.
+</p>
+<p>
+The grid points and function values are stored in a matrix "table[i,j]",
+where the first column "table[:,1]" contains the grid points and the
+other columns contain the data to be interpolated. Example:
+</p>
+<blockquote><pre>
+table = [0,  0;
+         1,  1;
+         2,  4;
+         4, 16]
+If, e.g., the input u = 1.0, the output y =  1.0,
+    e.g., the input u = 1.5, the output y =  2.5,
+    e.g., the input u = 2.0, the output y =  4.0,
+    e.g., the input u =-1.0, the output y = -1.0 (i.e., extrapolation).
+</pre></blockquote>
+<ul>
+<li>The interpolation interval is found by a binary search where the interval used in the
+    last call is used as start interval.</li>
+<li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
+<blockquote><pre>
+smoothness = 1: Linear interpolation
+           = 2: Akima interpolation: Smooth interpolation by cubic Hermite
+                splines such that der(y) is continuous, also if extrapolated.
+           = 3: Constant segments
+           = 4: Fritsch-Butland interpolation: Smooth interpolation by cubic
+                Hermite splines such that y preserves the monotonicity and
+                der(y) is continuous, also if extrapolated.
+           = 5: Steffen interpolation: Smooth interpolation by cubic Hermite
+                splines such that y preserves the monotonicity and der(y)
+                is continuous, also if extrapolated.
+           = 6: Modified Akima interpolation: Smooth interpolation by cubic
+                Hermite splines such that der(y) is continuous, also if
+                extrapolated. Additionally, overshoots and edge cases of the
+                original Akima interpolation method are avoided.
+</pre></blockquote></li>
+<li>First and second <strong>derivatives</strong> are provided, with exception of the following two smoothness options.
+<ol>
+<li>No derivatives are provided for interpolation by constant segments.</li>
+<li>No second derivative is provided for linear interpolation.</li>
+</ol></li>
+<li>Values <strong>outside</strong> of the table range, are computed by
+    extrapolation according to the setting of parameter <strong>extrapolation</strong>:
+<blockquote><pre>
+extrapolation = 1: Hold the first or last value of the table,
+                   if outside of the table scope.
+              = 2: Extrapolate by using the derivative at the first/last table
+                   points if outside of the table scope.
+                   (If smoothness is LinearSegments or ConstantSegments
+                   this means to extrapolate linearly through the first/last
+                   two table points.).
+              = 3: Periodically repeat the table data (periodical function).
+              = 4: No extrapolation, i.e. extrapolation triggers an error
+</pre></blockquote></li>
+<li>If the table has only <strong>one row</strong>, the table value is returned,
+    independent of the value of the input signal.</li>
+<li>The grid values (first column) have to be strictly increasing.</li>
+</ul>
+<p>
+The table matrix can be defined in the following ways:
+</p>
+<ol>
+<li>Explicitly supplied as <strong>parameter matrix</strong> "table",
+    and the other parameters have the following values:
+<blockquote><pre>
+tableName is "NoName" or has only blanks,
+fileName  is "NoName" or has only blanks.
+</pre></blockquote></li>
+<li><strong>Read</strong> from a <strong>file</strong> "fileName" where the matrix is stored as
+    "tableName". Both text and MATLAB MAT-file format is possible.
+    (The text format is described below).
+    The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
+    The library supports at least v4, v6 and v7 whereas v7.3 is optional.
+    It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
+    by command
+<blockquote><pre>
+save tables.mat tab1 tab2 tab3
+</pre></blockquote>
+    or Scilab by command
+<blockquote><pre>
+savematfile tables.mat tab1 tab2 tab3
+</pre></blockquote>
+    when the three tables tab1, tab2, tab3 should be used from the model.<br>
+    Note, a fileName can be defined as URI by using the helper function
+    <a href="Modelica.Utilities.Files.loadResource.html">loadResource</a>.</li>
+<li>Statically stored in function "usertab" in file "usertab.c".
+    The matrix is identified by "tableName". Parameter
+    fileName = "NoName" or has only blanks. Row-wise storage is always to be
+    preferred as otherwise the table is reallocated and transposed.
+    See the <a href="Modelica.Blocks.Tables.html">Tables</a> package
+    documentation for more details.</li>
+</ol>
+<p>
+When the constant "NO_FILE_SYSTEM" is defined, all file I/O related parts of the
+source code are removed by the C-preprocessor, such that no access to files takes place.
+</p>
+<p>
+If tables are read from a text file, the file needs to have the
+following structure ("-----" is not part of the file content):
+</p>
+<blockquote><pre>
+-----------------------------------------------------
+#1
+double tab1(5,2)   # comment line
+  0   0
+  1   1
+  2   4
+  3   9
+  4  16
+double tab2(5,2)   # another comment line
+  0   0
+  2   2
+  4   8
+  6  18
+  8  32
+-----------------------------------------------------
+</pre></blockquote>
+<p>
+Note, that the first two characters in the file need to be
+"#1" (a line comment defining the version number of the file format).
+Afterwards, the corresponding matrix has to be declared
+with type (= "double" or "float"), name and actual dimensions.
+Finally, in successive rows of the file, the elements of the matrix
+have to be given. The elements have to be provided as a sequence of
+numbers in row-wise order (therefore a matrix row can span several
+lines in the file and need not start at the beginning of a line).
+Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
+Number separators are spaces, tab (\t), comma (,), or semicolon (;).
+Several matrices may be defined one after another. Line comments start
+with the hash symbol (#) and can appear everywhere.
+Text files should either be ASCII or UTF-8 encoded, where UTF-8 encoded strings are only allowed in line comments and an optional UTF-8 BOM at the start of the text file is ignored.
+Other characters, like trailing non comments, are not allowed in the file.
+</p>
+<p>
+MATLAB is a registered trademark of The MathWorks, Inc.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(12)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Value:</span> size(columns, 1)</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of inputs (= number of outputs)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tableOnFile</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if table is defined on file or in function usertab</p>
+      </td>
+    </tr>
+    <tr>
+      <th>table</th>
+      <td>
+        <p><span>Value:</span> fill(0.0, 0, 2)</p>
+        <p><span>Type:</span> Real[:,:]</p>
+        <p><span>Description:</span> Table matrix (grid = first column; e.g., table=[0, 0; 1, 1; 2, 4])</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tableName</th>
+      <td>
+        <p><span>Value:</span> "NoName"</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Table name on file or in function usertab (see docu)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fileName</th>
+      <td>
+        <p><span>Value:</span> "NoName"</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> File where matrix is stored</p>
+      </td>
+    </tr>
+    <tr>
+      <th>verboseRead</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if info message that file is loading is to be printed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>columns</th>
+      <td>
+        <p><span>Value:</span> 2:size(table, 2)</p>
+        <p><span>Type:</span> Integer[:]</p>
+        <p><span>Description:</span> Columns of table to be interpolated</p>
+      </td>
+    </tr>
+    <tr>
+      <th>smoothness</th>
+      <td>
+        <p><span>Value:</span> Modelica.Blocks.Types.Smoothness.LinearSegments</p>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Types.Smoothness.html">Smoothness</a></p>
+        <p><span>Description:</span> Smoothness of table interpolation</p>
+      </td>
+    </tr>
+    <tr>
+      <th>extrapolation</th>
+      <td>
+        <p><span>Value:</span> Modelica.Blocks.Types.Extrapolation.LastTwoPoints</p>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Types.Extrapolation.html">Extrapolation</a></p>
+        <p><span>Description:</span> Extrapolation of data outside the definition range</p>
+      </td>
+    </tr>
+    <tr>
+      <th>verboseExtrapolation</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if warning messages are to be printed if table input is outside the definition range</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u_min</th>
+      <td>
+        <p><span>Value:</span> Internal.getTable1DAbscissaUmin(tableID)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Minimum abscissa value defined in table</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u_max</th>
+      <td>
+        <p><span>Value:</span> Internal.getTable1DAbscissaUmax(tableID)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Maximum abscissa value defined in table</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput[n]</a></p>
+        <p><span>Description:</span> Connector of Real input signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[n]</a></p>
+        <p><span>Description:</span> Connector of Real output signals</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td></td>
+      <th>tableID</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Types.ExternalCombiTable1D.html">ExternalCombiTable1D</a></p>
+        <p><span>Description:</span> External table object</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenTable_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenTable.html">GenericHystTellinenTable</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets</span></p>
+        <p>Generic flux tube with ferromagnetic hysteresis based on the Tellinen model and table data</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

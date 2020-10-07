@@ -1,0 +1,106 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.Utilities.regSquare2.regSquare2_utility</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Fluid.Utilities.regSquare2.html">regSquare2</a></li>
+  <li><a href="Modelica.Fluid.Utilities.regSquare2.regSquare2_utility.html">regSquare2_utility</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>regSquare2_utility</h1>
+    <p>Interpolating with two 3-order polynomials with a prescribed derivative at x=0</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Utilities.regSquare2.regSquare2_utility_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">y = regSquare2_utility(x, x1, k1, k2, use_yd0, yd0)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>x</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x1</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Approximation of function abs(x) < x1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>k1</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> y = (if x>=0 then k1 else -k2)*x*|x|; k1 >= k2</p>
+      </td>
+    </tr>
+    <tr>
+      <th>k2</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> y = (if x>=0 then k1 else -k2)*x*|x|</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_yd0</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if yd0 shall be used</p>
+      </td>
+    </tr>
+    <tr>
+      <th>yd0</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Desired derivative at x=0: dy/dx = yd0</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

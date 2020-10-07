@@ -1,0 +1,254 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.Translational.Examples.Vehicle</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Translational.html">Translational</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Examples.Vehicle.html">Vehicle</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Vehicle</h1>
+    <p>One-dimensional vehicle with driving resistances</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Translational.Examples.Vehicle_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.Translational.Examples.Vehicle_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.Translational.Examples.Vehicle_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Vehicles <code>vehicle</code> and <code>vehicle1</code> are accelerated
+and decelerated by a&nbsp;driving torque.
+Nominal torque is defined as the sum of driving resistances at nominal
+velocity <code>vNom</code> times wheel radius&nbsp;<code>R</code>.
+</p>
+<p>
+Starting at 5&nbsp;s, the <code>vehicle</code> is accelerated by a&nbsp;multiple of nominal torque until it nearly reaches nominal velocity, then driven by nominal torque.
+Between 20&nbsp;s and 25&nbsp;s, an inclination of 5&nbsp;% occurs and driving torque is increased to a&nbsp;multiple of nominal torque temporarily.
+Between 50&nbsp;s and 55&nbsp;s, the driving torque is set below zero, causing the vehicle to decelerate.
+After 55&nbsp;s, the vehicle decelerates due to the driving resistances.
+</p>
+<p>
+Coupling the <code>trailer</code> with the same data but without drive,
+the driving torque of <code>vehicle1</code> has to be doubled to achieve the same acceleration and velocity.
+Force and power between the two vehicles is measured.
+</p>
+
+<h4>Note</h4>
+<p>
+Since the <code>trailer</code> is coupled tightly with the <code>vehicle1</code>,
+initialization of the trailer has to be removed.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(13)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Value:</span> 100</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Mass.html">Mass</a> (kg)</p>
+        <p><span>Description:</span> Mass of vehicle</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Value:</span> 0.25</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Radius of wheel</p>
+      </td>
+    </tr>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Cross section of vehicle</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Cd</th>
+      <td>
+        <p><span>Value:</span> 0.5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Drag resistance coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rho</th>
+      <td>
+        <p><span>Value:</span> 1.18</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Density.html">Density</a> (kg/m³)</p>
+        <p><span>Description:</span> Density of air</p>
+      </td>
+    </tr>
+    <tr>
+      <th>vWind</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Velocity.html">Velocity</a> (m/s)</p>
+        <p><span>Description:</span> Constant wind velocity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Cr</th>
+      <td>
+        <p><span>Value:</span> 0.01</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Rolling resistance coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>inclination</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Constant inclination = tan(angle)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>vNom</th>
+      <td>
+        <p><span>Value:</span> 25 / 3.5</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Velocity.html">Velocity</a> (m/s)</p>
+        <p><span>Description:</span> Nominal velocity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fDrag</th>
+      <td>
+        <p><span>Value:</span> Cd * A * rho * (vNom - vWind) ^ 2 / 2</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Force.html">Force</a> (N)</p>
+        <p><span>Description:</span> Drag resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha</th>
+      <td>
+        <p><span>Value:</span> atan(inclination)</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Inclination angle</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fRoll</th>
+      <td>
+        <p><span>Value:</span> Cr * m * g_n * cos(alpha)</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Force.html">Force</a> (N)</p>
+        <p><span>Description:</span> Roll resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fGrav</th>
+      <td>
+        <p><span>Value:</span> m * g_n * sin(alpha)</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Force.html">Force</a> (N)</p>
+        <p><span>Description:</span> Grav resistance</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Vehicle_32x32.png"></td>
+      <th>vehicle</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Vehicle.html">Vehicle</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Vehicle_32x32.png"></td>
+      <th>vehicle1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Vehicle.html">Vehicle</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Vehicle_32x32.png"></td>
+      <th>trailer</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Vehicle.html">Vehicle</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.MultiSensor_32x32.png"></td>
+      <th>multiSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Sensors.MultiSensor.html">MultiSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.CombiTimeTable_32x32.png"></td>
+      <th>timeTableTorqueInclination</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.CombiTimeTable.html">CombiTimeTable</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.Torque_32x32.png"></td>
+      <th>torque</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sources.Torque.html">Torque</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.Torque_32x32.png"></td>
+      <th>torque1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sources.Torque.html">Torque</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>gain</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>gain1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

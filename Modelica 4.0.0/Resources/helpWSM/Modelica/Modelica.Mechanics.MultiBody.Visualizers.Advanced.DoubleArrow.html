@@ -1,0 +1,248 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.html">Advanced</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow.html">DoubleArrow</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>DoubleArrow</h1>
+    <p>Visualizing a double arrow with variable size</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Model <strong>DoubleArrow</strong> defines a double arrow that is dynamically
+visualized at the defined location (see variables below).
+Nonetheless, visualizing physical vectors by means of
+<a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector.html">Vector</a>
+can be better option in many cases.
+</p>
+
+<p>
+<img src="resources/Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow_info_001.png" alt="model Visualizers.Advanced.DoubleArrow">
+</p>
+
+<p>
+The dialog variables <code>R</code>, <code>r</code>, <code>r_tail</code>, <code>r_head</code>, <code>color</code>,
+<code>specularCoefficient</code>, and <code>headAtOrigin</code>
+are declared as (time varying) <strong>input</strong> variables.
+If the default equation is not appropriate, a&nbsp;corresponding
+modifier equation has to be provided in the
+model where an <strong>Arrow</strong> instance is used, e.g., in the form
+</p>
+
+<blockquote><pre>
+Visualizers.Advanced.DoubleArrow doubleArrow(r_head = {sin(time),cos(time},0})
+</pre></blockquote>
+
+<p>
+Variable <strong>color</strong> is an Integer vector with 3&nbsp;elements,
+{r,&nbsp;g,&nbsp;b}, and specifies the color of the shape.
+{r,&nbsp;g,&nbsp;b} are the &quot;red&quot;, &quot;green&quot; and &quot;blue&quot; color parts.
+Note, r, g and b are given in the range 0&nbsp;&hellip;&nbsp;255.
+The predefined type
+<a href="Modelica.Mechanics.MultiBody.Types.Color.html">MultiBody.Types.Color</a>
+contains a&nbsp;menu definition of the colors used in the MultiBody
+library together with a&nbsp;color editor.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>quantity</th>
+      <td>
+        <p><span>Value:</span> Types.VectorQuantity.Torque</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.VectorQuantity.html">VectorQuantity</a></p>
+        <p><span>Description:</span> Kind of physical quantity represented by the vector</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Default Value:</span> Frames.nullRotation()</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object to rotate the world frame into the arrow frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r</th>
+      <td>
+        <p><span>Default Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> Position vector from origin of world frame to origin of arrow frame, resolved in world frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r_tail</th>
+      <td>
+        <p><span>Default Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> Position vector from origin of arrow frame to double arrow tail, resolved in arrow frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r_head</th>
+      <td>
+        <p><span>Default Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> Real[3]</p>
+        <p><span>Description:</span> Vector from double arrow tail to the head of the double arrow, resolved in arrow frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>color</th>
+      <td>
+        <p><span>Default Value:</span> Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of double arrow</p>
+      </td>
+    </tr>
+    <tr>
+      <th>specularCoefficient</th>
+      <td>
+        <p><span>Default Value:</span> world.defaultSpecularCoefficient</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.SpecularCoefficient.html">SpecularCoefficient</a></p>
+        <p><span>Description:</span> Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>headAtOrigin</th>
+      <td>
+        <p><span>Default Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if the vector is pointing towards the origin of vector frame</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.Orientation_32x32.png"></td>
+      <th>R</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object to rotate the world frame into the arrow frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector_32x32.png"></td>
+      <th>arrowLine</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector.html">Vector</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.WorldTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.WorldTorque.html">WorldTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span></p>
+        <p>External torque acting at frame_b, defined by 3 input signals and resolved in frame world, frame_b or frame_resolve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque.html">WorldForceAndTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span></p>
+        <p>External force and torque acting at frame_b, defined by 3+3 input signals and resolved in frame world, frame_b or in frame_resolve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Torque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.Torque.html">Torque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span></p>
+        <p>Torque acting between two frames, defined by 3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.ForceAndTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.ForceAndTorque.html">ForceAndTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span></p>
+        <p>Force and torque acting between two frames, defined by 3+3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.CutTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.CutTorque.html">CutTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure cut torque vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque.html">CutForceAndTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure cut force and cut torque vector</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

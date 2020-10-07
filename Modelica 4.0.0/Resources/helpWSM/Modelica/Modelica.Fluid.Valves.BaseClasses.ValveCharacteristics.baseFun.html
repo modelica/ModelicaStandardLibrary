@@ -1,0 +1,127 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.Valves.BaseClasses.ValveCharacteristics.baseFun</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Valves.html">Valves</a></li>
+  <li><a href="Modelica.Fluid.Valves.BaseClasses.html">BaseClasses</a></li>
+  <li><a href="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.html">ValveCharacteristics</a></li>
+  <li><a href="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.baseFun.html">baseFun</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>baseFun</h1>
+    <p>Base class for valve characteristics</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.baseFun_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This is a partial function that defines the interface of valve
+characteristics. The function returns "rc = valveCharacteristic" as function of the
+opening "pos" (in the range 0..1):
+</p>
+
+<blockquote><pre>
+    dp = (zeta_TOT/2) * rho * velocity^2
+m_flow =    sqrt(2/zeta_TOT) * Av * sqrt(rho * dp)
+m_flow = valveCharacteristic * Av * sqrt(rho * dp)
+m_flow =                  rc * Av * sqrt(rho * dp)
+</pre></blockquote>
+</div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>pos</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Opening position (0: closed, 1: fully open)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>rc</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Relative flow coefficient (per unit)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.equalPercentage_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.equalPercentage.html">equalPercentage</a></p>
+        <p><span>Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics</span></p>
+        <p>Equal percentage characteristic</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.quadratic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.quadratic.html">quadratic</a></p>
+        <p><span>Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics</span></p>
+        <p>Quadratic characteristic</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.one_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.one.html">one</a></p>
+        <p><span>Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics</span></p>
+        <p>Constant characteristic</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.linear_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.linear.html">linear</a></p>
+        <p><span>Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics</span></p>
+        <p>Linear characteristic</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

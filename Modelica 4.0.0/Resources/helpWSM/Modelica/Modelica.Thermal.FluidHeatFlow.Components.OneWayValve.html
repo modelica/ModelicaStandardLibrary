@@ -1,0 +1,231 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Thermal.FluidHeatFlow.Components.OneWayValve</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Thermal.html">Thermal</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.html">FluidHeatFlow</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.Components.html">Components</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.Components.OneWayValve.html">OneWayValve</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>OneWayValve</h1>
+    <p>Simple one-way valve</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Components.OneWayValve_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>Simple one-way valve, comparable to the electrical <a href="Modelica.Electrical.Analog.Ideal.IdealDiode.html">ideal diode</a> model.</p>
+<ul>
+<li>from flowPort_a to flowPort_b: small pressure drop, linearly dependent on volumeFlow</li>
+<li>from flowPort_b to flowPort_a: small leakage flow, linearly dependent on pressure drop</li>
+</ul>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>medium</th>
+      <td>
+        <p><span>Value:</span> FluidHeatFlow.Media.Medium()</p>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Media.Medium.html">Medium</a></p>
+        <p><span>Description:</span> Medium in the component</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Mass.html">Mass</a> (kg)</p>
+        <p><span>Description:</span> Mass of medium</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T0</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Initial temperature of medium</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T0fixed</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Initial temperature guess value or fixed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tapT</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Defines temperature of heatPort between inlet and outlet temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>V_flowNominal</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.VolumeFlowRate.html">VolumeFlowRate</a> (m³/s)</p>
+        <p><span>Description:</span> Nominal volume flow rate (forward)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dpForward</th>
+      <td>
+        <p><span>Value:</span> 1e-6</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Pressure drop at nominal flow (forward)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dpNominal</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Nominal pressure (backward)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>V_flowBackward</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.VolumeFlowRate.html">VolumeFlowRate</a> (m³/s)</p>
+        <p><span>Description:</span> Leakage volume flow rate (backward)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>frictionLoss</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Part of friction losses fed to medium</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Outlet temperature of medium</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Temperature at flowPort_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Temperature at flowPort_b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dT</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.TemperatureDifference.html">TemperatureDifference</a> (K)</p>
+        <p><span>Description:</span> Temperature increase of coolant in flow direction</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a_16x16.png"></td>
+      <th>flowPort_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a.html">FlowPort_a</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b_16x16.png"></td>
+      <th>flowPort_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b.html">FlowPort_b</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Media.Medium_32x32.png"></td>
+      <th>medium</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Media.Medium.html">Medium</a></p>
+        <p><span>Description:</span> Medium in the component</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.WaterPump_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.WaterPump.html">WaterPump</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span></p>
+        <p>Water pumping station</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

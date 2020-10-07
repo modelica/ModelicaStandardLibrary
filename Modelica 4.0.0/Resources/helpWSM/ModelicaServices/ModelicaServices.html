@@ -1,0 +1,158 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaServices</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaServices.html">ModelicaServices</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ModelicaServices</h1>
+    <p>ModelicaServices (Default implementation) - Models and functions used in the Modelica Standard Library requiring a tool specific implementation</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaServices_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/ModelicaServices.UsersGuide_32x32.png"></td>
+      <td>
+        <p><a href="ModelicaServices.UsersGuide.html">UsersGuide</a></p>
+        <p>User's Guide</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/ModelicaServices.Animation_32x32.png"></td>
+      <td>
+        <p><a href="ModelicaServices.Animation.html">Animation</a></p>
+        <p>Models and functions for 3-dim. animation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/ModelicaServices.ExternalReferences_32x32.png"></td>
+      <td>
+        <p><a href="ModelicaServices.ExternalReferences.html">ExternalReferences</a></p>
+        <p>Library of functions to access external resources</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/ModelicaServices.Machine_32x32.png"></td>
+      <td>
+        <p><a href="ModelicaServices.Machine.html">Machine</a></p>
+        <p>Machine dependent constants</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/ModelicaServices.System_32x32.png"></td>
+      <td>
+        <p><a href="ModelicaServices.System.html">System</a></p>
+        <p>System dependent functions</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/ModelicaServices.Types_32x32.png"></td>
+      <td>
+        <p><a href="ModelicaServices.Types.html">Types</a></p>
+        <p>Library of types with vendor specific choices</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="constants" >
+  <h1>Package Constants <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>target</th>
+      <td>
+        <p><span>Value:</span> .WSMServices.target</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Target of this ModelicaServices implementation</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This package contains a set of functions and models to be used in the
+Modelica Standard Library that requires a tool specific implementation.
+These are:
+</p>
+
+<ul>
+<li> <a href="ModelicaServices.Animation.Shape.html">Animation.Shape</a>
+     provides a 3-dim. visualization of elementary
+     mechanical objects. It is used in
+<a href="../Modelica/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>
+     via inheritance.</li>
+
+<li> <a href="ModelicaServices.Animation.Surface.html">Animation.Surface</a>
+     provides a 3-dim. visualization of
+     moveable parameterized surface. It is used in
+<a href="../Modelica/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface.html">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</a>
+     via inheritance.</li>
+
+<li> <a href="ModelicaServices.Animation.Vector.html">Animation.Vector</a>
+     provides a 3-dim. visualization of vector quantities. It is used in
+<a href="../Modelica/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow.html">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow</a>, <a href="../Modelica/Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow.html">Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow</a> and <a href="../Modelica/Modelica.Mechanics.MultiBody.Visualizers.FixedArrow.html">Modelica.Mechanics.MultiBody.Visualizers.FixedArrow</a>
+     via inheritance.</li>
+
+<li> <a href="ModelicaServices.ExternalReferences.loadResource.html">ExternalReferences.loadResource</a>
+     provides a function to return the absolute path name of an URI or a local file name. It is used in
+<a href="../Modelica/Modelica.Utilities.Files.loadResource.html">Modelica.Utilities.Files.loadResource</a>
+     via inheritance.</li>
+
+<li> <a href="ModelicaServices.Machine.html">Machine</a>
+     provides a package of machine constants. It is used in
+<a href="../Modelica/Modelica.Constants.html">Modelica.Constants</a>.</li>
+
+<li> <a href="ModelicaServices.System.exit.html">System.exit</a> provides a function to terminate the execution of the Modelica environment. It is used in <a href="../Modelica/Modelica.Utilities.System.exit.html">Modelica.Utilities.System.exit</a> via inheritance.</li>
+
+<li> <a href="ModelicaServices.Types.SolverMethod.html">Types.SolverMethod</a>
+     provides a string defining the integration method to solve differential equations in
+     a clocked discretized continuous-time partition
+     (see <a href="https://specification.modelica.org/v3.4/Ch16.html#solver-methods">Section 16.8.2 (Solver Methods) of the Modelica 3.4 specification</a>).</li>
+</ul>
+
+<p>
+This is the default implementation, if no tool-specific implementation is available.
+This ModelicaServices package provides only "dummy" models that do nothing.
+</p>
+
+<p>
+<strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
+Copyright &copy; 2009-2020, Modelica Association and contributors
+</p>
+
+<p>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href="https://modelica.org/licenses/modelica-3-clause-bsd">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

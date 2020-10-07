@@ -1,0 +1,204 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Analog.Examples.OpAmps.ControlCircuit</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Analog.html">Analog</a></li>
+  <li><a href="Modelica.Electrical.Analog.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.Analog.Examples.OpAmps.html">OpAmps</a></li>
+  <li><a href="Modelica.Electrical.Analog.Examples.OpAmps.ControlCircuit.html">ControlCircuit</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ControlCircuit</h1>
+    <p>Control circuit</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Analog.Examples.OpAmps.ControlCircuit_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Analog.Examples.OpAmps.ControlCircuit_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Analog.Examples.OpAmps.ControlCircuit_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This is an analog control circuit with operational amplifiers.</p>
+<p>Compare the analog solution with the block circuit, e.g. <code>firstOrder2B.y</code> and <code>firstOrder2A.v2</code>.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>T1</th>
+      <td>
+        <p><span>Value:</span> 0.01</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Small time constant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T2</th>
+      <td>
+        <p><span>Value:</span> 0.01</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Large time constant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ti</th>
+      <td>
+        <p><span>Value:</span> T2</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Integral time constant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>kp</th>
+      <td>
+        <p><span>Value:</span> T2 / (2 * T1)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Proportional gain</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(15)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>ground</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.StepVoltage_32x32.png"></td>
+      <th>stepA</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.StepVoltage.html">StepVoltage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits.Feedback_32x32.png"></td>
+      <th>feedbackA</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits.Feedback.html">Feedback</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits.PI_32x32.png"></td>
+      <th>PIA</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits.PI.html">PI</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits.FirstOrder_32x32.png"></td>
+      <th>firstOrder1A</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits.FirstOrder.html">FirstOrder</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits.Add_32x32.png"></td>
+      <th>addA</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits.Add.html">Add</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.StepVoltage_32x32.png"></td>
+      <th>step1A</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.StepVoltage.html">StepVoltage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits.FirstOrder_32x32.png"></td>
+      <th>firstOrder2A</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits.FirstOrder.html">FirstOrder</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Step_32x32.png"></td>
+      <th>stepB</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Feedback_32x32.png"></td>
+      <th>feedbackB</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Feedback.html">Feedback</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.PI_32x32.png"></td>
+      <th>PIB</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.PI.html">PI</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.FirstOrder_32x32.png"></td>
+      <th>firstOrder1B</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.FirstOrder.html">FirstOrder</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Add_32x32.png"></td>
+      <th>addB</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Add.html">Add</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Step_32x32.png"></td>
+      <th>step1B</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.FirstOrder_32x32.png"></td>
+      <th>firstOrder2B</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.FirstOrder.html">FirstOrder</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,301 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.PowerConverters.Examples.ACAC.SoftStarter</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.html">PowerConverters</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.Examples.ACAC.html">ACAC</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.Examples.ACAC.SoftStarter.html">SoftStarter</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SoftStarter</h1>
+    <p>Soft start of an induction machine</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACAC.SoftStarter_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.PowerConverters.Examples.ACAC.SoftStarter_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.PowerConverters.Examples.ACAC.SoftStarter_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This model demonstrates a soft start of an induction machine:
+Voltage ramp is started at 0.1 s and should ramp up to nominal voltage within 4s,
+but current is limited to 2.5 times nominal current.
+At 5.5 s a voltage ramp down within 3 s is required.
+</p>
+<p>Reference voltage is controlled by the
+<a href="Modelica.Electrical.PowerConverters.ACAC.Control.SoftStartControl.html">softStartControl block</a>,
+reference voltage is converted to firing angle by the
+<a href="Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle.html">voltageToAngle block</a>.
+Firing angle is processed by the
+<a href="Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse.html">Signal2mPulse adaptor</a>
+to firing signals which are applied to the
+<a href="Modelica.Electrical.PowerConverters.ACAC.PolyphaseTriac.html">triac</a>.
+</p>
+<p>
+Compare starting with firing angle by
+<a href="Modelica.Electrical.Machines.Examples.InductionMachines.IMC_DOL.html">starting direct on line</a>,
+<a href="Modelica.Electrical.Machines.Examples.InductionMachines.IMC_YD.html">star-delta starting</a>, and
+<a href="Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Transformer.html">starting via a transformer</a>.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>VNominal</th>
+      <td>
+        <p><span>Value:</span> 100</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Nominal RMS voltage line to line</p>
+      </td>
+    </tr>
+    <tr>
+      <th>INominal</th>
+      <td>
+        <p><span>Value:</span> 100 * y2d</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Nominal RMS current at the terminals</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fNominal</th>
+      <td>
+        <p><span>Value:</span> aimcData.fsNominal</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Nominal frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>JLoad</th>
+      <td>
+        <p><span>Value:</span> aimcData.Jr</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Load's moment of inertia</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TLoad</th>
+      <td>
+        <p><span>Value:</span> 161.4</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Torque.html">Torque</a> (N·m)</p>
+        <p><span>Description:</span> Nominal load torque</p>
+      </td>
+    </tr>
+    <tr>
+      <th>wLoad</th>
+      <td>
+        <p><span>Value:</span> 1440.45 * 2 * Modelica.Constants.pi / 60</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.AngularVelocity.html">AngularVelocity</a> (rad/s)</p>
+        <p><span>Description:</span> Nominal load speed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>aimcData</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData.html">IM_SquirrelCageData</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(23)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Sources.SineVoltage_32x32.png"></td>
+      <th>sineVoltage</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Sources.SineVoltage.html">SineVoltage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Basic.Star_32x32.png"></td>
+      <th>star</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Basic.Star.html">Star</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>ground</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor_32x32.png"></td>
+      <th>currentQuasiRMSSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor.html">CurrentQuasiRMSSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACAC.PolyphaseTriac_32x32.png"></td>
+      <th>triac</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.PowerConverters.ACAC.PolyphaseTriac.html">PolyphaseTriac</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Sensors.VoltageSensor_32x32.png"></td>
+      <th>voltageSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Sensors.VoltageSensor.html">VoltageSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Basic.Star_32x32.png"></td>
+      <th>star1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Basic.Star.html">Star</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>ground1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse_32x32.png"></td>
+      <th>adaptor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse.html">Signal2mPulse</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle_32x32.png"></td>
+      <th>voltageToAngle</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle.html">VoltageToAngle</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Sensors.MultiSensor_32x32.png"></td>
+      <th>multiSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Sensors.MultiSensor.html">MultiSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Basic.Star_32x32.png"></td>
+      <th>star2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Basic.Star.html">Star</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>ground2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.RootMeanSquare_32x32.png"></td>
+      <th>rootMeanSquare</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.RootMeanSquare.html">RootMeanSquare</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Harmonic_32x32.png"></td>
+      <th>harmonic</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Harmonic.html">Harmonic</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.MultiTerminalBox_32x32.png"></td>
+      <th>terminalBox</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.MultiTerminalBox.html">MultiTerminalBox</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage_32x32.png"></td>
+      <th>imc</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage.html">IM_SquirrelCage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData_32x32.png"></td>
+      <th>aimcData</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData.html">IM_SquirrelCageData</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Inertia_32x32.png"></td>
+      <th>loadInertia</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Inertia</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque_32x32.png"></td>
+      <th>quadraticLoadTorque</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque.html">QuadraticSpeedDependentTorque</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACAC.Control.SoftStartControl_32x32.png"></td>
+      <th>softStartControl</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.PowerConverters.ACAC.Control.SoftStartControl.html">SoftStartControl</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Filter_32x32.png"></td>
+      <th>filter</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Filter.html">Filter</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.BooleanTable_32x32.png"></td>
+      <th>booleanTable</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.BooleanTable.html">BooleanTable</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

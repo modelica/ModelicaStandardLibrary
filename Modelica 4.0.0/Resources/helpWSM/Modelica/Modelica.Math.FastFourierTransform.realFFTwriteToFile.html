@@ -1,0 +1,156 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.FastFourierTransform.realFFTwriteToFile</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.FastFourierTransform.html">FastFourierTransform</a></li>
+  <li><a href="Modelica.Math.FastFourierTransform.realFFTwriteToFile.html">realFFTwriteToFile</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>realFFTwriteToFile</h1>
+    <p>Write real FFT computation to file</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.FastFourierTransform.realFFTwriteToFile_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+
+<blockquote><pre>
+success = <strong>realFFTwriteToFile</strong>(t_computed, fileName, f_max, amplitudes, phases, format);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This functions stores the result of an FFT computation on file, so that it can
+be easily plotted. <strong>amplitudes</strong> and <strong>phases</strong> are the vectors that hold the
+amplitudes and phases values of an FFT computation. If the size of the phases vector is zero,
+no phases will be stored on file. Otherwise, phases must have the same dimension as the amplitudes
+vector. The frequency vector f is constructed within the function from the dimension of the
+amplitudes vector and the information that amplitudes[end] is at frequency <strong>f_max</strong>.
+The <strong>format</strong> argument defines the file format (for details see
+<a href="Modelica.Utilities.Streams.writeRealMatrix.html">writeRealMatrix</a>).
+Argument <strong>t_computed</strong> is the actual time instant when the FFT was computed.
+It is used in the print message after the result was stored on file.
+</p>
+
+<p>
+The matrix on file has the following structure:
+</p>
+
+<ul>
+<li> First column: Equidistant frequency vector f in Hz from 0 Hz ... f_max Hz.</li>
+<li> Second column: Amplitudes[:]</li>
+<li> Optional third column: Phases[:]</li>
+</ul>
+
+<h4>Example</h4>
+
+<p>
+See detailed example model:
+<a href="Modelica.Math.FastFourierTransform.Examples.RealFFT1.html">Examples.RealFFT1</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.FastFourierTransform.realFFTinfo.html">realFFTinfo</a>,
+<a href="Modelica.Math.FastFourierTransform.realFFTsamplePoints.html">realFFTsamplePoints</a>,
+<a href="Modelica.Math.FastFourierTransform.realFFT.html">realFFT</a>
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">success = realFFTwriteToFile(t_computed, fileName, f_max, amplitudes, phases, format)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>t_computed</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Time instant at which the FFT was computed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fileName</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> File where FFT shall be stored (if it exists, it is deleted and then re-created)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f_max</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Maximum frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>amplitudes</th>
+      <td>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Amplitudes of FFT</p>
+      </td>
+    </tr>
+    <tr>
+      <th>phases</th>
+      <td>
+        <p><span>Default Value:</span> fill(0.0, 0)</p>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Phases of FFT (either provide no argument, or a vector with the same length as amplitudes)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>format</th>
+      <td>
+        <p><span>Default Value:</span> "4"</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> MATLAB MAT-file version: "4" -> v4, "6" -> v6, "7" -> v7</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>success</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if successful</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

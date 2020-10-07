@@ -1,0 +1,274 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Media.Interfaces.PartialMedium.BaseProperties</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Media.Interfaces.PartialMedium.html">PartialMedium</a></li>
+  <li><a href="Modelica.Media.Interfaces.PartialMedium.BaseProperties.html">BaseProperties</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>BaseProperties</h1>
+    <p>Base properties (p, d, T, h, u, R_s, MM and, if applicable, X and Xi) of a medium</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Interfaces.PartialMedium.BaseProperties_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Model <strong>BaseProperties</strong> is a model within package <strong>PartialMedium</strong>
+and contains the <strong>declarations</strong> of the minimum number of
+variables that every medium model is supposed to support.
+A specific medium inherits from model <strong>BaseProperties</strong> and provides
+the equations for the basic properties.</p>
+<p>
+The BaseProperties model contains the following <strong>7+nXi variables</strong>
+(nXi is the number of independent mass fractions defined in package
+PartialMedium):
+</p>
+<table border="1" cellspacing="0" cellpadding="2">
+  <tr><td><strong>Variable</strong></td>
+      <td><strong>Unit</strong></td>
+      <td><strong>Description</strong></td></tr>
+  <tr><td>T</td>
+      <td>K</td>
+      <td>Temperature</td></tr>
+  <tr><td>p</td>
+      <td>Pa</td>
+      <td>Absolute pressure</td></tr>
+  <tr><td>d</td>
+      <td>kg/m3</td>
+      <td>Density</td></tr>
+  <tr><td>h</td>
+      <td>J/kg</td>
+      <td>Specific enthalpy</td></tr>
+  <tr><td>u</td>
+      <td>J/kg</td>
+      <td>Specific internal energy</td></tr>
+  <tr><td>Xi[nXi]</td>
+      <td>kg/kg</td>
+      <td>Structurally independent mass fractions</td></tr>
+  <tr><td>R_s</td>
+      <td>J/(kg.K)</td>
+      <td>Specific gas constant (of mixture if applicable)</td></tr>
+  <tr><td>MM</td>
+      <td>kg/mol</td>
+      <td>Molar mass</td></tr>
+</table>
+<p>
+In order to implement an actual medium model, one can extend from this
+base model and add <strong>5 equations</strong> that provide relations among
+these variables. Equations will also have to be added in order to
+set all the variables within the ThermodynamicState record state.</p>
+<p>
+If standardOrderComponents=true, the full composition vector X[nX]
+is determined by the equations contained in this base class, depending
+on the independent mass fraction vector Xi[nXi].</p>
+<p>Additional <strong>2 + nXi</strong> equations will have to be provided
+when using the BaseProperties model, in order to fully specify the
+thermodynamic conditions. The input connector qualifier applied to
+p, h, and nXi indirectly declares the number of missing equations,
+permitting advanced equation balance checking by Modelica tools.
+Please note that this doesn't mean that the additional equations
+should be connection equations, nor that exactly those variables
+should be supplied, in order to complete the model.
+For further information, see the <a href="Modelica.Media.UsersGuide.html">Modelica.Media User's guide</a>, and
+<a href="https://specification.modelica.org/v3.4/Ch4.html#balanced-models">Section 4.7 (Balanced Models) of the Modelica 3.4 specification</a>.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>preferredMediumStates</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true if StateSelect.prefer shall be used for the independent property variables of the medium</p>
+      </td>
+    </tr>
+    <tr>
+      <th>standardOrderComponents</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> If true, and reducedX = true, the last element of X will be computed from the other ones</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.BaseProperties.InputAbsolutePressure.html">InputAbsolutePressure</a></p>
+        <p><span>Description:</span> Absolute pressure of medium</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <th>Xi</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.BaseProperties.InputMassFraction.html">InputMassFraction[nXi]</a></p>
+        <p><span>Description:</span> Structurally independent mass fractions</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <th>h</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.BaseProperties.InputSpecificEnthalpy.html">InputSpecificEnthalpy</a></p>
+        <p><span>Description:</span> Specific enthalpy of medium</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialMedium.ThermodynamicState_32x32.png"></td>
+      <th>state</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.ThermodynamicState.html">ThermodynamicState</a></p>
+        <p><span>Description:</span> Thermodynamic state record for optional functions</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sources.BaseClasses.PartialSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Sources.BaseClasses.PartialSource.html">PartialSource</a></p>
+        <p><span>Modelica.Fluid.Sources.BaseClasses</span></p>
+        <p>Partial component source with one fluid connector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sources.BaseClasses.PartialFlowSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Sources.BaseClasses.PartialFlowSource.html">PartialFlowSource</a></p>
+        <p><span>Modelica.Fluid.Sources.BaseClasses</span></p>
+        <p>Partial component source with one fluid connector</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Fluid.Interfaces.PartialLumpedVolume.html">PartialLumpedVolume</a></p>
+        <p><span>Modelica.Fluid.Interfaces</span></p>
+        <p>Lumped volume with mass and energy balance</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Fluid.Interfaces.PartialDistributedVolume.html">PartialDistributedVolume</a></p>
+        <p><span>Modelica.Fluid.Interfaces</span></p>
+        <p>Base class for distributed volume models</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Examples.Utilities.PortVolume_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Examples.Utilities.PortVolume.html">PortVolume</a></p>
+        <p><span>Modelica.Media.Examples.Utilities</span></p>
+        <p>Fixed volume associated with a port by the finite volume method</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Examples.Utilities.FixedMassFlowRate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Examples.Utilities.FixedMassFlowRate.html">FixedMassFlowRate</a></p>
+        <p><span>Modelica.Media.Examples.Utilities</span></p>
+        <p>Ideal pump that produces a constant mass flow rate from a large reservoir at fixed temperature and mass fraction</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Examples.Utilities.FixedAmbient_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Examples.Utilities.FixedAmbient.html">FixedAmbient</a></p>
+        <p><span>Modelica.Media.Examples.Utilities</span></p>
+        <p>Ambient pressure, temperature and mass fraction source</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Incompressible.TableBased.BaseProperties_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Incompressible.TableBased.BaseProperties.html">BaseProperties</a></p>
+        <p><span>Modelica.Media.Incompressible.TableBased</span></p>
+        <p>Base properties of T dependent medium</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialPureSubstance.BaseProperties_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.PartialPureSubstance.BaseProperties.html">BaseProperties</a></p>
+        <p><span>Modelica.Media.Interfaces.PartialPureSubstance</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.TemplateMedium.BaseProperties_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Interfaces.TemplateMedium.BaseProperties.html">BaseProperties</a></p>
+        <p><span>Modelica.Media.Interfaces.TemplateMedium</span></p>
+        <p>Base properties of medium</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

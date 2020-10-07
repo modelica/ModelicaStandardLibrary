@@ -1,0 +1,158 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Discrete.TransferFunction</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Discrete.html">Discrete</a></li>
+  <li><a href="Modelica.Blocks.Discrete.TransferFunction.html">TransferFunction</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>TransferFunction</h1>
+    <p>Discrete Transfer Function block</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Discrete.TransferFunction_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>The <strong>discrete transfer function</strong> block defines the
+transfer function between the input signal u and the output
+signal y. The numerator has the order nb-1, the denominator
+has the order na-1.</p>
+<blockquote><pre>
+       b(1)*z^(nb-1) + b(2)*z^(nb-2) + ... + b(nb)
+y(z) = -------------------------------------------- * u(z)
+       a(1)*z^(na-1) + a(2)*z^(na-2) + ... + a(na)
+</pre></blockquote>
+<p>State variables <strong>x</strong> are defined according to
+<strong>controller canonical</strong> form. Initial values of the
+states can be set as start values of <strong>x</strong>.</p>
+<p>Example:</p>
+<blockquote><pre>
+Blocks.Discrete.TransferFunction g(b = {2,4}, a = {1,3});
+</pre></blockquote>
+<p>results in the following transfer function:</p>
+<blockquote><pre>
+     2*z + 4
+y = --------- * u
+      z + 3
+</pre></blockquote>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>samplePeriod</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Sample period of component</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startTime</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> First sample time instant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>
+        <p><span>Value:</span> {1}</p>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Numerator coefficients of transfer function.</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>
+        <p><span>Value:</span> {1}</p>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Denominator coefficients of transfer function.</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>sampleTrigger</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> True, if sample time instant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>firstTrigger</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Rising edge signals first sample instant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x</th>
+      <td>
+        <p><span>Type:</span> Real[size(a, 1) - 1]</p>
+        <p><span>Description:</span> State of transfer function from controller canonical form</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Connector of Real input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Connector of Real output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

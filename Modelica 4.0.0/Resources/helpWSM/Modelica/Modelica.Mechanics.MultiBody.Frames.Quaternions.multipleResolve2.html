@@ -1,0 +1,102 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Frames.Quaternions.multipleResolve2</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.Quaternions.html">Quaternions</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.Quaternions.multipleResolve2.html">multipleResolve2</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>multipleResolve2</h1>
+    <p>Transform several vectors from frame 1 to frame 2</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.Quaternions.multipleResolve2_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+v2 = Quaternions.<strong>multipleResolve2</strong>(Q, v1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns vectors&nbsp;v resolved in frame&nbsp;2 (=v2) from vectors&nbsp;v
+resolved in frame&nbsp;1 (=v1) using the
+<a href="Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation.html">quaternions orientation</a>&nbsp;Q
+that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.multipleResolve2.html">TransformationMatrices.multipleResolve2</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">v2 = multipleResolve2(Q, v1)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Q</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Quaternions orientation object to rotate frame 1 into frame 2</p>
+      </td>
+    </tr>
+    <tr>
+      <th>v1</th>
+      <td>
+        <p><span>Type:</span> Real[3,:]</p>
+        <p><span>Description:</span> Vectors in frame 1</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>v2</th>
+      <td>
+        <p><span>Type:</span> Real[3,size(v1, 2)]</p>
+        <p><span>Description:</span> Vectors in frame 2</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

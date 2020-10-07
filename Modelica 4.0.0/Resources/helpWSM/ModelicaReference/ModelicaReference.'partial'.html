@@ -1,0 +1,85 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: 'partial'</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.'partial'.html">'partial'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'partial'</h1>
+    <p>partial</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.'partial'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Prohibit instantiation of components of the class
+</p>
+<h4>Examples</h4>
+
+<blockquote><pre><strong>partial block</strong> PartialBlock
+  <strong>input</strong> Real u;
+  <strong>output</strong> Real y;
+<strong>protected</strong>
+  Real x;
+<strong>equation</strong>
+  x = y;
+<strong>end</strong> PartialBlock;
+
+<strong>block</strong> Integrator
+  <strong>extends</strong> PartialBlock;
+<strong>equation
+  der</strong>(x) = u;
+<strong>end</strong> Integrator;
+
+<strong>block</strong> Gain
+  <strong>extends</strong> PartialBlock;
+  <strong>parameter</strong> k = 1;
+<strong>equation</strong>
+  x = k*u;
+<strong>end</strong> Gain;
+
+<strong>model</strong> Composition
+  PartialBlock block1; // Illegal
+  Integrator block2; // Legal
+  Gain block3; // Legal
+<strong>end</strong> Composition;</pre></blockquote>
+
+<h4>Syntax</h4>
+
+<p>See section on <code>class_definition</code> in the <a href="ModelicaReference.ModelicaGrammar.html">Modelica Grammar</a>.</p>
+
+<h4>Description</h4>
+
+<p>
+The keyword <strong>partial</strong> defines that a class is <strong>incomplete</strong> and
+that it cannot be instantiated. For example, defining
+</p>
+
+<blockquote><pre>   PartialBlock block1;</pre></blockquote>
+
+<p>
+is illegal. A partial class can only be used in an "extends" clause to inherit from it
+or in a "constrainedby" clause to define the constraints of a replaceable class.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

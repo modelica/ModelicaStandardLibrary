@@ -1,0 +1,117 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Random.Utilities.impureRandomInteger</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Random.html">Random</a></li>
+  <li><a href="Modelica.Math.Random.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Math.Random.Utilities.impureRandomInteger.html">impureRandomInteger</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>impureRandomInteger</h1>
+    <p>Impure random number generator for integer values (with hidden state vector)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Random.Utilities.impureRandomInteger_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+r = <strong>impureRandomInteger</strong>(id, imin=1, imax=Modelica.Constants.Integer_inf);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns an Integer random number in the range imin &le; random &le; imax with the xorshift1024* algorithm,
+(the random number in the range 0 ... 1 returned by the xorshift1024* algorithm is mapped to
+an Integer number in the range imin ... imax).
+The dummy input Integer argument id must be the output argument of a call to function
+<a href="Modelica.Math.Random.Utilities.initializeImpureRandom.html">initializeImpureRandom</a>,
+in order that the sorting order is correct (so that impureRandomInteger is always called
+after initializeImpureRandom). For every call of impureRandomInteger(id), a different random number
+is returned, so the function is impure.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Random.Utilities.initializeImpureRandom.html">initializeImpureRandom</a>,
+<a href="Modelica.Math.Random.Generators.html">Random.Generators</a>
+</p>
+<h4>Note</h4>
+<p>This function is impure!</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">y = impureRandomInteger(id, imin, imax)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>id</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Identification number from initializeImpureRandom(..) function (is needed for correct sorting)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>imin</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Minimum integer to generate</p>
+      </td>
+    </tr>
+    <tr>
+      <th>imax</th>
+      <td>
+        <p><span>Default Value:</span> 268435456</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Maximum integer to generate (default = 2^28)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> A random number with a uniform distribution on the interval [imin,imax]</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,222 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Matrices.leastSquares</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.leastSquares.html">leastSquares</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>leastSquares</h1>
+    <p>Solve linear equation A*x = b (exactly if possible, or otherwise in a least square sense; A may be non-square and may be rank deficient)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.leastSquares_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+x = Matrices.<strong>leastSquares</strong>(A,b);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns a solution of equation A*x = b in a least
+square sense (A may be rank deficient):
+</p>
+<blockquote><pre>
+minimize | A*x - b |
+</pre></blockquote>
+
+<p>
+Several different cases can be distinguished (note, <strong>rank</strong> is an
+output argument of this function):
+</p>
+
+<p>
+<strong>size(A,1) = size(A,2)</strong>
+</p>
+
+<p> A solution is returned for a regular, as well as a singular matrix A:
+</p>
+
+<ul>
+<li> <strong>rank</strong> = size(A,1):<br>
+     A is <strong>regular</strong> and the returned solution x fulfills the equation
+     A*x = b uniquely.</li>
+
+<li> <strong>rank</strong> &lt; size(A,1):<br>
+     A is <strong>singular</strong> and no unique solution for equation A*x = b exists.
+     <ul>
+     <li>  If an infinite number of solutions exists, the one is selected that fulfills
+           the equation and at the same time has the minimum norm |x| for all solution
+           vectors that fulfill the equation.</li>
+     <li>  If no solution exists, x is selected such that |A*x - b| is as small as
+           possible (but A*x - b is not zero).</li>
+     </ul></li>
+</ul>
+
+<p>
+<strong>size(A,1) &gt; size(A,2):</strong>
+</p>
+
+<p>
+The equation A*x = b has no unique solution. The solution x is selected such that
+|A*x - b| is as small as possible. If rank = size(A,2), this minimum norm solution is
+unique. If rank &lt; size(A,2), there are an infinite number of solutions leading to the
+same minimum value of |A*x - b|. From these infinite number of solutions, the one with the
+minimum norm |x| is selected. This gives a unique solution that minimizes both
+|A*x - b| and |x|.
+</p>
+
+<p>
+<strong>size(A,1) &lt; size(A,2):</strong>
+</p>
+
+<ul>
+<li> <strong>rank</strong> = size(A,1):<br>
+     There are an infinite number of solutions that fulfill the equation A*x = b.
+     From this infinite number, the unique solution is selected that minimizes |x|.
+     </li>
+
+<li> <strong>rank</strong> &lt; size(A,1):<br>
+     There is either no solution of equation A*x = b, or there are again an infinite
+     number of solutions. The unique solution x is returned that minimizes
+      both |A*x - b| and |x|.</li>
+</ul>
+
+<p>
+Note, the solution is computed with the LAPACK function "dgelsy",
+i.e., QR or LQ factorization of A with column pivoting.
+</p>
+
+<h4>Algorithmic details</h4>
+
+<p>
+The function first computes a QR factorization with column pivoting:
+</p>
+
+<blockquote><pre>
+A * P = Q * [ R11 R12 ]
+            [  0  R22 ]
+</pre></blockquote>
+
+<p>
+with R11 defined as the largest leading submatrix whose estimated
+condition number is less than 1/rcond.  The order of R11, <strong>rank</strong>,
+is the effective rank of A.
+</p>
+
+<p>
+Then, R22 is considered to be negligible, and R12 is annihilated
+by orthogonal transformations from the right, arriving at the
+complete orthogonal factorization:
+</p>
+
+<blockquote><pre>
+A * P = Q * [ T11 0 ] * Z
+            [  0  0 ]
+</pre></blockquote>
+
+<p>
+The minimum-norm solution is then
+</p>
+
+<blockquote><pre>
+x = P * Z' [ inv(T11)*Q1'*b ]
+           [        0       ]
+</pre></blockquote>
+
+<p>
+where Q1 consists of the first "rank" columns of Q.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="Modelica.Math.Matrices.leastSquares2.html">Matrices.leastSquares2</a>
+(same as leastSquares, but with a right hand side matrix),<br>
+<a href="Modelica.Math.Matrices.solve.html">Matrices.solve</a>
+(for square, regular matrices A)
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(x, rank) = leastSquares(A, b, rcond)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,:]</p>
+        <p><span>Description:</span> Matrix A</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1)]</p>
+        <p><span>Description:</span> Vector b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rcond</th>
+      <td>
+        <p><span>Default Value:</span> 100 * Modelica.Constants.eps</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Reciprocal condition number to estimate the rank of A</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>x</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 2)]</p>
+        <p><span>Description:</span> Vector x such that min|A*x-b|^2 if size(A,1) >= size(A,2) or min|x|^2 and A*x=b, if size(A,1) < size(A,2)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rank</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Rank of A</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

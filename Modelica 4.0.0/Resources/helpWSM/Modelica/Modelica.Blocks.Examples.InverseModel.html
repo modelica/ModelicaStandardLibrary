@@ -1,0 +1,163 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Examples.InverseModel</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Blocks.Examples.InverseModel.html">InverseModel</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>InverseModel</h1>
+    <p>Demonstrates the construction of an inverse model</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Examples.InverseModel_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Blocks.Examples.InverseModel_diagram_large.png"><img src="resources/diagrams/Modelica.Blocks.Examples.InverseModel_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example demonstrates how to construct an inverse model in Modelica
+(for more details see <a href="https://www.modelica.org/events/Conference2005/online_proceedings/Session3/Session3c3.pdf">Looye, Th&uuml;mmel, Kurze, Otter, Bals: Nonlinear Inverse Models for Control</a>).
+</p>
+
+<p>
+For a linear, single input, single output system
+</p>
+
+<blockquote><pre>
+y = n(s)/d(s) * u   // plant model
+</pre></blockquote>
+
+<p>
+the inverse model is derived by simply exchanging the numerator and
+the denominator polynomial:
+</p>
+
+<blockquote><pre>
+u = d(s)/n(s) * y   // inverse plant model
+</pre></blockquote>
+
+<p>
+If the denominator polynomial d(s) has a higher degree as the
+numerator polynomial n(s) (which is usually the case for plant models),
+then the inverse model is no longer proper, i.e., it is not causal.
+To avoid this, an approximate inverse model is constructed by adding
+a sufficient number of poles to the denominator of the inverse model.
+This can be interpreted as filtering the desired output signal y:
+</p>
+
+<blockquote><pre>
+u = d(s)/(n(s)*f(s)) * y  // inverse plant model with filtered y
+</pre></blockquote>
+
+<p>
+With Modelica it is in principal possible to construct inverse models not only
+for linear but also for non-linear models and in particular for every
+Modelica model. The basic construction mechanism is explained at hand
+of this example:
+</p>
+
+<img src="resources/Modelica.Blocks.Examples.InverseModel_info_001.png"
+     alt="InverseModelSchematic.png">
+
+<p>
+Here the first order block "firstOrder1" shall be inverted. This is performed
+by connecting its inputs and outputs with an instance of block
+Modelica.Blocks.Math.<strong>InverseBlockConstraints</strong>. By this connection,
+the inputs and outputs are exchanged. The goal is to compute the input of the
+"firstOrder1" block so that its output follows a given sine signal.
+For this, the sine signal "sin" is first filtered with a "CriticalDamping"
+filter of order 1 and then the output of this filter is connected to the output
+of the "firstOrder1" block (via the InverseBlockConstraints block, since
+2 outputs cannot be connected directly together in a block diagram).
+</p>
+
+<p>
+In order to check the inversion, the computed input of "firstOrder1" is used
+as input in an identical block "firstOrder2". The output of "firstOrder2" should
+be the given "sine" function. The difference is constructed with the "feedback"
+block. Since the "sine" function is filtered, one cannot expect that this difference
+is zero. The higher the cut-off frequency of the filter, the closer is the
+agreement. A typical simulation result is shown in the next figure:
+</p>
+
+<img src="resources/Modelica.Blocks.Examples.InverseModel_info_002.png"
+     alt="InverseModel.png">
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.FirstOrder_32x32.png"></td>
+      <th>firstOrder1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.FirstOrder.html">FirstOrder</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Sine_32x32.png"></td>
+      <th>sine</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Sine.html">Sine</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.InverseBlockConstraints_32x32.png"></td>
+      <th>inverseBlockConstraints</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.InverseBlockConstraints.html">InverseBlockConstraints</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.FirstOrder_32x32.png"></td>
+      <th>firstOrder2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.FirstOrder.html">FirstOrder</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Feedback_32x32.png"></td>
+      <th>feedback</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Feedback.html">Feedback</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.CriticalDamping_32x32.png"></td>
+      <th>criticalDamping</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.CriticalDamping.html">CriticalDamping</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

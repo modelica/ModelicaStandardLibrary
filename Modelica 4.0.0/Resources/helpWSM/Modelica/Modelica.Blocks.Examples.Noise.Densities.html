@@ -1,0 +1,138 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Examples.Noise.Densities</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Blocks.Examples.Noise.html">Noise</a></li>
+  <li><a href="Modelica.Blocks.Examples.Noise.Densities.html">Densities</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Densities</h1>
+    <p>Demonstrates how to compute distribution densities (= Probability Density Function)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Examples.Noise.Densities_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Blocks.Examples.Noise.Densities_diagram_large.png"><img src="resources/diagrams/Modelica.Blocks.Examples.Noise.Densities_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example demonstrates how to compute the probability density functions (pdfs) of
+various distributions.
+In the following diagram simulations results for the uniform, normal, and Weibull distribution
+are shown. The outputs of the blocks are the pdfs that are plotted over one of the
+inputs:
+</p>
+
+<blockquote>
+<img src="resources/Modelica.Blocks.Examples.Noise.Densities_info_001.png">
+</blockquote>
+</div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>uniformDensity_y</th>
+      <td>
+        <p><span>Default Value:</span> uniformDensity.y</p>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    <tr>
+      <th>normalDensity_y</th>
+      <td>
+        <p><span>Default Value:</span> normalDensity.y</p>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    <tr>
+      <th>weibullDensity_y</th>
+      <td>
+        <p><span>Default Value:</span> weibullDensity.y</p>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Noise.Utilities.UniformDensity_32x32.png"></td>
+      <th>uniformDensity</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Examples.Noise.Utilities.UniformDensity.html">UniformDensity</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.ContinuousClock_32x32.png"></td>
+      <th>clock</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.ContinuousClock.html">ContinuousClock</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>const</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Add_32x32.png"></td>
+      <th>add</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Add.html">Add</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Noise.Utilities.NormalDensity_32x32.png"></td>
+      <th>normalDensity</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Examples.Noise.Utilities.NormalDensity.html">NormalDensity</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Noise.Utilities.WeibullDensity_32x32.png"></td>
+      <th>weibullDensity</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Examples.Noise.Utilities.WeibullDensity.html">WeibullDensity</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

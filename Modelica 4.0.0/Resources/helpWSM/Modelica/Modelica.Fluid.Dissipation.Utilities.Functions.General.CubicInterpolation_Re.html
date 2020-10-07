@@ -1,0 +1,119 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_Re</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.html">Dissipation</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.Functions.html">Functions</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.Functions.General.html">General</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_Re.html">CubicInterpolation_Re</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>CubicInterpolation_Re</h1>
+    <p>Cubic Hermite spline interpolation of the Reynolds number in transition regime of the Moody diagram (inverse formulation)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_Re_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Re = <strong>CubicInterpolation_Re</strong>(0, Re1, Re2, Delta, lambda2);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <strong>CubicInterpolation_Re</strong>(..) approximates the Reynolds number
+<code>Re</code> in the transition regime between laminar and turbulent flow
+of the Moody diagram by an inverse formulation of a cubic Hermite spline interpolation. See <a href="Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction.html">
+Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction</a> (especially <strong>Region 2</strong>)
+for a detailed explanation.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">Re = CubicInterpolation_Re(Re_turbulent, Re1, Re2, Delta, lambda2)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Re_turbulent</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Unused input</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Re1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ReynoldsNumber.html">ReynoldsNumber</a></p>
+        <p><span>Description:</span> Boundary Reynolds number for laminar regime</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Re2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ReynoldsNumber.html">ReynoldsNumber</a></p>
+        <p><span>Description:</span> Boundary Reynolds number for turbulent regime</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Delta</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Relative roughness</p>
+      </td>
+    </tr>
+    <tr>
+      <th>lambda2</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Modified friction coefficient (= independent variable)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Re</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ReynoldsNumber.html">ReynoldsNumber</a></p>
+        <p><span>Description:</span> Interpolated Reynolds number in transition region</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

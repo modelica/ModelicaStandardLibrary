@@ -1,0 +1,160 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Interfaces.PartialVisualizer</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer.html">PartialVisualizer</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PartialVisualizer</h1>
+    <p>Base model for visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This partial model provides one frame_a connector, access to the world
+object and an assert to check that the frame_a connector is connected.
+It is used by inheritance from all visualizer objects.
+</p>
+</div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_16x16.png"></td>
+      <th>frame_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p><span>Description:</span> Coordinate system in which visualization data is resolved</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Internal.FixedLines_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Internal.FixedLines.html">FixedLines</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers.Internal</span></p>
+        <p>Visualizing a set of lines as cylinders (e.g., used to display characters)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Rectangle_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Rectangle.html">Rectangle</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span></p>
+        <p>Visualizing a planar rectangular surface</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField.html">PipeWithScalarField</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span></p>
+        <p>Visualizing a pipe with scalar field quantities along the pipe axis</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel.html">VoluminousWheel</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span></p>
+        <p>Visualizing a voluminous wheel</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Torus_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Torus.html">Torus</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span></p>
+        <p>Visualizing a torus</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.SignalArrow_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.SignalArrow.html">SignalArrow</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span></p>
+        <p>Visualizing an arrow with dynamically varying size in frame_a based on input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.FixedArrow_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.FixedArrow.html">FixedArrow</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span></p>
+        <p>Visualizing an arrow with dynamically varying size in frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.FixedFrame_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.FixedFrame.html">FixedFrame</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span></p>
+        <p>Visualizing a coordinate system including axes labels (visualization data may vary dynamically)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.FixedShape_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.FixedShape.html">FixedShape</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span></p>
+        <p>Visualizing an elementary shape with dynamically varying shape attributes (has one frame connector)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

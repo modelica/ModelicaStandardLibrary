@@ -1,0 +1,132 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Matrices.balance</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.balance.html">balance</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>balance</h1>
+    <p>Return a balanced form of matrix A to improve the condition of A</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.balance_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+(D,B) = Matrices.<strong>balance</strong>(A);
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+This function returns a vector D, such that B=inv(diagonal(D))*A*diagonal(D) has a
+better condition as matrix A, i.e., conditionNumber(B) &le; conditionNumber(A). The elements of D
+are multiples of 2 which means that this function does not introduce round-off errors.
+Balancing attempts to make the norm of each row of B equal to the
+norm of the respective column.
+</p>
+
+<p>
+Balancing is used to minimize roundoff errors induced
+through large matrix calculations like Taylor-series approximation
+or computation of eigenvalues.
+</p>
+
+<h4>Example</h4>
+
+<blockquote><pre>
+- A = [1, 10,  1000; 0.01,  0,  10; 0.005,  0.01,  10]
+- Matrices.norm(A, 1);
+  = 1020.0
+- (T,B)=Matrices.balance(A)
+- T
+  = {256, 16, 0.5}
+- B
+  =  [1,     0.625,   1.953125;
+      0.16,  0,       0.3125;
+      2.56,  0.32,   10.0]
+- Matrices.norm(B, 1);
+  = 12.265625
+</pre></blockquote>
+
+<p>
+The Algorithm is taken from
+</p>
+<dl>
+<dt>H. D. Joos, G. Gr&uuml;bel:</dt>
+<dd><strong>RASP'91 Regulator Analysis and Synthesis Programs</strong><br>
+    DLR - Control Systems Group 1991</dd>
+</dl>
+<p>
+which based on the <code>balance</code> function from EISPACK.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(D, B) = balance(A)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,size(A, 1)]</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>D</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1)]</p>
+        <p><span>Description:</span> diagonal(D)=T is transformation matrix, such that
+          B = inv(T)*A*T has smaller condition as A</p>
+      </td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 1)]</p>
+        <p><span>Description:</span> Balanced matrix (= inv(diagonal(D))*A*diagonal(D) )</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

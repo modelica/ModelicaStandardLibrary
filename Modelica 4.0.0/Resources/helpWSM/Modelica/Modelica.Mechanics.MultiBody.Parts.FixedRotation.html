@@ -1,0 +1,400 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Parts.FixedRotation</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Parts.html">Parts</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Parts.FixedRotation.html">FixedRotation</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>FixedRotation</h1>
+    <p>Fixed translation followed by a fixed rotation of frame_b with respect to frame_a</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedRotation_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Component for a <strong>fixed translation</strong> and <strong>fixed rotation</strong> of frame_b with respect
+to frame_a, i.e., the relationship between connectors frame_a and frame_b
+remains constant. There are several possibilities to define the
+orientation of frame_b with respect to frame_a:
+</p>
+<ul>
+<li><strong>Planar rotation</strong> along axis 'n' (that is fixed and resolved
+    in frame_a) with a fixed angle 'angle'.</li>
+<li><strong>Vectors n_x</strong> and <strong>n_y</strong> that are directed along the corresponding axes
+    direction of frame_b and are resolved in frame_a (if n_y is not
+    orthogonal to n_x, the y-axis of frame_b is selected such that it is
+    orthogonal to n_x and in the plane of n_x and n_y).</li>
+<li><strong>Sequence</strong> of <strong>three planar axes rotations</strong>.
+    For example, "sequence = {1,2,3}" and "angles = {90, 45, -90}"
+    means to rotate frame_a around the x axis with 90 degrees, around the new
+    y axis with 45 degrees and around the new z axis around -90 degrees to
+    arrive at frame_b. Note, that sequence={1,2,3}
+    is the Cardan angle sequence and sequence = {3,1,3} is the Euler angle
+    sequence.</li>
+</ul>
+<p>
+By default, this component is visualized by a cylinder connecting
+frame_a and frame_b, as shown in the figure below. In this figure
+frame_b is rotated along the z-axis of frame_a with 60 degree. Note, that the
+two visualized frames are not part of the component animation and that
+the animation may be switched off via parameter animation = <strong>false</strong>.
+</p>
+
+<p>
+<img src="resources/Modelica.Mechanics.MultiBody.Parts.FixedRotation_info_001.png" alt="Parts.FixedRotation">
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(18)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>animation</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if animation shall be enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r</th>
+      <td>
+        <p><span>Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> Vector from frame_a to frame_b resolved in frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rotationType</th>
+      <td>
+        <p><span>Value:</span> Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.RotationTypes.html">RotationTypes</a></p>
+        <p><span>Description:</span> Type of rotation description</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Value:</span> {1, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Axis.html">Axis</a></p>
+        <p><span>Description:</span> Axis of rotation in frame_a (= same as in frame_b)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>angle</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.NonSI.Angle_deg.html">Angle_deg</a> (°)</p>
+        <p><span>Description:</span> Angle to rotate frame_a around axis n into frame_b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n_x</th>
+      <td>
+        <p><span>Value:</span> {1, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Axis.html">Axis</a></p>
+        <p><span>Description:</span> Vector along x-axis of frame_b resolved in frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n_y</th>
+      <td>
+        <p><span>Value:</span> {0, 1, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Axis.html">Axis</a></p>
+        <p><span>Description:</span> Vector along y-axis of frame_b resolved in frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sequence</th>
+      <td>
+        <p><span>Value:</span> {1, 2, 3}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.RotationSequence.html">RotationSequence</a></p>
+        <p><span>Description:</span> Sequence of rotations</p>
+      </td>
+    </tr>
+    <tr>
+      <th>angles</th>
+      <td>
+        <p><span>Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Units.NonSI.Angle_deg.html">Angle_deg[3]</a> (°)</p>
+        <p><span>Description:</span> Rotation angles around the axes defined in 'sequence'</p>
+      </td>
+    </tr>
+    <tr>
+      <th>shapeType</th>
+      <td>
+        <p><span>Value:</span> "cylinder"</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.ShapeType.html">ShapeType</a></p>
+        <p><span>Description:</span> Type of shape</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r_shape</th>
+      <td>
+        <p><span>Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> Vector from frame_a to shape origin, resolved in frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>lengthDirection</th>
+      <td>
+        <p><span>Value:</span> to_unit1(r - r_shape)</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Axis.html">Axis</a></p>
+        <p><span>Description:</span> Vector in length direction of shape, resolved in frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>widthDirection</th>
+      <td>
+        <p><span>Value:</span> {0, 1, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Axis.html">Axis</a></p>
+        <p><span>Description:</span> Vector in width direction of shape, resolved in frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>length</th>
+      <td>
+        <p><span>Value:</span> Modelica.Math.Vectors.length(r - r_shape)</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length of shape</p>
+      </td>
+    </tr>
+    <tr>
+      <th>width</th>
+      <td>
+        <p><span>Value:</span> length / world.defaultWidthFraction</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Width of shape</p>
+      </td>
+    </tr>
+    <tr>
+      <th>height</th>
+      <td>
+        <p><span>Value:</span> width</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Height of shape</p>
+      </td>
+    </tr>
+    <tr>
+      <th>extra</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.ShapeExtra.html">ShapeExtra</a></p>
+        <p><span>Description:</span> Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R_rel</th>
+      <td>
+        <p><span>Value:</span> if rotationType == Types.RotationTypes.RotationAxis then Frames.planarRotation(Modelica.Math.Vectors.normalizeWithAssert(n), Cv.from_deg(angle), 0) else if rotationType == Types.RotationTypes.TwoAxesVectors then Frames.from_nxy(n_x, n_y) else Frames.axesRotations(sequence, Cv.from_deg(angles), zeros(3))</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Fixed rotation object from frame_a to frame_b</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>color</th>
+      <td>
+        <p><span>Default Value:</span> Modelica.Mechanics.MultiBody.Types.Defaults.RodColor</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of shape</p>
+      </td>
+    </tr>
+    <tr>
+      <th>specularCoefficient</th>
+      <td>
+        <p><span>Default Value:</span> world.defaultSpecularCoefficient</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.SpecularCoefficient.html">SpecularCoefficient</a></p>
+        <p><span>Description:</span> Reflection of ambient light (= 0: light is completely absorbed)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_16x16.png"></td>
+      <th>frame_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p><span>Description:</span> Coordinate system fixed to the component with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_b_16x16.png"></td>
+      <th>frame_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_b.html">Frame_b</a></p>
+        <p><span>Description:</span> Coordinate system fixed to the component with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.Orientation_32x32.png"></td>
+      <th>R_rel</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Fixed rotation object from frame_a to frame_b</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.Orientation_32x32.png"></td>
+      <th>R_rel_inv</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Inverse of R_rel (rotate from frame_b to frame_a)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>shape</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.ForceAndTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.ForceAndTorque.html">ForceAndTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span></p>
+        <p>Demonstrate usage of ForceAndTorque element</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffects_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffects.html">GyroscopicEffects</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</span></p>
+        <p>Demonstrates that a cylindrical body can be replaced by Rotor1D model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Constraints.PrismaticConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Constraints.PrismaticConstraint.html">PrismaticConstraint</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Constraints</span></p>
+        <p>Body attached by one spring and two prismatic joints or constrained to environment</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Constraints.RevoluteConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Constraints.RevoluteConstraint.html">RevoluteConstraint</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Constraints</span></p>
+        <p>Body attached by one spring and revolute joint or constrained to environment</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Constraints.SphericalConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Constraints.SphericalConstraint.html">SphericalConstraint</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Constraints</span></p>
+        <p>Body attached by one spring and spherical joint or constrained to environment</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Constraints.UniversalConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Constraints.UniversalConstraint.html">UniversalConstraint</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Constraints</span></p>
+        <p>Body attached by one spring and universal joint or constrained to environment</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder.html">Cylinder</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</span></p>
+        <p>Cylinder with rod and crank of a combustion engine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderBase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderBase.html">CylinderBase</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</span></p>
+        <p>One cylinder with analytic handling of kinematic loop</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

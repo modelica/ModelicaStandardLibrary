@@ -1,0 +1,118 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Random.Utilities.impureRandom</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Random.html">Random</a></li>
+  <li><a href="Modelica.Math.Random.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Math.Random.Utilities.impureRandom.html">impureRandom</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>impureRandom</h1>
+    <p>Impure random number generator (with hidden state vector)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Random.Utilities.impureRandom_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+r = <strong>impureRandom</strong>(id);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns a uniform random number in the range 0 &lt; random &le; 1 with the xorshift1024* algorithm.
+The dummy input Integer argument id must be the output argument of a call to function
+<a href="Modelica.Math.Random.Utilities.initializeImpureRandom.html">initializeImpureRandom</a>,
+in order that the sorting order is correct (so that impureRandom is always called
+after initializeImpureRandom). For every call of impureRandom(id), a different random number
+is returned, so the function is impure.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  <strong>parameter</strong> Integer seed;
+  Real r;
+  <strong>function</strong> random = impureRandom (<strong>final</strong> id=id);
+<strong>protected </strong>
+  Integer id;
+<strong>equation</strong>
+  // Initialize the random number generator
+  <strong>when</strong> initial() <strong>then</strong>
+    id = initializeImpureRandom(seed, time);
+  <strong>end when</strong>;
+
+  // Use the random number generator
+  <strong>when</strong> sample(0,0.001) <strong>then</strong>
+     r = random();
+  <strong>end when</strong>;
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Random.Utilities.initializeImpureRandom.html">initializeImpureRandom</a>,
+<a href="Modelica.Math.Random.Generators.html">Random.Generators</a>
+</p>
+<h4>Note</h4>
+<p>This function is impure!</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">y = impureRandom(id)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>id</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Identification number from initializeImpureRandom(..) function (is needed for correct sorting)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> A random number with a uniform distribution on the interval (0,1]</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

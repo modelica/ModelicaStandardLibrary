@@ -1,0 +1,170 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Utilities.Examples.ReadRealMatrixFromFile</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Utilities.Examples.ReadRealMatrixFromFile.html">ReadRealMatrixFromFile</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ReadRealMatrixFromFile</h1>
+    <p>Demonstrate usage of function Streams.readRealMatrix</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Examples.ReadRealMatrixFromFile_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Example model that shows how to read a Real matrix in MATLAB MAT format from file
+using functions
+<a href="Modelica.Utilities.Streams.readMatrixSize.html">readMatrixSize</a> and
+<a href="Modelica.Utilities.Streams.readRealMatrix.html">readRealMatrix</a>.
+</p>
+
+<p>
+Additionally, specific matrices from the supported file formats are loaded and it is checked
+whether the loaded matrices have the expected values.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(14)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>file</th>
+      <td>
+        <p><span>Value:</span> Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v4.mat")</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> File name of matrix</p>
+      </td>
+    </tr>
+    <tr>
+      <th>matrixName</th>
+      <td>
+        <p><span>Value:</span> "Matrix_A"</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Matrix name in file</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dim</th>
+      <td>
+        <p><span>Value:</span> Modelica.Utilities.Streams.readMatrixSize(file, matrixName)</p>
+        <p><span>Type:</span> Integer[2]</p>
+        <p><span>Description:</span> Dimension of matrix</p>
+      </td>
+    </tr>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Value:</span> Modelica.Utilities.Streams.readRealMatrix(file, matrixName, dim1[1], dim1[2])</p>
+        <p><span>Type:</span> Real[:,:]</p>
+        <p><span>Description:</span> Matrix data</p>
+      </td>
+    </tr>
+    <tr>
+      <th>file1</th>
+      <td>
+        <p><span>Value:</span> Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v4.mat")</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> File name of check matrix 1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>file2</th>
+      <td>
+        <p><span>Value:</span> Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v6.mat")</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> File name of check matrix 2</p>
+      </td>
+    </tr>
+    <tr>
+      <th>file3</th>
+      <td>
+        <p><span>Value:</span> Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v7.mat")</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> File name of check matrix 3</p>
+      </td>
+    </tr>
+    <tr>
+      <th>matrixName1</th>
+      <td>
+        <p><span>Value:</span> "Matrix_A"</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Names of check matrices</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dim1</th>
+      <td>
+        <p><span>Value:</span> Modelica.Utilities.Streams.readMatrixSize(file1, matrixName1)</p>
+        <p><span>Type:</span> Integer[2]</p>
+        <p><span>Description:</span> Dimension of check matrix 1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dim2</th>
+      <td>
+        <p><span>Value:</span> Modelica.Utilities.Streams.readMatrixSize(file2, matrixName1)</p>
+        <p><span>Type:</span> Integer[2]</p>
+        <p><span>Description:</span> Dimension of check matrix 2</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dim3</th>
+      <td>
+        <p><span>Value:</span> Modelica.Utilities.Streams.readMatrixSize(file3, matrixName1)</p>
+        <p><span>Type:</span> Integer[2]</p>
+        <p><span>Description:</span> Dimension of check matrix 3</p>
+      </td>
+    </tr>
+    <tr>
+      <th>A1</th>
+      <td>
+        <p><span>Value:</span> Modelica.Utilities.Streams.readRealMatrix(file1, matrixName1, dim1[1], dim1[2])</p>
+        <p><span>Type:</span> Real[:,:]</p>
+        <p><span>Description:</span> Data of check matrix 1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>A2</th>
+      <td>
+        <p><span>Value:</span> Modelica.Utilities.Streams.readRealMatrix(file2, matrixName1, dim2[1], dim2[2])</p>
+        <p><span>Type:</span> Real[:,:]</p>
+        <p><span>Description:</span> Data of check matrix 2</p>
+      </td>
+    </tr>
+    <tr>
+      <th>A3</th>
+      <td>
+        <p><span>Value:</span> Modelica.Utilities.Streams.readRealMatrix(file3, matrixName1, dim3[1], dim3[2])</p>
+        <p><span>Type:</span> Real[:,:]</p>
+        <p><span>Description:</span> Data of check matrix 3</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

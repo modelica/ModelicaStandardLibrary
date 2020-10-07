@@ -1,0 +1,120 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.isEqual</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.isEqual.html">isEqual</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>isEqual</h1>
+    <p>Determine if two Real scalars are numerically identical</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.isEqual_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Math.<strong>isEqual</strong>(s1, s2);
+Math.<strong>isEqual</strong>(s1, s2, eps=0);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>Math.isEqual(s1, s2)</code>" returns <strong>true</strong>,
+if the two Real scalars s1 and s2 are identical. Otherwise the function
+returns <strong>false</strong>. The equality check is performed by
+"abs(s1-s2) &le; eps", where "eps"
+can be provided as third argument of the function. Default is "eps = 0".
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  Real s1 = 2.0;
+  Real s2 = 2.0;
+  Real s3 = 2.000001;
+  Boolean result;
+<strong>algorithm</strong>
+  result := Math.isEqual(s1,s2);     // = <strong>true</strong>
+  result := Math.isEqual(s1,s3);     // = <strong>false</strong>
+  result := Math.isEqual(s1,s3,0.1); // = <strong>true</strong>
+</pre></blockquote>
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Vectors.isEqual.html">Vectors.isEqual</a>,
+<a href="Modelica.Math.Matrices.isEqual.html">Matrices.isEqual</a>,
+<a href="Modelica.Utilities.Strings.isEqual.html">Strings.isEqual</a>
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">result = isEqual(s1, s2, eps)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>s1</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> First scalar</p>
+      </td>
+    </tr>
+    <tr>
+      <th>s2</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Second scalar</p>
+      </td>
+    </tr>
+    <tr>
+      <th>eps</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> The two scalars are identical if abs(s1-s2) <= eps</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>result</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if scalars are identical</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

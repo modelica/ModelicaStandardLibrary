@@ -1,0 +1,193 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.SinglePhase.html">SinglePhase</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin.html">PositivePin</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PositivePin</h1>
+    <p>Positive quasi-static single-phase pin</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The positive pin is based on <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.Pin.html">Pin</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of the quasi-static voltage and current. The symbol is also designed such way to look different than the <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin.html">negative pin</a>.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.Pin.html">Pin</a>,
+<a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin.html">NegativePin</a>,
+<a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.Plug.html">Plug</a>,
+<a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug.html">PositivePlug</a>,
+<a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug.html">NegativePlug</a>
+</p>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexElectricPotential_32x32.png"></td>
+      <th>v</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexElectricPotential.html">ComplexElectricPotential</a></p>
+        <p><span>Description:</span> Complex potential at the quasi-static single-phase pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexCurrent_32x32.png"></td>
+      <th>i</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexCurrent.html">ComplexCurrent</a></p>
+        <p><span>Description:</span> Complex current flowing into the quasi-static single-phase pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <th>reference</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.Types.Reference.html">Reference</a></p>
+        <p><span>Description:</span> Reference</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(12)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground.html">Ground</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Basic</span></p>
+        <p>Electrical ground</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealCommutingSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealCommutingSwitch.html">IdealCommutingSwitch</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Ideal</span></p>
+        <p>Ideal commuting switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealIntermediateSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealIntermediateSwitch.html">IdealIntermediateSwitch</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Ideal</span></p>
+        <p>Ideal intermediate switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealTransformer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealTransformer.html">IdealTransformer</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Ideal</span></p>
+        <p>Ideal transformer</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor.html">PowerSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Sensors</span></p>
+        <p>Power sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.MultiSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.MultiSensor.html">MultiSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Sensors</span></p>
+        <p>Sensor to measure current, voltage and power</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.TwoPinElementary_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.TwoPinElementary.html">TwoPinElementary</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces</span></p>
+        <p>Elementary two pins with reference connection, without declaration of voltage and current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.AbsoluteSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.AbsoluteSensor.html">AbsoluteSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces</span></p>
+        <p>Partial potential sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Utilities.IdealACDCConverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Utilities.IdealACDCConverter.html">IdealACDCConverter</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Utilities</span></p>
+        <p>Ideal AC DC converter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin_p_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin_p.html">PlugToPin_p</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Basic</span></p>
+        <p>Connect one (positive) pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_p_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_p.html">PlugToPins_p</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Basic</span></p>
+        <p>Connect all (positive) pins</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter.html">ElectroMagneticConverter</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Basic</span></p>
+        <p>Electromagnetic energy conversion</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

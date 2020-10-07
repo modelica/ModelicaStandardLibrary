@@ -1,0 +1,103 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: UsersGuide.Conventions.Documentation.Format.Figures</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.UsersGuide.Conventions.html">Conventions</a></li>
+  <li><a href="Modelica.UsersGuide.Conventions.Documentation.html">Documentation</a></li>
+  <li><a href="Modelica.UsersGuide.Conventions.Documentation.Format.html">Format</a></li>
+  <li><a href="Modelica.UsersGuide.Conventions.Documentation.Format.Figures.html">Figures</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Figures</h1>
+    <p>Figures</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.UsersGuide.Conventions.Documentation.Format.Figures_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Figures should in particular be included to examples to discuss the problems and results of the respective model. The library developers are yet encouraged to add figures to the documentation of other components to support the understanding of the users of the library.
+</p>
+
+<ol>
+<li> Figures have to be placed <strong>outside</strong> of paragraphs to be HTML compliant.</li>
+<li> Figures need to have <strong>at least</strong> a <code>src</code> and an <code>alt</code> attribute defined to be HTML compliant.</li>
+<li> Technical figures should be placed within a table environment. Each technical figure should then also have a caption. The figure caption starts with a capital letter.</li>
+<li> Illustration can be embedded without table environment.</li>
+</ol>
+
+<h4>Location of files</h4>
+
+<p>
+The <code>PNG</code> files should be placed in a folder which exactly represents the package structure.
+</p>
+
+<h4>Examples</h4>
+
+<h5>Example 1</h5>
+
+<p>This example shows how an illustration should be embedded in the Example
+<a href="Modelica.Blocks.Examples.PID_Controller.html">PID_Controller</a> of the
+<a href="Modelica.Blocks.html">Blocks</a> package.
+</p>
+
+<blockquote><pre>
+&lt;img src="modelica:///Modelica.UsersGuide.Conventions.Documentation.Format.Figures/&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
+     alt=&quot;PID_controller.png&quot;&gt;
+</pre"></blockquote>
+
+<h5>Example 2</h5>
+
+<p>This is a simple example of a technical figure with caption.</p>
+
+<blockquote><pre>
+&lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
+  &lt;caption align=&quot;bottom&quot;&gt;Caption starts with a capital letter&lt;/caption&gt;
+  &lt;tr&gt;
+    &lt;td&gt;
+      &lt;img src="modelica:///Modelica.UsersGuide.Conventions.Documentation.Format.Figures/&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
+           alt=&quot;PID_controller.png&quot;&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre"></blockquote>
+
+<h5>Example 3</h5>
+
+<p>To refer to a certain figure, a figure number may be added. In such case the figure name (Fig.) including the figure enumeration (1,2,...) have to be displayed bold using <code>&lt;strong&gt;</code> and <code>&lt;/strong&gt;</code>.</p>
+<p>The figure name and enumeration should look like this: <strong>Fig. 1:</strong></p>
+<p>Figures have to be enumerated manually.</p>
+
+<blockquote><pre>
+&lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
+  &lt;caption align=&quot;bottom&quot;&gt;&lt;strong&gt;Fig. 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/caption&gt;
+  &lt;tr&gt;
+    &lt;td&gt;
+      &lt;img src="modelica:///Modelica.UsersGuide.Conventions.Documentation.Format.Figures/&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
+           alt=&quot;PID_controller.png&quot;&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre"></blockquote>
+</div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Machines.Losses.PermanentMagnetLossParameters</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Losses.html">Losses</a></li>
+  <li><a href="Modelica.Electrical.Machines.Losses.PermanentMagnetLossParameters.html">PermanentMagnetLossParameters</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PermanentMagnetLossParameters</h1>
+    <p>Parameter record for permanent magnet losses</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.Losses.PermanentMagnetLossParameters_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Parameter record for <a href="Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses.html">permanent magnet losses</a>.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>PRef</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Reference permanent magnet losses at IRef and wRef</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Part of permanent magnet losses at current = 0, i.e. independent of current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IRef</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Reference stator RMS current that PRef refers to</p>
+      </td>
+    </tr>
+    <tr>
+      <th>power_I</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Exponent of permanent magnet loss torque w.r.t. stator current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>wRef</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.AngularVelocity.html">AngularVelocity</a> (rad/s)</p>
+        <p><span>Description:</span> Reference angular velocity that PRef refers to</p>
+      </td>
+    </tr>
+    <tr>
+      <th>power_w</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Exponent of permanent magnet loss torque w.r.t. angular velocity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tauRef</th>
+      <td>
+        <p><span>Value:</span> if PRef <= 0 then 0 else PRef / wRef</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Torque.html">Torque</a> (N·m)</p>
+        <p><span>Description:</span> Reference permanent magnet loss torque at reference angular velocity and reference current</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_PermanentMagnet_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_PermanentMagnet.html">SM_PermanentMagnet</a></p>
+        <p><span>Modelica.Electrical.Machines.BasicMachines.SynchronousMachines</span></p>
+        <p>Permanent magnet synchronous machine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses.html">PermanentMagnetLosses</a></p>
+        <p><span>Modelica.Electrical.Machines.Losses.InductionMachines</span></p>
+        <p>Model of permanent magnet losses dependent on current and speed</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData.html">SM_PermanentMagnetData</a></p>
+        <p><span>Modelica.Electrical.Machines.Utilities.ParameterRecords</span></p>
+        <p>Common parameters for synchronous machines with permanent magnet</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet.html">SM_PermanentMagnet</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines</span></p>
+        <p>Permanent magnet synchronous machine with optional damper cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet.html">SM_PermanentMagnet</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines</span></p>
+        <p>Permanent magnet synchronous machine with optional damper cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Losses.PermanentMagnetLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Losses.PermanentMagnetLosses.html">PermanentMagnetLosses</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Losses</span></p>
+        <p>Model of permanent magnet losses dependent on current and speed</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

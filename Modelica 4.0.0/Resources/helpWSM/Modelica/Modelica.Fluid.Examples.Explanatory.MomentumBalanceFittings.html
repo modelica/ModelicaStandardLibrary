@@ -1,0 +1,132 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.Examples.Explanatory.MomentumBalanceFittings</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Fluid.Examples.Explanatory.html">Explanatory</a></li>
+  <li><a href="Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings.html">MomentumBalanceFittings</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>MomentumBalanceFittings</h1>
+    <p>Illustrating a case in which kinetic terms play a major role in the momentum balance</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings_diagram_large.png"><img src="resources/diagrams/Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example shows the use of a sudden expansion / contraction model, which is connected to two boundary conditions prescribing static pressure. Notice that the prescribed static pressure on the right boundary is higher than on the left one. Still, the fluid flows from left to right.
+</p>
+<p>
+The reason for this is that the boundary conditions model infinite reservoirs with an infinite diameter and thus zero flow velocity. The sudden expansion model does however have two ends with finite diameters, and, as explained in the <a href="Modelica.Fluid.UsersGuide.Overview.html">Overview</a> of the Users' Guide, the momentum balance is not fulfilled exactly for this type of connections. Using a simple <code>connect()</code>-statement, the difference of the kinetic terms is neglected, which is not reasonable in the present model: At the left boundary condition it is zero, and on the left side of the sudden expansion it has a non-zero value. It is not reasonable to neglect it in the shown model, because there is little friction and therefore these kinetic effects dominate. Consequently, only modelling these effects explicitly leads to the correct results.
+</p>
+<p>
+To do so, two additional sudden expansions / contractions are included in the model. The diameter is set to a large value (<code>1e60</code>) close to the boundaries and the proper values close to the original model. These additional components now introduce <em>exact</em> momentum balances and the results are as expected.
+</p>
+<p>
+The total pressures offer an additional perspective on the model. After setting the parameter <code>show_totalPressures</code> on the Advanced tab of the <code>AbruptAdaptor</code>s to <code>true</code>, the total pressures are included in said models and may be plotted. This allows to confirm that the <strong>total</strong> pressure <em>always</em> reduces along the flow direction, even in the upper model.
+</p>
+
+<img src="resources/Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings_info_001.png" border="1"
+     alt="MomentumBalanceFittings.png">
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sources.Boundary_pT_32x32.png"></td>
+      <th>leftBoundary1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sources.Boundary_pT.html">Boundary_pT</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sources.Boundary_pT_32x32.png"></td>
+      <th>rightBoundary1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sources.Boundary_pT.html">Boundary_pT</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.AbruptAdaptor_32x32.png"></td>
+      <th>suddenExpansion1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Fittings.AbruptAdaptor.html">AbruptAdaptor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sources.Boundary_pT_32x32.png"></td>
+      <th>leftBoundary2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sources.Boundary_pT.html">Boundary_pT</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sources.Boundary_pT_32x32.png"></td>
+      <th>rightBoundary2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sources.Boundary_pT.html">Boundary_pT</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.AbruptAdaptor_32x32.png"></td>
+      <th>suddenExpansion2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Fittings.AbruptAdaptor.html">AbruptAdaptor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.AbruptAdaptor_32x32.png"></td>
+      <th>leftAdaptor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Fittings.AbruptAdaptor.html">AbruptAdaptor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.AbruptAdaptor_32x32.png"></td>
+      <th>rightAdaptor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Fittings.AbruptAdaptor.html">AbruptAdaptor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.System_32x32.png"></td>
+      <th>system</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.System.html">System</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,184 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Batteries.Utilities.PulseSeries</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Batteries.html">Batteries</a></li>
+  <li><a href="Modelica.Electrical.Batteries.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Electrical.Batteries.Utilities.PulseSeries.html">PulseSeries</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PulseSeries</h1>
+    <p>Series of pulses</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Batteries.Utilities.PulseSeries_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Starting at <code>time = startTime</code>, first a series of <code>n1</code> pulses of <code>amplitude1</code> with length <code>T1</code> and pause after each pulse <code>Tp1</code> is issued.<br>
+Then, after a pause <code>Tp</code>, a series of <code>n2</code> pulses of <code>amplitude2</code> with length <code>T2</code> and pause after each pulse <code>Tp2</code> is issued.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(11)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>offset</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Offset of output signal y</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startTime</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Output y = offset for time < startTime</p>
+      </td>
+    </tr>
+    <tr>
+      <th>amplitude1</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Amplitude of 1st pulse series</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n1</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of pulses of 1st series</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T1</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Length of pulses of 1st series</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Tp1</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Pause between pulses of 1st series</p>
+      </td>
+    </tr>
+    <tr>
+      <th>amplitude2</th>
+      <td>
+        <p><span>Value:</span> -amplitude1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Amplitude of 2nd pulse series</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n2</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of pulses of 2nd series</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T2</th>
+      <td>
+        <p><span>Value:</span> T1</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Length of pulses of 2nd series</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Tp2</th>
+      <td>
+        <p><span>Value:</span> Tp1</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Pause between pulses of 1st series</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Tp</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Pause between the two series</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Connector of Real output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.Examples.BatteryDischargeCharge_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.Examples.BatteryDischargeCharge.html">BatteryDischargeCharge</a></p>
+        <p><span>Modelica.Electrical.Batteries.Examples</span></p>
+        <p>Discharge and charge idealized battery</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.Examples.SuperCapDischargeCharge_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.Examples.SuperCapDischargeCharge.html">SuperCapDischargeCharge</a></p>
+        <p><span>Modelica.Electrical.Batteries.Examples</span></p>
+        <p>Discharge and charge idealized supercap</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

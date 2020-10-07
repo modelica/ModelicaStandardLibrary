@@ -1,0 +1,282 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Visualizers.Advanced.Vector</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.html">Advanced</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector.html">Vector</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Vector</h1>
+    <p>Visualizing a vector quantity (force, torque, etc.)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Model <strong>Vector</strong> defines a&nbsp;vector that is dynamically
+visualized at the defined location (see variables below).
+The vector length does not represent
+a&nbsp;physical length, but a&nbsp;different 3-dimensional quantity
+(such as force, torque, speed, &hellip;), except for <strong>RelativePosition</strong>.
+
+That allows the vectors of similar quantities to be scaled appropriately during post-processing.
+This is useful, even for <strong>RelativePosition</strong> and in that case to disable or
+exaggerate the relative positions.
+</p>
+
+<p>
+The dialog variables <code>R</code>, <code>r</code>, <code>coordinates</code>, <code>color</code>,
+<code>specularCoefficient</code>, <code>quantity</code>, <code>headAtOrigin</code>, and <code>twoHeadedArrow</code>
+are declared as (time varying) <strong>input</strong> variables.
+If the default equation is not appropriate, a&nbsp;corresponding
+modifier equation has to be provided in the
+model where a&nbsp;<strong>Vector</strong> instance is used, e.g., in the form
+</p>
+<blockquote><pre>
+Visualizers.Advanced.Vector vectorForce(coordinates = {sin(time),cos(time),0});
+</pre></blockquote>
+
+<p>
+Variable <code>color</code> is an Integer vector with 3&nbsp;elements,
+{r,&nbsp;g,&nbsp;b}, and specifies the color of the shape.
+{r,&nbsp;g,&nbsp;b} are the &quot;red&quot;, &quot;green&quot; and &quot;blue&quot; color parts.
+Note, r, g and b are given in the range 0&nbsp;&hellip;&nbsp;255.
+The predefined type
+<a href="Modelica.Mechanics.MultiBody.Types.Color.html">MultiBody.Types.Color</a>
+contains a&nbsp;menu definition of the colors used in the MultiBody
+library together with a&nbsp;color editor.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>quantity</th>
+      <td>
+        <p><span>Value:</span> Types.VectorQuantity.Force</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.VectorQuantity.html">VectorQuantity</a></p>
+        <p><span>Description:</span> Quantity of the coordinates</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Default Value:</span> Frames.nullRotation()</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object to rotate the world frame into the vector frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r</th>
+      <td>
+        <p><span>Default Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> Position vector from origin of world frame to origin of vector frame, resolved in world frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>coordinates</th>
+      <td>
+        <p><span>Default Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> Real[3]</p>
+        <p><span>Description:</span> Coordinates of the vector resolved in vector frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>color</th>
+      <td>
+        <p><span>Default Value:</span> Types.Defaults.ArrowColor</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of vector</p>
+      </td>
+    </tr>
+    <tr>
+      <th>specularCoefficient</th>
+      <td>
+        <p><span>Default Value:</span> 0.7</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.SpecularCoefficient.html">SpecularCoefficient</a></p>
+        <p><span>Description:</span> Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>headAtOrigin</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if the vector is pointing towards the origin of vector frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>twoHeadedArrow</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if the arrow has two heads after each other (pointing in the same direction)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Form</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rxvisobj</th>
+      <td>
+        <p><span>Type:</span> Real[3]</p>
+        <p><span>Description:</span> x-axis unit vector of shape, resolved in world frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ryvisobj</th>
+      <td>
+        <p><span>Type:</span> Real[3]</p>
+        <p><span>Description:</span> y-axis unit vector of shape, resolved in world frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rvisobj</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> position vector from world frame to shape frame, resolved in world frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>vectorCoordinates</th>
+      <td>
+        <p><span>Type:</span> Real[3]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>vectorColor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+      </td>
+    </tr>
+    <tr>
+      <th>vectorSpecularCoefficient</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.SpecularCoefficient.html">SpecularCoefficient</a></p>
+      </td>
+    </tr>
+    <tr>
+      <th>vectorQuantity</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.VectorQuantity.html">VectorQuantity</a></p>
+      </td>
+    </tr>
+    <tr>
+      <th>vectorTwoHeadedArrow</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+      </td>
+    </tr>
+    <tr>
+      <th>vectorHeadAtOrigin</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.Orientation_32x32.png"></td>
+      <th>R</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object to rotate the world frame into the vector frame</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.FixedArrow_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.FixedArrow.html">FixedArrow</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span></p>
+        <p>Visualizing an arrow with dynamically varying size in frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow.html">Arrow</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers.Advanced</span></p>
+        <p>Visualizing an arrow with variable size</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow.html">DoubleArrow</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers.Advanced</span></p>
+        <p>Visualizing a double arrow with variable size</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

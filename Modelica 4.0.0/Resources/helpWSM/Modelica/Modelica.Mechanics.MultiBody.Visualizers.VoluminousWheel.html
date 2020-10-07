@@ -1,0 +1,202 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Visualizers.VoluminousWheel</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel.html">VoluminousWheel</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>VoluminousWheel</h1>
+    <p>Visualizing a voluminous wheel</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Model <strong>VoluminousWheel</strong> provides a simple visualization of a tire using
+a torus and a pipe shape object. The center of the wheel is located at
+connector frame_a (visualized by the red coordinate system in the figure below).
+</p>
+
+<blockquote>
+<img src="resources/Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel_info_001.png">
+</blockquote>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>animation</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if animation shall be enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rTire</th>
+      <td>
+        <p><span>Value:</span> 0.25</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Radius.html">Radius</a> (m)</p>
+        <p><span>Description:</span> Radius of the tire</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rRim</th>
+      <td>
+        <p><span>Value:</span> 0.14</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Radius.html">Radius</a> (m)</p>
+        <p><span>Description:</span> Radius of the rim</p>
+      </td>
+    </tr>
+    <tr>
+      <th>width</th>
+      <td>
+        <p><span>Value:</span> 0.25</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Radius.html">Radius</a> (m)</p>
+        <p><span>Description:</span> Width of the tire</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rCurvature</th>
+      <td>
+        <p><span>Value:</span> 0.30</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Radius.html">Radius</a> (m)</p>
+        <p><span>Description:</span> Radius of the tire's cross section</p>
+      </td>
+    </tr>
+    <tr>
+      <th>color</th>
+      <td>
+        <p><span>Value:</span> {64, 64, 64}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.RealColor.html">RealColor</a></p>
+        <p><span>Description:</span> Color of tire</p>
+      </td>
+    </tr>
+    <tr>
+      <th>specularCoefficient</th>
+      <td>
+        <p><span>Value:</span> 0.5</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.SpecularCoefficient.html">SpecularCoefficient</a></p>
+        <p><span>Description:</span> Reflection of ambient light (= 0: light is completely absorbed)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n_rTire</th>
+      <td>
+        <p><span>Value:</span> 40</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of points along rTire</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n_rCurvature</th>
+      <td>
+        <p><span>Value:</span> 20</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of points along rCurvature</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_16x16.png"></td>
+      <th>frame_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p><span>Description:</span> Coordinate system in which visualization data is resolved</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>pipe</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface_32x32.png"></td>
+      <th>torus</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface.html">Surface</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces.html">Surfaces</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span></p>
+        <p>Demonstrate the visualization of a sine surface, as well as a torus and a wheel constructed from a surface</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

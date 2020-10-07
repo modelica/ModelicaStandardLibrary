@@ -1,0 +1,721 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Interfaces.BooleanInput</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Blocks.Interfaces.BooleanInput.html">BooleanInput</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>BooleanInput</h1>
+    <p>'input Boolean' as connector</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Interfaces.BooleanInput_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Connector with one input signal of type Boolean.
+</p>
+</div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(84)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Integrator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Continuous.Integrator.html">Integrator</a></p>
+        <p><span>Modelica.Blocks.Continuous</span></p>
+        <p>Output the integral of the input signal with optional reset</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.LimIntegrator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Continuous.LimIntegrator.html">LimIntegrator</a></p>
+        <p><span>Modelica.Blocks.Continuous</span></p>
+        <p>Integrator with limited value of the output and optional reset</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Discrete.TriggeredSampler_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Discrete.TriggeredSampler.html">TriggeredSampler</a></p>
+        <p><span>Modelica.Blocks.Discrete</span></p>
+        <p>Triggered sampling of continuous signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Discrete.TriggeredMax_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Discrete.TriggeredMax.html">TriggeredMax</a></p>
+        <p><span>Modelica.Blocks.Discrete</span></p>
+        <p>Compute maximum, absolute value of continuous signal at trigger instants</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interaction.Show.BooleanValue_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interaction.Show.BooleanValue.html">BooleanValue</a></p>
+        <p><span>Modelica.Blocks.Interaction.Show</span></p>
+        <p>Show Boolean value from numberPort or from number input field in diagram layer dynamically</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.BooleanSISO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.BooleanSISO.html">BooleanSISO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Single Input Single Output control block with signals of type Boolean</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.BooleanMIMOs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.BooleanMIMOs.html">BooleanMIMOs</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Multiple Input Multiple Output continuous control block with same number of inputs and outputs of Boolean type</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.SI2BooleanSO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.SI2BooleanSO.html">SI2BooleanSO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>2 Single Input / Boolean Single Output block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.partialBooleanSISO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.partialBooleanSISO.html">partialBooleanSISO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Partial block with 1 input and 1 output Boolean signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.partialBooleanSI2SO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.partialBooleanSI2SO.html">partialBooleanSI2SO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Partial block with 2 input and 1 output Boolean signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.partialBooleanSI3SO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.partialBooleanSI3SO.html">partialBooleanSI3SO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Partial block with 3 input and 1 output Boolean signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.partialBooleanSI_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.partialBooleanSI.html">partialBooleanSI</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Partial block with 1 input Boolean signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.PartialBooleanSISO_small_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.PartialBooleanSISO_small.html">PartialBooleanSISO_small</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Partial block with a BooleanInput and a BooleanOutput signal and a small block icon</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.ZeroCrossing_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.ZeroCrossing.html">ZeroCrossing</a></p>
+        <p><span>Modelica.Blocks.Logical</span></p>
+        <p>Trigger zero crossing of input u</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.Switch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.Switch.html">Switch</a></p>
+        <p><span>Modelica.Blocks.Logical</span></p>
+        <p>Switch between two Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.TriggeredTrapezoid_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.TriggeredTrapezoid.html">TriggeredTrapezoid</a></p>
+        <p><span>Modelica.Blocks.Logical</span></p>
+        <p>Triggered trapezoid generator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.Timer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.Timer.html">Timer</a></p>
+        <p><span>Modelica.Blocks.Logical</span></p>
+        <p>Timer measuring the time from the time instant where the Boolean input became true</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.LogicalDelay_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.LogicalDelay.html">LogicalDelay</a></p>
+        <p><span>Modelica.Blocks.Logical</span></p>
+        <p>Delay boolean signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.RSFlipFlop_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.RSFlipFlop.html">RSFlipFlop</a></p>
+        <p><span>Modelica.Blocks.Logical</span></p>
+        <p>A basic RS Flip Flop</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.MathInteger.TriggeredAdd_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.MathInteger.TriggeredAdd.html">TriggeredAdd</a></p>
+        <p><span>Modelica.Blocks.MathInteger</span></p>
+        <p>Add input to previous value of output, if rising edge of trigger port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.BooleanReplicator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.BooleanReplicator.html">BooleanReplicator</a></p>
+        <p><span>Modelica.Blocks.Routing</span></p>
+        <p>Boolean signal replicator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.ClockSignals.Clocks.EventClock_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.ClockSignals.Clocks.EventClock.html">EventClock</a></p>
+        <p><span>Modelica.Clocked.ClockSignals.Clocks</span></p>
+        <p>Generate a clock signal when the Boolean input changes from false to true</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.SampleClocked_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.SampleClocked.html">SampleClocked</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler</span></p>
+        <p>Sample the continuous-time, Boolean input signal and provide it as clocked output signal. The clock is provided as input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.SampleVectorizedAndClocked_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.SampleVectorizedAndClocked.html">SampleVectorizedAndClocked</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler</span></p>
+        <p>Sample the continuous-time, Boolean input signal vector and provide it as clocked output signal vector. The clock is provided as input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.Hold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.Hold.html">Hold</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler</span></p>
+        <p>Hold the clocked, Boolean input signal and provide it as continuous-time output signal (zero order hold)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.SubSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.SubSample.html">SubSample</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler</span></p>
+        <p>Sub-sample the clocked Boolean input signal and provide it as clocked output signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.SuperSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.SuperSample.html">SuperSample</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler</span></p>
+        <p>Super-sample the clocked Boolean input signal and provide it as clocked output signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.ShiftSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.ShiftSample.html">ShiftSample</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler</span></p>
+        <p>Shift the clocked Boolean input signal by a fraction of the last interval and and provide it as clocked output signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.BackSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.BackSample.html">BackSample</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler</span></p>
+        <p>Shift clock of Boolean input signal backwards in time (and access the most recent value of the input at this new clock)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.AssignClock_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.AssignClock.html">AssignClock</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler</span></p>
+        <p>Assign a clock to a clocked Boolean signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.AssignClockVectorized_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.AssignClockVectorized.html">AssignClockVectorized</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler</span></p>
+        <p>Assign a clock to a clocked Boolean signal vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.Utilities.UpSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.Utilities.UpSample.html">UpSample</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler.Utilities</span></p>
+        <p>Upsample the clocked Boolean input signal and provide it as clocked output signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.Utilities.AssignClockToTriggerHold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.Utilities.AssignClockToTriggerHold.html">AssignClockToTriggerHold</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler.Utilities</span></p>
+        <p>Generate a Boolean continuous-time trigger signal from a clocked Boolean input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.Utilities.AssignClockToSquareWaveHold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.Utilities.AssignClockToSquareWaveHold.html">AssignClockToSquareWaveHold</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler.Utilities</span></p>
+        <p>Generate a Boolean continuous-time square signal from a clocked Real input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.NonPeriodic.BooleanChange_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.NonPeriodic.BooleanChange.html">BooleanChange</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.NonPeriodic</span></p>
+        <p>Indicate Boolean signal changing</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Interfaces.PartialSISOSampler_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Interfaces.PartialSISOSampler.html">PartialSISOSampler</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Interfaces</span></p>
+        <p>Basic block used for sampling of Boolean signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Interfaces.PartialClockedSISO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Interfaces.PartialClockedSISO.html">PartialClockedSISO</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Interfaces</span></p>
+        <p>Block with clocked single input and clocked single output Boolean signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.Utilities.TankController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.Utilities.TankController.html">TankController</a></p>
+        <p><span>Modelica.StateGraph.Examples.Utilities</span></p>
+        <p>Controller for tank system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.Utilities.valve_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.Utilities.valve.html">valve</a></p>
+        <p><span>Modelica.StateGraph.Examples.Utilities</span></p>
+        <p>Simple valve model (this is a copy from Isolde Dressler's master thesis project)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.TransitionWithSignal_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.TransitionWithSignal.html">TransitionWithSignal</a></p>
+        <p><span>Modelica.StateGraph</span></p>
+        <p>Transition where the fire condition is set by a Boolean input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.IdealThyristor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.IdealThyristor.html">IdealThyristor</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span></p>
+        <p>Ideal thyristor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.IdealGTOThyristor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.IdealGTOThyristor.html">IdealGTOThyristor</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span></p>
+        <p>Ideal GTO thyristor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.IdealTwoWaySwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.IdealTwoWaySwitch.html">IdealTwoWaySwitch</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span></p>
+        <p>Ideal two-way switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch.html">IdealIntermediateSwitch</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span></p>
+        <p>Ideal intermediate switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch.html">IdealOpeningSwitch</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span></p>
+        <p>Ideal electrical opener</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.IdealClosingSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.IdealClosingSwitch.html">IdealClosingSwitch</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span></p>
+        <p>Ideal electrical closer</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.OpenerWithArc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.OpenerWithArc.html">OpenerWithArc</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span></p>
+        <p>Ideal opening switch with simple arc model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.CloserWithArc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.CloserWithArc.html">CloserWithArc</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span></p>
+        <p>Ideal closing switch with simple arc model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.IdealTriac_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.IdealTriac.html">IdealTriac</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span></p>
+        <p>Ideal triac, based on ideal thyristors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Converters.BooleanToLogic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Converters.BooleanToLogic.html">BooleanToLogic</a></p>
+        <p><span>Modelica.Electrical.Digital.Converters</span></p>
+        <p>Boolean to Logic converter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.SwitchYD_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Utilities.SwitchYD.html">SwitchYD</a></p>
+        <p><span>Modelica.Electrical.Machines.Utilities</span></p>
+        <p>Y-D-switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.SwitchYDwithArc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Utilities.SwitchYDwithArc.html">SwitchYDwithArc</a></p>
+        <p><span>Modelica.Electrical.Machines.Utilities</span></p>
+        <p>Y-D-switch with arc</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Ideal.IdealThyristor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Ideal.IdealThyristor.html">IdealThyristor</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal thyristor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Ideal.IdealGTOThyristor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Ideal.IdealGTOThyristor.html">IdealGTOThyristor</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal GTO thyristor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Ideal.IdealCommutingSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Ideal.IdealCommutingSwitch.html">IdealCommutingSwitch</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal commuting switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Ideal.IdealIntermediateSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Ideal.IdealIntermediateSwitch.html">IdealIntermediateSwitch</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal intermediate switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Ideal.IdealOpeningSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Ideal.IdealOpeningSwitch.html">IdealOpeningSwitch</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal opener</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Ideal.IdealClosingSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Ideal.IdealClosingSwitch.html">IdealClosingSwitch</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal closer</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Ideal.OpenerWithArc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Ideal.OpenerWithArc.html">OpenerWithArc</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Ideal</span></p>
+        <p>Polyphase opener with arc</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Ideal.CloserWithArc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Ideal.CloserWithArc.html">CloserWithArc</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Ideal</span></p>
+        <p>Polyphase closer with arc</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.DCDC.HBridge_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.DCDC.HBridge.html">HBridge</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.DCDC</span></p>
+        <p>H bridge (four quadrant converter)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACAC.Control.SoftStartControl_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACAC.Control.SoftStartControl.html">SoftStartControl</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACAC.Control</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACAC.SinglePhaseTriac_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACAC.SinglePhaseTriac.html">SinglePhaseTriac</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACAC</span></p>
+        <p>Triode for alternating current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACAC.PolyphaseTriac_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACAC.PolyphaseTriac.html">PolyphaseTriac</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACAC</span></p>
+        <p>Triodes for alternating current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Enable.EnableLogic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Enable.EnableLogic.html">EnableLogic</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Enable</span></p>
+        <p>Partial model providing enable parameter and optional enable input</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable.html">Enable</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Interfaces.Enable</span></p>
+        <p>Partial model providing enable parameter and optional enable input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable1.html">Enable1</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Interfaces.Enable</span></p>
+        <p>Partial model providing enable parameter and optional enable input for one firing signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable1m_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable1m.html">Enable1m</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Interfaces.Enable</span></p>
+        <p>Partial model providing enable parameter and optional enable input for m firing signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable2.html">Enable2</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Interfaces.Enable</span></p>
+        <p>Partial model providing enable parameter and optional enable input for two firing signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable2m_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable2m.html">Enable2m</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Interfaces.Enable</span></p>
+        <p>Partial model providing enable parameter and optional enable input for 2*m firing signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealCommutingSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealCommutingSwitch.html">IdealCommutingSwitch</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Ideal</span></p>
+        <p>Ideal commuting switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealIntermediateSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealIntermediateSwitch.html">IdealIntermediateSwitch</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Ideal</span></p>
+        <p>Ideal intermediate switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealOpeningSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealOpeningSwitch.html">IdealOpeningSwitch</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Ideal</span></p>
+        <p>Ideal electrical opener</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealClosingSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealClosingSwitch.html">IdealClosingSwitch</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Ideal</span></p>
+        <p>Ideal electrical closer</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealCommutingSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealCommutingSwitch.html">IdealCommutingSwitch</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal commuting switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealIntermediateSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealIntermediateSwitch.html">IdealIntermediateSwitch</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal intermediate switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealOpeningSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealOpeningSwitch.html">IdealOpeningSwitch</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal opener</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealClosingSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealClosingSwitch.html">IdealClosingSwitch</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal closer</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.SwitchYD_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.SwitchYD.html">SwitchYD</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities</span></p>
+        <p>Y-D-switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathToAxisControlBus_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathToAxisControlBus.html">PathToAxisControlBus</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities</span></p>
+        <p>Map path planning to one axis control bus</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.ControlledTankSystem.Utilities.TankController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.ControlledTankSystem.Utilities.TankController.html">TankController</a></p>
+        <p><span>Modelica.Fluid.Examples.ControlledTankSystem.Utilities</span></p>
+        <p>Controller for tank system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel.html">PartialLumpedVessel</a></p>
+        <p><span>Modelica.Fluid.Vessels.BaseClasses</span></p>
+        <p>Lumped volume with a vector of fluid ports and replaceable heat transfer model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Valves.ValveDiscrete_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Valves.ValveDiscrete.html">ValveDiscrete</a></p>
+        <p><span>Modelica.Fluid.Valves</span></p>
+        <p>Valve for water/steam flows with linear pressure drop</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Valves.ValveDiscreteRamp_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Valves.ValveDiscreteRamp.html">ValveDiscreteRamp</a></p>
+        <p><span>Modelica.Fluid.Valves</span></p>
+        <p>Valve for water/steam flows with discrete opening signal and ramp opening</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Examples.RealNetwork1</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Blocks.Examples.RealNetwork1.html">RealNetwork1</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>RealNetwork1</h1>
+    <p>Demonstrates the usage of blocks from Modelica.Blocks.Math</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Examples.RealNetwork1_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Blocks.Examples.RealNetwork1_diagram_large.png"><img src="resources/diagrams/Modelica.Blocks.Examples.RealNetwork1_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example demonstrates a network of mathematical Real blocks.
+from package <a href="Modelica.Blocks.Math.html">Modelica.Blocks.Math</a>.
+Note, that
+</p>
+
+<ul>
+<li> at the right side of the model, several Math.ShowValue blocks
+     are present, that visualize the actual value of the respective Real
+     signal in a diagram animation.</li>
+
+<li> the Boolean values of the input and output signals are visualized
+     in the diagram animation, by the small "circles" close to the connectors.
+     If a "circle" is "white", the signal is <strong>false</strong>. If a
+     "circle" is "green", the signal is <strong>true</strong>.</li>
+</ul>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(13)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.MultiSum_32x32.png"></td>
+      <th>add</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.MultiSum.html">MultiSum</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Sine_32x32.png"></td>
+      <th>sine</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Sine.html">Sine</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Step_32x32.png"></td>
+      <th>integerStep</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>integerConstant</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interaction.Show.RealValue_32x32.png"></td>
+      <th>showValue</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interaction.Show.RealValue.html">RealValue</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.MultiProduct_32x32.png"></td>
+      <th>product</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.MultiProduct.html">MultiProduct</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interaction.Show.RealValue_32x32.png"></td>
+      <th>showValue1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interaction.Show.RealValue.html">RealValue</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.BooleanPulse_32x32.png"></td>
+      <th>booleanPulse1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.BooleanPulse.html">BooleanPulse</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.MultiSwitch_32x32.png"></td>
+      <th>multiSwitch</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.MultiSwitch.html">MultiSwitch</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.BooleanPulse_32x32.png"></td>
+      <th>booleanPulse2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.BooleanPulse.html">BooleanPulse</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interaction.Show.RealValue_32x32.png"></td>
+      <th>showValue3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interaction.Show.RealValue.html">RealValue</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.LinearDependency_32x32.png"></td>
+      <th>linearDependency1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.LinearDependency.html">LinearDependency</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.MinMax_32x32.png"></td>
+      <th>minMax</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.MinMax.html">MinMax</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

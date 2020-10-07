@@ -1,0 +1,198 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Spice3.Semiconductors.C_Capacitor</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Spice3.html">Spice3</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Semiconductors.html">Semiconductors</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Semiconductors.C_Capacitor.html">C_Capacitor</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>C_Capacitor</h1>
+    <p>Semiconductor capacitor</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Spice3.Semiconductors.C_Capacitor_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>C_Capacitor is a Semiconductor Capacitor model.</p>
+<p>This capacitor model allows the calculation of the actual capacitance value from strictly geometric information and the specification of the process.</p>
+<p>The models from the package Semiconductors accesses to the package Repository where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Repository.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>C</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Types.Capacitance.html">Capacitance</a> (F)</p>
+        <p><span>Description:</span> Capacitance, if specified, geometrical information is overwritten</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TEMP</th>
+      <td>
+        <p><span>Value:</span> 27</p>
+        <p><span>Type:</span> <a href="Modelica.Units.NonSI.Temperature_degC.html">Temperature_degC</a> (°C)</p>
+        <p><span>Description:</span> Temperature of capacitor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>L</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length of the capacitor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>W</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Width of the capacitor, default DEFW (modelcard)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>SENS_AREA</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Parameter for sensitivity analyses, not implemented yet</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IC</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Initial value</p>
+      </td>
+    </tr>
+    <tr>
+      <th>UIC</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Use initial conditions: true, if initial condition is used</p>
+      </td>
+    </tr>
+    <tr>
+      <th>modelcard</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.ModelcardC.html">ModelcardC</a></p>
+        <p><span>Description:</span> Capacitor modelcard</p>
+      </td>
+    </tr>
+    <tr>
+      <th>lp</th>
+      <td>
+        <p><span>Value:</span> Modelica.Electrical.Spice3.Internal.Csemiconductor.capacitorRenameParameters(modelcard)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Csemiconductor.CapacitorModelLineParams.html">CapacitorModelLineParams</a></p>
+        <p><span>Description:</span> Model Line Parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <th>cp</th>
+      <td>
+        <p><span>Value:</span> Modelica.Electrical.Spice3.Internal.Csemiconductor.capacitorRenameParametersDev(C, W, L, TEMP, SENS_AREA, lp)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Csemiconductor.Capacitor.html">Capacitor</a></p>
+        <p><span>Description:</span> Renamed parameters</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive electrical pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative electrical pin</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.ModelcardC_32x32.png"></td>
+      <th>modelcard</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.ModelcardC.html">ModelcardC</a></p>
+        <p><span>Description:</span> Capacitor modelcard</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Csemiconductor.CapacitorModelLineParams_32x32.png"></td>
+      <th>lp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Csemiconductor.CapacitorModelLineParams.html">CapacitorModelLineParams</a></p>
+        <p><span>Description:</span> Model Line Parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Csemiconductor.Capacitor_32x32.png"></td>
+      <th>cp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Csemiconductor.Capacitor.html">Capacitor</a></p>
+        <p><span>Description:</span> Renamed parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Csemiconductor.Capacitor_32x32.png"></td>
+      <th>vp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Csemiconductor.Capacitor.html">Capacitor</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

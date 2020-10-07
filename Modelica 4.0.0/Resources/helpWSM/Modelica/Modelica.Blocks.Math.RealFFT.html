@@ -1,0 +1,192 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Math.RealFFT</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Math.html">Math</a></li>
+  <li><a href="Modelica.Blocks.Math.RealFFT.html">RealFFT</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>RealFFT</h1>
+    <p>Sampling and FFT of input u</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Math.RealFFT_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This block samples the input signal, calculates the Fast Fourier Transform by function <a href="Modelica.Math.FastFourierTransform.realFFT.html">Math.realFFT</a>,
+and (when simulation terminates) writes the output to result file resultFileName by function <a href="Modelica.Math.FastFourierTransform.realFFTwriteToFile.html">Math.realFFTwriteToFile</a>.
+</p>
+<p>
+The number of sampling points as well as the samplePeriod is calculated from desired maximum frequency f_max and frequency resolution f_res.
+</p>
+<h4>Note</h4>
+<p>
+The user has to take care that enough points can be sampled before the simulation ends: startTime + (ns - 1)*samplePeriod <= stopTime.
+</p>
+<p>
+The result file is written as mat, first column = frequency, second column = amplitudes, third column = phases. The frequency points are separated by rows with amplitude and phase = 0,
+so one can plot the result directly as frequency lines.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>samplePeriod</th>
+      <td>
+        <p><span>Value:</span> 1 / (2 * f_res * div(ns, 2))</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Sample period of component</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startTime</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> First sample time instant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f_max</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Maximum frequency of interest</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f_res</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Frequency resolution</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ns</th>
+      <td>
+        <p><span>Value:</span> Modelica.Math.FastFourierTransform.realFFTsamplePoints(f_max, f_res, f_max_factor = 5)</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of samples</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nf</th>
+      <td>
+        <p><span>Value:</span> max(1, min(integer(ceil(f_max / f_res)) + 1, div(ns, 2)))</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of frequency points</p>
+      </td>
+    </tr>
+    <tr>
+      <th>resultFileName</th>
+      <td>
+        <p><span>Value:</span> "realFFT.mat"</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Result file: f, abs, arg</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>sampleTrigger</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> True, if sample time instant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>firstTrigger</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Rising edge signals first sample instant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>info</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Information flag from FFT computation</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Rectifier6pulseFFT_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Rectifier6pulseFFT.html">Rectifier6pulseFFT</a></p>
+        <p><span>Modelica.Blocks.Examples</span></p>
+        <p>Example of FFT block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Rectifier12pulseFFT_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Rectifier12pulseFFT.html">Rectifier12pulseFFT</a></p>
+        <p><span>Modelica.Blocks.Examples</span></p>
+        <p>Example of FFT block</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

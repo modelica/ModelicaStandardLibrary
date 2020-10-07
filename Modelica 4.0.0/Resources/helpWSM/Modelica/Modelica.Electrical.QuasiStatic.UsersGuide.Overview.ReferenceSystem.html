@@ -1,0 +1,63 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.QuasiStatic.UsersGuide.Overview.ReferenceSystem</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.html">Overview</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ReferenceSystem.html">ReferenceSystem</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ReferenceSystem</h1>
+    <p>Reference system</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ReferenceSystem_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The reference angle <code>gamma</code>:
+</p>
+<ul>
+  <li>defines the angular frequency <code>omega</code> of the voltages and currents
+      of a circuit by means of <code>omega = der(gamma)</code>.</li>
+  <li>is not a global quantity since it propagated through the connector.
+      Therefore, independent circuits of different frequencies can be modeled in one model.</li>
+  <li>is present only once in a polyphase connector;
+      a polyphase component has only one reference angle common to all phases.</li>
+  <li>can be either constant or variable, but it has to be consistent in one contiguous circuit.</li>
+  <li>is defined by the sources.</li>
+</ul>
+<p>
+Designing new components, the guidelines of <a href="https://specification.modelica.org/v3.4/Ch9.html#overconstrained-equation-operators-for-connection-graphs">Section 9.4.1 (Overconstrained Equation Operators for Connection Graphs) of the Modelica 3.4 specification</a> have to be taken into account.
+</p>
+
+<h4>See also</h4>
+<a href="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Introduction.html">
+          Introduction</a>,
+<a href="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.ACCircuit.html">
+          AC circuit</a>,
+<a href="Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Power.html">
+          Power</a>
+</div>
+</section>
+</div>
+</body>
+</html>

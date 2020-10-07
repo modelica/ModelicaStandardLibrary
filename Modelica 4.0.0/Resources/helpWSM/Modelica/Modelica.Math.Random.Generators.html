@@ -1,0 +1,217 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Random.Generators</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Random.html">Random</a></li>
+  <li><a href="Modelica.Math.Random.Generators.html">Generators</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Generators</h1>
+    <p>Library of functions generating uniform random numbers in the range 0 < random <= 1.0 (with exposed state vectors)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Random.Generators_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Random.Generators.Xorshift64star_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Random.Generators.Xorshift64star.html">Xorshift64star</a></p>
+        <p>Random number generator xorshift64*</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Random.Generators.Xorshift128plus_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Random.Generators.Xorshift128plus.html">Xorshift128plus</a></p>
+        <p>Random number generator xorshift128+</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Random.Generators.Xorshift1024star_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Random.Generators.Xorshift1024star.html">Xorshift1024star</a></p>
+        <p>Random number generator xorshift1024*</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This package contains various pseudo random number generators. A random number generator is a package
+that consists of the following elements:
+</p>
+<ul>
+<li> Integer <strong>nState</strong> is a constant that defines the length of the internal state vector
+     (in order that an appropriate Integer vector of this length can be declared, depending on
+     the selected random number generator).</li>
+<li> Function <strong>initialState(..)</strong> is used to initialize the state of the random number generator
+     by providing Integer seeds and calling the random number generator often enough that
+     statistically relevant random numbers are returned by every call of function random(..).</li>
+<li> Function <strong>random(..)</strong> is used to return a random number of type Real in the range
+     0.0 &lt; random &le; 1.0 for every call.
+     Furthermore, the updated (internal) state of the random number generator is returned as well.
+    </li>
+</ul>
+
+<p>
+The Generators package contains the <strong>xorshift</strong> suite of random number generators
+from Sebastiano Vigna (from 2014; based on work of George Marsaglia).
+The properties of these random
+number generators are summarized below and compared with the often used
+Mersenne Twister (MT19937-64) generator. The table is based on
+<a href="http://xorshift.di.unimi.it/">http://xorshift.di.unimi.it/</a> and on the
+articles:
+</p>
+<blockquote>
+<p>
+Sebastiano Vigna:
+<a href="http://vigna.di.unimi.it/ftp/papers/xorshift.pdf">An experimental exploration of Marsaglia's xorshift generators, scrambled</a>, 2014.<br>
+Sebastiano Vigna:
+<a href="http://vigna.di.unimi.it/ftp/papers/xorshiftplus.pdf">Further scramblings of Marsaglia's xorshift generators</a>, 2014.<br>
+</p>
+</blockquote>
+
+<p>
+Summary of the properties of the random number generators:
+</p>
+
+<blockquote>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th>Property</th>
+    <th>xorshift64*</th>
+    <th>xorshift128+</th>
+    <th>xorshift1024*</th>
+    <th>MT19937-64</th></tr>
+
+<tr><td>Period</td>
+    <td>2^64</td>
+    <td>2^128</td>
+    <td>2^1024</td>
+    <td>2^19937</td></tr>
+
+<tr><td>Length of state (# 32 bit integer)</td>
+    <td>2</td>
+    <td>4</td>
+    <td>33</td>
+    <td>624</td></tr>
+
+<tr><td>Statistic failures (Big Crush)</td>
+    <td>363</td>
+    <td>64</td>
+    <td>51</td>
+    <td>516</td></tr>
+
+<tr><td>Systematic failures (Big Crush)</td>
+    <td>yes</td>
+    <td>no</td>
+    <td>no</td>
+    <td>yes</td></tr>
+
+<tr><td>Worst case startup</td>
+    <td> &gt; 1 call       </td>
+    <td> &gt; 20 calls     </td>
+    <td> &gt; 100 calls    </td>
+    <td> &gt; 100000 calls </td></tr>
+
+<tr><td>Run time (MT=1.0)</td>
+    <td> 0.39 </td>
+    <td> 0.27 </td>
+    <td> 0.33 </td>
+    <td> 1.0  </td></tr>
+</table>
+</blockquote>
+
+<p>
+Further explanations of the properties above:
+</p>
+
+<ul>
+<li> The <strong>period</strong> defines the number of random numbers generated
+     before the sequence begins to repeat itself. According to
+     "<a href="http://xorshift.di.unimi.it/">A long period does not imply high quality</a>"
+     a period of 2^1024 is by far large enough for even massively parallel simulations
+     with huge number of random number computations per simulation.
+     A period of 2^128 might be not enough for massively parallel simulations.
+     </li>
+
+<li> <strong>Length of state (# 32 bit integer)</strong> defines the number of "int" (that is Modelica Integer) elements
+     used for the internal state vector.</li>
+
+<li> <strong>Big Crush</strong> is part of <a href="http://simul.iro.umontreal.ca/testu01/tu01.html">TestU01</a>
+     a huge framework for testing random number generators.
+     According to these tests, the statistical properties of the xorshift random number
+     generators are better than the ones of the Mersenne Twister random number generator.</li>
+
+<li> <strong>Worst case startup</strong> means how many calls are needed until getting
+     from a bad seed to random numbers with appropriate statistical properties.
+     Here, the xorshift random number suite has much better properties
+     than the Mersenne Twister. When initializing a random number generator, the above property
+     is taken into account and appropriate random numbers are generated, so that a subsequent
+     call of random(..) will generate statistically relevant random numbers, even if the user
+     provides a bad initial seed (such as localSeed=1). This means, any Integer number can be given as
+     initial seed without influencing the quality of the generated random numbers.</li>
+
+<li> <strong>Run time</strong> shows that the xorshift random number generators are
+     all much faster than the Mersenne Twister random number generator, although
+     this is not really relevant for most simulations, because the execution
+     time of the other parts of the simulations is usually much larger.</li>
+</ul>
+
+<p>
+The xorshift random number generators are used in the following way in the
+<a href="Modelica.Blocks.Noise.html">Blocks.Noise</a> package:
+</p>
+<ol>
+<li> Xorshift64star (xorshift64*) is used to generate the initial internal state vectors of the
+     other generators from two Integer values, due
+     to the very good startup properties.</li>
+
+<li> Xorshift128plus (xorshift128+) is the random number generator
+     used by the blocks in <a href="Modelica.Blocks.Noise.html">Blocks.Noise</a>.
+     Since these blocks hold the internal state vector for every block instance, and the
+     internal state vector is copied whenever a new random number is drawn, it is important
+     that the internal state vector is short (and still has good statistical properties
+     as shown in the table above).</li>
+
+<li> Xorshift1024star (xorshift1024*) is the basis of the impure function
+     <a href="Modelica.Math.Random.Utilities.impureRandom.html">Math.Random.Utilities.impureRandom</a>
+     which in turn is used with
+     <a href="Modelica.Blocks.Noise.GlobalSeed.html">Blocks.Noise.GlobalSeed</a>.
+     The internal state vector is not exposed. It is updated internally, whenever a new random number
+     is drawn.</li>
+</ol>
+
+<p>
+Note, the generators produce 64 bit random numbers.
+These numbers are mapped to the 52 bit mantissa of double numbers in the range 0.0 .. 1.0.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

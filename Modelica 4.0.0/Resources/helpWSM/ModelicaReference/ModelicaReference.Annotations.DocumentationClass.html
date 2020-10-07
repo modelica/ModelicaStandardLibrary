@@ -1,0 +1,61 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Annotations.DocumentationClass</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Annotations.html">Annotations</a></li>
+  <li><a href="ModelicaReference.Annotations.DocumentationClass.html">DocumentationClass</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>DocumentationClass</h1>
+    <p>DocumentationClass</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Annotations.DocumentationClass_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Annotation for defining documentation classes
+</p>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>documentation class_annotation:
+   <strong>annotation</strong>"(" DocumentationClass "=" <strong>true</strong> ")"
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+Only allowed as class annotation on any kind of class and implies that this class and all
+classes within it are treated as having the annotation preferredView="info".
+If the annotation preferredView is explicitly set for a class, it has precedence over
+a DocumentationClass annotation.
+</p>
+
+<p><em>
+[A tool may display such classes in special ways. For example, the
+description texts of the classes might be  displayed instead of the class
+names, and if no icon is defined, a special information default icon may be
+displayed in the package browser.]
+</em></p>
+</div>
+</section>
+</div>
+</body>
+</html>

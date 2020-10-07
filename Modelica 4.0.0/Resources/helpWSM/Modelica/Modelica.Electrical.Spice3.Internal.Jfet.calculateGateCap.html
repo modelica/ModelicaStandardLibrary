@@ -1,0 +1,106 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Spice3.Internal.Jfet.calculateGateCap</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Spice3.html">Spice3</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.Jfet.html">Jfet</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.Jfet.calculateGateCap.html">calculateGateCap</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>calculateGateCap</h1>
+    <p>Gate capacitance calculation</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Spice3.Internal.Jfet.calculateGateCap_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(capgs, chargegs, capgd, chargegd) = calculateGateCap(in_f, vgs, vgd)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>in_f</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Fet.Fet.html">Fet</a></p>
+      </td>
+    </tr>
+    <tr>
+      <th>vgs</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Input voltage gate source</p>
+      </td>
+    </tr>
+    <tr>
+      <th>vgd</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Input voltage gate drain</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>capgs</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Types.Capacitance.html">Capacitance</a> (F)</p>
+        <p><span>Description:</span> Output capacitance gate source</p>
+      </td>
+    </tr>
+    <tr>
+      <th>chargegs</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Charge.html">Charge</a> (C)</p>
+        <p><span>Description:</span> Output charge gate source</p>
+      </td>
+    </tr>
+    <tr>
+      <th>capgd</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Types.Capacitance.html">Capacitance</a> (F)</p>
+        <p><span>Description:</span> Output capacitance gate drain</p>
+      </td>
+    </tr>
+    <tr>
+      <th>chargegd</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Charge.html">Charge</a> (C)</p>
+        <p><span>Description:</span> Output charge gate drain</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

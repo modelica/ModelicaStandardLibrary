@@ -1,0 +1,48 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Operators.'subSample()'</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Operators.html">Operators</a></li>
+  <li><a href="ModelicaReference.Operators.'subSample()'.html">'subSample()'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'subSample()'</h1>
+    <p>subSample()</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'subSample()'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Subsamples a clocked expressions as part of the <a href="ModelicaReference.Synchronous.html">synchronous language elements</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>subSample</strong>(u, factor)</pre></blockquote>
+<h4>Description</h4>
+<p>
+The clock of <strong>y = subSample(u,factor)</strong> is <strong>factor</strong>-times slower than the clock of <strong>u</strong>.
+At every <strong>factor</strong> ticks of the clock of <strong>u</strong>, the operator returns the value of <strong>u</strong>.
+The first activation of the clock of <strong>y</strong> coincides with the first activation of the clock of <strong>u</strong>.
+If argument <strong>factor</strong> is not provided or is equal to zero, it is inferred.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

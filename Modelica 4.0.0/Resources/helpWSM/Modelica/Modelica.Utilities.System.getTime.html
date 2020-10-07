@@ -1,0 +1,147 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Utilities.System.getTime</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.System.html">System</a></li>
+  <li><a href="Modelica.Utilities.System.getTime.html">getTime</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>getTime</h1>
+    <p>Retrieve the local time (in the local time zone)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.System.getTime_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+(ms, sec, min, hour, day, mon, year) = System.<strong>getTime</strong>();
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns the local time at the time instant this function was called.
+All returned values are of type Integer and have the following meaning:
+</p>
+
+<blockquote>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th>Argument</th>
+    <th>Range</th>
+    <th>Description</th></tr>
+
+<tr><td>ms</td> <td>0 .. 999</td>
+    <td>Milli-seconds after seconds</td></tr>
+
+<tr><td>sec</td> <td>0 .. 59</td>
+    <td>Seconds after minute</td></tr>
+
+<tr><td>min</td> <td>0 .. 59</td>
+    <td>Minutes after hour</td></tr>
+
+<tr><td>hour</td> <td>0 .. 23</td>
+    <td>Hours after midnight</td></tr>
+
+<tr><td>day</td> <td>1 .. 31</td>
+    <td>Day of month</td></tr>
+
+<tr><td>mon</td> <td>1 .. 12</td>
+    <td>Current month</td></tr>
+
+<tr><td>year</td> <td>&ge; 2015</td>
+    <td>Current year</td></tr>
+</table>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote><pre>
+(ms, sec, min, hour, mon, year) = getTime()   // = (281, 30, 13, 10, 15, 2, 2015)
+                                              // Feb. 15, 2015 at 10:13 after 30.281 s
+</pre></blockquote>
+<h4>Note</h4>
+<p>This function is impure!</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(ms, sec, min, hour, day, mon, year) = getTime()
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>ms</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Millisecond</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sec</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Second</p>
+      </td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Minute</p>
+      </td>
+    </tr>
+    <tr>
+      <th>hour</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Hour</p>
+      </td>
+    </tr>
+    <tr>
+      <th>day</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Day</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mon</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Month</p>
+      </td>
+    </tr>
+    <tr>
+      <th>year</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Year</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

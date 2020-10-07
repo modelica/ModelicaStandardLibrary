@@ -1,0 +1,452 @@
+
+/* ==========================================================================
+   global styles and utility classes
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ffffff;
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 14px;
+    overflow-y: scroll;
+}
+
+img {
+    border: 0;
+}
+
+table {
+    font-size: 11px;
+}
+
+a:link,
+a:visited {
+    color: #0e3eb9;
+    text-decoration: none;
+}
+
+a:hover,
+a:active {
+    color: #d86c00;
+    text-decoration: none;
+}
+
+.cf:before,
+.cf:after {
+    content: ' ';
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    zoom: 1;
+}
+
+.wrapper {
+    width: 100%;
+    min-width: 460px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   navigation
+   ========================================================================== */
+
+nav {
+    border-bottom: 1px solid #e1e1e1;
+    background: #f6f6f6;
+    padding: 10px 25px;
+}
+
+nav ul,
+nav li {
+    list-style: none;
+    font-size: 10px;
+    line-height: 12px;
+}
+
+nav li {
+    float: left;
+}
+
+nav li:after {
+    content: '>';
+    margin: 0 4px;
+}
+
+nav li:last-child:after {
+    content: '';
+    margin: 0;
+}
+
+nav a:link,
+nav a:visited {
+    color: #959595;
+}
+
+nav a:hover,
+nav a:active {
+    color: #da6525;
+}
+
+/* ==========================================================================
+   header
+   ========================================================================== */
+
+header {
+    padding: 20px 25px;
+}
+
+header table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+header div {
+    float: right;
+    margin: 0 0 0 25px;
+    padding: 20px 25px;
+    border: 1px solid #c7c7c7;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f5f5f5', GradientType=0);
+    background-image: -webkit-linear-gradient(top, #ffffff 50%, #f5f5f5 75%);
+    background-image: -moz-linear-gradient(bottom, #ffffff 50%, #f5f5f5 75%);
+    background-image: -ms-linear-gradient(bottom, #ffffff 50%, #f5f5f5 75%);
+    background-image: -o-linear-gradient(bottom, #ffffff 50%, #f5f5f5 75%);
+    background-image: linear-gradient(to bottom, #ffffff 50%, #f5f5f5 75%);
+}
+
+header h1 {
+    display: block;
+    margin: 0;
+    color: #383838;
+    font-size: 30px;
+    line-height: 32px;
+}
+
+header p {
+    color: #838383;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+/* ==========================================================================
+   sections
+   ========================================================================== */
+
+section > h1 {
+    display: block;
+    position: relative;
+    margin: 0;
+    border-top: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+    background: #ececec;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ececec', GradientType=0);
+    background-image: -webkit-linear-gradient(top, #ffffff 50%, #ececec 100%);
+    background-image: -moz-linear-gradient(bottom, #ffffff 50%, #ececec 100%);
+    background-image: -ms-linear-gradient(bottom, #ffffff 50%, #ececec 100%);
+    background-image: -o-linear-gradient(bottom, #ffffff 50%, #ececec 100%);
+    background-image: linear-gradient(to bottom, #ffffff 50%, #ececec 100%);
+    padding: 8px 25px 8px 45px;
+    color: #262626;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+section > h1:after {
+    position: absolute;
+    top: 11px;
+    left: 25px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 5px 0 5px;
+    border-color: #939393 transparent transparent transparent;
+    font-size: 0;
+    content: '';
+}
+
+section.closed > h1:after {
+    top: 11px;
+    border-width: 5px 0 5px 10px;
+    border-color: transparent transparent transparent #939393;
+}
+
+section .hideable {
+    padding: 20px 25px;
+}
+
+section.closed .hideable {
+    display: none;
+}
+
+section .count {
+    color: #777;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+/* ==========================================================================
+   diagrams
+   ========================================================================== */
+
+#diagram .hideable {
+    border-top: 3px solid #dba079;
+    background: #f9f9f9;
+}
+
+#diagram a,
+#diagram img,
+#diagram span {
+    display: block;
+    width: 250px;
+    height: 200px;
+}
+
+#diagram a {
+    position: relative;
+    width: 252px;
+    height: 202px;
+    border: 1px solid #b0b0b0;
+}
+
+#diagram img {
+    position: absolute;
+}
+
+#diagram span {
+    position: absolute;
+    opacity: 0;
+    background: url('arrow-bg.png') no-repeat 50% 50%;
+    -webkit-transition: .3s ease-out opacity;
+    -moz-transition: .3s ease-out opacity;
+    -ms-transition: .3s ease-out opacity;
+    -o-transition: .3s ease-out opacity;
+    transition: .3s ease-out opacity;
+}
+
+#diagram a:hover span {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   information
+   ========================================================================== */
+
+#information {
+    font-size: 12px;
+}
+
+#information p {
+    padding: 9px 0 6px 0;
+    line-height: 16px;
+}
+
+#information .aside {
+    color: #959595;
+    font-size: 10px;
+}
+
+#information img {
+    max-width: 100%;
+}
+
+#information table {
+    margin: 6px 0 9px 0;
+    border-collapse: collapse;
+}
+
+#information table th,
+#information table td {
+    border: 1px solid #cccccc;
+    padding: 6px;
+    word-wrap: break-word;
+}
+
+#information ol {
+    margin: 6px 0 9px 0;
+    padding: 0 0 0 30px;
+}
+#information ul {
+    margin: 6px 0 9px 0;
+    padding: 0;
+}
+#information ul li {
+    list-style-type: none;
+    background: url('red_bullet.gif') no-repeat 0 4px;
+    padding: 0 0 0 10px;
+}
+
+#information .hideable h1,
+#information h2,
+#information h3,
+#information h4,
+#information h5,
+#information h6 {
+    padding: 0.4em 0 .1em 0;
+}
+
+#information .hideable h1 {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+#information h2 {
+    font-size: 16px;
+    line-height: 22px;
+}
+
+#information h3 {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+#information h4 {
+    font-size: 16px;
+    line-height: 18px;
+}
+
+#information h5 {
+    font-size: 14px;
+    line-height: 16px;
+}
+
+#information h6 {
+    font-size: 12px;
+    line-height: 14px;
+}
+
+/* ==========================================================================
+   table styles
+   ========================================================================== */
+
+table.shared-styles {
+    width: 100%;
+    border-spacing: 0;
+}
+
+table.shared-styles th {
+    font-weight: bold;
+    text-align: left;
+}
+
+table.shared-styles th,
+table.shared-styles td {
+    border-bottom: 1px solid #c4c4c4;
+    padding: 8px 10px 6px 0;
+    word-wrap: break-word;
+    vertical-align: middle;
+}
+
+table.shared-styles tr:first-of-type th,
+table.shared-styles tr:first-of-type td {
+    padding-top: 0;
+}
+
+table.shared-styles tr:last-of-type th,
+table.shared-styles tr:last-of-type td {
+    border: none;
+    padding-bottom: 0;
+}
+
+table.shared-styles p {
+    font-size: 11px;
+    line-height: 13px;
+}
+
+table.shared-styles p span {
+    color: #959595;
+    font-size: 10px;
+}
+
+table.style-1 .col-1 {
+    width: 16%;
+}
+
+table.style-1 .col-2 {
+    width: auto;
+}
+
+table.style-2 .col-1 {
+    width: 42px;
+}
+
+table.style-2 .col-2 {
+    width: auto;
+}
+
+table.style-2 a {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+table.style-3 .col-1 {
+    width: 4%;
+}
+
+table.style-3 .col-2 {
+    width: 12%;
+}
+
+table.style-3 .col-3 {
+    width: auto;
+}
+
+table.style-3 td:first-child {
+    min-width: 26px;
+}
+
+/* ==========================================================================
+   footer
+   ========================================================================== */
+
+footer {
+    background: #e8e8e8;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8e8e8', endColorstr='#ffffff', GradientType=0);
+    background-image: -webkit-linear-gradient(top, #e8e8e8 0%, #ffffff 33%);
+    background-image: -moz-linear-gradient(bottom, #e8e8e8 0%, #ffffff 33%);
+    background-image: -ms-linear-gradient(bottom, #e8e8e8 0%, #ffffff 33%);
+    background-image: -o-linear-gradient(bottom, #e8e8e8 0%, #ffffff 33%);
+    background-image: linear-gradient(to bottom, #e8e8e8 0%, #ffffff 33%);
+    padding: 15px 25px;
+    color: #959595;
+    font-size: 10px;
+    line-height: 12px;
+}
+
+footer p {
+    display: block;
+    float: left;
+}
+
+footer p:first-of-type {
+    margin: 0 25px 5px 0;
+    color: #666666;
+}
+
+footer a:link,
+footer a:visited {
+    color: #666666;
+}
+
+footer a:hover,
+footer a:active {
+    color: #da6525;
+}

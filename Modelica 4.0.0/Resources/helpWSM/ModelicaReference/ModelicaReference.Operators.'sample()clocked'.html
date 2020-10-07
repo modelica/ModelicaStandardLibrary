@@ -1,0 +1,52 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Operators.'sample()clocked'</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Operators.html">Operators</a></li>
+  <li><a href="ModelicaReference.Operators.'sample()clocked'.html">'sample()clocked'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'sample()clocked'</h1>
+    <p>sample() Clocked</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'sample()clocked'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Samples a value according to a clock as part of the <a href="ModelicaReference.Synchronous.html">synchronous language elements</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>sample</strong>(u)</pre></blockquote>
+<blockquote><pre><strong>sample</strong>(u, c)</pre></blockquote>
+<h4>Description</h4>
+<p>
+ The operator returns a clocked variable that has c as associated clock and has the value of the
+ left limit of u when c is active (that is the value of u just before the event of c is triggered).
+ If argument c is not provided, it is inferred
+</p>
+<p>
+The return argument has the same type as the first input argument.
+The optional argument c is of type Clock.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

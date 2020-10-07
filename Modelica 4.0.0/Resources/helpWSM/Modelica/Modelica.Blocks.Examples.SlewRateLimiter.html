@@ -1,0 +1,135 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Examples.SlewRateLimiter</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Blocks.Examples.SlewRateLimiter.html">SlewRateLimiter</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SlewRateLimiter</h1>
+    <p>Demonstrate usage of Nonlinear.SlewRateLimiter</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Examples.SlewRateLimiter_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Blocks.Examples.SlewRateLimiter_diagram_large.png"><img src="resources/diagrams/Modelica.Blocks.Examples.SlewRateLimiter_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example demonstrates how to use the Nonlinear.SlewRateLimiter block to limit a position step with regards to velocity and acceleration:
+</p>
+<ul>
+<li> The Sources.Step block <code>positionStep</code> demands an unphysical position step.</li>
+<li> The first SlewRateLimiter block  <code>limit_v</code> limits velocity.</li>
+<li> The first Der block <code>v</code> calculates velocity from the smoothed position signal.</li>
+<li> The second SlewRateLimiter block <code>limit_a</code> limits acceleration of the smoothed velocity signal.</li>
+<li> The second Der block <code>a</code> calculates acceleration from the smoothed velocity signal.</li>
+<li> The Integrator block <code>positionSmoothed</code> calculates smoothed position from the smoothed velocity signal.</li>
+</ul>
+<p>
+A position controlled drive with limited velocity and limited acceleration (i.e. torque) is able to follow the smoothed reference position.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>vMax</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Velocity.html">Velocity</a> (m/s)</p>
+        <p><span>Description:</span> Max. velocity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>aMax</th>
+      <td>
+        <p><span>Value:</span> 20</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Acceleration.html">Acceleration</a> (m/s²)</p>
+        <p><span>Description:</span> Max. acceleration</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Step_32x32.png"></td>
+      <th>positionStep</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Nonlinear.SlewRateLimiter_32x32.png"></td>
+      <th>limit_v</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Nonlinear.SlewRateLimiter.html">SlewRateLimiter</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Der_32x32.png"></td>
+      <th>v</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Der.html">Der</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Nonlinear.SlewRateLimiter_32x32.png"></td>
+      <th>limit_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Nonlinear.SlewRateLimiter.html">SlewRateLimiter</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Integrator_32x32.png"></td>
+      <th>positionSmoothed</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Integrator.html">Integrator</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Der_32x32.png"></td>
+      <th>a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Der.html">Der</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

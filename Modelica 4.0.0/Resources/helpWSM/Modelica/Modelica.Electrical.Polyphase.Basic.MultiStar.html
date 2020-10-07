@@ -1,0 +1,140 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Polyphase.Basic.MultiStar</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Polyphase.html">Polyphase</a></li>
+  <li><a href="Modelica.Electrical.Polyphase.Basic.html">Basic</a></li>
+  <li><a href="Modelica.Electrical.Polyphase.Basic.MultiStar.html">MultiStar</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>MultiStar</h1>
+    <p>Star connection of polyphase systems consisting of multiple base systems</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Polyphase.Basic.MultiStar_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Star (wye) connection of a polyphase circuit consisting of multiple base systems (see
+<a href="Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase.html">polyphase guidelines</a>). The potentials at the star points are all equal.
+</p>
+<h4>See also</h4>
+<p>
+<a href="Modelica.Electrical.Polyphase.Basic.Star.html">Star</a>,
+<a href="Modelica.Electrical.Polyphase.Basic.Delta.html">Delta</a>,
+<a href="Modelica.Electrical.Polyphase.Basic.MultiDelta.html">MultiDelta</a>
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Value:</span> 3</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of phases</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mSystems</th>
+      <td>
+        <p><span>Value:</span> numberOfSymmetricBaseSystems(m)</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of base systems</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mBasic</th>
+      <td>
+        <p><span>Value:</span> integer(m / mSystems)</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Phase number of base systems</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Polyphase.Interfaces.PositivePlug_16x16.png"></td>
+      <th>plug_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Interfaces.PositivePlug.html">PositivePlug</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Polyphase.Interfaces.NegativePlug_16x16.png"></td>
+      <th>starpoints</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Interfaces.NegativePlug.html">NegativePlug</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.MultiTerminalBox_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Utilities.MultiTerminalBox.html">MultiTerminalBox</a></p>
+        <p><span>Modelica.Electrical.Machines.Utilities</span></p>
+        <p>Terminal box Y/D-connection</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Basic.MultiStarResistance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Basic.MultiStarResistance.html">MultiStarResistance</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Basic</span></p>
+        <p>Resistance connection of star points</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding.html">SymmetricPolyphaseCageWinding</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Symmetrical rotor cage</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

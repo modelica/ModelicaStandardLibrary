@@ -1,0 +1,233 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Magnetic.FundamentalWave.Components.EddyCurrent</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.html">FundamentalWave</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.Components.html">Components</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.Components.EddyCurrent.html">EddyCurrent</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>EddyCurrent</h1>
+    <p>Constant loss model under sinusoidal magnetic conditions</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FundamentalWave.Components.EddyCurrent_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The eddy current loss model with respect to fundamental wave effects is designed in accordance to
+<a href="Modelica.Magnetic.FluxTubes.Basic.EddyCurrent.html">FluxTubes.Basic.EddyCurrent</a>.
+</p>
+
+<blockquote>
+<img src="resources/Modelica.Magnetic.FundamentalWave.Components.EddyCurrent_info_001.png"
+     alt="eddycurrent.png">
+</blockquote>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <caption align="bottom">Fig. 1: equivalent models of eddy current losses</caption>
+  <tr>
+    <td>
+      <img src="resources/Modelica.Magnetic.FundamentalWave.Components.EddyCurrent_info_002.png"
+           alt="eddycurrent_electric.png">
+    </td>
+  </tr>
+</table>
+
+<p>Due to the nature of eddy current losses, which can be represented by symmetric
+conductors in an equivalent electric circuit (Fig. 1), the respective
+number of phases <img src="resources/Modelica.Magnetic.FundamentalWave.Components.EddyCurrent_info_003.png" alt="m"> has to be taken into account.
+Assume that the <img src="resources/Modelica.Magnetic.FundamentalWave.Components.EddyCurrent_info_004.png" alt="m"> conductances
+of the equivalent circuit are <img src="resources/Modelica.Magnetic.FundamentalWave.Components.EddyCurrent_info_005.png" alt="G_c">,
+the conductance for the eddy current loss model is determined by</p>
+
+<blockquote>
+<img src="resources/Modelica.Magnetic.FundamentalWave.Components.EddyCurrent_info_006.png"
+     alt="GGc">
+</blockquote>
+
+<p>
+where <img src="resources/Modelica.Magnetic.FundamentalWave.Components.EddyCurrent_info_007.png" alt="N"> is the number of turns of the symmetric electromagnetic coupling.
+</p>
+
+<p>For such an <img src="resources/Modelica.Magnetic.FundamentalWave.Components.EddyCurrent_info_008.png" alt="m"> phase system
+the relationship between the voltage and current <a href="https://www.haumer.at/refimg/SpacePhasors.pdf">space phasors</a>
+and the magnetic flux and magnetic potential difference phasor is
+</p>
+
+<blockquote>
+<img src="resources/Modelica.Magnetic.FundamentalWave.Components.EddyCurrent_info_009.png" alt="vPhi">,<br>
+<img src="resources/Modelica.Magnetic.FundamentalWave.Components.EddyCurrent_info_010.png" alt="iV_m">,
+</blockquote>
+
+<p>
+where <img src="resources/Modelica.Magnetic.FundamentalWave.Components.EddyCurrent_info_011.png" alt="v_k">
+and <img src="resources/Modelica.Magnetic.FundamentalWave.Components.EddyCurrent_info_012.png" alt="i_k">
+are the phase voltages and currents, respectively.
+</p>
+
+<p>
+The dissipated loss power
+</p>
+<blockquote>
+<img src="resources/Modelica.Magnetic.FundamentalWave.Components.EddyCurrent_info_013.png" alt="lossPower">
+</blockquote>
+<p>
+can be determined for the <a href="https://www.haumer.at/refimg/SpacePhasors.pdf">space phasor</a>
+relationship of the voltage and current space phasor.
+</p>
+<h4>See also</h4>
+
+<p><a href="Modelica.Magnetic.FluxTubes.Basic.EddyCurrent.html">FluxTubes.Basic.EddyCurrent</a></p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if heatPort is enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Value:</span> 273.15</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Fixed device temperature if useHeatPort = false</p>
+      </td>
+    </tr>
+    <tr>
+      <th>G</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Conductance.html">Conductance</a> (S)</p>
+        <p><span>Description:</span> Equivalent symmetric loss conductance</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort_16x16.png"></td>
+      <th>port_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort.html">PositiveMagneticPort</a></p>
+        <p><span>Description:</span> Positive magnetic port of fundamental wave machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort_16x16.png"></td>
+      <th>port_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort.html">NegativeMagneticPort</a></p>
+        <p><span>Description:</span> Negative magnetic port of fundamental wave machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+        <p><span>Description:</span> Optional port to which dissipated losses are transported in form of heat</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexMagneticPotentialDifference_32x32.png"></td>
+      <th>V_m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexMagneticPotentialDifference.html">ComplexMagneticPotentialDifference</a></p>
+        <p><span>Description:</span> Complex magnetic potential difference</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexMagneticFlux_32x32.png"></td>
+      <th>Phi</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexMagneticFlux.html">ComplexMagneticFlux</a></p>
+        <p><span>Description:</span> Complex magnetic flux</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.Components.EddyCurrentLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.Components.EddyCurrentLosses.html">EddyCurrentLosses</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.Components</span></p>
+        <p>Comparison of equivalent circuits of eddy current loss models</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding.html">SymmetricPolyphaseWinding</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Symmetric winding model coupling electrical and magnetic domain</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

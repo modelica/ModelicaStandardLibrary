@@ -1,0 +1,63 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: StateMachines</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.StateMachines.html">StateMachines</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>StateMachines</h1>
+    <p>State Machines</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.StateMachines_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The state machines defined in the Modelica Language are based on the <a href="ModelicaReference.Synchronous.html">synchronous language elements</a>.
+Note that the state machines defined in the Modelica Standard Library are not based on this.
+</p>
+<h4>Examples</h4>
+<blockquote><pre>
+  inner Integer v(start=0);
+  block Increase
+    outer output Integer v;
+  equation
+    v = previous(v) + 2;
+  end Increase;
+  Increase increase;
+  block Decrease
+    outer output Integer v;
+  equation
+    v = previous(v) - 1;
+  end Decrease;
+  Decrease decrease;
+equation
+  initialState(increase);
+  transition(increase, decrease, v>=6, immediate=false);
+  transition(decrease, increase, v==0, immediate=false);
+</pre></blockquote>
+In this example we will start in <strong>increase</strong> and increase <strong>v</strong> until a limit, and then decrease it, and repeat.
+
+<h4>Description</h4>
+A detailed description of the State Machines using Synchronous Language Elements is given in <a href="https://specification.modelica.org/v3.4/Ch17.html">Chapter 17 (State Machines) of the Modelica 3.4 specification</a>.
+</div>
+</section>
+</div>
+</body>
+</html>

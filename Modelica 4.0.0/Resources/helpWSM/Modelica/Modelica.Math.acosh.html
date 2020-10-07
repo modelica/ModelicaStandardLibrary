@@ -1,0 +1,94 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.acosh</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.acosh.html">acosh</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>acosh</h1>
+    <p>Inverse of cosh (area hyperbolic cosine)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.acosh_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This function returns the area hyperbolic cosine of its
+input argument u. The valid range of u is
+</p>
+<blockquote><pre>
++1 &le; u &lt; +&infin;
+</pre></blockquote>
+<p>
+If the function is called with u &lt; 1, an error occurs.
+The function cosh(u) has two inverse functions (the curve
+looks similar to a sqrt(..) function). acosh(..) returns
+the inverse that is positive. At u=1, the derivative dy/du is infinite.
+Therefore, this function should not be used in a model, if u
+can become close to 1:
+</p>
+
+<p>
+<img src="resources/Modelica.Math.acosh_info_001.png">
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">y = acosh(u)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Independent variable</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Dependent variable y=acosh(u)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

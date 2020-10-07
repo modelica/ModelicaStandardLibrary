@@ -1,0 +1,118 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Magnetic.FluxTubes.Material.SoftMagnetic</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Material.html">Material</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.html">SoftMagnetic</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SoftMagnetic</h1>
+    <p>Characteristics mu_r(B) of common soft magnetic materials; hysteresis neglected</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData.html">BaseData</a></p>
+        <p>Coefficients for approximation of soft magnetic materials</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.html">Steel</a></p>
+        <p>Various ferromagnetic steels</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.html">ElectricSheet</a></p>
+        <p>Various electric sheets</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron.html">PureIron</a></p>
+        <p>Pure iron</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.CobaltIron_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.CobaltIron.html">CobaltIron</a></p>
+        <p>Cobalt iron</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.NickelIron_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.NickelIron.html">NickelIron</a></p>
+        <p>Nickel iron</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox.html">mu_rApprox</a></p>
+        <p>Approximation of relative permeability mu_r as a function of flux density B for soft magnetic materials</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The magnetisation characteristics mu_r(B) of all soft magnetic materials currently included in this library are approximated with a <a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox.html">function</a>. Each material is characterised by the five parameters of this function. The approximated characteristics mu_r(B) for most of the ferromagnetic materials currently included are shown in the plots below (solid lines) together with the original data points compiled from measurements and literature.
+</p>
+
+<p>
+<img src="resources/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic_info_001.png" alt="Approximated magnetization characteristics of selected steels"><br>
+<img src="resources/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic_info_002.png" alt="Approximated magnetization characteristics of miscellaneous soft magnetic materials"><br>
+<img src="resources/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic_info_003.png" alt="Approximated magnetization characteristics of included electric sheets"><br>
+</p>
+
+<p>
+For the nonlinear curve fit, data points for high flux densities (approximately B>1T) have been weighted higher than the ones for low flux densities. This is due to the large impact of saturated ferromagnetic sections in a magnetic circuit compared to that of non-saturated sections with relative permeabilities mu_r>>1.
+</p>
+
+<p>
+Note that the magnetisation characteristics largely depend on possible previous machining and on measurement conditions. A virgin material normally has a considerably higher permeability than the same material after machining (and packet assembling in case of electric sheets). This is indicated in the above plots by different magnetisation curves for similar materials. In most cases, the original data points represent commutating curves obtained with measurements at 50Hz.
+</p>
+
+<p>
+Additional user-specific materials can be defined as needed. This requires determination of the approximation parameters from the original data points, preferably with a nonlinear curve fit.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

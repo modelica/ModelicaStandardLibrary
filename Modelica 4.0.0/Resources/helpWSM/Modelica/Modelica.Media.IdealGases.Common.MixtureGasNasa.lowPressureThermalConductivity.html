@@ -1,0 +1,127 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Media.IdealGases.Common.MixtureGasNasa.lowPressureThermalConductivity</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.IdealGases.html">IdealGases</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.html">Common</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.html">MixtureGasNasa</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.lowPressureThermalConductivity.html">lowPressureThermalConductivity</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>lowPressureThermalConductivity</h1>
+    <p>Return thermal conductivities of low-pressure gas mixtures (Mason and Saxena Modification)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.IdealGases.Common.MixtureGasNasa.lowPressureThermalConductivity_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This function applies the Masson and Saxena modification of the
+Wassiljewa Equation for the thermal conductivity for gas mixtures of
+n elements at low pressure.
+</p>
+
+<p>
+For nonpolar gas mixtures errors will generally be less than 3 to 4%.
+For mixtures of nonpolar-polar and polar-polar gases, errors greater
+than 5 to 8% may be expected. For mixtures in which the sizes and
+polarities of the constituent molecules are not greatly different, the
+thermal conductivity can be estimated satisfactorily by a mole fraction
+average of the pure component conductivities.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">lambdam = lowPressureThermalConductivity(y, T, Tc, Pc, M, lambda)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.MoleFraction.html">MoleFraction[:]</a> (mol/mol)</p>
+        <p><span>Description:</span> Mole fraction of the components in the gas mixture</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Tc</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.Temperature.html">Temperature[size(y, 1)]</a> (K)</p>
+        <p><span>Description:</span> Critical temperatures</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Pc</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.AbsolutePressure.html">AbsolutePressure[size(y, 1)]</a> (Pa)</p>
+        <p><span>Description:</span> Critical pressures</p>
+      </td>
+    </tr>
+    <tr>
+      <th>M</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.MolarMass.html">MolarMass[size(y, 1)]</a> (kg/mol)</p>
+        <p><span>Description:</span> Molecular weights</p>
+      </td>
+    </tr>
+    <tr>
+      <th>lambda</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.ThermalConductivity.html">ThermalConductivity[size(y, 1)]</a> (W/(m·K))</p>
+        <p><span>Description:</span> Thermal conductivities of the pure gases</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>lambdam</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.ThermalConductivity.html">ThermalConductivity</a> (W/(m·K))</p>
+        <p><span>Description:</span> Thermal conductivity of the gas mixture</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

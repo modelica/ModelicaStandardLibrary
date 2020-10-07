@@ -1,0 +1,246 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Visualizers.Torus</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.Torus.html">Torus</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Torus</h1>
+    <p>Visualizing a torus</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Torus_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.MultiBody.Visualizers.Torus_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.MultiBody.Visualizers.Torus_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Model <strong>Torus</strong> visualizes a torus. The center of the torus is located at
+connector frame_a (visualized by the red coordinate system in the figure below).
+The left image below shows a torus with <var>R</var>&nbsp;=&nbsp;0.5&nbsp;m and
+<var>r</var>&nbsp;=&nbsp;0.2&nbsp;m.
+The right images below shows the torus with the additional parameter
+settings:
+</p>
+<blockquote><pre>
+opening    =   45 degree
+startAngle = -135 degree
+stopAngle  =  135 degree
+</pre></blockquote>
+
+<blockquote>
+<img src="resources/Modelica.Mechanics.MultiBody.Visualizers.Torus_info_001.png">
+</blockquote>
+
+<p>
+In the advanced menu the discretization of the surface visualization can be defined by
+the number <var>n<sub>R</sub></var> of points along the major radius of the torus and by
+the number <var>n<sub>r</sub></var> of points along the minor radius of the torus.
+In case the torus is closed (that is, <code>opening</code>&nbsp;=&nbsp;0&nbsp;degree),
+the actual number of points is one less (that is <var>n<sub>R</sub></var>&nbsp;-&nbsp;1, <var>n<sub>r</sub></var>&nbsp;-&nbsp;1), because the first and
+the last point of the parametrization coincide in this case.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>animation</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if animation shall be enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Value:</span> 0.5</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Radius.html">Radius</a> (m)</p>
+        <p><span>Description:</span> Major radius (distance from center of torus to center of tube)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r</th>
+      <td>
+        <p><span>Value:</span> 0.1</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Radius.html">Radius</a> (m)</p>
+        <p><span>Description:</span> Minor radius (radius of tube)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>opening</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Opening angle of torus</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startAngle</th>
+      <td>
+        <p><span>Value:</span> -3.1415926535898</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Start angle of torus slice</p>
+      </td>
+    </tr>
+    <tr>
+      <th>stopAngle</th>
+      <td>
+        <p><span>Value:</span> 3.1415926535898</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> End angle of torus slice</p>
+      </td>
+    </tr>
+    <tr>
+      <th>wireframe</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true: 3D model will be displayed without faces</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n_R</th>
+      <td>
+        <p><span>Value:</span> 40</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of points along major radius R</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n_r</th>
+      <td>
+        <p><span>Value:</span> 20</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of points along minor radius r</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>color</th>
+      <td>
+        <p><span>Default Value:</span> {0, 128, 255}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.RealColor.html">RealColor</a></p>
+        <p><span>Description:</span> Color of surface</p>
+      </td>
+    </tr>
+    <tr>
+      <th>specularCoefficient</th>
+      <td>
+        <p><span>Default Value:</span> 0.7</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.SpecularCoefficient.html">SpecularCoefficient</a></p>
+        <p><span>Description:</span> Reflection of ambient light (= 0: light is completely absorbed)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>transparency</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_16x16.png"></td>
+      <th>frame_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p><span>Description:</span> Coordinate system in which visualization data is resolved</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface_32x32.png"></td>
+      <th>surface</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface.html">Surface</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces.html">Surfaces</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span></p>
+        <p>Demonstrate the visualization of a sine surface, as well as a torus and a wheel constructed from a surface</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Math.StandardDeviation</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Math.html">Math</a></li>
+  <li><a href="Modelica.Blocks.Math.StandardDeviation.html">StandardDeviation</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>StandardDeviation</h1>
+    <p>Calculates the empirical standard deviation of its input signal</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Math.StandardDeviation_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Blocks.Math.StandardDeviation_diagram_large.png"><img src="resources/diagrams/Modelica.Blocks.Math.StandardDeviation_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This block calculates the standard deviation of its input signal. The standard deviation is the square root of the signal&#39;s variance:</p>
+<blockquote><pre>
+y = sqrt( variance(u) )
+</pre></blockquote>
+<p>
+The <a href="Modelica.Blocks.Math.Variance.html">Variance</a> block is used to
+calculate variance(u).
+</p>
+<p>The parameter t_eps is used to guard against division by zero (the computation of the standard deviation
+starts at &lt;<em>simulation start time</em>&gt; + t_eps and before that time instant y = 0).
+</p>
+
+<p>
+This block is demonstrated in the examples
+<a href="Modelica.Blocks.Examples.Noise.UniformNoiseProperties.html">UniformNoiseProperties</a> and
+<a href="Modelica.Blocks.Examples.Noise.NormalNoiseProperties.html">NormalNoiseProperties</a>.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>t_eps</th>
+      <td>
+        <p><span>Value:</span> 1e-7</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Standard deviation calculation starts at startTime + t_eps</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Noisy input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Standard deviation of the input signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Variance_32x32.png"></td>
+      <th>variance</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Variance.html">Variance</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Sqrt_32x32.png"></td>
+      <th>sqrt1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Sqrt.html">Sqrt</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Noise.UniformNoiseProperties_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Noise.UniformNoiseProperties.html">UniformNoiseProperties</a></p>
+        <p><span>Modelica.Blocks.Examples.Noise</span></p>
+        <p>Demonstrates the computation of properties for uniformly distributed noise</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Noise.NormalNoiseProperties_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Noise.NormalNoiseProperties.html">NormalNoiseProperties</a></p>
+        <p><span>Modelica.Blocks.Examples.Noise</span></p>
+        <p>Demonstrates the computation of properties for normally distributed noise</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

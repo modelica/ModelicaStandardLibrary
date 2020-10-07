@@ -1,0 +1,123 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Matrices.solve</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.solve.html">solve</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>solve</h1>
+    <p>Solve real system of linear equations A*x=b with a b vector (Gaussian elimination with partial pivoting)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.solve_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Matrices.<strong>solve</strong>(A,b);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function call returns the
+solution <strong>x</strong> of the linear system of equations
+</p>
+<blockquote>
+<p>
+<strong>A</strong>*<strong>x</strong> = <strong>b</strong>
+</p>
+</blockquote>
+<p>
+If a unique solution <strong>x</strong> does not exist (since <strong>A</strong> is singular),
+an assertion is triggered. If this is not desired, use instead
+<a href="Modelica.Math.Matrices.leastSquares.html">Matrices.leastSquares</a>
+and inquire the singularity of the solution with the return argument rank
+(a unique solution is computed if rank = size(A,1)).
+</p>
+
+<p>
+Note, the solution is computed with the LAPACK function "dgesv",
+i.e., by Gaussian elimination with partial pivoting.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  Real A[3,3] = [1,2,3;
+                 3,4,5;
+                 2,1,4];
+  Real b[3] = {10,22,12};
+  Real x[3];
+<strong>algorithm</strong>
+  x := Matrices.solve(A,b);  // x = {3,2,1}
+</pre></blockquote>
+<h4>See also</h4>
+<a href="Modelica.Math.Matrices.LU.html">Matrices.LU</a>,
+<a href="Modelica.Math.Matrices.LU_solve.html">Matrices.LU_solve</a>,
+<a href="Modelica.Math.Matrices.leastSquares.html">Matrices.leastSquares</a>.
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">x = solve(A, b)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,size(A, 1)]</p>
+        <p><span>Description:</span> Matrix A of A*x = b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1)]</p>
+        <p><span>Description:</span> Vector b of A*x = b</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>x</th>
+      <td>
+        <p><span>Type:</span> Real[size(b, 1)]</p>
+        <p><span>Description:</span> Vector x such that A*x = b</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

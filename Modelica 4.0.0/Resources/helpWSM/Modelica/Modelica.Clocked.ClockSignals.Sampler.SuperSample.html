@@ -1,0 +1,136 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.ClockSignals.Sampler.SuperSample</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.ClockSignals.html">ClockSignals</a></li>
+  <li><a href="Modelica.Clocked.ClockSignals.Sampler.html">Sampler</a></li>
+  <li><a href="Modelica.Clocked.ClockSignals.Sampler.SuperSample.html">SuperSample</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SuperSample</h1>
+    <p>Super-sample the input clock and provide it as output clock</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.ClockSignals.Sampler.SuperSample_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This block super-samples the clock input signal u and provides it as
+clock output signal y.
+</p>
+
+<p>
+To be more precise:
+Clock y is factor-times faster than clock u. The first activation of clock y coincides with the first activation of clock u. The super-sampling factor is defined by Integer parameter <strong>factor</strong>.
+</p>
+
+<h4>Example</h4>
+
+<p>
+The following
+<a href="Modelica.Clocked.Examples.Elementary.ClockSignals.SuperSample.html">example</a>
+generates a periodic clock of 20 ms period, and
+then super-samples the resulting clock with a factor of 3:<br>
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+<tr><td width="50"></td>
+    <td valign="bottom"><img src="resources/Modelica.Clocked.ClockSignals.Sampler.SuperSample_info_001.png" alt="SuperSample_Model.png"></td>
+    <td valign="bottom">&nbsp;&nbsp;&nbsp;
+                        <img src="resources/Modelica.Clocked.ClockSignals.Sampler.SuperSample_info_002.png" alt="SuperSample_Result.png"></td>
+    </tr>
+<tr><td></td>
+    <td align="center">model</td>
+    <td align="center">simulation result</td>
+   </tr>
+</table>
+<p>
+As can be seen, superSample introduces factor-1 additional clock ticks for the
+output clock y. The super-sampling factor = 3 is displayed in the icon of the
+superSample block. Note the up-arrow in the icon of the superSample block indicates that
+clock superSample.y is faster as clock superSample.u.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>factor</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Super-sampling factor (>= 1)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Clocked.ClockSignals.Interfaces.ClockInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.ClockSignals.Interfaces.ClockInput.html">ClockInput</a></p>
+        <p><span>Description:</span> Connector of a clock as input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Clocked.ClockSignals.Interfaces.ClockOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.ClockSignals.Interfaces.ClockOutput.html">ClockOutput</a></p>
+        <p><span>Description:</span> Connector of a clock as output signal (clock y is faster as clock of u)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.ClockSignals.SuperSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.ClockSignals.SuperSample.html">SuperSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.ClockSignals</span></p>
+        <p>Example of a SuperSample block for Clock signals</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

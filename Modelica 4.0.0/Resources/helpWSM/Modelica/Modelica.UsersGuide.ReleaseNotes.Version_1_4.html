@@ -1,0 +1,94 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: UsersGuide.ReleaseNotes.Version_1_4</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a></li>
+  <li><a href="Modelica.UsersGuide.ReleaseNotes.Version_1_4.html">Version_1_4</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Version_1_4</h1>
+    <p>Version 1.4 (June 28, 2001)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.UsersGuide.ReleaseNotes.Version_1_4_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<ul>
+<li>Several minor bugs fixed.</li>
+<li>New models:<br>
+        Modelica.Blocks.Interfaces.IntegerRealInput/IntegerRealOutput,<br>
+        Modelica.Blocks.Math.TwoInputs/TwoOutputs<br>
+        Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin,<br>
+        Modelica.Mechanics.Rotational.Move,<br>
+        Modelica.Mechanics.Translational.Move.<br>
+        </li>
+</ul>
+<hr>
+<h4>Version 1.4.1beta1 (February 12, 2001)</h4>
+<p> Adapted to Modelica 1.4</p>
+<hr>
+<h4>Version 1.3.2beta2 (June 20, 2000)</h4>
+<ul>
+        <li>New subpackage Modelica.Mechanics.<strong>Translational</strong></li>
+        <li>Changes to Modelica.Mechanics.<strong>Rotational</strong>:<br>
+           New elements:
+<blockquote><pre>
+IdealGearR2T    Ideal gear transforming rotational in translational motion.
+Position        Forced movement of a flange with a reference angle
+                                   given as input signal
+RelativeStates  Definition of relative state variables
+</pre></blockquote>
+</li>
+        <li>Changes to Modelica.<strong>SIunits</strong>:<br>
+          Introduced new types:<br>
+          type Temperature = ThermodynamicTemperature;<br>
+          types DerDensityByEnthalpy, DerDensityByPressure,
+          DerDensityByTemperature, DerEnthalpyByPressure,
+          DerEnergyByDensity, DerEnergyByPressure<br>
+          Attribute "final" removed from min and max values
+          in order that these values can still be changed to narrow
+          the allowed range of values.<br>
+          Quantity="Stress" removed from type "Stress", in order
+          that a type "Stress" can be connected to a type "Pressure".</li>
+        <li>Changes to Modelica.<strong>Icons</strong>:<br>
+           New icons for motors and gearboxes.</li>
+        <li>Changes to Modelica.<strong>Blocks.Interfaces</strong>:<br>
+           Introduced a replaceable signal type into
+           Blocks.Interfaces.RealInput/RealOutput:
+<blockquote><pre>
+replaceable type SignalType = Real
+</pre></blockquote>
+           in order that the type of the signal of an input/output block
+           can be changed to a physical type, for example:
+<blockquote><pre>
+Sine sin1(outPort(redeclare type SignalType=Modelica.SIunits.Torque))
+</pre></blockquote>
+</li>
+</ul>
+<hr>
+<h4>Version 1.3.1 (Dec. 13, 1999)</h4>
+<p>
+First official release of the library.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

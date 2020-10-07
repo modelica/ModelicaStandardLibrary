@@ -1,0 +1,204 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Matrices.LAPACK.dtrsyl</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.LAPACK.html">LAPACK</a></li>
+  <li><a href="Modelica.Math.Matrices.LAPACK.dtrsyl.html">dtrsyl</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>dtrsyl</h1>
+    <p>Solve the real Sylvester matrix equation op(A)*X + X*op(B) = scale*C or op(A)*X - X*op(B) = scale*C</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.LAPACK.dtrsyl_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<pre>Lapack documentation
+    Purpose
+    =======
+
+    DTRSYL solves the real Sylvester matrix equation:
+
+       op(A)*X + X*op(B) = scale*C or
+       op(A)*X - X*op(B) = scale*C,
+
+    where op(A) = A or A**T, and  A and B are both upper quasi-
+    triangular. A is M-by-M and B is N-by-N; the right hand side C and
+    the solution X are M-by-N; and scale is an output scale factor, set
+    <= 1 to avoid overflow in X.
+
+    A and B must be in Schur canonical form (as returned by DHSEQR), that
+    is, block upper triangular with 1-by-1 and 2-by-2 diagonal blocks;
+    each 2-by-2 diagonal block has its diagonal elements equal and its
+    off-diagonal elements of opposite sign.
+
+    Arguments
+    =========
+
+    TRANA   (input) CHARACTER*1
+            Specifies the option op(A):
+            = 'N': op(A) = A    (No transpose)
+            = 'T': op(A) = A**T (Transpose)
+            = 'C': op(A) = A**H (Conjugate transpose = Transpose)
+
+    TRANB   (input) CHARACTER*1
+            Specifies the option op(B):
+            = 'N': op(B) = B    (No transpose)
+            = 'T': op(B) = B**T (Transpose)
+            = 'C': op(B) = B**H (Conjugate transpose = Transpose)
+
+    ISGN    (input) INTEGER
+            Specifies the sign in the equation:
+            = +1: solve op(A)*X + X*op(B) = scale*C
+            = -1: solve op(A)*X - X*op(B) = scale*C
+
+    M       (input) INTEGER
+            The order of the matrix A, and the number of rows in the
+            matrices X and C. M >= 0.
+
+    N       (input) INTEGER
+            The order of the matrix B, and the number of columns in the
+            matrices X and C. N >= 0.
+
+    A       (input) DOUBLE PRECISION array, dimension (LDA,M)
+            The upper quasi-triangular matrix A, in Schur canonical form.
+
+    LDA     (input) INTEGER
+            The leading dimension of the array A. LDA >= max(1,M).
+
+    B       (input) DOUBLE PRECISION array, dimension (LDB,N)
+            The upper quasi-triangular matrix B, in Schur canonical form.
+
+    LDB     (input) INTEGER
+            The leading dimension of the array B. LDB >= max(1,N).
+
+    C       (input/output) DOUBLE PRECISION array, dimension (LDC,N)
+            On entry, the M-by-N right hand side matrix C.
+            On exit, C is overwritten by the solution matrix X.
+
+    LDC     (input) INTEGER
+            The leading dimension of the array C. LDC >= max(1,M)
+
+    SCALE   (output) DOUBLE PRECISION
+            The scale factor, scale, set <= 1 to avoid overflow in X.
+
+    INFO    (output) INTEGER
+            = 0: successful exit
+            < 0: if INFO = -i, the i-th argument had an illegal value
+            = 1: A and B have common or very close eigenvalues; perturbed
+                 values were used to solve the equation (but the matrices
+                 A and B are unchanged).</pre>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(X, scale, info) = dtrsyl(A, B, C, tranA, tranB, isgn)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,:]</p>
+        <p><span>Description:</span> Upper quasi-triangular matrix</p>
+      </td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>
+        <p><span>Type:</span> Real[:,:]</p>
+        <p><span>Description:</span> Upper quasi-triangular matrix</p>
+      </td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>
+        <p><span>Type:</span> Real[if tranA then size(A, 1) else size(A, 2),if tranB then size(B, 1) else size(B, 2)]</p>
+        <p><span>Description:</span> Right side of the Sylvester equation</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tranA</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if op(A)=A'</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tranB</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if op(B)=B'</p>
+      </td>
+    </tr>
+    <tr>
+      <th>isgn</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Specifies the sign in the equation, +1 or -1</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>X</th>
+      <td>
+        <p><span>Default Value:</span> C</p>
+        <p><span>Type:</span> Real[size(C, 1),size(C, 2)]</p>
+        <p><span>Description:</span> Solution of the Sylvester equation</p>
+      </td>
+    </tr>
+    <tr>
+      <th>scale</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Scale factor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>info</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

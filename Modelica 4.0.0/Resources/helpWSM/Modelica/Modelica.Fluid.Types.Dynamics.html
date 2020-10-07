@@ -1,0 +1,285 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.Types.Dynamics</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Types.html">Types</a></li>
+  <li><a href="Modelica.Fluid.Types.Dynamics.html">Dynamics</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Dynamics</h1>
+    <p>Enumeration to define definition of balance equations</p>
+  </td><td>
+    <div></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Enumeration to define the formulation of balance equations
+(to be selected via choices menu):
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>Dynamics.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>DynamicFreeInitial</td><td>Dynamic balance, Initial guess value</td></tr>
+
+<tr><td>FixedInitial</td><td>Dynamic balance, Initial value fixed</td></tr>
+
+<tr><td>SteadyStateInitial</td><td>Dynamic balance, Steady state initial with guess value</td></tr>
+
+<tr><td>SteadyState</td><td>Steady state balance, Initial guess value</td></tr>
+</table>
+
+<p>
+The enumeration "Dynamics" is used for the mass, energy and momentum balance equations
+respectively. The exact meaning for the three balance equations is stated in the following
+tables:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><td colspan="3"><strong>Mass balance</strong> </td></tr>
+<tr><td><strong>Dynamics.</strong></td>
+    <td><strong>Balance equation</strong></td>
+    <td><strong>Initial condition</strong></td></tr>
+
+<tr><td> DynamicFreeInitial</td>
+    <td> no restrictions </td>
+    <td> no initial conditions </td></tr>
+
+<tr><td> FixedInitial</td>
+    <td> no restrictions </td>
+    <td> <strong>if</strong> Medium.singleState <strong>then</strong><br>
+         &nbsp;&nbsp;no initial condition<br>
+         <strong>else</strong> p=p_start </td></tr>
+
+<tr><td> SteadyStateInitial</td>
+    <td> no restrictions </td>
+    <td> <strong>if</strong> Medium.singleState <strong>then</strong><br>
+         &nbsp;&nbsp;no initial condition<br>
+         <strong>else</strong> <strong>der</strong>(p)=0 </td></tr>
+
+<tr><td> SteadyState</td>
+    <td> <strong>der</strong>(m)=0  </td>
+    <td> no initial conditions </td></tr>
+</table>
+
+&nbsp;<br>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><td colspan="3"><strong>Energy balance</strong> </td></tr>
+<tr><td><strong>Dynamics.</strong></td>
+    <td><strong>Balance equation</strong></td>
+    <td><strong>Initial condition</strong></td></tr>
+
+<tr><td> DynamicFreeInitial</td>
+    <td> no restrictions </td>
+    <td> no initial conditions </td></tr>
+
+<tr><td> FixedInitial</td>
+    <td> no restrictions </td>
+    <td> T=T_start or h=h_start </td></tr>
+
+<tr><td> SteadyStateInitial</td>
+    <td> no restrictions </td>
+    <td> <strong>der</strong>(T)=0 or <strong>der</strong>(h)=0 </td></tr>
+
+<tr><td> SteadyState</td>
+    <td> <strong>der</strong>(U)=0  </td>
+    <td> no initial conditions </td></tr>
+</table>
+
+&nbsp;<br>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><td colspan="3"><strong>Momentum balance</strong> </td></tr>
+<tr><td><strong>Dynamics.</strong></td>
+    <td><strong>Balance equation</strong></td>
+    <td><strong>Initial condition</strong></td></tr>
+
+<tr><td> DynamicFreeInitial</td>
+    <td> no restrictions </td>
+    <td> no initial conditions </td></tr>
+
+<tr><td> FixedInitial</td>
+    <td> no restrictions </td>
+    <td> m_flow = m_flow_start </td></tr>
+
+<tr><td> SteadyStateInitial</td>
+    <td> no restrictions </td>
+    <td> <strong>der</strong>(m_flow)=0 </td></tr>
+
+<tr><td> SteadyState</td>
+    <td> <strong>der</strong>(m_flow)=0 </td>
+    <td> no initial conditions </td></tr>
+</table>
+
+<p>
+In the tables above, the equations are given for one-substance fluids. For multiple-substance
+fluids and for trace substances, equivalent equations hold.
+</p>
+
+<p>
+Medium.singleState is a medium property and defines whether the medium is only
+described by one state (+ the mass fractions in case of a multi-substance fluid). In such
+a case one initial condition less must be provided. For example, incompressible
+media have Medium.singleState = <strong>true</strong>.
+</p>
+</div>
+</section>
+<section id="enumerators" >
+  <h1>Enumeration Literals <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>DynamicFreeInitial</th>
+      <td>
+        <p>DynamicFreeInitial -- Dynamic balance, Initial guess value</p></td>
+    </tr>
+    <tr>
+      <th>FixedInitial</th>
+      <td>
+        <p>FixedInitial -- Dynamic balance, Initial value fixed</p></td>
+    </tr>
+    <tr>
+      <th>SteadyStateInitial</th>
+      <td>
+        <p>SteadyStateInitial -- Dynamic balance, Steady state initial with guess value</p></td>
+    </tr>
+    <tr>
+      <th>SteadyState</th>
+      <td>
+        <p>SteadyState -- Steady state balance, Initial guess value</p></td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.IncompressibleFluidNetwork_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.IncompressibleFluidNetwork.html">IncompressibleFluidNetwork</a></p>
+        <p><span>Modelica.Fluid.Examples</span></p>
+        <p>Multi-way connections of pipes and incompressible medium model</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.DrumBoiler.BaseClasses.EquilibriumDrumBoiler_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.DrumBoiler.BaseClasses.EquilibriumDrumBoiler.html">EquilibriumDrumBoiler</a></p>
+        <p><span>Modelica.Fluid.Examples.DrumBoiler.BaseClasses</span></p>
+        <p>Simple Evaporator with two states, see Åström, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX.html">BasicHX</a></p>
+        <p><span>Modelica.Fluid.Examples.HeatExchanger.BaseClasses</span></p>
+        <p>Simple heat exchanger model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.HeatExchanger.BaseClasses.WallConstProps_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.WallConstProps.html">WallConstProps</a></p>
+        <p><span>Modelica.Fluid.Examples.HeatExchanger.BaseClasses</span></p>
+        <p>Pipe wall with capacitance, assuming 1D heat conduction and constant material properties</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.System_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.System.html">System</a></p>
+        <p><span>Modelica.Fluid</span></p>
+        <p>System properties and default values (ambient, flow direction, initialization)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow.html">PartialTwoPortFlow</a></p>
+        <p><span>Modelica.Fluid.Pipes.BaseClasses</span></p>
+        <p>Base class for distributed flow models</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel.html">PartialStaggeredFlowModel</a></p>
+        <p><span>Modelica.Fluid.Pipes.BaseClasses.FlowModels</span></p>
+        <p>Base class for momentum balances in flow models</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Fluid.Interfaces.PartialLumpedVolume.html">PartialLumpedVolume</a></p>
+        <p><span>Modelica.Fluid.Interfaces</span></p>
+        <p>Lumped volume with mass and energy balance</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Fluid.Interfaces.PartialLumpedFlow.html">PartialLumpedFlow</a></p>
+        <p><span>Modelica.Fluid.Interfaces</span></p>
+        <p>Base class for a lumped momentum balance</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Fluid.Interfaces.PartialDistributedVolume.html">PartialDistributedVolume</a></p>
+        <p><span>Modelica.Fluid.Interfaces</span></p>
+        <p>Base class for distributed volume models</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Fluid.Interfaces.PartialDistributedFlow.html">PartialDistributedFlow</a></p>
+        <p><span>Modelica.Fluid.Interfaces</span></p>
+        <p>Base class for a distributed momentum balance</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

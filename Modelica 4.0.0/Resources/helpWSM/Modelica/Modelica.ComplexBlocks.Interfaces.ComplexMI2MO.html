@@ -1,0 +1,136 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: ComplexBlocks.Interfaces.ComplexMI2MO</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.ComplexBlocks.html">ComplexBlocks</a></li>
+  <li><a href="Modelica.ComplexBlocks.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.ComplexBlocks.Interfaces.ComplexMI2MO.html">ComplexMI2MO</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ComplexMI2MO</h1>
+    <p>2 Multiple Input / Multiple Output continuous control block</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexMI2MO_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Block has two continuous Complex input vectors u1 and u2 and one
+continuous Complex output vector y.
+All vectors have the same number of elements.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Dimension of input and output vectors.</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useConjugateInput1</th>
+      <td>
+        <p><span>Value:</span> fill(false, n)</p>
+        <p><span>Type:</span> Boolean[n]</p>
+        <p><span>Description:</span> If true, inputs 1 are processed conjugate complex</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useConjugateInput2</th>
+      <td>
+        <p><span>Value:</span> fill(false, n)</p>
+        <p><span>Type:</span> Boolean[n]</p>
+        <p><span>Description:</span> If true, inputs 2 are processed conjugate complex</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexInput_16x16.png"></td>
+      <th>u1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.ComplexBlocks.Interfaces.ComplexInput.html">ComplexInput[n]</a></p>
+        <p><span>Description:</span> Connector 1 of Complex input signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexInput_16x16.png"></td>
+      <th>u2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.ComplexBlocks.Interfaces.ComplexInput.html">ComplexInput[n]</a></p>
+        <p><span>Description:</span> Connector 2 of Complex input signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.ComplexBlocks.Interfaces.ComplexOutput.html">ComplexOutput[n]</a></p>
+        <p><span>Description:</span> Connector of Complex output signals</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Complex_32x32.png"></td>
+      <th>u1Internal</th>
+      <td>
+        <p><span>Type:</span> <a href="../Complex/Complex.html">Complex[n]</a></p>
+        <p><span>Description:</span> Equals either u1 or conjugate complex input u1 if useComplexInput = true</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Complex_32x32.png"></td>
+      <th>u2Internal</th>
+      <td>
+        <p><span>Type:</span> <a href="../Complex/Complex.html">Complex[n]</a></p>
+        <p><span>Description:</span> Equals either u1 or conjugate complex input u1 if useComplexInput = true</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

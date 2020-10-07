@@ -1,0 +1,308 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.Polyphase.html">Polyphase</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug.html">NegativePlug</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>NegativePlug</h1>
+    <p>Negative quasi-static polyphase plug</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The negative plug is based on <a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.Plug.html">Plug</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of each quasi-static voltage and current. The symbol is also designed such way to look different than the <a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug.html">positive plug</a>.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.Pin.html">Pin</a>,
+<a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin.html">PositivePin</a>,
+<a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin.html">NegativePin</a>,
+<a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.Plug.html">Plug</a>,
+<a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug.html">PositivePlug</a>,
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Value:</span> 3</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of phases</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td></td>
+      <th>pin</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.Pin.html">Pin[m]</a></p>
+        <p><span>Description:</span> Pins of plug</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td></td>
+      <th>reference</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.Types.Reference.html">Reference</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(24)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Components.PartialCore_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Components.PartialCore.html">PartialCore</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Components</span></p>
+        <p>Partial model of transformer core with 3 windings</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.Interfaces.PartialBasicTransformer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.Interfaces.PartialBasicTransformer.html">PartialBasicTransformer</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.Interfaces</span></p>
+        <p>Partial model of three-phase transformer</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Delta_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Delta.html">Delta</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Basic</span></p>
+        <p>Delta (polygon) connection</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiStar_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiStar.html">MultiStar</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Basic</span></p>
+        <p>Star connection of polyphase systems consisting of multiple base systems</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiDelta_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiDelta.html">MultiDelta</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Basic</span></p>
+        <p>Delta (polygon) connection of polyphase systems consisting of multiple base systems</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin_n_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin_n.html">PlugToPin_n</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Basic</span></p>
+        <p>Connect one (negative) pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_n_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_n.html">PlugToPins_n</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Basic</span></p>
+        <p>Connect all (negative) pins</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealCommutingSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealCommutingSwitch.html">IdealCommutingSwitch</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal commuting switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealIntermediateSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealIntermediateSwitch.html">IdealIntermediateSwitch</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal intermediate switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Sensors.PowerSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Sensors.PowerSensor.html">PowerSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Sensors</span></p>
+        <p>Power sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Sensors.MultiSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Sensors.MultiSensor.html">MultiSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Sensors</span></p>
+        <p>Polyphase sensor to measure current, voltage and power</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Sensors.AronSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Sensors.AronSensor.html">AronSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Sensors</span></p>
+        <p>Three-phase Aron sensor for active power</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Sensors.ReactivePowerSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Sensors.ReactivePowerSensor.html">ReactivePowerSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Sensors</span></p>
+        <p>Three-phase sensor for reactive power</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlugElementary_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlugElementary.html">TwoPlugElementary</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Interfaces</span></p>
+        <p>Two plugs with pin-adapter and reference connection, without declaration of voltage and current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.OnePort_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.OnePort.html">OnePort</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Interfaces</span></p>
+        <p>Two plugs, reference connection and declaration of voltage and current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter.html">PolyphaseElectroMagneticConverter</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Components</span></p>
+        <p>Polyphase electromagnetic converter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing.html">IM_SlipRing</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines</span></p>
+        <p>Induction machine with slip ring rotor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding.html">SymmetricPolyphaseWinding</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Symmetric winding model coupling electrical and magnetic domain</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors.RotorDisplacementAngle_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors.RotorDisplacementAngle.html">RotorDisplacementAngle</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors</span></p>
+        <p>Rotor lagging angle</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses.Machine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses.Machine.html">Machine</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses</span></p>
+        <p>Base model of machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.TerminalBox_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.TerminalBox.html">TerminalBox</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities</span></p>
+        <p>Terminal box Y/D-connection</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.MultiTerminalBox_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.MultiTerminalBox.html">MultiTerminalBox</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities</span></p>
+        <p>Terminal box Y/D-connection</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.SwitchedRheostat_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.SwitchedRheostat.html">SwitchedRheostat</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities</span></p>
+        <p>Rheostat which is shortened after a given time</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.SwitchYD_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.SwitchYD.html">SwitchYD</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities</span></p>
+        <p>Y-D-switch</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

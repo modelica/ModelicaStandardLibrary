@@ -1,0 +1,196 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Batteries.Examples.BatteryDischargeCharge</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Batteries.html">Batteries</a></li>
+  <li><a href="Modelica.Electrical.Batteries.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.Batteries.Examples.BatteryDischargeCharge.html">BatteryDischargeCharge</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>BatteryDischargeCharge</h1>
+    <p>Discharge and charge idealized battery</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Batteries.Examples.BatteryDischargeCharge_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Batteries.Examples.BatteryDischargeCharge_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Batteries.Examples.BatteryDischargeCharge_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>Two batteries with a nominal charge of 10 A.h starting with an initial SOC = 95 % are compared:</p>
+<ul>
+<li><code>battery1</code> is a battery OCV linearly dependent on SOC, without self-discharge and not comprising RC-elements.</li>
+<li><code>battery2</code> is a battery OCV dependency on SOC is specified by a table, with self-discharge and including RC-elements.</li>
+</ul>
+<p>
+Two <a href="Modelica.Electrical.Batteries.ParameterRecords.CellData.html">parameter records</a> <code>cellData1</code> and <code>cellData2</code> are used to parameterize the battery models.
+</p>
+<p>
+First the batteries are discharged with 7 current pulses of 50 A for 1 minute, and breaks between the pulses of 1 minute, ending at SOC = 5 %.<br>
+Subsequently, the batteries are charged again with 7 current pulses of 50 A for 1 minute, and breaks between the pulses of 1 minute, ending at SOC = 95 % again.<br>
+In the end, the batteries are in no-load condition to reveal self-discharge effects.
+Note that self-discharge of <code>battery2</code> is set to an unrealistic high value, to show self-discharge within a rather short time span.<br>
+The parameters of the RC-elements of <code>battery2</code> are set to estimated values, just to demonstrate the effects.
+</p>
+<p>Simulate and plot terminal voltage <code>battery1.v</code> and <code>battery2.v</code> as well as state of charge <code>battery1.SOC</code> and <code>battery2.SOC</code>.</p>
+<p>
+Plotting <code>energy1.y</code> and <code>energy2.y</code>, it is remarkable that first energy is delivered by the battery,
+but then due to the losses more energy is consumed to recharge the battery.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>cellData1</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.ParameterRecords.CellData.html">CellData</a></p>
+      </td>
+    </tr>
+    <tr>
+      <th>cellData2</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.ParameterRecords.TransientData.ExampleData.html">ExampleData</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(14)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.Utilities.PulseSeries_32x32.png"></td>
+      <th>pulseSeries</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.Utilities.PulseSeries.html">PulseSeries</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.ParameterRecords.CellData_32x32.png"></td>
+      <th>cellData1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.ParameterRecords.CellData.html">CellData</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.BatteryStacks.CellStack_32x32.png"></td>
+      <th>battery1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.BatteryStacks.CellStack.html">CellStack</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>ground1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SignalCurrent_32x32.png"></td>
+      <th>signalCurrent1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.SignalCurrent.html">SignalCurrent</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sensors.PowerSensor_32x32.png"></td>
+      <th>powerSensor1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sensors.PowerSensor.html">PowerSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Integrator_32x32.png"></td>
+      <th>energy1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Integrator.html">Integrator</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.ParameterRecords.TransientData.ExampleData_32x32.png"></td>
+      <th>cellData2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.ParameterRecords.TransientData.ExampleData.html">ExampleData</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.BatteryStacks.CellRCStack_32x32.png"></td>
+      <th>battery2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.BatteryStacks.CellRCStack.html">CellRCStack</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>ground2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SignalCurrent_32x32.png"></td>
+      <th>signalCurrent2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.SignalCurrent.html">SignalCurrent</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sensors.PowerSensor_32x32.png"></td>
+      <th>powerSensor2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sensors.PowerSensor.html">PowerSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Integrator_32x32.png"></td>
+      <th>energy2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Integrator.html">Integrator</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>gain</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

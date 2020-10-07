@@ -1,0 +1,441 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.SinglePhase.html">SinglePhase</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin.html">NegativePin</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>NegativePin</h1>
+    <p>Negative quasi-static single-phase pin</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The negative pin is based on <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.Pin.html">Pin</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of the quasi-static voltage and current. The symbol is also designed such way to look different than the <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin.html">positive pin</a>.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.Pin.html">Pin</a>,
+<a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin.html">PositivePin</a>,
+<a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.Plug.html">Plug</a>,
+<a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug.html">PositivePlug</a>,
+<a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug.html">NegativePlug</a>
+</p>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexElectricPotential_32x32.png"></td>
+      <th>v</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexElectricPotential.html">ComplexElectricPotential</a></p>
+        <p><span>Description:</span> Complex potential at the quasi-static single-phase pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexCurrent_32x32.png"></td>
+      <th>i</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexCurrent.html">ComplexCurrent</a></p>
+        <p><span>Description:</span> Complex current flowing into the quasi-static single-phase pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <th>reference</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.Types.Reference.html">Reference</a></p>
+        <p><span>Description:</span> Reference</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(43)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealCommutingSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealCommutingSwitch.html">IdealCommutingSwitch</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Ideal</span></p>
+        <p>Ideal commuting switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealIntermediateSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealIntermediateSwitch.html">IdealIntermediateSwitch</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Ideal</span></p>
+        <p>Ideal intermediate switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealTransformer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealTransformer.html">IdealTransformer</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Ideal</span></p>
+        <p>Ideal transformer</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor.html">PowerSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Sensors</span></p>
+        <p>Power sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.MultiSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.MultiSensor.html">MultiSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Sensors</span></p>
+        <p>Sensor to measure current, voltage and power</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.TwoPinElementary_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.TwoPinElementary.html">TwoPinElementary</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces</span></p>
+        <p>Elementary two pins with reference connection, without declaration of voltage and current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Utilities.IdealACDCConverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Utilities.IdealACDCConverter.html">IdealACDCConverter</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Utilities</span></p>
+        <p>Ideal AC DC converter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yy.Yy00_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yy.Yy00.html">Yy00</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yy</span></p>
+        <p>Transformer Yy0</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yy.Yy02_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yy.Yy02.html">Yy02</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yy</span></p>
+        <p>Transformer Yy2</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yy.Yy04_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yy.Yy04.html">Yy04</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yy</span></p>
+        <p>Transformer Yy4</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yy.Yy06_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yy.Yy06.html">Yy06</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yy</span></p>
+        <p>Transformer Yy6</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yy.Yy08_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yy.Yy08.html">Yy08</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yy</span></p>
+        <p>Transformer Yy8</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yy.Yy10_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yy.Yy10.html">Yy10</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yy</span></p>
+        <p>Transformer Yy10</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yd.Yd01_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yd.Yd01.html">Yd01</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yd</span></p>
+        <p>Transformer Yd1</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yd.Yd03_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yd.Yd03.html">Yd03</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yd</span></p>
+        <p>Transformer Yd3</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yd.Yd05_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yd.Yd05.html">Yd05</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yd</span></p>
+        <p>Transformer Yd5</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yd.Yd07_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yd.Yd07.html">Yd07</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yd</span></p>
+        <p>Transformer Yd7</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yd.Yd09_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yd.Yd09.html">Yd09</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yd</span></p>
+        <p>Transformer Yd9</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yd.Yd11_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yd.Yd11.html">Yd11</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yd</span></p>
+        <p>Transformer Yd11</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yz.Yz01_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yz.Yz01.html">Yz01</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yz</span></p>
+        <p>Transformer Yz1</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yz.Yz03_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yz.Yz03.html">Yz03</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yz</span></p>
+        <p>Transformer Yz3</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yz.Yz05_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yz.Yz05.html">Yz05</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yz</span></p>
+        <p>Transformer Yz5</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yz.Yz07_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yz.Yz07.html">Yz07</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yz</span></p>
+        <p>Transformer Yz7</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yz.Yz09_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yz.Yz09.html">Yz09</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yz</span></p>
+        <p>Transformer Yz9</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yz.Yz11_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yz.Yz11.html">Yz11</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Yz</span></p>
+        <p>Transformer Yz11</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dy.Dy01_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dy.Dy01.html">Dy01</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dy</span></p>
+        <p>Transformer Dy1</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dy.Dy03_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dy.Dy03.html">Dy03</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dy</span></p>
+        <p>Transformer Dy3</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dy.Dy05_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dy.Dy05.html">Dy05</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dy</span></p>
+        <p>Transformer Dy5</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dy.Dy07_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dy.Dy07.html">Dy07</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dy</span></p>
+        <p>Transformer Dy7</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dy.Dy09_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dy.Dy09.html">Dy09</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dy</span></p>
+        <p>Transformer Dy9</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dy.Dy11_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dy.Dy11.html">Dy11</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dy</span></p>
+        <p>Transformer Dy11</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dz.Dz00_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dz.Dz00.html">Dz00</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dz</span></p>
+        <p>Transformer Dz0</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dz.Dz02_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dz.Dz02.html">Dz02</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dz</span></p>
+        <p>Transformer Dz2</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dz.Dz04_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dz.Dz04.html">Dz04</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dz</span></p>
+        <p>Transformer Dz4</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dz.Dz06_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dz.Dz06.html">Dz06</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dz</span></p>
+        <p>Transformer Dz6</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dz.Dz08_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dz.Dz08.html">Dz08</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dz</span></p>
+        <p>Transformer Dz8</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dz.Dz10_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dz.Dz10.html">Dz10</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers.Dz</span></p>
+        <p>Transformer Dz10</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star.html">Star</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Basic</span></p>
+        <p>Star connection</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiStarResistance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiStarResistance.html">MultiStarResistance</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Basic</span></p>
+        <p>Resistance connection of star points</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin_n_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin_n.html">PlugToPin_n</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Basic</span></p>
+        <p>Connect one (negative) pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_n_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_n.html">PlugToPins_n</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Basic</span></p>
+        <p>Connect all (negative) pins</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter.html">ElectroMagneticConverter</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Basic</span></p>
+        <p>Electromagnetic energy conversion</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.TerminalBox_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.TerminalBox.html">TerminalBox</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities</span></p>
+        <p>Terminal box Y/D-connection</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

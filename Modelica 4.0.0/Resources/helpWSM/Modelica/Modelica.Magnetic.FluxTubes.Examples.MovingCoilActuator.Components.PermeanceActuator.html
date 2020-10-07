@@ -1,0 +1,330 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.html">MovingCoilActuator</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.html">Components</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator.html">PermeanceActuator</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PermeanceActuator</h1>
+    <p>Detailed actuator model for rough magnetic design of actuator and system simulation</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator_diagram_large.png"><img src="resources/diagrams/Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+In the <a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator.html">ConstantActuator</a> model the force F is strictly proportional to the current i as indicated by the converter constant c. However, there is an additional non-linear force component in such an actuator that is due to the dependency of the coil inductance L on the armature position x. The inductance increases as the armature moves into the stator. The total force is
+</p>
+
+<blockquote><pre>
+    1  2 dL
+F = - i  --  + c i
+    2    dx
+</pre></blockquote>
+
+<p>
+Both force components are properly considered with a simple permeance model as shown in the figures below. Figure (a) illustrates the dimensions of the axis-symmetric moving coil actuator that are needed in the permeance model. Figure (b) shows partitioning into flux tubes and the permanent magnetic field without current. G_ma and G_mb both are the permeances resulting from a series connection of the permanent magnet and air gap sections. The field plot of the coil-imposed mmf is shown in figure (c) without the permanent magnetic mmf (H_cB=0). The placement of the magnetic network components in figure (d) retains the geometric structure of the actuator. In figure (e), the permeance model is restructured and thus simplified.
+</p>
+
+<p>
+<img src="resources/Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator_info_001.png" alt="Structure, assigned flux tubes and field plots of the moving coil actuator">
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(13)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>N</th>
+      <td>
+        <p><span>Value:</span> 140</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Number of turns</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Value:</span> 2.86</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Coil resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r_core</th>
+      <td>
+        <p><span>Value:</span> 12.5e-3</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Radius.html">Radius</a> (m)</p>
+        <p><span>Description:</span> Radius of ferromagnetic stator core</p>
+      </td>
+    </tr>
+    <tr>
+      <th>l_PM</th>
+      <td>
+        <p><span>Value:</span> 3.5e-3</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Radial thickness of permanent magnet ring</p>
+      </td>
+    </tr>
+    <tr>
+      <th>t</th>
+      <td>
+        <p><span>Value:</span> 0.02</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Axial length of permanent magnet ring and air gap respectively</p>
+      </td>
+    </tr>
+    <tr>
+      <th>l_air</th>
+      <td>
+        <p><span>Value:</span> 3e-3</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Total radial length of armature air gap</p>
+      </td>
+    </tr>
+    <tr>
+      <th>l_FeOut</th>
+      <td>
+        <p><span>Value:</span> 4e-3</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Radial thickness of outer back iron (for estimation of leakage permeance)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>material</th>
+      <td>
+        <p><span>Value:</span> Material.HardMagnetic.BaseData()</p>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData.html">BaseData</a></p>
+        <p><span>Description:</span> Ferromagnetic material characteristics</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_a</th>
+      <td>
+        <p><span>Value:</span> 0.012</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Mass.html">Mass</a> (kg)</p>
+        <p><span>Description:</span> Mass of armature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>
+        <p><span>Value:</span> 1e11</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.TranslationalSpringConstant.html">TranslationalSpringConstant</a> (N/m)</p>
+        <p><span>Description:</span> Spring stiffness between impact partners</p>
+      </td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>
+        <p><span>Value:</span> 400</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.TranslationalDampingConstant.html">TranslationalDampingConstant</a> (N·s/m)</p>
+        <p><span>Description:</span> Damping coefficient between impact partners</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x_min</th>
+      <td>
+        <p><span>Value:</span> -4e-3</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position</a> (m)</p>
+        <p><span>Description:</span> Position of stopper at minimum armature position</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x_max</th>
+      <td>
+        <p><span>Value:</span> 4e-3</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position</a> (m)</p>
+        <p><span>Description:</span> Position of stopper at maximum armature position</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Electrical connector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Electrical connector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flange</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> Flange of component</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData_32x32.png"></td>
+      <th>material</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData.html">BaseData</a></p>
+        <p><span>Description:</span> Ferromagnetic material characteristics</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Sources.ConstantMagneticPotentialDifference_32x32.png"></td>
+      <th>mmf_PM</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Sources.ConstantMagneticPotentialDifference.html">ConstantMagneticPotentialDifference</a></p>
+        <p><span>Description:</span> Permanent magnet's magnetomotive force</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper_32x32.png"></td>
+      <th>armature</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper.html">TranslatoryArmatureAndStopper</a></p>
+        <p><span>Description:</span> Inertia of moving coil + coil carrier; stoppers at end of stroke range</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Resistor_32x32.png"></td>
+      <th>r</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Resistor.html">Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.Ground_32x32.png"></td>
+      <th>ground</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter_32x32.png"></td>
+      <th>coil</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter.html">ElectroMagneticConverter</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.Force.HollowCylinderRadialFlux_32x32.png"></td>
+      <th>g_ma</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Shapes.Force.HollowCylinderRadialFlux.html">HollowCylinderRadialFlux</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.Force.HollowCylinderRadialFlux_32x32.png"></td>
+      <th>g_mb</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Shapes.Force.HollowCylinderRadialFlux.html">HollowCylinderRadialFlux</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.Leakage.CoaxCylindersEndFaces_32x32.png"></td>
+      <th>g_mLeak1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Shapes.Leakage.CoaxCylindersEndFaces.html">CoaxCylindersEndFaces</a></p>
+        <p><span>Description:</span> Leakage between coaxial end planes of ferromagnetic stator core and outer back iron</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.Leakage.HalfCylinder_32x32.png"></td>
+      <th>g_mLeak2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Shapes.Leakage.HalfCylinder.html">HalfCylinder</a></p>
+        <p><span>Description:</span> Leakage between edges of ferromagnetic stator core and outer back iron</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceCurrentBehaviour_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceCurrentBehaviour.html">ForceCurrentBehaviour</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator</span></p>
+        <p>Comparison of the force-current characteristics of both converter models with armature blocked at mid-position</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceStrokeBehaviour_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceStrokeBehaviour.html">ForceStrokeBehaviour</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator</span></p>
+        <p>Force-stroke characteristic of the permeance model at constant current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ArmatureStroke_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ArmatureStroke.html">ArmatureStroke</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator</span></p>
+        <p>Armature stroke of both moving coil actuator models after a voltage step at time t=0</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Utilities.Streams.print</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Streams.html">Streams</a></li>
+  <li><a href="Modelica.Utilities.Streams.print.html">print</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>print</h1>
+    <p>Print string to terminal or file</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Streams.print_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Streams.<strong>print</strong>(string);
+Streams.<strong>print</strong>(string,fileName);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <strong>print</strong>(..) opens automatically the given file, if
+it is not yet open. If the file does not exist, it is created.
+If the file does exist, the given string is appended to the file.
+If this is not desired, call "Files.remove(fileName)" before calling print
+("remove(..)" is silent, if the file does not exist).
+The Modelica environment may close the file whenever appropriate.
+This can be enforced by calling <strong>Streams.close</strong>(fileName).
+After every call of "print(..)" a "new line" is printed automatically.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+Streams.print("x = " + String(x));
+Streams.print("y = " + String(y));
+Streams.print("x = " + String(y), "mytestfile.txt");
+</pre></blockquote>
+<h4>See also</h4>
+<p>
+<a href="Modelica.Utilities.Streams.html">Streams</a>,
+<a href="Modelica.Utilities.Streams.error.html">Streams.error</a>,
+<a href="../ModelicaReference/ModelicaReference.Operators.'String()'.html">ModelicaReference.Operators.'String()'</a>
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">print(string, fileName)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>string</th>
+      <td>
+        <p><span>Default Value:</span> ""</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> String to be printed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fileName</th>
+      <td>
+        <p><span>Default Value:</span> ""</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> File where to print (empty string is the terminal)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

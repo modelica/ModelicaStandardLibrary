@@ -1,0 +1,195 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Digital.Tables</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Digital.html">Digital</a></li>
+  <li><a href="Modelica.Electrical.Digital.Tables.html">Tables</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Tables</h1>
+    <p>Truth tables for all components of package Digital</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Digital.Tables_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="constants" >
+  <h1>Package Constants <span class="count">(19)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>AndTable</th>
+      <td>
+        <p><span>Value:</span> [L.'U', L.'U', L.'0', L.'U', L.'U', L.'U', L.'0', L.'U', L.'U'; L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X'; L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0'; L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X'; L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X'; L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X'; L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0', L.'0'; L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X'; L.'U', L.'X', L.'0', L.'X', L.'X', L.'X', L.'0', L.'X', L.'X']</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic[L,L]</a></p>
+        <p><span>Description:</span> 9-value logic for 'and'</p>
+      </td>
+    </tr>
+    <tr>
+      <th>OrTable</th>
+      <td>
+        <p><span>Value:</span> [L.'U', L.'U', L.'U', L.'1', L.'U', L.'U', L.'U', L.'1', L.'U'; L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X'; L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X'; L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1'; L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X'; L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X'; L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X'; L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1', L.'1'; L.'U', L.'X', L.'X', L.'1', L.'X', L.'X', L.'X', L.'1', L.'X']</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic[L,L]</a></p>
+        <p><span>Description:</span> 9-value logic for 'or'</p>
+      </td>
+    </tr>
+    <tr>
+      <th>NotTable</th>
+      <td>
+        <p><span>Value:</span> {L.'U', L.'X', L.'1', L.'0', L.'X', L.'X', L.'1', L.'0', L.'X'}</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic[L]</a></p>
+        <p><span>Description:</span> 9-value logic for 'not'</p>
+      </td>
+    </tr>
+    <tr>
+      <th>XorTable</th>
+      <td>
+        <p><span>Value:</span> [L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U'; L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X'; L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X'; L.'U', L.'X', L.'1', L.'0', L.'X', L.'X', L.'1', L.'0', L.'X'; L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X'; L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X'; L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X'; L.'U', L.'X', L.'1', L.'0', L.'X', L.'X', L.'1', L.'0', L.'X'; L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X']</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic[L,L]</a></p>
+        <p><span>Description:</span> 9-value logic for 'xor'</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ResolutionTable</th>
+      <td>
+        <p><span>Value:</span> [L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U'; L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X'; L.'U', L.'X', L.'0', L.'X', L.'0', L.'0', L.'0', L.'0', L.'X'; L.'U', L.'X', L.'X', L.'1', L.'1', L.'1', L.'1', L.'1', L.'X'; L.'U', L.'X', L.'0', L.'1', L.'Z', L.'W', L.'L', L.'H', L.'X'; L.'U', L.'X', L.'0', L.'1', L.'W', L.'W', L.'W', L.'W', L.'X'; L.'U', L.'X', L.'0', L.'1', L.'L', L.'W', L.'L', L.'W', L.'X'; L.'U', L.'X', L.'0', L.'1', L.'H', L.'W', L.'W', L.'H', L.'X'; L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X']</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic[L,L]</a></p>
+        <p><span>Description:</span> 9-value logic for 'wiredX'</p>
+      </td>
+    </tr>
+    <tr>
+      <th>X01Table</th>
+      <td>
+        <p><span>Value:</span> {L.'X', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X'}</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic[L]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <th>X01ZTable</th>
+      <td>
+        <p><span>Value:</span> {L.'X', L.'X', L.'0', L.'1', L.'Z', L.'X', L.'0', L.'1', L.'Z'}</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic[L]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <th>UX01Table</th>
+      <td>
+        <p><span>Value:</span> {L.'U', L.'X', L.'0', L.'1', L.'X', L.'X', L.'0', L.'1', L.'X'}</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic[L]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <th>UX01Conv</th>
+      <td>
+        <p><span>Value:</span> {R.'U', R.'X', R.'0', R.'1', R.'X', R.'X', R.'0', R.'1', R.'X'}</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.UX01.html">UX01[L]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <th>DelayTable</th>
+      <td>
+        <p><span>Value:</span> [0, 0, -1, 1, 0, 0, -1, 1, 0; 0, 0, -1, 1, 0, 0, -1, 1, 0; 1, 1, 0, 1, 1, 1, 0, 1, 1; -1, -1, -1, 0, -1, -1, -1, 0, -1; 0, 0, -1, 1, 0, 0, -1, 1, 0; 0, 0, -1, 1, 0, 0, -1, 1, 0; 1, 1, 0, 1, 1, 1, 0, 1, 1; -1, -1, -1, 0, -1, -1, -1, 0, -1; 0, 0, -1, 1, 0, 0, -1, 1, 0]</p>
+        <p><span>Type:</span> Integer[L,L]</p>
+        <p><span>Description:</span> Delay selection for signal change by [old_signal, new_signal] reading:
+      -1: High-Low delay |
+       0: no delay |
+       1: Low-High delay</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ClockMap</th>
+      <td>
+        <p><span>Value:</span> [0, 0, 0, 2, 0, 0, 0, 2, 0; 0, 0, 0, 2, 0, 0, 0, 2, 0; 2, 2, 0, 1, 2, 2, 0, 1, 2; 0, 0, 0, 0, 0, 0, 0, 0, 0; 0, 0, 0, 2, 0, 0, 0, 2, 0; 0, 0, 0, 2, 0, 0, 0, 2, 0; 2, 2, 0, 1, 2, 2, 0, 1, 0; 0, 0, 0, 0, 0, 0, 0, 0, 0; 0, 0, 0, 2, 0, 0, 0, 2, 0]</p>
+        <p><span>Type:</span> Integer[L,L]</p>
+        <p><span>Description:</span> Edge detection by [pre(clock), clock] reading:
+    0: 0-Transition |
+    1: rising edge  |
+    2: X-Transition</p>
+      </td>
+    </tr>
+    <tr>
+      <th>StrengthMap</th>
+      <td>
+        <p><span>Value:</span> [L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U'; L.'X', L.'X', L.'X', L.'X', L.'X', L.'W', L.'W', L.'W', L.'W', L.'W'; L.'0', L.'0', L.'L', L.'0', L.'Z', L.'L', L.'L', L.'Z', L.'0', L.'L'; L.'1', L.'H', L.'1', L.'Z', L.'1', L.'H', L.'Z', L.'H', L.'H', L.'1'; L.'X', L.'X', L.'X', L.'X', L.'X', L.'W', L.'W', L.'W', L.'W', L.'W'; L.'X', L.'X', L.'X', L.'X', L.'X', L.'W', L.'W', L.'W', L.'W', L.'W'; L.'0', L.'0', L.'L', L.'0', L.'Z', L.'L', L.'L', L.'Z', L.'0', L.'L'; L.'1', L.'H', L.'1', L.'Z', L.'1', L.'H', L.'Z', L.'H', L.'H', L.'1'; L.'X', L.'X', L.'X', L.'X', L.'X', L.'W', L.'W', L.'W', L.'W', L.'W']</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic[L,S]</a></p>
+        <p><span>Description:</span> Output strength conversion by [signal, strength] reading</p>
+      </td>
+    </tr>
+    <tr>
+      <th>NXferTable</th>
+      <td>
+        <p><span>Value:</span> [L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U'; L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X'; L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z'; L.'U', L.'X', L.'0', L.'1', L.'Z', L.'W', L.'L', L.'H', L.'X'; L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X'; L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X'; L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z'; L.'U', L.'X', L.'0', L.'1', L.'Z', L.'W', L.'L', L.'H', L.'X'; L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X']</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic[L,L]</a></p>
+        <p><span>Description:</span> NX Transfer by [enable, input] reading</p>
+      </td>
+    </tr>
+    <tr>
+      <th>NRXferTable</th>
+      <td>
+        <p><span>Value:</span> [L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U'; L.'U', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W'; L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z'; L.'U', L.'W', L.'L', L.'H', L.'Z', L.'W', L.'L', L.'H', L.'W'; L.'U', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W'; L.'U', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W'; L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z'; L.'U', L.'W', L.'L', L.'H', L.'Z', L.'W', L.'L', L.'H', L.'W'; L.'U', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W']</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic[L,L]</a></p>
+        <p><span>Description:</span> NRX Transfer by [enable, input] reading</p>
+      </td>
+    </tr>
+    <tr>
+      <th>PXferTable</th>
+      <td>
+        <p><span>Value:</span> [L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U'; L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X'; L.'U', L.'X', L.'0', L.'1', L.'Z', L.'W', L.'L', L.'H', L.'X'; L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z'; L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X'; L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X'; L.'U', L.'X', L.'0', L.'1', L.'Z', L.'W', L.'L', L.'H', L.'X'; L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z'; L.'U', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X', L.'X']</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic[L,L]</a></p>
+        <p><span>Description:</span> PX Transfer by [enable, input] reading</p>
+      </td>
+    </tr>
+    <tr>
+      <th>PRXferTable</th>
+      <td>
+        <p><span>Value:</span> [L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U', L.'U'; L.'U', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W'; L.'U', L.'W', L.'L', L.'H', L.'Z', L.'W', L.'L', L.'H', L.'W'; L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z'; L.'U', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W'; L.'U', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W'; L.'U', L.'W', L.'L', L.'H', L.'Z', L.'W', L.'L', L.'H', L.'W'; L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z', L.'Z'; L.'U', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W', L.'W']</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic[L,L]</a></p>
+        <p><span>Description:</span> PRX Transfer by [enable, input] reading</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Buf3sTable</th>
+      <td>
+        <p><span>Value:</span> [{{{L.'U', L.'U', L.'U', L.'U'}, {L.'U', L.'X', L.'X', L.'X'}, {L.'Z', L.'Z', L.'Z', L.'Z'}, {L.'U', L.'X', L.'0', L.'1'}}, {{L.'U', L.'U', L.'U', L.'U'}, {L.'U', L.'X', L.'X', L.'X'}, {L.'Z', L.'Z', L.'Z', L.'Z'}, {L.'U', L.'X', L.'0', L.'H'}}, {{L.'U', L.'U', L.'U', L.'U'}, {L.'U', L.'X', L.'X', L.'X'}, {L.'Z', L.'Z', L.'Z', L.'Z'}, {L.'U', L.'X', L.'L', L.'1'}}, {{L.'U', L.'U', L.'U', L.'Z'}, {L.'U', L.'X', L.'X', L.'Z'}, {L.'Z', L.'Z', L.'Z', L.'Z'}, {L.'U', L.'X', L.'0', L.'Z'}}, {{L.'U', L.'U', L.'U', L.'U'}, {L.'U', L.'X', L.'X', L.'X'}, {L.'Z', L.'Z', L.'Z', L.'Z'}, {L.'U', L.'X', L.'Z', L.'1'}}, {{L.'U', L.'U', L.'U', L.'U'}, {L.'U', L.'W', L.'W', L.'W'}, {L.'Z', L.'Z', L.'Z', L.'Z'}, {L.'U', L.'W', L.'L', L.'H'}}, {{L.'U', L.'U', L.'U', L.'U'}, {L.'U', L.'W', L.'W', L.'Z'}, {L.'Z', L.'Z', L.'Z', L.'Z'}, {L.'U', L.'W', L.'L', L.'Z'}}, {{L.'U', L.'U', L.'U', L.'U'}, {L.'U', L.'W', L.'W', L.'W'}, {L.'Z', L.'Z', L.'Z', L.'Z'}, {L.'U', L.'W', L.'Z', L.'H'}}, {{L.'U', L.'U', L.'U', L.'U'}, {L.'U', L.'W', L.'W', L.'W'}, {L.'Z', L.'Z', L.'Z', L.'Z'}, {L.'U', L.'W', L.'0', L.'H'}}, {{L.'U', L.'U', L.'U', L.'U'}, {L.'U', L.'W', L.'W', L.'W'}, {L.'Z', L.'Z', L.'Z', L.'Z'}, {L.'U', L.'W', L.'L', L.'1'}}}]</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic[S,R,R]</a></p>
+        <p><span>Description:</span> Tristate Table by [strength, enable, input] reading, high-active enable</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Buf3slTable</th>
+      <td>
+        <p><span>Value:</span> [{{{L.'U', L.'U', L.'U', L.'U'}, {L.'U', L.'X', L.'X', L.'X'}, {L.'U', L.'X', L.'0', L.'1'}, {L.'Z', L.'Z', L.'Z', L.'Z'}}, {{L.'U', L.'U', L.'U', L.'U'}, {L.'U', L.'X', L.'X', L.'X'}, {L.'U', L.'X', L.'0', L.'H'}, {L.'Z', L.'Z', L.'Z', L.'Z'}}, {{L.'U', L.'U', L.'U', L.'U'}, {L.'U', L.'X', L.'X', L.'X'}, {L.'U', L.'X', L.'L', L.'1'}, {L.'Z', L.'Z', L.'Z', L.'Z'}}, {{L.'U', L.'U', L.'U', L.'Z'}, {L.'U', L.'X', L.'X', L.'Z'}, {L.'U', L.'X', L.'0', L.'Z'}, {L.'Z', L.'Z', L.'Z', L.'Z'}}, {{L.'U', L.'U', L.'U', L.'U'}, {L.'U', L.'X', L.'X', L.'X'}, {L.'U', L.'X', L.'Z', L.'1'}, {L.'Z', L.'Z', L.'Z', L.'Z'}}, {{L.'U', L.'U', L.'U', L.'U'}, {L.'U', L.'W', L.'W', L.'W'}, {L.'U', L.'W', L.'L', L.'H'}, {L.'Z', L.'Z', L.'Z', L.'Z'}}, {{L.'U', L.'U', L.'U', L.'U'}, {L.'U', L.'W', L.'W', L.'Z'}, {L.'U', L.'W', L.'L', L.'Z'}, {L.'Z', L.'Z', L.'Z', L.'Z'}}, {{L.'U', L.'U', L.'U', L.'U'}, {L.'U', L.'W', L.'W', L.'W'}, {L.'U', L.'W', L.'Z', L.'H'}, {L.'Z', L.'Z', L.'Z', L.'Z'}}, {{L.'U', L.'U', L.'U', L.'U'}, {L.'U', L.'W', L.'W', L.'W'}, {L.'U', L.'W', L.'0', L.'H'}, {L.'Z', L.'Z', L.'Z', L.'Z'}}, {{L.'U', L.'U', L.'U', L.'U'}, {L.'U', L.'W', L.'W', L.'W'}, {L.'U', L.'W', L.'L', L.'1'}, {L.'Z', L.'Z', L.'Z', L.'Z'}}}]</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic[S,R,R]</a></p>
+        <p><span>Description:</span> Tristate Table by [strength, enable, input] reading, low-active enable</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MUX2x1Table</th>
+      <td>
+        <p><span>Value:</span> [{{{L.'U', L.'U', L.'U', L.'U'}, {L.'U', L.'U', L.'U', L.'U'}, {L.'U', L.'X', L.'0', L.'1'}, {L.'U', L.'U', L.'U', L.'U'}}, {{L.'U', L.'X', L.'U', L.'U'}, {L.'U', L.'X', L.'X', L.'X'}, {L.'U', L.'X', L.'0', L.'1'}, {L.'X', L.'X', L.'X', L.'X'}}, {{L.'U', L.'U', L.'0', L.'U'}, {L.'U', L.'X', L.'0', L.'X'}, {L.'U', L.'X', L.'0', L.'1'}, {L.'0', L.'0', L.'0', L.'0'}}, {{L.'U', L.'U', L.'U', L.'1'}, {L.'U', L.'X', L.'X', L.'1'}, {L.'U', L.'X', L.'0', L.'1'}, {L.'1', L.'1', L.'1', L.'1'}}}]</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic[R,R,R]</a></p>
+        <p><span>Description:</span> Multiplexer Table by [select, input1, input0] reading</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,229 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Continuous.CriticalDamping</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Continuous.html">Continuous</a></li>
+  <li><a href="Modelica.Blocks.Continuous.CriticalDamping.html">CriticalDamping</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>CriticalDamping</h1>
+    <p>Output the input signal filtered with an n-th order filter with critical damping</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Continuous.CriticalDamping_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This block defines the transfer function between the
+input u and the output y
+as an n-th order filter with <em>critical damping</em>
+characteristics and cut-off frequency f. It is
+implemented as a series of first order filters.
+This filter type is especially useful to filter the input of an
+inverse model, since the filter does not introduce any transients.
+</p>
+
+<p>
+If parameter <strong>normalized</strong> = <strong>true</strong> (default), the filter
+is normalized such that the amplitude of the filter transfer function
+at the cut-off frequency f is 1/sqrt(2) (= 3 dB). Otherwise, the filter
+is not normalized, i.e., it is unmodified. A normalized filter is usually
+much better for applications, since filters of different orders are
+"comparable", whereas non-normalized filters usually require to adapt the
+cut-off frequency, when the order of the filter is changed.
+Figures of the filter step responses are shown below.
+Note, in versions before version 3.0 of the Modelica Standard library,
+the CriticalDamping filter was provided only in non-normalized form.
+</p>
+
+<p>If transients at the simulation start shall be avoided, the filter
+should be initialized in steady state (e.g., using option
+initType=Modelica.Blocks.Types.Init.SteadyState).
+</p>
+
+<p>
+The critical damping filter is defined as
+</p>
+
+<blockquote><pre>
+&alpha; = <strong>if</strong> normalized <strong>then</strong> <strong>sqrt</strong>(2^(1/n) - 1) <strong>else</strong> 1 // frequency correction factor
+&omega; = 2*&pi;*f/&alpha;
+          1
+y = ------------- * u
+     (s/w + 1)^n
+
+</pre></blockquote>
+
+<p>
+<img src="resources/Modelica.Blocks.Continuous.CriticalDamping_info_001.png"
+     alt="CriticalDampingNormalized.png">
+</p>
+
+<p>
+<img src="resources/Modelica.Blocks.Continuous.CriticalDamping_info_002.png"
+     alt="CriticalDampingNonNormalized.png">
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Order of filter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Cut-off frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>normalized</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if amplitude at f_cut is 3 dB, otherwise unmodified filter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>initType</th>
+      <td>
+        <p><span>Value:</span> Modelica.Blocks.Types.Init.NoInit</p>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Types.Init.html">Init</a></p>
+        <p><span>Description:</span> Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x_start</th>
+      <td>
+        <p><span>Value:</span> zeros(n)</p>
+        <p><span>Type:</span> Real[n]</p>
+        <p><span>Description:</span> Initial or guess values of states</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_start</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Initial value of output (remaining states are in steady state)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>x</th>
+      <td>
+        <p><span>Type:</span> Real[n]</p>
+        <p><span>Description:</span> Filter states</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Connector of Real input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Connector of Real output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.InverseModel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.InverseModel.html">InverseModel</a></p>
+        <p><span>Modelica.Blocks.Examples</span></p>
+        <p>Demonstrates the construction of an inverse model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnitWithContinuousControl_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnitWithContinuousControl.html">MixingUnitWithContinuousControl</a></p>
+        <p><span>Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit</span></p>
+        <p>Simple example of a mixing unit where a (continuous) nonlinear inverse plant model is used as feedforward controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6.html">EngineV6</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span></p>
+        <p>V6 engine with 6 cylinders, 6 planar loops and 1 degree-of-freedom</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic.html">EngineV6_analytic</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span></p>
+        <p>V6 engine with 6 cylinders, 6 planar loops, 1 degree-of-freedom and analytic handling of kinematic loops</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

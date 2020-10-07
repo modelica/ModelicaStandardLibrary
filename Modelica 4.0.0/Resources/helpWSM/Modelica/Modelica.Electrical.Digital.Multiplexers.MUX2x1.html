@@ -1,0 +1,200 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Digital.Multiplexers.MUX2x1</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Digital.html">Digital</a></li>
+  <li><a href="Modelica.Electrical.Digital.Multiplexers.html">Multiplexers</a></li>
+  <li><a href="Modelica.Electrical.Digital.Multiplexers.MUX2x1.html">MUX2x1</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>MUX2x1</h1>
+    <p>A two inputs MULTIPLEXER for multiple value logic (2 data inputs, 1 select input, 1 output)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Digital.Multiplexers.MUX2x1_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>Description in VHDL is given by <a href="http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a></p>
+<p>and for Multiplexer table <a href="http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</a></p>
+<h4>Truth Table</h4>
+<table cellspacing="0" cellpadding="2" border="1"><tr>
+<td><h4>DataIn</h4></td>
+<td><h4>Select</h4></td>
+<td><h4>DataOut</h4></td>
+</tr>
+<tr>
+<td><p>*</p></td>
+<td><p>0</p></td>
+<td><p>Input0</p></td>
+</tr>
+<tr>
+<td><p>*</p></td>
+<td><p>1</p></td>
+<td><p>Input1</p></td>
+</tr>
+<tr>
+<td><p>Inputs equal</p></td>
+<td><p>U</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr>
+<td><p>Inputs not equal</p></td>
+<td><p>U</p></td>
+<td><p>U</p></td>
+</tr>
+<tr>
+<td><p>U in Input</p></td>
+<td><p>X</p></td>
+<td><p>U</p></td>
+</tr>
+<tr>
+<td><p>Inputs equal</p></td>
+<td><p>X</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr>
+<td><p>no U in Input and Inputs not equal</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+</table>
+<blockquote><pre>
+*  = don&#39;t care
+0  = L.&#39;0&#39; or L.&#39;L&#39;
+1  = L.&#39;1&#39; or L.&#39;H&#39;
+X  = L.&#39;X&#39; or L.&#39;W&#39; or L.&#39;Z&#39; or L.&#39;-&#39;
+U  = L.&#39;U&#39;
+</pre></blockquote>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>tHL</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> High->Low delay</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tLH</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Low->High delay</p>
+      </td>
+    </tr>
+    <tr>
+      <th>strength</th>
+      <td>
+        <p><span>Value:</span> S.'S_X01'</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Strength.html">Strength</a></p>
+        <p><span>Description:</span> Output strength</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalInput_16x16.png"></td>
+      <th>in1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalInput.html">DigitalInput</a></p>
+        <p><span>Description:</span> Data input 1</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalInput_16x16.png"></td>
+      <th>in0</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalInput.html">DigitalInput</a></p>
+        <p><span>Description:</span> Data input 0</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalInput_16x16.png"></td>
+      <th>sel</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalInput.html">DigitalInput</a></p>
+        <p><span>Description:</span> Select input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalOutput_16x16.png"></td>
+      <th>out</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalOutput.html">DigitalOutput</a></p>
+        <p><span>Description:</span> Output</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Delay.InertialDelaySensitive_32x32.png"></td>
+      <th>inertialDelaySensitive</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Delay.InertialDelaySensitive.html">InertialDelaySensitive</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.MUX2x1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.MUX2x1.html">MUX2x1</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span></p>
+        <p>Simple Multiplexer test</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Frames.TransformationMatrices.Orientation</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.html">TransformationMatrices</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation.html">Orientation</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Orientation</h1>
+    <p>Orientation type defining rotation from a frame 1 into a frame 2 with a transformation matrix</p>
+  </td><td>
+    <div></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This type describes the <strong>rotation</strong> from a <strong>frame 1</strong> into a <strong>frame 2</strong>.
+An instance <strong>R</strong> of type <strong>Orientation</strong> has the following interpretation:
+</p>
+<blockquote><pre>
+<strong>T</strong> = [<strong>e</strong><sub>x</sub>, <strong>e</strong><sub>y</sub>, <strong>e</strong><sub>z</sub>];
+    e.g., <strong>T</strong> = [1,0,0; 0,1,0; 0,0,1]
+</pre></blockquote>
+<p>
+where <strong>e</strong><sub>x</sub>,<strong>e</strong><sub>y</sub>,<strong>e</strong><sub>z</sub>
+are unit vectors in the direction of the x-axis, y-axis, and z-axis
+of frame 1, resolved in frame 2, respectively. Therefore, if <strong>v</strong><sub>1</sub>
+is vector <strong>v</strong> resolved in frame 1 and <strong>v</strong><sub>2</sub> is
+vector <strong>v</strong> resolved in frame 2, the following relationship holds:
+</p>
+<blockquote><pre>
+<strong>v</strong><sub>2</sub> = <strong>T</strong> * <strong>v</strong><sub>1</sub>
+</pre></blockquote>
+<p>
+The <strong>inverse</strong> orientation
+<strong>T_inv</strong> = <strong>T</strong><sup>T</sup> describes the rotation
+from frame 2 into frame 1.
+</p>
+<p>
+Since the orientation is described by 9 variables, there are
+6 constraints between these variables. These constraints
+are defined in function <strong>TransformationMatrices.orientationConstraint</strong>.
+</p>
+<p>
+Note, that in the MultiBody library the rotation object is
+never directly accessed but only with the access functions provided
+in package TransformationMatrices. As a consequence, other implementations of
+Rotation can be defined by adapting this package correspondingly.
+</p>
+</div>
+</section>
+<section id="type" >
+  <h1>Type Information </h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Real</th>
+      <td>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines.html">Lines</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers.Internal</span></p>
+        <p>Visualizing a set of lines as cylinders with variable size, e.g., used to display characters (no Frame connector)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Annotations.HideResult</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Annotations.html">Annotations</a></li>
+  <li><a href="ModelicaReference.Annotations.HideResult.html">HideResult</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>HideResult</h1>
+    <p>HideResult</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Annotations.HideResult_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Annotation for code generation (hide result)
+</p>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>   <strong>annotation</strong>"(" HideResult "=" ( <strong>false</strong> | <strong>true</strong> ) ")
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+HideResult = true defines that the model developer proposes to not show the simulator results of the corresponding component [e.g., it will not be possible to plot this variable].
+</p>
+
+<p>
+HideResult = false defines that the developer proposes to show the corresponding component [if a variable is declared in a protected section, a tool might not include it in a simulation result. By setting HideResult = false, the modeler would like to have the variable in the simulation result, even if in the protected section].
+</p>
+
+<p>
+HideResult is for example used in the connectors of the Modelica.StateGraph library to not show variables to the modeler that are of no interest to him and would confuse him.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

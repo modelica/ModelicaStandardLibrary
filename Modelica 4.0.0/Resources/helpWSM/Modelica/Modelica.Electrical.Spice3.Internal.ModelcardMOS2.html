@@ -1,0 +1,382 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Spice3.Internal.ModelcardMOS2</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Spice3.html">Spice3</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.ModelcardMOS2.html">ModelcardMOS2</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ModelcardMOS2</h1>
+    <p>Record with technology parameters (.model)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Spice3.Internal.ModelcardMOS2_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>Modelcard parameters for MOSFET model, both N and P channel, LEVEL 2</p>
+<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(37)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>VTO</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Zero-bias threshold voltage, default 0</p>
+      </td>
+    </tr>
+    <tr>
+      <th>KP</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Transconductance.html">Transconductance</a> (A/V²)</p>
+        <p><span>Description:</span> Transconductance parameter, default 2e-5</p>
+      </td>
+    </tr>
+    <tr>
+      <th>GAMMA</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Bulk threshold parameter, default 0</p>
+      </td>
+    </tr>
+    <tr>
+      <th>PHI</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Surface potential, default 0.6</p>
+      </td>
+    </tr>
+    <tr>
+      <th>LAMBDA</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.InversePotential.html">InversePotential</a> (¹/V)</p>
+        <p><span>Description:</span> Channel-length modulation, default 0</p>
+      </td>
+    </tr>
+    <tr>
+      <th>RD</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Drain ohmic resistance, default 0</p>
+      </td>
+    </tr>
+    <tr>
+      <th>RS</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Source ohmic resistance, default 0</p>
+      </td>
+    </tr>
+    <tr>
+      <th>CBD</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Types.Capacitance.html">Capacitance</a> (F)</p>
+        <p><span>Description:</span> Zero-bias B-D junction capacitance, default 0</p>
+      </td>
+    </tr>
+    <tr>
+      <th>CBS</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Types.Capacitance.html">Capacitance</a> (F)</p>
+        <p><span>Description:</span> Zero-bias B-S junction capacitance, default 0</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IS</th>
+      <td>
+        <p><span>Value:</span> 1e-14</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Bulk junction saturation current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>PB</th>
+      <td>
+        <p><span>Value:</span> 0.8</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Bulk junction potential</p>
+      </td>
+    </tr>
+    <tr>
+      <th>CGSO</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Permittivity.html">Permittivity</a> (F/m)</p>
+        <p><span>Description:</span> Gate-source overlap capacitance per meter channel width</p>
+      </td>
+    </tr>
+    <tr>
+      <th>CGDO</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Permittivity.html">Permittivity</a> (F/m)</p>
+        <p><span>Description:</span> Gate-drain overlap capacitance per meter channel width</p>
+      </td>
+    </tr>
+    <tr>
+      <th>CGBO</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Permittivity.html">Permittivity</a> (F/m)</p>
+        <p><span>Description:</span> Gate-bulk overlap capacitance per meter channel width</p>
+      </td>
+    </tr>
+    <tr>
+      <th>RSH</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Drain and source diffusion sheet resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>CJ</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.CapacitancePerArea.html">CapacitancePerArea</a> (F/m²)</p>
+        <p><span>Description:</span> Zero-bias bulk junction bottom cap. per sq-meter of junction area</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MJ</th>
+      <td>
+        <p><span>Value:</span> 0.5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Bulk junction bottom grading coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>CJSW</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Permittivity.html">Permittivity</a> (F/m)</p>
+        <p><span>Description:</span> Zero-bias junction sidewall cap. per meter of junction perimeter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MJSW</th>
+      <td>
+        <p><span>Value:</span> 0.33</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Bulk junction sidewall grading coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>JS</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.CurrentDensity.html">CurrentDensity</a> (A/m²)</p>
+        <p><span>Description:</span> Bulk junction saturation current per sq-meter of junction area</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TOX</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Oxide thickness, default 1e-7</p>
+      </td>
+    </tr>
+    <tr>
+      <th>NSUB</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Substrate doping, default 0</p>
+      </td>
+    </tr>
+    <tr>
+      <th>NSS</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.NonSI.PerArea_cm.html">PerArea_cm</a> (¹/cm²)</p>
+        <p><span>Description:</span> Surface state density</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TPG</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Type of gate material: +1 opp. to substrate, -1 same as substrate, 0 Al gate</p>
+      </td>
+    </tr>
+    <tr>
+      <th>LD</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Lateral diffusion</p>
+      </td>
+    </tr>
+    <tr>
+      <th>UO</th>
+      <td>
+        <p><span>Value:</span> 600</p>
+        <p><span>Type:</span> <a href="Modelica.Units.NonSI.Area_cmPerVoltageSecond.html">Area_cmPerVoltageSecond</a> (cm²/(V·s))</p>
+        <p><span>Description:</span> Surface mobility</p>
+      </td>
+    </tr>
+    <tr>
+      <th>KF</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Flicker noise coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>AF</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Flicker noise exponent</p>
+      </td>
+    </tr>
+    <tr>
+      <th>FC</th>
+      <td>
+        <p><span>Value:</span> 0.5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Coefficient for forward-bias depletion capacitance formula</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TNOM</th>
+      <td>
+        <p><span>Value:</span> 27</p>
+        <p><span>Type:</span> <a href="Modelica.Units.NonSI.Temperature_degC.html">Temperature_degC</a> (°C)</p>
+        <p><span>Description:</span> Parameter measurement temperature, default 27</p>
+      </td>
+    </tr>
+    <tr>
+      <th>NFS</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.NonSI.PerArea_cm.html">PerArea_cm</a> (¹/cm²)</p>
+        <p><span>Description:</span> Fast surface state density</p>
+      </td>
+    </tr>
+    <tr>
+      <th>XJ</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Metallurgical junction depth</p>
+      </td>
+    </tr>
+    <tr>
+      <th>UCRIT</th>
+      <td>
+        <p><span>Value:</span> 1e4</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Types.ElectricFieldStrength_cm.html">ElectricFieldStrength_cm</a> (V/cm)</p>
+        <p><span>Description:</span> Critical field for mobility degradation (MOS2 only)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>UEXP</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Critical field exponent in mobility degradation (MOS2 only)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VMAX</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Velocity.html">Velocity</a> (m/s)</p>
+        <p><span>Description:</span> Maximum drift velocity of carries</p>
+      </td>
+    </tr>
+    <tr>
+      <th>NEFF</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Total channel charge (fixed and mobile) coefficient (MOS2 only)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>DELTA</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Width effect on threshold voltage</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.MOS2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.MOS2.html">MOS2</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal</span></p>
+        <p>Metal-Oxide Semiconductor Field-Effect Transistor</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Semiconductors.ModelcardMOS2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Semiconductors.ModelcardMOS2.html">ModelcardMOS2</a></p>
+        <p><span>Modelica.Electrical.Spice3.Semiconductors</span></p>
+        <p>Record for the specification of modelcard parameters</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

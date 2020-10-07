@@ -1,0 +1,164 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Machines.Sensors.SinCosResolver</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Sensors.html">Sensors</a></li>
+  <li><a href="Modelica.Electrical.Machines.Sensors.SinCosResolver.html">SinCosResolver</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SinCosResolver</h1>
+    <p>Sin-Cos-Resolver</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.Sensors.SinCosResolver_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Simple model of a sin-cos-resolver, i.e. sensing the angle of the flange <code>phi</code> (w.r.t. the optional support) and multiplied by <code>p</code>, providing 4 signals:
+</p>
+<ul>
+<li><code>y[1] = offset + amplitude*cos(p*(phi - phi0))</code></li>
+<li><code>y[2] = offset - amplitude*cos(p*(phi - phi0))</code></li>
+<li><code>y[3] = offset + amplitude*sin(p*(phi - phi0))</code></li>
+<li><code>y[4] = offset - amplitude*sin(p*(phi - phi0))</code></li>
+</ul>
+<p>
+Thus the sine and cosine signals have <code>p</code> periods per mechanical revolution.
+Adding an <code>offset</code> &gt; <code>amplitude</code>, the loss of one track can be determined.
+Subtracting the negated signal from the signal, the offset is removed and a cosine and a sine with doubled amplitude are accessible.
+From this signal, the angle within one pole pair of a machine can be determined for field oriented control.
+Block <a href="Modelica.Electrical.Machines.Utilities.SinCosEvaluation.html">SinCosEvaluation</a> can be used.
+</p>
+<p>
+This model can be used to export FMUs of drives to develop control strategies in other environments.
+When switching to a real drive, the same inputs as from the FMU can be used.
+</p>
+<p>
+Note that <code>phi0</code> has to be set that way, that in shaft position <code>phi0</code> the flux linkage of phase 1 is a maximum.
+In order to sense the mechanical angle of the shaft <code>p = 1</code> has to be set.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useSupport</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if support flange enabled, otherwise implicitly grounded</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of pole pairs</p>
+      </td>
+    </tr>
+    <tr>
+      <th>amplitude</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Amplitude of signals</p>
+      </td>
+    </tr>
+    <tr>
+      <th>offset</th>
+      <td>
+        <p><span>Value:</span> 1.5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Offset of signals</p>
+      </td>
+    </tr>
+    <tr>
+      <th>phi0</th>
+      <td>
+        <p><span>Value:</span> -pi / p</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Initial mechanical angle</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flange</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> Flange of shaft</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Support_16x16.png"></td>
+      <th>support</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Support.html">Support</a></p>
+        <p><span>Description:</span> Support/housing of component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[4]</a></p>
+        <p><span>Description:</span> Track signals</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_VoltageSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_VoltageSource.html">SMPM_VoltageSource</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.SynchronousMachines</span></p>
+        <p>Test example: PermanentMagnetSynchronousMachine fed by FOC</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,226 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Matrices.continuousRiccati</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.continuousRiccati.html">continuousRiccati</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>continuousRiccati</h1>
+    <p>Return solution X of the continuous-time algebraic Riccati equation A'*X + X*A - X*B*inv(R)*B'*X + Q = 0 (care)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.continuousRiccati_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+                        X = Matrices.<strong>continuousRiccati</strong>(A, B, R, Q);
+(X, alphaReal, alphaImag) = Matrices.<strong>continuousRiccati</strong>(A, B, R, Q, true);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Function <strong>continuousRiccati</strong> computes the solution <strong>X</strong> of the continuous-time algebraic Riccati equation
+</p>
+
+<blockquote><pre>
+<strong>A</strong>'*<strong>X</strong> + <strong>X</strong>*<strong>A</strong> - <strong>X</strong>*<strong>G</strong>*<strong>X</strong> + <strong>Q</strong> = <strong>0</strong>
+</pre></blockquote>
+
+<p>
+with <code><strong>G</strong> = <strong>B</strong>*inv(<strong>R</strong>)*<strong>B</strong>'</code>
+using the Schur vector approach proposed by Laub [1].
+</p>
+
+<p>
+It is assumed that <strong>Q</strong> is symmetric and positive semidefinite and <strong>R</strong> is symmetric, nonsingular and positive definite,
+(<strong>A</strong>,<strong>B</strong>) is stabilizable and (<strong>A</strong>,<strong>Q</strong>) is detectable.
+</p>
+
+<p><strong>
+These assumptions are not checked in this function !!
+</strong><br>
+</p>
+
+<p>
+The assumptions guarantee that the Hamiltonian matrix
+</p>
+
+<blockquote><pre>
+<strong>H</strong> = [<strong>A</strong>, -<strong>G</strong>; -<strong>Q</strong>, -<strong>A</strong>']
+</pre></blockquote>
+
+<p>
+has no pure imaginary eigenvalue and can be put
+to an ordered real Schur form
+</p>
+
+<blockquote><pre>
+<strong>U</strong>'*<strong>H</strong>*<strong>U</strong> = <strong>S</strong> = [<strong>S</strong>11, <strong>S</strong>12; <strong>0</strong>, <strong>S</strong>22]
+</pre></blockquote>
+
+<p>
+with orthogonal similarity transformation <strong>U</strong>. <strong>S</strong> is ordered in such a way,
+that <strong>S</strong>11 contains the n stable eigenvalues of the closed loop system with system matrix
+<strong>A</strong> - <strong>B</strong>*inv(<strong>R</strong>)*<strong>B</strong>'*<strong>X</strong>.
+If <strong>U</strong> is partitioned to
+</p>
+
+<blockquote><pre>
+<strong>U</strong> = [<strong>U</strong>11, <strong>U</strong>12; <strong>U</strong>21, <strong>U</strong>22]
+</pre></blockquote>
+
+<p>
+with dimensions according to <strong>S</strong>, the solution <strong>X</strong> is calculated by
+</p>
+
+<blockquote><pre>
+<strong>X</strong>*<strong>U</strong>11 = <strong>U</strong>21.
+</pre></blockquote>
+
+<p>
+With optional input <code>refinement=true</code> a subsequent iterative refinement based on Newton's method with exact line search is applied.
+See <a href="Modelica.Math.Matrices.Utilities.continuousRiccatiIterative.html">continuousRiccatiIterative</a>
+for more information.
+</p>
+
+<h4>References</h4>
+<blockquote><pre>
+[1] Laub, A.J.
+    A Schur Method for Solving Algebraic Riccati equations.
+    IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
+</pre></blockquote>
+
+<h4>Example</h4>
+<blockquote><pre>
+A = [0.0, 1.0;
+     0.0, 0.0];
+
+B = [0.0;
+     1.0];
+
+R = [1];
+
+Q = [1.0, 0.0;
+     0.0, 2.0];
+
+X = continuousRiccati(A, B, R, Q);
+
+results in:
+
+X = [2.0, 1.0;
+     1.0, 2.0];
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Matrices.Utilities.continuousRiccatiIterative.html">Matrices.Utilities.continuousRiccatiIterative</a>,
+<a href="Modelica.Math.Matrices.discreteRiccati.html">Matrices.discreteRiccati</a>
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(X, alphaReal, alphaImag) = continuousRiccati(A, B, R, Q, refine)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,size(A, 1)]</p>
+        <p><span>Description:</span> Square matrix A in CARE</p>
+      </td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),:]</p>
+        <p><span>Description:</span> Matrix B in CARE</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Default Value:</span> identity(size(B, 2))</p>
+        <p><span>Type:</span> Real[size(B, 2),size(B, 2)]</p>
+        <p><span>Description:</span> Matrix R in CARE</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Q</th>
+      <td>
+        <p><span>Default Value:</span> identity(size(A, 1))</p>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 1)]</p>
+        <p><span>Description:</span> Matrix Q in CARE</p>
+      </td>
+    </tr>
+    <tr>
+      <th>refine</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> True for subsequent refinement</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>X</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 2)]</p>
+        <p><span>Description:</span> Stabilizing solution of CARE</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alphaReal</th>
+      <td>
+        <p><span>Type:</span> Real[2 * size(A, 1)]</p>
+        <p><span>Description:</span> Real parts of eigenvalue=alphaReal+i*alphaImag</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alphaImag</th>
+      <td>
+        <p><span>Type:</span> Real[2 * size(A, 1)]</p>
+        <p><span>Description:</span> Imaginary parts of eigenvalue=alphaReal+i*alphaImag</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

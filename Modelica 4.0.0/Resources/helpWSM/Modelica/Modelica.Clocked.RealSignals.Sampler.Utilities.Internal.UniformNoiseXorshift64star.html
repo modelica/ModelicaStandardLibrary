@@ -1,0 +1,168 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoiseXorshift64star</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.html">RealSignals</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.Sampler.html">Sampler</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.Sampler.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoiseXorshift64star.html">UniformNoiseXorshift64star</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>UniformNoiseXorshift64star</h1>
+    <p>Add band-limited uniform noise based on a xorshift64* number generator</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoiseXorshift64star_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This block adds uniformly distributed noise in the range noiseMin&nbsp;&hellip;&nbsp;noiseMax to the clocked Real input signal and provides the sum as clocked Real output signal. </p>
+<p>
+It is based on the xorshift64* algorithm.
+For more details, see the documentation to
+<a href="Modelica.Math.Random.Generators.Xorshift64star.html">Xorshift64star</a>.
+</p>
+<h4>Example</h4>
+<p>
+The following
+<a href="Modelica.Clocked.Examples.Elementary.RealSignals.UniformNoiseXorshift64star.html">example</a>
+samples zero signal with a periodic clock of 20 ms period, and adds
+noise in the range from -0.1&nbsp;&hellip;&nbsp;0.1:<br>
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+<tr><td width="50"></td>
+    <td valign="bottom"><img src="resources/Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoiseXorshift64star_info_001.png" alt="UniformNoiseXorshift64star_Model.png"></td>
+    <td valign="bottom">&nbsp;&nbsp;&nbsp;
+                        <img src="resources/Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoiseXorshift64star_info_002.png" alt="UniformNoiseXorshift64star_Result.png"></td>
+    </tr>
+<tr><td></td>
+    <td align="center">model</td>
+    <td align="center">simulation result</td>
+   </tr>
+</table>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>noiseMax</th>
+      <td>
+        <p><span>Value:</span> 0.1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Upper limit of noise band</p>
+      </td>
+    </tr>
+    <tr>
+      <th>noiseMin</th>
+      <td>
+        <p><span>Value:</span> -noiseMax</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Lower limit of noise band</p>
+      </td>
+    </tr>
+    <tr>
+      <th>globalSeed</th>
+      <td>
+        <p><span>Value:</span> 30020</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Global seed to initialize random number generator</p>
+      </td>
+    </tr>
+    <tr>
+      <th>localSeed</th>
+      <td>
+        <p><span>Value:</span> 614657</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Local seed to initialize random number generator</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>r64</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Random number generated with Xorshift64star</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Connector of clocked, Real input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Connector of clocked, Real output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.UniformNoiseXorshift64star_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.UniformNoiseXorshift64star.html">UniformNoiseXorshift64star</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a UniformNoiseXorshift64star block for Real signals</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

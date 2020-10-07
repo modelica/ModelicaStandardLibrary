@@ -1,0 +1,237 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Complex</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Complex.html">Complex</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Complex</h1>
+    <p>Complex number with overloaded operators</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Complex_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>Complex number defined as a record containing real and imaginary part, utilizing operator overloading.</p>
+<p>
+<strong>Licensed by the Modelica Association under the 3-Clause BSD License</strong><br>
+Copyright &copy; 2010-2020, Modelica Association and <a href="../Modelica/Modelica.UsersGuide.Contact.html">contributors</a>
+</p>
+
+<p>
+<em>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the 3-Clause BSD license. For license conditions (including the disclaimer of warranty) visit <a href="https://modelica.org/licenses/modelica-3-clause-bsd">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
+</p>
+</div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(23)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexPerUnit_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.Units.SI.ComplexPerUnit.html">ComplexPerUnit</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+        <p>Complex per unit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexPower_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.Units.SI.ComplexPower.html">ComplexPower</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+        <p>Complex apparent power</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexAdmittance_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.Units.SI.ComplexAdmittance.html">ComplexAdmittance</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+        <p>Complex admittance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexImpedance_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.Units.SI.ComplexImpedance.html">ComplexImpedance</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+        <p>Complex impedance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexReluctance_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.Units.SI.ComplexReluctance.html">ComplexReluctance</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+        <p>Complex reluctance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexMagneticFlux_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.Units.SI.ComplexMagneticFlux.html">ComplexMagneticFlux</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+        <p>Complex magnetic flux</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexMagneticFluxDensity_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.Units.SI.ComplexMagneticFluxDensity.html">ComplexMagneticFluxDensity</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+        <p>Complex magnetic flux density</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexMagnetomotiveForce_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.Units.SI.ComplexMagnetomotiveForce.html">ComplexMagnetomotiveForce</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+        <p>Complex magnetomotive force</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexMagneticPotentialDifference_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.Units.SI.ComplexMagneticPotentialDifference.html">ComplexMagneticPotentialDifference</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+        <p>Complex magnetic potential difference</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexMagneticPotential_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.Units.SI.ComplexMagneticPotential.html">ComplexMagneticPotential</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+        <p>Complex magnetic potential</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexMagneticFieldStrength_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.Units.SI.ComplexMagneticFieldStrength.html">ComplexMagneticFieldStrength</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+        <p>Complex magnetic field strength</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexElectricFlux_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.Units.SI.ComplexElectricFlux.html">ComplexElectricFlux</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+        <p>Complex electric flux</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexElectricFluxDensity_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.Units.SI.ComplexElectricFluxDensity.html">ComplexElectricFluxDensity</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+        <p>Complex electric flux density</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexElectricFieldStrength_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.Units.SI.ComplexElectricFieldStrength.html">ComplexElectricFieldStrength</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+        <p>Complex electric field strength</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexVoltageSlope_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.Units.SI.ComplexVoltageSlope.html">ComplexVoltageSlope</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+        <p>Complex voltage slope</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexVoltage_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.Units.SI.ComplexVoltage.html">ComplexVoltage</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+        <p>Complex electric voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexPotentialDifference_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.Units.SI.ComplexPotentialDifference.html">ComplexPotentialDifference</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+        <p>Complex electric potential difference</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexElectricPotential_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.Units.SI.ComplexElectricPotential.html">ComplexElectricPotential</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+        <p>Complex electric potential</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexCurrentDensity_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.Units.SI.ComplexCurrentDensity.html">ComplexCurrentDensity</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+        <p>Complex electric current density</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexCurrentSlope_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.Units.SI.ComplexCurrentSlope.html">ComplexCurrentSlope</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+        <p>Complex current slope</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexCurrent_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.Units.SI.ComplexCurrent.html">ComplexCurrent</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+        <p>Complex electric current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexOutput_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.ComplexBlocks.Interfaces.ComplexOutput.html">ComplexOutput</a></p>
+        <p><span>Modelica.ComplexBlocks.Interfaces</span></p>
+        <p>'output Complex' as connector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexInput_32x32.png"></td>
+      <td>
+        <p><a href="../Modelica/Modelica.ComplexBlocks.Interfaces.ComplexInput.html">ComplexInput</a></p>
+        <p><span>Modelica.ComplexBlocks.Interfaces</span></p>
+        <p>'input Complex' as connector</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,270 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Analog.Semiconductors.PMOS</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Analog.html">Analog</a></li>
+  <li><a href="Modelica.Electrical.Analog.Semiconductors.html">Semiconductors</a></li>
+  <li><a href="Modelica.Electrical.Analog.Semiconductors.PMOS.html">PMOS</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PMOS</h1>
+    <p>Simple PMOS transistor with heating port</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Analog.Semiconductors.PMOS_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>The PMOS model is a simple model of a p-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for [<a href="Modelica.Electrical.Analog.UsersGuide.References.html">Spiro1990</a>].
+<br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
+<br>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.</p>
+<p><strong>References:</strong> [<a href="Modelica.Electrical.Analog.UsersGuide.References.html">Spiro1990</a>]</p>
+<p>Some typical parameter sets are:</p>
+<blockquote><pre>
+W       L      Beta        Vt    K2     K5      dW       dL
+m       m      A/V^2       V     -      -       m        m
+50.e-6  8.e-6  0.0085e-3  -0.15  0.41   0.839  -3.8e-6  -4.0e-6
+20.e-6  6.e-6  0.0105e-3  -1.0   0.41   0.839  -2.5e-6  -2.1e-6
+30.e-6  5.e-6  0.0059e-3  -0.3   0.98   1.01    0       -3.9e-6
+30.e-6  5.e-6  0.0152e-3  -0.69  0.104  1.1    -0.8e-6  -0.4e-6
+30.e-6  5.e-6  0.0163e-3  -0.69  0.104  1.1    -0.8e-6  -0.4e-6
+30.e-6  5.e-6  0.0182e-3  -0.69  0.086  1.06   -0.1e-6  -0.6e-6
+20.e-6  6.e-6  0.0074e-3  -1.    0.4    0.59    0        0
+</pre></blockquote>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(15)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> useTemperatureDependency</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if heatPort is enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Fixed device temperature if useHeatPort = false</p>
+      </td>
+    </tr>
+    <tr>
+      <th>W</th>
+      <td>
+        <p><span>Value:</span> 20.0e-6</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Width</p>
+      </td>
+    </tr>
+    <tr>
+      <th>L</th>
+      <td>
+        <p><span>Value:</span> 6.0e-6</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Beta</th>
+      <td>
+        <p><span>Value:</span> 0.0105e-3</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Transconductance.html">Transconductance</a> (A/V²)</p>
+        <p><span>Description:</span> Transconductance parameter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Vt</th>
+      <td>
+        <p><span>Value:</span> -1.0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Zero bias threshold voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>K2</th>
+      <td>
+        <p><span>Value:</span> 0.41</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Bulk threshold parameter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>K5</th>
+      <td>
+        <p><span>Value:</span> 0.839</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Reduction of pinch-off region</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dW</th>
+      <td>
+        <p><span>Value:</span> -2.5e-6</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Narrowing of channel</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dL</th>
+      <td>
+        <p><span>Value:</span> -2.1e-6</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Shortening of channel</p>
+      </td>
+    </tr>
+    <tr>
+      <th>RDS</th>
+      <td>
+        <p><span>Value:</span> 1e7</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Drain-Source-Resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useTemperatureDependency</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if parameters Beta, K2 and Vt depend on temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Tnom</th>
+      <td>
+        <p><span>Value:</span> 300.15</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Parameter measurement temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>kvt</th>
+      <td>
+        <p><span>Value:</span> -2.9e-3</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Fitting parameter for Vt</p>
+      </td>
+    </tr>
+    <tr>
+      <th>kk2</th>
+      <td>
+        <p><span>Value:</span> 6.2e-4</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Fitting parameter for K2</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+        <p><span>Description:</span> Conditional heat port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.Pin_16x16.png"></td>
+      <th>D</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.Pin.html">Pin</a></p>
+        <p><span>Description:</span> Drain</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.Pin_16x16.png"></td>
+      <th>G</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.Pin.html">Pin</a></p>
+        <p><span>Description:</span> Gate</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.Pin_16x16.png"></td>
+      <th>S</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.Pin.html">Pin</a></p>
+        <p><span>Description:</span> Source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.Pin_16x16.png"></td>
+      <th>B</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.Pin.html">Pin</a></p>
+        <p><span>Description:</span> Bulk</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.HeatingMOSInverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.HeatingMOSInverter.html">HeatingMOSInverter</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span></p>
+        <p>Heating MOS Inverter</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.Nand_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.Utilities.Nand.html">Nand</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples.Utilities</span></p>
+        <p>CMOS NAND Gate (see Tietze/Schenk, page 157)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

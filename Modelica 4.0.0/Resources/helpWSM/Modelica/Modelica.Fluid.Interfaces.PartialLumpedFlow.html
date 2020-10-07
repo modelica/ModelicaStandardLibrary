@@ -1,0 +1,155 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.Interfaces.PartialLumpedFlow</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Fluid.Interfaces.PartialLumpedFlow.html">PartialLumpedFlow</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PartialLumpedFlow</h1>
+    <p>Base class for a lumped momentum balance</p>
+  </td><td>
+    <div></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Interface and base class for a momentum balance, defining the mass flow rate <code><strong>m_flow</strong></code>
+of a given <code>Medium</code> in a flow model.
+</p>
+<p>
+The following boundary flow and force terms are part of the momentum balance and must be specified in an extending model (to zero if not considered):
+</p>
+<ul>
+<li><code><strong>Ib_flow</strong></code>, the flow of momentum across model boundaries,</li>
+<li><code><strong>F_p[m]</strong></code>, pressure force, and</li>
+<li><code><strong>F_fg[m]</strong></code>, friction and gravity forces.</li>
+</ul>
+<p>
+The length of the flow path <code><strong>pathLength</strong></code> is an input that needs to be set in an extending class to complete the model.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>allowFlowReversal</th>
+      <td>
+        <p><span>Value:</span> system.allowFlowReversal</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true to allow flow reversal, false restricts to design direction (m_flow >= 0)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>momentumDynamics</th>
+      <td>
+        <p><span>Value:</span> system.momentumDynamics</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.Dynamics.html">Dynamics</a></p>
+        <p><span>Description:</span> Formulation of momentum balance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_flow_start</th>
+      <td>
+        <p><span>Value:</span> system.m_flow_start</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialLumpedFlow.Medium.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Start value of mass flow rates</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>pathLength</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length flow path</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.System_32x32.png"></td>
+      <th>system</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.System.html">System</a></p>
+        <p><span>Description:</span> System properties</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModelNonconstantCrossSectionArea_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModelNonconstantCrossSectionArea.html">BaseModelNonconstantCrossSectionArea</a></p>
+        <p><span>Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent</span></p>
+        <p>Generic pressure drop component with constant turbulent loss factor data and without an icon, for non-constant cross section area</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModel.html">BaseModel</a></p>
+        <p><span>Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent</span></p>
+        <p>Generic pressure drop component with constant turbulent loss factor data and without an icon</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.SimpleGenericOrifice_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.SimpleGenericOrifice.html">SimpleGenericOrifice</a></p>
+        <p><span>Modelica.Fluid.Fittings</span></p>
+        <p>Simple generic orifice defined by pressure loss coefficient and diameter (only for flow from port_a to port_b)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

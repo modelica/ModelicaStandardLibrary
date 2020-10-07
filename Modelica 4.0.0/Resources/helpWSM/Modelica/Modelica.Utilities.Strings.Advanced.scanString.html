@@ -1,0 +1,113 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Utilities.Strings.Advanced.scanString</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Strings.html">Strings</a></li>
+  <li><a href="Modelica.Utilities.Strings.Advanced.html">Advanced</a></li>
+  <li><a href="Modelica.Utilities.Strings.Advanced.scanString.html">scanString</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>scanString</h1>
+    <p>Scan string</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Strings.Advanced.scanString_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+(nextIndex, string2) = <strong>scanString</strong>(string, startIndex=1);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Starts scanning of "string" at position "startIndex".
+First skips white space and scans afterwards a string
+according to the Modelica grammar, i.e., a string
+enclosed in double quotes.
+</p>
+<p>
+If successful, the function returns nextIndex = index of character
+directly after the found string, as well as the string value
+in the second output argument.
+</p>
+<p>
+If not successful, on return nextIndex = startIndex and
+the second output argument is an empty string.
+</p>
+<h4>See also</h4>
+<a href="Modelica.Utilities.Strings.Advanced.html">Strings.Advanced</a>.
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(nextIndex, string2) = scanString(string, startIndex)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>string</th>
+      <td>
+        <p><span>Type:</span> String</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startIndex</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Index where scanning starts</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>nextIndex</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Index after the found token (success=true) or index at which scanning failed (success=false)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>string2</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Value of String token</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

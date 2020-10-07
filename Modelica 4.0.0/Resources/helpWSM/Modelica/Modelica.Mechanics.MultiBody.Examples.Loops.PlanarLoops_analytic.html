@@ -1,0 +1,250 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Loops.html">Loops</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic.html">PlanarLoops_analytic</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PlanarLoops_analytic</h1>
+    <p>Mechanism with three planar kinematic loops and one degree-of-freedom with analytic loop handling (with JointRRR joints)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+It is demonstrated how the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR joint can be
+used to solve the non-linear equations of coupled planar loops analytically.
+In the mechanism below no non-linear equation occurs any more from the tool
+view, since these equations are solved analytically in the JointRRR joints.
+For more details, see
+<a href="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling.html">
+MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
+</p>
+
+<p>
+In the following figure the parameter vectors of this example are visualized in the
+animation view.
+</p>
+
+<div><img src="resources/Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic_info_001.png" alt="model Examples.Loops.PlanarLoops2"></div>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>rh</th>
+      <td>
+        <p><span>Value:</span> {0.5, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length[3]</a> (m)</p>
+        <p><span>Description:</span> Position vector from 'lower left' revolute to 'lower right' revolute joint for all the 3 loops</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rv</th>
+      <td>
+        <p><span>Value:</span> {0, 0.5, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length[3]</a> (m)</p>
+        <p><span>Description:</span> Position vector from 'lower left' revolute to 'upper left' revolute joint in the first loop</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r1b</th>
+      <td>
+        <p><span>Value:</span> {0.1, 0.5, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length[3]</a> (m)</p>
+        <p><span>Description:</span> Position vector from 'lower right' revolute to 'upper right' revolute joint in the first loop</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r1a</th>
+      <td>
+        <p><span>Value:</span> r1b + rh - rv</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length[3]</a> (m)</p>
+        <p><span>Description:</span> Position vector from 'upper left' revolute to 'upper right' revolute joint in the first loop</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r2b</th>
+      <td>
+        <p><span>Value:</span> {0.1, 0.6, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length[3]</a> (m)</p>
+        <p><span>Description:</span> Position vector from 'lower right' revolute to 'upper right' revolute joint in the second loop</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r2a</th>
+      <td>
+        <p><span>Value:</span> r2b + rh - r1b</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length[3]</a> (m)</p>
+        <p><span>Description:</span> Position vector from 'upper left' revolute to 'upper right' revolute joint in the second loop</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r3b</th>
+      <td>
+        <p><span>Value:</span> {0, 0.55, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length[3]</a> (m)</p>
+        <p><span>Description:</span> Position vector from 'lower right' revolute to 'upper right' revolute joint in the third loop</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r3a</th>
+      <td>
+        <p><span>Value:</span> r3b + rh - r2b</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length[3]</a> (m)</p>
+        <p><span>Description:</span> Position vector from 'upper left' revolute to 'upper right' revolute joint in the third loop</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(15)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR_32x32.png"></td>
+      <th>jointRRR1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR.html">JointRRR</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Revolute_32x32.png"></td>
+      <th>rev</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Joints.Revolute.html">Revolute</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedTranslation_32x32.png"></td>
+      <th>rod1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html">FixedTranslation</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedTranslation_32x32.png"></td>
+      <th>rod2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html">FixedTranslation</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.Body_32x32.png"></td>
+      <th>body1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.Body.html">Body</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.Position_32x32.png"></td>
+      <th>position</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sources.Position.html">Position</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Sine_32x32.png"></td>
+      <th>sine</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Sine.html">Sine</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR_32x32.png"></td>
+      <th>jointRRR2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR.html">JointRRR</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedTranslation_32x32.png"></td>
+      <th>rod3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html">FixedTranslation</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.Body_32x32.png"></td>
+      <th>body2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.Body.html">Body</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR_32x32.png"></td>
+      <th>jointRRR3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR.html">JointRRR</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedTranslation_32x32.png"></td>
+      <th>rod4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html">FixedTranslation</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.Body_32x32.png"></td>
+      <th>body3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.Body.html">Body</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.Mounting1D_32x32.png"></td>
+      <th>mounting1D</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.Mounting1D.html">Mounting1D</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

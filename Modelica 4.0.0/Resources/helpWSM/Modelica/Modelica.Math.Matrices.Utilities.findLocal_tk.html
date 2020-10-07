@@ -1,0 +1,110 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Matrices.Utilities.findLocal_tk</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Math.Matrices.Utilities.findLocal_tk.html">findLocal_tk</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>findLocal_tk</h1>
+    <p>Find a local minimizer tk to define the length of the step tk*Nk in continuousRiccatiIterative and discreteRiccatiIterative</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.Utilities.findLocal_tk_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+tk = Matrices.Utilities.<strong>findLocal_tk</strong>(Rk, Vk);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <code>findLocal_tk()</code> is an auxiliary function called in iterative solver for algebraic Riccati equation based on Newton's method with
+exact line search like <a href="Modelica.Math.Matrices.Utilities.continuousRiccatiIterative.html">continuousRiccatiIterative</a><br>
+and <a href="Modelica.Math.Matrices.Utilities.discreteRiccatiIterative.html">discreteRiccatiIterative</a>.<br>
+The function computes the local minimum of the function f_k(t_k)
+</p>
+<blockquote><pre>
+f_k(t_k) = alpha_k*(1-t_k)^2 + 2*beta_k*(1-t)*t^2 + gamma_k*t^4
+</pre></blockquote>
+<p>
+by calculating the zeros of the derivation d f_k/d t_k. It is known that the function f_k(t_k) has a local minimum at some value t_k_min in [0, 2].<br>
+With t_k_min the norm of the next residual of the algorithm will be minimized.<br>
+See [1] for more information
+</p>
+<h4>References</h4>
+<blockquote><pre>
+[1] Benner, P., Byers, R.
+    An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
+    IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
+</pre></blockquote>
+
+<h4>See also</h4>
+<a href="Modelica.Math.Matrices.Utilities.continuousRiccatiIterative.html">Matrices.Utilities.continuousRiccatiIterative</a><br>
+<a href="Modelica.Math.Matrices.Utilities.discreteRiccatiIterative.html">Matrices.Utilities.discreteRiccatiIterative</a><br>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">tk = findLocal_tk(Rk, Vk)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Rk</th>
+      <td>
+        <p><span>Type:</span> Real[:,size(Rk, 1)]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Vk</th>
+      <td>
+        <p><span>Type:</span> Real[size(Rk, 1),size(Rk, 2)]</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>tk</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

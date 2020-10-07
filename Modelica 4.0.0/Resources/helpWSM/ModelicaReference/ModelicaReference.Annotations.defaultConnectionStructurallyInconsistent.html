@@ -1,0 +1,62 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Annotations.defaultConnectionStructurallyInconsistent</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Annotations.html">Annotations</a></li>
+  <li><a href="ModelicaReference.Annotations.defaultConnectionStructurallyInconsistent.html">defaultConnectionStructurallyInconsistent</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>defaultConnectionStructurallyInconsistent</h1>
+    <p>defaultConnectionStructurallyInconsistent</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Annotations.defaultConnectionStructurallyInconsistent_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+A model or block definition may contain the annotation <code>defaultConnectionStructurallyInconsistent</code>.
+</p>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>
+   <strong>annotation</strong>"(" defaultConnectionStructurallyInconsistent "=" ( <strong>false</strong> | <strong>true</strong> ) ")
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+If <code>true</code>, it is stated that a default connection will result in a structurally inconsistent <code>model</code> or <code>block</code>.
+A "default connection" is constructed by instantiating the respective <code>model</code> or <code>block</code> and for every input <code>u</code> providing an equation <code>0=f(u)</code>, and for every (potential,flow) pair of the form <code>(v,i)</code>, providing an equation of the form <code>0=f(v,i)</code>.
+</p>
+
+<h4>Example usage</h4>
+<p>
+It is useful to check all models/blocks of a Modelica package in a simple way. One check is to default connect every model/block and to check whether the resulting class is structurally consistent (= a stronger requirement as "balanced").
+</p>
+<p>
+It is rarely needed; but can be used for InverseBlockConstraints, in order to prevent a wrong error message.
+Additionally, when a user defined model is structurally inconsistent, a tool should try to pinpoint in which class the error is present.
+This annotation avoids then to show a wrong error message.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

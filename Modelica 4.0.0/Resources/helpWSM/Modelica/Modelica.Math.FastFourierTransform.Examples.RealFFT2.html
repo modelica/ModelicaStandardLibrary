@@ -1,0 +1,132 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.FastFourierTransform.Examples.RealFFT2</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.FastFourierTransform.html">FastFourierTransform</a></li>
+  <li><a href="Modelica.Math.FastFourierTransform.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Math.FastFourierTransform.Examples.RealFFT2.html">RealFFT2</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>RealFFT2</h1>
+    <p>Example demonstrating the use of an FFT calculation during simulation (and storing only amplitudes on file)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.FastFourierTransform.Examples.RealFFT2_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This is the same example as <a href="Modelica.Math.FastFourierTransform.Examples.RealFFT1.html">Examples.RealFFT1</a>
+with the only difference that just the amplitudes of the FFT are stored on file (but not the phases).
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>f_max</th>
+      <td>
+        <p><span>Value:</span> 4</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Maximum frequency of interest</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f_resolution</th>
+      <td>
+        <p><span>Value:</span> 0.2</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Frequency resolution</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f1</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Frequency of sine</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f2</th>
+      <td>
+        <p><span>Value:</span> 3</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Frequency of cosine</p>
+      </td>
+    </tr>
+    <tr>
+      <th>FFT_resultFileName</th>
+      <td>
+        <p><span>Value:</span> "RealFFT2_resultFFT.mat"</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> File where FFT will be stored as [f,A,Phi], with f in [Hz] and A the amplitudes and Phi the phases in [rad]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nfi</th>
+      <td>
+        <p><span>Value:</span> max(1, min(integer(ceil(f_max / f_resolution)) + 1, nf))</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of frequency points of the interested frequency range (only up to f_max)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fi</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency[nfi]</a> (Hz)</p>
+        <p><span>Description:</span> FFT frequencies of interested frequency points</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Ai</th>
+      <td>
+        <p><span>Type:</span> Real[nfi]</p>
+        <p><span>Description:</span> FFT amplitudes of interested frequency points</p>
+      </td>
+    </tr>
+    <tr>
+      <th>info</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Information flag from FFT computation; = 0: FFT successfully computed</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

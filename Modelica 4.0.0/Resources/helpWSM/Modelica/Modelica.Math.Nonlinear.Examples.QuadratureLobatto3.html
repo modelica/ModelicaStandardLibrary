@@ -1,0 +1,89 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Nonlinear.Examples.QuadratureLobatto3</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Nonlinear.html">Nonlinear</a></li>
+  <li><a href="Modelica.Math.Nonlinear.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Math.Nonlinear.Examples.QuadratureLobatto3.html">QuadratureLobatto3</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>QuadratureLobatto3</h1>
+    <p>Integrate function in a model</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Nonlinear.Examples.QuadratureLobatto3_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Technically, this example demonstrates how to utilize a function as input argument
+to a function in a model.
+</p>
+
+<p>
+From a modeling point of view, the example demonstrates in very simplified way the basic approach to model distributed systems with the Ritz method.
+The displacement field <code>u(c,t)</code> of a particle (where <code>c</code> is the undeformed position and <code>t</code> is time) is hereby approximated by space-dependent mode shapes <code>&Phi;(c)</code> and time-dependent modal amplitudes <code>q(t)</code>, that is <code>u</code> = <code>&Phi;(c)*q(t)</code>. When inserting this decomposition in the equations of motion and then integrating over all particles, terms such as <code>&int;(&Phi;(c) dc)*q(t)</code> appear, where the time-invariant integral term can be computed beforehand once with the <a href="Modelica.Math.Nonlinear.quadratureLobatto.html">Lobatto method</a>. By this approach the partial differential equations are transformed to a system of ordinary differential equations.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Amplitude of integrand of s</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ws</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Angular frequency of integrand of s</p>
+      </td>
+    </tr>
+    <tr>
+      <th>wq</th>
+      <td>
+        <p><span>Value:</span> 3</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Squared angular frequency of q</p>
+      </td>
+    </tr>
+    <tr>
+      <th>s</th>
+      <td>
+        <p><span>Value:</span> Modelica.Math.Nonlinear.quadratureLobatto(function UtilityFunctions.fun7(A = A, w = ws), 0, 1)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Time-invariant integral value</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

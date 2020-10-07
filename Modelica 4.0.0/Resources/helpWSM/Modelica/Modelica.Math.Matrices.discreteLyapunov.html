@@ -1,0 +1,184 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Matrices.discreteLyapunov</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.discreteLyapunov.html">discreteLyapunov</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>discreteLyapunov</h1>
+    <p>Return solution X of the discrete-time Lyapunov equation A'*X*A + sgn*X = C</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.discreteLyapunov_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+X = Matrices.<strong>discreteLyapunov</strong>(A, C);
+X = Matrices.<strong>discreteLyapunov</strong>(A, C, ATisSchur, sgn, eps);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the solution <strong>X</strong> of the discrete-time Lyapunov equation
+</p>
+
+<blockquote><pre>
+<strong>A</strong>'*<strong>X</strong>*<strong>A</strong> + sgn*<strong>X</strong> = <strong>C</strong>
+</pre></blockquote>
+
+<p>
+where sgn=1 or sgn =-1. For sgn = -1, the discrete Lyapunov equation is a special case of the Stein equation:
+</p>
+
+<blockquote><pre>
+<strong>A</strong>*<strong>X</strong>*<strong>B</strong> - <strong>X</strong> + <strong>Q</strong> = <strong>0</strong>.
+</pre></blockquote>
+
+<p>
+The algorithm uses the Schur method for Lyapunov equations proposed by Bartels and Stewart [1].
+</p>
+
+<p>
+In a nutshell, the problem is reduced to the corresponding problem
+</p>
+
+<blockquote><pre>
+<strong>R</strong>*<strong>Y</strong>*<strong>R</strong>' + sgn*<strong>Y</strong> = <strong>D</strong>.
+</pre></blockquote>
+
+<p>
+with <strong>R</strong>=<strong>U</strong>'*<strong>A'</strong>*<strong>U</strong> is the real Schur form of <strong>A</strong>' and <strong>D</strong>=<strong>U</strong>'*<strong>C</strong>*<strong>U</strong> and <strong>Y</strong>=<strong>U</strong>'*<strong>X</strong>*<strong>U</strong>
+are the corresponding transformations of <strong>C</strong> and <strong>X</strong>. This problem is solved sequentially by exploiting the block triangular form of <strong>R</strong>.
+Finally the solution of the original problem is recovered as <strong>X</strong>=<strong>U</strong>*<strong>Y</strong>*<strong>U</strong>'.<br>
+The Boolean input "ATisSchur" indicates to omit the transformation to Schur in the case that <strong>A</strong>' has already Schur form.
+</p>
+
+<h4>References</h4>
+<blockquote><pre>
+[1] Bartels, R.H. and Stewart G.W.
+    Algorithm 432: Solution of the matrix equation AX + XB = C.
+    Comm. ACM., Vol. 15, pp. 820-826, 1972.
+</pre></blockquote>
+
+<h4>Example</h4>
+<blockquote><pre>
+A = [1, 2,  3,  4;
+     3, 4,  5, -2;
+    -1, 2, -3, -5;
+     0, 2,  0,  6];
+
+C =  [-2,  3, 1, 0;
+      -6,  8, 0, 1;
+       2,  3, 4, 5;
+       0, -2, 0, 0];
+
+X = discreteLyapunov(A, C, sgn=-1);
+
+results in:
+
+X  = [7.5735,   -3.1426,  2.7205, -2.5958;
+     -2.6105,    1.2384, -0.9232,  0.9632;
+      6.6090,   -2.6775,  2.6415, -2.6928;
+     -0.3572,    0.2298,  0.0533, -0.27410];
+
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Matrices.discreteSylvester.html">Matrices.discreteSylvester</a>,
+<a href="Modelica.Math.Matrices.continuousLyapunov.html">Matrices.continuousLyapunov</a>
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">X = discreteLyapunov(A, C, ATisSchur, sgn, eps)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,size(A, 1)]</p>
+        <p><span>Description:</span> Square matrix A in A'*X*A + sgn*X = C</p>
+      </td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 2)]</p>
+        <p><span>Description:</span> Square matrix C in A'*X*A + sgn*X = C</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ATisSchur</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if transpose(A) has already real Schur form</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sgn</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Specifies the sign in A'*X*A + sgn*X = C</p>
+      </td>
+    </tr>
+    <tr>
+      <th>eps</th>
+      <td>
+        <p><span>Default Value:</span> Matrices.norm(A, 1) * 10 * Modelica.Constants.eps</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Tolerance eps</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>X</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 2)]</p>
+        <p><span>Description:</span> Solution X of the Lyapunov equation A'*X*A + sgn*X = C</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

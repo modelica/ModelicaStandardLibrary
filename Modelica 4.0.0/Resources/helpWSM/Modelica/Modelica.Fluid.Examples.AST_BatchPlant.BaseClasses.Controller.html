@@ -1,0 +1,385 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.Examples.AST_BatchPlant.BaseClasses.Controller</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Fluid.Examples.AST_BatchPlant.html">AST_BatchPlant</a></li>
+  <li><a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.html">BaseClasses</a></li>
+  <li><a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.Controller.html">Controller</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Controller</h1>
+    <p></p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.Controller_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.Controller_diagram_large.png"><img src="resources/diagrams/Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.Controller_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>w_dilution</th>
+      <td>
+        <p><span>Value:</span> 0.003</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Dilution</p>
+      </td>
+    </tr>
+    <tr>
+      <th>w_concentrate</th>
+      <td>
+        <p><span>Value:</span> 0.005</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Concentrate</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startTime</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Start time</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T5_batch_level</th>
+      <td>
+        <p><span>Value:</span> 0.211</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> T5 batch level</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.ControllerUtilities.Port_Sensors_16x16.png"></td>
+      <th>sensors</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.ControllerUtilities.Port_Sensors.html">Port_Sensors</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.ControllerUtilities.Port_Actuators_16x16.png"></td>
+      <th>actuators</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.ControllerUtilities.Port_Actuators.html">Port_Actuators</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(36)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.InitialStep_32x32.png"></td>
+      <th>InitialStep1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.InitialStep.html">InitialStep</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>Transition1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Step_32x32.png"></td>
+      <th>Step1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>Transition2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Step_32x32.png"></td>
+      <th>Step2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>Transition3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Step_32x32.png"></td>
+      <th>Step3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>Transition4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Step_32x32.png"></td>
+      <th>Step4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>Transition5</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Step_32x32.png"></td>
+      <th>Step5</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>Transition6</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Step_32x32.png"></td>
+      <th>Step6</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>Transition7</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Parallel_32x32.png"></td>
+      <th>Parallel1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Parallel.html">Parallel</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Step_32x32.png"></td>
+      <th>Step7</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Step_32x32.png"></td>
+      <th>Step8</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Step_32x32.png"></td>
+      <th>Step9</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Step_32x32.png"></td>
+      <th>Step10</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Step_32x32.png"></td>
+      <th>Step11</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Step_32x32.png"></td>
+      <th>Step12</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Step_32x32.png"></td>
+      <th>Step13b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Step_32x32.png"></td>
+      <th>Step14</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>Transition8</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>Transition9</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>Transition10</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>Transition11</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>Transition12</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>Transition13</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.TransitionWithSignal_32x32.png"></td>
+      <th>TransitionWithSignal1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.TransitionWithSignal.html">TransitionWithSignal</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.BooleanExpression_32x32.png"></td>
+      <th>BooleanExpression1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.BooleanExpression.html">BooleanExpression</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.StateGraphRoot_32x32.png"></td>
+      <th>stateGraphRoot</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.StateGraphRoot.html">StateGraphRoot</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Step_32x32.png"></td>
+      <th>Step13</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>Transition13b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Step_32x32.png"></td>
+      <th>Step10b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>Transition10b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater.html">BatchPlant_StandardWater</a></p>
+        <p><span>Modelica.Fluid.Examples.AST_BatchPlant</span></p>
+        <p>Model of an experimental batch plant</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

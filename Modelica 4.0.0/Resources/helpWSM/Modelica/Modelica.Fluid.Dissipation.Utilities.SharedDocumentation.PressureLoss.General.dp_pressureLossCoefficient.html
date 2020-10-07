@@ -1,0 +1,91 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_pressureLossCoefficient</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.html">Dissipation</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.html">PressureLoss</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.html">General</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_pressureLossCoefficient.html">dp_pressureLossCoefficient</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>dp_pressureLossCoefficient</h1>
+    <p></p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_pressureLossCoefficient_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Calculation of a generic pressure loss in dependence of a pressure loss coefficient.
+</p>
+<h4>Calculation</h4>
+<p>
+The mass flow rate <strong>m_flow</strong> is determined by:
+</p>
+
+<blockquote><pre>
+m_flow = rho*A_cross*(dp/(zeta_TOT *(rho/2))^0.5
+</pre></blockquote>
+
+<p>
+with
+</p>
+
+<table>
+<tr><td><strong> A_cross        </strong></td><td> as cross sectional area [m2],</td></tr>
+<tr><td><strong> dp             </strong></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><strong> rho            </strong></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><strong> m_flow         </strong></td><td> as mass flow rate [kg/s],</td></tr>
+<tr><td><strong> zeta_TOT       </strong></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+
+<h4>Verification</h4>
+<p>
+<strong>Compressible case</strong> [Mass flow rate = f(dp)]:
+</p>
+<p>
+The mass flow rate <strong>M_FLOW</strong> in dependence of the pressure loss <strong>dp</strong> for a constant pressure loss coefficient <strong>zeta_TOT</strong> is shown in the figure below.
+</p>
+
+<p>
+<img src="resources/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_pressureLossCoefficient_info_001.png" alt="dp_pressureLossCoefficient"/>
+</p>
+
+<p>
+Note that the verification for <a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_pressureLossCoefficient.html">dp_pressureLossCoefficient</a> is also valid for this inverse calculation due to using the same functions.
+</p>
+
+<h4>References</h4>
+<dl>
+ <dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
+    <dd><strong>Inline integration: A new mixed
+    symbolic / numeric approach for solving differential-algebraic equation systems.</strong>.
+    In Proceedings of European Simulation MultiConference, Prague, 1995.</dd>
+ <dt>Wischhusen, S.:</dt>
+    <dd><strong>Dynamische Simulation zur wirtschaftlichen Bewertung von komplexen Energiesystemen.</strong>.
+    PhD thesis, Technische Universit&auml;t Hamburg-Harburg, 2005.</dd>
+</dl>
+</div>
+</section>
+</div>
+</body>
+</html>

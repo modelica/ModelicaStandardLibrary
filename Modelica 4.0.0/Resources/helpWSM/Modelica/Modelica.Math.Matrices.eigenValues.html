@@ -1,0 +1,131 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Matrices.eigenValues</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.eigenValues.html">eigenValues</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>eigenValues</h1>
+    <p>Return eigenvalues and eigenvectors for a real, nonsymmetric matrix in a Real representation</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.eigenValues_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+                eigenvalues = Matrices.<strong>eigenValues</strong>(A);
+(eigenvalues, eigenvectors) = Matrices.<strong>eigenValues</strong>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function call returns the eigenvalues and
+optionally the (right) eigenvectors of a square matrix
+<strong>A</strong>. The first column of "eigenvalues" contains the real and the
+second column contains the imaginary part of the eigenvalues.
+If the i-th eigenvalue has no imaginary part, then eigenvectors[:,i] is
+the corresponding real eigenvector. If the i-th eigenvalue
+has an imaginary part, then eigenvalues[i+1,:] is the conjugate complex
+eigenvalue and eigenvectors[:,i] is the real and eigenvectors[:,i+1] is the
+imaginary part of the eigenvector of the i-th eigenvalue.
+With function
+<a href="Modelica.Math.Matrices.eigenValueMatrix.html">Matrices.eigenValueMatrix</a>,
+a real block diagonal matrix is constructed from the eigenvalues
+such that
+</p>
+<blockquote><pre>
+A = eigenvectors * eigenValueMatrix(eigenvalues) * inv(eigenvectors)
+</pre></blockquote>
+<p>
+provided the eigenvector matrix "eigenvectors" can be inverted
+(an inversion is possible, if all eigenvalues are different;
+in some cases, an inversion is also possible if some eigenvalues are
+the same).
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  Real A[3,3] = [1,2,3;
+                 3,4,5;
+                 2,1,4];
+  Real eval[3,2];
+<strong>algorithm</strong>
+  eval := Matrices.eigenValues(A);  // eval = [-0.618, 0;
+                                    //          8.0  , 0;
+                                    //          1.618, 0];
+</pre></blockquote>
+<p>
+i.e., matrix A has the 3 real eigenvalues -0.618, 8, 1.618.
+</p>
+
+<h4>See also</h4>
+<a href="Modelica.Math.Matrices.eigenValueMatrix.html">Matrices.eigenValueMatrix</a>,
+<a href="Modelica.Math.Matrices.singularValues.html">Matrices.singularValues</a>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(eigenvalues, eigenvectors) = eigenValues(A)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,size(A, 1)]</p>
+        <p><span>Description:</span> Matrix</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>eigenvalues</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),2]</p>
+        <p><span>Description:</span> Eigenvalues of matrix A (Re: first column, Im: second column)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>eigenvectors</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 2)]</p>
+        <p><span>Description:</span> Real-valued eigenvector matrix</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

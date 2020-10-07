@@ -1,0 +1,193 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Matrices.balanceABC</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.balanceABC.html">balanceABC</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>balanceABC</h1>
+    <p>Return a balanced form of a system [A,B;C,0] to improve its condition by a state transformation</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.balanceABC_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+(scale,As,Bs,Cs) = Matrices.<strong>balanceABC</strong>(A,B,C);
+(scale,As,Bs)    = Matrices.<strong>balanceABC</strong>(A,B);
+(scale,As,,Cs)   = Matrices.<strong>balanceABC</strong>(A,C=C);
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+This function returns a vector scale, such that with T=diagonal(scale) system matrix S_scale
+</p>
+
+<blockquote><pre>
+          |inv(T)*A*T, inv(T)*B|
+S_scale = |                    |
+          |       C*T,     0   |
+</pre></blockquote>
+
+<p>
+has a better condition as system matrix S
+</p>
+
+<blockquote><pre>
+    |A, B|
+S = |    |
+    |C, 0|
+</pre></blockquote>
+<p>
+that is, conditionNumber(S_scale) &le; conditionNumber(S). The elements of vector scale
+are multiples of 2 which means that this function does not introduce round-off errors.
+</p>
+
+<p>
+Balancing a linear dynamic system in state space form
+</p>
+
+<blockquote><pre>
+der(x) = A*x + B*u
+    y  = C*x + D*u
+</pre></blockquote>
+
+<p>
+means to find a state transformation x_new = T*x = diagonal(scale)*x
+so that the transformed system is better suited for numerical algorithms.
+</p>
+
+<h4>Example</h4>
+
+<blockquote><pre>
+import Modelica.Math.Matrices;
+
+A = [1, -10,  1000; 0.01,  0,  10; 0.005,  -0.01,  10];
+B = [100, 10; 1,0; -0.003, 1];
+C = [-0.5, 1, 100];
+
+(scale, As, Bs, Cs) := Matrices.balanceABC(A,B,C);
+T    = diagonal(scale);
+Diff = [Matrices.inv(T)*A*T, Matrices.inv(T)*B;
+        C*T, zeros(1,2)] - [As, Bs; Cs, zeros(1,2)];
+err  = Matrices.norm(Diff);
+
+-> Results in:
+scale = {16, 1, 0.0625}
+norm(A)  = 1000.15, norm(B)  = 100.504, norm(C)  = 100.006
+norm(As) = 10.8738, norm(Bs) = 16.0136, norm(Cs) = 10.2011
+err = 0
+</pre></blockquote>
+
+<p>
+The algorithm is taken from
+</p>
+<dl>
+<dt>H. D. Joos, G. Gr&uuml;bel:</dt>
+<dd><strong>RASP'91 Regulator Analysis and Synthesis Programs</strong><br>
+    DLR - Control Systems Group 1991</dd>
+</dl>
+<p>
+which is based on the <code>balance</code> function from EISPACK.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(scale, As, Bs, Cs) = balanceABC(A, B, C)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,size(A, 1)]</p>
+        <p><span>Description:</span> System matrix A</p>
+      </td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>
+        <p><span>Default Value:</span> fill(0.0, size(A, 1), 0)</p>
+        <p><span>Type:</span> Real[size(A, 1),:]</p>
+        <p><span>Description:</span> System matrix B (need not be present)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>
+        <p><span>Default Value:</span> fill(0.0, 0, size(A, 1))</p>
+        <p><span>Type:</span> Real[:,size(A, 1)]</p>
+        <p><span>Description:</span> System matrix C (need not be present)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>scale</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1)]</p>
+        <p><span>Description:</span> diagonal(scale)=T is such that [inv(T)*A*T, inv(T)*B; C*T, 0] has smaller condition as [A,B;C,0]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>As</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 1)]</p>
+        <p><span>Description:</span> Balanced matrix A (= inv(T)*A*T )</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Bs</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),size(B, 2)]</p>
+        <p><span>Description:</span> Balanced matrix B (= inv(T)*B )</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Cs</th>
+      <td>
+        <p><span>Type:</span> Real[size(C, 1),size(A, 1)]</p>
+        <p><span>Description:</span> Balanced matrix C (= C*T )</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.Utilities.regStep</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Fluid.Utilities.regStep.html">regStep</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>regStep</h1>
+    <p>Approximation of a general step, such that the characteristic is continuous and differentiable</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Utilities.regStep_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This function is used to approximate the equation
+</p>
+<blockquote><pre>
+y = <strong>if</strong> x &gt; 0 <strong>then</strong> y1 <strong>else</strong> y2;
+</pre></blockquote>
+
+<p>
+by a smooth characteristic, so that the expression is continuous and differentiable:
+</p>
+
+<blockquote><pre>
+y = <strong>smooth</strong>(1, <strong>if</strong> x &gt;  x_small <strong>then</strong> y1 <strong>else</strong>
+              <strong>if</strong> x &lt; -x_small <strong>then</strong> y2 <strong>else</strong> f(y1, y2));
+</pre></blockquote>
+
+<p>
+In the region -x_small &lt; x &lt; x_small a 2nd order polynomial is used
+for a smooth transition from y1 to y2.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">y = regStep(x, y1, y2, x_small)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>x</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Abscissa value</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y1</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Ordinate value for x > 0</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y2</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Ordinate value for x < 0</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x_small</th>
+      <td>
+        <p><span>Default Value:</span> 1e-5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Approximation of step for -x_small <= x <= x_small; x_small >= 0 required</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Ordinate value to approximate y = if x > 0 then y1 else y2</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

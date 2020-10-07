@@ -1,0 +1,47 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Operators.'noClock()'</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Operators.html">Operators</a></li>
+  <li><a href="ModelicaReference.Operators.'noClock()'.html">'noClock()'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'noClock()'</h1>
+    <p>noClock()</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'noClock()'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Part of the <a href="ModelicaReference.Synchronous.html">synchronous language elements</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>noClock</strong>(u)</pre></blockquote>
+<h4>Description</h4>
+<p>
+The clock of <strong>y = noClock(u)</strong> is always inferred.
+At every tick of the clock of <strong>y</strong>, the operator returns the value of <strong>u</strong> from the last tick of the clock of <strong>u</strong>.
+If <strong>noClock(u)</strong> is called before the first tick of the clock of <strong>u</strong>, the start value of <strong>u</strong> is returned.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

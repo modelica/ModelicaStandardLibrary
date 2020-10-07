@@ -1,0 +1,532 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Sensors.RelativeSensor</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Sensors.html">Sensors</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Sensors.RelativeSensor.html">RelativeSensor</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>RelativeSensor</h1>
+    <p>Measure relative kinematic quantities between two frame connectors</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.RelativeSensor_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.MultiBody.Sensors.RelativeSensor_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.MultiBody.Sensors.RelativeSensor_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Relative kinematic quantities between frame_a and frame_b are
+determined and provided at the conditional output signal connectors.
+For example, if parameter "get_r_rel = <strong>true</strong>", the connector
+"r_rel" is enabled and contains the relative vector from
+frame_a to frame_b. The following quantities can be provided
+as output signals:
+</p>
+
+<ol>
+<li> Relative position vector (= r_rel)</li>
+<li> Relative velocity vector (= v_rel)</li>
+<li> Relative acceleration vector (= a_rel)</li>
+<li> Three angles to rotate frame_a into frame_b (= angles)</li>
+<li> Relative angular velocity vector (= w_rel)</li>
+<li> Relative angular acceleration vector (= z_rel)</li>
+</ol>
+
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
+a vector is resolved (before differentiation):
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameAB.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vectors in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vectors in frame_a</td></tr>
+
+<tr><td>frame_b</td>
+    <td>Resolve vectors in frame_b</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vectors in frame_resolve</td></tr>
+</table>
+
+<p>
+If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
+"frame_resolve" is enabled and the vectors are resolved in the frame, to
+which frame_resolve is connected. Note, if this connector is enabled, it must
+be connected.
+</p>
+
+<p>
+In the following figure the animation of a RelativeSensor
+component is shown. The light blue coordinate system is
+frame_a, the dark blue coordinate system is frame_b, and
+the yellow arrow is the animated sensor.
+</p>
+
+<p>
+<img src="resources/Modelica.Mechanics.MultiBody.Sensors.RelativeSensor_info_001.png">
+</p>
+
+<p>
+Note, derivatives
+of relative kinematic quantities are always performed with
+respect to the frame, in which the vector to be differentiated
+is resolved. After differentiation, it is possible via parameter
+<strong>resolveInFrameAfterDifferentiation</strong> (in the "Advanced" menu)
+to resolve the differentiated
+vector in another frame.
+</p>
+<p>
+For example, if resolveInFrame = <strong>Types.ResolveInFrameAB.frame_b</strong>, then
+</p>
+
+<blockquote><pre>
+r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0);
+v_rel = <strong>der</strong>(r_rel);
+</pre></blockquote>
+
+<p>
+is returned (r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0)), i.e.,
+the derivative of the relative distance from frame_a to frame_b,
+resolved in frame_b. If
+<strong>resolveInFrameAfterDifferentiation</strong> = Types.ResolveInFrameAB.world, then
+v_rel is additionally transformed to:
+</p>
+
+<blockquote><pre>
+v_rel = resolve1(frame_b.R, <strong>der</strong>(r_rel))
+</pre></blockquote>
+
+<p>
+The cut-force and the cut-torque in frame_resolve are
+always zero, whether frame_resolve is connected or not.
+</p>
+
+<p>
+If <strong>get_angles</strong> = <strong>true</strong>, the 3 angles to rotate frame_a
+into frame_b along the axes defined by parameter <strong>sequence</strong>
+are returned. For example, if sequence = {3,1,2} then frame_a is
+rotated around angles[1] along the z-axis, afterwards it is rotated
+around angles[2] along the x-axis, and finally it is rotated around
+angles[3] along the y-axis and is then identical to frame_b.
+The 3 angles are returned in the range
+</p>
+<blockquote><pre>
+-&pi; &lt;= angles[i] &lt;= &pi;
+</pre></blockquote>
+<p>
+There are <strong>two solutions</strong> for "angles[1]" in this range.
+Via parameter <strong>guessAngle1</strong> (default = 0) the
+returned solution is selected such that |angles[1] - guessAngle1| is
+minimal. The relative transformation matrix between frame_a and
+frame_b may be in a singular configuration with respect to "sequence", i.e.,
+there is an infinite number of angle values leading to the same relative
+transformation matrix. In this case, the returned solution is
+selected by setting angles[1] = guessAngle1. Then angles[2]
+and angles[3] can be uniquely determined in the above range.
+</p>
+<p>
+The parameter <strong>sequence</strong> has the restriction that
+only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
+and sequence[2] &ne; sequence[3]. Often used values are:
+</p>
+<blockquote><pre>
+sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
+         = <strong>{3,1,3}</strong>  // Euler angle sequence
+         = <strong>{3,2,1}</strong>
+</pre></blockquote>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(11)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>animation</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if animation shall be enabled (show arrow)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>resolveInFrame</th>
+      <td>
+        <p><span>Value:</span> Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.html">ResolveInFrameAB</a></p>
+        <p><span>Description:</span> Frame in which vectors are resolved before differentiation (world, frame_a, frame_b, or frame_resolve)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>get_r_rel</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, to measure the relative position vector from the origin of frame_a to frame_b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>get_v_rel</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, to measure the relative velocity of the origin of frame_b with respect to frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>get_a_rel</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, to measure the relative acceleration of the origin of frame_b with respect to frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>get_w_rel</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, to measure the relative angular velocity of frame_b with respect to frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>get_z_rel</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, to measure the relative angular acceleration of frame_b with respect to frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>get_angles</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, to measure the 3 rotation angles</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sequence</th>
+      <td>
+        <p><span>Value:</span> {1, 2, 3}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.RotationSequence.html">RotationSequence</a></p>
+        <p><span>Description:</span> If get_angles=true: Angles are returned to rotate frame_a around axes sequence[1], sequence[2] and finally sequence[3] into frame_b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>guessAngle1</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> If get_angles=true: Select angles[1] such that abs(angles[1] - guessAngle1) is a minimum</p>
+      </td>
+    </tr>
+    <tr>
+      <th>resolveInFrameAfterDifferentiation</th>
+      <td>
+        <p><span>Value:</span> resolveInFrame</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.html">ResolveInFrameAB</a></p>
+        <p><span>Description:</span> Frame in which vectors are resolved after differentiation (world, frame_a, frame_b, or frame_resolve)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>arrowColor</th>
+      <td>
+        <p><span>Default Value:</span> Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of relative arrow from frame_a to frame_b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>specularCoefficient</th>
+      <td>
+        <p><span>Default Value:</span> world.defaultSpecularCoefficient</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.SpecularCoefficient.html">SpecularCoefficient</a></p>
+        <p><span>Description:</span> Reflection of ambient light (= 0: light is completely absorbed)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_16x16.png"></td>
+      <th>frame_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p><span>Description:</span> Coordinate system a</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_b_16x16.png"></td>
+      <th>frame_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_b.html">Frame_b</a></p>
+        <p><span>Description:</span> Coordinate system b</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve_16x16.png"></td>
+      <th>frame_resolve</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve.html">Frame_resolve</a></p>
+        <p><span>Description:</span> If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the output signals are resolved in this frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>r_rel</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[3]</a></p>
+        <p><span>Description:</span> Relative position vector frame_b.r_0 - frame_a.r_0 resolved in frame defined by resolveInFrame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>v_rel</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[3]</a></p>
+        <p><span>Description:</span> Relative velocity vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>a_rel</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[3]</a></p>
+        <p><span>Description:</span> Relative acceleration vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>angles</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[3]</a></p>
+        <p><span>Description:</span> Angles to rotate frame_a into frame_b via 'sequence'</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>w_rel</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[3]</a></p>
+        <p><span>Description:</span> Relative angular velocity vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>z_rel</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[3]</a></p>
+        <p><span>Description:</span> Relative angular acceleration vector</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(14)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.RelativePosition_32x32.png"></td>
+      <th>relativePosition</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Sensors.RelativePosition.html">RelativePosition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Der_32x32.png"></td>
+      <th>der1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Der.html">Der[3]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Der_32x32.png"></td>
+      <th>der2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Der.html">Der[3]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.RelativeAngles_32x32.png"></td>
+      <th>relativeAngles</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Sensors.RelativeAngles.html">RelativeAngles</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.RelativeAngularVelocity_32x32.png"></td>
+      <th>relativeAngularVelocity</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Sensors.RelativeAngularVelocity.html">RelativeAngularVelocity</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Der_32x32.png"></td>
+      <th>der3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Der.html">Der[3]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque_32x32.png"></td>
+      <th>zeroForce1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque.html">ZeroForceAndTorque</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque_32x32.png"></td>
+      <th>zeroForce2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque.html">ZeroForceAndTorque</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque_32x32.png"></td>
+      <th>zeroForce3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque.html">ZeroForceAndTorque</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector_32x32.png"></td>
+      <th>transformVector_v_rel</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector.html">TransformRelativeVector</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector_32x32.png"></td>
+      <th>transformVector_a_rel</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector.html">TransformRelativeVector</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector_32x32.png"></td>
+      <th>transformVector_z_rel</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector.html">TransformRelativeVector</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow_32x32.png"></td>
+      <th>arrow</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow.html">Arrow</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.PlanarFourbar_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.PlanarFourbar.html">PlanarFourbar</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span></p>
+        <p>Planar four bars mechanism with one kinematic loop (with RevolutePlanarLoopConstraint joint)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Constraints.PrismaticConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Constraints.PrismaticConstraint.html">PrismaticConstraint</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Constraints</span></p>
+        <p>Body attached by one spring and two prismatic joints or constrained to environment</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Constraints.RevoluteConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Constraints.RevoluteConstraint.html">RevoluteConstraint</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Constraints</span></p>
+        <p>Body attached by one spring and revolute joint or constrained to environment</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Constraints.SphericalConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Constraints.SphericalConstraint.html">SphericalConstraint</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Constraints</span></p>
+        <p>Body attached by one spring and spherical joint or constrained to environment</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Constraints.UniversalConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Constraints.UniversalConstraint.html">UniversalConstraint</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Constraints</span></p>
+        <p>Body attached by one spring and universal joint or constrained to environment</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

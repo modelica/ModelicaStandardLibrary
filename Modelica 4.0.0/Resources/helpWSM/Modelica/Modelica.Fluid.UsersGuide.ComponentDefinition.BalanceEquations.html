@@ -1,0 +1,106 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.UsersGuide.ComponentDefinition.BalanceEquations</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.Fluid.UsersGuide.ComponentDefinition.html">ComponentDefinition</a></li>
+  <li><a href="Modelica.Fluid.UsersGuide.ComponentDefinition.BalanceEquations.html">BalanceEquations</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>BalanceEquations</h1>
+    <p>Balance equations</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.UsersGuide.ComponentDefinition.BalanceEquations_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+For one-dimensional flow
+along the coordinate "x", the following partial differential
+equations hold
+</p>
+<table border="1" cellspacing="0" cellpadding="2">
+  <tr><td> Mass balance</td>
+      <td> <img src="resources/Modelica.Fluid.UsersGuide.ComponentDefinition.BalanceEquations_info_001.png"
+                alt="massBalance.png"></td>
+  </tr>
+  <tr><td> Momentum balance</td>
+      <td> <img src="resources/Modelica.Fluid.UsersGuide.ComponentDefinition.BalanceEquations_info_002.png"
+                alt="momentumBalance.png"></td>
+  </tr>
+  <tr><td> Energy balance 1</td>
+      <td> <img src="resources/Modelica.Fluid.UsersGuide.ComponentDefinition.BalanceEquations_info_003.png"
+                alt="energyBalance1.png"></td>
+  </tr>
+  <tr><td> Pipe friction</td>
+      <td> <img src="resources/Modelica.Fluid.UsersGuide.ComponentDefinition.BalanceEquations_info_004.png"
+                alt="pipeFriction.png"></td>
+  </tr>
+  <tr><td></td>
+      <td>x: independent spatial coordinate (flow is along coordinate x)<br>
+          t: time<br>
+          v(x,t): mean velocity<br>
+          p(x,t): mean pressure<br>
+          T(x,t): mean temperature<br>
+          &rho;(x,t): mean density<br>
+          u(x,t): specific internal energy<br>
+          z(x): height over ground<br>
+          A(x): area perpendicular to direction x<br>
+          g: gravity constant<br>
+          f: Fanning friction factor<br>
+          S: circumference</td>
+  </tr>
+</table>
+<p>
+An alternative energy balance can be derived by multiplying
+the momentum balance with "v" and subtracting it
+from the energy balance 1 above. This results in
+the "energy balance 2":
+</p>
+<table border="1" cellspacing="0" cellpadding="2">
+  <tr><td> Energy balance 2</td>
+      <td> <img src="resources/Modelica.Fluid.UsersGuide.ComponentDefinition.BalanceEquations_info_005.png"
+                alt="energyBalance2.png"></td>
+  </tr>
+</table>
+
+<p>
+This formulation separates the internal energy of the fluid from the kinetic energy of fluid flow.
+The internal energy is treated by the energy balance 2, the kinetic energy is treated by the momentum balance equally well.
+The evaluation of medium properties, which are independent of the kinetic energy, and the formulation of many fluid models is simplified with the energy balance 2.
+The overall conservation of energy is achieved by considering the mutual dependencies of energy and momentum balance.
+</p>
+<p>
+Some components in the library, like DynamicPipe, provide a rigorous implementation of mass,
+momentum and energy balance, using the energy balance 2 equation. Other components, like Valves and
+Fittings, neglect the impact of changes of the kinetic energy and potential energy on the energy
+balance, because they are usually irrelevant compared to changes due to heat flows. The StaticPipe
+component neglects the effect of kinetic energy, but includes the potential energy in the balance,
+which might be substantial.
+</p>
+<p>
+All modelling assumptions and simplifications are stated in the component documentation; please note that some of the assumptions might be stated in the base classes the
+component inherits from.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

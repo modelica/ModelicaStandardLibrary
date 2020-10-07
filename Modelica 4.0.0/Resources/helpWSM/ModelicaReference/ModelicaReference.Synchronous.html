@@ -1,0 +1,62 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Synchronous</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Synchronous.html">Synchronous</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Synchronous</h1>
+    <p>Synchronous Language Elements</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Synchronous_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Synchronous language elements are added to Modelica as an alternative to normal <a href="ModelicaReference.'when'.html">when</a>-clauses to
+making modeling of complex sampled systems safer and easier.
+</p>
+<h4>Examples</h4>
+<blockquote><pre>
+  // Discrete controller
+  when Clock() then
+    E*dc.xd=A*previous(dc.xd)+B*dc.yd;
+      dc.ud=C*previous(dc.xd)+D*dc.yd;
+  end when;
+
+  // hold controller output:
+  plant.u=hold(dc.ud);
+
+  // Plant
+  0=f(der(plant.x),plant.x,plant.u);
+  plant.y=g(plant.x);
+
+  // Sample continuous signal
+  dc.yd=sample(plant.y, Clock(3));
+</pre></blockquote>
+In this example <strong>dc.xd</strong> and <strong>dc.ud</strong> are Clocked variables, and only defined when the Clock is active (every 3rd second).
+At time instants where the associated clock is not active, the value of a clocked variable can be inquired by using an explicit cast operator, e.g., <strong>hold</strong>.
+
+<h4>Description</h4>
+A detailed description of the Synchronous Language Elements is given in <a href="https://specification.modelica.org/v3.4/Ch16.html">Chapter 16 (Synchronous Language Elements) of the Modelica 3.4 specification</a>.
+</div>
+</section>
+</div>
+</body>
+</html>

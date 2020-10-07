@@ -1,0 +1,148 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Batteries.ParameterRecords.StackData</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Batteries.html">Batteries</a></li>
+  <li><a href="Modelica.Electrical.Batteries.ParameterRecords.html">ParameterRecords</a></li>
+  <li><a href="Modelica.Electrical.Batteries.ParameterRecords.StackData.html">StackData</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>StackData</h1>
+    <p>Parameters for stacks including degradation</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Batteries.ParameterRecords.StackData_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Batteries.ParameterRecords.StackData_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Batteries.ParameterRecords.StackData_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Ns</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of series connected cells</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Np</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of parallel connected cells</p>
+      </td>
+    </tr>
+    <tr>
+      <th>kDegraded</th>
+      <td>
+        <p><span>Value:</span> {{0, 0}}</p>
+        <p><span>Type:</span> Integer[:,2]</p>
+        <p><span>Description:</span> Indices of degraded cells [series index, parallel index]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>cellDataOriginal</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.ParameterRecords.CellData.html">CellData</a></p>
+        <p><span>Description:</span> Original cell data</p>
+      </td>
+    </tr>
+    <tr>
+      <th>cellDataDegraded</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.ParameterRecords.CellData.html">CellData</a></p>
+        <p><span>Description:</span> Degraded cell data</p>
+      </td>
+    </tr>
+    <tr>
+      <th>cellData</th>
+      <td>
+        <p><span>Value:</span> array(array(if anyTrue(array(ks == kDegraded[i, 1] and kp == kDegraded[i, 2] for i in 1:size(kDegraded, 1))) then cellDataDegraded else cellDataOriginal for kp in 1:Np) for ks in 1:Ns)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.ParameterRecords.CellData.html">CellData[Ns,Np]</a></p>
+        <p><span>Description:</span> Matrix of cell data</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.ParameterRecords.CellData_32x32.png"></td>
+      <th>cellDataOriginal</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.ParameterRecords.CellData.html">CellData</a></p>
+        <p><span>Description:</span> Original cell data</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.ParameterRecords.CellData_32x32.png"></td>
+      <th>cellDataDegraded</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.ParameterRecords.CellData.html">CellData</a></p>
+        <p><span>Description:</span> Degraded cell data</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.ParameterRecords.CellData_32x32.png"></td>
+      <th>cellData</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.ParameterRecords.CellData.html">CellData[Ns,Np]</a></p>
+        <p><span>Description:</span> Matrix of cell data</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.Examples.CCCV_Stack_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.Examples.CCCV_Stack.html">CCCV_Stack</a></p>
+        <p><span>Modelica.Electrical.Batteries.Examples</span></p>
+        <p>Charge a stack with constant current - constant voltage characteristic</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

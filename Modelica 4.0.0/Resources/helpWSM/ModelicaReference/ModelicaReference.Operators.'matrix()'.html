@@ -1,0 +1,61 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Operators.'matrix()'</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Operators.html">Operators</a></li>
+  <li><a href="ModelicaReference.Operators.'matrix()'.html">'matrix()'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'matrix()'</h1>
+    <p>matrix()</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'matrix()'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Returns the first two dimensions of an array as matrix
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>matrix</strong>(A)</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns <strong>promote</strong>(A,2), if A is a scalar or vector and
+otherwise returns the elements of the first two dimensions
+as a matrix. <strong>size</strong>(A,i) = 1 is required for
+2 &lt; i &le; <strong>ndims</strong>(A).
+</p>
+<p>
+Function <strong>promote</strong>(A,n) fills dimensions of size 1
+from the right to array A up to dimension n, where
+"n &gt; <strong>ndims</strong>(A)" is required. Let
+C = <strong>promote</strong>(A,n), with nA = <strong>ndims</strong>(A),
+then
+</p>
+<blockquote><pre>
+<strong>ndims</strong>(C) = n,
+<strong>size</strong>(C,j) = <strong>size</strong>(A,j) for 1 &le; j &le; nA,
+<strong>size</strong>(C,j) = 1 for nA+1 &le; j &le; n,
+C[i_1, ..., i_nA, 1, ..., 1] = A[i_1, ..., i_nA].
+</pre></blockquote>
+</div>
+</section>
+</div>
+</body>
+</html>

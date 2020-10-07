@@ -1,0 +1,285 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Batteries.BaseClasses.BaseStackWithSensors</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Batteries.html">Batteries</a></li>
+  <li><a href="Modelica.Electrical.Batteries.BaseClasses.html">BaseClasses</a></li>
+  <li><a href="Modelica.Electrical.Batteries.BaseClasses.BaseStackWithSensors.html">BaseStackWithSensors</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>BaseStackWithSensors</h1>
+    <p>Partial stack with sensors</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Batteries.BaseClasses.BaseStackWithSensors_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Batteries.BaseClasses.BaseStackWithSensors_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Batteries.BaseClasses.BaseStackWithSensors_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This is a stack of <code>Ns</code> x <code>Np</code> <a href="Modelica.Electrical.Batteries.BatteryStacksWithSensors.Cell.html">cell[Np=1, Ns=1]</a> with measurement, arranged in a matrix.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>stackData</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.BaseClasses.BaseStackData.html">BaseStackData</a></p>
+      </td>
+    </tr>
+    <tr>
+      <th>useAllParallelConnections</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if all parallel connections are used</p>
+      </td>
+    </tr>
+    <tr>
+      <th>SOC0</th>
+      <td>
+        <p><span>Value:</span> fill(0.1, stackData.Ns, stackData.Np)</p>
+        <p><span>Type:</span> Real[stackData.Ns,stackData.Np]</p>
+        <p><span>Description:</span> Initial SOC</p>
+      </td>
+    </tr>
+    <tr>
+      <th>SOCtolerance</th>
+      <td>
+        <p><span>Value:</span> 1e-9</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> SOC tolerance for detection of depleted or overcharged cell</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> =true, if HeatPort is enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Fixed device temperature if useHeatPort = false</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>displaySOC</th>
+      <td>
+        <p><span>Default Value:</span> SOC</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> SOC for display</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>i</th>
+      <td>
+        <p><span>Default Value:</span> p.i</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Current into the stack</p>
+      </td>
+    </tr>
+    <tr>
+      <th>power</th>
+      <td>
+        <p><span>Default Value:</span> v * i</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Power to the stack</p>
+      </td>
+    </tr>
+    <tr>
+      <th>SOC</th>
+      <td>
+        <p><span>Default Value:</span> socTotal.y</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Overall State of charge</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive electrical pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative electrical pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Batteries.Interfaces.StackBus_16x16.png"></td>
+      <th>stackBus</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.Interfaces.StackBus.html">StackBus</a></p>
+        <p><span>Description:</span> Stack bus</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Batteries.Interfaces.CellBus_16x16.png"></td>
+      <th>batteryBus</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.Interfaces.CellBus.html">CellBus</a></p>
+        <p><span>Description:</span> Battery bus (average / sum over all cells)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a[stackData.Ns,stackData.Np]</a></p>
+        <p><span>Description:</span> Optional port to which dissipated losses are transported in form of heat</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.BaseClasses.BaseStackData_32x32.png"></td>
+      <th>stackData</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.BaseClasses.BaseStackData.html">BaseStackData</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.BaseClasses.BaseCellWithSensors_32x32.png"></td>
+      <th>cell</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.BaseClasses.BaseCellWithSensors.html">BaseCellWithSensors[stackData.Ns,stackData.Np]</a></p>
+        <p><span>Description:</span> Matrix of cells</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sensors.MultiSensor_32x32.png"></td>
+      <th>multiSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sensors.MultiSensor.html">MultiSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.RealExpression_32x32.png"></td>
+      <th>socTotal</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.RealExpression.html">RealExpression</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.RealExpression_32x32.png"></td>
+      <th>lossesTotal</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.RealExpression.html">RealExpression</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.RealExpression_32x32.png"></td>
+      <th>temperatureTotal</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.RealExpression.html">RealExpression</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.BatteryStacksWithSensors.StackRC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.BatteryStacksWithSensors.StackRC.html">StackRC</a></p>
+        <p><span>Modelica.Electrical.Batteries.BatteryStacksWithSensors</span></p>
+        <p>Stack with sensors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.BatteryStacksWithSensors.Stack_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.BatteryStacksWithSensors.Stack.html">Stack</a></p>
+        <p><span>Modelica.Electrical.Batteries.BatteryStacksWithSensors</span></p>
+        <p>Stack with sensors</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

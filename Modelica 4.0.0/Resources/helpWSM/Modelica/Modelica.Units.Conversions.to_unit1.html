@@ -1,0 +1,89 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Units.Conversions.to_unit1</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Units.html">Units</a></li>
+  <li><a href="Modelica.Units.Conversions.html">Conversions</a></li>
+  <li><a href="Modelica.Units.Conversions.to_unit1.html">to_unit1</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>to_unit1</h1>
+    <p>Change the unit of a Real number to unit="1"</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Units.Conversions.to_unit1_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Modelica.Units.Conversions.<strong>to_unit1</strong>(r);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>Conversions.<strong>to_unit1</strong>(r)</code>" returns r with unit="1".
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+Modelica.Units.SI.Velocity v = {3,2,1};
+Real direction[3](unit="1") = to_unit1(v);   // Automatically vectorized call of to_unit1
+</pre></blockquote>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">result = to_unit1(r)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>r</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Real number</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>result</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Real number r with unit="1"</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Random.Utilities.automaticLocalSeed</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Random.html">Random</a></li>
+  <li><a href="Modelica.Math.Random.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Math.Random.Utilities.automaticLocalSeed.html">automaticLocalSeed</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>automaticLocalSeed</h1>
+    <p>Creates an automatic local seed from the instance name</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Random.Utilities.automaticLocalSeed_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+seed = Utilities.<strong>automaticLocalSeed</strong>(path);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns an automatically computed seed (Integer) from the hash value of
+the full path name of an instance (has to be inquired in the model or block
+where this function is called by the Modelica built-in operator <a href="https://specification.modelica.org/v3.4/Ch3.html#getinstancename">getInstanceName()</a>).
+Contrary to <a href="Modelica.Math.Random.Utilities.automaticGlobalSeed.html">automaticGlobalSeed()</a>,
+this is a pure function, that is, the same seed is returned, if an identical
+path is provided.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+<strong>parameter</strong> Boolean useAutomaticLocalSeed = true;
+<strong>parameter</strong> Integer fixedLocalSeed        = 10;
+<strong>final parameter</strong> Integer localSeed = <strong>if</strong> useAutomaticLocalSeed <strong>then</strong>
+                                   automaticLocalSeed(getInstanceName())
+                                 <strong>else</strong>
+                                   fixedLocalSeed;
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Random.Utilities.automaticGlobalSeed.html">automaticGlobalSeed</a>, <a href="Modelica.Utilities.Strings.hashString.html">hashString</a> and <a href="https://specification.modelica.org/v3.4/Ch3.html#getinstancename">getInstanceName</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">seed = automaticLocalSeed(path)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>path</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Full path name of the instance (inquire with getInstanceName())</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>seed</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Automatically generated seed</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

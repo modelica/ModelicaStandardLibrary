@@ -1,0 +1,110 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Utilities.Examples.calculator</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Utilities.Examples.calculator.html">calculator</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>calculator</h1>
+    <p>Interpreter to evaluate simple expressions consisting of +, -, *, /, (), sin(), cos(), tan(), sqrt(), asin(), acos(), atan(), exp(), log(), pi</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Examples.calculator_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+result = <strong>calculator</strong>(expression);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function demonstrates how a simple expression calculator
+can be implemented in form of a recursive decent parser
+using basically the Strings.scanToken(..) and Strings.scanDelimiter(..)
+function.
+</p>
+<p>
+The following operations are supported (pi=3.14.. is a predefined constant):
+</p>
+<blockquote><pre>
++, -
+*, /
+(expression)
+sin(expression)
+cos(expression)
+tan(expression)
+sqrt(expression)
+asin(expression)
+acos(expression)
+atan(expression)
+exp(expression)
+log(expression)
+pi
+</pre></blockquote>
+<h4>Example</h4>
+<blockquote><pre>
+calculator("2+3*(4-1)");  // returns 11
+calculator("sin(pi/6)");  // returns 0.5
+</pre></blockquote>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">result = calculator(string)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>string</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Expression that is evaluated</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>result</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Value of expression</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

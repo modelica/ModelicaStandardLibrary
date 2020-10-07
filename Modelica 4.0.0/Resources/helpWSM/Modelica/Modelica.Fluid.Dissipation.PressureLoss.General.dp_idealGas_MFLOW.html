@@ -1,0 +1,99 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.Dissipation.PressureLoss.General.dp_idealGas_MFLOW</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.html">Dissipation</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.PressureLoss.html">PressureLoss</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.PressureLoss.General.html">General</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_MFLOW.html">dp_idealGas_MFLOW</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>dp_idealGas_MFLOW</h1>
+    <p>Generic pressure loss | calculate mass flow rate | ideal gas | mean density</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_MFLOW_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Calculation of a generic pressure loss for an <strong>ideal gas</strong> using mean density.
+</p>
+
+<p>
+Generally this function is numerically best used for the <strong>compressible case</strong> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the function <a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_DP.html">dp_idealGas_DP</a> is numerically best used for the <strong>incompressible case</strong>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.  <a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_idealGas.html">See more information</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">M_FLOW = dp_idealGas_MFLOW(IN_con, IN_var, dp)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>IN_con</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_IN_con.html">dp_idealGas_IN_con</a></p>
+        <p><span>Description:</span> Input record for function dp_idealGas_MFLOW</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IN_var</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_IN_var.html">dp_idealGas_IN_var</a></p>
+        <p><span>Description:</span> Input record for function dp_idealGas_MFLOW</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Pressure loss</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>M_FLOW</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Output for function dp_idealGas_MFLOW</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

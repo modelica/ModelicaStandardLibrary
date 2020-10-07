@@ -1,0 +1,205 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.QuasiStatic.SinglePhase.Basic.Inductor</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.SinglePhase.html">SinglePhase</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.html">Basic</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor.html">Inductor</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Inductor</h1>
+    <p>Single-phase linear inductor</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The linear inductor connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by  <code><u>v</u> = j*&omega;*L*<u>i</u></code>.
+The Inductance <code>L</code> is allowed to be positive, zero, or negative.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor.html">Resistor</a>,
+<a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Conductor.html">Conductor</a>,
+<a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor.html">Capacitor</a>,
+<a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance.html">Impedance</a>,
+<a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Admittance.html">Admittance</a>,
+<a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableResistor.html">Variable resistor</a>,
+<a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableConductor.html">Variable conductor</a>,
+<a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableCapacitor.html">Variable capacitor</a>,
+<a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableInductor.html">Variable inductor</a>,
+<a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableImpedance.html">Variable impedance</a>,
+<a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.VariableAdmittance.html">Variable admittance</a>
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>L</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Inductance</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin_16x16.png"></td>
+      <th>pin_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive quasi-static single-phase pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin_16x16.png"></td>
+      <th>pin_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative quasi-static single-phase pin</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexVoltage_32x32.png"></td>
+      <th>v</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexVoltage.html">ComplexVoltage</a></p>
+        <p><span>Description:</span> Complex voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexCurrent_32x32.png"></td>
+      <th>i</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexCurrent.html">ComplexCurrent</a></p>
+        <p><span>Description:</span> Complex current</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Examples.SeriesBode_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Examples.SeriesBode.html">SeriesBode</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Examples</span></p>
+        <p>Series circuit with Bode analysis</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Examples.SeriesResonance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Examples.SeriesResonance.html">SeriesResonance</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Examples</span></p>
+        <p>Series resonance circuit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Examples.ParallelResonance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Examples.ParallelResonance.html">ParallelResonance</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Examples</span></p>
+        <p>Parallel resonance circuit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Examples.BalancingStar_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Examples.BalancingStar.html">BalancingStar</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Examples</span></p>
+        <p>Balancing an unsymmetrical star-connected load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Examples.BalancingDelta_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Examples.BalancingDelta.html">BalancingDelta</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Examples</span></p>
+        <p>Balancing an unsymmetrical delta-connected load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Examples.UnsymmetricalLoad_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Examples.UnsymmetricalLoad.html">UnsymmetricalLoad</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Examples</span></p>
+        <p>Unsymmetrical three-phase load</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor.html">Inductor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Basic</span></p>
+        <p>Polyphase linear inductor</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

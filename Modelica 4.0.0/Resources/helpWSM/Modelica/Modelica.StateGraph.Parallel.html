@@ -1,0 +1,129 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: StateGraph.Parallel</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.StateGraph.html">StateGraph</a></li>
+  <li><a href="Modelica.StateGraph.Parallel.html">Parallel</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Parallel</h1>
+    <p>Parallel splitting of execution path (use component between two transitions)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.StateGraph.Parallel_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>nBranches</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of parallel branches that are executed in parallel</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.StateGraph.Interfaces.Step_in_16x16.png"></td>
+      <th>inPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Interfaces.Step_in.html">Step_in</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.StateGraph.Interfaces.Step_out_16x16.png"></td>
+      <th>outPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Interfaces.Step_out.html">Step_out</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.StateGraph.Parallel.Transition_in_forParallel_16x16.png"></td>
+      <th>join</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Parallel.Transition_in_forParallel.html">Transition_in_forParallel[nBranches]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.StateGraph.Parallel.Transition_out_forParallel_16x16.png"></td>
+      <th>split</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Parallel.Transition_out_forParallel.html">Transition_out_forParallel[nBranches]</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.ExecutionPaths_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.ExecutionPaths.html">ExecutionPaths</a></p>
+        <p><span>Modelica.StateGraph.Examples</span></p>
+        <p>Example to demonstrate parallel and alternative execution paths</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.ShowCompositeStep_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.ShowCompositeStep.html">ShowCompositeStep</a></p>
+        <p><span>Modelica.StateGraph.Examples</span></p>
+        <p>Example to demonstrate parallel activities described by a StateGraph</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.Controller_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.Controller.html">Controller</a></p>
+        <p><span>Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses</span></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,295 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Digital.Sources.Table</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Digital.html">Digital</a></li>
+  <li><a href="Modelica.Electrical.Digital.Sources.html">Sources</a></li>
+  <li><a href="Modelica.Electrical.Digital.Sources.Table.html">Table</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Table</h1>
+    <p>Digital Tabular Source</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Digital.Sources.Table_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The table source output signal <em>y</em> steps to the values of the  <em>x</em> table at the corresponding
+timepoints in the <em>t</em> table.<br>The initial value is specified by <em>y0</em>.
+</p>
+<p>
+To specify the logic value parameters, the integer code has to be used.
+</p>
+<p><strong>Code Table</strong></p>
+<table border="1" cellspacing="0" cellpadding="2">
+  <tr><td><strong>Logic value</strong></td>
+      <td><strong>Integer code</strong></td>
+      <td><strong>Meaning</strong></td>
+  </tr>
+
+  <tr><td>'U'</td> <td>1</td> <td>Uninitialized</td></tr>
+  <tr><td>'X'</td> <td>2</td> <td>Forcing Unknown</td></tr>
+  <tr><td>'0'</td> <td>3</td> <td>Forcing 0</td></tr>
+  <tr><td>'1'</td> <td>4</td> <td>Forcing 1</td></tr>
+  <tr><td>'Z'</td> <td>5</td> <td>High Impedance</td></tr>
+  <tr><td>'W'</td> <td>6</td> <td>Weak Unknown</td></tr>
+  <tr><td>'L'</td> <td>7</td> <td>Weak 0</td></tr>
+  <tr><td>'H'</td> <td>8</td> <td>Weak 1</td></tr>
+  <tr><td>'-'</td> <td>9</td> <td>Do not care</td></tr>
+</table>
+<p>
+If the logic values are imported by<br><strong>import L = Digital.Interfaces.Logic;</strong><br>
+they can be used to specify the parameter, e.g., <strong>L.'0'</strong> for forcing 0.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>x</th>
+      <td>
+        <p><span>Value:</span> {L.'1'}</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic[:]</a></p>
+        <p><span>Description:</span> Vector of values</p>
+      </td>
+    </tr>
+    <tr>
+      <th>t</th>
+      <td>
+        <p><span>Value:</span> {1}</p>
+        <p><span>Type:</span> Real[size(x, 1)]</p>
+        <p><span>Description:</span> Vector of corresponding time points</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y0</th>
+      <td>
+        <p><span>Value:</span> L.'U'</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic</a></p>
+        <p><span>Description:</span> Initial output value</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Value:</span> size(x, 1)</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Table size</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalOutput.html">DigitalOutput</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(20)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.Multiplexer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.Multiplexer.html">Multiplexer</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span></p>
+        <p>4 to 1 Bit Multiplexer Example</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.FlipFlop_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.FlipFlop.html">FlipFlop</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span></p>
+        <p>Pulse Triggered Master Slave Flip-Flop</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.HalfAdder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.HalfAdder.html">HalfAdder</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span></p>
+        <p>Adding circuit for binary numbers without input carry bit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.Adder4_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.Adder4.html">Adder4</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span></p>
+        <p>4 Bit Adder Example</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.VectorDelay_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.VectorDelay.html">VectorDelay</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span></p>
+        <p>Vector delay</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.DFFREG_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.DFFREG.html">DFFREG</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span></p>
+        <p>Pulse triggered D-Register-Bank, high active reset</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.DFFREGL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.DFFREGL.html">DFFREGL</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span></p>
+        <p>Pulse triggered D-Register-Bank, low active reset</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.DFFREGSRH_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.DFFREGSRH.html">DFFREGSRH</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span></p>
+        <p>Pulse triggered D-Register-Bank, high active set and reset</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.DFFREGSRL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.DFFREGSRL.html">DFFREGSRL</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span></p>
+        <p>Pulse triggered D-Register-Bank, low active set and reset</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.DLATREG_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.DLATREG.html">DLATREG</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span></p>
+        <p>Level sensitive D-Register-Bank, high active reset</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.DLATREGL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.DLATREGL.html">DLATREGL</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span></p>
+        <p>Level sensitive D-Register-Bank, low active reset</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.DLATREGSRH_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.DLATREGSRH.html">DLATREGSRH</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span></p>
+        <p>Level sensitive D-Register-Bank, high active set and reset</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.DLATREGSRL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.DLATREGSRL.html">DLATREGSRL</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span></p>
+        <p>Level sensitive D-Register-Bank, low active set and reset</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.NXFER_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.NXFER.html">NXFER</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span></p>
+        <p>Functionality test of NXFERGATE</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.NRXFER_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.NRXFER.html">NRXFER</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span></p>
+        <p>Functionality test of NRXFERGATE</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.BUF3S_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.BUF3S.html">BUF3S</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span></p>
+        <p>Functionality test of BUF3S</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.INV3S_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.INV3S.html">INV3S</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span></p>
+        <p>Functionality test of INV3S</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.WiredX_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.WiredX.html">WiredX</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span></p>
+        <p>Functionality test of WiredX</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.MUX2x1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.MUX2x1.html">MUX2x1</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span></p>
+        <p>Simple Multiplexer test</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.RAM_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.RAM.html">RAM</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span></p>
+        <p>Simple RAM test example</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

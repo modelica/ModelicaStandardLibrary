@@ -1,0 +1,119 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Utilities.Examples</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Examples.html">Examples</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Examples</h1>
+    <p>Examples to demonstrate the usage of package Modelica.Utilities</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Examples_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Examples.calculator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Examples.calculator.html">calculator</a></p>
+        <p>Interpreter to evaluate simple expressions consisting of +, -, *, /, (), sin(), cos(), tan(), sqrt(), asin(), acos(), atan(), exp(), log(), pi</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Examples.expression_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Examples.expression.html">expression</a></p>
+        <p>Expression interpreter that returns with the position after the expression (expression may consist of +, -, *, /, (), sin(), cos(), tan(), sqrt(), asin(), acos(), atan(), exp(), log(), pi)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Examples.readRealParameter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Examples.readRealParameter.html">readRealParameter</a></p>
+        <p>Read the value of a Real parameter from file</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Examples.readRealParameterModel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Examples.readRealParameterModel.html">readRealParameterModel</a></p>
+        <p>Demonstrate usage of Examples.readRealParameter/.expression</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Examples.WriteRealMatrixToFile_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Examples.WriteRealMatrixToFile.html">WriteRealMatrixToFile</a></p>
+        <p>Demonstrate usage of function Streams.writeRealMatrix</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Examples.ReadRealMatrixFromFile_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Examples.ReadRealMatrixFromFile.html">ReadRealMatrixFromFile</a></p>
+        <p>Demonstrate usage of function Streams.readRealMatrix</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This package contains quite involved examples that demonstrate how to
+use the functions of package Modelica.Utilities. In particular
+the following examples are present.
+</p>
+<ul>
+<li> Function <a href="Modelica.Utilities.Examples.calculator.html">calculator</a>
+     is an interpreter to evaluate
+     expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi.
+     For example: calculator("1.5*sin(pi/6)");<br>&nbsp;</li>
+<li> Function <a href="Modelica.Utilities.Examples.expression.html">expression</a>
+     is the basic function used in "calculator" to evaluate an expression.
+     It is useful if the expression interpreter is used in a larger
+     scan operation (such as readRealParameter below).<br>&nbsp;</li>
+<li> Function <a href="Modelica.Utilities.Examples.readRealParameter.html">readRealParameter</a>
+     reads the value of a parameter
+     from file, given the file and the parameter name. The value
+     on file is interpreted with the Examples.expression function
+     and can therefore be an expression.<br>&nbsp;</li>
+<li> Model <a href="Modelica.Utilities.Examples.readRealParameterModel.html">readRealParameterModel</a>
+     is a test model to demonstrate the usage of "readRealParameter". The model
+     contains 3 parameters that are read from file <a href="resources/Modelica.Utilities.Examples_info_001.txt">Examples_readRealParameters.txt</a>.<br>&nbsp;
+     </li>
+<li> Model <a href="Modelica.Utilities.Examples.WriteRealMatrixToFile.html">WriteRealMatrixToFile</a>
+     demonstrates the usage of function "Streams.writeReaMatrix" to store a matrix in various MATLAB MAT formats on file.<br>&nbsp;
+     </li>
+<li> Model <a href="Modelica.Utilities.Examples.ReadRealMatrixFromFile.html">ReadRealMatrixFromFile</a>
+     demonstrates the usage of functions "Streams.readMatrixSize" and "Streams.readRealMatrix"
+     to read a matrix in various MATLAB MAT formats from file.
+     </li>
+</ul>
+</div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,193 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Examples.Noise.AutomaticSeed</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Blocks.Examples.Noise.html">Noise</a></li>
+  <li><a href="Modelica.Blocks.Examples.Noise.AutomaticSeed.html">AutomaticSeed</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>AutomaticSeed</h1>
+    <p>Demonstrates noise with startTime and automatic local seed for UniformNoise</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Examples.Noise.AutomaticSeed_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Blocks.Examples.Noise.AutomaticSeed_diagram_large.png"><img src="resources/diagrams/Modelica.Blocks.Examples.Noise.AutomaticSeed_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example demonstrates manual and automatic seed selection of
+<a href="Modelica.Blocks.Noise.UniformNoise.html">UniformNoise</a> blocks, as well
+as starting the noise at startTime = 0.5 s with an output value of y = -1 before this
+time. All noise blocks in this example generate uniform noise in the
+band y_min=-1 .. y_max=3 with samplePeriod = 0.01 s.
+</p>
+
+<p>
+The blocks automaticSeed1, automaticSeed2, automaticSeed3 use the default
+option to automatically initialize the pseudo random number generators
+of the respective block. As a result, different noise is generated, see next
+diagram:
+</p>
+
+<blockquote>
+<img src="resources/Modelica.Blocks.Examples.Noise.AutomaticSeed_info_001.png">
+</blockquote>
+
+<p>
+The blocks manualSeed1, manualSeed2, manualSeed3 use manual selection of the local seed
+(useAutomaticLocalSeed = false). They use a fixedLocalSeed of 1, 2, and 3 respectively.
+Again, different noise is generated, see next diagram:
+</p>
+
+<blockquote>
+<img src="resources/Modelica.Blocks.Examples.Noise.AutomaticSeed_info_002.png">
+</blockquote>
+
+<p>
+Try to set fixedLocalSeed = 1 in block manualSeed2. As a result, the blocks manualSeed1 and
+manualSeed2 will produce exactly the same noise.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>startTime</th>
+      <td>
+        <p><span>Value:</span> 0.5</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Start time of noise</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_off</th>
+      <td>
+        <p><span>Value:</span> -1.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Output of block before startTime</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>manualSeed1_y</th>
+      <td>
+        <p><span>Default Value:</span> manualSeed1.y</p>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    <tr>
+      <th>manualSeed2_y</th>
+      <td>
+        <p><span>Default Value:</span> manualSeed2.y</p>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    <tr>
+      <th>manualSeed3_y</th>
+      <td>
+        <p><span>Default Value:</span> manualSeed3.y</p>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Noise.GlobalSeed_32x32.png"></td>
+      <th>globalSeed</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Noise.GlobalSeed.html">GlobalSeed</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Noise.UniformNoise_32x32.png"></td>
+      <th>automaticSeed1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Noise.UniformNoise.html">UniformNoise</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Noise.UniformNoise_32x32.png"></td>
+      <th>automaticSeed2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Noise.UniformNoise.html">UniformNoise</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Noise.UniformNoise_32x32.png"></td>
+      <th>automaticSeed3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Noise.UniformNoise.html">UniformNoise</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Noise.UniformNoise_32x32.png"></td>
+      <th>manualSeed1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Noise.UniformNoise.html">UniformNoise</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Noise.UniformNoise_32x32.png"></td>
+      <th>manualSeed2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Noise.UniformNoise.html">UniformNoise</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Noise.UniformNoise_32x32.png"></td>
+      <th>manualSeed3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Noise.UniformNoise.html">UniformNoise</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

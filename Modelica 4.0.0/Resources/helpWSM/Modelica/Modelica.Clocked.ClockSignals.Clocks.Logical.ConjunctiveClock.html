@@ -1,0 +1,200 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.ClockSignals.Clocks.Logical.ConjunctiveClock</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.ClockSignals.html">ClockSignals</a></li>
+  <li><a href="Modelica.Clocked.ClockSignals.Clocks.html">Clocks</a></li>
+  <li><a href="Modelica.Clocked.ClockSignals.Clocks.Logical.html">Logical</a></li>
+  <li><a href="Modelica.Clocked.ClockSignals.Clocks.Logical.ConjunctiveClock.html">ConjunctiveClock</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ConjunctiveClock</h1>
+    <p>Logical clock ticking whenever all input clocks ticked at least once, then resets and starts the next conjunctive cycle</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.ClockSignals.Clocks.Logical.ConjunctiveClock_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Clocked.ClockSignals.Clocks.Logical.ConjunctiveClock_diagram_large.png"><img src="resources/diagrams/Modelica.Clocked.ClockSignals.Clocks.Logical.ConjunctiveClock_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+For a simple example cf. the
+<a href="Modelica.Clocked.Examples.Elementary.ClockSignals.LogicalSample.html">logical sampling example</a>.
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useSolver</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if solverMethod shall be explicitly defined</p>
+      </td>
+    </tr>
+    <tr>
+      <th>solverMethod</th>
+      <td>
+        <p><span>Value:</span> "ExplicitEuler"</p>
+        <p><span>Type:</span> <a href="../ModelicaServices/ModelicaServices.Types.SolverMethod.html">SolverMethod</a></p>
+        <p><span>Description:</span> Integration method used for discretized continuous-time partitions</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nu</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of input connections.</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Clocked.ClockSignals.Interfaces.ClockOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.ClockSignals.Interfaces.ClockOutput.html">ClockOutput</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Clocked.ClockSignals.Interfaces.ClockVectorInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.ClockSignals.Interfaces.ClockVectorInput.html">ClockVectorInput[nu]</a></p>
+        <p><span>Description:</span> Vector of Clock input signals.</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.MathBoolean.And_32x32.png"></td>
+      <th>combinator</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.MathBoolean.And.html">And</a></p>
+        <p><span>Description:</span> Replaceable logical combinator applied on vector of Clock input signals.
+     Important: Must not be any kind of negation since such would result in
+     infinite many ticks for an infinitesimal short time period.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.ClockSignals.Clocks.EventClock_32x32.png"></td>
+      <th>clock</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.ClockSignals.Clocks.EventClock.html">EventClock</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.NonPeriodic.ClockToBoolean_32x32.png"></td>
+      <th>input_ticked</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.BooleanSignals.NonPeriodic.ClockToBoolean.html">ClockToBoolean[nu]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.And_32x32.png"></td>
+      <th>forbidden_state</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Logical.And.html">And[nu]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.BooleanConstant_32x32.png"></td>
+      <th>S_false</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.BooleanConstant.html">BooleanConstant[nu]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.LogicalSwitch_32x32.png"></td>
+      <th>suppress_S</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Logical.LogicalSwitch.html">LogicalSwitch[nu]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.RSFlipFlop_32x32.png"></td>
+      <th>input_memory</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Logical.RSFlipFlop.html">RSFlipFlop[nu]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.NonPeriodic.ClockToBoolean_32x32.png"></td>
+      <th>reset_ticked</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.BooleanSignals.NonPeriodic.ClockToBoolean.html">ClockToBoolean</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.BooleanReplicator_32x32.png"></td>
+      <th>splitter</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Routing.BooleanReplicator.html">BooleanReplicator</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.ClockSignals.LogicalSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.ClockSignals.LogicalSample.html">LogicalSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.ClockSignals</span></p>
+        <p>Simple example of conjunctive and disjunctive logical clocks, combining clock signals to derive new event driven clocks.</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

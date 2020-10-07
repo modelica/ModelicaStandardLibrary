@@ -1,0 +1,106 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Utilities.Streams.readLine</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Streams.html">Streams</a></li>
+  <li><a href="Modelica.Utilities.Streams.readLine.html">readLine</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>readLine</h1>
+    <p>Read a line of text from a file and return it in a string</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Streams.readLine_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+(string, endOfFile) = Streams.<strong>readLine</strong>(fileName, lineNumber)
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <strong>readLine</strong>(..) opens the given file, reads enough of the
+content to get the requested line, and returns the line as a string.
+Lines are separated by LF or CR-LF; the returned string does not
+contain the line separator. The file might remain open after
+the call.
+</p>
+<p>
+If lineNumber > countLines(fileName), an empty string is returned
+and endOfFile=true. Otherwise endOfFile=false.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(string, endOfFile) = readLine(fileName, lineNumber)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>fileName</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Name of the file that shall be read</p>
+      </td>
+    </tr>
+    <tr>
+      <th>lineNumber</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of line to read</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>string</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Line of text</p>
+      </td>
+    </tr>
+    <tr>
+      <th>endOfFile</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> If true, end-of-file was reached when trying to read line</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

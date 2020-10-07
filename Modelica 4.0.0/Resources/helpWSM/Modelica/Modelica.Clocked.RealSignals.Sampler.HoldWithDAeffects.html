@@ -1,0 +1,305 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.RealSignals.Sampler.HoldWithDAeffects</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.html">RealSignals</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.Sampler.html">Sampler</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects.html">HoldWithDAeffects</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>HoldWithDAeffects</h1>
+    <p>Hold with (simulated) Digital-Analog converter effects and computational delay</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects_diagram_large.png"><img src="resources/diagrams/Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This block is similar to the
+<a href="Modelica.Clocked.RealSignals.Sampler.Hold.html">Hold</a>
+block. The only difference is that simulated real-world effects are applied on the
+clocked input signal u before transforming the signal to a continuous-time signal
+with a zero-order hold. In particular:
+</p>
+
+<ul>
+<li> The output is delayed by a fraction of the clock period,
+     if parameter <strong>computationalDelay</strong> = true.
+     The delay is defined by shiftCounter/resolution*interval(),
+     where <strong>shiftCounter</strong> and <strong>resolution</strong> are Integer parameters and
+     interval() is the time duration from the previous to the current
+     clock tick. The maximal possible computational delay is one clock
+     duration, and therefore there is the restriction that
+     shiftCounter &le; resolution.</li>
+<li> The output is limited, if parameter <strong>limited</strong> = true.</li>
+<li> The output is value discretized in the form of an Digital-Analog converter
+     with a definable number of bits,
+     if parameters <strong>limited</strong> = true, and <strong>quantized</strong> = true.</li>
+</ul>
+
+<h4>Example</h4>
+
+<p>
+The following
+<a href="Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects1.html">example</a>
+samples a sine signal with an amplitude of 2.0 with a periodic clock of 20 ms period
+and delays it for 2 sample periods.
+The resulting signal is hold with the HoldWithDAeffects block. As a result, the clock of hold.u starts
+ticking at 40 ms. The output hold.y of the block is a continuous-time signal that is present
+from the start of the simulation. Before the first tick of the clock of hold.u, it is set
+to 0.5 (= the value of parameter hold.y_start). Additionally,
+the following effects are added to the hold block:</p>
+<ul>
+<li> The output is limited to +/- 1.9.</li>
+<li> A computational delay of half of a sample period (= 1/2*20 ms = 10 ms)
+     is defined.<br></li>
+</ul>
+<table border="0" cellspacing="0" cellpadding="2">
+<tr><td width="50"></td>
+    <td valign="bottom"><img src="resources/Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects_info_001.png" alt="HoldWithDAeffects1_Model.png"></td>
+    <td valign="bottom">&nbsp;&nbsp;&nbsp;
+                        <img src="resources/Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects_info_002.png" alt="HoldWithDAeffects1_Result.png"></td>
+    </tr>
+<tr><td></td>
+    <td align="center">model</td>
+    <td align="center">simulation result</td>
+   </tr>
+</table>
+
+<p>
+<br>Due to the limitation of the output signal, the values of hold.u &ge; 1.9
+    are limited to 1.9.
+</p>
+
+<p>
+If the hold output is delayed by one sample period, then the <strong>previous</strong>(&hellip;) value of the
+input is output, and the first tick is delayed by one sample period,
+as shown by the
+<a href="Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects2.html">modified example</a>
+from above:<br>
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+<tr><td width="50"></td>
+    <td valign="bottom"><img src="resources/Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects_info_003.png" alt="HoldWithDAeffects2_Model.png"></td>
+    <td valign="bottom">&nbsp;&nbsp;&nbsp;
+                        <img src="resources/Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects_info_004.png" alt="HoldWithDAeffects2_Result.png"></td>
+    </tr>
+<tr><td></td>
+    <td align="center">model</td>
+    <td align="center">simulation result</td>
+   </tr>
+</table>
+<p>
+<br>Note, the computational delay of one sample period is defined
+    by shiftCounter=1, resolution=1, as shown in the icon of the
+    hold block.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y_start</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Value of output y before the first tick of the clock associated to input u</p>
+      </td>
+    </tr>
+    <tr>
+      <th>computationalDelay</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> =true, if a computational delay should be imposed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>shiftCounter</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> (min=0, max=resolution), computational delay = interval()*shiftCounter/resolution</p>
+      </td>
+    </tr>
+    <tr>
+      <th>resolution</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Time quantization resolution of sample interval</p>
+      </td>
+    </tr>
+    <tr>
+      <th>limited</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if output is limited</p>
+      </td>
+    </tr>
+    <tr>
+      <th>quantized</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if output quantization effects included</p>
+      </td>
+    </tr>
+    <tr>
+      <th>yMax</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Upper limit of output (if limited = true)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>yMin</th>
+      <td>
+        <p><span>Value:</span> -yMax</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Lower limit of output (if limited = true)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>bits</th>
+      <td>
+        <p><span>Value:</span> 8</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of bits of quantization (if quantized = true)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Connector of clocked, Real input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Connector of continuous-time, Real output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.Limiter_32x32.png"></td>
+      <th>limiter</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.Limiter.html">Limiter</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.Quantization_32x32.png"></td>
+      <th>quantization</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.Quantization.html">Quantization</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.ComputationalDelay_32x32.png"></td>
+      <th>compDelay</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.ComputationalDelay.html">ComputationalDelay</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.Hold_32x32.png"></td>
+      <th>hold1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.RealSignals.Sampler.Hold.html">Hold</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWith_AD_DA_Effects_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWith_AD_DA_Effects.html">ClockedWith_AD_DA_Effects</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discrete controller and simulated AD and DA effects</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects1.html">HoldWithDAeffects1</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a HoldWithDAeffects block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects2.html">HoldWithDAeffects2</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a HoldWithDAeffects block for Real signals (with a computational delay of one sample period)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

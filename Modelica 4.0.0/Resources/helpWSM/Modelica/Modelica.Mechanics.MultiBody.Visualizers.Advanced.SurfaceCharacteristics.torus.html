@@ -1,0 +1,172 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.html">Advanced</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.html">SurfaceCharacteristics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus.html">torus</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>torus</h1>
+    <p>Function defining the surface characteristic of a torus</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Function <strong>torus</strong> computes the X, Y and Z arrays to visualize a torus
+with model <a href="Modelica.Mechanics.MultiBody.Visualizers.Torus.html">Torus</a>.
+The left image below shows a torus with <var>R</var>&nbsp;=&nbsp;0.5&nbsp;m and
+<var>r</var>&nbsp;=&nbsp;0.2&nbsp;m.
+The right images below shows the torus with the additional parameter
+settings:
+</p>
+<blockquote><pre>
+opening    =   45 degree
+startAngle = -135 degree
+stopAngle  =  135 degree
+</pre></blockquote>
+
+<blockquote>
+<img src="resources/Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus_info_001.png">
+</blockquote>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(X, Y, Z, C) = torus(nu, nv, multiColoredSurface, R, r, opening, startAngle, stopAngle)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>nu</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of points in u-Dimension</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nv</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of points in v-Dimension</p>
+      </td>
+    </tr>
+    <tr>
+      <th>multiColoredSurface</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true: Color is defined for each surface point</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Major radius (distance from center of torus to center of tube)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r</th>
+      <td>
+        <p><span>Default Value:</span> 0.2</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Minor radius (radius of tube)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>opening</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Opening angle of torus</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startAngle</th>
+      <td>
+        <p><span>Default Value:</span> -Modelica.Constants.pi</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Start angle of torus slice</p>
+      </td>
+    </tr>
+    <tr>
+      <th>stopAngle</th>
+      <td>
+        <p><span>Default Value:</span> Modelica.Constants.pi</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> End angle of torus slice</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>X</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[nu,nv]</a> (m)</p>
+        <p><span>Description:</span> [nu,nv] positions of points in x-Direction resolved in surface frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[nu,nv]</a> (m)</p>
+        <p><span>Description:</span> [nu,nv] positions of points in y-Direction resolved in surface frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Z</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[nu,nv]</a> (m)</p>
+        <p><span>Description:</span> [nu,nv] positions of points in z-Direction resolved in surface frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>
+        <p><span>Type:</span> Real[if multiColoredSurface then nu else 0,if multiColoredSurface then nv else 0,3]</p>
+        <p><span>Description:</span> [nu,nv,3] Color array, defining the color for each surface point</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>
