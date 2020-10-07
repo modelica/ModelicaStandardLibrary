@@ -502,7 +502,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           endAngle=61,
           closure=EllipseClosure.None),
         Line(
-          points={{-70,30},{-70,-6}},
+          points={{-70,30},{-70,-8}},
           thickness=0.5),
         Line(
           points={{-56,14},{-84,-14}},

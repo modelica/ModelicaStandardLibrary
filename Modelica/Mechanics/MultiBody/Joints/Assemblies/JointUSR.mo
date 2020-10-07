@@ -469,7 +469,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           color={95,95,95},
           thickness=0.5),
         Line(
-          points={{-70,30},{-70,-6}},
+          points={{-70,30},{-70,-8}},
           thickness=0.5),
         Ellipse(
           extent={{-86,-8},{-54,8}},
