@@ -1,0 +1,131 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Machines.Sensors.HallSensor</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Sensors.html">Sensors</a></li>
+  <li><a href="Modelica.Electrical.Machines.Sensors.HallSensor.html">HallSensor</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>HallSensor</h1>
+    <p>Hall sensor</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.Sensors.HallSensor_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Simple model of a hall sensor, i.e. measuring the angle of the flange (w.r.t. the optional support), multiplying by the number of phases p to obtain the electrical angle,
+and adding a correction term i.e. the initial angle of the flange phi0.
+</p>
+<p>
+Note that phi0 has to be set that way, that in shaft position phi0 the flux linkage of phase 1 is a maximum.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useSupport</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if support flange enabled, otherwise implicitly grounded</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of pole pairs</p>
+      </td>
+    </tr>
+    <tr>
+      <th>phi0</th>
+      <td>
+        <p><span>Value:</span> -pi / p</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Initial mechanical angle</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flange</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> Flange of shaft</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Support_16x16.png"></td>
+      <th>support</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Support.html">Support</a></p>
+        <p><span>Description:</span> Support/housing of component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> "Electrical angle"</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_NoLoad_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_NoLoad.html">SMPM_NoLoad</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.SynchronousMachines</span></p>
+        <p>SMPM at no-load</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

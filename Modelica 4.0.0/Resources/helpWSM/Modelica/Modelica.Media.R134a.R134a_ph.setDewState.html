@@ -1,0 +1,103 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Media.R134a.R134a_ph.setDewState</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.R134a.html">R134a</a></li>
+  <li><a href="Modelica.Media.R134a.R134a_ph.html">R134a_ph</a></li>
+  <li><a href="Modelica.Media.R134a.R134a_ph.setDewState.html">setDewState</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>setDewState</h1>
+    <p>Return the thermodynamic state on the dew line</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.R134a.R134a_ph.setDewState_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This function shall be used in order to calculate the thermodynamic state record for the vapor phase boundary. It requires the saturation record as input which can be determined by both functions setSat_p and setSat_T:
+</p>
+<p>
+Example:
+</p>
+<blockquote><pre>
+Medium.AbsolutePressure p=3e5;
+// Viscosity on the vapor phase boundary
+SI.DynamicViscosity eta_vap;
+
+equation
+
+eta_vap = Medium.DynamicViscosity(Medium.setBubbleState(Medium.setSat_p(p)));
+</pre></blockquote>
+
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">state = setDewState(sat, phase)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>sat</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.SaturationProperties.html">SaturationProperties</a></p>
+        <p><span>Description:</span> Saturation point</p>
+      </td>
+    </tr>
+    <tr>
+      <th>phase</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.FixedPhase.html">FixedPhase</a></p>
+        <p><span>Description:</span> Phase: default is one phase</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>state</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.ThermodynamicState.html">ThermodynamicState</a></p>
+        <p><span>Description:</span> Complete thermodynamic state info</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

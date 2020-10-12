@@ -1,0 +1,166 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.Translational.Interfaces.PartialForce</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Translational.html">Translational</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Interfaces.PartialForce.html">PartialForce</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PartialForce</h1>
+    <p>Partial model of a force acting at the flange (accelerates the flange)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.PartialForce_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Partial model of force that accelerates the flange.
+</p>
+
+<p>
+If <em>useSupport=true</em>, the support connector is conditionally enabled
+and needs to be connected.<br>
+If <em>useSupport=false</em>, the support connector is conditionally disabled
+and instead the component is internally fixed to ground.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useSupport</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if support flange enabled, otherwise implicitly grounded</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flange</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> Flange of component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Support_16x16.png"></td>
+      <th>support</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Support.html">Support</a></p>
+        <p><span>Description:</span> Support/housing of component</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sources.EddyCurrentForce_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sources.EddyCurrentForce.html">EddyCurrentForce</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sources</span></p>
+        <p>Simple model of a translational eddy current brake</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sources.ForceStep_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sources.ForceStep.html">ForceStep</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sources</span></p>
+        <p>Constant force, not dependent on speed</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sources.ConstantSpeed_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sources.ConstantSpeed.html">ConstantSpeed</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sources</span></p>
+        <p>Constant speed, not dependent on force</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sources.SignForce_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sources.SignForce.html">SignForce</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sources</span></p>
+        <p>Constant force changing sign with speed</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sources.ConstantForce_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sources.ConstantForce.html">ConstantForce</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sources</span></p>
+        <p>Constant force, not dependent on speed</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sources.QuadraticSpeedDependentForce_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sources.QuadraticSpeedDependentForce.html">QuadraticSpeedDependentForce</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sources</span></p>
+        <p>Quadratic dependency of force versus speed</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sources.LinearSpeedDependentForce_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sources.LinearSpeedDependentForce.html">LinearSpeedDependentForce</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sources</span></p>
+        <p>Linear dependency of force versus speed</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.RollingResistance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.RollingResistance.html">RollingResistance</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span></p>
+        <p>Resistance of a rolling wheel</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

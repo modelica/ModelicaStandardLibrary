@@ -1,0 +1,198 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Analog.Examples.Utilities.Nand</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Analog.html">Analog</a></li>
+  <li><a href="Modelica.Electrical.Analog.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.Analog.Examples.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Electrical.Analog.Examples.Utilities.Nand.html">Nand</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Nand</h1>
+    <p>CMOS NAND Gate (see Tietze/Schenk, page 157)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.Nand_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Analog.Examples.Utilities.Nand_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Analog.Examples.Utilities.Nand_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>The nand gate is a basic CMOS building block. It consists of four CMOS transistors.</p>
+<p><strong>Reference:</strong></p>
+<p>Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin Heidelberg NewYork 1980, p. 157</p>
+</div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.Pin_16x16.png"></td>
+      <th>x1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.Pin.html">Pin</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.Pin_16x16.png"></td>
+      <th>x2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.Pin.html">Pin</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.Pin_16x16.png"></td>
+      <th>Vdd</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.Pin.html">Pin</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.Pin_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.Pin.html">Pin</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(12)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Semiconductors.PMOS_32x32.png"></td>
+      <th>TP1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Semiconductors.PMOS.html">PMOS</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Semiconductors.PMOS_32x32.png"></td>
+      <th>TP2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Semiconductors.PMOS.html">PMOS</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Semiconductors.NMOS_32x32.png"></td>
+      <th>TN1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Semiconductors.NMOS.html">NMOS</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Semiconductors.NMOS_32x32.png"></td>
+      <th>TN2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Semiconductors.NMOS.html">NMOS</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Capacitor_32x32.png"></td>
+      <th>C4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Capacitor.html">Capacitor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Capacitor_32x32.png"></td>
+      <th>C7</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Capacitor.html">Capacitor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>Gnd</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>Gnd2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>Gnd3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>Gnd6</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>Gnd7</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>Gnd8</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.NandGate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.NandGate.html">NandGate</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span></p>
+        <p>CMOS NAND Gate (see Tietze/Schenk, page 157)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

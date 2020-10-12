@@ -1,0 +1,308 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Continuous.Integrator</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Continuous.html">Continuous</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Integrator.html">Integrator</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Integrator</h1>
+    <p>Output the integral of the input signal with optional reset</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Continuous.Integrator_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This blocks computes output <strong>y</strong> as
+<em>integral</em> of the input <strong>u</strong> multiplied with
+the gain <em>k</em>:
+</p>
+<blockquote><pre>
+    k
+y = - u
+    s
+</pre></blockquote>
+
+<p>
+It might be difficult to initialize the integrator in steady state.
+This is discussed in the description of package
+<a href="Modelica.Blocks.Continuous.html#info">Continuous</a>.
+</p>
+
+<p>
+If the <em>reset</em> port is enabled, then the output <strong>y</strong> is reset to <em>set</em>
+or to <em>y_start</em> (if the <em>set</em> port is not enabled), whenever the <em>reset</em>
+port has a rising edge.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>k</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Integrator gain</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_reset</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if reset port enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_set</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if set port enabled and used as reinitialization value when reset</p>
+      </td>
+    </tr>
+    <tr>
+      <th>initType</th>
+      <td>
+        <p><span>Value:</span> Init.InitialState</p>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Types.Init.html">Init</a></p>
+        <p><span>Description:</span> Type of initialization (1: no init, 2: steady state, 3,4: initial output)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_start</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Initial or guess value of output (= state)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Connector of Real input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Connector of Real output signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanInput_16x16.png"></td>
+      <th>reset</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanInput.html">BooleanInput</a></p>
+        <p><span>Description:</span> Optional connector of reset signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>set</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Optional connector of set signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(11)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.PID_Controller_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.PID_Controller.html">PID_Controller</a></p>
+        <p><span>Modelica.Blocks.Examples</span></p>
+        <p>Demonstrates the usage of a Continuous.LimPID controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.SlewRateLimiter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.SlewRateLimiter.html">SlewRateLimiter</a></p>
+        <p><span>Modelica.Blocks.Examples</span></p>
+        <p>Demonstrate usage of Nonlinear.SlewRateLimiter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.SinCosEncoder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.SinCosEncoder.html">SinCosEncoder</a></p>
+        <p><span>Modelica.Blocks.Examples</span></p>
+        <p>Evaluation of a sinusoidal encoder</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.Examples.BatteryDischargeCharge_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.Examples.BatteryDischargeCharge.html">BatteryDischargeCharge</a></p>
+        <p><span>Modelica.Electrical.Batteries.Examples</span></p>
+        <p>Discharge and charge idealized battery</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.Examples.SuperCapDischargeCharge_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.Examples.SuperCapDischargeCharge.html">SuperCapDischargeCharge</a></p>
+        <p><span>Modelica.Electrical.Batteries.Examples</span></p>
+        <p>Discharge and charge idealized supercap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.Examples.CCCVcharging_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.Examples.CCCVcharging.html">CCCVcharging</a></p>
+        <p><span>Modelica.Electrical.Batteries.Examples</span></p>
+        <p>Charge a battery with constant current - constant voltage characteristic</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.Examples.CCCV_Cell_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.Examples.CCCV_Cell.html">CCCV_Cell</a></p>
+        <p><span>Modelica.Electrical.Batteries.Examples</span></p>
+        <p>Charge a cell with constant current - constant voltage characteristic</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.Examples.CCCV_CellRC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.Examples.CCCV_CellRC.html">CCCV_CellRC</a></p>
+        <p><span>Modelica.Electrical.Batteries.Examples</span></p>
+        <p>Charge a transient cell with constant current - constant voltage characteristic</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.Examples.CCCV_Stack_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.Examples.CCCV_Stack.html">CCCV_Stack</a></p>
+        <p><span>Modelica.Electrical.Batteries.Examples</span></p>
+        <p>Charge a stack with constant current - constant voltage characteristic</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.Examples.CCCV_StackRC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.Examples.CCCV_StackRC.html">CCCV_StackRC</a></p>
+        <p><span>Modelica.Electrical.Batteries.Examples</span></p>
+        <p>Charge a transient stack with constant current - constant voltage characteristic</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM.html">ThreePhaseTwoLevel_PWM</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel</span></p>
+        <p>Test of pulse width modulation methods</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.PID_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Continuous.PID.html">PID</a></p>
+        <p><span>Modelica.Blocks.Continuous</span></p>
+        <p>PID-controller in additive description form</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.LimPID_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Continuous.LimPID.html">LimPID</a></p>
+        <p><span>Modelica.Blocks.Continuous</span></p>
+        <p>P, PI, PD, and PID controller with limited output, anti-windup compensation, setpoint weighting and optional feed-forward</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.CylinderAirCharge_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.CylinderAirCharge.html">CylinderAirCharge</a></p>
+        <p><span>Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl</span></p>
+        <p>Integrates the air mass flow into a cylinder. After the charge for one
+   cylinder is complete, resets the mass to 0.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.LimitedPI_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.LimitedPI.html">LimitedPI</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities</span></p>
+        <p>Limited PI-controller with anti-windup and feed-forward</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.IdealDcDc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.IdealDcDc.html">IdealDcDc</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities</span></p>
+        <p>Ideal DC-DC inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.SinCosEvaluation_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Utilities.SinCosEvaluation.html">SinCosEvaluation</a></p>
+        <p><span>Modelica.Electrical.Machines.Utilities</span></p>
+        <p>Evaluation of the signals of a sin-cos-resolver</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

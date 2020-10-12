@@ -1,0 +1,153 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.RealSignals.NonPeriodic.FractionalDelay</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.html">RealSignals</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.NonPeriodic.html">NonPeriodic</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.NonPeriodic.FractionalDelay.html">FractionalDelay</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>FractionalDelay</h1>
+    <p>Delay the clocked input signal for a fractional multiple of the sample period</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.RealSignals.NonPeriodic.FractionalDelay_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This block delays a signal. Similar to the <a href="Modelica.Clocked.RealSignals.Sampler.ShiftSample.html">ShiftSample</a> block the first activation of the clock of the output y is delayed by <strong>shiftCounter</strong>/<strong>resolution</strong>*interval(u) relative to the input u (interval(u) is the sample period of the clock associated to input u). However, in contrast to ShiftSample, the block provides a buffer for the input values and truly delays the input signal.
+</p>
+
+<h4>Example</h4>
+
+<p>
+The following
+<a href="Modelica.Clocked.Examples.Elementary.RealSignals.FractionalDelay.html">example</a>
+shows how a sample sine signal is delayed.
+<br>
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+<tr><td width="50"></td>
+    <td valign="bottom"><img src="resources/Modelica.Clocked.RealSignals.NonPeriodic.FractionalDelay_info_001.png" alt="FractionalDelay_Model.png"></td>
+    <td valign="bottom">&nbsp;&nbsp;&nbsp;
+                        <img src="resources/Modelica.Clocked.RealSignals.NonPeriodic.FractionalDelay_info_002.png" alt="FractionalDelay_Result.png"></td>
+    </tr>
+<tr><td></td>
+    <td align="center">model</td>
+    <td align="center">simulation result</td>
+   </tr>
+</table>
+<p>
+The parameter values <strong>shiftCounter</strong>=3 and <strong>resolution</strong>=2 are visible at the bottom of the fractionalDelay block.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>shift</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Delay = interval() * shift/resolution</p>
+      </td>
+    </tr>
+    <tr>
+      <th>resolution</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Time quantization resolution of sample interval</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Connector of clocked, Real input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Connector of clocked, Real output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.FractionalDelay_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.FractionalDelay.html">FractionalDelay</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a FractionalDelay block for Real signals</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.InductionToPowerDelay_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.InductionToPowerDelay.html">InductionToPowerDelay</a></p>
+        <p><span>Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl</span></p>
+        <p>Accounts for the induction-to-power stroke lag.</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Frames.resolveRelative</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.resolveRelative.html">resolveRelative</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>resolveRelative</h1>
+    <p>Transform vector from frame 1 to frame 2 using absolute orientation objects of frame 1 and of frame 2</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.resolveRelative_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+v2 = Frames.<strong>resolveRelative</strong>(v1, R1, R2);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<strong>resolveRelative</strong>(v1,R1,R2)</code> returns vector v
+resolved in frame&nbsp;2 (= v1) from vector v resolved in frame&nbsp;1 (= v1) given the
+orientation object R1 that describes the orientation to rotate frame&nbsp;0 into frame&nbsp;1 and
+orientation object R2 that describes the orientation to rotate frame&nbsp;0 into frame&nbsp;2.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">v2 = resolveRelative(v1, R1, R2)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>v1</th>
+      <td>
+        <p><span>Type:</span> Real[3]</p>
+        <p><span>Description:</span> Vector in frame 1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object to rotate frame 0 into frame 1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object to rotate frame 0 into frame 2</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>v2</th>
+      <td>
+        <p><span>Type:</span> Real[3]</p>
+        <p><span>Description:</span> Vector in frame 2</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

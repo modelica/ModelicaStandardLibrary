@@ -1,0 +1,136 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.RealSignals.Sampler.AssignClockVectorized</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.html">RealSignals</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.Sampler.html">Sampler</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.Sampler.AssignClockVectorized.html">AssignClockVectorized</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>AssignClockVectorized</h1>
+    <p>Assign a clock to a clocked Real signal vector</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.AssignClockVectorized_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This block assigns a clock to the Real <strong>vector</strong> input signal u
+and provides u as vector output signal y.
+</p>
+
+<h4>Example</h4>
+
+<p>
+The following
+<a href="Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockVectorized.html">example</a>
+shows two discrete counters. In order to execute the counters with a sample period of 20ms an AssignClockVectorized block is used. Due to clock inference all equations within the blocks are deduced to be active at the clock ticks given by the periodicClock block.
+<br>
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+<tr><td width="50"></td>
+    <td valign="bottom"><img src="resources/Modelica.Clocked.RealSignals.Sampler.AssignClockVectorized_info_001.png" alt="AssignClockVectorized_Model.png"></td>
+    <td valign="bottom">&nbsp;&nbsp;&nbsp;
+                        <img src="resources/Modelica.Clocked.RealSignals.Sampler.AssignClockVectorized_info_002.png" alt="AssignClockVectorized_Result.png"></td>
+    </tr>
+<tr><td></td>
+    <td align="center">model</td>
+    <td align="center">simulation result</td>
+   </tr>
+</table>
+<p>
+At every clock tick (that is every 20ms) the output of the unitDelay1 block is incremented by one and that of the unitDelay2 block is incremented by two. The vector size of the input and output is provided by parameter <strong>n</strong>=2 which is also shown in the icon
+of block assignClock1.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Size of input signal vector u (= size of output signal vector y)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput[n]</a></p>
+        <p><span>Description:</span> Connector of clocked, Real input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[n]</a></p>
+        <p><span>Description:</span> Connector of clocked, Real output signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Clocked.ClockSignals.Interfaces.ClockInput_16x16.png"></td>
+      <th>clock</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.ClockSignals.Interfaces.ClockInput.html">ClockInput</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockVectorized_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockVectorized.html">AssignClockVectorized</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a AssignClockVectorized block for Real signals</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

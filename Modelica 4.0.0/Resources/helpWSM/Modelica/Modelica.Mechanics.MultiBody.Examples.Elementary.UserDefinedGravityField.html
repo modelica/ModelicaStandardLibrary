@@ -1,0 +1,143 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Examples.Elementary.UserDefinedGravityField</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.html">Elementary</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.UserDefinedGravityField.html">UserDefinedGravityField</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>UserDefinedGravityField</h1>
+    <p>Demonstrate the modeling of a user-defined gravity field</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.UserDefinedGravityField_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.MultiBody.Examples.Elementary.UserDefinedGravityField_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.MultiBody.Examples.Elementary.UserDefinedGravityField_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example demonstrates a user defined gravity field.
+Function "world.gravityAcceleration" is redeclared to function
+<a href="Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.theoreticalNormalGravityWGS84.html">theoreticalNormalGravityWGS84</a>
+that computes the theoretical gravity of the
+<a href="https://earth-info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf">WGS84 ellipsoid earth model</a> at and close to
+the earth ellipsoid surface. In the gravity field, a large, single pendulum is present. Via parameter "geodeticLatitude", the geodetic latitude on the earth can be defined, where the pendulum is present. The world frame is located at the WGS84 earth ellipsoid at this latitude. The result variable
+"gravity" is the gravity vector at the center of mass of the pendulum mass.
+Since the height of this mass is changing, the value of the gravity is also changing
+(the difference is in the order of 0.00001).
+</p>
+
+<p>
+The result of the simulation is slightly different at the equator (geodeticLatitude=0)
+and at the poles (geodeticLatitude=90). For example, after 10 s of simulation time
+the rotation angle of the pendulum, rev.phi, has the following values:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><td><strong><em>latitude [deg]</em></strong></td>
+    <td><strong><em>rev.phi [rad]</em></strong></td></tr>
+<tr><td> = 0</td>
+    <td>= -2.39 rad</td></tr>
+
+<tr><td>= 90</td>
+    <td>= -2.42 rad</td></tr>
+</table>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>geodeticLatitude</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.NonSI.Angle_deg.html">Angle_deg</a> (°)</p>
+        <p><span>Description:</span> Geodetic latitude</p>
+      </td>
+    </tr>
+    <tr>
+      <th>height</th>
+      <td>
+        <p><span>Value:</span> 20</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position</a> (m)</p>
+        <p><span>Description:</span> Height of pendulum attachment point over WGS84 earth ellipsoid</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Revolute_32x32.png"></td>
+      <th>rev</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Joints.Revolute.html">Revolute</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Damper_32x32.png"></td>
+      <th>damper</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Damper.html">Damper</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.Body_32x32.png"></td>
+      <th>body</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.Body.html">Body</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedTranslation_32x32.png"></td>
+      <th>fixedTranslation</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html">FixedTranslation</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

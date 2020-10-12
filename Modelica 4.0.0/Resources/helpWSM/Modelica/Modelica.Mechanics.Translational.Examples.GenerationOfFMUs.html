@@ -1,0 +1,198 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.Translational.Examples.GenerationOfFMUs</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Translational.html">Translational</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Examples.GenerationOfFMUs.html">GenerationOfFMUs</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>GenerationOfFMUs</h1>
+    <p>Example to demonstrate variants to generate FMUs (Functional Mock-up Units)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Translational.Examples.GenerationOfFMUs_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.Translational.Examples.GenerationOfFMUs_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.Translational.Examples.GenerationOfFMUs_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example demonstrates how to generate an input/output block (e.g. in form of an
+FMU - <a href="https://fmi-standard.org">Functional Mock-up Unit</a>) from various Translational components.
+The goal is to export such an input/output block from Modelica and import
+it in another modeling environment. The essential issue is that before
+exporting it must be known in which way the component is utilized in the
+target environment. Depending on the target usage, different flange variables
+need to be in the interface with either input or output causality.
+Note, this example model can be used to test the FMU export/import of a Modelica tool.
+Just export the components marked in the icons as "toFMU" as FMUs and import
+them back. The models should then still work and give the same results as a
+pure Modelica model.
+</p>
+
+<p>
+<strong>Connecting two masses</strong><br>
+The upper part (DirectMass, InverseMass)
+demonstrates how to export two masses and connect them
+together in a target system. This requires that one of the masses
+(here: DirectMass)
+is defined to have states and the position, velocity and
+acceleration are provided in the interface.
+The other mass (here: InverseMass) is moved according
+to the provided input position, velocity and acceleration.
+</p>
+
+<p>
+<strong>Connecting a force element that needs position and velocities</strong><br>
+The middle part (SpringDamper) demonstrates how to export a force element
+that needs both position and velocities for its force law and connect this
+force law in a target system between two masses.
+</p>
+
+<p>
+<strong>Connecting a force element that needs only positions</strong><br>
+The lower part (Spring) demonstrates how to export a force element
+that needs only positions for its force law and connect this
+force law in a target system between two masses.
+</p>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(15)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Sine_32x32.png"></td>
+      <th>sine1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Sine.html">Sine</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Utilities.DirectMass_32x32.png"></td>
+      <th>directMass</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Examples.Utilities.DirectMass.html">DirectMass</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Utilities.InverseMass_32x32.png"></td>
+      <th>inverseMass</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Examples.Utilities.InverseMass.html">InverseMass</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Utilities.SpringDamper_32x32.png"></td>
+      <th>springDamper</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Examples.Utilities.SpringDamper.html">SpringDamper</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Mass_32x32.png"></td>
+      <th>mass2a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Mass.html">Mass</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sources.Force_32x32.png"></td>
+      <th>force2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Sources.Force.html">Force</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.GeneralForceToPositionAdaptor_32x32.png"></td>
+      <th>forceToPosition2a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.GeneralForceToPositionAdaptor.html">GeneralForceToPositionAdaptor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Mass_32x32.png"></td>
+      <th>mass2b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Mass.html">Mass</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.GeneralForceToPositionAdaptor_32x32.png"></td>
+      <th>forceToPosition2b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.GeneralForceToPositionAdaptor.html">GeneralForceToPositionAdaptor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Utilities.Spring_32x32.png"></td>
+      <th>spring</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Examples.Utilities.Spring.html">Spring</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Mass_32x32.png"></td>
+      <th>mass3a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Mass.html">Mass</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sources.Force_32x32.png"></td>
+      <th>force3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Sources.Force.html">Force</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.GeneralForceToPositionAdaptor_32x32.png"></td>
+      <th>forceToPosition3a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.GeneralForceToPositionAdaptor.html">GeneralForceToPositionAdaptor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Mass_32x32.png"></td>
+      <th>mass3b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Mass.html">Mass</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.GeneralForceToPositionAdaptor_32x32.png"></td>
+      <th>forceToPosition3b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.GeneralForceToPositionAdaptor.html">GeneralForceToPositionAdaptor</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

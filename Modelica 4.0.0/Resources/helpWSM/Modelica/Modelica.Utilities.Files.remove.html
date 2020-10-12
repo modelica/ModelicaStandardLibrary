@@ -1,0 +1,73 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Utilities.Files.remove</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Files.html">Files</a></li>
+  <li><a href="Modelica.Utilities.Files.remove.html">remove</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>remove</h1>
+    <p>Remove file or directory (ignore call, if it does not exist)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Files.remove_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Files.<strong>remove</strong>(name);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Removes the file or directory "name". If "name" does not exist,
+the function call is ignored. If "name" is a directory, first
+the content of the directory is removed and afterwards
+the directory itself.
+</p>
+<p>
+This function is silent, i.e., it does not print a message.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">remove(name)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>name</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Name of file or directory to be removed</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

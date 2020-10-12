@@ -1,0 +1,291 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.html">FundamentalWave</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.html">Components</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter.html">PolyphaseElectroMagneticConverter</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PolyphaseElectroMagneticConverter</h1>
+    <p>Polyphase electromagnetic converter</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Each phase <img src="resources/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter_info_001.png"> of an <img src="resources/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter_info_002.png"> phase winding has an effective number of turns, <img src="resources/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter_info_003.png"> and an respective winging angle <img src="resources/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter_info_004.png"> and a phase current <img src="resources/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter_info_005.png">.
+</p>
+
+<p>
+The total complex magnetic potential difference of the polyphase winding is determined by:
+</p>
+
+<p>
+&nbsp;&nbsp;<img src="resources/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter_info_006.png">
+</p>
+
+<p>
+In this equation
+<img src="resources/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter_info_007.png">
+is the positive symmetrical component of the currents.
+</p>
+
+<p>
+The positive sequence of the voltages
+<img src="resources/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter_info_008.png">
+induced in each winding is directly proportional to the complex magnetic flux and the number of turns. This relationship can be modeled by means of</p>
+
+<p>
+&nbsp;&nbsp;<img src="resources/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter_info_009.png">.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter.html">
+Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter</a>,
+<a href="Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter.html">
+Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter</a>,
+<a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.QuasiStaticAnalogElectroMagneticConverter.html">
+QuasiStaticAnalogElectroMagneticConverter</a>
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Value:</span> 3</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of phases</p>
+      </td>
+    </tr>
+    <tr>
+      <th>effectiveTurns</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Effective number of turns</p>
+      </td>
+    </tr>
+    <tr>
+      <th>N</th>
+      <td>
+        <p><span>Value:</span> effectiveTurns * Modelica.ComplexMath.exp(Complex(0, orientation))</p>
+        <p><span>Type:</span> <a href="../Complex/Complex.html">Complex</a></p>
+        <p><span>Description:</span> Complex effective number of turns</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug_16x16.png"></td>
+      <th>plug_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug.html">PositivePlug</a></p>
+        <p><span>Description:</span> Positive plug</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug_16x16.png"></td>
+      <th>plug_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug.html">NegativePlug</a></p>
+        <p><span>Description:</span> Negative plug</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PositiveMagneticPort_16x16.png"></td>
+      <th>port_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PositiveMagneticPort.html">PositiveMagneticPort</a></p>
+        <p><span>Description:</span> Positive complex magnetic port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.NegativeMagneticPort_16x16.png"></td>
+      <th>port_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.NegativeMagneticPort.html">NegativeMagneticPort</a></p>
+        <p><span>Description:</span> Negative complex magnetic port</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Complex_32x32.png"></td>
+      <th>j</th>
+      <td>
+        <p><span>Type:</span> <a href="../Complex/Complex.html">Complex</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexVoltage_32x32.png"></td>
+      <th>v</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexVoltage.html">ComplexVoltage[m]</a></p>
+        <p><span>Description:</span> Complex voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexCurrent_32x32.png"></td>
+      <th>i</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexCurrent.html">ComplexCurrent[m]</a></p>
+        <p><span>Description:</span> Complex current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexMagneticPotentialDifference_32x32.png"></td>
+      <th>V_m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexMagneticPotentialDifference.html">ComplexMagneticPotentialDifference</a></p>
+        <p><span>Description:</span> Complex magnetic potential difference</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexMagneticFlux_32x32.png"></td>
+      <th>Phi</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexMagneticFlux.html">ComplexMagneticFlux</a></p>
+        <p><span>Description:</span> Complex magnetic flux</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Complex_32x32.png"></td>
+      <th>N</th>
+      <td>
+        <p><span>Type:</span> <a href="../Complex/Complex.html">Complex</a></p>
+        <p><span>Description:</span> Complex effective number of turns</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexVoltage_32x32.png"></td>
+      <th>vSymmetricalComponent</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexVoltage.html">ComplexVoltage[m]</a></p>
+        <p><span>Description:</span> Symmetrical components of voltages</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexCurrent_32x32.png"></td>
+      <th>iSymmetricalComponent</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexCurrent.html">ComplexCurrent[m]</a></p>
+        <p><span>Description:</span> Symmetrical components of currents</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Complex_32x32.png"></td>
+      <th>sTM</th>
+      <td>
+        <p><span>Type:</span> <a href="../Complex/Complex.html">Complex[m,m]</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.Components.PolyphaseInductance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.Components.PolyphaseInductance.html">PolyphaseInductance</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.Components</span></p>
+        <p>Polyphase inductance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.Components.EddyCurrentLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.Components.EddyCurrentLosses.html">EddyCurrentLosses</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.Components</span></p>
+        <p>Comparison of equivalent circuits of eddy current loss models</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding.html">SymmetricPolyphaseWinding</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Symmetric winding model coupling electrical and magnetic domain</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding.html">SymmetricPolyphaseCageWinding</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Symmetrical rotor cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding.html">SaliencyCageWinding</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Rotor cage with saliency in d- and q-axis</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

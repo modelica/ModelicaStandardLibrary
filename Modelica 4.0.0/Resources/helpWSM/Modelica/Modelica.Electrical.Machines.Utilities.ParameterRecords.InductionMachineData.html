@@ -1,0 +1,230 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Machines.Utilities.ParameterRecords.InductionMachineData</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.html">ParameterRecords</a></li>
+  <li><a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.InductionMachineData.html">InductionMachineData</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>InductionMachineData</h1>
+    <p>Common parameters for induction machines</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.Utilities.ParameterRecords.InductionMachineData_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>Basic parameters of induction machines are predefined with default values.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(14)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Value:</span> 3</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of phases</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Jr</th>
+      <td>
+        <p><span>Value:</span> 0.29</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Rotor's moment of inertia</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Js</th>
+      <td>
+        <p><span>Value:</span> Jr</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Stator's moment of inertia</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of pole pairs (Integer)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fsNominal</th>
+      <td>
+        <p><span>Value:</span> 50</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Nominal frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Rs</th>
+      <td>
+        <p><span>Value:</span> 0.03</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Stator resistance per phase at TRef</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TsRef</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Reference temperature of stator resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha20s</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20.html">LinearTemperatureCoefficient20</a> (¹/K)</p>
+        <p><span>Description:</span> Temperature coefficient of stator resistance at 20 degC</p>
+      </td>
+    </tr>
+    <tr>
+      <th>effectiveStatorTurns</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Effective number of stator turns</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Lszero</th>
+      <td>
+        <p><span>Value:</span> Lssigma</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Stator zero sequence inductance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Lssigma</th>
+      <td>
+        <p><span>Value:</span> 3 * (1 - sqrt(1 - 0.0667)) / (2 * pi * fsNominal)</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Stator stray inductance per phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>frictionParameters</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.FrictionParameters.html">FrictionParameters</a></p>
+        <p><span>Description:</span> Friction loss parameter record</p>
+      </td>
+    </tr>
+    <tr>
+      <th>statorCoreParameters</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.CoreParameters.html">CoreParameters</a></p>
+        <p><span>Description:</span> Stator core loss parameter record; all parameters refer to stator side</p>
+      </td>
+    </tr>
+    <tr>
+      <th>strayLoadParameters</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.StrayLoadParameters.html">StrayLoadParameters</a></p>
+        <p><span>Description:</span> Stray load losses</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.FrictionParameters_32x32.png"></td>
+      <th>frictionParameters</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.FrictionParameters.html">FrictionParameters</a></p>
+        <p><span>Description:</span> Friction loss parameter record</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.CoreParameters_32x32.png"></td>
+      <th>statorCoreParameters</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.CoreParameters.html">CoreParameters</a></p>
+        <p><span>Description:</span> Stator core loss parameter record; all parameters refer to stator side</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.StrayLoadParameters_32x32.png"></td>
+      <th>strayLoadParameters</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.StrayLoadParameters.html">StrayLoadParameters</a></p>
+        <p><span>Description:</span> Stray load losses</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_ReluctanceRotorData_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_ReluctanceRotorData.html">SM_ReluctanceRotorData</a></p>
+        <p><span>Modelica.Electrical.Machines.Utilities.ParameterRecords</span></p>
+        <p>Common parameters for synchronous machines with reluctance rotor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SlipRingData_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SlipRingData.html">IM_SlipRingData</a></p>
+        <p><span>Modelica.Electrical.Machines.Utilities.ParameterRecords</span></p>
+        <p>Common parameters for induction machines with slip ring</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData.html">IM_SquirrelCageData</a></p>
+        <p><span>Modelica.Electrical.Machines.Utilities.ParameterRecords</span></p>
+        <p>Common parameters for induction machines with squirrel cage</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,189 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Examples.Noise.DrydenContinuousTurbulence</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Blocks.Examples.Noise.html">Noise</a></li>
+  <li><a href="Modelica.Blocks.Examples.Noise.DrydenContinuousTurbulence.html">DrydenContinuousTurbulence</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>DrydenContinuousTurbulence</h1>
+    <p>Demonstrates how to model wind turbulence for aircraft with the BandLimitedWhiteNoise block (a simple model of vertical Dryden gust speed at low altitudes < 1000 ft)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Examples.Noise.DrydenContinuousTurbulence_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Blocks.Examples.Noise.DrydenContinuousTurbulence_diagram_large.png"><img src="resources/diagrams/Modelica.Blocks.Examples.Noise.DrydenContinuousTurbulence_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example shows how to use the
+<a href="Modelica.Blocks.Noise.BandLimitedWhiteNoise.html">BandLimitedWhiteNoise</a>
+to feed a Dryden continuous turbulence model. This model is used to describe turbulent wind at low altitudes
+that varies randomly in space
+(see also <a href="https://en.wikipedia.org/wiki/Continuous_gusts">wikipedia</a>).
+</p>
+
+<h4>
+Turbulence model for vertical gust speed at low altitudes
+</h4>
+
+<p>
+The turbulence model of the Dryden form is defined by the power spectral density of the vertical turbulent velocity:
+</p>
+
+<blockquote><p>
+<img src="resources/Modelica.Blocks.Examples.Noise.DrydenContinuousTurbulence_info_001.png" alt="Phi_w(Omega)=sigma^2*L_w/pi*((1+3*(L_w*Omega)^2)/(1+(L_w*Omega)^2)^2)"/>
+</p></blockquote>
+
+<p>
+The spectrum is parametrized with the following parameters:
+</p>
+
+<ul>
+<li> Lw is the turbulence scale.<br>In low altitudes, it is equal to the flight altitude.</li>
+<li> sigma is the turbulence intensity.<br>In low altitudes, it is equal to 1/10 of the
+     wind speed at 20 ft altitude, which is 30 kts for medium turbulence.</li>
+<li> Omega is the spatial frequency.<br> The turbulence model is thus defined in space and the aircraft experiences turbulence as it flies through the defined wind field.</li>
+<li> Omega = s/V will be used to transform the spatial definition into a temporal definition, which can be realized as a state space system.</li>
+<li> V is the airspeed of the aircraft.<br>It is approximately 150 kts during the approach (i.e. at low altitudes).</li>
+</ul>
+
+<p>
+Using spectral factorization and a fixed airspeed V of the aircraft, a concrete forming filter for the vertical turbulence can be found as
+</p>
+
+<blockquote><p>
+<img src="resources/Modelica.Blocks.Examples.Noise.DrydenContinuousTurbulence_info_002.png" alt="H_w(s) = sigma*sqrt(L_w/(pi*V)) * ((1 + sqrt(3)*L_w/V*s) / (1+L_w/V*s)^2)"/>,
+</p></blockquote>
+
+<p>
+for which V * (H_w(i Omega/V) * H_w(-i Omega/V) = Phi_w(Omega).
+</p>
+
+<h4>
+The input to the filter
+</h4>
+
+<p>
+The input to the filter is white noise with a normal distribution, zero mean, and a power spectral density of 1.
+That means, for a sampling time of 1s, it is parameterized with mean=0 and variance=1.
+However, in order to account for the change of noise power due to sampling, the noise must be scaled with sqrt(samplePeriod).
+This is done automatically in the
+<a href="Modelica.Blocks.Noise.BandLimitedWhiteNoise.html">BandLimitedWhiteNoise</a> block.
+</p>
+
+<h4>Example output</h4>
+
+<blockquote>
+<p>
+<img src="resources/Modelica.Blocks.Examples.Noise.DrydenContinuousTurbulence_info_003.png"/>
+</p></blockquote>
+
+<h4>
+Reference
+</h4>
+
+<ol>
+<li>Dryden Wind Turbulence model in US military standard
+    <a href="http://everyspec.com/MIL-SPECS/MIL-SPECS-MIL-F/MIL-F-8785C_5295/">MIL-F-8785</a>.</li>
+</ol>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>V</th>
+      <td>
+        <p><span>Value:</span> 140 * 0.5144</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Velocity.html">Velocity</a> (m/s)</p>
+        <p><span>Description:</span> Airspeed of aircraft (typically 140kts during approach)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sigma</th>
+      <td>
+        <p><span>Value:</span> 0.1 * 30 * 0.5144</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Velocity.html">Velocity</a> (m/s)</p>
+        <p><span>Description:</span> Turbulence intensity (=0.1 * wind at 20 ft, typically 30 kt)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>L</th>
+      <td>
+        <p><span>Value:</span> 600 * 0.3048</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Scale length (= flight altitude)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.TransferFunction_32x32.png"></td>
+      <th>Hw</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.TransferFunction.html">TransferFunction</a></p>
+        <p><span>Description:</span> Transfer function of vertical turbulence speed according to MIL-F-8785C</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Noise.BandLimitedWhiteNoise_32x32.png"></td>
+      <th>whiteNoise</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Noise.BandLimitedWhiteNoise.html">BandLimitedWhiteNoise</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>compareToSpeed</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Noise.GlobalSeed_32x32.png"></td>
+      <th>globalSeed</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Noise.GlobalSeed.html">GlobalSeed</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

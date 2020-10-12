@@ -1,0 +1,152 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Matrices.LU_solve</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.LU_solve.html">LU_solve</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>LU_solve</h1>
+    <p>Solve real system of linear equations P*L*U*x=b with a b vector and an LU decomposition (from LU(..))</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.LU_solve_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Matrices.<strong>LU_solve</strong>(LU, pivots, b);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function call returns the
+solution <strong>x</strong> of the linear systems of equations
+</p>
+<blockquote>
+<p>
+<strong>P</strong>*<strong>L</strong>*<strong>U</strong>*<strong>x</strong> = <strong>b</strong>;
+</p>
+</blockquote>
+<p>
+where <strong>P</strong> is a permutation matrix (implicitly
+defined by vector <code>pivots</code>),
+<strong>L</strong> is a lower triangular matrix with unit
+diagonal elements (lower trapezoidal if m &gt; n), and
+<strong>U</strong> is an upper triangular matrix (upper trapezoidal if m &lt; n).
+The matrices of this decomposition are computed with function
+<a href="Modelica.Math.Matrices.LU.html">Matrices.LU</a> that
+returns arguments <code>LU</code> and <code>pivots</code>
+used as input arguments of <code>Matrices.LU_solve</code>.
+With <code>Matrices.LU</code> and <code>Matrices.LU_solve</code>
+it is possible to efficiently solve linear systems
+with different right hand side vectors. If a linear system of equations with
+just one right hand side vector shall be solved, it is
+more convenient to just use the function
+<a href="Modelica.Math.Matrices.solve.html">Matrices.solve</a>.
+</p>
+<p>
+If a unique solution <strong>x</strong> does not exist (since the
+LU decomposition is singular), an exception is raised.
+</p>
+<p>
+The LU factorization is computed
+with the LAPACK function "dgetrf",
+i.e., by Gaussian elimination using partial pivoting
+with row interchanges. Vector "pivots" are the
+pivot indices, i.e., for 1 &le; i &le; min(m,n), row i of
+matrix A was interchanged with row pivots[i].
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  Real A[3,3] = [1,2,3;
+                 3,4,5;
+                 2,1,4];
+  Real b1[3] = {10,22,12};
+  Real b2[3] = { 7,13,10};
+  Real    LU[3,3];
+  Integer pivots[3];
+  Real    x1[3];
+  Real    x2[3];
+<strong>algorithm</strong>
+  (LU, pivots) := Matrices.LU(A);
+  x1 := Matrices.LU_solve(LU, pivots, b1);  // x1 = {3,2,1}
+  x2 := Matrices.LU_solve(LU, pivots, b2);  // x2 = {1,0,2}
+</pre></blockquote>
+<h4>See also</h4>
+<a href="Modelica.Math.Matrices.LU.html">Matrices.LU</a>,
+<a href="Modelica.Math.Matrices.solve.html">Matrices.solve</a>,
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">x = LU_solve(LU, pivots, b)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>LU</th>
+      <td>
+        <p><span>Type:</span> Real[:,size(LU, 1)]</p>
+        <p><span>Description:</span> L,U factors of Matrices.LU(..) for a square matrix</p>
+      </td>
+    </tr>
+    <tr>
+      <th>pivots</th>
+      <td>
+        <p><span>Type:</span> Integer[size(LU, 1)]</p>
+        <p><span>Description:</span> Pivots indices of Matrices.LU(..)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>
+        <p><span>Type:</span> Real[size(LU, 1)]</p>
+        <p><span>Description:</span> Right hand side vector of P*L*U*x=b</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>x</th>
+      <td>
+        <p><span>Type:</span> Real[size(b, 1)]</p>
+        <p><span>Description:</span> Solution vector such that P*L*U*x = b</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

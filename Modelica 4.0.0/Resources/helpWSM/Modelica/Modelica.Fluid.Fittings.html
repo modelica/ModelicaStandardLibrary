@@ -1,0 +1,148 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.Fittings</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Fittings.html">Fittings</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Fittings</h1>
+    <p>Adaptors for connections of fluid components and the regulation of fluid flow</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Fittings_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.Bends_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.Bends.html">Bends</a></p>
+        <p>Flow models for bends</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.Orifices_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.Orifices.html">Orifices</a></p>
+        <p>Flow models for orifices</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.GenericResistances_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.GenericResistances.html">GenericResistances</a></p>
+        <p>Flow models for generic resistances</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.SimpleGenericOrifice_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.SimpleGenericOrifice.html">SimpleGenericOrifice</a></p>
+        <p>Simple generic orifice defined by pressure loss coefficient and diameter (only for flow from port_a to port_b)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.SharpEdgedOrifice_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.SharpEdgedOrifice.html">SharpEdgedOrifice</a></p>
+        <p>Pressure drop due to sharp edged orifice (for both flow directions)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.AbruptAdaptor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.AbruptAdaptor.html">AbruptAdaptor</a></p>
+        <p>Pressure drop in pipe due to suddenly expanding or reducing area (for both flow directions)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.MultiPort_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.MultiPort.html">MultiPort</a></p>
+        <p>Multiply a port; useful if multiple connections shall be made to a port exposing a state</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.TeeJunctionIdeal_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.TeeJunctionIdeal.html">TeeJunctionIdeal</a></p>
+        <p>Splitting/joining component with static balances for an infinitesimal control volume</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.TeeJunctionVolume_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.TeeJunctionVolume.html">TeeJunctionVolume</a></p>
+        <p>Splitting/joining component with static balances for a dynamic control volume</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.BaseClasses.html">BaseClasses</a></p>
+        <p>Base classes used in the Fittings package (only of interest to build new component models)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This sublibrary contains models and functions providing pressure
+loss correlations. All models in this library have the property
+that no mass and no energy is stored in the component. Therefore,
+none of the models have a state.
+</p>
+
+<p>
+All functions are continuous and have a finite, non-zero, smooth, first derivative.
+The functions are all guaranteed to be strict monotonically increasing.
+The mentioned properties guarantee that a unique inverse of every
+function exists. Note, the usual quadratic pressure loss correlation
+</p>
+
+<ul>
+<li> in the form m_flow = f(dp) has an infinite derivative at zero
+     mass flow rate and is therefore problematic to use.</li>
+<li> in the form dp = f(m_flow) has a zero derivative at zero mass flow rate
+     and is therefore problematic to invert, since the inverse function has
+     then an infinite derivative at zero mass flow rate.</li>
+</ul>
+<p>
+The two mentioned problems are solved in this package by approximating
+the characteristics around zero mass flow rates with appropriate
+polynomials. The monotonicity is guaranteed using results from:
+</p>
+
+<dl>
+<dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
+<dd> <strong>Monotone piecewise cubic interpolation</strong>.
+     SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
+</dl>
+</div>
+</section>
+</div>
+</body>
+</html>

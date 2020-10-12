@@ -1,0 +1,128 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.Examples.Elementary.ClockSignals.LogicalSample</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Clocked.Examples.Elementary.html">Elementary</a></li>
+  <li><a href="Modelica.Clocked.Examples.Elementary.ClockSignals.html">ClockSignals</a></li>
+  <li><a href="Modelica.Clocked.Examples.Elementary.ClockSignals.LogicalSample.html">LogicalSample</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>LogicalSample</h1>
+    <p>Simple example of conjunctive and disjunctive logical clocks, combining clock signals to derive new event driven clocks.</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.Examples.Elementary.ClockSignals.LogicalSample_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Clocked.Examples.Elementary.ClockSignals.LogicalSample_diagram_large.png"><img src="resources/diagrams/Modelica.Clocked.Examples.Elementary.ClockSignals.LogicalSample_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+    Simple example of two logical clocks, a conjunctive and a disjunctive clock.
+    Both receive the very same clock inputs, produced by two rotational clocks
+    with slightly shifted input angle waves (sine and cosine respectively). The
+    configuration and results of the rotational clocks are explained in the
+    <a href="Modelica.Clocked.Examples.Elementary.ClockSignals.RotationalSample.html">rotational clocks example</a>.
+    The generated clocked signals of the disjunctive and conjunctive clock are
+    therefore:
+    </p>
+    <div><img src="resources/Modelica.Clocked.Examples.Elementary.ClockSignals.LogicalSample_info_001.png" alt="LogicalSample_Result.png"></div>.
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Sine_32x32.png"></td>
+      <th>sine_angle_input</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Sine.html">Sine</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Cosine_32x32.png"></td>
+      <th>cosine_angle_input</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Cosine.html">Cosine</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Pulse_32x32.png"></td>
+      <th>trigger_interval_input</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Pulse.html">Pulse</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.ClockSignals.Clocks.Rotational.RotationalClock_32x32.png"></td>
+      <th>rotational_clock_1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.ClockSignals.Clocks.Rotational.RotationalClock.html">RotationalClock</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.ClockSignals.Clocks.Rotational.RotationalClock_32x32.png"></td>
+      <th>rotational_clock_2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.ClockSignals.Clocks.Rotational.RotationalClock.html">RotationalClock</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.ClockSignals.Clocks.Logical.ConjunctiveClock_32x32.png"></td>
+      <th>conjunctiveClock</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.ClockSignals.Clocks.Logical.ConjunctiveClock.html">ConjunctiveClock</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.ClockSignals.Clocks.Logical.DisjunctiveClock_32x32.png"></td>
+      <th>disjunctiveClock</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.ClockSignals.Clocks.Logical.DisjunctiveClock.html">DisjunctiveClock</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.SampleClocked_32x32.png"></td>
+      <th>sample_conjunctive</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.RealSignals.Sampler.SampleClocked.html">SampleClocked</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.SampleClocked_32x32.png"></td>
+      <th>sample_disjunctive</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.RealSignals.Sampler.SampleClocked.html">SampleClocked</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Batteries.Examples.CCCV_Cell</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Batteries.html">Batteries</a></li>
+  <li><a href="Modelica.Electrical.Batteries.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.Batteries.Examples.CCCV_Cell.html">CCCV_Cell</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>CCCV_Cell</h1>
+    <p>Charge a cell with constant current - constant voltage characteristic</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Batteries.Examples.CCCV_Cell_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Batteries.Examples.CCCV_Cell_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Batteries.Examples.CCCV_Cell_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+A single cell depleted to <code>SOC = 0.1</code> is recharged with a CC-CV charger.
+Charging current in CC mode is 5C which means the battery is theoretically nearly fulled charged after <code>0.9*3600 s/5 = 648 s</code> and the charger switches to CV mode.
+Simulate for 1200 s and plot <code>cell.cellBus.soc</code> versus <code>time</code>.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>cellData</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.ParameterRecords.ExampleData.html">ExampleData</a></p>
+        <p><span>Description:</span> Cell data</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.ParameterRecords.ExampleData_32x32.png"></td>
+      <th>cellData</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.ParameterRecords.ExampleData.html">ExampleData</a></p>
+        <p><span>Description:</span> Cell data</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.Utilities.CCCVcharger_32x32.png"></td>
+      <th>cccvCharger</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.Utilities.CCCVcharger.html">CCCVcharger</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>ground</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.BatteryStacksWithSensors.Cell_32x32.png"></td>
+      <th>cell</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.BatteryStacksWithSensors.Cell.html">Cell</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sensors.MultiSensor_32x32.png"></td>
+      <th>multiSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sensors.MultiSensor.html">MultiSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Integrator_32x32.png"></td>
+      <th>energy</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Integrator.html">Integrator</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

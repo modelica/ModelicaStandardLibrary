@@ -1,0 +1,186 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Analog.Sources.SineVoltageVariableFrequencyAndAmplitude</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Analog.html">Analog</a></li>
+  <li><a href="Modelica.Electrical.Analog.Sources.html">Sources</a></li>
+  <li><a href="Modelica.Electrical.Analog.Sources.SineVoltageVariableFrequencyAndAmplitude.html">SineVoltageVariableFrequencyAndAmplitude</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SineVoltageVariableFrequencyAndAmplitude</h1>
+    <p>Sine voltage source with variable frequency and amplitude</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Analog.Sources.SineVoltageVariableFrequencyAndAmplitude_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Analog.Sources.SineVoltageVariableFrequencyAndAmplitude_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Analog.Sources.SineVoltageVariableFrequencyAndAmplitude_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This voltage source provides a sinusoidal voltage with variable frequency <code>f</code> and variable amplitude <code>V</code>,
+i.e. the phase angle of the sine wave is integrated from 2*&pi;*f.
+</p>
+<p>
+Note that the initial value of the phase angle <code>phi</code> defines the initial phase shift,
+and that the parameter <code>startTime</code> is omitted since the voltage can be kept equal to offset with setting the input <code>V</code> to zero.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useConstantAmplitude</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Enable constant amplitude</p>
+      </td>
+    </tr>
+    <tr>
+      <th>constantAmplitude</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Constant amplitude</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useConstantFrequency</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Enable constant frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>constantFrequency</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Constant frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>offset</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Offset of the sine wave</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive electrical pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative electrical pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>V</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Amplitude</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>f</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Frequency</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>V_constant</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>f_constant</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.SeriesResonance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.SeriesResonance.html">SeriesResonance</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span></p>
+        <p>Series resonance circuit</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

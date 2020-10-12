@@ -1,0 +1,218 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Digital.Memories.DLATRAM</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Digital.html">Digital</a></li>
+  <li><a href="Modelica.Electrical.Digital.Memories.html">Memories</a></li>
+  <li><a href="Modelica.Electrical.Digital.Memories.DLATRAM.html">DLATRAM</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>DLATRAM</h1>
+    <p>Level sensitive Random Access Memory</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Digital.Memories.DLATRAM_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Description in VHDL is given by <a href="http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a>
+</p>
+<p><strong>Truth Table for high active read enable RE:</strong></p>
+<table border="1" cellspacing="0" cellpadding="2">
+  <tr><td><strong>RE</strong></td>
+      <td><strong>Addr</strong></td>
+      <td><strong>DataOut</strong></td>
+  </tr>
+  <tr><td>0</td>  <td>*</td>              <td>Z over all</td>  </tr>
+  <tr><td>1</td>  <td>  no X in Addr</td> <td>DataOut=m(Addr)</td>     </tr>
+  <tr><td>1</td>  <td>X in Addr</td>      <td>X over all</td>  </tr>
+  <tr><td>X</td>  <td>*</td>              <td>X over all</td>  </tr>
+</table>
+<p><strong>Truth Table for high active write enable WE:</strong></p>
+<table border="1" cellspacing="0" cellpadding="2">
+  <tr><td><strong>WE</strong></td>
+      <td><strong>Addr</strong></td>
+      <td><strong>Memory</strong></td>
+  </tr>
+  <tr><td>0</td>  <td>*</td>              <td>no write</td>           </tr>
+  <tr><td>1</td>  <td>no X in Addr</td>   <td>m(Addr)=DataIn</td>     </tr>
+  <tr><td>1</td>  <td>X in Addr</td>      <td>no write</td>  </tr>
+  <tr><td>X</td>  <td>no X in Addr</td>   <td>m(Addr)=X over all</td> </tr>
+  <tr><td>X</td>  <td>X in Addr</td>      <td>no write</td>  </tr>
+</table>
+
+<blockquote><pre>
+*  = do not care
+0  = L.'0' or L.'L'
+1  = L.'1' or L.'H'
+X  = L.'X' or L.'W' or L.'Z' or L.'-' or L.'U'
+Z  = L.'Z'
+</pre></blockquote>
+
+<p><strong>Simultaneous read/write operations are allowed.
+Firstly Write is carried out, then Read.</strong></p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>tHL</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> High->Low delay</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tLH</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Low->High delay</p>
+      </td>
+    </tr>
+    <tr>
+      <th>strength</th>
+      <td>
+        <p><span>Value:</span> S.'S_X01'</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Strength.html">Strength</a></p>
+        <p><span>Description:</span> Output strength</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n_addr</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Addr width</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n_data</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Data width</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fileName</th>
+      <td>
+        <p><span>Value:</span> Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Electrical/Digital/Memory_Matrix.txt")</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> File where matrix for memory is stored</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalInput_16x16.png"></td>
+      <th>RE</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalInput.html">DigitalInput</a></p>
+        <p><span>Description:</span> Read enable</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalInput_16x16.png"></td>
+      <th>addr</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalInput.html">DigitalInput[n_addr]</a></p>
+        <p><span>Description:</span> Address</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalOutput_16x16.png"></td>
+      <th>dataOut</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalOutput.html">DigitalOutput[n_data]</a></p>
+        <p><span>Description:</span> Data output</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalInput_16x16.png"></td>
+      <th>WE</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalInput.html">DigitalInput</a></p>
+        <p><span>Description:</span> Write enable</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalInput_16x16.png"></td>
+      <th>dataIn</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalInput.html">DigitalInput[n_data]</a></p>
+        <p><span>Description:</span> Data input</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Delay.InertialDelaySensitive_32x32.png"></td>
+      <th>inertialDelaySensitive</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Delay.InertialDelaySensitive.html">InertialDelaySensitive[n_data]</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Examples.RAM_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Examples.RAM.html">RAM</a></p>
+        <p><span>Modelica.Electrical.Digital.Examples</span></p>
+        <p>Simple RAM test example</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

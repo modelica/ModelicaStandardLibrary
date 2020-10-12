@@ -1,0 +1,271 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Math</h1>
+    <p>Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Vectors_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Vectors.html">Vectors</a></p>
+        <p>Library of functions operating on vectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.BooleanVectors_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.BooleanVectors.html">BooleanVectors</a></p>
+        <p>Library of functions operating on Boolean vectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Matrices_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Matrices.html">Matrices</a></p>
+        <p>Library of functions operating on matrices</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Nonlinear_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Nonlinear.html">Nonlinear</a></p>
+        <p>Library of functions operating on nonlinear equations</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Polynomials_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Polynomials.html">Polynomials</a></p>
+        <p>Library of functions operating on polynomials (including polynomial fitting)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Random_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Random.html">Random</a></p>
+        <p>Library of functions for generating random numbers</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Distributions_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Distributions.html">Distributions</a></p>
+        <p>Library of distribution functions</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Special_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Special.html">Special</a></p>
+        <p>Library of special mathematical functions</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.FastFourierTransform_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.FastFourierTransform.html">FastFourierTransform</a></p>
+        <p>Library of functions for the Fast Fourier Transform (FFT)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Icons_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Icons.html">Icons</a></p>
+        <p>Icons for Math</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.isEqual_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.isEqual.html">isEqual</a></p>
+        <p>Determine if two Real scalars are numerically identical</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.isPowerOf2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.isPowerOf2.html">isPowerOf2</a></p>
+        <p>Determine if the integer input is a power of 2</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.sin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.sin.html">sin</a></p>
+        <p>Sine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.cos_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.cos.html">cos</a></p>
+        <p>Cosine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.tan_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.tan.html">tan</a></p>
+        <p>Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.asin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.asin.html">asin</a></p>
+        <p>Inverse sine (-1 <= u <= 1)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.acos_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.acos.html">acos</a></p>
+        <p>Inverse cosine (-1 <= u <= 1)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.atan_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.atan.html">atan</a></p>
+        <p>Inverse tangent</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.atan2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.atan2.html">atan2</a></p>
+        <p>Four quadrant inverse tangent</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.atan3_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.atan3.html">atan3</a></p>
+        <p>Four quadrant inverse tangent (select solution that is closest to given angle y0)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.sinh_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.sinh.html">sinh</a></p>
+        <p>Hyperbolic sine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.cosh_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.cosh.html">cosh</a></p>
+        <p>Hyperbolic cosine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.tanh_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.tanh.html">tanh</a></p>
+        <p>Hyperbolic tangent</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.asinh_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.asinh.html">asinh</a></p>
+        <p>Inverse of sinh (area hyperbolic sine)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.acosh_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.acosh.html">acosh</a></p>
+        <p>Inverse of cosh (area hyperbolic cosine)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.exp_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.exp.html">exp</a></p>
+        <p>Exponential, base e</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.log_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.log.html">log</a></p>
+        <p>Natural (base e) logarithm (u shall be > 0)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.log10_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.log10.html">log10</a></p>
+        <p>Base 10 logarithm (u shall be > 0)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.wrapAngle_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.wrapAngle.html">wrapAngle</a></p>
+        <p>Wrap angle to interval ]-pi,pi] or [0,2*pi[</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This package contains <strong>basic mathematical functions</strong> (such as sin(..)),
+as well as functions operating on
+<a href="Modelica.Math.Vectors.html">vectors</a>,
+<a href="Modelica.Math.Matrices.html">matrices</a>,
+<a href="Modelica.Math.Nonlinear.html">nonlinear functions</a>, and
+<a href="Modelica.Math.BooleanVectors.html">Boolean vectors</a>.
+</p>
+
+<h4>Main Authors</h4>
+<p><a href="http://www.robotic.dlr.de/Martin.Otter/"><strong>Martin Otter</strong></a>
+and <strong>Marcus Baur</strong><br>
+Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e.V. (DLR)<br>
+Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)<br>
+Forschungszentrum Oberpfaffenhofen<br>
+D-82234 Wessling<br>
+Germany<br>
+email: <a href="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</a>
+</p>
+
+<p>
+Copyright &copy; 1998-2020, Modelica Association and contributors
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

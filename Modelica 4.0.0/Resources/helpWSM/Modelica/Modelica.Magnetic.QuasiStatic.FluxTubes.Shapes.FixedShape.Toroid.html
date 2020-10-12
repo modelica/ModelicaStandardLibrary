@@ -1,0 +1,180 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Toroid</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.html">Shapes</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.html">FixedShape</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Toroid.html">Toroid</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Toroid</h1>
+    <p>Toroid with circular cross section; fixed shape</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Toroid_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Please refer to the enclosing sub-package <a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.html">FixedShape</a> for a description of all elements of this package and to <a href="Modelica.Magnetic.FluxTubes.UsersGuide.Literature.html">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+</p>
+
+<p>
+For toroidal flux tubes with a circumferential magnetic flux, the flux density is a function of the radius.
+For that reason, the characteristic <code>mu_r(B)</code> is evaluated for the flux density at the flux tube's mean radius.
+</p>
+
+<p>
+For those flux tube sections of a magnetic device that have a nonlinear material characteristic <code>mu_r(B)</code> and a large aspect ratio of outer to inner radius <code>r_o/r_i</code>, the section can be split up in a series connection of several hollow cylindrical flux tubes with radial flux. This allows for more realistic modelling of the dependence of flux density on the radius compared to modelling with just one flux tube element.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>mu_rConst</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.RelativePermeability.html">RelativePermeability</a></p>
+        <p><span>Description:</span> Constant relative permeability</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r</th>
+      <td>
+        <p><span>Value:</span> 0.1</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Radius.html">Radius</a> (m)</p>
+        <p><span>Description:</span> Radius of toroid (middle)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>
+        <p><span>Value:</span> 0.01</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Radius.html">Radius</a> (m)</p>
+        <p><span>Description:</span> Diameter of cylindrical core</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha</th>
+      <td>
+        <p><span>Value:</span> pi / 2</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Angle of toroid section</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort_16x16.png"></td>
+      <th>port_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort.html">PositiveMagneticPort</a></p>
+        <p><span>Description:</span> Positive quasi-static magnetic port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.NegativeMagneticPort_16x16.png"></td>
+      <th>port_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.NegativeMagneticPort.html">NegativeMagneticPort</a></p>
+        <p><span>Description:</span> Negative quasi-static magnetic port</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexMagneticPotentialDifference_32x32.png"></td>
+      <th>V_m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexMagneticPotentialDifference.html">ComplexMagneticPotentialDifference</a></p>
+        <p><span>Description:</span> Magnetic potential difference of both ports</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexMagneticFlux_32x32.png"></td>
+      <th>Phi</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexMagneticFlux.html">ComplexMagneticFlux</a></p>
+        <p><span>Description:</span> Magnetic flux from port_p to port_n</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexMagneticFluxDensity_32x32.png"></td>
+      <th>B</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexMagneticFluxDensity.html">ComplexMagneticFluxDensity</a></p>
+        <p><span>Description:</span> Magnetic flux density (normal component)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexMagneticFieldStrength_32x32.png"></td>
+      <th>H</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexMagneticFieldStrength.html">ComplexMagneticFieldStrength</a></p>
+        <p><span>Description:</span> Magnetic field strength (normal component)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples.ToroidalCoreAirgap_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples.ToroidalCoreAirgap.html">ToroidalCoreAirgap</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples</span></p>
+        <p>Educational example: iron core with airgap</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

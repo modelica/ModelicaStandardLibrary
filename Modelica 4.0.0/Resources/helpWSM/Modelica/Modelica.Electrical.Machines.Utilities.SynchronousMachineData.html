@@ -1,0 +1,518 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Machines.Utilities.SynchronousMachineData</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Electrical.Machines.Utilities.SynchronousMachineData.html">SynchronousMachineData</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SynchronousMachineData</h1>
+    <p>Computes machine parameter from usual datasheet</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.Utilities.SynchronousMachineData_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>The parameters of the
+<a href="Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_ElectricalExcited.html">
+synchronous machine model with electrical excitation (and damper)</a> are calculated from parameters
+normally given in a technical description, according to the standard EN&nbsp;60034-4:2008&nbsp;Appendix&nbsp;C.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(47)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>SNominal</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ApparentPower.html">ApparentPower</a> (V·A)</p>
+        <p><span>Description:</span> Nominal apparent power</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VsNominal</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Nominal stator voltage per phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IsNominal</th>
+      <td>
+        <p><span>Value:</span> SNominal / (3 * VsNominal)</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Nominal stator current per phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ZReference</th>
+      <td>
+        <p><span>Value:</span> VsNominal / IsNominal</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Impedance.html">Impedance</a> (Ω)</p>
+        <p><span>Description:</span> Reference impedance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fsNominal</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Nominal stator frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>omega</th>
+      <td>
+        <p><span>Value:</span> 2 * pi * fsNominal</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.AngularVelocity.html">AngularVelocity</a> (rad/s)</p>
+        <p><span>Description:</span> Nominal angular frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IeOpenCircuit</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Open circuit excitation current @ nominal voltage and frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>effectiveStatorTurns</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Effective number of stator turns</p>
+      </td>
+    </tr>
+    <tr>
+      <th>turnsRatio</th>
+      <td>
+        <p><span>Value:</span> sqrt(2) * VsNominal / (omega * Lmd * IeOpenCircuit)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Stator current / excitation current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x0</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Stator stray inductance per phase (approximately zero impedance) [pu]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>xd</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Synchronous reactance per phase, d-axis [pu]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>xq</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Synchronous reactance per phase, q-axis [pu]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>xdTransient</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Transient reactance per phase, d-axis [pu]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>xdSubtransient</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Subtransient reactance per phase, d-axis [pu]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>xqSubtransient</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Subtransient reactance per phase, q-axis [pu]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ta</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Armature time constant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Td0Transient</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Open circuit field time constant Td0'</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Td0Subtransient</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Open circuit subtransient time constant Td0'', d-axis</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Tq0Subtransient</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Open circuit subtransient time constant Tq0'', q-axis</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TsSpecification</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Specification temperature of stator resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TsRef</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Reference temperature of stator resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha20s</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20.html">LinearTemperatureCoefficient20</a> (¹/K)</p>
+        <p><span>Description:</span> Temperature coefficient of stator resistance at 20 degC</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TrSpecification</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Specification temperature of (optional) damper cage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TrRef</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Reference temperature of damper resistances in d- and q-axis</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha20r</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20.html">LinearTemperatureCoefficient20</a> (¹/K)</p>
+        <p><span>Description:</span> Temperature coefficient of damper resistances in d- and q-axis</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TeSpecification</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Specification excitation temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TeRef</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Reference temperature of excitation resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha20e</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20.html">LinearTemperatureCoefficient20</a> (¹/K)</p>
+        <p><span>Description:</span> Temperature coefficient of excitation resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>xmd</th>
+      <td>
+        <p><span>Value:</span> xd - x0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Main field reactance per phase, d-axis [pu]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>xmq</th>
+      <td>
+        <p><span>Value:</span> xq - x0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Main field reactance per phase, q-axis [pu]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>xe</th>
+      <td>
+        <p><span>Value:</span> xmd ^ 2 / (xd - xdTransient)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Excitation reactance [pu]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>xrd</th>
+      <td>
+        <p><span>Value:</span> xmd ^ 2 / (xdTransient - xdSubtransient) * (1 - xmd / xe) ^ 2 + xmd ^ 2 / xe</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Damper reactance per phase, d-axis [pu]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>xrq</th>
+      <td>
+        <p><span>Value:</span> xmq ^ 2 / (xq - xqSubtransient)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Damper reactance per phase, d-axis [pu]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rs</th>
+      <td>
+        <p><span>Value:</span> 2 / (1 / xdSubtransient + 1 / xqSubtransient) / (omega * Ta)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Stator resistance per phase at specification temperature [pu]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rrd</th>
+      <td>
+        <p><span>Value:</span> (xrd - xmd ^ 2 / xe) / (omega * Td0Subtransient)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Damper resistance per phase at specification temperature, d-axis [pu]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rrq</th>
+      <td>
+        <p><span>Value:</span> xrq / (omega * Tq0Subtransient)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Damper resistance per phase at specification temperature, q-axis [pu]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>re</th>
+      <td>
+        <p><span>Value:</span> xe / (omega * Td0Transient)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Excitation resistance per phase at specification temperature [pu]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Rs</th>
+      <td>
+        <p><span>Value:</span> Machines.Thermal.convertResistance(rs * ZReference, TsSpecification, alpha20s, TsRef)</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Stator resistance per phase at TRef</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Lssigma</th>
+      <td>
+        <p><span>Value:</span> x0 * ZReference / omega</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Stator stray inductance per phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Lmd</th>
+      <td>
+        <p><span>Value:</span> xmd * ZReference / omega</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Main field inductance per phase in d-axis</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Lmq</th>
+      <td>
+        <p><span>Value:</span> xmq * ZReference / omega</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Main field inductance per phase in q-axis</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Lrsigmad</th>
+      <td>
+        <p><span>Value:</span> (xrd - xmd) * ZReference / omega</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Damper stray inductance in d-axis</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Lrsigmaq</th>
+      <td>
+        <p><span>Value:</span> (xrq - xmq) * ZReference / omega</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Damper stray inductance in q-axis</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Rrd</th>
+      <td>
+        <p><span>Value:</span> Machines.Thermal.convertResistance(rrd * ZReference, TrSpecification, alpha20r, TrRef)</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Damper resistance in d-axis at TRef</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Rrq</th>
+      <td>
+        <p><span>Value:</span> Machines.Thermal.convertResistance(rrq * ZReference, TrSpecification, alpha20r, TrRef)</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Damper resistance in q-axis at TRef</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Re</th>
+      <td>
+        <p><span>Value:</span> 3 / 2 * turnsRatio ^ 2 * Machines.Thermal.convertResistance(re * ZReference, TeSpecification, alpha20e, TeRef)</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Excitation resistance at TRef</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sigmae</th>
+      <td>
+        <p><span>Value:</span> 1 - xmd / xe</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Stray fraction of total excitation inductance</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL.html">SMEE_DOL</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.SynchronousMachines</span></p>
+        <p>Test example: ElectricalExcitedSynchronousMachine starting direct on line</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_Generator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_Generator.html">SMEE_Generator</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.SynchronousMachines</span></p>
+        <p>Test example: ElectricalExcitedSynchronousMachine as Generator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_LoadDump_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_LoadDump.html">SMEE_LoadDump</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.SynchronousMachines</span></p>
+        <p>Test example: ElectricalExcitedSynchronousMachine with voltage controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_Rectifier_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_Rectifier.html">SMEE_Rectifier</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.SynchronousMachines</span></p>
+        <p>Test example: ElectricalExcitedSynchronousMachine with rectifier</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase.html">SMEE_Generator_Polyphase</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase</span></p>
+        <p>Electrical excited polyphase synchronous machine operating as generator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_DOL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_DOL.html">SMEE_DOL</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>ElectricalExcitedSynchronousMachine starting direct on line</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator.html">SMEE_Generator</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Electrical excited synchronous machine operating as generator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_LoadDump_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_LoadDump.html">SMEE_LoadDump</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Test example: ElectricalExcitedSynchronousMachine with voltage controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Rectifier_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Rectifier.html">SMEE_Rectifier</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Test example: ElectricalExcitedSynchronousMachine with rectifier</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator.html">SMEE_Generator</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Electrical excited synchronous machine operating as generator</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

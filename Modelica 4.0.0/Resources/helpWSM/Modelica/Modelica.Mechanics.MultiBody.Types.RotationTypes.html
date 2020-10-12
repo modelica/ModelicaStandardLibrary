@@ -1,0 +1,95 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Types.RotationTypes</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Types.html">Types</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Types.RotationTypes.html">RotationTypes</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>RotationTypes</h1>
+    <p>Enumeration defining in which way the fixed orientation of frame_b with respect to frame_a is specified</p>
+  </td><td>
+    <div></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>Types.RotationTypes.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>RotationAxis</td>
+    <td>frame_b is defined by rotating the coordinate system along
+        an axis fixed in frame_a and with a fixed angle.</td></tr>
+
+<tr><td>TwoAxesVectors</td>
+    <td>frame_b is defined by resolving two vectors of frame_b in frame_a.</td></tr>
+
+<tr><td>PlanarRotationSequence</td>
+    <td>frame_b is defined by rotating the coordinate system along
+        3 consecutive axes vectors with fixed rotation angles
+        (e.g., Cardan or Euler angle sequence rotation).</td></tr>
+</table>
+</div>
+</section>
+<section id="enumerators" >
+  <h1>Enumeration Literals <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>RotationAxis</th>
+      <td>
+        <p>Rotating frame_a around an angle with a fixed axis</p></td>
+    </tr>
+    <tr>
+      <th>TwoAxesVectors</th>
+      <td>
+        <p>Resolve two vectors of frame_b in frame_a</p></td>
+    </tr>
+    <tr>
+      <th>PlanarRotationSequence</th>
+      <td>
+        <p>Planar rotation sequence</p></td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedRotation_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.FixedRotation.html">FixedRotation</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span></p>
+        <p>Fixed translation followed by a fixed rotation of frame_b with respect to frame_a</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

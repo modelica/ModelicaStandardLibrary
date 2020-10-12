@@ -1,0 +1,344 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Joints.FreeMotion</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Joints.FreeMotion.html">FreeMotion</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>FreeMotion</h1>
+    <p>Free motion joint (6 degrees-of-freedom, 12 potential states)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.FreeMotion_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Joint which does not constrain the motion between frame_a and frame_b.
+Such a joint is only meaningful if the <strong>relative</strong> distance and orientation
+between frame_a and frame_b, and their derivatives, shall be used
+as <strong>states</strong>.
+</p>
+<p>
+Note, that <strong>bodies</strong> such as Parts.Body, Parts.BodyShape,
+have potential states describing the distance
+and orientation, and their derivatives, between the <strong>world frame</strong> and
+a <strong>body fixed frame</strong>.
+Therefore, if these potential state variables are suited,
+a FreeMotion joint is not needed.
+</p>
+<p>
+The states of the FreeMotion object are:
+</p>
+<ul>
+<li> The <strong>relative position vector</strong> r_rel_a from the origin of
+     frame_a to the origin of frame_b, resolved in
+     frame_a and the <strong>relative velocity</strong> v_rel_a of the origin of
+     frame_b with respect to the origin of frame_a, resolved in frame_a
+     (= der(r_rel_a)).
+</li>
+<li> If parameter <strong>useQuaternions</strong> in the "Advanced" menu
+     is <strong>true</strong> (this is the default), then <strong>4 quaternions</strong>
+     are states. Additionally, the coordinates of the
+     relative angular velocity vector are 3 potential states.<br>
+     If <strong>useQuaternions</strong> in the "Advanced" menu
+     is <strong>false</strong>, then <strong>3 angles</strong> and the derivatives of
+     these angles are potential states. The orientation of frame_b
+     is computed by rotating frame_a along the axes defined
+     in parameter vector "sequence_angleStates" (default = {1,2,3}, i.e.,
+     the Cardan angle sequence) around the angles used as states.
+     For example, the default is to rotate the x-axis of frame_a
+     around angles[1], the new y-axis around angles[2] and the new z-axis
+     around angles[3], arriving at frame_b.
+ </li>
+</ul>
+<p>
+The quaternions have the slight disadvantage that there is a
+non-linear constraint equation between the 4 quaternions.
+Therefore, at least one non-linear equation has to be solved
+during simulation. A tool might, however, analytically solve this
+simple constraint equation. Using the 3 angles as states has the
+disadvantage that there is a singular configuration in which a
+division by zero will occur. If it is possible to determine in advance
+for an application class that this singular configuration is outside
+of the operating region, the 3 angles might be used as
+states by setting <strong>useQuaternions</strong> = <strong>false</strong>.
+</p>
+<p>
+In text books about 3-dimensional mechanics often 3 angles and the
+angular velocity are used as states. This is not the case here, since
+3 angles and their derivatives are used as states
+(if useQuaternions = false). The reason
+is that for real-time simulation the discretization formula of the
+integrator might be "inlined" and solved together with the model equations.
+By appropriate symbolic transformation the performance is
+drastically increased if angles and their
+derivatives are used as states, instead of angles and the angular
+velocity.
+</p>
+<p>
+If parameter
+<strong>enforceStates</strong> is set to <strong>true</strong> (= the default)
+in the "Advanced" menu,
+then FreeMotion variables are forced to be used as states according
+to the setting of parameters "useQuaternions" and
+"sequence_angleStates".
+</p>
+<p>
+In the following figure the animation of a FreeMotion
+joint is shown. The light blue coordinate system is
+frame_a and the dark blue coordinate system is
+frame_b of the joint.
+(here: r_rel_a_start = {0.5, 0, 0.5}, angles_start = {45, 45, 45}<sup>o</sup>).
+</p>
+
+<p>
+<img src="resources/Modelica.Mechanics.MultiBody.Joints.FreeMotion_info_001.png">
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(12)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>animation</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if animation shall be enabled (show arrow from frame_a to frame_b)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>angles_fixed</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if angles_start are used as initial values, else as guess values</p>
+      </td>
+    </tr>
+    <tr>
+      <th>angles_start</th>
+      <td>
+        <p><span>Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Angle.html">Angle[3]</a> (rad)</p>
+        <p><span>Description:</span> Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sequence_start</th>
+      <td>
+        <p><span>Value:</span> {1, 2, 3}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.RotationSequence.html">RotationSequence</a></p>
+        <p><span>Description:</span> Sequence of rotations to rotate frame_a into frame_b at initial time</p>
+      </td>
+    </tr>
+    <tr>
+      <th>w_rel_a_fixed</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if w_rel_a_start are used as initial values, else as guess values</p>
+      </td>
+    </tr>
+    <tr>
+      <th>w_rel_a_start</th>
+      <td>
+        <p><span>Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.AngularVelocity.html">AngularVelocity[3]</a> (rad/s)</p>
+        <p><span>Description:</span> Initial values of angular velocity of frame_b with respect to frame_a, resolved in frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>z_rel_a_fixed</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if z_rel_a_start are used as initial values, else as guess values</p>
+      </td>
+    </tr>
+    <tr>
+      <th>z_rel_a_start</th>
+      <td>
+        <p><span>Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.AngularAcceleration.html">AngularAcceleration[3]</a> (rad/s²)</p>
+        <p><span>Description:</span> Initial values of angular acceleration z_rel_a = der(w_rel_a)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>enforceStates</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if relative variables between frame_a and frame_b shall be used as states</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useQuaternions</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if quaternions shall be used as states otherwise use 3 angles as states</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sequence_angleStates</th>
+      <td>
+        <p><span>Value:</span> {1, 2, 3}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.RotationSequence.html">RotationSequence</a></p>
+        <p><span>Description:</span> Sequence of rotations to rotate frame_a into frame_b around the 3 angles used as states</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R_rel_start</th>
+      <td>
+        <p><span>Value:</span> Modelica.Mechanics.MultiBody.Frames.axesRotations(sequence_start, angles_start, zeros(3))</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object from frame_a to frame_b at initial time</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>arrowColor</th>
+      <td>
+        <p><span>Default Value:</span> Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of arrow</p>
+      </td>
+    </tr>
+    <tr>
+      <th>specularCoefficient</th>
+      <td>
+        <p><span>Default Value:</span> world.defaultSpecularCoefficient</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.SpecularCoefficient.html">SpecularCoefficient</a></p>
+        <p><span>Description:</span> Reflection of ambient light (= 0: light is completely absorbed)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_16x16.png"></td>
+      <th>frame_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p><span>Description:</span> Coordinate system a fixed to the component with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_b_16x16.png"></td>
+      <th>frame_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_b.html">Frame_b</a></p>
+        <p><span>Description:</span> Coordinate system b fixed to the component with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.Orientation_32x32.png"></td>
+      <th>R_rel_start</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object from frame_a to frame_b at initial time</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow_32x32.png"></td>
+      <th>arrow</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow.html">Arrow</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.Orientation_32x32.png"></td>
+      <th>R_rel</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Dummy or relative orientation object to rotate from frame_a to frame_b</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.Orientation_32x32.png"></td>
+      <th>R_rel_inv</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Dummy or relative orientation object to rotate from frame_b to frame_a</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2.html">PointGravityWithPointMasses2</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span></p>
+        <p>Rigidly connected point masses in a point gravity field</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

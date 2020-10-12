@@ -1,0 +1,168 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.Translational.Sources.Position</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Translational.html">Translational</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Sources.html">Sources</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Sources.Position.html">Position</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Position</h1>
+    <p>Forced movement of a flange according to a reference position</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Translational.Sources.Position_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The input signal <strong>s_ref</strong> defines the <strong>reference
+position</strong> in [m]. Flange <strong>flange</strong> is <strong>forced</strong>
+to move relative to the support connector according to this reference motion. According to parameter
+<strong>exact</strong> (default = <strong>false</strong>), this is done in the following way:
+</p>
+<ol>
+<li><strong>exact=true</strong><br>
+    The reference position is treated <strong>exactly</strong>. This is only possible, if
+    the input signal is defined by an analytical function which can be
+    differentiated at least twice. If this prerequisite is fulfilled,
+    the Modelica translator will differentiate the input signal twice
+    in order to compute the reference acceleration of the flange.</li>
+<li><strong>exact=false</strong><br>
+    The reference position is <strong>filtered</strong> and the second derivative
+    of the filtered curve is used to compute the reference acceleration
+    of the flange. This second derivative is <strong>not</strong> computed by
+    numerical differentiation but by an appropriate realization of the
+    filter. For filtering, a second order Bessel filter is used.
+    The critical frequency (also called cut-off frequency) of the
+    filter is defined via parameter <strong>f_crit</strong> in [Hz]. This value
+    should be selected in such a way that it is higher as the essential
+    low frequencies in the signal.</li>
+</ol>
+<p>
+The input signal can be provided from one of the signal generator
+blocks of the block library Modelica.Blocks.Sources.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useSupport</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if support flange enabled, otherwise implicitly grounded</p>
+      </td>
+    </tr>
+    <tr>
+      <th>exact</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Is true/false for exact treatment/filtering of the input signal, respectively</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f_crit</th>
+      <td>
+        <p><span>Value:</span> 50</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> If exact=false, critical frequency of filter to filter input signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flange</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> Flange of component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Support_16x16.png"></td>
+      <th>support</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Support.html">Support</a></p>
+        <p><span>Description:</span> Support/housing of component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>s_ref</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Reference position of flange as input signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceStrokeBehaviour_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceStrokeBehaviour.html">ForceStrokeBehaviour</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator</span></p>
+        <p>Force-stroke characteristic of the permeance model at constant current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStatic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStatic.html">ComparisonQuasiStatic</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator</span></p>
+        <p>Slow forced armature motion of both solenoid models so that electromagnetic field and current are quasi-static</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces.html">Surfaces</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span></p>
+        <p>Demonstrate the visualization of a sine surface, as well as a torus and a wheel constructed from a surface</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

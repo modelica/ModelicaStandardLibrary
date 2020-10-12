@@ -1,0 +1,135 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.Fittings.BaseClasses.QuadraticTurbulent</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Fittings.html">Fittings</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.html">BaseClasses</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.html">QuadraticTurbulent</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>QuadraticTurbulent</h1>
+    <p>Pressure loss components that are mainly defined by a quadratic turbulent regime with constant loss factor data</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.html">LossFactorData</a></p>
+        <p>Data structure defining constant loss factor data for dp = zeta*rho*v*|v|/2 and functions providing the data for some loss types</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.massFlowRate_dp_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.massFlowRate_dp.html">massFlowRate_dp</a></p>
+        <p>Return mass flow rate from constant loss factor data and pressure drop (m_flow = f(dp))</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.massFlowRate_dp_and_Re_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.massFlowRate_dp_and_Re.html">massFlowRate_dp_and_Re</a></p>
+        <p>Return mass flow rate from constant loss factor data, pressure drop and Re (m_flow = f(dp))</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.pressureLoss_m_flow_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.pressureLoss_m_flow.html">pressureLoss_m_flow</a></p>
+        <p>Return pressure drop from constant loss factor and mass flow rate (dp = f(m_flow))</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.pressureLoss_m_flow_and_Re_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.pressureLoss_m_flow_and_Re.html">pressureLoss_m_flow_and_Re</a></p>
+        <p>Return pressure drop from constant loss factor, mass flow rate and Re (dp = f(m_flow))</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModel.html">BaseModel</a></p>
+        <p>Generic pressure drop component with constant turbulent loss factor data and without an icon</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModelNonconstantCrossSectionArea_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModelNonconstantCrossSectionArea.html">BaseModelNonconstantCrossSectionArea</a></p>
+        <p>Generic pressure drop component with constant turbulent loss factor data and without an icon, for non-constant cross section area</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.pressureLoss_m_flow_totalPressure_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.pressureLoss_m_flow_totalPressure.html">pressureLoss_m_flow_totalPressure</a></p>
+        <p>Return pressure drop from constant loss factor and mass flow rate (dp = f(m_flow))</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This library provides pressure loss factors of a pipe
+segment (orifice, bending etc.) with a minimum amount of data.
+If available, data can be provided for <strong>both flow directions</strong>,
+i.e., flow from port_a to port_b and from port_b to port_a,
+as well as for the <strong>laminar</strong> and the <strong>turbulent</strong> region.
+It is also an option to provide the loss factor <strong>only</strong> for the
+<strong>turbulent</strong> region for a flow from port_a to port_b.
+Basically, the pressure drop is defined by the following
+equation:
+</p>
+<blockquote><pre>
+&Delta;p = 0.5*&zeta;*&rho;*v*|v|
+   = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
+   = 8*&zeta;/(&pi;^2*D^4*&rho;) * m_flow*|m_flow|
+</pre></blockquote>
+<p>
+where
+</p>
+<ul>
+<li> &Delta;p is the pressure drop: &Delta;p = port_a.p - port_b.p</li>
+<li> v is the mean velocity.</li>
+<li> &rho; is the density.</li>
+<li> &zeta; is the loss factor that depends on the geometry of
+     the pipe. In the turbulent flow regime, it is assumed that
+     &zeta; is constant and is given by "zeta1" and
+     "zeta2" depending on the flow direction.</li>
+<li> D is the diameter of the pipe segment. If this is not a
+     circular cross section, D = 4*A/P, where A is the cross section
+     area and P is the wetted perimeter.</li>
+</ul>
+</div>
+</section>
+</div>
+</body>
+</html>

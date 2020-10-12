@@ -1,0 +1,136 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.RealSignals.Sampler.SampleVectorizedAndClocked</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.html">RealSignals</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.Sampler.html">Sampler</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.Sampler.SampleVectorizedAndClocked.html">SampleVectorizedAndClocked</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SampleVectorizedAndClocked</h1>
+    <p>Sample the continuous-time, Real input signal vector and provide it as clocked output signal vector. The clock is provided as input signal</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.SampleVectorizedAndClocked_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This block is similar to the
+<a href="Modelica.Clocked.RealSignals.Sampler.SampleClocked.html">SampleClocked</a>
+block. The only difference is that the continuous-time input signal is a vector: All input
+signals are sampled and are associated with the
+scalar clock signal provided via the second input.
+</p>
+
+<h4>Example</h4>
+
+<p>
+The following
+<a href="Modelica.Clocked.Examples.Elementary.RealSignals.SampleVectorizedAndClocked.html">example</a>
+has a vector as input, consisting of two different sine signals. These
+signals are sampled with a periodic clock of 20 ms period:<br>
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+<tr><td width="50"></td>
+    <td valign="bottom"><img src="resources/Modelica.Clocked.RealSignals.Sampler.SampleVectorizedAndClocked_info_001.png" alt="SampleVectorizedAndClocked_Model.png"></td>
+    <td valign="bottom">&nbsp;&nbsp;&nbsp;
+                        <img src="resources/Modelica.Clocked.RealSignals.Sampler.SampleVectorizedAndClocked_info_002.png" alt="SampleVectorizedAndClocked_Result.png"></td>
+    </tr>
+<tr><td></td>
+    <td align="center">model</td>
+    <td align="center">simulation result<br></td>
+   </tr>
+</table>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Size of input signal vector u (= size of output signal vector y)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput[n]</a></p>
+        <p><span>Description:</span> Connector of continuous-time, Real input signal vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[n]</a></p>
+        <p><span>Description:</span> Connector of clocked, Real output signal vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Clocked.ClockSignals.Interfaces.ClockInput_16x16.png"></td>
+      <th>clock</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.ClockSignals.Interfaces.ClockInput.html">ClockInput</a></p>
+        <p><span>Description:</span> Output signal vector y is associated with this clock input</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.SampleVectorizedAndClocked_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.SampleVectorizedAndClocked.html">SampleVectorizedAndClocked</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a SampleVectorizedAndClocked block for Real signals</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

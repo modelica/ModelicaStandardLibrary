@@ -1,0 +1,184 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoise</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.html">RealSignals</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.Sampler.html">Sampler</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.Sampler.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoise.html">UniformNoise</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>UniformNoise</h1>
+    <p>Add band-limited uniform noise using a variant of the Wichmann-Hill algorithm</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoise_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This block adds uniformly distributed noise
+in the range noiseMin&nbsp;&hellip;&nbsp;noiseMax to the clocked Real input signal
+and provides the sum as clocked Real output signal.
+</p>
+
+<p>
+The Integer[3] parameter vector <strong>firstSeed</strong> is used to initialize the
+basic random number generator. The 3 elements of firstSeed need
+to be in the range [0, 255]. The use of the same seed vector
+will lead to the same sequence of numbers when these are computed serially.
+This is usually not desired. Therefore, for every usage of block
+<strong>Noise</strong> a different firstSeed should be defined.
+</p>
+
+<p>
+This noise generator is based on a function that generates
+a random real number uniformly in the semi-open range [0.0, 1.0).
+The function uses the standard Wichmann-Hill generator,
+combining three pure multiplicative congruential generators of
+modulus 30269, 30307 and 30323. Its period (how many numbers it
+generates before repeating the sequence exactly) is 6,953,607,871,644.
+While of much higher quality than the rand() function supplied by
+most C libraries, the theoretical properties are much the same
+as for a single linear congruential generator of large modulus.
+For more details, see the underlying function
+<a href="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.random.html">Internal.random</a>.
+</p>
+
+<h4>Example</h4>
+<p>
+The following
+<a href="Modelica.Clocked.Examples.Elementary.RealSignals.UniformNoise.html">example</a>
+samples zero signal with a periodic clock of 20 ms period, and adds
+noise in the range from -0.1&nbsp;&hellip;&nbsp;0.1:<br>
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+<tr><td width="50"></td>
+    <td valign="bottom"><img src="resources/Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoise_info_001.png" alt="UniformNoise_Model.png"></td>
+    <td valign="bottom">&nbsp;&nbsp;&nbsp;
+                        <img src="resources/Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.UniformNoise_info_002.png" alt="UniformNoise_Result.png"></td>
+    </tr>
+<tr><td></td>
+    <td align="center">model</td>
+    <td align="center">simulation result</td>
+   </tr>
+</table>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>noiseMax</th>
+      <td>
+        <p><span>Value:</span> 0.1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Upper limit of noise band</p>
+      </td>
+    </tr>
+    <tr>
+      <th>noiseMin</th>
+      <td>
+        <p><span>Value:</span> -noiseMax</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Lower limit of noise band</p>
+      </td>
+    </tr>
+    <tr>
+      <th>firstSeed</th>
+      <td>
+        <p><span>Value:</span> {23, 87, 187}</p>
+        <p><span>Type:</span> Integer[3]</p>
+        <p><span>Description:</span> Integer[3] defining random sequence; required element range: 0..255</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Connector of clocked, Real input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Connector of clocked, Real output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.UniformNoise_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.UniformNoise.html">UniformNoise</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a UniformNoise block for Real signals</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.SampleWithADeffects_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Sampler.SampleWithADeffects.html">SampleWithADeffects</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Sampler</span></p>
+        <p>Sample with (simulated) Analog-Digital converter effects including noise</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,249 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.html">Advanced</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField.html">PipeWithScalarField</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PipeWithScalarField</h1>
+    <p>Visualizing a pipe with a scalar field</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Model <strong>PipeWithScalarField</strong> visualizes a pipe and a scalar
+field along the pipe axis. The latter is shown by mapping scalar
+field to color values with a color map and utilizing this color
+at the perimeter associated with the corresponding axis location.
+Typically the scalar field value is a temperature, but might
+be also another quantity.
+Predefined color maps are available from
+<a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.html">MultiBody.Visualizers.Colors.ColorMaps</a>
+and can be selected via parameter "colorMap".
+A color map with the corresponding scalar field values can be exported
+as vector-graphics in svg-format with function
+<a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg.html">MultiBody.Visualizers.Colors.colorMapToSvg</a>.
+The position and orientation of the center of the
+circle at the left end of the pipe is defined via parameters
+"r_0" and "R", respectively. The pipe axis is oriented along
+the x-axis of the local coordinate system described by "R",
+see figure below:
+</p>
+
+<blockquote>
+<img src="resources/Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField_info_001.png">
+</blockquote>
+
+<p>
+The color coding is shown in the next figure. It was generated with
+<a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg.html">MultiBody.Visualizers.Colors.colorMapToSvg</a>
+using the following call:
+</p>
+
+<blockquote><pre>
+colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
+              height=50, nScalars=6, T_max=100, caption="Temperature in C");
+</pre></blockquote>
+
+<blockquote>
+<img src="resources/Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField_info_002.png">
+</blockquote>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>rOuter</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Radius.html">Radius</a> (m)</p>
+        <p><span>Description:</span> Outer radius of pipe</p>
+      </td>
+    </tr>
+    <tr>
+      <th>length</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length of pipe</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n_rOuter</th>
+      <td>
+        <p><span>Value:</span> 30</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of points along outer radius</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n_length</th>
+      <td>
+        <p><span>Value:</span> 10</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of points along length</p>
+      </td>
+    </tr>
+    <tr>
+      <th>specularCoefficient</th>
+      <td>
+        <p><span>Value:</span> 0.7</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.SpecularCoefficient.html">SpecularCoefficient</a></p>
+        <p><span>Description:</span> Reflection of ambient light (= 0: light is completely absorbed)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>transparency</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>xsi</th>
+      <td>
+        <p><span>Value:</span> Modelica.Math.Vectors.relNodePositions(12)</p>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Vector of relative positions along the pipe with x[1] = 0, x[end] = 1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_min</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Minimum value of T that corresponds to colorMap[1,:]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_max</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Maximum value of T that corresponds to colorMap[end,:]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n_colors</th>
+      <td>
+        <p><span>Value:</span> 64</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of colors in the colorMap</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Default Value:</span> Frames.nullRotation()</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object to rotate the world frame into the surface frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r_0</th>
+      <td>
+        <p><span>Default Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> Position vector from origin of world frame to origin of surface frame, resolved in world frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Type:</span> Real[size(xsi, 1)]</p>
+        <p><span>Description:</span> Vector of values at positions xsi*length (will be visualized by color)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.Orientation_32x32.png"></td>
+      <th>R</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object to rotate the world frame into the surface frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface_32x32.png"></td>
+      <th>surface</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface.html">Surface</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField.html">PipeWithScalarField</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span></p>
+        <p>Visualizing a pipe with scalar field quantities along the pipe axis</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

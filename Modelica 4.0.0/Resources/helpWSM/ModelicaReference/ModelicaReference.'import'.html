@@ -1,0 +1,70 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: 'import'</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.'import'.html">'import'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'import'</h1>
+    <p>import</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.'import'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Import classes
+</p>
+<h4>Examples</h4>
+
+<blockquote><pre><strong>class</strong> Lookup
+  <strong>import</strong> SI = Modelica.Units.SI; // #1 (Try to avoid renaming imports!)
+  <strong>import</strong> Modelica.Math.*; // #2 (Try to avoid wildcard imports!)
+  <strong>import</strong> Modelica.Mechanics.Rotational; // #3
+  <strong>import</strong> Modelica.Units.SI.{Molality, Molarity}; // #4
+
+  SI.Torque torque; // due to #1 (Modelica.Units.SI.Torque)
+  Rotational.Components.Inertia inertia; // due to #3 (Modelica.Mechanics.Rotational.Components.Inertia)
+  Molarity c = 1; // due to #4 (Modelica.Units.SI.Molarity)
+<strong>equation</strong>
+  torque = sin(<strong>time</strong>); // due to #2 (Modelica.Math.sin)
+  ...
+<strong>end</strong> Lookup;</pre></blockquote>
+
+<h4>Syntax</h4>
+
+<p>See section on <code>import_clause</code> in the <a href="ModelicaReference.ModelicaGrammar.html">Modelica Grammar</a>.</p>
+
+<h4>Description</h4>
+
+<p>Using import statements extends the static name lookup to additional import names.
+The generated import names are:</p>
+
+<ul>
+  <li><code>C</code> for <code><strong>import</strong> A.B.C;</code></li>
+  <li><code>D</code> for <code><strong>import</strong> D = A.B.C;</code></li>
+  <li><code>C</code> and all other classes in B for <code><strong>import</strong> A.B.*;</code></li>
+</ul>
+<h5>Note</h5>
+<p><em>Especially the renaming and wildcard import statements should be avoided since they might lead to name-lookup conflicts.</em></p>
+</div>
+</section>
+</div>
+</body>
+</html>

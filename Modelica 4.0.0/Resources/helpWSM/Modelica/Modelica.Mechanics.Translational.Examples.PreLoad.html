@@ -1,0 +1,199 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.Translational.Examples.PreLoad</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Translational.html">Translational</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Examples.PreLoad.html">PreLoad</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PreLoad</h1>
+    <p>Preload of a spool using ElastoGap models</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Translational.Examples.PreLoad_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.Translational.Examples.PreLoad_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.Translational.Examples.PreLoad_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+When designing hydraulic valves it is often necessary to hold the spool in
+a certain position as long as an external force is below a threshold value.
+If this force exceeds the threshold value a linear relation between force
+and position is desired.
+There are designs that need only one spring to accomplish this task. Using
+the ElastoGap elements this design can be modelled easily.
+Drawing of spool.
+</p>
+
+<p>
+<img src="resources/Modelica.Mechanics.Translational.Examples.PreLoad_info_001.png" alt="Preload 1"><br>
+<img src="resources/Modelica.Mechanics.Translational.Examples.PreLoad_info_002.png" alt="Preload 3"><br>
+<img src="resources/Modelica.Mechanics.Translational.Examples.PreLoad_info_003.png" alt="Preload 4"><br>
+</p>
+
+<p>
+Simulate for 100&nbsp;s and plot the spool position <code>spool.s</code>
+as a function of working force <code>force.f</code>.
+For positive force, the spool moves in positive direction - in figure below
+the start value <code>spool.s.start</code> influences the offset.
+</p>
+
+<p>
+<img src="resources/Modelica.Mechanics.Translational.Examples.PreLoad_info_004.png" alt="Preload 2">
+</p>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(17)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.ElastoGap_32x32.png"></td>
+      <th>innerContactA</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.ElastoGap.html">ElastoGap</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.ElastoGap_32x32.png"></td>
+      <th>innerContactB</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.ElastoGap.html">ElastoGap</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Mass_32x32.png"></td>
+      <th>spool</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Mass.html">Mass</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Fixed_32x32.png"></td>
+      <th>fixedLe</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Fixed.html">Fixed</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Mass_32x32.png"></td>
+      <th>springPlateA</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Mass.html">Mass</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Mass_32x32.png"></td>
+      <th>springPlateB</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Mass.html">Mass</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Spring_32x32.png"></td>
+      <th>spring</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Spring.html">Spring</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.ElastoGap_32x32.png"></td>
+      <th>outerContactA</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.ElastoGap.html">ElastoGap</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.ElastoGap_32x32.png"></td>
+      <th>outerContactB</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.ElastoGap.html">ElastoGap</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Rod_32x32.png"></td>
+      <th>rod1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Rod.html">Rod</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Damper_32x32.png"></td>
+      <th>friction</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Damper.html">Damper</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sources.Force_32x32.png"></td>
+      <th>force</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Sources.Force.html">Force</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Rod_32x32.png"></td>
+      <th>housing</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Rod.html">Rod</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Rod_32x32.png"></td>
+      <th>rod3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Rod.html">Rod</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Rod_32x32.png"></td>
+      <th>rod4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Rod.html">Rod</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Rod_32x32.png"></td>
+      <th>rod2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Rod.html">Rod</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Sine_32x32.png"></td>
+      <th>sineForce</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Sine.html">Sine</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

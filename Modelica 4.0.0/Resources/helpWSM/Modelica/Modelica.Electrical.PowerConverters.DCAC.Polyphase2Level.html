@@ -1,0 +1,336 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.PowerConverters.DCAC.Polyphase2Level</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.html">PowerConverters</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.DCAC.html">DCAC</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.DCAC.Polyphase2Level.html">Polyphase2Level</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Polyphase2Level</h1>
+    <p>Polyphase DC to AC converter</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.PowerConverters.DCAC.Polyphase2Level_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.PowerConverters.DCAC.Polyphase2Level_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.PowerConverters.DCAC.Polyphase2Level_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This is a polyphase two level inverter. The boolean signals <code>fire_p[k]</code> and <code>fire_n[k]</code> for any phase <code>k</code> shall not be <code>true</code> at the same time to avoid DC bus short circuits. The inverter consists of <code>2*m</code> transistors and two anti parallel free wheeling diodes, respectively, where <code>m</code> is the number of phases.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(11)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useConstantEnable</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Disable boolean input and use constantEnable, if true</p>
+      </td>
+    </tr>
+    <tr>
+      <th>constantEnable</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Constant enabling of firing signals</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Value:</span> 3</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of phases</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if heatPort is enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Fixed device temperature if useHeatPort = false</p>
+      </td>
+    </tr>
+    <tr>
+      <th>RonTransistor</th>
+      <td>
+        <p><span>Value:</span> 1e-05</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Transistor closed resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>GoffTransistor</th>
+      <td>
+        <p><span>Value:</span> 1e-05</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Conductance.html">Conductance</a> (S)</p>
+        <p><span>Description:</span> Transistor opened conductance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VkneeTransistor</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Transistor threshold voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>RonDiode</th>
+      <td>
+        <p><span>Value:</span> 1e-05</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Diode closed resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>GoffDiode</th>
+      <td>
+        <p><span>Value:</span> 1e-05</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Conductance.html">Conductance</a> (S)</p>
+        <p><span>Description:</span> Diode opened conductance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VkneeDiode</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Diode threshold voltage</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanInput_16x16.png"></td>
+      <th>fire_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanInput.html">BooleanInput[m]</a></p>
+        <p><span>Description:</span> Firing signals of positive potential transistors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanInput_16x16.png"></td>
+      <th>enable</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanInput.html">BooleanInput</a></p>
+        <p><span>Description:</span> Enables fire and notFire</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanInput_16x16.png"></td>
+      <th>fire_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanInput.html">BooleanInput[m]</a></p>
+        <p><span>Description:</span> Firing signals of negative potential transistors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>dc_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive DC input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>dc_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative DC input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Polyphase.Interfaces.PositivePlug_16x16.png"></td>
+      <th>ac</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Interfaces.PositivePlug.html">PositivePlug</a></p>
+        <p><span>Description:</span> AC output</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+        <p><span>Description:</span> Conditional heat port</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.And_32x32.png"></td>
+      <th>andCondition_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Logical.And.html">And[m]</a></p>
+        <p><span>Description:</span> And condition for m positive firing signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Enable.EnableLogic_32x32.png"></td>
+      <th>enableLogic</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.PowerConverters.Enable.EnableLogic.html">EnableLogic</a></p>
+        <p><span>Description:</span> Enabling logic</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.And_32x32.png"></td>
+      <th>andCondition_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Logical.And.html">And[m]</a></p>
+        <p><span>Description:</span> And condition for m negative firing signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Ideal.IdealGTOThyristor_32x32.png"></td>
+      <th>transistor_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Ideal.IdealGTOThyristor.html">IdealGTOThyristor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Ideal.IdealDiode_32x32.png"></td>
+      <th>diode_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Ideal.IdealDiode.html">IdealDiode</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Basic.Star_32x32.png"></td>
+      <th>star_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Basic.Star.html">Star</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Ideal.IdealGTOThyristor_32x32.png"></td>
+      <th>transistor_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Ideal.IdealGTOThyristor.html">IdealGTOThyristor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Ideal.IdealDiode_32x32.png"></td>
+      <th>diode_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Ideal.IdealDiode.html">IdealDiode</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Basic.Star_32x32.png"></td>
+      <th>star_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Basic.Star.html">Star</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.ThermalCollector_32x32.png"></td>
+      <th>thermalCollector</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Components.ThermalCollector.html">ThermalCollector</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.InductionMachines.IMC_InverterDrive_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.InductionMachines.IMC_InverterDrive.html">IMC_InverterDrive</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.InductionMachines</span></p>
+        <p>Test example: InductionMachineSquirrelCage inverter drive</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.PolyphaseTwoLevel_R_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.PolyphaseTwoLevel_R.html">PolyphaseTwoLevel_R</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel</span></p>
+        <p>Polyphase DC to AC converter with R load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.PolyphaseTwoLevel_RL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.PolyphaseTwoLevel_RL.html">PolyphaseTwoLevel_RL</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel</span></p>
+        <p>Polyphase DC to AC converter with R-L load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM.html">ThreePhaseTwoLevel_PWM</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel</span></p>
+        <p>Test of pulse width modulation methods</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

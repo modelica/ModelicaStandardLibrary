@@ -1,0 +1,63 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Annotations.DynamicSelect</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Annotations.html">Annotations</a></li>
+  <li><a href="ModelicaReference.Annotations.DynamicSelect.html">DynamicSelect</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>DynamicSelect</h1>
+    <p>DynamicSelect</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Annotations.DynamicSelect_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Define schematic animation of diagram layer
+</p>
+
+<h4>Examples</h4>
+
+<p>
+The level of a tank is animated by a rectangle expanding in vertical direction and its color depending on a variable overflow:
+</p>
+
+<blockquote><pre><strong>annotation</strong>(
+  Icon(graphics={Rectangle(
+    extent=<strong>DynamicSelect</strong>({{0,0},{20,20}},{{0,0},{20,level}}),
+    fillColor=<strong>DynamicSelect</strong>({0,0,255},
+                            <strong>if</strong> overflow <strong>then</strong> {255,0,0} <strong>else</strong> {0,0,255}))}
+);
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+Any value (coordinates, color, text, etc.) in graphical annotations can be dependent on class variables using the DynamicSelect expression. DynamicSelect has the syntax of a function call with two arguments, where the first argument specifies the value of the editing state and the second argument the value of the non-editing state. The first argument must be a literal expression
+and this value is used for the annotation when editing and/or browsing the diagram layer.
+The second argument may contain references to variables to enable a dynamic behavior
+and the actual value is used for the annotation for schematic animation
+of the diagram layer, e.g., after a simulation.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

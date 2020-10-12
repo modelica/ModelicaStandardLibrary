@@ -1,0 +1,108 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Magnetic.FluxTubes.Examples.Hysteresis.InductorWithHysteresis</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis.html">Hysteresis</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis.InductorWithHysteresis.html">InductorWithHysteresis</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>InductorWithHysteresis</h1>
+    <p></p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.InductorWithHysteresis_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.InductorWithHysteresis_diagram_large.png"><img src="resources/diagrams/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.InductorWithHysteresis_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This is a simple model of an inductor with a ferromagnetic core. The used GenericHystTellinenEverett model considers the ferromagnetic hysteresis, eddy currents and remanence of the core material. For example you can simulate the model for 0.02s and plot Core.B vs. Core.H to visualize the resulting hysteresis loops.
+</p>
+<table border="0" cellspacing="0" cellpadding="2">
+  <caption align="bottom"><strong>Fig. 1: </strong>Results Core.B(t) and Core.B(H) of the magnetic Core.</caption>
+  <tr>
+    <td>
+      <img src="resources/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.InductorWithHysteresis_info_001.png">
+    </td>
+  </tr>
+</table>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.Ground_32x32.png"></td>
+      <th>mag_ground</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverterWithLeakageInductance_32x32.png"></td>
+      <th>winding</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverterWithLeakageInductance.html">ElectroMagneticConverterWithLeakageInductance</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>el_ground</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Resistor_32x32.png"></td>
+      <th>resistor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Resistor.html">Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SineVoltage_32x32.png"></td>
+      <th>vSource</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.SineVoltage.html">SineVoltage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett_32x32.png"></td>
+      <th>core</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett.html">GenericHystTellinenEverett</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

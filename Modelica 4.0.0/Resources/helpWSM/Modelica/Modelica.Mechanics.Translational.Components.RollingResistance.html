@@ -1,0 +1,208 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.Translational.Components.RollingResistance</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Translational.html">Translational</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Components.html">Components</a></li>
+  <li><a href="Modelica.Mechanics.Translational.Components.RollingResistance.html">RollingResistance</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>RollingResistance</h1>
+    <p>Resistance of a rolling wheel</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Translational.Components.RollingResistance_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Simplified model of the resistance of a&nbsp;rolling wheel,
+dependent on vertical wheel load (due to gravity, i.e. static only),
+inclination and rolling resistance coefficient:
+</p>
+<blockquote>
+<pre>
+flange.f = Cr * fWeight * cos(alpha)
+</pre>
+</blockquote>
+
+<p>
+The rolling resistance coefficient&nbsp;<var>C<sub>r</sub></var> is either constant
+(given by the parameter <code>CrConstant</code>)
+or prescribed by the input <code>cr</code>.
+</p>
+<p>
+The inclination is either constant (parameter <code>inclinationConstant</code>)
+or prescribed by the input <code>inclination</code>.
+This corresponds to the road rise over running distance of 100&nbsp;m which,
+in general, is written as a&nbsp;percentage and is equal to tan(<var>&alpha;</var>).
+For example for a&nbsp;road rising by 10&nbsp;m over 100&nbsp;m the
+grade&nbsp;=&nbsp;10&nbsp;% and, thus, the inclination is 0.1.
+Positive inclination means driving uphill, negative inclination means
+driving downhill, in case of positive vehicle velocity.
+</p>
+
+<h4>Note</h4>
+<p>
+The rolling resistance is independent of velocity here,
+but changes its direction with the direction of velocity.
+To avoid numerical problems around zero velocity, the rolling
+resistance is regularized accordingly within <code>[-v0,&nbsp;v0]</code>.
+Therefore static friction at vehicle&apos;s standstill
+is not taken into account.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useSupport</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if support flange enabled, otherwise implicitly grounded</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fWeight</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Force.html">Force</a> (N)</p>
+        <p><span>Description:</span> Wheel load due to gravity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useCrInput</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Enable signal input for Cr</p>
+      </td>
+    </tr>
+    <tr>
+      <th>CrConstant</th>
+      <td>
+        <p><span>Value:</span> 0.01</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Constant rolling resistance coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useInclinationInput</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Enable signal input for inclination</p>
+      </td>
+    </tr>
+    <tr>
+      <th>inclinationConstant</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Constant inclination = tan(angle)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>reg</th>
+      <td>
+        <p><span>Value:</span> Modelica.Blocks.Types.Regularization.Exp</p>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Types.Regularization.html">Regularization</a></p>
+        <p><span>Description:</span> Type of regularization</p>
+      </td>
+    </tr>
+    <tr>
+      <th>v0</th>
+      <td>
+        <p><span>Value:</span> 0.1</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Velocity.html">Velocity</a> (m/s)</p>
+        <p><span>Description:</span> Regularization below v0</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flange</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> Flange of component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Support_16x16.png"></td>
+      <th>support</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Support.html">Support</a></p>
+        <p><span>Description:</span> Support/housing of component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>inclination</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Inclination=tan(angle)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>cr</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Rolling resistance coefficient</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Vehicle_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.Vehicle.html">Vehicle</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span></p>
+        <p>Simple vehicle model</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

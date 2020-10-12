@@ -1,0 +1,74 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Operators.'cardinality()'</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Operators.html">Operators</a></li>
+  <li><a href="ModelicaReference.Operators.'cardinality()'.html">'cardinality()'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'cardinality()'</h1>
+    <p>cardinality()</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'cardinality()'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Number of connectors in connection.
+This is a deprecated operator. It should  no longer be used, since it will be removed in one of the next Modelica releases.
+</p>
+
+<h4>Syntax</h4>
+<blockquote><pre><strong>cardinality</strong>(c)</pre></blockquote>
+<h4>Description</h4>
+<p>Returns the number of (inside and outside) occurrences
+of connector instance c in a connect statement as an Integer number.</p>
+<p><em>[The cardinality operator allows the definition of connection dependent equations in a model.]</em></p>
+
+<p>
+Instead of the cardinality(..) operator, often conditional
+connectors can be used, that are enabled/disabled via Boolean
+parameters.
+</p>
+
+<h4>Examples</h4>
+<blockquote><pre><strong>connector</strong> Pin
+  Real      v;
+  <strong>flow</strong> Real i;
+<strong>end</strong> Pin;
+<strong>model</strong> Resistor
+   <strong>Pin</strong> p, n;
+<strong>equation</strong>
+   // Handle cases if pins are not connected
+      <strong>if cardinality</strong>(p) == 0 <strong>and cardinality</strong>(n) == 0 <strong>then</strong>
+         p.v = 0;
+         n.v = 0;
+      <strong>elseif cardinality</strong>(p) == 0 <strong>then</strong>
+         p.i = 0;
+      <strong>elseif cardinality</strong>(n) == 0 <strong>then</strong>
+         n.i = 0;
+      <strong>end if</strong>;
+   // Equations of resistor
+      ...
+<strong>end</strong> Resistor;</pre></blockquote>
+</div>
+</section>
+</div>
+</body>
+</html>

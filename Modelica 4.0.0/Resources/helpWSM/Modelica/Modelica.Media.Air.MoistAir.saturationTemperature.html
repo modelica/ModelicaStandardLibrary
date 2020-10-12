@@ -1,0 +1,94 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Media.Air.MoistAir.saturationTemperature</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Air.html">Air</a></li>
+  <li><a href="Modelica.Media.Air.MoistAir.html">MoistAir</a></li>
+  <li><a href="Modelica.Media.Air.MoistAir.saturationTemperature.html">saturationTemperature</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>saturationTemperature</h1>
+    <p>Return saturation temperature of water as a function of (partial) pressure p</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Air.MoistAir.saturationTemperature_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+Computes saturation temperature from (partial) pressure via numerical inversion of the function <a href="Modelica.Media.Air.MoistAir.saturationPressure.html">saturationPressure</a>. Therefore additional inputs are required (or the defaults are used) for upper and lower temperature bounds.
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">T = saturationTemperature(p, T_min, T_max)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_min</th>
+      <td>
+        <p><span>Default Value:</span> 190</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Lower boundary of solution</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_max</th>
+      <td>
+        <p><span>Default Value:</span> 647</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Upper boundary of solution</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Saturation temperature</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

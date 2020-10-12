@@ -1,0 +1,256 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Visualizers.FixedFrame</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.FixedFrame.html">FixedFrame</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>FixedFrame</h1>
+    <p>Visualizing a coordinate system including axes labels (visualization data may vary dynamically)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.FixedFrame_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Model <strong>FixedFrame</strong> visualizes the three axes of
+its coordinate system <strong>frame_a</strong> together with appropriate axes
+labels. A typical example is shown in the following figure:
+<br>&nbsp;
+</p>
+
+<p>
+<img src="resources/Modelica.Mechanics.MultiBody.Visualizers.FixedFrame_info_001.png" alt="model Visualizers.FixedFrame">
+</p>
+
+<p>
+The sizes of the axes, the axes colors and the specular coefficient
+(= reflection factor for
+ambient light) can vary dynamically by
+providing appropriate expressions in the input fields of the
+parameter menu.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>animation</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if animation shall be enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>showLabels</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if labels shall be shown</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>length</th>
+      <td>
+        <p><span>Default Value:</span> 0.5</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Length of axes arrows</p>
+      </td>
+    </tr>
+    <tr>
+      <th>diameter</th>
+      <td>
+        <p><span>Default Value:</span> length / world.defaultFrameDiameterFraction</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Diameter of axes arrows</p>
+      </td>
+    </tr>
+    <tr>
+      <th>color_x</th>
+      <td>
+        <p><span>Default Value:</span> Modelica.Mechanics.MultiBody.Types.Defaults.FrameColor</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of x-arrow</p>
+      </td>
+    </tr>
+    <tr>
+      <th>color_y</th>
+      <td>
+        <p><span>Default Value:</span> color_x</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of y-arrow</p>
+      </td>
+    </tr>
+    <tr>
+      <th>color_z</th>
+      <td>
+        <p><span>Default Value:</span> color_x</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of z-arrow</p>
+      </td>
+    </tr>
+    <tr>
+      <th>specularCoefficient</th>
+      <td>
+        <p><span>Default Value:</span> world.defaultSpecularCoefficient</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.SpecularCoefficient.html">SpecularCoefficient</a></p>
+        <p><span>Description:</span> Reflection of ambient light (= 0: light is completely absorbed)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_16x16.png"></td>
+      <th>frame_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p><span>Description:</span> Coordinate system in which visualization data is resolved</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>x_arrowLine</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>x_arrowHead</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines_32x32.png"></td>
+      <th>x_label</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines.html">Lines</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>y_arrowLine</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>y_arrowHead</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines_32x32.png"></td>
+      <th>y_label</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines.html">Lines</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>z_arrowLine</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>z_arrowHead</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines_32x32.png"></td>
+      <th>z_label</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines.html">Lines</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2.html">Fourbar2</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span></p>
+        <p>One kinematic loop with four bars (with UniversalSpherical joint; 1 non-linear equation)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

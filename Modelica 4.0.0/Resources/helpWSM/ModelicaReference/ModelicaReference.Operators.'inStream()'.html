@@ -1,0 +1,168 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Operators.'inStream()'</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Operators.html">Operators</a></li>
+  <li><a href="ModelicaReference.Operators.'inStream()'.html">'inStream()'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'inStream()'</h1>
+    <p>inStream()</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'inStream()'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Returns the mixing value of a stream variable if it flows into the component where the inStream operator
+is used.
+</p>
+
+<p>
+For an introduction into stream variables and an example for the inStream(..) operator, see
+<a href="ModelicaReference.'stream'.html">stream</a>.
+</p>
+
+<h4>Syntax</h4>
+
+<blockquote><pre><strong>inStream</strong>(IDENT) </pre></blockquote>
+
+<p>
+where <code>IDENT</code> must be a variable reference in a connector component declared with the
+<a href="ModelicaReference.'stream'.html">stream</a> prefix.
+</p>
+
+<h4>Description</h4>
+
+<p>
+In combination with the stream variables of a connector, the inStream() operator
+is designed to describe in a numerically reliable way the bi-directional
+transport of specific quantities carried by a flow of matter. inStream(v) is
+only allowed on stream variables v and is informally the value the stream
+variable has, assuming that the flow is from the connection point into the
+component. This value is computed from the stream connection equations of the
+flow variables and of the stream variables. For the following definition it is
+assumed that N inside connectors mj.c (j=1,2,...,N) and M outside connectors
+ck(k=1,2,...,M) belonging to the same connection set
+are connected together and a stream variable h_outflow is associated with
+a flow variable m_flow in connector c.
+</p>
+
+<blockquote><pre><strong>connector</strong> FluidPort
+   ...
+   <strong>flow</strong>   Real m_flow     "Flow of matter; m_flow &gt; 0 if flow into component";
+   <strong>stream</strong> Real h_outflow  "Specific variable in component if m_flow &lt; 0"
+<strong>end</strong> FluidPort;
+
+<strong>model</strong> FluidSystem
+   ...
+   FluidComponent m1, m2, ..., mN;
+   FluidPort      c1, c2, ..., cM;
+<strong>equation</strong>
+   <strong>connect</strong>(m1.c, m2.c);
+   <strong>connect</strong>(m1.c, m3.c);
+      ...
+   <strong>connect</strong>(m1.c, mN.c);
+   <strong>connect</strong>(m1.c, c1);
+   <strong>connect</strong>(m1.c, c2);
+      ...
+   <strong>connect</strong>(m1.c, cM);
+   ...
+<strong>end</strong> FluidSystem;
+</pre></blockquote>
+
+<p>
+With these prerequisites, the semantics of the expression
+</p>
+
+<blockquote><pre><strong>inStream</strong>(m<sub>i</sub>.c.h_outflow)
+</pre></blockquote>
+
+<p>
+is given implicitly by defining an additional variable <strong>h_mix_in</strong><sub>i</sub>,
+and by adding to the model the conservation equations for mass and energy corresponding
+to the infinitesimally small volume spanning the connection set. The connect equation
+for the flow variables has already been added to the system according to the connection
+semantics of flow variables:
+</p>
+
+<blockquote><pre>// Standard connection equation for flow variables
+0 = <strong>sum</strong>(m<sub>j</sub>.c.m_flow <strong>for</strong> j <strong>in</strong> 1:N) + <strong>sum</strong>(-c<sub>k</sub>.m_flow <strong>for</strong> k in 1:M);
+</pre></blockquote>
+
+<p>
+Whenever the inStream() operator is applied to a stream variable of an
+inside connector, the balance equation of the transported property must
+be added  under the assumption of flow going into the connector
+</p>
+
+<blockquote><pre>// Implicit definition of the inStream() operator applied to inside connector i
+0 = <strong>sum</strong>(m<sub>j</sub>.c.m_flow*(<strong>if</strong> m<sub>j</sub>.c.m_flow > 0 <strong>or</strong> j==i <strong>then</strong> h_mix_in<sub>i</sub> <strong>else</strong> m<sub>j</sub>.c.h_outflow) <strong>for</strong> j <strong>in</strong> 1:N) +
+    <strong>sum</strong>(-c<sub>k</sub>.m_flow* (<strong>if</strong> c<sub>k</sub>.m_flow > 0 <strong>then</strong> h_mix_in<sub>i</sub> <strong>else</strong> inStream(c<sub>k</sub>.h_outflow) <strong>for</strong> k <strong>in</strong> 1:M);
+<strong>inStream</strong>(m<sub>i</sub>.c.h_outflow) = h_mix_in<sub>i</sub>;
+</pre></blockquote>
+
+<p>
+Note that the result of the inStream(m<sub>i</sub>.c.h_outflow) operator is different for each port i,
+because the assumption of flow entering the port is different for each of them.
+Additional equations need to be generated for the stream variables of outside connectors.
+</p>
+
+<blockquote><pre>// Additional connection equations for outside connectors
+<strong>for</strong> q in 1:M <strong>loop</strong>
+  0 = <strong>sum</strong>(m<sub>j</sub>.c.m_flow*(<strong>if</strong> m<sub>j</sub>.c.m_flow > 0 <strong>then</strong> h_mix_out<sub>q</sub> <strong>else</strong> m<sub>j</sub>.c.h_outflow) <strong>for</strong> j <strong>in</strong> 1:N) +
+      <strong>sum</strong>(-c<sub>k</sub>.m_flow* (<strong>if</strong> c<sub>k</sub>.m_flow > 0 <strong>or</strong> k==q <strong>then</strong> h_mix_out<sub>q</sub> <strong>else</strong> <strong>inStream</strong>(c<sub>k</sub>.h_outflow)
+          <strong>for</strong> k <strong>in</strong> 1:M);
+  c<sub>q</sub>.h_outflow = h_mix_out<sub>q</sub>;
+<strong>end for</strong>;
+</pre></blockquote>
+
+<p>
+Neglecting zero flow conditions, the above implicit equations can be
+analytically solved for the inStream(..) operators.
+The details are given in <a href="https://specification.modelica.org/v3.4/Ch15.html#stream-operator-instream-and-connection-equations">Section 15.2 (Stream Operator inStream and Connection Equations) of the Modelica 3.4 specification</a>.
+The stream connection equations have singularities and/or multiple solutions if one or more
+of the flow variables become zero. When all the flows are zero, a singularity is always
+present, so it is necessary to approximate the solution in an open neighborhood
+of that point. [<em>For example assume that m<sub>j</sub>.c.m_flow = c<sub>k</sub>.m_flow = 0,
+then all equations above are identically fulfilled and inStream(..) can have any value</em>].
+It is required that the inStream() operator is appropriately approximated in that case
+and the approximation must fulfill the following requirements:
+</p>
+
+<ol>
+<li> inStream(m<sub>i</sub>.c.h_outflow) and inStream(c<sub>k</sub>.h_outflow)
+     must be <strong>unique</strong> with respect to all values of the flow and stream
+     variables in the connection set, and must have a continuous dependency on them.<br>&nbsp;</li>
+<li> Every solution of the implicit equation system above must fulfill the equation
+     system identically [<em>up to the usual numerical accuracy</em>],
+     provided the absolute value of every flow variable in the connection set is
+     greater than a small value (|m<sub>1</sub>.c.m_flow| &gt; eps and |m<sub>2</sub>.c.m_flow| &gt; eps
+     and ... and |c<sub>M</sub>.m_flow| &gt; eps).</li>
+</ol>
+
+<p>
+In Section 15.2 a recommended implementation of the solution of the implicit equation system is
+given, that fulfills the above requirements.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

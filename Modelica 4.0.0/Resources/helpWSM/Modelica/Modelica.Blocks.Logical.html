@@ -1,0 +1,259 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Logical</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Logical.html">Logical</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Logical</h1>
+    <p>Library of components with Boolean input and output signals</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Logical_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.And_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.And.html">And</a></p>
+        <p>Logical 'and': y = u1 and u2</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.Or_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.Or.html">Or</a></p>
+        <p>Logical 'or': y = u1 or u2</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.Xor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.Xor.html">Xor</a></p>
+        <p>Logical 'xor': y = u1 xor u2</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.Nor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.Nor.html">Nor</a></p>
+        <p>Logical 'nor': y = not (u1 or u2)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.Nand_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.Nand.html">Nand</a></p>
+        <p>Logical 'nand': y = not (u1 and u2)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.Not_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.Not.html">Not</a></p>
+        <p>Logical 'not': y = not u</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.Pre_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.Pre.html">Pre</a></p>
+        <p>Breaks algebraic loops by an infinitesimal small time delay (y = pre(u): event iteration continues until u = pre(u))</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.Edge_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.Edge.html">Edge</a></p>
+        <p>Output y is true, if the input u has a rising edge (y = edge(u))</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.FallingEdge_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.FallingEdge.html">FallingEdge</a></p>
+        <p>Output y is true, if the input u has a falling edge (y = edge(not u))</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.Change_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.Change.html">Change</a></p>
+        <p>Output y is true, if the input u has a rising or falling edge (y = change(u))</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.GreaterThreshold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.GreaterThreshold.html">GreaterThreshold</a></p>
+        <p>Output y is true, if input u is greater than threshold</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.GreaterEqualThreshold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.GreaterEqualThreshold.html">GreaterEqualThreshold</a></p>
+        <p>Output y is true, if input u is greater or equal than threshold</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.LessThreshold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.LessThreshold.html">LessThreshold</a></p>
+        <p>Output y is true, if input u is less than threshold</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.LessEqualThreshold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.LessEqualThreshold.html">LessEqualThreshold</a></p>
+        <p>Output y is true, if input u is less or equal than threshold</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.Greater_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.Greater.html">Greater</a></p>
+        <p>Output y is true, if input u1 is greater than input u2</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.GreaterEqual_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.GreaterEqual.html">GreaterEqual</a></p>
+        <p>Output y is true, if input u1 is greater or equal than input u2</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.Less_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.Less.html">Less</a></p>
+        <p>Output y is true, if input u1 is less than input u2</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.LessEqual_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.LessEqual.html">LessEqual</a></p>
+        <p>Output y is true, if input u1 is less or equal than input u2</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.ZeroCrossing_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.ZeroCrossing.html">ZeroCrossing</a></p>
+        <p>Trigger zero crossing of input u</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.LogicalSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.LogicalSwitch.html">LogicalSwitch</a></p>
+        <p>Logical Switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.Switch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.Switch.html">Switch</a></p>
+        <p>Switch between two Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.Hysteresis_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.Hysteresis.html">Hysteresis</a></p>
+        <p>Transform Real to Boolean signal with Hysteresis</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.OnOffController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.OnOffController.html">OnOffController</a></p>
+        <p>On-off controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.TriggeredTrapezoid_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.TriggeredTrapezoid.html">TriggeredTrapezoid</a></p>
+        <p>Triggered trapezoid generator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.Timer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.Timer.html">Timer</a></p>
+        <p>Timer measuring the time from the time instant where the Boolean input became true</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.LogicalDelay_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.LogicalDelay.html">LogicalDelay</a></p>
+        <p>Delay boolean signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.RSFlipFlop_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.RSFlipFlop.html">RSFlipFlop</a></p>
+        <p>A basic RS Flip Flop</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.TerminateSimulation_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.TerminateSimulation.html">TerminateSimulation</a></p>
+        <p>Terminate simulation if condition is fulfilled</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This package provides blocks with Boolean input and output signals
+to describe logical networks. A typical example for a logical
+network built with package Logical is shown in the next figure:
+</p>
+
+<p>
+<img src="resources/Modelica.Blocks.Logical_info_001.png"
+     alt="LogicalNetwork1.png">
+</p>
+
+<p>
+The actual value of Boolean input and/or output signals is displayed
+in the respective block icon as "circle", where "white" color means
+value <strong>false</strong> and "green" color means value <strong>true</strong>. These
+values are visualized in a diagram animation.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

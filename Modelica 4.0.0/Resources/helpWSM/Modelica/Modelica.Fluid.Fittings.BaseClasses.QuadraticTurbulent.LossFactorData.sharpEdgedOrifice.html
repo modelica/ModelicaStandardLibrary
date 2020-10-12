@@ -1,0 +1,122 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Fittings.html">Fittings</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.html">BaseClasses</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.html">QuadraticTurbulent</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.html">LossFactorData</a></li>
+  <li><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice.html">sharpEdgedOrifice</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>sharpEdgedOrifice</h1>
+    <p>Return pressure loss data for sharp edged orifice (for both flow directions)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Loss factor for mass flow rate from port_a to port_b
+(Idelchik 1994, diagram 4-14, p. 221):
+</p>
+<blockquote><pre>
+zeta = [(1-A0/A1) + 0.707*(1-A0/A1)^0.375]^2*(A1/A0)^2
+       for Re(A0) &ge; 1e5,  independent of alpha
+</pre></blockquote>
+<p>
+Loss factor for mass flow rate from port_b to port_a
+(Idelchik 1994, diagram 4-13, p. 220, with A2=A1):
+</p>
+<blockquote><pre>
+zeta = k*(1 - A0/A1)^0.75 + (1 - A0/A1)^2 + 2*sqrt(k*(1-A0/A1)^0.375) + (1- A0/A1)
+       k  = 0.13 + 0.34*10^(-(3.4*LD+88.4*LD^2.3))
+            (there is a typing error in the formula in diagram 4-13, the above
+             equation corresponds to table (a) in diagram 4-12)
+       LD = L/D0
+       for Re(A0) &ge; 1e4, 40 deg &le; alpha &le; 60 deg
+                          for other values of alpha, k is given as table
+                          in diagram 3-7 (this is not yet included in the function)
+</pre></blockquote>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">data = sharpEdgedOrifice(diameter, leastDiameter, length, alpha)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>diameter</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Diameter.html">Diameter</a> (m)</p>
+        <p><span>Description:</span> Inner diameter of pipe (= same at port_a and port_b)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>leastDiameter</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Diameter.html">Diameter</a> (m)</p>
+        <p><span>Description:</span> Smallest diameter of orifice</p>
+      </td>
+    </tr>
+    <tr>
+      <th>length</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Diameter.html">Diameter</a> (m)</p>
+        <p><span>Description:</span> Length of orifice</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.NonSI.Angle_deg.html">Angle_deg</a> (°)</p>
+        <p><span>Description:</span> Angle of orifice</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>data</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.html">LossFactorData</a></p>
+        <p><span>Description:</span> Pressure loss factors for both flow directions</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

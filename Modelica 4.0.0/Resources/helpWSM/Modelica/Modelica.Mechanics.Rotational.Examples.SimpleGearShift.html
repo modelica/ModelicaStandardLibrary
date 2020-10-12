@@ -1,0 +1,163 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.Rotational.Examples.SimpleGearShift</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.html">Rotational</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Examples.SimpleGearShift.html">SimpleGearShift</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SimpleGearShift</h1>
+    <p>Simple Gearshift</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Rotational.Examples.SimpleGearShift_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.Rotational.Examples.SimpleGearShift_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.Rotational.Examples.SimpleGearShift_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This model shows how an automatic gear shift is built up from a planetary gear, a brake and a clutch.</p>
+<ul>
+<li>In the beginning, the clutch is free and the brake fixes the ring of the planetary. Thus we obtain a gearRatio = 1/(1 + planetary.ratio).</li>
+<li>At time = 2 s, the brake frees the ring of the planetary, whereas the clutch blocks the ring and the sun. Thus we obtain a gearRatio = 1.</li>
+</ul>
+</div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>wEngine</th>
+      <td>
+        <p><span>Default Value:</span> engine.w</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.AngularVelocity.html">AngularVelocity</a> (rad/s)</p>
+        <p><span>Description:</span> Speed of engine</p>
+      </td>
+    </tr>
+    <tr>
+      <th>wLoad</th>
+      <td>
+        <p><span>Default Value:</span> load.w</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.AngularVelocity.html">AngularVelocity</a> (rad/s)</p>
+        <p><span>Description:</span> Speed of load</p>
+      </td>
+    </tr>
+    <tr>
+      <th>gearRatio</th>
+      <td>
+        <p><span>Default Value:</span> wLoad / max(wEngine, 1E-6)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Gear ratio load/engine</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.TorqueStep_32x32.png"></td>
+      <th>torqueStep</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sources.TorqueStep.html">TorqueStep</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Inertia_32x32.png"></td>
+      <th>engine</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Inertia</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.IdealPlanetary_32x32.png"></td>
+      <th>idealPlanetary</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.IdealPlanetary.html">IdealPlanetary</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Inertia_32x32.png"></td>
+      <th>load</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Inertia</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque_32x32.png"></td>
+      <th>quadraticSpeedDependentTorque</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque.html">QuadraticSpeedDependentTorque</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Clutch_32x32.png"></td>
+      <th>clutch</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Clutch.html">Clutch</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Brake_32x32.png"></td>
+      <th>brake</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Brake.html">Brake</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Feedback_32x32.png"></td>
+      <th>feedback</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Feedback.html">Feedback</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>const1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Ramp_32x32.png"></td>
+      <th>ramp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Ramp.html">Ramp</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

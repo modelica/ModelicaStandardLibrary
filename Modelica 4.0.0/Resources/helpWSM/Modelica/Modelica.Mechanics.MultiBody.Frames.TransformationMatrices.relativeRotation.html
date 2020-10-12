@@ -1,0 +1,106 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Frames.TransformationMatrices.relativeRotation</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.html">TransformationMatrices</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.relativeRotation.html">relativeRotation</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>relativeRotation</h1>
+    <p>Return relative orientation object</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.relativeRotation_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+T_rel = TransformationMatrices.<strong>relativeRotation</strong>(T1, T2);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns
+<a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation.html">transformation matrix</a> T_rel
+that describes the orientation to rotate frame&nbsp;1 to frame&nbsp;2 from the
+<a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation.html">transformation matrix</a>&nbsp;T1
+that describes the orientation to rotate from frame&nbsp;0 to frame&nbsp;1 and from the
+<a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation.html">transformation matrix</a>&nbsp;T2
+that describes the orientation to rotate from frame&nbsp;0 to frame&nbsp;2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Mechanics.MultiBody.Frames.relativeRotation.html">Frames.relativeRotation</a>,
+<a href="Modelica.Mechanics.MultiBody.Frames.Quaternions.relativeRotation.html">Quaternions.relativeRotation</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">T_rel = relativeRotation(T1, T2)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>T1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object to rotate frame 0 into frame 1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object to rotate frame 0 into frame 2</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>T_rel</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object to rotate frame 1 into frame 2</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

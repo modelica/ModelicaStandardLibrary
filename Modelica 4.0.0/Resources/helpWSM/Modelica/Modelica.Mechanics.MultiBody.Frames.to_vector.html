@@ -1,0 +1,94 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Frames.to_vector</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.to_vector.html">to_vector</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>to_vector</h1>
+    <p>Map rotation object into vector</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.to_vector_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+vec = Frames.<strong>to_vector</strong>(R);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns a vector vec which contains elements of a transformation matrix&nbsp;T
+computed from an
+<a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">orientation object</a>&nbsp;R.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Mechanics.MultiBody.Frames.to_T.html">to_T</a>,
+<a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.to_vector.html">TransformationMatrices.to_vector</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">vec = to_vector(R)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object to rotate frame 1 into frame 2</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>vec</th>
+      <td>
+        <p><span>Type:</span> Real[9]</p>
+        <p><span>Description:</span> Elements of R in one vector</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

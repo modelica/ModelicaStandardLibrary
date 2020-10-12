@@ -1,0 +1,605 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Sources.Sine</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Sources.html">Sources</a></li>
+  <li><a href="Modelica.Blocks.Sources.Sine.html">Sine</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Sine</h1>
+    <p>Generate sine signal</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Sources.Sine_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The Real output y is a sine signal:
+</p>
+
+<p>
+<img src="resources/Modelica.Blocks.Sources.Sine_info_001.png"
+     alt="Sine.png">
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>offset</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Offset of output signal y</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startTime</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Output y = offset for time < startTime</p>
+      </td>
+    </tr>
+    <tr>
+      <th>amplitude</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Amplitude of sine wave</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Frequency of sine wave</p>
+      </td>
+    </tr>
+    <tr>
+      <th>phase</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Phase of sine wave</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Connector of Real output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(57)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.InverseModel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.InverseModel.html">InverseModel</a></p>
+        <p><span>Modelica.Blocks.Examples</span></p>
+        <p>Demonstrates the construction of an inverse model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.RealNetwork1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.RealNetwork1.html">RealNetwork1</a></p>
+        <p><span>Modelica.Blocks.Examples</span></p>
+        <p>Demonstrates the usage of blocks from Modelica.Blocks.Math</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.IntegerNetwork1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.IntegerNetwork1.html">IntegerNetwork1</a></p>
+        <p><span>Modelica.Blocks.Examples</span></p>
+        <p>Demonstrates the usage of blocks from Modelica.Blocks.MathInteger</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.BusUsage_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.BusUsage.html">BusUsage</a></p>
+        <p><span>Modelica.Blocks.Examples</span></p>
+        <p>Demonstrates the usage of a signal bus</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Modulation_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Modulation.html">Modulation</a></p>
+        <p><span>Modelica.Blocks.Examples</span></p>
+        <p>Demonstrate amplitude modulation an frequency modulation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.ClockSignals.SubSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.ClockSignals.SubSample.html">SubSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.ClockSignals</span></p>
+        <p>Example of a SubSample block for Clock signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.ClockSignals.SuperSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.ClockSignals.SuperSample.html">SuperSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.ClockSignals</span></p>
+        <p>Example of a SuperSample block for Clock signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.ClockSignals.ShiftSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.ClockSignals.ShiftSample.html">ShiftSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.ClockSignals</span></p>
+        <p>Example of a ShiftSample block for Clock signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.ClockSignals.RotationalSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.ClockSignals.RotationalSample.html">RotationalSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.ClockSignals</span></p>
+        <p>Simple example of a rotational clock with variable trigger interval and switching rotation-direction.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.ClockSignals.LogicalSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.ClockSignals.LogicalSample.html">LogicalSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.ClockSignals</span></p>
+        <p>Simple example of conjunctive and disjunctive logical clocks, combining clock signals to derive new event driven clocks.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.Sample1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.Sample1.html">Sample1</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a Sample block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.SampleClocked_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.SampleClocked.html">SampleClocked</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a SampleClocked block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.SampleVectorizedAndClocked_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.SampleVectorizedAndClocked.html">SampleVectorizedAndClocked</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a SampleVectorizedAndClocked block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.SampleWithADeffects_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.SampleWithADeffects.html">SampleWithADeffects</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a SampleWithADeffects block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.Hold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.Hold.html">Hold</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a Hold block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects1.html">HoldWithDAeffects1</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a HoldWithDAeffects block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects2.html">HoldWithDAeffects2</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a HoldWithDAeffects block for Real signals (with a computational delay of one sample period)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.SubSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.SubSample.html">SubSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a SubSample block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.SuperSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.SuperSample.html">SuperSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a SuperSample block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.SuperSampleInterpolated_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.SuperSampleInterpolated.html">SuperSampleInterpolated</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a SuperSampleInterpolated block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.ShiftSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.ShiftSample.html">ShiftSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a ShiftSample block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.BackSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.BackSample.html">BackSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a BackSample block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.UpSample1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.UpSample1.html">UpSample1</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of an UpSample block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.UpSample2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.UpSample2.html">UpSample2</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of an UpSample block for Real signals combined with FIR filter blocks</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockToTriggerHold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockToTriggerHold.html">AssignClockToTriggerHold</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of an AssignClockToTriggerHold block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockToSquareWaveHold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockToSquareWaveHold.html">AssignClockToSquareWaveHold</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of an AssignClockToSquareWaveHold block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.FractionalDelay_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.FractionalDelay.html">FractionalDelay</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a FractionalDelay block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.TickBasedSine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.TickBasedSine.html">TickBasedSine</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of using the clocked tick based Sine source block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.GenerationOfFMUs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.GenerationOfFMUs.html">GenerationOfFMUs</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span></p>
+        <p>Example to demonstrate variants to generate FMUs (Functional Mock-up Units)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.PolyphaseTwoLevel_R_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.PolyphaseTwoLevel_R.html">PolyphaseTwoLevel_R</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel</span></p>
+        <p>Polyphase DC to AC converter with R load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.PolyphaseTwoLevel_RL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.PolyphaseTwoLevel_RL.html">PolyphaseTwoLevel_RL</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel</span></p>
+        <p>Polyphase DC to AC converter with R-L load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel.ThreePhaseTwoLevel_PWM.html">ThreePhaseTwoLevel_PWM</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.DCAC.PolyphaseTwoLevel</span></p>
+        <p>Test of pulse width modulation methods</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.RollingWheelSetDriving_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.RollingWheelSetDriving.html">RollingWheelSetDriving</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span></p>
+        <p>Rolling wheel set that is driven by torques driving the wheels</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces.html">Surfaces</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span></p>
+        <p>Demonstrate the visualization of a sine surface, as well as a torus and a wheel constructed from a surface</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic.html">PlanarLoops_analytic</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span></p>
+        <p>Mechanism with three planar kinematic loops and one degree-of-freedom with analytic loop handling (with JointRRR joints)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.ActuatedDrive_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.ActuatedDrive.html">ActuatedDrive</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</span></p>
+        <p>Demonstrates usage of models Rotor1D and Mounting1D</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.MovingActuatedDrive_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.MovingActuatedDrive.html">MovingActuatedDrive</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</span></p>
+        <p>Demonstrates usage of model Rotor1D mounted on a moving body</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint.html">GearConstraint</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</span></p>
+        <p>Demonstrate usage of GearConstraint model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.BevelGear1D_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.BevelGear1D.html">BevelGear1D</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</span></p>
+        <p>Demonstrates the usage of a BevelGear1D model and how to calculate the power of such an element</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.First_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.First.html">First</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>First example: simple drive train</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.FirstGrounded_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.FirstGrounded.html">FirstGrounded</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>First example: simple drive train with grounded elements</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Friction_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Friction.html">Friction</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Drive train with clutch and brake</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.CoupledClutches_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.CoupledClutches.html">CoupledClutches</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Drive train with 3 dynamically coupled clutches</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.LossyGearDemo1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.LossyGearDemo1.html">LossyGearDemo1</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Example to show that gear efficiency may lead to stuck motion</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.LossyGearDemo2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.LossyGearDemo2.html">LossyGearDemo2</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Example to show combination of LossyGear and BearingFriction</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.HeatLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.HeatLosses.html">HeatLosses</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Demonstrate the modeling of heat losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs.html">GenerationOfFMUs</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Example to demonstrate variants to generate FMUs (Functional Mock-up Units)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.OneWayClutch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.OneWayClutch.html">OneWayClutch</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Drive train with actively engaged one-way clutch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.OneWayClutchDisengaged_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.OneWayClutchDisengaged.html">OneWayClutchDisengaged</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Drive train with disengaged one-way clutch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Oscillator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Oscillator.html">Oscillator</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span></p>
+        <p>Oscillator demonstrates the use of initial conditions</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Sensors_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Sensors.html">Sensors</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span></p>
+        <p>Sensors for translational systems</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Friction_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Friction.html">Friction</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span></p>
+        <p>Use of model Stop</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.PreLoad_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.PreLoad.html">PreLoad</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span></p>
+        <p>Preload of a spool using ElastoGap models</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.HeatLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.HeatLosses.html">HeatLosses</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span></p>
+        <p>Demonstrate the modeling of heat losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.GenerationOfFMUs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.GenerationOfFMUs.html">GenerationOfFMUs</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span></p>
+        <p>Example to demonstrate variants to generate FMUs (Functional Mock-up Units)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.Explanatory.MeasuringTemperature_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.Explanatory.MeasuringTemperature.html">MeasuringTemperature</a></p>
+        <p><span>Modelica.Fluid.Examples.Explanatory</span></p>
+        <p>Differences between using one port with and without explicit junction model and two port sensors for fluid temperature measuring</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Examples.GenerationOfFMUs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Examples.GenerationOfFMUs.html">GenerationOfFMUs</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Examples</span></p>
+        <p>Example to demonstrate variants to generate FMUs (Functional Mock-up Units)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Harmonic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.Harmonic.html">Harmonic</a></p>
+        <p><span>Modelica.Blocks.Math</span></p>
+        <p>Calculate harmonic over period 1/f</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCAC.ExampleTemplates.SinglePhaseTwoLevel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.DCAC.ExampleTemplates.SinglePhaseTwoLevel.html">SinglePhaseTwoLevel</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.DCAC.ExampleTemplates</span></p>
+        <p>Single-phase two level inverter including control</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

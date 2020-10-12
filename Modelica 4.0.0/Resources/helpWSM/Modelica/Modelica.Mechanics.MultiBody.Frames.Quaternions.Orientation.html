@@ -1,0 +1,112 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Frames.Quaternions.Orientation</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.Quaternions.html">Quaternions</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation.html">Orientation</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Orientation</h1>
+    <p>Orientation type defining rotation from a frame 1 into a frame 2 with quaternions {p1,p2,p3,p0}</p>
+  </td><td>
+    <div></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This type describes the <strong>rotation</strong> to rotate a frame 1 into
+a frame 2 using quaternions (also called <strong>Euler parameters</strong>)
+according to the following definition:
+</p>
+<blockquote><pre>
+Quaternions.Orientation Q;
+Real  n[3];
+Real  phi(unit="rad");
+Q = [ n*sin(phi/2)
+        cos(phi/2) ]
+</pre></blockquote>
+<p>
+where "n" is the <strong>axis of rotation</strong> to rotate frame 1 into
+frame 2 and "phi" is the <strong>rotation angle</strong> for this rotation.
+Vector "n" is either resolved in frame 1 or in frame 2
+(the result is the same since the coordinates of "n" with respect to
+frame 1 are identical to its coordinates with respect to frame 2).
+</p>
+<p>
+The term "quaternions" is preferred over the historically
+more reasonable "Euler parameters" in order to not get
+confused with Modelica "parameters".
+</p>
+</div>
+</section>
+<section id="type" >
+  <h1>Type Information </h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Real</th>
+      <td>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Spherical_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Spherical.html">Spherical</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span></p>
+        <p>Spherical joint (3 constraints and no potential states, or 3 degrees-of-freedom and 3 states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.FreeMotion_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.FreeMotion.html">FreeMotion</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span></p>
+        <p>Free motion joint (6 degrees-of-freedom, 12 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.Body_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.Body.html">Body</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span></p>
+        <p>Rigid body with mass, inertia tensor and one frame connector (12 potential states)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.BooleanVectors.index</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.BooleanVectors.html">BooleanVectors</a></li>
+  <li><a href="Modelica.Math.BooleanVectors.index.html">index</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>index</h1>
+    <p>Returns the indices of the true elements of a Boolean vector</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.BooleanVectors.index_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>index</strong>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns an integer vector that contains indices to the
+<strong>true</strong> elements in a Boolean vector b. The number of elements in
+the integer vector is the number of <strong>true</strong> elements in b.
+</p>
+
+<h4>Example</h4>
+<code>index({false, true, false, true})</code> returns <code>{2,4}</code>.
+
+  <h4>See also</h4>
+<p>
+<a href="Modelica.Math.BooleanVectors.allTrue.html">allTrue</a>,
+<a href="Modelica.Math.BooleanVectors.andTrue.html">andTrue</a>,
+<a href="Modelica.Math.BooleanVectors.anyTrue.html">anyTrue</a>,
+<a href="Modelica.Math.BooleanVectors.countTrue.html">countTrue</a>,
+<a href="Modelica.Math.BooleanVectors.enumerate.html">enumerate</a>,
+<a href="Modelica.Math.BooleanVectors.firstTrueIndex.html">firstTrueIndex</a>, and
+<a href="Modelica.Math.BooleanVectors.oneTrue.html">oneTrue</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">indices = index(b)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>b</th>
+      <td>
+        <p><span>Type:</span> Boolean[:]</p>
+        <p><span>Description:</span> Boolean vector</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>indices</th>
+      <td>
+        <p><span>Type:</span> Integer[countTrue(b)]</p>
+        <p><span>Description:</span> Indices of the true elements of b</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

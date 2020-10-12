@@ -1,0 +1,49 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Operators.'previous()'</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Operators.html">Operators</a></li>
+  <li><a href="ModelicaReference.Operators.'previous()'.html">'previous()'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'previous()'</h1>
+    <p>previous()</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'previous()'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Gives the previous value of a clocked expression as part of the <a href="ModelicaReference.Synchronous.html">synchronous language elements</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>previous</strong>(u)</pre></blockquote>
+<h4>Description</h4>
+<p>
+The return argument has the same type as the input argument.
+Input and return arguments are on the same clock.
+At the first tick of the clock of <strong>u</strong> or after a <a href="ModelicaReference.Operators.'transition()'.html">reset transition</a>,
+the start value of <strong>u</strong>  is returned.
+At subsequent activations of the clock of <strong>u</strong>, the value of <strong>u</strong> from the previous clock activation is returned.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

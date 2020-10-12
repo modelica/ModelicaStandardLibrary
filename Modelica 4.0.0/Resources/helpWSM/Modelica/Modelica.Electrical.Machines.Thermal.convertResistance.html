@@ -1,0 +1,117 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Machines.Thermal.convertResistance</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Thermal.html">Thermal</a></li>
+  <li><a href="Modelica.Electrical.Machines.Thermal.convertResistance.html">convertResistance</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>convertResistance</h1>
+    <p>Converts resistance from reference temperature to an actual temperature</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.Thermal.convertResistance_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+From the temperature coefficient <code>alpha20</code> at 20 degC (equals to 293.15 K) the parameter <code>alphaRef</code> at <code>TRef</code>
+</p>
+<blockquote><pre>
+                      alpha20
+alphaRef = -------------------------------
+            1 + alpha20 * (TRef - 293.15)
+</pre></blockquote>
+<p>
+is determined; using this value, actual resistance <code>R</code> with respect to the actual temperature <code>T</code> is calculated by
+</p>
+<blockquote><pre>
+  R
+------ = 1 + alphaRef * (T - TRef)
+ RRef
+</pre></blockquote>
+<p>
+where <code>RRef</code> is the resistance at the reference temperature <code>TRef</code>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">R = convertResistance(RRef, TRef, alpha20, T)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>RRef</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Resistance at TRef</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TRef</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Reference temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha20</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.LinearTemperatureCoefficient.html">LinearTemperatureCoefficient</a> (¹/K)</p>
+        <p><span>Description:</span> Temperature coefficient at 20 degC</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Actual temperature</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Actual resistance at T</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

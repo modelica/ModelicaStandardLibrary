@@ -1,0 +1,79 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Media.R134a.R134a_ph.density_derh_p</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.R134a.html">R134a</a></li>
+  <li><a href="Modelica.Media.R134a.R134a_ph.html">R134a_ph</a></li>
+  <li><a href="Modelica.Media.R134a.R134a_ph.density_derh_p.html">density_derh_p</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>density_derh_p</h1>
+    <p>Density derivative by specific enthalpy | use setState_phX function for input</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.R134a.R134a_ph.density_derh_p_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This function calculates the density derivative w.r.t. specific enthalpy at constant pressure of R134a (e.g., use setState_phX function for input). The derivative is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). It can be used for manual state transformations (e.g. from density to specific enthalpy).
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">ddhp = density_derh_p(state)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>state</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.ThermodynamicState.html">ThermodynamicState</a></p>
+        <p><span>Description:</span> Thermodynamic state record</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>ddhp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.DerDensityByEnthalpy.html">DerDensityByEnthalpy</a> (kg·s²/m5)</p>
+        <p><span>Description:</span> Density derivative w.r.t. specific enthalpy</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

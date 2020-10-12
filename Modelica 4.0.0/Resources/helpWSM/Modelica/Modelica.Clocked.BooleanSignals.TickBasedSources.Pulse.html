@@ -1,0 +1,122 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.BooleanSignals.TickBasedSources.Pulse</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.BooleanSignals.html">BooleanSignals</a></li>
+  <li><a href="Modelica.Clocked.BooleanSignals.TickBasedSources.html">TickBasedSources</a></li>
+  <li><a href="Modelica.Clocked.BooleanSignals.TickBasedSources.Pulse.html">Pulse</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Pulse</h1>
+    <p>Generate pulse signal of type Boolean</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.BooleanSignals.TickBasedSources.Pulse_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>The block is similar to the block in <a href="Modelica.Blocks.Sources.BooleanPulse.html">Modelica.Blocks.Sources.BooleanPulse</a>,
+but adapted to work in clocked partitions (by internal sampling of the continuous <strong>time</strong> variable).
+</p>
+<p>
+The Boolean output y is a pulse signal:
+</p>
+
+<p>
+<img src="resources/Modelica.Clocked.BooleanSignals.TickBasedSources.Pulse_info_001.png" alt="TickBasedSources_Pulse.png">
+</p>
+<h4>Example</h4>
+<p>
+See model <a href="Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedPulse.html">Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedPulse</a>.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>widthTicks</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Width of one pulse in clock ticks</p>
+      </td>
+    </tr>
+    <tr>
+      <th>periodTicks</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of clock ticks for one period</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startTick</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Clock tick at which the first pulse starts</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanOutput.html">BooleanOutput</a></p>
+        <p><span>Description:</span> Connector of clocked, Real output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedPulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.BooleanSignals.TickBasedPulse.html">TickBasedPulse</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.BooleanSignals</span></p>
+        <p>Example of using the clock tick based Boolean Pulse source block</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

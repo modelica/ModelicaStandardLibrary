@@ -1,0 +1,97 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.SlipRatio</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.html">Dissipation</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.Functions.html">Functions</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.html">PressureLoss</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.html">TwoPhase</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.SlipRatio.html">SlipRatio</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SlipRatio</h1>
+    <p>Calculation of (analytical/empirical) slip ratio</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.SlipRatio_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">SR = SlipRatio(voidFractionApproach, rho_g, rho_l, x_flow)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>voidFractionApproach</th>
+      <td>
+        <p><span>Default Value:</span> Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.html">VoidFractionApproach</a></p>
+        <p><span>Description:</span> Choice of void fraction approach</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rho_g</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Density.html">Density</a> (kg/m³)</p>
+        <p><span>Description:</span> Density of gaseous phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rho_l</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Density.html">Density</a> (kg/m³)</p>
+        <p><span>Description:</span> Density of liquid phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x_flow</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Mass flow rate quality</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>SR</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Slip ratio</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

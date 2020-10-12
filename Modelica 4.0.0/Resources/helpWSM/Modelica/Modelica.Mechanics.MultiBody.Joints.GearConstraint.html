@@ -1,0 +1,224 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Joints.GearConstraint</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Joints.GearConstraint.html">GearConstraint</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>GearConstraint</h1>
+    <p>Ideal 3-dim. gearbox (arbitrary shaft directions)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.GearConstraint_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.MultiBody.Joints.GearConstraint_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.MultiBody.Joints.GearConstraint_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This ideal massless joint provides a gear constraint between
+frames <code>frame_a</code> and <code>frame_b</code>. The axes of rotation
+of <code>frame_a</code> and <code>frame_b</code> may be arbitrary.</p>
+<p><strong>Reference</strong><br>
+<span style="font-variant:small-caps">Schweiger</span>, Christian ;
+<span style="font-variant:small-caps">Otter</span>, Martin:
+<a href="https://www.modelica.org/events/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf">Modelling
+3D Mechanical Effects of 1-dim. Powertrains</a>. In: <em>Proceedings of the 3rd International
+Modelica Conference</em>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
+November 3-4, 2003, pp. 149-158</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>ratio</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Gear speed ratio</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n_a</th>
+      <td>
+        <p><span>Value:</span> {1, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Axis.html">Axis</a></p>
+        <p><span>Description:</span> Axis of rotation of shaft a (same coordinates in frame_a, frame_b, bearing)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n_b</th>
+      <td>
+        <p><span>Value:</span> {1, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Axis.html">Axis</a></p>
+        <p><span>Description:</span> Axis of rotation of shaft b (same coordinates in frame_a, frame_b, bearing)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r_a</th>
+      <td>
+        <p><span>Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> Vector from frame bearing to frame_a resolved in bearing</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r_b</th>
+      <td>
+        <p><span>Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> Vector from frame bearing to frame_b resolved in bearing</p>
+      </td>
+    </tr>
+    <tr>
+      <th>stateSelect</th>
+      <td>
+        <p><span>Value:</span> StateSelect.default</p>
+        <p><span>Type:</span> StateSelect</p>
+        <p><span>Description:</span> Priority to use joint coordinates (phi_a, phi_b, w_a, w_b) as states</p>
+      </td>
+    </tr>
+    <tr>
+      <th>checkTotalPower</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if total power flowing into this component shall be determined (must be zero)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_16x16.png"></td>
+      <th>frame_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p><span>Description:</span> Coordinate system a fixed to the component with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_b_16x16.png"></td>
+      <th>frame_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_b.html">Frame_b</a></p>
+        <p><span>Description:</span> Coordinate system b fixed to the component with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_16x16.png"></td>
+      <th>bearing</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p><span>Description:</span> Coordinate system fixed in the bearing</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Revolute_32x32.png"></td>
+      <th>actuatedRevolute_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Joints.Revolute.html">Revolute</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Revolute_32x32.png"></td>
+      <th>actuatedRevolute_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Joints.Revolute.html">Revolute</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.IdealGear_32x32.png"></td>
+      <th>idealGear</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.IdealGear.html">IdealGear</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedTranslation_32x32.png"></td>
+      <th>fixedTranslation1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html">FixedTranslation</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedTranslation_32x32.png"></td>
+      <th>fixedTranslation2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html">FixedTranslation</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint.html">GearConstraint</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</span></p>
+        <p>Demonstrate usage of GearConstraint model</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,204 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.Examples.Systems.EngineThrottleControl</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.html">Systems</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.EngineThrottleControl.html">EngineThrottleControl</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>EngineThrottleControl</h1>
+    <p>Closed-loop throttle control synchronized to the crankshaft angle of an
+   internal combustion engine</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.Examples.Systems.EngineThrottleControl_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Clocked.Examples.Systems.EngineThrottleControl_diagram_large.png"><img src="resources/diagrams/Modelica.Clocked.Examples.Systems.EngineThrottleControl_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example shows how to model a non-periodic synchronous sampled data systems
+with the <code>Modelica.Clocked library</code>. This is demonstrated at hand
+of a closed-loop throttle control synchronized to the crankshaft angle of an
+internal combustion engine. This system has the following properties:</p>
+<ul>
+<li> The engine speed is regulated with a throttle actuator.</li>
+<li> Controller execution is synchronized with the engine crankshaft angle.</li>
+<li> The influence of disturbances, such as a change in load torque, is reduced.</li>
+</ul>
+<p>
+The complete system is shown in the figure below (diagram-layer):
+</p>
+<img
+  src="resources/Modelica.Clocked.Examples.Systems.EngineThrottleControl_info_001.png"
+  alt="EngineThrottleControl_Model.png">
+<p>
+Block <code>speedControl</code> is the discrete control system. The boundaries
+of this controller are defined by <code>sample1</code>, <code>sample2</code> and
+<code>hold</code>. The sampling is done in terms of sensors within the engine
+which observe its crankshaft angle; every 180° rotation of the crankshaft, the engine
+internally synchronizes is throttles. The respective synchronization points are provided
+as clocked outputs that in turn are used to trigger the external controller. The speed
+controller therefore is automatically executed every half-rotation of the engine's
+crankshaft in sync with the engine's internal throttle-cycle. The following diagram
+illustrates the engine's respective internal setup:
+</p>
+<img
+  src="resources/Modelica.Clocked.Examples.Systems.EngineThrottleControl_info_002.png"
+  alt="Engine_Model.png">
+<p>
+The <code>crankshaftPositionEvent</code>-clock is the event-clock synchronizing the
+engine's internal throttle-cycle and external control. It produces a clock tick for
+every half-rotation and is implemented as
+<a href="Modelica.Clocked.ClockSignals.Clocks.Rotational.RotationalClock.html">RotationalClock</a>.
+</p><p>The following diagram illustrates the logic of such a rotational clock:
+</p>
+<img
+  src="resources/Modelica.Clocked.Examples.Systems.EngineThrottleControl_info_003.png"
+  alt="RotationalClock_Model.png">
+<p>
+It accounts the angular of the last time a rotation has been
+recognized (<code>angular_offset</code>). Given
+<code>angular_offset</code>, the event-condition for rotations is:
+</p><p>
+<code>abs(angle - angular_offset) >= abs(trigger_interval)</code>
+</p><p>
+In our case, <code>angle</code> is the position of the crankshaft of the engine and
+<code>trigger_interval</code> is 180°. In the end,
+<code>crankshaftPositionEvent</code> samples it's own input angle to account
+an offset used to decide when to tick; the clock's event condition depends on
+the state present when the condition changed last time from being non-satisfied
+to being satisfied, i.e., the state when the clock last ticked.
+</p><p>
+<em>This example model is based on the following references:</em>
+</p>
+<dl>
+<dt>Crossley, P.R. and Cook, J. (1991):</dt>
+<dd> <strong>A nonlinear engine model for drivetrain system development</strong>.
+     International Conference on Control, Edinburgh, UK, March.<br>&nbsp;</dd>
+<dt>Simulink&reg; (R2010b) demo model <code>sldemo_enginewc.mdl</code>:</dt>
+<dd><strong>Engine Timing Model with Closed Loop Control</strong>.
+    The <code>EngineThrottleControl</code> example uses the same parameter values as the <code>sldemo_enginewc.mdl</code> demo model which is shipped with the Simulink&reg; software developed by The MathWorks, Inc.
+    Hence, the simulation results of these models can be compared conveniently.<br>&nbsp;</dd>
+</dl>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(12)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Step_32x32.png"></td>
+      <th>speedRef</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.SpeedControl_32x32.png"></td>
+      <th>speedControl</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.SpeedControl.html">SpeedControl</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.Sample_32x32.png"></td>
+      <th>sample1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.RealSignals.Sampler.Sample.html">Sample</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.Hold_32x32.png"></td>
+      <th>hold1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.RealSignals.Sampler.Hold.html">Hold</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.Engine_32x32.png"></td>
+      <th>engine</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.Engine.html">Engine</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Step_32x32.png"></td>
+      <th>step1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Step_32x32.png"></td>
+      <th>step2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Add_32x32.png"></td>
+      <th>add</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Add.html">Add</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.Torque_32x32.png"></td>
+      <th>torque</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sources.Torque.html">Torque</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sensors.AngleSensor_32x32.png"></td>
+      <th>angleSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sensors.AngleSensor.html">AngleSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Der_32x32.png"></td>
+      <th>derivative</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Der.html">Der</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.SampleClocked_32x32.png"></td>
+      <th>sample2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.RealSignals.Sampler.SampleClocked.html">SampleClocked</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

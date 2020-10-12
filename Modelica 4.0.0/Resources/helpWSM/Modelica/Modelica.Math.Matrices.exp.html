@@ -1,0 +1,138 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Matrices.exp</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.exp.html">exp</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>exp</h1>
+    <p>Return the exponential of a matrix by adaptive Taylor series expansion with scaling and balancing</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.exp_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+phi = Matrices.<strong>exp</strong>(A);
+phi = Matrices.<strong>exp</strong>(A,T=1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the exponential e<sup><strong>A</strong>T</sup> of matrix <strong>A</strong>, i.e.
+</p>
+<blockquote><pre>
+                       (<strong>A</strong>T)^2   (<strong>A</strong>T)^3
+<font size="4"> <strong>&Phi;</strong></font> = e^(<strong>A</strong>T) = <strong>I</strong> + <strong>A</strong>T + ------ + ------ + ....
+                         2!       3!
+</pre></blockquote>
+
+<p>where e=2.71828..., <strong>A</strong> is an n x n matrix with real elements and T is a real number,
+e.g., the sampling time.
+<strong>A</strong> may be singular. With the exponential of a matrix it is, e.g., possible
+to compute the solution of a linear system of differential equations</p>
+<blockquote><pre>
+der(<strong>x</strong>) = <strong>A</strong>*<strong>x</strong>   ->   <strong>x</strong>(t0 + T) = e^(<strong>A</strong>T)*x(t0)
+</pre></blockquote>
+
+<h4>Algorithmic details</h4>
+
+<p>The algorithm is taken from</p>
+<dl>
+<dt>H. D. Joos, G. Gr&uuml;bel:</dt>
+<dd><strong>RASP'91 Regulator Analysis and Synthesis Programs</strong><br>
+    DLR - Control Systems Group 1991</dd>
+</dl>
+<p>The following steps are performed to calculate the exponential of A:</p>
+<ol>
+  <li>Matrix <strong>A</strong> is balanced<br>
+  (= is transformed with a diagonal matrix <strong>D</strong>, such that inv(<strong>D</strong>)*<strong>A</strong>*<strong>D</strong>
+  has a smaller condition as <strong>A</strong>).</li>
+  <li>The scalar T is divided by a multiple of 2 such that norm(
+       inv(<strong>D</strong>)*<strong>A</strong>*<strong>D</strong>*T/2^k ) &lt; 0.5. Note, that (1) and (2) are implemented such that no round-off errors
+  are introduced.</li>
+  <li>The matrix from (2) is approximated by explicitly performing the Taylor
+  series expansion with a variable number of terms.
+  Truncation occurs if a new term does no longer contribute to the value of <strong>&Phi;</strong>
+  from the previous iteration.</li>
+  <li>The resulting matrix is transformed back, by reverting the steps of (2)
+  and (1).</li>
+</ol>
+<p>In several sources it is not recommended to use Taylor series expansion to
+calculate the exponential of a matrix, such as in 'C.B. Moler and C.F. Van Loan:
+Nineteen dubious ways to compute the exponential of a matrix. SIAM Review 20,
+pp. 801-836, 1979' or in the documentation of m-file expm2 in MATLAB version 6
+(<a href="http://www.mathworks.com">http://www.mathworks.com</a>) where it is
+stated that 'As a practical numerical method, this is often slow and inaccurate'.
+These statements are valid for a direct implementation of the Taylor series
+expansion, but <em>not</em> for the implementation variant used in this function.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">phi = exp(A, T)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,size(A, 1)]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>phi</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 1)]</p>
+        <p><span>Description:</span> = exp(A*T)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

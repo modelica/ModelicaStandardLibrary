@@ -1,0 +1,74 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.Translational.UsersGuide.SignConventions</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Translational.html">Translational</a></li>
+  <li><a href="Modelica.Mechanics.Translational.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.Mechanics.Translational.UsersGuide.SignConventions.html">SignConventions</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SignConventions</h1>
+    <p>Sign Conventions</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Translational.UsersGuide.SignConventions_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The variables of a component of this library can be accessed in the
+usual way. However, since most of these variables are basically elements
+of <strong>vectors</strong>, i.e., have a direction, the question arises how the
+signs of variables shall be interpreted. The basic idea is explained
+at hand of the following figure:
+</p>
+
+<div>
+<img src="resources/Modelica.Mechanics.Translational.UsersGuide.SignConventions_info_001.png" alt="drive2">
+</div>
+
+<p>
+First, one has to define
+a <strong>positive</strong> direction of this line, called <strong>axis of movement</strong>.
+In the top of the figure this is characterized by an arrow
+and a corresponding text. The simple rule is now:
+If a variable of a component is positive and can be interpreted as
+the element of a vector (e.g., force or velocity vector), the
+corresponding vector is directed into the positive direction
+of the axis of movement. In the following figure, the right-most
+mass of the figure above is displayed with the positive
+vector direction displayed according to this rule:
+</p>
+
+<div>
+<img src="resources/Modelica.Mechanics.Translational.UsersGuide.SignConventions_info_002.png" alt="drive3">
+</div>
+<p>
+The cut-force <code>mass2.flange_a.f</code>
+of the right mass is directed into the
+direction of movement if the values are positive. Similarly,
+the velocity <code>mass2.v</code> of the right mass
+is also directed into the
+direction of movement if the values are positive
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

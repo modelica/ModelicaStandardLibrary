@@ -1,0 +1,96 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: UsersGuide.ReleaseNotes.Version_2_2</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a></li>
+  <li><a href="Modelica.UsersGuide.ReleaseNotes.Version_2_2.html">Version_2_2</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Version_2_2</h1>
+    <p>Version 2.2 (April 6, 2005)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.UsersGuide.ReleaseNotes.Version_2_2_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Version 2.2 is backward compatible to version 2.1.
+</p>
+
+<p>
+The following <strong>new libraries</strong> have been added:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><td><a href="Modelica.Media.html">Modelica.Media</a></td>
+          <td> Property models of liquids and gases, especially
+                   <ul>
+                   <li>1241 detailed gas models,</li>
+                   <li> moist air,</li>
+                   <li> high precision water model (according to IAPWS/IF97 standard),</li>
+                   <li> incompressible media defined by tables (cp(T), rho(t), eta(T), etc. are defined by tables).</li>
+                   </ul>
+                   The user can conveniently define mixtures of gases between the
+                   1241 gas models. The models are
+                   designed to work well in dynamic simulations. They
+                   are based on a new standard interface for media with
+                   single and multiple substances and one or multiple phases
+                   with the following features:
+                   <ul>
+                   <li> The independent variables of a medium model do not influence the
+                                definition of a fluid connector port or how the
+                                balance equations have to be implemented.<br>
+                                Used independent variables: "p,T", "p,T,X", "p,h", "d,T".</li>
+                   <li> Optional variables, e.g., dynamic viscosity, are only computed
+                                if needed.</li>
+                   <li> The medium models are implemented with regards to efficient
+                                dynamic simulation.</li>
+                   </ul>
+          </td></tr>
+<tr><td><a href="Modelica.Thermal.FluidHeatFlow.html">Modelica.Thermal.FluidHeatFlow</a></td>
+          <td> Simple components for 1-dim., incompressible thermo-fluid flow
+                   to model coolant flows, e.g., of electrical machines.
+                   Components can be connected arbitrarily together (= ideal mixing
+                   at connection points) and fluid may reverse direction of flow.
+</td></tr>
+</table>
+<p>
+The following <strong>changes</strong> have been performed in the
+<strong>Modelica.Mechanics.MultiBody</strong> library:
+</p>
+<ul>
+<li> Component MultiBody.World has a new parameter
+         <strong>driveTrainMechanics3D</strong>. If set to <strong>true</strong>, 3D mechanical effects
+         of MultiBody.Parts.Mounting1D/Rotor1D/BevelGear1D are taken into account. If set to
+         <strong>false</strong> (= default), 3D mechanical effects in these elements
+         are not taken into account and the
+         frame connectors to connect to 3D parts are disabled (all
+         connections to such a disabled connector are also disabled, due to the
+         new feature of conditional declarations in Modelica language 2.2)</li>
+<li> All references to "MultiBody.xxx" have
+         been changed to "Modelica.Mechanics.MultiBodys.xxx" in order that after
+         copying of a component outside of the Modelica library, the references
+         still remain valid.</li>
+</ul>
+</div>
+</section>
+</div>
+</body>
+</html>

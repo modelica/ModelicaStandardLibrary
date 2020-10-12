@@ -1,0 +1,151 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: ComplexBlocks.ComplexMath.Division</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.ComplexBlocks.html">ComplexBlocks</a></li>
+  <li><a href="Modelica.ComplexBlocks.ComplexMath.html">ComplexMath</a></li>
+  <li><a href="Modelica.ComplexBlocks.ComplexMath.Division.html">Division</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Division</h1>
+    <p>Output first input divided by second input</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.Division_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This block computes the output <code>y</code> (element-wise)
+by <em>dividing</em> the corresponding elements of
+the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</code> or both inputs can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> are <code>true</code>, respectively. Depending on <code>useConjugateInput1</code> and <code>useConjugateInput2</code> the internal signals represent either the original or the conjugate complex input signal.
+</p>
+<blockquote><pre>
+y = u1Internal / u2Internal;
+</pre></blockquote>
+
+<p><strong>Example:</strong> If <code>useConjugateInput1 = true</code> and <code>useConjugateInput2 = false</code> the output signal <code>y = Modelica.ComplexMath.conj(u1) / u2</code>.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useConjugateInput1</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> If true, input 1 is processed conjugate complex</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useConjugateInput2</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> If true, input 2 is processed conjugate complex</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexInput_16x16.png"></td>
+      <th>u1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.ComplexBlocks.Interfaces.ComplexInput.html">ComplexInput</a></p>
+        <p><span>Description:</span> Connector of Complex input signal 1</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexInput_16x16.png"></td>
+      <th>u2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.ComplexBlocks.Interfaces.ComplexInput.html">ComplexInput</a></p>
+        <p><span>Description:</span> Connector of Complex input signal 2</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.ComplexBlocks.Interfaces.ComplexOutput.html">ComplexOutput</a></p>
+        <p><span>Description:</span> Connector of Complex output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Complex_32x32.png"></td>
+      <th>u1Internal</th>
+      <td>
+        <p><span>Type:</span> <a href="../Complex/Complex.html">Complex</a></p>
+        <p><span>Description:</span> Equals either u1 or conjugate complex input u1 if useComplexInput1 = true</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Complex_32x32.png"></td>
+      <th>u2Internal</th>
+      <td>
+        <p><span>Type:</span> <a href="../Complex/Complex.html">Complex</a></p>
+        <p><span>Description:</span> Equals either u2 or conjugate complex input u2 if useComplexInput2 = true</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.Bode_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.ComplexMath.Bode.html">Bode</a></p>
+        <p><span>Modelica.ComplexBlocks.ComplexMath</span></p>
+        <p>Calculate quantities to plot Bode diagram</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

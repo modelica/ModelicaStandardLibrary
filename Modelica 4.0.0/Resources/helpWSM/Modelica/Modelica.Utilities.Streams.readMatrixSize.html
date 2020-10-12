@@ -1,0 +1,106 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Utilities.Streams.readMatrixSize</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Streams.html">Streams</a></li>
+  <li><a href="Modelica.Utilities.Streams.readMatrixSize.html">readMatrixSize</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>readMatrixSize</h1>
+    <p>Read dimensions of a Real matrix from a MATLAB MAT file</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Streams.readMatrixSize_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+dim = Streams.<strong>readMatrixSize</strong>(fileName, matrixName)
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Function <strong>readMatrixSize</strong>(..) opens the given MATLAB MAT file
+(in format v4, v6, v7, and if HDF is supported in the Modelica tool, also v7.3),
+and reads the dimensions of the given Real matrix.
+These dimensions are returned in the Integer vector dim.
+</p>
+
+<h4>Example</h4>
+<p>
+See <a href="Modelica.Utilities.Examples.ReadRealMatrixFromFile.html">Examples.ReadRealMatrixFromFile</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Utilities.Streams.readRealMatrix.html">readRealMatrix</a>,
+<a href="Modelica.Utilities.Streams.writeRealMatrix.html">writeRealMatrix</a>
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">dim = readMatrixSize(fileName, matrixName)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>fileName</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> File where external data is stored</p>
+      </td>
+    </tr>
+    <tr>
+      <th>matrixName</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Name / identifier of the 2D Real array on the file</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>dim</th>
+      <td>
+        <p><span>Type:</span> Integer[2]</p>
+        <p><span>Description:</span> Number of rows and columns of the 2D Real array</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

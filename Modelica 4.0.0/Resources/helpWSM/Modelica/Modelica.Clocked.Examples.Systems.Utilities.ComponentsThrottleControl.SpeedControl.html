@@ -1,0 +1,113 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.SpeedControl</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.html">Systems</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.html">ComponentsThrottleControl</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.SpeedControl.html">SpeedControl</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SpeedControl</h1>
+    <p>Discrete control of crankshaft speed by throttle actuation</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.SpeedControl_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>k_p</th>
+      <td>
+        <p><span>Value:</span> 0.0614</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Proportional gain</p>
+      </td>
+    </tr>
+    <tr>
+      <th>k_I</th>
+      <td>
+        <p><span>Value:</span> 0.0723</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Integral gain</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>N_des</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Desired speed, (rad/s)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>N</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Measured speed, (rad/s)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>Theta</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Throttle angle (deg)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.EngineThrottleControl_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Systems.EngineThrottleControl.html">EngineThrottleControl</a></p>
+        <p><span>Modelica.Clocked.Examples.Systems</span></p>
+        <p>Closed-loop throttle control synchronized to the crankshaft angle of an
+   internal combustion engine</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

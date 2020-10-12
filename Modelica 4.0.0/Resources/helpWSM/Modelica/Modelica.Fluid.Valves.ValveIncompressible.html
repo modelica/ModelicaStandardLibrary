@@ -1,0 +1,343 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.Valves.ValveIncompressible</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Valves.html">Valves</a></li>
+  <li><a href="Modelica.Fluid.Valves.ValveIncompressible.html">ValveIncompressible</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ValveIncompressible</h1>
+    <p>Valve for (almost) incompressible fluids</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Valves.ValveIncompressible_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Fluid.Valves.ValveIncompressible_diagram_large.png"><img src="resources/diagrams/Modelica.Fluid.Valves.ValveIncompressible_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Valve model according to the IEC 534/ISA S.75 standards for valve sizing, incompressible fluids.</p>
+
+<p>
+The parameters of this model are explained in detail in
+<a href="Modelica.Fluid.Valves.BaseClasses.PartialValve.html">PartialValve</a>
+(the base model for valves).
+</p>
+
+<p>
+This model assumes that the fluid has a low compressibility, which is always the case for liquids.
+It can also be used with gases, provided that the pressure drop is lower than 0.2 times the absolute pressure at the inlet, so that the fluid density does not change much inside the valve.</p>
+
+<p>
+If <code>checkValve</code> is false, the valve supports reverse flow, with a symmetric flow characteristic curve. Otherwise, reverse flow is stopped (check valve behaviour).
+</p>
+
+<p>
+The treatment of parameters <strong>Kv</strong> and <strong>Cv</strong> is
+explained in detail in the
+<a href="Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics.html">User's Guide</a>.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(19)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>allowFlowReversal</th>
+      <td>
+        <p><span>Value:</span> system.allowFlowReversal</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true to allow flow reversal, false restricts to design direction (port_a -> port_b)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dp_start</th>
+      <td>
+        <p><span>Value:</span> dp_nominal</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialTwoPortTransport.Medium.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Guess value of dp = port_a.p - port_b.p</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_flow_start</th>
+      <td>
+        <p><span>Value:</span> m_flow_nominal</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialTwoPortTransport.Medium.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Guess value of m_flow = port_a.m_flow</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_flow_small</th>
+      <td>
+        <p><span>Value:</span> if system.use_eps_Re then system.eps_m_flow * m_flow_nominal else system.m_flow_small</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialTwoPortTransport.Medium.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Small mass flow rate for regularization of zero flow</p>
+      </td>
+    </tr>
+    <tr>
+      <th>show_T</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if temperatures at port_a and port_b are computed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>show_V_flow</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if volume flow rate at inflowing port is computed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>CvData</th>
+      <td>
+        <p><span>Value:</span> Modelica.Fluid.Types.CvTypes.OpPoint</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Types.CvTypes.html">CvTypes</a></p>
+        <p><span>Description:</span> Selection of flow coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Av</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Av (metric) flow coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Kv</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Kv (metric) flow coefficient [m3/h]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Cv</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Cv (US) flow coefficient [USG/min]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dp_nominal</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Nominal pressure drop</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_flow_nominal</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Valves.BaseClasses.PartialValve.Medium.MassFlowRate.html">MassFlowRate</a> (kg/s)</p>
+        <p><span>Description:</span> Nominal mass flowrate</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rho_nominal</th>
+      <td>
+        <p><span>Value:</span> Medium.density_pTX(Medium.p_default, Medium.T_default, Medium.X_default)</p>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Valves.BaseClasses.PartialValve.Medium.Density.html">Density</a> (kg/m³)</p>
+        <p><span>Description:</span> Nominal inlet density</p>
+      </td>
+    </tr>
+    <tr>
+      <th>opening_nominal</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Nominal opening</p>
+      </td>
+    </tr>
+    <tr>
+      <th>filteredOpening</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if opening is filtered with a 2nd order CriticalDamping filter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>riseTime</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Rise time of the filter (time to reach 99.6 % of an opening step)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>leakageOpening</th>
+      <td>
+        <p><span>Value:</span> 1e-3</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> The opening signal is limited by leakageOpening (to improve the numerics)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>checkValve</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Reverse flow stopped</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_Re</th>
+      <td>
+        <p><span>Value:</span> system.use_eps_Re</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if turbulent region is defined by Re, otherwise by m_flow_small</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Fluid.Interfaces.FluidPort_a_16x16.png"></td>
+      <th>port_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.FluidPort_a.html">FluidPort_a</a></p>
+        <p><span>Description:</span> Fluid connector a (positive design flow direction is from port_a to port_b)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Fluid.Interfaces.FluidPort_b_16x16.png"></td>
+      <th>port_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.FluidPort_b.html">FluidPort_b</a></p>
+        <p><span>Description:</span> Fluid connector b (positive design flow direction is from port_a to port_b)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>opening</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Valve position in the range 0..1</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>opening_filtered</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Filtered valve position in the range 0..1</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.System_32x32.png"></td>
+      <th>system</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.System.html">System</a></p>
+        <p><span>Description:</span> System wide properties</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Interfaces.PartialTwoPortTransport.Medium.ThermodynamicState_32x32.png"></td>
+      <th>state_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialTwoPortTransport.Medium.ThermodynamicState.html">ThermodynamicState</a></p>
+        <p><span>Description:</span> State for medium inflowing through port_a</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Interfaces.PartialTwoPortTransport.Medium.ThermodynamicState_32x32.png"></td>
+      <th>state_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Interfaces.PartialTwoPortTransport.Medium.ThermodynamicState.html">ThermodynamicState</a></p>
+        <p><span>Description:</span> State for medium inflowing through port_b</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Filter_32x32.png"></td>
+      <th>filter</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Filter.html">Filter</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Valves.BaseClasses.PartialValve.MinLimiter_32x32.png"></td>
+      <th>minLimiter</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Valves.BaseClasses.PartialValve.MinLimiter.html">MinLimiter</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.HeatingSystem_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.HeatingSystem.html">HeatingSystem</a></p>
+        <p><span>Modelica.Fluid.Examples</span></p>
+        <p>Simple model of a heating system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.IncompressibleFluidNetwork_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.IncompressibleFluidNetwork.html">IncompressibleFluidNetwork</a></p>
+        <p><span>Modelica.Fluid.Examples</span></p>
+        <p>Multi-way connections of pipes and incompressible medium model</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

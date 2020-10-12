@@ -1,0 +1,187 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.Rotational.Components.IdealGearR2T</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.html">Rotational</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Components.html">Components</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Components.IdealGearR2T.html">IdealGearR2T</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>IdealGearR2T</h1>
+    <p>Gearbox transforming rotational into translational motion</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Rotational.Components.IdealGearR2T_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.Rotational.Components.IdealGearR2T_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.Rotational.Components.IdealGearR2T_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This is an ideal mass- and inertialess gearbox which transforms a
+1D-rotational into a 1D-translational motion. If elasticity, damping
+or backlash has to be considered, this ideal gearbox has to be
+connected with corresponding elements.
+This component defines the kinematic constraint:
+</p>
+
+<blockquote><pre>
+(flangeR.phi - internalSupportR.phi) = ratio*(flangeT.s - internalSupportT.s);
+</pre></blockquote>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useSupportR</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if rotational support flange enabled, otherwise implicitly grounded</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useSupportT</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if translational support flange enabled, otherwise implicitly grounded</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ratio</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real (rad/m)</p>
+        <p><span>Description:</span> Transmission ratio (flange_a.phi/flange_b.s)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_a_16x16.png"></td>
+      <th>flangeR</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> Flange of rotational shaft</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flangeT</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> Flange of translational rod</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Support_16x16.png"></td>
+      <th>supportR</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Support.html">Support</a></p>
+        <p><span>Description:</span> Rotational support/housing of component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.Support_16x16.png"></td>
+      <th>supportT</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.Support.html">Support</a></p>
+        <p><span>Description:</span> Translational support/housing of component</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.InternalSupport_32x32.png"></td>
+      <th>internalSupportR</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.InternalSupport.html">InternalSupport</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.InternalSupport_32x32.png"></td>
+      <th>internalSupportT</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Interfaces.InternalSupport.html">InternalSupport</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Fixed_32x32.png"></td>
+      <th>fixedR</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Fixed.html">Fixed</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Fixed_32x32.png"></td>
+      <th>fixedT</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Fixed.html">Fixed</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.IdealGearR2T_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.IdealGearR2T.html">IdealGearR2T</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span></p>
+        <p>Gearbox transforming rotational into translational motion</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

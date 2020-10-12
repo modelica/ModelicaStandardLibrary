@@ -1,0 +1,89 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Media.Interfaces.PartialMedium.isentropicEnthalpy</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Media.Interfaces.PartialMedium.html">PartialMedium</a></li>
+  <li><a href="Modelica.Media.Interfaces.PartialMedium.isentropicEnthalpy.html">isentropicEnthalpy</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>isentropicEnthalpy</h1>
+    <p>Return isentropic enthalpy</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Interfaces.PartialMedium.isentropicEnthalpy_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This function computes an isentropic state transformation:
+</p>
+<ol>
+<li> A medium is in a particular state, refState.</li>
+<li> The enthalpy at another state (h_is) shall be computed
+     under the assumption that the state transformation from refState to h_is
+     is performed with a change of specific entropy ds = 0 and the pressure of state h_is
+     is p_downstream and the composition X upstream and downstream is assumed to be the same.</li>
+</ol>
+</div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>p_downstream</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.AbsolutePressure.html">AbsolutePressure</a> (Pa)</p>
+        <p><span>Description:</span> Downstream pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>refState</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.ThermodynamicState.html">ThermodynamicState</a></p>
+        <p><span>Description:</span> Reference state for entropy</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>h_is</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> Isentropic enthalpy</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

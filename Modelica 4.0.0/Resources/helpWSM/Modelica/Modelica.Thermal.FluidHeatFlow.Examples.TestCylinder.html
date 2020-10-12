@@ -1,0 +1,176 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Thermal.FluidHeatFlow.Examples.TestCylinder</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Thermal.html">Thermal</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.html">FluidHeatFlow</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.Examples.TestCylinder.html">TestCylinder</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>TestCylinder</h1>
+    <p>Two cylinder system</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.TestCylinder_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Thermal.FluidHeatFlow.Examples.TestCylinder_diagram_large.png"><img src="resources/diagrams/Modelica.Thermal.FluidHeatFlow.Examples.TestCylinder_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Test of a system with 2 cylinders (with same volume):
+</p>
+<ul>
+<li>cylinder1: A = 0.1 m2, L=10. m, initial position of piston at s=L/2</li>
+<li>cylinder2: A = 1.0 m2, L=1.0 m, initial position of piston at s=L/2</li>
+</ul>
+<p>
+A force is applied that presses from 0.25 s to 0.50 s with 1 Nm on piston1.
+Due to the ratio of areas 10:1
+</p>
+<ul>
+<li>the force at piston2 is ten times the force at piston1</li>
+<li>movement of piston1 is ten times the movement of piston2</li>
+</ul>
+<p>
+At piston2 a mass is mounted which is moved and presses the springDamper.
+When the force at piston1 is removed, the springDamper pushes back the mass and a damped oscillation occurs.
+</p>
+<p>
+Note: Take care of the initial conditions. The unstretched spring length is cylinder2.L/2,
+i.e. when piston2 is the middle of its cylinder the spring applies no force to the mass (and piston2).
+</p>
+</div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>f1</th>
+      <td>
+        <p><span>Default Value:</span> -10 * cylinder1.f</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Force.html">Force</a> (N)</p>
+        <p><span>Description:</span> 10 x Force on piston 1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>s1</th>
+      <td>
+        <p><span>Default Value:</span> 0.1 * cylinder1.s</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position</a> (m)</p>
+        <p><span>Description:</span> 0.1 x Position of piston 1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>s2</th>
+      <td>
+        <p><span>Default Value:</span> cylinder2.s</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position</a> (m)</p>
+        <p><span>Description:</span> Position of piston 2</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f2</th>
+      <td>
+        <p><span>Default Value:</span> -cylinder2.f</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Force.html">Force</a> (N)</p>
+        <p><span>Description:</span> Force on piston 2</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f</th>
+      <td>
+        <p><span>Default Value:</span> springDamper.f</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Force.html">Force</a> (N)</p>
+        <p><span>Description:</span> Force of springDamper</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.CombiTimeTable_32x32.png"></td>
+      <th>combiTimeTable</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.CombiTimeTable.html">CombiTimeTable</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sources.Force_32x32.png"></td>
+      <th>force</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Sources.Force.html">Force</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Components.Cylinder_32x32.png"></td>
+      <th>cylinder1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Components.Cylinder.html">Cylinder</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Components.Cylinder_32x32.png"></td>
+      <th>cylinder2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Components.Cylinder.html">Cylinder</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Mass_32x32.png"></td>
+      <th>mass</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Mass.html">Mass</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.SpringDamper_32x32.png"></td>
+      <th>springDamper</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.SpringDamper.html">SpringDamper</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Fixed_32x32.png"></td>
+      <th>fixed</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Fixed.html">Fixed</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

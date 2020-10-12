@@ -1,0 +1,232 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: ComplexBlocks.Interfaces.ComplexSISO</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.ComplexBlocks.html">ComplexBlocks</a></li>
+  <li><a href="Modelica.ComplexBlocks.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.ComplexBlocks.Interfaces.ComplexSISO.html">ComplexSISO</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ComplexSISO</h1>
+    <p>Single Input Single Output continuous control block</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexSISO_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Block has one continuous Complex input and one continuous Complex output signal.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useConjugateInput</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> If true, input is processed conjugate complex</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.ComplexBlocks.Interfaces.ComplexInput.html">ComplexInput</a></p>
+        <p><span>Description:</span> Connector of Complex input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.ComplexBlocks.Interfaces.ComplexOutput.html">ComplexOutput</a></p>
+        <p><span>Description:</span> Connector of Complex output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Complex_32x32.png"></td>
+      <th>uInternal</th>
+      <td>
+        <p><span>Type:</span> <a href="../Complex/Complex.html">Complex</a></p>
+        <p><span>Description:</span> Equals either u or conjugate complex input u if useComplexInput = true</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(15)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.Routing.ComplexPassThrough_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.Routing.ComplexPassThrough.html">ComplexPassThrough</a></p>
+        <p><span>Modelica.ComplexBlocks.Routing</span></p>
+        <p>Pass a Complex signal through without modification</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.TransferFunction_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.ComplexMath.TransferFunction.html">TransferFunction</a></p>
+        <p><span>Modelica.ComplexBlocks.ComplexMath</span></p>
+        <p>Complex Transfer Function</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.Log_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.ComplexMath.Log.html">Log</a></p>
+        <p><span>Modelica.ComplexBlocks.ComplexMath</span></p>
+        <p>Output the natural (base e) logarithm of the input (input <> '0' required)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.Exp_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.ComplexMath.Exp.html">Exp</a></p>
+        <p><span>Modelica.ComplexBlocks.ComplexMath</span></p>
+        <p>Output the exponential (base e) of the input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.Tanh_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.ComplexMath.Tanh.html">Tanh</a></p>
+        <p><span>Modelica.ComplexBlocks.ComplexMath</span></p>
+        <p>Output the hyperbolic tangent of the input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.Cosh_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.ComplexMath.Cosh.html">Cosh</a></p>
+        <p><span>Modelica.ComplexBlocks.ComplexMath</span></p>
+        <p>Output the hyperbolic cosine of the input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.Sinh_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.ComplexMath.Sinh.html">Sinh</a></p>
+        <p><span>Modelica.ComplexBlocks.ComplexMath</span></p>
+        <p>Output the hyperbolic sine of the input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.Atan_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.ComplexMath.Atan.html">Atan</a></p>
+        <p><span>Modelica.ComplexBlocks.ComplexMath</span></p>
+        <p>Output the arc tangent of the input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.Acos_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.ComplexMath.Acos.html">Acos</a></p>
+        <p><span>Modelica.ComplexBlocks.ComplexMath</span></p>
+        <p>Output the arc cosine of the input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.Asin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.ComplexMath.Asin.html">Asin</a></p>
+        <p><span>Modelica.ComplexBlocks.ComplexMath</span></p>
+        <p>Output the arc sine of the input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.Tan_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.ComplexMath.Tan.html">Tan</a></p>
+        <p><span>Modelica.ComplexBlocks.ComplexMath</span></p>
+        <p>Output the tangent of the input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.Cos_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.ComplexMath.Cos.html">Cos</a></p>
+        <p><span>Modelica.ComplexBlocks.ComplexMath</span></p>
+        <p>Output the cosine of the input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.Sin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.ComplexMath.Sin.html">Sin</a></p>
+        <p><span>Modelica.ComplexBlocks.ComplexMath</span></p>
+        <p>Output the sine of the input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.Sqrt_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.ComplexMath.Sqrt.html">Sqrt</a></p>
+        <p><span>Modelica.ComplexBlocks.ComplexMath</span></p>
+        <p>Output the square root of the input (= principal square root of complex number)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.Conj_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.ComplexMath.Conj.html">Conj</a></p>
+        <p><span>Modelica.ComplexBlocks.ComplexMath</span></p>
+        <p>Output is equal to the conjugate complex input signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

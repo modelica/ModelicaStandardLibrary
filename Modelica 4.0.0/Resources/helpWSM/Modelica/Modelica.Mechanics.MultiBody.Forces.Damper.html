@@ -1,0 +1,283 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Forces.Damper</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Forces.html">Forces</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Forces.Damper.html">Damper</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Damper</h1>
+    <p>Linear (velocity dependent) damper</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Damper_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+<strong>Linear damper</strong> acting as line force between frame_a and frame_b.
+A <strong>force f</strong> is exerted on the origin of frame_b and with opposite sign
+on the origin of frame_a along the line from the origin of frame_a to the origin
+of frame_b according to the equation:
+</p>
+<blockquote><pre>
+f = d*<strong>der</strong>(s);
+</pre></blockquote>
+<p>
+where "d" is a parameter, "s" is the
+distance between the origin of frame_a and the origin of frame_b
+and der(s) is the time derivative of "s".
+</p>
+<p>
+In the following figure a typical animation is shown
+where a mass is hanging on a damper.
+</p>
+
+<p>
+<img src="resources/Modelica.Mechanics.MultiBody.Forces.Damper_info_001.png">
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>s_small</th>
+      <td>
+        <p><span>Value:</span> 1e-10</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Prevent zero-division if distance between frame_a and frame_b is zero</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fixedRotationAtFrame_a</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if rotation frame_a.R is fixed (to directly connect line forces)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fixedRotationAtFrame_b</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if rotation frame_b.R is fixed (to directly connect line forces)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if heatPort is enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Fixed device temperature if useHeatPort = false</p>
+      </td>
+    </tr>
+    <tr>
+      <th>animation</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if animation shall be enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.TranslationalDampingConstant.html">TranslationalDampingConstant</a> (N·s/m)</p>
+        <p><span>Description:</span> Damping constant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>length_a</th>
+      <td>
+        <p><span>Value:</span> world.defaultForceLength</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Length of cylinder at frame_a side</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>diameter_a</th>
+      <td>
+        <p><span>Default Value:</span> world.defaultForceWidth</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Diameter.html">Diameter</a> (m)</p>
+        <p><span>Description:</span> Diameter of cylinder at frame_a side</p>
+      </td>
+    </tr>
+    <tr>
+      <th>diameter_b</th>
+      <td>
+        <p><span>Default Value:</span> 0.6 * diameter_a</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Diameter.html">Diameter</a> (m)</p>
+        <p><span>Description:</span> Diameter of cylinder at frame_b side</p>
+      </td>
+    </tr>
+    <tr>
+      <th>color_a</th>
+      <td>
+        <p><span>Default Value:</span> {100, 100, 100}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color at frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>color_b</th>
+      <td>
+        <p><span>Default Value:</span> {155, 155, 155}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color at frame_b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>specularCoefficient</th>
+      <td>
+        <p><span>Default Value:</span> world.defaultSpecularCoefficient</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.SpecularCoefficient.html">SpecularCoefficient</a></p>
+        <p><span>Description:</span> Reflection of ambient light (= 0: light is completely absorbed)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_16x16.png"></td>
+      <th>frame_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p><span>Description:</span> Coordinate system a fixed to the component with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_b_16x16.png"></td>
+      <th>frame_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_b.html">Frame_b</a></p>
+        <p><span>Description:</span> Coordinate system b fixed to the component with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+        <p><span>Description:</span> Optional port to which dissipated losses are transported in form of heat</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>shape_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>shape_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.PendulumWithSpringDamper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.PendulumWithSpringDamper.html">PendulumWithSpringDamper</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span></p>
+        <p>Simple spring/damper/mass system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.SpringDamperSystem_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.SpringDamperSystem.html">SpringDamperSystem</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span></p>
+        <p>Simple spring/damper/mass system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.HeatLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.HeatLosses.html">HeatLosses</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span></p>
+        <p>Demonstrate the modeling of heat losses</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

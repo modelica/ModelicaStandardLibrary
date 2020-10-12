@@ -1,0 +1,559 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.ClockSignals.Clocks.PeriodicExactClock</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.ClockSignals.html">ClockSignals</a></li>
+  <li><a href="Modelica.Clocked.ClockSignals.Clocks.html">Clocks</a></li>
+  <li><a href="Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock.html">PeriodicExactClock</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PeriodicExactClock</h1>
+    <p>Generate a periodic clock signal with a period defined by an Integer number with resolution</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.ClockSignals.Clocks.PeriodicExactClock_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This component generates a periodic clock that starts ticking when
+the simulation starts. The <strong>period</strong> is defined as the product
+of a resolution, defined with enumeration
+<a href="Modelica.Clocked.Types.Resolution.html">Resolution</a>,
+and Integer parameter <strong>factor</strong>. Internally, the period is
+represented as a rational number. All clocks with rational number definitions
+are exactly time synchronized to each other.
+</p>
+
+<p>
+Example:
+</p>
+
+<blockquote><pre>
+import Modelica.Clocked.ClockSignals.Clocks;
+import Modelica.Clocked.Types;
+Clocks.PeriodicExactClock periodicClock(factor=10,
+                                        resolution=Types.Resolution.ms);
+// Clock ticks every 1/100 seconds
+</pre></blockquote>
+
+<p>
+For an introduction to clocks see
+<a href="Modelica.Clocked.UsersGuide.Clocks.html">UsersGuide.Clocks</a>.
+</p>
+
+<p>
+If a clock is associated to a clocked continuous-time partition, then an <strong>integrator</strong>
+has to be defined that is used to integrate the partition from the previous
+to the current clock tick. This is performed by setting parameter <strong>useSolver</strong>
+= <strong>true</strong> and defining the integration method as String with
+parameter <strong>solver</strong>. Both parameters are in tab <strong>Advanced</strong>.
+For an example, see
+<a href="Modelica.Clocked.Examples.Systems.ControlledMixingUnit.html">Examples.Systems.ControlledMixingUnit</a>.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useSolver</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if solverMethod shall be explicitly defined</p>
+      </td>
+    </tr>
+    <tr>
+      <th>solverMethod</th>
+      <td>
+        <p><span>Value:</span> "ExplicitEuler"</p>
+        <p><span>Type:</span> <a href="../ModelicaServices/ModelicaServices.Types.SolverMethod.html">SolverMethod</a></p>
+        <p><span>Description:</span> Integration method used for discretized continuous-time partitions</p>
+      </td>
+    </tr>
+    <tr>
+      <th>factor</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Sample factor with respect to resolution</p>
+      </td>
+    </tr>
+    <tr>
+      <th>resolution</th>
+      <td>
+        <p><span>Value:</span> Resolution.ms</p>
+        <p><span>Type:</span> <a href="Modelica.Clocked.Types.Resolution.html">Resolution</a></p>
+        <p><span>Description:</span> Clock resolution</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Clocked.ClockSignals.Interfaces.ClockOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.ClockSignals.Interfaces.ClockOutput.html">ClockOutput</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(52)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ExactlyClockedWithDiscreteController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ExactlyClockedWithDiscreteController.html">ExactlyClockedWithDiscreteController</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discrete controller and exact periodic clocks (period is used in the controller)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.CascadeControlledDrive.AbsoluteClocks_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.CascadeControlledDrive.AbsoluteClocks.html">AbsoluteClocks</a></p>
+        <p><span>Modelica.Clocked.Examples.CascadeControlledDrive</span></p>
+        <p>Drive with clocked cascade controller where all partitions are defined with exact (integer) clock that need to be compatible to each other</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.ClockSignals.SubSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.ClockSignals.SubSample.html">SubSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.ClockSignals</span></p>
+        <p>Example of a SubSample block for Clock signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.ClockSignals.SuperSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.ClockSignals.SuperSample.html">SuperSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.ClockSignals</span></p>
+        <p>Example of a SuperSample block for Clock signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.ClockSignals.ShiftSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.ClockSignals.ShiftSample.html">ShiftSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.ClockSignals</span></p>
+        <p>Example of a ShiftSample block for Clock signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.Sample1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.Sample1.html">Sample1</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a Sample block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.Sample2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.Sample2.html">Sample2</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a Sample block with discontinuous Real input signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.Sample3_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.Sample3.html">Sample3</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a Sample block for Real signals with direct feed-through in the continuous-time and the clocked partition</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.SampleClocked_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.SampleClocked.html">SampleClocked</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a SampleClocked block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.SampleVectorizedAndClocked_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.SampleVectorizedAndClocked.html">SampleVectorizedAndClocked</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a SampleVectorizedAndClocked block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.SampleWithADeffects_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.SampleWithADeffects.html">SampleWithADeffects</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a SampleWithADeffects block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.Hold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.Hold.html">Hold</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a Hold block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects1.html">HoldWithDAeffects1</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a HoldWithDAeffects block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.HoldWithDAeffects2.html">HoldWithDAeffects2</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a HoldWithDAeffects block for Real signals (with a computational delay of one sample period)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.SubSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.SubSample.html">SubSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a SubSample block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.SuperSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.SuperSample.html">SuperSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a SuperSample block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.SuperSampleInterpolated_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.SuperSampleInterpolated.html">SuperSampleInterpolated</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a SuperSampleInterpolated block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.ShiftSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.ShiftSample.html">ShiftSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a ShiftSample block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.BackSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.BackSample.html">BackSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a BackSample block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.AssignClock_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.AssignClock.html">AssignClock</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a AssignClock block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockVectorized_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockVectorized.html">AssignClockVectorized</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a AssignClockVectorized block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.UpSample1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.UpSample1.html">UpSample1</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of an UpSample block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.UpSample2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.UpSample2.html">UpSample2</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of an UpSample block for Real signals combined with FIR filter blocks</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockToTriggerHold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockToTriggerHold.html">AssignClockToTriggerHold</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of an AssignClockToTriggerHold block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockToSquareWaveHold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockToSquareWaveHold.html">AssignClockToSquareWaveHold</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of an AssignClockToSquareWaveHold block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.UniformNoise_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.UniformNoise.html">UniformNoise</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a UniformNoise block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.UniformNoiseXorshift64star_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.UniformNoiseXorshift64star.html">UniformNoiseXorshift64star</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a UniformNoiseXorshift64star block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.FractionalDelay_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.FractionalDelay.html">FractionalDelay</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a FractionalDelay block for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.IntegerSignals.Sample1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.IntegerSignals.Sample1.html">Sample1</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.IntegerSignals</span></p>
+        <p>Example of a Sample block for Integer signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.IntegerSignals.Sample2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.IntegerSignals.Sample2.html">Sample2</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.IntegerSignals</span></p>
+        <p>Example of a Sample block for Integer signals with direct feed-through in the continuous-time and the clocked partition</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.IntegerSignals.SampleClocked_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.IntegerSignals.SampleClocked.html">SampleClocked</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.IntegerSignals</span></p>
+        <p>Example of a SampleClocked block for Integer signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.IntegerSignals.SampleVectorizedAndClocked_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.IntegerSignals.SampleVectorizedAndClocked.html">SampleVectorizedAndClocked</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.IntegerSignals</span></p>
+        <p>Example of a SampleVectorizedAndClocked block for Integer signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.IntegerSignals.Hold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.IntegerSignals.Hold.html">Hold</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.IntegerSignals</span></p>
+        <p>Example of a Hold block for Integer signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.IntegerSignals.SubSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.IntegerSignals.SubSample.html">SubSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.IntegerSignals</span></p>
+        <p>Example of a SubSample block for Integer signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.IntegerSignals.SuperSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.IntegerSignals.SuperSample.html">SuperSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.IntegerSignals</span></p>
+        <p>Example of a SuperSample block for Integer signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.IntegerSignals.ShiftSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.IntegerSignals.ShiftSample.html">ShiftSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.IntegerSignals</span></p>
+        <p>Example of a ShiftSample block for Integer signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.IntegerSignals.BackSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.IntegerSignals.BackSample.html">BackSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.IntegerSignals</span></p>
+        <p>Example of a BackSample block for Integer signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.IntegerSignals.AssignClock_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.IntegerSignals.AssignClock.html">AssignClock</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.IntegerSignals</span></p>
+        <p>Example of an AssignClock block for Integer signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.IntegerSignals.AssignClockVectorized_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.IntegerSignals.AssignClockVectorized.html">AssignClockVectorized</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.IntegerSignals</span></p>
+        <p>Example of an AssignClockVectorized block for Integer signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.IntegerSignals.UpSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.IntegerSignals.UpSample.html">UpSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.IntegerSignals</span></p>
+        <p>Example of an UpSample block for Integer signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.BooleanSignals.Sample1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.BooleanSignals.Sample1.html">Sample1</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.BooleanSignals</span></p>
+        <p>Example of a Sample block for Boolean signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.BooleanSignals.Sample2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.BooleanSignals.Sample2.html">Sample2</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.BooleanSignals</span></p>
+        <p>Example of a Sample block for Boolean signals with direct feed-through in the continuous-time and the clocked partition</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.BooleanSignals.SampleClocked_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.BooleanSignals.SampleClocked.html">SampleClocked</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.BooleanSignals</span></p>
+        <p>Example of a SampleClocked block for Boolean signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.BooleanSignals.SampleVectorizedAndClocked_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.BooleanSignals.SampleVectorizedAndClocked.html">SampleVectorizedAndClocked</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.BooleanSignals</span></p>
+        <p>Example of a SampleVectorizedAndClocked block for Boolean signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.BooleanSignals.Hold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.BooleanSignals.Hold.html">Hold</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.BooleanSignals</span></p>
+        <p>Example of a Hold block for Boolean signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.BooleanSignals.SubSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.BooleanSignals.SubSample.html">SubSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.BooleanSignals</span></p>
+        <p>Example of a SubSample block for Boolean signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.BooleanSignals.SuperSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.BooleanSignals.SuperSample.html">SuperSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.BooleanSignals</span></p>
+        <p>Example of a SuperSample block for Boolean signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.BooleanSignals.ShiftSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.BooleanSignals.ShiftSample.html">ShiftSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.BooleanSignals</span></p>
+        <p>Example of a ShiftSample block for Boolean signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.BooleanSignals.BackSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.BooleanSignals.BackSample.html">BackSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.BooleanSignals</span></p>
+        <p>Example of a BackSample block for Boolean signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.BooleanSignals.AssignClock_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.BooleanSignals.AssignClock.html">AssignClock</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.BooleanSignals</span></p>
+        <p>Example of an AssignClock block for Boolean signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.BooleanSignals.AssignClockVectorized_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.BooleanSignals.AssignClockVectorized.html">AssignClockVectorized</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.BooleanSignals</span></p>
+        <p>Example of an AssignClockVectorized block for Boolean signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.BooleanSignals.UpSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.BooleanSignals.UpSample.html">UpSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.BooleanSignals</span></p>
+        <p>Example of an UpSample block for Boolean signals</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

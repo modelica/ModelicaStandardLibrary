@@ -1,0 +1,897 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.Rotational.Components.Inertia</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.html">Rotational</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Components.html">Components</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Inertia</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Inertia</h1>
+    <p>1D-rotational component with inertia</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Rotational.Components.Inertia_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Rotational component with <strong>inertia</strong> and two rigidly connected flanges.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>J</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Moment of inertia</p>
+      </td>
+    </tr>
+    <tr>
+      <th>stateSelect</th>
+      <td>
+        <p><span>Value:</span> StateSelect.default</p>
+        <p><span>Type:</span> StateSelect</p>
+        <p><span>Description:</span> Priority to use phi and w as states</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_a_16x16.png"></td>
+      <th>flange_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> Flange of left shaft</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flange_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> Flange of right shaft</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(86)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.PID_Controller_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.PID_Controller.html">PID_Controller</a></p>
+        <p><span>Modelica.Blocks.Examples</span></p>
+        <p>Demonstrates the usage of a Continuous.LimPID controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.Continuous_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.Continuous.html">Continuous</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with continuous controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteTextbookController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteTextbookController.html">ClockedWithDiscreteTextbookController</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discrete textbook controller (period is not used in the controller)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteController.html">ClockedWithDiscreteController</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discrete controller (period is used in the controller)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ExactlyClockedWithDiscreteController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ExactlyClockedWithDiscreteController.html">ExactlyClockedWithDiscreteController</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discrete controller and exact periodic clocks (period is used in the controller)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscretizedContinuousController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscretizedContinuousController.html">ClockedWithDiscretizedContinuousController</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discretized continuous-time controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWith_AD_DA_Effects_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWith_AD_DA_Effects.html">ClockedWith_AD_DA_Effects</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discrete controller and simulated AD and DA effects</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.CascadeControlledDrive.Continuous_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.CascadeControlledDrive.Continuous.html">Continuous</a></p>
+        <p><span>Modelica.Clocked.Examples.CascadeControlledDrive</span></p>
+        <p>Drive with continuous-time cascade controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.CascadeControlledDrive.SubClocked_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.CascadeControlledDrive.SubClocked.html">SubClocked</a></p>
+        <p><span>Modelica.Clocked.Examples.CascadeControlledDrive</span></p>
+        <p>Drive with clocked cascade controller where clocks are defined with sub-sampling and partitions with super-sampling</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.CascadeControlledDrive.SuperSampled_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.CascadeControlledDrive.SuperSampled.html">SuperSampled</a></p>
+        <p><span>Modelica.Clocked.Examples.CascadeControlledDrive</span></p>
+        <p>Drive with clocked cascade controller where fastest partition is defined with a clock and slower partition is defined with super-sampling</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.CascadeControlledDrive.AbsoluteClocks_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.CascadeControlledDrive.AbsoluteClocks.html">AbsoluteClocks</a></p>
+        <p><span>Modelica.Clocked.Examples.CascadeControlledDrive</span></p>
+        <p>Drive with clocked cascade controller where all partitions are defined with exact (integer) clock that need to be compatible to each other</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.InductionMachines.IMC_DOL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.InductionMachines.IMC_DOL.html">IMC_DOL</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.InductionMachines</span></p>
+        <p>Test example: InductionMachineSquirrelCage direct-on-line</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.InductionMachines.IMC_YD_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.InductionMachines.IMC_YD.html">IMC_YD</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.InductionMachines</span></p>
+        <p>Test example: InductionMachineSquirrelCage Y-D</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.InductionMachines.IMC_YDarc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.InductionMachines.IMC_YDarc.html">IMC_YDarc</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.InductionMachines</span></p>
+        <p>Test example: InductionMachineSquirrelCage Y-D</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Transformer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Transformer.html">IMC_Transformer</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.InductionMachines</span></p>
+        <p>Test example: InductionMachineSquirrelCage transformer starting</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.InductionMachines.IMS_Start_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.InductionMachines.IMS_Start.html">IMS_Start</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.InductionMachines</span></p>
+        <p>Test example: InductionMachineSlipRing</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Inverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Inverter.html">IMC_Inverter</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.InductionMachines</span></p>
+        <p>Test example: InductionMachineSquirrelCage with inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.InductionMachines.IMC_InverterDrive_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.InductionMachines.IMC_InverterDrive.html">IMC_InverterDrive</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.InductionMachines</span></p>
+        <p>Test example: InductionMachineSquirrelCage inverter drive</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Steinmetz_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Steinmetz.html">IMC_Steinmetz</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.InductionMachines</span></p>
+        <p>InductionMachineSquirrelCage Steinmetz-connection</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.InductionMachines.IMC_withLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.InductionMachines.IMC_withLosses.html">IMC_withLosses</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.InductionMachines</span></p>
+        <p>Test example: InductionMachineSquirrelCage with losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Initialize_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Initialize.html">IMC_Initialize</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.InductionMachines</span></p>
+        <p>Test example: Steady-State Initialization of InductionMachineSquirrelCage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.InductionMachines.IMC_DCBraking_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.InductionMachines.IMC_DCBraking.html">IMC_DCBraking</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.InductionMachines</span></p>
+        <p>Induction machine with DC current braking</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.SynchronousMachines.SMR_DOL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMR_DOL.html">SMR_DOL</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.SynchronousMachines</span></p>
+        <p>Test example: SynchronousMachineReluctanceRotor direct-on-line</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.SynchronousMachines.SMR_Inverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMR_Inverter.html">SMR_Inverter</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.SynchronousMachines</span></p>
+        <p>Test example: SynchronousMachineReluctanceRotor with inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Inverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Inverter.html">SMPM_Inverter</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.SynchronousMachines</span></p>
+        <p>Test example: PermanentMagnetSynchronousMachine with inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_CurrentSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_CurrentSource.html">SMPM_CurrentSource</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.SynchronousMachines</span></p>
+        <p>Test example: PermanentMagnetSynchronousMachine fed by current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_VoltageSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_VoltageSource.html">SMPM_VoltageSource</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.SynchronousMachines</span></p>
+        <p>Test example: PermanentMagnetSynchronousMachine fed by FOC</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Braking_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Braking.html">SMPM_Braking</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.SynchronousMachines</span></p>
+        <p>Test example: PermanentMagnetSynchronousMachine acting as brake</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_ResistiveBraking_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_ResistiveBraking.html">SMPM_ResistiveBraking</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.SynchronousMachines</span></p>
+        <p>PermanentMagnetSynchronousMachine braking with a resistor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Start_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Start.html">DCPM_Start</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span></p>
+        <p>Test example: DC with permanent magnet starting with voltage ramp</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCPM_CurrentControlled_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_CurrentControlled.html">DCPM_CurrentControlled</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span></p>
+        <p>Test example: DC with permanent magnet starting with current controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCEE_Start_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCEE_Start.html">DCEE_Start</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span></p>
+        <p>Test example: DC with electrical excitation starting with voltage ramp</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCSE_Start_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCSE_Start.html">DCSE_Start</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span></p>
+        <p>Test example: DC with serial excitation starting with voltage ramp</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCSE_SinglePhase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCSE_SinglePhase.html">DCSE_SinglePhase</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span></p>
+        <p>Test example: DC with serial excitation starting with voltage ramp</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Temperature_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Temperature.html">DCPM_Temperature</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span></p>
+        <p>Test example: Investigate temperature dependency of a DCPM motor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Cooling_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Cooling.html">DCPM_Cooling</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span></p>
+        <p>Test example: Cooling of a DCPM motor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCPM_QuasiStatic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_QuasiStatic.html">DCPM_QuasiStatic</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span></p>
+        <p>Test example: Compare DCPM motors transient - quasi-static</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCPM_withLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_withLosses.html">DCPM_withLosses</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span></p>
+        <p>Test example: Investigate influence of losses on DCPM motor performance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DC_CompareCharacteristics_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DC_CompareCharacteristics.html">DC_CompareCharacteristics</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span></p>
+        <p>Test example: Compare torque-speed characteristic of DC motors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACAC.SoftStarter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACAC.SoftStarter.html">SoftStarter</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACAC</span></p>
+        <p>Soft start of an induction machine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_Polyphase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_Polyphase.html">IMC_DOL_Polyphase</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase</span></p>
+        <p>Direct on line start of polyphase induction machine with squirrel cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMS_Start_Polyphase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMS_Start_Polyphase.html">IMS_Start_Polyphase</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase</span></p>
+        <p>Starting of polyphase induction machine with slip rings</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_DOL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_DOL.html">IMC_DOL</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Direct on line (DOL) start of induction machine with squirrel cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_YD_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_YD.html">IMC_YD</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Induction machine with squirrel cage starting Y-D</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Transformer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Transformer.html">IMC_Transformer</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Induction machine with squirrel cage starting with transformer</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Inverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Inverter.html">IMC_Inverter</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Induction machine with squirrel cage and inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Steinmetz_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Steinmetz.html">IMC_Steinmetz</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Induction machine with squirrel cage and Steinmetz-connection</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses.html">IMC_withLosses</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Induction machine with squirrel cage and losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Initialize_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Initialize.html">IMC_Initialize</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Steady-state initialization of induction machine with squirrel cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start.html">IMS_Start</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Starting of induction machine with slip rings</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase.html">SMPM_Inverter_Polyphase</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase</span></p>
+        <p>Starting of polyphase permanent magnet synchronous machine with inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMR_Inverter_Polyphase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMR_Inverter_Polyphase.html">SMR_Inverter_Polyphase</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase</span></p>
+        <p>Starting of polyphase synchronous reluctance machine with inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_Inverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_Inverter.html">SMPM_Inverter</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Starting of permanent magnet synchronous machine with inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource.html">SMPM_CurrentSource</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Test example: PermanentMagnetSynchronousMachine fed by current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_VoltageSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_VoltageSource.html">SMPM_VoltageSource</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Test example: PermanentMagnetSynchronousMachine fed by FOC</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_Braking_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_Braking.html">SMPM_Braking</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Test example: PermanentMagnetSynchronousMachine acting as brake</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter.html">SMR_Inverter</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Starting of synchronous reluctance machine with inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_DOL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_DOL.html">IMC_DOL</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Induction machine with squirrel cage started directly on line (DOL)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_YD_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_YD.html">IMC_YD</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Induction machine with squirrel cage starting Y-D</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Transformer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Transformer.html">IMC_Transformer</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Induction machine with squirrel cage starting with transformer</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses.html">IMC_withLosses</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Induction machine with squirrel cage and losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Initialize_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Initialize.html">IMC_Initialize</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Steady-state initialization of induction machine with squirrel cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start.html">IMS_Start</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Starting of induction machine with slip rings</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_Mains_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_Mains.html">SMPM_Mains</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Permanent magnet synchronous machine operated at mains with step torque load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource.html">SMPM_CurrentSource</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Test example: PermanentMagnetSynchronousMachine fed by current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_CurrentSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_CurrentSource.html">SMR_CurrentSource</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Test example: Synchronous reluctance machine fed by current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6.html">EngineV6</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span></p>
+        <p>V6 engine with 6 cylinders, 6 planar loops and 1 degree-of-freedom</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic.html">EngineV6_analytic</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span></p>
+        <p>V6 engine with 6 cylinders, 6 planar loops, 1 degree-of-freedom and analytic handling of kinematic loops</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint.html">GearConstraint</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</span></p>
+        <p>Demonstrate usage of GearConstraint model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.OneAxis_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.OneAxis.html">OneAxis</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3</span></p>
+        <p>Model of one axis of robot (controller, motor, gearbox) with simple load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.First_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.First.html">First</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>First example: simple drive train</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.FirstGrounded_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.FirstGrounded.html">FirstGrounded</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>First example: simple drive train with grounded elements</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Friction_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Friction.html">Friction</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Drive train with clutch and brake</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.CoupledClutches_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.CoupledClutches.html">CoupledClutches</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Drive train with 3 dynamically coupled clutches</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.LossyGearDemo1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.LossyGearDemo1.html">LossyGearDemo1</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Example to show that gear efficiency may lead to stuck motion</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.LossyGearDemo2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.LossyGearDemo2.html">LossyGearDemo2</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Example to show combination of LossyGear and BearingFriction</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.LossyGearDemo3_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.LossyGearDemo3.html">LossyGearDemo3</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Example that failed in the previous version of the LossyGear version</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.ElasticBearing_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.ElasticBearing.html">ElasticBearing</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Example to show possible usage of support flange</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Backlash_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Backlash.html">Backlash</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Example to demonstrate backlash</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.RollingWheel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.RollingWheel.html">RollingWheel</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Demonstrate coupling Rotational - Translational</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.HeatLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.HeatLosses.html">HeatLosses</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Demonstrate the modeling of heat losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.SimpleGearShift_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.SimpleGearShift.html">SimpleGearShift</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Simple Gearshift</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.EddyCurrentBrake_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.EddyCurrentBrake.html">EddyCurrentBrake</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Demonstrate the usage of the rotational eddy current brake</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs.html">GenerationOfFMUs</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Example to demonstrate variants to generate FMUs (Functional Mock-up Units)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.OneWayClutch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.OneWayClutch.html">OneWayClutch</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Drive train with actively engaged one-way clutch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.OneWayClutchDisengaged_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.OneWayClutchDisengaged.html">OneWayClutchDisengaged</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Drive train with disengaged one-way clutch</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(12)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Noise.Utilities.Parts.MotorWithCurrentControl_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Noise.Utilities.Parts.MotorWithCurrentControl.html">MotorWithCurrentControl</a></p>
+        <p><span>Modelica.Blocks.Examples.Noise.Utilities.Parts</span></p>
+        <p>Synchronous machine with current controller and measurement noise</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.Engine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.Engine.html">Engine</a></p>
+        <p><span>Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl</span></p>
+        <p>Internal combustion engine.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.PartialControlledDCPM_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.PartialControlledDCPM.html">PartialControlledDCPM</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities</span></p>
+        <p>Partial controlled DC PM drive with H-bridge from battery</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Interfaces.PartialBasicMachine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Interfaces.PartialBasicMachine.html">PartialBasicMachine</a></p>
+        <p><span>Modelica.Electrical.Machines.Interfaces</span></p>
+        <p>Partial model for all machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BaseClasses.Machine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BaseClasses.Machine.html">Machine</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BaseClasses</span></p>
+        <p>Base model of machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses.Machine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses.Machine.html">Machine</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses</span></p>
+        <p>Base model of machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Engine1Base.html">Engine1Base</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</span></p>
+        <p>Base model for one cylinder engine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.Motor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.Motor.html">Motor</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities</span></p>
+        <p>Motor model including current controller of r3 motors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.Rotor1D_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.Rotor1D.html">Rotor1D</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span></p>
+        <p>1D inertia attachable on 3-dim. bodies (3D dynamic effects are taken into account if world.driveTrainMechanics3D=true)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia.html">DirectInertia</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples.Utilities</span></p>
+        <p>Input/output block of a direct inertia model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia.html">InverseInertia</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples.Utilities</span></p>
+        <p>Input/output block of an inverse inertia model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Vehicle_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.Vehicle.html">Vehicle</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span></p>
+        <p>Simple vehicle model</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

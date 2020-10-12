@@ -1,0 +1,143 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.CriticalDamping</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.html">Systems</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.html">ComponentsMixingUnit</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.CriticalDamping.html">CriticalDamping</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>CriticalDamping</h1>
+    <p>Output the input signal filtered with an n-th order filter with critical damping</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.CriticalDamping_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This block defines the transfer function between the
+input u and the output y
+as an n-th order filter with <em>critical damping</em>
+characteristics and cut-off frequency f. It is
+a slightly simplified version of the <a href="Modelica.Blocks.Continuous.CriticalDamping.html">Modelica.Blocks.Continuous.CriticalDamping</a> block.
+It doesn't provide the same initialization capabilities as the continuous block, since the initialization of
+clocked partitions is currently performed differently to the continuous time partitions.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Order of filter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Cut-off frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>normalized</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if amplitude at f_cut is 3 dB, otherwise unmodified filter</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>x</th>
+      <td>
+        <p><span>Type:</span> Real[n]</p>
+        <p><span>Description:</span> Filter states</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Connector of Real input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Connector of Real output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.ControlledMixingUnit_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Systems.ControlledMixingUnit.html">ControlledMixingUnit</a></p>
+        <p><span>Modelica.Clocked.Examples.Systems</span></p>
+        <p>Simple example of a mixing unit where a (discretized) nonlinear inverse plant model is used as feedforward controller</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

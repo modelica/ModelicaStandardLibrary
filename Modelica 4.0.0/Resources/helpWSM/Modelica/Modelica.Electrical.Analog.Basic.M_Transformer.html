@@ -1,0 +1,141 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Analog.Basic.M_Transformer</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Analog.html">Analog</a></li>
+  <li><a href="Modelica.Electrical.Analog.Basic.html">Basic</a></li>
+  <li><a href="Modelica.Electrical.Analog.Basic.M_Transformer.html">M_Transformer</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>M_Transformer</h1>
+    <p>Generic transformer with free number of inductors</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Analog.Basic.M_Transformer_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>The model <em>M_Transformer</em> is a model of a transformer with the possibility to choose the number of inductors. Inside the model, an inductance matrix is built based on the inductance of the inductors and the coupling inductances between the inductors given as a parameter vector from the user of the model.</p>
+
+<p>An example shows that approach:<br>
+The user chooses a model with <strong>three</strong> inductors, that means the parameter <em><strong>N</strong></em> has to be <strong>3</strong>. Then he has to specify the inductances of the three inductors and the three coupling inductances. The coupling inductances are no real existing devices, but effects that occur between two inductors. The inductances (main diagonal of the inductance matrix) and the coupling inductances have to be specified in the parameter vector <em>L</em>. The length <em>dimL</em> of the parameter vector is calculated as follows: <em><strong>dimL=(N*(N+1))/2</strong></em></p>
+
+<p>The following example shows how the parameter vector is used to fill in the inductance matrix. To specify the inductance matrix of a three inductances transformer (<em>N=3</em>):
+</p>
+
+<p>
+<img
+ src="resources/Modelica.Electrical.Analog.Basic.M_Transformer_info_001.png"
+ alt="L_m">
+</p>
+
+<p>
+the user has to allocate the parameter vector <em>L[6] </em>, since <em>Nv=(N*(N+1))/2=(3*(3+1))/2=6</em>. The parameter vector must be filled like this: <em>L=[1,0.1,0.2,2,0.3,3] </em>.</p>
+<p>Inside the model, two loops are used to fill the inductance matrix to guarantee that it is filled in a symmetric way.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>N</th>
+      <td>
+        <p><span>Value:</span> 3</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of inductors</p>
+      </td>
+    </tr>
+    <tr>
+      <th>L</th>
+      <td>
+        <p><span>Value:</span> {1, 0.1, 0.2, 2, 0.3, 3}</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inductance.html">Inductance[dimL]</a> (H)</p>
+        <p><span>Description:</span> Inductances and coupling inductances</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Lm</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inductance.html">Inductance[N,N]</a> (H)</p>
+        <p><span>Description:</span> Complete symmetric inductance matrix, calculated internally</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin[N]</a></p>
+        <p><span>Description:</span> Positive pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin[N]</a></p>
+        <p><span>Description:</span> Negative pin</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Lines.M_OLine.segment_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Lines.M_OLine.segment.html">segment</a></p>
+        <p><span>Modelica.Electrical.Analog.Lines.M_OLine</span></p>
+        <p>Multiple line segment model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Lines.M_OLine.segment_last_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Lines.M_OLine.segment_last.html">segment_last</a></p>
+        <p><span>Modelica.Electrical.Analog.Lines.M_OLine</span></p>
+        <p>Multiple line last segment model</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

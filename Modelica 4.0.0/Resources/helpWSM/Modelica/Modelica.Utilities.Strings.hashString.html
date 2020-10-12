@@ -1,0 +1,91 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Utilities.Strings.hashString</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Strings.html">Strings</a></li>
+  <li><a href="Modelica.Utilities.Strings.hashString.html">hashString</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>hashString</h1>
+    <p>Create a hash value of a string</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Strings.hashString_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+hash = Strings.<strong>hashString</strong>(string);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns an Integer hash value of the provided string
+(the hash can be any Integer, including zero or a negative number).
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+hashString("this is a test")     // =  1827717433
+hashString("Controller.noise1")  // = -1025762750
+</pre></blockquote>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">hash = hashString(string)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>string</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> The string to create a hash from</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>hash</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> The hash value of string</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

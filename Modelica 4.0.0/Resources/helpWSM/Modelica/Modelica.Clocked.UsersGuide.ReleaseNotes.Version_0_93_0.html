@@ -1,0 +1,59 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.UsersGuide.ReleaseNotes.Version_0_93_0</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.Clocked.UsersGuide.ReleaseNotes.html">ReleaseNotes</a></li>
+  <li><a href="Modelica.Clocked.UsersGuide.ReleaseNotes.Version_0_93_0.html">Version_0_93_0</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Version_0_93_0</h1>
+    <p>Version 0.93.0 (April 10, 2019)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.UsersGuide.ReleaseNotes.Version_0_93_0_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Version 0.93.0 is backward compatible to version 0.92.1
+</p>
+
+<p>Enhancements:</p>
+<ul>
+<li>Uses latest version of Modelica Standard Library (v3.2.3) (<a href="https://github.com/modelica/Modelica_Synchronous/issues/37">#37</a>).</li>
+<li>New blocks for event clocks that generate a clock tick each time an observed input angle changed (subpackage <a href="Modelica.Clocked.ClockSignals.Clocks.Rotational.html">ClockSignals.Clocks.Rotational</a>) (<a href="https://github.com/modelica/Modelica_Synchronous/issues/34">#34</a>, <a href="https://github.com/modelica/Modelica_Synchronous/issues/36">#36</a>).</li>
+<li>Improved engine-throttle control example using the new rotational event clocks (<a href="https://github.com/modelica/Modelica_Synchronous/issues/34">#32</a>, <a href="https://github.com/modelica/Modelica_Synchronous/issues/36">#33</a>).</li>
+<li>Utilizing `SolverMethod` from the (tool-specific) ModelicaServices library (<a href="https://github.com/modelica/Modelica_Synchronous/issues/20">#20</a>).</li>
+<li>Improved icons.</li>
+</ul>
+<p>Bug fixes:</p>
+<ul>
+<li>Added tolerance for numeric comparisons <a href="Modelica.Clocked.BooleanSignals.TimeBasedSources.Pulse.html">BooleanSignals.TimeBasedSources.Pulse</a> (<a href="https://github.com/modelica/Modelica_Synchronous/issues/9">#9</a>).</li>
+<li>Fixed over-constrained initial systems for several examples (<a href="https://github.com/modelica/Modelica_Synchronous/issues/10">#10</a>, <a href="https://github.com/modelica/Modelica_Synchronous/issues/11">#11</a>).</li>
+<li>Fixed comparison against Real in <a href="Modelica.Clocked.BooleanSignals.TickBasedSources.Pulse.html">BooleanSignals.TickBasedSources.Pulse</a> (<a href="https://github.com/modelica/Modelica_Synchronous/issues/12">#12</a>).</li>
+<li>Fixed too slow sampling in <a href="Modelica.Clocked.Examples.CascadeControlledDrive.html">CascadeControlledDrive</a> examples (<a href="https://github.com/modelica/Modelica_Synchronous/issues/30">#30</a>).</li>
+</ul>
+
+<p>Other (minor) fixes and improvements.</p>
+</div>
+</section>
+</div>
+</body>
+</html>

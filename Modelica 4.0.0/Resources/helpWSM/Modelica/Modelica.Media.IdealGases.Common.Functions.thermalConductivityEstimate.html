@@ -1,0 +1,110 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Media.IdealGases.Common.Functions.thermalConductivityEstimate</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.IdealGases.html">IdealGases</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.html">Common</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.Functions.html">Functions</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.Functions.thermalConductivityEstimate.html">thermalConductivityEstimate</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>thermalConductivityEstimate</h1>
+    <p>Thermal conductivity of polyatomic gases (Eucken and Modified Eucken correlation)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.IdealGases.Common.Functions.thermalConductivityEstimate_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This function provides two similar methods for estimating the
+thermal conductivity of polyatomic gases.
+The Eucken method (input method == 1) gives good results for low temperatures,
+but it tends to give an underestimated value of the thermal conductivity
+(lambda) at higher temperatures.<br>
+The Modified Eucken method (input method == 2) gives good results for
+high-temperatures, but it tends to give an overestimated value of the
+thermal conductivity (lambda) at low temperatures.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">lambda = thermalConductivityEstimate(Cp, eta, method, data)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Cp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.Types.SpecificHeatCapacity.html">SpecificHeatCapacity</a> (J/(kg·K))</p>
+        <p><span>Description:</span> Constant pressure heat capacity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>eta</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.Types.DynamicViscosity.html">DynamicViscosity</a> (Pa·s)</p>
+        <p><span>Description:</span> Dynamic viscosity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>method</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> 1: Eucken Method, 2: Modified Eucken Method</p>
+      </td>
+    </tr>
+    <tr>
+      <th>data</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.IdealGases.Common.DataRecord.html">DataRecord</a></p>
+        <p><span>Description:</span> Ideal gas data</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>lambda</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.Types.ThermalConductivity.html">ThermalConductivity</a> (W/(m·K))</p>
+        <p><span>Description:</span> Thermal conductivity [W/(m.k)]</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

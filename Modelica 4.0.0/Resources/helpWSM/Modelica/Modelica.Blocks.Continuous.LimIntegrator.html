@@ -1,0 +1,216 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Continuous.LimIntegrator</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Continuous.html">Continuous</a></li>
+  <li><a href="Modelica.Blocks.Continuous.LimIntegrator.html">LimIntegrator</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>LimIntegrator</h1>
+    <p>Integrator with limited value of the output and optional reset</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Continuous.LimIntegrator_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This blocks computes <strong>y</strong> as <em>integral</em>
+of the input <strong>u</strong> multiplied with the gain <em>k</em>. If the
+integral reaches a given upper or lower <em>limit</em> and the
+input will drive the integral outside of this bound, the
+integration is halted and only restarted if the input drives
+the integral away from the bounds.
+</p>
+
+<p>
+It might be difficult to initialize the integrator in steady state.
+This is discussed in the description of package
+<a href="Modelica.Blocks.Continuous.html#info">Continuous</a>.
+</p>
+
+<p>
+If parameter <strong>limitsAtInit</strong> = <strong>false</strong>, the limits of the
+integrator are removed from the initialization problem which
+leads to a much simpler equation system. After initialization has been
+performed, it is checked via an assert whether the output is in the
+defined limits. For backward compatibility reasons
+<strong>limitsAtInit</strong> = <strong>true</strong>. In most cases it is best
+to use <strong>limitsAtInit</strong> = <strong>false</strong>.
+</p>
+<p>
+If the <em>reset</em> port is enabled, then the output <strong>y</strong> is reset to <em>set</em>
+or to <em>y_start</em> (if the <em>set</em> port is not enabled), whenever the <em>reset</em>
+port has a rising edge.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>k</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Integrator gain</p>
+      </td>
+    </tr>
+    <tr>
+      <th>outMax</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Upper limit of output</p>
+      </td>
+    </tr>
+    <tr>
+      <th>outMin</th>
+      <td>
+        <p><span>Value:</span> -outMax</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Lower limit of output</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_reset</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if reset port enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_set</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if set port enabled and used as reinitialization value when reset</p>
+      </td>
+    </tr>
+    <tr>
+      <th>initType</th>
+      <td>
+        <p><span>Value:</span> Init.InitialState</p>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Types.Init.html">Init</a></p>
+        <p><span>Description:</span> Type of initialization (1: no init, 2: steady state, 3/4: initial output)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>limitsAtInit</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = false, if limits are ignored during initialization (i.e., der(y)=k*u)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_start</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Initial or guess value of output (must be in the limits outMin .. outMax)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>strict</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if strict limits with noEvent(..)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Connector of Real input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Connector of Real output signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanInput_16x16.png"></td>
+      <th>reset</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanInput.html">BooleanInput</a></p>
+        <p><span>Description:</span> Optional connector of reset signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>set</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Optional connector of set signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.BaseClasses.BaseCellStack_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.BaseClasses.BaseCellStack.html">BaseCellStack</a></p>
+        <p><span>Modelica.Electrical.Batteries.BaseClasses</span></p>
+        <p>Battery with open-circuit voltage dependent on state of charge, self-discharge and inner resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.BaseClasses.BaseCellWithSensors_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.BaseClasses.BaseCellWithSensors.html">BaseCellWithSensors</a></p>
+        <p><span>Modelica.Electrical.Batteries.BaseClasses</span></p>
+        <p>Partial cell with sensors</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

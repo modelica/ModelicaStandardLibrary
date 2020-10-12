@@ -1,0 +1,129 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteTextbookController</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Clocked.Examples.SimpleControlledDrive.html">SimpleControlledDrive</a></li>
+  <li><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteTextbookController.html">ClockedWithDiscreteTextbookController</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ClockedWithDiscreteTextbookController</h1>
+    <p>Simple controlled drive with discrete textbook controller (period is not used in the controller)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteTextbookController_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteTextbookController_diagram_large.png"><img src="resources/diagrams/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteTextbookController_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Simple controlled drive with discrete-time textbook controller
+modelled as a clocked partition
+(period is not used in the controller)
+</p>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Inertia_32x32.png"></td>
+      <th>load</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Inertia</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sensors.SpeedSensor_32x32.png"></td>
+      <th>speed</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sensors.SpeedSensor.html">SpeedSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Ramp_32x32.png"></td>
+      <th>ramp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Ramp.html">Ramp</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Feedback_32x32.png"></td>
+      <th>feedback</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Feedback.html">Feedback</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.Torque_32x32.png"></td>
+      <th>torque</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sources.Torque.html">Torque</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Periodic.PI_32x32.png"></td>
+      <th>PI</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.RealSignals.Periodic.PI.html">PI</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.SampleClocked_32x32.png"></td>
+      <th>sample2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.RealSignals.Sampler.SampleClocked.html">SampleClocked</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.Hold_32x32.png"></td>
+      <th>hold1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.RealSignals.Sampler.Hold.html">Hold</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.Sample_32x32.png"></td>
+      <th>sample1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.RealSignals.Sampler.Sample.html">Sample</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock_32x32.png"></td>
+      <th>periodicClock</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock.html">PeriodicRealClock</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

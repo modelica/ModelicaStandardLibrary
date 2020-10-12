@@ -1,0 +1,100 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Frames.resolveDyade1</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.resolveDyade1.html">resolveDyade1</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>resolveDyade1</h1>
+    <p>Transform second order tensor from frame 2 to frame 1</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.resolveDyade1_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+D1 = Frames.<strong>resolveDyade1</strong>(R, D2);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<strong>Dyade1</strong>(R12, D2)</code> returns the second order tensor D
+resolved in frame&nbsp;1 (= D1) from its representation in frame&nbsp;2 (= D2) using the
+orientation object R12 that describes the orientation to rotate frame&nbsp;1 into frame&nbsp;2.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolveDyade1.html">TransformationMatrices.resolveDyade1</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">D1 = resolveDyade1(R, D2)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object to rotate frame 1 into frame 2</p>
+      </td>
+    </tr>
+    <tr>
+      <th>D2</th>
+      <td>
+        <p><span>Type:</span> Real[3,3]</p>
+        <p><span>Description:</span> Second order tensor resolved in frame 2</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>D1</th>
+      <td>
+        <p><span>Type:</span> Real[3,3]</p>
+        <p><span>Description:</span> Second order tensor resolved in frame 1</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

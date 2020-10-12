@@ -1,0 +1,143 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Media.IdealGases.Common.SingleGasNasa.dynamicViscosityLowPressure</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.IdealGases.html">IdealGases</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.html">Common</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.html">SingleGasNasa</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.dynamicViscosityLowPressure.html">dynamicViscosityLowPressure</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>dynamicViscosityLowPressure</h1>
+    <p>Dynamic viscosity of low pressure gases</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.IdealGases.Common.SingleGasNasa.dynamicViscosityLowPressure_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The used formula are based on the method of Chung et al (1984, 1988) referred to in ref [1] chapter 9.
+The formula 9-4.10 is the one being used. The formula is given in non-SI units, the following conversion constants were used to
+transform the formula to SI units:
+</p>
+
+<ul>
+<li> <strong>Const1_SI:</strong> The factor 10^(-9.5) =10^(-2.5)*1e-7 where the
+     factor 10^(-2.5) originates from the conversion of g/mol->kg/mol + cm^3/mol->m^3/mol
+      and the factor 1e-7 is due to conversion from microPoise->Pa.s.</li>
+<li>  <strong>Const2_SI:</strong> The factor 1/3.335641e-27 = 1e-3/3.335641e-30
+      where the factor 3.335641e-30 comes from debye->C.m and
+      1e-3 is due to conversion from cm^3/mol->m^3/mol</li>
+</ul>
+
+<h4>References</h4>
+<p>
+[1] Bruce E. Poling, John E. Prausnitz, John P. O'Connell, "The Properties of Gases and Liquids" 5th Ed. Mc Graw Hill.
+</p>
+
+<h4>Author</h4>
+<p>T. Skoglund, Lund, Sweden, 2004-08-31</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">eta = dynamicViscosityLowPressure(T, Tc, M, Vc, w, mu, k)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Gas temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Tc</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Critical temperature of gas</p>
+      </td>
+    </tr>
+    <tr>
+      <th>M</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.MolarMass.html">MolarMass</a> (kg/mol)</p>
+        <p><span>Description:</span> Molar mass of gas</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Vc</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.MolarVolume.html">MolarVolume</a> (m³/mol)</p>
+        <p><span>Description:</span> Critical molar volume of gas</p>
+      </td>
+    </tr>
+    <tr>
+      <th>w</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Acentric factor of gas</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mu</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.Types.DipoleMoment.html">DipoleMoment</a> (debye)</p>
+        <p><span>Description:</span> Dipole moment of gas molecule</p>
+      </td>
+    </tr>
+    <tr>
+      <th>k</th>
+      <td>
+        <p><span>Default Value:</span> 0.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Special correction for highly polar substances</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>eta</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.Types.DynamicViscosity.html">DynamicViscosity</a> (Pa·s)</p>
+        <p><span>Description:</span> Dynamic viscosity of gas</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

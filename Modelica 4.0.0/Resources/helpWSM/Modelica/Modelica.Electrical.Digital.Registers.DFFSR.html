@@ -1,0 +1,199 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Digital.Registers.DFFSR</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Digital.html">Digital</a></li>
+  <li><a href="Modelica.Electrical.Digital.Registers.html">Registers</a></li>
+  <li><a href="Modelica.Electrical.Digital.Registers.DFFSR.html">DFFSR</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>DFFSR</h1>
+    <p>Edge triggered register bank with set and reset</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Digital.Registers.DFFSR_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
+<p><strong>Truth Table for high active set and reset</strong></p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+  <tr><td><strong>DataIn</strong></td>
+      <td><strong>Clock</strong></td>
+      <td><strong>Reset</strong></td>
+      <td><strong>Set</strong></td>
+      <td><strong>DataOut</strong></td>
+      <td>Map</td>
+  </tr>
+
+  <tr><td>*</td> <td>*</td> <td>*</td>  <td>U</td> <td>U</td> <td>1</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>U</td>  <td>*</td> <td>U</td> <td>1</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>*</td>  <td>1</td> <td>1</td> <td>2</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>1</td>  <td>0</td> <td>0</td> <td>3</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>1</td>  <td>X</td> <td>X</td> <td>6</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>X</td> <td>X</td> <td>X or U</td> <td>4</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>0</td> <td>X</td> <td>X or U or 1 or NC</td> <td>5</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>X</td> <td>0</td> <td>X or U or 0 or NC</td> <td>7</td> </tr>
+  <tr><td>*</td> <td>X-Trns</td> <td>0</td>  <td>0</td> <td>X or U or NC</td> <td>8</td> </tr>
+  <tr><td>*</td> <td>1-Trns</td> <td>0</td>  <td>0</td> <td>DataIn</td> <td>8</td> </tr>
+  <tr><td>*</td> <td>0-Trns</td> <td>0</td>  <td>0</td> <td>NC</td> <td>8</td> </tr>
+
+</table>
+
+<p><strong>Truth Table for low active set and reset </strong></p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+  <tr><td><strong>DataIn</strong></td>
+      <td><strong>Clock</strong></td>
+      <td><strong>Reset</strong></td>
+      <td><strong>Set</strong></td>
+      <td><strong>DataOut</strong></td>
+      <td>Map</td>
+  </tr>
+
+  <tr><td>*</td> <td>*</td> <td>*</td>  <td>U</td> <td>U</td> <td>1</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>U</td>  <td>*</td> <td>U</td> <td>1</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>*</td>  <td>0</td> <td>1</td> <td>2</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>0</td>  <td>1</td> <td>0</td> <td>3</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>0</td>  <td>X</td> <td>X</td> <td>6</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>X</td> <td>X</td> <td>X or U</td> <td>4</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>1</td> <td>X</td> <td>X or U or 1 or NC</td> <td>5</td> </tr>
+  <tr><td>*</td> <td>*</td> <td>X</td> <td>1</td> <td>X or U or 0 or NC</td> <td>7</td> </tr>
+  <tr><td>*</td> <td>X-Trns</td> <td>1</td>  <td>1</td> <td>X or U or NC</td> <td>8</td> </tr>
+  <tr><td>*</td> <td>1-Trns</td> <td>1</td>  <td>1</td> <td>DataIn</td> <td>8</td> </tr>
+  <tr><td>*</td> <td>0-Trns</td> <td>1</td>  <td>1</td> <td>NC</td> <td>8</td> </tr>
+</table>
+
+<blockquote><pre>
+  *  = do not care
+  ~  = not equal
+  U  = L.'U'
+  0  = L.'0' or L.'L'
+  1  = L.'1' or L.'H'
+  X  = L.'X' or L.'W' or L.'Z' or L.'-'
+  NC = no change
+
+Clock transition definitions:
+  1-Trns: 0 -> 1
+  0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
+  X-Trns: 0 -> X|U or X|U -> 1
+</pre></blockquote>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>ResetSetMap</th>
+      <td>
+        <p><span>Value:</span> [1, 1, 1, 1, 1, 1, 1, 1, 1; 1, 4, 7, 2, 4, 4, 7, 2, 4; 1, 5, 8, 2, 5, 5, 8, 2, 5; 1, 6, 3, 2, 6, 6, 3, 2, 6; 1, 4, 7, 2, 4, 4, 7, 2, 4; 1, 4, 7, 2, 4, 4, 7, 2, 4; 1, 5, 8, 2, 5, 5, 8, 2, 5; 1, 6, 3, 2, 6, 6, 3, 2, 6; 1, 4, 7, 2, 4, 4, 7, 2, 4]</p>
+        <p><span>Type:</span> Integer[L,L]</p>
+        <p><span>Description:</span> Function selection by [reset, set] reading</p>
+      </td>
+    </tr>
+    <tr>
+      <th>strength</th>
+      <td>
+        <p><span>Value:</span> S.'S_X01'</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Strength.html">Strength</a></p>
+        <p><span>Description:</span> Output strength</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Data width</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalInput_16x16.png"></td>
+      <th>set</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalInput.html">DigitalInput</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalInput_16x16.png"></td>
+      <th>reset</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalInput.html">DigitalInput</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalInput_16x16.png"></td>
+      <th>clock</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalInput.html">DigitalInput</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalInput_16x16.png"></td>
+      <th>dataIn</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalInput.html">DigitalInput[n]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalOutput_16x16.png"></td>
+      <th>dataOut</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalOutput.html">DigitalOutput[n]</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Registers.DFFREGSRH_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Registers.DFFREGSRH.html">DFFREGSRH</a></p>
+        <p><span>Modelica.Electrical.Digital.Registers</span></p>
+        <p>Edge triggered register bank with high active set and reset</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

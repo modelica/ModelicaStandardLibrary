@@ -1,0 +1,116 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Visualizers.Colors.scalarToColor</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.html">Colors</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor.html">scalarToColor</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>scalarToColor</h1>
+    <p>Map a scalar to a color using a color map</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+//Real T, T_min, T_max, colorMap[:,3];
+Colors.<strong>scalarToColor</strong>(T, T_min, T_max, colorMap);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function returns an rgb color Real[3] that corresponds to the value of "T".
+The color is selected from the colorMap by interpolation so that
+"T_min" corresponds to "colorMap[1,:]" and
+"T_max" corresponds to "colorMap[end,:]".
+</p>
+
+<h4>See also</h4>
+<a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.html">ColorMaps</a>,
+<a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg.html">colorMapToSvg</a>,
+<a href="Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField.html">PipeWithScalarField</a>.
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">color = scalarToColor(T, T_min, T_max, colorMap)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Scalar value</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_min</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> T <= T_min is mapped to colorMap[1,:]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_max</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> T >= T_max is mapped to colorMap[end,:]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>colorMap</th>
+      <td>
+        <p><span>Type:</span> Real[:,3]</p>
+        <p><span>Description:</span> Color map</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>color</th>
+      <td>
+        <p><span>Type:</span> Real[3]</p>
+        <p><span>Description:</span> Color of scalar value T</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

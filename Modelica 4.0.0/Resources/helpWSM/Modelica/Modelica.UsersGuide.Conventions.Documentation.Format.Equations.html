@@ -1,0 +1,102 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: UsersGuide.Conventions.Documentation.Format.Equations</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.UsersGuide.Conventions.html">Conventions</a></li>
+  <li><a href="Modelica.UsersGuide.Conventions.Documentation.html">Documentation</a></li>
+  <li><a href="Modelica.UsersGuide.Conventions.Documentation.Format.html">Format</a></li>
+  <li><a href="Modelica.UsersGuide.Conventions.Documentation.Format.Equations.html">Equations</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Equations</h1>
+    <p>Equations</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.UsersGuide.Conventions.Documentation.Format.Equations_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+In the context of <a href="http://www.w3c.org/">HTML</a> documentation
+equations should have a graphical representation in PNG format. For that purpose tool
+specific math typing capabilities can be used. Alternatively the LaTeX to HTML translator
+<a href="http://www.latex2html.org">LaTeX2HTML</a>, or the
+<a href="http://www.homeschoolmath.net/worksheets/equation_editor.php">Online Equation Editor</a>
+or <a href="http://www.codecogs.com/latex/eqneditor.php">codecogs</a> can be used.
+</p>
+
+<p>
+A typical equation, e.g., of a Fourier synthesis, could look like<br>
+<img
+ src="resources/Modelica.UsersGuide.Conventions.Documentation.Format.Equations_info_001.png"><br>
+or<br>
+<img
+ src="resources/Modelica.UsersGuide.Conventions.Documentation.Format.Equations_info_002.png"
+ alt="y=a_1+a_2"><br>
+In an <code>alt</code> tag the original equation should be stored, e.g.,</p>
+<blockquote><pre>
+&lt;img
+&nbsp;src="modelica:///Modelica.UsersGuide.Conventions.Documentation.Format.Equations/&quot;modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
+&nbsp;alt=&quot;y=a_1+a_2&quot;&gt;
+</pre"></blockquote>
+
+<p>
+If one wants to refer to particular variables and parameters in the documentation text, either a
+graphical representation (PNG file) or italic fonts for regular physical symbols and lower case
+<a href="http://www.w3.org/TR/html4/sgml/entities.html">Greek letters</a>
+should be used. Full word variables and full word indices should be spelled within
+<code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>.
+Vector and array indices should be typeset as subscripts using the
+<code>&lt;sub&gt;</code> and <code>&lt;/sub&gt;</code> tags.
+</p>
+
+<p> Examples for such variables and parameters are:
+<em>&phi;</em>, <em>&phi;</em><sub>ref</sub>, <em>v<sub>2</sub></em>, <code>useDamperCage</code>.
+</p>
+
+<h4>Numbered equations</h4>
+
+<p>For numbering equations a one row table with two columns should be used. The equation number should be placed in the right column:</p>
+
+<blockquote><pre>
+&lt;table border=&quot;0&quot; cellspacing=&quot;10&quot; cellpadding=&quot;2&quot;&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;img
+    src="modelica:///Modelica.UsersGuide.Conventions.Documentation.Format.Equations/&quot;modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
+    alt=&quot;y=a_1+a_2&quot;&gt; &lt;/td&gt;
+    &lt;td&gt;(1)&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre"></blockquote>
+
+<p>appears as:</p>
+
+<table border="0" cellspacing="10" cellpadding="2">
+  <tr>
+    <td><img
+         src="resources/Modelica.UsersGuide.Conventions.Documentation.Format.Equations_info_003.png"
+         alt="y=a_1+a_2"></td>
+    <td>(1)</td>
+  </tr>
+</table>
+</div>
+</section>
+</div>
+</body>
+</html>

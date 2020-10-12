@@ -1,0 +1,161 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Spice3.Examples.CoupledInductors</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Spice3.html">Spice3</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Examples.CoupledInductors.html">CoupledInductors</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>CoupledInductors</h1>
+    <p></p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Spice3.Examples.CoupledInductors_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Spice3.Examples.CoupledInductors_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Spice3.Examples.CoupledInductors_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>The coupled inductor circuit demonstrates how different inductors can be coupled using the Component K_CoupledInductors from package Basic</p>
+<p>Simulate until 0.2s, and display the behaviour of the parts that are coupled via <code>K</code>, such as <code>C1.p.v</code>, and <code>C2.p.v</code>.</p>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(15)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.Ground_32x32.png"></td>
+      <th>ground</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Sources.V_sin_32x32.png"></td>
+      <th>sineVoltage</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Sources.V_sin.html">V_sin</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.R_Resistor_32x32.png"></td>
+      <th>R1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.R_Resistor.html">R_Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.L_Inductor_32x32.png"></td>
+      <th>L1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.L_Inductor.html">L_Inductor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.L_Inductor_32x32.png"></td>
+      <th>L2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.L_Inductor.html">L_Inductor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.R_Resistor_32x32.png"></td>
+      <th>R2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.R_Resistor.html">R_Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.K_CoupledInductors_32x32.png"></td>
+      <th>k1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.K_CoupledInductors.html">K_CoupledInductors</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.R_Resistor_32x32.png"></td>
+      <th>R3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.R_Resistor.html">R_Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.C_Capacitor_32x32.png"></td>
+      <th>C1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.C_Capacitor.html">C_Capacitor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.L_Inductor_32x32.png"></td>
+      <th>L3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.L_Inductor.html">L_Inductor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.R_Resistor_32x32.png"></td>
+      <th>R4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.R_Resistor.html">R_Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.R_Resistor_32x32.png"></td>
+      <th>R5</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.R_Resistor.html">R_Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.C_Capacitor_32x32.png"></td>
+      <th>C2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.C_Capacitor.html">C_Capacitor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.K_CoupledInductors_32x32.png"></td>
+      <th>k2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.K_CoupledInductors.html">K_CoupledInductors</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.K_CoupledInductors_32x32.png"></td>
+      <th>k3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.K_CoupledInductors.html">K_CoupledInductors</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

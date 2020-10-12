@@ -1,0 +1,200 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.pipeWithScalarField</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.html">Advanced</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.html">SurfaceCharacteristics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.pipeWithScalarField.html">pipeWithScalarField</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>pipeWithScalarField</h1>
+    <p>Function defining the surface characteristic of a pipe where a scalar field value is displayed with color along the pipe axis</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.pipeWithScalarField_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Function <strong>pipeWithScalarField</strong> computes the X, Y, Z and C arrays in order to
+visualize a pipe and a scalar field along the pipe axis with model
+<a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField.html">PipeWithScalarField</a>.
+The latter is shown by mapping scalar
+field to color values with a color map and utilizing this color
+at the perimeter associated with the corresponding axis location.
+Typically the scalar field value is a temperature, but might
+be also another quantity.
+Predefined color maps are available from
+<a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.html">MultiBody.Visualizers.Colors.ColorMaps</a>
+and can be selected via input argument "colorMap".
+A color map with the corresponding scalar field values can be exported
+as vector-graphics in svg-format with function
+<a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg.html">MultiBody.Visualizers.Colors.colorMapToSvg</a>.
+An example is shown in the next figure:
+</p>
+
+<blockquote>
+<img src="resources/Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.pipeWithScalarField_info_001.png">
+</blockquote>
+
+<p>
+The color coding is shown in the next figure. It was generated with
+<a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg.html">Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg</a>
+using the following call:
+</p>
+
+<blockquote><pre>
+colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
+              height=50, nScalars=6, T_max=100, heading="Temperature in C");
+</pre></blockquote>
+
+<blockquote>
+<img src="resources/Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.pipeWithScalarField_info_002.png">
+</blockquote>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(X, Y, Z, C) = pipeWithScalarField(nu, nv, multiColoredSurface, rOuter, length, xsi, T, T_min, T_max, colorMap)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>nu</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of points in u-Dimension</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nv</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of points in v-Dimension</p>
+      </td>
+    </tr>
+    <tr>
+      <th>multiColoredSurface</th>
+      <td>
+        <p><span>Default Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true: Color is defined for each surface point</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rOuter</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Radius.html">Radius</a> (m)</p>
+        <p><span>Description:</span> Outer radius of cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <th>length</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length of cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <th>xsi</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[:]</a> (m)</p>
+        <p><span>Description:</span> Relative position along the pipe with x[1] = 0, x[end] = 1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Type:</span> Real[size(xsi, 1)]</p>
+        <p><span>Description:</span> Scalar field value at position xsi*length</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_min</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> T <= T_min is mapped to colorMap[1,:]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_max</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> T >= T_max is mapped to colorMap[end,:]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>colorMap</th>
+      <td>
+        <p><span>Type:</span> Real[:,3]</p>
+        <p><span>Description:</span> Color map to map scalar T to a corresponding color</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>X</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[nu,nv]</a> (m)</p>
+        <p><span>Description:</span> [nu,nv] positions of points in x-Direction resolved in surface frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[nu,nv]</a> (m)</p>
+        <p><span>Description:</span> [nu,nv] positions of points in y-Direction resolved in surface frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Z</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[nu,nv]</a> (m)</p>
+        <p><span>Description:</span> [nu,nv] positions of points in z-Direction resolved in surface frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>
+        <p><span>Type:</span> Real[if multiColoredSurface then nu else 0,if multiColoredSurface then nv else 0,3]</p>
+        <p><span>Description:</span> [nu,nv,3] Color array, defining the color for each surface point</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

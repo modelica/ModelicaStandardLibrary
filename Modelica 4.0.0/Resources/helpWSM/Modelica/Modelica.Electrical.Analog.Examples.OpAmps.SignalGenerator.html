@@ -1,0 +1,196 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Analog.Examples.OpAmps.SignalGenerator</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Analog.html">Analog</a></li>
+  <li><a href="Modelica.Electrical.Analog.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.Analog.Examples.OpAmps.html">OpAmps</a></li>
+  <li><a href="Modelica.Electrical.Analog.Examples.OpAmps.SignalGenerator.html">SignalGenerator</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SignalGenerator</h1>
+    <p>Rectangle-Triangle generator</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Analog.Examples.OpAmps.SignalGenerator_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Analog.Examples.OpAmps.SignalGenerator_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Analog.Examples.OpAmps.SignalGenerator_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This signal generator consists of a Schmitt trigger and an integrator. The output of the Schmitt trigger part opamp (opAmp1) is a rectangular signal with the amplitude VAmp and the frequency f.
+The output of the integrator part opamp (opAmp2) is a triangular signal of also the amplitude Vamp and the frequency f.</p>
+<p>Source:</p>
+<p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 14.5.2</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Vps</th>
+      <td>
+        <p><span>Value:</span> +15</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Positive supply</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Vns</th>
+      <td>
+        <p><span>Value:</span> -Vps</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Negative supply</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VAmp</th>
+      <td>
+        <p><span>Value:</span> 10</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Desired amplitude of output</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R1</th>
+      <td>
+        <p><span>Value:</span> 1000</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Arbitrary resistance for Schmitt trigger part</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R2</th>
+      <td>
+        <p><span>Value:</span> R1 * Vps / VAmp</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Calculated resistance for Schmitt trigger to reach VAmp</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f</th>
+      <td>
+        <p><span>Value:</span> 10</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Desired frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Value:</span> 1000</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Arbitrary resistance of integrator part</p>
+      </td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>
+        <p><span>Value:</span> Vps / VAmp / (4 * f * R)</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Capacitance.html">Capacitance</a> (F)</p>
+        <p><span>Description:</span> Calculated capacitance of integrator part to reach f</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited_32x32.png"></td>
+      <th>opAmp1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited.html">IdealizedOpAmpLimited</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Resistor_32x32.png"></td>
+      <th>r2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Resistor.html">Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Resistor_32x32.png"></td>
+      <th>r1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Resistor.html">Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>ground</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited_32x32.png"></td>
+      <th>opAmp2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited.html">IdealizedOpAmpLimited</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Capacitor_32x32.png"></td>
+      <th>c</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Capacitor.html">Capacitor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Resistor_32x32.png"></td>
+      <th>r</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Resistor.html">Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sensors.VoltageSensor_32x32.png"></td>
+      <th>vOutRectangle</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sensors.VoltageSensor.html">VoltageSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sensors.VoltageSensor_32x32.png"></td>
+      <th>vOutTriangle</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sensors.VoltageSensor.html">VoltageSensor</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

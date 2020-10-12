@@ -1,0 +1,473 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.Examples.Systems.ControlledMixingUnit</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.html">Systems</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.ControlledMixingUnit.html">ControlledMixingUnit</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ControlledMixingUnit</h1>
+    <p>Simple example of a mixing unit where a (discretized) nonlinear inverse plant model is used as feedforward controller</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.Examples.Systems.ControlledMixingUnit_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Clocked.Examples.Systems.ControlledMixingUnit_diagram_large.png"><img src="resources/diagrams/Modelica.Clocked.Examples.Systems.ControlledMixingUnit_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Since a long time, Modelica is used to model advanced nonlinear control systems.
+Especially, Modelica allows a semi-automatic treatment of inverse nonlinear
+plant models. In the fundamental article (Looye et.al. 2005, see
+<a href="Modelica.Clocked.UsersGuide.Literature.html">Literature</a> or
+<a href="https://www.modelica.org/events/Conference2005/online_proceedings/Session3/Session3c3.pdf">Download</a>)
+this approach is described and several controller structures are presented to
+utilize an inverse plant model in the controller. This approach is attractive
+because it results in a systematic procedure to design a controller for the
+whole operating range of a plant. This is in contrast to standard controller
+design techniques that usually design a linear controller for a plant model
+that is linearized at a specific operating point. Therefore the operating range of such controllers is inherently limited.
+</p>
+
+<p>
+Up to Modelica 3.2, controllers with inverse plant models can only be
+defined as continuous-time systems. Via the export mechanism of a Modelica tool
+they could be exported with solvers embedded in the code and then used as
+sampled data system in other environments. However, it is not possible
+to re-import the sampled data system to Modelica.
+</p>
+
+<p>
+The synchronous features of Modelica 3.3 together with the
+Modelica.Clocked library offer now completely new possibilities,
+so that the inverse model can be designed and evaluated as sampled data
+system within Modelica and a Modelica simulation environment.
+This approach is shown at hand of a simple example using
+a nonlinear plant model of a
+mixing unit (F&ouml;llinger O. (1998): Nichtlineare Regelungen I,
+Oldenbourg Verlag, 8. Auflage, page 279) and utilizing this plant
+model as nonlinear feed-forward controller according to (Looye et.al. 2005):
+</p>
+
+<p>
+A substance A is flowing continuously into a mixing reactor.
+Due to a catalyst, the substance reacts and splits into several base
+substances that are continuously removed. The reaction generates
+energy and therefore the reactor is cooled with a cooling medium.
+The cooling temperature T_c(t) in [K] is the primary actuation signal.
+Substance A is described by its concentration c(t) in [mol/l] and
+its temperature T(t) in [K].
+The concentration c(t) is the signal to be primarily controlled
+and the temperature T(t) is the signal that is measured.
+These equations are collected together in input/output block
+<a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit.html">Utilities.ComponentsMixingUnit.MixingUnit</a>.
+</p>
+
+<p>
+<img src="resources/Modelica.Clocked.Examples.Systems.ControlledMixingUnit_info_001.png" alt="ControlledMixingUnit_PlantModel.png">
+</p>
+
+<p>
+The design of the control system proceeds now in the following steps:
+</p>
+
+<h4>Pre-Filter</h4>
+<p>
+Inverting a model usually means that equations need to be symbolically
+differentiated and that higher derivatives of the inputs are needed
+(that are usually not available). One approach is to filter the inputs,
+so that a Modelica tool can determine the derivatives of the filtered
+input from the filter states. The minimum needed filter order is determined
+by first inverting the continuous-time plant model from the variable
+to be primarily controlled (here: "c") to the actuator input
+(here: "T_c"). This is performed with the help of block
+<a href="Modelica.Blocks.Math.InverseBlockConstraints.html">Modelica.Blocks.Math.InverseBlockConstraints</a>
+that allows connecting an external input to an output
+in the pre-filter design block
+<a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.FilterOrder.html">Utilities.ComponentsMixingUnit.FilterOrder</a>:
+</p>
+
+<p>
+<img src="resources/Modelica.Clocked.Examples.Systems.ControlledMixingUnit_info_002.png" alt="ControlledMixingUnit_FilterDesign.png">
+</p>
+
+<p>
+Translating this
+model will generate the continuous-time inverse plant model.
+However, a Modelica tool will give an error message that it
+has to differentiate the model, but this requires the
+<strong>second derivative</strong> of the external input c_ref and this derivative
+is not available. The conclusion is that a low pass filter of at
+least second order has to be connected between c_ref and c, for example
+<a href="Modelica.Blocks.Continuous.Filter.html">Modelica.Blocks.Continuous.Filter</a>. Only filter types should be used that do not have "vibrations" in the time domain for
+a step input. Therefore, parameter <strong>analogFilter</strong> of the component should be
+selected as <strong>CriticalDamping</strong> (= only real poles), or
+<strong>Bessel</strong> (= nearly no vibrations, but steeper frequency response as
+CriticalDamping). The cut-off frequency <strong>f_cut</strong> is manually
+selected by simulations of the closed loop system. In the example,
+a CriticalDamping filter of third order (the third order is selected to
+get smoother signals) and a cut-off frequency of 1/300 Hz is used.
+</p>
+
+<h4>Design of Controller</h4>
+<p>
+The controller for the mixing unit is shown in the diagram layer of block
+at hand, as
+well as in the following figure:
+</p>
+
+<p>
+<img src="resources/Modelica.Clocked.Examples.Systems.ControlledMixingUnit_info_003.png" alt="ControlledMixingUnit_Controller.png">
+</p>
+
+<p>
+It consists of the filter discussed above. The input to the filter is the reference
+concentration which is filtered by the low pass filter. The output of the filter
+is used as input to the concentration c in the inverse plant model.
+This model computes the desired cooling temperature T_c (which is used
+as desired cooling temperature at the output of the controller)
+and the desired temperature T (which is used as desired value for
+the feedback controller). This part of the control system is the
+"feed-forward" part that computes the desired actuator signal.
+As feedback controller a simple P-Controller with one gain is used.
+</p>
+
+<p>
+This controller could be defined as continuous-time system in previous Modelica
+versions. However, with Modelica 3.3 it is now also possible to define the
+controller as sampled data system. For this, the two inputs are sampled
+(sample1 and sample2) and the actuator output is hold (hold1).
+The controller partition is then associated with a periodic clock
+(via sample2) that has a sample period of 1 s and a
+solverMethod = "ExplicitEuler". Since the controller partition is a
+continuous-time system, it is discretized and solved with an explicit
+Euler method at every clock tick (by integrating from the previous to
+the actual time instant of the clock).
+</p>
+
+<h4>Simulation Results</h4>
+<p>
+The controller works perfectly if the same parameters for the plant
+and the inverse plant model are used (follows perfectly the filtered reference
+concentration). Changing all parameters of the inverse plant model by 50 %
+(with exception of parameter <strong>e</strong> since the plant is very sensitive to it)
+still results in a reasonable control behavior as shown in the next two figures:
+</p>
+
+<p>
+<img src="resources/Modelica.Clocked.Examples.Systems.ControlledMixingUnit_info_004.png" alt="ControlledMixingUnit_Result.png">
+</p>
+
+<p>
+The green curve in the upper window is the (clocked) output of the filter,
+that is, it is the desired concentration. The red curve in the upper window is the
+concentration of model mixingUnit, which is the concentration in the plant.
+Obviously, the concentration follows reasonably well the desired one. By using a more involved feedback controller, the control error could be substantially reduced.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(22)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>freq</th>
+      <td>
+        <p><span>Value:</span> 1 / 300</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Critical frequency of filter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c0</th>
+      <td>
+        <p><span>Value:</span> 0.848</p>
+        <p><span>Type:</span> Real (mol/l)</p>
+        <p><span>Description:</span> Nominal concentration</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T0</th>
+      <td>
+        <p><span>Value:</span> 308.5</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Nominal temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a1_inv</th>
+      <td>
+        <p><span>Value:</span> 0.2674</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter of inverse plant model (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a21_inv</th>
+      <td>
+        <p><span>Value:</span> 1.815</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter of inverse plant model (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a22_inv</th>
+      <td>
+        <p><span>Value:</span> 0.4682</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter of inverse plant model (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b_inv</th>
+      <td>
+        <p><span>Value:</span> 1.5476</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter of inverse plant model (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>k0_inv</th>
+      <td>
+        <p><span>Value:</span> 1.05e14</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter of inverse plant model (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>eps</th>
+      <td>
+        <p><span>Value:</span> 34.2894</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x10</th>
+      <td>
+        <p><span>Value:</span> 0.42</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Relative offset between nominal concentration and initial concentration</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x20</th>
+      <td>
+        <p><span>Value:</span> 0.01</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Relative offset between nominal temperature and initial temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u0</th>
+      <td>
+        <p><span>Value:</span> -0.0224</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Relative offset between initial cooling temperature and nominal temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c_start</th>
+      <td>
+        <p><span>Value:</span> c0 * (1 - x10)</p>
+        <p><span>Type:</span> Real (mol/l)</p>
+        <p><span>Description:</span> Initial concentration</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_start</th>
+      <td>
+        <p><span>Value:</span> T0 * (1 + x20)</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Initial temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c_high_start</th>
+      <td>
+        <p><span>Value:</span> c0 * (1 - 0.72)</p>
+        <p><span>Type:</span> Real (mol/l)</p>
+        <p><span>Description:</span> Reference concentration</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_c_start</th>
+      <td>
+        <p><span>Value:</span> T0 * (1 + u0)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Initial cooling temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>pro</th>
+      <td>
+        <p><span>Value:</span> 1.5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Deviations of plant to inverse plant parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a1</th>
+      <td>
+        <p><span>Value:</span> a1_inv * pro</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter of plant model (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a21</th>
+      <td>
+        <p><span>Value:</span> a21_inv * pro</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter of plant model (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a22</th>
+      <td>
+        <p><span>Value:</span> a22_inv * pro</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter of plant model (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>
+        <p><span>Value:</span> b_inv * pro</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter of plant model (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>k0</th>
+      <td>
+        <p><span>Value:</span> k0_inv * pro</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter of plant model (see references in help)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(12)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit_32x32.png"></td>
+      <th>invMixingUnit</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit.html">MixingUnit</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Add_32x32.png"></td>
+      <th>add</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Add.html">Add</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.InverseBlockConstraints_32x32.png"></td>
+      <th>inverseBlockConstraints</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.InverseBlockConstraints.html">InverseBlockConstraints</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit_32x32.png"></td>
+      <th>mixingUnit</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit.html">MixingUnit</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Feedback_32x32.png"></td>
+      <th>feedback</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Feedback.html">Feedback</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>gain</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.CriticalDamping_32x32.png"></td>
+      <th>filter</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.CriticalDamping.html">CriticalDamping</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.Hold_32x32.png"></td>
+      <th>hold1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.RealSignals.Sampler.Hold.html">Hold</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.Sample_32x32.png"></td>
+      <th>sample1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.RealSignals.Sampler.Sample.html">Sample</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock_32x32.png"></td>
+      <th>periodicClock1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.ClockSignals.Clocks.PeriodicRealClock.html">PeriodicRealClock</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Step_32x32.png"></td>
+      <th>step</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.SampleClocked_32x32.png"></td>
+      <th>sample2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.RealSignals.Sampler.SampleClocked.html">SampleClocked</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

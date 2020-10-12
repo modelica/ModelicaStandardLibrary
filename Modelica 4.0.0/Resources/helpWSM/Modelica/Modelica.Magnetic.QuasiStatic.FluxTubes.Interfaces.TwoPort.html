@@ -1,0 +1,185 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Magnetic.QuasiStatic.FluxTubes.Interfaces.TwoPort</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.TwoPort.html">TwoPort</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>TwoPort</h1>
+    <p>Two magnetic ports for textual modeling</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.TwoPort_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+It is assumed that the magnetic flux flowing into <code>port_p</code>
+is identical to the flux flowing out of <code>port_n</code>.
+</p>
+</div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort_16x16.png"></td>
+      <th>port_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort.html">PositiveMagneticPort</a></p>
+        <p><span>Description:</span> Positive quasi-static magnetic port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.NegativeMagneticPort_16x16.png"></td>
+      <th>port_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.NegativeMagneticPort.html">NegativeMagneticPort</a></p>
+        <p><span>Description:</span> Negative quasi-static magnetic port</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexMagneticPotentialDifference_32x32.png"></td>
+      <th>V_m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexMagneticPotentialDifference.html">ComplexMagneticPotentialDifference</a></p>
+        <p><span>Description:</span> Magnetic potential difference of both ports</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexMagneticFlux_32x32.png"></td>
+      <th>Phi</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexMagneticFlux.html">ComplexMagneticFlux</a></p>
+        <p><span>Description:</span> Magnetic flux from port_p to port_n</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.Leakage_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.Leakage.html">Leakage</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses</span></p>
+        <p>Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.FixedShape_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.FixedShape.html">FixedShape</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses</span></p>
+        <p>Base class for flux tubes with fixed shape during simulation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.RelativeSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.RelativeSensor.html">RelativeSensor</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces</span></p>
+        <p>Partial magnetic voltage or flux sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.Short_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.Short.html">Short</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Basic</span></p>
+        <p>Short cut branch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.Idle_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.Idle.html">Idle</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Basic</span></p>
+        <p>Idle running branch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.EddyCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.EddyCurrent.html">EddyCurrent</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Basic</span></p>
+        <p>For modelling of eddy current in a conductive magnetic flux tube</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.VariablePermeance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.VariablePermeance.html">VariablePermeance</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Basic</span></p>
+        <p>Variable permeance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.VariableReluctance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.VariableReluctance.html">VariableReluctance</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Basic</span></p>
+        <p>Variable reluctance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ConstantPermeance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ConstantPermeance.html">ConstantPermeance</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Basic</span></p>
+        <p>Constant permeance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ConstantReluctance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ConstantReluctance.html">ConstantReluctance</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Basic</span></p>
+        <p>Constant reluctance</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Batteries.Utilities.CCCVcharger</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Batteries.html">Batteries</a></li>
+  <li><a href="Modelica.Electrical.Batteries.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Electrical.Batteries.Utilities.CCCVcharger.html">CCCVcharger</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>CCCVcharger</h1>
+    <p>Charger with constant current - constant voltage characteristic</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Batteries.Utilities.CCCVcharger_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Ideal charger switching from constant current to constant voltage characteristic.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>I</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Constant charge current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startTime</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Start time of charging</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rampTime</th>
+      <td>
+        <p><span>Value:</span> 60</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Ramp up charging current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Vend</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> End of charge voltage</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive electrical pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative electrical pin</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.Examples.CCCVcharging_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.Examples.CCCVcharging.html">CCCVcharging</a></p>
+        <p><span>Modelica.Electrical.Batteries.Examples</span></p>
+        <p>Charge a battery with constant current - constant voltage characteristic</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.Examples.CCCV_Cell_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.Examples.CCCV_Cell.html">CCCV_Cell</a></p>
+        <p><span>Modelica.Electrical.Batteries.Examples</span></p>
+        <p>Charge a cell with constant current - constant voltage characteristic</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.Examples.CCCV_CellRC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.Examples.CCCV_CellRC.html">CCCV_CellRC</a></p>
+        <p><span>Modelica.Electrical.Batteries.Examples</span></p>
+        <p>Charge a transient cell with constant current - constant voltage characteristic</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.Examples.CCCV_Stack_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.Examples.CCCV_Stack.html">CCCV_Stack</a></p>
+        <p><span>Modelica.Electrical.Batteries.Examples</span></p>
+        <p>Charge a stack with constant current - constant voltage characteristic</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.Examples.CCCV_StackRC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.Examples.CCCV_StackRC.html">CCCV_StackRC</a></p>
+        <p><span>Modelica.Electrical.Batteries.Examples</span></p>
+        <p>Charge a transient stack with constant current - constant voltage characteristic</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

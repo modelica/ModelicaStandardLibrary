@@ -1,0 +1,111 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Thermal.FluidHeatFlow.Sensors</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Thermal.html">Thermal</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.html">FluidHeatFlow</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.Sensors.html">Sensors</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Sensors</h1>
+    <p>Ideal sensors to measure port properties</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sensors_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sensors.PressureSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Sensors.PressureSensor.html">PressureSensor</a></p>
+        <p>Absolute pressure sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sensors.TemperatureSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Sensors.TemperatureSensor.html">TemperatureSensor</a></p>
+        <p>Absolute temperature sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sensors.RelPressureSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Sensors.RelPressureSensor.html">RelPressureSensor</a></p>
+        <p>Pressure difference sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sensors.RelTemperatureSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Sensors.RelTemperatureSensor.html">RelTemperatureSensor</a></p>
+        <p>Temperature difference sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sensors.MassFlowSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Sensors.MassFlowSensor.html">MassFlowSensor</a></p>
+        <p>Mass flow sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sensors.VolumeFlowSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Sensors.VolumeFlowSensor.html">VolumeFlowSensor</a></p>
+        <p>Volume flow sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sensors.EnthalpyFlowSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Sensors.EnthalpyFlowSensor.html">EnthalpyFlowSensor</a></p>
+        <p>Enthalpy flow sensor</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This package contains sensors:</p>
+<ul>
+<li>PressureSensor: absolute pressure</li>
+<li>TemperatureSensor: absolute temperature (Kelvin)</li>
+<li>RelPressureSensor: pressure drop between flowPort_a and flowPort_b</li>
+<li>RelTemperatureSensor: temperature difference between flowPort_a and flowPort_b</li>
+<li>MassFlowSensor: measures mass flow rate</li>
+<li>VolumeFlowSensor: measures volume flow rate</li>
+<li>EnthalpyFlowSensor: measures enthalpy flow rate</li>
+</ul>
+
+<p>Some of the sensors do not need access to medium properties for measuring,
+but it is necessary to define the medium in the connector (check of connections).
+Thermodynamic equations are defined in partial models (package BaseClasses).
+All sensors are considered massless, they do not change mass flow or enthalpy flow.</p>
+</div>
+</section>
+</div>
+</body>
+</html>

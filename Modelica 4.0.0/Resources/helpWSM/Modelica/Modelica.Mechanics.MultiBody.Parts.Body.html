@@ -1,0 +1,590 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Parts.Body</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Parts.html">Parts</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Parts.Body.html">Body</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Body</h1>
+    <p>Rigid body with mass, inertia tensor and one frame connector (12 potential states)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.Body_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+<strong>Rigid body</strong> with mass and inertia tensor.
+All parameter vectors have to be resolved in frame_a.
+The <strong>inertia tensor</strong> has to be defined with respect to a
+coordinate system that is parallel to frame_a with the
+origin at the center of mass of the body.
+</p>
+<p>
+By default, this component is visualized by a <strong>cylinder</strong> located
+between frame_a and the center of mass and by a <strong>sphere</strong> that has
+its center at the center of mass. If the cylinder length is smaller as
+the radius of the sphere, e.g., since frame_a is located at the
+center of mass, the cylinder is not displayed. Note, that
+the animation may be switched off via parameter animation = <strong>false</strong>.
+</p>
+<p>
+<img src="resources/Modelica.Mechanics.MultiBody.Parts.Body_info_001.png" alt="Parts.Body">
+</p>
+
+<p>
+<strong>States of Body Components</strong>
+</p>
+<p>
+Every body has potential states. If possible a tool will select
+the states of joints and not the states of bodies because this is
+usually the most efficient choice. In this case the position, orientation,
+velocity and angular velocity of frame_a of the body will be computed
+by the component that is connected to frame_a. However, if a body is moving
+freely in space, variables of the body have to be used as states. The potential
+states of the body are:
+</p>
+<ul>
+<li> The <strong>position vector</strong> frame_a.r_0 from the origin of the
+     world frame to the origin of frame_a of the body, resolved in
+     the world frame and the <strong>absolute velocity</strong> v_0 of the origin of
+     frame_a, resolved in the world frame (= der(frame_a.r_0)).
+</li>
+<li> If parameter <strong>useQuaternions</strong> in the "Advanced" menu
+     is <strong>true</strong> (this is the default), then <strong>4 quaternions</strong>
+     are potential states. Additionally, the coordinates of the
+     absolute angular velocity vector of the
+     body are 3 potential states.<br>
+     If <strong>useQuaternions</strong> in the "Advanced" menu
+     is <strong>false</strong>, then <strong>3 angles</strong> and the derivatives of
+     these angles are potential states. The orientation of frame_a
+     is computed by rotating the world frame along the axes defined
+     in parameter vector "sequence_angleStates" (default = {1,2,3}, i.e.,
+     the Cardan angle sequence) around the angles used as potential states.
+     For example, the default is to rotate the x-axis of the world frame
+     around angles[1], the new y-axis around angles[2] and the new z-axis
+     around angles[3], arriving at frame_a.
+ </li>
+</ul>
+<p>
+The quaternions have the slight disadvantage that there is a
+non-linear constraint equation between the 4 quaternions.
+Therefore, at least one non-linear equation has to be solved
+during simulation. A tool might, however, analytically solve this
+simple constraint equation. Using the 3 angles as states has the
+disadvantage that there is a singular configuration in which a
+division by zero will occur. If it is possible to determine in advance
+for an application class that this singular configuration is outside
+of the operating region, the 3 angles might be used as potential
+states by setting <strong>useQuaternions</strong> = <strong>false</strong>.
+</p>
+<p>
+In text books about 3-dimensional mechanics often 3 angles and the
+angular velocity are used as states. This is not the case here, since
+3 angles and their derivatives are used as potential states
+(if useQuaternions = false). The reason
+is that for real-time simulation the discretization formula of the
+integrator might be "inlined" and solved together with the body equations.
+By appropriate symbolic transformation the performance is
+drastically increased if angles and their
+derivatives are used as states, instead of angles and the angular
+velocity.
+</p>
+<p>
+Whether or not variables of the body are used as states is usually
+automatically selected by the Modelica translator. If parameter
+<strong>enforceStates</strong> is set to <strong>true</strong> in the "Advanced" menu,
+then body variables are forced to be used as states according
+to the setting of parameters "useQuaternions" and
+"sequence_angleStates".
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(23)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>animation</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if animation shall be enabled (show cylinder and sphere)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r_CM</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> Vector from frame_a to center of mass, resolved in frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Mass.html">Mass</a> (kg)</p>
+        <p><span>Description:</span> Mass of rigid body</p>
+      </td>
+    </tr>
+    <tr>
+      <th>I_11</th>
+      <td>
+        <p><span>Value:</span> 0.001</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Element (1,1) of inertia tensor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>I_22</th>
+      <td>
+        <p><span>Value:</span> 0.001</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Element (2,2) of inertia tensor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>I_33</th>
+      <td>
+        <p><span>Value:</span> 0.001</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Element (3,3) of inertia tensor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>I_21</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Element (2,1) of inertia tensor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>I_31</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Element (3,1) of inertia tensor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>I_32</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Element (3,2) of inertia tensor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>angles_fixed</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if angles_start are used as initial values, else as guess values</p>
+      </td>
+    </tr>
+    <tr>
+      <th>angles_start</th>
+      <td>
+        <p><span>Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Angle.html">Angle[3]</a> (rad)</p>
+        <p><span>Description:</span> Initial values of angles to rotate world frame around 'sequence_start' axes into frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sequence_start</th>
+      <td>
+        <p><span>Value:</span> {1, 2, 3}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.RotationSequence.html">RotationSequence</a></p>
+        <p><span>Description:</span> Sequence of rotations to rotate world frame into frame_a at initial time</p>
+      </td>
+    </tr>
+    <tr>
+      <th>w_0_fixed</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if w_0_start are used as initial values, else as guess values</p>
+      </td>
+    </tr>
+    <tr>
+      <th>w_0_start</th>
+      <td>
+        <p><span>Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.AngularVelocity.html">AngularVelocity[3]</a> (rad/s)</p>
+        <p><span>Description:</span> Initial or guess values of angular velocity of frame_a resolved in world frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>z_0_fixed</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if z_0_start are used as initial values, else as guess values</p>
+      </td>
+    </tr>
+    <tr>
+      <th>z_0_start</th>
+      <td>
+        <p><span>Value:</span> {0, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.AngularAcceleration.html">AngularAcceleration[3]</a> (rad/s²)</p>
+        <p><span>Description:</span> Initial values of angular acceleration z_0 = der(w_0)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sphereDiameter</th>
+      <td>
+        <p><span>Value:</span> world.defaultBodyDiameter</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Diameter.html">Diameter</a> (m)</p>
+        <p><span>Description:</span> Diameter of sphere</p>
+      </td>
+    </tr>
+    <tr>
+      <th>cylinderDiameter</th>
+      <td>
+        <p><span>Value:</span> sphereDiameter / Types.Defaults.BodyCylinderDiameterFraction</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Diameter.html">Diameter</a> (m)</p>
+        <p><span>Description:</span> Diameter of cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <th>enforceStates</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if absolute variables of body object shall be used as states (StateSelect.always)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useQuaternions</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if quaternions shall be used as potential states otherwise use 3 angles as potential states</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sequence_angleStates</th>
+      <td>
+        <p><span>Value:</span> {1, 2, 3}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.RotationSequence.html">RotationSequence</a></p>
+        <p><span>Description:</span> Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states</p>
+      </td>
+    </tr>
+    <tr>
+      <th>I</th>
+      <td>
+        <p><span>Value:</span> [I_11, I_21, I_31; I_21, I_22, I_32; I_31, I_32, I_33]</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inertia.html">Inertia[3,3]</a> (kg·m²)</p>
+        <p><span>Description:</span> Inertia tensor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R_start</th>
+      <td>
+        <p><span>Value:</span> Modelica.Mechanics.MultiBody.Frames.axesRotations(sequence_start, angles_start, zeros(3))</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object from world frame to frame_a at initial time</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>sphereColor</th>
+      <td>
+        <p><span>Default Value:</span> Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of sphere</p>
+      </td>
+    </tr>
+    <tr>
+      <th>cylinderColor</th>
+      <td>
+        <p><span>Default Value:</span> sphereColor</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <th>specularCoefficient</th>
+      <td>
+        <p><span>Default Value:</span> world.defaultSpecularCoefficient</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.SpecularCoefficient.html">SpecularCoefficient</a></p>
+        <p><span>Description:</span> Reflection of ambient light (= 0: light is completely absorbed)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_16x16.png"></td>
+      <th>frame_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p><span>Description:</span> Coordinate system fixed at body</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.Orientation_32x32.png"></td>
+      <th>R_start</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object from world frame to frame_a at initial time</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>cylinder</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>sphere</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(13)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.LineForceWithTwoMasses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.LineForceWithTwoMasses.html">LineForceWithTwoMasses</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span></p>
+        <p>Demonstrate line force with two point masses using a JointUPS and alternatively a LineForceWithTwoMasses component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.Pendulum_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.Pendulum.html">Pendulum</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span></p>
+        <p>Simple pendulum with one revolute joint and one body</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.PendulumWithSpringDamper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.PendulumWithSpringDamper.html">PendulumWithSpringDamper</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span></p>
+        <p>Simple spring/damper/mass system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravity.html">PointGravity</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span></p>
+        <p>Two point masses in a point gravity field</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.SpringDamperSystem_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.SpringDamperSystem.html">SpringDamperSystem</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span></p>
+        <p>Simple spring/damper/mass system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.SpringMassSystem_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.SpringMassSystem.html">SpringMassSystem</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span></p>
+        <p>Mass attached with a spring to the world frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.SpringWithMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.SpringWithMass.html">SpringWithMass</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span></p>
+        <p>Point mass hanging on a spring</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.ThreeSprings_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.ThreeSprings.html">ThreeSprings</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span></p>
+        <p>3-dim. springs in series and parallel connection</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.RollingWheelSetDriving_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.RollingWheelSetDriving.html">RollingWheelSetDriving</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span></p>
+        <p>Rolling wheel set that is driven by torques driving the wheels</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.RollingWheelSetPulling_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.RollingWheelSetPulling.html">RollingWheelSetPulling</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span></p>
+        <p>Rolling wheel set that is pulled by a force</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.HeatLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.HeatLosses.html">HeatLosses</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span></p>
+        <p>Demonstrate the modeling of heat losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.UserDefinedGravityField_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.UserDefinedGravityField.html">UserDefinedGravityField</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary</span></p>
+        <p>Demonstrate the modeling of a user-defined gravity field</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic.html">PlanarLoops_analytic</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span></p>
+        <p>Mechanism with three planar kinematic loops and one degree-of-freedom with analytic loop handling (with JointRRR joints)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyShape_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.BodyShape.html">BodyShape</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span></p>
+        <p>Rigid body with mass, inertia tensor, different shapes for animation, and two frame connectors (12 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyBox_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.BodyBox.html">BodyBox</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span></p>
+        <p>Rigid body with box shape. Mass and animation properties are computed from box data and density (12 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyCylinder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.BodyCylinder.html">BodyCylinder</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span></p>
+        <p>Rigid body with cylinder shape. Mass and animation properties are computed from cylinder data and density (12 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.RollingWheel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.RollingWheel.html">RollingWheel</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span></p>
+        <p>Ideal rolling wheel on flat surface z=0 (5 positional, 3 velocity degrees of freedom)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.RollingWheelSet_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.RollingWheelSet.html">RollingWheelSet</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span></p>
+        <p>Ideal rolling wheel set consisting of two ideal rolling wheels connected together by an axis</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2.SystemWithStandardBodies.PointMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2.SystemWithStandardBodies.PointMass.html">PointMass</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2.SystemWithStandardBodies</span></p>
+        <p>Body used at all places of the comparison model with zero inertia tensor</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

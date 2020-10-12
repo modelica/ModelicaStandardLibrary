@@ -1,0 +1,1384 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Units.SI.Length</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Units.html">Units</a></li>
+  <li><a href="Modelica.Units.SI.html">SI</a></li>
+  <li><a href="Modelica.Units.SI.Length.html">Length</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Length</h1>
+    <p></p>
+  </td><td>
+    <div></div>
+  </td></tr></table>
+</header>
+<section id="type" >
+  <h1>Type Information </h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Real</th>
+      <td>
+        <p><span>Quantity:</span> Length</p>
+        <p><span>Unit:</span> m</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(15)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Noise.DrydenContinuousTurbulence_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Noise.DrydenContinuousTurbulence.html">DrydenContinuousTurbulence</a></p>
+        <p><span>Modelica.Blocks.Examples.Noise</span></p>
+        <p>Demonstrates how to model wind turbulence for aircraft with the BandLimitedWhiteNoise block (a simple model of vertical Dryden gust speed at low altitudes < 1000 ft)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Conveyor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Conveyor.html">IMC_Conveyor</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.InductionMachines</span></p>
+        <p>Test example: InductionMachineSquirrelCage with inverter driving a conveyor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.BasicExamples.QuadraticCoreAirgap_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.BasicExamples.QuadraticCoreAirgap.html">QuadraticCoreAirgap</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.BasicExamples</span></p>
+        <p>Educational example: iron core with airgap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.BasicExamples.ToroidalCoreAirgap_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.BasicExamples.ToroidalCoreAirgap.html">ToroidalCoreAirgap</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.BasicExamples</span></p>
+        <p>Educational example: iron core with airgap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.BasicExamples.ToroidalCoreQuadraticCrossSection_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.BasicExamples.ToroidalCoreQuadraticCrossSection.html">ToroidalCoreQuadraticCrossSection</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.BasicExamples</span></p>
+        <p>Educational example: iron core with airgap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Conveyor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Conveyor.html">IMC_Conveyor</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Induction machine with squirrel cage and inverter driving a conveyor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples.QuadraticCoreAirgap_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples.QuadraticCoreAirgap.html">QuadraticCoreAirgap</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples</span></p>
+        <p>Educational example: iron core with airgap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples.ToroidalCoreAirgap_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples.ToroidalCoreAirgap.html">ToroidalCoreAirgap</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples</span></p>
+        <p>Educational example: iron core with airgap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples.ToroidalCoreQuadraticCrossSection_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples.ToroidalCoreQuadraticCrossSection.html">ToroidalCoreQuadraticCrossSection</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples</span></p>
+        <p>Educational example: iron core with airgap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Conveyor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Conveyor.html">IMC_Conveyor</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Induction machine with squirrel cage and inverter driving a conveyor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic.html">PlanarLoops_analytic</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span></p>
+        <p>Mechanism with three planar kinematic loops and one degree-of-freedom with analytic loop handling (with JointRRR joints)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Vehicle_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Vehicle.html">Vehicle</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span></p>
+        <p>One-dimensional vehicle with driving resistances</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater.html">BatchPlant_StandardWater</a></p>
+        <p><span>Modelica.Fluid.Examples.AST_BatchPlant</span></p>
+        <p>Model of an experimental batch plant</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.TestOpenTank_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.TestOpenTank.html">TestOpenTank</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span></p>
+        <p>Test the OpenTank model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.TwoTanks_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.TwoTanks.html">TwoTanks</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span></p>
+        <p>Two connected open tanks</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(137)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/ModelicaServices.Animation.Shape_32x32.png"></td>
+      <td>
+        <p><a href="../ModelicaServices/ModelicaServices.Animation.Shape.html">Shape</a></p>
+        <p><span>ModelicaServices.Animation</span></p>
+        <p>Different visual shapes with variable size; all data have to be set as modifiers (see info layer)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Lines.OLine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Lines.OLine.html">OLine</a></p>
+        <p><span>Modelica.Electrical.Analog.Lines</span></p>
+        <p>Lossy Transmission Line</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Lines.M_OLine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Lines.M_OLine.html">M_OLine</a></p>
+        <p><span>Modelica.Electrical.Analog.Lines</span></p>
+        <p>Multiple OLine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Lines.ULine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Lines.ULine.html">ULine</a></p>
+        <p><span>Modelica.Electrical.Analog.Lines</span></p>
+        <p>Lossy RC Line</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Semiconductors.NMOS_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Semiconductors.NMOS.html">NMOS</a></p>
+        <p><span>Modelica.Electrical.Analog.Semiconductors</span></p>
+        <p>Simple NMOS transistor with heating port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Semiconductors.PMOS_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Semiconductors.PMOS.html">PMOS</a></p>
+        <p><span>Modelica.Electrical.Analog.Semiconductors</span></p>
+        <p>Simple PMOS transistor with heating port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.MOS_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.MOS.html">MOS</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal</span></p>
+        <p>Metal-Oxide Semiconductor Field-Effect Transistor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.ModelcardMOS_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.ModelcardMOS.html">ModelcardMOS</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal</span></p>
+        <p>Record with technology parameters (.model)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.MOS2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.MOS2.html">MOS2</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal</span></p>
+        <p>Metal-Oxide Semiconductor Field-Effect Transistor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.ModelcardMOS2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.ModelcardMOS2.html">ModelcardMOS2</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal</span></p>
+        <p>Record with technology parameters (.model)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.R_SEMI_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.R_SEMI.html">R_SEMI</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal</span></p>
+        <p>Semiconductor resistor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.ModelcardR_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.ModelcardR.html">ModelcardR</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal</span></p>
+        <p>Record with technology parameters (.model)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.C_SEMI_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.C_SEMI.html">C_SEMI</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal</span></p>
+        <p>Semiconductor capacitor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.ModelcardC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.ModelcardC.html">ModelcardC</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal</span></p>
+        <p>Record with technology parameters (.model)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.SpiceConstants_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.SpiceConstants.html">SpiceConstants</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal</span></p>
+        <p>General constants of SPICE simulator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet.html">Mosfet</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal.Mosfet</span></p>
+        <p>Record for Mosfet parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Mosfet.MosfetCalc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.Mosfet.MosfetCalc.html">MosfetCalc</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal.Mosfet</span></p>
+        <p>Mosfet Variables</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Mos.MosModelLineParams_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.Mos.MosModelLineParams.html">MosModelLineParams</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal.Mos</span></p>
+        <p>Record for Mosfet model line parameters (for level 1, 2, 3 and 6)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams.html">Mos2ModelLineParams</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal.Mos2</span></p>
+        <p>Record for Mosfet model line parameters (for level 2)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Rsemiconductor.ResistorParams_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.Rsemiconductor.ResistorParams.html">ResistorParams</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal.Rsemiconductor</span></p>
+        <p>Resistor device parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Rsemiconductor.ResistorModelLineParams_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.Rsemiconductor.ResistorModelLineParams.html">ResistorModelLineParams</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal.Rsemiconductor</span></p>
+        <p>Record for resistor model line parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Rsemiconductor.ResistorVariables_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.Rsemiconductor.ResistorVariables.html">ResistorVariables</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal.Rsemiconductor</span></p>
+        <p>Variables for the resistor model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Csemiconductor.Capacitor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.Csemiconductor.Capacitor.html">Capacitor</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal.Csemiconductor</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Csemiconductor.CapacitorModelLineParams_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.Csemiconductor.CapacitorModelLineParams.html">CapacitorModelLineParams</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal.Csemiconductor</span></p>
+        <p>Record for Capacitor model line parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator.html">PermeanceActuator</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components</span></p>
+        <p>Detailed actuator model for rough magnetic design of actuator and system simulation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid.html">SimpleSolenoid</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components</span></p>
+        <p>Simple network model of a lifting magnet with planar armature end face</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid.html">AdvancedSolenoid</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components</span></p>
+        <p>Advanced network model of a lifting magnet with planar armature end face, split magnetomotive force</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer1PhaseWithHysteresis_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer1PhaseWithHysteresis.html">Transformer1PhaseWithHysteresis</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components</span></p>
+        <p>Single-phase transformer with ferromagnetic core and hysteresis</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer3PhaseYyWithHysteresis_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer3PhaseYyWithHysteresis.html">Transformer3PhaseYyWithHysteresis</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components</span></p>
+        <p>Three-phase transformer in Yy configuration</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper.html">TranslatoryArmatureAndStopper</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.Utilities</span></p>
+        <p>Mass with free travel between two stoppers</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Utilities.CoilDesign_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.Utilities.CoilDesign.html">CoilDesign</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.Utilities</span></p>
+        <p>Calculation of winding parameters (wire diameter, number of turns et al.) and recalculation with optionally chosen parameters; to be adapted to particular design tasks</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverterWithLeakageInductance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverterWithLeakageInductance.html">ElectroMagneticConverterWithLeakageInductance</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Basic</span></p>
+        <p>Electromagnetic energy conversion with a leakage inductance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.EddyCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Basic.EddyCurrent.html">EddyCurrent</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Basic</span></p>
+        <p>For modelling of eddy current in a conductive magnetic flux tube</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube.html">GenericFluxTube</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</span></p>
+        <p>Flux tube with fixed cross-section and length; linear or non-linear material characteristics</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid.html">Cuboid</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</span></p>
+        <p>Flux tube with rectangular cross-section; fixed shape; linear or non-linear material characteristics</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux.html">HollowCylinderAxialFlux</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</span></p>
+        <p>(Hollow) cylinder with axial flux; fixed shape; linear or non-linear material characteristics</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux.html">HollowCylinderRadialFlux</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</span></p>
+        <p>Hollow cylinder with radial flux; fixed shape; linear or non-linear material characteristics</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderCircumferentialFlux_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderCircumferentialFlux.html">HollowCylinderCircumferentialFlux</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</span></p>
+        <p>Hollow cylinder with circumferential flux; fixed shape; linear or non-linear material characteristics</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.Force.HollowCylinderAxialFlux_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.Force.HollowCylinderAxialFlux.html">HollowCylinderAxialFlux</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.Force</span></p>
+        <p>(Hollow) cylinder with axial flux; constant permeability</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.Force.HollowCylinderRadialFlux_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.Force.HollowCylinderRadialFlux.html">HollowCylinderRadialFlux</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.Force</span></p>
+        <p>Hollow cylinder with radial flux; constant permeability</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.Force.CuboidParallelFlux_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.Force.CuboidParallelFlux.html">CuboidParallelFlux</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.Force</span></p>
+        <p>Cuboid with flux in direction of motion, e.g., air gap with rectangular cross-section; constant permeability</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.Force.CuboidOrthogonalFlux_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.Force.CuboidOrthogonalFlux.html">CuboidOrthogonalFlux</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.Force</span></p>
+        <p>Cuboid with flux orthogonal to direction of motion; constant permeability</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.Force.LeakageAroundPoles_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.Force.LeakageAroundPoles.html">LeakageAroundPoles</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.Force</span></p>
+        <p>Leakage flux tube around cylindrical or prismatic poles</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterCylinder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterCylinder.html">QuarterCylinder</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.Leakage</span></p>
+        <p>Leakage flux from one edge to the opposite plane through a quarter cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterHollowCylinder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterHollowCylinder.html">QuarterHollowCylinder</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.Leakage</span></p>
+        <p>Leakage flux in circumferential direction through a quarter hollow cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.Leakage.HalfCylinder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.Leakage.HalfCylinder.html">HalfCylinder</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.Leakage</span></p>
+        <p>Leakage flux through the edges of a half cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.Leakage.HalfHollowCylinder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.Leakage.HalfHollowCylinder.html">HalfHollowCylinder</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.Leakage</span></p>
+        <p>Leakage flux in circumferential direction through a half hollow cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterHollowSphere_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterHollowSphere.html">QuarterHollowSphere</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.Leakage</span></p>
+        <p>Leakage flux through the edges of a quarter hollow sphere</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.Leakage.EighthOfHollowSphere_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.Leakage.EighthOfHollowSphere.html">EighthOfHollowSphere</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.Leakage</span></p>
+        <p>Leakage flux through one edge and the opposite plane of an eighth of a hollow sphere</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.Leakage.CoaxCylindersEndFaces_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.Leakage.CoaxCylindersEndFaces.html">CoaxCylindersEndFaces</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.Leakage</span></p>
+        <p>Leakage flux between the end planes of a inner solid cylinder and a coaxial outer hollow cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.BaseClasses.Force_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.BaseClasses.Force.html">Force</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.BaseClasses</span></p>
+        <p>Base class for flux tubes with reluctance force generation; constant permeability</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.BaseClasses.Generic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.BaseClasses.Generic.html">Generic</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.BaseClasses</span></p>
+        <p>Partial Tellinen hysteresis model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresis_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresis.html">GenericHysteresis</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.BaseClasses</span></p>
+        <p>Partial hysteresis model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.EddyCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.EddyCurrent.html">EddyCurrent</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Basic</span></p>
+        <p>For modelling of eddy current in a conductive magnetic flux tube</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.GenericFluxTube_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.GenericFluxTube.html">GenericFluxTube</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape</span></p>
+        <p>Flux tube with fixed cross-section, fixed length and linear material characteristics</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid.html">Cuboid</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape</span></p>
+        <p>Flux tube with rectangular cross-section of fixed shape and linear material characteristics</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux.html">HollowCylinderAxialFlux</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape</span></p>
+        <p>(Hollow) cylinder with axial flux of fixed shape and linear material characteristics</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux.html">HollowCylinderRadialFlux</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape</span></p>
+        <p>Hollow cylinder with radial flux of fixed shape and linear material characteristics</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderCircumferentialFlux_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderCircumferentialFlux.html">HollowCylinderCircumferentialFlux</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape</span></p>
+        <p>Hollow cylinder with circumferential flux; fixed shape</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterCylinder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterCylinder.html">QuarterCylinder</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage</span></p>
+        <p>Leakage flux from one edge to the opposite plane through a quarter cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterHollowCylinder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterHollowCylinder.html">QuarterHollowCylinder</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage</span></p>
+        <p>Leakage flux in circumferential direction through a quarter hollow cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.HalfCylinder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.HalfCylinder.html">HalfCylinder</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage</span></p>
+        <p>Leakage flux through the edges of a half cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.HalfHollowCylinder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.HalfHollowCylinder.html">HalfHollowCylinder</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage</span></p>
+        <p>Leakage flux in circumferential direction through a half hollow cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterHollowSphere_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.QuarterHollowSphere.html">QuarterHollowSphere</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage</span></p>
+        <p>Leakage flux through the edges of a quarter hollow sphere</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.EighthOfHollowSphere_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.EighthOfHollowSphere.html">EighthOfHollowSphere</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage</span></p>
+        <p>Leakage flux through one edge and the opposite plane of an eighth of a hollow sphere</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.CoaxCylindersEndFaces_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage.CoaxCylindersEndFaces.html">CoaxCylindersEndFaces</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.Leakage</span></p>
+        <p>Leakage flux between the end planes of a inner solid cylinder and a coaxial outer hollow cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.FundamentalWavePermabilitySensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.FundamentalWavePermabilitySensor.html">FundamentalWavePermabilitySensor</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient</span></p>
+        <p>Sensor of fundamental wave permeability</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.Permeability_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.Permeability.html">Permeability</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient</span></p>
+        <p>Determines permeability from flux and magnetic potential difference</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+        <p><span>Modelica.Mechanics.MultiBody</span></p>
+        <p>World coordinate system + gravity field + default animation definition</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder.html">Cylinder</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</span></p>
+        <p>Cylinder with rod and crank of a combustion engine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2.html">GasForce2</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</span></p>
+        <p>Rough approximation of gas force in a combustion engine's cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderBase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderBase.html">CylinderBase</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</span></p>
+        <p>One cylinder with analytic handling of kinematic loop</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.LineForceWithMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.LineForceWithMass.html">LineForceWithMass</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span></p>
+        <p>General line force component with an optional point mass on the connection line</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses.html">LineForceWithTwoMasses</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span></p>
+        <p>General line force component with two optional point masses on the connection line</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Spring_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.Spring.html">Spring</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span></p>
+        <p>Linear translational spring with optional mass</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel.html">SpringDamperParallel</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span></p>
+        <p>Linear spring and linear damper in parallel</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.SpringDamperSeries_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Forces.SpringDamperSeries.html">SpringDamperSeries</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Forces</span></p>
+        <p>Linear spring and linear damper in series connection</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.SphericalSpherical_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.SphericalSpherical.html">SphericalSpherical</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span></p>
+        <p>Spherical - spherical joint aggregation (1 constraint, no potential states) with an optional point mass in the middle</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS.html">JointUPS</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Assemblies</span></p>
+        <p>Universal - prismatic - spherical joint aggregation (no constraints, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR.html">JointSSR</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Assemblies</span></p>
+        <p>Spherical - spherical - revolute joint aggregation with mass (no constraints, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP.html">JointSSP</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Assemblies</span></p>
+        <p>Spherical - spherical - prismatic joint aggregation with mass (no constraints, no potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.Fixed_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.Fixed.html">Fixed</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span></p>
+        <p>Frame fixed in the world frame at a given position</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedTranslation_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html">FixedTranslation</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span></p>
+        <p>Fixed translation of frame_b with respect to frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.FixedRotation_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.FixedRotation.html">FixedRotation</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span></p>
+        <p>Fixed translation followed by a fixed rotation of frame_b with respect to frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyShape_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.BodyShape.html">BodyShape</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span></p>
+        <p>Rigid body with mass, inertia tensor, different shapes for animation, and two frame connectors (12 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyBox_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.BodyBox.html">BodyBox</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span></p>
+        <p>Rigid body with box shape. Mass and animation properties are computed from box data and density (12 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyCylinder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.BodyCylinder.html">BodyCylinder</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span></p>
+        <p>Rigid body with cylinder shape. Mass and animation properties are computed from cylinder data and density (12 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.FixedShape2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.FixedShape2.html">FixedShape2</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span></p>
+        <p>Visualizing an elementary shape with dynamically varying shape attributes (has two frame connectors)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.FixedFrame_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.FixedFrame.html">FixedFrame</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span></p>
+        <p>Visualizing a coordinate system including axes labels (visualization data may vary dynamically)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.FixedArrow_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.FixedArrow.html">FixedArrow</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span></p>
+        <p>Visualizing an arrow with dynamically varying size in frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel.html">VoluminousWheel</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span></p>
+        <p>Visualizing a voluminous wheel</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField.html">PipeWithScalarField</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span></p>
+        <p>Visualizing a pipe with scalar field quantities along the pipe axis</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField.html">PipeWithScalarField</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers.Advanced</span></p>
+        <p>Visualizing a pipe with a scalar field</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines.html">Lines</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers.Internal</span></p>
+        <p>Visualizing a set of lines as cylinders with variable size, e.g., used to display characters (no Frame connector)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Utilities.SpringDamper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Utilities.SpringDamper.html">SpringDamper</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples.Utilities</span></p>
+        <p>Input/output block of a spring/damper model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Utilities.Spring_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Utilities.Spring.html">Spring</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples.Utilities</span></p>
+        <p>Input/output block of a spring model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Utilities.SpringDamperNoRelativeStates_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Utilities.SpringDamperNoRelativeStates.html">SpringDamperNoRelativeStates</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples.Utilities</span></p>
+        <p>Linear 1D translational spring and damper in parallel (s and v are not used as states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Vehicle_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.Vehicle.html">Vehicle</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span></p>
+        <p>Simple vehicle model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.PartialRigid_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Interfaces.PartialRigid.html">PartialRigid</a></p>
+        <p><span>Modelica.Mechanics.Translational.Interfaces</span></p>
+        <p>Rigid connection of two translational 1D flanges</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2.html">PartialElementaryOneFlangeAndSupport2</a></p>
+        <p><span>Modelica.Mechanics.Translational.Interfaces</span></p>
+        <p>Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2.html">PartialElementaryTwoFlangesAndSupport2</a></p>
+        <p><span>Modelica.Mechanics.Translational.Interfaces</span></p>
+        <p>Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts.html">TankWithTopPorts</a></p>
+        <p><span>Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses</span></p>
+        <p>Tank with inlet/outlet ports and with inlet ports at the top</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX.html">BasicHX</a></p>
+        <p><span>Modelica.Fluid.Examples.HeatExchanger.BaseClasses</span></p>
+        <p>Simple heat exchanger model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.HeatExchanger.BaseClasses.WallConstProps_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.WallConstProps.html">WallConstProps</a></p>
+        <p><span>Modelica.Fluid.Examples.HeatExchanger.BaseClasses</span></p>
+        <p>Pipe wall with capacitance, assuming 1D heat conduction and constant material properties</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.PartialStraightPipe_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Pipes.BaseClasses.PartialStraightPipe.html">PartialStraightPipe</a></p>
+        <p><span>Modelica.Fluid.Pipes.BaseClasses</span></p>
+        <p>Base class for straight pipe models</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow.html">PartialTwoPortFlow</a></p>
+        <p><span>Modelica.Fluid.Pipes.BaseClasses</span></p>
+        <p>Base class for distributed flow models</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel.html">PartialStaggeredFlowModel</a></p>
+        <p><span>Modelica.Fluid.Pipes.BaseClasses.FlowModels</span></p>
+        <p>Base class for momentum balances in flow models</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalLaminarFlow_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalLaminarFlow.html">NominalLaminarFlow</a></p>
+        <p><span>Modelica.Fluid.Pipes.BaseClasses.FlowModels</span></p>
+        <p>NominalLaminarFlow: Linear laminar flow for given nominal values</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow.html">PartialGenericPipeFlow</a></p>
+        <p><span>Modelica.Fluid.Pipes.BaseClasses.FlowModels</span></p>
+        <p>GenericPipeFlow: Pipe flow pressure loss and gravity with replaceable WallFriction package</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalTurbulentPipeFlow_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalTurbulentPipeFlow.html">NominalTurbulentPipeFlow</a></p>
+        <p><span>Modelica.Fluid.Pipes.BaseClasses.FlowModels</span></p>
+        <p>NominalTurbulentPipeFlow: Quadratic turbulent flow in circular tubes for given nominal values</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer.html">PartialFlowHeatTransfer</a></p>
+        <p><span>Modelica.Fluid.Pipes.BaseClasses.HeatTransfer</span></p>
+        <p>Base class for any pipe heat transfer correlation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialPipeFlowHeatTransfer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialPipeFlowHeatTransfer.html">PartialPipeFlowHeatTransfer</a></p>
+        <p><span>Modelica.Fluid.Pipes.BaseClasses.HeatTransfer</span></p>
+        <p>Base class for pipe heat transfer correlation in terms of Nusselt number heat transfer in a circular pipe for laminar and turbulent one-phase flow</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.SharpEdgedOrifice_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.SharpEdgedOrifice.html">SharpEdgedOrifice</a></p>
+        <p><span>Modelica.Fluid.Fittings</span></p>
+        <p>Pressure drop due to sharp edged orifice (for both flow directions)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Geometry_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Geometry.html">Geometry</a></p>
+        <p><span>Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice</span></p>
+        <p>Geometric data for a thick edged orifice</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Fluid.Interfaces.PartialLumpedFlow.html">PartialLumpedFlow</a></p>
+        <p><span>Modelica.Fluid.Interfaces</span></p>
+        <p>Base class for a lumped momentum balance</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Fluid.Interfaces.PartialDistributedFlow.html">PartialDistributedFlow</a></p>
+        <p><span>Modelica.Fluid.Interfaces</span></p>
+        <p>Base class for a distributed momentum balance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con.html">kc_flatTube_IN_con</a></p>
+        <p><span>Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger</span></p>
+        <p>Input record for function kc_flatTube and kc_flatTube_KC</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con.html">kc_roundTube_IN_con</a></p>
+        <p><span>Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger</span></p>
+        <p>Input record for function kc_roundTube and kc_roundTube_KC</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_IN_con_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_IN_con.html">kc_turbulent_IN_con</a></p>
+        <p><span>Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe</span></p>
+        <p>Input record for function kc_turbulent and kc_turbulent_KC</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_con_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_con.html">dp_turbulent_IN_con</a></p>
+        <p><span>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</span></p>
+        <p>Input record for function dp_turbulent_DP and dp_turbulent_MFLOW</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con.html">TwoPhaseFlow_con</a></p>
+        <p><span>Modelica.Fluid.Dissipation.Utilities.Records.General</span></p>
+        <p>Base record for two phase Flow</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.EvenGap_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.EvenGap.html">EvenGap</a></p>
+        <p><span>Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer</span></p>
+        <p>Input for even gap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.General_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.General.html">General</a></p>
+        <p><span>Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer</span></p>
+        <p>Input for generic correlation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.HelicalPipe_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.HelicalPipe.html">HelicalPipe</a></p>
+        <p><span>Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer</span></p>
+        <p>Input for helical pipe</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.Plate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.Plate.html">Plate</a></p>
+        <p><span>Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer</span></p>
+        <p>Input for plate</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.StraightPipe_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.StraightPipe.html">StraightPipe</a></p>
+        <p><span>Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer</span></p>
+        <p>Input for straight pipe</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.TwoPhaseFlowHT_IN_con_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.TwoPhaseFlowHT_IN_con.html">TwoPhaseFlowHT_IN_con</a></p>
+        <p><span>Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer</span></p>
+        <p>Base record for two phase heat transfer coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Geometry_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Geometry.html">Geometry</a></p>
+        <p><span>Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss</span></p>
+        <p>Input for several geometries of internal flow</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Orifice_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Orifice.html">Orifice</a></p>
+        <p><span>Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss</span></p>
+        <p>Input for orifice</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.StraightPipe_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.StraightPipe.html">StraightPipe</a></p>
+        <p><span>Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss</span></p>
+        <p>Input for straight pipe</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Diffuser_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Diffuser.html">Diffuser</a></p>
+        <p><span>Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss</span></p>
+        <p>Input for diffuser</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.EdgedBend_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.EdgedBend.html">EdgedBend</a></p>
+        <p><span>Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss</span></p>
+        <p>Input for bend</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.SuddenChange_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.SuddenChange.html">SuddenChange</a></p>
+        <p><span>Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss</span></p>
+        <p>Input for sudden change of diameter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Components.Pipe_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Components.Pipe.html">Pipe</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Components</span></p>
+        <p>Pipe with optional heat exchange</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Components.OpenTank_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Components.OpenTank.html">OpenTank</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Components</span></p>
+        <p>Model of a tank under ambient pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Components.Cylinder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Components.Cylinder.html">Cylinder</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Components</span></p>
+        <p>Simple model of a piston in a cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialShape.html">PartialShape</a></p>
+        <p><span>Modelica.Utilities.Internal.PartialModelicaServices.Animation</span></p>
+        <p>Interface for 3D animation of elementary shapes</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(13)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Units.SI.CoherenceLength.html">CoherenceLength</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Units.SI.LondonPenetrationDepth.html">LondonPenetrationDepth</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Units.SI.MigrationLength.html">MigrationLength</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Units.SI.DiffusionLength.html">DiffusionLength</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Units.SI.MeanFreePath.html">MeanFreePath</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Units.SI.Diameter.html">Diameter</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Units.SI.Radius.html">Radius</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Units.SI.Thickness.html">Thickness</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Units.SI.Height.html">Height</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Units.SI.Breadth.html">Breadth</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Units.SI.Distance.html">Distance</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Units.SI.Position.html">Position</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Units.SI.PathLength.html">PathLength</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

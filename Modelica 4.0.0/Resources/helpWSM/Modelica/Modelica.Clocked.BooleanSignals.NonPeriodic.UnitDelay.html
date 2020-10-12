@@ -1,0 +1,126 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.BooleanSignals.NonPeriodic.UnitDelay</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.BooleanSignals.html">BooleanSignals</a></li>
+  <li><a href="Modelica.Clocked.BooleanSignals.NonPeriodic.html">NonPeriodic</a></li>
+  <li><a href="Modelica.Clocked.BooleanSignals.NonPeriodic.UnitDelay.html">UnitDelay</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>UnitDelay</h1>
+    <p>Delay the clocked input signal for one sample period</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.BooleanSignals.NonPeriodic.UnitDelay_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This block describes a unit delay:
+</p>
+<blockquote><pre>
+// Time domain description
+   y(ti) = previous(u(ti))
+
+// Discrete transfer function
+           1
+   y(z) = --- * u(z)
+           z
+</pre></blockquote>
+
+<p>
+that is, the output signal y is the input signal u at the
+previous clock tick. At the first clock tick, the output
+y is set to parameter y_start.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y_start</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Value of output signal at first clock tick</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanInput.html">BooleanInput</a></p>
+        <p><span>Description:</span> Connector of clocked, Real input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanOutput.html">BooleanOutput</a></p>
+        <p><span>Description:</span> Connector of clocked, Real output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.BooleanSignals.AssignClock_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.BooleanSignals.AssignClock.html">AssignClock</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.BooleanSignals</span></p>
+        <p>Example of an AssignClock block for Boolean signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.BooleanSignals.AssignClockVectorized_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.BooleanSignals.AssignClockVectorized.html">AssignClockVectorized</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.BooleanSignals</span></p>
+        <p>Example of an AssignClockVectorized block for Boolean signals</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

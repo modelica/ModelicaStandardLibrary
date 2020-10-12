@@ -1,0 +1,2150 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Interfaces.RealOutput</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>RealOutput</h1>
+    <p>'output Real' as connector</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Connector with one output signal of type Real.
+</p>
+</div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_DOL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_DOL.html">SMEE_DOL</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>ElectricalExcitedSynchronousMachine starting direct on line</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.HeatingSystem_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.HeatingSystem.html">HeatingSystem</a></p>
+        <p><span>Modelica.Fluid.Examples</span></p>
+        <p>Simple model of a heating system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.DrumBoiler.DrumBoiler_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.DrumBoiler.DrumBoiler.html">DrumBoiler</a></p>
+        <p><span>Modelica.Fluid.Examples.DrumBoiler</span></p>
+        <p>Complete drum boiler model, including evaporator and supplementary components</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(258)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Noise.Utilities.UniformDensity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Noise.Utilities.UniformDensity.html">UniformDensity</a></p>
+        <p><span>Modelica.Blocks.Examples.Noise.Utilities</span></p>
+        <p>Calculates the density of a uniform distribution</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Noise.Utilities.NormalDensity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Noise.Utilities.NormalDensity.html">NormalDensity</a></p>
+        <p><span>Modelica.Blocks.Examples.Noise.Utilities</span></p>
+        <p>Calculates the density of a normal distribution</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Noise.Utilities.WeibullDensity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Noise.Utilities.WeibullDensity.html">WeibullDensity</a></p>
+        <p><span>Modelica.Blocks.Examples.Noise.Utilities</span></p>
+        <p>Calculates the density of a Weibull distribution</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Noise.Utilities.Parts.MotorWithCurrentControl_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Noise.Utilities.Parts.MotorWithCurrentControl.html">MotorWithCurrentControl</a></p>
+        <p><span>Modelica.Blocks.Examples.Noise.Utilities.Parts</span></p>
+        <p>Synchronous machine with current controller and measurement noise</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Noise.Utilities.Parts.Controller_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Noise.Utilities.Parts.Controller.html">Controller</a></p>
+        <p><span>Modelica.Blocks.Examples.Noise.Utilities.Parts</span></p>
+        <p>Simple position controller for actuator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Integrator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Continuous.Integrator.html">Integrator</a></p>
+        <p><span>Modelica.Blocks.Continuous</span></p>
+        <p>Output the integral of the input signal with optional reset</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.LimIntegrator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Continuous.LimIntegrator.html">LimIntegrator</a></p>
+        <p><span>Modelica.Blocks.Continuous</span></p>
+        <p>Integrator with limited value of the output and optional reset</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Filter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Continuous.Filter.html">Filter</a></p>
+        <p><span>Modelica.Blocks.Continuous</span></p>
+        <p>Continuous low pass, high pass, band pass or band stop IIR-filter of type CriticalDamping, Bessel, Butterworth or ChebyshevI</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Discrete.TriggeredSampler_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Discrete.TriggeredSampler.html">TriggeredSampler</a></p>
+        <p><span>Modelica.Blocks.Discrete</span></p>
+        <p>Triggered sampling of continuous signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Discrete.TriggeredMax_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Discrete.TriggeredMax.html">TriggeredMax</a></p>
+        <p><span>Modelica.Blocks.Discrete</span></p>
+        <p>Compute maximum, absolute value of continuous signal at trigger instants</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interaction.Show.RealValue_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interaction.Show.RealValue.html">RealValue</a></p>
+        <p><span>Modelica.Blocks.Interaction.Show</span></p>
+        <p>Show Real value from numberPort or from number input field in diagram layer dynamically</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.SO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.SO.html">SO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Single Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.MO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.MO.html">MO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Multiple Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.SISO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.SISO.html">SISO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Single Input Single Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.SI2SO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.SI2SO.html">SI2SO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>2 Single Input / 1 Single Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.SIMO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.SIMO.html">SIMO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Single Input Multiple Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.MISO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.MISO.html">MISO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Multiple Input Single Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.PartialRealMISO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.PartialRealMISO.html">PartialRealMISO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Partial block with a RealVectorInput and a RealOutput signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.MIMO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.MIMO.html">MIMO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Multiple Input Multiple Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.MIMOs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.MIMOs.html">MIMOs</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Multiple Input Multiple Output continuous control block with same number of inputs and outputs</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.MI2MO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.MI2MO.html">MI2MO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>2 Multiple Input / Multiple Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.SVcontrol_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.SVcontrol.html">SVcontrol</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Single-Variable continuous controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.MVcontrol_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.MVcontrol.html">MVcontrol</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Multi-Variable continuous controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.DiscreteSISO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.DiscreteSISO.html">DiscreteSISO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Single Input Single Output discrete control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.DiscreteMIMO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.DiscreteMIMO.html">DiscreteMIMO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Multiple Input Multiple Output discrete control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.DiscreteMIMOs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.DiscreteMIMOs.html">DiscreteMIMOs</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Multiple Input Multiple Output discrete control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.SVdiscrete_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.SVdiscrete.html">SVdiscrete</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Discrete Single-Variable controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.MVdiscrete_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.MVdiscrete.html">MVdiscrete</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Discrete Multi-Variable controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.PartialConversionBlock_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.PartialConversionBlock.html">PartialConversionBlock</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Partial block defining the interface for conversion blocks</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.Adaptors.FlowToPotentialAdaptor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.Adaptors.FlowToPotentialAdaptor.html">FlowToPotentialAdaptor</a></p>
+        <p><span>Modelica.Blocks.Interfaces.Adaptors</span></p>
+        <p>Signal adaptor for a connector with flow, 1st derivative of flow, and 2nd derivative of flow as inputs and
+  potential, 1st derivative of potential, and 2nd derivative of potential as outputs (especially useful for FMUs)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.Adaptors.PotentialToFlowAdaptor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.Adaptors.PotentialToFlowAdaptor.html">PotentialToFlowAdaptor</a></p>
+        <p><span>Modelica.Blocks.Interfaces.Adaptors</span></p>
+        <p>Signal adaptor for a connector with potential, 1st derivative of potential, and 2nd derivative of potential as inputs and
+  flow, 1st derivative of flow, and 2nd derivative of flow as outputs (especially useful for FMUs)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.Switch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.Switch.html">Switch</a></p>
+        <p><span>Modelica.Blocks.Logical</span></p>
+        <p>Switch between two Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.TriggeredTrapezoid_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.TriggeredTrapezoid.html">TriggeredTrapezoid</a></p>
+        <p><span>Modelica.Blocks.Logical</span></p>
+        <p>Triggered trapezoid generator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.Timer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.Timer.html">Timer</a></p>
+        <p><span>Modelica.Blocks.Logical</span></p>
+        <p>Timer measuring the time from the time instant where the Boolean input became true</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.InverseBlockConstraints_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.InverseBlockConstraints.html">InverseBlockConstraints</a></p>
+        <p><span>Modelica.Blocks.Math</span></p>
+        <p>Construct inverse model by requiring that two inputs and two outputs are identical</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+        <p><span>Modelica.Blocks.Math</span></p>
+        <p>Output the product of a gain value with the input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.MultiSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.MultiSwitch.html">MultiSwitch</a></p>
+        <p><span>Modelica.Blocks.Math</span></p>
+        <p>Set Real expression that is associated with the first active input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Feedback_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.Feedback.html">Feedback</a></p>
+        <p><span>Modelica.Blocks.Math</span></p>
+        <p>Output difference between commanded and feedback input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Add3_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.Add3.html">Add3</a></p>
+        <p><span>Modelica.Blocks.Math</span></p>
+        <p>Output the sum of the three inputs</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.IntegerToReal_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.IntegerToReal.html">IntegerToReal</a></p>
+        <p><span>Modelica.Blocks.Math</span></p>
+        <p>Convert Integer to Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.BooleanToReal_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.BooleanToReal.html">BooleanToReal</a></p>
+        <p><span>Modelica.Blocks.Math</span></p>
+        <p>Convert Boolean to Real signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.RectangularToPolar_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.RectangularToPolar.html">RectangularToPolar</a></p>
+        <p><span>Modelica.Blocks.Math</span></p>
+        <p>Convert rectangular coordinates to polar coordinates</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.PolarToRectangular_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.PolarToRectangular.html">PolarToRectangular</a></p>
+        <p><span>Modelica.Blocks.Math</span></p>
+        <p>Convert polar coordinates to rectangular coordinates</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.ContinuousMean_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.ContinuousMean.html">ContinuousMean</a></p>
+        <p><span>Modelica.Blocks.Math</span></p>
+        <p>Calculates the empirical expectation (mean) value of its input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Variance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.Variance.html">Variance</a></p>
+        <p><span>Modelica.Blocks.Math</span></p>
+        <p>Calculates the empirical variance of its input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.StandardDeviation_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.StandardDeviation.html">StandardDeviation</a></p>
+        <p><span>Modelica.Blocks.Math</span></p>
+        <p>Calculates the empirical standard deviation of its input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Harmonic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.Harmonic.html">Harmonic</a></p>
+        <p><span>Modelica.Blocks.Math</span></p>
+        <p>Calculate harmonic over period 1/f</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.MinMax_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.MinMax.html">MinMax</a></p>
+        <p><span>Modelica.Blocks.Math</span></p>
+        <p>Output the minimum and the maximum element of the input vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.Multiplex_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.Multiplex.html">Multiplex</a></p>
+        <p><span>Modelica.Blocks.Routing</span></p>
+        <p>Multiplexer block for arbitrary number of input connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.Multiplex2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.Multiplex2.html">Multiplex2</a></p>
+        <p><span>Modelica.Blocks.Routing</span></p>
+        <p>Multiplexer block for two input connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.Multiplex3_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.Multiplex3.html">Multiplex3</a></p>
+        <p><span>Modelica.Blocks.Routing</span></p>
+        <p>Multiplexer block for three input connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.Multiplex4_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.Multiplex4.html">Multiplex4</a></p>
+        <p><span>Modelica.Blocks.Routing</span></p>
+        <p>Multiplexer block for four input connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.Multiplex5_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.Multiplex5.html">Multiplex5</a></p>
+        <p><span>Modelica.Blocks.Routing</span></p>
+        <p>Multiplexer block for five input connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.Multiplex6_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.Multiplex6.html">Multiplex6</a></p>
+        <p><span>Modelica.Blocks.Routing</span></p>
+        <p>Multiplexer block for six input connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.DeMultiplex2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.DeMultiplex2.html">DeMultiplex2</a></p>
+        <p><span>Modelica.Blocks.Routing</span></p>
+        <p>DeMultiplexer block for two output connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.DeMultiplex3_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.DeMultiplex3.html">DeMultiplex3</a></p>
+        <p><span>Modelica.Blocks.Routing</span></p>
+        <p>DeMultiplexer block for three output connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.DeMultiplex4_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.DeMultiplex4.html">DeMultiplex4</a></p>
+        <p><span>Modelica.Blocks.Routing</span></p>
+        <p>DeMultiplexer block for four output connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.DeMultiplex5_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.DeMultiplex5.html">DeMultiplex5</a></p>
+        <p><span>Modelica.Blocks.Routing</span></p>
+        <p>DeMultiplexer block for five output connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.DeMultiplex6_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.DeMultiplex6.html">DeMultiplex6</a></p>
+        <p><span>Modelica.Blocks.Routing</span></p>
+        <p>DeMultiplexer block for six output connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.RealExpression_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Sources.RealExpression.html">RealExpression</a></p>
+        <p><span>Modelica.Blocks.Sources</span></p>
+        <p>Set output signal to a time varying Real expression</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.KinematicPTP2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Sources.KinematicPTP2.html">KinematicPTP2</a></p>
+        <p><span>Modelica.Blocks.Sources</span></p>
+        <p>Move as fast as possible from start to end position within given kinematic constraints with output signals q, qd=der(q), qdd=der(qd)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.ComplexToReal_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.ComplexMath.ComplexToReal.html">ComplexToReal</a></p>
+        <p><span>Modelica.ComplexBlocks.ComplexMath</span></p>
+        <p>Converts complex to Cartesian representation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.ComplexToPolar_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.ComplexMath.ComplexToPolar.html">ComplexToPolar</a></p>
+        <p><span>Modelica.ComplexBlocks.ComplexMath</span></p>
+        <p>Converts complex to polar representation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.Bode_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.ComplexMath.Bode.html">Bode</a></p>
+        <p><span>Modelica.ComplexBlocks.ComplexMath</span></p>
+        <p>Calculate quantities to plot Bode diagram</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.ThrottleBody_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.ThrottleBody.html">ThrottleBody</a></p>
+        <p><span>Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl</span></p>
+        <p>Basic throttle body equations</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.IntakeManifold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.IntakeManifold.html">IntakeManifold</a></p>
+        <p><span>Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl</span></p>
+        <p>Dynamics of the intake manifold</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.TorqueGeneration_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.TorqueGeneration.html">TorqueGeneration</a></p>
+        <p><span>Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl</span></p>
+        <p>Torque generation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.SpeedControl_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.SpeedControl.html">SpeedControl</a></p>
+        <p><span>Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl</span></p>
+        <p>Discrete control of crankshaft speed by throttle actuation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.CylinderAirCharge_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.CylinderAirCharge.html">CylinderAirCharge</a></p>
+        <p><span>Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl</span></p>
+        <p>Integrates the air mass flow into a cylinder. After the charge for one
+   cylinder is complete, resets the mass to 0.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.InductionToPowerDelay_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.InductionToPowerDelay.html">InductionToPowerDelay</a></p>
+        <p><span>Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl</span></p>
+        <p>Accounts for the induction-to-power stroke lag.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit.html">MixingUnit</a></p>
+        <p><span>Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit</span></p>
+        <p>Mixing unit demo from Foellinger, Nichtlineare Regelungen II, p. 280</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.SampleClocked_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Sampler.SampleClocked.html">SampleClocked</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Sampler</span></p>
+        <p>Sample the continuous-time, Real input signal and provide it as clocked output signal. The clock is provided as input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.SampleVectorizedAndClocked_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Sampler.SampleVectorizedAndClocked.html">SampleVectorizedAndClocked</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Sampler</span></p>
+        <p>Sample the continuous-time, Real input signal vector and provide it as clocked output signal vector. The clock is provided as input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.SampleWithADeffects_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Sampler.SampleWithADeffects.html">SampleWithADeffects</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Sampler</span></p>
+        <p>Sample with (simulated) Analog-Digital converter effects including noise</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Sampler.HoldWithDAeffects.html">HoldWithDAeffects</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Sampler</span></p>
+        <p>Hold with (simulated) Digital-Analog converter effects and computational delay</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.SubSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Sampler.SubSample.html">SubSample</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Sampler</span></p>
+        <p>Sub-sample the clocked Real input signal and provide it as clocked output signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.SuperSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Sampler.SuperSample.html">SuperSample</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Sampler</span></p>
+        <p>Super-sample the clocked Real input signal and provide it as clocked output signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.SuperSampleInterpolated_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Sampler.SuperSampleInterpolated.html">SuperSampleInterpolated</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Sampler</span></p>
+        <p>Super-sample the clocked Real input signal and provide it linearly interpolated as clocked output signal (this is also called an Interpolator)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.ShiftSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Sampler.ShiftSample.html">ShiftSample</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Sampler</span></p>
+        <p>Shift the clocked Real input signal by a fraction of the last interval and and provide it as clocked output signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.BackSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Sampler.BackSample.html">BackSample</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Sampler</span></p>
+        <p>Shift the clock of the Real input signal backwards in time (and access the most recent value of the input at this new clock)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.AssignClock_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Sampler.AssignClock.html">AssignClock</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Sampler</span></p>
+        <p>Assign a clock to a clocked Real signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.AssignClockVectorized_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Sampler.AssignClockVectorized.html">AssignClockVectorized</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Sampler</span></p>
+        <p>Assign a clock to a clocked Real signal vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Sampler.Utilities.UpSample.html">UpSample</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Sampler.Utilities</span></p>
+        <p>Upsample the clocked Real input signal and provide it as clocked output signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Interfaces.PartialSISOSampler_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Interfaces.PartialSISOSampler.html">PartialSISOSampler</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Interfaces</span></p>
+        <p>Basic block used for sampling of Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Interfaces.PartialSISOHold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Interfaces.PartialSISOHold.html">PartialSISOHold</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Interfaces</span></p>
+        <p>Basic block used for zero order hold of Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Interfaces.PartialClockedSISO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Interfaces.PartialClockedSISO.html">PartialClockedSISO</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Interfaces</span></p>
+        <p>Block with clocked single input and clocked single output Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Interfaces.PartialClockedMIMO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Interfaces.PartialClockedMIMO.html">PartialClockedMIMO</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Interfaces</span></p>
+        <p>Block with multiple clocked input and multiple clocked output Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Interfaces.PartialClockedSO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Interfaces.PartialClockedSO.html">PartialClockedSO</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Interfaces</span></p>
+        <p>Block with clocked single output Real signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.Utilities.Tank_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.Utilities.Tank.html">Tank</a></p>
+        <p><span>Modelica.StateGraph.Examples.Utilities</span></p>
+        <p>Simple tank model (this is a copy from Isolde Dressler's master thesis project)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.DirectCapacitor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.Utilities.DirectCapacitor.html">DirectCapacitor</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples.Utilities</span></p>
+        <p>Input/output block of a direct capacitor model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.InverseCapacitor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.Utilities.InverseCapacitor.html">InverseCapacitor</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples.Utilities</span></p>
+        <p>Input/output block of an inverse capacitor model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.Resistor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.Utilities.Resistor.html">Resistor</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples.Utilities</span></p>
+        <p>Input/output block of a resistance model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.DirectInductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.Utilities.DirectInductor.html">DirectInductor</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples.Utilities</span></p>
+        <p>Input/output block of a direct inductor model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.InverseInductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.Utilities.InverseInductor.html">InverseInductor</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples.Utilities</span></p>
+        <p>Input/output block of an inverse inductor model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.Conductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.Utilities.Conductor.html">Conductor</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples.Utilities</span></p>
+        <p>Input/output block of a conductance model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Interfaces.AbsoluteSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Interfaces.AbsoluteSensor.html">AbsoluteSensor</a></p>
+        <p><span>Modelica.Electrical.Analog.Interfaces</span></p>
+        <p>Base class to measure the absolute value of a pin variable</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Interfaces.RelativeSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Interfaces.RelativeSensor.html">RelativeSensor</a></p>
+        <p><span>Modelica.Electrical.Analog.Interfaces</span></p>
+        <p>Base class to measure a relative variable between two pins</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sensors.PotentialSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sensors.PotentialSensor.html">PotentialSensor</a></p>
+        <p><span>Modelica.Electrical.Analog.Sensors</span></p>
+        <p>Sensor to measure the potential</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sensors.VoltageSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sensors.VoltageSensor.html">VoltageSensor</a></p>
+        <p><span>Modelica.Electrical.Analog.Sensors</span></p>
+        <p>Sensor to measure the voltage between two pins</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sensors.CurrentSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sensors.CurrentSensor.html">CurrentSensor</a></p>
+        <p><span>Modelica.Electrical.Analog.Sensors</span></p>
+        <p>Sensor to measure the current in a branch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sensors.PowerSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sensors.PowerSensor.html">PowerSensor</a></p>
+        <p><span>Modelica.Electrical.Analog.Sensors</span></p>
+        <p>Sensor to measure the power</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sensors.MultiSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sensors.MultiSensor.html">MultiSensor</a></p>
+        <p><span>Modelica.Electrical.Analog.Sensors</span></p>
+        <p>Sensor to measure current, voltage and power</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Converters.LogicToReal_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Converters.LogicToReal.html">LogicToReal</a></p>
+        <p><span>Modelica.Electrical.Digital.Converters</span></p>
+        <p>Logic to Real converter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.DcdcInverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.DcdcInverter.html">DcdcInverter</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities</span></p>
+        <p>DC-DC inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_PermanentMagnet_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_PermanentMagnet.html">SM_PermanentMagnet</a></p>
+        <p><span>Modelica.Electrical.Machines.BasicMachines.SynchronousMachines</span></p>
+        <p>Permanent magnet synchronous machine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_ElectricalExcited_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_ElectricalExcited.html">SM_ElectricalExcited</a></p>
+        <p><span>Modelica.Electrical.Machines.BasicMachines.SynchronousMachines</span></p>
+        <p>Electrical excited synchronous machine with damper cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_ReluctanceRotor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_ReluctanceRotor.html">SM_ReluctanceRotor</a></p>
+        <p><span>Modelica.Electrical.Machines.BasicMachines.SynchronousMachines</span></p>
+        <p>Synchronous machine with reluctance rotor and damper cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.Components.SquirrelCage_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.Components.SquirrelCage.html">SquirrelCage</a></p>
+        <p><span>Modelica.Electrical.Machines.BasicMachines.Components</span></p>
+        <p>Squirrel Cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.Components.DamperCage_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.Components.DamperCage.html">DamperCage</a></p>
+        <p><span>Modelica.Electrical.Machines.BasicMachines.Components</span></p>
+        <p>Squirrel Cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensor.html">VoltageQuasiRMSSensor</a></p>
+        <p><span>Modelica.Electrical.Machines.Sensors</span></p>
+        <p>Length of space phasor -> RMS voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor.html">CurrentQuasiRMSSensor</a></p>
+        <p><span>Modelica.Electrical.Machines.Sensors</span></p>
+        <p>Length of space phasor -> RMS current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Sensors.ElectricalPowerSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Sensors.ElectricalPowerSensor.html">ElectricalPowerSensor</a></p>
+        <p><span>Modelica.Electrical.Machines.Sensors</span></p>
+        <p>Instantaneous power from space phasors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Sensors.MechanicalPowerSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Sensors.MechanicalPowerSensor.html">MechanicalPowerSensor</a></p>
+        <p><span>Modelica.Electrical.Machines.Sensors</span></p>
+        <p>Mechanical power = torque x speed</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle.html">RotorDisplacementAngle</a></p>
+        <p><span>Modelica.Electrical.Machines.Sensors</span></p>
+        <p>Rotor lagging angle</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Sensors.HallSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Sensors.HallSensor.html">HallSensor</a></p>
+        <p><span>Modelica.Electrical.Machines.Sensors</span></p>
+        <p>Hall sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Sensors.SinCosResolver_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Sensors.SinCosResolver.html">SinCosResolver</a></p>
+        <p><span>Modelica.Electrical.Machines.Sensors</span></p>
+        <p>Sin-Cos-Resolver</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor.html">ToSpacePhasor</a></p>
+        <p><span>Modelica.Electrical.Machines.SpacePhasors.Blocks</span></p>
+        <p>Conversion of polyphase instantaneous values to space phasors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.SinCosEvaluation_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Utilities.SinCosEvaluation.html">SinCosEvaluation</a></p>
+        <p><span>Modelica.Electrical.Machines.Utilities</span></p>
+        <p>Evaluation of the signals of a sin-cos-resolver</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Examples.Utilities.AnalysatorAC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Examples.Utilities.AnalysatorAC.html">AnalysatorAC</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Examples.Utilities</span></p>
+        <p>Analyze AC voltage, current and power</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Examples.Utilities.AnalysatorDC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Examples.Utilities.AnalysatorDC.html">AnalysatorDC</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Examples.Utilities</span></p>
+        <p>Analyze DC voltage, current and power</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Sensors.PotentialSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Sensors.PotentialSensor.html">PotentialSensor</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Sensors</span></p>
+        <p>Polyphase potential sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Sensors.VoltageSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Sensors.VoltageSensor.html">VoltageSensor</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Sensors</span></p>
+        <p>Polyphase voltage sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Sensors.VoltageQuasiRMSSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Sensors.VoltageQuasiRMSSensor.html">VoltageQuasiRMSSensor</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Sensors</span></p>
+        <p>Continuous quasi voltage RMS sensor for polyphase system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Sensors.CurrentSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Sensors.CurrentSensor.html">CurrentSensor</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Sensors</span></p>
+        <p>Polyphase current sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor.html">CurrentQuasiRMSSensor</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Sensors</span></p>
+        <p>Continuous quasi current RMS sensor for polyphase system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Sensors.PowerSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Sensors.PowerSensor.html">PowerSensor</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Sensors</span></p>
+        <p>Polyphase instantaneous power sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Sensors.MultiSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Sensors.MultiSensor.html">MultiSensor</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Sensors</span></p>
+        <p>Polyphase sensor to measure current, voltage and power</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Sensors.AronSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Sensors.AronSensor.html">AronSensor</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Sensors</span></p>
+        <p>Three-phase Aron sensor for active power</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Sensors.ReactivePowerSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Sensors.ReactivePowerSensor.html">ReactivePowerSensor</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Sensors</span></p>
+        <p>Three-phase sensor for reactive power</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.DCDC.Control.Voltage2DutyCycle_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.DCDC.Control.Voltage2DutyCycle.html">Voltage2DutyCycle</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.DCDC.Control</span></p>
+        <p>Linearly transforms voltage to duty cycle</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle.html">VoltageToAngle</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACAC.Control</span></p>
+        <p>Reference voltage to firing angle converter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACAC.Control.SoftStartControl_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACAC.Control.SoftStartControl.html">SoftStartControl</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACAC.Control</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.ReferenceSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.ReferenceSensor.html">ReferenceSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Sensors</span></p>
+        <p>Sensor of reference angle gamma</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.FrequencySensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.FrequencySensor.html">FrequencySensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Sensors</span></p>
+        <p>Frequency sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.SpacePhasors.Blocks.ToSpacePhasor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.SpacePhasors.Blocks.ToSpacePhasor.html">ToSpacePhasor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.SpacePhasors.Blocks</span></p>
+        <p>Conversion: three-phase -> space phasor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Blocks.ToSpacePhasor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Blocks.ToSpacePhasor.html">ToSpacePhasor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Blocks</span></p>
+        <p>Conversion: m phase -> space phasor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Sensors.ReferenceSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Sensors.ReferenceSensor.html">ReferenceSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Sensors</span></p>
+        <p>Sensor of reference angle gamma</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Sensors.FrequencySensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Sensors.FrequencySensor.html">FrequencySensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Sensors</span></p>
+        <p>Frequency sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Sensors.VoltageQuasiRMSSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Sensors.VoltageQuasiRMSSensor.html">VoltageQuasiRMSSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Sensors</span></p>
+        <p>Continuous quasi voltage RMS sensor for polyphase system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Sensors.CurrentQuasiRMSSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Sensors.CurrentQuasiRMSSensor.html">CurrentQuasiRMSSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Sensors</span></p>
+        <p>Continuous quasi current RMS sensor for polyphase system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Sensors.AronSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Sensors.AronSensor.html">AronSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Sensors</span></p>
+        <p>Three-phase Aron sensor for active power</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Sensors.ReactivePowerSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Sensors.ReactivePowerSensor.html">ReactivePowerSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Sensors</span></p>
+        <p>Three-phase sensor for reactive power</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Sensors.MagneticPotentialDifferenceSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Sensors.MagneticPotentialDifferenceSensor.html">MagneticPotentialDifferenceSensor</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Sensors</span></p>
+        <p>Sensor to measure magnetic potential difference</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Sensors.MagneticFluxSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Sensors.MagneticFluxSensor.html">MagneticFluxSensor</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Sensors</span></p>
+        <p>Sensor to measure magnetic flux</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet.html">SM_PermanentMagnet</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines</span></p>
+        <p>Permanent magnet synchronous machine with optional damper cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited.html">SM_ElectricalExcited</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines</span></p>
+        <p>Electrical excited synchronous machine with optional damper cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor.html">SM_ReluctanceRotor</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines</span></p>
+        <p>Reluctance machine with optional damper cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding.html">SaliencyCageWinding</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Rotor cage with saliency in d- and q-axis</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.ReferenceSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.ReferenceSensor.html">ReferenceSensor</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors</span></p>
+        <p>Sensor of reference angle gamma</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.FrequencySensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.FrequencySensor.html">FrequencySensor</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors</span></p>
+        <p>Frequency sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.FundamentalWavePermabilitySensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.FundamentalWavePermabilitySensor.html">FundamentalWavePermabilitySensor</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient</span></p>
+        <p>Sensor of fundamental wave permeability</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.Permeability_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.Permeability.html">Permeability</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient</span></p>
+        <p>Determines permeability from flux and magnetic potential difference</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet.html">SM_PermanentMagnet</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines</span></p>
+        <p>Permanent magnet synchronous machine with optional damper cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited.html">SM_ElectricalExcited</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines</span></p>
+        <p>Electrical excited synchronous machine with optional damper cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor.html">SM_ReluctanceRotor</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines</span></p>
+        <p>Synchronous reluctance machine with optional damper cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding.html">SaliencyCageWinding</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Rotor cage with saliency in d- and q-axis</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors.RotorDisplacementAngle_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors.RotorDisplacementAngle.html">RotorDisplacementAngle</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors</span></p>
+        <p>Rotor lagging angle</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.CurrentController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.CurrentController.html">CurrentController</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities</span></p>
+        <p>Current controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.PartialAbsoluteSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialAbsoluteSensor.html">PartialAbsoluteSensor</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Interfaces</span></p>
+        <p>Base model to measure an absolute frame variable</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.PartialRelativeSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialRelativeSensor.html">PartialRelativeSensor</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Interfaces</span></p>
+        <p>Base model to measure a relative variable between two frames</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit.html">FreeMotionScalarInit</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span></p>
+        <p>Free motion joint with scalar initialization and state selection (6 degrees-of-freedom, 12 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Internal.InitPosition_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Internal.InitPosition.html">InitPosition</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Internal</span></p>
+        <p>Internal model to initialize r_rel_a for Joints.FreeMotionScalarInit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Internal.InitAngle_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Internal.InitAngle.html">InitAngle</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Internal</span></p>
+        <p>Internal model to initialize the angels for Joints.FreeMotionScalarInit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Internal.InitAngularVelocity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Internal.InitAngularVelocity.html">InitAngularVelocity</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Internal</span></p>
+        <p>Internal model to initialize w_rel_b for Joints.FreeMotionScalarInit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor.html">AbsoluteSensor</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure absolute kinematic quantities of frame connector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.RelativeSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.RelativeSensor.html">RelativeSensor</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure relative kinematic quantities between two frame connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.AbsolutePosition_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.AbsolutePosition.html">AbsolutePosition</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure absolute position vector of the origin of a frame connector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.AbsoluteVelocity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.AbsoluteVelocity.html">AbsoluteVelocity</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure absolute velocity vector of origin of frame connector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.AbsoluteAngles_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.AbsoluteAngles.html">AbsoluteAngles</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure absolute angles between frame connector and the world frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.AbsoluteAngularVelocity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.AbsoluteAngularVelocity.html">AbsoluteAngularVelocity</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure absolute angular velocity of frame connector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.RelativePosition_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.RelativePosition.html">RelativePosition</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure relative position vector between the origins of two frame connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.RelativeVelocity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.RelativeVelocity.html">RelativeVelocity</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure relative velocity vector between the origins of two frame connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.RelativeAngles_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.RelativeAngles.html">RelativeAngles</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure relative angles between two frame connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.RelativeAngularVelocity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.RelativeAngularVelocity.html">RelativeAngularVelocity</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure relative angular velocity between two frame connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.Distance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.Distance.html">Distance</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure the distance between the origins of two frame connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.CutForce_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.CutForce.html">CutForce</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure cut force vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.CutTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.CutTorque.html">CutTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure cut torque vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque.html">CutForceAndTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure cut force and cut torque vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.Power_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.Power.html">Power</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure power flowing from frame_a to frame_b</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector.html">TransformAbsoluteVector</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Transform absolute vector in to another frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector.html">TransformRelativeVector</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Transform relative vector in to another frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.Internal.BasicAbsolutePosition_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicAbsolutePosition.html">BasicAbsolutePosition</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors.Internal</span></p>
+        <p>Basic sensor to measure absolute position vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.Internal.BasicAbsoluteAngularVelocity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicAbsoluteAngularVelocity.html">BasicAbsoluteAngularVelocity</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors.Internal</span></p>
+        <p>Basic sensor to measure absolute angular velocity</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.Internal.BasicRelativePosition_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicRelativePosition.html">BasicRelativePosition</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors.Internal</span></p>
+        <p>Basic sensor to measure relative position vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.Internal.BasicRelativeAngularVelocity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicRelativeAngularVelocity.html">BasicRelativeAngularVelocity</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors.Internal</span></p>
+        <p>Basic sensor to measure relative angular velocity</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.Internal.BasicTransformAbsoluteVector_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicTransformAbsoluteVector.html">BasicTransformAbsoluteVector</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors.Internal</span></p>
+        <p>Transform absolute vector into another frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.Internal.BasicTransformRelativeVector_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicTransformRelativeVector.html">BasicTransformRelativeVector</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors.Internal</span></p>
+        <p>Transform relative vector into another frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.Internal.BasicCutForce_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicCutForce.html">BasicCutForce</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors.Internal</span></p>
+        <p>Basic sensor to measure cut force vector (frame_resolve must be connected)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.Internal.BasicCutTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.Internal.BasicCutTorque.html">BasicCutTorque</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors.Internal</span></p>
+        <p>Basic sensor to measure cut torque vector (frame_resolve must be connected)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia.html">DirectInertia</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples.Utilities</span></p>
+        <p>Input/output block of a direct inertia model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia.html">InverseInertia</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples.Utilities</span></p>
+        <p>Input/output block of an inverse inertia model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamper.html">SpringDamper</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples.Utilities</span></p>
+        <p>Input/output block of a spring/damper model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Utilities.Spring_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Utilities.Spring.html">Spring</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples.Utilities</span></p>
+        <p>Input/output block of a spring model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.AngleToTorqueAdaptor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.AngleToTorqueAdaptor.html">AngleToTorqueAdaptor</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span></p>
+        <p>Signal adaptor for a Rotational flange with torque as output and angle, speed, and optionally acceleration as inputs (especially useful for FMUs)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.TorqueToAngleAdaptor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.TorqueToAngleAdaptor.html">TorqueToAngleAdaptor</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span></p>
+        <p>Signal adaptor for a Rotational flange with angle, speed, and acceleration as outputs and torque as input (especially useful for FMUs)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sensors.AngleSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Sensors.AngleSensor.html">AngleSensor</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Sensors</span></p>
+        <p>Ideal sensor to measure the absolute flange angle</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sensors.SpeedSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Sensors.SpeedSensor.html">SpeedSensor</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Sensors</span></p>
+        <p>Ideal sensor to measure the absolute flange angular velocity</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sensors.AccSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Sensors.AccSensor.html">AccSensor</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Sensors</span></p>
+        <p>Ideal sensor to measure the absolute flange angular acceleration</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sensors.RelAngleSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Sensors.RelAngleSensor.html">RelAngleSensor</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Sensors</span></p>
+        <p>Ideal sensor to measure the relative angle between two flanges</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor.html">RelSpeedSensor</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Sensors</span></p>
+        <p>Ideal sensor to measure the relative angular velocity between two flanges</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sensors.RelAccSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Sensors.RelAccSensor.html">RelAccSensor</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Sensors</span></p>
+        <p>Ideal sensor to measure the relative angular acceleration between two flanges</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sensors.TorqueSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Sensors.TorqueSensor.html">TorqueSensor</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Sensors</span></p>
+        <p>Ideal sensor to measure the torque between two flanges (= flange_a.tau)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sensors.PowerSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Sensors.PowerSensor.html">PowerSensor</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Sensors</span></p>
+        <p>Ideal sensor to measure the power between two flanges (= flange_a.tau*der(flange_a.phi))</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sensors.MultiSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Sensors.MultiSensor.html">MultiSensor</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Sensors</span></p>
+        <p>Ideal sensor to measure the torque and power between two flanges (= flange_a.tau*der(flange_a.phi)) and the absolute angular velocity</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Utilities.DirectMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Utilities.DirectMass.html">DirectMass</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples.Utilities</span></p>
+        <p>Input/output block of a direct mass model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Utilities.InverseMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Utilities.InverseMass.html">InverseMass</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples.Utilities</span></p>
+        <p>Input/output block of an inverse mass model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Utilities.SpringDamper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Utilities.SpringDamper.html">SpringDamper</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples.Utilities</span></p>
+        <p>Input/output block of a spring/damper model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Utilities.Spring_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Utilities.Spring.html">Spring</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples.Utilities</span></p>
+        <p>Input/output block of a spring model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.PositionSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sensors.PositionSensor.html">PositionSensor</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sensors</span></p>
+        <p>Ideal sensor to measure the absolute position</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.SpeedSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sensors.SpeedSensor.html">SpeedSensor</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sensors</span></p>
+        <p>Ideal sensor to measure the absolute velocity</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.AccSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sensors.AccSensor.html">AccSensor</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sensors</span></p>
+        <p>Ideal sensor to measure the absolute acceleration</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.RelPositionSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sensors.RelPositionSensor.html">RelPositionSensor</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sensors</span></p>
+        <p>Ideal sensor to measure the relative position</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.RelSpeedSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sensors.RelSpeedSensor.html">RelSpeedSensor</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sensors</span></p>
+        <p>Ideal sensor to measure the relative speed</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.RelAccSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sensors.RelAccSensor.html">RelAccSensor</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sensors</span></p>
+        <p>Ideal sensor to measure the relative acceleration</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.ForceSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sensors.ForceSensor.html">ForceSensor</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sensors</span></p>
+        <p>Ideal sensor to measure the force between two flanges</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.PowerSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sensors.PowerSensor.html">PowerSensor</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sensors</span></p>
+        <p>Ideal sensor to measure the power between two flanges (= flange_a.f*der(flange_a.s))</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sensors.MultiSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Sensors.MultiSensor.html">MultiSensor</a></p>
+        <p><span>Modelica.Mechanics.Translational.Sensors</span></p>
+        <p>Ideal sensor to measure the absolute velocity, force and power between two flanges</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.DrumBoiler.BaseClasses.EquilibriumDrumBoiler_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.DrumBoiler.BaseClasses.EquilibriumDrumBoiler.html">EquilibriumDrumBoiler</a></p>
+        <p><span>Modelica.Fluid.Examples.DrumBoiler.BaseClasses</span></p>
+        <p>Simple Evaporator with two states, see Åström, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Valves.BaseClasses.PartialValve_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Valves.BaseClasses.PartialValve.html">PartialValve</a></p>
+        <p><span>Modelica.Fluid.Valves.BaseClasses</span></p>
+        <p>Base model for valves</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.Pressure_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Sensors.Pressure.html">Pressure</a></p>
+        <p><span>Modelica.Fluid.Sensors</span></p>
+        <p>Ideal pressure sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.Density_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Sensors.Density.html">Density</a></p>
+        <p><span>Modelica.Fluid.Sensors</span></p>
+        <p>Ideal one port density sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.DensityTwoPort_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Sensors.DensityTwoPort.html">DensityTwoPort</a></p>
+        <p><span>Modelica.Fluid.Sensors</span></p>
+        <p>Ideal two port density sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.Temperature_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Sensors.Temperature.html">Temperature</a></p>
+        <p><span>Modelica.Fluid.Sensors</span></p>
+        <p>Ideal one port temperature sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.TemperatureTwoPort_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Sensors.TemperatureTwoPort.html">TemperatureTwoPort</a></p>
+        <p><span>Modelica.Fluid.Sensors</span></p>
+        <p>Ideal two port temperature sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.SpecificEnthalpy_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Sensors.SpecificEnthalpy.html">SpecificEnthalpy</a></p>
+        <p><span>Modelica.Fluid.Sensors</span></p>
+        <p>Ideal one port specific enthalpy sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.SpecificEnthalpyTwoPort_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Sensors.SpecificEnthalpyTwoPort.html">SpecificEnthalpyTwoPort</a></p>
+        <p><span>Modelica.Fluid.Sensors</span></p>
+        <p>Ideal two port sensor for the specific enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.SpecificEntropy_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Sensors.SpecificEntropy.html">SpecificEntropy</a></p>
+        <p><span>Modelica.Fluid.Sensors</span></p>
+        <p>Ideal one port specific entropy sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.SpecificEntropyTwoPort_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Sensors.SpecificEntropyTwoPort.html">SpecificEntropyTwoPort</a></p>
+        <p><span>Modelica.Fluid.Sensors</span></p>
+        <p>Ideal two port sensor for the specific entropy</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.MassFractions_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Sensors.MassFractions.html">MassFractions</a></p>
+        <p><span>Modelica.Fluid.Sensors</span></p>
+        <p>Ideal one port mass fraction sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.MassFractionsTwoPort_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Sensors.MassFractionsTwoPort.html">MassFractionsTwoPort</a></p>
+        <p><span>Modelica.Fluid.Sensors</span></p>
+        <p>Ideal two port sensor for mass fraction</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.TraceSubstances_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Sensors.TraceSubstances.html">TraceSubstances</a></p>
+        <p><span>Modelica.Fluid.Sensors</span></p>
+        <p>Ideal one port trace substances sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.TraceSubstancesTwoPort_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Sensors.TraceSubstancesTwoPort.html">TraceSubstancesTwoPort</a></p>
+        <p><span>Modelica.Fluid.Sensors</span></p>
+        <p>Ideal two port sensor for trace substance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.MassFlowRate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Sensors.MassFlowRate.html">MassFlowRate</a></p>
+        <p><span>Modelica.Fluid.Sensors</span></p>
+        <p>Ideal sensor for mass flow rate</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.VolumeFlowRate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Sensors.VolumeFlowRate.html">VolumeFlowRate</a></p>
+        <p><span>Modelica.Fluid.Sensors</span></p>
+        <p>Ideal sensor for volume flow rate</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.RelativePressure_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Sensors.RelativePressure.html">RelativePressure</a></p>
+        <p><span>Modelica.Fluid.Sensors</span></p>
+        <p>Ideal relative pressure sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.RelativeTemperature_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Sensors.RelativeTemperature.html">RelativeTemperature</a></p>
+        <p><span>Modelica.Fluid.Sensors</span></p>
+        <p>Ideal relative temperature sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Components.OpenTank_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Components.OpenTank.html">OpenTank</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Components</span></p>
+        <p>Model of a tank under ambient pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sensors.RelPressureSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Sensors.RelPressureSensor.html">RelPressureSensor</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Sensors</span></p>
+        <p>Pressure difference sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sensors.RelTemperatureSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Sensors.RelTemperatureSensor.html">RelTemperatureSensor</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Sensors</span></p>
+        <p>Temperature difference sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Interfaces.AbsoluteSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Interfaces.AbsoluteSensor.html">AbsoluteSensor</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Interfaces</span></p>
+        <p>Partial model of absolute sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Interfaces.RelativeSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Interfaces.RelativeSensor.html">RelativeSensor</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Interfaces</span></p>
+        <p>Partial model of relative sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Interfaces.FlowSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Interfaces.FlowSensor.html">FlowSensor</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Interfaces</span></p>
+        <p>Partial model of flow sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Examples.Utilities.DirectCapacity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Examples.Utilities.DirectCapacity.html">DirectCapacity</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Examples.Utilities</span></p>
+        <p>Input/output block of a direct heatCapacity model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Examples.Utilities.InverseCapacity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Examples.Utilities.InverseCapacity.html">InverseCapacity</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Examples.Utilities</span></p>
+        <p>Input/output block of an inverse heatCapacity model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Examples.Utilities.Conduction_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Examples.Utilities.Conduction.html">Conduction</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Examples.Utilities</span></p>
+        <p>Input/output block of a conduction model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Sensors.TemperatureSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Sensors.TemperatureSensor.html">TemperatureSensor</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Sensors</span></p>
+        <p>Absolute temperature sensor in Kelvin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Sensors.RelTemperatureSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Sensors.RelTemperatureSensor.html">RelTemperatureSensor</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Sensors</span></p>
+        <p>Relative temperature sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Sensors.HeatFlowSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Sensors.HeatFlowSensor.html">HeatFlowSensor</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Sensors</span></p>
+        <p>Heat flow rate sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Sensors.ConditionalFixedHeatFlowSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Sensors.ConditionalFixedHeatFlowSensor.html">ConditionalFixedHeatFlowSensor</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Sensors</span></p>
+        <p>HeatFlowSensor, conditional fixed temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Celsius.ToKelvin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Celsius.ToKelvin.html">ToKelvin</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Celsius</span></p>
+        <p>Conversion from degree Celsius to Kelvin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Celsius.FromKelvin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Celsius.FromKelvin.html">FromKelvin</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Celsius</span></p>
+        <p>Conversion from Kelvin to degree Celsius</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor.html">TemperatureSensor</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Celsius</span></p>
+        <p>Absolute temperature sensor in degCelsius</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Fahrenheit.ToKelvin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Fahrenheit.ToKelvin.html">ToKelvin</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Fahrenheit</span></p>
+        <p>Conversion from degree Fahrenheit to Kelvin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Fahrenheit.FromKelvin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Fahrenheit.FromKelvin.html">FromKelvin</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Fahrenheit</span></p>
+        <p>Conversion from Kelvin to degree Fahrenheit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Fahrenheit.TemperatureSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Fahrenheit.TemperatureSensor.html">TemperatureSensor</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Fahrenheit</span></p>
+        <p>Absolute temperature sensor in degFahrenheit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Rankine.ToKelvin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Rankine.ToKelvin.html">ToKelvin</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Rankine</span></p>
+        <p>Conversion from degree Rankine to Kelvin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Rankine.FromKelvin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Rankine.FromKelvin.html">FromKelvin</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Rankine</span></p>
+        <p>Conversion from Kelvin to degree Rankine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Rankine.TemperatureSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Rankine.TemperatureSensor.html">TemperatureSensor</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Rankine</span></p>
+        <p>Absolute temperature sensor in degRankine</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

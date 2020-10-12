@@ -1,0 +1,173 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.QuasiStatic.SinglePhase.Examples.Transformer</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.SinglePhase.html">SinglePhase</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Examples.Transformer.html">Transformer</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Transformer</h1>
+    <p>Example of transformer with short circuit impedance, transmission resistances and load</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Examples.Transformer_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.QuasiStatic.SinglePhase.Examples.Transformer_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.QuasiStatic.SinglePhase.Examples.Transformer_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This examples shows the operational behavior of transformer with short circuit impedance. The transformer is loaded with constant current magnitude of 250A but variable phase angle. The angle varies from 0 to 360 degrees within one second of simulation time.
+</p>
+
+<p>Transformer data</p>
+<ul>
+<li>Nominal primary voltage <code>V1N = 1000 V</code></li>
+<li>Nominal secondary voltage <code>V2N = 200 V</code></li>
+<li>Nominal apparent power  <code>SN = 50 kVA</code></li>
+<li>Short circuit impedance <code><u>Z</u><sub>k</sub> = 0.72 Ohm + j*0.96 Ohm</code></li>
+<li>Magnetizing current and core loss are not taken into account</li>
+</ul>
+
+<p>Plot the real part of the secondary voltage <code>idealTransformer.v2.re</code> on the x axis and <code>idealTransformer.v2.im</code> on the y axis. The locus of this complex voltage <code><u>v</u><sub>2</sub></code> is a circle. The center of the circle is the primary supply voltage divided by the transformation ratio of <code>n=5</code>. Since in this experiment the load current magnitude is constant, the voltage drop across the short circuit impedance of the transformer is constant, as well. The radius of the circle is equal to the constant magnitude of the voltage drop across the short circuit impedance.</p>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(15)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource_32x32.png"></td>
+      <th>voltageSource</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource.html">VoltageSource</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealTransformer_32x32.png"></td>
+      <th>idealTransformer</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealTransformer.html">IdealTransformer</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor_32x32.png"></td>
+      <th>sensor0</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor.html">PowerSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance_32x32.png"></td>
+      <th>zk</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Impedance.html">Impedance</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource_32x32.png"></td>
+      <th>load</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource.html">VariableCurrentSource</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor_32x32.png"></td>
+      <th>sensorL</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor.html">PowerSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground_32x32.png"></td>
+      <th>ground1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground_32x32.png"></td>
+      <th>ground2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageSensor_32x32.png"></td>
+      <th>v2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageSensor.html">VoltageSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.PolarToComplex_32x32.png"></td>
+      <th>polarToComplex</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.ComplexBlocks.ComplexMath.PolarToComplex.html">PolarToComplex</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>const</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Ramp_32x32.png"></td>
+      <th>ramp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Ramp.html">Ramp</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>constFrequency</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentSensor_32x32.png"></td>
+      <th>i2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentSensor.html">CurrentSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentSensor_32x32.png"></td>
+      <th>i1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentSensor.html">CurrentSensor</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

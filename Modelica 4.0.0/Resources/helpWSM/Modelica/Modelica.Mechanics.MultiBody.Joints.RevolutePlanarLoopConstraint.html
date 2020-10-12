@@ -1,0 +1,238 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint.html">RevolutePlanarLoopConstraint</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>RevolutePlanarLoopConstraint</h1>
+    <p>Revolute joint that is described by 2 positional constraints for usage in a planar loop (the ambiguous cut-force perpendicular to the loop and the ambiguous cut-torques are set arbitrarily to zero)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Joint where frame_b rotates around axis n which is fixed in frame_a and
+where this joint is used in a planar loop providing 2 constraint equations
+on position level.
+</p>
+
+<p>
+If a <strong>planar loop</strong> is present, e.g., consisting of 4 revolute joints
+where the joint axes are all parallel to each other, then there is no
+unique mathematical solution if all revolute joints are modelled with
+Joints.Revolute and the symbolic algorithms will
+fail. The reason is that, e.g., the cut-forces in the revolute joints perpendicular
+to the planar loop are not uniquely defined when 3-dim. descriptions of revolute
+joints are used. Usually, an error message will be printed pointing out this
+situation. In this case, <strong>one</strong> revolute joint in the loop has to be replaced by
+model Joints.RevolutePlanarLoopCutJoint. The
+effect is that from the 5 constraints of a 3-dim. revolute joint,
+3 constraints are removed and replaced by appropriate known
+variables (e.g., the force in the direction of the axis of rotation is
+treated as known with value equal to zero; for standard revolute joints,
+this force is an unknown quantity).
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>animation</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if animation shall be enabled (show axis as cylinder)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Value:</span> {0, 0, 1}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Axis.html">Axis</a></p>
+        <p><span>Description:</span> Axis of rotation resolved in frame_a (= same as in frame_b)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>cylinderLength</th>
+      <td>
+        <p><span>Value:</span> world.defaultJointLength</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Length of cylinder representing the joint axis</p>
+      </td>
+    </tr>
+    <tr>
+      <th>cylinderDiameter</th>
+      <td>
+        <p><span>Value:</span> world.defaultJointWidth</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Diameter of cylinder representing the joint axis</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>cylinderColor</th>
+      <td>
+        <p><span>Default Value:</span> Modelica.Mechanics.MultiBody.Types.Defaults.JointColor</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of cylinder representing the joint axis</p>
+      </td>
+    </tr>
+    <tr>
+      <th>specularCoefficient</th>
+      <td>
+        <p><span>Default Value:</span> world.defaultSpecularCoefficient</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.SpecularCoefficient.html">SpecularCoefficient</a></p>
+        <p><span>Description:</span> Reflection of ambient light (= 0: light is completely absorbed)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_16x16.png"></td>
+      <th>frame_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p><span>Description:</span> Coordinate system fixed to the joint with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_b_16x16.png"></td>
+      <th>frame_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_b.html">Frame_b</a></p>
+        <p><span>Description:</span> Coordinate system fixed to the joint with one cut-force and cut-torque</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.Orientation_32x32.png"></td>
+      <th>R_rel</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Dummy or relative orientation object from frame_a to frame_b</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>cylinder</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Engine1a_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1a.html">Engine1a</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span></p>
+        <p>Model of one cylinder engine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b.html">Engine1b</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span></p>
+        <p>Model of one cylinder engine with gas force and preparation for assembly joint JointRRP</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.PlanarFourbar_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.PlanarFourbar.html">PlanarFourbar</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span></p>
+        <p>Planar four bars mechanism with one kinematic loop (with RevolutePlanarLoopConstraint joint)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder.html">Cylinder</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</span></p>
+        <p>Cylinder with rod and crank of a combustion engine</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

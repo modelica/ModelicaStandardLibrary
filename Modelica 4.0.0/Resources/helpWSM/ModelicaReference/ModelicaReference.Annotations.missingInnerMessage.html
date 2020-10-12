@@ -1,0 +1,61 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Annotations.missingInnerMessage</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Annotations.html">Annotations</a></li>
+  <li><a href="ModelicaReference.Annotations.missingInnerMessage.html">missingInnerMessage</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>missingInnerMessage</h1>
+    <p>missingInnerMessage</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Annotations.missingInnerMessage_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Diagnostic message, if inner declaration is missing
+</p>
+
+<h4>Examples</h4>
+
+<blockquote><pre><strong>model</strong> World
+  <strong>annotation</strong>(defaultComponentName     = "world",
+             defaultComponentPrefixes = "inner replaceable",
+             missingInnerMessage      = "The World object is missing");
+  ...
+<strong>end</strong> World;
+</pre></blockquote>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>   <strong>annotation</strong>"(" missingInnerMessage "=" STRING ")"
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+When an outer component of the class does not have a corresponding inner component, the string message may be used as a diagnostic message.
+However, the inner component is automatically added - if unique - regardless of this annotation.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

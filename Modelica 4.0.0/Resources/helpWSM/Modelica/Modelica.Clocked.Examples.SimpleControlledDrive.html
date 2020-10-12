@@ -1,0 +1,107 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.Examples.SimpleControlledDrive</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Clocked.Examples.SimpleControlledDrive.html">SimpleControlledDrive</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SimpleControlledDrive</h1>
+    <p>Examples based on a simple controlled drive with different ways to define the sampling</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.Continuous_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.Continuous.html">Continuous</a></p>
+        <p>Simple controlled drive with continuous controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteTextbookController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteTextbookController.html">ClockedWithDiscreteTextbookController</a></p>
+        <p>Simple controlled drive with discrete textbook controller (period is not used in the controller)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteController.html">ClockedWithDiscreteController</a></p>
+        <p>Simple controlled drive with discrete controller (period is used in the controller)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ExactlyClockedWithDiscreteController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ExactlyClockedWithDiscreteController.html">ExactlyClockedWithDiscreteController</a></p>
+        <p>Simple controlled drive with discrete controller and exact periodic clocks (period is used in the controller)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscretizedContinuousController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscretizedContinuousController.html">ClockedWithDiscretizedContinuousController</a></p>
+        <p>Simple controlled drive with discretized continuous-time controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWith_AD_DA_Effects_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWith_AD_DA_Effects.html">ClockedWith_AD_DA_Effects</a></p>
+        <p>Simple controlled drive with discrete controller and simulated AD and DA effects</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This package shows the same example in different variants.
+</p>
+
+<p>
+Model <a href="Modelica.Clocked.Examples.SimpleControlledDrive.Continuous.html">SimpleControlledDrive.Continuous</a>
+is the <strong>continuous-time</strong> model from which the sampled-data versions are derived.
+The model consists of a reference controller ("ramp"), a feedback controller
+("feedback" and "PI") and a plant ("torque", "load" and "speed").
+The task of the controller is to control the speed of the load inertia
+using a simple PI controller.
+</p>
+
+<p>
+The other example models under this package show different variants how
+the continuous-time model from above can be transformed to a periodic sampled-data
+system with one sample period.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

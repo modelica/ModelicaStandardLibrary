@@ -1,0 +1,123 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Matrices.Utilities.eigenvaluesHessenberg</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Math.Matrices.Utilities.eigenvaluesHessenberg.html">eigenvaluesHessenberg</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>eigenvaluesHessenberg</h1>
+    <p>Compute eigenvalues of an upper Hessenberg form matrix</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.Utilities.eigenvaluesHessenberg_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+        ev = Matrices.Utilities.<strong>eigenvaluesHessenberg</strong>(H);
+(ev, info) = Matrices.Utilities.<strong>eigenvaluesHessenberg</strong>(H);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function computes the eigenvalues of a Hessenberg form matrix. Transformation to Hessenberg form is the first step in eigenvalue computation for arbitrary matrices with QR decomposition.
+This step can be skipped if the matrix has already Hessenberg form.
+</p>
+
+<p>
+The function uses the LAPACK-routine dhseqr. Output <code>info</code> is 0 for a successful call of this
+function.<br>
+See <a href="Modelica.Math.Matrices.LAPACK.dhseqr.html">Matrices.LAPACK.dhseqr</a> for details
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+Real A[3,3] = [1,2,3;
+               9,8,7;
+               0,1,0];
+
+Real ev[3,2];
+
+ev := Matrices.Utilities.eigenvaluesHessenberg(A);
+
+// ev  = [10.7538,    0.0;
+          -0.8769,    1.0444;
+          -0.8769,   -1.0444]
+// = {10.7538,  -0.8769 +- i*1.0444}
+</pre></blockquote>
+<br>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Matrices.eigenValues.html">Matrices.eigenValues</a>,
+<a href="Modelica.Math.Matrices.hessenberg.html">Matrices.hessenberg</a>
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(ev, info) = eigenvaluesHessenberg(H)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>H</th>
+      <td>
+        <p><span>Type:</span> Real[:,size(H, 1)]</p>
+        <p><span>Description:</span> Hessenberg matrix H</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>ev</th>
+      <td>
+        <p><span>Type:</span> Real[size(H, 1),2]</p>
+        <p><span>Description:</span> Eigenvalues</p>
+      </td>
+    </tr>
+    <tr>
+      <th>info</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> Integer</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

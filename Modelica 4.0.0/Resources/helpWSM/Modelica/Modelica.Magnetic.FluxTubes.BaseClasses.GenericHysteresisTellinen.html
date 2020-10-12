@@ -1,0 +1,282 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Magnetic.FluxTubes.BaseClasses.GenericHysteresisTellinen</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.BaseClasses.html">BaseClasses</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresisTellinen.html">GenericHysteresisTellinen</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>GenericHysteresisTellinen</h1>
+    <p>Partial Tellinen hysteresis model</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresisTellinen_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>A reluctance with the Tellinen hysteresis model. The major hysteresis loop is defined by the hyperbolic tangent function.</p>
+<h4>The Tellinen Hysteresis Model</h4>
+<p>The Tellinen hysteresis model is a simple model to describe the magnetic hysteresis behavior of ferromagnetic materials. It only uses the rising (hystR) and falling (hystF) branch of the major hysteresis loop and their derivatives der(hystR) and der(hystF). See Fig. 1 and the following equations for a short description of the Tellinen hysteresis model.</p>
+<blockquote><pre>
+diffHyst = hystF - hystR;
+dhR = hystF - b;
+dhF = b - hystR;
+</pre></blockquote>
+<p>if the magnetic field intensity increases (der(h)&gt;0)</p>
+<blockquote><pre>
+der(b) = dhR/diffHyst * der(hystR);
+</pre></blockquote>
+<p>if the magnetic field intensity decreases (der(h)&lt;0)</p>
+<blockquote><pre>
+der(b) = dhF/diffHyst * der(hystF);
+</pre></blockquote>
+<table cellspacing="0" cellpadding="2" border="0"><tr>
+<td><p><img src="resources/Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresisTellinen_info_001.png"/></p></td>
+</tr>
+</table>
+<strong>Fig. 1:</strong> Description of the Tellinen hysteresis model.
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>l</th>
+      <td>
+        <p><span>Value:</span> 0.1</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length in direction of flux</p>
+      </td>
+    </tr>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Value:</span> 1e-4</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Area of cross section</p>
+      </td>
+    </tr>
+    <tr>
+      <th>V</th>
+      <td>
+        <p><span>Value:</span> A * l</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Volume.html">Volume</a> (m³)</p>
+        <p><span>Description:</span> Volume of FluxTube</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if HeatPort is enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Fixed device temperature if useHeatPort = false</p>
+      </td>
+    </tr>
+    <tr>
+      <th>includeEddyCurrents</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if eddy current losses are enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sigma</th>
+      <td>
+        <p><span>Value:</span> 10e6</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Conductivity.html">Conductivity</a> (S/m)</p>
+        <p><span>Description:</span> Conductivity of core material</p>
+      </td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>
+        <p><span>Value:</span> 0.5e-3</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Thickness of lamination</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>H</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.MagneticFieldStrength.html">MagneticFieldStrength</a> (A/m)</p>
+        <p><span>Description:</span> Magnetic field strength</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Hstat</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.MagneticFieldStrength.html">MagneticFieldStrength</a> (A/m)</p>
+        <p><span>Description:</span> Static (ferromagnetic) portion of the magnetic field strength</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Heddy</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.MagneticFieldStrength.html">MagneticFieldStrength</a> (A/m)</p>
+        <p><span>Description:</span> Dynamic (eddy currents) portion of the magnetic field strength</p>
+      </td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.MagneticFluxDensity.html">MagneticFluxDensity</a> (T)</p>
+        <p><span>Description:</span> Magnetic flux density</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MagRel</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Relative magnetization at initialization (-1..1)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>LossPowerStat</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Ferromagnetic (static) hysteresis losses</p>
+      </td>
+    </tr>
+    <tr>
+      <th>LossPowerEddy</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Eddy current losses (dynamic hysteresis losses)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>asc</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> True when der(Hstat)>0</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort_16x16.png"></td>
+      <th>port_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort.html">PositiveMagneticPort</a></p>
+        <p><span>Description:</span> Positive magnetic port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort_16x16.png"></td>
+      <th>port_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort.html">NegativeMagneticPort</a></p>
+        <p><span>Description:</span> Negative magnetic port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenPermanentMagnet_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenPermanentMagnet.html">GenericHystTellinenPermanentMagnet</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets</span></p>
+        <p>Permanent magnet based on the Tellinen hysteresis model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenTable_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenTable.html">GenericHystTellinenTable</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets</span></p>
+        <p>Generic flux tube with ferromagnetic hysteresis based on the Tellinen model and table data</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett.html">GenericHystTellinenEverett</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets</span></p>
+        <p>Generic flux tube with ferromagnetic hysteresis based on the Tellinen model and the Everett function [Ya89])</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenHard_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenHard.html">GenericHystTellinenHard</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets</span></p>
+        <p>Generic flux tube with hard magnetic hysteresis based on the Tellinen model and simple tanh()-functions</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenSoft_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenSoft.html">GenericHystTellinenSoft</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets</span></p>
+        <p>Generic flux tube with soft magnetic hysteresis based on the Tellinen model and simple tanh()-functions</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

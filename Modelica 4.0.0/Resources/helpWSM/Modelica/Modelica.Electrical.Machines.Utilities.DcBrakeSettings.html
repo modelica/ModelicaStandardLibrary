@@ -1,0 +1,124 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Machines.Utilities.DcBrakeSettings</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Electrical.Machines.Utilities.DcBrakeSettings.html">DcBrakeSettings</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>DcBrakeSettings</h1>
+    <p>Setting for DC current braking</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.Utilities.DcBrakeSettings_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Lets the user choose the layout, and determines the necessary DC current for DC current braking of an induction machine.
+</p>
+<p>
+The icon shows the four layout variants.
+Phases with half the current are depicted with half the line thickness,
+phases with zero current are depicted with dashed line.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>INominal</th>
+      <td>
+        <p><span>Value:</span> 100</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Nominal RMS current per phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>layout</th>
+      <td>
+        <p><span>Value:</span> "Y3"</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Braking connection layout</p>
+      </td>
+    </tr>
+    <tr>
+      <th>terminalConnection</th>
+      <td>
+        <p><span>Value:</span> if layout == "Y3" or layout == "Y2" then "Y" else "D"</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Terminal connection</p>
+      </td>
+    </tr>
+    <tr>
+      <th>connect3</th>
+      <td>
+        <p><span>Value:</span> layout == "Y3" or layout == "D3"</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Connect 3rd terminal</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Idc</th>
+      <td>
+        <p><span>Value:</span> if layout == "Y3" then INominal * sqrt(2) elseif layout == "Y2" then INominal * sqrt(3 / 2)
+ elseif layout == "D2" then INominal * 3 / sqrt(2) else INominal * sqrt(6)</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> DC braking current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>is</th>
+      <td>
+        <p><span>Value:</span> if layout == "Y3" then Idc * {1, -1 / 2, -1 / 2} elseif layout == "Y2" then Idc * {1, -1, 0}
+ elseif layout == "D2" then Idc * {2 / 3, -1 / 3, -1 / 3} else Idc * {1 / 2, -1 / 2, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Current.html">Current[3]</a> (A)</p>
+        <p><span>Description:</span> Phase currents</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.InductionMachines.IMC_DCBraking_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.InductionMachines.IMC_DCBraking.html">IMC_DCBraking</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.InductionMachines</span></p>
+        <p>Induction machine with DC current braking</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

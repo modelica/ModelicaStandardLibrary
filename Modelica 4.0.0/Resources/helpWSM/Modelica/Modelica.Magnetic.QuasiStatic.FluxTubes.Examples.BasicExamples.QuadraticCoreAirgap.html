@@ -1,0 +1,287 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples.QuadraticCoreAirgap</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples.html">BasicExamples</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples.QuadraticCoreAirgap.html">QuadraticCoreAirgap</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>QuadraticCoreAirgap</h1>
+    <p>Educational example: iron core with airgap</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples.QuadraticCoreAirgap_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples.QuadraticCoreAirgap_diagram_large.png"><img src="resources/diagrams/Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples.QuadraticCoreAirgap_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Educational example of a magnetic circuit containing an iron core and an airgap:
+</p>
+<p>
+<img src="resources/Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples.QuadraticCoreAirgap_info_001.png" alt="Magnetic circuit with iron core and airgap">
+</p>
+<p>
+A current ramp is applied in positive electric direction through the exciting coil, causing a rising magnetomotive force (mmf) in positive magnetic direction of the electromagnetic converter.
+The mmf in turn causes a magnetic flux through the circuit in the direction indicated by the flux sensor.
+From that magnetic flux, flux density can be calculated in every element of the magnetic circuit. Flux density is used to derive magnetic field strength.
+Magnetic field strength times length of the flux line gives magnetic potential difference of each element.
+The sum of all magnetic potential differences is covered by the mmf of the exciting coil.
+</p>
+<p>
+Using the parameter values, the results can be validated by analytic calculations:
+</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th>element   </th><th>cross section</th><th>length       </th><th>rel. permeability </th><th>B                   </th><th>H                                    </th><th>mmf              </th></tr>
+<tr><td>left leg  </td><td>a*a          </td><td>l - a        </td><td>&mu;<sub>r</sub>  </td><td>flux / cross section</td><td>B/(&mu;<sub>r</sub>*&mu;<sub>0</sub>)</td><td>H*length         </td></tr>
+<tr><td>upper yoke</td><td>a*a          </td><td>l - a        </td><td>&mu;<sub>r</sub>  </td><td>flux / cross section</td><td>B/(&mu;<sub>r</sub>*&mu;<sub>0</sub>)</td><td>H*length         </td></tr>
+<tr><td>right leg </td><td>a*a          </td><td>l - a - delta</td><td>&mu;<sub>r</sub>  </td><td>flux / cross section</td><td>B/(&mu;<sub>r</sub>*&mu;<sub>0</sub>)</td><td>H*length         </td></tr>
+<tr><td>airgap    </td><td>a*a          </td><td>delta        </td><td>1                 </td><td>useful flux / cross section</td><td>B/&mu;<sub>0</sub>            </td><td>H*length         </td></tr>
+<tr><td>lower yoke</td><td>a*a          </td><td>l - a        </td><td>&mu;<sub>r</sub>  </td><td>flux / cross section</td><td>B/(&mu;<sub>r</sub>*&mu;<sub>0</sub>)</td><td>H*length         </td></tr>
+<tr><td>total     </td><td>             </td><td>             </td><td>                  </td><td>                    </td><td>                                     </td><td>&Sigma; mmf = N*I</td></tr>
+</table>
+<p>
+Note that there is a leakage flux path present. Therefore the total magnetic flux of in core splits into
+</p>
+<ul>
+<li>the useful flux through the airgap and</li>
+<li>the leakage flux through the leakage element.</li>
+</ul>
+<p>
+However, the magnetic voltage across the airgap and the leakage model are equal.
+The ratio of the useful flux over the flux in the core is equal to <code>1 - &sigma;</code>.
+In the core the magnetic flux is the same in every element as they are connected in series.
+For the calculation of the length of flux lines inside the core, a medium flux line (dashed line) is used
+</p>
+<p>
+Additionally, a measuring coil is placed in the airgap.
+Due to Faraday's law, the time derivative of flux causes an induced voltage both in the exciting coil (in positive direction) and in the measuring coil (in negative direction).
+Since the quasi static current and therefore flux follow a time dependent ramp, the quasi static induced voltages follow a ramp as well.
+</p>
+<p>
+Note the proper usage of electric and magnetic grounds to define zero potential.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>l</th>
+      <td>
+        <p><span>Value:</span> 0.1</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Outer length of iron core</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>
+        <p><span>Value:</span> 0.01</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Side length of square cross section</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mu_r</th>
+      <td>
+        <p><span>Value:</span> 1000</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Relative permeability of core</p>
+      </td>
+    </tr>
+    <tr>
+      <th>delta</th>
+      <td>
+        <p><span>Value:</span> 0.001</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length of airgap</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sigma</th>
+      <td>
+        <p><span>Value:</span> 0.1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Leakage coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>N</th>
+      <td>
+        <p><span>Value:</span> 500</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of turns of exciting coil</p>
+      </td>
+    </tr>
+    <tr>
+      <th>I</th>
+      <td>
+        <p><span>Value:</span> 1.5</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Maximum exciting current</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(17)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter_32x32.png"></td>
+      <th>excitingCoil</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter.html">ElectroMagneticConverter</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid_32x32.png"></td>
+      <th>leftLeg</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid.html">Cuboid</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid_32x32.png"></td>
+      <th>upperYoke</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid.html">Cuboid</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid_32x32.png"></td>
+      <th>rightLeg</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid.html">Cuboid</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid_32x32.png"></td>
+      <th>airGap</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid.html">Cuboid</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter_32x32.png"></td>
+      <th>measuringCoil</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter.html">ElectroMagneticConverter</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid_32x32.png"></td>
+      <th>lowerYoke</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Cuboid.html">Cuboid</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.Ground_32x32.png"></td>
+      <th>magneticGround</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground_32x32.png"></td>
+      <th>electricGround1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource_32x32.png"></td>
+      <th>currentSource</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource.html">VariableCurrentSource</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.MagneticFluxSensor_32x32.png"></td>
+      <th>magFluxSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.MagneticFluxSensor.html">MagneticFluxSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground_32x32.png"></td>
+      <th>electricGround2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageSensor_32x32.png"></td>
+      <th>voltageSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageSensor.html">VoltageSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient_32x32.png"></td>
+      <th>leakage</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient.html">LeakageWithCoefficient</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.RealExpression_32x32.png"></td>
+      <th>usefulReluctance</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.RealExpression.html">RealExpression</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>const</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.Sources.ComplexRampPhasor_32x32.png"></td>
+      <th>complexRamp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.ComplexBlocks.Sources.ComplexRampPhasor.html">ComplexRampPhasor</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

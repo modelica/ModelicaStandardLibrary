@@ -1,0 +1,145 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.Permeability</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.html">Sensors</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.html">Transient</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.Permeability.html">Permeability</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Permeability</h1>
+    <p>Determines permeability from flux and magnetic potential difference</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.Permeability_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This model determines the absolute and relative permeability from two real inputs:</p>
+<ul>
+<li>RMS magnetic potential difference,
+<img src="resources/Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.Permeability_info_001.png" alt="V_m"></li>
+<li>RMS magnetic flux,
+<img src="resources/Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.Permeability_info_002.png" alt="Phi"></li>
+</ul>
+<p>In order to calculate the permeabilities, the area of cross section,
+<img src="resources/Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.Permeability_info_003.png" alt="l">,
+and the geometric length,
+<img src="resources/Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.Permeability_info_004.png" alt="l">,
+of the flux path have to be take into account</p>
+<dl><dd>
+<img src="resources/Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.Permeability_info_005.png" alt="Permeabilities">
+</dd></dl>
+<p>In case that the magnetic potential difference is close to zero, permeabilities yield:</p>
+<dl><dd>
+<img src="resources/Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.Permeability_info_006.png" alt="Permeabilities=0">
+</dd></dl>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Area of cross section penetrated by flux</p>
+      </td>
+    </tr>
+    <tr>
+      <th>l</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length associated with magnetic potential difference</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>Phi</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Magnetic flux</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>V_m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Magnetic potential difference</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>mu</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Absolute permeability</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>mur</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Relative permeability</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.FundamentalWavePermabilitySensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.FundamentalWavePermabilitySensor.html">FundamentalWavePermabilitySensor</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient</span></p>
+        <p>Sensor of fundamental wave permeability</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

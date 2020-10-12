@@ -1,0 +1,105 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Nonlinear.quadratureLobatto.quadStep</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Nonlinear.html">Nonlinear</a></li>
+  <li><a href="Modelica.Math.Nonlinear.quadratureLobatto.html">quadratureLobatto</a></li>
+  <li><a href="Modelica.Math.Nonlinear.quadratureLobatto.quadStep.html">quadStep</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>quadStep</h1>
+    <p>Recursive function used by quadrature</p>
+  </td><td>
+    <div></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">I = quadStep(f, a, b, fa, fb, is)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>f</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Math.Nonlinear.Interfaces.partialScalarFunction.html">partialScalarFunction</a></p>
+      </td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Right interval end</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Left interval end</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fa</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Function value at a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fb</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Function value at b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>is</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> First approximation of the integral</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>I</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Integral value</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

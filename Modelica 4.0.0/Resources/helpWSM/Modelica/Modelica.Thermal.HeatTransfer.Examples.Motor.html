@@ -1,0 +1,179 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Thermal.HeatTransfer.Examples.Motor</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Thermal.html">Thermal</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.html">HeatTransfer</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.Examples.Motor.html">Motor</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Motor</h1>
+    <p>Second order thermal model of a motor</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Thermal.HeatTransfer.Examples.Motor_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Thermal.HeatTransfer.Examples.Motor_diagram_large.png"><img src="resources/diagrams/Modelica.Thermal.HeatTransfer.Examples.Motor_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example contains a simple second order thermal model of a motor.
+The periodic power losses are described by table "lossTable":
+</p>
+<table>
+<tr><td>time</td><td>winding losses</td><td>core losses</td></tr>
+<tr><td>   0</td><td>           100</td><td>        500</td></tr>
+<tr><td> 360</td><td>           100</td><td>        500</td></tr>
+<tr><td> 360</td><td>          1000</td><td>        500</td></tr>
+<tr><td> 600</td><td>          1000</td><td>        500</td></tr>
+</table>
+<p>
+Since constant speed is assumed, the core losses keep constant
+whereas the winding losses are low for 6 minutes (no-load) and high for 4 minutes (over load).
+</p>
+<p>
+The winding losses are corrected by (1 + alpha*(T - T_ref)) because the winding's resistance is temperature dependent whereas the core losses are kept constant (alpha = 0).
+</p>
+<p>
+The power dissipation to the environment is approximated by heat flow through
+a thermal conductance between winding and core,
+partially storage of the heat in the winding's heat capacity
+as well as the core's heat capacity and finally by forced convection to the environment.<br>
+Since constant speed is assumed, the convective conductance keeps constant.<br>
+Using Modelica.Thermal.FluidHeatFlow it would be possible to model the coolant air flow, too
+(instead of simple dissipation to a constant ambient's temperature).
+</p>
+<p>
+Simulate for 7200 s; plot Twinding.T and Tcore.T.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>TAmb</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Ambient temperature</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(11)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.CombiTimeTable_32x32.png"></td>
+      <th>lossTable</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.CombiTimeTable.html">CombiTimeTable</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow_32x32.png"></td>
+      <th>windingLosses</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow.html">PrescribedHeatFlow</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.HeatCapacitor_32x32.png"></td>
+      <th>winding</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Components.HeatCapacitor.html">HeatCapacitor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor_32x32.png"></td>
+      <th>Twinding</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor.html">TemperatureSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.ThermalConductor_32x32.png"></td>
+      <th>winding2core</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Components.ThermalConductor.html">ThermalConductor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow_32x32.png"></td>
+      <th>coreLosses</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow.html">PrescribedHeatFlow</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.HeatCapacitor_32x32.png"></td>
+      <th>core</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Components.HeatCapacitor.html">HeatCapacitor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor_32x32.png"></td>
+      <th>Tcore</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor.html">TemperatureSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>convectionConstant</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.Convection_32x32.png"></td>
+      <th>convection</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Components.Convection.html">Convection</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Sources.FixedTemperature_32x32.png"></td>
+      <th>environment</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Sources.FixedTemperature.html">FixedTemperature</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,294 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Machines.Utilities.ParameterRecords.DcSeriesExcitedData</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.html">ParameterRecords</a></li>
+  <li><a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.DcSeriesExcitedData.html">DcSeriesExcitedData</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>DcSeriesExcitedData</h1>
+    <p>Common parameters for DC machines</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.Utilities.ParameterRecords.DcSeriesExcitedData_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>Basic parameters of DC machines are predefined with default values.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(21)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Jr</th>
+      <td>
+        <p><span>Value:</span> 0.15</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Rotor's moment of inertia</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Js</th>
+      <td>
+        <p><span>Value:</span> Jr</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Stator's moment of inertia</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VaNominal</th>
+      <td>
+        <p><span>Value:</span> 100</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Nominal armature voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IaNominal</th>
+      <td>
+        <p><span>Value:</span> 100</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Nominal armature current (>0..Motor, <0..Generator)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>wNominal</th>
+      <td>
+        <p><span>Value:</span> 1410 * 2 * pi / 60</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.AngularVelocity.html">AngularVelocity</a> (rad/s)</p>
+        <p><span>Description:</span> Nominal speed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TaNominal</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Nominal armature temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ra</th>
+      <td>
+        <p><span>Value:</span> 0.05</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Armature resistance at TaRef</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TaRef</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Reference temperature of armature resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha20a</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20.html">LinearTemperatureCoefficient20</a> (¹/K)</p>
+        <p><span>Description:</span> Temperature coefficient of armature resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>La</th>
+      <td>
+        <p><span>Value:</span> 0.0015</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Armature inductance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>frictionParameters</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.FrictionParameters.html">FrictionParameters</a></p>
+        <p><span>Description:</span> Friction loss parameter record</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ViNominal</th>
+      <td>
+        <p><span>Value:</span> VaNominal - Machines.Thermal.convertResistance(Ra, TaRef, alpha20a, TaNominal) * IaNominal - Machines.Losses.DCMachines.brushVoltageDrop(brushParameters, IaNominal)</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Induced voltage at nominal operating point</p>
+      </td>
+    </tr>
+    <tr>
+      <th>coreParameters</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.CoreParameters.html">CoreParameters</a></p>
+        <p><span>Description:</span> Armature core loss parameter record</p>
+      </td>
+    </tr>
+    <tr>
+      <th>strayLoadParameters</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.StrayLoadParameters.html">StrayLoadParameters</a></p>
+        <p><span>Description:</span> Stray load losses</p>
+      </td>
+    </tr>
+    <tr>
+      <th>brushParameters</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.BrushParameters.html">BrushParameters</a></p>
+        <p><span>Description:</span> Brush loss parameter record</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Re</th>
+      <td>
+        <p><span>Value:</span> 0.01</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Series excitation resistance at TeRef</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TeRef</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Reference temperature of excitation resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha20e</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20.html">LinearTemperatureCoefficient20</a> (¹/K)</p>
+        <p><span>Description:</span> Temperature coefficient of excitation resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Le</th>
+      <td>
+        <p><span>Value:</span> 0.0005</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Total field excitation inductance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sigmae</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Stray fraction of total excitation inductance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TeNominal</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Nominal series excitation temperature</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.FrictionParameters_32x32.png"></td>
+      <th>frictionParameters</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.FrictionParameters.html">FrictionParameters</a></p>
+        <p><span>Description:</span> Friction loss parameter record</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.CoreParameters_32x32.png"></td>
+      <th>coreParameters</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.CoreParameters.html">CoreParameters</a></p>
+        <p><span>Description:</span> Armature core loss parameter record</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.StrayLoadParameters_32x32.png"></td>
+      <th>strayLoadParameters</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.StrayLoadParameters.html">StrayLoadParameters</a></p>
+        <p><span>Description:</span> Stray load losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.BrushParameters_32x32.png"></td>
+      <th>brushParameters</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.BrushParameters.html">BrushParameters</a></p>
+        <p><span>Description:</span> Brush loss parameter record</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCSE_Start_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCSE_Start.html">DCSE_Start</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span></p>
+        <p>Test example: DC with serial excitation starting with voltage ramp</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCSE_SinglePhase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCSE_SinglePhase.html">DCSE_SinglePhase</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span></p>
+        <p>Test example: DC with serial excitation starting with voltage ramp</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DC_CompareCharacteristics_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DC_CompareCharacteristics.html">DC_CompareCharacteristics</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span></p>
+        <p>Test example: Compare torque-speed characteristic of DC motors</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

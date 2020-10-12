@@ -1,0 +1,192 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Matrices.LAPACK.dgehrd</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.LAPACK.html">LAPACK</a></li>
+  <li><a href="Modelica.Math.Matrices.LAPACK.dgehrd.html">dgehrd</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>dgehrd</h1>
+    <p>Reduce a real general matrix A to upper Hessenberg form H by an orthogonal similarity transformation:  Q' * A * Q = H</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.LAPACK.dgehrd_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<pre>Lapack documentation
+    Purpose
+    =======
+
+    DGEHRD reduces a real general matrix A to upper Hessenberg form H by
+    an orthogonal similarity transformation:  Q' * A * Q = H .
+
+    Arguments
+    =========
+
+    N       (input) INTEGER
+            The order of the matrix A.  N >= 0.
+
+    ILO     (input) INTEGER
+    IHI     (input) INTEGER
+            It is assumed that A is already upper triangular in rows
+            and columns 1:ILO-1 and IHI+1:N. ILO and IHI are normally
+            set by a previous call to DGEBAL; otherwise they should be
+            set to 1 and N respectively. See Further Details.
+            1 <= ILO <= IHI <= N, if N > 0; ILO=1 and IHI=0, if N=0.
+
+    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+            On entry, the N-by-N general matrix to be reduced.
+            On exit, the upper triangle and the first subdiagonal of A
+            are overwritten with the upper Hessenberg matrix H, and the
+            elements below the first subdiagonal, with the array TAU,
+            represent the orthogonal matrix Q as a product of elementary
+            reflectors. See Further Details.
+
+    LDA     (input) INTEGER
+            The leading dimension of the array A.  LDA >= max(1,N).
+
+    TAU     (output) DOUBLE PRECISION array, dimension (N-1)
+            The scalar factors of the elementary reflectors (see Further
+            Details). Elements 1:ILO-1 and IHI:N-1 of TAU are set to
+            zero.
+
+    WORK    (workspace/output) DOUBLE PRECISION array, dimension (LWORK)
+            On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
+
+    LWORK   (input) INTEGER
+            The length of the array WORK.  LWORK >= max(1,N).
+            For optimum performance LWORK >= N*NB, where NB is the
+            optimal blocksize.
+
+            If LWORK = -1, then a workspace query is assumed; the routine
+            only calculates the optimal size of the WORK array, returns
+            this value as the first entry of the WORK array, and no error
+            message related to LWORK is issued by XERBLA.
+
+    INFO    (output) INTEGER
+            = 0:  successful exit
+            < 0:  if INFO = -i, the i-th argument had an illegal value.
+
+    Further Details
+    ===============
+
+    The matrix Q is represented as a product of (ihi-ilo) elementary
+    reflectors
+
+       Q = H(ilo) H(ilo+1) . . . H(ihi-1).
+
+    Each H(i) has the form
+
+       H(i) = I - tau * v * v'
+
+    where tau is a real scalar, and v is a real vector with
+    v(1:i) = 0, v(i+1) = 1 and v(ihi+1:n) = 0; v(i+2:ihi) is stored on
+    exit in A(i+2:ihi,i), and tau in TAU(i).
+
+    The contents of A are illustrated by the following example, with
+    n = 7, ilo = 2 and ihi = 6:
+
+    on entry,                        on exit,
+
+    ( a   a   a   a   a   a   a )    (  a   a   h   h   h   h   a )
+    (     a   a   a   a   a   a )    (      a   h   h   h   h   a )
+    (     a   a   a   a   a   a )    (      h   h   h   h   h   h )
+    (     a   a   a   a   a   a )    (      v2  h   h   h   h   h )
+    (     a   a   a   a   a   a )    (      v2  v3  h   h   h   h )
+    (     a   a   a   a   a   a )    (      v2  v3  v4  h   h   h )
+    (                         a )    (                          a )
+
+    where a denotes an element of the original matrix A, h denotes a
+    modified element of the upper Hessenberg matrix H, and vi denotes an
+    element of the vector defining H(i).</pre>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(Aout, tau, info) = dgehrd(A, ilo, ihi)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,size(A, 1)]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ilo</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Lowest index where the original matrix is not in upper triangular form</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ihi</th>
+      <td>
+        <p><span>Default Value:</span> size(A, 1)</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Highest index where the original matrix is not in upper triangular form</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Aout</th>
+      <td>
+        <p><span>Default Value:</span> A</p>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 2)]</p>
+        <p><span>Description:</span> Contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tau</th>
+      <td>
+        <p><span>Type:</span> Real[max(size(A, 1), 1) - 1]</p>
+        <p><span>Description:</span> Scalar factors of the elementary reflectors</p>
+      </td>
+    </tr>
+    <tr>
+      <th>info</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

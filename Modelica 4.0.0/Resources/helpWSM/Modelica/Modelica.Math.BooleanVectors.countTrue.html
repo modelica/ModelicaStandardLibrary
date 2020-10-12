@@ -1,0 +1,99 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.BooleanVectors.countTrue</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.BooleanVectors.html">BooleanVectors</a></li>
+  <li><a href="Modelica.Math.BooleanVectors.countTrue.html">countTrue</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>countTrue</h1>
+    <p>Returns the number of true elements in a Boolean vector</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.BooleanVectors.countTrue_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>countTrue</strong>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns the number of <strong>true</strong> elements in a Boolean vector b.
+</p>
+
+<h4>Example</h4>
+<p><code>countTrue({false, true, false, true})</code> returns 2.</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.BooleanVectors.allTrue.html">allTrue</a>,
+<a href="Modelica.Math.BooleanVectors.andTrue.html">andTrue</a>,
+<a href="Modelica.Math.BooleanVectors.anyTrue.html">anyTrue</a>,
+<a href="Modelica.Math.BooleanVectors.enumerate.html">enumerate</a>,
+<a href="Modelica.Math.BooleanVectors.firstTrueIndex.html">firstTrueIndex</a>,
+<a href="Modelica.Math.BooleanVectors.index.html">index</a>, and
+<a href="Modelica.Math.BooleanVectors.oneTrue.html">oneTrue</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">n = countTrue(b)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>b</th>
+      <td>
+        <p><span>Type:</span> Boolean[:]</p>
+        <p><span>Description:</span> Boolean vector</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of true elements in b</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

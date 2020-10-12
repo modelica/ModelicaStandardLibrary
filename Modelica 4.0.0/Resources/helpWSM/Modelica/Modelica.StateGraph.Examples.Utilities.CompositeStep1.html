@@ -1,0 +1,232 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: StateGraph.Examples.Utilities.CompositeStep1</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.StateGraph.html">StateGraph</a></li>
+  <li><a href="Modelica.StateGraph.Examples.html">Examples</a></li>
+  <li><a href="Modelica.StateGraph.Examples.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.StateGraph.Examples.Utilities.CompositeStep1.html">CompositeStep1</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>CompositeStep1</h1>
+    <p>Composite step used to demonstrate exceptions (in StateGraph.Examples.ShowExceptions)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.StateGraph.Examples.Utilities.CompositeStep1_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.StateGraph.Examples.Utilities.CompositeStep1_diagram_large.png"><img src="resources/diagrams/Modelica.StateGraph.Examples.Utilities.CompositeStep1_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>nSuspend</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of suspend ports</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nResume</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of resume ports</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>active</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if step is active, otherwise the step is not active</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.StateGraph.Interfaces.Step_in_16x16.png"></td>
+      <th>inPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Interfaces.Step_in.html">Step_in</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.StateGraph.Interfaces.Step_out_16x16.png"></td>
+      <th>outPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Interfaces.Step_out.html">Step_out</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.StateGraph.Interfaces.CompositeStep_suspend_16x16.png"></td>
+      <th>suspend</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Interfaces.CompositeStep_suspend.html">CompositeStep_suspend[nSuspend]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.StateGraph.Interfaces.CompositeStep_resume_16x16.png"></td>
+      <th>resume</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Interfaces.CompositeStep_resume.html">CompositeStep_resume[nResume]</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(12)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td></td>
+      <th>stateGraphRoot</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Interfaces.CompositeStepState.html">CompositeStepState</a></p>
+        <p><span>Description:</span> Communication port between the CompositeStep and the steps within the CompositeStep</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <th>outerState</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.PartialCompositeStep.OuterState.html">OuterState</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <th>innerState</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.PartialCompositeStep.InnerState.html">InnerState</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>transition1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Step_32x32.png"></td>
+      <th>initStep</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Step_32x32.png"></td>
+      <th>exitStep</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.Utilities.CompositeStep2_32x32.png"></td>
+      <th>compositeStep11</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Examples.Utilities.CompositeStep2.html">CompositeStep2</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.Utilities.CompositeStep2_32x32.png"></td>
+      <th>compositeStep12</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Examples.Utilities.CompositeStep2.html">CompositeStep2</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>transition2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>transition3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>transition4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Alternative_32x32.png"></td>
+      <th>Alternative1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Alternative.html">Alternative</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.ShowExceptions_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.ShowExceptions.html">ShowExceptions</a></p>
+        <p><span>Modelica.StateGraph.Examples</span></p>
+        <p>Example to demonstrate how a hierarchically structured StateGraph can suspend and resume actions on different levels</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

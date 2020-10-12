@@ -1,0 +1,192 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Machines.Losses.DCMachines.Brush</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Losses.html">Losses</a></li>
+  <li><a href="Modelica.Electrical.Machines.Losses.DCMachines.html">DCMachines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Losses.DCMachines.Brush.html">Brush</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Brush</h1>
+    <p>Model considering voltage drop of carbon brushes</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.Losses.DCMachines.Brush_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Model of voltage drop and losses of carbon brushes. For currents between <code>-ILinear</code> and <code>ILinear</code>
+ the voltage drop shows a linear behavior as depicted in Fig. 1.
+ For positive currents greater or equal than <code>ILinear</code> the voltage drop equals <code>V</code>.
+ For negative currents less or equal than <code>-ILinear</code> the voltage drop equals <code>-V</code>.
+</p>
+
+<table border="0" cellspacing="0" cellpadding="1">
+  <tr><td> <img src="resources/Modelica.Electrical.Machines.Losses.DCMachines.Brush_info_001.png"
+                alt="brush.png"> </td> </tr>
+  <tr><td> <strong> Fig. 1: </strong>Model of voltage drop of carbon brushes</td> </tr>
+</table>
+<h4>Note</h4>
+<p>
+The voltage drop <code>v</code> is the total voltage drop of all series connected brushes.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="Modelica.Electrical.Machines.Losses.BrushParameters.html">BrushParameters</a>
+</p>
+<p>
+If it is desired to neglect brush losses, set <code>brushParameters.V = 0</code> (this is the default).
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if heatPort is enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>brushParameters</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.BrushParameters.html">BrushParameters</a></p>
+        <p><span>Description:</span> Brush loss parameters</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive electrical pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative electrical pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+        <p><span>Description:</span> Optional port to which dissipated losses are transported in form of heat</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.BrushParameters_32x32.png"></td>
+      <th>brushParameters</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.BrushParameters.html">BrushParameters</a></p>
+        <p><span>Description:</span> Brush loss parameters</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_ElectricalExcited_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_ElectricalExcited.html">SM_ElectricalExcited</a></p>
+        <p><span>Modelica.Electrical.Machines.BasicMachines.SynchronousMachines</span></p>
+        <p>Electrical excited synchronous machine with damper cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.InductionMachines.Brush_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Losses.InductionMachines.Brush.html">Brush</a></p>
+        <p><span>Modelica.Electrical.Machines.Losses.InductionMachines</span></p>
+        <p>Model considering voltage drop of carbon brushes</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine.html">PartialBasicDCMachine</a></p>
+        <p><span>Modelica.Electrical.Machines.Interfaces</span></p>
+        <p>Partial model for DC machine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited.html">SM_ElectricalExcited</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines</span></p>
+        <p>Electrical excited synchronous machine with optional damper cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited.html">SM_ElectricalExcited</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines</span></p>
+        <p>Electrical excited synchronous machine with optional damper cage</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

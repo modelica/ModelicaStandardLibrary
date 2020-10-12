@@ -1,0 +1,280 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.Rotational.Components.Brake</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.html">Rotational</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Components.html">Components</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Components.Brake.html">Brake</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Brake</h1>
+    <p>Brake based on Coulomb friction</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Rotational.Components.Brake_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This component models a <strong>brake</strong>, i.e., a component where a frictional
+torque is acting between the housing and a flange and a controlled normal
+force presses the flange to the housing in order to increase friction.
+The normal force fn has to be provided as input signal f_normalized in a normalized form
+(0 &le; f_normalized &le; 1),
+fn = fn_max*f_normalized, where fn_max has to be provided as parameter.
+Friction in the brake is modelled in the following way:
+</p>
+<p>
+When the absolute angular velocity "w" is not zero, the friction torque
+is a function of the velocity dependent friction coefficient mu(w), of
+the normal force "fn", and of a geometry constant "cgeo" which takes into
+account the geometry of the device and the assumptions on the friction
+distributions:
+</p>
+<blockquote><pre>
+frictional_torque = <strong>cgeo</strong> * <strong>mu</strong>(w) * <strong>fn</strong>
+</pre></blockquote>
+<p>
+   Typical values of coefficients of friction <strong>mu</strong>:
+</p>
+<ul>
+  <li>0.2&nbsp;&hellip;&nbsp;0.4 for dry operation,</li>
+  <li>0.05&nbsp;&hellip;&nbsp;0.1 when operating in oil.</li>
+</ul>
+<p>
+   When plates are pressed together, where  <strong>ri</strong>  is the inner radius,
+   <strong>ro</strong> is the outer radius and <strong>N</strong> is the number of friction interfaces,
+   the geometry constant is calculated in the following way under the
+   assumption of a uniform rate of wear at the interfaces:
+</p>
+<blockquote><pre>
+<strong>cgeo</strong> = <strong>N</strong>*(<strong>r0</strong> + <strong>ri</strong>)/2
+</pre></blockquote>
+<p>
+    The positive part of the friction characteristic <strong>mu</strong>(w),
+    w >= 0, is defined via table mu_pos (first column = w,
+    second column = mu). Currently, only linear interpolation in
+    the table is supported.
+</p>
+<p>
+   When the absolute angular velocity becomes zero, the elements
+   connected by the friction element become stuck, i.e., the absolute
+   angle remains constant. In this phase the friction torque is
+   calculated from a torque balance due to the requirement, that
+   the absolute acceleration shall be zero.  The elements begin
+   to slide when the friction torque exceeds a threshold value,
+   called the  maximum static friction torque, computed via:
+</p>
+<blockquote><pre>
+frictional_torque = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(w=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
+</pre></blockquote>
+<p>
+This procedure is implemented in a "clean" way by state events and
+leads to continuous/discrete systems of equations if friction elements
+are dynamically coupled. The method is described in
+(see also a short sketch in <a href="Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction.html">UsersGuide.ModelingOfFriction</a>):
+</p>
+<dl>
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
+<dd><strong>Hybrid Modeling in Modelica based on the Synchronous
+    Data Flow Principle</strong>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
+</dl>
+<p>
+More precise friction models take into account the elasticity of the
+material when the two elements are "stuck", as well as other effects,
+like hysteresis. This has the advantage that the friction element can
+be completely described by a differential equation without events. The
+drawback is that the system becomes stiff (about 10-20 times slower
+simulation) and that more material constants have to be supplied which
+requires more sophisticated identification. For more details, see the
+following references, especially (Armstrong and Canudas de Wit 1996):
+</p>
+<dl>
+<dt>Armstrong B. (1991):</dt>
+<dd><strong>Control of Machines with Friction</strong>. Kluwer Academic
+    Press, Boston MA.<br></dd>
+<dt>Armstrong B., and Canudas de Wit C. (1996):</dt>
+<dd><strong>Friction Modeling and Compensation.</strong>
+    The Control Handbook, edited by W.S.Levine, CRC Press,
+    pp. 1369-1382.<br></dd>
+<dt>Canudas de Wit C., Olsson H., &Aring;str&ouml;m K.J., and Lischinsky P. (1995):</dt>
+<dd><strong>A new model for control of systems with friction.</strong>
+    IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.</dd>
+</dl>
+
+<p>
+See also the discussion
+<a href="Modelica.Mechanics.Rotational.UsersGuide.StateSelection.html">State Selection</a>
+in the User's Guide of the Rotational library.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useSupport</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if support flange enabled, otherwise implicitly grounded</p>
+      </td>
+    </tr>
+    <tr>
+      <th>w_small</th>
+      <td>
+        <p><span>Value:</span> 1.0e10</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.AngularVelocity.html">AngularVelocity</a> (rad/s)</p>
+        <p><span>Description:</span> Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if heatPort is enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mu_pos</th>
+      <td>
+        <p><span>Value:</span> [0, 0.5]</p>
+        <p><span>Type:</span> Real[:,2]</p>
+        <p><span>Description:</span> Positive sliding friction coefficient [-] as function of w_rel [rad/s] (w_rel>=0)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>peak</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Peak for maximum value of mu at w==0 (mu0_max = peak*mu_pos[1,2])</p>
+      </td>
+    </tr>
+    <tr>
+      <th>cgeo</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Geometry constant containing friction distribution assumption</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fn_max</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Force.html">Force</a> (N)</p>
+        <p><span>Description:</span> Maximum normal force</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_a_16x16.png"></td>
+      <th>flange_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> Flange of left shaft</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flange_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> Flange of right shaft</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Support_16x16.png"></td>
+      <th>support</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Support.html">Support</a></p>
+        <p><span>Description:</span> Support/housing of component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+        <p><span>Description:</span> Optional port to which dissipated losses are transported in form of heat</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>f_normalized</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Normalized force signal 0..1 (normal force = fn_max*f_normalized; brake is active if > 0)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Friction_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Friction.html">Friction</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Drive train with clutch and brake</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.HeatLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.HeatLosses.html">HeatLosses</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Demonstrate the modeling of heat losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.SimpleGearShift_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.SimpleGearShift.html">SimpleGearShift</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Simple Gearshift</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Machines.Losses.FrictionParameters</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Losses.html">Losses</a></li>
+  <li><a href="Modelica.Electrical.Machines.Losses.FrictionParameters.html">FrictionParameters</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>FrictionParameters</h1>
+    <p>Parameter record for friction losses</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.Losses.FrictionParameters_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Parameter record for <a href="Modelica.Electrical.Machines.Losses.Friction.html">Friction</a> losses.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>PRef</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Reference friction losses at wRef</p>
+      </td>
+    </tr>
+    <tr>
+      <th>wRef</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.AngularVelocity.html">AngularVelocity</a> (rad/s)</p>
+        <p><span>Description:</span> Reference angular velocity that the PRef refer to</p>
+      </td>
+    </tr>
+    <tr>
+      <th>power_w</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Exponent of friction torque w.r.t. angular velocity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tauRef</th>
+      <td>
+        <p><span>Value:</span> if PRef <= 0 then 0 else PRef / wRef</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Torque.html">Torque</a> (N·m)</p>
+        <p><span>Description:</span> Reference friction torque at reference angular velocity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>linear</th>
+      <td>
+        <p><span>Value:</span> 0.001</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Linear angular velocity range with respect to reference angular velocity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>wLinear</th>
+      <td>
+        <p><span>Value:</span> linear * wRef</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.AngularVelocity.html">AngularVelocity</a> (rad/s)</p>
+        <p><span>Description:</span> Linear angular velocity range</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tauLinear</th>
+      <td>
+        <p><span>Value:</span> if PRef <= 0 then 0 else tauRef * (wLinear / wRef) ^ power_w</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Torque.html">Torque</a> (N·m)</p>
+        <p><span>Description:</span> Torque corresponding with linear angular velocity range</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.Friction_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Losses.Friction.html">Friction</a></p>
+        <p><span>Modelica.Electrical.Machines.Losses</span></p>
+        <p>Model of angular velocity dependent friction losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Interfaces.PartialBasicMachine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Interfaces.PartialBasicMachine.html">PartialBasicMachine</a></p>
+        <p><span>Modelica.Electrical.Machines.Interfaces</span></p>
+        <p>Partial model for all machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.ParameterRecords.InductionMachineData_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.InductionMachineData.html">InductionMachineData</a></p>
+        <p><span>Modelica.Electrical.Machines.Utilities.ParameterRecords</span></p>
+        <p>Common parameters for induction machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.ParameterRecords.DcPermanentMagnetData_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.DcPermanentMagnetData.html">DcPermanentMagnetData</a></p>
+        <p><span>Modelica.Electrical.Machines.Utilities.ParameterRecords</span></p>
+        <p>Common parameters for DC machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BaseClasses.Machine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BaseClasses.Machine.html">Machine</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BaseClasses</span></p>
+        <p>Base model of machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses.Machine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses.Machine.html">Machine</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses</span></p>
+        <p>Base model of machines</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

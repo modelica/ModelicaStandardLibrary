@@ -1,0 +1,268 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.html">FundamentalWave</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.html">BasicMachines</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.html">Components</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap.html">RotorSaliencyAirGap</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>RotorSaliencyAirGap</h1>
+    <p>Air gap model with rotor saliency</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This salient air gap model can be used for machines with uniform air gaps and for machines with rotor saliency. The air gap model is not symmetrical towards stator and rotor since it is assumed the saliency always refers to the rotor. The saliency of the air gap is represented by a main field inductance in the d- and q-axis.
+</p>
+
+<p>
+For the mechanical interaction of the air gap model with the stator and the rotor is equipped with two
+<a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">rotational connectors</a>. The torques acting on both connectors have the same absolute values but different signs. The difference between the stator and the rotor angle,
+<img src="resources/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap_info_001.png">, is required for the transformation of the magnetic stator quantities to the rotor side.</p>
+
+<p>
+The air gap model has two magnetic stator and two magnetic rotor
+<a href="Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort.html">ports</a>. The magnetic potential difference and the magnetic flux of the stator (superscript s) are transformed to the rotor fixed reference frame (superscript r). The effective reluctances of the main field with respect to the d- and q-axis are considered then in the balance equations
+</p>
+
+<p>
+&nbsp;&nbsp;<img src="resources/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap_info_002.png">
+</p>
+
+<p>
+according to the following figure.
+</p>
+<table border="0" cellspacing="0" cellpadding="2">
+  <caption align="bottom"><strong>Fig:</strong> Magnetic equivalent circuit of the air gap model</caption>
+  <tr>
+    <td>
+      <img src="resources/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap_info_003.png">
+    </td>
+  </tr>
+</table>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding.html">SinglePhaseWinding</a>,
+<a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding.html">SymmetricPolyphaseWinding</a>,
+<a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding.html">SymmetricPolyphaseCageWinding</a>
+<a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding.html">SaliencyCageWinding</a>
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of pole pairs</p>
+      </td>
+    </tr>
+    <tr>
+      <th>L0</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FundamentalWave.Types.SalientInductance.html">SalientInductance</a></p>
+        <p><span>Description:</span> Salient inductance of a single unchorded coil w.r.t. the fundamental wave</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R_m</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FundamentalWave.Types.SalientReluctance.html">SalientReluctance</a></p>
+        <p><span>Description:</span> Reluctance of the air gap model</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort_16x16.png"></td>
+      <th>port_sp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort.html">PositiveMagneticPort</a></p>
+        <p><span>Description:</span> Positive complex magnetic stator port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort_16x16.png"></td>
+      <th>port_sn</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort.html">NegativeMagneticPort</a></p>
+        <p><span>Description:</span> Negative complex magnetic stator port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort_16x16.png"></td>
+      <th>port_rp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort.html">PositiveMagneticPort</a></p>
+        <p><span>Description:</span> Positive complex magnetic rotor port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort_16x16.png"></td>
+      <th>port_rn</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort.html">NegativeMagneticPort</a></p>
+        <p><span>Description:</span> Negative complex magnetic rotor port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_a_16x16.png"></td>
+      <th>flange_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> Flange of the rotor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_a_16x16.png"></td>
+      <th>support</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> Support at which the reaction torque is acting</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td></td>
+      <th>L0</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FundamentalWave.Types.SalientInductance.html">SalientInductance</a></p>
+        <p><span>Description:</span> Salient inductance of a single unchorded coil w.r.t. the fundamental wave</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <th>R_m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FundamentalWave.Types.SalientReluctance.html">SalientReluctance</a></p>
+        <p><span>Description:</span> Reluctance of the air gap model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexMagneticPotentialDifference_32x32.png"></td>
+      <th>V_mss</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexMagneticPotentialDifference.html">ComplexMagneticPotentialDifference</a></p>
+        <p><span>Description:</span> Complex magnetic potential difference of stator w.r.t. stator fixed frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexMagneticPotentialDifference_32x32.png"></td>
+      <th>V_msr</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexMagneticPotentialDifference.html">ComplexMagneticPotentialDifference</a></p>
+        <p><span>Description:</span> Complex magnetic potential difference of stator w.r.t. rotor fixed frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexMagneticPotentialDifference_32x32.png"></td>
+      <th>V_mrr</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexMagneticPotentialDifference.html">ComplexMagneticPotentialDifference</a></p>
+        <p><span>Description:</span> Complex magnetic potential difference of rotor w.r.t. rotor fixed frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexMagneticFlux_32x32.png"></td>
+      <th>Phi_ss</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexMagneticFlux.html">ComplexMagneticFlux</a></p>
+        <p><span>Description:</span> Complex magnetic flux of stator w.r.t. stator fixed frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexMagneticFlux_32x32.png"></td>
+      <th>Phi_sr</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexMagneticFlux.html">ComplexMagneticFlux</a></p>
+        <p><span>Description:</span> Complex magnetic flux of stator w.r.t. rotor fixed frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexMagneticFlux_32x32.png"></td>
+      <th>Phi_rr</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexMagneticFlux.html">ComplexMagneticFlux</a></p>
+        <p><span>Description:</span> Complex magnetic flux of rotor w.r.t. rotor fixed frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Complex_32x32.png"></td>
+      <th>rotator</th>
+      <td>
+        <p><span>Type:</span> <a href="../Complex/Complex.html">Complex</a></p>
+        <p><span>Description:</span> Equivalent vector representation of orientation</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BaseClasses.Machine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BaseClasses.Machine.html">Machine</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BaseClasses</span></p>
+        <p>Base model of machines</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,193 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.html">Systems</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.html">ComponentsMixingUnit</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit.html">MixingUnit</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>MixingUnit</h1>
+    <p>Mixing unit demo from Foellinger, Nichtlineare Regelungen II, p. 280</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+See description in <a href="Modelica.Clocked.Examples.Systems.ControlledMixingUnit.html">ControlledMixingUnit</a>.
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>c0</th>
+      <td>
+        <p><span>Value:</span> 0.848</p>
+        <p><span>Type:</span> Real (mol/l)</p>
+        <p><span>Description:</span> Nominal concentration</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T0</th>
+      <td>
+        <p><span>Value:</span> 308.5</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Nominal temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a1</th>
+      <td>
+        <p><span>Value:</span> 0.2674</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a21</th>
+      <td>
+        <p><span>Value:</span> 1.815</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a22</th>
+      <td>
+        <p><span>Value:</span> 0.4682</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>
+        <p><span>Value:</span> 1.5476</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>k0</th>
+      <td>
+        <p><span>Value:</span> 1.05e14</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>eps</th>
+      <td>
+        <p><span>Value:</span> 34.2894</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter (see references in help)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>T_c</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Cooling temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>c</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Concentration</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>T</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Temperature in mixing unit</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.ControlledMixingUnit_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Systems.ControlledMixingUnit.html">ControlledMixingUnit</a></p>
+        <p><span>Modelica.Clocked.Examples.Systems</span></p>
+        <p>Simple example of a mixing unit where a (discretized) nonlinear inverse plant model is used as feedforward controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnitWithContinuousControl_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnitWithContinuousControl.html">MixingUnitWithContinuousControl</a></p>
+        <p><span>Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit</span></p>
+        <p>Simple example of a mixing unit where a (continuous) nonlinear inverse plant model is used as feedforward controller</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.FilterOrder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.FilterOrder.html">FilterOrder</a></p>
+        <p><span>Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit</span></p>
+        <p>Block to determine the minimum filter order</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

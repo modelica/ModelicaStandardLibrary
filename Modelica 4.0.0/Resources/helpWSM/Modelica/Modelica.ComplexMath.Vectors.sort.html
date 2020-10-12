@@ -1,0 +1,123 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: ComplexMath.Vectors.sort</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.ComplexMath.html">ComplexMath</a></li>
+  <li><a href="Modelica.ComplexMath.Vectors.html">Vectors</a></li>
+  <li><a href="Modelica.ComplexMath.Vectors.sort.html">sort</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>sort</h1>
+    <p>Sort elements of complex vector</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.ComplexMath.Vectors.sort_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+           sorted_v = Vectors.<strong>sort</strong>(v);
+(sorted_v, indices) = Vectors.<strong>sort</strong>(v, ascending=true);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Function <strong>sort</strong>(..) sorts a Real vector v
+in ascending order and returns the result in sorted_v.
+If the optional argument "ascending" is <strong>false</strong>, the vector
+is sorted in descending order. In the optional second
+output argument the indices of the sorted vector with respect
+to the original vector are given, such that sorted_v = v[indices].
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+(v2, i2) := Vectors.sort({-1, 8, 3, 6, 2});
+    -> v2 = {-1, 2, 3, 6, 8}
+       i2 = {1, 5, 3, 4, 2}
+</pre></blockquote>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(sorted_v, indices) = sort(v, ascending, sortFrequency)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>v</th>
+      <td>
+        <p><span>Type:</span> <a href="../Complex/Complex.html">Complex[:]</a></p>
+        <p><span>Description:</span> Vector to be sorted</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ascending</th>
+      <td>
+        <p><span>Default Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true if ascending order, otherwise descending order</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sortFrequency</th>
+      <td>
+        <p><span>Default Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if sorting is first for imaginary then for real value; = false, if sorting is for absolute value</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>sorted_v</th>
+      <td>
+        <p><span>Default Value:</span> v</p>
+        <p><span>Type:</span> <a href="../Complex/Complex.html">Complex[size(v, 1)]</a></p>
+        <p><span>Description:</span> Sorted vector</p>
+      </td>
+    </tr>
+    <tr>
+      <th>indices</th>
+      <td>
+        <p><span>Default Value:</span> 1:size(v, 1)</p>
+        <p><span>Type:</span> Integer[size(v, 1)]</p>
+        <p><span>Description:</span> sorted_v = v[indices]</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

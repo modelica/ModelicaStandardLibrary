@@ -1,0 +1,87 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Special.Internal.polyEval</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Special.html">Special</a></li>
+  <li><a href="Modelica.Math.Special.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Math.Special.Internal.polyEval.html">polyEval</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>polyEval</h1>
+    <p>Evaluate a polynomial c[1] + c[2]*u + c[3]*u^2 + ....</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Special.Internal.polyEval_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Evaluate a polynomial using Horner's scheme.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">y = polyEval(c, u)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>c</th>
+      <td>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Polynomial coefficients</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Abscissa value</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> = c[1] + u*(c[2] + u*(c[3] + u*(c[4]*u^3 + ...)))</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

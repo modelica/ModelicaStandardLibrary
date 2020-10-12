@@ -1,0 +1,123 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Vectors.isEqual</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Vectors.html">Vectors</a></li>
+  <li><a href="Modelica.Math.Vectors.isEqual.html">isEqual</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>isEqual</h1>
+    <p>Determine if two Real vectors are numerically identical</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Vectors.isEqual_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.<strong>isEqual</strong>(v1, v2);
+Vectors.<strong>isEqual</strong>(v1, v2, eps=0);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>Vectors.isEqual(v1, v2)</code>" returns <strong>true</strong>,
+if the two Real vectors v1 and v2 have the same dimensions and
+the same elements. Otherwise the function
+returns <strong>false</strong>. Two elements e1 and e2 of the two vectors
+are checked on equality by the test "abs(e1-e2) &le; eps", where "eps"
+can be provided as third argument of the function. Default is "eps = 0".
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  Real v1[3] = {1, 2, 3};
+  Real v2[4] = {1, 2, 3, 4};
+  Real v3[3] = {1, 2, 3.0001};
+  Boolean result;
+<strong>algorithm</strong>
+  result := Vectors.isEqual(v1,v2);     // = <strong>false</strong>
+  result := Vectors.isEqual(v1,v3);     // = <strong>false</strong>
+  result := Vectors.isEqual(v1,v1);     // = <strong>true</strong>
+  result := Vectors.isEqual(v1,v3,0.1); // = <strong>true</strong>
+</pre></blockquote>
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Vectors.find.html">Vectors.find</a>,
+<a href="Modelica.Math.Matrices.isEqual.html">Matrices.isEqual</a>,
+<a href="Modelica.Utilities.Strings.isEqual.html">Strings.isEqual</a>
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">result = isEqual(v1, v2, eps)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>v1</th>
+      <td>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> First vector</p>
+      </td>
+    </tr>
+    <tr>
+      <th>v2</th>
+      <td>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Second vector (may have different length as v1)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>eps</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Two elements e1 and e2 of the two vectors are identical if abs(e1-e2) <= eps</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>result</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if vectors have the same length and the same elements</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

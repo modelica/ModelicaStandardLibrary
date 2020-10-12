@@ -1,0 +1,154 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Interaction.Show.BooleanValue</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Interaction.html">Interaction</a></li>
+  <li><a href="Modelica.Blocks.Interaction.Show.html">Show</a></li>
+  <li><a href="Modelica.Blocks.Interaction.Show.BooleanValue.html">BooleanValue</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>BooleanValue</h1>
+    <p>Show Boolean value from numberPort or from number input field in diagram layer dynamically</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Interaction.Show.BooleanValue_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This block visualizes a Boolean variable in a diagram animation.
+The Boolean variable to be visualized can be defined in the following ways:
+</p>
+
+<ul>
+<li> If useActivePort = <strong>true</strong> (which is the default), a Boolean
+     input is present and this input variable is shown.</li>
+
+<li> If useActivePort = <strong>false</strong> no input connector is present.
+     Instead, a Boolean input field is activated in the parameter menu
+     and the Boolean expression from this input menu is shown.</li>
+</ul>
+
+<p>
+If the Boolean variable is <strong>false</strong> the block is "grey", otherwise, it is "green".
+The two versions of the block are shown in the following image (in the right variant, the
+name of the variable value that is displayed is also shown below the icon):
+</p>
+
+<p>
+<img src="resources/Modelica.Blocks.Interaction.Show.BooleanValue_info_001.png"
+     alt="BooleanValue.png">
+</p>
+
+<p>
+The usage is demonstrated, e.g., in example
+<a href="Modelica.Blocks.Examples.BooleanNetwork1.html">Modelica.Blocks.Examples.BooleanNetwork1</a>.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>use_activePort</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if activePort enabled</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>active</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Boolean variable to visualize if use_activePort=false (time varying)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanInput_16x16.png"></td>
+      <th>activePort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanInput.html">BooleanInput</a></p>
+        <p><span>Description:</span> Boolean variable to be shown in diagram layer if use_activePort = true</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanOutput_16x16.png"></td>
+      <th>showActive</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanOutput.html">BooleanOutput</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.BooleanNetwork1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.BooleanNetwork1.html">BooleanNetwork1</a></p>
+        <p><span>Modelica.Blocks.Examples</span></p>
+        <p>Demonstrates the usage of blocks from Modelica.Blocks.MathBoolean</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Interaction1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Interaction1.html">Interaction1</a></p>
+        <p><span>Modelica.Blocks.Examples</span></p>
+        <p>Demonstrates the usage of blocks from Modelica.Blocks.Interaction.Show</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

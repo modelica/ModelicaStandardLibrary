@@ -1,0 +1,112 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Matrices.conditionNumber</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.conditionNumber.html">conditionNumber</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>conditionNumber</h1>
+    <p>Return the condition number norm(A)*norm(inv(A)) of a matrix A</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.conditionNumber_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+r = Matrices.<strong>conditionNumber</strong>(A);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function calculates the condition number (norm(A) * norm(inv(A))) of a general real matrix <strong>A</strong>, in either the 1-norm, 2-norm or the infinity-norm.
+In the case of 2-norm the result is the ratio of the largest to the smallest singular value of <strong>A</strong>.
+For more details, see <a href="http://en.wikipedia.org/wiki/Condition_number">http://en.wikipedia.org/wiki/Condition_number</a>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+A = [1, 2;
+     2, 1];
+r = conditionNumber(A);
+
+results in:
+
+r = 3.0
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Matrices.rcond.html">Matrices.rcond</a>
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">result = conditionNumber(A, p)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,:]</p>
+        <p><span>Description:</span> Input matrix</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Default Value:</span> 2</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Type of p-norm (only allowed: 1, 2 or Modelica.Constants.inf)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>result</th>
+      <td>
+        <p><span>Default Value:</span> 0.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Condition number of matrix A</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Nonlinear.quadratureLobatto</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Nonlinear.html">Nonlinear</a></li>
+  <li><a href="Modelica.Math.Nonlinear.quadratureLobatto.html">quadratureLobatto</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>quadratureLobatto</h1>
+    <p>Return the integral of an integrand function using an adaptive Lobatto rule</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Nonlinear.quadratureLobatto_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+<strong>quadratureLobatto</strong>(function f(), a, b);
+<strong>quadratureLobatto</strong>(function f(), a, b, tolerance=100*Modelica.Constants.eps);
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+Compute definite integral over function f(u,...) from u=a up to u=b
+using the adaptive Lobatto rule according to:
+</p>
+
+<blockquote>
+<dl>
+<dt>Walter Gander:</dt>
+<dd> <strong>Adaptive Quadrature - Revisited</strong>. 1998.
+     <a href="ftp://ftp.inf.ethz.ch/pub/publications/tech-reports/3xx/306.ps">ftp://ftp.inf.ethz.ch/pub/publications/tech-reports/3xx/306.ps</a>
+     </dd>
+</dl>
+</blockquote>
+
+<h4>Example</h4>
+
+<p>
+See the examples in <a href="Modelica.Math.Nonlinear.Examples.html">Modelica.Math.Nonlinear.Examples</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">integral = quadratureLobatto(f, a, b, tolerance)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>f</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Math.Nonlinear.Interfaces.partialScalarFunction.html">partialScalarFunction</a></p>
+        <p><span>Description:</span> Integrand function</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Lower limit of integration interval</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Upper limit of integration interval</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tolerance</th>
+      <td>
+        <p><span>Default Value:</span> 100 * Modelica.Constants.eps</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Relative tolerance for integral value</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>integral</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Integral value</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

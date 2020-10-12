@@ -1,0 +1,101 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Polynomials.integralValue_der</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Polynomials.html">Polynomials</a></li>
+  <li><a href="Modelica.Math.Polynomials.integralValue_der.html">integralValue_der</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>integralValue_der</h1>
+    <p>Time derivative of integral of polynomial p(u) from u_low to u_high, assuming only u_high as time-dependent (Leibniz rule)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Polynomials.integralValue_der_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">dintegral = integralValue_der(p, u_high, u_low, du_high, du_low)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Polynomial coefficients</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u_high</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> High integrand value</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u_low</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Low integrand value, default 0</p>
+      </td>
+    </tr>
+    <tr>
+      <th>du_high</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> High integrand value</p>
+      </td>
+    </tr>
+    <tr>
+      <th>du_low</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Low integrand value, default 0</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>dintegral</th>
+      <td>
+        <p><span>Default Value:</span> 0.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Integral of polynomial p from u_low to u_high</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

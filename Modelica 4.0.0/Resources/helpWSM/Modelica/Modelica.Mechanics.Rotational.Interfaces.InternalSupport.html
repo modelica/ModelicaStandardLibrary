@@ -1,0 +1,138 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.Rotational.Interfaces.InternalSupport</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.html">Rotational</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Interfaces.InternalSupport.html">InternalSupport</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>InternalSupport</h1>
+    <p>Adapter model to utilize conditional support connector</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.InternalSupport_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This is an adapter model to utilize a&nbsp;conditional
+<a href="Modelica.Mechanics.Rotational.Interfaces.Support.html">support connector</a>
+in a&nbsp;component. It could be applied to both textually (equations based) and graphically
+defined components:
+</p>
+
+<ul>
+<li> If <em>useSupport = true</em>, this flange has to be connected to the conditional
+     support connector.</li>
+<li> If <em>useSupport = false</em>, this flange has to be connected to the conditional
+     fixed model.</li>
+</ul>
+
+<p>
+Variable <strong>tau</strong> is defined as <strong>input</strong>. It must be
+provided as a&nbsp;modifier and computed via a&nbsp;torque balance when using this
+model in textually defined components.
+This approach of internal support is utilized, e.g., via the following partial models:
+</p>
+
+<ul>
+<li> <a href="Modelica.Mechanics.Rotational.Interfaces.PartialOneFlangeAndSupport.html">PartialOneFlangeAndSupport</a>,</li>
+<li> <a href="Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlangesAndSupport.html">PartialTwoFlangesAndSupport</a>,</li>
+<li> <a href="Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational.html">PartialElementaryRotationalToTranslational</a>.</li>
+</ul>
+
+<p>
+Note, the support angle can always be accessed as internalSupport.phi, and
+the support torque can always be accessed as internalSupport.tau.
+</p>
+</div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>tau</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Torque.html">Torque</a> (N·m)</p>
+        <p><span>Description:</span> External support torque (must be computed via torque balance in model where InternalSupport is used; = flange.tau)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_a_16x16.png"></td>
+      <th>flange</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> Internal support flange (must be connected to the conditional support connector for useSupport=true and to conditional fixed model for useSupport=false)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.RotationalEMF_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.RotationalEMF.html">RotationalEMF</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span></p>
+        <p>Electromotoric force (electric/mechanic transformer)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Revolute_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Revolute.html">Revolute</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span></p>
+        <p>Revolute joint (1 rotational degree-of-freedom, 2 potential states, optional axis flange)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational.html">PartialElementaryRotationalToTranslational</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Interfaces</span></p>
+        <p>Partial model to transform rotational into translational motion</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

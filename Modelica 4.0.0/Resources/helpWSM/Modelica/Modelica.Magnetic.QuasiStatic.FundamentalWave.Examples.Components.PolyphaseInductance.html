@@ -1,0 +1,278 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Magnetic.QuasiStatic.FundamentalWave.Examples.Components.PolyphaseInductance</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.html">FundamentalWave</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.Components.html">Components</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.Components.PolyphaseInductance.html">PolyphaseInductance</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PolyphaseInductance</h1>
+    <p>Polyphase inductance</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.Components.PolyphaseInductance_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.Components.PolyphaseInductance_diagram_large.png"><img src="resources/diagrams/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.Components.PolyphaseInductance_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example compares a quasi static electric polyphase inductor with an equivalent quasi static fundamental wave reluctance circuit.
+The phase inductance <code>L</code> and the magnetic fundamental wave reluctance <code>R_m</code> are related by:
+</p>
+
+<blockquote><pre>
+R_m = m * effectiveTurns^2 / 2 / L
+</pre></blockquote>
+
+<p>
+The real parts
+</p>
+
+<ul>
+<li><code>resistor_e.i[1].re</code></li>
+<li><code>resistor_m.i[1].re</code></li>
+</ul>
+
+<p>
+and the imaginary parts
+</p>
+
+<ul>
+<li><code>resistor_e.i[1].im</code></li>
+<li><code>resistor_m.i[1].im</code></li>
+</ul>
+
+<p>
+of the two currents show the same result and thus prove the equivalence of the two different modelling approaches.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Value:</span> 5</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of phases</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Supply frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VRMS</th>
+      <td>
+        <p><span>Value:</span> 100</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> RMS supply voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Value:</span> 1E-5</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>L</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> Load inductance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>effectiveTurns</th>
+      <td>
+        <p><span>Value:</span> 5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Effective number of turns</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R_m</th>
+      <td>
+        <p><span>Value:</span> m * effectiveTurns ^ 2 / 2 / L</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Reluctance.html">Reluctance</a> (H⁻¹)</p>
+        <p><span>Description:</span> Equivalent magnetic reluctance</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Ie</th>
+      <td>
+        <p><span>Default Value:</span> resistor_e.i[1]</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexCurrent.html">ComplexCurrent</a></p>
+        <p><span>Description:</span> Current of electric representation</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Im</th>
+      <td>
+        <p><span>Default Value:</span> resistor_m.i[1]</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexCurrent.html">ComplexCurrent</a></p>
+        <p><span>Description:</span> Current of magnetic representation</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(14)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexCurrent_32x32.png"></td>
+      <th>Ie</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexCurrent.html">ComplexCurrent</a></p>
+        <p><span>Description:</span> Current of electric representation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexCurrent_32x32.png"></td>
+      <th>Im</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexCurrent.html">ComplexCurrent</a></p>
+        <p><span>Description:</span> Current of magnetic representation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground_32x32.png"></td>
+      <th>ground_e</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground_32x32.png"></td>
+      <th>ground_m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star_32x32.png"></td>
+      <th>star_e</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star.html">Star</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star_32x32.png"></td>
+      <th>star_m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star.html">Star</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource_32x32.png"></td>
+      <th>voltageSource_e</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource.html">VoltageSource</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource_32x32.png"></td>
+      <th>voltageSource_m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource.html">VoltageSource</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor_32x32.png"></td>
+      <th>resistor_e</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor.html">Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor_32x32.png"></td>
+      <th>resistor_m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor.html">Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor_32x32.png"></td>
+      <th>inductor_e</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Inductor.html">Inductor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter_32x32.png"></td>
+      <th>converter_m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter.html">PolyphaseElectroMagneticConverter</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Reluctance_32x32.png"></td>
+      <th>reluctance_m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Reluctance.html">Reluctance</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Ground_32x32.png"></td>
+      <th>groundM_m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

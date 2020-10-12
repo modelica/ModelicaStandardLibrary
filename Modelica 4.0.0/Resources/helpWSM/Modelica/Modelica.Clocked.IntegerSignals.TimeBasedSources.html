@@ -1,0 +1,65 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.IntegerSignals.TimeBasedSources</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.IntegerSignals.html">IntegerSignals</a></li>
+  <li><a href="Modelica.Clocked.IntegerSignals.TimeBasedSources.html">TimeBasedSources</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>TimeBasedSources</h1>
+    <p>Package of signal source blocks generating clocked simulation time based Integer signals</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.IntegerSignals.TimeBasedSources_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.IntegerSignals.TimeBasedSources.Step_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.IntegerSignals.TimeBasedSources.Step.html">Step</a></p>
+        <p>Generate step signal of type Integer</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This package provides <strong>source</strong> components akin to the blocks provided in
+<a href="Modelica.Blocks.Sources.html">Modelica.Blocks.Sources</a>, but with the difference
+that they provide a <strong>clocked</strong> output signal.
+</p>
+<p>
+As an effect it is not necessary to use an intermediate Sample block if the output signal
+is connected to a system that requires a clocked input signal. Therefore, it it can be slightly more convenient
+to use the blocks provided in this package than to use the blocks offered by <a href="Modelica.Blocks.Sources.html">Modelica.Blocks.Sources</a>
+(since one does not need to add an additional Sample block for the transition from a continuous time signal to a clocked signal).
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

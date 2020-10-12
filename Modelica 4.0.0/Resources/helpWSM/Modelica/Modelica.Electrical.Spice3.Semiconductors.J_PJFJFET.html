@@ -1,0 +1,262 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Spice3.Semiconductors.J_PJFJFET</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Spice3.html">Spice3</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Semiconductors.html">Semiconductors</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Semiconductors.J_PJFJFET.html">J_PJFJFET</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>J_PJFJFET</h1>
+    <p>P-channel Junction Field-Effect Transistor model (JFET)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Spice3.Semiconductors.J_PJFJFET_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>J_PJFJFET is a P-channel junction field-effect transistor.</p>
+<p>The junction field-effect transistor is derived from the FET model of Shichman and Hodges.</p>
+<p>The models from the package Semiconductors accesses to the package Internal where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Internal.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(14)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>mtype</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> JFET type: 0 - N channel, 1 - P channel</p>
+      </td>
+    </tr>
+    <tr>
+      <th>AREA</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Number of parallel connected identical elements</p>
+      </td>
+    </tr>
+    <tr>
+      <th>OFF</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IC_VDS</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Initial condition value (VDS, not implemented yet)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IC_VGS</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Initial condition value (VGS, not implemented yet)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>UIC</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Use initial conditions: true, if initial condition is used</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TEMP</th>
+      <td>
+        <p><span>Value:</span> 27</p>
+        <p><span>Type:</span> <a href="Modelica.Units.NonSI.Temperature_degC.html">Temperature_degC</a> (°C)</p>
+        <p><span>Description:</span> Operating temperature of the device</p>
+      </td>
+    </tr>
+    <tr>
+      <th>modelcard</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.ModelcardJFET.html">ModelcardJFET</a></p>
+        <p><span>Description:</span> JFET modelcard</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Value:</span> Modelica.Electrical.Spice3.Internal.Jfet.jfetRenameParameters(modelcard)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Jfet.JfetModelLine.html">JfetModelLine</a></p>
+        <p><span>Description:</span> Model line parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Value:</span> Modelica.Electrical.Spice3.Internal.Fet.fetRenameParametersDev(AREA, OFF, IC_VDS, IC_VGS, UIC, TEMP)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Fet.Fet.html">Fet</a></p>
+        <p><span>Description:</span> Renamed parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_type</th>
+      <td>
+        <p><span>Value:</span> if mtype > 0.5 then -1 else 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Type of the transistor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p1</th>
+      <td>
+        <p><span>Value:</span> Modelica.Electrical.Spice3.Internal.Jfet.jfetInitEquations(m, p)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Jfet.JfetModelLine.html">JfetModelLine</a></p>
+        <p><span>Description:</span> Precalculated parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p2</th>
+      <td>
+        <p><span>Value:</span> Modelica.Electrical.Spice3.Internal.Jfet.jfetModelLineInitEquations(p1)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Jfet.JfetModelLine.html">JfetModelLine</a></p>
+        <p><span>Description:</span> Model line variables</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m1</th>
+      <td>
+        <p><span>Value:</span> Modelica.Electrical.Spice3.Internal.Jfet.jfetCalcTempDependencies(m, p2)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Fet.Fet.html">Fet</a></p>
+        <p><span>Description:</span> Precalculated parameters</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>G</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Gate node</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>D</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Drain node</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>S</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Source node</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.ModelcardJFET_32x32.png"></td>
+      <th>modelcard</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.ModelcardJFET.html">ModelcardJFET</a></p>
+        <p><span>Description:</span> JFET modelcard</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Jfet.JfetModelLine_32x32.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Jfet.JfetModelLine.html">JfetModelLine</a></p>
+        <p><span>Description:</span> Model line parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Fet.Fet_32x32.png"></td>
+      <th>m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Fet.Fet.html">Fet</a></p>
+        <p><span>Description:</span> Renamed parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Jfet.JfetModelLine_32x32.png"></td>
+      <th>p1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Jfet.JfetModelLine.html">JfetModelLine</a></p>
+        <p><span>Description:</span> Precalculated parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Jfet.JfetModelLine_32x32.png"></td>
+      <th>p2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Jfet.JfetModelLine.html">JfetModelLine</a></p>
+        <p><span>Description:</span> Model line variables</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Fet.Fet_32x32.png"></td>
+      <th>m1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Fet.Fet.html">Fet</a></p>
+        <p><span>Description:</span> Precalculated parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Fet.CurrrentsCapacitances_32x32.png"></td>
+      <th>cc</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Fet.CurrrentsCapacitances.html">CurrrentsCapacitances</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

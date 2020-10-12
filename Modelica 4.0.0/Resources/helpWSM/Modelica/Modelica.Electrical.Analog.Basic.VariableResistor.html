@@ -1,0 +1,193 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Analog.Basic.VariableResistor</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Analog.html">Analog</a></li>
+  <li><a href="Modelica.Electrical.Analog.Basic.html">Basic</a></li>
+  <li><a href="Modelica.Electrical.Analog.Basic.VariableResistor.html">VariableResistor</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>VariableResistor</h1>
+    <p>Ideal linear electrical resistor with variable resistance</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Analog.Basic.VariableResistor_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>The linear resistor connects the branch voltage <em>v</em> with the branch current <em>i</em> by
+<br><em><strong>i*R = v</strong></em>
+<br>The Resistance <em>R</em> is given as input signal.
+<br><br><strong>Attention!!!</strong><br>It is recommended that the R signal should not cross the zero value. Otherwise depending on the surrounding circuit the probability of singularities is high.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if heatPort is enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Value:</span> T_ref</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Fixed device temperature if useHeatPort = false</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_ref</th>
+      <td>
+        <p><span>Value:</span> 300.15</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Reference temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.LinearTemperatureCoefficient.html">LinearTemperatureCoefficient</a> (¹/K)</p>
+        <p><span>Description:</span> Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive electrical pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative electrical pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+        <p><span>Description:</span> Conditional heat port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>R</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.ShowVariableResistor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.ShowVariableResistor.html">ShowVariableResistor</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span></p>
+        <p>Simple demo of a VariableResistor model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Braking_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_Braking.html">SMPM_Braking</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.SynchronousMachines</span></p>
+        <p>Test example: PermanentMagnetSynchronousMachine acting as brake</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCSE_Start_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCSE_Start.html">DCSE_Start</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span></p>
+        <p>Test example: DC with serial excitation starting with voltage ramp</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCSE_SinglePhase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCSE_SinglePhase.html">DCSE_SinglePhase</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span></p>
+        <p>Test example: DC with serial excitation starting with voltage ramp</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_Braking_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_Braking.html">SMPM_Braking</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Test example: PermanentMagnetSynchronousMachine acting as brake</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Basic.VariableResistor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Basic.VariableResistor.html">VariableResistor</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Basic</span></p>
+        <p>Ideal linear electrical resistors with variable resistance</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

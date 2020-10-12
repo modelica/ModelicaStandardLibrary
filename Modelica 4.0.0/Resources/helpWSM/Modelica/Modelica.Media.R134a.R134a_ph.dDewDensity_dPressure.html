@@ -1,0 +1,82 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Media.R134a.R134a_ph.dDewDensity_dPressure</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.R134a.html">R134a</a></li>
+  <li><a href="Modelica.Media.R134a.R134a_ph.html">R134a_ph</a></li>
+  <li><a href="Modelica.Media.R134a.R134a_ph.dDewDensity_dPressure.html">dDewDensity_dPressure</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>dDewDensity_dPressure</h1>
+    <p>Derivative of vapor density in two-phase region w.r.t. pressure</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.R134a.R134a_ph.dDewDensity_dPressure_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This function calculates the derivative of vapor density of R134a in two-phase region with regard to the state variable p (absolute pressure). The non-derivative function is <a href="Modelica.Media.R134a.R134a_ph.dewDensity.html"> dewDensity</a>.
+</p>
+<h4> Restrictions</h4>
+<p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">ddvdp = dDewDensity_dPressure(sat)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>sat</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.SaturationProperties.html">SaturationProperties</a></p>
+        <p><span>Description:</span> Saturation property record</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>ddvdp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.DerDensityByPressure.html">DerDensityByPressure</a> (s²/m²)</p>
+        <p><span>Description:</span> Saturated steam density derivative</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

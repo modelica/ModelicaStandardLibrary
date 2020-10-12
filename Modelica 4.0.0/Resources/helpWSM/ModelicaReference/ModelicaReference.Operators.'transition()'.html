@@ -1,0 +1,58 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Operators.'transition()'</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Operators.html">Operators</a></li>
+  <li><a href="ModelicaReference.Operators.'transition()'.html">'transition()'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'transition()'</h1>
+    <p>transition()</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'transition()'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This operator defines a transition in a <a href="ModelicaReference.StateMachines.html">state machine</a>.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>transition</strong>(from, to, condition, immediate, reset, synchronize, priority)</pre></blockquote>
+<h4>Description</h4>
+<p>
+This operator defines a transition from instance <strong>from</strong> to instance <strong>to</strong>.
+The <strong>from</strong> and <strong>to</strong> instances become states of a state machine.
+The transition fires when <strong>condition = true</strong> if <strong>immediate = true</strong> (this is called an immediate transition)
+or <strong>previous(condition)</strong> when <strong>immediate = false</strong> (this is called a delayed transition).
+Argument <strong>priority</strong> defines the priority of firing when several transitions could fire.
+In this case the transition with the smallest value of <strong>priority</strong> fires.
+It is required that priority is greater or equal to 1 and that for all transitions from the same state, the priorities are different.
+If <strong>reset = true</strong>, the states of the target state are reinitialized, i.e. state machines are restarted in initial state and state variables are reset to their start values. If synchronize=true, any transition is disabled until all state machines of the from-state have reached final states, i.e. states without outgoing transitions.
+</p>
+<p>
+Arguments <strong>from</strong> and <strong>to</strong> are block instances and <strong>condition</strong>
+is a Boolean argument. The optional arguments <strong>immediate</strong>, <strong>reset</strong>, and <strong>synchronize</strong>
+are of type Boolean, have parametric variability and a default of true, true, false respectively.
+The optional argument <strong>priority</strong> is of type Integer, has parametric variability and a default of 1.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

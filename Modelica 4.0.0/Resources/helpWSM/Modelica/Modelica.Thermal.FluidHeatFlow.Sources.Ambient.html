@@ -1,0 +1,277 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Thermal.FluidHeatFlow.Sources.Ambient</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Thermal.html">Thermal</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.html">FluidHeatFlow</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.Sources.html">Sources</a></li>
+  <li><a href="Modelica.Thermal.FluidHeatFlow.Sources.Ambient.html">Ambient</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Ambient</h1>
+    <p>Ambient with constant properties</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sources.Ambient_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>(Infinite) ambient with constant pressure and temperature.</p>
+<p>Thermodynamic equations are defined by BaseClasses.SinglePortLeft.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>medium</th>
+      <td>
+        <p><span>Value:</span> FluidHeatFlow.Media.Medium()</p>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Media.Medium.html">Medium</a></p>
+        <p><span>Description:</span> Medium</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T0</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Initial temperature of medium</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T0fixed</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Initial temperature guess value or fixed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>usePressureInput</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Enable / disable pressure input</p>
+      </td>
+    </tr>
+    <tr>
+      <th>constantAmbientPressure</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Ambient pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useTemperatureInput</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Enable / disable temperature input</p>
+      </td>
+    </tr>
+    <tr>
+      <th>constantAmbientTemperature</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Ambient temperature</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>T_port</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Temperature at flowPort_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Outlet temperature of medium</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a_16x16.png"></td>
+      <th>flowPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a.html">FlowPort_a</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>ambientPressure</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>ambientTemperature</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Media.Medium_32x32.png"></td>
+      <th>medium</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Media.Medium.html">Medium</a></p>
+        <p><span>Description:</span> Medium</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(11)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Cooling_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Cooling.html">DCPM_Cooling</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span></p>
+        <p>Test example: Cooling of a DCPM motor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.SimpleCooling_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCooling.html">SimpleCooling</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span></p>
+        <p>Simple cooling circuit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.ParallelCooling_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.ParallelCooling.html">ParallelCooling</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span></p>
+        <p>Cooling circuit with parallel branches</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.IndirectCooling_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.IndirectCooling.html">IndirectCooling</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span></p>
+        <p>Indirect cooling circuit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.PumpAndValve_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.PumpAndValve.html">PumpAndValve</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span></p>
+        <p>Cooling circuit with pump and valve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.PumpDropOut_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.PumpDropOut.html">PumpDropOut</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span></p>
+        <p>Cooling circuit with drop out of pump</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.ParallelPumpDropOut_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.ParallelPumpDropOut.html">ParallelPumpDropOut</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span></p>
+        <p>Cooling circuit with parallel branches and drop out of pump</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.OneMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.OneMass.html">OneMass</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span></p>
+        <p>Cooling of one hot mass</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.TwoMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.TwoMass.html">TwoMass</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span></p>
+        <p>Cooling of two hot masses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.WaterPump_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.WaterPump.html">WaterPump</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span></p>
+        <p>Water pumping station</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.TestOpenTank_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.TestOpenTank.html">TestOpenTank</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span></p>
+        <p>Test the OpenTank model</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Machines.BasicMachines.QuasiStaticDCMachines</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.BasicMachines.html">BasicMachines</a></li>
+  <li><a href="Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.html">QuasiStaticDCMachines</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>QuasiStaticDCMachines</h1>
+    <p>Models of quasi-static DC machines</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.DC_PermanentMagnet_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.DC_PermanentMagnet.html">DC_PermanentMagnet</a></p>
+        <p>Quasi-static permanent magnet DC machine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.DC_ElectricalExcited_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.DC_ElectricalExcited.html">DC_ElectricalExcited</a></p>
+        <p>Quasi-static electrical shunt/separate excited linear DC machine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.DC_SeriesExcited_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines.DC_SeriesExcited.html">DC_SeriesExcited</a></p>
+        <p>Quasi-static series excited linear DC machine</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This package contains quasi-static models of DC machines;
+these models are fully compatible with the
+<a href="Modelica.Electrical.Machines.BasicMachines.DCMachines.html">transient machine models of DC machines</a>;
+the only difference is that electrical transients are neglected.
+</p>
+<h4>Note</h4>
+<p>
+Quasi-static DC machine models are basically different from quasi-static induction machine models:
+Quasi-static DC machine models neglect electrical transients, i.e., setting <code>der(i) = 0</code>,
+whereas quasi-static induction machine models are based on time phasor theory,
+see <a href="Modelica.Electrical.QuasiStatic.html">QuasiStatic Library</a>,
+where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</code>.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

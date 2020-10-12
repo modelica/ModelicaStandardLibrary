@@ -1,0 +1,137 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: ComplexBlocks.Interfaces.ComplexSIMO</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.ComplexBlocks.html">ComplexBlocks</a></li>
+  <li><a href="Modelica.ComplexBlocks.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.ComplexBlocks.Interfaces.ComplexSIMO.html">ComplexSIMO</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ComplexSIMO</h1>
+    <p>Single Input Multiple Output continuous control block</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexSIMO_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+ Block has one continuous Complex input signal and a
+vector of continuous Complex output signals.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>nout</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of outputs</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useConjugateInput</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> If true, input is processed conjugate complex</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.ComplexBlocks.Interfaces.ComplexInput.html">ComplexInput</a></p>
+        <p><span>Description:</span> Connector of Complex input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.ComplexBlocks.Interfaces.ComplexOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.ComplexBlocks.Interfaces.ComplexOutput.html">ComplexOutput[nout]</a></p>
+        <p><span>Description:</span> Connector of Complex output signals</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Complex_32x32.png"></td>
+      <th>uInternal</th>
+      <td>
+        <p><span>Type:</span> <a href="../Complex/Complex.html">Complex</a></p>
+        <p><span>Description:</span> Equals either u or conjugate complex input u if useComplexInput = true</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Blocks.SingleToPolyphase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Blocks.SingleToPolyphase.html">SingleToPolyphase</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Blocks</span></p>
+        <p>Extends complex phase signal to complex polyphase signals using symmetricOrientation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.Routing.Replicator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.Routing.Replicator.html">Replicator</a></p>
+        <p><span>Modelica.ComplexBlocks.Routing</span></p>
+        <p>Signal replicator</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

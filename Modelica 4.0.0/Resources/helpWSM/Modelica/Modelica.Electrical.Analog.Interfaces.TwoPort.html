@@ -1,0 +1,171 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Analog.Interfaces.TwoPort</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Analog.html">Analog</a></li>
+  <li><a href="Modelica.Electrical.Analog.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Electrical.Analog.Interfaces.TwoPort.html">TwoPort</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>TwoPort</h1>
+    <p>Component with two electrical ports, including current</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Analog.Interfaces.TwoPort_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>TwoPort is a partial model that consists of two ports. Like OnePort each port has two pins. It is assumed that the current flowing into the positive  pin   is identical to the current flowing out of pin n. This currents of each port are  provided explicitly as currents i1 and i2, the voltages respectively as v1 and v2.</p>
+</div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive electrical pin of port 1</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative electrical pin of port 1</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive electrical pin of port 2</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative electrical pin of port 2</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Lines.TLine3_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Lines.TLine3.html">TLine3</a></p>
+        <p><span>Modelica.Electrical.Analog.Lines</span></p>
+        <p>Lossless transmission line with characteristic impedance Z0 and frequency F</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Lines.TLine2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Lines.TLine2.html">TLine2</a></p>
+        <p><span>Modelica.Electrical.Analog.Lines</span></p>
+        <p>Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Lines.TLine1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Lines.TLine1.html">TLine1</a></p>
+        <p><span>Modelica.Electrical.Analog.Lines</span></p>
+        <p>Lossless transmission line with characteristic impedance Z0 and transmission delay TD</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.IdealTransformer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.IdealTransformer.html">IdealTransformer</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span></p>
+        <p>Ideal transformer core with or without magnetization</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.CCC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.CCC.html">CCC</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span></p>
+        <p>Linear current-controlled current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.CCV_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.CCV.html">CCV</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span></p>
+        <p>Linear current-controlled voltage source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.VCC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.VCC.html">VCC</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span></p>
+        <p>Linear voltage-controlled current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.VCV_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.VCV.html">VCV</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span></p>
+        <p>Linear voltage-controlled voltage source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Gyrator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.Gyrator.html">Gyrator</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span></p>
+        <p>Gyrator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Transformer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.Transformer.html">Transformer</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span></p>
+        <p>Transformer with two ports</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

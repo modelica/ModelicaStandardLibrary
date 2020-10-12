@@ -1,0 +1,95 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.html">Dissipation</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.html">PressureLoss</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.html">General</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate.html">dp_volumeFlowRate</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>dp_volumeFlowRate</h1>
+    <p></p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Calculation of a generic pressure loss with linear or quadratic dependence on volume flow rate.
+</p>
+<h4>Calculation</h4>
+<p>
+The geometry parameters of energy devices necessary for the pressure loss calculations are often not exactly known.
+Therefore the modelling of the detailed pressure loss calculation has to be simplified. This function uses as
+quadratic dependence of the pressure loss on the volume flow rate.
+</p>
+<p>
+The mass flow rate <strong>m_flow</strong> for the compressible case [Mass flow rate = f(dp)] is determined to <em> [see Wischhusen]</em>:
+</p>
+<blockquote><pre>
+m_flow = rho*[-b/(2a) + {[b/(2a)]^2 + dp/a}^0.5]
+</pre></blockquote>
+<p>
+with
+</p>
+
+<table>
+<tr><td><strong> a              </strong></td><td> as quadratic coefficient [Pa*s^2/m^6],</td></tr>
+<tr><td><strong> b              </strong></td><td> as linear coefficient [Pa*s/m3],</td></tr>
+<tr><td><strong> dp             </strong></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><strong> m_flow         </strong></td><td> as mass flow rate [kg/s],</td></tr>
+<tr><td><strong> rho            </strong></td><td> as density of fluid [kg/m3].</td></tr>
+</table>
+
+<p>
+Note that the coefficients <strong>a,b</strong> have to be positive values so that there will be a positive (linear or quadratic) pressure loss at positive volume flow rate and vice versa.
+</p>
+<h4>Verification</h4>
+<p><strong> Compressible case</strong> [Mass flow rate = f(dp)]:</p>
+<p>
+The generic pressure loss <strong>dp</strong> for different coefficients <strong>a</strong> as parameter is shown in dependence of the volume flow rate <strong>V_flow</strong> in the figure below.
+</p>
+
+<p>
+<img src="resources/Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate_info_001.png" alt="dp_volumeFlowRate"/>
+</p>
+
+<p>
+Note that the verification for <a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate.html">dp_volumeFlowRate</a> is also valid for this inverse calculation due to using the same functions.
+</p>
+
+<h4>References</h4>
+<dl>
+<dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
+    <dd><strong>Inline integration: A new mixed
+    symbolic / numeric approach for solving differential-algebraic equation systems.</strong>.
+    In Proceedings of European Simulation MultiConference, Prague, 1995.</dd>
+<dt>Wischhusen, S.:</dt>
+    <dd><strong>Dynamische Simulation zur wirtschaftlichen Bewertung von komplexen Energiesystemen.</strong>.
+    PhD thesis, Technische Universit&auml;t Hamburg-Harburg, 2005.</dd>
+</dl>
+</div>
+</section>
+</div>
+</body>
+</html>

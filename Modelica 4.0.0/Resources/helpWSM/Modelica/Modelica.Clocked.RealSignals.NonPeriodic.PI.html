@@ -1,0 +1,184 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.RealSignals.NonPeriodic.PI</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.html">RealSignals</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.NonPeriodic.html">NonPeriodic</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.NonPeriodic.PI.html">PI</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PI</h1>
+    <p>Discrete-time PI controller with clocked input and output signals (for periodic and aperiodic systems using the parameterization of the continuous PI controller)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.RealSignals.NonPeriodic.PI_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Discrete-time PI controller that has been derived from the continuous-time
+PI controller
+</p>
+<blockquote><pre>
+              1
+y = k * (1 + ---) * u
+             T*s
+        T*s + 1
+  = k * ------- * u
+          T*s
+</pre></blockquote>
+<p>
+by using the implicit Euler discretization formula. The block is
+parametrized with the gain k and the time constant T of the continuous
+PI block. As a result, the discrete-time form of the PI controller depends
+explicitly on the sample time of the controller and changing this sample time,
+will give still a similar performance.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>k</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Gain of continuous PI controller</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Time constant of continuous PI controller</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>x</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Discrete PI state</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Connector of clocked, Real input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Connector of clocked, Real output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteController.html">ClockedWithDiscreteController</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discrete controller (period is used in the controller)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ExactlyClockedWithDiscreteController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ExactlyClockedWithDiscreteController.html">ExactlyClockedWithDiscreteController</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discrete controller and exact periodic clocks (period is used in the controller)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWith_AD_DA_Effects_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWith_AD_DA_Effects.html">ClockedWith_AD_DA_Effects</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discrete controller and simulated AD and DA effects</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.CascadeControlledDrive.SubClocked_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.CascadeControlledDrive.SubClocked.html">SubClocked</a></p>
+        <p><span>Modelica.Clocked.Examples.CascadeControlledDrive</span></p>
+        <p>Drive with clocked cascade controller where clocks are defined with sub-sampling and partitions with super-sampling</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.CascadeControlledDrive.SuperSampled_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.CascadeControlledDrive.SuperSampled.html">SuperSampled</a></p>
+        <p><span>Modelica.Clocked.Examples.CascadeControlledDrive</span></p>
+        <p>Drive with clocked cascade controller where fastest partition is defined with a clock and slower partition is defined with super-sampling</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.CascadeControlledDrive.AbsoluteClocks_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.CascadeControlledDrive.AbsoluteClocks.html">AbsoluteClocks</a></p>
+        <p><span>Modelica.Clocked.Examples.CascadeControlledDrive</span></p>
+        <p>Drive with clocked cascade controller where all partitions are defined with exact (integer) clock that need to be compatible to each other</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

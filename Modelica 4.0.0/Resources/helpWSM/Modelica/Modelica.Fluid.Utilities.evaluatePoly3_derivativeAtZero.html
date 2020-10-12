@@ -1,0 +1,97 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.Utilities.evaluatePoly3_derivativeAtZero</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero.html">evaluatePoly3_derivativeAtZero</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>evaluatePoly3_derivativeAtZero</h1>
+    <p>Evaluate polynomial of order 3 that passes the origin with a predefined derivative</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">y = evaluatePoly3_derivativeAtZero(x, x1, y1, y1d, y0d)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>x</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Value for which polynomial shall be evaluated</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x1</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Abscissa value</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y1</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> y1=f(x1)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y1d</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> First derivative at y1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y0d</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> First derivative at f(x=0)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

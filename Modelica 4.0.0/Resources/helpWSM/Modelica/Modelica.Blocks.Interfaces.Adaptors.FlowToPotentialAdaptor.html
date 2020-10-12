@@ -1,0 +1,195 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Interfaces.Adaptors.FlowToPotentialAdaptor</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Blocks.Interfaces.Adaptors.html">Adaptors</a></li>
+  <li><a href="Modelica.Blocks.Interfaces.Adaptors.FlowToPotentialAdaptor.html">FlowToPotentialAdaptor</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>FlowToPotentialAdaptor</h1>
+    <p>Signal adaptor for a connector with flow, 1st derivative of flow, and 2nd derivative of flow as inputs and
+  potential, 1st derivative of potential, and 2nd derivative of potential as outputs (especially useful for FMUs)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Interfaces.Adaptors.FlowToPotentialAdaptor_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Adaptor between a physical connector and a signal representation of the connector signals.
+This component is used to provide a pure signal interface around a physical model
+and export this model in form of an input/output block,
+especially as FMU (<a href="https://fmi-standard.org">Functional Mock-up Unit</a>).
+</p>
+<p>
+This adaptor has flow, optional 1st derivative of flow, and optional 2nd derivative of flow as input and
+potential, optional 1st derivative of potential, and optional 2nd derivative of potential as output signals.
+</p>
+<p>
+Note, the input signals must be consistent to each other
+(fder=der(f), fder2=der(fder)).
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>use_pder</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Use output for 1st derivative of potential</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_pder2</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Use output for 2nd derivative of potential (only if 1st derivative is used, too)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_fder</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Use input for 1st derivative of flow</p>
+      </td>
+    </tr>
+    <tr>
+      <th>use_fder2</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Use input for 2nd derivative of flow (only if 1st derivative is used, too)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Output for potential</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>pder</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Optional output for der(potential)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>pder2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Optional output for der2(potential)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>f</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Input for flow</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>fder</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Optional input for der(flow)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>fder2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Optional input for der2(flow)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.GeneralHeatFlowToTemperatureAdaptor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Components.GeneralHeatFlowToTemperatureAdaptor.html">GeneralHeatFlowToTemperatureAdaptor</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Components</span></p>
+        <p>Signal adaptor for a HeatTransfer port with temperature and derivative of temperature as outputs and heat flow as input (especially useful for FMUs)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.GeneralForceToPositionAdaptor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Components.GeneralForceToPositionAdaptor.html">GeneralForceToPositionAdaptor</a></p>
+        <p><span>Modelica.Mechanics.Translational.Components</span></p>
+        <p>Signal adaptor for a Translational flange with position, speed, and acceleration as outputs and force as input (especially useful for FMUs)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.GeneralTorqueToAngleAdaptor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.GeneralTorqueToAngleAdaptor.html">GeneralTorqueToAngleAdaptor</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span></p>
+        <p>Signal adaptor for a rotational flange with angle, speed, and acceleration as outputs and torque as input (especially useful for FMUs)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.GeneralCurrentToVoltageAdaptor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.GeneralCurrentToVoltageAdaptor.html">GeneralCurrentToVoltageAdaptor</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span></p>
+        <p>Signal adaptor for an Electrical OnePort with voltage and derivative of voltage as outputs and current and derivative of current as inputs (especially useful for FMUs)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

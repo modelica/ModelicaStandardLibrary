@@ -1,0 +1,184 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.QuasiStatic.SinglePhase.Utilities.IdealACDCConverter</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.SinglePhase.html">SinglePhase</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Utilities.IdealACDCConverter.html">IdealACDCConverter</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>IdealACDCConverter</h1>
+    <p>Ideal AC DC converter</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Utilities.IdealACDCConverter_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This is an ideal AC DC converter, based on a power balance between QS circuit and DC side.
+The parameter <em>conversionFactor</em> defines the ratio between averaged DC voltage and QS rms voltage.
+Furthermore, reactive power at the QS side is set to 0.
+</p>
+<h4>Note</h4>
+<p>
+Of course no voltage or current ripple is present, neither at the QS side nor at the DC side.
+At the QS side, only base harmonics of voltage and current are taken into account.
+At the DC side, only the mean of voltage and current are taken into account.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>conversionFactor</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Ratio of DC voltage / QS rms voltage</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>vQSabs</th>
+      <td>
+        <p><span>Default Value:</span> abs(vQS)</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Abs(AC QS voltage)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>iQSabs</th>
+      <td>
+        <p><span>Default Value:</span> abs(iQS)</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Abs(AC QS current)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin_16x16.png"></td>
+      <th>pin_pQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.PositivePin.html">PositivePin</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin_16x16.png"></td>
+      <th>pin_nQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.NegativePin.html">NegativePin</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>pin_pDC</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>pin_nDC</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexVoltage_32x32.png"></td>
+      <th>vQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexVoltage.html">ComplexVoltage</a></p>
+        <p><span>Description:</span> AC QS voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexCurrent_32x32.png"></td>
+      <th>iQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexCurrent.html">ComplexCurrent</a></p>
+        <p><span>Description:</span> AC QS current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Units.SI.ComplexPower_32x32.png"></td>
+      <th>sQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ComplexPower.html">ComplexPower</a></p>
+        <p><span>Description:</span> AC QS apparent power</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Examples.Rectifier_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Examples.Rectifier.html">Rectifier</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Examples</span></p>
+        <p>Rectifier example</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

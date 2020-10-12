@@ -1,0 +1,287 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Parts.Rotor1D</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Parts.html">Parts</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Parts.Rotor1D.html">Rotor1D</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Rotor1D</h1>
+    <p>1D inertia attachable on 3-dim. bodies (3D dynamic effects are taken into account if world.driveTrainMechanics3D=true)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.Rotor1D_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.MultiBody.Parts.Rotor1D_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.MultiBody.Parts.Rotor1D_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This component is used to model the gyroscopic torques exerted by a 1-dim.
+inertia (so called <em>rotor</em>) on its 3-dim. carrier body. Gyroscopic torques
+appear, if the vector of the carrier body's angular velocity is not parallel
+to the vector of the rotor's axis. The axis of rotation of the rotor is defined by
+the parameter <code>n</code>, which has to be given in the local coordinate system
+of <code>frame_a</code>. The default animation of this component is
+shown in the figure below.</p>
+<p>
+      <img src="resources/Modelica.Mechanics.MultiBody.Parts.Rotor1D_info_001.png" alt="model Parts.Rotor1D">
+</p>
+<p>This component is a replacement for
+<a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Modelica.Mechanics.Rotational.Components.Inertia</a>
+for the case, that a 1-dim.-rotational mechanical system should be attached with a 3-dim.
+carrier body.</p>
+<p>The Boolean parameter <code>exact</code> was introduced due to performance
+reasons. If <code>exact</code> is set to <strong>false</strong>, the influence of the carrier body
+motion on the angular velocity of the rotor is neglected. This influence is usually
+negligible if the 1-dim.-rotational mechanical system accelerates much faster as the base body (this is,
+e.g., the case in vehicle powertrains). The essential advantage is
+that an algebraic loop is removed since then there is only an
+action on acceleration level from the powertrain to the base body
+but not vice versa.</p>
+<p><strong>Reference</strong><br>
+<span style="font-variant:small-caps">Schweiger</span>, Christian ;
+<span style="font-variant:small-caps">Otter</span>, Martin:
+<a href="https://www.modelica.org/events/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf">Modelling
+3D Mechanical Effects of 1-dim. Powertrains</a>. In: <em>Proceedings of the 3rd International
+Modelica Conference</em>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
+November 3-4, 2003, pp. 149-158</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>animation</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if animation shall be enabled (show rotor as cylinder)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>J</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Moment of inertia of rotor around its axis of rotation</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Value:</span> {1, 0, 0}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Axis.html">Axis</a></p>
+        <p><span>Description:</span> Axis of rotation resolved in frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r_center</th>
+      <td>
+        <p><span>Value:</span> zeros(3)</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> Position vector from origin of frame_a to center of cylinder</p>
+      </td>
+    </tr>
+    <tr>
+      <th>cylinderLength</th>
+      <td>
+        <p><span>Value:</span> 2 * world.defaultJointLength</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Length of cylinder representing the rotor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>cylinderDiameter</th>
+      <td>
+        <p><span>Value:</span> 2 * world.defaultJointWidth</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Distance.html">Distance</a> (m)</p>
+        <p><span>Description:</span> Diameter of cylinder representing the rotor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>stateSelect</th>
+      <td>
+        <p><span>Value:</span> StateSelect.default</p>
+        <p><span>Type:</span> StateSelect</p>
+        <p><span>Description:</span> Priority to use rotor angle (phi) and rotor speed (w) as states</p>
+      </td>
+    </tr>
+    <tr>
+      <th>exact</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if exact calculations; false if influence of bearing on rotor acceleration is neglected to avoid an algebraic loop</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>cylinderColor</th>
+      <td>
+        <p><span>Default Value:</span> Modelica.Mechanics.MultiBody.Types.Defaults.RodColor</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of cylinder representing the rotor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>specularCoefficient</th>
+      <td>
+        <p><span>Default Value:</span> world.defaultSpecularCoefficient</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.SpecularCoefficient.html">SpecularCoefficient</a></p>
+        <p><span>Description:</span> Reflection of ambient light (= 0: light is completely absorbed)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_a_16x16.png"></td>
+      <th>flange_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> (left) driving flange (flange axis directed INTO cut plane)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flange_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> (right) driven flange (flange axis directed OUT OF cut plane)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_16x16.png"></td>
+      <th>frame_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p><span>Description:</span> Frame in which rotor housing is fixed (connector is removed, if world.driveTrainMechanics3D=false)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape_32x32.png"></td>
+      <th>cylinder</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape.html">Shape</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Inertia_32x32.png"></td>
+      <th>inertia</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Inertia</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.Rotor1D.RotorWith3DEffects_32x32.png"></td>
+      <th>rotorWith3DEffects</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Parts.Rotor1D.RotorWith3DEffects.html">RotorWith3DEffects</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffects_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffects.html">GyroscopicEffects</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</span></p>
+        <p>Demonstrates that a cylindrical body can be replaced by Rotor1D model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.ActuatedDrive_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.ActuatedDrive.html">ActuatedDrive</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</span></p>
+        <p>Demonstrates usage of models Rotor1D and Mounting1D</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.MovingActuatedDrive_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.MovingActuatedDrive.html">MovingActuatedDrive</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</span></p>
+        <p>Demonstrates usage of model Rotor1D mounted on a moving body</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.BevelGear1D_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.BevelGear1D.html">BevelGear1D</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</span></p>
+        <p>Demonstrates the usage of a BevelGear1D model and how to calculate the power of such an element</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,292 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnitWithContinuousControl</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.html">Systems</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.html">ComponentsMixingUnit</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnitWithContinuousControl.html">MixingUnitWithContinuousControl</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>MixingUnitWithContinuousControl</h1>
+    <p>Simple example of a mixing unit where a (continuous) nonlinear inverse plant model is used as feedforward controller</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnitWithContinuousControl_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnitWithContinuousControl_diagram_large.png"><img src="resources/diagrams/Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnitWithContinuousControl_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(22)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>freq</th>
+      <td>
+        <p><span>Value:</span> 1 / 300</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Critical frequency of filter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c0</th>
+      <td>
+        <p><span>Value:</span> 0.848</p>
+        <p><span>Type:</span> Real (mol/l)</p>
+        <p><span>Description:</span> Nominal concentration</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T0</th>
+      <td>
+        <p><span>Value:</span> 308.5</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Nominal temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a1_inv</th>
+      <td>
+        <p><span>Value:</span> 0.2674</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter of inverse plant model (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a21_inv</th>
+      <td>
+        <p><span>Value:</span> 1.815</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter of inverse plant model (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a22_inv</th>
+      <td>
+        <p><span>Value:</span> 0.4682</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter of inverse plant model (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b_inv</th>
+      <td>
+        <p><span>Value:</span> 1.5476</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter of inverse plant model (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>k0_inv</th>
+      <td>
+        <p><span>Value:</span> 1.05e14</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter of inverse plant model (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>eps</th>
+      <td>
+        <p><span>Value:</span> 34.2894</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x10</th>
+      <td>
+        <p><span>Value:</span> 0.42</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Relative offset between nominal concentration and initial concentration</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x20</th>
+      <td>
+        <p><span>Value:</span> 0.01</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Relative offset between nominal temperature and initial temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u0</th>
+      <td>
+        <p><span>Value:</span> -0.0224</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Relative offset between initial cooling temperature and nominal temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c_start</th>
+      <td>
+        <p><span>Value:</span> c0 * (1 - x10)</p>
+        <p><span>Type:</span> Real (mol/l)</p>
+        <p><span>Description:</span> Initial concentration</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_start</th>
+      <td>
+        <p><span>Value:</span> T0 * (1 + x20)</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Initial temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c_high_start</th>
+      <td>
+        <p><span>Value:</span> c0 * (1 - 0.72)</p>
+        <p><span>Type:</span> Real (mol/l)</p>
+        <p><span>Description:</span> Reference concentration</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_c_start</th>
+      <td>
+        <p><span>Value:</span> T0 * (1 + u0)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Initial cooling temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>pro</th>
+      <td>
+        <p><span>Value:</span> 1.1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Deviations of plant to inverse plant parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a1</th>
+      <td>
+        <p><span>Value:</span> a1_inv * pro</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter of plant model (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a21</th>
+      <td>
+        <p><span>Value:</span> a21_inv * pro</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter of plant model (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a22</th>
+      <td>
+        <p><span>Value:</span> a22_inv * pro</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter of plant model (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>
+        <p><span>Value:</span> b_inv * pro</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter of plant model (see references in help)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>k0</th>
+      <td>
+        <p><span>Value:</span> k0_inv * pro</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Process parameter of plant model (see references in help)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit_32x32.png"></td>
+      <th>invMixingUnit</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit.html">MixingUnit</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Add_32x32.png"></td>
+      <th>add</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Add.html">Add</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.InverseBlockConstraints_32x32.png"></td>
+      <th>inverseBlockConstraints</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.InverseBlockConstraints.html">InverseBlockConstraints</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.CriticalDamping_32x32.png"></td>
+      <th>filter</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.CriticalDamping.html">CriticalDamping</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit_32x32.png"></td>
+      <th>mixingUnit</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnit.html">MixingUnit</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Feedback_32x32.png"></td>
+      <th>feedback</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Feedback.html">Feedback</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Step_32x32.png"></td>
+      <th>step</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>gain</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

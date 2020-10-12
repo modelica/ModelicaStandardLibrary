@@ -1,0 +1,86 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Annotations.smoothOrder</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Annotations.html">Annotations</a></li>
+  <li><a href="ModelicaReference.Annotations.smoothOrder.html">smoothOrder</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>smoothOrder</h1>
+    <p>smoothOrder</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Annotations.smoothOrder_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Define differentiability of function body
+</p>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+   <strong>annotation</strong>"(" smoothOrder "=" UNSIGNED_INTEGER ")"
+   <strong>annotation</strong>"(" smoothOrder "(" normallyConstant=NAME ["," normallyConstant=NAME] ")"
+                             "=" UNSIGNED_NUMBER ")"
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This annotation has only an effect within a function declaration.
+</p>
+
+<p>
+smoothOrder defines the number of differentiations of the function, in order that all of the differentiated outputs are continuous provided all input arguments and their derivatives up to order smoothOrder are continuous.
+</p>
+
+<p>
+This means that the function is at least C<sup>smoothOrder</sup>. smoothOrder = 1 means that the function can be differentiated at least once in order that all output arguments are still continuous, provided the input arguments are continuous. If a tool needs the derivative of a function, e.g., for index reduction or to compute an analytic Jacobian, the function can be differentiated analytically at most smoothOrder times.
+</p>
+<p>
+The optional argument <code>normallyConstant</code> of <code>smoothOrder</code> defines that the function argument <code>NAME</code> is usually constant.
+</p>
+
+<h4>Examples</h4>
+<p>
+This annotation is used by many functions of the <a href="../Modelica/Modelica.Fluid.html">Modelica.Fluid</a> library, such as <a href="../Modelica/Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP.html">Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP</a>, since geometric arguments to these functions are usually constant.
+</p>
+<blockquote><pre>
+<strong>function</strong> SpecialPolynomial
+  <strong>input</strong>  Real u;
+  <strong>output</strong> Real y;
+<strong>algorithm</strong>
+   y = <strong>if</strong> u > 0 <strong>then</strong> u^2 <strong>else</strong> 0;
+  <strong>annotation</strong>(smoothOrder = 1);
+<strong>end</strong> SpecialPolynomial;
+
+<strong>model</strong> TestSpecialPolynomial
+   Real y;
+   Real yd;
+   Real ydd;
+<strong>equation</strong>
+   y   = SpecialPolynomial(sin(time));
+   yd  = <strong>der</strong>(y);     // fine, SpecialPolynomial is analytically differentiated once
+   ydd = <strong>der</strong>(yd);    // error, SpecialPolynomial cannot be differentiated twice
+<strong>end</strong> TestSpecialPolynomial;
+</pre></blockquote>
+</div>
+</section>
+</div>
+</body>
+</html>

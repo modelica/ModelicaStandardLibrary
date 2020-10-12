@@ -1,0 +1,84 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Media.Air.MoistAir.enthalpyOfWater</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Air.html">Air</a></li>
+  <li><a href="Modelica.Media.Air.MoistAir.html">MoistAir</a></li>
+  <li><a href="Modelica.Media.Air.MoistAir.enthalpyOfWater.html">enthalpyOfWater</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>enthalpyOfWater</h1>
+    <p>Computes specific enthalpy of water (solid/liquid) near atmospheric pressure from temperature T</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Air.MoistAir.enthalpyOfWater_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+Specific enthalpy of water (liquid and solid) is computed from temperature using constant properties as follows:<br>
+<ul>
+<li>heat capacity of liquid water:4200 J/kg</li>
+<li>heat capacity of solid water: 2050 J/kg</li>
+<li>enthalpy of fusion (liquid=>solid): 333000 J/kg</li>
+</ul>
+Pressure is assumed to be around 1 bar. This function is usually used to determine the specific enthalpy of the liquid or solid fraction of moist air.
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">h = enthalpyOfWater(T)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Temperature</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>h</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> Specific enthalpy of water</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

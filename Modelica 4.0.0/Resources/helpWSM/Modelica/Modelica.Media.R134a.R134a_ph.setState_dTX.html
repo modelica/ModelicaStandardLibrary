@@ -1,0 +1,118 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Media.R134a.R134a_ph.setState_dTX</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.R134a.html">R134a</a></li>
+  <li><a href="Modelica.Media.R134a.R134a_ph.html">R134a_ph</a></li>
+  <li><a href="Modelica.Media.R134a.R134a_ph.setState_dTX.html">setState_dTX</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>setState_dTX</h1>
+    <p>Set state for density and temperature (X not used since single substance)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.R134a.R134a_ph.setState_dTX_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>Although the medium package is explicit for pressure and specific enthalpy, this function may be used in order to calculate the thermodynamic state record used as input by many functions. It will calculate the missing states:</p>
+<ul>
+<li>pressure</li>
+<li>specific enthalpy</li>
+</ul>
+<p>
+Example:
+</p>
+<blockquote><pre>
+parameter Medium.Density d = 4;
+parameter Medium.Temperature T = 298;
+
+Medium.SpecificEntropy s;
+
+<strong>equation</strong>
+
+s = Medium.specificEntropy(setState_dTX(d, T, fill(0, Medium.nX)));
+</pre></blockquote>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">state = setState_dTX(d, T, X, phase)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>d</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.Density.html">Density</a> (kg/m³)</p>
+        <p><span>Description:</span> Density</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>X</th>
+      <td>
+        <p><span>Default Value:</span> reference_X</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.MassFraction.html">MassFraction[:]</a> (kg/kg)</p>
+        <p><span>Description:</span> Mass fractions</p>
+      </td>
+    </tr>
+    <tr>
+      <th>phase</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.FixedPhase.html">FixedPhase</a></p>
+        <p><span>Description:</span> 2 for two-phase, 1 for one-phase, 0 if not known</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>state</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.ThermodynamicState.html">ThermodynamicState</a></p>
+        <p><span>Description:</span> Thermodynamic state record</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

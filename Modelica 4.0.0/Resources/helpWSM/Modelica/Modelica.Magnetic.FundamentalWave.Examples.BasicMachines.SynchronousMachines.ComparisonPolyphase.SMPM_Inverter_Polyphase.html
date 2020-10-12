@@ -1,0 +1,318 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.html">FundamentalWave</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.html">BasicMachines</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.html">SynchronousMachines</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.html">ComparisonPolyphase</a></li>
+  <li><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase.html">SMPM_Inverter_Polyphase</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SMPM_Inverter_Polyphase</h1>
+    <p>Starting of polyphase permanent magnet synchronous machine with inverter</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase_diagram_large.png"><img src="resources/diagrams/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Permanent magnet synchronous machine fed by an ideal inverter</h4>
+<p>
+
+An ideal frequency inverter is modeled by using
+<a href="Modelica.Electrical.Machines.Utilities.VfController.html">VfController</a>s
+and <a href="Modelica.Electrical.Polyphase.Sources.SignalVoltage.html">SignalVoltages</a>s.
+Frequency is raised by a ramp, causing the
+<a href="Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet.html">permanent magnet synchronous machines</a> to start,
+and accelerate the inertias. Two equivalent machines with different numbers of phases are compared and their equal behavior is demonstrated.</p>
+
+<p>At time tStep a load step is applied. Simulate for 1.5 seconds and plot (versus time):</p>
+
+<ul>
+<li><code>aimcM|M3.tauElectrical</code>: machine torque</li>
+<li><code>aimsM|M3.wMechanical</code>: machine speed</li>
+<li><code>feedback.y</code>: zero since difference of three-phase current phasor and scaled polyphase current phasor are equal</li>
+</ul>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(9)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Value:</span> 5</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of stator phases</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VsNominal</th>
+      <td>
+        <p><span>Value:</span> 100</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Nominal RMS voltage per phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fsNominal</th>
+      <td>
+        <p><span>Value:</span> smpmData.fsNominal</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Nominal frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fKnee</th>
+      <td>
+        <p><span>Value:</span> 50</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Knee frequency of V/f curve</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tRamp</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Frequency ramp</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_Load</th>
+      <td>
+        <p><span>Value:</span> 181.4</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Torque.html">Torque</a> (N·m)</p>
+        <p><span>Description:</span> Nominal load torque</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tStep</th>
+      <td>
+        <p><span>Value:</span> 1.2</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Time of load torque step</p>
+      </td>
+    </tr>
+    <tr>
+      <th>J_Load</th>
+      <td>
+        <p><span>Value:</span> 0.29</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Load inertia</p>
+      </td>
+    </tr>
+    <tr>
+      <th>smpmData</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData.html">SM_PermanentMagnetData</a></p>
+        <p><span>Description:</span> Synchronous machine data</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(23)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>ground3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Basic.Star_32x32.png"></td>
+      <th>star3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Basic.Star.html">Star</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Sources.SignalVoltage_32x32.png"></td>
+      <th>signalVoltage3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Sources.SignalVoltage.html">SignalVoltage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Ramp_32x32.png"></td>
+      <th>ramp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Ramp.html">Ramp</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.VfController_32x32.png"></td>
+      <th>vfController3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.VfController.html">VfController</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor_32x32.png"></td>
+      <th>currentRMSsensorM</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Sensors.CurrentQuasiRMSSensor.html">CurrentQuasiRMSSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor_32x32.png"></td>
+      <th>currentRMSsensor3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor.html">CurrentQuasiRMSSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.TerminalBox_32x32.png"></td>
+      <th>terminalBoxM</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.TerminalBox.html">TerminalBox</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.TerminalBox_32x32.png"></td>
+      <th>terminalBox3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.TerminalBox.html">TerminalBox</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet_32x32.png"></td>
+      <th>smpmM</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet.html">SM_PermanentMagnet</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet_32x32.png"></td>
+      <th>smpm3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet.html">SM_PermanentMagnet</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle_32x32.png"></td>
+      <th>rotorAngle3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle.html">RotorDisplacementAngle</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Inertia_32x32.png"></td>
+      <th>loadInertiaM</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Inertia</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Inertia_32x32.png"></td>
+      <th>loadInertia3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Inertia</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.TorqueStep_32x32.png"></td>
+      <th>torqueStepM</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sources.TorqueStep.html">TorqueStep</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.TorqueStep_32x32.png"></td>
+      <th>torqueStep3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sources.TorqueStep.html">TorqueStep</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData_32x32.png"></td>
+      <th>smpmData</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData.html">SM_PermanentMagnetData</a></p>
+        <p><span>Description:</span> Synchronous machine data</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Sources.SignalVoltage_32x32.png"></td>
+      <th>signalVoltageM</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Sources.SignalVoltage.html">SignalVoltage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Basic.Star_32x32.png"></td>
+      <th>starM</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Basic.Star.html">Star</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>groundM</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.VfController_32x32.png"></td>
+      <th>vfController</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.VfController.html">VfController</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Feedback_32x32.png"></td>
+      <th>feedback</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Feedback.html">Feedback</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>gain</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

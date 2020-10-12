@@ -1,0 +1,101 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint.selectBranch</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Joints.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint.html">PrismaticWithLengthConstraint</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint.selectBranch.html">selectBranch</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>selectBranch</h1>
+    <p>Determine branch which is closest to initial angle=0</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint.selectBranch_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">positiveBranch = selectBranch(L, e, d_guess, r_a, r_b)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>L</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length of length constraint</p>
+      </td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>
+        <p><span>Type:</span> Real[3]</p>
+        <p><span>Description:</span> Unit vector along axis of translation, resolved in frame_a (= same in frame_b)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>d_guess</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position</a> (m)</p>
+        <p><span>Description:</span> Select the configuration such that at initial time |d-d_guess| is minimal (d: distance between origin of frame_a and origin of frame_b)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of prismatic joint</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[3]</a> (m)</p>
+        <p><span>Description:</span> Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of prismatic joint</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>positiveBranch</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Branch of the initial solution</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

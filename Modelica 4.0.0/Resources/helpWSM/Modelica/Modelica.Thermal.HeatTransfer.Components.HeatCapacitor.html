@@ -1,0 +1,309 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Thermal.HeatTransfer.Components.HeatCapacitor</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Thermal.html">Thermal</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.html">HeatTransfer</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.Components.html">Components</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.Components.HeatCapacitor.html">HeatCapacitor</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>HeatCapacitor</h1>
+    <p>Lumped thermal element storing heat</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.HeatCapacitor_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This is a generic model for the heat capacity of a material.
+No specific geometry is assumed beyond a total volume with
+uniform temperature for the entire volume.
+Furthermore, it is assumed that the heat capacity
+is constant (independent of temperature).
+</p>
+<p>
+The temperature T [Kelvin] of this component is a <strong>state</strong>.
+A default of T = 25 degree Celsius (= Modelica.Units.Conversions.from_degC(25))
+is used as start value for initialization.
+This usually means that at start of integration the temperature of this
+component is 25 degrees Celsius. You may, of course, define a different
+temperature as start value for initialization. Alternatively, it is possible
+to set parameter <strong>steadyStateStart</strong> to <strong>true</strong>. In this case
+the additional equation '<strong>der</strong>(T) = 0' is used during
+initialization, i.e., the temperature T is computed in such a way that
+the component starts in <strong>steady state</strong>. This is useful in cases,
+where one would like to start simulation in a suitable operating
+point without being forced to integrate for a long time to arrive
+at this point.
+</p>
+<p>
+Note, that parameter <strong>steadyStateStart</strong> is not available in
+the parameter menu of the simulation window, because its value
+is utilized during translation to generate quite different
+equations depending on its setting. Therefore, the value of this
+parameter can only be changed before translating the model.
+</p>
+<p>
+This component may be used for complicated geometries where
+the heat capacity C is determined my measurements. If the component
+consists mainly of one type of material, the <strong>mass m</strong> of the
+component may be measured or calculated and multiplied with the
+<strong>specific heat capacity cp</strong> of the component material to
+compute C:
+</p>
+<blockquote><pre>
+C = cp*m.
+Typical values for cp at 20 degC in J/(kg.K):
+   aluminium   896
+   concrete    840
+   copper      383
+   iron        452
+   silver      235
+   steel       420 ... 500 (V2A)
+   wood       2500
+</pre></blockquote>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>C</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.HeatCapacity.html">HeatCapacity</a> (J/K)</p>
+        <p><span>Description:</span> Heat capacity of element (= cp*m)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>port</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(19)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.HeatingMOSInverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.HeatingMOSInverter.html">HeatingMOSInverter</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span></p>
+        <p>Heating MOS Inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.HeatingNPN_NORGate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.HeatingNPN_NORGate.html">HeatingNPN_NORGate</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span></p>
+        <p>Heating NPN NOR Gate</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.HeatingPNP_NORGate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.HeatingPNP_NORGate.html">HeatingPNP_NORGate</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span></p>
+        <p>Heating PNP NOR Gate</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.HeatingRectifier_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.HeatingRectifier.html">HeatingRectifier</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span></p>
+        <p>Heating rectifier</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Cooling_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Cooling.html">DCPM_Cooling</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span></p>
+        <p>Test example: Cooling of a DCPM motor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.EddyCurrentBrake_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.EddyCurrentBrake.html">EddyCurrentBrake</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Demonstrate the usage of the rotational eddy current brake</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.EddyCurrentBrake_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.EddyCurrentBrake.html">EddyCurrentBrake</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span></p>
+        <p>Demonstrate the usage of the translational eddy current brake</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.SimpleCooling_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCooling.html">SimpleCooling</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span></p>
+        <p>Simple cooling circuit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.ParallelCooling_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.ParallelCooling.html">ParallelCooling</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span></p>
+        <p>Cooling circuit with parallel branches</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.IndirectCooling_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.IndirectCooling.html">IndirectCooling</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span></p>
+        <p>Indirect cooling circuit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.PumpAndValve_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.PumpAndValve.html">PumpAndValve</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span></p>
+        <p>Cooling circuit with pump and valve</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.PumpDropOut_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.PumpDropOut.html">PumpDropOut</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span></p>
+        <p>Cooling circuit with drop out of pump</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.ParallelPumpDropOut_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.ParallelPumpDropOut.html">ParallelPumpDropOut</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span></p>
+        <p>Cooling circuit with parallel branches and drop out of pump</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.OneMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.OneMass.html">OneMass</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span></p>
+        <p>Cooling of one hot mass</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Examples.TwoMass_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Examples.TwoMass.html">TwoMass</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Examples</span></p>
+        <p>Cooling of two hot masses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Examples.TwoMasses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Examples.TwoMasses.html">TwoMasses</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Examples</span></p>
+        <p>Simple conduction demo</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Examples.ControlledTemperature_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Examples.ControlledTemperature.html">ControlledTemperature</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Examples</span></p>
+        <p>Control temperature of a resistor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Examples.Motor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Examples.Motor.html">Motor</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Examples</span></p>
+        <p>Second order thermal model of a motor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Examples.GenerationOfFMUs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Examples.GenerationOfFMUs.html">GenerationOfFMUs</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Examples</span></p>
+        <p>Example to demonstrate variants to generate FMUs (Functional Mock-up Units)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Examples.Utilities.DirectCapacity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Examples.Utilities.DirectCapacity.html">DirectCapacity</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Examples.Utilities</span></p>
+        <p>Input/output block of a direct heatCapacity model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Examples.Utilities.InverseCapacity_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Examples.Utilities.InverseCapacity.html">InverseCapacity</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Examples.Utilities</span></p>
+        <p>Input/output block of an inverse heatCapacity model</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

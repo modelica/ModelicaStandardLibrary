@@ -1,0 +1,107 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Annotations.Dialog</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Annotations.html">Annotations</a></li>
+  <li><a href="ModelicaReference.Annotations.Dialog.html">Dialog</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Dialog</h1>
+    <p>Dialog</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Annotations.Dialog_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Define graphical layout of the parameter menu.
+</p>
+
+<h4>Syntax</h4>
+<blockquote><pre><strong>annotation</strong>(<strong>Dialog</strong>(<strong>enable</strong> = true,
+                     <strong>tab</strong> = "General",
+                   <strong>group</strong> = "Parameters",
+      <strong>showStartAttribute</strong> = false,
+           <strong>colorSelector</strong> = false,
+              <strong>groupImage</strong> = "modelica://MyPackage/Resources/Images/image.png",
+         <strong>connectorSizing</strong> = false));
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The annotations <strong><code>tab</code></strong> and <strong><code>group</code></strong> define the placement of the component or of variables in a dialog with optional tab and group specification. If <code><strong>enable</strong> = false</code>, the input field may be disabled [and no input can be given]. If <code><strong>showStartAttribute</strong> = true</code> the dialog should allow the user to set the start-value and the fixed attribute for the variable instead of the value-attribute [this is primarily intended for non-parameter values and avoids introducing a separate parameter for the start-value of the variable].
+</p>
+<p>
+If <code>colorSelector=true</code>, it indicates that an rgb-value selector can be presented for a vector of  three elements and generate values <code>0..255</code> (the annotation should be usable both for vectors of Integers and Reals).
+</p>
+<p>
+The annotation <strong><code>groupImage</code></strong> references an image using an Modelica URI, and the image is intended to be shown together with the parameter-group (only one image per group is supported). Disabling the input field will not disable the image.
+</p>
+<p>
+The value of the <strong><code>connectorSizing</code></strong> annotation must be a literal false or true value [since if the value is an expression, the <code>connectorSizing</code> functionality is conditional and this will then lead easily to wrong models]. If <code>connectorSizing = false</code>, this annotation has no effect. If <code>connectorSizing = true</code>, the corresponding variable must be declared with the parameter prefix, must be a subtype of a scalar Integer and must have a literal default value of zero [since this annotation is designed for a parameter that is used as vector dimension and the dimension of the vector should be zero when the component is dragged or redeclared; furthermore, when a tool does not support the connectorSizing annotation, dragging will still result in a correct model].
+If <code>connectorSizing = true</code>, a tool may set the parameter value in a modifier automatically, if used as dimension size of a vector of connectors. [The <code>connectorSizing</code> annotation is used in cases where connections to a vector of connectors shall be made and a new connection requires to resize the vector and to  connect  to the new index (unary connections). The annotation allows a tool to perform these two actions in many cases automatically. This is, e.g., very useful for state machines and for certain components of fluid libraries.]
+</p>
+<p>
+Annotation "Dialog" is defined as:
+</p>
+<blockquote><pre><strong>record</strong> Dialog
+  <strong>parameter</strong> String  tab                = "General";
+  <strong>parameter</strong> String  group              = "Parameters";
+  <strong>parameter</strong> String  groupImage         = "";
+  <strong>parameter</strong> Boolean enable             = <strong>true</strong>;
+  <strong>parameter</strong> Boolean showStartAttribute = <strong>false</strong>;
+  <strong>parameter</strong> Boolean connectorSizing    = <strong>false</strong>;
+  <strong>parameter</strong> Boolean colorSelector      = <strong>false</strong>;
+  <strong>parameter</strong> Selector loadSelector;
+  <strong>parameter</strong> Selector saveSelector;
+<strong>end</strong> Dialog;
+
+<strong>record</strong> Selector
+  <strong>parameter</strong> String filter="";
+  <strong>parameter</strong> String caption="";
+<strong>end</strong> Selector;
+</pre></blockquote>
+
+<h4>Examples</h4>
+<p>
+A parameter dialog is a sequence of tabs with a sequence of groups inside them.
+</p>
+<p>
+A <code>Selector</code> displays a file dialog to select a file: Parameter <code>filter</code> only shows files that fulfill the given pattern defined by "<code>text1 (*.ext1);;text2 (*.ext2);</code>" to show only files with file extension <code>*.ext1</code> or <code>*.ext2</code> and displaying a description text "<code>text1</code>" and "<code>text2</code>", respectively. Parameter caption is the text displayed in the dialog menu. Parameter <code>loadSelector</code> is used to select an existing file for reading, whereas parameter <code>saveSelector</code> is used to define a file for writing.
+</p>
+
+<blockquote><pre><strong>model</strong> DialogDemo
+  <strong>parameter</strong> Boolean b = true "Boolean parameter";
+  <strong>parameter</strong> Modelica.Units.SI.Length length "Real parameter with unit";
+  <strong>parameter</strong> Integer nInports=0 annotation(Dialog(connectorSizing=true));
+  <strong>parameter</strong> Real r1 "Real parameter in Group 1" annotation(Dialog(group="Group 1"));
+  <strong>parameter</strong> Real r2 "Disabled Real parameter in group 1"
+                     <strong>annotation</strong>(<strong>Dialog</strong>(<strong>group</strong>="Group 1", <strong>enable</strong> = <strong>not</strong> b));
+  <strong>parameter</strong> Real r3 "Real parameter in Tab 1" <strong>annotation</strong>(<strong>Dialog</strong>(<strong>tab</strong>="Tab 1"));
+  <strong>parameter</strong> Real r4 "Real parameter in Tab 1 and Group 2"
+                     <strong>annotation</strong>(<strong>Dialog</strong>(<strong>tab</strong>="Tab 1", <strong>group</strong>="Group 2"));
+  StepIn stepIn[nInports];
+  ...
+<strong>end</strong> DialogDemo;
+</pre></blockquote>
+</div>
+</section>
+</div>
+</body>
+</html>

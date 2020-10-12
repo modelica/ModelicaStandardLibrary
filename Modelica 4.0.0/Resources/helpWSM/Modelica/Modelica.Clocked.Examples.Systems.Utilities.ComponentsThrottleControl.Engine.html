@@ -1,0 +1,171 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.Engine</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.html">Systems</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.html">ComponentsThrottleControl</a></li>
+  <li><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.Engine.html">Engine</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Engine</h1>
+    <p>Internal combustion engine.</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.Engine_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.Engine_diagram_large.png"><img src="resources/diagrams/Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.Engine_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>Theta</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Throttle angle (deg)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flange_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_b.html">Flange_b</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Clocked.ClockSignals.Interfaces.ClockOutput_16x16.png"></td>
+      <th>synchronize</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.ClockSignals.Interfaces.ClockOutput.html">ClockOutput</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.ThrottleBody_32x32.png"></td>
+      <th>throttleBody</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.ThrottleBody.html">ThrottleBody</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.IntakeManifold_32x32.png"></td>
+      <th>intakeManifold</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.IntakeManifold.html">IntakeManifold</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.TorqueGeneration_32x32.png"></td>
+      <th>torqueGeneration</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.TorqueGeneration.html">TorqueGeneration</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.ClockSignals.Clocks.Rotational.FixedRotationalClock_32x32.png"></td>
+      <th>crankshaftPositionEvent</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.ClockSignals.Clocks.Rotational.FixedRotationalClock.html">FixedRotationalClock</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.InductionToPowerDelay_32x32.png"></td>
+      <th>inductionToPowerDelay</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.InductionToPowerDelay.html">InductionToPowerDelay</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.CylinderAirCharge_32x32.png"></td>
+      <th>cylinderAirCharge</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.CylinderAirCharge.html">CylinderAirCharge</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.Torque_32x32.png"></td>
+      <th>torque</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sources.Torque.html">Torque</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Inertia_32x32.png"></td>
+      <th>inertia</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Inertia</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sensors.SpeedSensor_32x32.png"></td>
+      <th>speedSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sensors.SpeedSensor.html">SpeedSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sensors.AngleSensor_32x32.png"></td>
+      <th>angleSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sensors.AngleSensor.html">AngleSensor</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.EngineThrottleControl_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Systems.EngineThrottleControl.html">EngineThrottleControl</a></p>
+        <p><span>Modelica.Clocked.Examples.Systems</span></p>
+        <p>Closed-loop throttle control synchronized to the crankshaft angle of an
+   internal combustion engine</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

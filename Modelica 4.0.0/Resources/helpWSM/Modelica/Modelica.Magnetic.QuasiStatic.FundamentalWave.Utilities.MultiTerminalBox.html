@@ -1,0 +1,271 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Magnetic.QuasiStatic.FundamentalWave.Utilities.MultiTerminalBox</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.html">FundamentalWave</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.MultiTerminalBox.html">MultiTerminalBox</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>MultiTerminalBox</h1>
+    <p>Terminal box Y/D-connection</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.MultiTerminalBox_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.MultiTerminalBox_diagram_large.png"><img src="resources/diagrams/Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.MultiTerminalBox_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This model represents the internal connections of the terminal box of an electric machine.
+The parameter <code>terminalConnection</code> is used to switch between star
+(<code>terminalConnection = "Y"</code>) and delta (<code>terminalConnection = "D"</code>) connection.
+</p>
+
+<p>The connector <code>starPoint</code> is only available if star connection is selected.
+This connector is a plug with
+<code>mSystem = Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems(m)</code> phases,
+representing the star points of each base system; see
+<a href="Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase.html">Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase</a>.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Value:</span> 3</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of phases</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mSystems</th>
+      <td>
+        <p><span>Value:</span> Modelica.Electrical.Polyphase.Functions.numberOfSymmetricBaseSystems(m)</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of symmetric base systems</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mBasic</th>
+      <td>
+        <p><span>Value:</span> integer(m / mSystems)</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of phases of basic system</p>
+      </td>
+    </tr>
+    <tr>
+      <th>terminalConnection</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Choose "Y" for star or "D" for delta connection</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug_16x16.png"></td>
+      <th>plug_sp</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug.html">PositivePlug</a></p>
+        <p><span>Description:</span> To be connected with positive stator plug</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug_16x16.png"></td>
+      <th>plug_sn</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug.html">NegativePlug</a></p>
+        <p><span>Description:</span> To be connected with negative stator plug</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug_16x16.png"></td>
+      <th>plugSupply</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.PositivePlug.html">PositivePlug</a></p>
+        <p><span>Description:</span> To be connected with grid</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug_16x16.png"></td>
+      <th>starpoint</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.NegativePlug.html">NegativePlug</a></p>
+        <p><span>Description:</span> Star point</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiStar_32x32.png"></td>
+      <th>multiStar</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiStar.html">MultiStar</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiDelta_32x32.png"></td>
+      <th>multiDelta</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.MultiDelta.html">MultiDelta</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(12)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Characteristics_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Characteristics.html">IMC_Characteristics</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Characteristic curves of Induction machine with squirrel cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_DOL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_DOL.html">IMC_DOL</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Induction machine with squirrel cage started directly on line (DOL)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Conveyor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Conveyor.html">IMC_Conveyor</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Induction machine with squirrel cage and inverter driving a conveyor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses.html">IMC_withLosses</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Induction machine with squirrel cage and losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Initialize_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Initialize.html">IMC_Initialize</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Steady-state initialization of induction machine with squirrel cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Characteristics_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Characteristics.html">IMS_Characteristics</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Characteristic curves of induction machine with slip rings</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMS_Start.html">IMS_Start</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Starting of induction machine with slip rings</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_Mains_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_Mains.html">SMPM_Mains</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Permanent magnet synchronous machine operated at mains with step torque load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource.html">SMPM_CurrentSource</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Test example: PermanentMagnetSynchronousMachine fed by current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_MTPA_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_MTPA.html">SMPM_MTPA</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Test example: PermanentMagnetSynchronousMachine, investigating maximum torque per Amps</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator.html">SMEE_Generator</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Electrical excited synchronous machine operating as generator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_CurrentSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_CurrentSource.html">SMR_CurrentSource</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Test example: Synchronous reluctance machine fed by current source</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

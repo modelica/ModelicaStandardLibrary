@@ -1,0 +1,771 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Analog.Interfaces.PositivePin</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Analog.html">Analog</a></li>
+  <li><a href="Modelica.Electrical.Analog.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PositivePin</h1>
+    <p>Positive pin of an electrical component</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>Connectors PositivePin and NegativePin are nearly identical. The only difference is that the icons are different in order to identify more easily the pins of a component. Usually, connector PositivePin is used for the positive and connector NegativePin for the negative pin of an electrical component.</p>
+</div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.CauerLowPassOPV_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.CauerLowPassOPV.html">CauerLowPassOPV</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span></p>
+        <p>Cauer low pass filter with operational amplifiers</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.CauerLowPassSC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.CauerLowPassSC.html">CauerLowPassSC</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span></p>
+        <p>Cauer low-pass filter with operational amplifiers and switched capacitors</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(87)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits.Add_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits.Add.html">Add</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits</span></p>
+        <p>Adding operational amplifier circuit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits.Feedback_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits.Feedback.html">Feedback</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples.OpAmps.OpAmpCircuits</span></p>
+        <p>Subtracting operational amplifier circuit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.Utilities.SwitchedCapacitor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.Utilities.SwitchedCapacitor.html">SwitchedCapacitor</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples.Utilities</span></p>
+        <p>Switched capacitor which can represent a positive or negative resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.M_Transformer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.M_Transformer.html">M_Transformer</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span></p>
+        <p>Generic transformer with free number of inductors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.RotationalEMF_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.RotationalEMF.html">RotationalEMF</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span></p>
+        <p>Electromotoric force (electric/mechanic transformer)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.TranslationalEMF_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.TranslationalEMF.html">TranslationalEMF</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span></p>
+        <p>Electromotoric force (electric/mechanic transformer)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.OpAmp_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.OpAmp.html">OpAmp</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span></p>
+        <p>Simple nonideal model of an OpAmp with limitation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.OpAmpDetailed_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.OpAmpDetailed.html">OpAmpDetailed</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span></p>
+        <p>Detailed model of an operational amplifier</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Potentiometer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.Potentiometer.html">Potentiometer</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span></p>
+        <p>Adjustable resistor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.GeneralCurrentToVoltageAdaptor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.GeneralCurrentToVoltageAdaptor.html">GeneralCurrentToVoltageAdaptor</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span></p>
+        <p>Signal adaptor for an Electrical OnePort with voltage and derivative of voltage as outputs and current and derivative of current as inputs (especially useful for FMUs)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.GeneralVoltageToCurrentAdaptor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.GeneralVoltageToCurrentAdaptor.html">GeneralVoltageToCurrentAdaptor</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span></p>
+        <p>Signal adaptor for an Electrical OnePort with current and derivative of current as output and voltage and derivative of voltage as input (especially useful for FMUs)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.IdealTwoWaySwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.IdealTwoWaySwitch.html">IdealTwoWaySwitch</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span></p>
+        <p>Ideal two-way switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch.html">IdealIntermediateSwitch</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span></p>
+        <p>Ideal intermediate switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.ControlledIdealTwoWaySwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.ControlledIdealTwoWaySwitch.html">ControlledIdealTwoWaySwitch</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span></p>
+        <p>Controlled ideal two-way switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitch.html">ControlledIdealIntermediateSwitch</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span></p>
+        <p>Controlled ideal intermediate switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.IdealOpAmp_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.IdealOpAmp.html">IdealOpAmp</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span></p>
+        <p>Ideal operational amplifier (norator-nullator pair)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin.html">IdealOpAmp3Pin</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span></p>
+        <p>Ideal operational amplifier (norator-nullator pair), but 3 pins</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.IdealOpAmpLimited_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.IdealOpAmpLimited.html">IdealOpAmpLimited</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span></p>
+        <p>Ideal operational amplifier with limitation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited.html">IdealizedOpAmpLimited</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span></p>
+        <p>Idealized operational amplifier with limitation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.IdealTriac_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.IdealTriac.html">IdealTriac</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span></p>
+        <p>Ideal triac, based on ideal thyristors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.AD_Converter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.AD_Converter.html">AD_Converter</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span></p>
+        <p>Simple n-bit analog to digital converter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Ideal.DA_Converter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Ideal.DA_Converter.html">DA_Converter</a></p>
+        <p><span>Modelica.Electrical.Analog.Ideal</span></p>
+        <p>Simple digital to analog converter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Interfaces.TwoPin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Interfaces.TwoPin.html">TwoPin</a></p>
+        <p><span>Modelica.Electrical.Analog.Interfaces</span></p>
+        <p>Component with two electrical pins</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Interfaces.FourPin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Interfaces.FourPin.html">FourPin</a></p>
+        <p><span>Modelica.Electrical.Analog.Interfaces</span></p>
+        <p>Component with two pairs of each two electrical pins</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Interfaces.AbsoluteSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Interfaces.AbsoluteSensor.html">AbsoluteSensor</a></p>
+        <p><span>Modelica.Electrical.Analog.Interfaces</span></p>
+        <p>Base class to measure the absolute value of a pin variable</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Interfaces.RelativeSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Interfaces.RelativeSensor.html">RelativeSensor</a></p>
+        <p><span>Modelica.Electrical.Analog.Interfaces</span></p>
+        <p>Base class to measure a relative variable between two pins</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Lines.M_OLine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Lines.M_OLine.html">M_OLine</a></p>
+        <p><span>Modelica.Electrical.Analog.Lines</span></p>
+        <p>Multiple OLine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Lines.M_OLine.segment_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Lines.M_OLine.segment.html">segment</a></p>
+        <p><span>Modelica.Electrical.Analog.Lines.M_OLine</span></p>
+        <p>Multiple line segment model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Lines.M_OLine.segment_last_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Lines.M_OLine.segment_last.html">segment_last</a></p>
+        <p><span>Modelica.Electrical.Analog.Lines.M_OLine</span></p>
+        <p>Multiple line last segment model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Semiconductors.Thyristor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Semiconductors.Thyristor.html">Thyristor</a></p>
+        <p><span>Modelica.Electrical.Analog.Semiconductors</span></p>
+        <p>Simple Thyristor Model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Semiconductors.SimpleTriac_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Semiconductors.SimpleTriac.html">SimpleTriac</a></p>
+        <p><span>Modelica.Electrical.Analog.Semiconductors</span></p>
+        <p>Simple triac, based on Semiconductors.Thyristor model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sensors.PotentialSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sensors.PotentialSensor.html">PotentialSensor</a></p>
+        <p><span>Modelica.Electrical.Analog.Sensors</span></p>
+        <p>Sensor to measure the potential</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sensors.VoltageSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sensors.VoltageSensor.html">VoltageSensor</a></p>
+        <p><span>Modelica.Electrical.Analog.Sensors</span></p>
+        <p>Sensor to measure the voltage between two pins</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sensors.CurrentSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sensors.CurrentSensor.html">CurrentSensor</a></p>
+        <p><span>Modelica.Electrical.Analog.Sensors</span></p>
+        <p>Sensor to measure the current in a branch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sensors.PowerSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sensors.PowerSensor.html">PowerSensor</a></p>
+        <p><span>Modelica.Electrical.Analog.Sensors</span></p>
+        <p>Sensor to measure the power</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sensors.MultiSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sensors.MultiSensor.html">MultiSensor</a></p>
+        <p><span>Modelica.Electrical.Analog.Sensors</span></p>
+        <p>Sensor to measure current, voltage and power</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SignalVoltage_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.SignalVoltage.html">SignalVoltage</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Generic voltage source using the input signal as source voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SignalCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.SignalCurrent.html">SignalCurrent</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Generic current source using the input signal as source current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SupplyVoltage_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.SupplyVoltage.html">SupplyVoltage</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Supply voltage (positive and negative)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.Battery_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.Battery.html">Battery</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities</span></p>
+        <p>Simple battery model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.DcdcInverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.DcdcInverter.html">DcdcInverter</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities</span></p>
+        <p>DC-DC inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.IdealDcDc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.IdealDcDc.html">IdealDcDc</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities</span></p>
+        <p>Ideal DC-DC inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.SwitchingDcDc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.SwitchingDcDc.html">SwitchingDcDc</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities</span></p>
+        <p>Switching DC-DC inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_ElectricalExcited_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_ElectricalExcited.html">SM_ElectricalExcited</a></p>
+        <p><span>Modelica.Electrical.Machines.BasicMachines.SynchronousMachines</span></p>
+        <p>Electrical excited synchronous machine with damper cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited.html">DC_ElectricalExcited</a></p>
+        <p><span>Modelica.Electrical.Machines.BasicMachines.DCMachines</span></p>
+        <p>Electrical shunt/separate excited linear DC machine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited.html">DC_SeriesExcited</a></p>
+        <p><span>Modelica.Electrical.Machines.BasicMachines.DCMachines</span></p>
+        <p>Series excited linear DC machine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.Components.ElectricalExcitation_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.Components.ElectricalExcitation.html">ElectricalExcitation</a></p>
+        <p><span>Modelica.Electrical.Machines.BasicMachines.Components</span></p>
+        <p>Electrical excitation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.Components.PartialAirGapDC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.Components.PartialAirGapDC.html">PartialAirGapDC</a></p>
+        <p><span>Modelica.Electrical.Machines.BasicMachines.Components</span></p>
+        <p>Partial airgap model of a DC machine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.Components.CompoundDCExcitation_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.Components.CompoundDCExcitation.html">CompoundDCExcitation</a></p>
+        <p><span>Modelica.Electrical.Machines.BasicMachines.Components</span></p>
+        <p>Compound excitation = shunt + series</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.SpacePhasors.Components.SpacePhasor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.SpacePhasors.Components.SpacePhasor.html">SpacePhasor</a></p>
+        <p><span>Modelica.Electrical.Machines.SpacePhasors.Components</span></p>
+        <p>Physical transformation: three-phase <-> space phasors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine.html">PartialBasicDCMachine</a></p>
+        <p><span>Modelica.Electrical.Machines.Interfaces</span></p>
+        <p>Partial model for DC machine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Basic.PlugToPin_p_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Basic.PlugToPin_p.html">PlugToPin_p</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Basic</span></p>
+        <p>Connect one (positive) Pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Basic.PlugToPins_p_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Basic.PlugToPins_p.html">PlugToPins_p</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Basic</span></p>
+        <p>Connect all (positive) Pins</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACDC.Control.VoltageBridge2Pulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACDC.Control.VoltageBridge2Pulse.html">VoltageBridge2Pulse</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACDC.Control</span></p>
+        <p>Control of 2 pulse bridge rectifier</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPin.html">ACtwoPin</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Interfaces.ACDC</span></p>
+        <p>Positive and negative AC pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin.html">DCtwoPin</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Interfaces.ACDC</span></p>
+        <p>Positive and negative DC pins</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin.html">DCpin</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Interfaces.ACDC</span></p>
+        <p>Single DC pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Interfaces.DCAC.DCtwoPin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Interfaces.DCAC.DCtwoPin.html">DCtwoPin</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Interfaces.DCAC</span></p>
+        <p>Positive and negative DC pins</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Interfaces.DCAC.ACpin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Interfaces.DCAC.ACpin.html">ACpin</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Interfaces.DCAC</span></p>
+        <p>Single AC pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Interfaces.DCDC.DCtwoPin1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Interfaces.DCDC.DCtwoPin1.html">DCtwoPin1</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Interfaces.DCDC</span></p>
+        <p>Positive and negative pins of side 1</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Interfaces.DCDC.DCtwoPin2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Interfaces.DCDC.DCtwoPin2.html">DCtwoPin2</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Interfaces.DCDC</span></p>
+        <p>Positive and negative pins of side 2</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Utilities.IdealACDCConverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Utilities.IdealACDCConverter.html">IdealACDCConverter</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Utilities</span></p>
+        <p>Ideal AC DC converter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Utilities.GraetzRectifier_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Utilities.GraetzRectifier.html">GraetzRectifier</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Utilities</span></p>
+        <p>Graetz rectifier bridge</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Additionals.E_VCV_POLY_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Additionals.E_VCV_POLY.html">E_VCV_POLY</a></p>
+        <p><span>Modelica.Electrical.Spice3.Additionals</span></p>
+        <p>Polynomial voltage controlled voltage source, like SPICE2</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Additionals.G_VCC_POLY_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Additionals.G_VCC_POLY.html">G_VCC_POLY</a></p>
+        <p><span>Modelica.Electrical.Spice3.Additionals</span></p>
+        <p>Polynomial voltage controlled current source, like SPICE2</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Additionals.H_CCV_POLY_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Additionals.H_CCV_POLY.html">H_CCV_POLY</a></p>
+        <p><span>Modelica.Electrical.Spice3.Additionals</span></p>
+        <p>Polynomial current controlled voltage source, like SPICE2</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Additionals.F_CCC_POLY_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Additionals.F_CCC_POLY.html">F_CCC_POLY</a></p>
+        <p><span>Modelica.Electrical.Spice3.Additionals</span></p>
+        <p>Polynomial current controlled current source, like SPICE2</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Interfaces.TwoPortControlledSources_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Interfaces.TwoPortControlledSources.html">TwoPortControlledSources</a></p>
+        <p><span>Modelica.Electrical.Spice3.Interfaces</span></p>
+        <p>Component with two electrical ports, including current</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Interfaces.ConditionalSubstrate.html">ConditionalSubstrate</a></p>
+        <p><span>Modelica.Electrical.Spice3.Interfaces</span></p>
+        <p>Partial model to include a conditional substrate node</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.MOS_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.MOS.html">MOS</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal</span></p>
+        <p>Metal-Oxide Semiconductor Field-Effect Transistor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.MOS2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.MOS2.html">MOS2</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal</span></p>
+        <p>Metal-Oxide Semiconductor Field-Effect Transistor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.BJT2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.BJT2.html">BJT2</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal</span></p>
+        <p>Bipolar junction transistor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.JFET_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Internal.JFET.html">JFET</a></p>
+        <p><span>Modelica.Electrical.Spice3.Internal</span></p>
+        <p>Junction Field-Effect Transistor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator.html">PermeanceActuator</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components</span></p>
+        <p>Detailed actuator model for rough magnetic design of actuator and system simulation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator.html">ConstantActuator</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components</span></p>
+        <p>Simple behavioural actuator model for system simulation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid.html">SimpleSolenoid</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components</span></p>
+        <p>Simple network model of a lifting magnet with planar armature end face</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid.html">AdvancedSolenoid</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components</span></p>
+        <p>Advanced network model of a lifting magnet with planar armature end face, split magnetomotive force</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer1PhaseWithHysteresis_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer1PhaseWithHysteresis.html">Transformer1PhaseWithHysteresis</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components</span></p>
+        <p>Single-phase transformer with ferromagnetic core and hysteresis</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer3PhaseYyWithHysteresis_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer3PhaseYyWithHysteresis.html">Transformer3PhaseYyWithHysteresis</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components</span></p>
+        <p>Three-phase transformer in Yy configuration</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter.html">ElectroMagneticConverter</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Basic</span></p>
+        <p>Ideal electromagnetic energy conversion</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverterWithLeakageInductance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverterWithLeakageInductance.html">ElectroMagneticConverterWithLeakageInductance</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Basic</span></p>
+        <p>Electromagnetic energy conversion with a leakage inductance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter.html">SinglePhaseElectroMagneticConverter</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Components</span></p>
+        <p>Single-phase electromagnetic converter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited.html">SM_ElectricalExcited</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines</span></p>
+        <p>Electrical excited synchronous machine with optional damper cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding.html">SinglePhaseWinding</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Symmetric winding model coupling electrical and magnetic domain</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.QuasiStaticAnalogElectroMagneticConverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.QuasiStaticAnalogElectroMagneticConverter.html">QuasiStaticAnalogElectroMagneticConverter</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Components</span></p>
+        <p>Electromagnetic converter to only (!) quasi-static analog, neglecting induced voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited.html">SM_ElectricalExcited</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines</span></p>
+        <p>Electrical excited synchronous machine with optional damper cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.QuasiStaticAnalogWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.QuasiStaticAnalogWinding.html">QuasiStaticAnalogWinding</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Quasi-static single-phase winding neglecting induced voltage</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

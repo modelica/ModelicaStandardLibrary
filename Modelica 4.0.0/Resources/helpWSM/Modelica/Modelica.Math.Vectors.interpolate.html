@@ -1,0 +1,140 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Vectors.interpolate</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Vectors.html">Vectors</a></li>
+  <li><a href="Modelica.Math.Vectors.interpolate.html">interpolate</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>interpolate</h1>
+    <p>Interpolate linearly in a vector</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Vectors.interpolate_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+// Real    x[:], y[:], xi, yi;
+// Integer iLast, iNew;
+        yi = Vectors.<strong>interpolate</strong>(x,y,xi);
+(yi, iNew) = Vectors.<strong>interpolate</strong>(x,y,xi,iLast=1);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>Vectors.interpolate(x,y,xi)</code>" interpolates
+<strong>linearly</strong> in vectors
+(x,y) and returns the value yi that corresponds to xi. Vector x[:] must consist
+of monotonically increasing values. If xi &lt; x[1] or &gt; x[end], then
+extrapolation takes places through the first or last two x[:] values, respectively.
+If the x and y vectors have length 1, then always y[1] is returned.
+The search for the interval x[iNew] &le; xi &lt; x[iNew+1] starts at the optional
+input argument "iLast". The index "iNew" is returned as output argument.
+The usage of "iLast" and "iNew" is useful to increase the efficiency of the call,
+if many interpolations take place.
+If x has two or more identical values then interpolation utilizes the x-value
+with the largest index.
+</p>
+
+<h4>Example</h4>
+
+<blockquote><pre>
+  Real x1[:] = { 0,  2,  4,  6,  8, 10};
+  Real x2[:] = { 1,  2,  3,  3,  4,  5};
+  Real y[:]  = {10, 20, 30, 40, 50, 60};
+<strong>algorithm</strong>
+  (yi, iNew) := Vectors.interpolate(x1,y,5);  // yi = 35, iNew=3
+  (yi, iNew) := Vectors.interpolate(x2,y,4);  // yi = 50, iNew=5
+  (yi, iNew) := Vectors.interpolate(x2,y,3);  // yi = 40, iNew=4
+</pre></blockquote>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(yi, iNew) = interpolate(x, y, xi, iLast)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>x</th>
+      <td>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Abscissa table vector (strict monotonically increasing values required)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> Real[size(x, 1)]</p>
+        <p><span>Description:</span> Ordinate table vector</p>
+      </td>
+    </tr>
+    <tr>
+      <th>xi</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Desired abscissa value</p>
+      </td>
+    </tr>
+    <tr>
+      <th>iLast</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Index used in last search</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>yi</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Ordinate value corresponding to xi</p>
+      </td>
+    </tr>
+    <tr>
+      <th>iNew</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> xi is in the interval x[iNew] <= xi < x[iNew+1]</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

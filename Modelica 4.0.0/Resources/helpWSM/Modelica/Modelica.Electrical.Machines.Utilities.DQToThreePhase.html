@@ -1,0 +1,252 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Machines.Utilities.DQToThreePhase</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Electrical.Machines.Utilities.DQToThreePhase.html">DQToThreePhase</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>DQToThreePhase</h1>
+    <p>Transforms dq to three-phase</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.Utilities.DQToThreePhase_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Machines.Utilities.DQToThreePhase_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Machines.Utilities.DQToThreePhase_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Transforms dq currents or voltages to three-phase currents or voltages.
+</p>
+<p>
+The desired d- and q-components of the space phasor in rotor fixed coordinate system are given by inputs <code>d</code> and <code>q</code>.
+Using the given rotor position (input <code>phi</code>), the correct three-phase values (output <code>y[3]</code>) are calculated.
+They can be used to feed a current source which in turn feeds an induction machine.
+</p>
+<p>
+Inputs <code>d</code> and <code>q</code> can be given either as peak values (<code>useRMS=false</code>) or as RMS (<code>useRMS=true</code>).
+The correction by factor &radic;2 is done automatically.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>nout</th>
+      <td>
+        <p><span>Value:</span> m</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of outputs</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Value:</span> 3</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of phases</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of pole pairs</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useRMS</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> If true, inputs dq are multiplied by sqrt(2)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[nout]</a></p>
+        <p><span>Description:</span> Connector of Real output signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>d</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> d-component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>q</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> q-component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>phi</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Rotor angle</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>toPeak_d</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>toPeak_q</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>toGamma</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator_32x32.png"></td>
+      <th>rotator</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator.html">Rotator</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>i0</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor_32x32.png"></td>
+      <th>fromSpacePhasor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor.html">FromSpacePhasor</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_CurrentSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMPM_CurrentSource.html">SMPM_CurrentSource</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.SynchronousMachines</span></p>
+        <p>Test example: PermanentMagnetSynchronousMachine fed by current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource.html">SMPM_CurrentSource</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Test example: PermanentMagnetSynchronousMachine fed by current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource.html">SMPM_CurrentSource</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Test example: PermanentMagnetSynchronousMachine fed by current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_CurrentSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_CurrentSource.html">SMR_CurrentSource</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Test example: Synchronous reluctance machine fed by current source</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Noise.Utilities.Parts.MotorWithCurrentControl_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Noise.Utilities.Parts.MotorWithCurrentControl.html">MotorWithCurrentControl</a></p>
+        <p><span>Modelica.Blocks.Examples.Noise.Utilities.Parts</span></p>
+        <p>Synchronous machine with current controller and measurement noise</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

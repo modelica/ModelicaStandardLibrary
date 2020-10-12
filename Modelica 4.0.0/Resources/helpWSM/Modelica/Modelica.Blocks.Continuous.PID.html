@@ -1,0 +1,256 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Continuous.PID</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Continuous.html">Continuous</a></li>
+  <li><a href="Modelica.Blocks.Continuous.PID.html">PID</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PID</h1>
+    <p>PID-controller in additive description form</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Continuous.PID_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Blocks.Continuous.PID_diagram_large.png"><img src="resources/diagrams/Modelica.Blocks.Continuous.PID_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This is the text-book version of a PID-controller.
+For a more practically useful PID-controller, use
+block LimPID.
+</p>
+
+<p>
+The PID block can be initialized in different
+ways controlled by parameter <strong>initType</strong>. The possible
+values of initType are defined in
+<a href="Modelica.Blocks.Types.Init.html">Modelica.Blocks.Types.Init</a>.
+</p>
+
+<p>
+Based on the setting of initType, the integrator (I) and derivative (D)
+blocks inside the PID controller are initialized according to the following table:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+  <tr><td><strong>initType</strong></td>
+      <td><strong>I.initType</strong></td>
+      <td><strong>D.initType</strong></td></tr>
+
+  <tr><td><strong>NoInit</strong></td>
+      <td>NoInit</td>
+      <td>NoInit</td></tr>
+
+  <tr><td><strong>SteadyState</strong></td>
+      <td>SteadyState</td>
+      <td>SteadyState</td></tr>
+
+  <tr><td><strong>InitialState</strong></td>
+      <td>InitialState</td>
+      <td>InitialState</td></tr>
+
+  <tr><td><strong>InitialOutput</strong><br>
+          and initial equation: y = y_start</td>
+      <td>NoInit</td>
+      <td>SteadyState</td></tr>
+</table>
+
+<p>
+In many cases, the most useful initial condition is
+<strong>SteadyState</strong> because initial transients are then no longer
+present. If initType = Init.SteadyState, then in some
+cases difficulties might occur. The reason is the
+equation of the integrator:
+</p>
+
+<blockquote><pre>
+<strong>der</strong>(y) = k*u;
+</pre></blockquote>
+
+<p>
+The steady state equation "der(x)=0" leads to the condition that the input u to the
+integrator is zero. If the input u is already (directly or indirectly) defined
+by another initial condition, then the initialization problem is <strong>singular</strong>
+(has none or infinitely many solutions). This situation occurs often
+for mechanical systems, where, e.g., u = desiredSpeed - measuredSpeed and
+since speed is both a state and a derivative, it is natural to
+initialize it with zero. As sketched this is, however, not possible.
+The solution is to not initialize u or the variable that is used
+to compute u by an algebraic equation.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>k</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Gain</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ti</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Time Constant of Integrator</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Td</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Time Constant of Derivative block</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Nd</th>
+      <td>
+        <p><span>Value:</span> 10</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> The higher Nd, the more ideal the derivative block</p>
+      </td>
+    </tr>
+    <tr>
+      <th>initType</th>
+      <td>
+        <p><span>Value:</span> Init.InitialState</p>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Types.Init.html">Init</a></p>
+        <p><span>Description:</span> Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>xi_start</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Initial or guess value for integrator output (= integrator state)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>xd_start</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Initial or guess value for state of derivative block</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_start</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Initial value of output</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Connector of Real input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Connector of Real output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>P</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+        <p><span>Description:</span> Proportional part of PID controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Integrator_32x32.png"></td>
+      <th>I</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Integrator.html">Integrator</a></p>
+        <p><span>Description:</span> Integral part of PID controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Derivative_32x32.png"></td>
+      <th>D</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Derivative.html">Derivative</a></p>
+        <p><span>Description:</span> Derivative part of PID controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>Gain</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+        <p><span>Description:</span> Gain of PID controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Add3_32x32.png"></td>
+      <th>Add</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Add3.html">Add3</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

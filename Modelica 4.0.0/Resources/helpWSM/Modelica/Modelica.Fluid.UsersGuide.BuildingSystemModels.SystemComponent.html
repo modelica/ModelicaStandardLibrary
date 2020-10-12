@@ -1,0 +1,67 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.UsersGuide.BuildingSystemModels.SystemComponent</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.Fluid.UsersGuide.BuildingSystemModels.html">BuildingSystemModels</a></li>
+  <li><a href="Modelica.Fluid.UsersGuide.BuildingSystemModels.SystemComponent.html">SystemComponent</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SystemComponent</h1>
+    <p>System component</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.UsersGuide.BuildingSystemModels.SystemComponent_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The Modelica.Fluid library is designed so that each model of a system must
+include an instance <code>system</code> of the <code>System</code> component at the top level, in the same way as the <code>World</code> model of the MultiBody Library. The System component contains the parameters that
+describe the environment surrounding the components (ambient pressure and
+temperature, gravity acceleration), and also provides default settings
+for many parameters which are used consistently by the models in the library.
+These parameters are then propagated to the individual components
+using the inner/outer variable mechanism. In case the system model is structured
+hierarchically, it is possible to either put a single System
+component at the top level, or possibly to put many of them at different levels,
+which will only influence the system components from that level down.
+</p>
+<p>All the parameters defined in the System model are used as default values for the parameters of the individual components of the system model. Note that it is always possible to override these defaults locally by changing the value of the parameters in the specific component instance.
+</p>
+<ul>
+<li> The <em>General</em> tab of the System model allows to set the default environment variables (pressure, temperature and gravity)
+used by all the components.
+</li>
+<li> The <em>Assumptions</em> tab allows to change the default modelling assumptions
+used by all the components (see the section <em>Customizing a system model later</em>)</li>
+<li> The <em>Initialization</em> tab allows to define default start values for mass flow rates, pressures and temperatures in the model; this can be useful to help nonlinear solver converge to the solution of any nonlinear system of equations that involves such variables, by providing meaningful guess values.</li>
+<li> The <em>Advanced</em> tab contains default values for parameters used in
+the advanced settings of some components.</li>
+</ul>
+<p>
+Remember to <strong>always add a System component</strong> at the top level of
+your system model, otherwise you will get errors when compiling the model. The tool will automatically name it <code>system</code>, so that it
+is recognized by all other components.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

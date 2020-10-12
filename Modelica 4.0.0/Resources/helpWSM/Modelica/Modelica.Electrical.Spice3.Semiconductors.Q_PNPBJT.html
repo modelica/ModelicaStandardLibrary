@@ -1,0 +1,278 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Spice3.Semiconductors.Q_PNPBJT</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Spice3.html">Spice3</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Semiconductors.html">Semiconductors</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Semiconductors.Q_PNPBJT.html">Q_PNPBJT</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Q_PNPBJT</h1>
+    <p>Bipolar junction transistor</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Spice3.Semiconductors.Q_PNPBJT_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>The model Q_PNPBJT is a PNP bipolar junction transistor model: Modified Gummel-Poon.</p>
+<p>The models from the package Semiconductors accesses to the package Internal where all functions,</p>
+<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
+<p>The package Semiconductors is for user access but not the package Internal.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(15)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useSubstrateNode</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if SubstrateNode is enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TBJT</th>
+      <td>
+        <p><span>Value:</span> -1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Type of transistor (NPN=1, PNP=-1)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>AREA</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Area factor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>OFF</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Optional initial condition: false - IC not used, true - IC used, not implemented yet</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IC_VBE</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Initial condition value (VBC, not implemented yet)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IC_VCE</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Initial condition value (VBE, not implemented yet)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>UIC</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Use initial conditions: true, if initial condition is used</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TEMP</th>
+      <td>
+        <p><span>Value:</span> 27</p>
+        <p><span>Type:</span> <a href="Modelica.Units.NonSI.Temperature_degC.html">Temperature_degC</a> (°C)</p>
+        <p><span>Description:</span> Operating temperature of the device</p>
+      </td>
+    </tr>
+    <tr>
+      <th>SENS_AREA</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Flag to request sensitivity WRT area, not implemented yet</p>
+      </td>
+    </tr>
+    <tr>
+      <th>modelcard</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.ModelcardBJT2.html">ModelcardBJT2</a></p>
+        <p><span>Description:</span> BJT modelcard</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Value:</span> Spice3.Internal.Bjt.bjtRenameParameters(modelcard, TBJT)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Bjt.BjtModelLineParams.html">BjtModelLineParams</a></p>
+        <p><span>Description:</span> Model line parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dev</th>
+      <td>
+        <p><span>Value:</span> Spice3.Internal.Bjt.bjtRenameParametersDev(AREA, OFF, IC_VBE, IC_VCE, UIC, SENS_AREA, TEMP)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Bjt.Bjt.html">Bjt</a></p>
+        <p><span>Description:</span> Renamed parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p1</th>
+      <td>
+        <p><span>Value:</span> Spice3.Internal.Bjt.bjtModelLineInitEquations(p)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Bjt.BjtModelLineParams.html">BjtModelLineParams</a></p>
+        <p><span>Description:</span> Model line variables</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dev1</th>
+      <td>
+        <p><span>Value:</span> Spice3.Internal.Bjt.bjtInitEquations(dev, p1)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Bjt.Bjt.html">Bjt</a></p>
+        <p><span>Description:</span> Precalculated parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>
+        <p><span>Value:</span> Spice3.Internal.Bjt.bjtCalcTempDependencies(dev1, p1)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Bjt.BjtCalc.html">BjtCalc</a></p>
+        <p><span>Description:</span> Precalculated parameters</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>S</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>B</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Base node</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>C</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Collector node</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>E</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Emitter node</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.ModelcardBJT2_32x32.png"></td>
+      <th>modelcard</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.ModelcardBJT2.html">ModelcardBJT2</a></p>
+        <p><span>Description:</span> BJT modelcard</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Bjt.BjtModelLineParams_32x32.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Bjt.BjtModelLineParams.html">BjtModelLineParams</a></p>
+        <p><span>Description:</span> Model line parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Bjt.Bjt_32x32.png"></td>
+      <th>dev</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Bjt.Bjt.html">Bjt</a></p>
+        <p><span>Description:</span> Renamed parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Bjt.BjtModelLineParams_32x32.png"></td>
+      <th>p1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Bjt.BjtModelLineParams.html">BjtModelLineParams</a></p>
+        <p><span>Description:</span> Model line variables</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Bjt.Bjt_32x32.png"></td>
+      <th>dev1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Bjt.Bjt.html">Bjt</a></p>
+        <p><span>Description:</span> Precalculated parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Bjt.BjtCalc_32x32.png"></td>
+      <th>c</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Bjt.BjtCalc.html">BjtCalc</a></p>
+        <p><span>Description:</span> Precalculated parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Bjt.CurrentsCapacitances_32x32.png"></td>
+      <th>cc</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Bjt.CurrentsCapacitances.html">CurrentsCapacitances</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

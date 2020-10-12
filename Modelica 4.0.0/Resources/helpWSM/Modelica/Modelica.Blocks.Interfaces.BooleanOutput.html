@@ -1,0 +1,602 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Interfaces.BooleanOutput</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Blocks.Interfaces.BooleanOutput.html">BooleanOutput</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>BooleanOutput</h1>
+    <p>'output Boolean' as connector</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Interfaces.BooleanOutput_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Connector with one output signal of type Boolean.
+</p>
+</div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(69)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Integrator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Continuous.Integrator.html">Integrator</a></p>
+        <p><span>Modelica.Blocks.Continuous</span></p>
+        <p>Output the integral of the input signal with optional reset</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.LimIntegrator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Continuous.LimIntegrator.html">LimIntegrator</a></p>
+        <p><span>Modelica.Blocks.Continuous</span></p>
+        <p>Integrator with limited value of the output and optional reset</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interaction.Show.BooleanValue_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interaction.Show.BooleanValue.html">BooleanValue</a></p>
+        <p><span>Modelica.Blocks.Interaction.Show</span></p>
+        <p>Show Boolean value from numberPort or from number input field in diagram layer dynamically</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.BooleanSISO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.BooleanSISO.html">BooleanSISO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Single Input Single Output control block with signals of type Boolean</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.BooleanMIMOs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.BooleanMIMOs.html">BooleanMIMOs</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Multiple Input Multiple Output continuous control block with same number of inputs and outputs of Boolean type</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.MI2BooleanMOs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.MI2BooleanMOs.html">MI2BooleanMOs</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>2 Multiple Input / Boolean Multiple Output block with same signal lengths</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.SI2BooleanSO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.SI2BooleanSO.html">SI2BooleanSO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>2 Single Input / Boolean Single Output block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.BooleanSignalSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.BooleanSignalSource.html">BooleanSignalSource</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Base class for Boolean signal sources</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.IntegerSIBooleanSO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.IntegerSIBooleanSO.html">IntegerSIBooleanSO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Integer Input Boolean Output continuous control block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.IntegerMIBooleanMOs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.IntegerMIBooleanMOs.html">IntegerMIBooleanMOs</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Multiple Integer Input Multiple Boolean Output continuous control block with same number of inputs and outputs</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.partialBooleanSISO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.partialBooleanSISO.html">partialBooleanSISO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Partial block with 1 input and 1 output Boolean signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.partialBooleanSI2SO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.partialBooleanSI2SO.html">partialBooleanSI2SO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Partial block with 2 input and 1 output Boolean signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.partialBooleanSI3SO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.partialBooleanSI3SO.html">partialBooleanSI3SO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Partial block with 3 input and 1 output Boolean signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.partialBooleanSO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.partialBooleanSO.html">partialBooleanSO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Partial block with 1 output Boolean signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.partialBooleanSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.partialBooleanSource.html">partialBooleanSource</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Partial source block (has 1 output Boolean signal and an appropriate default icon)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.partialBooleanThresholdComparison_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.partialBooleanThresholdComparison.html">partialBooleanThresholdComparison</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Partial block to compare the Real input u with a threshold and provide the result as 1 Boolean output signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.partialBooleanComparison_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.partialBooleanComparison.html">partialBooleanComparison</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Partial block with 2 Real input and 1 Boolean output signal (the result of a comparison of the two Real inputs)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.PartialBooleanSISO_small_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.PartialBooleanSISO_small.html">PartialBooleanSISO_small</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Partial block with a BooleanInput and a BooleanOutput signal and a small block icon</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.PartialBooleanMISO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Interfaces.PartialBooleanMISO.html">PartialBooleanMISO</a></p>
+        <p><span>Modelica.Blocks.Interfaces</span></p>
+        <p>Partial block with a BooleanVectorInput and a BooleanOutput signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.Hysteresis_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.Hysteresis.html">Hysteresis</a></p>
+        <p><span>Modelica.Blocks.Logical</span></p>
+        <p>Transform Real to Boolean signal with Hysteresis</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.OnOffController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.OnOffController.html">OnOffController</a></p>
+        <p><span>Modelica.Blocks.Logical</span></p>
+        <p>On-off controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.LogicalDelay_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.LogicalDelay.html">LogicalDelay</a></p>
+        <p><span>Modelica.Blocks.Logical</span></p>
+        <p>Delay boolean signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.RSFlipFlop_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.RSFlipFlop.html">RSFlipFlop</a></p>
+        <p><span>Modelica.Blocks.Logical</span></p>
+        <p>A basic RS Flip Flop</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.TerminateSimulation_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Logical.TerminateSimulation.html">TerminateSimulation</a></p>
+        <p><span>Modelica.Blocks.Logical</span></p>
+        <p>Terminate simulation if condition is fulfilled</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.TotalHarmonicDistortion_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.TotalHarmonicDistortion.html">TotalHarmonicDistortion</a></p>
+        <p><span>Modelica.Blocks.Math</span></p>
+        <p>Output the total harmonic distortion (THD)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Pythagoras_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.Pythagoras.html">Pythagoras</a></p>
+        <p><span>Modelica.Blocks.Math</span></p>
+        <p>Determine the hypotenuse or leg of a right triangle</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.MathInteger.TriggeredAdd_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.MathInteger.TriggeredAdd.html">TriggeredAdd</a></p>
+        <p><span>Modelica.Blocks.MathInteger</span></p>
+        <p>Add input to previous value of output, if rising edge of trigger port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.MathBoolean.MultiSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.MathBoolean.MultiSwitch.html">MultiSwitch</a></p>
+        <p><span>Modelica.Blocks.MathBoolean</span></p>
+        <p>Set Boolean expression that is associated with the first active input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.BooleanReplicator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.BooleanReplicator.html">BooleanReplicator</a></p>
+        <p><span>Modelica.Blocks.Routing</span></p>
+        <p>Boolean signal replicator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.BooleanExpression_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Sources.BooleanExpression.html">BooleanExpression</a></p>
+        <p><span>Modelica.Blocks.Sources</span></p>
+        <p>Set output signal to a time varying Boolean expression</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.KinematicPTP2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Sources.KinematicPTP2.html">KinematicPTP2</a></p>
+        <p><span>Modelica.Blocks.Sources</span></p>
+        <p>Move as fast as possible from start to end position within given kinematic constraints with output signals q, qd=der(q), qdd=der(qd)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.RadioButtonSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Sources.RadioButtonSource.html">RadioButtonSource</a></p>
+        <p><span>Modelica.Blocks.Sources</span></p>
+        <p>Boolean signal source that mimics a radio button</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.ClockSignals.Clocks.Rotational.PartialRotationalClock_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.ClockSignals.Clocks.Rotational.PartialRotationalClock.html">PartialRotationalClock</a></p>
+        <p><span>Modelica.Clocked.ClockSignals.Clocks.Rotational</span></p>
+        <p>Base class for event clocks that generate a clock tick each time an observed input angle changes</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToTriggerHold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToTriggerHold.html">AssignClockToTriggerHold</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Sampler.Utilities</span></p>
+        <p>Generate a Boolean continuous-time trigger signal from a clocked Real input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToSquareWaveHold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToSquareWaveHold.html">AssignClockToSquareWaveHold</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Sampler.Utilities</span></p>
+        <p>Generate a Boolean continuous-time square-wave output from a clocked Real input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.IntegerSignals.Sampler.Utilities.AssignClockToTriggerHold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.IntegerSignals.Sampler.Utilities.AssignClockToTriggerHold.html">AssignClockToTriggerHold</a></p>
+        <p><span>Modelica.Clocked.IntegerSignals.Sampler.Utilities</span></p>
+        <p>Generate a Boolean continuous-time trigger signal from a clocked Integer input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.IntegerSignals.Sampler.Utilities.AssignClockToSquareWaveHold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.IntegerSignals.Sampler.Utilities.AssignClockToSquareWaveHold.html">AssignClockToSquareWaveHold</a></p>
+        <p><span>Modelica.Clocked.IntegerSignals.Sampler.Utilities</span></p>
+        <p>Generate a Boolean continuous-time square signal from a clocked Integer input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.IntegerSignals.NonPeriodic.IntegerChange_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.IntegerSignals.NonPeriodic.IntegerChange.html">IntegerChange</a></p>
+        <p><span>Modelica.Clocked.IntegerSignals.NonPeriodic</span></p>
+        <p>Indicate Integer signal changing</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.SampleClocked_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.SampleClocked.html">SampleClocked</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler</span></p>
+        <p>Sample the continuous-time, Boolean input signal and provide it as clocked output signal. The clock is provided as input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.SampleVectorizedAndClocked_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.SampleVectorizedAndClocked.html">SampleVectorizedAndClocked</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler</span></p>
+        <p>Sample the continuous-time, Boolean input signal vector and provide it as clocked output signal vector. The clock is provided as input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.Hold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.Hold.html">Hold</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler</span></p>
+        <p>Hold the clocked, Boolean input signal and provide it as continuous-time output signal (zero order hold)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.SubSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.SubSample.html">SubSample</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler</span></p>
+        <p>Sub-sample the clocked Boolean input signal and provide it as clocked output signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.SuperSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.SuperSample.html">SuperSample</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler</span></p>
+        <p>Super-sample the clocked Boolean input signal and provide it as clocked output signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.ShiftSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.ShiftSample.html">ShiftSample</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler</span></p>
+        <p>Shift the clocked Boolean input signal by a fraction of the last interval and and provide it as clocked output signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.BackSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.BackSample.html">BackSample</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler</span></p>
+        <p>Shift clock of Boolean input signal backwards in time (and access the most recent value of the input at this new clock)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.AssignClock_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.AssignClock.html">AssignClock</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler</span></p>
+        <p>Assign a clock to a clocked Boolean signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.AssignClockVectorized_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.AssignClockVectorized.html">AssignClockVectorized</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler</span></p>
+        <p>Assign a clock to a clocked Boolean signal vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.Utilities.UpSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.Utilities.UpSample.html">UpSample</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler.Utilities</span></p>
+        <p>Upsample the clocked Boolean input signal and provide it as clocked output signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.Utilities.AssignClockToTriggerHold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.Utilities.AssignClockToTriggerHold.html">AssignClockToTriggerHold</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler.Utilities</span></p>
+        <p>Generate a Boolean continuous-time trigger signal from a clocked Boolean input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Sampler.Utilities.AssignClockToSquareWaveHold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Sampler.Utilities.AssignClockToSquareWaveHold.html">AssignClockToSquareWaveHold</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Sampler.Utilities</span></p>
+        <p>Generate a Boolean continuous-time square signal from a clocked Real input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.NonPeriodic.BooleanChange_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.NonPeriodic.BooleanChange.html">BooleanChange</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.NonPeriodic</span></p>
+        <p>Indicate Boolean signal changing</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.NonPeriodic.ClockToBoolean_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.NonPeriodic.ClockToBoolean.html">ClockToBoolean</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.NonPeriodic</span></p>
+        <p>Block to translate clock signals to continuous Boolean events (each time the input clock ticks a rising Boolean output edge is produced).</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Interfaces.PartialSISOSampler_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Interfaces.PartialSISOSampler.html">PartialSISOSampler</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Interfaces</span></p>
+        <p>Basic block used for sampling of Boolean signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Interfaces.PartialClockedSISO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Interfaces.PartialClockedSISO.html">PartialClockedSISO</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Interfaces</span></p>
+        <p>Block with clocked single input and clocked single output Boolean signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals.Interfaces.PartialClockedSO_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.Interfaces.PartialClockedSO.html">PartialClockedSO</a></p>
+        <p><span>Modelica.Clocked.BooleanSignals.Interfaces</span></p>
+        <p>Block with clocked single output Boolean signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.Utilities.TankController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.Utilities.TankController.html">TankController</a></p>
+        <p><span>Modelica.StateGraph.Examples.Utilities</span></p>
+        <p>Controller for tank system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.InitialStepWithSignal_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.InitialStepWithSignal.html">InitialStepWithSignal</a></p>
+        <p><span>Modelica.StateGraph</span></p>
+        <p>Initial step (= step that is active when simulation starts). Connector 'active' is true when the step is active</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.StepWithSignal_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.StepWithSignal.html">StepWithSignal</a></p>
+        <p><span>Modelica.StateGraph</span></p>
+        <p>Ordinary step (= step that is not active when simulation starts). Connector 'active' is true when the step is active</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Digital.Converters.LogicToBoolean_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Digital.Converters.LogicToBoolean.html">LogicToBoolean</a></p>
+        <p><span>Modelica.Electrical.Digital.Converters</span></p>
+        <p>Logic to Boolean converter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse.html">Signal2mPulse</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACDC.Control</span></p>
+        <p>Generic control of 2*m pulse rectifiers</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACDC.Control.VoltageBridge2Pulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACDC.Control.VoltageBridge2Pulse.html">VoltageBridge2Pulse</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACDC.Control</span></p>
+        <p>Control of 2 pulse bridge rectifier</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACDC.Control.VoltageBridge2mPulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACDC.Control.VoltageBridge2mPulse.html">VoltageBridge2mPulse</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACDC.Control</span></p>
+        <p>Control of 2*m pulse bridge rectifier</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACDC.Control.VoltageCenterTap2mPulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACDC.Control.VoltageCenterTap2mPulse.html">VoltageCenterTap2mPulse</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACDC.Control</span></p>
+        <p>Control of 2*m pulse center tap rectifier</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.DCAC.Control.PWM_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.DCAC.Control.PWM.html">PWM</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.DCAC.Control</span></p>
+        <p>PulseWidthModulation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM.html">SVPWM</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.DCAC.Control</span></p>
+        <p>SpaceVector Pulse Width Modulation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.DCAC.Control.IntersectivePWM_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.DCAC.Control.IntersectivePWM.html">IntersectivePWM</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.DCAC.Control</span></p>
+        <p>Intersective PWM</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM.html">SignalPWM</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.DCDC.Control</span></p>
+        <p>Generates a pulse width modulated (PWM) boolean fire signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Enable.EnableLogic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Enable.EnableLogic.html">EnableLogic</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Enable</span></p>
+        <p>Partial model providing enable parameter and optional enable input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.ControlledTankSystem.Utilities.TankController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.ControlledTankSystem.Utilities.TankController.html">TankController</a></p>
+        <p><span>Modelica.Fluid.Examples.ControlledTankSystem.Utilities</span></p>
+        <p>Controller for tank system</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

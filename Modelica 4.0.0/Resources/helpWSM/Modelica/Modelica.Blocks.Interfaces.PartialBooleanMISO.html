@@ -1,0 +1,143 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Interfaces.PartialBooleanMISO</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Blocks.Interfaces.PartialBooleanMISO.html">PartialBooleanMISO</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PartialBooleanMISO</h1>
+    <p>Partial block with a BooleanVectorInput and a BooleanOutput signal</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Interfaces.PartialBooleanMISO_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>nu</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of input connections</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanVectorInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanVectorInput.html">BooleanVectorInput[nu]</a></p>
+        <p><span>Description:</span> Vector of Boolean input signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanOutput.html">BooleanOutput</a></p>
+        <p><span>Description:</span> Boolean output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.ClockSignals.Clocks.Logical.PartialLogicalClock_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.ClockSignals.Clocks.Logical.PartialLogicalClock.html">PartialLogicalClock</a></p>
+        <p><span>Modelica.Clocked.ClockSignals.Clocks.Logical</span></p>
+        <p>Logical clock combining arbitrary many input clock signals according to a replaceable logical combinator</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.MathBoolean.Nor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.MathBoolean.Nor.html">Nor</a></p>
+        <p><span>Modelica.Blocks.MathBoolean</span></p>
+        <p>Logical 'nor': y = not ( u[1] or u[2] or ... or u[nu] )</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.MathBoolean.Nand_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.MathBoolean.Nand.html">Nand</a></p>
+        <p><span>Modelica.Blocks.MathBoolean</span></p>
+        <p>Logical 'nand': y = not ( u[1] and u[2] and ... and u[nu] )</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.MathBoolean.Xor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.MathBoolean.Xor.html">Xor</a></p>
+        <p><span>Modelica.Blocks.MathBoolean</span></p>
+        <p>Logical 'xor': y = oneTrue(u)  (y is true, if exactly one element of u is true, otherwise it is false)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.MathBoolean.Or_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.MathBoolean.Or.html">Or</a></p>
+        <p><span>Modelica.Blocks.MathBoolean</span></p>
+        <p>Logical 'or': y = u[1] or u[2] or ... or u[nu]</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.MathBoolean.And_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.MathBoolean.And.html">And</a></p>
+        <p><span>Modelica.Blocks.MathBoolean</span></p>
+        <p>Logical 'and': y = u[1] and u[2] and ... and u[nu]</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

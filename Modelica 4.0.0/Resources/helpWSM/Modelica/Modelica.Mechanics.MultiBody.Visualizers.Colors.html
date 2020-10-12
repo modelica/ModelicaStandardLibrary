@@ -1,0 +1,87 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Visualizers.Colors</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.html">Colors</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Colors</h1>
+    <p>Library of functions operating on color</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Colors_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.html">ColorMaps</a></p>
+        <p>Library of functions returning color maps</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg.html">colorMapToSvg</a></p>
+        <p>Save a color map on file in svg (scalable vector graphics) format</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor.html">scalarToColor</a></p>
+        <p>Map a scalar to a color using a color map</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This package contains functions to operate on colors.
+Note, a color is represented as a Real array with 3 elements where
+the elements are the red, green, blue values of the RGB color model.
+Every element must be in the range 0&nbsp;&hellip;&nbsp;255.
+The type of a color is Real and not Integer in order that a color
+can be used with less problems in a model, since in a model an Integer
+type could only be used in a when-clause. Typical declaration of a color value:
+</p>
+
+<blockquote><pre>
+Real color[3](each min=0, each max=255);
+</pre></blockquote>
+
+<p>
+This definition is also available as type
+<a href="Modelica.Mechanics.MultiBody.Types.RealColor.html">Modelica.Mechanics.MultiBody.Types.RealColor</a>.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

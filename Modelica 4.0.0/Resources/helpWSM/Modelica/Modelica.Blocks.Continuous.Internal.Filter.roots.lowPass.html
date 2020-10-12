@@ -1,0 +1,181 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Continuous.Internal.Filter.roots.lowPass</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Continuous.html">Continuous</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Internal.Filter.html">Filter</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Internal.Filter.roots.html">roots</a></li>
+  <li><a href="Modelica.Blocks.Continuous.Internal.Filter.roots.lowPass.html">lowPass</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>lowPass</h1>
+    <p>Return low pass filter roots as needed for block for given cut-off frequency</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Continuous.Internal.Filter.roots.lowPass_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The goal is to implement the filter in the following form:
+</p>
+
+<blockquote><pre>
+// real pole:
+ der(x) = r*x - r*u
+     y  = x
+
+// complex conjugate poles:
+der(x1) = a*x1 - b*x2 + ku*u;
+der(x2) = b*x1 + a*x2;
+     y  = x2;
+
+          ku = (a^2 + b^2)/b
+</pre></blockquote>
+<p>
+This representation has the following transfer function:
+</p>
+<blockquote><pre>
+// real pole:
+    s*y = r*y - r*u
+  or
+    (s-r)*y = -r*u
+  or
+    y = -r/(s-r)*u
+
+  comparing coefficients with
+    y = cr/(s + cr)*u  ->  r = -cr      // r is the real eigenvalue
+
+// complex conjugate poles
+    s*x2 =  a*x2 + b*x1
+    s*x1 = -b*x2 + a*x1 + ku*u
+  or
+    (s-a)*x2               = b*x1  ->  x2 = b/(s-a)*x1
+    (s + b^2/(s-a) - a)*x1 = ku*u  ->  (s(s-a) + b^2 - a*(s-a))*x1  = ku*(s-a)*u
+                                   ->  (s^2 - 2*a*s + a^2 + b^2)*x1 = ku*(s-a)*u
+  or
+    x1 = ku*(s-a)/(s^2 - 2*a*s + a^2 + b^2)*u
+    x2 = b/(s-a)*ku*(s-a)/(s^2 - 2*a*s + a^2 + b^2)*u
+       = b*ku/(s^2 - 2*a*s + a^2 + b^2)*u
+    y  = x2
+
+  comparing coefficients with
+    y = c0/(s^2 + c1*s + c0)*u  ->  a  = -c1/2
+                                    b  = sqrt(c0 - a^2)
+                                    ku = c0/b
+                                       = (a^2 + b^2)/b
+
+  comparing with eigenvalue representation:
+    (s - (a+jb))*(s - (a-jb)) = s^2 -2*a*s + a^2 + b^2
+  shows that:
+    a: real part of eigenvalue
+    b: imaginary part of eigenvalue
+
+  time -> infinity:
+    y(s=0) = x2(s=0) = 1
+             x1(s=0) = -ku*a/(a^2 + b^2)*u
+                     = -(a/b)*u
+</pre></blockquote>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(r, a, b, ku) = lowPass(cr_in, c0_in, c1_in, f_cut)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>cr_in</th>
+      <td>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Coefficients of real poles of base filter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c0_in</th>
+      <td>
+        <p><span>Type:</span> Real[:]</p>
+        <p><span>Description:</span> Coefficients of s^0 term of base filter if conjugate complex pole</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c1_in</th>
+      <td>
+        <p><span>Type:</span> Real[size(c0_in, 1)]</p>
+        <p><span>Description:</span> Coefficients of s^1 term of base filter if conjugate complex pole</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f_cut</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Cut-off frequency</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>r</th>
+      <td>
+        <p><span>Type:</span> Real[size(cr_in, 1)]</p>
+        <p><span>Description:</span> Real eigenvalues</p>
+      </td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>
+        <p><span>Type:</span> Real[size(c0_in, 1)]</p>
+        <p><span>Description:</span> Real parts of complex conjugate eigenvalues</p>
+      </td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>
+        <p><span>Type:</span> Real[size(c0_in, 1)]</p>
+        <p><span>Description:</span> Imaginary parts of complex conjugate eigenvalues</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ku</th>
+      <td>
+        <p><span>Type:</span> Real[size(c0_in, 1)]</p>
+        <p><span>Description:</span> Input gain</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

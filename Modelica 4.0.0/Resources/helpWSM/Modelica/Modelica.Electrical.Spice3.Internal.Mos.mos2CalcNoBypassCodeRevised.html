@@ -1,0 +1,112 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Spice3.Internal.Mos.mos2CalcNoBypassCodeRevised</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Spice3.html">Spice3</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.Mos.html">Mos</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.Mos.mos2CalcNoBypassCodeRevised.html">mos2CalcNoBypassCodeRevised</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>mos2CalcNoBypassCodeRevised</h1>
+    <p>Calculation of currents and capacities (level 2)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Spice3.Internal.Mos.mos2CalcNoBypassCodeRevised_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This function mos2CalcNoBypassCodeRevised calculates the currents (and the capacitances) that are necessary for the currents sum in the toplevelmodel (level 2).</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">out_cc = mos2CalcNoBypassCodeRevised(in_m, in_m_type, in_c, in_p, in_m_bInit, in_m_pVoltageValues)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>in_m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet.html">Mosfet</a></p>
+        <p><span>Description:</span> Input record MOSFET parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <th>in_m_type</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Type of MOS transistor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>in_c</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc.html">Mos2Calc</a></p>
+        <p><span>Description:</span> Input record Mos2Calc</p>
+      </td>
+    </tr>
+    <tr>
+      <th>in_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams.html">Mos2ModelLineParams</a></p>
+        <p><span>Description:</span> Input record model line parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <th>in_m_bInit</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+      </td>
+    </tr>
+    <tr>
+      <th>in_m_pVoltageValues</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage[4]</a> (V)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>out_cc</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mos.CurrrentsCapacitances.html">CurrrentsCapacitances</a></p>
+        <p><span>Description:</span> Calculated currents and capacitances</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

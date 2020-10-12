@@ -1,0 +1,109 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Utilities.Strings.substring</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Strings.html">Strings</a></li>
+  <li><a href="Modelica.Utilities.Strings.substring.html">substring</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>substring</h1>
+    <p>Return a substring defined by start and end index</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Strings.substring_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+string2 = Strings.<strong>substring</strong>(string, startIndex, endIndex);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function returns
+the substring from position startIndex
+up to and including position endIndex of "string" .
+</p>
+<p>
+If index, startIndex, or endIndex are not correct, e.g.,
+if endIndex &gt; length(string), an assert is triggered.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+string1 := "This is line 111";
+string2 := Strings.substring(string1,9,12); // string2 = "line"
+</pre></blockquote>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">result = substring(string, startIndex, endIndex)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>string</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> String from which a substring is inquired</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startIndex</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Character position of substring begin (index=1 is first character in string)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>endIndex</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Character position of substring end</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>result</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> String containing substring string[startIndex:endIndex]</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

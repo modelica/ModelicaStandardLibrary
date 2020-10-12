@@ -1,0 +1,449 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Sensors.AbsoluteSensor</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Sensors.html">Sensors</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor.html">AbsoluteSensor</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>AbsoluteSensor</h1>
+    <p>Measure absolute kinematic quantities of frame connector</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Absolute kinematic quantities of frame_a are
+determined and provided at the conditional output signal connectors.
+For example, if parameter "get_r = <strong>true</strong>", the connector
+"r" is enabled and contains the absolute vector from the world frame
+to the origin of frame_a. The following quantities can be provided
+as output signals:
+</p>
+
+<ol>
+<li> Absolute position vector (= r)</li>
+<li> Absolute velocity vector (= v)</li>
+<li> Absolute acceleration vector (= a)</li>
+<li> Three angles to rotate world frame into frame_a (= angles)</li>
+<li> Absolute angular velocity vector (= w)</li>
+<li> Absolute angular acceleration vector (= z)</li>
+</ol>
+
+<p>
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
+a vector is resolved:
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th><strong>resolveInFrame =<br>Types.ResolveInFrameA.</strong></th><th><strong>Meaning</strong></th></tr>
+<tr><td>world</td>
+    <td>Resolve vectors in world frame</td></tr>
+
+<tr><td>frame_a</td>
+    <td>Resolve vectors in frame_a</td></tr>
+
+<tr><td>frame_resolve</td>
+    <td>Resolve vectors in frame_resolve</td></tr>
+</table>
+
+<p>
+If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the conditional connector
+"frame_resolve" is enabled and the vectors are resolved in the frame, to
+which frame_resolve is connected. Note, if this connector is enabled, it must
+be connected.
+</p>
+
+<p>
+In the following figure the animation of an AbsoluteSensor
+component is shown. The light blue coordinate system is
+frame_a and the yellow arrow is the animated sensor.
+</p>
+
+<p>
+<img src="resources/Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor_info_001.png">
+</p>
+
+<p>
+Velocity, acceleration, angular velocity and angular acceleration are
+determined by differentiating them in the world frame and then transforming
+them in to the frame defined by <strong>resolveInFrame</strong>.
+</p>
+<p>
+For example, if resolveInFrame = <strong>Types.ResolveInFrameA.frame_a</strong>, then
+</p>
+<blockquote><pre>
+v0 = <strong>der</strong>(frame_a.r0);
+v  = resolve2(frame_a.R, v0);
+</pre></blockquote>
+<p>
+is returned, i.e., the derivative of the absolute distance from the
+world frame to the origin of frame_a, resolved in frame_a.
+</p>
+
+<p>
+The cut-force and the cut-torque in frame_resolve are
+always zero, whether frame_resolve is connected or not.
+</p>
+
+<p>
+If <strong>get_angles</strong> = <strong>true</strong>, the 3 angles to rotate the world
+frame into frame_a along the axes defined by parameter <strong>sequence</strong>
+are returned. For example, if sequence = {3,1,2} then the world frame is
+rotated around angles[1] along the z-axis, afterwards it is rotated
+around angles[2] along the x-axis, and finally it is rotated around
+angles[3] along the y-axis and is then identical to frame_a.
+The 3 angles are returned in the range
+</p>
+<blockquote><pre>
+-&pi; &lt;= angles[i] &lt;= &pi;
+</pre></blockquote>
+<p>
+There are <strong>two solutions</strong> for "angles[1]" in this range.
+Via parameter <strong>guessAngle1</strong> (default = 0) the
+returned solution is selected such that |angles[1] - guessAngle1| is
+minimal. The absolute transformation matrix of frame_a
+may be in a singular configuration with respect to "sequence", i.e.,
+there is an infinite number of angle values leading to the same absolute
+transformation matrix. In this case, the returned solution is
+selected by setting angles[1] = guessAngle1. Then angles[2]
+and angles[3] can be uniquely determined in the above range.
+</p>
+<p>
+The parameter <strong>sequence</strong> has the restriction that
+only values 1,2,3 can be used and that sequence[1] &ne; sequence[2]
+and sequence[2] &ne; sequence[3]. Often used values are:
+</p>
+<blockquote><pre>
+sequence = <strong>{1,2,3}</strong>  // Cardan or Tait-Bryan angle sequence
+         = <strong>{3,1,3}</strong>  // Euler angle sequence
+         = <strong>{3,2,1}</strong>
+</pre></blockquote>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>animation</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if animation shall be enabled (show arrow)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>resolveInFrame</th>
+      <td>
+        <p><span>Value:</span> Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.html">ResolveInFrameA</a></p>
+        <p><span>Description:</span> Frame in which vectors are resolved (world, frame_a, or frame_resolve)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>get_r</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, to measure the absolute position vector of the origin of frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>get_v</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, to measure the absolute velocity of the origin of frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>get_a</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, to measure the absolute acceleration of the origin of frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>get_w</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, to measure the absolute angular velocity of frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>get_z</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, to measure the absolute angular acceleration of frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>get_angles</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, to measure the 3 rotation angles</p>
+      </td>
+    </tr>
+    <tr>
+      <th>sequence</th>
+      <td>
+        <p><span>Value:</span> {1, 2, 3}</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.RotationSequence.html">RotationSequence</a></p>
+        <p><span>Description:</span> If get_angles=true: Angles are returned to rotate world frame around axes sequence[1], sequence[2] and finally sequence[3] into frame_a</p>
+      </td>
+    </tr>
+    <tr>
+      <th>guessAngle1</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> If get_angles=true: Select angles[1] such that abs(angles[1] - guessAngle1) is a minimum</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>arrowColor</th>
+      <td>
+        <p><span>Default Value:</span> Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.Color.html">Color</a></p>
+        <p><span>Description:</span> Color of absolute arrow from world frame to frame_b</p>
+      </td>
+    </tr>
+    <tr>
+      <th>specularCoefficient</th>
+      <td>
+        <p><span>Default Value:</span> world.defaultSpecularCoefficient</p>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Types.SpecularCoefficient.html">SpecularCoefficient</a></p>
+        <p><span>Description:</span> Reflection of ambient light (= 0: light is completely absorbed)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_a_16x16.png"></td>
+      <th>frame_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></p>
+        <p><span>Description:</span> Coordinate system a of which the absolute kinematic quantities are measured</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>r</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[3]</a></p>
+        <p><span>Description:</span> Absolute position vector frame_a.r_0 resolved in frame defined by resolveInFrame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>v</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[3]</a></p>
+        <p><span>Description:</span> Absolute velocity vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[3]</a></p>
+        <p><span>Description:</span> Absolute acceleration vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>angles</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[3]</a></p>
+        <p><span>Description:</span> Angles to rotate world frame into frame_a via 'sequence'</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>w</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[3]</a></p>
+        <p><span>Description:</span> Absolute angular velocity vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>z</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[3]</a></p>
+        <p><span>Description:</span> Absolute angular acceleration vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve_16x16.png"></td>
+      <th>frame_resolve</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve.html">Frame_resolve</a></p>
+        <p><span>Description:</span> If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the output signals are resolved in this frame</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(14)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.AbsolutePosition_32x32.png"></td>
+      <th>position</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Sensors.AbsolutePosition.html">AbsolutePosition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.AbsoluteVelocity_32x32.png"></td>
+      <th>velocity</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Sensors.AbsoluteVelocity.html">AbsoluteVelocity</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.AbsoluteAngles_32x32.png"></td>
+      <th>absoluteAngles</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Sensors.AbsoluteAngles.html">AbsoluteAngles</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.AbsoluteAngularVelocity_32x32.png"></td>
+      <th>angularVelocity</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Sensors.AbsoluteAngularVelocity.html">AbsoluteAngularVelocity</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Der_32x32.png"></td>
+      <th>der1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Der.html">Der[3]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Der_32x32.png"></td>
+      <th>der2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Der.html">Der[3]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector_32x32.png"></td>
+      <th>transformVector_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector.html">TransformAbsoluteVector</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector_32x32.png"></td>
+      <th>transformVector_z</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector.html">TransformAbsoluteVector</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.World_32x32.png"></td>
+      <th>world</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.World.html">World</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow_32x32.png"></td>
+      <th>arrow</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow.html">Arrow</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.AbsoluteVelocity_32x32.png"></td>
+      <th>absoluteVelocity</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Sensors.AbsoluteVelocity.html">AbsoluteVelocity</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.AbsoluteAngularVelocity_32x32.png"></td>
+      <th>absoluteAngularVelocity</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Sensors.AbsoluteAngularVelocity.html">AbsoluteAngularVelocity</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque_32x32.png"></td>
+      <th>zeroForce1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque.html">ZeroForceAndTorque</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque_32x32.png"></td>
+      <th>zeroForce2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque.html">ZeroForceAndTorque</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

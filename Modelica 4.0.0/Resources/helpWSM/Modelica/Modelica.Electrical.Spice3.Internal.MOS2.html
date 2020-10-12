@@ -1,0 +1,437 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Spice3.Internal.MOS2</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Spice3.html">Spice3</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.MOS2.html">MOS2</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>MOS2</h1>
+    <p>Metal-Oxide Semiconductor Field-Effect Transistor</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Spice3.Internal.MOS2_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>MOSFET model, both N and P channel, LEVEL 2</p>
+<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(27)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>mtype</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> MOSFET type: 0 - N channel, 1 - P channel</p>
+      </td>
+    </tr>
+    <tr>
+      <th>L</th>
+      <td>
+        <p><span>Value:</span> 1e-4</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Length</p>
+      </td>
+    </tr>
+    <tr>
+      <th>W</th>
+      <td>
+        <p><span>Value:</span> 1e-4</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Width</p>
+      </td>
+    </tr>
+    <tr>
+      <th>AD</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Area of the drain diffusion</p>
+      </td>
+    </tr>
+    <tr>
+      <th>AS</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Area of the source diffusion</p>
+      </td>
+    </tr>
+    <tr>
+      <th>PD</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Perimeter of the drain junction</p>
+      </td>
+    </tr>
+    <tr>
+      <th>PS</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Perimeter of the source junction</p>
+      </td>
+    </tr>
+    <tr>
+      <th>NRD</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Number of squares of the drain diffusions</p>
+      </td>
+    </tr>
+    <tr>
+      <th>NRS</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Number of squares of the source diffusions</p>
+      </td>
+    </tr>
+    <tr>
+      <th>OFF</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IC_VDS</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Initial condition value (VDS, not implemented yet)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IC_VGS</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Initial condition value (VGS, not implemented yet)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IC_VBS</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Initial condition value (VBS, not implemented yet)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>UIC</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Use initial conditions: true, if initial condition is used</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TEMP</th>
+      <td>
+        <p><span>Value:</span> 27</p>
+        <p><span>Type:</span> <a href="Modelica.Units.NonSI.Temperature_degC.html">Temperature_degC</a> (°C)</p>
+        <p><span>Description:</span> Operating temperature of the device</p>
+      </td>
+    </tr>
+    <tr>
+      <th>modelcard</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.ModelcardMOS2.html">ModelcardMOS2</a></p>
+        <p><span>Description:</span> MOSFET modelcard</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p</th>
+      <td>
+        <p><span>Value:</span> Spice3.Internal.Mos2.mos2RenameParametersRevised(modelcard)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams.html">Mos2ModelLineParams</a></p>
+        <p><span>Description:</span> Model line parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Value:</span> Spice3.Internal.Mosfet.mosfetRenameParametersDev(W, L, AD, AS, PD, PS, NRD, NRS, OFF, IC_VDS, IC_VGS, IC_VBS, UIC, TEMP)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet.html">Mosfet</a></p>
+        <p><span>Description:</span> Renamed parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <th>m1</th>
+      <td>
+        <p><span>Value:</span> Spice3.Internal.Mosfet.mosfetInitEquations(m)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet.html">Mosfet</a></p>
+      </td>
+    </tr>
+    <tr>
+      <th>m_type</th>
+      <td>
+        <p><span>Value:</span> if m.m_bPMOS > 0.5 then -1 else 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Type of the transistor</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p1</th>
+      <td>
+        <p><span>Value:</span> Spice3.Internal.Mos2.mos2ModelLineParamsInitEquationsRevised(p, m_type)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams.html">Mos2ModelLineParams</a></p>
+        <p><span>Description:</span> Model line variables</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c11</th>
+      <td>
+        <p><span>Value:</span> Spice3.Internal.Mos.mos2CalcInitEquationsRevised(p1, m1)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc.html">Mos2Calc</a></p>
+        <p><span>Description:</span> Precalculated parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c22</th>
+      <td>
+        <p><span>Value:</span> Spice3.Internal.Mos.mos2CalcCalcTempDependenciesRevised(p1, m1, c11, m_type)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc.html">Mos2Calc</a></p>
+        <p><span>Description:</span> Precalculated parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IC</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Initial condition values, not implemented yet</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c1</th>
+      <td>
+        <p><span>Value:</span> Spice3.Internal.Mos.mos2CalcInitEquationsRevised(p, m)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc.html">Mos2Calc</a></p>
+        <p><span>Description:</span> Precalculated parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c2</th>
+      <td>
+        <p><span>Value:</span> Spice3.Internal.Mos.mos2CalcCalcTempDependenciesRevised(p, m, c1, m_type)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc.html">Mos2Calc</a></p>
+        <p><span>Description:</span> Precalculated parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <th>p_obsolete</th>
+      <td>
+        <p><span>Value:</span> Spice3.Internal.Mos2.mos2RenameParametersRevised(modelcard)</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams.html">Mos2ModelLineParams</a></p>
+        <p><span>Description:</span> Model line parameters</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>G</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Gate node</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>D</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Drain node</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>S</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Source node</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>B</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Bulk node</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(12)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.ModelcardMOS2_32x32.png"></td>
+      <th>modelcard</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.ModelcardMOS2.html">ModelcardMOS2</a></p>
+        <p><span>Description:</span> MOSFET modelcard</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams_32x32.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams.html">Mos2ModelLineParams</a></p>
+        <p><span>Description:</span> Model line parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet_32x32.png"></td>
+      <th>m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet.html">Mosfet</a></p>
+        <p><span>Description:</span> Renamed parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet_32x32.png"></td>
+      <th>m1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet.html">Mosfet</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams_32x32.png"></td>
+      <th>p1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams.html">Mos2ModelLineParams</a></p>
+        <p><span>Description:</span> Model line variables</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc_32x32.png"></td>
+      <th>c11</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc.html">Mos2Calc</a></p>
+        <p><span>Description:</span> Precalculated parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc_32x32.png"></td>
+      <th>c22</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc.html">Mos2Calc</a></p>
+        <p><span>Description:</span> Precalculated parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Mos.CurrrentsCapacitances_32x32.png"></td>
+      <th>cc</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mos.CurrrentsCapacitances.html">CurrrentsCapacitances</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc_32x32.png"></td>
+      <th>c1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc.html">Mos2Calc</a></p>
+        <p><span>Description:</span> Precalculated parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc_32x32.png"></td>
+      <th>c2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc.html">Mos2Calc</a></p>
+        <p><span>Description:</span> Precalculated parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams_32x32.png"></td>
+      <th>p_obsolete</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams.html">Mos2ModelLineParams</a></p>
+        <p><span>Description:</span> Model line parameters</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Internal.SpiceConstants_32x32.png"></td>
+      <th>C</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.SpiceConstants.html">SpiceConstants</a></p>
+        <p><span>Description:</span> General constants of SPICE simulator</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Semiconductors.M_PMOS2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Semiconductors.M_PMOS2.html">M_PMOS2</a></p>
+        <p><span>Modelica.Electrical.Spice3.Semiconductors</span></p>
+        <p>PMOS MOSFET device</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Semiconductors.M_NMOS2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Semiconductors.M_NMOS2.html">M_NMOS2</a></p>
+        <p><span>Modelica.Electrical.Spice3.Semiconductors</span></p>
+        <p>NMOS MOSFET device</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

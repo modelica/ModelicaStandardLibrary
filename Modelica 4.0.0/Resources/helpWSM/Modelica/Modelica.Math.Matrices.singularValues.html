@@ -1,0 +1,134 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Matrices.singularValues</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.singularValues.html">singularValues</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>singularValues</h1>
+    <p>Return singular values and left and right singular vectors</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.singularValues_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+         sigma = Matrices.<strong>singularValues</strong>(A);
+(sigma, U, VT) = Matrices.<strong>singularValues</strong>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function computes the singular values and optionally the
+singular vectors of matrix A. Basically the singular
+value decomposition of A is computed, i.e.,
+</p>
+<blockquote><pre>
+<strong>A</strong> = <strong>U</strong> <strong>&Sigma;</strong> <strong>V</strong><sup>T</sup>
+  = U*Sigma*VT
+</pre></blockquote>
+<p>
+where <strong>U</strong> and <strong>V</strong> are orthogonal matrices (<strong>UU</strong><sup>T</sup>=<strong>I,
+</strong><strong>VV</strong><sup>T</sup>=<strong>I</strong>).
+<strong>&Sigma;</strong> = [diagonal(&sigma;<sub>i</sub>), zeros(n,m-n)], if n=size(A,1) &le;
+m=size(A,2)) or [diagonal(&sigma;<sub>i</sub>); zeros(n-m,m)], if n &gt;
+m=size(A,2)). <strong>&Sigma;</strong> has the same size as matrix A with
+nonnegative diagonal elements in decreasing order and with all other elements zero
+(&sigma;<sub>1</sub> is the largest element). The function
+returns the singular values &sigma;<sub>i</sub>
+in vector <code>sigma</code> and the orthogonal matrices in
+matrices <code>U</code> and <code>VT</code>.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+A = [1, 2,  3,  4;
+     3, 4,  5, -2;
+    -1, 2, -3,  5];
+(sigma, U, VT) = singularValues(A);
+results in:
+   sigma = {8.33, 6.94, 2.31};
+i.e.
+   Sigma = [8.33,    0,    0, 0;
+               0, 6.94,    0, 0;
+               0,    0, 2.31, 0]
+</pre></blockquote>
+<h4>See also</h4>
+<a href="Modelica.Math.Matrices.eigenValues.html">Matrices.eigenValues</a>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(sigma, U, VT) = singularValues(A)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,:]</p>
+        <p><span>Description:</span> Matrix</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>sigma</th>
+      <td>
+        <p><span>Type:</span> Real[min(size(A, 1), size(A, 2))]</p>
+        <p><span>Description:</span> Singular values</p>
+      </td>
+    </tr>
+    <tr>
+      <th>U</th>
+      <td>
+        <p><span>Default Value:</span> identity(size(A, 1))</p>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 1)]</p>
+        <p><span>Description:</span> Left orthogonal matrix</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VT</th>
+      <td>
+        <p><span>Default Value:</span> identity(size(A, 2))</p>
+        <p><span>Type:</span> Real[size(A, 2),size(A, 2)]</p>
+        <p><span>Description:</span> Transposed right orthogonal matrix</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

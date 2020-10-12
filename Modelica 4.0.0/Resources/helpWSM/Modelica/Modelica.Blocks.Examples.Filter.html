@@ -1,0 +1,152 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Examples.Filter</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Blocks.Examples.Filter.html">Filter</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Filter</h1>
+    <p>Demonstrates the Continuous.Filter block with various options</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Examples.Filter_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Blocks.Examples.Filter_diagram_large.png"><img src="resources/diagrams/Modelica.Blocks.Examples.Filter_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example demonstrates various options of the
+<a href="Modelica.Blocks.Continuous.Filter.html">Filter</a> block.
+A step input starts at 0.1 s with an offset of 0.1, in order to demonstrate
+the initialization options. This step input drives 4 filter blocks that
+have identical parameters, with the only exception of the used analog filter type
+(CriticalDamping, Bessel, Butterworth, Chebyshev of type I). All the main options
+can be set via parameters and are then applied to all the 4 filters.
+The default setting uses low pass filters of order 3 with a cut-off frequency of
+2 Hz resulting in the following outputs:
+</p>
+
+<img src="resources/Modelica.Blocks.Examples.Filter_info_001.png"
+     alt="Filter1.png">
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>order</th>
+      <td>
+        <p><span>Value:</span> 3</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of order of filter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f_cut</th>
+      <td>
+        <p><span>Value:</span> 2</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Cut-off frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>filterType</th>
+      <td>
+        <p><span>Value:</span> Modelica.Blocks.Types.FilterType.LowPass</p>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Types.FilterType.html">FilterType</a></p>
+        <p><span>Description:</span> Type of filter (LowPass/HighPass)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>init</th>
+      <td>
+        <p><span>Value:</span> Modelica.Blocks.Types.Init.SteadyState</p>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Types.Init.html">Init</a></p>
+        <p><span>Description:</span> Type of initialization (no init/steady state/initial state/initial output)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>normalized</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if amplitude at f_cut = -3db, otherwise unmodified filter</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Step_32x32.png"></td>
+      <th>step</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Filter_32x32.png"></td>
+      <th>CriticalDamping</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Filter.html">Filter</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Filter_32x32.png"></td>
+      <th>Bessel</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Filter.html">Filter</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Filter_32x32.png"></td>
+      <th>Butterworth</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Filter.html">Filter</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.Filter_32x32.png"></td>
+      <th>ChebyshevI</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.Filter.html">Filter</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

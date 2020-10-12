@@ -1,0 +1,191 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Utilities.Files</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Files.html">Files</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Files</h1>
+    <p>Functions to work with files and directories</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Files_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Files.list_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Files.list.html">list</a></p>
+        <p>List content of file or directory</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Files.copy_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Files.copy.html">copy</a></p>
+        <p>Generate a copy of a file or of a directory</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Files.move_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Files.move.html">move</a></p>
+        <p>Move a file or a directory to another place</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Files.remove_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Files.remove.html">remove</a></p>
+        <p>Remove file or directory (ignore call, if it does not exist)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Files.removeFile_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Files.removeFile.html">removeFile</a></p>
+        <p>Remove file (ignore call, if it does not exist)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Files.createDirectory_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Files.createDirectory.html">createDirectory</a></p>
+        <p>Create directory (if directory already exists, ignore call)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Files.exist_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Files.exist.html">exist</a></p>
+        <p>Inquire whether file or directory exists</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Files.assertNew_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Files.assertNew.html">assertNew</a></p>
+        <p>Trigger an assert, if a file or directory exists</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Files.fullPathName_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Files.fullPathName.html">fullPathName</a></p>
+        <p>Get full path name of file or directory name</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Files.splitPathName_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Files.splitPathName.html">splitPathName</a></p>
+        <p>Split path name in directory, file name kernel, file name extension</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Files.temporaryFileName_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Files.temporaryFileName.html">temporaryFileName</a></p>
+        <p>Return arbitrary name of a file that does not exist and is in a directory where access rights allow to write to this file (useful for temporary output of files)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Files.loadResource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Files.loadResource.html">loadResource</a></p>
+        <p>Return the absolute path name of a URI or local file name</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This package contains functions to work with files and directories.
+As a general convention of this package, '/' is used as directory
+separator both for input and output arguments of all functions.
+For example:
+</p>
+<blockquote><pre>
+exist("Modelica/Mechanics/Rotational.mo");
+</pre></blockquote>
+<p>
+The functions provide the mapping to the directory separator of the
+underlying operating system. Note, that on Windows system the usage
+of '\' as directory separator would be inconvenient, because this
+character is also the escape character in Modelica and C Strings.
+</p>
+<p>
+In the table below an example call to every function is given:
+</p>
+<table border="1" cellspacing="0" cellpadding="2">
+  <tr><th><strong><em>Function/type</em></strong></th><th><strong><em>Description</em></strong></th></tr>
+  <tr><td><a href="Modelica.Utilities.Files.list.html">list</a>(name)</td>
+      <td> List content of file or of directory.</td>
+  </tr>
+  <tr><td><a href="Modelica.Utilities.Files.copy.html">copy</a>(oldName, newName)<br>
+          <a href="Modelica.Utilities.Files.copy.html">copy</a>(oldName, newName, replace=false)</td>
+      <td> Generate a copy of a file or of a directory.</td>
+  </tr>
+  <tr><td><a href="Modelica.Utilities.Files.move.html">move</a>(oldName, newName)<br>
+          <a href="Modelica.Utilities.Files.move.html">move</a>(oldName, newName, replace=false)</td>
+      <td> Move a file or a directory to another place.</td>
+  </tr>
+  <tr><td><a href="Modelica.Utilities.Files.remove.html">remove</a>(name)</td>
+      <td> Remove file or directory (ignore call, if it does not exist).</td>
+  </tr>
+  <tr><td><a href="Modelica.Utilities.Files.removeFile.html">removeFile</a>(name)</td>
+      <td> Remove file (ignore call, if it does not exist)</td>
+  </tr>
+  <tr><td><a href="Modelica.Utilities.Files.createDirectory.html">createDirectory</a>(name)</td>
+      <td> Create directory (if directory already exists, ignore call).</td>
+  </tr>
+  <tr><td>result = <a href="Modelica.Utilities.Files.exist.html">exist</a>(name)</td>
+      <td> Inquire whether file or directory exists.</td>
+  </tr>
+  <tr><td><a href="Modelica.Utilities.Files.assertNew.html">assertNew</a>(name,message)</td>
+      <td> Trigger an assert, if a file or directory exists.</td>
+  </tr>
+  <tr><td>fullName = <a href="Modelica.Utilities.Files.fullPathName.html">fullPathName</a>(name)</td>
+      <td> Get full path name of file or directory name.</td>
+  </tr>
+  <tr><td>(directory, name, extension) = <a href="Modelica.Utilities.Files.splitPathName.html">splitPathName</a>(name)</td>
+      <td> Split path name in directory, file name kernel, file name extension.</td>
+  </tr>
+  <tr><td>fileName = <a href="Modelica.Utilities.Files.temporaryFileName.html">temporaryFileName</a>()</td>
+      <td> Return arbitrary name of a file that does not exist<br>
+           and is in a directory where access rights allow to<br>
+           write to this file (useful for temporary output of files).</td>
+  </tr>
+  <tr><td>fileReference = <a href="Modelica.Utilities.Files.loadResource.html">loadResource</a>(uri)</td>
+      <td>Return the absolute path name of a URI or local file name.</td>
+  </tr>
+</table>
+</div>
+</section>
+</div>
+</body>
+</html>

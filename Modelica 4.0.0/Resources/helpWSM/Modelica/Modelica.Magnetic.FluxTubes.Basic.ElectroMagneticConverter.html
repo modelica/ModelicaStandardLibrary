@@ -1,0 +1,232 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Magnetic.FluxTubes.Basic.ElectroMagneticConverter</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Basic.html">Basic</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter.html">ElectroMagneticConverter</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ElectroMagneticConverter</h1>
+    <p>Ideal electromagnetic energy conversion</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The electromagnetic energy conversion is given by <em>Ampere</em>'s law and <em>Faraday</em>'s law respectively:
+</p>
+
+<blockquote><pre>
+V<sub>m</sub> = N * i
+N * d&Phi;/dt = -v
+</pre></blockquote>
+
+<p>
+<img src="resources/Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter_info_001.png" alt="converter signs">
+</p>
+
+<p>
+V<sub>m</sub> is the magnetic potential difference applied to the magnetic circuit due to the current i through the coil (Ampere's law).
+There exists a left-hand assignment between the current i (Put your hand around the coil, fingers pointing in the direction of current flow.)
+and the magnetic potential difference V<sub>m</sub> (thumb).<br>
+<strong>Note:</strong> There exists a right-hand assignment between the current through the coil i (fingers) and the magnetomotive force mmf.
+The mmf has the opposite direction compared with V<sub>m</sub>, it is not used in Modelica.
+</p>
+
+<p>
+For the complete magnetic circuit the sum of all magnetic potential differences counted with the correct sign in a reference direction is equal to zero: sum(V<sub>m</sub>) = 0.<br>
+The magnetic flux &Phi; in each passive component is related to the magnetic potential difference V<sub>m</sub> by the equivalent of Ohms' law: V<sub>m</sub> = R<sub>m</sub> * &Phi;<br>
+<strong>Note:</strong> The magnetic resistance R<sub>m</sub> depends on geometry and material properties. For ferromagnetic materials R<sub>m</sub> is not constant due to saturation.
+</p>
+
+<p>
+Therefore the sign (actual direction) of &Phi; (magnetic flux through the converter) depends on the associated branch of the magnetic circuit.<br>
+v is the induced voltage in the coil due to the derivative of magnetic flux &Phi; (Faraday's law).<br>
+<strong>Note:</strong> The negative sign of the induced voltage v is due to <em>Lenz</em>'s law.
+</p>
+
+<p>
+<strong>Note:</strong> The image shows a coil wound counter-clockwise (positive mathematical direction).
+If a coil wound clockwise has to be modeled instead, the parameter N (Number of turns) can be set to a negative value.
+</p>
+
+<p>
+The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculated for information only. Note that L_stat is set to |&Psi;/eps| if |i| &lt; eps
+(= 100*Modelica.Constants.eps).
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>N</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Number of turns</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort_16x16.png"></td>
+      <th>port_p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort.html">PositiveMagneticPort</a></p>
+        <p><span>Description:</span> Positive magnetic port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort_16x16.png"></td>
+      <th>port_n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort.html">NegativeMagneticPort</a></p>
+        <p><span>Description:</span> Negative magnetic port</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive electrical pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative electrical pin</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.BasicExamples.QuadraticCoreAirgap_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.BasicExamples.QuadraticCoreAirgap.html">QuadraticCoreAirgap</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.BasicExamples</span></p>
+        <p>Educational example: iron core with airgap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.BasicExamples.ToroidalCoreAirgap_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.BasicExamples.ToroidalCoreAirgap.html">ToroidalCoreAirgap</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.BasicExamples</span></p>
+        <p>Educational example: iron core with airgap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.BasicExamples.ToroidalCoreQuadraticCrossSection_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.BasicExamples.ToroidalCoreQuadraticCrossSection.html">ToroidalCoreQuadraticCrossSection</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.BasicExamples</span></p>
+        <p>Educational example: iron core with airgap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.BasicExamples.SaturatedInductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.BasicExamples.SaturatedInductor.html">SaturatedInductor</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.BasicExamples</span></p>
+        <p>Inductor with saturation in the ferromagnetic core</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.LinearInductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.LinearInductor.html">LinearInductor</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Examples</span></p>
+        <p>Linear inductor with ferromagnetic core</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.NonLinearInductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.NonLinearInductor.html">NonLinearInductor</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Examples</span></p>
+        <p>Non linear inductor with ferromagnetic core</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator.html">PermeanceActuator</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components</span></p>
+        <p>Detailed actuator model for rough magnetic design of actuator and system simulation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid.html">SimpleSolenoid</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components</span></p>
+        <p>Simple network model of a lifting magnet with planar armature end face</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid.html">AdvancedSolenoid</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components</span></p>
+        <p>Advanced network model of a lifting magnet with planar armature end face, split magnetomotive force</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

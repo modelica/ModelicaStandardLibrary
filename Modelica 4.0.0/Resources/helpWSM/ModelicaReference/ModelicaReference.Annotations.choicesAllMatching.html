@@ -1,0 +1,54 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Annotations.choicesAllMatching</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Annotations.html">Annotations</a></li>
+  <li><a href="ModelicaReference.Annotations.choicesAllMatching.html">choicesAllMatching</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>choicesAllMatching</h1>
+    <p>choicesAllMatching</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Annotations.choicesAllMatching_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Automatically display a list of matching choices in a graphical parameter menu.
+</p>
+
+<h4>Description</h4>
+<p>
+Choices menus of replaceable elements can be automatically constructed showing the names of all classes that are either directly or indirectly derived by inheritance from the constraining class of the declaration.
+</p>
+<p>
+This can be recommended by having <code><strong>annotation</strong> choicesAllMatching = true;</code> and disabled by having <code><strong>annotation</strong> choicesAllMatching = false;</code>.
+</p>
+
+<h4>Examples</h4>
+<blockquote><pre>
+<strong>replaceable package</strong> Medium = Modelica.Media.Water.ConstantPropertyLiquidWater
+                             <strong>constrainedby</strong> Modelica.Media.Interfaces.PartialMedium
+                             <strong>annotation</strong> (choicesAllMatching=true);
+</pre></blockquote>
+</div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,221 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.Examples.TraceSubstances.RoomCO2WithControls</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Fluid.Examples.TraceSubstances.html">TraceSubstances</a></li>
+  <li><a href="Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls.html">RoomCO2WithControls</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>RoomCO2WithControls</h1>
+    <p>Demonstrates a room volume with CO2 controls</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls_diagram_large.png"><img src="resources/diagrams/Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This example illustrates a room volume with a CO2 source and a fresh air supply with feedback
+control.
+The CO2 emission rate is proportional to the room occupancy, which is defined by a schedule.
+The fresh air flow rate is controlled such that the room CO2
+concentration does not exceed <code>1000 PPM (=1.519E-3 kg/kg)</code>.
+The fresh air has a CO2 concentration of <code>300 PPM</code> which corresponds to a typical
+CO2 concentration in the outside air.
+</p>
+
+<p>
+The CO2 emission from the occupants is implemented as a mass flow source.
+Depending on the activity and size, a person emits about <code>8.18E-6 kg/s</code> CO2. In the model,
+this value is multiplied by the number of occupants.
+Since the mass flow rate associate with the CO2 source model contributes to the volume's energy balance,
+this mass flow rate should be kept small. Thus, in the source model, we set the
+CO2 concentration to <code>C={100} kg/kg</code>, and scaled the mass flow rate using
+</p>
+
+<blockquote><pre>
+m_flow = 1/100 * nPeo * 8.18E-6 kg/(s*person)
+</pre></blockquote>
+
+<p>
+where <code>nPeo</code> is the number of people in the room.
+This results in a mass flow rate that is about 5 orders of magnitudes smaller than the supply air flow rate,
+and hence its contribution to the volume's energy balance is negligible.
+</p>
+<p>
+The nominal value for the trace substance is set to <code>C_nominal={1.519E-3}</code>.
+This scales the residual equations that are used by the solver to the right order
+of magnitude.
+</p>
+<p>
+<img src="resources/Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls_info_001.png" border="1"
+     alt="RoomCO2WithControls.png">
+</p>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(17)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>CAtm</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+        <p><span>Description:</span> Atmospheric trace substance concentration, corresponding to 300 PPM CO2</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sources.FixedBoundary_32x32.png"></td>
+      <th>boundary4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sources.FixedBoundary.html">FixedBoundary</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.TraceSubstances_32x32.png"></td>
+      <th>traceVolume</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sensors.TraceSubstances.html">TraceSubstances</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.System_32x32.png"></td>
+      <th>system</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.System.html">System</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sources.MassFlowSource_T_32x32.png"></td>
+      <th>freshAir</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sources.MassFlowSource_T.html">MassFlowSource_T</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Vessels.ClosedVolume_32x32.png"></td>
+      <th>volume</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Vessels.ClosedVolume.html">ClosedVolume</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.DynamicPipe_32x32.png"></td>
+      <th>ductOut</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Pipes.DynamicPipe.html">DynamicPipe</a></p>
+        <p><span>Description:</span> Outlet duct</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.TraceSubstances_32x32.png"></td>
+      <th>traceDuctIn</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sensors.TraceSubstances.html">TraceSubstances</a></p>
+        <p><span>Description:</span> Trace substance at duct inlet</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sources.MassFlowSource_T_32x32.png"></td>
+      <th>peopleSource</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sources.MassFlowSource_T.html">MassFlowSource_T</a></p>
+        <p><span>Description:</span> CO2 emitted by room occupants.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.CombiTimeTable_32x32.png"></td>
+      <th>numberOfPeople</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.CombiTimeTable.html">CombiTimeTable</a></p>
+        <p><span>Description:</span> Time table for number of people in the room</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>gain</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+        <p><span>Description:</span> CO2 mass flow rate, released per 100 person (there is another 100 factor in peopleSource)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>gain1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+        <p><span>Description:</span> Nominal fresh air flow rate (for u=1)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Gain_32x32.png"></td>
+      <th>gainSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Gain.html">Gain</a></p>
+        <p><span>Description:</span> Gain to normalize CO2 measurement signal. y=1 corresponds to 1000 PPM</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>CO2Set</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+        <p><span>Description:</span> Normalized CO2 set point</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.LimPID_32x32.png"></td>
+      <th>PID</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Continuous.LimPID.html">LimPID</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Pipes.DynamicPipe_32x32.png"></td>
+      <th>ductIn</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Pipes.DynamicPipe.html">DynamicPipe</a></p>
+        <p><span>Description:</span> Inlet duct</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Sensors.TraceSubstances_32x32.png"></td>
+      <th>traceDuctOut</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Fluid.Sensors.TraceSubstances.html">TraceSubstances</a></p>
+        <p><span>Description:</span> Trace substance at duct outlet</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

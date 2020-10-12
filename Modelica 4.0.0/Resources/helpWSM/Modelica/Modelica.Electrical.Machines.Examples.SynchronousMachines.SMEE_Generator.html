@@ -1,0 +1,228 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Machines.Examples.SynchronousMachines.SMEE_Generator</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.Machines.Examples.SynchronousMachines.html">SynchronousMachines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_Generator.html">SMEE_Generator</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>SMEE_Generator</h1>
+    <p>Test example: ElectricalExcitedSynchronousMachine as Generator</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_Generator_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_Generator_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_Generator_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>An electrically excited synchronous generator is connected to the grid and driven with constant speed.
+Since speed is slightly smaller than synchronous speed corresponding to mains frequency,
+rotor angle is very slowly increased. This allows to see several characteristics dependent on rotor angle.</p>
+
+<p>Simulate for 30 seconds and plot (versus rotorDisplacementAngle.rotorDisplacementAngle):</p>
+
+<ul>
+<li>smee.tauElectrical</li>
+<li>currentQuasiRMSSensor.I</li>
+<li>electricalPowerSensor.P</li>
+<li>electricalPowerSensor.Q</li>
+<li>mechanicalPowerSensor.P</li>
+</ul>
+
+<p>Default machine parameters are used.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>VNominal</th>
+      <td>
+        <p><span>Value:</span> 100</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Nominal RMS voltage per phase</p>
+      </td>
+    </tr>
+    <tr>
+      <th>fNominal</th>
+      <td>
+        <p><span>Value:</span> 50</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Nominal frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>wActual</th>
+      <td>
+        <p><span>Value:</span> 1499 * 2 * Modelica.Constants.pi / 60</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.AngularVelocity.html">AngularVelocity</a> (rad/s)</p>
+        <p><span>Description:</span> Actual speed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ie</th>
+      <td>
+        <p><span>Value:</span> 19</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Excitation current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ie0</th>
+      <td>
+        <p><span>Value:</span> 10</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Initial excitation current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>gamma0</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Initial rotor displacement angle</p>
+      </td>
+    </tr>
+    <tr>
+      <th>smeeData</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.SynchronousMachineData.html">SynchronousMachineData</a></p>
+        <p><span>Description:</span> Synchronous machine data</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(13)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_ElectricalExcited_32x32.png"></td>
+      <th>smee</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_ElectricalExcited.html">SM_ElectricalExcited</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle_32x32.png"></td>
+      <th>rotorDisplacementAngle</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle.html">RotorDisplacementAngle</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>groundExcitation</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.ConstantSpeed_32x32.png"></td>
+      <th>constantSpeed</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sources.ConstantSpeed.html">ConstantSpeed</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Sensors.MechanicalPowerSensor_32x32.png"></td>
+      <th>mechanicalPowerSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Sensors.MechanicalPowerSensor.html">MechanicalPowerSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Sensors.ElectricalPowerSensor_32x32.png"></td>
+      <th>electricalPowerSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Sensors.ElectricalPowerSensor.html">ElectricalPowerSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor_32x32.png"></td>
+      <th>currentQuasiRMSSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor.html">CurrentQuasiRMSSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Sources.SineVoltage_32x32.png"></td>
+      <th>sineVoltage</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Sources.SineVoltage.html">SineVoltage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Basic.Star_32x32.png"></td>
+      <th>star</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Polyphase.Basic.Star.html">Star</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>ground</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.RampCurrent_32x32.png"></td>
+      <th>rampCurrent</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.RampCurrent.html">RampCurrent</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.TerminalBox_32x32.png"></td>
+      <th>terminalBox</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.TerminalBox.html">TerminalBox</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.SynchronousMachineData_32x32.png"></td>
+      <th>smeeData</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.SynchronousMachineData.html">SynchronousMachineData</a></p>
+        <p><span>Description:</span> Synchronous machine data</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

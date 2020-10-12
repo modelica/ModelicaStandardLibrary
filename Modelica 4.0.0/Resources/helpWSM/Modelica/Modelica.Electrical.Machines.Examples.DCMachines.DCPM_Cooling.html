@@ -1,0 +1,336 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Machines.Examples.DCMachines.DCPM_Cooling</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.Machines.Examples.DCMachines.html">DCMachines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Cooling.html">DCPM_Cooling</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>DCPM_Cooling</h1>
+    <p>Test example: Cooling of a DCPM motor</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Cooling_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Cooling_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Cooling_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<strong>Test example: Demonstrate cooling of a DCPM motor</strong><br>
+The motor starts at no-load speed, then load pulses are applied.<br>
+The cooling circuit consists of armature's thermal capacitance,
+a thermal conductance between armature and core, core's thermal capacitance and
+a thermal conductance between core and coolant.
+The coolant flow circuit consists of inlet, volume flow, a pipe connected to the core and the outlet.<br>
+<strong>Please note:</strong>
+<ul>
+<li>All unused heat ports of the thermal port (i.e., without loss sources in the machine: brush, stray, friction, permanent magnet) have to be connected to a constant temperature source.</li>
+<li>The thermal capacitances (i.e., time constants) are unusual small to provide short simulation time!</li>
+<li>The coolant is a theoretical coolant with specific mass = 1 kg/m3 and cp = 1 J/kg.K.</li>
+<li>The thermal conductances as well as the coolant flow are parametrized such way, that:</li>
+</ul>
+<ol>
+<li>the total coolant's temperature rise is 10 K (over coolant inlet)</li>
+<li>the core's temperature rise is 27.5 K (over coolant's average temperature between inlet and outlet)</li>
+<li>the armature's temperature rise is 55 K (over coolant's average temperature between inlet and outlet)</li>
+</ol>
+Simulate for 25 seconds and plot (versus time):
+<ul>
+<li>armature.T: armature temperature</li>
+<li>core.T: core temperature</li>
+<li>cooling.T: coolant temperature at outlet</li>
+</ul>
+Therefore the armature temperature would reach nominal armature temperature at constant nominal load.<br>
+Default machine parameters are used, but:
+<ul>
+<li>The armature winding material is set to Copper.</li>
+<li>Armature reference temperature is set to 80 degC.</li>
+<li>Nominal armature temperature is set to 80 degC.</li>
+</ul>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(16)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Va</th>
+      <td>
+        <p><span>Value:</span> 100</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Actual armature voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ve</th>
+      <td>
+        <p><span>Value:</span> 100</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Actual excitation voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>w0</th>
+      <td>
+        <p><span>Value:</span> Modelica.Units.Conversions.from_rpm(1500)</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.AngularVelocity.html">AngularVelocity</a> (rad/s)</p>
+        <p><span>Description:</span> No-load speed</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TLoad</th>
+      <td>
+        <p><span>Value:</span> 63.66</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Torque.html">Torque</a> (N·m)</p>
+        <p><span>Description:</span> Nominal load torque</p>
+      </td>
+    </tr>
+    <tr>
+      <th>JLoad</th>
+      <td>
+        <p><span>Value:</span> 0.15</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Load's moment of inertia</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TAmbient</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Ambient temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ca</th>
+      <td>
+        <p><span>Value:</span> 20</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.HeatCapacity.html">HeatCapacity</a> (J/K)</p>
+        <p><span>Description:</span> Armature's heat capacity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Cc</th>
+      <td>
+        <p><span>Value:</span> 50</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.HeatCapacity.html">HeatCapacity</a> (J/K)</p>
+        <p><span>Description:</span> Core's heat capacity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Losses</th>
+      <td>
+        <p><span>Value:</span> dcpm.Ra * dcpm.IaNominal ^ 2</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Power.html">Power</a> (W)</p>
+        <p><span>Description:</span> Nominal Losses</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T0</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Reference temperature 20 degC</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dTCoolant</th>
+      <td>
+        <p><span>Value:</span> 10</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.TemperatureDifference.html">TemperatureDifference</a> (K)</p>
+        <p><span>Description:</span> Coolant's temperature rise</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dTArmature</th>
+      <td>
+        <p><span>Value:</span> dcpm.TaNominal - T0 - dTCoolant / 2</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.TemperatureDifference.html">TemperatureDifference</a> (K)</p>
+        <p><span>Description:</span> Armature's temperature rise over coolant</p>
+      </td>
+    </tr>
+    <tr>
+      <th>G_armature_core</th>
+      <td>
+        <p><span>Value:</span> 2 * Losses / dTArmature</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ThermalConductance.html">ThermalConductance</a> (W/K)</p>
+        <p><span>Description:</span> Heat conductance armature - core</p>
+      </td>
+    </tr>
+    <tr>
+      <th>G_core_cooling</th>
+      <td>
+        <p><span>Value:</span> 2 * Losses / dTArmature</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ThermalConductance.html">ThermalConductance</a> (W/K)</p>
+        <p><span>Description:</span> Heat conductance core - cooling</p>
+      </td>
+    </tr>
+    <tr>
+      <th>CoolantFlow</th>
+      <td>
+        <p><span>Value:</span> 50</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.VolumeFlowRate.html">VolumeFlowRate</a> (m³/s)</p>
+        <p><span>Description:</span> Coolant flow</p>
+      </td>
+    </tr>
+    <tr>
+      <th>dcpmData</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.DcPermanentMagnetData.html">DcPermanentMagnetData</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(16)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet_32x32.png"></td>
+      <th>dcpm</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet.html">DC_PermanentMagnet</a></p>
+        <p><span>Description:</span> DC machine data</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.ConstantVoltage_32x32.png"></td>
+      <th>armatureVoltage</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.ConstantVoltage.html">ConstantVoltage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>groundArmature</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Inertia_32x32.png"></td>
+      <th>loadInertia</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Inertia</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.Torque_32x32.png"></td>
+      <th>loadTorque</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sources.Torque.html">Torque</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Pulse_32x32.png"></td>
+      <th>pulse</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Pulse.html">Pulse</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.HeatCapacitor_32x32.png"></td>
+      <th>armature</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Components.HeatCapacitor.html">HeatCapacitor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.ThermalConductor_32x32.png"></td>
+      <th>armatureCore</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Components.ThermalConductor.html">ThermalConductor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.HeatCapacitor_32x32.png"></td>
+      <th>core</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Components.HeatCapacitor.html">HeatCapacitor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.ThermalConductor_32x32.png"></td>
+      <th>coreCooling</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Components.ThermalConductor.html">ThermalConductor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sources.Ambient_32x32.png"></td>
+      <th>inlet</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Sources.Ambient.html">Ambient</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow_32x32.png"></td>
+      <th>volumeFlow</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow.html">VolumeFlow</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Components.Pipe_32x32.png"></td>
+      <th>cooling</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Components.Pipe.html">Pipe</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Sources.Ambient_32x32.png"></td>
+      <th>outlet</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.FluidHeatFlow.Sources.Ambient.html">Ambient</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Sources.FixedTemperature_32x32.png"></td>
+      <th>fixedTemperature</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Sources.FixedTemperature.html">FixedTemperature</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.ParameterRecords.DcPermanentMagnetData_32x32.png"></td>
+      <th>dcpmData</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Utilities.ParameterRecords.DcPermanentMagnetData.html">DcPermanentMagnetData</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

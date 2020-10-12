@@ -1,0 +1,118 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Distributions.Interfaces.partialTruncatedQuantile</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Distributions.html">Distributions</a></li>
+  <li><a href="Modelica.Math.Distributions.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Math.Distributions.Interfaces.partialTruncatedQuantile.html">partialTruncatedQuantile</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>partialTruncatedQuantile</h1>
+    <p>Common interface of truncated quantile functions (= inverse cumulative distribution functions)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Distributions.Interfaces.partialTruncatedQuantile_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+A partial function containing the common
+arguments of the quantile functions for truncated distributions.
+</p>
+</div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Random number in the range 0 <= u <= 1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_min</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Lower limit of y</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y_max</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Upper limit of y</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Random number u transformed according to the given distribution</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Distributions.TruncatedWeibull.quantile_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Distributions.TruncatedWeibull.quantile.html">quantile</a></p>
+        <p><span>Modelica.Math.Distributions.TruncatedWeibull</span></p>
+        <p>Quantile of truncated Weibull distribution</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Math.Distributions.TruncatedNormal.quantile_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Math.Distributions.TruncatedNormal.quantile.html">quantile</a></p>
+        <p><span>Modelica.Math.Distributions.TruncatedNormal</span></p>
+        <p>Quantile of truncated normal distribution</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,249 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: StateGraph.Examples.Utilities.TankController</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.StateGraph.html">StateGraph</a></li>
+  <li><a href="Modelica.StateGraph.Examples.html">Examples</a></li>
+  <li><a href="Modelica.StateGraph.Examples.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.StateGraph.Examples.Utilities.TankController.html">TankController</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>TankController</h1>
+    <p>Controller for tank system</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.StateGraph.Examples.Utilities.TankController_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.StateGraph.Examples.Utilities.TankController_diagram_large.png"><img src="resources/diagrams/Modelica.StateGraph.Examples.Utilities.TankController_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>limit</th>
+      <td>
+        <p><span>Value:</span> 0.98</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Limit level of tank 1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>waitTime</th>
+      <td>
+        <p><span>Value:</span> 3</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Wait time</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanInput_16x16.png"></td>
+      <th>start</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanInput.html">BooleanInput</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanInput_16x16.png"></td>
+      <th>stop</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanInput.html">BooleanInput</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanInput_16x16.png"></td>
+      <th>shut</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanInput.html">BooleanInput</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>level1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>level2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanOutput_16x16.png"></td>
+      <th>valve1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanOutput.html">BooleanOutput</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanOutput_16x16.png"></td>
+      <th>valve2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanOutput.html">BooleanOutput</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanOutput_16x16.png"></td>
+      <th>valve3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanOutput.html">BooleanOutput</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(13)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.InitialStep_32x32.png"></td>
+      <th>s1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.InitialStep.html">InitialStep</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.Utilities.MakeProduct_32x32.png"></td>
+      <th>makeProduct</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Examples.Utilities.MakeProduct.html">MakeProduct</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>T1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>T2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>T3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Step_32x32.png"></td>
+      <th>s2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>T4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>T5</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Step_32x32.png"></td>
+      <th>emptyTanks</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Transition_32x32.png"></td>
+      <th>T6</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.StateGraph.Transition.html">Transition</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.BooleanExpression_32x32.png"></td>
+      <th>setValve1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.BooleanExpression.html">BooleanExpression</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.BooleanExpression_32x32.png"></td>
+      <th>setValve2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.BooleanExpression.html">BooleanExpression</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.BooleanExpression_32x32.png"></td>
+      <th>setValve3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.BooleanExpression.html">BooleanExpression</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.StateGraph.Examples.ControlledTanks_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.StateGraph.Examples.ControlledTanks.html">ControlledTanks</a></p>
+        <p><span>Modelica.StateGraph.Examples</span></p>
+        <p>Demonstrating the controller of a tank filling/emptying system</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

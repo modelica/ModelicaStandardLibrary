@@ -1,0 +1,413 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Thermal.HeatTransfer.Interfaces.HeatPort_a</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Thermal.html">Thermal</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.html">HeatTransfer</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>HeatPort_a</h1>
+    <p>Thermal port for 1-dim. heat transfer (filled rectangular icon)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This connector is used for 1-dimensional heat flow between components.
+The variables in the connector are:</p>
+<blockquote><pre>
+T       Temperature in [Kelvin].
+Q_flow  Heat flow rate in [Watt].
+</pre></blockquote>
+<p>According to the Modelica sign convention, a <strong>positive</strong> heat flow
+rate <strong>Q_flow</strong> is considered to flow <strong>into</strong> a component. This
+convention has to be used whenever this connector is used in a model
+class.</p>
+<p>Note, that the two connector classes <strong>HeatPort_a</strong> and
+<strong>HeatPort_b</strong> are identical with the only exception of the different
+<strong>icon layout</strong>.</p>
+</div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(44)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort.html">ConditionalHeatPort</a></p>
+        <p><span>Modelica.Electrical.Analog.Interfaces</span></p>
+        <p>Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Interfaces.PartialConditionalHeatPort.html">PartialConditionalHeatPort</a></p>
+        <p><span>Modelica.Electrical.Analog.Interfaces</span></p>
+        <p>Partial model to include a conditional HeatPort in order to dissipate losses, used for graphical modeling, i.e., for building models by drag-and-drop</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Lines.OLine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Lines.OLine.html">OLine</a></p>
+        <p><span>Modelica.Electrical.Analog.Lines</span></p>
+        <p>Lossy Transmission Line</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Lines.M_OLine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Lines.M_OLine.html">M_OLine</a></p>
+        <p><span>Modelica.Electrical.Analog.Lines</span></p>
+        <p>Multiple OLine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Lines.M_OLine.segment_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Lines.M_OLine.segment.html">segment</a></p>
+        <p><span>Modelica.Electrical.Analog.Lines.M_OLine</span></p>
+        <p>Multiple line segment model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Lines.M_OLine.segment_last_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Lines.M_OLine.segment_last.html">segment_last</a></p>
+        <p><span>Modelica.Electrical.Analog.Lines.M_OLine</span></p>
+        <p>Multiple line last segment model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Lines.ULine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Lines.ULine.html">ULine</a></p>
+        <p><span>Modelica.Electrical.Analog.Lines</span></p>
+        <p>Lossy RC Line</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.BaseClasses.BaseStackWithSensors_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.BaseClasses.BaseStackWithSensors.html">BaseStackWithSensors</a></p>
+        <p><span>Modelica.Electrical.Batteries.BaseClasses</span></p>
+        <p>Partial stack with sensors</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort.html">ConditionalHeatPort</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Interfaces</span></p>
+        <p>Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACAC.SinglePhaseTriac_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACAC.SinglePhaseTriac.html">SinglePhaseTriac</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACAC</span></p>
+        <p>Triode for alternating current</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Interfaces.ConditionalHeatPort.html">ConditionalHeatPort</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Interfaces</span></p>
+        <p>Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding.html">SinglePhaseWinding</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Symmetric winding model coupling electrical and magnetic domain</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding.html">SymmetricPolyphaseWinding</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Symmetric winding model coupling electrical and magnetic domain</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding.html">SymmetricPolyphaseCageWinding</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Symmetrical rotor cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding.html">SaliencyCageWinding</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Rotor cage with saliency in d- and q-axis</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding.html">SymmetricPolyphaseWinding</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Symmetric winding model coupling electrical and magnetic domain</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.QuasiStaticAnalogWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.QuasiStaticAnalogWinding.html">QuasiStaticAnalogWinding</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Quasi-static single-phase winding neglecting induced voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding.html">SymmetricPolyphaseCageWinding</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Symmetrical rotor cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding.html">SaliencyCageWinding</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Rotor cage with saliency in d- and q-axis</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.DrumBoiler.BaseClasses.EquilibriumDrumBoiler_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.DrumBoiler.BaseClasses.EquilibriumDrumBoiler.html">EquilibriumDrumBoiler</a></p>
+        <p><span>Modelica.Fluid.Examples.DrumBoiler.BaseClasses</span></p>
+        <p>Simple Evaporator with two states, see Åström, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWith3InletOutletArraysWithEvaporatorCondensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWith3InletOutletArraysWithEvaporatorCondensor.html">TankWith3InletOutletArraysWithEvaporatorCondensor</a></p>
+        <p><span>Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses</span></p>
+        <p>Tank with Heating and Evaporation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts.html">TankWithTopPorts</a></p>
+        <p><span>Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses</span></p>
+        <p>Tank with inlet/outlet ports and with inlet ports at the top</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.HeatExchanger.BaseClasses.WallConstProps_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.WallConstProps.html">WallConstProps</a></p>
+        <p><span>Modelica.Fluid.Examples.HeatExchanger.BaseClasses</span></p>
+        <p>Pipe wall with capacitance, assuming 1D heat conduction and constant material properties</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel.html">PartialLumpedVessel</a></p>
+        <p><span>Modelica.Fluid.Vessels.BaseClasses</span></p>
+        <p>Lumped volume with a vector of fluid ports and replaceable heat transfer model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Machines.BaseClasses.PartialPump_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Machines.BaseClasses.PartialPump.html">PartialPump</a></p>
+        <p><span>Modelica.Fluid.Machines.BaseClasses</span></p>
+        <p>Base model for centrifugal pumps</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Components.Pipe_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Components.Pipe.html">Pipe</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Components</span></p>
+        <p>Pipe with optional heat exchange</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.FluidHeatFlow.Components.OpenTank_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.FluidHeatFlow.Components.OpenTank.html">OpenTank</a></p>
+        <p><span>Modelica.Thermal.FluidHeatFlow.Components</span></p>
+        <p>Model of a tank under ambient pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.HeatCapacitor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Components.HeatCapacitor.html">HeatCapacitor</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Components</span></p>
+        <p>Lumped thermal element storing heat</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.Convection_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Components.Convection.html">Convection</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Components</span></p>
+        <p>Lumped thermal element for heat convection (Q_flow = Gc*dT)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.ConvectiveResistor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Components.ConvectiveResistor.html">ConvectiveResistor</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Components</span></p>
+        <p>Lumped thermal element for heat convection (dT = Rc*Q_flow)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.ThermalCollector_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Components.ThermalCollector.html">ThermalCollector</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Components</span></p>
+        <p>Collects m heat flows</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.ThermalCollectorMatrix_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Components.ThermalCollectorMatrix.html">ThermalCollectorMatrix</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Components</span></p>
+        <p>Collects Ns x Np heat flows</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.GeneralHeatFlowToTemperatureAdaptor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Components.GeneralHeatFlowToTemperatureAdaptor.html">GeneralHeatFlowToTemperatureAdaptor</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Components</span></p>
+        <p>Signal adaptor for a HeatTransfer port with temperature and derivative of temperature as outputs and heat flow as input (especially useful for FMUs)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Sensors.TemperatureSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Sensors.TemperatureSensor.html">TemperatureSensor</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Sensors</span></p>
+        <p>Absolute temperature sensor in Kelvin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Sensors.RelTemperatureSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Sensors.RelTemperatureSensor.html">RelTemperatureSensor</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Sensors</span></p>
+        <p>Relative temperature sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Sensors.HeatFlowSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Sensors.HeatFlowSensor.html">HeatFlowSensor</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Sensors</span></p>
+        <p>Heat flow rate sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Sensors.ConditionalFixedHeatFlowSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Sensors.ConditionalFixedHeatFlowSensor.html">ConditionalFixedHeatFlowSensor</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Sensors</span></p>
+        <p>HeatFlowSensor, conditional fixed temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor.html">TemperatureSensor</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Celsius</span></p>
+        <p>Absolute temperature sensor in degCelsius</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Fahrenheit.TemperatureSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Fahrenheit.TemperatureSensor.html">TemperatureSensor</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Fahrenheit</span></p>
+        <p>Absolute temperature sensor in degFahrenheit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Rankine.TemperatureSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Rankine.TemperatureSensor.html">TemperatureSensor</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Rankine</span></p>
+        <p>Absolute temperature sensor in degRankine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.Element1D_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Interfaces.Element1D.html">Element1D</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Interfaces</span></p>
+        <p>Partial heat transfer element with two HeatPort connectors that does not store energy</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort.html">PartialElementaryConditionalHeatPort</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Interfaces</span></p>
+        <p>Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT.html">PartialElementaryConditionalHeatPortWithoutT</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Interfaces</span></p>
+        <p>Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Interfaces.PartialConditionalHeatPort.html">PartialConditionalHeatPort</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Interfaces</span></p>
+        <p>Partial model to include a conditional HeatPort in order to dissipate losses, used for graphical modeling, i.e., for building models by drag-and-drop</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

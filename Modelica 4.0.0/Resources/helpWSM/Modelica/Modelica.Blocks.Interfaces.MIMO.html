@@ -1,0 +1,159 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Interfaces.MIMO</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Blocks.Interfaces.MIMO.html">MIMO</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>MIMO</h1>
+    <p>Multiple Input Multiple Output continuous control block</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Interfaces.MIMO_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Block has a continuous Real input and a continuous Real output signal vector.
+The signal sizes of the input and output vector may be different.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>nin</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of inputs</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nout</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of outputs</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput[nin]</a></p>
+        <p><span>Description:</span> Connector of Real input signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput[nout]</a></p>
+        <p><span>Description:</span> Connector of Real output signals</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.FromDQ_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Utilities.FromDQ.html">FromDQ</a></p>
+        <p><span>Modelica.Electrical.Machines.Utilities</span></p>
+        <p>Transform rotor fixed space phasor to instantaneous stator quantities</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.ToDQ_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Utilities.ToDQ.html">ToDQ</a></p>
+        <p><span>Modelica.Electrical.Machines.Utilities</span></p>
+        <p>Transform instantaneous stator inputs to rotor fixed space phasor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor.html">FromSpacePhasor</a></p>
+        <p><span>Modelica.Electrical.Machines.SpacePhasors.Blocks</span></p>
+        <p>Conversion of space phasors to polyphase instantaneous values</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor.html">ToSpacePhasor</a></p>
+        <p><span>Modelica.Electrical.Machines.SpacePhasors.Blocks</span></p>
+        <p>Conversion of polyphase instantaneous values to space phasors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Routing.ExtractSignal_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Routing.ExtractSignal.html">ExtractSignal</a></p>
+        <p><span>Modelica.Blocks.Routing</span></p>
+        <p>Extract signals from an input signal vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.MatrixGain_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Math.MatrixGain.html">MatrixGain</a></p>
+        <p><span>Modelica.Blocks.Math</span></p>
+        <p>Output the product of a gain matrix with the input signal vector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Continuous.StateSpace_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Continuous.StateSpace.html">StateSpace</a></p>
+        <p><span>Modelica.Blocks.Continuous</span></p>
+        <p>Linear state space system</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

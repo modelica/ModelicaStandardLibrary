@@ -1,0 +1,165 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Examples.TotalHarmonicDistortion</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Blocks.Examples.TotalHarmonicDistortion.html">TotalHarmonicDistortion</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>TotalHarmonicDistortion</h1>
+    <p>Calculation of total harmonic distortion of voltage</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Examples.TotalHarmonicDistortion_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Blocks.Examples.TotalHarmonicDistortion_diagram_large.png"><img src="resources/diagrams/Modelica.Blocks.Examples.TotalHarmonicDistortion_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This example compares the result of the
+<a href="Modelica.Blocks.Math.TotalHarmonicDistortion.html">total harmonic distortion (THD)</a>
+with respect to the fundamental wave and with respect to the total root mean square (RMS).
+In this simulation model a non-sinusoidal voltage
+wave form is created by the superposition two voltage waves:</p>
+
+<ul>
+<li>Fundamental wave with RMS voltage <code>V1</code> and frequency <code>f1</code></li>
+<li>Third harmonic wave with RMS voltage <code>V3</code> and frequency <code>3*f1</code></li>
+</ul>
+
+<p>This simulation model compares numerically determined THD values with results, obtained by
+theoretical calculations:</p>
+
+<ul>
+<li>Compare the numerically determined THD value <code>thd1.y</code> and the theoretical value <code>THD1</code>,
+    both with respect to the fundamental wave; also plot <code>thd1.valid</code></li>
+<li>Compare the numerically determined THD value <code>thdRMS.y</code> and the theoretical value <code>THDrms</code>,
+    both with respect to the RMS value; also plot <code>thdRMS.valid</code></li>
+</ul>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>f1</th>
+      <td>
+        <p><span>Value:</span> 50</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Fundamental wave frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>V1</th>
+      <td>
+        <p><span>Value:</span> 100</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Fundamental wave RMS voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>V3</th>
+      <td>
+        <p><span>Value:</span> 20</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Third harmonic wave RMS voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>THD1</th>
+      <td>
+        <p><span>Value:</span> V3 / V1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Theoretically obtained THD with respect to fundamental wave</p>
+      </td>
+    </tr>
+    <tr>
+      <th>THDrms</th>
+      <td>
+        <p><span>Value:</span> V3 / sqrt(V1 ^ 2 + V3 ^ 2)</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Theoretically obtained THD with respect to RMS</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>ground</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SineVoltage_32x32.png"></td>
+      <th>sineVoltage3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.SineVoltage.html">SineVoltage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SineVoltage_32x32.png"></td>
+      <th>sineVoltage1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.SineVoltage.html">SineVoltage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sensors.VoltageSensor_32x32.png"></td>
+      <th>voltageSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sensors.VoltageSensor.html">VoltageSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.TotalHarmonicDistortion_32x32.png"></td>
+      <th>thd1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.TotalHarmonicDistortion.html">TotalHarmonicDistortion</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.TotalHarmonicDistortion_32x32.png"></td>
+      <th>thdRMS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.TotalHarmonicDistortion.html">TotalHarmonicDistortion</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

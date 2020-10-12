@@ -1,0 +1,86 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Utilities.Streams.countLines</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Streams.html">Streams</a></li>
+  <li><a href="Modelica.Utilities.Streams.countLines.html">countLines</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>countLines</h1>
+    <p>Return the number of lines in a file</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Streams.countLines_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+numberOfLines = Streams.<strong>countLines</strong>(fileName)
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <strong>countLines</strong>(..) opens the given file, reads the complete
+content, closes the file and returns the number of lines. Lines are
+separated by LF or CR-LF.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">numberOfLines = countLines(fileName)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>fileName</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> Name of the file that shall be read</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>numberOfLines</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of lines in file</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

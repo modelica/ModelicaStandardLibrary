@@ -1,0 +1,84 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Utilities.Examples.readRealParameterModel</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Utilities.Examples.readRealParameterModel.html">readRealParameterModel</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>readRealParameterModel</h1>
+    <p>Demonstrate usage of Examples.readRealParameter/.expression</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Examples.readRealParameterModel_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Model that shows the usage of Examples.readRealParameter and Examples.expression.
+The model has 3 parameters and the values of these parameters are read
+from a file.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>file</th>
+      <td>
+        <p><span>Value:</span> Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Examples_readRealParameters.txt")</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> File on which data is present</p>
+      </td>
+    </tr>
+    <tr>
+      <th>J</th>
+      <td>
+        <p><span>Value:</span> readRealParameter(file, "J")</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inertia.html">Inertia</a> (kg·m²)</p>
+        <p><span>Description:</span> Inertia</p>
+      </td>
+    </tr>
+    <tr>
+      <th>phi_rel0</th>
+      <td>
+        <p><span>Value:</span> readRealParameter(file, "phi_rel0")</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Relative angle</p>
+      </td>
+    </tr>
+    <tr>
+      <th>w_rel0</th>
+      <td>
+        <p><span>Value:</span> readRealParameter(file, "w_rel0")</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.AngularVelocity.html">AngularVelocity</a> (rad/s)</p>
+        <p><span>Description:</span> Relative angular velocity</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

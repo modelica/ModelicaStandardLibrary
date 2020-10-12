@@ -1,0 +1,107 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Thermal.HeatTransfer.Interfaces.Element1D</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Thermal.html">Thermal</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.html">HeatTransfer</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.Interfaces.Element1D.html">Element1D</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Element1D</h1>
+    <p>Partial heat transfer element with two HeatPort connectors that does not store energy</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.Element1D_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This partial model contains the basic connectors and variables to
+allow heat transfer models to be created that <strong>do not store energy</strong>,
+This model defines and includes equations for the temperature
+drop across the element, <strong>dT</strong>, and the heat flow rate
+through the element from port_a to port_b, <strong>Q_flow</strong>.
+</p>
+<p>
+By extending this model, it is possible to write simple
+constitutive equations for many types of heat transfer components.
+</p>
+</div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>port_a</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b_16x16.png"></td>
+      <th>port_b</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b.html">HeatPort_b</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.BodyRadiation_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Components.BodyRadiation.html">BodyRadiation</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Components</span></p>
+        <p>Lumped thermal element for radiation heat transfer</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.ThermalResistor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Components.ThermalResistor.html">ThermalResistor</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Components</span></p>
+        <p>Lumped thermal element transporting heat without storing it</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Components.ThermalConductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Components.ThermalConductor.html">ThermalConductor</a></p>
+        <p><span>Modelica.Thermal.HeatTransfer.Components</span></p>
+        <p>Lumped thermal element transporting heat without storing it</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

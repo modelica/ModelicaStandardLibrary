@@ -1,0 +1,57 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Operators.'div()'</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Operators.html">Operators</a></li>
+  <li><a href="ModelicaReference.Operators.'div()'.html">'div()'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'div()'</h1>
+    <p>div()</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Operators.'div()'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Integer part of division of two Real numbers
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>div</strong>(x, y)</pre></blockquote>
+<h4>Description</h4>
+<p>Returns the algebraic quotient <code>x/y</code> with any
+fractional part discarded (also known as truncation
+toward zero). <em>[Note: this is defined for / in C99;
+in C89 the result for negative numbers is
+implementation-defined, so the standard function
+<code>div()</code> must be used.]</em> Result and arguments
+shall have type Real or Integer. If either of the
+arguments is Real the result is Real otherwise Integer.</p>
+
+<p><em>[Note, outside of a when clause state events are triggered
+when the return value changes discontinuously.]</em></p>
+
+<h4>Examples</h4>
+<blockquote><pre><strong>div</strong>(13,6)
+ = 2</pre></blockquote>
+</div>
+</section>
+</div>
+</body>
+</html>

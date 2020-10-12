@@ -1,0 +1,66 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.PowerConverters.UsersGuide.ACACConcept</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.html">PowerConverters</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.UsersGuide.ACACConcept.html">ACACConcept</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ACACConcept</h1>
+    <p>AC/AC converter concept</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.PowerConverters.UsersGuide.ACACConcept_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>The following AC/AC converter topologies are currently included in the PowerConverters library.</p>
+
+<ul>
+<li>Single-phase dimmer with <a href="Modelica.Electrical.PowerConverters.ACAC.SinglePhaseTriac.html">triac</a></li>
+<li>Polyphase induction machine soft starter with <a href="Modelica.Electrical.PowerConverters.ACAC.PolyphaseTriac.html">triac</a></li>
+</ul>
+
+<h4>Control</h4>
+
+<p>To apply firing signals to the triac, the
+<a href="Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM.html">SignalPWM model</a> is provided.
+</p>
+<p>
+The <a href="Modelica.Electrical.PowerConverters.ACAC.Control.VoltageToAngle.html">Voltage2Angle block</a>
+calculates phase angle from reference voltage.
+</p>
+<p>
+To control the soft start of an induction machine,
+the <a href="Modelica.Electrical.PowerConverters.ACAC.Control.SoftStartControl.html">SoftStartControl block</a>
+is provided. It applies a voltage ramp during start, setting the ramp on hold whenever the measured current exceeds the maximum current.
+Furthermore, a ramp down can be applied for stopping the drive.
+</p>
+
+<h4>Examples</h4>
+
+<p>Some examples are provided at
+<a href="Modelica.Electrical.PowerConverters.Examples.ACAC.html">Examples.ACAC</a>.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

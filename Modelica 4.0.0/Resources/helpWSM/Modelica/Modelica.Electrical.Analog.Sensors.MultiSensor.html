@@ -1,0 +1,191 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Analog.Sensors.MultiSensor</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Analog.html">Analog</a></li>
+  <li><a href="Modelica.Electrical.Analog.Sensors.html">Sensors</a></li>
+  <li><a href="Modelica.Electrical.Analog.Sensors.MultiSensor.html">MultiSensor</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>MultiSensor</h1>
+    <p>Sensor to measure current, voltage and power</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Analog.Sensors.MultiSensor_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This multi sensor measures current, voltage and instantaneous electrical power of a single-phase system and has a separated voltage and current path.
+The pins of the voltage path are pv and nv, the pins of the current path are pc and nc.
+The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</p>
+</div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>pc</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive pin, current path</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>nc</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative pin, current path</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>pv</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive pin, voltage path</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>nv</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative pin, voltage path</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>i</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Current as output signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>v</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Voltage as output signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>power</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Instantaneous power as output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.Examples.CCCV_Cell_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.Examples.CCCV_Cell.html">CCCV_Cell</a></p>
+        <p><span>Modelica.Electrical.Batteries.Examples</span></p>
+        <p>Charge a cell with constant current - constant voltage characteristic</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.Examples.CCCV_CellRC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.Examples.CCCV_CellRC.html">CCCV_CellRC</a></p>
+        <p><span>Modelica.Electrical.Batteries.Examples</span></p>
+        <p>Charge a transient cell with constant current - constant voltage characteristic</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.Examples.CCCV_Stack_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.Examples.CCCV_Stack.html">CCCV_Stack</a></p>
+        <p><span>Modelica.Electrical.Batteries.Examples</span></p>
+        <p>Charge a stack with constant current - constant voltage characteristic</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.Examples.CCCV_StackRC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.Examples.CCCV_StackRC.html">CCCV_StackRC</a></p>
+        <p><span>Modelica.Electrical.Batteries.Examples</span></p>
+        <p>Charge a transient stack with constant current - constant voltage characteristic</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.BaseClasses.BaseCellWithSensors_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.BaseClasses.BaseCellWithSensors.html">BaseCellWithSensors</a></p>
+        <p><span>Modelica.Electrical.Batteries.BaseClasses</span></p>
+        <p>Partial cell with sensors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.BaseClasses.BaseStackWithSensors_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.BaseClasses.BaseStackWithSensors.html">BaseStackWithSensors</a></p>
+        <p><span>Modelica.Electrical.Batteries.BaseClasses</span></p>
+        <p>Partial stack with sensors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Examples.Utilities.AnalysatorDC_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Examples.Utilities.AnalysatorDC.html">AnalysatorDC</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Examples.Utilities</span></p>
+        <p>Analyze DC voltage, current and power</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACAC.ExampleTemplates.Dimmer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACAC.ExampleTemplates.Dimmer.html">Dimmer</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACAC.ExampleTemplates</span></p>
+        <p>Dimmer including control</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

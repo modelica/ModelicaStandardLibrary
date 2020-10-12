@@ -1,0 +1,141 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Frames.planarRotationAngle</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.planarRotationAngle.html">planarRotationAngle</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>planarRotationAngle</h1>
+    <p>Return angle of a planar rotation, given the rotation axis and the representations of a vector in frame 1 and frame 2</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.planarRotationAngle_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+angle = Frames.<strong>planarRotationAngle</strong>(e, v1, v2);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+A call to this function of the form
+</p>
+<blockquote><pre>
+  Real[3]                e, v1, v2;
+  SI.Angle angle;
+<strong>equation</strong>
+  angle = <strong>planarRotationAngle</strong>(e, v1, v2);
+</pre></blockquote>
+<p>
+computes the rotation angle "<strong>angle</strong>" of a planar
+rotation along unit vector <strong>e</strong>, rotating frame&nbsp;1 into frame&nbsp;2, given
+the coordinate representations of a vector "v" in frame&nbsp;1 (<strong>v1</strong>)
+and in frame&nbsp;2 (<strong>v2</strong>). Therefore, the result of this function
+fulfills the following equation:
+</p>
+<blockquote><pre>
+v2 = <strong>resolve2</strong>(<strong>planarRotation</strong>(e,angle), v1)
+</pre></blockquote>
+<p>
+The rotation angle is returned in the range
+</p>
+<blockquote><pre>
+-&pi; &lt;= angle &lt;= &pi;
+</pre></blockquote>
+<p>
+This function makes the following assumptions on the input arguments
+</p>
+<ul>
+<li> Vector <strong>e</strong> has length 1, i.e., length(e) = 1</li>
+<li> Vector "v" is not parallel to <strong>e</strong>, i.e.,
+     length(cross(e,v1)) &ne; 0</li>
+</ul>
+<p>
+The function does not check the above assumptions. If these
+assumptions are violated, a wrong result will be returned
+and/or a division by zero will occur.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Mechanics.MultiBody.Frames.planarRotation.html">planarRotation</a>,
+<a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.planarRotationAngle.html">TransformationMatrices.planarRotationAngle</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">angle = planarRotationAngle(e, v1, v2)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>e</th>
+      <td>
+        <p><span>Type:</span> Real[3]</p>
+        <p><span>Description:</span> Normalized axis of rotation to rotate frame 1 around e into frame 2 (must have length=1)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>v1</th>
+      <td>
+        <p><span>Type:</span> Real[3]</p>
+        <p><span>Description:</span> A vector v resolved in frame 1 (shall not be parallel to e)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>v2</th>
+      <td>
+        <p><span>Type:</span> Real[3]</p>
+        <p><span>Description:</span> Vector v resolved in frame 2, i.e., v2 = resolve2(planarRotation(e,angle),v1)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>angle</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Rotation angle to rotate frame 1 into frame 2 along axis e in the range: -pi <= angle <= pi</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

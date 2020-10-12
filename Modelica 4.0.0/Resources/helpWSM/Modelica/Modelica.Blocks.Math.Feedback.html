@@ -1,0 +1,410 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Math.Feedback</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Math.html">Math</a></li>
+  <li><a href="Modelica.Blocks.Math.Feedback.html">Feedback</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Feedback</h1>
+    <p>Output difference between commanded and feedback input</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Math.Feedback_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This blocks computes output <strong>y</strong> as <em>difference</em> of the
+commanded input <strong>u1</strong> and the feedback
+input <strong>u2</strong>:
+</p>
+<blockquote><pre>
+<strong>y</strong> = <strong>u1</strong> - <strong>u2</strong>;
+</pre></blockquote>
+<p>
+Example:
+</p>
+<blockquote><pre>
+   parameter:   n = 2
+
+results in the following equations:
+
+   y = u1 - u2
+</pre></blockquote>
+</div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Commanded input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Feedback input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(32)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.InverseModel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.InverseModel.html">InverseModel</a></p>
+        <p><span>Modelica.Blocks.Examples</span></p>
+        <p>Demonstrates the construction of an inverse model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.SinCosEncoder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.SinCosEncoder.html">SinCosEncoder</a></p>
+        <p><span>Modelica.Blocks.Examples</span></p>
+        <p>Evaluation of a sinusoidal encoder</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Noise.UniformNoiseProperties_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Noise.UniformNoiseProperties.html">UniformNoiseProperties</a></p>
+        <p><span>Modelica.Blocks.Examples.Noise</span></p>
+        <p>Demonstrates the computation of properties for uniformly distributed noise</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Noise.NormalNoiseProperties_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Noise.NormalNoiseProperties.html">NormalNoiseProperties</a></p>
+        <p><span>Modelica.Blocks.Examples.Noise</span></p>
+        <p>Demonstrates the computation of properties for normally distributed noise</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.Continuous_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.Continuous.html">Continuous</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with continuous controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteTextbookController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteTextbookController.html">ClockedWithDiscreteTextbookController</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discrete textbook controller (period is not used in the controller)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteController.html">ClockedWithDiscreteController</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discrete controller (period is used in the controller)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ExactlyClockedWithDiscreteController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ExactlyClockedWithDiscreteController.html">ExactlyClockedWithDiscreteController</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discrete controller and exact periodic clocks (period is used in the controller)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscretizedContinuousController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscretizedContinuousController.html">ClockedWithDiscretizedContinuousController</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discretized continuous-time controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWith_AD_DA_Effects_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWith_AD_DA_Effects.html">ClockedWith_AD_DA_Effects</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discrete controller and simulated AD and DA effects</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.CascadeControlledDrive.Continuous_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.CascadeControlledDrive.Continuous.html">Continuous</a></p>
+        <p><span>Modelica.Clocked.Examples.CascadeControlledDrive</span></p>
+        <p>Drive with continuous-time cascade controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.CascadeControlledDrive.SubClocked_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.CascadeControlledDrive.SubClocked.html">SubClocked</a></p>
+        <p><span>Modelica.Clocked.Examples.CascadeControlledDrive</span></p>
+        <p>Drive with clocked cascade controller where clocks are defined with sub-sampling and partitions with super-sampling</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.CascadeControlledDrive.SuperSampled_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.CascadeControlledDrive.SuperSampled.html">SuperSampled</a></p>
+        <p><span>Modelica.Clocked.Examples.CascadeControlledDrive</span></p>
+        <p>Drive with clocked cascade controller where fastest partition is defined with a clock and slower partition is defined with super-sampling</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.CascadeControlledDrive.AbsoluteClocks_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.CascadeControlledDrive.AbsoluteClocks.html">AbsoluteClocks</a></p>
+        <p><span>Modelica.Clocked.Examples.CascadeControlledDrive</span></p>
+        <p>Drive with clocked cascade controller where all partitions are defined with exact (integer) clock that need to be compatible to each other</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.ControlledMixingUnit_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Systems.ControlledMixingUnit.html">ControlledMixingUnit</a></p>
+        <p><span>Modelica.Clocked.Examples.Systems</span></p>
+        <p>Simple example of a mixing unit where a (discretized) nonlinear inverse plant model is used as feedforward controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnitWithContinuousControl_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit.MixingUnitWithContinuousControl.html">MixingUnitWithContinuousControl</a></p>
+        <p><span>Modelica.Clocked.Examples.Systems.Utilities.ComponentsMixingUnit</span></p>
+        <p>Simple example of a mixing unit where a (continuous) nonlinear inverse plant model is used as feedforward controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.Sample3_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.Sample3.html">Sample3</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of a Sample block for Real signals with direct feed-through in the continuous-time and the clocked partition</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.OpAmps.ControlCircuit_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.OpAmps.ControlCircuit.html">ControlCircuit</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples.OpAmps</span></p>
+        <p>Control circuit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.InductionMachines.IMC_withLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.InductionMachines.IMC_withLosses.html">IMC_withLosses</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.InductionMachines</span></p>
+        <p>Test example: InductionMachineSquirrelCage with losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Examples.TestSensors_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Examples.TestSensors.html">TestSensors</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Examples</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Examples.TestSensors_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Examples.TestSensors.html">TestSensors</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Examples</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_Polyphase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_Polyphase.html">IMC_DOL_Polyphase</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase</span></p>
+        <p>Direct on line start of polyphase induction machine with squirrel cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMS_Start_Polyphase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMS_Start_Polyphase.html">IMS_Start_Polyphase</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase</span></p>
+        <p>Starting of polyphase induction machine with slip rings</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses.html">IMC_withLosses</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Induction machine with squirrel cage and losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMPM_Inverter_Polyphase.html">SMPM_Inverter_Polyphase</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase</span></p>
+        <p>Starting of polyphase permanent magnet synchronous machine with inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase.html">SMEE_Generator_Polyphase</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase</span></p>
+        <p>Electrical excited polyphase synchronous machine operating as generator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMR_Inverter_Polyphase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMR_Inverter_Polyphase.html">SMR_Inverter_Polyphase</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase</span></p>
+        <p>Starting of polyphase synchronous reluctance machine with inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.LinearInductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.LinearInductor.html">LinearInductor</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Examples</span></p>
+        <p>Linear inductor with ferromagnetic core</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.NonLinearInductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.NonLinearInductor.html">NonLinearInductor</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Examples</span></p>
+        <p>Non linear inductor with ferromagnetic core</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses.html">IMC_withLosses</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Induction machine with squirrel cage and losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.SimpleGearShift_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.SimpleGearShift.html">SimpleGearShift</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Simple Gearshift</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.DrumBoiler.DrumBoiler_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.DrumBoiler.DrumBoiler.html">DrumBoiler</a></p>
+        <p><span>Modelica.Fluid.Examples.DrumBoiler</span></p>
+        <p>Complete drum boiler model, including evaporator and supplementary components</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Noise.Utilities.Parts.Controller_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Noise.Utilities.Parts.Controller.html">Controller</a></p>
+        <p><span>Modelica.Blocks.Examples.Noise.Utilities.Parts</span></p>
+        <p>Simple position controller for actuator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.LimitedPI_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.LimitedPI.html">LimitedPI</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities</span></p>
+        <p>Limited PI-controller with anti-windup and feed-forward</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.IdealDcDc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.IdealDcDc.html">IdealDcDc</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities</span></p>
+        <p>Ideal DC-DC inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.DQCurrentController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Utilities.DQCurrentController.html">DQCurrentController</a></p>
+        <p><span>Modelica.Electrical.Machines.Utilities</span></p>
+        <p>Current controller in dq coordinate system</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.SinCosEvaluation_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Utilities.SinCosEvaluation.html">SinCosEvaluation</a></p>
+        <p><span>Modelica.Electrical.Machines.Utilities</span></p>
+        <p>Evaluation of the signals of a sin-cos-resolver</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.Controller_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.Controller.html">Controller</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities</span></p>
+        <p>P-PI cascade controller for one axis</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

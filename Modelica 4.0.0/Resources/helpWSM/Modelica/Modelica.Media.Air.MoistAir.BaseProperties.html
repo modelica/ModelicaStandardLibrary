@@ -1,0 +1,143 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Media.Air.MoistAir.BaseProperties</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.Air.html">Air</a></li>
+  <li><a href="Modelica.Media.Air.MoistAir.html">MoistAir</a></li>
+  <li><a href="Modelica.Media.Air.MoistAir.BaseProperties.html">BaseProperties</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>BaseProperties</h1>
+    <p>Moist air base properties record</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.Air.MoistAir.BaseProperties_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This model computes thermodynamic properties of moist air from three independent (thermodynamic or/and numerical) state variables. Preferred numerical states are temperature T, pressure p and the reduced composition vector Xi, which contains the water mass fraction only. As an EOS the <strong>ideal gas law</strong> is used and associated restrictions apply. The model can also be used in the <strong>fog region</strong>, when moisture is present in its liquid state. However, it is assumed that the liquid water volume is negligible compared to that of the gas phase. Computation of thermal properties is based on property data of <a href="Modelica.Media.Air.DryAirNasa.html"> dry air</a> and water (source: VDI-W&auml;rmeatlas), respectively. Besides the standard thermodynamic variables <strong>absolute and relative humidity</strong>, x_water and phi, respectively, are given by the model. Upper case X denotes absolute humidity with respect to mass of moist air while absolute humidity with respect to mass of dry air only is denoted by a lower case x throughout the model. See <a href="Modelica.Media.Air.MoistAir.html">package description</a> for further information.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>preferredMediumStates</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true if StateSelect.prefer shall be used for the independent property variables of the medium</p>
+      </td>
+    </tr>
+    <tr>
+      <th>standardOrderComponents</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> If true, and reducedX = true, the last element of X will be computed from the other ones</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.BaseProperties.InputAbsolutePressure.html">InputAbsolutePressure</a></p>
+        <p><span>Description:</span> Absolute pressure of medium</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <th>Xi</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.BaseProperties.InputMassFraction.html">InputMassFraction[nXi]</a></p>
+        <p><span>Description:</span> Structurally independent mass fractions</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <th>h</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.BaseProperties.InputSpecificEnthalpy.html">InputSpecificEnthalpy</a></p>
+        <p><span>Description:</span> Specific enthalpy of medium</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialMedium.ThermodynamicState_32x32.png"></td>
+      <th>state</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.ThermodynamicState.html">ThermodynamicState</a></p>
+        <p><span>Description:</span> Thermodynamic state record for optional functions</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Examples.MoistAir_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Examples.MoistAir.html">MoistAir</a></p>
+        <p><span>Modelica.Media.Examples</span></p>
+        <p>Example for moist air</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Examples.PsychrometricData_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Examples.PsychrometricData.html">PsychrometricData</a></p>
+        <p><span>Modelica.Media.Examples</span></p>
+        <p>Produces plot data for psychrometric charts</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

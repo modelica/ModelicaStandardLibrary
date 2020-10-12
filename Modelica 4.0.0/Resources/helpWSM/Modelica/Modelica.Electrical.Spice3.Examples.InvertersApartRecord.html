@@ -1,0 +1,165 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Spice3.Examples.InvertersApartRecord</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Spice3.html">Spice3</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Examples.InvertersApartRecord.html">InvertersApartRecord</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>InvertersApartRecord</h1>
+    <p>Two inverters where transistor models use different modelcard instances</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Spice3.Examples.InvertersApartRecord_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Spice3.Examples.InvertersApartRecord_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Spice3.Examples.InvertersApartRecord_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit <em>InverterApartModel</em> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
+<p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the output voltage of the first inverter. Simulated until t=5s.</p>
+<p>Input voltages: vin.p.v and v.p.v</p>
+<p>Output voltage of the first inverter: mn1.D.v</p>
+<p>Output voltage of the second Inverter: mn2.D.v</p>
+<p>This example shows one possibility to make the record of the technology parameters available for more than one transistor. For each transistor in the circuit a record with the technology parameters is made available as an instance of the record modelcardMOS. In this circuit we need two different records for technology parameters, one for PMOS (MPmos) and one for NMOS (MNmos). This instances of the record for the technology parameters were made available for every transistor as one of theirs parameters (Spice3.Repository.MOS mn1(mtype=0, modelcard=MNmos).</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>MPmos</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Semiconductors.ModelcardMOS.html">ModelcardMOS</a></p>
+        <p><span>Description:</span> Specified modelcardMOS for MPmos</p>
+      </td>
+    </tr>
+    <tr>
+      <th>MNmos</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Semiconductors.ModelcardMOS.html">ModelcardMOS</a></p>
+        <p><span>Description:</span> Specified modelcardMOS for MNmos</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(11)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.Ground_32x32.png"></td>
+      <th>ground</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Semiconductors.ModelcardMOS_32x32.png"></td>
+      <th>MPmos</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Semiconductors.ModelcardMOS.html">ModelcardMOS</a></p>
+        <p><span>Description:</span> Specified modelcardMOS for MPmos</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Semiconductors.ModelcardMOS_32x32.png"></td>
+      <th>MNmos</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Semiconductors.ModelcardMOS.html">ModelcardMOS</a></p>
+        <p><span>Description:</span> Specified modelcardMOS for MNmos</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Semiconductors.M_PMOS_32x32.png"></td>
+      <th>mp1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Semiconductors.M_PMOS.html">M_PMOS</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Semiconductors.M_NMOS_32x32.png"></td>
+      <th>mn1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Semiconductors.M_NMOS.html">M_NMOS</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Semiconductors.M_PMOS_32x32.png"></td>
+      <th>mp2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Semiconductors.M_PMOS.html">M_PMOS</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Semiconductors.M_NMOS_32x32.png"></td>
+      <th>mn2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Semiconductors.M_NMOS.html">M_NMOS</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.C_Capacitor_32x32.png"></td>
+      <th>c1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.C_Capacitor.html">C_Capacitor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Basic.C_Capacitor_32x32.png"></td>
+      <th>c2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Basic.C_Capacitor.html">C_Capacitor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Sources.V_pulse_32x32.png"></td>
+      <th>vin</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Sources.V_pulse.html">V_pulse</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Sources.V_pulse_32x32.png"></td>
+      <th>v</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Sources.V_pulse.html">V_pulse</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

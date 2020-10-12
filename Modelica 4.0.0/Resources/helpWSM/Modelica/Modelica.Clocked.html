@@ -1,0 +1,139 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Clocked</h1>
+    <p>Clock triggered blocks for describing synchronous behavior suited for implementation of control
+systems</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.UsersGuide_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.UsersGuide.html">UsersGuide</a></p>
+        <p>User's Guide</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.html">Examples</a></p>
+        <p>Library of examples to demonstrate the usage of package Modelica.Clocked</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.ClockSignals_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.ClockSignals.html">ClockSignals</a></p>
+        <p>Library of blocks for clocked signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.html">RealSignals</a></p>
+        <p>Library of clocked blocks for Real signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.IntegerSignals_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.IntegerSignals.html">IntegerSignals</a></p>
+        <p>Library of clocked blocks for Integer signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.BooleanSignals_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.BooleanSignals.html">BooleanSignals</a></p>
+        <p>Library of clocked blocks for Boolean signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Types_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Types.html">Types</a></p>
+        <p>Library of types with choices, especially to build menus</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Library <strong>Modelica.Clocked</strong> is a Modelica package
+to precisely define and synchronize sampled data systems with different sampling rates.
+The library has elements to define periodic clocks and event clocks that trigger elements to sample, sub-sample, super-sample, or shift-sample partitions synchronously. Optionally, quantization effects, computational delay or noise can be simulated. Continuous-time equations can be automatically discretized and utilized in a sampled data system. The sample rate of
+a partition need to be defined only at one location.
+</p>
+
+<p>
+In the following
+<a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteController.html">example</a>
+a simple sampled data system is shown, where the borders of the
+discrete-time partition are marked by the sample and hold operators, a clocked PI
+controller is used in the partition and the sample
+rate is defined at one location with a clock:
+</p>
+
+<p>
+<img src="resources/Modelica.Clocked_info_001.png" alt="Simple sampled-data system">
+</p>
+<p>
+The initial version of this library was developed and released under the name <strong>Modelica_Synchronous</strong> library
+before the library became a package of the Modelica Standard Library using the name <strong>Modelica.Clocked</strong>.
+The basic principles and components are the same as in the initial library, therefore the introductory material
+for <strong>Modelica_Synchronous</strong> is still valid, in particular:
+</p>
+<ul>
+<li> <a href="resources/Modelica.Clocked_info_002.pdf">Modelica_Synchronous.pdf</a>
+     is a slide set that provides an overview of the Library.</li>
+<li><a href="https://www.doi.org/10.3384/ecp1207627">A Library for Synchronous Control Systems in Modelica</a> is the corresponding paper.</li>
+</ul>
+<p>
+Furthermore:
+</p>
+<ul>
+<li> <a href="Modelica.Clocked.UsersGuide.html">User's Guide</a>
+     discusses the most important aspects of this library.</li>
+<li><a href="Modelica.Clocked.UsersGuide.ReleaseNotes.html">Release Notes</a>
+     summarizes the changes of the library releases.</li>
+<li> <a href="Modelica.Clocked.UsersGuide.Contact.html">Contact</a>
+     gives author and acknowledgement information for this library.</li>
+</ul>
+<p>
+<em>Copyright &copy; 2012-2020, Modelica Association and contributors.</em>
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

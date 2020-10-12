@@ -1,0 +1,98 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Utilities.Strings.repeat</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Strings.html">Strings</a></li>
+  <li><a href="Modelica.Utilities.Strings.repeat.html">repeat</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>repeat</h1>
+    <p>Repeat a string n times</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Strings.repeat_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+string2 = Strings.<strong>repeat</strong>(n);
+string2 = Strings.<strong>repeat</strong>(n, string=" ");
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The first form returns a string consisting of n blanks.
+</p>
+<p>
+The second form returns a string consisting of n substrings
+defined by the optional argument "string".
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">repeatedString = repeat(n, string)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Default Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of occurrences</p>
+      </td>
+    </tr>
+    <tr>
+      <th>string</th>
+      <td>
+        <p><span>Default Value:</span> " "</p>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> String that is repeated</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>repeatedString</th>
+      <td>
+        <p><span>Type:</span> String</p>
+        <p><span>Description:</span> String containing n concatenated strings</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

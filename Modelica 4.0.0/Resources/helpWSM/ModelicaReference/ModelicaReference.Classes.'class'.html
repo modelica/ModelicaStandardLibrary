@@ -1,0 +1,80 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Classes.'class'</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Classes.html">Classes</a></li>
+  <li><a href="ModelicaReference.Classes.'class'.html">'class'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'class'</h1>
+    <p>class</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Classes.'class'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Define class
+</p>
+<h4>Examples</h4>
+
+<blockquote><pre><strong>class</strong> MyTable
+  <strong>extends</strong> ExternalObject;
+  <strong>function</strong> constructor
+     ...
+  <strong>end</strong> constructor;
+
+  <strong>function</strong> destructor
+     ...
+  <strong>end</strong> destructor;
+<strong>end</strong> MyTable;</pre></blockquote>
+
+<h4>Syntax</h4>
+<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial</strong>] <strong>class</strong>
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <strong>end</strong> IDENT
+   | "=" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | "=" <strong>enumeration</strong> "(" ( [enum_list] | ":" ) ")" comment</pre></blockquote>
+
+<p>See <a href="ModelicaReference.ModelicaGrammar.html">Modelica Grammar</a> for further details.</p>
+
+<h4>Description</h4>
+
+<p>
+The keyword class is used to define general classes (without any restrictions).
+It is identical to the keyword model.
+In most cases, it is recommended to use specialized classes as
+<a href="ModelicaReference.Classes.'connector'.html">connector</a>,
+<a href="ModelicaReference.Classes.'model'.html">model</a>,
+<a href="ModelicaReference.Classes.'block'.html">block</a>,
+<a href="ModelicaReference.Classes.'package'.html">package</a>,
+<a href="ModelicaReference.Classes.'record'.html">record</a>,
+<a href="ModelicaReference.Classes.'function'.html">function</a>,
+<a href="ModelicaReference.Classes.'type'.html">type</a>.
+"class" should be used to define
+<a href="ModelicaReference.Classes.ExternalObject.html">ExternalObject</a>s,
+and can be used for classes merely containing documentation and/or graphics.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Classes.'function'.'pure function'</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Classes.html">Classes</a></li>
+  <li><a href="ModelicaReference.Classes.'function'.html">'function'</a></li>
+  <li><a href="ModelicaReference.Classes.'function'.'pure function'.html">'pure function'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'pure function'</h1>
+    <p>pure function</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Classes.'function'.'pure function'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Modelica functions are normally pure which makes it easy for humans to reason about the code
+since they behave as mathematical functions, and possible for compilers to optimize.</p>
+<ul>
+<li>
+Pure Modelica functions always give the same output values or errors for the same input values
+and only the output values influence the simulation result, i.e. is seen as equivalent to a mathematical map from input values to output values.
+Some input values may map to errors. Pure functions are thus allowed to fail by
+calling assert, or ModelicaError in C-code, or dividing by zero.
+Such errors will only be reported when and if the function is called.
+Pure Modelica functions are not assumed to be thread-safe.</li>
+<li>A Modelica function which does not have the pure function properties is impure.</li>
+</ul>
+<p>The declaration of functions follows these rules:</p>
+<ul>
+<li>Functions defined in Modelica (non-external) are normally assumed to be pure (the exception is the deprecated case below),
+if they are impure they shall be marked with the impure keyword. They can be explicitly marked as pure.</li>
+<li>External functions must be explicitly declared with pure or impure.</li>
+<li>A deprecated semantics is that external functions (and functions defined in Modelica directly or indirectly calling them)
+without pure or impure keyword are assumed to be impure – but without any restriction on calling them.
+Except for the function Modelica.Utilities.Streams.print diagnostics must be given if called in a simulation model.</li>
+</ul>
+</div>
+</section>
+</div>
+</body>
+</html>

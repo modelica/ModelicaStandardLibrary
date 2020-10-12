@@ -1,0 +1,254 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Magnetic.QuasiStatic.FluxTubes.Examples.NonLinearInductor</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.NonLinearInductor.html">NonLinearInductor</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>NonLinearInductor</h1>
+    <p>Non linear inductor with ferromagnetic core</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.NonLinearInductor_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.NonLinearInductor_diagram_large.png"><img src="resources/diagrams/Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.NonLinearInductor_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This model compares a transient non-linear magnetic circuit with a linearized quasi-static magnetic circuit. A sinusoidal voltage is applied to an inductor with a closed ferromagnetic core of rectangular shape.
+</p>
+
+<p>Compare the following quantities</p>
+<ul>
+<li>Sinusoidal supply voltage<br>
+    <code>source.v | sourceQS.v.re|im</code></li>
+<li>Non-linear transient current due to saturation and equivalent quasi-static current<br>
+    <code>currentSensor.i | currentSensorQS.i.re|im</code></li>
+<li>Difference between RMS fundamental wave of transient current and the RMS quasi-static current<br>
+    <code>feedback.y</code></li>
+<li>Effective fundamental wave relative permeability of iron core of transient and quasi-static circuit<br>
+    <code>fundamentalWavePermabilitySensor.mur | r_mFeQS.mu_rConst</code></li>
+</ul>
+</div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>deviation</th>
+      <td>
+        <p><span>Default Value:</span> feedback.y</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Deviation of transient and quasi-static current</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(22)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.Ground_32x32.png"></td>
+      <th>ground_mQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource_32x32.png"></td>
+      <th>sourceQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource.html">VoltageSource</a></p>
+        <p><span>Description:</span> Voltage applied to inductor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor_32x32.png"></td>
+      <th>rQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor.html">Resistor</a></p>
+        <p><span>Description:</span> Inductor coil resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter_32x32.png"></td>
+      <th>coilQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ElectroMagneticConverter.html">ElectroMagneticConverter</a></p>
+        <p><span>Description:</span> Inductor coil</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ConstantReluctance_32x32.png"></td>
+      <th>r_mLeakQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.ConstantReluctance.html">ConstantReluctance</a></p>
+        <p><span>Description:</span> Constant leakage reluctance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.GenericFluxTube_32x32.png"></td>
+      <th>r_mAirParQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.GenericFluxTube.html">GenericFluxTube</a></p>
+        <p><span>Description:</span> Reluctance of small parasitic air gap (ferromagnetic core packeted from single sheets)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.GenericFluxTube_32x32.png"></td>
+      <th>r_mFeQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.GenericFluxTube.html">GenericFluxTube</a></p>
+        <p><span>Description:</span> Reluctance of ferromagnetic inductor core</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground_32x32.png"></td>
+      <th>groundQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.Ground_32x32.png"></td>
+      <th>ground_m</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SineVoltage_32x32.png"></td>
+      <th>source</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.SineVoltage.html">SineVoltage</a></p>
+        <p><span>Description:</span> Voltage applied to inductor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Resistor_32x32.png"></td>
+      <th>r</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Resistor.html">Resistor</a></p>
+        <p><span>Description:</span> Inductor coil resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter_32x32.png"></td>
+      <th>coil</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter.html">ElectroMagneticConverter</a></p>
+        <p><span>Description:</span> Inductor coil</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Basic.ConstantReluctance_32x32.png"></td>
+      <th>r_mLeak</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Basic.ConstantReluctance.html">ConstantReluctance</a></p>
+        <p><span>Description:</span> Constant leakage reluctance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube_32x32.png"></td>
+      <th>r_mAirPar</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube.html">GenericFluxTube</a></p>
+        <p><span>Description:</span> Reluctance of small parasitic air gap (ferromagnetic core packeted from single sheets)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube_32x32.png"></td>
+      <th>r_mFe</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube.html">GenericFluxTube</a></p>
+        <p><span>Description:</span> Reluctance of ferromagnetic inductor core</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>ground</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentSensor_32x32.png"></td>
+      <th>currentSensorQS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentSensor.html">CurrentSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.ComplexToPolar_32x32.png"></td>
+      <th>complexToPolar</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.ComplexBlocks.ComplexMath.ComplexToPolar.html">ComplexToPolar</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sensors.CurrentSensor_32x32.png"></td>
+      <th>currentSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sensors.CurrentSensor.html">CurrentSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Feedback_32x32.png"></td>
+      <th>feedback</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Feedback.html">Feedback</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.FundamentalWavePermabilitySensor_32x32.png"></td>
+      <th>fundamentalWavePermabilitySensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Sensors.Transient.FundamentalWavePermabilitySensor.html">FundamentalWavePermabilitySensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Harmonic_32x32.png"></td>
+      <th>rootMeanSquare</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Harmonic.html">Harmonic</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Media.IdealGases.Common.MixtureGasNasa.BaseProperties</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.IdealGases.html">IdealGases</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.html">Common</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.html">MixtureGasNasa</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.BaseProperties.html">BaseProperties</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>BaseProperties</h1>
+    <p>Base properties (p, d, T, h, u, R_s, MM, X, and Xi of NASA mixture gas</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.IdealGases.Common.MixtureGasNasa.BaseProperties_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>preferredMediumStates</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true if StateSelect.prefer shall be used for the independent property variables of the medium</p>
+      </td>
+    </tr>
+    <tr>
+      <th>standardOrderComponents</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> If true, and reducedX = true, the last element of X will be computed from the other ones</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.BaseProperties.InputAbsolutePressure.html">InputAbsolutePressure</a></p>
+        <p><span>Description:</span> Absolute pressure of medium</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <th>Xi</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.BaseProperties.InputMassFraction.html">InputMassFraction[nXi]</a></p>
+        <p><span>Description:</span> Structurally independent mass fractions</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <th>h</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.BaseProperties.InputSpecificEnthalpy.html">InputSpecificEnthalpy</a></p>
+        <p><span>Description:</span> Specific enthalpy of medium</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Interfaces.PartialMedium.ThermodynamicState_32x32.png"></td>
+      <th>state</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.PartialMedium.ThermodynamicState.html">ThermodynamicState</a></p>
+        <p><span>Description:</span> Thermodynamic state record for optional functions</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Media.Examples.MixtureGases_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Media.Examples.MixtureGases.html">MixtureGases</a></p>
+        <p><span>Modelica.Media.Examples</span></p>
+        <p>Test gas mixtures</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

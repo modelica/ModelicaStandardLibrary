@@ -1,0 +1,204 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Analog.Interfaces.CurrentSource</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Analog.html">Analog</a></li>
+  <li><a href="Modelica.Electrical.Analog.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Electrical.Analog.Interfaces.CurrentSource.html">CurrentSource</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>CurrentSource</h1>
+    <p>Interface for current sources</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Analog.Interfaces.CurrentSource_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Analog.Interfaces.CurrentSource_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Analog.Interfaces.CurrentSource_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>The CurrentSource partial model prepares current sources by providing the pins, and the offset and startTime parameters, which are the same at all current sources. The source behavior is taken from Modelica.Blocks signal sources by inheritance and usage of the replaceable possibilities.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>offset</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Current offset</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startTime</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Time offset</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.PositivePin_16x16.png"></td>
+      <th>p</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.PositivePin.html">PositivePin</a></p>
+        <p><span>Description:</span> Positive electrical pin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Analog.Interfaces.NegativePin_16x16.png"></td>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Interfaces.NegativePin.html">NegativePin</a></p>
+        <p><span>Description:</span> Negative electrical pin</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Interfaces.SignalSource_32x32.png"></td>
+      <th>signalSource</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.SignalSource.html">SignalSource</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(10)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.TableCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.TableCurrent.html">TableCurrent</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Current source by linear interpolation in a table</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.TrapezoidCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.TrapezoidCurrent.html">TrapezoidCurrent</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Trapezoidal current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SawToothCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.SawToothCurrent.html">SawToothCurrent</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Saw tooth current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.PulseCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.PulseCurrent.html">PulseCurrent</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Pulse current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.ExponentialsCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.ExponentialsCurrent.html">ExponentialsCurrent</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Rising and falling exponential current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.ExpSineCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.ExpSineCurrent.html">ExpSineCurrent</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Exponentially damped sine current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.CosineCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.CosineCurrent.html">CosineCurrent</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Cosine current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SineCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.SineCurrent.html">SineCurrent</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Sine current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.RampCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.RampCurrent.html">RampCurrent</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Ramp current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.StepCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.StepCurrent.html">StepCurrent</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Step current source</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

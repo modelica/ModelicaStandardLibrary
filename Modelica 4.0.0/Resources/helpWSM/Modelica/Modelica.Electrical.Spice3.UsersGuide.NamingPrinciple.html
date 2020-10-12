@@ -1,0 +1,62 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Spice3.UsersGuide.NamingPrinciple</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Spice3.html">Spice3</a></li>
+  <li><a href="Modelica.Electrical.Spice3.UsersGuide.html">UsersGuide</a></li>
+  <li><a href="Modelica.Electrical.Spice3.UsersGuide.NamingPrinciple.html">NamingPrinciple</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>NamingPrinciple</h1>
+    <p>Naming principle</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Spice3.UsersGuide.NamingPrinciple_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>In SPICE3 we have a predefined model pool. Each model device has got a code letter (e.g., resistor - R). In analogy to the SPICE3 models the models of the Spice3 library also got the according code letter in their names. The following examples shows the relationship:</p>
+<p>A typical SPICE3 line could be:</p>
+<p><strong>C</strong>1 3 2 1pF</p>
+<p>The first letter is the code letter (here <strong>C</strong>). It specifies the type of the model component (here capacitance). To see the analogy to the SPICE3 models in the Spice3 library the transformed capacitance has got the name <strong>C</strong>_Capacitance. According to that naming rule the components of the Spice3 library have the following names (the first letter is the code letter that has to be used in SPICE3):</p>
+<ul>
+<li>R_Resistor</li>
+<li>C_Capacitance</li>
+<li>L_Inductor</li>
+<li>E_VCV, E_VCV_POLY</li>
+<li>G_VCC, G_VCC_POLY</li>
+<li>H_CCV, H_CCV_POLY</li>
+<li>F_CCC, F_CCC_POLY</li>
+<li>M_PMOS</li>
+<li>M_NMOS</li>
+<li>Q_NPNBJT</li>
+<li>Q_PNPBJT</li>
+<li>D_Diode</li>
+<li>V_constant, I_constant</li>
+<li>V_sin, I_sin</li>
+<li>V_exp, I_exp</li>
+<li>V_pulse, I_pulse</li>
+<li>V_pwl, I_pwl</li>
+<li>V_sffm, I_sffm<br><strong><br></strong></li>
+</ul>
+</div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,317 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Polyphase.Interfaces.ConditionalHeatPort</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Polyphase.html">Polyphase</a></li>
+  <li><a href="Modelica.Electrical.Polyphase.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Electrical.Polyphase.Interfaces.ConditionalHeatPort.html">ConditionalHeatPort</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ConditionalHeatPort</h1>
+    <p>Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network</p>
+  </td><td>
+    <div></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This partial model provides conditional heat ports for the connection to a thermal network.
+</p>
+<ul>
+<li> If <strong>useHeatPort</strong> is set to <strong>false</strong> (default), no heat port is available, and the thermal
+     loss power flows internally to the ground. In this case, the parameter <strong>T</strong> specifies
+     the fixed device temperatures.</li>
+<li> If <strong>useHeatPort</strong> is set to <strong>true</strong>, all heat ports are available.</li>
+</ul>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>mh</th>
+      <td>
+        <p><span>Value:</span> 3</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of heatPorts=number of phases</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if all heat ports are enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Value:</span> fill(293.15, mh)</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature[mh]</a> (K)</p>
+        <p><span>Description:</span> Fixed device temperatures if useHeatPort = false</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a[mh]</a></p>
+        <p><span>Description:</span> Conditional heat ports</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(26)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealClosingSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealClosingSwitch.html">IdealClosingSwitch</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal closer</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealOpeningSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealOpeningSwitch.html">IdealOpeningSwitch</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal opener</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealIntermediateSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealIntermediateSwitch.html">IdealIntermediateSwitch</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal intermediate switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealCommutingSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealCommutingSwitch.html">IdealCommutingSwitch</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal commuting switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableAdmittance.html">VariableAdmittance</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Basic</span></p>
+        <p>Polyphase variable admittance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableImpedance.html">VariableImpedance</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Basic</span></p>
+        <p>Polyphase variable impedance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableConductor.html">VariableConductor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Basic</span></p>
+        <p>Polyphase variable conductor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableResistor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.VariableResistor.html">VariableResistor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Basic</span></p>
+        <p>Polyphase variable resistor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Admittance.html">Admittance</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Basic</span></p>
+        <p>Polyphase linear admittance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Impedance.html">Impedance</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Basic</span></p>
+        <p>Polyphase linear impedance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Conductor.html">Conductor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Basic</span></p>
+        <p>Polyphase linear conductor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor.html">Resistor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Basic</span></p>
+        <p>Polyphase linear resistor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACAC.PolyphaseTriac_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACAC.PolyphaseTriac.html">PolyphaseTriac</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACAC</span></p>
+        <p>Triodes for alternating current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Ideal.CloserWithArc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Ideal.CloserWithArc.html">CloserWithArc</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Ideal</span></p>
+        <p>Polyphase closer with arc</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Ideal.OpenerWithArc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Ideal.OpenerWithArc.html">OpenerWithArc</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Ideal</span></p>
+        <p>Polyphase opener with arc</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Ideal.IdealClosingSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Ideal.IdealClosingSwitch.html">IdealClosingSwitch</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal closer</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Ideal.IdealOpeningSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Ideal.IdealOpeningSwitch.html">IdealOpeningSwitch</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal opener</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Ideal.IdealIntermediateSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Ideal.IdealIntermediateSwitch.html">IdealIntermediateSwitch</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal intermediate switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Ideal.IdealCommutingSwitch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Ideal.IdealCommutingSwitch.html">IdealCommutingSwitch</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal commuting switch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Ideal.IdealGTOThyristor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Ideal.IdealGTOThyristor.html">IdealGTOThyristor</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal GTO thyristor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Ideal.IdealThyristor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Ideal.IdealThyristor.html">IdealThyristor</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal thyristor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Ideal.IdealDiode_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Ideal.IdealDiode.html">IdealDiode</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Ideal</span></p>
+        <p>Polyphase ideal diode</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Basic.VariableConductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Basic.VariableConductor.html">VariableConductor</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Basic</span></p>
+        <p>Ideal linear electrical conductors with variable conductance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Basic.VariableResistor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Basic.VariableResistor.html">VariableResistor</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Basic</span></p>
+        <p>Ideal linear electrical resistors with variable resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Basic.Conductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Basic.Conductor.html">Conductor</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Basic</span></p>
+        <p>Ideal linear electrical conductors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Basic.Resistor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Basic.Resistor.html">Resistor</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Basic</span></p>
+        <p>Ideal linear electrical resistors</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

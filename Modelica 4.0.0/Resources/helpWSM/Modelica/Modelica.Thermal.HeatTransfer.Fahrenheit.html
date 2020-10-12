@@ -1,0 +1,98 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Thermal.HeatTransfer.Fahrenheit</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Thermal.html">Thermal</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.html">HeatTransfer</a></li>
+  <li><a href="Modelica.Thermal.HeatTransfer.Fahrenheit.html">Fahrenheit</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Fahrenheit</h1>
+    <p>Components with Fahrenheit input and/or output</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Thermal.HeatTransfer.Fahrenheit_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="package-contents">
+  <h1>Package Contents</h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Fahrenheit.ToKelvin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Fahrenheit.ToKelvin.html">ToKelvin</a></p>
+        <p>Conversion from degree Fahrenheit to Kelvin</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Fahrenheit.FromKelvin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Fahrenheit.FromKelvin.html">FromKelvin</a></p>
+        <p>Conversion from Kelvin to degree Fahrenheit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Fahrenheit.FixedTemperature_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Fahrenheit.FixedTemperature.html">FixedTemperature</a></p>
+        <p>Fixed temperature boundary condition in degFahrenheit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Fahrenheit.PrescribedTemperature_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Fahrenheit.PrescribedTemperature.html">PrescribedTemperature</a></p>
+        <p>Variable temperature boundary condition in degFahrenheit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Thermal.HeatTransfer.Fahrenheit.TemperatureSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Thermal.HeatTransfer.Fahrenheit.TemperatureSensor.html">TemperatureSensor</a></p>
+        <p>Absolute temperature sensor in degFahrenheit</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The components of this package are provided for the convenience of
+people working mostly with Fahrenheit units, since all models
+in package HeatTransfer are based on Kelvin units.
+</p>
+<p>
+Note, that in package Modelica.Units.Conversions, functions are provided
+to convert between the units Kelvin, degree Celsius, degree Fahrenheit
+and degree Rankine. These functions allow, e.g., a direct conversion
+of units at all places where Kelvin is required as parameter.
+Example:
+</p>
+<blockquote><pre>
+<strong>import</strong> Modelica.Units.Conversions.from_degF;
+Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degF(70));
+</pre></blockquote>
+</div>
+</section>
+</div>
+</body>
+</html>

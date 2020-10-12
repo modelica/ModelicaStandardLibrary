@@ -1,0 +1,102 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Utilities.Strings.sort</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Strings.html">Strings</a></li>
+  <li><a href="Modelica.Utilities.Strings.sort.html">sort</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>sort</h1>
+    <p>Sort vector of strings in alphabetic order</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Strings.sort_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+stringVector2 = Streams.<strong>sort</strong>(stringVector1);
+stringVector2 = Streams.<strong>sort</strong>(stringVector1, caseSensitive=true);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <strong>sort</strong>(..) sorts a string vector stringVector1
+in lexicographical order and returns the result in stringVector2.
+If the optional argument "caseSensitive" is <strong>false</strong>, lower
+and upper case letters are not distinguished.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+s1 = {"force", "angle", "pressure"};
+s2 = Strings.sort(s1);
+     -> s2 = {"angle", "force", "pressure"};
+</pre></blockquote>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">stringVector2 = sort(stringVector1, caseSensitive)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>stringVector1</th>
+      <td>
+        <p><span>Type:</span> String[:]</p>
+        <p><span>Description:</span> Vector of strings</p>
+      </td>
+    </tr>
+    <tr>
+      <th>caseSensitive</th>
+      <td>
+        <p><span>Default Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = false, if lower and upper case are ignored when comparing elements of stringVector1</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>stringVector2</th>
+      <td>
+        <p><span>Type:</span> String[size(stringVector1, 1)]</p>
+        <p><span>Description:</span> stringVector1 sorted in alphabetical order</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

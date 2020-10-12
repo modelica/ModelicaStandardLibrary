@@ -1,0 +1,254 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.ClockSignals.Clocks.Rotational.RotationalClock</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.ClockSignals.html">ClockSignals</a></li>
+  <li><a href="Modelica.Clocked.ClockSignals.Clocks.html">Clocks</a></li>
+  <li><a href="Modelica.Clocked.ClockSignals.Clocks.Rotational.html">Rotational</a></li>
+  <li><a href="Modelica.Clocked.ClockSignals.Clocks.Rotational.RotationalClock.html">RotationalClock</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>RotationalClock</h1>
+    <p>Event clock generating a clock tick each time an observed input angle changed for a rotational-interval given as variable input</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.ClockSignals.Clocks.Rotational.RotationalClock_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Clocked.ClockSignals.Clocks.Rotational.RotationalClock_diagram_large.png"><img src="resources/diagrams/Modelica.Clocked.ClockSignals.Clocks.Rotational.RotationalClock_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+For a simple example cf. the
+    <a href="Modelica.Clocked.Examples.Elementary.ClockSignals.RotationalSample.html">rotational sampling example</a>.
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useSolver</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if solverMethod shall be explicitly defined</p>
+      </td>
+    </tr>
+    <tr>
+      <th>solverMethod</th>
+      <td>
+        <p><span>Value:</span> "ExplicitEuler"</p>
+        <p><span>Type:</span> <a href="../ModelicaServices/ModelicaServices.Types.SolverMethod.html">SolverMethod</a></p>
+        <p><span>Description:</span> Integration method used for discretized continuous-time partitions</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Clocked.ClockSignals.Interfaces.ClockOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.ClockSignals.Interfaces.ClockOutput.html">ClockOutput</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>angle</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Input angle observed for generating clock ticks.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.IntegerOutput_16x16.png"></td>
+      <th>direction</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.IntegerOutput.html">IntegerOutput</a></p>
+        <p><span>Description:</span> Rotation direction (sign: +1 or -1). Sampled with the provided clock signal
+     'y'.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanOutput_16x16.png"></td>
+      <th>direction_changed</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanOutput.html">BooleanOutput</a></p>
+        <p><span>Description:</span> = true, if the rotation direction of the observed angle changed since the last tick of y', otherwise false. Sampled with the provided clock signal y.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>trigger_interval</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Rotational-interval the input angle must be changed to trigger the next clock tick</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(11)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.ClockSignals.Clocks.EventClock_32x32.png"></td>
+      <th>y_clock</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.ClockSignals.Clocks.EventClock.html">EventClock</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.SampleClocked_32x32.png"></td>
+      <th>update_offset</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.RealSignals.Sampler.SampleClocked.html">SampleClocked</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.Hold_32x32.png"></td>
+      <th>angular_offset</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.RealSignals.Sampler.Hold.html">Hold</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Add_32x32.png"></td>
+      <th>sub</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Add.html">Add</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Logical.Less_32x32.png"></td>
+      <th>less</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Logical.Less.html">Less</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Abs_32x32.png"></td>
+      <th>abs2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Abs.html">Abs</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Abs_32x32.png"></td>
+      <th>abs1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Abs.html">Abs</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Sign_32x32.png"></td>
+      <th>direction_sign</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Sign.html">Sign</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.RealToInteger_32x32.png"></td>
+      <th>cast</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.RealToInteger.html">RealToInteger</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.IntegerSignals.NonPeriodic.IntegerChange_32x32.png"></td>
+      <th>changed</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.IntegerSignals.NonPeriodic.IntegerChange.html">IntegerChange</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.SampleClocked_32x32.png"></td>
+      <th>update_direction</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.RealSignals.Sampler.SampleClocked.html">SampleClocked</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.ClockSignals.RotationalSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.ClockSignals.RotationalSample.html">RotationalSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.ClockSignals</span></p>
+        <p>Simple example of a rotational clock with variable trigger interval and switching rotation-direction.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.ClockSignals.LogicalSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.ClockSignals.LogicalSample.html">LogicalSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.ClockSignals</span></p>
+        <p>Simple example of conjunctive and disjunctive logical clocks, combining clock signals to derive new event driven clocks.</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.ClockSignals.Clocks.Rotational.FixedRotationalClock_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.ClockSignals.Clocks.Rotational.FixedRotationalClock.html">FixedRotationalClock</a></p>
+        <p><span>Modelica.Clocked.ClockSignals.Clocks.Rotational</span></p>
+        <p>Event clock generating a clock tick each time an observed input angle changed for a certain, constant rotational-interval</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

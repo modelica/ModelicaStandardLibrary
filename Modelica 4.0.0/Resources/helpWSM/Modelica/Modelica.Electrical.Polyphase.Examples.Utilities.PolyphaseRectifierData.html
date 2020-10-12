@@ -1,0 +1,165 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Polyphase.Examples.Utilities.PolyphaseRectifierData</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Polyphase.html">Polyphase</a></li>
+  <li><a href="Modelica.Electrical.Polyphase.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.Polyphase.Examples.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Electrical.Polyphase.Examples.Utilities.PolyphaseRectifierData.html">PolyphaseRectifierData</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PolyphaseRectifierData</h1>
+    <p>Data record for polyphase rectifier</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Polyphase.Examples.Utilities.PolyphaseRectifierData_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(13)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>m</th>
+      <td>
+        <p><span>Value:</span> 6</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of phases</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mSystems</th>
+      <td>
+        <p><span>Value:</span> numberOfSymmetricBaseSystems(m)</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of base systems</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mBasic</th>
+      <td>
+        <p><span>Value:</span> integer(m / mSystems)</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of phases per base system</p>
+      </td>
+    </tr>
+    <tr>
+      <th>kPolygon</th>
+      <td>
+        <p><span>Value:</span> max(1, integer((mBasic - 1) / 2))</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Alternative of largest polygon voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>ParDesired</th>
+      <td>
+        <p><span>Value:</span> mSystems</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Desired parallel subsystems</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Par</th>
+      <td>
+        <p><span>Value:</span> if isPowerOf2(ParDesired) then ParDesired else mSystems</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Parallel connected subsystems</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ser</th>
+      <td>
+        <p><span>Value:</span> integer(mSystems / Par)</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Series connected subsystems</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VrmsY</th>
+      <td>
+        <p><span>Value:</span> 100</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> RMS voltage line to starpoint</p>
+      </td>
+    </tr>
+    <tr>
+      <th>f</th>
+      <td>
+        <p><span>Value:</span> 50</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Source frequency</p>
+      </td>
+    </tr>
+    <tr>
+      <th>RLoad</th>
+      <td>
+        <p><span>Value:</span> 2 * Ser / Par</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Load resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>RDC</th>
+      <td>
+        <p><span>Value:</span> 1e-3</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> DC resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>LDC</th>
+      <td>
+        <p><span>Value:</span> 3e-3</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Inductance.html">Inductance</a> (H)</p>
+        <p><span>Description:</span> DC inductance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>RGnd</th>
+      <td>
+        <p><span>Value:</span> 1e5</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Resistance to ground</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Examples.PolyphaseRectifier_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Examples.PolyphaseRectifier.html">PolyphaseRectifier</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Examples</span></p>
+        <p>Demonstrate a polyphase diode rectifier</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

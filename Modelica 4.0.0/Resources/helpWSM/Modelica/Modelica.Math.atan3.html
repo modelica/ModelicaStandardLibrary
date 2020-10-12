@@ -1,0 +1,108 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.atan3</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.atan3.html">atan3</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>atan3</h1>
+    <p>Four quadrant inverse tangent (select solution that is closest to given angle y0)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.atan3_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This function returns y = <strong>atan3</strong>(u1,u2,y0) such that
+<strong>tan</strong>(y) = u1/u2 and
+y is in the range: -pi &lt; y-y0 &le; pi.<br>
+u2 may be zero, provided u1 is not zero. The difference to
+Modelica.Math.atan2(..) is the optional third argument y0 that
+allows to specify which of the infinite many solutions
+shall be returned:
+</p>
+
+<p>
+<img src="resources/Modelica.Math.atan3_info_001.png">
+</p>
+
+<p>
+Note, for the default case (y0=0), exactly the same result as with atan2(..)
+is returned.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">y = atan3(u1, u2, y0)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>u1</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> First independent variable</p>
+      </td>
+    </tr>
+    <tr>
+      <th>u2</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Second independent variable</p>
+      </td>
+    </tr>
+    <tr>
+      <th>y0</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> y shall be in the range: -pi < y-y0 <= pi</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Dependent variable y=atan3(u1, u2, y0)=atan(u1/u2)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

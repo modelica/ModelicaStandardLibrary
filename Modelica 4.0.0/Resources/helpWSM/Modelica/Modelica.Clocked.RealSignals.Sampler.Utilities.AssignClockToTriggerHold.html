@@ -1,0 +1,130 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.RealSignals.Sampler.Utilities.AssignClockToTriggerHold</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.html">RealSignals</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.Sampler.html">Sampler</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.Sampler.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToTriggerHold.html">AssignClockToTriggerHold</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>AssignClockToTriggerHold</h1>
+    <p>Generate a Boolean continuous-time trigger signal from a clocked Real input</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToTriggerHold_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This block creates a Boolean, continuous time, trigger signal whenever the clock of the input signal is active.
+</p>
+
+<p>
+A particular use-case in which that block might be useful is the combination of "old-style" sampled blocks (i.e., "unclocked" discrete control functions implemented using equations between "when trigger then" clauses) with clocked blocks.
+</p>
+
+<h4>Example</h4>
+
+<p>
+The following
+<a href="Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockToTriggerHold.html">example</a>
+samples a sine signal with a periodic clock of 20 ms period. After that a continuous time Boolean trigger signal is generated at every clock tick of that sampled signal. The generated signal is used as trigger signal for an "old-style" <a href="Modelica.Blocks.Discrete.TriggeredSampler.html">TriggeredSampler</a>  block from the Modelica.Blocks.Discrete package:<br>
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+<tr><td width="50"></td>
+    <td valign="bottom"><img src="resources/Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToTriggerHold_info_001.png" alt="AssignClockToTriggerHold_Model.png"></td>
+    <td valign="bottom">&nbsp;&nbsp;&nbsp;
+                        <img src="resources/Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToTriggerHold_info_002.png" alt="AssignClockToTriggerHold_Result.png"></td>
+    </tr>
+<tr><td></td>
+    <td align="center">model</td>
+    <td align="center">simulation result</td>
+   </tr>
+</table>
+<p>
+Note, that it is clearly visible in the plot that the "old-style" discrete variables have an implicit zero-order hold semantics, while the new clocked variables are only active whenever their associated clock ticks. Just compare variable sample.y (clocked) with triggeredSampler.y (unclocked) to observe the difference.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>y_start</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Initial value of output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.BooleanOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.BooleanOutput.html">BooleanOutput</a></p>
+        <p><span>Description:</span> Connector of Boolean output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockToTriggerHold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.RealSignals.AssignClockToTriggerHold.html">AssignClockToTriggerHold</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.RealSignals</span></p>
+        <p>Example of an AssignClockToTriggerHold block for Real signals</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

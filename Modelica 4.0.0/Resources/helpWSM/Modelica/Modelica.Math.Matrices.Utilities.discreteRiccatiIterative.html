@@ -1,0 +1,214 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Matrices.Utilities.discreteRiccatiIterative</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Math.Matrices.Utilities.discreteRiccatiIterative.html">discreteRiccatiIterative</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>discreteRiccatiIterative</h1>
+    <p>Newton's method with exact line search for solving discrete algebraic Riccati equation</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.Utilities.discreteRiccatiIterative_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+     X = Matrices.Utilities.<strong>discreteRiccatiIterative</strong>(A, B, R, Q, X0);
+(X, r) = Matrices.Utilities.<strong>discreteRiccatiIterative</strong>(A, B, R, Q, X0, maxSteps, eps);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function provides a Newton-like method for solving discrete-time algebraic Riccati equations. It uses Exact Line Search to improve the sometimes erratic
+convergence of Newton's method. Exact line search in this case means, that at each iteration <code>i</code> a Newton step <code><strong>delta</strong>_i</code>
+</p>
+<blockquote><pre>
+<strong>X</strong>_i+1 = <strong>X</strong>_i + <strong>delta</strong>_i
+</pre></blockquote>
+<p>
+is taken in the direction to minimize the Frobenius norm of the residual
+</p>
+<blockquote><pre>
+r = || <strong>A</strong>'<strong>X</strong>_i+1*<strong>A</strong> - <strong>X</strong>_i+1 - <strong>A</strong>'<strong>X</strong>_i+1*<strong>G</strong>_i*<strong>X</strong>_i+1*<strong>A</strong> + <strong>Q</strong> ||
+</pre></blockquote>
+<p>
+with
+</p>
+<blockquote><pre>
+                     -1
+G_i = <strong>B</strong>*(<strong>R</strong> + <strong>B</strong>'*<strong>X</strong>_i*<strong>B</strong>) *<strong>B</strong>'
+</pre></blockquote>
+<p>
+Output <code>r</code> is the norm of the residual of the last iteration.<br>
+</p>
+<p>
+The inputs "maxSteps" and "eps" specify the termination of the iteration. The iteration is terminated if either
+maxSteps iteration steps have been performed or the relative change <strong>delta</strong>_i/<strong>X</strong>_i became smaller than eps.
+</p>
+<p>
+With an appropriate initial value <strong>X</strong>0 a sufficiently accurate solution might be reach with a few iteration steps. Although a Lyapunov equation of
+order <code>n</code> (n is the order of the Riccati equation) is to be solved at each iteration step, the algorithm might be faster
+than a direct method like <a href="Modelica.Math.Matrices.discreteRiccati.html">Matrices.discreteRiccati</a>, since direct methods have to solve the 2*n-order Hamiltonian
+system equation.
+
+The algorithm is taken from [1] and [2].
+</p>
+<h4>References</h4>
+<blockquote><pre>
+[1] Benner, P., Byers, R.
+    An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
+    IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
+[2] Datta, B.N.
+    Numerical Methods for Linear Control Systems
+    Elsevier Academic Press, 2004.
+</pre></blockquote>
+
+<h4>Example</h4>
+<blockquote><pre>
+A  = [0.9970,    0.0000,    0.0000,    0.0000;
+      1.0000,    0.0000,    0.0000,    0.0000;
+      0.0000,    1.0000,    0.0000,    0.0000;
+      0.0000,    0.0000,    1.0000,    0.0000];
+
+B  = [0.0150;
+      0.0000;
+      0.0000;
+      0.0000];
+
+R = [0.2500];
+
+Q = [0, 0, 0, 0;
+     0, 0, 0, 0;
+     0, 0, 0, 0;
+     0, 0, 0, 1];
+
+X0=identity(4);
+
+(X,r) = Matrices.Utilities.discreteRiccatiIterative(A, B, R, Q, X0);
+
+//  X = [30.625, 0.0, 0.0, 0.0;
+          0.0,   1.0, 0.0, 0.0;
+          0.0,   0.0, 1.0, 0.0;
+          0.0,   0.0, 0.0, 1.0];
+
+// r =   3.10862446895044E-015
+</pre></blockquote>
+
+<h4>See also</h4>
+<a href="Modelica.Math.Matrices.Utilities.continuousRiccatiIterative.html">Matrices.Utilities.continuousRiccatiIterative</a><br>
+<a href="Modelica.Math.Matrices.discreteRiccati.html">Matrices.discreteRiccati</a>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(X, r) = discreteRiccatiIterative(A, B, R, Q, X0, maxSteps, eps)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>A</th>
+      <td>
+        <p><span>Type:</span> Real[:,size(A, 1)]</p>
+        <p><span>Description:</span> Matrix A of discrete Riccati equation</p>
+      </td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>
+        <p><span>Type:</span> Real[size(A, 1),:]</p>
+        <p><span>Description:</span> Matrix B of discrete Riccati equation</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R</th>
+      <td>
+        <p><span>Default Value:</span> identity(size(B, 2))</p>
+        <p><span>Type:</span> Real[size(B, 2),size(B, 2)]</p>
+        <p><span>Description:</span> Matrix R of discrete Riccati equation</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Q</th>
+      <td>
+        <p><span>Default Value:</span> identity(size(A, 1))</p>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 2)]</p>
+        <p><span>Description:</span> Matrix Q of discrete Riccati equation</p>
+      </td>
+    </tr>
+    <tr>
+      <th>X0</th>
+      <td>
+        <p><span>Default Value:</span> identity(size(A, 1))</p>
+        <p><span>Type:</span> Real[size(A, 1),size(A, 2)]</p>
+        <p><span>Description:</span> Initial approximate solution discrete Riccati equation</p>
+      </td>
+    </tr>
+    <tr>
+      <th>maxSteps</th>
+      <td>
+        <p><span>Default Value:</span> 10</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Maximal number of iteration steps</p>
+      </td>
+    </tr>
+    <tr>
+      <th>eps</th>
+      <td>
+        <p><span>Default Value:</span> Matrices.frobeniusNorm(A) * 1e-9</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Tolerance for stop criterion</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>X</th>
+      <td>
+        <p><span>Type:</span> Real[size(X0, 1),size(X0, 2)]</p>
+      </td>
+    </tr>
+    <tr>
+      <th>r</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

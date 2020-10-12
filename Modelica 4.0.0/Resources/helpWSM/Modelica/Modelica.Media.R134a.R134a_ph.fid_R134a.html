@@ -1,0 +1,85 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Media.R134a.R134a_ph.fid_R134a</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.R134a.html">R134a</a></li>
+  <li><a href="Modelica.Media.R134a.R134a_ph.html">R134a_ph</a></li>
+  <li><a href="Modelica.Media.R134a.R134a_ph.fid_R134a.html">fid_R134a</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>fid_R134a</h1>
+    <p>Helmholtz coefficients of ideal part</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.R134a.R134a_ph.fid_R134a_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+This function computes the ideal gas helmholtz derivatives of the fundamental equation of Tillner-Roth and Baehr for R134a (1994) w.r.t. to reduced temperature (tau=T_crit/T) and reduced density (delta=rho/rho_crit).
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">fid = fid_R134a(delta, tau)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>delta</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Reduced density (delta=d/dcrit)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>tau</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Reduced temperature (tau=Tcrit/T)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>fid</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.Common.HelmholtzDerivs.html">HelmholtzDerivs</a></p>
+        <p><span>Description:</span> Helmholtz derivatives of ideal part</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

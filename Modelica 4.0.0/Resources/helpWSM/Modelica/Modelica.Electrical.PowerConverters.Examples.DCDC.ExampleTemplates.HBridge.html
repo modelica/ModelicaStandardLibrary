@@ -1,0 +1,165 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.PowerConverters.Examples.DCDC.ExampleTemplates.HBridge</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.html">PowerConverters</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.Examples.DCDC.html">DCDC</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.Examples.DCDC.ExampleTemplates.html">ExampleTemplates</a></li>
+  <li><a href="Modelica.Electrical.PowerConverters.Examples.DCDC.ExampleTemplates.HBridge.html">HBridge</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>HBridge</h1>
+    <p>H bridge DC/DC converter</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCDC.ExampleTemplates.HBridge_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.PowerConverters.Examples.DCDC.ExampleTemplates.HBridge_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.PowerConverters.Examples.DCDC.ExampleTemplates.HBridge_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>H bridge example template including supply and sensors; load is not yet included</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>f</th>
+      <td>
+        <p><span>Value:</span> 1000</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Switching frequency</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(8)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.DCDC.HBridge_32x32.png"></td>
+      <th>hbridge</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.PowerConverters.DCDC.HBridge.html">HBridge</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.ConstantVoltage_32x32.png"></td>
+      <th>constantVoltage</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sources.ConstantVoltage.html">ConstantVoltage</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM_32x32.png"></td>
+      <th>signalPWM</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM.html">SignalPWM</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.Ground_32x32.png"></td>
+      <th>ground</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sensors.CurrentSensor_32x32.png"></td>
+      <th>currentSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sensors.CurrentSensor.html">CurrentSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sensors.VoltageSensor_32x32.png"></td>
+      <th>voltageSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Analog.Sensors.VoltageSensor.html">VoltageSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Mean_32x32.png"></td>
+      <th>meanCurrent</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Mean.html">Mean</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.Mean_32x32.png"></td>
+      <th>meanVoltage</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.Mean.html">Mean</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge.HBridge_DC_Drive_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge.HBridge_DC_Drive.html">HBridge_DC_Drive</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge</span></p>
+        <p>H bridge DC/DC converter with DC drive</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge.HBridge_RL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge.HBridge_RL.html">HBridge_RL</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge</span></p>
+        <p>H bridge DC/DC converter with R-L load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge.HBridge_R_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge.HBridge_R.html">HBridge_R</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge</span></p>
+        <p>H bridge DC/DC converter with resistive load</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

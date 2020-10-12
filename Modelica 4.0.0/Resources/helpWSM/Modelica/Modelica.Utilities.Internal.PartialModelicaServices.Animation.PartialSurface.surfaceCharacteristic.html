@@ -1,0 +1,109 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Utilities.Internal.PartialModelicaServices.Animation.PartialSurface.surfaceCharacteristic</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Utilities.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Utilities.Internal.PartialModelicaServices.html">PartialModelicaServices</a></li>
+  <li><a href="Modelica.Utilities.Internal.PartialModelicaServices.Animation.html">Animation</a></li>
+  <li><a href="Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialSurface.html">PartialSurface</a></li>
+  <li><a href="Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialSurface.surfaceCharacteristic.html">surfaceCharacteristic</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>surfaceCharacteristic</h1>
+    <p>Function defining the surface characteristic</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialSurface.surfaceCharacteristic_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">(X, Y, Z, C) = surfaceCharacteristic(nu, nv, multiColoredSurface)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>nu</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of points in u-Dimension</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nv</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of points in v-Dimension</p>
+      </td>
+    </tr>
+    <tr>
+      <th>multiColoredSurface</th>
+      <td>
+        <p><span>Default Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true: Color is defined for each surface point</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>X</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[nu,nv]</a> (m)</p>
+        <p><span>Description:</span> [nu,nv] positions of points in x-Direction resolved in surface frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[nu,nv]</a> (m)</p>
+        <p><span>Description:</span> [nu,nv] positions of points in y-Direction resolved in surface frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Z</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Position.html">Position[nu,nv]</a> (m)</p>
+        <p><span>Description:</span> [nu,nv] positions of points in z-Direction resolved in surface frame</p>
+      </td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>
+        <p><span>Type:</span> Real[if multiColoredSurface then nu else 0,if multiColoredSurface then nv else 0,3]</p>
+        <p><span>Description:</span> [nu,nv,3] Color array, defining the color for each surface point</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

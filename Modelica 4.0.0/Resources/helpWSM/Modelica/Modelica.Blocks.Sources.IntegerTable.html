@@ -1,0 +1,244 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Sources.IntegerTable</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Sources.html">Sources</a></li>
+  <li><a href="Modelica.Blocks.Sources.IntegerTable.html">IntegerTable</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>IntegerTable</h1>
+    <p>Generate an Integer output signal based on a table matrix with [time, yi] values</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Sources.IntegerTable_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Blocks.Sources.IntegerTable_diagram_large.png"><img src="resources/diagrams/Modelica.Blocks.Sources.IntegerTable_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This block generates an Integer output signal by using a table.
+The time points and y-values are stored in a matrix
+<strong>table[i,j]</strong>, where the first column table[:,1] contains the
+Real time points and the second column contains the Integer value of the
+output y at this time point.
+The table interpolation has the following properties:
+</p>
+
+<ul>
+<li>An assert is triggered, if no table values are provided, if the
+    time points are not strict monotonically increasing, or if
+    the second column of the table matrix does not contain Integer values.</li>
+<li>Values <strong>outside</strong> of the table range, are computed by
+    extrapolation according to the setting of parameter <strong>extrapolation</strong>:
+<blockquote><pre>
+extrapolation = 1: Hold the first or last value of the table,
+                   if outside of the table scope.
+              = 2: Extrapolate by using the derivative at the first/last table
+                   points if outside of the table scope.
+                   (This setting is not suitable and triggers an assert.)
+              = 3: Periodically repeat the table data (periodical function).
+              = 4: No extrapolation, i.e. extrapolation triggers an error
+</pre></blockquote></li>
+<li>If the table has only <strong>one row</strong>, no interpolation is performed and
+    the table values of this row are just returned.</li>
+<li>Via parameter <strong>shiftTime</strong> the curve defined by the table can be shifted
+    in time.
+    The time instants stored in the table are therefore <strong>relative</strong>
+    to <strong>shiftTime</strong>.</li>
+<li>If time &lt; startTime, no interpolation is performed and zero
+    is used as ordinate value for the output.</li>
+</ul>
+
+<p>
+Example:
+</p>
+<blockquote><pre>
+table = [  0, 1;
+           1, 4;
+         1.5, 5;
+           2, 6];
+</pre></blockquote>
+<p>
+results in the following output:
+</p>
+
+<blockquote><p>
+<img src="resources/Modelica.Blocks.Sources.IntegerTable_info_001.png"
+     alt="IntegerTable.png">
+</p></blockquote>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>table</th>
+      <td>
+        <p><span>Value:</span> fill(0, 0, 2)</p>
+        <p><span>Type:</span> Real[:,2]</p>
+        <p><span>Description:</span> Table matrix (first column: time; second column: y)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>extrapolation</th>
+      <td>
+        <p><span>Value:</span> Modelica.Blocks.Types.Extrapolation.HoldLastPoint</p>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Types.Extrapolation.html">Extrapolation</a></p>
+        <p><span>Description:</span> Extrapolation of data outside the definition range</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startTime</th>
+      <td>
+        <p><span>Value:</span> -Modelica.Constants.inf</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Output = 0 for time < startTime</p>
+      </td>
+    </tr>
+    <tr>
+      <th>shiftTime</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Shift time of first table column</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.IntegerOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.IntegerOutput.html">IntegerOutput</a></p>
+        <p><span>Description:</span> Connector of Integer output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.CombiTimeTable_32x32.png"></td>
+      <th>combiTimeTable</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.CombiTimeTable.html">CombiTimeTable</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Math.RealToInteger_32x32.png"></td>
+      <th>realToInteger</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Math.RealToInteger.html">RealToInteger</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(7)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Interaction1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Interaction1.html">Interaction1</a></p>
+        <p><span>Modelica.Blocks.Examples</span></p>
+        <p>Demonstrates the usage of blocks from Modelica.Blocks.Interaction.Show</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.IntegerSignals.Hold_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.IntegerSignals.Hold.html">Hold</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.IntegerSignals</span></p>
+        <p>Example of a Hold block for Integer signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.IntegerSignals.SubSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.IntegerSignals.SubSample.html">SubSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.IntegerSignals</span></p>
+        <p>Example of a SubSample block for Integer signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.IntegerSignals.SuperSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.IntegerSignals.SuperSample.html">SuperSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.IntegerSignals</span></p>
+        <p>Example of a SuperSample block for Integer signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.IntegerSignals.ShiftSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.IntegerSignals.ShiftSample.html">ShiftSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.IntegerSignals</span></p>
+        <p>Example of a ShiftSample block for Integer signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.IntegerSignals.BackSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.IntegerSignals.BackSample.html">BackSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.IntegerSignals</span></p>
+        <p>Example of a BackSample block for Integer signals</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.IntegerSignals.UpSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.IntegerSignals.UpSample.html">UpSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.IntegerSignals</span></p>
+        <p>Example of an UpSample block for Integer signals</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

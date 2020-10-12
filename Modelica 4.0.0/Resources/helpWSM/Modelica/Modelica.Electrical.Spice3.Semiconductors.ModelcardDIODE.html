@@ -1,0 +1,238 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Spice3.Semiconductors.ModelcardDIODE</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Spice3.html">Spice3</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Semiconductors.html">Semiconductors</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Semiconductors.ModelcardDIODE.html">ModelcardDIODE</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ModelcardDIODE</h1>
+    <p>Record for the specification of modelcard parameters</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Spice3.Semiconductors.ModelcardDIODE_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
+<p>Technology parameters of the junction diode model</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(16)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>IS</th>
+      <td>
+        <p><span>Value:</span> 1e-14</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Saturation Current</p>
+      </td>
+    </tr>
+    <tr>
+      <th>RS</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Ohmic resistance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>N</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Emission coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TT</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Transit time</p>
+      </td>
+    </tr>
+    <tr>
+      <th>CJO</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Types.Capacitance.html">Capacitance</a> (F)</p>
+        <p><span>Description:</span> Junction capacitance</p>
+      </td>
+    </tr>
+    <tr>
+      <th>VJ</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Junction Potential</p>
+      </td>
+    </tr>
+    <tr>
+      <th>M</th>
+      <td>
+        <p><span>Value:</span> 0.5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Grading coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>EG</th>
+      <td>
+        <p><span>Value:</span> 1.11</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ActivationEnergy.html">ActivationEnergy</a> (eV)</p>
+        <p><span>Description:</span> Activation Energy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>XTI</th>
+      <td>
+        <p><span>Value:</span> 3.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Saturation current temperature exponent</p>
+      </td>
+    </tr>
+    <tr>
+      <th>FC</th>
+      <td>
+        <p><span>Value:</span> 0.5</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Forward bias junction fit parameter</p>
+      </td>
+    </tr>
+    <tr>
+      <th>BV</th>
+      <td>
+        <p><span>Value:</span> -1e40</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Reverse breakdown voltage, default infinity</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IBV</th>
+      <td>
+        <p><span>Value:</span> 1e-3</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Current at reverse breakdown voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TNOM</th>
+      <td>
+        <p><span>Value:</span> 27</p>
+        <p><span>Type:</span> <a href="Modelica.Units.NonSI.Temperature_degC.html">Temperature_degC</a> (°C)</p>
+        <p><span>Description:</span> Parameter measurement temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>KF</th>
+      <td>
+        <p><span>Value:</span> 0.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Flicker noise coefficient</p>
+      </td>
+    </tr>
+    <tr>
+      <th>AF</th>
+      <td>
+        <p><span>Value:</span> 1.0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Flicker noise exponent</p>
+      </td>
+    </tr>
+    <tr>
+      <th>G</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Conductance.html">Conductance</a> (S)</p>
+        <p><span>Description:</span> Ohmic conductance</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Examples.Spice3BenchmarkFourBitBinaryAdder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Examples.Spice3BenchmarkFourBitBinaryAdder.html">Spice3BenchmarkFourBitBinaryAdder</a></p>
+        <p><span>Modelica.Electrical.Spice3.Examples</span></p>
+        <p>ADDER - 4 BIT ALL-NAND-GATE BINARY ADDER</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(4)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Examples.Spice3BenchmarkFourBitBinaryAdder.NAND.html">NAND</a></p>
+        <p><span>Modelica.Electrical.Spice3.Examples.Spice3BenchmarkFourBitBinaryAdder</span></p>
+        <p>.SUBCKT NAND 1 2 3 4</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Examples.Spice3BenchmarkFourBitBinaryAdder.ONEBIT.html">ONEBIT</a></p>
+        <p><span>Modelica.Electrical.Spice3.Examples.Spice3BenchmarkFourBitBinaryAdder</span></p>
+        <p>.SUBCKT ONEBIT 1 2 3 4 5 6</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Examples.Spice3BenchmarkFourBitBinaryAdder.TWOBIT.html">TWOBIT</a></p>
+        <p><span>Modelica.Electrical.Spice3.Examples.Spice3BenchmarkFourBitBinaryAdder</span></p>
+        <p>.SUBCKT TWOBIT 1 2 3 4 5 6 7 8 9</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Examples.Spice3BenchmarkFourBitBinaryAdder.FOURBIT.html">FOURBIT</a></p>
+        <p><span>Modelica.Electrical.Spice3.Examples.Spice3BenchmarkFourBitBinaryAdder</span></p>
+        <p>.SUBCKT FOURBIT 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

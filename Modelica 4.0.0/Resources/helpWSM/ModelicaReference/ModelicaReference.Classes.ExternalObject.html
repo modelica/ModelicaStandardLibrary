@@ -1,0 +1,159 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Classes.ExternalObject</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Classes.html">Classes</a></li>
+  <li><a href="ModelicaReference.Classes.ExternalObject.html">ExternalObject</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ExternalObject</h1>
+    <p>ExternalObject</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Classes.ExternalObject_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Define external functions with internal memory.
+</p>
+
+<h4>Description</h4>
+
+<p>
+External functions may have internal memory reported between function calls. Within Modelica this memory is defined as instance of the predefined class <strong>ExternalObject</strong> according to the following rules:
+</p>
+
+<ul>
+<li> There is a predefined partial class <strong>ExternalObject</strong>
+     [<em>since the class is partial, it is not possible to define an
+     instance of this class</em>].</li>
+
+<li> An external object class shall be directly extended from
+     ExternalObject, shall have exactly two function definitions,
+     called "<strong>constructor</strong>" and "<strong>destructor</strong>", and
+     shall not contain other elements.</li>
+
+<li> The constructor function is called exactly once before the first use of
+     the object. For each completely constructed object, the destructor
+     is called exactly once, after the last use of the object, even
+     if an error occurs. The constructor shall have exactly one output
+     argument in which the constructed ExternalObject is returned.
+     The destructor shall have no output arguments and the only input
+     argument of the destructor shall be the ExternalObject.
+     It is not legal to call explicitly the constructor and destructor
+     functions.</li>
+
+<li> Classes derived from ExternalObject can neither be used in an
+     extends-clause nor in a short class definition.</li>
+
+<li> External functions may be defined which operate on the internal memory
+     of an ExternalObject. An ExternalObject used as input argument or
+     return value of an external C-function is mapped to the C-type "void*".</li>
+</ul>
+
+<h4>Examples</h4>
+
+<p>
+A user-defined table may be defined in the following way as an ExternalObject
+(the table is read in a user-defined format from file and has memory for the last used table interval):
+</p>
+
+<blockquote><pre>
+<strong>class</strong> MyTable
+  <strong>extends</strong> ExternalObject;
+  <strong>function</strong> constructor
+    <strong>input</strong>  String  fileName = "";
+    <strong>input</strong>  String  tableName = "";
+    <strong>output</strong> MyTable table;
+    <strong>external</strong> "C" table = initMyTable(fileName, tableName);
+  <strong>end</strong> constructor;
+
+  <strong>function</strong> destructor "Release storage of table"
+    <strong>input</strong>  MyTable table;
+    <strong>external</strong> "C" closeMyTable(table);
+  <strong>end</strong> destructor;
+<strong>end</strong> MyTable;
+</pre></blockquote>
+
+<p>
+and used in the following way:
+</p>
+
+<blockquote><pre>
+<strong>model</strong> test "Define a new table and interpolate in it"
+  MyTable table=MyTable(fileName ="testTables.txt",
+                        tableName="table1");  // call initMyTable
+  Real y;
+<strong>equation</strong>
+  y = interpolateMyTable(table, time);
+<strong>end</strong> test;
+</pre></blockquote>
+
+<p>
+This requires to provide the following Modelica function:
+</p>
+
+<blockquote><pre>
+<strong>function</strong> interpolateMyTable "Interpolate in table"
+  <strong>input</strong>  MyTable table;
+  <strong>input</strong>  Real  u;
+  <strong>output</strong> Real  y;
+  <strong>external</strong> "C" y = interpolateMyTable(table, u);
+<strong>end</strong> interpolateTable;
+</pre></blockquote>
+
+<p>
+The external C-functions may be defined in the following way:
+</p>
+
+<blockquote><pre>
+<strong>typedef struct</strong> {  /* User-defined data structure of the table */
+  <strong>double</strong>* array;      /* nrow*ncolumn vector       */
+  <strong>int</strong>     nrow;       /* number of rows            */
+  <strong>int</strong>     ncol;       /* number of columns         */
+  <strong>int</strong>     type;       /* interpolation type        */
+  <strong>int</strong>     lastIndex;  /* last row index for search */
+} MyTable;
+
+<strong>void</strong>* initMyTable(const char* fileName, const char* tableName) {
+  MyTable* table = malloc(sizeof(MyTable));
+  <strong>if</strong> ( table == NULL ) ModelicaError("Not enough memory");
+        // read table from file and store all data in *table
+  <strong>return</strong> (void*) table;
+}
+
+<strong>void</strong> closeMyTable(void* object) { /* Release table storage */
+  MyTable* table = (MyTable*) object;
+  <strong>if</strong> ( object == NULL ) return;
+  free(table->array);
+  free(table);
+}
+
+<strong>double</strong> interpolateMyTable(void* object, double u) {
+  MyTable* table = (MyTable*) object;
+  <strong>double</strong> y;
+  // Interpolate using "table" data (compute y)
+  <strong>return</strong> y;
+}
+</pre></blockquote>
+</div>
+</section>
+</div>
+</body>
+</html>

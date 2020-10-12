@@ -1,0 +1,440 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.Rotational.Sources.Torque</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.html">Rotational</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Sources.html">Sources</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Sources.Torque.html">Torque</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Torque</h1>
+    <p>Input signal acting as external torque on a flange</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Rotational.Sources.Torque_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The input signal <strong>tau</strong> defines an external
+torque in [Nm] which acts (with negative sign) at
+a flange connector, i.e., the component connected to this
+flange is driven by torque <strong>tau</strong>.</p>
+<p>
+The input signal can be provided from one of the signal generator
+blocks of Modelica.Blocks.Sources.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useSupport</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if support flange enabled, otherwise implicitly grounded</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_b_16x16.png"></td>
+      <th>flange</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_b.html">Flange_b</a></p>
+        <p><span>Description:</span> Flange of shaft</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Support_16x16.png"></td>
+      <th>support</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Support.html">Support</a></p>
+        <p><span>Description:</span> Support/housing of component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>tau</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Accelerating torque acting at flange (= -flange.tau)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(38)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.PID_Controller_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.PID_Controller.html">PID_Controller</a></p>
+        <p><span>Modelica.Blocks.Examples</span></p>
+        <p>Demonstrates the usage of a Continuous.LimPID controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.Continuous_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.Continuous.html">Continuous</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with continuous controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteTextbookController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteTextbookController.html">ClockedWithDiscreteTextbookController</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discrete textbook controller (period is not used in the controller)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscreteController.html">ClockedWithDiscreteController</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discrete controller (period is used in the controller)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ExactlyClockedWithDiscreteController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ExactlyClockedWithDiscreteController.html">ExactlyClockedWithDiscreteController</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discrete controller and exact periodic clocks (period is used in the controller)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscretizedContinuousController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWithDiscretizedContinuousController.html">ClockedWithDiscretizedContinuousController</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discretized continuous-time controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWith_AD_DA_Effects_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.SimpleControlledDrive.ClockedWith_AD_DA_Effects.html">ClockedWith_AD_DA_Effects</a></p>
+        <p><span>Modelica.Clocked.Examples.SimpleControlledDrive</span></p>
+        <p>Simple controlled drive with discrete controller and simulated AD and DA effects</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.CascadeControlledDrive.Continuous_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.CascadeControlledDrive.Continuous.html">Continuous</a></p>
+        <p><span>Modelica.Clocked.Examples.CascadeControlledDrive</span></p>
+        <p>Drive with continuous-time cascade controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.CascadeControlledDrive.SubClocked_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.CascadeControlledDrive.SubClocked.html">SubClocked</a></p>
+        <p><span>Modelica.Clocked.Examples.CascadeControlledDrive</span></p>
+        <p>Drive with clocked cascade controller where clocks are defined with sub-sampling and partitions with super-sampling</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.CascadeControlledDrive.SuperSampled_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.CascadeControlledDrive.SuperSampled.html">SuperSampled</a></p>
+        <p><span>Modelica.Clocked.Examples.CascadeControlledDrive</span></p>
+        <p>Drive with clocked cascade controller where fastest partition is defined with a clock and slower partition is defined with super-sampling</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.CascadeControlledDrive.AbsoluteClocks_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.CascadeControlledDrive.AbsoluteClocks.html">AbsoluteClocks</a></p>
+        <p><span>Modelica.Clocked.Examples.CascadeControlledDrive</span></p>
+        <p>Drive with clocked cascade controller where all partitions are defined with exact (integer) clock that need to be compatible to each other</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.EngineThrottleControl_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Systems.EngineThrottleControl.html">EngineThrottleControl</a></p>
+        <p><span>Modelica.Clocked.Examples.Systems</span></p>
+        <p>Closed-loop throttle control synchronized to the crankshaft angle of an
+   internal combustion engine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.InductionMachines.IMC_withLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.InductionMachines.IMC_withLosses.html">IMC_withLosses</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.InductionMachines</span></p>
+        <p>Test example: InductionMachineSquirrelCage with losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Cooling_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Cooling.html">DCPM_Cooling</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span></p>
+        <p>Test example: Cooling of a DCPM motor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DCPM_QuasiStatic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DCPM_QuasiStatic.html">DCPM_QuasiStatic</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span></p>
+        <p>Test example: Compare DCPM motors transient - quasi-static</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.DCMachines.DC_CompareCharacteristics_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.DCMachines.DC_CompareCharacteristics.html">DC_CompareCharacteristics</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.DCMachines</span></p>
+        <p>Test example: Compare torque-speed characteristic of DC motors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_DC_Drive_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_DC_Drive.html">ThyristorBridge2Pulse_DC_Drive</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse</span></p>
+        <p>Two pulse Graetz thyristor bridge feeding a DC drive</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_DC_Drive_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_DC_Drive.html">ThyristorBridge2mPulse_DC_Drive</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse</span></p>
+        <p>2*m pulse thyristor bridge feeding a DC drive</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge.HBridge_DC_Drive_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge.HBridge_DC_Drive.html">HBridge_DC_Drive</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge</span></p>
+        <p>H bridge DC/DC converter with DC drive</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses.html">IMC_withLosses</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Induction machine with squirrel cage and losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_withLosses.html">IMC_withLosses</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.InductionMachines</span></p>
+        <p>Induction machine with squirrel cage and losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.ActuatedDrive_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.ActuatedDrive.html">ActuatedDrive</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</span></p>
+        <p>Demonstrates usage of models Rotor1D and Mounting1D</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.MovingActuatedDrive_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.MovingActuatedDrive.html">MovingActuatedDrive</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</span></p>
+        <p>Demonstrates usage of model Rotor1D mounted on a moving body</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint.html">GearConstraint</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</span></p>
+        <p>Demonstrate usage of GearConstraint model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.BevelGear1D_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.BevelGear1D.html">BevelGear1D</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</span></p>
+        <p>Demonstrates the usage of a BevelGear1D model and how to calculate the power of such an element</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.First_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.First.html">First</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>First example: simple drive train</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.FirstGrounded_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.FirstGrounded.html">FirstGrounded</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>First example: simple drive train with grounded elements</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Friction_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Friction.html">Friction</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Drive train with clutch and brake</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.CoupledClutches_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.CoupledClutches.html">CoupledClutches</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Drive train with 3 dynamically coupled clutches</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.LossyGearDemo1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.LossyGearDemo1.html">LossyGearDemo1</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Example to show that gear efficiency may lead to stuck motion</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.LossyGearDemo2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.LossyGearDemo2.html">LossyGearDemo2</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Example to show combination of LossyGear and BearingFriction</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.LossyGearDemo3_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.LossyGearDemo3.html">LossyGearDemo3</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Example that failed in the previous version of the LossyGear version</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.ElasticBearing_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.ElasticBearing.html">ElasticBearing</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Example to show possible usage of support flange</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.HeatLosses_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.HeatLosses.html">HeatLosses</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Demonstrate the modeling of heat losses</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs.html">GenerationOfFMUs</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Example to demonstrate variants to generate FMUs (Functional Mock-up Units)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.OneWayClutch_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.OneWayClutch.html">OneWayClutch</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Drive train with actively engaged one-way clutch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.OneWayClutchDisengaged_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.OneWayClutchDisengaged.html">OneWayClutchDisengaged</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples</span></p>
+        <p>Drive train with disengaged one-way clutch</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Vehicle_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Vehicle.html">Vehicle</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span></p>
+        <p>One-dimensional vehicle with driving resistances</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.Engine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl.Engine.html">Engine</a></p>
+        <p><span>Modelica.Clocked.Examples.Systems.Utilities.ComponentsThrottleControl</span></p>
+        <p>Internal combustion engine.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia.html">DirectInertia</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples.Utilities</span></p>
+        <p>Input/output block of a direct inertia model</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

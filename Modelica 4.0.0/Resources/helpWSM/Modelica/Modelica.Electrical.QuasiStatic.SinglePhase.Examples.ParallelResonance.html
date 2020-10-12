@@ -1,0 +1,162 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.QuasiStatic.SinglePhase.Examples.ParallelResonance</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.html">QuasiStatic</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.SinglePhase.html">SinglePhase</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Examples.ParallelResonance.html">ParallelResonance</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ParallelResonance</h1>
+    <p>Parallel resonance circuit</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Examples.ParallelResonance_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.QuasiStatic.SinglePhase.Examples.ParallelResonance_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.QuasiStatic.SinglePhase.Examples.ParallelResonance_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The frequency of the current source is varied by a ramp.
+Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, versus time resp. frequency.
+</p>
+</div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>V_abs</th>
+      <td>
+        <p><span>Default Value:</span> complexToPolar.len</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> Voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <th>V_arg</th>
+      <td>
+        <p><span>Default Value:</span> complexToPolar.phi</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Voltage phase</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(11)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>I</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Constant_32x32.png"></td>
+      <th>phi</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Constant.html">Constant</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Ramp_32x32.png"></td>
+      <th>f</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Ramp.html">Ramp</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource_32x32.png"></td>
+      <th>currentSource</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VariableCurrentSource.html">VariableCurrentSource</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground_32x32.png"></td>
+      <th>ground</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground.html">Ground</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor_32x32.png"></td>
+      <th>resistor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Resistor.html">Resistor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor_32x32.png"></td>
+      <th>inductor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Inductor.html">Inductor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor_32x32.png"></td>
+      <th>capacitor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Capacitor.html">Capacitor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageSensor_32x32.png"></td>
+      <th>voltageSensor</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageSensor.html">VoltageSensor</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.PolarToComplex_32x32.png"></td>
+      <th>polarToComplex</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.ComplexBlocks.ComplexMath.PolarToComplex.html">PolarToComplex</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.ComplexMath.ComplexToPolar_32x32.png"></td>
+      <th>complexToPolar</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.ComplexBlocks.ComplexMath.ComplexToPolar.html">ComplexToPolar</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

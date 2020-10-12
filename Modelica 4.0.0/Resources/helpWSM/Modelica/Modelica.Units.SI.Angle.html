@@ -1,0 +1,1862 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Units.SI.Angle</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Units.html">Units</a></li>
+  <li><a href="Modelica.Units.SI.html">SI</a></li>
+  <li><a href="Modelica.Units.SI.Angle.html">Angle</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Angle</h1>
+    <p></p>
+  </td><td>
+    <div></div>
+  </td></tr></table>
+</header>
+<section id="type" >
+  <h1>Type Information </h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Real</th>
+      <td>
+        <p><span>Quantity:</span> Angle</p>
+        <p><span>Unit:</span> rad</p>
+        <p><span>Display Unit:</span> deg</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(48)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.PID_Controller_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.PID_Controller.html">PID_Controller</a></p>
+        <p><span>Modelica.Blocks.Examples</span></p>
+        <p>Demonstrates the usage of a Continuous.LimPID controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.Examples.ShowTransferFunction_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.Examples.ShowTransferFunction.html">ShowTransferFunction</a></p>
+        <p><span>Modelica.ComplexBlocks.Examples</span></p>
+        <p>Test Complex Transfer Function Block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.ShowSaturatingInductor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.ShowSaturatingInductor.html">ShowSaturatingInductor</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span></p>
+        <p>Simple demo to show behaviour of SaturatingInductor component</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Examples.CompareTransformers_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Examples.CompareTransformers.html">CompareTransformers</a></p>
+        <p><span>Modelica.Electrical.Analog.Examples</span></p>
+        <p>Transformer circuit to show the magnetization facilities</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_DOL.html">SMEE_DOL</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.SynchronousMachines</span></p>
+        <p>Test example: ElectricalExcitedSynchronousMachine starting direct on line</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_Generator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Examples.SynchronousMachines.SMEE_Generator.html">SMEE_Generator</a></p>
+        <p><span>Modelica.Electrical.Machines.Examples.SynchronousMachines</span></p>
+        <p>Test example: ElectricalExcitedSynchronousMachine as Generator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.Rectifier1Pulse.Thyristor1Pulse_R_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.Rectifier1Pulse.Thyristor1Pulse_R.html">Thyristor1Pulse_R</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.Rectifier1Pulse</span></p>
+        <p>One pulse rectifier with resistive load and constant firing angle</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.HalfControlledBridge2Pulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.HalfControlledBridge2Pulse.html">HalfControlledBridge2Pulse</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse</span></p>
+        <p>Two pulse Graetz half controlled bridge with resistive load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_R_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_R.html">ThyristorBridge2Pulse_R</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse</span></p>
+        <p>Two pulse Graetz thyristor bridge rectifier with resistive load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_RL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_RL.html">ThyristorBridge2Pulse_RL</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse</span></p>
+        <p>Two pulse Graetz thyristor bridge rectifier with R-L load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_RLV_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_RLV.html">ThyristorBridge2Pulse_RLV</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse</span></p>
+        <p>Two pulse Graetz thyristor bridge rectifier with R-L load and voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_R_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_R.html">ThyristorCenterTap2Pulse_R</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse</span></p>
+        <p>Two pulse thyristor rectifier with center tap and resistive load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_RL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_RL.html">ThyristorCenterTap2Pulse_RL</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse</span></p>
+        <p>Two pulse thyristor rectifier with center tap and R-L load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_RLV_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse.ThyristorCenterTap2Pulse_RLV.html">ThyristorCenterTap2Pulse_RLV</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse</span></p>
+        <p>Two pulse thyristor rectifier with center tap and R-L load and voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse.ThyristorCenterTapmPulse_R_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse.ThyristorCenterTapmPulse_R.html">ThyristorCenterTapmPulse_R</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse</span></p>
+        <p>2*m pulse thyristor rectifier with center tap and resistive load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse.ThyristorCenterTapmPulse_RL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse.ThyristorCenterTapmPulse_RL.html">ThyristorCenterTapmPulse_RL</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse</span></p>
+        <p>2*m pulse thyristor rectifier with center tap and R-L load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse.ThyristorCenterTapmPulse_RLV_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse.ThyristorCenterTapmPulse_RLV.html">ThyristorCenterTapmPulse_RLV</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse</span></p>
+        <p>2*m pulse thyristor rectifier with center tap and R-L load and voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.HalfControlledBridge2mPulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.HalfControlledBridge2mPulse.html">HalfControlledBridge2mPulse</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse</span></p>
+        <p>2*m pulse half controlled rectifier bridge with resistive load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_R_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_R.html">ThyristorBridge2mPulse_R</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse</span></p>
+        <p>2*m pulse thyristor rectifier bridge with resistive load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_RL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_RL.html">ThyristorBridge2mPulse_RL</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse</span></p>
+        <p>2*m pulse thyristor rectifier bridge with R-L load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_RLV_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_RLV.html">ThyristorBridge2mPulse_RLV</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse</span></p>
+        <p>2*m pulse thyristor rectifier bridge with R-L load and voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse.ThyristorCenterTap2mPulse_R_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse.ThyristorCenterTap2mPulse_R.html">ThyristorCenterTap2mPulse_R</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse</span></p>
+        <p>2*m pulse thyristor center tap rectifier with resistive load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse.ThyristorCenterTap2mPulse_RL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse.ThyristorCenterTap2mPulse_RL.html">ThyristorCenterTap2mPulse_RL</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse</span></p>
+        <p>2*m pulse thyristor rectifier with R-L load</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse.ThyristorCenterTap2mPulse_RLV_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse.ThyristorCenterTap2mPulse_RLV.html">ThyristorCenterTap2mPulse_RLV</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse</span></p>
+        <p>2*m pulse thyristor center tap rectifier with R-L load and voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Examples.SeriesBode_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Examples.SeriesBode.html">SeriesBode</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Examples</span></p>
+        <p>Series circuit with Bode analysis</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Examples.SeriesResonance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Examples.SeriesResonance.html">SeriesResonance</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Examples</span></p>
+        <p>Series resonance circuit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Examples.ParallelResonance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Examples.ParallelResonance.html">ParallelResonance</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Examples</span></p>
+        <p>Parallel resonance circuit</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.Examples.TransformerTestbench_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.Examples.TransformerTestbench.html">TransformerTestbench</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.Examples</span></p>
+        <p>Transformer test bench</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.BasicExamples.ToroidalCoreAirgap_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.BasicExamples.ToroidalCoreAirgap.html">ToroidalCoreAirgap</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.BasicExamples</span></p>
+        <p>Educational example: iron core with airgap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.BasicExamples.ToroidalCoreQuadraticCrossSection_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.BasicExamples.ToroidalCoreQuadraticCrossSection.html">ToroidalCoreQuadraticCrossSection</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.BasicExamples</span></p>
+        <p>Educational example: iron core with airgap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase.SMEE_Generator_Polyphase.html">SMEE_Generator_Polyphase</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.ComparisonPolyphase</span></p>
+        <p>Electrical excited polyphase synchronous machine operating as generator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_Inverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_Inverter.html">SMPM_Inverter</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Starting of permanent magnet synchronous machine with inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource.html">SMPM_CurrentSource</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Test example: PermanentMagnetSynchronousMachine fed by current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_VoltageSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_VoltageSource.html">SMPM_VoltageSource</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Test example: PermanentMagnetSynchronousMachine fed by FOC</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_DOL_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_DOL.html">SMEE_DOL</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>ElectricalExcitedSynchronousMachine starting direct on line</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator.html">SMEE_Generator</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Electrical excited synchronous machine operating as generator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_Inverter.html">SMR_Inverter</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Starting of synchronous reluctance machine with inverter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples.ToroidalCoreAirgap_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples.ToroidalCoreAirgap.html">ToroidalCoreAirgap</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples</span></p>
+        <p>Educational example: iron core with airgap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples.ToroidalCoreQuadraticCrossSection_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples.ToroidalCoreQuadraticCrossSection.html">ToroidalCoreQuadraticCrossSection</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Examples.BasicExamples</span></p>
+        <p>Educational example: iron core with airgap</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_CurrentSource.html">SMPM_CurrentSource</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Test example: PermanentMagnetSynchronousMachine fed by current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_MTPA_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMPM_MTPA.html">SMPM_MTPA</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Test example: PermanentMagnetSynchronousMachine, investigating maximum torque per Amps</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMEE_Generator.html">SMEE_Generator</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Electrical excited synchronous machine operating as generator</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_CurrentSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines.SMR_CurrentSource.html">SMR_CurrentSource</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Examples.BasicMachines.SynchronousMachines</span></p>
+        <p>Test example: Synchronous reluctance machine fed by current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1.html">Fourbar1</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span></p>
+        <p>One kinematic loop with four bars (with only revolute joints; 5 non-linear equations)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2.html">Fourbar2</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span></p>
+        <p>One kinematic loop with four bars (with UniversalSpherical joint; 1 non-linear equation)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar_analytic_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar_analytic.html">Fourbar_analytic</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops</span></p>
+        <p>One kinematic loop with four bars (with JointSSP joint; analytic solution of non-linear algebraic loop)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Examples.Vehicle_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Translational.Examples.Vehicle.html">Vehicle</a></p>
+        <p><span>Modelica.Mechanics.Translational.Examples</span></p>
+        <p>One-dimensional vehicle with driving resistances</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Utilities.Examples.readRealParameterModel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Utilities.Examples.readRealParameterModel.html">readRealParameterModel</a></p>
+        <p><span>Modelica.Utilities.Examples</span></p>
+        <p>Demonstrate usage of Examples.readRealParameter/.expression</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(174)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Sine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Sources.Sine.html">Sine</a></p>
+        <p><span>Modelica.Blocks.Sources</span></p>
+        <p>Generate sine signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Cosine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Sources.Cosine.html">Cosine</a></p>
+        <p><span>Modelica.Blocks.Sources</span></p>
+        <p>Generate cosine signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude.html">SineVariableFrequencyAndAmplitude</a></p>
+        <p><span>Modelica.Blocks.Sources</span></p>
+        <p>Generate sine signal with variable frequency and amplitude</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.CosineVariableFrequencyAndAmplitude_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Sources.CosineVariableFrequencyAndAmplitude.html">CosineVariableFrequencyAndAmplitude</a></p>
+        <p><span>Modelica.Blocks.Sources</span></p>
+        <p>Generate cosine signal with variable frequency and amplitude</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Sinc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Sources.Sinc.html">Sinc</a></p>
+        <p><span>Modelica.Blocks.Sources</span></p>
+        <p>Generate sinc signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.ExpSine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Sources.ExpSine.html">ExpSine</a></p>
+        <p><span>Modelica.Blocks.Sources</span></p>
+        <p>Generate exponentially damped sine signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.Sources.ComplexRotatingPhasor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.Sources.ComplexRotatingPhasor.html">ComplexRotatingPhasor</a></p>
+        <p><span>Modelica.ComplexBlocks.Sources</span></p>
+        <p>Generate a phasor with constant magnitude and constant angular velocity of type Complex</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.ComplexBlocks.Sources.ComplexRampPhasor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.ComplexBlocks.Sources.ComplexRampPhasor.html">ComplexRampPhasor</a></p>
+        <p><span>Modelica.ComplexBlocks.Sources</span></p>
+        <p>Generate a phasor with ramped magnitude and constant angle</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.ClockSignals.Clocks.Rotational.FixedRotationalClock_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.ClockSignals.Clocks.Rotational.FixedRotationalClock.html">FixedRotationalClock</a></p>
+        <p><span>Modelica.Clocked.ClockSignals.Clocks.Rotational</span></p>
+        <p>Event clock generating a clock tick each time an observed input angle changed for a certain, constant rotational-interval</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.TimeBasedSources.Sine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.TimeBasedSources.Sine.html">Sine</a></p>
+        <p><span>Modelica.Clocked.RealSignals.TimeBasedSources</span></p>
+        <p>Generate sine signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Basic.RotationalEMF_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Basic.RotationalEMF.html">RotationalEMF</a></p>
+        <p><span>Modelica.Electrical.Analog.Basic</span></p>
+        <p>Electromotoric force (electric/mechanic transformer)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SineVoltage_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.SineVoltage.html">SineVoltage</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Sine voltage source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.CosineVoltage_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.CosineVoltage.html">CosineVoltage</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Cosine voltage source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SineVoltageVariableFrequencyAndAmplitude_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.SineVoltageVariableFrequencyAndAmplitude.html">SineVoltageVariableFrequencyAndAmplitude</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Sine voltage source with variable frequency and amplitude</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.CosineVoltageVariableFrequencyAndAmplitude_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.CosineVoltageVariableFrequencyAndAmplitude.html">CosineVoltageVariableFrequencyAndAmplitude</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Cosine voltage source with variable frequency and amplitude</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.ExpSineVoltage_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.ExpSineVoltage.html">ExpSineVoltage</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Exponentially damped sine voltage source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SineCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.SineCurrent.html">SineCurrent</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Sine current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.CosineCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.CosineCurrent.html">CosineCurrent</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Cosine current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.SineCurrentVariableFrequencyAndAmplitude_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.SineCurrentVariableFrequencyAndAmplitude.html">SineCurrentVariableFrequencyAndAmplitude</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Sine current source with variable frequency and amplitude</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.CosineCurrentVariableFrequencyAndAmplitude_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.CosineCurrentVariableFrequencyAndAmplitude.html">CosineCurrentVariableFrequencyAndAmplitude</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Cosine current source with variable frequency and amplitude</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Analog.Sources.ExpSineCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Analog.Sources.ExpSineCurrent.html">ExpSineCurrent</a></p>
+        <p><span>Modelica.Electrical.Analog.Sources</span></p>
+        <p>Exponentially damped sine current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.BasicMachines.Components.PartialAirGap_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.BasicMachines.Components.PartialAirGap.html">PartialAirGap</a></p>
+        <p><span>Modelica.Electrical.Machines.BasicMachines.Components</span></p>
+        <p>Partial airgap model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Sensors.HallSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Sensors.HallSensor.html">HallSensor</a></p>
+        <p><span>Modelica.Electrical.Machines.Sensors</span></p>
+        <p>Hall sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Sensors.SinCosResolver_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Sensors.SinCosResolver.html">SinCosResolver</a></p>
+        <p><span>Modelica.Electrical.Machines.Sensors</span></p>
+        <p>Sin-Cos-Resolver</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor.html">ToSpacePhasor</a></p>
+        <p><span>Modelica.Electrical.Machines.SpacePhasors.Blocks</span></p>
+        <p>Conversion of polyphase instantaneous values to space phasors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor.html">FromSpacePhasor</a></p>
+        <p><span>Modelica.Electrical.Machines.SpacePhasors.Blocks</span></p>
+        <p>Conversion of space phasors to polyphase instantaneous values</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Interfaces.PartialBasicMachine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Interfaces.PartialBasicMachine.html">PartialBasicMachine</a></p>
+        <p><span>Modelica.Electrical.Machines.Interfaces</span></p>
+        <p>Partial model for all machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Interfaces.FlangeSupport_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Interfaces.FlangeSupport.html">FlangeSupport</a></p>
+        <p><span>Modelica.Electrical.Machines.Interfaces</span></p>
+        <p>Shaft and support</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Utilities.VfController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Utilities.VfController.html">VfController</a></p>
+        <p><span>Modelica.Electrical.Machines.Utilities</span></p>
+        <p>Voltage-Frequency-Controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Sources.SineVoltage_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Sources.SineVoltage.html">SineVoltage</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Sources</span></p>
+        <p>Polyphase sine voltage source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Sources.CosineVoltage_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Sources.CosineVoltage.html">CosineVoltage</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Sources</span></p>
+        <p>Polyphase cosine voltage source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Sources.SineCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Sources.SineCurrent.html">SineCurrent</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Sources</span></p>
+        <p>Polyphase sine current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Polyphase.Sources.CosineCurrent_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Polyphase.Sources.CosineCurrent.html">CosineCurrent</a></p>
+        <p><span>Modelica.Electrical.Polyphase.Sources</span></p>
+        <p>Polyphase cosine current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse.html">Signal2mPulse</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACDC.Control</span></p>
+        <p>Generic control of 2*m pulse rectifiers</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACDC.Control.VoltageBridge2Pulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACDC.Control.VoltageBridge2Pulse.html">VoltageBridge2Pulse</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACDC.Control</span></p>
+        <p>Control of 2 pulse bridge rectifier</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACDC.Control.VoltageBridge2mPulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACDC.Control.VoltageBridge2mPulse.html">VoltageBridge2mPulse</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACDC.Control</span></p>
+        <p>Control of 2*m pulse bridge rectifier</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.ACDC.Control.VoltageCenterTap2mPulse_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.ACDC.Control.VoltageCenterTap2mPulse.html">VoltageCenterTap2mPulse</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.ACDC.Control</span></p>
+        <p>Control of 2*m pulse center tap rectifier</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM.html">SVPWM</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.DCAC.Control</span></p>
+        <p>SpaceVector Pulse Width Modulation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealTransformer_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.IdealTransformer.html">IdealTransformer</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Ideal</span></p>
+        <p>Ideal transformer</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PotentialSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PotentialSensor.html">PotentialSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Sensors</span></p>
+        <p>Potential sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageSensor.html">VoltageSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Sensors</span></p>
+        <p>Voltage sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentSensor.html">CurrentSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Sensors</span></p>
+        <p>Current sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor.html">PowerSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Sensors</span></p>
+        <p>Power sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.MultiSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.MultiSensor.html">MultiSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Sensors</span></p>
+        <p>Sensor to measure current, voltage and power</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource.html">VoltageSource</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Sources</span></p>
+        <p>Constant AC voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sources.FrequencySweepVoltageSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sources.FrequencySweepVoltageSource.html">FrequencySweepVoltageSource</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Sources</span></p>
+        <p>Voltage source with integrated frequency sweep</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sources.CurrentSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sources.CurrentSource.html">CurrentSource</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Sources</span></p>
+        <p>Constant AC current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Sources.FrequencySweepCurrentSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Sources.FrequencySweepCurrentSource.html">FrequencySweepCurrentSource</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Sources</span></p>
+        <p>Current source with integrated frequency sweep</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.TwoPin_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.TwoPin.html">TwoPin</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces</span></p>
+        <p>Two pins</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.Source_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.Source.html">Source</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces</span></p>
+        <p>Partial voltage / current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.SpacePhasors.Blocks.ToSpacePhasor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.SpacePhasors.Blocks.ToSpacePhasor.html">ToSpacePhasor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.SpacePhasors.Blocks</span></p>
+        <p>Conversion: three-phase -> space phasor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Machines.SpacePhasors.Blocks.FromSpacePhasor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Machines.SpacePhasors.Blocks.FromSpacePhasor.html">FromSpacePhasor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Machines.SpacePhasors.Blocks</span></p>
+        <p>Conversion: space phasor -> three-phase</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Blocks.SymmetricalComponents_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Blocks.SymmetricalComponents.html">SymmetricalComponents</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Blocks</span></p>
+        <p>Creates symmetrical components from signals representing quasi-static phasors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Blocks.FromSymmetricalComponents_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Blocks.FromSymmetricalComponents.html">FromSymmetricalComponents</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Blocks</span></p>
+        <p>Creates quasi-static phasors from symmetrical components</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Blocks.ToSpacePhasor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Blocks.ToSpacePhasor.html">ToSpacePhasor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Blocks</span></p>
+        <p>Conversion: m phase -> space phasor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Blocks.FromSpacePhasor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Blocks.FromSpacePhasor.html">FromSpacePhasor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Blocks</span></p>
+        <p>Conversion: space phasor -> m phase</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Sensors.PotentialSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Sensors.PotentialSensor.html">PotentialSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Sensors</span></p>
+        <p>Potential sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Sensors.VoltageSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Sensors.VoltageSensor.html">VoltageSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Sensors</span></p>
+        <p>Voltage sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Sensors.CurrentSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Sensors.CurrentSensor.html">CurrentSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Sensors</span></p>
+        <p>Current Sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Sensors.PowerSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Sensors.PowerSensor.html">PowerSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Sensors</span></p>
+        <p>Power sensor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Sensors.MultiSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Sensors.MultiSensor.html">MultiSensor</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Sensors</span></p>
+        <p>Polyphase sensor to measure current, voltage and power</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource.html">VoltageSource</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Sources</span></p>
+        <p>Constant polyphase AC voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Sources.FrequencySweepVoltageSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Sources.FrequencySweepVoltageSource.html">FrequencySweepVoltageSource</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Sources</span></p>
+        <p>Voltage source with integrated frequency sweep</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Sources.CurrentSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Sources.CurrentSource.html">CurrentSource</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Sources</span></p>
+        <p>Constant polyphase AC current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Sources.FrequencySweepCurrentSource_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Sources.FrequencySweepCurrentSource.html">FrequencySweepCurrentSource</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Sources</span></p>
+        <p>Current source with integrated frequency sweep</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.TwoPlug.html">TwoPlug</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Interfaces</span></p>
+        <p>Two plugs with pin-adapter, reference connection and declaration of voltage and current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.OnePort_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.OnePort.html">OnePort</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Interfaces</span></p>
+        <p>Two plugs, reference connection and declaration of voltage and current</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.Source_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Polyphase.Interfaces.Source.html">Source</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Polyphase.Interfaces</span></p>
+        <p>Partial voltage / current source</p>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Electrical.QuasiStatic.Types.Reference.html">Reference</a></p>
+        <p><span>Modelica.Electrical.QuasiStatic.Types</span></p>
+        <p>Reference angle</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderCircumferentialFlux_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderCircumferentialFlux.html">HollowCylinderCircumferentialFlux</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</span></p>
+        <p>Hollow cylinder with circumferential flux; fixed shape; linear or non-linear material characteristics</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Toroid_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Toroid.html">Toroid</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</span></p>
+        <p>Toroid with circular cross section; fixed shape; linear or non-linear material characteristics</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter.html">SinglePhaseElectroMagneticConverter</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Components</span></p>
+        <p>Single-phase electromagnetic converter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter.html">PolyphaseElectroMagneticConverter</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Components</span></p>
+        <p>Polyphase electromagnetic converter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding.html">SinglePhaseWinding</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Symmetric winding model coupling electrical and magnetic domain</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding.html">SymmetricPolyphaseWinding</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Symmetric winding model coupling electrical and magnetic domain</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap.html">RotorSaliencyAirGap</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Air gap model with rotor saliency</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference.html">ConstantMagneticPotentialDifference</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Sources</span></p>
+        <p>Source with constant magnetic potential difference</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Sources.SignalMagneticPotentialDifference_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Sources.SignalMagneticPotentialDifference.html">SignalMagneticPotentialDifference</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Sources</span></p>
+        <p>Source of magnetic potential difference with signal input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Sources.ConstantFlux_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Sources.ConstantFlux.html">ConstantFlux</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Sources</span></p>
+        <p>Source of constant magnetic flux</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Sources.SignalFlux_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Sources.SignalFlux.html">SignalFlux</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Sources</span></p>
+        <p>Source of time varying magnetic flux</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortExtended_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortExtended.html">TwoPortExtended</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Interfaces</span></p>
+        <p>Two magnetic ports for graphical modeling with additional variables</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.Interfaces.StateSelector_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.Interfaces.StateSelector.html">StateSelector</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.Interfaces</span></p>
+        <p>Transform instantaneous values to space phasors and select states</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BaseClasses.Machine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BaseClasses.Machine.html">Machine</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BaseClasses</span></p>
+        <p>Base model of machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux.html">HollowCylinderAxialFlux</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape</span></p>
+        <p>(Hollow) cylinder with axial flux of fixed shape and linear material characteristics</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux.html">HollowCylinderRadialFlux</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape</span></p>
+        <p>Hollow cylinder with radial flux of fixed shape and linear material characteristics</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderCircumferentialFlux_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.HollowCylinderCircumferentialFlux.html">HollowCylinderCircumferentialFlux</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape</span></p>
+        <p>Hollow cylinder with circumferential flux; fixed shape</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Toroid_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape.Toroid.html">Toroid</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Shapes.FixedShape</span></p>
+        <p>Toroid with circular cross section; fixed shape</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.TwoPortElementary_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.TwoPortElementary.html">TwoPortElementary</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces</span></p>
+        <p>Two magnetic ports for graphical modeling</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.Source_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.Source.html">Source</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces</span></p>
+        <p>Partial magnetic voltage or flux source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.FixedShape_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.FixedShape.html">FixedShape</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses</span></p>
+        <p>Base class for flux tubes with fixed shape during simulation</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter.html">PolyphaseElectroMagneticConverter</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Components</span></p>
+        <p>Polyphase electromagnetic converter</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.QuasiStaticAnalogElectroMagneticConverter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.QuasiStaticAnalogElectroMagneticConverter.html">QuasiStaticAnalogElectroMagneticConverter</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Components</span></p>
+        <p>Electromagnetic converter to only (!) quasi-static analog, neglecting induced voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage.html">IM_SquirrelCage</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines</span></p>
+        <p>Induction machine with squirrel cage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing.html">IM_SlipRing</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines</span></p>
+        <p>Induction machine with slip ring rotor</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding.html">SymmetricPolyphaseWinding</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Symmetric winding model coupling electrical and magnetic domain</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.QuasiStaticAnalogWinding_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.QuasiStaticAnalogWinding.html">QuasiStaticAnalogWinding</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Quasi-static single-phase winding neglecting induced voltage</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap.html">RotorSaliencyAirGap</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Air gap model with rotor saliency</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.PermanentMagnet_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.PermanentMagnet.html">PermanentMagnet</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components</span></p>
+        <p>Permanent magnet model without intrinsic reluctance, represented by magnetic potential difference</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors.MagneticFluxSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors.MagneticFluxSensor.html">MagneticFluxSensor</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors</span></p>
+        <p>Sensor to measure magnetic flux</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors.MagneticPotentialDifferenceSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors.MagneticPotentialDifferenceSensor.html">MagneticPotentialDifferenceSensor</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors</span></p>
+        <p>Sensor to measure magnetic potential difference</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors.MagneticPotentialSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors.MagneticPotentialSensor.html">MagneticPotentialSensor</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors</span></p>
+        <p>Sensor to measure magnetic potential</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.ConstantMagneticPotentialDifference_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.ConstantMagneticPotentialDifference.html">ConstantMagneticPotentialDifference</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources</span></p>
+        <p>Source with constant magnetic potential difference</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.SignalMagneticPotentialDifference_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.SignalMagneticPotentialDifference.html">SignalMagneticPotentialDifference</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources</span></p>
+        <p>Source of magnetic potential difference with signal input</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.ConstantFlux_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.ConstantFlux.html">ConstantFlux</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources</span></p>
+        <p>Source of constant magnetic flux</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.SignalFlux_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.SignalFlux.html">SignalFlux</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources</span></p>
+        <p>Source of time varying magnetic flux</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.TwoPortExtended_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.TwoPortExtended.html">TwoPortExtended</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces</span></p>
+        <p>Partial two port for graphical programming with additional variables</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses.Machine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses.Machine.html">Machine</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses</span></p>
+        <p>Base model of machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.VfController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.VfController.html">VfController</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities</span></p>
+        <p>Voltage-Frequency-Controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.CurrentController_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.CurrentController.html">CurrentController</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities</span></p>
+        <p>Current controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder.html">Cylinder</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</span></p>
+        <p>Cylinder with rod and crank of a combustion engine</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathPlanning1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathPlanning1.html">PathPlanning1</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities</span></p>
+        <p>Generate reference angles for fastest kinematic movement</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathPlanning6_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.PathPlanning6.html">PathPlanning6</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities</span></p>
+        <p>Generate reference angles for fastest kinematic movement</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.MechanicalStructure_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities.MechanicalStructure.html">MechanicalStructure</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Utilities</span></p>
+        <p>Model of the mechanical part of the r3 robot (without animation)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Revolute_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Revolute.html">Revolute</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span></p>
+        <p>Revolute joint (1 rotational degree-of-freedom, 2 potential states, optional axis flange)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Cylindrical_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Cylindrical.html">Cylindrical</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span></p>
+        <p>Cylindrical joint (2 degrees-of-freedom, 4 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Universal_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Universal.html">Universal</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span></p>
+        <p>Universal joint (2 degrees-of-freedom, 4 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Planar_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Planar.html">Planar</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span></p>
+        <p>Planar joint (3 degrees-of-freedom, 6 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Spherical_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Spherical.html">Spherical</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span></p>
+        <p>Spherical joint (3 constraints and no potential states, or 3 degrees-of-freedom and 3 states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.FreeMotion_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.FreeMotion.html">FreeMotion</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span></p>
+        <p>Free motion joint (6 degrees-of-freedom, 12 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.GearConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.GearConstraint.html">GearConstraint</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span></p>
+        <p>Ideal 3-dim. gearbox (arbitrary shaft directions)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.RollingWheel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.RollingWheel.html">RollingWheel</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span></p>
+        <p>Joint (no mass, no inertia) that describes an ideal rolling wheel (rolling on the plane z=0)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.RollingWheelSet_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.RollingWheelSet.html">RollingWheelSet</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints</span></p>
+        <p>Joint (no mass, no inertia) that describes an ideal rolling wheel set (two ideal rolling wheels connected together by an axis)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint.html">RevoluteWithLengthConstraint</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Joints.Internal</span></p>
+        <p>Revolute joint where the rotation angle is computed from a length constraint (1 degree-of-freedom, no potential state)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.Body_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.Body.html">Body</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span></p>
+        <p>Rigid body with mass, inertia tensor and one frame connector (12 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyShape_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.BodyShape.html">BodyShape</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span></p>
+        <p>Rigid body with mass, inertia tensor, different shapes for animation, and two frame connectors (12 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyBox_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.BodyBox.html">BodyBox</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span></p>
+        <p>Rigid body with box shape. Mass and animation properties are computed from box data and density (12 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.BodyCylinder_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.BodyCylinder.html">BodyCylinder</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span></p>
+        <p>Rigid body with cylinder shape. Mass and animation properties are computed from cylinder data and density (12 potential states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.Mounting1D_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.Mounting1D.html">Mounting1D</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span></p>
+        <p>Propagate 1-dim. support torque to 3-dim. system (provided world.driveTrainMechanics3D=true)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.Rotor1D_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.Rotor1D.html">Rotor1D</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span></p>
+        <p>1D inertia attachable on 3-dim. bodies (3D dynamic effects are taken into account if world.driveTrainMechanics3D=true)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.Rotor1D.RotorWith3DEffects_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.Rotor1D.RotorWith3DEffects.html">RotorWith3DEffects</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts.Rotor1D</span></p>
+        <p>1D inertia attachable on 3-dim. bodies (3D dynamic effects are taken into account)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.RollingWheel_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.RollingWheel.html">RollingWheel</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span></p>
+        <p>Ideal rolling wheel on flat surface z=0 (5 positional, 3 velocity degrees of freedom)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Parts.RollingWheelSet_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Parts.RollingWheelSet.html">RollingWheelSet</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Parts</span></p>
+        <p>Ideal rolling wheel set consisting of two ideal rolling wheels connected together by an axis</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor.html">AbsoluteSensor</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure absolute kinematic quantities of frame connector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.RelativeSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.RelativeSensor.html">RelativeSensor</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure relative kinematic quantities between two frame connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.AbsoluteAngles_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.AbsoluteAngles.html">AbsoluteAngles</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure absolute angles between frame connector and the world frame</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Sensors.RelativeAngles_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Sensors.RelativeAngles.html">RelativeAngles</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Sensors</span></p>
+        <p>Measure relative angles between two frame connectors</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.MultiBody.Visualizers.Torus_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.MultiBody.Visualizers.Torus.html">Torus</a></p>
+        <p><span>Modelica.Mechanics.MultiBody.Visualizers</span></p>
+        <p>Visualizing a torus</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamper.html">SpringDamper</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples.Utilities</span></p>
+        <p>Input/output block of a spring/damper model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Utilities.Spring_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Utilities.Spring.html">Spring</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples.Utilities</span></p>
+        <p>Input/output block of a spring model</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamperNoRelativeStates_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamperNoRelativeStates.html">SpringDamperNoRelativeStates</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Examples.Utilities</span></p>
+        <p>Linear 1D rotational spring and damper in parallel (phi and w are not used as states)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Fixed_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.Fixed.html">Fixed</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span></p>
+        <p>Flange fixed in housing at a given angle</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Inertia_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Inertia</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span></p>
+        <p>1D-rotational component with inertia</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Disc_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.Disc.html">Disc</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span></p>
+        <p>1-dim. rotational rigid component without inertia, where right flange is rotated by a fixed angle with respect to left flange</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Spring_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.Spring.html">Spring</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span></p>
+        <p>Linear 1D rotational spring</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.SpringDamper_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.SpringDamper.html">SpringDamper</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span></p>
+        <p>Linear 1D rotational spring and damper in parallel</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.ElastoBacklash_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.ElastoBacklash.html">ElastoBacklash</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span></p>
+        <p>Backlash connected in series to linear spring and damper (backlash is modeled with elasticity)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.ElastoBacklash2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.ElastoBacklash2.html">ElastoBacklash2</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span></p>
+        <p>Backlash connected in series to linear spring and damper (backlash is modeled with elasticity; at start of contact the flange torque can jump, contrary to the ElastoBacklash model)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.BearingFriction_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.BearingFriction.html">BearingFriction</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span></p>
+        <p>Coulomb friction in bearings</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Brake_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.Brake.html">Brake</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span></p>
+        <p>Brake based on Coulomb friction</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.IdealGear_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.IdealGear.html">IdealGear</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span></p>
+        <p>Ideal gear without inertia</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.LossyGear_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.LossyGear.html">LossyGear</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span></p>
+        <p>Gear with mesh efficiency and bearing friction (stuck/rolling possible)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Gearbox_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.Gearbox.html">Gearbox</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span></p>
+        <p>Realistic model of a gearbox (based on LossyGear)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.InitializeFlange_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.InitializeFlange.html">InitializeFlange</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span></p>
+        <p>Initializes a flange with pre-defined angle, speed and angular acceleration (usually, this is reference data from a control bus)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.RelativeStates_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Components.RelativeStates.html">RelativeStates</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Components</span></p>
+        <p>Definition of relative state variables</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor.html">RelSpeedSensor</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Sensors</span></p>
+        <p>Ideal sensor to measure the relative angular velocity between two flanges</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sensors.RelAccSensor_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Sensors.RelAccSensor.html">RelAccSensor</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Sensors</span></p>
+        <p>Ideal sensor to measure the relative angular acceleration between two flanges</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.Position_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Sources.Position.html">Position</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Sources</span></p>
+        <p>Forced movement of a flange according to a reference angle signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.Speed_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Sources.Speed.html">Speed</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Sources</span></p>
+        <p>Forced movement of a flange according to a reference angular velocity signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.Accelerate_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Sources.Accelerate.html">Accelerate</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Sources</span></p>
+        <p>Forced movement of a flange according to an acceleration signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.Move_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Sources.Move.html">Move</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Sources</span></p>
+        <p>Forced movement of a flange according to an angle, speed and angular acceleration signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.InternalSupport_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Interfaces.InternalSupport.html">InternalSupport</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Interfaces</span></p>
+        <p>Adapter model to utilize conditional support connector</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.PartialCompliant_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Interfaces.PartialCompliant.html">PartialCompliant</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Interfaces</span></p>
+        <p>Partial model for the compliant connection of two rotational 1-dim. shaft flanges</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates.html">PartialCompliantWithRelativeStates</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Interfaces</span></p>
+        <p>Partial model for the compliant connection of two rotational 1-dim. shaft flanges where the relative angle and speed are used as preferred states</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2.html">PartialElementaryOneFlangeAndSupport2</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Interfaces</span></p>
+        <p>Partial model for a component with one rotational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2.html">PartialElementaryTwoFlangesAndSupport2</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Interfaces</span></p>
+        <p>Partial model for a component with two rotational 1-dim. shaft flanges and a support used for textual modeling, i.e., for elementary models</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.PartialTorque_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Mechanics.Rotational.Interfaces.PartialTorque.html">PartialTorque</a></p>
+        <p><span>Modelica.Mechanics.Rotational.Interfaces</span></p>
+        <p>Partial model of a torque acting at the flange (accelerates the flange)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Machines.Pump_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Machines.Pump.html">Pump</a></p>
+        <p><span>Modelica.Fluid.Machines</span></p>
+        <p>Centrifugal pump with mechanical connector for the shaft</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses.Bends.CurvedBend.Geometry_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.BaseClasses.Bends.CurvedBend.Geometry.html">Geometry</a></p>
+        <p><span>Modelica.Fluid.Fittings.BaseClasses.Bends.CurvedBend</span></p>
+        <p>Geometric data for a curved bend</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.Geometry_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.Geometry.html">Geometry</a></p>
+        <p><span>Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend</span></p>
+        <p>Geometric data for a curved bend</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con.html">kc_flatTube_IN_con</a></p>
+        <p><span>Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger</span></p>
+        <p>Input record for function kc_flatTube and kc_flatTube_KC</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_con_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_con.html">dp_twoPhaseOverall_IN_con</a></p>
+        <p><span>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</span></p>
+        <p>Input record for function dp_twoPhaseOverall_DP</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Geometry_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Geometry.html">Geometry</a></p>
+        <p><span>Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss</span></p>
+        <p>Input for several geometries of internal flow</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Diffuser_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Diffuser.html">Diffuser</a></p>
+        <p><span>Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss</span></p>
+        <p>Input for diffuser</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.EdgedBend_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.EdgedBend.html">EdgedBend</a></p>
+        <p><span>Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss</span></p>
+        <p>Input for bend</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td></td>
+      <td>
+        <p><a href="Modelica.Units.SI.BraggAngle.html">BraggAngle</a></p>
+        <p><span>Modelica.Units.SI</span></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Matrices.isEqual</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Matrices.html">Matrices</a></li>
+  <li><a href="Modelica.Math.Matrices.isEqual.html">isEqual</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>isEqual</h1>
+    <p>Compare whether two Real matrices are identical</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Matrices.isEqual_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Matrices.<strong>isEqual</strong>(M1, M2);
+Matrices.<strong>isEqual</strong>(M1, M2, eps=0);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>Matrices.isEqual(M1, M2)</code>" returns <strong>true</strong>,
+if the two Real matrices M1 and M2 have the same dimensions and
+the same elements. Otherwise the function
+returns <strong>false</strong>. Two elements e1 and e2 of the two matrices
+are checked on equality by the test "abs(e1-e2) &le; eps", where "eps"
+can be provided as third argument of the function. Default is "eps = 0".
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  Real A1[2,2] = [1,2; 3,4];
+  Real A2[3,2] = [1,2; 3,4; 5,6];
+  Real A3[2,2] = [1,2, 3,4.0001];
+  Boolean result;
+<strong>algorithm</strong>
+  result := Matrices.isEqual(M1,M2);     // = <strong>false</strong>
+  result := Matrices.isEqual(M1,M3);     // = <strong>false</strong>
+  result := Matrices.isEqual(M1,M1);     // = <strong>true</strong>
+  result := Matrices.isEqual(M1,M3,0.1); // = <strong>true</strong>
+</pre></blockquote>
+<h4>See also</h4>
+<a href="Modelica.Math.Vectors.isEqual.html">Vectors.isEqual</a>,
+<a href="Modelica.Utilities.Strings.isEqual.html">Strings.isEqual</a>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">result = isEqual(M1, M2, eps)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>M1</th>
+      <td>
+        <p><span>Type:</span> Real[:,:]</p>
+        <p><span>Description:</span> First matrix</p>
+      </td>
+    </tr>
+    <tr>
+      <th>M2</th>
+      <td>
+        <p><span>Type:</span> Real[:,:]</p>
+        <p><span>Description:</span> Second matrix (may have different size as M1)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>eps</th>
+      <td>
+        <p><span>Default Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Two elements e1 and e2 of the two matrices are identical if abs(e1-e2) <= eps</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>result</th>
+      <td>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if matrices have the same size and the same elements</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

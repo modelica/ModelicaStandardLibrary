@@ -1,0 +1,117 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Random.Utilities.initializeImpureRandom</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Random.html">Random</a></li>
+  <li><a href="Modelica.Math.Random.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Math.Random.Utilities.initializeImpureRandom.html">initializeImpureRandom</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>initializeImpureRandom</h1>
+    <p>Initializes the internal state of the impure random number generator</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Random.Utilities.initializeImpureRandom_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+id = <strong>initializeImpureRandom</strong>(seed;
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+Generates a hidden initial state vector for the
+<a href="Modelica.Math.Random.Generators.Xorshift1024star.html">Xorshift1024star</a>
+random number generator (= xorshift1024* algorithm), from Integer input argument seed. Argument seed
+can be given any value (including zero or negative number). The function returns the
+dummy Integer number id. This number needs to be passed as input to function
+<a href="Modelica.Math.Random.Utilities.impureRandom.html">impureRandom</a>,
+in order that the sorting order is correct (so that impureRandom is always called
+after initializeImpureRandom). The function stores a reasonable initial state vector
+in a C-static memory by using the
+<a href="Modelica.Math.Random.Generators.Xorshift64star.html">Xorshift64star</a>
+random number generator to fill the internal state vector with 64 bit random numbers.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  <strong>parameter</strong> Integer seed;
+  Real r;
+  <strong>function</strong> random = impureRandom (<strong>final</strong> id=id);
+<strong>protected </strong>
+  Integer id = initializeImpureRandom(seed);
+<strong>equation</strong>
+  // Use the random number generator
+  <strong>when</strong> sample(0,0.001) <strong>then</strong>
+     r = random();
+  <strong>end when</strong>;
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Math.Random.Utilities.impureRandom.html">Utilities.impureRandom</a>,
+<a href="Modelica.Math.Random.Generators.html">Random.Generators</a>
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">id = initializeImpureRandom(seed)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>seed</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> The input seed to initialize the impure random number generator</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>id</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Identification number to be passed as input to function impureRandom, in order that sorting is correct</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

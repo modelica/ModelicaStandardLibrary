@@ -1,0 +1,161 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Spice3.Internal.Mos1.mos1RenameParametersDev</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Spice3.html">Spice3</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.html">Internal</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.Mos1.html">Mos1</a></li>
+  <li><a href="Modelica.Electrical.Spice3.Internal.Mos1.mos1RenameParametersDev.html">mos1RenameParametersDev</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>mos1RenameParametersDev</h1>
+    <p>Device parameter renaming to internal names</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Spice3.Internal.Mos1.mos1RenameParametersDev_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This function mos1RenameParametersDev assigns the external (given by the user) device parameters to the internal parameters. It also does the analysis of the IsGiven values (level 1).</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">dev = mos1RenameParametersDev(ex, mtype, W, L, AD, AS, PD, PS, NRD, NRS, OFF, IC, TEMP)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(13)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>ex</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.ModelcardMOS.html">ModelcardMOS</a></p>
+      </td>
+    </tr>
+    <tr>
+      <th>mtype</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+      </td>
+    </tr>
+    <tr>
+      <th>W</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Channel Width</p>
+      </td>
+    </tr>
+    <tr>
+      <th>L</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Channel Length</p>
+      </td>
+    </tr>
+    <tr>
+      <th>AD</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Area of the drain diffusion</p>
+      </td>
+    </tr>
+    <tr>
+      <th>AS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Area.html">Area</a> (m²)</p>
+        <p><span>Description:</span> Area of the source diffusion</p>
+      </td>
+    </tr>
+    <tr>
+      <th>PD</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Perimeter of the drain junction</p>
+      </td>
+    </tr>
+    <tr>
+      <th>PS</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Length.html">Length</a> (m)</p>
+        <p><span>Description:</span> Perimeter of the source junction</p>
+      </td>
+    </tr>
+    <tr>
+      <th>NRD</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Number of squares of the drain diffusions</p>
+      </td>
+    </tr>
+    <tr>
+      <th>NRS</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Number of squares of the source diffusions</p>
+      </td>
+    </tr>
+    <tr>
+      <th>OFF</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet</p>
+      </td>
+    </tr>
+    <tr>
+      <th>IC</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Initial condition values, not implemented yet</p>
+      </td>
+    </tr>
+    <tr>
+      <th>TEMP</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.NonSI.Temperature_degC.html">Temperature_degC</a> (°C)</p>
+        <p><span>Description:</span> Temperature</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>dev</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet.html">Mosfet</a></p>
+        <p><span>Description:</span> Output record Mosfet</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

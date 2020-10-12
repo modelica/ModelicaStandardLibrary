@@ -1,0 +1,198 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Machines.Losses.Friction</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Machines.html">Machines</a></li>
+  <li><a href="Modelica.Electrical.Machines.Losses.html">Losses</a></li>
+  <li><a href="Modelica.Electrical.Machines.Losses.Friction.html">Friction</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Friction</h1>
+    <p>Model of angular velocity dependent friction losses</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Machines.Losses.Friction_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The friction losses are considered by the equations
+</p>
+<blockquote><pre>
+  tau / tauRef = (+w / wRef) ^ power_w    for w &gt; +wLinear
+- tau / tauRef = (-w / wRef) ^ power_w    for w &lt; -wLinear
+</pre></blockquote>
+<p>
+with
+</p>
+<blockquote><pre>
+tauRef * wRef = PRef
+</pre></blockquote>
+<p>
+being the friction torque at the reference angular velocity
+<code>wRef</code>. The exponent <code>power_w</code> is
+approximately 1.5 for axial ventilation and approximately 2.0 for radial ventilation.
+</p>
+<p>
+For stability reasons the friction torque <code>tau</code> is approximated by a linear curve
+</p>
+<blockquote><pre>
+tau / tauLinear = w / wLinear
+</pre></blockquote>
+<p>
+with
+</p>
+<blockquote><pre>
+tauLinear = tauRef*(wLinear/wRef) ^ power_w
+</pre></blockquote>
+<p>
+in the range <code> -wLinear &le; w &le; wLinear</code> with <code>wLinear = 0.001 * wRef</code>. The relationship of torque
+and angular velocity is depicted in Fig. 1
+</p>
+<table border="0" cellspacing="0" cellpadding="1">
+  <tr><td> <img src="resources/Modelica.Electrical.Machines.Losses.Friction_info_001.png"
+                alt="frictiontorque.png"> </td>
+  </tr>
+  <tr><td> <strong> Fig. 1: </strong>Friction loss torque versus angular velocity for <code>power_w = 2</code></td>
+  </tr>
+</table>
+<h4>See also</h4>
+<p>
+<a href="Modelica.Electrical.Machines.Losses.FrictionParameters.html">FrictionParameters</a>
+</p>
+<p>
+If it is desired to neglect friction losses, set <code>frictionParameters.PRef = 0</code> (this is the default).
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>useHeatPort</th>
+      <td>
+        <p><span>Value:</span> false</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> = true, if heatPort is enabled</p>
+      </td>
+    </tr>
+    <tr>
+      <th>frictionParameters</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.FrictionParameters.html">FrictionParameters</a></p>
+        <p><span>Description:</span> Friction loss parameters</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_a_16x16.png"></td>
+      <th>flange</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> Shaft end</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Mechanics.Rotational.Interfaces.Flange_a_16x16.png"></td>
+      <th>support</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">Flange_a</a></p>
+        <p><span>Description:</span> Housing and support</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a_16x16.png"></td>
+      <th>heatPort</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">HeatPort_a</a></p>
+        <p><span>Description:</span> Optional port to which dissipated losses are transported in form of heat</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Losses.FrictionParameters_32x32.png"></td>
+      <th>frictionParameters</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Machines.Losses.FrictionParameters.html">FrictionParameters</a></p>
+        <p><span>Description:</span> Friction loss parameters</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Machines.Interfaces.PartialBasicMachine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Machines.Interfaces.PartialBasicMachine.html">PartialBasicMachine</a></p>
+        <p><span>Modelica.Electrical.Machines.Interfaces</span></p>
+        <p>Partial model for all machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FundamentalWave.BaseClasses.Machine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FundamentalWave.BaseClasses.Machine.html">Machine</a></p>
+        <p><span>Modelica.Magnetic.FundamentalWave.BaseClasses</span></p>
+        <p>Base model of machines</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses.Machine_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses.Machine.html">Machine</a></p>
+        <p><span>Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses</span></p>
+        <p>Base model of machines</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

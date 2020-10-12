@@ -1,0 +1,69 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Classes.'package'</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Classes.html">Classes</a></li>
+  <li><a href="ModelicaReference.Classes.'package'.html">'package'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'package'</h1>
+    <p>package</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Classes.'package'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Define specialized class <em>package</em>
+</p>
+<h4>Examples</h4>
+
+<blockquote><pre><strong>package</strong> Library
+  <strong>constant</strong> Real k = 0.1;
+
+  <strong>type</strong> X = Real(min=0);
+
+  <strong>model</strong> A
+    ...
+  <strong>end</strong> A;
+
+  <strong>model</strong> B
+    ...
+  <strong>end</strong> B;
+<strong>end</strong> Library;</pre></blockquote>
+
+<h4>Syntax</h4>
+<blockquote><pre>   [ <strong>encapsulated</strong> ][ <strong>partial</strong>] <strong>package</strong>
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <strong>end</strong> IDENT
+   | "=" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | "=" <strong>enumeration</strong> "(" ( [enum_list] | ":" ) ")" comment</pre></blockquote>
+
+<p>See <a href="ModelicaReference.ModelicaGrammar.html">Modelica Grammar</a> for further details.</p>
+
+<h4>Description</h4>
+<p>May only contain declarations of classes and constants.
+   Enhanced to allow import of elements of packages.</p>
+</div>
+</section>
+</div>
+</body>
+</html>

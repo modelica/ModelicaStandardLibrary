@@ -1,0 +1,103 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Math.Vectors.relNodePositions</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Math.html">Math</a></li>
+  <li><a href="Modelica.Math.Vectors.html">Vectors</a></li>
+  <li><a href="Modelica.Math.Vectors.relNodePositions.html">relNodePositions</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>relNodePositions</h1>
+    <p>Return vector of relative node positions (0..1)</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Math.Vectors.relNodePositions_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.<strong>relNodePositions</strong>(nNodes);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>relNodePositions(nNodes)</code>" returns a vector
+with the relative positions of the nodes of a discretized pipe with nNodes nodes (including the node
+at the left and at the right side of the pipe), see next figure:
+</p>
+
+<blockquote><p>
+<img src="resources/Modelica.Math.Vectors.relNodePositions_info_001.png">
+</p></blockquote>
+
+<h4>Example</h4>
+
+<blockquote><pre>
+  Real xsi[7];
+<strong>algorithm</strong>
+  xsi = relNodePositions(7);  // xsi = {0, 0.1, 0.3, 0.5, 0.7, 0.9, 1}
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField.html">MultiBody.Visualizers.PipeWithScalarField</a>
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">xsi = relNodePositions(nNodes)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>nNodes</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of nodes (including node at left and right position)</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>xsi</th>
+      <td>
+        <p><span>Type:</span> Real[nNodes]</p>
+        <p><span>Description:</span> Relative node positions</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

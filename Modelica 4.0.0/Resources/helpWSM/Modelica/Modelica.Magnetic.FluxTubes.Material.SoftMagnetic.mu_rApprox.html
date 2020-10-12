@@ -1,0 +1,123 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Magnetic.html">Magnetic</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Material.html">Material</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.html">SoftMagnetic</a></li>
+  <li><a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox.html">mu_rApprox</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>mu_rApprox</h1>
+    <p>Approximation of relative permeability mu_r as a function of flux density B for soft magnetic materials</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The relative permeability mu_r as a function of flux density B for all soft magnetic materials currently included in this library is approximated with the following function <a href="Modelica.Magnetic.FluxTubes.UsersGuide.Literature.html">[Ro00]</a>:
+</p>
+
+<p>
+<img src="resources/Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox_info_001.png" alt="Equation for approximation mu_r(B)"/>
+</p>
+
+<p>
+Two of the five parameters of this equation have a physical meaning, namely the initial relative permeability mu_i at B=0 and the magnetic flux density at maximum permeability B_myMax. B_N is the flux density normalized to latter parameter.</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">mu_r = mu_rApprox(B, mu_i, B_myMax, c_a, c_b, n)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>B</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.MagneticFluxDensity.html">MagneticFluxDensity</a> (T)</p>
+        <p><span>Description:</span> Flux density in ferromagnetic flux tube element</p>
+      </td>
+    </tr>
+    <tr>
+      <th>mu_i</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.RelativePermeability.html">RelativePermeability</a></p>
+        <p><span>Description:</span> Initial relative permeability at B=0</p>
+      </td>
+    </tr>
+    <tr>
+      <th>B_myMax</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.MagneticFluxDensity.html">MagneticFluxDensity</a> (T)</p>
+        <p><span>Description:</span> Flux density at maximum relative permeability</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c_a</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Coefficient of approximation function</p>
+      </td>
+    </tr>
+    <tr>
+      <th>c_b</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Coefficient of approximation function</p>
+      </td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Exponent of approximation function</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>mu_r</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.RelativePermeability.html">RelativePermeability</a></p>
+        <p><span>Description:</span> Relative magnetic permeability of ferromagnetic flux tube element</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

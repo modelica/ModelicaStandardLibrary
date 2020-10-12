@@ -1,0 +1,253 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Batteries.ParameterRecords.TransientData.CellData</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Batteries.html">Batteries</a></li>
+  <li><a href="Modelica.Electrical.Batteries.ParameterRecords.html">ParameterRecords</a></li>
+  <li><a href="Modelica.Electrical.Batteries.ParameterRecords.TransientData.html">TransientData</a></li>
+  <li><a href="Modelica.Electrical.Batteries.ParameterRecords.TransientData.CellData.html">CellData</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>CellData</h1>
+    <p>Parameters of a transient battery cell</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Batteries.ParameterRecords.TransientData.CellData_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Electrical.Batteries.ParameterRecords.TransientData.CellData_diagram_large.png"><img src="resources/diagrams/Modelica.Electrical.Batteries.ParameterRecords.TransientData.CellData_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>Collects parameters of battery cells:</p>
+<ul>
+<li>Nominal charge</li>
+<li>OCV versus SOC characteristic</li>
+<li>Inner resistance; can be calculated from OCVmax / short-circuit current (at OCVmax)</li>
+<li>Array of records <code>rcData</code> for battery models comprising RC-elements</li>
+</ul>
+<h4>Note</h4>
+<p>
+If <code>useLinearSOCDependency=true</code>, the OCV versus SOC table is built up internally from <code>OCVmax, OCVmin, SOCmax, SOCmin</code>.<br>
+Otherwise, the OCV versus SOC table has to be specified: 1st column = SOC values in ascending order, 2nd column = corresponding OCV values with respect to OCVmax.
+</p>
+<p>
+The size of the array <a href="Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData.html">rcData</a> has to be defined as parameter <code>nRC</code>.
+The sum of the resistances <code>rcData.R</code> must not exceed the total inner resistance <code>Ri</code>.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(16)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>Qnom</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.ElectricCharge.html">ElectricCharge</a> (C)</p>
+        <p><span>Description:</span> Nominal (maximum) charge</p>
+      </td>
+    </tr>
+    <tr>
+      <th>useLinearSOCDependency</th>
+      <td>
+        <p><span>Value:</span> true</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> Use a linear SOC dependent OCV, otherwise table based</p>
+      </td>
+    </tr>
+    <tr>
+      <th>OCVmax</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> OCV at SOC = SOCmax</p>
+      </td>
+    </tr>
+    <tr>
+      <th>OCVmin</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Voltage.html">Voltage</a> (V)</p>
+        <p><span>Description:</span> OCV at SOC = SOCmin</p>
+      </td>
+    </tr>
+    <tr>
+      <th>SOCmax</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Maximum state of charge</p>
+      </td>
+    </tr>
+    <tr>
+      <th>SOCmin</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Minimum state of charge</p>
+      </td>
+    </tr>
+    <tr>
+      <th>OCV_SOC</th>
+      <td>
+        <p><span>Value:</span> [SOCmin, OCVmin / OCVmax; SOCmax, 1]</p>
+        <p><span>Type:</span> Real[:,2]</p>
+        <p><span>Description:</span> OCV/OCVmax versus SOC table</p>
+      </td>
+    </tr>
+    <tr>
+      <th>smoothness</th>
+      <td>
+        <p><span>Value:</span> Modelica.Blocks.Types.Smoothness.LinearSegments</p>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Types.Smoothness.html">Smoothness</a></p>
+        <p><span>Description:</span> Smoothness of table interpolation</p>
+      </td>
+    </tr>
+    <tr>
+      <th>OCV_SOC_internal</th>
+      <td>
+        <p><span>Value:</span> if useLinearSOCDependency then [SOCmin, OCVmin / OCVmax; SOCmax, 1] else OCV_SOC</p>
+        <p><span>Type:</span> Real[:,2]</p>
+        <p><span>Description:</span> OCV/OCVmax versus SOC used internal</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Ri</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Total inner resistance (= OCVmax/Isc)</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T_ref</th>
+      <td>
+        <p><span>Value:</span> 293.15</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Temperature.html">Temperature</a> (K)</p>
+        <p><span>Description:</span> Reference temperature</p>
+      </td>
+    </tr>
+    <tr>
+      <th>alpha</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.LinearTemperatureCoefficient.html">LinearTemperatureCoefficient</a> (¹/K)</p>
+        <p><span>Description:</span> Temperature coefficient of resistance at T_ref</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Idis</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Current.html">Current</a> (A)</p>
+        <p><span>Description:</span> Self-discharge current at SOC = SOCmax</p>
+      </td>
+    </tr>
+    <tr>
+      <th>R0</th>
+      <td>
+        <p><span>Value:</span> Ri - sum(rcData.R)</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Resistance.html">Resistance</a> (Ω)</p>
+        <p><span>Description:</span> Inner resistance without parallel C</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nRC</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Number of RC-elements</p>
+      </td>
+    </tr>
+    <tr>
+      <th>rcData</th>
+      <td>
+        <p><span>Value:</span> {Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData(R = 0, C = 0)}</p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData.html">RCData[nRC]</a></p>
+        <p><span>Description:</span> Parameters of RC-elements</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData_32x32.png"></td>
+      <th>rcData</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData.html">RCData[nRC]</a></p>
+        <p><span>Description:</span> Parameters of RC-elements</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.Utilities.Impedance_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.Utilities.Impedance.html">Impedance</a></p>
+        <p><span>Modelica.Electrical.Batteries.Utilities</span></p>
+        <p>Calculate complex impedance</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Batteries.ParameterRecords.TransientData.ExampleData_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Batteries.ParameterRecords.TransientData.ExampleData.html">ExampleData</a></p>
+        <p><span>Modelica.Electrical.Batteries.ParameterRecords.TransientData</span></p>
+        <p>Example parameters of a transient battery cell</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

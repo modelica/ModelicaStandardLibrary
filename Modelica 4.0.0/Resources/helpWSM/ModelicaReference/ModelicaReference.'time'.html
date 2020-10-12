@@ -1,0 +1,62 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: 'time'</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.'time'.html">'time'</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>'time'</h1>
+    <p>time</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.'time'_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Built-in variable time
+</p>
+<h4>Examples</h4>
+
+<blockquote><pre><strong>encapsulated model</strong> SineSource
+  <strong>import</strong> Modelica.Math.sin;
+  <strong>connector</strong> OutPort=<strong>output</strong> Real;
+  OutPort y=sin(time); // Uses the built-in variable time.
+<strong>end</strong> SineSource;</pre></blockquote>
+
+<h4>Syntax</h4>
+
+<blockquote><pre><strong>time</strong></pre></blockquote>
+
+<h4>Description</h4>
+
+<p>All declared variables are functions of the independent
+variable <strong>time</strong>. Time is a built-in variable available
+in all classes, which is treated as an input variable. It
+is implicitly defined as:</p>
+
+<blockquote><pre><strong>input</strong> Real time (<strong>final</strong> quantity = "Time",
+                 <strong>final</strong> unit     = "s");</pre></blockquote>
+
+<p>The value of the <strong>start</strong> attribute of time is set to
+the time instant at which the simulation is started.</p>
+</div>
+</section>
+</div>
+</body>
+</html>

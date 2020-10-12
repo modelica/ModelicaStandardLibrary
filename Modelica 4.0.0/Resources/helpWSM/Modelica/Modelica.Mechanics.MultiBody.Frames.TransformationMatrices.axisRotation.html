@@ -1,0 +1,105 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.MultiBody.Frames.TransformationMatrices.axisRotation</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.html">MultiBody</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.html">TransformationMatrices</a></li>
+  <li><a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axisRotation.html">axisRotation</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>axisRotation</h1>
+    <p>Return rotation object to rotate around one frame axis</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axisRotation_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+T = TransformationMatrices.<strong>axisRotation</strong>(axis, angle);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns
+<a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation.html">transformation matrix</a>&nbsp;T
+that describes the orientation to rotate along unit axis <strong>axis</strong>
+from frame 1 into frame 2 with angle <strong>angle</strong>.
+For example, TransformationMatrices.axisRotation(2, phi) returns the same orientation object as with the call
+TransformationMatrices.planarRotation({0,1,0}, phi)
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.planarRotation.html">planarRotation</a>,
+<a href="Modelica.Mechanics.MultiBody.Frames.axisRotation.html">Frames.axisRotation</a>.
+</p>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">T = axisRotation(axis, angle)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>axis</th>
+      <td>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Rotate around 'axis' of frame 1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>angle</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Angle.html">Angle</a> (rad)</p>
+        <p><span>Description:</span> Rotation angle to rotate frame 1 into frame 2 along 'axis' of frame 1</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>T</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation.html">Orientation</a></p>
+        <p><span>Description:</span> Orientation object to rotate frame 1 into frame 2</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

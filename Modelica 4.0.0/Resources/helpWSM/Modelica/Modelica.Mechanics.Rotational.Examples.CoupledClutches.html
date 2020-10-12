@@ -1,0 +1,198 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.Rotational.Examples.CoupledClutches</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.html">Rotational</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Examples.CoupledClutches.html">CoupledClutches</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>CoupledClutches</h1>
+    <p>Drive train with 3 dynamically coupled clutches</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Rotational.Examples.CoupledClutches_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.Rotational.Examples.CoupledClutches_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.Rotational.Examples.CoupledClutches_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>This example demonstrates how variable structure
+drive trains are handled. The drive train consists
+of 4 inertias and 3 clutches, where the clutches
+are controlled by input signals. The system has
+2^3=8 different configurations and 3^3 = 27
+different states (every clutch may be in forward
+sliding, backward sliding or locked mode when the
+relative angular velocity is zero). By invoking the
+clutches at different time instances, the switching
+of the configurations can be studied.</p>
+<p>Simulate the system for 1.2 seconds with the
+following initial values:<br>
+J1.w = 10.</p>
+<p>Plot the following variables:<br>
+angular velocities of inertias (J1.w, J2.w, J3.w,
+J4.w), frictional torques of clutches (clutchX.tau),
+frictional mode of clutches (clutchX.mode) where
+mode = -1/0/+1 means backward sliding,
+locked, forward sliding.</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>f</th>
+      <td>
+        <p><span>Value:</span> 0.2</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Frequency.html">Frequency</a> (Hz)</p>
+        <p><span>Description:</span> Frequency of sine function to invoke clutch1</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T2</th>
+      <td>
+        <p><span>Value:</span> 0.4</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Time when clutch2 is invoked</p>
+      </td>
+    </tr>
+    <tr>
+      <th>T3</th>
+      <td>
+        <p><span>Value:</span> 0.9</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Time when clutch3 is invoked</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(13)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Inertia_32x32.png"></td>
+      <th>J1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Inertia</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.Torque_32x32.png"></td>
+      <th>torque</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sources.Torque.html">Torque</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Clutch_32x32.png"></td>
+      <th>clutch1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Clutch.html">Clutch</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Sine_32x32.png"></td>
+      <th>sin1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Sine.html">Sine</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Step_32x32.png"></td>
+      <th>step1</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Inertia_32x32.png"></td>
+      <th>J2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Inertia</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Clutch_32x32.png"></td>
+      <th>clutch2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Clutch.html">Clutch</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Inertia_32x32.png"></td>
+      <th>J3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Inertia</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Clutch_32x32.png"></td>
+      <th>clutch3</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Clutch.html">Clutch</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Inertia_32x32.png"></td>
+      <th>J4</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Inertia</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Sine_32x32.png"></td>
+      <th>sin2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Sine.html">Sine</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Sources.Step_32x32.png"></td>
+      <th>step2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Sources.Step.html">Step</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Fixed_32x32.png"></td>
+      <th>fixed</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Fixed.html">Fixed</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

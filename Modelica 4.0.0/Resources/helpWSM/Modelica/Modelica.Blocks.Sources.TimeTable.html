@@ -1,0 +1,235 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Blocks.Sources.TimeTable</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Blocks.html">Blocks</a></li>
+  <li><a href="Modelica.Blocks.Sources.html">Sources</a></li>
+  <li><a href="Modelica.Blocks.Sources.TimeTable.html">TimeTable</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>TimeTable</h1>
+    <p>Generate a (possibly discontinuous) signal by linear interpolation in a table</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Blocks.Sources.TimeTable_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This block generates an output signal by <strong>linear interpolation</strong> in
+a table. The time points and function values are stored in a matrix
+<strong>table[i,j]</strong>, where the first column table[:,1] contains the
+time points and the second column contains the data to be interpolated.
+The table interpolation has the following properties:
+</p>
+<ul>
+<li>The interpolation interval is found by a linear search where the interval used in the
+    last call is used as start interval.</li>
+<li>The time points need to be <strong>monotonically increasing</strong>.</li>
+<li><strong>Discontinuities</strong> are allowed, by providing the same
+    time point twice in the table.</li>
+<li>Values <strong>outside</strong> of the table range, are computed by
+    <strong>extrapolation</strong> through the last or first two points of the
+    table.</li>
+<li>If the table has only <strong>one row</strong>, no interpolation is performed and
+    the function value is just returned independently of the actual time instant.</li>
+<li>Via parameters <strong>shiftTime</strong> and <strong>offset</strong> the curve defined
+    by the table can be shifted both in time and in the ordinate value.
+    The time instants stored in the table are therefore <strong>relative</strong>
+    to <strong>shiftTime</strong>.</li>
+<li>If time &lt; startTime, no interpolation is performed and the offset
+    is used as ordinate value for the output.</li>
+<li>If the table has more than one row, the first point in time <strong>always</strong> has to be set to <strong>0</strong>, e.g.,
+    <strong>table=[1,1;2,2]</strong> is <strong>illegal</strong>. If you want to
+    shift the time table in time use the <strong>shiftTime</strong> parameter instead.</li>
+<li>The table is implemented in a numerically sound way by
+    generating <strong>time events</strong> at interval boundaries.
+    This generates continuously differentiable values for the integrator.</li>
+<li>Via parameter <strong>timeScale</strong> the first column of the table array can
+    be scaled, e.g., if the table array is given in hours (instead of seconds)
+    <strong>timeScale</strong> shall be set to 3600.</li>
+</ul>
+<p>
+Example:
+</p>
+<blockquote><pre>
+   table = [0, 0;
+            1, 0;
+            1, 1;
+            2, 4;
+            3, 9;
+            4, 16];
+If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
+    e.g., time = 1.5, the output y =  2.5,
+    e.g., time = 2.0, the output y =  4.0,
+    e.g., time = 5.0, the output y = 23.0 (i.e., extrapolation).
+</pre></blockquote>
+
+<p>
+<img src="resources/Modelica.Blocks.Sources.TimeTable_info_001.png"
+     alt="TimeTable.png">
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>offset</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Offset of output signal y</p>
+      </td>
+    </tr>
+    <tr>
+      <th>startTime</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Output y = offset for time < startTime</p>
+      </td>
+    </tr>
+    <tr>
+      <th>table</th>
+      <td>
+        <p><span>Value:</span> fill(0.0, 0, 2)</p>
+        <p><span>Type:</span> Real[:,2]</p>
+        <p><span>Description:</span> Table matrix (time = first column; e.g., table=[0, 0; 1, 1; 2, 4])</p>
+      </td>
+    </tr>
+    <tr>
+      <th>timeScale</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Time scale of first table column</p>
+      </td>
+    </tr>
+    <tr>
+      <th>shiftTime</th>
+      <td>
+        <p><span>Value:</span> startTime</p>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Time.html">Time</a> (s)</p>
+        <p><span>Description:</span> Shift time of first table column</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Connector of Real output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Blocks.Examples.Interaction1_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Blocks.Examples.Interaction1.html">Interaction1</a></p>
+        <p><span>Modelica.Blocks.Examples</span></p>
+        <p>Demonstrates the usage of blocks from Modelica.Blocks.Interaction.Show</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge.HBridge_DC_Drive_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge.HBridge_DC_Drive.html">HBridge_DC_Drive</a></p>
+        <p><span>Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge</span></p>
+        <p>H bridge DC/DC converter with DC drive</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Magnetic.FluxTubes.Examples.Hysteresis.HysteresisModelComparison_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis.HysteresisModelComparison.html">HysteresisModelComparison</a></p>
+        <p><span>Modelica.Magnetic.FluxTubes.Examples.Hysteresis</span></p>
+        <p>Comparison of the different hysteresis models</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.DrumBoiler.DrumBoiler_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.DrumBoiler.DrumBoiler.html">DrumBoiler</a></p>
+        <p><span>Modelica.Fluid.Examples.DrumBoiler</span></p>
+        <p>Complete drum boiler model, including evaporator and supplementary components</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Fluid.Examples.AST_BatchPlant.Test.OneTank_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Fluid.Examples.AST_BatchPlant.Test.OneTank.html">OneTank</a></p>
+        <p><span>Modelica.Fluid.Examples.AST_BatchPlant.Test</span></p>
+        <p>Tank with one time-varying top inlet mass flow rate and a bottom outlet into the ambient</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-components" class="closed">
+  <h1>Used in Components <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Sources.V_pwl_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Sources.V_pwl.html">V_pwl</a></p>
+        <p><span>Modelica.Electrical.Spice3.Sources</span></p>
+        <p>Piece-wise linear voltage source</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Electrical.Spice3.Sources.I_pwl_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Electrical.Spice3.Sources.I_pwl.html">I_pwl</a></p>
+        <p><span>Modelica.Electrical.Spice3.Sources</span></p>
+        <p>Piece-wise linear current source</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

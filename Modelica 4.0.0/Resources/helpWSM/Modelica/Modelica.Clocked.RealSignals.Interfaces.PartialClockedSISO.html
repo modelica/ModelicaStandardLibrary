@@ -1,0 +1,156 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.RealSignals.Interfaces.PartialClockedSISO</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.html">RealSignals</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.Interfaces.html">Interfaces</a></li>
+  <li><a href="Modelica.Clocked.RealSignals.Interfaces.PartialClockedSISO.html">PartialClockedSISO</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>PartialClockedSISO</h1>
+    <p>Block with clocked single input and clocked single output Real signals</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.RealSignals.Interfaces.PartialClockedSISO_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></p>
+        <p><span>Description:</span> Connector of clocked, Real input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></p>
+        <p><span>Description:</span> Connector of clocked, Real output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="extended-by" class="closed">
+  <h1>Extended by <span class="count">(11)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Interfaces.PartialNoise_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Interfaces.PartialNoise.html">PartialNoise</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Interfaces</span></p>
+        <p>Interface for SISO blocks with Real signals that add noise to the signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Periodic.FIRbyCoefficients_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Periodic.FIRbyCoefficients.html">FIRbyCoefficients</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Periodic</span></p>
+        <p>FIR filter defined by coefficients</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Periodic.MovingAverage_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Periodic.MovingAverage.html">MovingAverage</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Periodic</span></p>
+        <p>Moving average filter (= FIR filter with coefficients a = fill(1/n,n), but implemented recursively)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Periodic.PI_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Periodic.PI.html">PI</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Periodic</span></p>
+        <p>Discrete-time PI controller</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Periodic.TransferFunction_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Periodic.TransferFunction.html">TransferFunction</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Periodic</span></p>
+        <p>Discrete-time Transfer Function block</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.NonPeriodic.FractionalDelay_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.NonPeriodic.FractionalDelay.html">FractionalDelay</a></p>
+        <p><span>Modelica.Clocked.RealSignals.NonPeriodic</span></p>
+        <p>Delay the clocked input signal for a fractional multiple of the sample period</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.NonPeriodic.UnitDelay_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.NonPeriodic.UnitDelay.html">UnitDelay</a></p>
+        <p><span>Modelica.Clocked.RealSignals.NonPeriodic</span></p>
+        <p>Delay the clocked input signal for one sample period</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.NonPeriodic.PI_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.NonPeriodic.PI.html">PI</a></p>
+        <p><span>Modelica.Clocked.RealSignals.NonPeriodic</span></p>
+        <p>Discrete-time PI controller with clocked input and output signals (for periodic and aperiodic systems using the parameterization of the continuous PI controller)</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.Limiter_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.Limiter.html">Limiter</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Sampler.Utilities.Internal</span></p>
+        <p>Limit the range of a signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.Quantization_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.Quantization.html">Quantization</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Sampler.Utilities.Internal</span></p>
+        <p>DAC quantization effects</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.ComputationalDelay_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.RealSignals.Sampler.Utilities.Internal.ComputationalDelay.html">ComputationalDelay</a></p>
+        <p><span>Modelica.Clocked.RealSignals.Sampler.Utilities.Internal</span></p>
+        <p>Delay a clocked signal for at most one period, in order to model a computational delay</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

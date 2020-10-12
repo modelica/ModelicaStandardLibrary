@@ -1,0 +1,132 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Electrical.Digital.Converters.RealToLogic</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Electrical.html">Electrical</a></li>
+  <li><a href="Modelica.Electrical.Digital.html">Digital</a></li>
+  <li><a href="Modelica.Electrical.Digital.Converters.html">Converters</a></li>
+  <li><a href="Modelica.Electrical.Digital.Converters.RealToLogic.html">RealToLogic</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>RealToLogic</h1>
+    <p>Real to Logic converter</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Electrical.Digital.Converters.RealToLogic_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Conversion of a real input into a digital output without any delay according to:
+</p>
+<blockquote><pre>
+                           condition            output
+first check:               input greater upp    lupp
+second check:              input larger low     llow
+                           else                 lmid
+</pre></blockquote>
+<p>
+If the signal width is greater than 1 this conversion is done for each signal.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(6)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>n</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Signal width</p>
+      </td>
+    </tr>
+    <tr>
+      <th>upper_limit</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Upper limit</p>
+      </td>
+    </tr>
+    <tr>
+      <th>lower_limit</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Lower limit</p>
+      </td>
+    </tr>
+    <tr>
+      <th>upper_value</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic</a></p>
+        <p><span>Description:</span> Output if input > upper_limit</p>
+      </td>
+    </tr>
+    <tr>
+      <th>lower_value</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic</a></p>
+        <p><span>Description:</span> Output if input < lower_limit</p>
+      </td>
+    </tr>
+    <tr>
+      <th>middle_value</th>
+      <td>
+        <p><span>Value:</span> </p>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.Logic.html">Logic</a></p>
+        <p><span>Description:</span> Output else</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Blocks.Interfaces.RealInput_16x16.png"></td>
+      <th>x</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput[n]</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Electrical.Digital.Interfaces.DigitalOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Electrical.Digital.Interfaces.DigitalOutput.html">DigitalOutput[n]</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Fluid.Dissipation.Utilities.Functions.General.Stepsmoother</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Fluid.html">Fluid</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.html">Dissipation</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.Functions.html">Functions</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.Functions.General.html">General</a></li>
+  <li><a href="Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother.html">Stepsmoother</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>Stepsmoother</h1>
+    <p>Continuous interpolation for x</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+The function is used for continuous fading of variable inputs within a defined range. It allows a differentiable and smooth transition between function outputs, e.g., laminar and turbulent pressure drop or correlations for certain ranges.
+</p>
+<h4>Function</h4>
+<p>
+The tanh-function is used, since it provides an existing derivative and the derivative is zero at the borders [<strong>nofunc</strong>, <strong>func</strong>] of the interpolation domain (smooth derivative for transitions).<br>
+<br>
+In order to work correctly, the internal interpolation range in terms of the external arbitrary input <strong>x</strong> needs to be scaled such that:
+</p>
+<blockquote><pre>
+f(func)   = 0.5 &pi;
+f(nofunc) = -0.5 &pi;
+</pre></blockquote>
+
+<h4>Example </h4>
+<p>
+In the picture below the input x is increased from 0 to 1. The range of interpolation is defined by:
+</p>
+<ul>
+<li>func = 0.75</li>
+<li>nofunc = 0.25</li>
+</ul>
+
+<p>
+<img src="resources/Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother_info_001.png" alt="Stepsmoother"/>
+</p>
+
+<h4>References</h4>
+<dl>
+<dt>Wischhusen, St.</dt>
+    <dd><strong>Simulation von K&auml;ltemaschinen-Prozessen mit MODELICA / DYMOLA</strong>.
+    Diploma thesis, Hamburg University of Technology, Institute of Thermofluiddynamics, 2000.</dd>
+</dl>
+</div>
+</section>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">result = Stepsmoother(func, nofunc, x)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(3)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>func</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Input value for that result = 100%</p>
+      </td>
+    </tr>
+    <tr>
+      <th>nofunc</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Input value for that result = 0%</p>
+      </td>
+    </tr>
+    <tr>
+      <th>x</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Input variable for continuous interpolation</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>result</th>
+      <td>
+        <p><span>Type:</span> Real</p>
+        <p><span>Description:</span> Output value</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

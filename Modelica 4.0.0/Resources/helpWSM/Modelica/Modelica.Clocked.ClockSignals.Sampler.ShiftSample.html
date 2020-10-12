@@ -1,0 +1,150 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Clocked.ClockSignals.Sampler.ShiftSample</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Clocked.html">Clocked</a></li>
+  <li><a href="Modelica.Clocked.ClockSignals.html">ClockSignals</a></li>
+  <li><a href="Modelica.Clocked.ClockSignals.Sampler.html">Sampler</a></li>
+  <li><a href="Modelica.Clocked.ClockSignals.Sampler.ShiftSample.html">ShiftSample</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>ShiftSample</h1>
+    <p>Shift the input clock by a fraction of the last interval and provide it as output clock</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Clocked.ClockSignals.Sampler.ShiftSample_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This block shifts the first activation of clock output y by
+fraction shiftCounter/resolution of the period (or for a non-periodic signal by a fraction of the last interval).
+Here, <strong>shiftCounter</strong> and <strong>resolution</strong> are positive Integer parameters.
+</p>
+
+<p>
+To be more precise:
+The block constructs (conceptually) a clock &ldquo;cBase&rdquo;
+</p>
+
+<blockquote><pre>
+<strong>Clock</strong> cBase = <strong>subSample</strong>(<strong>superSample</strong>(u, resolution), shiftCounter)
+</pre></blockquote>
+
+<p>
+and clock y starts at the second clock tick of cBase.
+</p>
+
+<h4>Example</h4>
+
+<p>
+The following
+<a href="Modelica.Clocked.Examples.Elementary.ClockSignals.ShiftSample.html">example</a>
+generates a periodic clock of 20 ms period, and
+then shifts it with shiftCounter = 4 and resolution = 3:<br>
+</p>
+
+<table border="0" cellspacing="0" cellpadding="2">
+<tr><td width="50"></td>
+    <td valign="bottom"><img src="resources/Modelica.Clocked.ClockSignals.Sampler.ShiftSample_info_001.png" alt="ShiftSample_Model.png"></td>
+    <td valign="bottom">&nbsp;&nbsp;&nbsp;
+                        <img src="resources/Modelica.Clocked.ClockSignals.Sampler.ShiftSample_info_002.png" alt="ShiftSample_Result.png"></td>
+    </tr>
+<tr><td></td>
+    <td align="center">model</td>
+    <td align="center">simulation result</td>
+   </tr>
+</table>
+<p>
+The first activation of clock output y of block shiftSample1 is shifted in time (4/3*20ms). The parameter values <strong>shiftCounter</strong> = 4 and <strong>resolution</strong> = 3 are visible at the bottom of the icon.
+</p>
+</div>
+</section>
+<section id="parameters" >
+  <h1>Parameters <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>shiftCounter</th>
+      <td>
+        <p><span>Value:</span> 0</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Numerator of shifting formula</p>
+      </td>
+    </tr>
+    <tr>
+      <th>resolution</th>
+      <td>
+        <p><span>Value:</span> 1</p>
+        <p><span>Type:</span> Integer</p>
+        <p><span>Description:</span> Denominator of shifting formula</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="connectors" class="closed">
+  <h1>Connectors <span class="count">(2)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Clocked.ClockSignals.Interfaces.ClockInput_16x16.png"></td>
+      <th>u</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.ClockSignals.Interfaces.ClockInput.html">ClockInput</a></p>
+        <p><span>Description:</span> Connector of clock input signal</p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="16" height="16" src="resources/icons/Modelica.Clocked.ClockSignals.Interfaces.ClockOutput_16x16.png"></td>
+      <th>y</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Clocked.ClockSignals.Interfaces.ClockOutput.html">ClockOutput</a></p>
+        <p><span>Description:</span> Connector of clock output signal</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="used-in-examples" class="closed">
+  <h1>Used in Examples <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-2">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Clocked.Examples.Elementary.ClockSignals.ShiftSample_32x32.png"></td>
+      <td>
+        <p><a href="Modelica.Clocked.Examples.Elementary.ClockSignals.ShiftSample.html">ShiftSample</a></p>
+        <p><span>Modelica.Clocked.Examples.Elementary.ClockSignals</span></p>
+        <p>Example of a ShiftSample block for Clock signals</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

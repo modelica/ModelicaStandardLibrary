@@ -1,0 +1,94 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Mechanics.Rotational.Examples.RollingWheel</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Mechanics.html">Mechanics</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.html">Rotational</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Examples.html">Examples</a></li>
+  <li><a href="Modelica.Mechanics.Rotational.Examples.RollingWheel.html">RollingWheel</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>RollingWheel</h1>
+    <p>Demonstrate coupling Rotational - Translational</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Mechanics.Rotational.Examples.RollingWheel_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="diagram">
+<h1>Diagram</h1>
+<div class="hideable">
+<a class="colorbox" href="resources/diagrams/Modelica.Mechanics.Rotational.Examples.RollingWheel_diagram_large.png"><img src="resources/diagrams/Modelica.Mechanics.Rotational.Examples.RollingWheel_diagram.png"><span class="magnify"></span></a>
+</div>
+</section>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+This model demonstrates the coupling between rotational and translational components:<br>
+A torque (step) accelerates both the inertia (of the wheel) and the mass (of the vehicle).<br>
+Du to a speed dependent force (like driving resistance), we find an equilibrium at 5 m/s after approx. 5 s.
+</p>
+</div>
+</section>
+<section id="components" class="closed">
+  <h1>Components <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-3">
+    <colgroup><col class="col-1" /><col class="col-2" /><col class="col-3" /></colgroup>
+    <tbody>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.IdealRollingWheel_32x32.png"></td>
+      <th>idealRollingWheel</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.IdealRollingWheel.html">IdealRollingWheel</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Components.Inertia_32x32.png"></td>
+      <th>inertia</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Inertia</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Rotational.Sources.TorqueStep_32x32.png"></td>
+      <th>torqueStep</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Rotational.Sources.TorqueStep.html">TorqueStep</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Components.Mass_32x32.png"></td>
+      <th>mass</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Components.Mass.html">Mass</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td><img width="32" height="32" src="resources/icons/Modelica.Mechanics.Translational.Sources.QuadraticSpeedDependentForce_32x32.png"></td>
+      <th>quadraticSpeedDependentForce</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Mechanics.Translational.Sources.QuadraticSpeedDependentForce.html">QuadraticSpeedDependentForce</a></p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

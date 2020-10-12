@@ -1,0 +1,103 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modelica: Media.IdealGases.Common.SingleGasNasa.isentropicEnthalpyApproximation</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="Modelica.html">Modelica</a></li>
+  <li><a href="Modelica.Media.html">Media</a></li>
+  <li><a href="Modelica.Media.IdealGases.html">IdealGases</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.html">Common</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.html">SingleGasNasa</a></li>
+  <li><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.isentropicEnthalpyApproximation.html">isentropicEnthalpyApproximation</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>isentropicEnthalpyApproximation</h1>
+    <p>Approximate method of calculating h_is from upstream properties and downstream pressure</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/Modelica.Media.IdealGases.Common.SingleGasNasa.isentropicEnthalpyApproximation_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="syntax" >
+  <h1>Syntax </h1>
+  <div class="hideable">h_is = isentropicEnthalpyApproximation(p2, state, exclEnthForm, refChoice, h_off)
+  </div>
+</section>
+<section id="input" >
+  <h1>Inputs <span class="count">(5)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>p2</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.Pressure.html">Pressure</a> (Pa)</p>
+        <p><span>Description:</span> Downstream pressure</p>
+      </td>
+    </tr>
+    <tr>
+      <th>state</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Media.IdealGases.Common.SingleGasNasa.ThermodynamicState.html">ThermodynamicState</a></p>
+        <p><span>Description:</span> Properties at upstream location</p>
+      </td>
+    </tr>
+    <tr>
+      <th>exclEnthForm</th>
+      <td>
+        <p><span>Default Value:</span> Functions.excludeEnthalpyOfFormation</p>
+        <p><span>Type:</span> Boolean</p>
+        <p><span>Description:</span> If true, enthalpy of formation Hf is not included in specific enthalpy h</p>
+      </td>
+    </tr>
+    <tr>
+      <th>refChoice</th>
+      <td>
+        <p><span>Default Value:</span> Functions.referenceChoice</p>
+        <p><span>Type:</span> <a href="Modelica.Media.Interfaces.Choices.ReferenceEnthalpy.html">ReferenceEnthalpy</a></p>
+        <p><span>Description:</span> Choice of reference enthalpy</p>
+      </td>
+    </tr>
+    <tr>
+      <th>h_off</th>
+      <td>
+        <p><span>Default Value:</span> Functions.h_offset</p>
+        <p><span>Type:</span> <a href="Modelica.Media.IdealGases.Common.SingleGasNasa.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> User defined offset for reference enthalpy, if referenceChoice = UserDefined</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+<section id="output" >
+  <h1>Outputs <span class="count">(1)</span></h1>
+  <div class="hideable">
+    <table class="shared-styles style-1">
+    <colgroup><col class="col-1" /><col class="col-2" /></colgroup>
+    <tbody>
+    <tr>
+      <th>h_is</th>
+      <td>
+        <p><span>Type:</span> <a href="Modelica.Units.SI.SpecificEnthalpy.html">SpecificEnthalpy</a> (J/kg)</p>
+        <p><span>Description:</span> Isentropic enthalpy</p>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+</div>
+</body>
+</html>

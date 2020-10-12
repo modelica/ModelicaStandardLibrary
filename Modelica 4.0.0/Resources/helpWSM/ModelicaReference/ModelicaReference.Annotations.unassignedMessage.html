@@ -1,0 +1,64 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ModelicaReference: Annotations.unassignedMessage</title>
+  <link rel=stylesheet type=text/css href="resources/documentation.css">
+  <script src="resources/jquery.min.js"></script>
+  <script src="resources/scripts.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<nav>
+  <ul class="cf">
+    <li><a href="https://www.wolfram.com/system-modeler/">System Modeler</a></li>
+  <li><a href="ModelicaReference.html">ModelicaReference</a></li>
+  <li><a href="ModelicaReference.Annotations.html">Annotations</a></li>
+  <li><a href="ModelicaReference.Annotations.unassignedMessage.html">unassignedMessage</a></li>
+  </ul>
+</nav>
+<header>
+  <table><tr><td>
+    <h1>unassignedMessage</h1>
+    <p>unassignedMessage</p>
+  </td><td>
+    <div><img width="60" height="60" src="resources/icons/ModelicaReference.Annotations.unassignedMessage_60x60.png"></div>
+  </td></tr></table>
+</header>
+<section id="information">
+<h1>Information</h1>
+<div class="hideable">
+<p class="aside">This information is part of the Modelica Standard Library maintained by the Modelica Association.</p>
+<p>
+Error message, if variable is not assigned
+</p>
+
+<h4>Examples</h4>
+
+<blockquote><pre><strong>connector</strong> Frame "Frame of a mechanical system"
+    ...
+  <strong>flow</strong> Modelica.Units.SI.Force f[3] <strong>annotation</strong>(unassignedMessage =
+"All Forces cannot be uniquely calculated. The reason could be that the
+mechanism contains a planar loop or that joints constrain the same motion.
+For planar loops, use in one revolute joint per loop the option
+PlanarCutJoint=true in the Advanced menu.
+");
+<strong>end</strong> Frame;
+</pre></blockquote>
+
+<h4>Syntax</h4>
+
+<blockquote><pre>
+   <strong>annotation</strong>"(" unassignedMessage "=" STRING ")"
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+When the variable to which this annotation is attached in the declaration cannot be computed due to the structure of the equations, the string message can be used as a diagnostic message. When using BLT partitioning, this means if a variable "a" or one of its aliases "b = a", "b = -a", cannot be assigned, the message is displayed. This annotation is used to provide library specific error messages.
+</p>
+</div>
+</section>
+</div>
+</body>
+</html>
