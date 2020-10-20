@@ -8302,7 +8302,7 @@ end BridgmansTablesForWater;
     by <a href=\"mailto:Martin.Otter@DLR.de\">Martin Otter</a>:<br>
     Designed and implemented.</li>
 <li><em>August 12, 2008</em>
-    by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br>
+    by <a href=\"https://github.com/sielemann\">Michael Sielemann</a>:<br>
     Minor modification to cover the limit case <code>x_small -> 0</code> without division by zero.</li>
 </ul>
 </html>", info="<html>
