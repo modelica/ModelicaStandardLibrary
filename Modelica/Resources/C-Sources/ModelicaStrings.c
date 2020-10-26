@@ -114,7 +114,7 @@ _Ret_z_ const char* ModelicaStrings_substring(_In_z_ const char* string,
     /* Check arguments */
     if (startIndex < 1) {
         ModelicaFormatWarning("Non-positive startIndex (= %d) of Utilities.Strings.substring "
-                              "was set to 1.", startIndex);
+                              "was set to 1.\n", startIndex);
         startIndex = 1;
     }
     else if (startIndex > len) {
@@ -122,7 +122,7 @@ _Ret_z_ const char* ModelicaStrings_substring(_In_z_ const char* string,
     }
     if (endIndex < 0) {
         ModelicaFormatWarning("Negative endIndex (= %d) of Utilities.Strings.substring "
-                              "was set to %d.", endIndex, startIndex);
+                              "was set to %d.\n", endIndex, startIndex);
         endIndex = startIndex;
     }
     else if (endIndex < startIndex) {
