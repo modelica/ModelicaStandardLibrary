@@ -254,7 +254,7 @@ end FileSystem;
       input Integer mon "Month";
       input Integer year "Year";
       input Integer epoch_year = 1970 "Reference year";
-      output Real seconds "Elapsed seconds since epoch_year in the current time zone";
+      output Real seconds "Elapsed seconds since start of epoch_year in the current time zone";
       external "C" seconds = ModelicaTime_difftime(ms, sec, min, hour, day, mon, year, epoch_year)
         annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.c\"");
       annotation (Documentation(info="<html>
