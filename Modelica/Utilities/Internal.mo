@@ -370,7 +370,7 @@ TODO
       output Integer day "Day";
       output Integer mon "Month";
       output Integer year "Year";
-      external "C99" ModelicaTime_strptime(ms, sec, min, hour, day, mon, year, str, format)
+      external "C" ModelicaTime_strptime(ms, sec, min, hour, day, mon, year, str, format)
         annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.c\"");
       annotation (Documentation(info="<html>
 TODO
@@ -389,7 +389,7 @@ TODO
       input String format = "%Y-%m-%d %H:%M:%S" "Format string passed to strftime";
       input Integer maxSize = 128 "Maximal length of formatted string";
       output String str "Formatted date and time string";
-      external "C99" str = ModelicaTime_strftime(ms, sec, min, hour, day, mon, year, format, maxSize)
+      external "C" str = ModelicaTime_strftime(ms, sec, min, hour, day, mon, year, format, maxSize)
         annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaTime.c\"");
       annotation (Documentation(info="<html>
 TODO
