@@ -79,8 +79,8 @@ Basic model for Coulomb friction that models the stuck phase in a reliable way.
 <p>
 This procedure is implemented in a&nbsp;&quot;clean&quot; way
 by state events and leads to a&nbsp;mixed continuous/discrete
-systems of equations if friction elements are dynamically coupled
-which have to be solved by appropriate numerical methods.
+system of equations if friction elements are dynamically coupled
+which has to be solved by appropriate numerical methods.
 The method is described in [Otter1999]
 (see also a&nbsp;short sketch in
 <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>).
