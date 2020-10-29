@@ -32,8 +32,6 @@ Math.nearestInteger(0.4);                     // = 0
 Math.nearestInteger(0.5);                     // = 1
 Math.nearestInteger(-0.4);                    // = 0
 Math.nearestInteger(-0.5);                    // = -1
-Math.nearestInteger(0.3999999999999999+0.1);  // = 0
-Math.nearestInteger(1.39999999999999999+0.1); // = 1 (erroneous border case, see note below)
 </pre></blockquote>
 
 <h4>Note</h4>
@@ -41,10 +39,6 @@ Math.nearestInteger(1.39999999999999999+0.1); // = 1 (erroneous border case, see
 <p>
 This function does the same conversion as the block
 <a href=\"modelica://Modelica.Blocks.Math.RealToInteger\">RealToInteger</a>.
-</p>
-<p>
-The underlying equation is simple, but not always correct. Due to floating point arithmetic some border cases
-are not converted correct, like shown in the example above.
 </p>
 </html>"));
 end nearestInteger;
