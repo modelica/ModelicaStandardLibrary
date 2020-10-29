@@ -445,7 +445,7 @@ extends Modelica.Icons.ExamplesPackage;
     extends Modelica.Icons.Function;
 
     input String logFile="ModelicaTestLog.txt" "Filename where the log is stored";
-    input Boolean test_past = true "Optionally run / skip tests for DateTimes before epoch year 1970";
+    input Boolean test_past = false "Optionally run / skip tests for DateTimes before epoch year 1970";
     output Boolean ok;
 
   protected
@@ -454,7 +454,7 @@ extends Modelica.Icons.ExamplesPackage;
     DateTime act_dt, ref_dt;
     DateTime dt0, dt1, dt2, dt3;
     Duration d;
-    Integer _ "Dummy to swallow return value";
+    Integer rc "Dummy return value";
 
   algorithm
 
@@ -636,8 +636,8 @@ extends Modelica.Icons.ExamplesPackage;
 
     // compare two DateTime records created from system time. dt2 should be a few seconds later than dt1
     dt1 :=DateTime();
-    _ :=Modelica.Utilities.System.command("sleep 1") "Sleep 1s on linux";
-    _ :=Modelica.Utilities.System.command("ping -n 2 127.0.0.1 > NUL") "Sleep 1s on windows";
+    rc :=Modelica.Utilities.System.command("sleep 1") "Sleep 1s on linux";
+    rc :=Modelica.Utilities.System.command("ping -n 2 127.0.0.1 > NUL") "Sleep 1s on windows";
     dt2 :=DateTime();
 
     assert(  (dt2 > dt1) and (DateTime.epoch(dt2)-DateTime.epoch(dt1) < 5),
@@ -693,8 +693,8 @@ extends Modelica.Icons.ExamplesPackage;
     dt0 := DateTime("2020-04-20 04:30:00");
     d := Duration(days=11, hours=2, minutes=3, seconds=100, milliseconds=0);
     ref_dt := DateTime("2020-05-01 06:34:40");
-    assert(dt0+d==ref_dt,  "DateTime+Duration failed");
-    assert(d+dt0==ref_dt,  "Duration+DateTime failed");
+    assert(dt0+d==ref_dt, "DateTime+Duration failed");
+    assert(d+dt0==ref_dt, "Duration+DateTime failed");
 
     // - subtract DateTime
     assert(dt2-dt1==Duration(days=0, hours=0, minutes=0, seconds=0, milliseconds=1),  "dt2-dt1 failed");
@@ -703,7 +703,7 @@ extends Modelica.Icons.ExamplesPackage;
     // - subtract Duration
     act_dt := DateTime("2020-04-20 04:30:00") - Duration(days=10, hours=2, minutes=3, seconds=4, milliseconds=0);
     ref_dt := DateTime("2020-04-10 02:26:56");
-    assert(act_dt==ref_dt,  "DateTime-Duration failed");
+    assert(act_dt==ref_dt, "DateTime-Duration failed");
 
     // return result
     ok := true;
