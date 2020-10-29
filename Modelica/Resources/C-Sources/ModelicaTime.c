@@ -49,20 +49,20 @@
 
 #if !defined(NO_TIME)
 time_t epoch(int sec, int min, int hour, int mday, int mon, int year) {
-    struct tm tlocal;
+    struct tm tres;
     time_t calendarTime;
 
-    tlocal.tm_sec = sec;
-    tlocal.tm_min = min;
-    tlocal.tm_hour = hour;
-    tlocal.tm_mday = mday;
-    tlocal.tm_mon = mon - 1;
-    tlocal.tm_year = year - 1900;
-    tlocal.tm_isdst = -1;
-    tlocal.tm_wday = 0;
-    tlocal.tm_yday = 0;
+    tres.tm_sec = sec;
+    tres.tm_min = min;
+    tres.tm_hour = hour;
+    tres.tm_mday = mday;
+    tres.tm_mon = mon - 1;
+    tres.tm_year = year - 1900;
+    tres.tm_isdst = -1;
+    tres.tm_wday = 0;
+    tres.tm_yday = 0;
 
-    calendarTime = mktime(&tlocal);
+    calendarTime = mktime(&tres);
     if (-1 == calendarTime) {
         ModelicaFormatError("Not possible to convert \"%4i-%02i-%02i %02i:%02i:%02i\" "
             "to time_t type in local time zone.\n", year, mon, mday, hour, min, sec);
@@ -116,12 +116,12 @@ void ModelicaTime_localtime(_Out_ int* ms, _Out_ int* sec, _Out_ int* min,
     *mon  = 0;
     *year = 0;
 #else
-    struct tm* tlocal;
+    struct tm tres;
     time_t calendarTime;
     double intPartOfSeconds;
     double fracPartOfSeconds;
-#if defined(_POSIX_) || (defined(_MSC_VER) && _MSC_VER >= 1400)
-    struct tm tres;
+#if !defined(_POSIX_) && !(defined(_MSC_VER) && _MSC_VER >= 1400)
+    struct tm* tlocal;
 #endif
 
     fracPartOfSeconds = modf(seconds, &intPartOfSeconds);
@@ -136,22 +136,22 @@ void ModelicaTime_localtime(_Out_ int* ms, _Out_ int* sec, _Out_ int* min,
     }
 
 #if defined(_POSIX_)
-    tlocal = localtime_r(&calendarTime, &tres); /* Time fields in local time zone */
+    localtime_r(&calendarTime, &tres);          /* Time fields in local time zone */
 #elif defined(_MSC_VER) && _MSC_VER >= 1400
     localtime_s(&tres, &calendarTime);          /* Time fields in local time zone */
-    tlocal = &tres;
 #else
     tlocal = localtime(&calendarTime);          /* Time fields in local time zone */
+    tres = *tlocal;
 #endif
 
     /* Do not memcpy as you do not know which sizes are in the struct */
     *ms = (int)(fracPartOfSeconds*1000.0 + 0.5);
-    *sec = tlocal->tm_sec;
-    *min = tlocal->tm_min;
-    *hour = tlocal->tm_hour;
-    *mday = tlocal->tm_mday;
-    *mon = 1 + tlocal->tm_mon;      /* Correct for month starting at 1 */
-    *year = 1900 + tlocal->tm_year; /* Correct for 4-digit year */
+    *sec = tres.tm_sec;
+    *min = tres.tm_min;
+    *hour = tres.tm_hour;
+    *mday = tres.tm_mday;
+    *mon = 1 + tres.tm_mon;      /* Correct for month starting at 1 */
+    *year = 1900 + tres.tm_year; /* Correct for 4-digit year */
 #endif
 }
 
@@ -162,21 +162,21 @@ _Ret_z_ const char* ModelicaTime_strftime(int ms, int sec, int min, int hour,
 #if defined(NO_TIME)
     return "";
 #else
-    struct tm* tlocal;
+    struct tm tres;
     const size_t maxSize = (size_t)_maxSize;
     char* timePtr = ModelicaAllocateString(maxSize);
     time_t calendarTime = epoch(sec, min, hour, mday, mon, year);
-#if defined(_POSIX_) || (defined(_MSC_VER) && _MSC_VER >= 1400)
-    struct tm tres;
+#if !defined(_POSIX_) && !(defined(_MSC_VER) && _MSC_VER >= 1400)
+    struct tm* tlocal;
 #endif
 
 #if defined(_POSIX_)
-    tlocal = localtime_r(&calendarTime, &tres); /* Time fields in local time zone */
+    localtime_r(&calendarTime, &tres);          /* Time fields in local time zone */
 #elif defined(_MSC_VER) && _MSC_VER >= 1400
     localtime_s(&tres, &calendarTime);          /* Time fields in local time zone */
-    tlocal = &tres;
 #else
     tlocal = localtime(&calendarTime);          /* Time fields in local time zone */
+    tres = *tlocal;
 #endif
 
     {
@@ -196,17 +196,17 @@ _Ret_z_ const char* ModelicaTime_strftime(int ms, int sec, int min, int hour,
 #if !defined(NO_LOCALE) && (defined(_MSC_VER) && _MSC_VER >= 1400)
         {
             _locale_t loc = _create_locale(LC_TIME, "C");
-            retLen = _strftime_l(timePtr, maxSize, format2, tlocal, loc);
+            retLen = _strftime_l(timePtr, maxSize, format2, &tres, loc);
             _free_locale(loc);
         }
 #elif !defined(NO_LOCALE) && (defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3))
         {
             locale_t loc = newlocale(LC_TIME, "C", NULL);
-            retLen = strftime_l(timePtr, maxSize, format2, tlocal, loc);
+            retLen = strftime_l(timePtr, maxSize, format2, &tres, loc);
             freelocale(loc);
         }
 #else
-        retLen = strftime(timePtr, maxSize, format2, tlocal);
+        retLen = strftime(timePtr, maxSize, format2, &tres);
 #endif
         free(format2);
         if (retLen > 0 && retLen <= maxSize) {
@@ -233,19 +233,19 @@ void ModelicaTime_strptime(_Out_ int* ms, _Out_ int* sec, _Out_ int* min,
     *mon  = 0;
     *year = 0;
 #else
-    struct tm tlocal;
+    struct tm tres;
     int tmp = 0;
 
-    memset(&tlocal, 0, sizeof(struct tm));
-    if (NULL != strptime_ms(buf, format, &tlocal, &tmp)) {
+    memset(&tres, 0, sizeof(struct tm));
+    if (NULL != strptime_ms(buf, format, &tres, &tmp)) {
         /* Do not memcpy as you do not know which sizes are in the struct */
         *ms = tmp;
-        *sec = tlocal.tm_sec;
-        *min = tlocal.tm_min;
-        *hour = tlocal.tm_hour;
-        *mday = tlocal.tm_mday;
-        *mon = 1 + tlocal.tm_mon;      /* Correct for month starting at 1 */
-        *year = 1900 + tlocal.tm_year; /* Correct for 4-digit year */
+        *sec = tres.tm_sec;
+        *min = tres.tm_min;
+        *hour = tres.tm_hour;
+        *mday = tres.tm_mday;
+        *mon = 1 + tres.tm_mon;      /* Correct for month starting at 1 */
+        *year = 1900 + tres.tm_year; /* Correct for 4-digit year */
     }
     else {
         *ms   = 0;
