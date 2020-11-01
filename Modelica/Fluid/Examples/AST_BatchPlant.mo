@@ -587,38 +587,11 @@ Documentation for this example can be found on the <a href=\"modelica://Modelica
      alt=\"BatchPlant_StandardWater.png\">
 </div>
 </html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=false,extent={{-200,-280},{200,
-              280}})));
+      Diagram(coordinateSystem(preserveAspectRatio=false,extent={{-200,-280},{200,280}})));
   end BatchPlant_StandardWater;
 
   package BaseClasses
     extends Modelica.Icons.BasesPackage;
-
-    block setReal "Set output signal to a time varying Real expression"
-
-      Modelica.Blocks.Interfaces.RealInput u "Set value of Real input"
-        annotation (Dialog(group=
-              "Time varying input signal"), Placement(transformation(extent={{
-                -140,-20},{-100,20}})));
-
-      annotation (
-        Icon(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}}), graphics={
-            Rectangle(
-              extent={{-100,40},{100,-40}},
-              fillColor={235,235,235},
-              fillPattern=FillPattern.Solid,
-              borderPattern=BorderPattern.Raised),
-            Text(
-              extent={{-96,15},{96,-15}},
-              textString="%u"),
-            Text(extent={{-150,90},{140,50}}, textString="%name")}),
-        Documentation(info="<html>
-
-</html>"));
-
-    end setReal;
 
     model TankWith3InletOutletArraysWithEvaporatorCondensor
       "Tank with Heating and Evaporation"
@@ -660,7 +633,7 @@ Documentation for this example can be found on the <a href=\"modelica://Modelica
       parameter Medium.AbsolutePressure p_ambient=101325
         "Tank surface pressure";
       parameter Medium.Temperature T_ambient=293.15 "Tank surface Temperature";
-      parameter Integer n_TopPorts=1 "Number of Top connectors";
+      parameter Integer n_TopPorts=1 "Number of top connectors";
       parameter Integer n_SidePorts=1 "Number of side connectors";
       parameter Integer n_BottomPorts=1 "Number of bottom connectors";
       Medium.BaseProperties medium(
@@ -2252,7 +2225,7 @@ Implemented trace substances and missing equation for outflow of multi substance
   annotation (preferredView="info",Documentation(info="<html>
 <p>
 The process under consideration is an evaporation plant for a
-student lab at the Process Control Laboratory (AST) of the
+student lab at the Process Control Laboratory (AST for \"Anlagensteuerungstechnik\" in German) of the
 University of Dortmund that evaporates a water sodium chloride
 mixture so that a higher concentrated solution is produced.
 The task of the students is to learn how to program the process
