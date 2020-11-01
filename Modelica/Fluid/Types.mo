@@ -320,7 +320,7 @@ ModelStructure.a_vb).
   type CheckValveHomotopyType = enumeration(Open, Closed, NoHomotopy)
    "Enumeration with choices for check valve homotopy"
     annotation (Documentation(info="<html>
-    <p>If it is know whether the check valve will start open or closed this can simplify the initialization.</p>
+    <p>If it is known whether the check valve will start open or closed this can simplify the initialization.</p>
     <p>The choice <strong>NoHomotopy</strong> is useful if nothing is known for the check valve.</p>
     </html>"));
 
