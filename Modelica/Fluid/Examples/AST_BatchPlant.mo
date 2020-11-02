@@ -1,6 +1,6 @@
 within Modelica.Fluid.Examples;
 package AST_BatchPlant
-  "Model of the experimental batch plant at Process Control Laboratory at University of Dortmund (Prof. Engell)"
+  "Model of the experimental batch plant at the Process Dynamics and Operations Group (DYN) at University of Dortmund (Prof. Engell)"
   extends Modelica.Icons.ExamplesPackage;
 
   model BatchPlant_StandardWater "Model of an experimental batch plant"
@@ -2178,7 +2178,7 @@ Implemented trace substances and missing equation for outflow of multi substance
         level_start=1,
         stiffCharacteristicForEmptyPort = stiffCharacteristicForEmptyPort)
         annotation (Placement(transformation(extent={{-20,10},{20,50}})));
-      Pipes.StaticPipe pipe1(         redeclare package Medium = Medium,
+      Pipes.StaticPipe pipe1(redeclare package Medium = Medium,
           height_ab=2,
         length=2,
         diameter=0.1) annotation (Placement(transformation(
@@ -2210,8 +2210,7 @@ Implemented trace substances and missing equation for outflow of multi substance
               70,45},{70,49}}, color={0,127,255}));
       connect(pipe2.port_a, tank3.ports[2]) annotation (Line(points={{
               0,-32},{0,-48},{0,-60},{-58,-60},{-58,-51}}, color={0,127,255}));
-      connect(pipe3.port_a, tank3.topPorts[1])
-                                              annotation (Line(points={{-60,0},
+      connect(pipe3.port_a, tank3.topPorts[1]) annotation (Line(points={{-60,0},
               {-60,-5},{-60,-9}}, color={0,127,255}));
       connect(pipe3.port_b, tank2.ports[1]) annotation (Line(points={{-60,20},{
               -60,26},{-30,26},{-30,0},{-2,0},{-2,9},{-2.66667,9}}, color={0,127,255}));
@@ -2225,7 +2224,7 @@ Implemented trace substances and missing equation for outflow of multi substance
   annotation (preferredView="info",Documentation(info="<html>
 <p>
 The process under consideration is an evaporation plant for a
-student lab at the Process Control Laboratory (AST for \"Anlagensteuerungstechnik\" in German) of the
+student lab at the Process Dynamics and Operations Group (DYN) (previously: Chair of \"Anlagensteuerungstechnik\" (AST)) of the
 University of Dortmund that evaporates a water sodium chloride
 mixture so that a higher concentrated solution is produced.
 The task of the students is to learn how to program the process
@@ -2255,7 +2254,7 @@ evaporator B5. Here the water sodium chloride mixture
 is evaporated until the desired concentration is reached.
 The steam is condensed in the condenser K1 and cooled
 afterwards in the cooling tank B6. The concentrated
- solution is also led to a cooling tank B7. The cooled
+solution is also led to a cooling tank B7. The cooled
 fluids are pumped back to the charging vessels by the
 pumps P1 and P2. Between the tanks several valves are
 present that are regulated by a central control system.
