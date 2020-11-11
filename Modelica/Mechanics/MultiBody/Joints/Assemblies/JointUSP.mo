@@ -398,9 +398,9 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           extent={{-100,-30},{-40,30}},
           startAngle=90,
           endAngle=270,
-          lineColor={0,0,0},
+          lineColor={64,64,64},
           fillColor={192,192,192},
-          fillPattern=FillPattern.Sphere,
+          fillPattern=FillPattern.Solid,
           closure=EllipseClosure.Radial),
         Ellipse(
           extent={{-94,-24},{-46,24}},
@@ -413,7 +413,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           extent={{-94,-24},{-46,24}},
           startAngle=90,
           endAngle=270,
-          lineColor={0,0,0},
+          lineColor={64,64,64},
           closure=EllipseClosure.None),
         Rectangle(
           extent={{-50,5},{-10,-5}},
@@ -428,10 +428,11 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           thickness=0.5),
         Ellipse(
           extent={{-92,-14},{-48,14}},
-          fillPattern=FillPattern.Sphere,
+          fillPattern=FillPattern.Solid,
           fillColor={192,192,192},
           startAngle=-123,
-          endAngle=57),
+          endAngle=57,
+          lineColor={64,64,64}),
         Line(
           points={{-50,0},{-50,80},{-80,80},{-80,100}},
           color={95,95,95},
@@ -482,10 +483,6 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           extent={{40,110},{77,90}},
           textColor={128,128,128},
           textString="ib"),
-        Text(
-          extent={{-140,-45},{140,-70}},
-          textColor={0,0,255},
-          textString="%name"),
         Ellipse(
           extent={{-86,-8},{-54,8}},
           lineColor={255,255,255},
@@ -495,7 +492,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           endAngle=360),
         Ellipse(
           extent={{-86,-8},{-54,8}},
-          lineColor={95,95,95},
+          lineColor={64,64,64},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           startAngle=-114,
@@ -506,7 +503,11 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           thickness=0.5),
         Line(
           points={{-56,14},{-84,-14}},
-          thickness=0.5)}),
+          thickness=0.5),
+        Text(
+          extent={{-140,-45},{140,-70}},
+          textColor={0,0,255},
+          textString="%name")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},

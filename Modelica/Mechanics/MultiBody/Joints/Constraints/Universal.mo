@@ -91,12 +91,13 @@ equation
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
         Rectangle(
-          extent={{-100,11},{100,-10}},
+          extent={{-100,10},{100,-10}},
           fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={235,235,235}),
+          fillColor={192,192,192},
+          lineColor={0,0,0}),
         Ellipse(
           extent={{-80,-80},{80,80}},
-          lineColor={160,160,164},
+          lineColor={64,64,64},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid,
           startAngle=90,
@@ -114,13 +115,13 @@ equation
           thickness=0.5),
         Ellipse(
           extent={{-60,-60},{60,60}},
-          lineColor={160,160,164},
+          lineColor={64,64,64},
           startAngle=90,
           endAngle=270,
           closure=EllipseClosure.None),
         Ellipse(
           extent={{-70,-40},{70,40}},
-          lineColor={160,160,164},
+          lineColor={64,64,64},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid,
           startAngle=-120,
@@ -130,12 +131,6 @@ equation
           lineColor={255,255,255},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
-        Line(
-          points={{40,40},{-40,-40}},
-          thickness=0.5),
-        Line(
-          points={{0,72},{0,-20}},
-          thickness=0.5),
         Text(
           extent={{-100,-70},{100,-100}},
           textColor={95,95,95},
@@ -167,18 +162,30 @@ equation
           textString="lock: y, z",
           visible=not x_locked and y_locked and z_locked),
         Text(
-          extent={{-100,-76},{100,-106}},
+          extent={{-100,-80},{100,-110}},
           textColor={95,95,95},
           textString="lock: x, y, z",
           visible=x_locked and y_locked and z_locked),
-        Text(
-          extent={{-150,120},{150,80}},
-          textColor={0,0,255},
-          textString="%name"),
+        Ellipse(
+          extent={{-50,-22},{50,24}},
+          lineColor={64,64,64},
+          startAngle=-113,
+          endAngle=63,
+          closure=EllipseClosure.None),
+        Line(
+          points={{40,40},{-40,-40}},
+          thickness=0.5),
+        Line(
+          points={{0,72},{0,-20}},
+          thickness=0.5),
         Line(
           points={{-81,-66},{-23,25},{40,-39},{97,71}},
           color={255,0,0},
-          thickness=0.5)}),
+          thickness=0.5),
+        Text(
+          extent={{-150,120},{150,80}},
+          textColor={0,0,255},
+          textString="%name")}),
     Documentation(info="<html>
 <p>This model does not use explicit variables e.g. state variables in order to describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
 <p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
