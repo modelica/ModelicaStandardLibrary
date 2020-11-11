@@ -147,7 +147,7 @@ equation
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
         Line(
-          points={{-81,-66},{-23,25},{40,-39},{97,71}},
+          points={{-90,-70},{-25,30},{25,-30},{90,70}},
           color={255,0,0},
           thickness=0.5),
         Text(
