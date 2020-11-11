@@ -93,8 +93,7 @@ equation
         Rectangle(
           extent={{-100,10},{100,-10}},
           fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={192,192,192},
-          lineColor={0,0,0}),
+          fillColor={192,192,192}),
         Ellipse(
           extent={{-80,-80},{80,80}},
           lineColor={64,64,64},

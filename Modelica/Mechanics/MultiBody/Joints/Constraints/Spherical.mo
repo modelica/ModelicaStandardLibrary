@@ -92,6 +92,10 @@ equation
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
+        Rectangle(
+          extent={{-100,10},{100,-10}},
+          fillPattern=FillPattern.HorizontalCylinder,
+          fillColor={192,192,192}),
         Text(
           extent={{-100,-70},{100,-100}},
           textColor={95,95,95},
@@ -122,14 +126,6 @@ equation
           textColor={95,95,95},
           textString="lock: y, z",
           visible=not x_locked and y_locked and z_locked),
-        Rectangle(
-          extent={{-96,10},{-64,-10}},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={192,192,192}),
-        Rectangle(
-          extent={{2,10},{104,-10}},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={192,192,192}),
         Ellipse(
           extent={{-70,-70},{70,70}},
           fillPattern=FillPattern.Sphere,
@@ -146,10 +142,6 @@ equation
           startAngle=55,
           endAngle=305),
         Ellipse(
-          extent={{-24,25},{26,-25}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
-        Ellipse(
           extent={{-50,-50},{50,50}},
           startAngle=60,
           endAngle=300,
@@ -157,6 +149,15 @@ equation
           closure=EllipseClosure.None,
           fillColor={0,0,0},
           fillPattern=FillPattern.Solid),
+        Text(
+          extent={{-100,-70},{100,-100}},
+          textColor={95,95,95},
+          textString="lock: x, y, z",
+          visible=x_locked and y_locked and z_locked),
+        Ellipse(
+          extent={{-25,25},{25,-25}},
+          fillPattern=FillPattern.Sphere,
+          fillColor={192,192,192}),
         Line(
           points={{-81,-66},{-23,25},{40,-39},{97,71}},
           color={255,0,0},
@@ -164,12 +165,7 @@ equation
         Text(
           extent={{-150,120},{150,80}},
           textColor={0,0,255},
-          textString="%name"),
-        Text(
-          extent={{-100,-70},{100,-100}},
-          textColor={95,95,95},
-          textString="lock: x, y, z",
-          visible=x_locked and y_locked and z_locked)}),
+          textString="%name")}),
     Documentation(info="<html>
 <p>This model does not use explicit variables e.g. state variables in order to describe the relative motion of frame_b with to respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
 <p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>

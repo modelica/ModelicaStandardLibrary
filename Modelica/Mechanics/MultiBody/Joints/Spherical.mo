@@ -239,7 +239,7 @@ frame_b of the joint.
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
         Rectangle(
-          extent={{-100,10},{-68,-10}},
+          extent={{-100,10},{100,-10}},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={192,192,192}),
         Ellipse(
@@ -258,20 +258,16 @@ frame_b of the joint.
           closure=EllipseClosure.Radial,
           startAngle=55,
           endAngle=305),
-        Rectangle(
-          extent={{23,10},{100,-10}},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={192,192,192}),
-        Ellipse(
-          extent={{-24,25},{26,-25}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
         Ellipse(
           extent={{-50,-50},{50,50}},
           startAngle=60,
           endAngle=300,
           lineColor={128,128,128},
           closure=EllipseClosure.None),
+        Ellipse(
+          extent={{-25,25},{25,-25}},
+          fillPattern=FillPattern.Sphere,
+          fillColor={192,192,192}),
         Text(
           extent={{-150,120},{150,80}},
           textString="%name",
