@@ -369,6 +369,10 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         extent={{-100,-100},{100,100}},
         initialScale=0.2), graphics={
         Rectangle(
+          extent={{72,10},{88,-10}},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
+        Rectangle(
           extent={{10,6},{61,-6}},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={192,192,192}),
@@ -426,14 +430,11 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           extent={{85,-30},{100,30}},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={192,192,192}),
-        Rectangle(
-          extent={{76,10},{85,-10}},
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Solid),
+
         Rectangle(extent={{60,30},{76,-30}}),
         Rectangle(extent={{85,30},{100,-30}}),
         Line(
-          points={{60,30},{60,80},{80,80},{80,100}},
+          points={{68,30},{68,80},{80,80},{80,100}},
           color={95,95,95},
           thickness=0.5),
         Line(

@@ -254,6 +254,10 @@ component).
         extent={{-100,-100},{100,100}},
         initialScale=0.2), graphics={
         Rectangle(
+          extent={{72,10},{88,-10}},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
+        Rectangle(
           extent={{8,6},{61,-6}},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={192,192,192}),
@@ -307,10 +311,6 @@ component).
           extent={{85,-30},{100,30}},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={192,192,192}),
-        Rectangle(
-          extent={{76,10},{85,-10}},
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Solid),
         Rectangle(extent={{60,30},{76,-30}}),
         Rectangle(extent={{85,30},{100,-30}}),
         Line(
