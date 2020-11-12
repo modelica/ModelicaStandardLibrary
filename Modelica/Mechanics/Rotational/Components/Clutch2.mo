@@ -48,7 +48,7 @@ equation
     else                             {-1,-1};
   table.u = table_signs[1]*w_rel;
   mu = table_signs[2]*table.y[1];
-  tau = if locked then sa*unitTorque elseif free then 0 else cgeo*fn*mu;
+  tau = if locked then sa*unitTorque elseif free then 0 else mu*cgeo*fn;
 
   lossPower = tau*w_relfric;
   annotation (defaultComponentName="clutch", Icon(
