@@ -41,14 +41,11 @@ equation
   tau0_max = peak*tau0;
 
   // Friction torque
-  table_signs = if startForward then
-      {1,1}
-    elseif startBackward then
-      {1,-1}
-    elseif pre(mode) == Forward then
-      {1,1}
-    else
-      {-1,-1};
+  table_signs =
+    if     startForward         then { 1, 1}
+    elseif startBackward        then { 1,-1}
+    elseif pre(mode) == Forward then { 1, 1}
+    else                             {-1,-1};
   table.u = table_signs[1]*w_rel;
   mu = table_signs[2]*table.y[1];
   tau = if locked then sa*unitTorque elseif free then 0 else cgeo*fn*mu;
