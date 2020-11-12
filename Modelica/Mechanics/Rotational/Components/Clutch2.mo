@@ -14,6 +14,7 @@ model Clutch2 "Clutch based on Coulomb friction (with interpolation based on Com
   extends Rotational.Interfaces.PartialFriction;
   extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
 
+  Real mu "Friction coefficient";
   SI.Force fn "Normal force (fn=fn_max*f_normalized)";
   Modelica.Blocks.Interfaces.RealInput f_normalized
     "Normalized force signal 0..1 (normal force = fn_max*f_normalized; clutch is engaged if > 0)"
@@ -49,7 +50,9 @@ equation
     else
       {-1,-1};
   table.u = table_signs[1]*w_rel;
-  tau = if locked then sa*unitTorque elseif free then 0 else cgeo*fn*(table_signs[2]*table.y[1]);
+  mu = table_signs[2]*table.y[1];
+  tau = if locked then sa*unitTorque elseif free then 0 else cgeo*fn*mu;
+
   lossPower = tau*w_relfric;
   annotation (defaultComponentName="clutch", Icon(
       coordinateSystem(preserveAspectRatio=true,
