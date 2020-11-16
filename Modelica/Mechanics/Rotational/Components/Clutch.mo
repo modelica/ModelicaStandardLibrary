@@ -1,5 +1,5 @@
 within Modelica.Mechanics.Rotational.Components;
-model Clutch "Clutch based on Coulomb friction"
+model Clutch "Clutch based on Coulomb friction (with interpolation by Modelica.Math.Vectors.interpolate)"
   extends Modelica.Mechanics.Rotational.Icons.Clutch;
   extends
     Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;

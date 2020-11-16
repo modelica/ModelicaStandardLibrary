@@ -1,10 +1,12 @@
 within Modelica.Mechanics.Rotational.Components;
-model Clutch2 "Clutch based on Coulomb friction (with interpolation based on CombiTable1Ds)"
+model Clutch2 "Clutch based on Coulomb friction (with interpolation by ExternalCombiTable1D)"
   extends Modelica.Mechanics.Rotational.Icons.Clutch;
   extends Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;
 
   parameter Real mu_pos[:, 2] = [0, 0.5]
     "Positive sliding friction coefficient [-] as function of w_rel [rad/s] (w_rel>=0)";
+  parameter Modelica.Blocks.Types.Smoothness smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments
+    "Smoothness of table interpolation in mu_pos";
   parameter Real peak(final min=1) = 1
     "Peak for maximum value of mu at w==0 (mu0_max = peak*mu_pos[1,2])";
   parameter Real cgeo(final min=0) = 1
@@ -21,15 +23,26 @@ model Clutch2 "Clutch based on Coulomb friction (with interpolation based on Com
     annotation (Placement(transformation(origin={0,110}, extent={{20,-20},{-20,20}}, rotation=90)));
 
 protected
-  final parameter Real mu0 = Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], 0, 1)
+  final parameter Modelica.Blocks.Types.ExternalCombiTable1D tableID = Modelica.Blocks.Types.ExternalCombiTable1D(
+    tableName="NoName",
+    fileName="NoName",
+    table=mu_pos,
+    columns={2},
+    smoothness=smoothness,
+    extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints,
+    verboseRead=false) "External table object for sliding friction coefficient";
+  final parameter Real mu0 =
+    if     smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then Modelica.Blocks.Tables.Internal.getTable1DValueNoDer(tableID, 1, 0)
+    elseif smoothness == Modelica.Blocks.Types.Smoothness.LinearSegments   then Modelica.Blocks.Tables.Internal.getTable1DValueNoDer2(tableID, 1, 0)
+    else                                                                        Modelica.Blocks.Tables.Internal.getTable1DValue(tableID, 1, 0)
     "Friction coefficient for w=0 and forward sliding" annotation(Evaluate = true);
 
   Real table_signs[2]
     "Signs for sliding friction coefficient table interpolation: [sign for w_rel, sign for mu]";
-  Modelica.Blocks.Tables.CombiTable1Ds table(
-    table=mu_pos) "Sliding friction coefficient table";
 
 equation
+  assert(size(mu_pos, 1) > 0 and size(mu_pos, 2) > 0, "Parameter mu_pos is an empty matrix");
+
   // Relative quantities
   w_relfric = w_rel;
   a_relfric = a_rel;
@@ -46,8 +59,10 @@ equation
     elseif startBackward        then { 1,-1}
     elseif pre(mode) == Forward then { 1, 1}
     else                             {-1,-1};
-  table.u = table_signs[1]*w_rel;
-  mu = table_signs[2]*table.y[1];
+  mu = table_signs[2]*(
+    if     smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then Modelica.Blocks.Tables.Internal.getTable1DValueNoDer(tableID, 1, table_signs[1]*w_rel)
+    elseif smoothness == Modelica.Blocks.Types.Smoothness.LinearSegments   then Modelica.Blocks.Tables.Internal.getTable1DValueNoDer2(tableID, 1, table_signs[1]*w_rel)
+    else                                                                        Modelica.Blocks.Tables.Internal.getTable1DValue(tableID, 1, table_signs[1]*w_rel));
   tau = if locked then sa*unitTorque elseif free then 0 else mu*cgeo*fn;
 
   lossPower = tau*w_relfric;
@@ -100,8 +115,7 @@ frictional_torque = <strong>cgeo</strong> * <strong>mu</strong>(w_rel) * <strong
 <p>
     The positive part of the friction characteristic <strong>mu</strong>(w_rel),
     w_rel >= 0, is defined via table mu_pos (first column = w_rel,
-    second column = mu). Currently, only linear interpolation in
-    the table is supported.
+    second column = mu).
 </p>
 <p>
    When the relative angular velocity becomes zero, the elements
@@ -155,8 +169,9 @@ This model of clutch is slightly different to the
 </p>
 
 <ul>
-<li>The friction coefficient <code>mu0</code> for zero velocity is a constant parameter computed by linear interpolation.</li>
-<li>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Tables.CombiTable1Ds\">CombiTable1Ds</a>.</li>
+<li>The friction coefficient <code>mu0</code> for zero velocity is a constant parameter.</li>
+<li>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</li>
+<li>The interpolation smoothness is available as public parameter.</li>
 </ul>
 
 <p>
