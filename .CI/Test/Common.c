@@ -1,4 +1,5 @@
 #include "../../Modelica/Resources/C-Sources/ModelicaUtilities.h"
+#include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
 
