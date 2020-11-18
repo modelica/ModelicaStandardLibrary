@@ -13,4 +13,5 @@ int main(int argc, char **argv) {
     assert(0 == strcmp("bc", ModelicaStrings_substring("abc",2,3)));
     assert(0 == strcmp("bc", ModelicaStrings_substring("abc",2,4)));
     assert(0 == strcmp("", ModelicaStrings_substring("abc",4,4)));
+    return 0;
 }
