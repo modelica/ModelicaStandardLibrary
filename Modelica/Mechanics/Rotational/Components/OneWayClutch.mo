@@ -1,11 +1,15 @@
 within Modelica.Mechanics.Rotational.Components;
 model OneWayClutch "Parallel connection of freewheel and clutch"
   extends Modelica.Mechanics.Rotational.Icons.Clutch;
-  extends
-    Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;
+  extends Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;
 
-  parameter Real mu_pos[:, 2]=[0, 0.5]
+  import Modelica.Blocks.Types.{ExternalCombiTable1D, Extrapolation, Smoothness};
+  import Modelica.Blocks.Tables.Internal.{getTable1DValue, getTable1DValueNoDer, getTable1DValueNoDer2};
+
+  parameter Real mu_pos[:, 2] = [0, 0.5]
     "Positive sliding friction coefficient [-] as function of w_rel [rad/s] (w_rel>=0)";
+  parameter Smoothness smoothness = Smoothness.LinearSegments
+    "Smoothness of table interpolation in mu_pos";
   parameter Real peak(final min=1) = 1
     "Peak for maximum value of mu at w==0 (mu0_max = peak*mu_pos[1,2])";
   parameter Real cgeo(final min=0) = 1
@@ -14,10 +18,10 @@ model OneWayClutch "Parallel connection of freewheel and clutch"
   parameter SI.AngularVelocity w_small=1e10
     "Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur)"
     annotation (Dialog(tab="Advanced"));
-  extends
-    Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
 
   Real u "Normalized force input signal (0..1)";
+  Real mu "Friction coefficient";
   SI.Force fn "Normal force (fn=fn_max*inPort.signal)";
   Boolean startForward(start=false)
     "= true, if w_rel=0 and start of forward sliding or w_rel > w_small";
@@ -27,15 +31,29 @@ model OneWayClutch "Parallel connection of freewheel and clutch"
 protected
   SI.Torque tau0 "Friction torque for w=0 and sliding";
   SI.Torque tau0_max "Maximum friction torque for w=0 and locked";
-  Real mu0 "Friction coefficient for w=0 and sliding";
+  final parameter ExternalCombiTable1D tableID = ExternalCombiTable1D(
+    tableName="NoName",
+    fileName="NoName",
+    table=mu_pos,
+    columns={2},
+    smoothness=smoothness,
+    extrapolation=Extrapolation.LastTwoPoints,
+    verboseRead=false) "External table object for sliding friction coefficient";
+  final parameter Real mu0 =
+    if     smoothness == Smoothness.ConstantSegments then getTable1DValueNoDer(tableID, 1, 0)
+    elseif smoothness == Smoothness.LinearSegments   then getTable1DValueNoDer2(tableID, 1, 0)
+    else                                                  getTable1DValue(tableID, 1, 0)
+    "Friction coefficient for w=0 and sliding" annotation(Evaluate = true);
   Boolean free "= true, if frictional element is not active";
   Real sa(final unit="1")
     "Path parameter of tau = f(a_rel) Friction characteristic";
   constant Real eps0=1.0e-4 "Relative hysteresis epsilon";
-  SI.Torque tau0_max_low "Lowest value for tau0_max";
+  final parameter SI.Torque tau0_max_low = eps0*mu0*cgeo*fn_max
+    "Lowest value for tau0_max" annotation(Evaluate = true);
   parameter Real peak2=max([peak, 1 + eps0]);
   constant SI.AngularAcceleration unitAngularAcceleration=1;
   constant SI.Torque unitTorque=1;
+
 public
   Modelica.Blocks.Interfaces.RealInput f_normalized
     "Normalized force signal 0..1 (normal force = fn_max*f_normalized; clutch is engaged if > 0)"
@@ -45,9 +63,7 @@ public
         rotation=90)));
 
 equation
-  // Constant auxiliary variable
-  mu0 = Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], 0, 1);
-  tau0_max_low = eps0*mu0*cgeo*fn_max;
+  assert(size(mu_pos, 1) > 0 and size(mu_pos, 2) > 0, "Parameter mu_pos is an empty matrix");
 
   // Normal force and friction torque for w_rel=0
   u = f_normalized;
@@ -66,11 +82,13 @@ equation
      and (w_rel > 0);
   locked = pre(stuck) and not startForward;
 
-  // acceleration and friction torque
-  a_rel = unitAngularAcceleration*(if locked then 0 else sa - tau0/
-    unitTorque);
-  tau = if locked then sa*unitTorque else (if free then 0 else cgeo*fn*
-    Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], w_rel, 1));
+  // Acceleration and friction torque
+  mu =
+    if     smoothness == Smoothness.ConstantSegments then getTable1DValueNoDer(tableID, 1, w_rel)
+    elseif smoothness == Smoothness.LinearSegments   then getTable1DValueNoDer2(tableID, 1, w_rel)
+    else                                                  getTable1DValue(tableID, 1, w_rel);
+  a_rel = unitAngularAcceleration*(if locked then 0 else sa - tau0/unitTorque);
+  tau = if locked then sa*unitTorque elseif free then 0 else mu*cgeo*fn;
 
   // Determine configuration
   stuck = locked or w_rel <= 0;
@@ -152,17 +170,16 @@ where <strong>ri</strong> is the inner radius,
 <p>
 The positive part of the friction characteristic <strong>mu</strong>(w_rel),
 w_rel&nbsp;>=&nbsp;0, is defined via table mu_pos (first column = w_rel,
-second column = mu). Currently, only linear interpolation in
-the table is supported.
+second column = mu).
 </p>
 <p>
 When the relative angular velocity w_rel becomes zero, the elements
 connected by the friction element become stuck, i.e., the relative
 angle remains constant. In this phase the friction torque is
 calculated from a torque balance due to the requirement that
-the relative acceleration shall be zero.  The elements begin
+the relative acceleration shall be zero. The elements begin
 to slide when the friction torque exceeds a threshold value,
-called the  maximum static friction torque, computed via:
+called the maximum static friction torque, computed via:
 </p>
 
 <blockquote><pre>

@@ -13,7 +13,7 @@ model CoupledClutches "Drive train with 3 dynamically coupled clutches"
             -70,-10},{-50,10}})));
   Rotational.Sources.Torque torque(useSupport=true) annotation (Placement(
         transformation(extent={{-100,-10},{-80,10}})));
-  Rotational.Components.Clutch2 clutch1(peak=1.1, fn_max=20) annotation (
+  Rotational.Components.Clutch clutch1(peak=1.1, fn_max=20) annotation (
       Placement(transformation(extent={{-40,-10},{-20,10}})));
   Modelica.Blocks.Sources.Sine sin1(amplitude=10, f=5) annotation (
       Placement(transformation(extent={{-130,-10},{-110,10}})));
@@ -27,14 +27,14 @@ model CoupledClutches "Drive train with 3 dynamically coupled clutches"
     phi(fixed=true, start=0),
     w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-10,
             -10},{10,10}})));
-  Rotational.Components.Clutch2 clutch2(peak=1.1, fn_max=20) annotation (
+  Rotational.Components.Clutch clutch2(peak=1.1, fn_max=20) annotation (
       Placement(transformation(extent={{20,-10},{40,10}})));
   Rotational.Components.Inertia J3(
     J=1,
     phi(fixed=true, start=0),
     w(fixed=true, start=0)) annotation (Placement(transformation(extent={{
             50,-10},{70,10}})));
-  Rotational.Components.Clutch2 clutch3(peak=1.1, fn_max=20) annotation (
+  Rotational.Components.Clutch clutch3(peak=1.1, fn_max=20) annotation (
       Placement(transformation(extent={{80,-10},{100,10}})));
   Rotational.Components.Inertia J4(
     J=1,

@@ -1,11 +1,15 @@
 within Modelica.Mechanics.Rotational.Components;
-model Clutch "Clutch based on Coulomb friction (with interpolation by Modelica.Math.Vectors.interpolate)"
+model Clutch "Clutch based on Coulomb friction"
   extends Modelica.Mechanics.Rotational.Icons.Clutch;
-  extends
-    Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;
+  extends Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;
 
-  parameter Real mu_pos[:, 2]=[0, 0.5]
+  import Modelica.Blocks.Types.{ExternalCombiTable1D, Extrapolation, Smoothness};
+  import Modelica.Blocks.Tables.Internal.{getTable1DValue, getTable1DValueNoDer, getTable1DValueNoDer2};
+
+  parameter Real mu_pos[:, 2] = [0, 0.5]
     "Positive sliding friction coefficient [-] as function of w_rel [rad/s] (w_rel>=0)";
+  parameter Smoothness smoothness = Smoothness.LinearSegments
+    "Smoothness of table interpolation in mu_pos";
   parameter Real peak(final min=1) = 1
     "Peak for maximum value of mu at w==0 (mu0_max = peak*mu_pos[1,2])";
   parameter Real cgeo(final min=0) = 1
@@ -13,21 +17,34 @@ model Clutch "Clutch based on Coulomb friction (with interpolation by Modelica.M
   parameter SI.Force fn_max(final min=0, start=1) "Maximum normal force";
 
   extends Rotational.Interfaces.PartialFriction;
-  extends
-    Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
 
-  Real mu0 "Friction coefficient for w=0 and forward sliding";
+  Real mu "Friction coefficient";
   SI.Force fn "Normal force (fn=fn_max*f_normalized)";
   Modelica.Blocks.Interfaces.RealInput f_normalized
     "Normalized force signal 0..1 (normal force = fn_max*f_normalized; clutch is engaged if > 0)"
-    annotation (Placement(transformation(
-        origin={0,110},
-        extent={{20,-20},{-20,20}},
-        rotation=90)));
+    annotation (Placement(transformation(origin={0,110}, extent={{20,-20},{-20,20}}, rotation=90)));
+
+protected
+  final parameter ExternalCombiTable1D tableID = ExternalCombiTable1D(
+    tableName="NoName",
+    fileName="NoName",
+    table=mu_pos,
+    columns={2},
+    smoothness=smoothness,
+    extrapolation=Extrapolation.LastTwoPoints,
+    verboseRead=false) "External table object for sliding friction coefficient";
+  final parameter Real mu0 =
+    if     smoothness == Smoothness.ConstantSegments then getTable1DValueNoDer(tableID, 1, 0)
+    elseif smoothness == Smoothness.LinearSegments   then getTable1DValueNoDer2(tableID, 1, 0)
+    else                                                  getTable1DValue(tableID, 1, 0)
+    "Friction coefficient for w=0 and forward sliding" annotation(Evaluate = true);
+
+  Real table_signs[2]
+    "Signs for sliding friction coefficient table interpolation: [sign for w_rel, sign for mu]";
 
 equation
-  // Constant auxiliary variable
-  mu0 = Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], 0, 1);
+  assert(size(mu_pos, 1) > 0 and size(mu_pos, 2) > 0, "Parameter mu_pos is an empty matrix");
 
   // Relative quantities
   w_relfric = w_rel;
@@ -40,15 +57,17 @@ equation
   tau0_max = peak*tau0;
 
   // Friction torque
-  tau = if locked then sa*unitTorque else if free then 0 else cgeo*fn*(
-    if startForward then
-      Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], w_rel, 1)
-    else if startBackward then
-      -Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], w_rel, 1)
-    else if pre(mode) == Forward then
-      Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], w_rel, 1)
-    else
-      -Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], -w_rel, 1));
+  table_signs =
+    if     startForward         then { 1, 1}
+    elseif startBackward        then { 1,-1}
+    elseif pre(mode) == Forward then { 1, 1}
+    else                             {-1,-1};
+  mu = table_signs[2]*(
+    if     smoothness == Smoothness.ConstantSegments then getTable1DValueNoDer(tableID, 1, table_signs[1]*w_rel)
+    elseif smoothness == Smoothness.LinearSegments   then getTable1DValueNoDer2(tableID, 1, table_signs[1]*w_rel)
+    else                                                  getTable1DValue(tableID, 1, table_signs[1]*w_rel));
+  tau = if locked then sa*unitTorque elseif free then 0 else mu*cgeo*fn;
+
   lossPower = tau*w_relfric;
   annotation (Icon(
       coordinateSystem(preserveAspectRatio=true,
@@ -88,7 +107,7 @@ frictional_torque = <strong>cgeo</strong> * <strong>mu</strong>(w_rel) * <strong
   <li>0.05&nbsp;&hellip;&nbsp;0.1 when operating in oil.</li>
 </ul>
 <p>
-   When plates are pressed together, where  <strong>ri</strong>  is the inner radius,
+   When plates are pressed together, where <strong>ri</strong> is the inner radius,
    <strong>ro</strong> is the outer radius and <strong>N</strong> is the number of friction interfaces,
    the geometry constant is calculated in the following way under the
    assumption of a uniform rate of wear at the interfaces:
@@ -99,17 +118,16 @@ frictional_torque = <strong>cgeo</strong> * <strong>mu</strong>(w_rel) * <strong
 <p>
     The positive part of the friction characteristic <strong>mu</strong>(w_rel),
     w_rel >= 0, is defined via table mu_pos (first column = w_rel,
-    second column = mu). Currently, only linear interpolation in
-    the table is supported.
+    second column = mu).
 </p>
 <p>
    When the relative angular velocity becomes zero, the elements
    connected by the friction element become stuck, i.e., the relative
    angle remains constant. In this phase the friction torque is
    calculated from a torque balance due to the requirement, that
-   the relative acceleration shall be zero.  The elements begin
+   the relative acceleration shall be zero. The elements begin
    to slide when the friction torque exceeds a threshold value,
-   called the  maximum static friction torque, computed via:
+   called the maximum static friction torque, computed via:
 </p>
 <blockquote><pre>
 frictional_torque = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(w_rel=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
