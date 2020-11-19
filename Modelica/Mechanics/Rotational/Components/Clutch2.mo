@@ -3,9 +3,12 @@ model Clutch2 "Clutch based on Coulomb friction (with interpolation by ExternalC
   extends Modelica.Mechanics.Rotational.Icons.Clutch;
   extends Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;
 
+  import Modelica.Blocks.Types;
+  import TabInternal = Modelica.Blocks.Tables.Internal;
+
   parameter Real mu_pos[:, 2] = [0, 0.5]
     "Positive sliding friction coefficient [-] as function of w_rel [rad/s] (w_rel>=0)";
-  parameter Modelica.Blocks.Types.Smoothness smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments
+  parameter Types.Smoothness smoothness = Types.Smoothness.LinearSegments
     "Smoothness of table interpolation in mu_pos";
   parameter Real peak(final min=1) = 1
     "Peak for maximum value of mu at w==0 (mu0_max = peak*mu_pos[1,2])";
@@ -23,18 +26,18 @@ model Clutch2 "Clutch based on Coulomb friction (with interpolation by ExternalC
     annotation (Placement(transformation(origin={0,110}, extent={{20,-20},{-20,20}}, rotation=90)));
 
 protected
-  final parameter Modelica.Blocks.Types.ExternalCombiTable1D tableID = Modelica.Blocks.Types.ExternalCombiTable1D(
+  final parameter Types.ExternalCombiTable1D tableID = Types.ExternalCombiTable1D(
     tableName="NoName",
     fileName="NoName",
     table=mu_pos,
     columns={2},
     smoothness=smoothness,
-    extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints,
+    extrapolation=Types.Extrapolation.LastTwoPoints,
     verboseRead=false) "External table object for sliding friction coefficient";
   final parameter Real mu0 =
-    if     smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then Modelica.Blocks.Tables.Internal.getTable1DValueNoDer(tableID, 1, 0)
-    elseif smoothness == Modelica.Blocks.Types.Smoothness.LinearSegments   then Modelica.Blocks.Tables.Internal.getTable1DValueNoDer2(tableID, 1, 0)
-    else                                                                        Modelica.Blocks.Tables.Internal.getTable1DValue(tableID, 1, 0)
+    if     smoothness == Types.Smoothness.ConstantSegments then TabInternal.getTable1DValueNoDer(tableID, 1, 0)
+    elseif smoothness == Types.Smoothness.LinearSegments   then TabInternal.getTable1DValueNoDer2(tableID, 1, 0)
+    else                                                        TabInternal.getTable1DValue(tableID, 1, 0)
     "Friction coefficient for w=0 and forward sliding" annotation(Evaluate = true);
 
   Real table_signs[2]
@@ -60,9 +63,9 @@ equation
     elseif pre(mode) == Forward then { 1, 1}
     else                             {-1,-1};
   mu = table_signs[2]*(
-    if     smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then Modelica.Blocks.Tables.Internal.getTable1DValueNoDer(tableID, 1, table_signs[1]*w_rel)
-    elseif smoothness == Modelica.Blocks.Types.Smoothness.LinearSegments   then Modelica.Blocks.Tables.Internal.getTable1DValueNoDer2(tableID, 1, table_signs[1]*w_rel)
-    else                                                                        Modelica.Blocks.Tables.Internal.getTable1DValue(tableID, 1, table_signs[1]*w_rel));
+    if     smoothness == Types.Smoothness.ConstantSegments then TabInternal.getTable1DValueNoDer(tableID, 1, table_signs[1]*w_rel)
+    elseif smoothness == Types.Smoothness.LinearSegments   then TabInternal.getTable1DValueNoDer2(tableID, 1, table_signs[1]*w_rel)
+    else                                                        TabInternal.getTable1DValue(tableID, 1, table_signs[1]*w_rel));
   tau = if locked then sa*unitTorque elseif free then 0 else mu*cgeo*fn;
 
   lossPower = tau*w_relfric;
