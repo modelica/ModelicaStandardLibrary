@@ -1,10 +1,14 @@
 within Modelica.Mechanics.Rotational.Components;
 model BearingFriction "Coulomb friction in bearings"
-  extends
-    Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
+  extends Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
+
+  import Modelica.Blocks.Types.{ExternalCombiTable1D, Extrapolation, Smoothness};
+  import Modelica.Blocks.Tables.Internal.{getTable1DValue, getTable1DValueNoDer, getTable1DValueNoDer2};
 
   parameter Real tau_pos[:, 2]=[0, 1]
     "Positive sliding friction characteristic [N.m] as function of w [rad/s] (w>=0)";
+  parameter Smoothness smoothness = Smoothness.LinearSegments
+    "Smoothness of interpolation in tau_pos table";
   parameter Real peak(final min=1) = 1
     "Peak for maximum friction torque at w==0 (tau0_max = peak*tau_pos[1,2])";
 
@@ -19,9 +23,27 @@ model BearingFriction "Coulomb friction in bearings"
   SI.AngularAcceleration a
     "Absolute angular acceleration of flange_a and flange_b";
 
+protected
+  final parameter ExternalCombiTable1D tableID = ExternalCombiTable1D(
+    tableName="NoName",
+    fileName="NoName",
+    table=tau_pos,
+    columns={2},
+    smoothness=smoothness,
+    extrapolation=Extrapolation.LastTwoPoints,
+    verboseRead=false) "External table object for sliding friction coefficient";
+
+  Real table_signs[2]
+    "Signs for sliding friction coefficient table interpolation: [sign for w_rel, sign for mu]";
+
 equation
+  assert(size(tau_pos, 1) > 0 and size(tau_pos, 2) > 0, "Parameter tau_pos is an empty matrix");
+
   // Constant auxiliary variables
-  tau0 = Modelica.Math.Vectors.interpolate(tau_pos[:,1], tau_pos[:,2], 0, 1);
+  tau0 =
+    if     smoothness == Smoothness.ConstantSegments then getTable1DValueNoDer(tableID, 1, 0)
+    elseif smoothness == Smoothness.LinearSegments   then getTable1DValueNoDer2(tableID, 1, 0)
+    else                                                  getTable1DValue(tableID, 1, 0);
   tau0_max = peak*tau0;
   free = false;
 
@@ -38,15 +60,15 @@ equation
   flange_a.tau + flange_b.tau - tau = 0;
 
   // Friction torque
-  tau = if locked then sa*unitTorque else (
-    if startForward then
-      Modelica.Math.Vectors.interpolate(tau_pos[:,1], tau_pos[:,2], w, 1)
-    else if startBackward then
-      -Modelica.Math.Vectors.interpolate(tau_pos[:,1], tau_pos[:,2], -w, 1)
-    else if pre(mode) == Forward then
-      Modelica.Math.Vectors.interpolate(tau_pos[:,1], tau_pos[:,2], w, 1)
-    else
-      -Modelica.Math.Vectors.interpolate(tau_pos[:,1], tau_pos[:,2], -w, 1));
+  table_signs =
+    if     startForward         then { 1, 1}
+    elseif startBackward        then {-1,-1}
+    elseif pre(mode) == Forward then { 1, 1}
+    else                             {-1,-1};
+  tau = if locked then sa*unitTorque else table_signs[2]*(
+    if     smoothness == Smoothness.ConstantSegments then getTable1DValueNoDer(tableID, 1, table_signs[1]*w)
+    elseif smoothness == Smoothness.LinearSegments   then getTable1DValueNoDer2(tableID, 1, table_signs[1]*w)
+    else                                                  getTable1DValue(tableID, 1, table_signs[1]*w));
   lossPower = tau*w_relfric;
   annotation (Documentation(info="<html>
 <p>
@@ -71,7 +93,6 @@ gives the following table:
 tau_pos = [0, 0; 1, 2; 2, 5; 3, 8];
 </pre></blockquote>
 <p>
-Currently, only linear interpolation in the table is supported.
 Outside of the table, extrapolation through the last
 two table entries is used. It is assumed that the negative
 sliding friction force has the same characteristic with negative
