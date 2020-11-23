@@ -8382,8 +8382,8 @@ class Contact "Contact"
 <dd>German Aerospace Center (DLR)</dd>
 <dd>Robotics and Mechatronics Center (RMC)</dd>
 <dd>Institute of System Dynamics and Control (SR)</dd>
-<dd>Postfach 1116</dd>
-<dd>D-82230 Wessling</dd>
+<dd>M&uuml;nchener Straße 20</dd>
+<dd>D-82234 We&szlig;ling</dd>
 <dd>Germany</dd>
 <dd>email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a></dd>
 </dl>

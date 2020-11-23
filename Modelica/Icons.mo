@@ -794,10 +794,9 @@ corresponding library in a future release.
 
 <dl>
 <dt><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></dt>
-    <dd>Deutsches Zentrum fuer Luft und Raumfahrt e.V. (DLR)</dd>
-    <dd>Oberpfaffenhofen</dd>
-    <dd>Postfach 1116</dd>
-    <dd>D-82230 Wessling</dd>
+    <dd>Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)</dd>
+    <dd>M&uuml;nchener Straße 20</dd>
+    <dd>D-82234 We&szlig;ling</dd>
     <dd>email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a></dd>
 <dt>Christian Kral</dt>
 

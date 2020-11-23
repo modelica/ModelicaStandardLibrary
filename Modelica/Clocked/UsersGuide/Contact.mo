@@ -16,8 +16,8 @@ class Contact "Contact"
 <dd>German Aerospace Center (DLR)<br>
 Robotics and Mechatronics Center<br>
 Institute of System Dynamics and Control<br>
-Postfach 1116<br>
-D-82234 Wessling<br>
+M&uuml;nchener Straße 20<br>
+D-82234 We&szlig;ling<br>
 Germany</dd>
 </dl>
 
