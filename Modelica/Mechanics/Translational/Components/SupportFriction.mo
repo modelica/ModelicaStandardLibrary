@@ -1,26 +1,44 @@
 within Modelica.Mechanics.Translational.Components;
 model SupportFriction "Coulomb friction in support"
-
   extends Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
   extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
 
+  import Modelica.Blocks.Types.{ExternalCombiTable1D, Extrapolation, Smoothness};
+  import Modelica.Blocks.Tables.Internal.{getTable1DValue, getTable1DValueNoDer, getTable1DValueNoDer2};
+
   parameter Real f_pos[:, 2]=[0, 1]
     "Positive sliding friction characteristic [N] as function of v [m/s] (v>=0)";
+  parameter Smoothness smoothness = Smoothness.LinearSegments
+    "Smoothness of interpolation in f_pos table";
   parameter Real peak(final min=1) = 1
     "Peak for maximum friction force at v==0 (f0_max = peak*f_pos[1,2])";
+
   extends Translational.Interfaces.PartialFriction;
 
   SI.Position s "= flange_a.s - support.s";
   SI.Force f "Friction force";
   SI.Velocity v "Absolute velocity of flange_a and flange_b";
   SI.Acceleration a "Absolute acceleration of flange_a and flange_b";
+
+protected
+  final parameter ExternalCombiTable1D tableID = ExternalCombiTable1D(
+    tableName="NoName",
+    fileName="NoName",
+    table=f_pos,
+    columns={2},
+    smoothness=smoothness,
+    extrapolation=Extrapolation.LastTwoPoints,
+    verboseRead=false) "External table object for sliding friction coefficient";
+
+  Real table_signs[2]
+    "Signs for sliding friction coefficient table interpolation: [sign for w_rel, sign for mu]";
+
 equation
   // Constant auxiliary variables
-  f0 = Modelica.Math.Vectors.interpolate(
-        f_pos[:, 1],
-        f_pos[:, 2],
-        0,
-        1);
+  f0 =
+    if     smoothness == Smoothness.ConstantSegments then getTable1DValueNoDer(tableID, 1, 0)
+    elseif smoothness == Smoothness.LinearSegments   then getTable1DValueNoDer2(tableID, 1, 0)
+    else                                                  getTable1DValue(tableID, 1, 0);
   f0_max = peak*f0;
   free = false;
 
@@ -37,15 +55,15 @@ equation
   flange_a.f + flange_b.f - f = 0;
 
   // Friction force
-  f = if locked then sa*unitForce else (
-    if startForward then
-      Modelica.Math.Vectors.interpolate(f_pos[:, 1], f_pos[:, 2], v, 1)
-    else if startBackward then
-      -Modelica.Math.Vectors.interpolate(f_pos[:, 1], f_pos[:, 2], -v, 1)
-    else if pre(mode) == Forward then
-      Modelica.Math.Vectors.interpolate(f_pos[:, 1], f_pos[:, 2], v, 1)
-    else
-      -Modelica.Math.Vectors.interpolate(f_pos[:, 1], f_pos[:, 2], -v, 1));
+  table_signs =
+    if     startForward         then { 1, 1}
+    elseif startBackward        then {-1,-1}
+    elseif pre(mode) == Forward then { 1, 1}
+    else                             {-1,-1};
+  f = if locked then sa*unitForce else table_signs[2]*(
+    if     smoothness == Smoothness.ConstantSegments then getTable1DValueNoDer(tableID, 1, table_signs[1]*v)
+    elseif smoothness == Smoothness.LinearSegments   then getTable1DValueNoDer2(tableID, 1, table_signs[1]*v)
+    else                                                  getTable1DValue(tableID, 1, table_signs[1]*v));
 
   lossPower = f*v_relfric;
   annotation (
