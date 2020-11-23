@@ -58,14 +58,11 @@ equation
     startBackward then sa + tau0_max/unitTorque else if pre(mode) ==
     Forward then sa - tau0_max/unitTorque else sa + tau0_max/unitTorque;
 
-  /* Friction torque has to be defined in a subclass. Example for a clutch:
-   tau = if locked then sa else
-         if free then   0 else
-         cgeo*fn*(if startForward then          Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], w_relfric, 1) else
-                  if startBackward then        -Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], -w_relfric, 1) else
-                  if pre(mode) == Forward then  Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], w_relfric, 1) else
-                                               -Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], -w_relfric, 1));
+  /* Friction torque "tau" has to be defined in a subclass. Example for possible
+     realization of a clutch utilizing interpolation by ExternalCombiTable1D see:
+     Modelica.Mechanics.Rotational.Components.Clutch
 */
+
   // finite state machine to determine configuration
   mode = if free then Free else (if (pre(mode) == Forward or pre(mode) ==
     Free or startForward) and w_relfric > 0 then Forward else if (pre(mode)
