@@ -1,4 +1,4 @@
-within ;
+﻿within ;
 package Modelica "Modelica Standard Library - Version 4.0.0"
 extends Modelica.Icons.Package;
 
@@ -8379,9 +8379,8 @@ class Contact "Contact"
 
 <dt>The development of this Modelica package up to and including version 3.2.1 was organized by:</dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></dd>
-<dd>German Aerospace Center (DLR)</dd>
-<dd>Robotics and Mechatronics Center (RMC)</dd>
-<dd>Institute of System Dynamics and Control (SR)</dd>
+<dd>Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)</dd>
+<dd>Institut f&uuml;r Systemdynamik und Regelungstechnik (SR)</dd>
 <dd>M&uuml;nchener Straße 20</dd>
 <dd>D-82234 We&szlig;ling</dd>
 <dd>Germany</dd>

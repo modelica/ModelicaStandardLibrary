@@ -1,4 +1,4 @@
-within Modelica.Mechanics.MultiBody.UsersGuide;
+﻿within Modelica.Mechanics.MultiBody.UsersGuide;
 class Contact "Contact"
   extends Modelica.Icons.Contact;
 
@@ -8,7 +8,7 @@ class Contact "Contact"
 <p>
 <strong>Jakub Tobolar</strong> and <a href=\"http://www.robotic.dlr.de/Martin.Otter/\"><strong>Martin Otter</strong></a><br>
 Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)<br>
-Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)<br>
+Institut f&uuml;r Systemdynamik und Regelungstechnik (SR)<br>
 M&uuml;nchener Straße 20<br>
 D-82234 We&szlig;ling<br>
 Germany

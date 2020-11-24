@@ -1,4 +1,4 @@
-within Modelica;
+﻿within Modelica;
 package Math "Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices"
 
   extends Modelica.Icons.Package;
@@ -11664,7 +11664,7 @@ as well as functions operating on
 <p><a href=\"http://www.robotic.dlr.de/Martin.Otter/\"><strong>Martin Otter</strong></a>
 and <strong>Marcus Baur</strong><br>
 Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)<br>
-Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)<br>
+Institut f&uuml;r Systemdynamik und Regelungstechnik (SR)<br>
 M&uuml;nchener Straße 20<br>
 D-82234 We&szlig;ling<br>
 Germany<br>

@@ -1,4 +1,4 @@
-within Modelica.Clocked.UsersGuide;
+﻿within Modelica.Clocked.UsersGuide;
 class Contact "Contact"
   extends Modelica.Icons.Contact;
   annotation (Documentation(info="<html>
@@ -13,9 +13,8 @@ class Contact "Contact"
 
 <dl>
 <dt>Address</dt>
-<dd>German Aerospace Center (DLR)<br>
-Robotics and Mechatronics Center<br>
-Institute of System Dynamics and Control<br>
+<dd>Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)<br>
+Institut f&uuml;r Systemdynamik und Regelungstechnik (SR)<br>
 M&uuml;nchener Straße 20<br>
 D-82234 We&szlig;ling<br>
 Germany</dd>

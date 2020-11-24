@@ -1,4 +1,4 @@
-within Modelica;
+﻿within Modelica;
 package Constants
   "Library of mathematical constants and constants of nature (e.g., pi, eps, R, sigma)"
 
@@ -81,6 +81,7 @@ dependent constants and constants from nature. The latter constants
 <dt><strong>Main Author:</strong></dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
     Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)<br>
+    Institut f&uuml;r Systemdynamik und Regelungstechnik (SR)<br>
     M&uuml;nchener Straße 20<br>
     D-82234 We&szlig;ling<br>
     email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a></dd>

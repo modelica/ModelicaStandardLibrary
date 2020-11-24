@@ -1,4 +1,4 @@
-within Modelica;
+﻿within Modelica;
 package StateGraph
   "Library of hierarchical state machine components to model discrete event and reactive systems"
 
@@ -719,7 +719,7 @@ The StateGraph library is based on the following references:
 <p>
 <a href=\"http://www.robotic.dlr.de/Martin.Otter/\"><strong>Martin Otter</strong></a><br>
 Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)<br>
-Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)<br>
+Institut f&uuml;r Systemdynamik und Regelungstechnik (SR)<br>
 M&uuml;nchener Straße 20<br>
 D-82234 We&szlig;ling<br>
 Germany<br>
