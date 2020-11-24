@@ -34,6 +34,8 @@ protected
     "Signs for sliding friction coefficient table interpolation: [sign for w_rel, sign for mu]";
 
 equation
+  assert(size(f_pos, 1) > 0 and size(f_pos, 2) > 0, "Parameter f_pos is an empty matrix");
+
   // Constant auxiliary variables
   f0 =
     if     smoothness == Smoothness.ConstantSegments then getTable1DValueNoDer(tableID, 1, 0)
@@ -45,13 +47,13 @@ equation
   s = flange_a.s - s_support;
   flange_a.s = flange_b.s;
 
-  // velocity and acceleration of flanges
+  // Velocity and acceleration of flanges
   v = der(s);
   a = der(v);
   v_relfric = v;
   a_relfric = a;
 
-  // Friction force
+  // Force balance
   flange_a.f + flange_b.f - f = 0;
 
   // Friction force
@@ -90,7 +92,6 @@ gives the following table:
 f_pos = [0, 0; 1, 2; 2, 5; 3, 8];
 </pre></blockquote>
 <p>
-Currently, only linear interpolation in the table is supported.
 Outside of the table, extrapolation through the last
 two table entries is used. It is assumed that the negative
 sliding friction force has the same characteristic with negative
