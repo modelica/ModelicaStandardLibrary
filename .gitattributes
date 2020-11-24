@@ -31,9 +31,10 @@ ObsoleteModelica4.mo export-subst
 .CI export-ignore
 .gitattributes export-ignore
 .gitignore export-ignore
-CONTRIBUTING.md export-ignore
 .mailmap export-ignore
 .travis.yml export-ignore
+CONTRIBUTING.md export-ignore
+SECURITY.md export-ignore
 *.ipe export-ignore
 Modelica/Resources/Documentation/Clocked/Modelica_Synchronous.pptx export-ignore
 Modelica/Resources/Documentation/Fluid/Stream-Connectors-Overview-Rationale.ppt export-ignore
