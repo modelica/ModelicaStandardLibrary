@@ -1,4 +1,4 @@
-﻿within Modelica;
+within Modelica;
 package StateGraph
   "Library of hierarchical state machine components to model discrete event and reactive systems"
 

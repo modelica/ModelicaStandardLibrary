@@ -1,4 +1,4 @@
-﻿within Modelica;
+within Modelica;
 package Math "Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices"
 
   extends Modelica.Icons.Package;

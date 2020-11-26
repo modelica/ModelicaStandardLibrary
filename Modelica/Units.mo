@@ -1,4 +1,4 @@
-﻿within Modelica;
+within Modelica;
 package Units "Library of type and unit definitions"
   extends Modelica.Icons.Package;
 

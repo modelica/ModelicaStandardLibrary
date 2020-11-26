@@ -1,4 +1,4 @@
-﻿within Modelica;
+within Modelica;
 package Blocks "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
 
   extends Modelica.Icons.Package;

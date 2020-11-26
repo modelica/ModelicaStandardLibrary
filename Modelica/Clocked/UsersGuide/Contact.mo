@@ -1,4 +1,4 @@
-﻿within Modelica.Clocked.UsersGuide;
+within Modelica.Clocked.UsersGuide;
 class Contact "Contact"
   extends Modelica.Icons.Contact;
   annotation (Documentation(info="<html>

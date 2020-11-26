@@ -1,4 +1,4 @@
-﻿within ;
+within ;
 package ModelicaServices "ModelicaServices (Default implementation) - Models and functions used in the Modelica Standard Library requiring a tool specific implementation"
   extends Modelica.Icons.Package;
   constant String target="Default"

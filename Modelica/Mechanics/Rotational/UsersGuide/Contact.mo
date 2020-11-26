@@ -1,4 +1,4 @@
-﻿within Modelica.Mechanics.Rotational.UsersGuide;
+within Modelica.Mechanics.Rotational.UsersGuide;
 class Contact "Contact"
   extends Modelica.Icons.Contact;
 

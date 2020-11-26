@@ -1,4 +1,4 @@
-﻿within Modelica;
+within Modelica;
 package Icons "Library of icons"
   partial class Information "Icon for general information packages"
 

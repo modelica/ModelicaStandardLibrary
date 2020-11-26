@@ -1,4 +1,4 @@
-﻿within ;
+within ;
 package Modelica "Modelica Standard Library - Version 4.0.0"
 extends Modelica.Icons.Package;
 
