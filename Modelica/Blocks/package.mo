@@ -1,4 +1,4 @@
-within Modelica;
+﻿within Modelica;
 package Blocks "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
 
   extends Modelica.Icons.Package;
@@ -3017,10 +3017,11 @@ This library contains input/output blocks to build up block diagrams.
 <dl>
 <dt><strong>Main Author:</strong></dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
-    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e. V. (DLR)<br>
-    Oberpfaffenhofen<br>
-    Postfach 1116<br>
-    D-82230 Wessling<br>
+    Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)<br>
+    Institut f&uuml;r Systemdynamik und Regelungstechnik (SR)<br>
+    M&uuml;nchener Straße 20<br>
+    D-82234 We&szlig;ling<br>
+    Germany<br>
     email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a><br></dd>
 </dl>
 <p>

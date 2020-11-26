@@ -1,4 +1,4 @@
-within Modelica;
+﻿within Modelica;
 package Utilities "Library of utility functions dedicated to scripting (operating on files, streams, strings, system)"
   extends Modelica.Icons.UtilitiesPackage;
 
@@ -102,10 +102,10 @@ First version implemented.
 
 <p>
 <a href=\"http://www.robotic.dlr.de/Martin.Otter/\"><strong>Martin Otter</strong></a><br>
-Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e.V. (DLR)<br>
-Institut f&uuml;r Systemdynamik und Regelungstechnik (DLR-SR)<br>
-Forschungszentrum Oberpfaffenhofen<br>
-D-82234 Wessling<br>
+Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)<br>
+Institut f&uuml;r Systemdynamik und Regelungstechnik (SR)<br>
+M&uuml;nchener Straße 20<br>
+D-82234 We&szlig;ling<br>
 Germany
 </p>
 
@@ -174,6 +174,7 @@ functions do not return, if an error is triggered inside the function.
 </p>
 </html>"));
 end UsersGuide;
+
     annotation (
 Documentation(info="<html>
 <p>

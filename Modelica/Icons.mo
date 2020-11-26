@@ -1,4 +1,4 @@
-within Modelica;
+﻿within Modelica;
 package Icons "Library of icons"
   partial class Information "Icon for general information packages"
 
@@ -794,17 +794,16 @@ corresponding library in a future release.
 
 <dl>
 <dt><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></dt>
-    <dd>Deutsches Zentrum fuer Luft und Raumfahrt e.V. (DLR)</dd>
-    <dd>Oberpfaffenhofen</dd>
-    <dd>Postfach 1116</dd>
-    <dd>D-82230 Wessling</dd>
-    <dd>email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a></dd>
+    <dd>Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)</dd>
+    <dd>Institut f&uuml;r Systemdynamik und Regelungstechnik (SR)</dd>
+    <dd>M&uuml;nchener Straße 20</dd>
+    <dd>D-82234 We&szlig;ling</dd>
+    <dd>Germany</dd>
+    <dd>email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a><br></dd>
 <dt>Christian Kral</dt>
-
-    <dd>  <a href=\"https://christiankral.net/\">Electric Machines, Drives and Systems</a><br>
-</dd>
+    <dd><a href=\"https://christiankral.net/\">Electric Machines, Drives and Systems</a></dd>
     <dd>1060 Vienna, Austria</dd>
-    <dd>email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a></dd>
+    <dd>email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a><br></dd>
 <dt>Johan Andreasson</dt>
     <dd><a href=\"https://www.modelon.com/\">Modelon AB</a></dd>
     <dd>Ideon Science Park</dd>
