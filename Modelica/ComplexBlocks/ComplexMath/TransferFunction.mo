@@ -15,16 +15,19 @@ protected
   Complex aw[size(a,1)];
   Complex bSum;
   Complex aSum;
-  function PowerOfI "Internal function to compute j^k for any integer"
+  function powerOfI "Internal function to compute j^k for any integer"
     input Integer k;
     output Complex x;
+  protected
+     Integer m=mod(k,4);
   algorithm
-   x:=if mod(k,4)==1 then Complex(1,0) elseif mod(k,4)==2 then j elseif mod(k,4)==3 then Complex(-1,0) else -j;
-  end PowerOfI;
+   x:=if m==0 then Complex(1) elseif m==1 then j elseif m==2 then Complex(-1) else -j;
+   annotation(Inline=true);
+  end powerOfI;
 equation
   // Avoid computing power of Complex numbers - since it fails for w==0
-  bw = {b[i]*(w)^(i-1)*PowerOfI(i-1) for i in 1:size(b,1)};
-  aw = {a[i]*(w)^(i-1)*PowerOfI(i-1) for i in 1:size(a,1)};
+  bw = {b[i]*(w)^(i-1)*powerOfI(i-1) for i in 1:size(b,1)};
+  aw = {a[i]*(w)^(i-1)*powerOfI(i-1) for i in 1:size(a,1)};
   bSum = Complex(sum(bw.re), sum(bw.im));
   aSum = Complex(sum(aw.re), sum(aw.im));
   y = u*bSum/aSum;
