@@ -77,9 +77,10 @@ operator record Complex "Complex number with overloaded operators"
             extent={{-100,-100},{100,100}},
             radius=25.0),
           Text(
-            extent={{-100,100},{100,-80}},
+            extent={{-200,-200},{200,250}},
             textColor={128,128,128},
-            textString="-")}));
+            textString="-",
+            fontName="Arial")}));
   end '-';
 
   encapsulated operator '*' "Multiplication"
@@ -134,8 +135,9 @@ operator record Complex "Complex number with overloaded operators"
             extent={{-100,-100},{100,100}},
             radius=25.0),
           Text(
-            extent={{-100,46},{102,-100}},
+            extent={{-200,-200},{200,80}},
             textColor={128,128,128},
+            fontName="Arial",
             textString="*")}));
   end '*';
 
