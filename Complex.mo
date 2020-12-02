@@ -180,7 +180,7 @@ operator record Complex "Complex number with overloaded operators"
     algorithm
       c3 := Complex(exp(re)*cos(im), exp(re)*sin(im));
       annotation(Inline=true, smoothOrder=100, Documentation(info="<html>
-<p>This function returns the given Complex numbers c1 to the power of the Complex number c2.</p>
+<p>This function returns the given Complex number c1 to the power of the Complex number c2.</p>
 </html>"));
     end complexPower;
     function integerPower "Integer power of complex number"
@@ -189,7 +189,7 @@ operator record Complex "Complex number with overloaded operators"
       input Integer c2 "Integer exponent";
       output Complex c3 "= c1^c2";
     algorithm
-      c3 := if c2==0 then Complex(1,0) else Complex.'^'.complexPower(c1,Complex(c2,0));
+      c3 := if c2==0 then Complex(1) else Complex.'^'.complexPower(c1,Complex(c2));
       annotation(Inline=true, smoothOrder=100, Documentation(info="<html>
 <p>This function returns the given Complex number c1 to the power of the Integer number c2.</p>
 <p>This also works for zero exponent.</p>
