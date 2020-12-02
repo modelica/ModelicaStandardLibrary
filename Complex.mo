@@ -191,7 +191,7 @@ operator record Complex "Complex number with overloaded operators"
     algorithm
       c3 := if c2==0 then Complex(1,0) else Complex.'^'.complexPower(c1,Complex(c2,0));
       annotation(Inline=true, smoothOrder=100, Documentation(info="<html>
-<p>This function returns the given Complex numbers c1 to the power of the Integer number c2.</p>
+<p>This function returns the given Complex number c1 to the power of the Integer number c2.</p>
 <p>This also works for zero exponent.</p>
 </html>"));
     end integerPower;
