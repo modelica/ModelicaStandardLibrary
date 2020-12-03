@@ -1,4 +1,5 @@
 PWMType
 ReferenceType
+SingleReferenceType
 Voltage2AngleType
 SoftStarterModeOfOperation
