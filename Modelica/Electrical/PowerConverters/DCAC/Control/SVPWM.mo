@@ -51,7 +51,7 @@ algorithm
     T0:=time;
   end when;
 equation
-  //Distribute switching patterns t0/4 + ta/2 + tb/2 + t0/2 + tb/2 + t2/2 + t0/4
+  //Distribute switching patterns t0/4 + ta/2 + tb/2 + t0/2 + tb/2 + ta/2 + t0/4
   if time<startTime then
     fire_p= fill(true, m);
   elseif (time - T0)/samplePeriod < (t0/4) then
