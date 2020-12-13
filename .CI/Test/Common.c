@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 char* ModelicaAllocateString(size_t len) {
     void *data = malloc(len + 1); /* Never free'd in the test programs */
@@ -11,6 +12,23 @@ char* ModelicaAllocateString(size_t len) {
 
 char* ModelicaAllocateStringWithErrorReturn(size_t len) {
     return malloc(len + 1); /* Never free'd in the test programs */
+}
+
+char* ModelicaDuplicateString(const char* str) {
+    void *data = malloc(strlen(str) + 1); /* Never free'd in the test programs */
+    assert(data);
+    if (NULL != data) {
+        strcpy(data, str);
+    }
+    return data;
+}
+
+char* ModelicaDuplicateStringWithErrorReturn(const char* str) {
+    void *data = malloc(strlen(str) + 1); /* Never free'd in the test programs */
+    if (NULL != data) {
+        strcpy(data, str);
+    }
+    return data;
 }
 
 void ModelicaMessage(const char *string) {
