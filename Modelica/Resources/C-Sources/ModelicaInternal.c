@@ -285,7 +285,7 @@ static void ModelicaConvertFromUnixDirectorySeparator(char* string) {
 #endif
 
 static int readLine(_In_ char** buf, _In_ int* bufLen, _In_ FILE* fp) MODELICA_NONNULLATTR;
-  /* Read line (of unknown and arbitrary length) from a text file */ 
+  /* Read line (of unknown and arbitrary length) from a text file */
 
 /* --------------------- Modelica_Utilities.Internal --------------------------------- */
 
@@ -1012,13 +1012,13 @@ void ModelicaInternal_readFile(_In_z_ const char* fileName,
         iLines++;
     }
     fclose(fp);
-	free(buf);
+    free(buf);
     return;
 
     /* Out-of-memory error */
 Modelica_OOM_ERROR1:
     fclose(fp);
-	free(buf);
+    free(buf);
     ModelicaFormatError("Error when reading line %lu from file \"%s\":\n"
         "Not enough memory to allocate string for reading line.",
         (unsigned long)iLines, fileName);
