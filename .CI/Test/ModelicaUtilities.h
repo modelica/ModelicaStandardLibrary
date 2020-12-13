@@ -131,18 +131,15 @@ void ModelicaMessage(const char *string);
 Output the message string (no format control).
 */
 
-
 void ModelicaFormatMessage(const char *string, ...) MODELICA_FORMATATTR_PRINTF;
 /*
 Output the message under the same format control as the C-function printf.
 */
 
-
 void ModelicaVFormatMessage(const char *string, va_list args) MODELICA_FORMATATTR_VPRINTF;
 /*
 Output the message under the same format control as the C-function vprintf.
 */
-
 
 MODELICA_NORETURN void ModelicaError(const char *string) MODELICA_NORETURNATTR;
 /*
@@ -173,14 +170,12 @@ printf. This function never returns to the calling function,
 but handles the error similarly to an assert in the Modelica code.
 */
 
-
 MODELICA_NORETURN void ModelicaVFormatError(const char *string, va_list args) MODELICA_NORETURNATTR MODELICA_FORMATATTR_VPRINTF;
 /*
 Output the error message under the same format control as the C-function
 vprintf. This function never returns to the calling function,
 but handles the error similarly to an assert in the Modelica code.
 */
-
 
 char* ModelicaAllocateString(size_t len);
 /*
@@ -191,10 +186,27 @@ calling program, as for any other array. If an error occurs, this
 function does not return, but calls "ModelicaError".
 */
 
-
 char* ModelicaAllocateStringWithErrorReturn(size_t len);
 /*
 Same as ModelicaAllocateString, except that in case of error, the
+function returns 0. This allows the external function to close files
+and free other open resources in case of error. After cleaning up
+resources use ModelicaError or ModelicaFormatError to signal
+the error.
+*/
+
+char* ModelicaDuplicateString(const char* str);
+/*
+Duplicate (= allocate memory and deep copy) a Modelica string which
+is used as return argument of an external Modelica function. Note,
+that the storage for string arrays (= pointer to string array) is still
+provided by the calling program, as for any other array. If an error
+occurs, this function does not return, but calls "ModelicaError".
+*/
+
+char* ModelicaDuplicateStringWithErrorReturn(const char* str);
+/*
+Same as ModelicaDuplicateString, except that in case of error, the
 function returns 0. This allows the external function to close files
 and free other open resources in case of error. After cleaning up
 resources use ModelicaError or ModelicaFormatError to signal
