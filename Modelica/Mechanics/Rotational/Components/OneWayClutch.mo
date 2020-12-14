@@ -43,13 +43,13 @@ protected
     if     smoothness == Smoothness.ConstantSegments then getTable1DValueNoDer(tableID, 1, 0)
     elseif smoothness == Smoothness.LinearSegments   then getTable1DValueNoDer2(tableID, 1, 0)
     else                                                  getTable1DValue(tableID, 1, 0)
-    "Friction coefficient for w=0 and sliding" annotation(Evaluate = true);
+    "Friction coefficient for w=0 and sliding";
   Boolean free "= true, if frictional element is not active";
   Real sa(final unit="1")
     "Path parameter of tau = f(a_rel) Friction characteristic";
   constant Real eps0=1.0e-4 "Relative hysteresis epsilon";
   final parameter SI.Torque tau0_max_low = eps0*mu0*cgeo*fn_max
-    "Lowest value for tau0_max" annotation(Evaluate = true);
+    "Lowest value for tau0_max";
   parameter Real peak2=max([peak, 1 + eps0]);
   constant SI.AngularAcceleration unitAngularAcceleration=1;
   constant SI.Torque unitTorque=1;

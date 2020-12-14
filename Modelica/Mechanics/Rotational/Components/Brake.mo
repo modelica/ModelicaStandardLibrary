@@ -47,7 +47,7 @@ protected
     if     smoothness == Smoothness.ConstantSegments then getTable1DValueNoDer(tableID, 1, 0)
     elseif smoothness == Smoothness.LinearSegments   then getTable1DValueNoDer2(tableID, 1, 0)
     else                                                  getTable1DValue(tableID, 1, 0)
-    "Friction coefficient for w=0 and forward sliding" annotation(Evaluate = true);
+    "Friction coefficient for w=0 and forward sliding";
 
   Real table_signs[2]
     "Signs for sliding friction coefficient table interpolation: [sign for w_rel, sign for mu]";
