@@ -207,6 +207,32 @@ void ModelicaInternal_setenv(_In_z_ const char* name,
   #define _POSIX_ 1
 #endif
 
+/* Have the <stdint.h> header file */
+#if defined(_WIN32)
+#if defined(_MSC_VER) && _MSC_VER >= 1600
+#define HAVE_STDINT_H 1
+#elif defined(__WATCOMC__) || defined(__MINGW32__) || defined(__CYGWIN__)
+#define HAVE_STDINT_H 1
+#else
+#undef HAVE_STDINT_H
+#endif
+#elif defined(__GNUC__) && !defined(__VXWORKS__)
+#define HAVE_STDINT_H 1
+#else
+#undef HAVE_STDINT_H
+#endif
+
+/* Replacement for integer type header */
+#if !defined(HAVE_STDINT_H)
+#define HASH_NO_STDINT 1
+#if defined(_MSC_VER)
+#include "stdint_msvc.h"
+#else
+#define uint32_t unsigned int
+#define uint8_t unsigned char
+#endif
+#endif
+
 #define HASH_NONFATAL_OOM 1
 #include "uthash.h"
 #include "gconstructor.h"
