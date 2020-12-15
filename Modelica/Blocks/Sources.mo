@@ -1851,6 +1851,7 @@ Note, that the first two characters in the file need to be
 \"#1\" (a line comment defining the version number of the file format).
 Afterwards, the corresponding matrix has to be declared
 with type (= \"double\" or \"float\"), name and actual dimensions.
+A valid matrix name (e.g., \"tab1\") must be ASCII encoded and not contain blanks, line breaks, tab (\\t), comma (,) or parentheses.
 Finally, in successive rows of the file, the elements of the matrix
 have to be given. The elements have to be provided as a sequence of
 numbers in row-wise order (therefore a matrix row can span several
