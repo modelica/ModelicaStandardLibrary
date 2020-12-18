@@ -25,8 +25,6 @@ model Brake "Brake based on Coulomb friction"
 
   Real mu "Friction coefficient";
   SI.Force fn "Normal force (=fn_max*f_normalized)";
-
-  // Constant auxiliary variable
   Modelica.Blocks.Interfaces.RealInput f_normalized
     "Normalized force signal 0..1 (normal force = fn_max*f_normalized; brake is active if > 0)"
     annotation (Placement(transformation(
@@ -47,7 +45,7 @@ protected
     if     smoothness == Smoothness.ConstantSegments then getTable1DValueNoDer(tableID, 1, 0)
     elseif smoothness == Smoothness.LinearSegments   then getTable1DValueNoDer2(tableID, 1, 0)
     else                                                  getTable1DValue(tableID, 1, 0)
-    "Friction coefficient for w=0 and forward sliding" annotation(Evaluate = true);
+    "Friction coefficient for w=0 and forward sliding";
 
   Real table_signs[2]
     "Signs for sliding friction coefficient table interpolation: [sign for w_rel, sign for mu]";
