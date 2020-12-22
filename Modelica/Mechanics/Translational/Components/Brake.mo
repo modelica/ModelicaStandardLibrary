@@ -7,11 +7,11 @@ model Brake "Brake based on Coulomb friction"
   import Modelica.Blocks.Tables.Internal.{getTable1DValue, getTable1DValueNoDer, getTable1DValueNoDer2};
 
   parameter Real mu_pos[:, 2]=[0, 0.5]
-    "Positive sliding friction coefficient [-] as function of v_rel [m/s] (v_rel>=0)";
+    "Positive sliding friction coefficient [-] as function of v [m/s] (v>=0)";
   parameter Smoothness smoothness = Smoothness.LinearSegments
     "Smoothness of interpolation in mu_pos table";
   parameter Real peak(final min=1) = 1
-    "Peak for maximum value of mu at w==0 (mu0_max = peak*mu_pos[1,2])";
+    "Peak for maximum value of mu at v==0 (mu0_max = peak*mu_pos[1,2])";
   parameter Real cgeo(final min=0) = 1
     "Geometry constant containing friction distribution assumption";
   parameter SI.Force fn_max(final min=0, start=1) "Maximum normal force";
@@ -45,10 +45,10 @@ protected
     if     smoothness == Smoothness.ConstantSegments then getTable1DValueNoDer(tableID, 1, 0)
     elseif smoothness == Smoothness.LinearSegments   then getTable1DValueNoDer2(tableID, 1, 0)
     else                                                  getTable1DValue(tableID, 1, 0)
-    "Friction coefficient for w=0 and forward sliding";
+    "Friction coefficient for v=0 and forward sliding";
 
   Real table_signs[2]
-    "Signs for sliding friction coefficient table interpolation: [sign for w_rel, sign for mu]";
+    "Signs for sliding friction coefficient table interpolation: [sign for v, sign for mu]";
 
 equation
   assert(size(mu_pos, 1) > 0 and size(mu_pos, 2) > 0, "Parameter mu_pos is an empty matrix");
@@ -62,7 +62,7 @@ equation
   v_relfric = v;
   a_relfric = a;
 
-  // Friction force, normal force and friction force for v_rel=0
+  // Friction force, normal force and friction force for v=0
   flange_a.f + flange_b.f - f = 0;
   fn = fn_max*f_normalized;
   f0 = mu0*cgeo*fn;
@@ -124,7 +124,7 @@ frictional_force = <strong>cgeo</strong> * <strong>mu</strong>(v) * <strong>fn</
    called the maximum static friction force, computed via:
 </p>
 <blockquote><pre>
-frictional_force = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(w=0) * <strong>fn</strong>,   (<strong>peak</strong> >= 1)
+frictional_force = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(v=0) * <strong>fn</strong>,   (<strong>peak</strong> >= 1)
 </pre></blockquote>
 <p>
 This procedure is implemented in a \"clean\" way by state events and
