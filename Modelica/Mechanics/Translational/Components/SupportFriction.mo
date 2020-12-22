@@ -31,7 +31,7 @@ protected
     verboseRead=false) "External table object for sliding friction coefficient";
 
   Real table_signs[2]
-    "Signs for sliding friction coefficient table interpolation: [sign for w_rel, sign for mu]";
+    "Signs for sliding friction coefficient table interpolation: [sign for v, sign for f]";
 
 equation
   assert(size(f_pos, 1) > 0 and size(f_pos, 2) > 0, "Parameter f_pos is an empty matrix");
