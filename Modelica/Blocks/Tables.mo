@@ -18,8 +18,15 @@ package Tables
       annotation (Dialog(
         group="Table data definition",
         enable=tableOnFile,
-        loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat)",
+        loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat);;Comma-separated values files (*.csv)",
             caption="Open file in which table is present")));
+    parameter String delimiter="," "Column delimiter character for CSV file"
+      annotation (Dialog(
+        group="Table data definition",
+        enable=tableOnFile and isCsvExt),
+        choices(choice=" " "Blank", choice="," "Comma", choice="\t" "Horizontal tabulator", choice=";" "Semicolon"));
+    parameter Integer nHeaderLines=0 "Number of header lines to ignore for CSV file"
+      annotation (Dialog(group="Table data definition",enable=tableOnFile and isCsvExt));
     parameter Boolean verboseRead=true
       "= true, if info message that file is loading is to be printed"
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
@@ -42,16 +49,19 @@ package Tables
   protected
     parameter Modelica.Blocks.Types.ExternalCombiTable1D tableID=
         Modelica.Blocks.Types.ExternalCombiTable1D(
-          if tableOnFile then tableName else "NoName",
+          if tableOnFile then if isCsvExt then "Values" else tableName else "NoName",
           if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
           table,
           columns,
           smoothness,
           extrapolation,
-          if tableOnFile then verboseRead else false) "External table object";
+          if tableOnFile then verboseRead else false,
+          delimiter,
+          nHeaderLines) "External table object";
+    final parameter Boolean isCsvExt = if tableOnFile then Modelica.Utilities.Strings.findLast(fileName, ".csv", caseSensitive=false) + 3 == Modelica.Utilities.Strings.length(fileName) else false;
   equation
     if tableOnFile then
-      assert(tableName <> "NoName",
+      assert(tableName <> "NoName" or isCsvExt,
         "tableOnFile = true and no table name given");
     else
       assert(size(table, 1) > 0 and size(table, 2) > 0,
@@ -164,7 +174,7 @@ tableName is \"NoName\" or has only blanks,
 fileName  is \"NoName\" or has only blanks.
 </pre></blockquote></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
-    \"tableName\". Both text and MATLAB MAT-file format is possible.
+    \"tableName\". CSV, text and MATLAB MAT-file format is possible.
     (The text format is described below).
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
@@ -270,8 +280,15 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       annotation (Dialog(
         group="Table data definition",
         enable=tableOnFile,
-        loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat)",
+        loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat);;Comma-separated values files (*.csv)",
             caption="Open file in which table is present")));
+    parameter String delimiter="," "Column delimiter character for CSV file"
+      annotation (Dialog(
+        group="Table data definition",
+        enable=tableOnFile and isCsvExt),
+        choices(choice=" " "Blank", choice="," "Comma", choice="\t" "Horizontal tabulator", choice=";" "Semicolon"));
+    parameter Integer nHeaderLines=0 "Number of header lines to ignore for CSV file"
+      annotation (Dialog(group="Table data definition",enable=tableOnFile and isCsvExt));
     parameter Boolean verboseRead=true
       "= true, if info message that file is loading is to be printed"
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
@@ -294,16 +311,19 @@ MATLAB is a registered trademark of The MathWorks, Inc.
   protected
     parameter Modelica.Blocks.Types.ExternalCombiTable1D tableID=
         Modelica.Blocks.Types.ExternalCombiTable1D(
-          if tableOnFile then tableName else "NoName",
+          if tableOnFile then if isCsvExt then "Values" else tableName else "NoName",
           if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
           table,
           columns,
           smoothness,
           extrapolation,
-          if tableOnFile then verboseRead else false) "External table object";
+          if tableOnFile then verboseRead else false,
+          delimiter,
+          nHeaderLines) "External table object";
+    final parameter Boolean isCsvExt = if tableOnFile then Modelica.Utilities.Strings.findLast(fileName, ".csv", caseSensitive=false) + 3 == Modelica.Utilities.Strings.length(fileName) else false;
   equation
     if tableOnFile then
-      assert(tableName <> "NoName",
+      assert(tableName <> "NoName" or isCsvExt,
         "tableOnFile = true and no table name given");
     else
       assert(size(table, 1) > 0 and size(table, 2) > 0,
@@ -418,7 +438,7 @@ tableName is \"NoName\" or has only blanks,
 fileName  is \"NoName\" or has only blanks.
 </pre></blockquote></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
-    \"tableName\". Both text and MATLAB MAT-file format is possible.
+    \"tableName\". CSV, text and MATLAB MAT-file format is possible.
     (The text format is described below).
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
@@ -619,7 +639,7 @@ tableName is \"NoName\" or has only blanks,
 fileName  is \"NoName\" or has only blanks.
 </pre></blockquote></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
-    \"tableName\". Both text and MATLAB MAT-file format is possible.
+    \"tableName\". CSV, text and MATLAB MAT-file format is possible.
     (The text format is described below).
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
@@ -810,7 +830,7 @@ tableName is \"NoName\" or has only blanks,
 fileName  is \"NoName\" or has only blanks.
 </pre></blockquote></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
-    \"tableName\". Both text and MATLAB MAT-file format is possible.
+    \"tableName\". CSV, text and MATLAB MAT-file format is possible.
     (The text format is described below).
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
@@ -899,8 +919,15 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         annotation (Dialog(
           group="Table data definition",
           enable=tableOnFile,
-          loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat)",
+          loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat);;Comma-separated values files (*.csv)",
               caption="Open file in which table is present")));
+      parameter String delimiter="," "Column delimiter character for CSV file"
+        annotation (Dialog(
+          group="Table data definition",
+          enable=tableOnFile and isCsvExt),
+          choices(choice=" " "Blank", choice="," "Comma", choice="\t" "Horizontal tabulator", choice=";" "Semicolon"));
+      parameter Integer nHeaderLines=0 "Number of header lines to ignore for CSV file"
+        annotation (Dialog(group="Table data definition",enable=tableOnFile and isCsvExt));
       parameter Boolean verboseRead=true
         "= true, if info message that file is loading is to be printed"
         annotation (Dialog(group="Table data definition",enable=tableOnFile));
@@ -920,15 +947,18 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       protected
         parameter Modelica.Blocks.Types.ExternalCombiTable2D tableID=
           Modelica.Blocks.Types.ExternalCombiTable2D(
-            if tableOnFile then tableName else "NoName",
+            if tableOnFile then if isCsvExt then "Values" else tableName else "NoName",
             if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
             table,
             smoothness,
             extrapolation,
-            if tableOnFile then verboseRead else false) "External table object";
-      equation
+            if tableOnFile then verboseRead else false,
+            delimiter,
+            nHeaderLines) "External table object";
+      final parameter Boolean isCsvExt = if tableOnFile then Modelica.Utilities.Strings.findLast(fileName, ".csv", caseSensitive=false) + 3 == Modelica.Utilities.Strings.length(fileName) else false;
+    equation
         if tableOnFile then
-          assert(tableName <> "NoName",
+          assert(tableName <> "NoName" or isCsvExt,
             "tableOnFile = true and no table name given");
         else
           assert(size(table, 1) > 0 and size(table, 2) > 0,
