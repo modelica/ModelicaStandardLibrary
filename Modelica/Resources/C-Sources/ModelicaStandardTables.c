@@ -6436,7 +6436,7 @@ static CubicHermite1D* akimaSpline1DInit(_In_ const double* table, size_t nRow,
      (https://dx.doi.org/10.1145/321607.321609)
   */
 
-    CubicHermite1D* spline = NULL;
+    CubicHermite1D* spline;
     double* d; /* Divided differences */
     size_t col;
 
@@ -6514,7 +6514,7 @@ static CubicHermite1D* makimaSpline1DInit(_In_ const double* table, size_t nRow,
      (https://blogs.mathworks.com/cleve/?p=4707)
   */
 
-    CubicHermite1D* spline = NULL;
+    CubicHermite1D* spline;
     double* d; /* Divided differences */
     size_t col;
 
@@ -6596,7 +6596,7 @@ static CubicHermite1D* fritschButlandSpline1DInit(_In_ const double* table,
      (https://dx.doi.org/10.1137/0905021)
   */
 
-    CubicHermite1D* spline = NULL;
+    CubicHermite1D* spline;
     double* d; /* Divided differences */
     size_t col;
 
@@ -6665,7 +6665,7 @@ static CubicHermite1D* steffenSpline1DInit(_In_ const double* table,
      (https://ui.adsabs.harvard.edu/#abs/1990A&A...239..443S)
   */
 
-    CubicHermite1D* spline = NULL;
+    CubicHermite1D* spline;
     double* d; /* Divided differences */
     size_t col;
 

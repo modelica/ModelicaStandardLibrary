@@ -814,7 +814,6 @@ static void CloseCachedFile(const char* fileName) {
 static FILE* ModelicaStreams_openFileForReading(const char* fileName, int lineNumber, int* lineNumberOffset, char** buf, int* bufLen) {
     /* Open text file for reading */
     FILE* fp;
-    int c = 1;
     FileCache* fv;
     size_t len = strlen(fileName);
     *lineNumberOffset = 0;
