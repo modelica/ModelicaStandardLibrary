@@ -1,6 +1,7 @@
 within Modelica.Electrical.QuasiStatic.SinglePhase;
 package Basic "Basic components for AC single-phase models"
   extends Modelica.Icons.Package;
+
   annotation (Icon(graphics={
         Line(origin={10,40}, points={{-100,-40},{-80,-40}}),
         Line(origin={10,40}, points={{60,-40},{80,-40}}),
