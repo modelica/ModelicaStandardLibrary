@@ -131,12 +131,12 @@ void ModelicaMessage(const char *string);
 Output the message string (no format control).
 */
 
-void ModelicaFormatMessage(const char *string, ...) MODELICA_FORMATATTR_PRINTF;
+void ModelicaFormatMessage(const char *format, ...) MODELICA_FORMATATTR_PRINTF;
 /*
 Output the message under the same format control as the C-function printf.
 */
 
-void ModelicaVFormatMessage(const char *string, va_list args) MODELICA_FORMATATTR_VPRINTF;
+void ModelicaVFormatMessage(const char *format, va_list args) MODELICA_FORMATATTR_VPRINTF;
 /*
 Output the message under the same format control as the C-function vprintf.
 */
@@ -153,24 +153,24 @@ void ModelicaWarning(const char *string);
 Output the warning message string (no format control).
 */
 
-void ModelicaFormatWarning(const char *string, ...) MODELICA_FORMATATTR_PRINTF;
+void ModelicaFormatWarning(const char *format, ...) MODELICA_FORMATATTR_PRINTF;
 /*
 Output the warning message under the same format control as the C-function printf.
 */
 
-void ModelicaVFormatWarning(const char *string, va_list args) MODELICA_FORMATATTR_VPRINTF;
+void ModelicaVFormatWarning(const char *format, va_list args) MODELICA_FORMATATTR_VPRINTF;
 /*
 Output the warning message under the same format control as the C-function vprintf.
 */
 
-MODELICA_NORETURN void ModelicaFormatError(const char *string, ...) MODELICA_NORETURNATTR MODELICA_FORMATATTR_PRINTF;
+MODELICA_NORETURN void ModelicaFormatError(const char *format, ...) MODELICA_NORETURNATTR MODELICA_FORMATATTR_PRINTF;
 /*
 Output the error message under the same format control as the C-function
 printf. This function never returns to the calling function,
 but handles the error similarly to an assert in the Modelica code.
 */
 
-MODELICA_NORETURN void ModelicaVFormatError(const char *string, va_list args) MODELICA_NORETURNATTR MODELICA_FORMATATTR_VPRINTF;
+MODELICA_NORETURN void ModelicaVFormatError(const char *format, va_list args) MODELICA_NORETURNATTR MODELICA_FORMATATTR_VPRINTF;
 /*
 Output the error message under the same format control as the C-function
 vprintf. This function never returns to the calling function,
