@@ -112,7 +112,7 @@ MODELICA_EXPORT void ModelicaIO_readRealMatrix(_In_z_ const char* fileName,
 
 MODELICA_EXPORT int ModelicaIO_writeRealMatrix(_In_z_ const char* fileName,
                                _In_z_ const char* matrixName,
-                               _In_ double* matrix, size_t m, size_t n,
+                               _In_ const double* matrix, size_t m, size_t n,
                                int append,
                                _In_z_ const char* version) MODELICA_NONNULLATTR;
   /* Write matrix to file
