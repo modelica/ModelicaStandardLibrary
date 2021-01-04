@@ -5,7 +5,18 @@ git:
 
 services:
   - docker
-  
+
+os: linux
+
+dist: focal
+
+addons:
+  apt:
+    sources:
+      - sourceline: 'deb https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable'
+    packages:
+      - docker
+
 env:
   global:
     # DOCKER_PASSWORD
@@ -18,7 +29,7 @@ before_install:
   - pip install --user futures
   - git clone --branch 5.7.28 --depth=1 https://github.com/htacg/tidy-html5.git && ( cd tidy-html5 && cmake . && make && sudo make install )
   - sudo ldconfig
-  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
   - docker pull openmodelica/openmodelica:v1.12.0-minimal
   - docker pull openmodelica/moparser:3.4
 
