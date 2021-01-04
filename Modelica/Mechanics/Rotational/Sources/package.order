@@ -11,3 +11,4 @@ SignTorque
 ConstantSpeed
 TorqueStep
 EddyCurrentTorque
+InverseSpeedDependentTorque
