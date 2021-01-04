@@ -14,7 +14,7 @@ before_install:
   - echo 'DOCKER_OPTS="$DOCKER_OPTS --debug --registry-mirror=https://mirror.gcr.io"'
   - sudo service docker restart
   - docker system info
-  - docker pull openmodelica/openmodelica:v1.12.0-minimal
+  - docker pull mirror.gcr.io/openmodelica/openmodelica:v1.12.0-minimal
   - docker pull openmodelica/moparser:3.4
 
 script:
