@@ -5,16 +5,21 @@ git:
 
 services:
   - docker
+  
+env:
+  global:
+    # DOCKER_PASSWORD
+    - secure: "dd8WHtPN2Ovh0Fyeu5Y2YMUZk+iZyPe2BCcTN1EIZm26pwNfiriXVE4r+pL4B7Yt0yuXiH5ZAUotZmEZ7ZVXCwXB1N116kzfWyTW3mfoJOAA+KhRcdeaa8SaOTvyPITtafqmu2q7N848292MtlopNRhd7ECbkkQWXa7U8dcD9PE="
+    # DOCKER_USERNAME
+    - secure: "WMFa/QRwOvDNvwg2983aYWp7meH3nCKefXn/5ziN1VMZy7hFxVytr5ZrS+kceR09f4XyVHZYy+rLSy0xlxvLIZdW+PNldi2bBVJfoQCYPpcGCBz3s/4z2FvAQcQq1jSe6p6d/tIslH6M0INoXEMRr7W/mXOIifbDHdMULkq5O8o="
 
 before_install:
   - pip install --user pytidylib
   - pip install --user futures
   - git clone --branch 5.7.28 --depth=1 https://github.com/htacg/tidy-html5.git && ( cd tidy-html5 && cmake . && make && sudo make install )
   - sudo ldconfig
-  - echo 'DOCKER_OPTS="$DOCKER_OPTS --debug --registry-mirror=https://mirror.gcr.io"'
-  - sudo service docker restart
-  - docker system info
-  - docker pull registry-1.travis-ci.com/openmodelica/openmodelica:v1.12.0-minimal
+  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+  - docker pull openmodelica/openmodelica:v1.12.0-minimal
   - docker pull openmodelica/moparser:3.4
 
 script:
