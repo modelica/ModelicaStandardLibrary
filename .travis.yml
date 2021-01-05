@@ -29,6 +29,7 @@ before_install:
   - pip install --user futures
   - git clone --branch 5.7.28 --depth=1 https://github.com/htacg/tidy-html5.git && ( cd tidy-html5 && cmake . && make && sudo make install )
   - sudo ldconfig
+  - env | cut -d= -f1 | grep DOCKER
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
   - docker pull openmodelica/openmodelica:v1.12.0-minimal
   - docker pull openmodelica/moparser:3.4
