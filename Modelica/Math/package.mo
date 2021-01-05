@@ -11029,7 +11029,7 @@ function sin "Sine"
   input Modelica.Units.SI.Angle u "Independent variable";
   output Real y "Dependent variable y=sin(u)";
 
-external "builtin" y = sin(u);
+external "C" y = sin(u) annotation (Include="#include <math.h>");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11065,7 +11065,7 @@ function cos "Cosine"
   input Modelica.Units.SI.Angle u "Independent variable";
   output Real y "Dependent variable y=cos(u)";
 
-external "builtin" y = cos(u);
+external "C" y = cos(u) annotation (Include="#include <math.h>");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11101,7 +11101,7 @@ function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   input Modelica.Units.SI.Angle u "Independent variable";
   output Real y "Dependent variable y=tan(u)";
 
-external "builtin" y = tan(u);
+external "C" y = tan(u) annotation (Include="#include <math.h>");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11137,7 +11137,7 @@ function asin "Inverse sine (-1 <= u <= 1)"
   input Real u "Independent variable";
   output Modelica.Units.SI.Angle y "Dependent variable y=asin(u)";
 
-external "builtin" y = asin(u);
+external "C" y = asin(u) annotation (Include="#include <math.h>");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11171,7 +11171,7 @@ function acos "Inverse cosine (-1 <= u <= 1)"
   input Real u "Independent variable";
   output Modelica.Units.SI.Angle y "Dependent variable y=acos(u)";
 
-external "builtin" y = acos(u);
+external "C" y = acos(u) annotation (Include="#include <math.h>");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11205,7 +11205,7 @@ function atan "Inverse tangent"
   input Real u "Independent variable";
   output Modelica.Units.SI.Angle y "Dependent variable y=atan(u)";
 
-external "builtin" y = atan(u);
+external "C" y = atan(u) annotation (Include="#include <math.h>");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11241,7 +11241,7 @@ function atan2 "Four quadrant inverse tangent"
   input Real u2 "Second independent variable";
   output Modelica.Units.SI.Angle y "Dependent variable y=atan2(u1, u2)=atan(u1/u2)";
 
-external "builtin" y = atan2(u1, u2);
+external "C" y = atan2(u1, u2) annotation (Include="#include <math.h>");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11351,7 +11351,7 @@ function sinh "Hyperbolic sine"
   input Real u "Independent variable";
   output Real y "Dependent variable y=sinh(u)";
 
-external "builtin" y = sinh(u);
+external "C" y = sinh(u) annotation (Include="#include <math.h>");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11386,7 +11386,7 @@ function cosh "Hyperbolic cosine"
   input Real u "Independent variable";
   output Real y "Dependent variable y=cosh(u)";
 
-external "builtin" y = cosh(u);
+external "C" y = cosh(u) annotation (Include="#include <math.h>");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11423,7 +11423,7 @@ function tanh "Hyperbolic tangent"
   input Real u "Independent variable";
   output Real y "Dependent variable y=tanh(u)";
 
-external "builtin" y = tanh(u);
+external "C" y = tanh(u) annotation (Include="#include <math.h>");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11545,7 +11545,7 @@ function exp "Exponential, base e"
   input Real u "Independent variable";
   output Real y "Dependent variable y=exp(u)";
 
-external "builtin" y = exp(u);
+external "C" y = exp(u) annotation (Include="#include <math.h>");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11579,7 +11579,7 @@ function log "Natural (base e) logarithm (u shall be > 0)"
   input Real u "Independent variable";
   output Real y "Dependent variable y=ln(u)";
 
-external "builtin" y = log(u);
+external "C" y = log(u) annotation (Include="#include <math.h>");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11614,7 +11614,7 @@ function log10 "Base 10 logarithm (u shall be > 0)"
   input Real u "Independent variable";
   output Real y "Dependent variable y=lg(u)";
 
-external "builtin" y = log10(u);
+external "C" y = log10(u) annotation (Include="#include <math.h>");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
