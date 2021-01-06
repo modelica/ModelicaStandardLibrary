@@ -11028,8 +11028,8 @@ function sin "Sine"
   extends Modelica.Math.Icons.AxisLeft;
   input Modelica.Units.SI.Angle u "Independent variable";
   output Real y "Dependent variable y=sin(u)";
-
-external "C" y = sin(u) annotation (Include="#include <math.h>");
+algorithm
+  y := .sin(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11064,8 +11064,8 @@ function cos "Cosine"
   extends Modelica.Math.Icons.AxisLeft;
   input Modelica.Units.SI.Angle u "Independent variable";
   output Real y "Dependent variable y=cos(u)";
-
-external "C" y = cos(u) annotation (Include="#include <math.h>");
+algorithm
+  y := .cos(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11100,8 +11100,8 @@ function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   extends Modelica.Math.Icons.AxisCenter;
   input Modelica.Units.SI.Angle u "Independent variable";
   output Real y "Dependent variable y=tan(u)";
-
-external "C" y = tan(u) annotation (Include="#include <math.h>");
+algorithm
+  y := .tan(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11136,8 +11136,8 @@ function asin "Inverse sine (-1 <= u <= 1)"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u "Independent variable";
   output Modelica.Units.SI.Angle y "Dependent variable y=asin(u)";
-
-external "C" y = asin(u) annotation (Include="#include <math.h>");
+algorithm
+  y := .asin(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11170,8 +11170,8 @@ function acos "Inverse cosine (-1 <= u <= 1)"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u "Independent variable";
   output Modelica.Units.SI.Angle y "Dependent variable y=acos(u)";
-
-external "C" y = acos(u) annotation (Include="#include <math.h>");
+algorithm
+  y := .acos(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11204,8 +11204,8 @@ function atan "Inverse tangent"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u "Independent variable";
   output Modelica.Units.SI.Angle y "Dependent variable y=atan(u)";
-
-external "C" y = atan(u) annotation (Include="#include <math.h>");
+algorithm
+  y := .atan(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11240,8 +11240,8 @@ function atan2 "Four quadrant inverse tangent"
   input Real u1 "First independent variable";
   input Real u2 "Second independent variable";
   output Modelica.Units.SI.Angle y "Dependent variable y=atan2(u1, u2)=atan(u1/u2)";
-
-external "C" y = atan2(u1, u2) annotation (Include="#include <math.h>");
+algorithm
+  y := .atan2(u1, u2);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11350,8 +11350,8 @@ function sinh "Hyperbolic sine"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u "Independent variable";
   output Real y "Dependent variable y=sinh(u)";
-
-external "C" y = sinh(u) annotation (Include="#include <math.h>");
+algorithm
+  y := .sinh(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11385,8 +11385,8 @@ function cosh "Hyperbolic cosine"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u "Independent variable";
   output Real y "Dependent variable y=cosh(u)";
-
-external "C" y = cosh(u) annotation (Include="#include <math.h>");
+algorithm
+  y := .cosh(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11422,8 +11422,8 @@ function tanh "Hyperbolic tangent"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u "Independent variable";
   output Real y "Dependent variable y=tanh(u)";
-
-external "C" y = tanh(u) annotation (Include="#include <math.h>");
+algorithm
+  y := .tanh(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11544,8 +11544,8 @@ function exp "Exponential, base e"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u "Independent variable";
   output Real y "Dependent variable y=exp(u)";
-
-external "C" y = exp(u) annotation (Include="#include <math.h>");
+algorithm
+  y := .exp(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11578,8 +11578,8 @@ function log "Natural (base e) logarithm (u shall be > 0)"
   extends Modelica.Math.Icons.AxisLeft;
   input Real u "Independent variable";
   output Real y "Dependent variable y=ln(u)";
-
-external "C" y = log(u) annotation (Include="#include <math.h>");
+algorithm
+  y := .log(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11613,8 +11613,8 @@ function log10 "Base 10 logarithm (u shall be > 0)"
   extends Modelica.Math.Icons.AxisLeft;
   input Real u "Independent variable";
   output Real y "Dependent variable y=lg(u)";
-
-external "C" y = log10(u) annotation (Include="#include <math.h>");
+algorithm
+  y := .log10(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
