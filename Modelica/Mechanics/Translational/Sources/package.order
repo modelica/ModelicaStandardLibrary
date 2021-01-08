@@ -4,6 +4,7 @@ Accelerate
 Move
 Force
 Force2
+InverseSpeedDependentForce
 LinearSpeedDependentForce
 QuadraticSpeedDependentForce
 ConstantForce
@@ -11,4 +12,3 @@ SignForce
 ConstantSpeed
 ForceStep
 EddyCurrentForce
-InverseSpeedDependentForce
