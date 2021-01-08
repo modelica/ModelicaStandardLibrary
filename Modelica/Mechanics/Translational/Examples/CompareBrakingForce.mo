@@ -63,7 +63,8 @@ equation
       Interval=0.0001),
     Documentation(info="<html>
 <p>
-Compare the effect of different braking force on massN.v:
+Compare the effect of different braking forces on mass&apos; velocity
+(<code>massN.v</code>, N = {1, 2, 3, 4}):
 </p>
 <ol>
 <li>Constant force</li>

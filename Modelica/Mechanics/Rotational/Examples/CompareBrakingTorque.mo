@@ -63,7 +63,8 @@ equation
       Interval=0.0001),
     Documentation(info="<html>
 <p>
-Compare the effect of different braking torque on inertiaN.w:
+Compare the effect of different braking torques on inertia&apos;s angular velocity
+(<code>inertiaN.w</code>, N = {1, 2, 3, 4}):
 </p>
 <ol>
 <li>Constant torque</li>
