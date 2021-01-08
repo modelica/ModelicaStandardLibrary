@@ -1,14 +1,15 @@
 within Modelica.Mechanics.Rotational.Examples;
 model CompareBrakingTorque "Compare different braking torques"
   extends Modelica.Icons.Example;
-  parameter Modelica.Units.SI.Inertia J=1 "Moment of inertia";
-  parameter Modelica.Units.SI.Torque tau_nominal=100 "Nominal torque";
-  parameter Modelica.Units.SI.AngularVelocity w_nominal=100 "Nominal speed";
-  parameter Modelica.Units.SI.AngularVelocity w0=1 "Speed limit for regularization";
+  parameter SI.Inertia J=1 "Moment of inertia";
+  parameter SI.AngularVelocity w_start=100 "Initial speed of inertia";
+  parameter SI.Torque tau_nominal=100 "Nominal torque";
+  parameter SI.AngularVelocity w_nominal=abs(w_start) "Nominal speed";
+  parameter SI.AngularVelocity w0=1 "Speed limit for regularization";
   Modelica.Mechanics.Rotational.Components.Inertia inertia1(
     J=J,
     phi(fixed=true, start=0),
-    w(fixed=true, start=w_nominal))
+    w(fixed=true, start=w_start))
     annotation (Placement(transformation(extent={{-10,50},{10,70}})));
   Modelica.Mechanics.Rotational.Sources.SignTorque signTorque(
     tau_nominal=-tau_nominal,
@@ -17,7 +18,7 @@ model CompareBrakingTorque "Compare different braking torques"
   Modelica.Mechanics.Rotational.Components.Inertia inertia2(
     J=J,
     phi(fixed=true, start=0),
-    w(fixed=true, start=w_nominal))
+    w(fixed=true, start=w_start))
     annotation (Placement(transformation(extent={{-10,10},{10,30}})));
   Modelica.Mechanics.Rotational.Sources.LinearSpeedDependentTorque
     linearSpeedDependentTorque(
@@ -28,7 +29,7 @@ model CompareBrakingTorque "Compare different braking torques"
   Modelica.Mechanics.Rotational.Components.Inertia inertia3(
     J=J,
     phi(fixed=true, start=0),
-    w(fixed=true, start=w_nominal))
+    w(fixed=true, start=w_start))
     annotation (Placement(transformation(extent={{-8,-30},{12,-10}})));
   Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
     quadraticSpeedDependentTorque(
@@ -39,7 +40,7 @@ model CompareBrakingTorque "Compare different braking torques"
   Modelica.Mechanics.Rotational.Components.Inertia inertia4(
     J=J,
     phi(fixed=true, start=0),
-    w(fixed=true, start=w_nominal))
+    w(fixed=true, start=w_start))
     annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
   Modelica.Mechanics.Rotational.Sources.InverseSpeedDependentTorque
     inverseSpeedDependentTorque(
@@ -56,7 +57,8 @@ equation
     annotation (Line(points={{-20,-20},{-8,-20}}, color={0,0,0}));
   connect(inverseSpeedDependentTorque.flange, inertia4.flange_a)
     annotation (Line(points={{-20,-60},{-10,-60}}, color={0,0,0}));
-  annotation (                                 experiment(
+  annotation (
+    experiment(
       StopTime=5,
       Interval=0.0001),
     Documentation(info="<html>
