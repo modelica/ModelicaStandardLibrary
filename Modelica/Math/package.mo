@@ -11030,7 +11030,7 @@ function sin "Sine"
   output Real y "Dependent variable y=sin(u)";
 algorithm
   y := .sin(u);
-  annotation (
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11066,7 +11066,7 @@ function cos "Cosine"
   output Real y "Dependent variable y=cos(u)";
 algorithm
   y := .cos(u);
-  annotation (
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11102,7 +11102,7 @@ function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   output Real y "Dependent variable y=tan(u)";
 algorithm
   y := .tan(u);
-  annotation (
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11138,7 +11138,7 @@ function asin "Inverse sine (-1 <= u <= 1)"
   output Modelica.Units.SI.Angle y "Dependent variable y=asin(u)";
 algorithm
   y := .asin(u);
-  annotation (
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11172,7 +11172,7 @@ function acos "Inverse cosine (-1 <= u <= 1)"
   output Modelica.Units.SI.Angle y "Dependent variable y=acos(u)";
 algorithm
   y := .acos(u);
-  annotation (
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11206,7 +11206,7 @@ function atan "Inverse tangent"
   output Modelica.Units.SI.Angle y "Dependent variable y=atan(u)";
 algorithm
   y := .atan(u);
-  annotation (
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11242,7 +11242,7 @@ function atan2 "Four quadrant inverse tangent"
   output Modelica.Units.SI.Angle y "Dependent variable y=atan2(u1, u2)=atan(u1/u2)";
 algorithm
   y := .atan2(u1, u2);
-  annotation (
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11352,7 +11352,7 @@ function sinh "Hyperbolic sine"
   output Real y "Dependent variable y=sinh(u)";
 algorithm
   y := .sinh(u);
-  annotation (
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11387,7 +11387,7 @@ function cosh "Hyperbolic cosine"
   output Real y "Dependent variable y=cosh(u)";
 algorithm
   y := .cosh(u);
-  annotation (
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11424,7 +11424,7 @@ function tanh "Hyperbolic tangent"
   output Real y "Dependent variable y=tanh(u)";
 algorithm
   y := .tanh(u);
-  annotation (
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11546,7 +11546,7 @@ function exp "Exponential, base e"
   output Real y "Dependent variable y=exp(u)";
 algorithm
   y := .exp(u);
-  annotation (
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11580,7 +11580,7 @@ function log "Natural (base e) logarithm (u shall be > 0)"
   output Real y "Dependent variable y=ln(u)";
 algorithm
   y := .log(u);
-  annotation (
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11615,7 +11615,7 @@ function log10 "Base 10 logarithm (u shall be > 0)"
   output Real y "Dependent variable y=lg(u)";
 algorithm
   y := .log10(u);
-  annotation (
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
