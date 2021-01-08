@@ -1,24 +1,24 @@
 within Modelica.Mechanics.Translational.Examples;
 model CompareBrakingForce "Compare different braking forces"
   extends Modelica.Icons.Example;
-  parameter Modelica.Units.SI.Mass m=1 "Mass";
-  parameter Modelica.Units.SI.Force f_nominal=100 "Nominal force";
-  parameter Modelica.Units.SI.Velocity v_nominal=100 "Nominal speed";
-  parameter Modelica.Units.SI.Velocity v0=1 "Speed limit for regularization";
+  parameter SI.Mass m=1 "Mass";
+  parameter SI.Velocity v_start=100 "Initial speed of mass";
+  parameter SI.Force f_nominal=100 "Nominal force";
+  parameter SI.Velocity v_nominal=abs(v_start) "Nominal speed";
+  parameter SI.Velocity v0=1 "Speed limit for regularization";
   Modelica.Mechanics.Translational.Components.Mass mass1(
     m=m,
     s(fixed=true, start=0),
-    v(fixed=true, start=v_nominal))
+    v(fixed=true, start=v_start))
     annotation (Placement(transformation(extent={{-10,50},{10,70}})));
-  Modelica.Mechanics.Translational.Sources.SignForce
-                                                   signForce(
+  Modelica.Mechanics.Translational.Sources.SignForce signForce(
     f_nominal=-f_nominal,
     reg=Modelica.Blocks.Types.Regularization.Linear,
     v0=v0)   annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
   Modelica.Mechanics.Translational.Components.Mass mass2(
     m=m,
     s(fixed=true, start=0),
-    v(fixed=true, start=v_nominal))
+    v(fixed=true, start=v_start))
     annotation (Placement(transformation(extent={{-10,10},{10,30}})));
   Modelica.Mechanics.Translational.Sources.LinearSpeedDependentForce
     linearSpeedDependentForce(
@@ -29,7 +29,7 @@ model CompareBrakingForce "Compare different braking forces"
   Modelica.Mechanics.Translational.Components.Mass mass3(
     m=m,
     s(fixed=true, start=0),
-    v(fixed=true, start=v_nominal))
+    v(fixed=true, start=v_start))
     annotation (Placement(transformation(extent={{-8,-30},{12,-10}})));
   Modelica.Mechanics.Translational.Sources.QuadraticSpeedDependentForce
     quadraticSpeedDependentForce(
@@ -40,7 +40,7 @@ model CompareBrakingForce "Compare different braking forces"
   Modelica.Mechanics.Translational.Components.Mass mass4(
     m=m,
     s(fixed=true, start=0),
-    v(fixed=true, start=v_nominal))
+    v(fixed=true, start=v_start))
     annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
   Modelica.Mechanics.Translational.Sources.InverseSpeedDependentForce
     inverseSpeedDependentForce(
@@ -57,7 +57,8 @@ equation
     annotation (Line(points={{-20,-20},{-8,-20}}, color={0,127,0}));
   connect(inverseSpeedDependentForce.flange, mass4.flange_a)
     annotation (Line(points={{-20,-60},{-10,-60}}, color={0,127,0}));
-  annotation (                                 experiment(
+  annotation (
+    experiment(
       StopTime=5,
       Interval=0.0001),
     Documentation(info="<html>
