@@ -11,7 +11,7 @@ model InverseSpeedDependentForce
   parameter SI.Velocity v0(final min=Modelica.Constants.eps, start=0.1)
     "Regularization below v0" annotation(Dialog(enable=not ForceDirection));
   SI.Velocity v
-    "Celocity of flange with respect to support (= der(s))";
+    "Velocity of flange with respect to support (= der(s))";
 equation
   v = der(s);
   if ForceDirection then
