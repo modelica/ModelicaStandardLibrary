@@ -35,8 +35,14 @@ equation
               {-55,40}},color={0,0,127},
           smooth=Smooth.Bezier)}),
     Documentation(info="<html>
-<p>Model of inverse speed dependent torque.</p>
-<p>Parameter TorqueDirection chooses whether direction of torque is the same in both directions of rotation or not.</p>
-<p>If TorqueDirection = false, regularization near zero speed avoids numerical problems.</p>
+<p>
+Model of inverse speed dependent torque.
+</p>
+<p>
+Parameter TorqueDirection chooses whether direction of torque is
+the same in both directions of rotation or not.
+If TorqueDirection =&nbsp;false, regularization near zero speed
+avoids numerical problems.
+</p>
 </html>"));
 end InverseSpeedDependentTorque;

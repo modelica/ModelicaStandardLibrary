@@ -30,8 +30,14 @@ equation
                         color={0,0,127},
           smooth=Smooth.Bezier)}),
     Documentation(info="<html>
-<p>Model of inverse speed dependent force.</p>
-<p>Parameter ForceDirection chooses whether direction of force is the same in both directions of movement or not.</p>
-<p>If ForceDirection = false, regularization near zero speed avoids numerical problems.</p>
+<p>
+Model of inverse speed dependent force.
+</p>
+<p>
+Parameter ForceDirection chooses whether direction of force is
+the same in both directions of movement or not.
+If ForceDirection =&nbsp;false, regularization near zero speed
+avoids numerical problems.
+</p>
 </html>"));
 end InverseSpeedDependentForce;
