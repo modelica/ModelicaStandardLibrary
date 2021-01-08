@@ -32,7 +32,8 @@ equation
           Line(points={{-75,-40},{75,-40}}, color={192,192,192}),
           Line(points={{60,-20},{30,-19.1},{0,-17.4},{-10,-16.3},{-20,-14.8},{-30,
               -12.2},{-40,-7},{-45,-1.7},{-50,8.7},{-52,16.5},{-53,22.1},{-54,29.6},
-              {-55,40}},color={0,0,127})}),
+              {-55,40}},color={0,0,127},
+          smooth=Smooth.Bezier)}),
     Documentation(info="<html>
 <p>Model of inverse speed dependent torque.</p>
 <p>Parameter TorqueDirection chooses whether direction of torque is the same in both directions of rotation or not.</p>
