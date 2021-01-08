@@ -4,7 +4,7 @@ model InverseSpeedDependentTorque
   extends Rotational.Interfaces.PartialTorque;
   import Modelica.Constants.pi;
   parameter SI.Torque tau_nominal
-    "Nominal torque (if negative, torque is acting as load)";
+    "Nominal torque (if negative, torque is acting as load in positive direction of rotation)";
   parameter Boolean TorqueDirection=true
     "Same direction of torque in both directions of rotation";
   parameter SI.AngularVelocity w_nominal(min=Modelica.Constants.eps)

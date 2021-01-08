@@ -3,9 +3,9 @@ model InverseSpeedDependentForce
   "Force reciprocal dependent on speed"
   extends Translational.Interfaces.PartialForce;
   parameter SI.Force f_nominal
-    "Nominal force (if negative, torque is acting as load)";
+    "Nominal force (if negative, torque is acting as load in positive direction of motion)";
   parameter Boolean ForceDirection=true
-    "Same direction of force in both directions of movement";
+    "Same direction of force in both directions of motion";
   parameter SI.Velocity v_nominal(min=Modelica.Constants.eps)
     "Nominal speed";
   parameter SI.Velocity v0(final min=Modelica.Constants.eps, start=0.1)
