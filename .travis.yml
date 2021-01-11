@@ -3,44 +3,23 @@ language: generic
 git:
   depth: 5
 
-services:
-  - docker
-
 os: linux
 
 dist: focal
 
-addons:
-  apt:
-    sources:
-      - sourceline: 'deb https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable'
-    packages:
-      - docker
-
-env:
-  global:
-    # DOCKER_PASSWORD
-    - secure: "dd8WHtPN2Ovh0Fyeu5Y2YMUZk+iZyPe2BCcTN1EIZm26pwNfiriXVE4r+pL4B7Yt0yuXiH5ZAUotZmEZ7ZVXCwXB1N116kzfWyTW3mfoJOAA+KhRcdeaa8SaOTvyPITtafqmu2q7N848292MtlopNRhd7ECbkkQWXa7U8dcD9PE="
-    # DOCKER_USERNAME
-    - secure: "WMFa/QRwOvDNvwg2983aYWp7meH3nCKefXn/5ziN1VMZy7hFxVytr5ZrS+kceR09f4XyVHZYy+rLSy0xlxvLIZdW+PNldi2bBVJfoQCYPpcGCBz3s/4z2FvAQcQq1jSe6p6d/tIslH6M0INoXEMRr7W/mXOIifbDHdMULkq5O8o="
-
 before_install:
   - pip install --user pytidylib
   - pip install --user futures
+  - git clone --depth=1 https://github.com/modelica-tools/ModelicaSyntaxChecker
   - git clone --branch 5.7.28 --depth=1 https://github.com/htacg/tidy-html5.git && ( cd tidy-html5 && cmake . && make && sudo make install )
   - sudo ldconfig
-  - env | cut -d= -f1 | grep DOCKER
-  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-  - docker pull openmodelica/openmodelica:v1.12.0-minimal
-  - docker pull openmodelica/moparser:3.4
 
 script:
   - python ./.CI/.travis.py tidyHTML ./
   - python ./.CI/.travis.py checkTags ./
   - if [[ "$TRAVIS_EVENT_TYPE" == "cron" ]]; then python ./.CI/.travis.py checkLinks ./; fi
-  - docker run -v "$PWD:/repo" -w "/repo" openmodelica/openmodelica:v1.12.0-minimal omc ./.CI/.travis.mos
   - "! find . -name '*.mo' -exec bash -c 'iconv -o /dev/null -f utf8 -t utf8 \"{}\" |& sed \"s,^,{}: ,\"' ';' | grep '.'"
-  - docker run -v "$PWD:/repo" -w "/repo" openmodelica/moparser:3.4 moparser -v 3.4 -r Complex.mo Modelica ModelicaReference ModelicaServices ModelicaTest ModelicaTestConversion4.mo ModelicaTestOverdetermined.mo ObsoleteModelica4.mo
+  - ModelicaSyntaxChecker/Linux64/moparser -v 3.4 -r Complex.mo Modelica ModelicaReference ModelicaServices ModelicaTest ModelicaTestConversion4.mo ModelicaTestOverdetermined.mo ObsoleteModelica4.mo
 
 notifications:
   email: false
