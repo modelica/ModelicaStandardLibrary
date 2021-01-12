@@ -31,9 +31,6 @@ jobs:
         run: python ./.CI/check_html.py tidyHTML ./
       - name: Check tags
         run: python ./.CI/check_html.py checkTags ./
-      - name: Check links
-        timeout-minutes: 3
-        run: python ./.CI/check_html.py checkLinks ./
   syntax_checks:
     timeout-minutes: 5
     runs-on: ubuntu-latest
