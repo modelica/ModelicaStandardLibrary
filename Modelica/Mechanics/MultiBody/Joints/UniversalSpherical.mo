@@ -410,7 +410,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           endAngle=110,
           lineColor={0,0,0},
           fillColor={192,192,192},
-          fillPattern=FillPattern.Sphere,
+          fillPattern=FillPattern.Solid,
           closure=EllipseClosure.Radial),
         Ellipse(
           extent={{30,-30},{90,30}},
@@ -476,10 +476,10 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           points={{-40,101},{-40,60},{-60,1}},
           color={128,128,128},
           thickness=0.5),
-          Ellipse(
-            extent={{46,14},{74,-14}},
-            fillPattern=FillPattern.Sphere,
-            fillColor={192,192,192}),
+        Ellipse(
+          extent={{44,16},{76,-16}},
+          fillPattern=FillPattern.Sphere,
+          fillColor={192,192,192}),
         Ellipse(
           extent={{-80,-10},{-40,10}},
           lineColor={64,64,64},

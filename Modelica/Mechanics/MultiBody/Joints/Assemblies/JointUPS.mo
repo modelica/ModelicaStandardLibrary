@@ -382,13 +382,24 @@ component).
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         initialScale=0.2), graphics={
+        Rectangle(
+          extent={{-6,-7},{52,6}},
+          pattern=LinePattern.None,
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Rectangle(
+          extent={{-6,6},{52,10}},
+          pattern=LinePattern.None,
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
         Ellipse(
           extent={{20,-40},{100,40}},
           startAngle=-110,
           endAngle=110,
           lineColor={0,0,0},
           fillColor={192,192,192},
-          fillPattern=FillPattern.Sphere,
+          fillPattern=FillPattern.Solid,
           closure=EllipseClosure.Radial),
         Ellipse(
           extent={{30,-30},{90,30}},
@@ -403,10 +414,10 @@ component).
           endAngle=110,
           lineColor={0,0,0},
           closure=EllipseClosure.None),
-          Ellipse(
-            extent={{46,14},{74,-14}},
-            fillPattern=FillPattern.Sphere,
-            fillColor={192,192,192}),
+        Ellipse(
+          extent={{46,14},{74,-14}},
+          fillPattern=FillPattern.Sphere,
+          fillColor={192,192,192}),
         Ellipse(
           extent={{-100,-40},{-20,40}},
           startAngle=90,
@@ -439,7 +450,7 @@ component).
           endAngle=56,
           lineColor={64,64,64}),
         Rectangle(
-          extent={{-34,-14},{-6,14}},
+          extent={{-34,-14},{0,14}},
           pattern=LinePattern.None,
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid,
@@ -470,7 +481,7 @@ component).
           textColor={128,128,128},
           textString="ia"),
         Line(
-          points={{-40,0},{-40,90},{-80,90},{-80,97}},
+          points={{-40,0},{-40,90},{-80,90},{-80,100}},
           color={95,95,95},
           thickness=0.5),
         Text(
@@ -478,24 +489,13 @@ component).
           textColor={128,128,128},
           textString="ib"),
         Rectangle(
-          extent={{-34,14},{-6,18}},
+          extent={{-34,14},{0,18}},
           pattern=LinePattern.None,
           fillPattern=FillPattern.Solid,
           lineColor={0,0,255}),
-        Rectangle(
-          extent={{-6,-7},{46,6}},
-          pattern=LinePattern.None,
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Rectangle(
-          extent={{-6,6},{46,10}},
-          pattern=LinePattern.None,
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Line(points={{-6,-14},{-6,18}}),
+        Line(points={{0,-14},{0,18}}),
         Line(
-          points={{60,0},{60,90},{80,90},{80,97}},
+          points={{60,0},{60,90},{80,90},{80,100}},
           color={95,95,95},
           thickness=0.5),
         Line(

@@ -202,7 +202,7 @@ equation
           endAngle=290,
           lineColor={0,0,0},
           fillColor={192,192,192},
-          fillPattern=FillPattern.Sphere,
+          fillPattern=FillPattern.Solid,
           closure=EllipseClosure.Radial),
         Ellipse(
           extent={{-90,-30},{-30,30}},
@@ -223,7 +223,7 @@ equation
           endAngle=110,
           lineColor={0,0,0},
           fillColor={192,192,192},
-          fillPattern=FillPattern.Sphere,
+          fillPattern=FillPattern.Solid,
           closure=EllipseClosure.Radial),
         Ellipse(
           extent={{30,-30},{90,30}},
@@ -243,13 +243,13 @@ equation
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={192,192,192}),
           Ellipse(
-            extent={{-74,14},{-46,-14}},
-            fillPattern=FillPattern.Sphere,
-            fillColor={192,192,192}),
+          extent={{-76,16},{-44,-16}},
+          fillPattern=FillPattern.Sphere,
+          fillColor={192,192,192}),
           Ellipse(
-            extent={{46,14},{74,-14}},
-            fillPattern=FillPattern.Sphere,
-            fillColor={192,192,192}),
+          extent={{44,16},{76,-16}},
+          fillPattern=FillPattern.Sphere,
+          fillColor={192,192,192}),
         Text(
           extent={{-150,90},{150,50}},
           textString="%name",
