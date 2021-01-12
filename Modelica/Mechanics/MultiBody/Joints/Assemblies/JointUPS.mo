@@ -415,7 +415,7 @@ component).
           lineColor={0,0,0},
           closure=EllipseClosure.None),
         Ellipse(
-          extent={{46,14},{74,-14}},
+          extent={{44,16},{76,-16}},
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}),
         Ellipse(
