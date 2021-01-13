@@ -11028,9 +11028,9 @@ function sin "Sine"
   extends Modelica.Math.Icons.AxisLeft;
   input Modelica.Units.SI.Angle u "Independent variable";
   output Real y "Dependent variable y=sin(u)";
-
-external "builtin" y = sin(u);
-  annotation (
+algorithm
+  y := .sin(u);
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11064,9 +11064,9 @@ function cos "Cosine"
   extends Modelica.Math.Icons.AxisLeft;
   input Modelica.Units.SI.Angle u "Independent variable";
   output Real y "Dependent variable y=cos(u)";
-
-external "builtin" y = cos(u);
-  annotation (
+algorithm
+  y := .cos(u);
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11100,9 +11100,9 @@ function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   extends Modelica.Math.Icons.AxisCenter;
   input Modelica.Units.SI.Angle u "Independent variable";
   output Real y "Dependent variable y=tan(u)";
-
-external "builtin" y = tan(u);
-  annotation (
+algorithm
+  y := .tan(u);
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11136,9 +11136,9 @@ function asin "Inverse sine (-1 <= u <= 1)"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u "Independent variable";
   output Modelica.Units.SI.Angle y "Dependent variable y=asin(u)";
-
-external "builtin" y = asin(u);
-  annotation (
+algorithm
+  y := .asin(u);
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11170,9 +11170,9 @@ function acos "Inverse cosine (-1 <= u <= 1)"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u "Independent variable";
   output Modelica.Units.SI.Angle y "Dependent variable y=acos(u)";
-
-external "builtin" y = acos(u);
-  annotation (
+algorithm
+  y := .acos(u);
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11204,9 +11204,9 @@ function atan "Inverse tangent"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u "Independent variable";
   output Modelica.Units.SI.Angle y "Dependent variable y=atan(u)";
-
-external "builtin" y = atan(u);
-  annotation (
+algorithm
+  y := .atan(u);
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11240,9 +11240,9 @@ function atan2 "Four quadrant inverse tangent"
   input Real u1 "First independent variable";
   input Real u2 "Second independent variable";
   output Modelica.Units.SI.Angle y "Dependent variable y=atan2(u1, u2)=atan(u1/u2)";
-
-external "builtin" y = atan2(u1, u2);
-  annotation (
+algorithm
+  y := .atan2(u1, u2);
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11350,9 +11350,9 @@ function sinh "Hyperbolic sine"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u "Independent variable";
   output Real y "Dependent variable y=sinh(u)";
-
-external "builtin" y = sinh(u);
-  annotation (
+algorithm
+  y := .sinh(u);
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11385,9 +11385,9 @@ function cosh "Hyperbolic cosine"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u "Independent variable";
   output Real y "Dependent variable y=cosh(u)";
-
-external "builtin" y = cosh(u);
-  annotation (
+algorithm
+  y := .cosh(u);
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11422,9 +11422,9 @@ function tanh "Hyperbolic tangent"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u "Independent variable";
   output Real y "Dependent variable y=tanh(u)";
-
-external "builtin" y = tanh(u);
-  annotation (
+algorithm
+  y := .tanh(u);
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11544,9 +11544,9 @@ function exp "Exponential, base e"
   extends Modelica.Math.Icons.AxisCenter;
   input Real u "Independent variable";
   output Real y "Dependent variable y=exp(u)";
-
-external "builtin" y = exp(u);
-  annotation (
+algorithm
+  y := .exp(u);
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11578,9 +11578,9 @@ function log "Natural (base e) logarithm (u shall be > 0)"
   extends Modelica.Math.Icons.AxisLeft;
   input Real u "Independent variable";
   output Real y "Dependent variable y=ln(u)";
-
-external "builtin" y = log(u);
-  annotation (
+algorithm
+  y := .log(u);
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
@@ -11613,9 +11613,9 @@ function log10 "Base 10 logarithm (u shall be > 0)"
   extends Modelica.Math.Icons.AxisLeft;
   input Real u "Independent variable";
   output Real y "Dependent variable y=lg(u)";
-
-external "builtin" y = log10(u);
-  annotation (
+algorithm
+  y := .log10(u);
+  annotation (Inline=true,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
