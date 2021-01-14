@@ -67,7 +67,7 @@ model PrismaticConstraint
     c=springOfJoint.c,
     s_unstretched=springOfJoint.s_unstretched,
     numberOfWindings=springOfJoint.numberOfWindings)
-                        annotation (Placement(transformation(
+    annotation (Placement(transformation(
         origin={-50,20},
         extent={{-10,-10},{10,10}})));
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
@@ -87,17 +87,15 @@ rotation=90,
         origin={-70,-50})));
   Joints.FreeMotionScalarInit freeMotionScalarInit(
     use_r=true,
+    r_rel_a_1(fixed=true, start=0),
+    r_rel_a_2(fixed=true, start=0),
     use_v=true,
+    v_rel_a_1(fixed=true, start=0),
     v_rel_a_2(fixed=true, start=0),
-    v_rel_a_3(fixed=true, start=0),
     use_w=true,
     w_rel_b_1(fixed=false),
     w_rel_b_2(fixed=false),
-    w_rel_b_3(fixed=false),
-    angle_d_3(fixed=false),
-    r_rel_a_2(fixed=true, start=0),
-    r_rel_a_3(fixed=true, start=0),
-    angle_1(fixed=false))
+    w_rel_b_3(fixed=false))
     annotation (Placement(transformation(extent={{60,70},{40,90}})));
 equation
   connect(fixedTranslation.frame_a, world.frame_b)
