@@ -1899,7 +1899,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         fillColor={255,215,136},
         fillPattern=FillPattern.Solid,
         extent={{-48.0,-50.0},{2.0,70.0}}),
-      Line(points={{-48.0,-50.0},{-48.0,70.0},{52.0,70.0},{52.0,-50.0},{-48.0,-50.0},{-48.0,-20.0},{52.0,-20.0},{52.0,10.0},{-48.0,10.0},{-48.0,40.0},{52.0,40.0},{52.0,70.0},{2.0,70.0},{2.0,-51.0}})}));
+      Line(points={{-48.0,-50.0},{-48.0,70.0},{52.0,70.0},{52.0,-50.0},{-48.0,-50.0},{-48.0,-20.0},{52.0,-20.0},{52.0,10.0},{-48.0,10.0},{-48.0,40.0},{52.0,40.0},{52.0,70.0},{2.0,70.0},{2.0,-51.0}}),
+      Text(extent={{-150,-150},{150,-110}}, textString="tableOnFile=%tableOnFile")}));
   end CombiTimeTable;
 
   block BooleanConstant "Generate constant signal of type Boolean"
