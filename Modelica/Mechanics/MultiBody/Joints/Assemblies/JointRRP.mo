@@ -251,7 +251,7 @@ and 1 prismatic joint are connected by rigid rods.
         Polygon(
           points={{0,50},{54,-14},{54,6},{0,70},{0,50}},
           fillPattern=FillPattern.Solid,
-          lineColor={95,95,95},
+          lineColor={0,0,0},
           fillColor={192,192,192}),
         Line(
           points={{80,80},{101,80}},
@@ -291,7 +291,7 @@ and 1 prismatic joint are connected by rigid rods.
           extent={{-20,80},{20,40}},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid,
-          lineColor={95,95,95}),
+          lineColor={0,0,0}),
         Polygon(
           points={{-82,2},{-2,62},{2,58},{-78,-2},{-82,2}},
           fillPattern=FillPattern.Solid,
