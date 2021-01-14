@@ -30,9 +30,9 @@ ObsoleteModelica4.mo export-subst
 # list of files that git archive should ignore
 .CI export-ignore
 .gitattributes export-ignore
+.github export-ignore
 .gitignore export-ignore
 .mailmap export-ignore
-.travis.yml export-ignore
 CONTRIBUTING.md export-ignore
 SECURITY.md export-ignore
 *.ipe export-ignore

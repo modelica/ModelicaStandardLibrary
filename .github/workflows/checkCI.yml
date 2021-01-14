@@ -1,0 +1,73 @@
+name: CI
+
+on: [pull_request]
+
+jobs:
+  external_c_checks:
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 5
+      - name: Build libraries
+        run: |
+          rm -rf Modelica/Resources/Library/*
+          mkdir -p Modelica/Resources/Library/$LIBDIR
+          pushd Modelica/Resources/BuildProjects/autotools
+          git clean -fdx .
+          ./autogen.sh
+          ./configure --libdir="$PWD/../../Library/$LIBDIR" --enable-static --disable-shared --enable-static-zlib --disable-hdf5
+          make --output-sync
+          sudo make install
+          popd
+        env:
+          LIBDIR: linux64
+      - name: Run tests
+        run: |
+          cd .CI/Test
+          ./test.sh onlystatic
+        env:
+          LIBDIR: linux64
+          CC: gcc
+  html_documentation_checks:
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 5
+      - name: Setup python environment
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install python packages
+        run: |
+          pip install --user pytidylib
+          pip install --user futures
+      - name: Build html tidy
+        run: |
+          git clone --branch 5.7.28 --depth=1 https://github.com/htacg/tidy-html5.git
+          pushd tidy-html5
+          cmake .
+          make
+          sudo make install
+          popd
+          sudo ldconfig
+      - name: Tidy html
+        run: python ./.CI/check_html.py tidyHTML ./
+      - name: Check tags
+        run: python ./.CI/check_html.py checkTags ./
+  syntax_checks:
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 5
+      - name: Get moparser
+        run: git clone --depth=1 https://github.com/modelica-tools/ModelicaSyntaxChecker
+      - name: Check file encoding
+        run: "! find . -name '*.mo' -exec bash -c 'iconv -o /dev/null -f utf8 -t utf8 \"{}\" |& sed \"s,^,{}: ,\"' ';' | grep '.'"
+      - name: Check syntax
+        run: ModelicaSyntaxChecker/Linux64/moparser -v 3.4 -r Complex.mo Modelica ModelicaReference ModelicaServices ModelicaTest ModelicaTestConversion4.mo ModelicaTestOverdetermined.mo ObsoleteModelica4.mo

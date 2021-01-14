@@ -36,7 +36,7 @@ pipeline {
           }
           steps {
             sh 'hostname'
-            sh 'omc ./.CI/.travis.mos'
+            sh 'omc ./.CI/parse.mos'
           }
         }
         stage('moparser parsing') {
