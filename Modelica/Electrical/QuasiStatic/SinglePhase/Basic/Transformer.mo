@@ -72,13 +72,12 @@ equation
   annotation (
     Documentation(info="<html>
 <p>The transformer is a two port. The left port voltage <em>v1</em>, left port current <em>i1</em>, right port voltage <em>v2</em> and right port current <em>i2</em> are connected by the following relation:</p>
-<pre>
-         | v1 |     | L1   M  |   | i1 |
-         |    |  =  |         | . |    |
-         | v2 |     | M    L2 |   | i2 |
-</pre>
+<blockquote><pre> 
+| v1 |     | L1   M  |   | i1 |
+|    |  =  |         | . |    |
+| v2 |     | M    L2 |   | i2 |
+</pre></blockquote>
 <p><em>L1</em>, <em>L2</em>, and <em>M</em> are the primary, secondary, and coupling inductances respectively.</p>
-<p></p>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
