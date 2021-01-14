@@ -3,6 +3,33 @@ name: CI
 on: [pull_request]
 
 jobs:
+  external_c_checks:
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 5
+      - name: Build libraries
+        run: |
+          rm -rf Modelica/Resources/Library/*
+          mkdir -p Modelica/Resources/Library/$LIBDIR
+          pushd Modelica/Resources/BuildProjects/autotools
+          git clean -fdx .
+          ./autogen.sh
+          ./configure --libdir="$PWD/../../Library/$LIBDIR" --enable-static --disable-shared --enable-static-zlib --disable-hdf5
+          make --output-sync
+          sudo make install
+          popd
+        env:
+          LIBDIR: linux64
+      - name: Run tests
+        run: |
+          cd .CI/Test
+          ./test.sh onlystatic
+        env:
+          LIBDIR: linux64
+          CC: gcc
   html_documentation_checks:
     timeout-minutes: 5
     runs-on: ubuntu-latest
