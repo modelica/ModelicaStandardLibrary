@@ -51,7 +51,8 @@ equation
   r_rel_a = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
 
   // Constraint equations concerning rotations
-  ones(3)={R_rel.T[1,1], R_rel.T[2,2], R_rel.T[3,3]};
+  // Same logic as for overdetermined connection graph loops to get good residuals.
+  zeros(3)=Modelica.Mechanics.MultiBody.Frames.Orientation.equalityConstraint(frame_a.R, frame_b.R);
 
   // Constraint equations concerning translations
   if x_locked and y_locked and z_locked then
