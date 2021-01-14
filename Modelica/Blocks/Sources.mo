@@ -1881,25 +1881,25 @@ MATLAB is a registered trademark of The MathWorks, Inc.
 </html>"),
       Icon(
       coordinateSystem(preserveAspectRatio=true,
-        extent={{-100.0,-100.0},{100.0,100.0}}),
+        extent={{-100,-100},{100,100}}),
         graphics={
       Polygon(lineColor={192,192,192},
         fillColor={192,192,192},
         fillPattern=FillPattern.Solid,
-        points={{-80.0,90.0},{-88.0,68.0},{-72.0,68.0},{-80.0,90.0}}),
-      Line(points={{-80.0,68.0},{-80.0,-80.0}},
+        points={{-80,90},{-88,68},{-72,68},{-80,90}}),
+      Line(points={{-80,68},{-80,-80}},
         color={192,192,192}),
-      Line(points={{-90.0,-70.0},{82.0,-70.0}},
+      Line(points={{-90,-70},{82,-70}},
         color={192,192,192}),
       Polygon(lineColor={192,192,192},
         fillColor={192,192,192},
         fillPattern=FillPattern.Solid,
-        points={{90.0,-70.0},{68.0,-62.0},{68.0,-78.0},{90.0,-70.0}}),
+        points={{90,-70},{68,-62},{68,-78},{90,-70}}),
       Rectangle(lineColor={255,255,255},
         fillColor={255,215,136},
         fillPattern=FillPattern.Solid,
-        extent={{-48.0,-50.0},{2.0,70.0}}),
-      Line(points={{-48.0,-50.0},{-48.0,70.0},{52.0,70.0},{52.0,-50.0},{-48.0,-50.0},{-48.0,-20.0},{52.0,-20.0},{52.0,10.0},{-48.0,10.0},{-48.0,40.0},{52.0,40.0},{52.0,70.0},{2.0,70.0},{2.0,-51.0}}),
+        extent={{-48,-50},{2,70}}),
+      Line(points={{-48,-50},{-48,70},{52,70},{52,-50},{-48,-50},{-48,-20},{52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}}),
       Text(extent={{-150,-150},{150,-110}}, textString="tableOnFile=%tableOnFile")}));
   end CombiTimeTable;
 
