@@ -235,11 +235,21 @@ are connected by rigid rods.
         Ellipse(
           extent={{-100,20},{-60,-20}},
           fillColor={192,192,192},
-          fillPattern=FillPattern.Solid),
-        Polygon(
-          points={{-4,56},{72,-4},{80,4},{4,64},{-4,56}},
           fillPattern=FillPattern.Solid,
-          lineColor={95,95,95},
+          lineColor={0,0,0}),
+        Line(
+          points={{100,40},{90,40},{90,0}},
+          color={95,95,95},
+          thickness=0.5),
+        Ellipse(
+          extent={{60,20},{100,-20}},
+          fillColor={128,128,128},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,0}),
+        Polygon(
+          points={{-2,56},{78,-4},{82,4},{2,64},{-2,56}},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,0},
           fillColor={192,192,192}),
         Line(
           points={{0,74},{0,100}},
@@ -249,7 +259,7 @@ are connected by rigid rods.
           extent={{-20,80},{20,40}},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid,
-          lineColor={95,95,95}),
+          lineColor={0,0,0}),
         Polygon(
           points={{-82,2},{-2,62},{2,58},{-78,-2},{-82,2}},
           fillPattern=FillPattern.Solid,
@@ -266,10 +276,6 @@ are connected by rigid rods.
           lineColor={0,0,0},
           fillColor={0,0,0}),
         Line(
-          points={{80,14},{80,80},{80,80},{80,100}},
-          color={95,95,95},
-          thickness=0.5),
-        Line(
           points={{-80,100},{-80,0}},
           color={95,95,95},
           thickness=0.5),
@@ -278,20 +284,14 @@ are connected by rigid rods.
           color={95,95,95},
           thickness=0.5),
         Ellipse(
-          extent={{54,20},{94,-20}},
-          fillColor={192,192,192},
+          extent={{70,10},{90,-10}},
           fillPattern=FillPattern.Solid,
-          lineColor={95,95,95}),
+          lineColor={0,0,0},
+          fillColor={192,192,192}),
         Line(
-          points={{100,40},{90,40},{90,0}},
+          points={{80,0},{80,80},{80,80},{80,100}},
           color={95,95,95},
           thickness=0.5),
-        Ellipse(
-          extent={{64,10},{84,-10}},
-          fillPattern=FillPattern.Solid),
-        Polygon(
-          points={{100,-4},{72,-4},{72,4},{100,4},{100,-4}},
-          fillPattern=FillPattern.Solid),
         Text(
           extent={{34,112},{69,90}},
           textColor={128,128,128},
