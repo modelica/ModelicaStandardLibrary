@@ -1,15 +1,21 @@
 within Modelica.Mechanics.Translational.Components;
 model Brake "Brake based on Coulomb friction"
-
   extends Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
   extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
+
+  import Modelica.Blocks.Types.{ExternalCombiTable1D, Extrapolation, Smoothness};
+  import Modelica.Blocks.Tables.Internal.{getTable1DValue, getTable1DValueNoDer, getTable1DValueNoDer2};
+
   parameter Real mu_pos[:, 2]=[0, 0.5]
-    "Positive sliding friction coefficient [-] as function of v_rel [m/s] (v_rel>=0)";
+    "Positive sliding friction coefficient [-] as function of v [m/s] (v>=0)";
+  parameter Smoothness smoothness = Smoothness.LinearSegments
+    "Smoothness of interpolation in mu_pos table";
   parameter Real peak(final min=1) = 1
-    "Peak for maximum value of mu at w==0 (mu0_max = peak*mu_pos[1,2])";
+    "Peak for maximum value of mu at v==0 (mu0_max = peak*mu_pos[1,2])";
   parameter Real cgeo(final min=0) = 1
     "Geometry constant containing friction distribution assumption";
   parameter SI.Force fn_max(final min=0, start=1) "Maximum normal force";
+
   extends Translational.Interfaces.PartialFriction;
 
   SI.Position s "Absolute position of flange_a and of flange_b";
@@ -17,33 +23,46 @@ model Brake "Brake based on Coulomb friction"
   SI.Velocity v "Absolute velocity of flange_a and flange_b";
   SI.Acceleration a "Absolute acceleration of flange_a and flange_b";
 
-  Real mu0 "Friction coefficient for v=0 and forward sliding";
+  Real mu "Friction coefficient";
   SI.Force fn "Normal force (=fn_max*f_normalized)";
-
-  // Constant auxiliary variable
   Modelica.Blocks.Interfaces.RealInput f_normalized
     "Normalized force signal 0..1 (normal force = fn_max*f_normalized; brake is active if > 0)"
     annotation (Placement(transformation(
         origin={0,110},
         extent={{20,-20},{-20,20}},
         rotation=90)));
+
+protected
+  final parameter ExternalCombiTable1D tableID = ExternalCombiTable1D(
+    tableName="NoName",
+    fileName="NoName",
+    table=mu_pos,
+    columns={2},
+    smoothness=smoothness,
+    extrapolation=Extrapolation.LastTwoPoints,
+    verboseRead=false) "External table object for sliding friction coefficient";
+  final parameter Real mu0=
+    if     smoothness == Smoothness.ConstantSegments then getTable1DValueNoDer(tableID, 1, 0)
+    elseif smoothness == Smoothness.LinearSegments   then getTable1DValueNoDer2(tableID, 1, 0)
+    else                                                  getTable1DValue(tableID, 1, 0)
+    "Friction coefficient for v=0 and forward sliding";
+
+  Real table_signs[2]
+    "Signs for sliding friction coefficient table interpolation: [sign for v, sign for mu]";
+
 equation
-  mu0 = Modelica.Math.Vectors.interpolate(
-        mu_pos[:, 1],
-        mu_pos[:, 2],
-        0,
-        1);
+  assert(size(mu_pos, 1) > 0 and size(mu_pos, 2) > 0, "Parameter mu_pos is an empty matrix");
 
   s = s_a;
   s = s_b;
 
-  // velocity and acceleration of flanges flange_a and flange_b
+  // Velocity and acceleration of flanges flange_a and flange_b
   v = der(s);
   a = der(v);
   v_relfric = v;
   a_relfric = a;
 
-  // Friction force, normal force and friction force for v_rel=0
+  // Friction force, normal force and friction force for v=0
   flange_a.f + flange_b.f - f = 0;
   fn = fn_max*f_normalized;
   f0 = mu0*cgeo*fn;
@@ -51,25 +70,16 @@ equation
   free = fn <= 0;
 
   // Friction force
-  f = if locked then sa*unitForce else if free then 0 else cgeo*fn*(if
-    startForward then Modelica.Math.Vectors.interpolate(
-        mu_pos[:, 1],
-        mu_pos[:, 2],
-        v,
-        1) else if startBackward then -Modelica.Math.Vectors.interpolate(
-        mu_pos[:, 1],
-        mu_pos[:, 2],
-        -v,
-        1) else if pre(mode) == Forward then
-    Modelica.Math.Vectors.interpolate(
-        mu_pos[:, 1],
-        mu_pos[:, 2],
-        v,
-        1) else -Modelica.Math.Vectors.interpolate(
-        mu_pos[:, 1],
-        mu_pos[:, 2],
-        -v,
-        1));
+  table_signs =
+    if     startForward         then { 1, 1}
+    elseif startBackward        then {-1,-1}
+    elseif pre(mode) == Forward then { 1, 1}
+    else                             {-1,-1};
+  mu = table_signs[2]*(
+    if     smoothness == Smoothness.ConstantSegments then getTable1DValueNoDer(tableID, 1, table_signs[1]*v)
+    elseif smoothness == Smoothness.LinearSegments   then getTable1DValueNoDer2(tableID, 1, table_signs[1]*v)
+    else                                                  getTable1DValue(tableID, 1, table_signs[1]*v));
+  f = if locked then sa*unitForce else if free then 0 else mu*cgeo*fn;
 
   lossPower = f*v_relfric;
   annotation (Documentation(info="<html>
@@ -102,20 +112,19 @@ frictional_force = <strong>cgeo</strong> * <strong>mu</strong>(v) * <strong>fn</
 <p>
     The positive part of the friction characteristic <strong>mu</strong>(v),
     v >= 0, is defined via table mu_pos (first column = v,
-    second column = mu). Currently, only linear interpolation in
-    the table is supported.
+    second column = mu).
 </p>
 <p>
    When the absolute velocity becomes zero, the elements
    connected by the friction element become stuck, i.e., the absolute
    position remains constant. In this phase the friction force is
    calculated from a force balance due to the requirement, that
-   the absolute acceleration shall be zero.  The elements begin
+   the absolute acceleration shall be zero. The elements begin
    to slide when the friction force exceeds a threshold value,
-   called the  maximum static friction force, computed via:
+   called the maximum static friction force, computed via:
 </p>
 <blockquote><pre>
-frictional_force = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(w=0) * <strong>fn</strong>   (<strong>peak</strong> >= 1)
+frictional_force = <strong>peak</strong> * <strong>cgeo</strong> * <strong>mu</strong>(v=0) * <strong>fn</strong>,   (<strong>peak</strong> >= 1)
 </pre></blockquote>
 <p>
 This procedure is implemented in a \"clean\" way by state events and
