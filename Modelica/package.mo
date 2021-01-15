@@ -2390,6 +2390,9 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
     <td>The table interpolation in <code>tau_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td></tr>
 <tr><td>LossyGear</td>
     <td>The table interpolation in <code>lossTable</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Translational.Components</strong></td></tr>
+<tr><td>SupportFriction</td>
+    <td>The table interpolation in <code>f_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td></tr>
 </table>
 
 <p><br>
@@ -2399,6 +2402,9 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Mechanics.Rotational.Components</strong></td></tr>
 <tr><td>Brake<br>Clutch<br>OneWayClutch</td>
+    <td>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.<br>The public variable <code>mu0</code> was changed to a protected final parameter.</td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Translational.Components</strong></td></tr>
+<tr><td>Brake</td>
     <td>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.<br>The public variable <code>mu0</code> was changed to a protected final parameter.</td></tr>
 </table>
 
