@@ -167,6 +167,15 @@ extends Modelica.Icons.ExamplesPackage;
           extent={{-10,-10},{10,10}},
           rotation=180,
           origin={40,-90})));
+    Modelica.Mechanics.Translational.Components.Mass mass6(
+      m=1,
+      s(fixed=true, start=0),
+      v(fixed=true, start=100))
+      annotation (Placement(transformation(extent={{-40,-130},{-20,-110}})));
+    Modelica.Mechanics.Translational.Sources.InverseSpeedDependentForce inverseSpeedDependentForce(
+      f_nominal=-100,
+      v_nominal=100,
+      v0=1) annotation (Placement(transformation(extent={{40,-130},{20,-110}})));
   equation
     connect(mass1.flange_b, linearSpeedDependentForce.flange)
       annotation (Line(points={{-20,60},{20,60}}, color={0,127,0}));
@@ -179,8 +188,12 @@ extends Modelica.Icons.ExamplesPackage;
     connect(eddyCurrentForce.heatPort, heatCapacitor.port) annotation (Line(
           points={{40,-70},{40,-80}}, color={191,0,0}));
     connect(eddyCurrentForce.flange, mass5.flange_b) annotation (Line(points={{20,-60},{-20,-60}}, color={0,127,0}));
+    connect(inverseSpeedDependentForce.flange, mass6.flange_b)
+      annotation (Line(points={{20,-120},{-20,-120}}, color={0,127,0}));
     annotation (
-      experiment(StopTime=2));
+      experiment(StopTime=2),
+      Diagram(coordinateSystem(extent={{-100,-140},{100,80}})),
+      Icon(coordinateSystem(extent={{-100,-140},{100,80}})));
   end TestBraking;
 
   model Vehicles

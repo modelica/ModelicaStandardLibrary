@@ -1638,6 +1638,15 @@ they were not deleted yet.")}));
           extent={{-10,-10},{10,10}},
           rotation=180,
           origin={40,-90})));
+    Modelica.Mechanics.Rotational.Components.Inertia inertia6(
+      J=1,
+      phi(fixed=true, start=0),
+      w(fixed=true, start=100))
+      annotation (Placement(transformation(extent={{-40,-130},{-20,-110}})));
+    Modelica.Mechanics.Rotational.Sources.InverseSpeedDependentTorque inverseSpeedDependentTorque(
+      tau_nominal=-100,
+      w_nominal=100,
+      w0=1) annotation (Placement(transformation(extent={{40,-130},{20,-110}})));
   equation
     connect(inertia1.flange_b, linearSpeedDependentTorque.flange)
       annotation (Line(points={{-20,60},{20,60}}));
@@ -1650,8 +1659,12 @@ they were not deleted yet.")}));
     connect(eddyCurrentTorque.heatPort, heatCapacitor.port) annotation (Line(
           points={{40,-70},{40,-80}}, color={191,0,0}));
     connect(inertia5.flange_b, eddyCurrentTorque.flange) annotation (Line(points={{-20,-60},{20,-60}}, color={0,0,0}));
+    connect(inverseSpeedDependentTorque.flange, inertia6.flange_b)
+      annotation (Line(points={{20,-120},{-20,-120}}));
     annotation (
-      experiment(StopTime=2));
+      experiment(StopTime=2),
+      Diagram(coordinateSystem(extent={{-100,-140},{100,80}})),
+      Icon(coordinateSystem(extent={{-100,-140},{100,80}})));
   end TestBraking;
 
   model GenerationOfFMUs
