@@ -323,4 +323,14 @@ double mydummyfunc(double* dummy_in) {
       smoothness=Modelica.Blocks.Types.Smoothness.ModifiedContinuousDerivative));
     annotation (experiment(StartTime=0, StopTime=4));
   end Test34;
+
+  model Test35 "CSV file (Ticket #3691)"
+    extends Modelica.Icons.Example;
+    extends TestDer(t_new(
+      tableOnFile=true,
+      delimiter=",",
+      nHeaderLines=1,
+      fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test1D.csv")));
+    annotation (experiment(StartTime=0, StopTime=100));
+  end Test35;
 end CombiTable1Dv;
