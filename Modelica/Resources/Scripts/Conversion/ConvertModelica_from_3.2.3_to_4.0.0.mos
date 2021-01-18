@@ -13,8 +13,6 @@ convertClass("Modelica.Fluid.Icons.BaseClassLibrary",
               "Modelica.Icons.BasesPackage");
 convertClass("Modelica.Icons.TypeComplex",
               "Complex");
-convertClass("Modelica.Utilities.System.getTime",
-              "Modelica.Utilities.Internal.Time.getTime");
 convertClass("Modelica.Mechanics.MultiBody.Sensors.Internal.ZeroForceAndTorque",
               "Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque");
 convertClass("Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport",
