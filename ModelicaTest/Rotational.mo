@@ -1593,33 +1593,33 @@ they were not deleted yet.")}));
       J=1,
       phi(fixed=true, start=0),
       w(fixed=true, start=100))
-      annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
+      annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
     Modelica.Mechanics.Rotational.Sources.LinearSpeedDependentTorque
       linearSpeedDependentTorque(w_nominal=100, tau_nominal=-100)
-      annotation (Placement(transformation(extent={{40,50},{20,70}})));
+      annotation (Placement(transformation(extent={{40,70},{20,90}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia2(
       J=1,
       phi(fixed=true, start=0),
       w(fixed=true, start=100))
-      annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+      annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
     Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
       quadraticSpeedDependentTorque(tau_nominal=-100, w_nominal=100)
-      annotation (Placement(transformation(extent={{40,20},{20,40}})));
+      annotation (Placement(transformation(extent={{40,40},{20,60}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia3(
       J=1,
       phi(fixed=true, start=0),
       w(fixed=true, start=100))
-      annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+      annotation (Placement(transformation(extent={{-40,10},{-20,30}})));
     Modelica.Mechanics.Rotational.Sources.ConstantTorque constantTorque(
         tau_constant=-100)
-      annotation (Placement(transformation(extent={{40,-10},{20,10}})));
+      annotation (Placement(transformation(extent={{40,10},{20,30}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia4(
       J=1,
       phi(fixed=true, start=0),
       w(fixed=true, start=100))
-      annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
+      annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
     Modelica.Mechanics.Rotational.Sources.SignTorque signTorque(tau_nominal=-100,
-        w0=1) annotation (Placement(transformation(extent={{40,-40},{20,-20}})));
+        w0=1) annotation (Placement(transformation(extent={{40,-20},{20,0}})));
     Modelica.Mechanics.Rotational.Sources.EddyCurrentTorque eddyCurrentTorque(
       tau_nominal=100,
       w_nominal=10,
@@ -1627,31 +1627,43 @@ they were not deleted yet.")}));
       alpha20(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
       TRef=293.15,
       useHeatPort=true)
-      annotation (Placement(transformation(extent={{40,-70},{20,-50}})));
+      annotation (Placement(transformation(extent={{40,-50},{20,-30}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia5(
       phi(fixed=true, start=0),
       J=1,
       w(fixed=true, start=20))
-      annotation (Placement(transformation(extent={{-40,-70},{-20,-50}})));
+      annotation (Placement(transformation(extent={{-40,-50},{-20,-30}})));
     Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(C=1, T(
           fixed=true)) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=180,
-          origin={40,-90})));
+          origin={60,-60})));
+    Modelica.Mechanics.Rotational.Components.Inertia inertia6(
+      J=1,
+      phi(fixed=true, start=0),
+      w(fixed=true, start=100))
+      annotation (Placement(transformation(extent={{-40,-90},{-20,-70}})));
+    Modelica.Mechanics.Rotational.Sources.InverseSpeedDependentTorque inverseSpeedDependentTorque(
+      tau_nominal=-100,
+      w_nominal=100,
+      w0=1) annotation (Placement(transformation(extent={{40,-90},{20,-70}})));
   equation
     connect(inertia1.flange_b, linearSpeedDependentTorque.flange)
-      annotation (Line(points={{-20,60},{20,60}}));
+      annotation (Line(points={{-20,80},{20,80}}));
     connect(inertia2.flange_b, quadraticSpeedDependentTorque.flange)
-      annotation (Line(points={{-20,30},{20,30}}));
+      annotation (Line(points={{-20,50},{20,50}}));
     connect(inertia3.flange_b, constantTorque.flange)
-      annotation (Line(points={{-20,0},{20,0}}));
+      annotation (Line(points={{-20,20},{20,20}}));
     connect(signTorque.flange, inertia4.flange_b)
-      annotation (Line(points={{20,-30},{-20,-30}}));
+      annotation (Line(points={{20,-10},{-20,-10}}));
     connect(eddyCurrentTorque.heatPort, heatCapacitor.port) annotation (Line(
-          points={{40,-70},{40,-80}}, color={191,0,0}));
-    connect(inertia5.flange_b, eddyCurrentTorque.flange) annotation (Line(points={{-20,-60},{20,-60}}, color={0,0,0}));
+          points={{40,-50},{60,-50}}, color={191,0,0}));
+    connect(inertia5.flange_b, eddyCurrentTorque.flange) annotation (Line(points={{-20,-40},{20,-40}}, color={0,0,0}));
+    connect(inverseSpeedDependentTorque.flange, inertia6.flange_b)
+      annotation (Line(points={{20,-80},{-20,-80}}));
     annotation (
-      experiment(StopTime=2));
+      experiment(StopTime=2),
+      Diagram(coordinateSystem(extent={{-100,-100},{100,100}})));
   end TestBraking;
 
   model GenerationOfFMUs
