@@ -207,11 +207,10 @@ extends Modelica.Icons.ExamplesPackage;
 
     Strings.scanNoToken("  abc = 3;   ", 11);
 
-    // The hash-function can now be redefined, so we don't know what it is.
     hash1 := Strings.hashString("this is a test");
-    assert(hash1 == Strings.hashString("this is a test"), "Strings.hashString 1 failed");
+    assert(hash1 == 1827717433, "Strings.hashString 1 failed");
     hash2 := Strings.hashString("Controller.noise1");
-    assert(hash2 == Strings.hashString("Controller.noise1"), "Strings.hashString 2 failed");
+    assert(hash2 == -1025762750, "Strings.hashString 2 failed");
     // Check that hashString actually produces different values
     assert(hash1 <> Strings.hashString("this is a tes1"), "Strings.hashString 1 failed");
     assert(hash1 <> Strings.hashString("this is a tes2"), "Strings.hashString 1 failed");
