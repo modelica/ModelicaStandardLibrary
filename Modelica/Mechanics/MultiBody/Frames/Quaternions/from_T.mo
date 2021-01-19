@@ -33,7 +33,7 @@ algorithm
       Q := {T[2, 3] - T[3, 2], T[3, 1] - T[1, 3], T[1, 2] - T[2, 1], t};
     end if;
   end if;
-  Q := Q .* 0.5/sqrt(t);
+  Q := Q*0.5/sqrt(t);
 
   /*
    Note:
