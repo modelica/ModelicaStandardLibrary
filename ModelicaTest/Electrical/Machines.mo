@@ -210,7 +210,6 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
 
   model DCPM_CurrentControlled "Current controlled DCPM drive"
     extends Modelica.Icons.Example;
-    import Modelica.Constants.pi;
     parameter ModelicaTest.Electrical.Machines.DCPM_Utilities.DriveData driveData(
       redeclare ModelicaTest.Electrical.Machines.DCPM_Utilities.M48V machineData)
       annotation (Placement(transformation(extent={{60,60},{80,80}})));
@@ -275,19 +274,17 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
     connect(ground.p, currentSensor.p)
       annotation (Line(points={{20,-50},{20,-40}}, color={0,0,255}));
     connect(currentSensor.n,voltageSource. n)
-      annotation (Line(points={{20,-20},{20,-10}},
-                                                 color={0,0,255}));
+      annotation (Line(points={{20,-20},{20,-10}}, color={0,0,255}));
     connect(voltageSource.p,dcpm. pin_p)
-      annotation (Line(points={{40,-10},{40,-50},{36,-50},{36,-60}},
-                                                                   color={0,0,255}));
+      annotation (Line(points={{40,-10},{40,-50},{36,-50},{36,-60}}, color={0,0,255}));
     connect(deadTime.y, voltageSource.v)
       annotation (Line(points={{30,9},{30,2}}, color={0,0,127}));
     connect(iRef.y, currentController.u)
       annotation (Line(points={{-19,40},{-12,40}}, color={0,0,127}));
     connect(currentSensor.i, currentController.u_m)
-      annotation (Line(points={{9,-30},{-6,-30},{-6,28}},    color={0,0,127}));
+      annotation (Line(points={{9,-30},{-6,-30},{-6,28}}, color={0,0,127}));
     connect(dcpm.w, currentController.feedForward)
-      annotation (Line(points={{19,-70},{0,-70},{0,28}},    color={0,0,127}));
+      annotation (Line(points={{19,-70},{0,-70},{0,28}}, color={0,0,127}));
     connect(currentController.y, deadTime.u)
       annotation (Line(points={{11,40},{30,40},{30,32}}, color={0,0,127}));
     annotation (experiment(
@@ -304,9 +301,8 @@ By simply redeclaring the machine parameter record instantiated in the drive par
 </html>"));
   end DCPM_CurrentControlled;
 
-  model DCPM_SpeedControlled "Current controlled DCPM drive"
+  model DCPM_SpeedControlled "Speed controlled DCPM drive"
     extends Modelica.Icons.Example;
-    import Modelica.Constants.pi;
     parameter ModelicaTest.Electrical.Machines.DCPM_Utilities.DriveData driveData(
       redeclare ModelicaTest.Electrical.Machines.DCPM_Utilities.M48V machineData)
       annotation (Placement(transformation(extent={{60,60},{80,80}})));
@@ -332,7 +328,7 @@ By simply redeclaring the machine parameter record instantiated in the drive par
       phi(fixed=false),
       w(fixed=false))
       annotation (Placement(transformation(extent={{50,-80},{70,-60}})));
-    Modelica.Mechanics.Rotational.Sources.TorqueStep                 torqueLoad(
+    Modelica.Mechanics.Rotational.Sources.TorqueStep torqueLoad(
       stepTorque=-driveData.machineData.tauNominal,
       offsetTorque=0,
       startTime=0.7)
@@ -387,17 +383,15 @@ By simply redeclaring the machine parameter record instantiated in the drive par
     connect(ground.p, currentSensor.p)
       annotation (Line(points={{20,-50},{20,-40}}, color={0,0,255}));
     connect(currentSensor.n,voltageSource. n)
-      annotation (Line(points={{20,-20},{20,-10}},
-                                                 color={0,0,255}));
+      annotation (Line(points={{20,-20},{20,-10}}, color={0,0,255}));
     connect(voltageSource.p,dcpm. pin_p)
-      annotation (Line(points={{40,-10},{40,-50},{36,-50},{36,-60}},
-                                                                   color={0,0,255}));
+      annotation (Line(points={{40,-10},{40,-50},{36,-50},{36,-60}}, color={0,0,255}));
     connect(deadTime.y, voltageSource.v)
       annotation (Line(points={{30,9},{30,2}}, color={0,0,127}));
     connect(currentSensor.i, currentController.u_m)
-      annotation (Line(points={{9,-30},{-6,-30},{-6,28}},    color={0,0,127}));
+      annotation (Line(points={{9,-30},{-6,-30},{-6,28}}, color={0,0,127}));
     connect(dcpm.w, currentController.feedForward)
-      annotation (Line(points={{19,-70},{0,-70},{0,28}},    color={0,0,127}));
+      annotation (Line(points={{19,-70},{0,-70},{0,28}}, color={0,0,127}));
     connect(wRef.y, preFilter.u)
       annotation (Line(points={{-79,40},{-72,40}}, color={0,0,127}));
     connect(currentController.y, deadTime.u)
@@ -406,8 +400,8 @@ By simply redeclaring the machine parameter record instantiated in the drive par
       annotation (Line(points={{-49,40},{-42,40}}, color={0,0,127}));
     connect(speedController.y, currentController.u)
       annotation (Line(points={{-19,40},{-12,40}}, color={0,0,127}));
-    connect(dcpm.w, speedController.u_m) annotation (Line(points={{19,-70},{
-            -36,-70},{-36,28}}, color={0,0,127}));
+    connect(dcpm.w, speedController.u_m)
+      annotation (Line(points={{19,-70},{-36,-70},{-36,28}}, color={0,0,127}));
     annotation (experiment(
         StopTime=1,
         Interval=0.0001,
@@ -517,8 +511,8 @@ Simple model of a DC PM machine, comprising armature resistance, armature induct
       annotation(defaultComponentPrefixes="parameter", defaultComponentName="driveData",
         Documentation(info="<html>
 <p>
-The drive parameter record contains the machine parameter record, additional parameters and fills the controller parameter record. 
-Simulating another machine (with different parameters), the machine parameter record can be redeclared. 
+The drive parameter record contains the machine parameter record, additional parameters and fills the controller parameter record.
+Simulating another machine (with different parameters), the machine parameter record can be redeclared.
 </p>
 </html>"));
     end DriveData;
@@ -561,8 +555,8 @@ The controller parameter record is used in the drive parameters record, and fill
       annotation(defaultComponentPrefixes="parameter", defaultComponentName="machineData",
         Documentation(info="<html>
 <p>
-The machine parameter record contains all necessary parameters of a DC PM machine. 
-It is used to parameterize the DCPM model, and it is used in the drive parameter record. 
+The machine parameter record contains all necessary parameters of a DC PM machine.
+It is used to parameterize the DCPM model, and it is used in the drive parameter record.
 Extending from this record, the parameters of other machines (with different parameters) can be saved.
 </p>
 </html>"));
