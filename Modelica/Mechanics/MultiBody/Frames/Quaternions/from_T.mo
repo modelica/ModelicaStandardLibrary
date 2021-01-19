@@ -70,5 +70,19 @@ package.
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.from_T\">Frames.from_T</a>,
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_T\">TransformationMatrices.from_T</a>.
 </p>
+</html>", revisions="<html>
+<ul>
+  <li>January 2021 by Jakub Tobolar<br>
+       reimplemented for more efficient and numerically stable algorithm according to
+       <a href=\"https://d3cw3dd2w32x2b.cloudfront.net/wp-content/uploads/2015/01/matrix-to-quat.pdf\">https://d3cw3dd2w32x2b.cloudfront.net/wp-content/uploads/2015/01/matrix-to-quat.pdf</a>.
+       It compares only one particular diagonal element with another to
+       select one of the four code parts. Then, the selected code delivers
+       four components which are close to the desired quaternion,
+       so that it has only be scaled by an appropriate factor.<br>
+       We appreciate the effort of Mike Day, the author of the abovementioned document.
+       Credit also goes to Matthias Hellerer (DLR) for making inquiries
+       and the first Modelica implementation.
+  </li>
+</ul>
 </html>"));
 end from_T;
