@@ -207,6 +207,8 @@ void ModelicaInternal_setenv(_In_z_ const char* name,
   #define _POSIX_ 1
 #endif
 
+#include "stdint_wrap.h"
+#define HASH_NO_STDINT 1
 #define HASH_NONFATAL_OOM 1
 #include "uthash.h"
 #include "gconstructor.h"

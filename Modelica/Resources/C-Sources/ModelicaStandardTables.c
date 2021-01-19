@@ -165,6 +165,8 @@
 #include "ModelicaIO.h"
 #include "ModelicaUtilities.h"
 #if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
+#include "stdint_wrap.h"
+#define HASH_NO_STDINT 1
 #define uthash_strlen(s) key_strlen(s)
 #define HASH_NONFATAL_OOM 1
 #include "uthash.h"
