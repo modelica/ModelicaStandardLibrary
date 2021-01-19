@@ -88,6 +88,7 @@ equation
     frame_a.f[3]=0;
   end if;
 
+
   // Constraint equations concerning rotations
   0 = ex_a*R_rel.T*e;
   0 = ey_a*R_rel.T*e;

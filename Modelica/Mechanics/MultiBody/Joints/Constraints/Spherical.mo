@@ -70,6 +70,7 @@ equation
     frame_a.f[3]=0;
   end if;
 
+
   //frame_a.t = zeros(3);
   frame_b.t = zeros(3);
   frame_b.f = -MBS.Frames.resolve2(R_rel, frame_a.f);
