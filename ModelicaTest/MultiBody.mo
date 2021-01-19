@@ -1037,6 +1037,21 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       connect(Constant1.y, FrameTorque1.torque) annotation (Line(points={{69,-30},{52,-30}}, color={0,0,127}));
       annotation (experiment(StopTime=1.1));
     end AngularVelocity;
+
+    model QuaternionFromT
+      extends Modelica.Icons.Example;
+      import Modelica.Mechanics.MultiBody.Frames.Quaternions;
+
+      parameter Real T1[3,3] = identity(3);
+      parameter Real T2[3,3] = {{0,1,0},{1,0,0},{0,0,-1}};
+      parameter Real T3[3,3] = {{0,0,1},{1,0,0},{0,1,0}};
+
+      Quaternions.Orientation Q1 = Quaternions.from_T(T1);
+      Quaternions.Orientation Q2 = Quaternions.from_T(T2);
+      Quaternions.Orientation Q3 = Quaternions.from_T(T3);
+
+      annotation (experiment(StopTime=1));
+    end QuaternionFromT;
   end Frames;
 
   package Forces
