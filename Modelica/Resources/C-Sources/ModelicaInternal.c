@@ -30,6 +30,10 @@
 */
 
 /* Release Notes:
+      Nov. 17, 2020: by Thomas Beutlich
+                     Fixed reading files with Unix-style line endings on Windows
+                     for ModelicaInternal_readLine/_readFile (ticket #3631)
+
       Nov. 11, 2020: by Thomas Beutlich
                      Added getcwd fallback in ModelicaInternal_fullPathName if
                      realpath fails for non-existing path (ticket #3660)
@@ -275,6 +279,9 @@ static void ModelicaConvertFromUnixDirectorySeparator(char* string) {
   #define ModelicaConvertToUnixDirectorySeparator(string) ;
   #define ModelicaConvertFromUnixDirectorySeparator(string) ;
 #endif
+
+static int readLine(_In_ char** buf, _In_ int* bufLen, _In_ FILE* fp) MODELICA_NONNULLATTR;
+  /* Read line (of unknown and arbitrary length) from a text file */
 
 /* --------------------- Modelica_Utilities.Internal --------------------------------- */
 
@@ -674,7 +681,9 @@ _Ret_z_ const char* ModelicaInternal_temporaryFileName(void) {
 typedef struct FileCache {
     char* fileName; /* Key = File name */
     FILE* fp /* File pointer */;
-    int line;
+    char* buf;
+    int bufLen;
+    int lineNumber;
     UT_hash_handle hh; /* Hashable structure */
 } FileCache;
 
@@ -727,7 +736,11 @@ static void ModelicaInternal_deleteCS(void) {
 #define MUTEX_UNLOCK()
 #endif
 
-static void CacheFileForReading(FILE* fp, const char* fileName, int line) {
+#if !defined(LINE_BUFFER_LENGTH)
+#define LINE_BUFFER_LENGTH (64)
+#endif
+
+static void CacheFileForReading(FILE* fp, const char* fileName, int lineNumber, char* buf, int bufLen) {
     FileCache* fv;
     size_t len;
     if (fileName == NULL) {
@@ -742,7 +755,9 @@ static void CacheFileForReading(FILE* fp, const char* fileName, int line) {
     HASH_FIND(hh, fileCache, fileName, (unsigned)len, fv);
     if (fv != NULL) {
         fv->fp = fp;
-        fv->line = line;
+        fv->lineNumber = lineNumber;
+        fv->buf = buf;
+        fv->bufLen = bufLen;
     }
     else {
         fv = (FileCache*)malloc(sizeof(FileCache));
@@ -752,7 +767,9 @@ static void CacheFileForReading(FILE* fp, const char* fileName, int line) {
                 strcpy(key, fileName);
                 fv->fileName = key;
                 fv->fp = fp;
-                fv->line = line;
+                fv->lineNumber = lineNumber;
+                fv->buf = buf;
+                fv->bufLen = bufLen;
                 HASH_ADD_KEYPTR(hh, fileCache, key, (unsigned)len, fv);
                 if (NULL == fv->hh.tbl) {
                    free(key);
@@ -776,6 +793,7 @@ static void CloseCachedFile(const char* fileName) {
         if (fv->fp != NULL) {
             fclose(fv->fp);
         }
+        free(fv->buf);
         free(fv->fileName);
         HASH_DEL(fileCache, fv);
         free(fv);
@@ -783,32 +801,41 @@ static void CloseCachedFile(const char* fileName) {
     MUTEX_UNLOCK();
 }
 
-static FILE* ModelicaStreams_openFileForReading(const char* fileName, int line) {
+static FILE* ModelicaStreams_openFileForReading(const char* fileName, int lineNumber, int* lineNumberOffset, char** buf, int* bufLen) {
     /* Open text file for reading */
     FILE* fp;
     int c = 1;
     FileCache* fv;
     size_t len = strlen(fileName);
+    *lineNumberOffset = 0;
+    *buf = NULL;
+    *bufLen = LINE_BUFFER_LENGTH;
     MUTEX_LOCK();
     HASH_FIND(hh, fileCache, fileName, (unsigned)len, fv);
     /* Open file */
     if (fv != NULL) {
         /* Cached value */
         if (fv->fp != NULL) {
-            if (line != 0 && line >= fv->line) {
-                line -= fv->line;
+            if (lineNumber != 0 && lineNumber >= fv->lineNumber - 1) {
+                *lineNumberOffset = fv->lineNumber;
                 fp = fv->fp;
+                *buf = fv->buf;
+                *bufLen = fv->bufLen;
             }
             else {
                 if ( fseek(fv->fp, 0L, SEEK_SET) == 0 ) {
                     fp = fv->fp;
+                    *buf = fv->buf;
+                    *bufLen = fv->bufLen;
                 }
                 else {
                     fclose(fv->fp);
                     fp = NULL;
+                    free(fv->buf);
                 }
             }
             fv->fp = NULL;
+            fv->buf = NULL;
         }
         else {
             fp = NULL;
@@ -824,13 +851,6 @@ static FILE* ModelicaStreams_openFileForReading(const char* fileName, int line) 
             ModelicaFormatError("Not possible to open file \"%s\" for reading:\n"
                 "%s\n", fileName, strerror(errno));
         }
-    }
-    while ( line != 0 && c != EOF ) {
-        c = fgetc(fp);
-        while ( c != '\n' && c != EOF ) {
-            c = fgetc(fp);
-        }
-        line--;
     }
     return fp;
 }
@@ -858,6 +878,43 @@ static FILE* ModelicaStreams_openFileForWriting(const char* fileName) {
             "%s\n", fileName, strerror(errno));
     }
     return fp;
+}
+
+static int readLine(_In_ char** buf, _In_ int* bufLen, _In_ FILE* fp) {
+    char* offset;
+    int oldBufLen;
+
+    if (fgets(*buf, *bufLen, fp) == NULL) {
+        return EOF;
+    }
+
+    do {
+        char* p;
+        char* tmp;
+
+        if ((p = strchr(*buf, '\n')) != NULL) {
+            *p = '\0';
+            return 0;
+        }
+        if ((p = memchr(*buf, 0, (size_t)(*bufLen - 1))) != NULL) {
+            return 1;
+        }
+
+        oldBufLen = *bufLen;
+        *bufLen *= 2;
+        tmp = (char*)realloc(*buf, (size_t)*bufLen);
+        if (NULL == tmp) {
+            fclose(fp);
+            free(*buf);
+            ModelicaError("Memory allocation error\n");
+            return 1;
+        }
+        *buf = tmp;
+        offset = &((*buf)[oldBufLen - 1]);
+
+    } while (fgets(offset, oldBufLen + 1, fp));
+
+    return 0;
 }
 
 /* --------------------- Modelica_Utilities.Streams ----------------------------------- */
@@ -890,12 +947,15 @@ Modelica_ERROR2:
 
 int ModelicaInternal_countLines(_In_z_ const char* fileName) {
     /* Get number of lines of a file */
+    int lineNumberOffset;
+    int bufLen;
+    char* buf;
     int c;
     int nLines = 0;
     int start_of_line = 1;
     /* If true, next character starts a new line. */
 
-    FILE* fp = ModelicaStreams_openFileForReading(fileName, 0);
+    FILE* fp = ModelicaStreams_openFileForReading(fileName, 0, &lineNumberOffset, &buf, &bufLen);
 
     /* Count number of lines */
     while ((c = fgetc(fp)) != EOF) {
@@ -914,120 +974,83 @@ int ModelicaInternal_countLines(_In_z_ const char* fileName) {
 void ModelicaInternal_readFile(_In_z_ const char* fileName,
                                _Out_ const char** string, size_t nLines) {
     /* Read file into string vector string[nLines] */
-    FILE* fp = ModelicaStreams_openFileForReading(fileName, 0);
+    int lineNumberOffset;
+    int bufLen;
+    char* buf;
+    FILE* fp = ModelicaStreams_openFileForReading(fileName, 0, &lineNumberOffset, &buf, &bufLen);
     char* line;
-    size_t iLines;
-    size_t nc;
-    char localbuf[200]; /* To avoid fseek */
+    size_t iLines = 1;
+
+    if (buf == NULL) {
+        buf = (char*)calloc(bufLen, sizeof(char));
+        if (buf == NULL) {
+            goto Modelica_OOM_ERROR1;
+            }
+        }
 
     /* Read data from file */
-    iLines = 1;
-    while ( iLines <= nLines ) {
-        /* Determine length of next line */
-        long offset = ftell(fp);
-        size_t lineLen = 0;
-        int c = fgetc(fp);
-        int c2 = c;
-        while ( c != '\n' && c != EOF ) {
-            if (lineLen < sizeof(localbuf)) {
-                localbuf[lineLen] = (char)c;
-            }
-            lineLen++;
-            c2 = c;
-            c = fgetc(fp);
-        }
+    while (iLines <= nLines) {
+        readLine(&buf, &bufLen, fp);
 
-        if ( lineLen > 0 && c2 == '\r' ) {
-            lineLen--;
-        }
-        /* Allocate storage for next line */
-        line = ModelicaAllocateStringWithErrorReturn(lineLen);
+        line = ModelicaAllocateStringWithErrorReturn(strlen(buf));
         if ( line == NULL ) {
-            fclose(fp);
-            ModelicaFormatError("Not enough memory to allocate string for reading line %lu from file\n"
-                "\"%s\".\n"
-                "(this file contains %lu lines)\n", (unsigned long)iLines, fileName, (unsigned long)nLines);
+            goto Modelica_OOM_ERROR1;
         }
 
-        /* Read next line */
-        if (lineLen<=sizeof(localbuf)) {
-            memcpy(line, localbuf, lineLen);
+        strcpy(line, buf);
+        string[iLines - 1] = line;
+        iLines++;
         }
-        else {
-            if ( fseek(fp, offset, SEEK_SET != 0) ) {
                 fclose(fp);
-                ModelicaFormatError("Error when reading line %lu from file\n\"%s\":\n"
-                    "%s\n", (unsigned long)iLines, fileName, strerror(errno));
-            }
-            nc = ( iLines < nLines ? lineLen+1 : lineLen);
-            if ( fread(line, sizeof(char), nc, fp) != nc ) {
+    free(buf);
+    return;
+
+    /* Out-of-memory error */
+Modelica_OOM_ERROR1:
                 fclose(fp);
-                ModelicaFormatError("Error when reading line %lu from file\n\"%s\"\n",
+    free(buf);
+    ModelicaFormatError("Error when reading line %lu from file \"%s\":\n"
+        "Not enough memory to allocate string for reading line.",
                     (unsigned long)iLines, fileName);
             }
-        }
-        line[lineLen] = '\0';
-        string[iLines-1] = line;
-        iLines++;
-    }
-    fclose(fp);
-}
 
 _Ret_z_ const char* ModelicaInternal_readLine(_In_z_ const char* fileName,
                                       int lineNumber, _Out_ int* endOfFile) {
     /* Read line lineNumber from file fileName */
-    FILE* fp = ModelicaStreams_openFileForReading(fileName, lineNumber - 1);
+    int lineNumberOffset;
+    int bufLen;
+    char* buf;
+    FILE* fp;
     char* line;
-    int c, c2;
-    size_t lineLen;
-    long offset;
-    char localbuf[200]; /* To avoid fseek */
+    int iLine;
+
+    fp = ModelicaStreams_openFileForReading(fileName, lineNumber - 1, &lineNumberOffset, &buf, &bufLen);
 
     if (feof(fp)) {
         goto END_OF_FILE;
     }
 
-    /* Determine length of line lineNumber */
-    offset  = ftell(fp);
-    lineLen = 0;
-    c = fgetc(fp);
-    c2 = c;
-    while ( c != '\n' && c != EOF ) {
-        if (lineLen < sizeof(localbuf)) {
-            localbuf[lineLen] = (char)c;
+    if (buf == NULL) {
+        buf = (char*)calloc(bufLen, sizeof(char));
+        if (buf == NULL) {
+            goto Modelica_OOM_ERROR2;
         }
-        lineLen++;
-        c2 = c;
-        c = fgetc(fp);
     }
-    if ( lineLen == 0 && c == EOF ) {
+
+    for (iLine = 0; iLine < lineNumber - lineNumberOffset; iLine++) {
+        int readError = readLine(&buf, &bufLen, fp);
+        if (readError == EOF && iLine == lineNumber - lineNumberOffset - 1) {
         goto END_OF_FILE;
     }
-
-    /* Read line lineNumber */
-    if ( lineLen > 0 && c2 == '\r') {
-        lineLen--;
     }
-    line = ModelicaAllocateStringWithErrorReturn(lineLen);
+
+    line = ModelicaAllocateStringWithErrorReturn(strlen(buf));
     if ( line == NULL ) {
-        errno = 0; /* Erase previous error code, treated specially below */
-        goto Modelica_ERROR3;
+        goto Modelica_OOM_ERROR2;
     }
 
-    if (lineLen <= sizeof(localbuf)) {
-        memcpy(line, localbuf, lineLen);
-    }
-    else {
-        if ( fseek(fp, offset, SEEK_SET) != 0 ) {
-            goto Modelica_ERROR3;
-        }
-        if ( fread(line, sizeof(char), lineLen, fp) != lineLen ) {
-            goto Modelica_ERROR3;
-        }
-        fgetc(fp); /* Read the EOF/new-line. */
-    }
-    CacheFileForReading(fp, fileName, lineNumber);
-    line[lineLen] = '\0';
+    strcpy(line, buf);
+    CacheFileForReading(fp, fileName, lineNumber, buf, bufLen);
     *endOfFile = 0;
     return line;
 
@@ -1040,11 +1063,11 @@ END_OF_FILE:
     line[0] = '\0';
     return line;
 
-Modelica_ERROR3:
+Modelica_OOM_ERROR2:
     fclose(fp);
     CloseCachedFile(fileName);
-    ModelicaFormatError("Error when reading line %i from file\n\"%s\":\n%s",
-        lineNumber, fileName, (errno == 0) ? "Not enough memory to allocate string for reading line." : strerror(errno));
+    ModelicaFormatError("Error when reading line %i from file \"%s\":\n"
+        "Not enough memory to allocate string for reading line.", lineNumber, fileName);
     return "";
 }
 

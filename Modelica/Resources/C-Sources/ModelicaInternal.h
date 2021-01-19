@@ -75,6 +75,7 @@
 #define MODELICA_RETURNNONNULLATTR
 #endif
 #if !defined(__ATTR_SAL)
+#define _In_
 #define _In_z_
 #define _Out_
 #define _Ret_z_
