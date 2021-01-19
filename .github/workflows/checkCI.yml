@@ -69,5 +69,7 @@ jobs:
         run: git clone --depth=1 https://github.com/modelica-tools/ModelicaSyntaxChecker
       - name: Check file encoding
         run: "! find . -name '*.mo' -exec bash -c 'iconv -o /dev/null -f utf8 -t utf8 \"{}\" |& sed \"s,^,{}: ,\"' ';' | grep '.'"
+      - name: Check for UTF-8 BOM
+        run: "! find . -name '*.mo' -print0 | xargs -0 grep -l $'^\\xEF\\xBB\\xBF' | grep ."
       - name: Check syntax
         run: ModelicaSyntaxChecker/Linux64/moparser -v 3.4 -r Complex.mo Modelica ModelicaReference ModelicaServices ModelicaTest ModelicaTestConversion4.mo ModelicaTestOverdetermined.mo ObsoleteModelica4.mo
