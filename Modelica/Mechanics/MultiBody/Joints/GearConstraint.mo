@@ -152,13 +152,6 @@ equation
       thickness=0.5));
   annotation (
     Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
-      Text(origin = {0,-20},
-        textColor = {0,0,255},
-        extent = {{-150,135},{150,175}},
-        textString = "%name"),
-      Text(origin = {0,12},
-        extent = {{-150,-94},{150,-64}},
-        textString = "%ratio"),
       Rectangle(origin = {-35,60},
         fillColor = {255,255,255},
         fillPattern = FillPattern.HorizontalCylinder,
@@ -281,7 +274,14 @@ equation
       Rectangle(origin = {35,21},
         fillColor = {255,255,255},
         extent = {{-15,-61},{15,60}}),
-      Line(points = {{70,-86},{-70,-86}})}),
+      Line(points = {{70,-86},{-70,-86}}),
+      Text(
+        extent={{-150,-80},{150,-50}},
+        textString = "%ratio"),
+      Text(
+          textColor={0,0,255},
+          extent={{-150,150},{150,110}},
+          textString="%name")}),
     Documentation(info="<html>
 <p>This ideal massless joint provides a gear constraint between
 frames <code>frame_a</code> and <code>frame_b</code>. The axes of rotation

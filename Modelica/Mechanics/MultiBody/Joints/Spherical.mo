@@ -235,37 +235,42 @@ frame_b of the joint.
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Spherical.png\">
 </div>
 </html>"),
-         Icon(coordinateSystem(
+    Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
-        Ellipse(
-          extent={{-70,-70},{70,70}},
-          fillPattern=FillPattern.Sphere,
+        Rectangle(
+          extent={{-100,10},{100,-10}},
+          fillPattern=FillPattern.HorizontalCylinder,
           fillColor={192,192,192}),
         Ellipse(
-          extent={{-49,-50},{51,50}},
-          lineColor={128,128,128},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{30,70},{71,-68}},
+          extent={{-60,-60},{60,60}},
+          fillPattern=FillPattern.Solid,
+          fillColor={192,192,192},
+          lineColor={0,0,0},
+          closure=EllipseClosure.Radial,
+          startAngle=60,
+          endAngle=300),
+        Ellipse(
+          extent={{-44,-44},{44,44}},
           lineColor={255,255,255},
           fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{-100,10},{-68,-10}},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={192,192,192}),
-        Rectangle(
-          extent={{23,10},{100,-10}},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={192,192,192}),
+          fillPattern=FillPattern.Solid,
+          closure=EllipseClosure.Radial,
+          startAngle=55,
+          endAngle=305),
         Ellipse(
-          extent={{-24,25},{26,-25}},
+          extent={{-44,-44},{44,44}},
+          startAngle=60,
+          endAngle=300,
+          lineColor={0,0,0},
+          closure=EllipseClosure.None),
+        Ellipse(
+          extent={{-26,26},{26,-26}},
           fillPattern=FillPattern.Sphere,
-          fillColor={160,160,164}),
+          fillColor={192,192,192},
+          lineColor={0,0,0}),
         Text(
-          extent={{-150,-115},{150,-75}},
+          extent={{-150,120},{150,80}},
           textString="%name",
           textColor={0,0,255})}));
 end Spherical;

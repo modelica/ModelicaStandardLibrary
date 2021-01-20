@@ -139,7 +139,7 @@ definition of the axes vectors n in the revolute joints of the planar loop.
           textColor={128,128,128},
           textString="b"),
         Line(
-          points={{-91,-76},{-33,15},{30,-49},{87,61}},
+          points={{-90,-70},{-25,30},{25,-30},{90,70}},
           color={255,0,0},
           thickness=0.5)}),
     Documentation(info="<html>
