@@ -96,6 +96,12 @@ equation
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
+        Rectangle(
+          extent={{-100,-50},{-30,41}},
+          pattern=LinePattern.None,
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
         Text(
           extent={{-100,-70},{100,-100}},
           textColor={95,95,95},
@@ -132,29 +138,23 @@ equation
           textString="lock: x, y, z",
           visible=x_locked and y_locked and z_locked),
         Rectangle(
-          extent={{-100,46},{-30,56}},
+          extent={{-100,40},{-30,50}},
           pattern=LinePattern.None,
           fillPattern=FillPattern.Solid,
           lineColor={0,0,255}),
         Rectangle(
-          extent={{-100,-44},{-30,47}},
-          pattern=LinePattern.None,
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Rectangle(
-          extent={{-30,24},{100,34}},
+          extent={{-30,20},{100,30}},
           pattern=LinePattern.None,
           fillPattern=FillPattern.Solid,
           lineColor={0,0,255}),
         Rectangle(
-          extent={{-30,-26},{100,24}},
+          extent={{-30,-30},{100,20}},
           pattern=LinePattern.None,
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid,
           lineColor={0,0,255}),
         Line(points={{100,-26},{100,25}}),
-        Line(points={{-30,-44},{-30,56}}),
+        Line(points={{-30,-50},{-30,50}}),
         Line(
           points={{-90,-70},{-25,30},{25,-30},{90,70}},
           color={255,0,0},
