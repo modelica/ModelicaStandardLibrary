@@ -153,7 +153,7 @@ equation
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid,
           lineColor={0,0,255}),
-        Line(points={{100,-26},{100,25}}),
+        Line(points={{100,-30},{100,30}}),
         Line(points={{-30,-50},{-30,50}}),
         Line(
           points={{-90,-70},{-25,30},{25,-30},{90,70}},
