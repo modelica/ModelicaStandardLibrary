@@ -839,7 +839,7 @@ package IF97_Utilities
 
         extends Modelica.Icons.Function;
         input SI.Pressure p "Pressure";
-        output SI.SpecificEntropy s;
+        output SI.SpecificEntropy s "Specific entropy";
       protected
         Real x "Auxiliary variable";
       algorithm
