@@ -353,7 +353,7 @@ component).
           textColor={128,128,128},
           textString="ib"),
         Text(
-          extent={{-140,-45},{140,-70}},
+          extent={{-75,-50},{75,-70}},
           textColor={0,0,255},
           textString="%name")}));
 end JointSSP;
