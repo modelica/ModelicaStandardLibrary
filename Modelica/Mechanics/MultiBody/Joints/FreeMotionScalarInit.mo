@@ -169,12 +169,12 @@ model FreeMotionScalarInit
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animation and use_r));
 
 protected
-  parameter Boolean enforceStates=
-    if use_angle and (Integer(angle_1_stateSelect) + Integer(angle_2_stateSelect) + Integer(angle_3_stateSelect) > 3) then true else false
+  final parameter Boolean enforceStates=
+    use_angle and (Integer(angle_1_stateSelect) + Integer(angle_2_stateSelect) + Integer(angle_3_stateSelect) > 3)
     "= true, if either of angle shall be used as states (StateSelect.always)";
-  parameter Boolean enforceStatesDer=
-    if use_angle and use_angle_d and
-      (Integer(angle_d_1_stateSelect) + Integer(angle_d_2_stateSelect) + Integer(angle_d_3_stateSelect) > 3) then true else false
+  final parameter Boolean enforceStatesDer=
+    use_angle and use_angle_d and
+      (Integer(angle_d_1_stateSelect) + Integer(angle_d_2_stateSelect) + Integer(angle_d_3_stateSelect) > 3)
     "= true, if either of angle_d shall be used as states (StateSelect.always)";
 
   Modelica.Mechanics.MultiBody.Joints.Internal.InitPosition initPosition(
