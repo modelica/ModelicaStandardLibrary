@@ -133,14 +133,6 @@ equation
           radius=10),
         Rectangle(extent={{-100,60},{-30,-60}}, lineColor={64,64,64}, radius=10),
         Rectangle(extent={{30,60},{100,-60}}, lineColor={64,64,64}, radius=10),
-        Text(
-          extent={{-90,14},{-54,-11}},
-          textColor={128,128,128},
-          textString="a"),
-        Text(
-          extent={{51,11},{87,-14}},
-          textColor={128,128,128},
-          textString="b"),
         Rectangle(
           extent={{-30,11},{30,-10}},
           lineColor={64,64,64},
