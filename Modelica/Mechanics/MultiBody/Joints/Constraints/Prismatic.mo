@@ -97,6 +97,12 @@ equation
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
         Rectangle(
+          extent={{-30,-30},{100,20}},
+          pattern=LinePattern.None,
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Rectangle(
           extent={{-100,-50},{-30,41}},
           pattern=LinePattern.None,
           fillColor={192,192,192},
@@ -145,12 +151,6 @@ equation
         Rectangle(
           extent={{-30,20},{100,30}},
           pattern=LinePattern.None,
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Rectangle(
-          extent={{-30,-30},{100,20}},
-          pattern=LinePattern.None,
-          fillColor={192,192,192},
           fillPattern=FillPattern.Solid,
           lineColor={0,0,255}),
         Line(points={{100,-30},{100,30}}),
