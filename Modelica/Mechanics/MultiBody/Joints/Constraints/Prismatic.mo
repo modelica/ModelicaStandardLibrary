@@ -155,14 +155,14 @@ equation
           lineColor={0,0,255}),
         Line(points={{100,-26},{100,25}}),
         Line(points={{-30,-44},{-30,56}}),
-        Text(
-          extent={{-150,120},{150,80}},
-          textColor={0,0,255},
-          textString="%name"),
         Line(
           points={{-90,-70},{-25,30},{25,-30},{90,70}},
           color={255,0,0},
-          thickness=0.5)}),
+          thickness=0.5),
+        Text(
+          extent={{-150,100},{150,60}},
+          textColor={0,0,255},
+          textString="%name")}),
     Documentation(info="<html>
 <p>This model does not use explicit variables e.g. state variables in order to describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied.  Sometimes this type of formulation is also called an implicit joint in literature.</p>
 <p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
