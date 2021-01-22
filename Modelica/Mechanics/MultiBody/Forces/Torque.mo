@@ -84,11 +84,6 @@ equation
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
-        Rectangle(
-          extent={{-98,99},{99,-98}},
-          lineColor={255,255,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
         Ellipse(
           extent={{-100,-140},{100,60}},
           lineColor={0,0,0},
