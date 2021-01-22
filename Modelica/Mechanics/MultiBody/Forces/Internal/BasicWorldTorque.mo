@@ -37,8 +37,14 @@ equation
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={
+        Ellipse(
+          extent={{-100,-110},{100,50}},
+          lineColor={0,0,0},
+          startAngle=40,
+          endAngle=160,
+          closure=EllipseClosure.None),
         Text(
-          extent={{-61,64},{46,27}},
+          extent={{-100,90},{100,60}},
           textColor={192,192,192},
           textString="resolve"),
         Text(
@@ -46,16 +52,11 @@ equation
           textString="%name",
           textColor={0,0,255}),
         Line(
-          points={{0,95},{0,82}},
+          points={{0,95},{0,50}},
           color={95,95,95},
           pattern=LinePattern.Dot),
-        Line(
-          points={{-100,0},{-94,13},{-86,28},{-74,48},{-65,60},{-52,72},{-35,
-              81},{-22,84},{-8,84},{7,80},{19,73},{32,65},{44,55},{52,47},{
-              58,40}},
-          thickness=0.5),
         Polygon(
-          points={{94,10},{75,59},{41,24},{94,10}},
+          points={{91,1},{64,56},{36,28},{91,1}},
           fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
 <p>

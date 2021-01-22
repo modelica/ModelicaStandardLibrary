@@ -89,30 +89,40 @@ equation
           lineColor={255,255,255},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
-        Text(
-          extent={{-59,55},{72,30}},
-          textColor={192,192,192},
-          textString="resolve"),
+        Ellipse(
+          extent={{-100,-140},{100,60}},
+          lineColor={0,0,0},
+          startAngle=100,
+          endAngle=140,
+          closure=EllipseClosure.None),
+        Ellipse(
+          extent={{-100,-140},{100,60}},
+          lineColor={0,0,0},
+          startAngle=40,
+          endAngle=80,
+          closure=EllipseClosure.None),
         Text(
           extent={{-150,-30},{150,-70}},
           textString="%name",
           textColor={0,0,255}),
-        Polygon(
-          points={{100,20},{84,52},{69,39},{100,20}},
-          fillPattern=FillPattern.Solid),
         Line(
-          points={{40,100},{76,46}},
+          points={{40,100},{80,20}},
           color={95,95,95},
           pattern=LinePattern.Dot),
         Polygon(
-          points={{-99,20},{-86,53},{-70,42},{-99,20}},
+          points={{-92,0},{-82,36},{-60,22},{-92,0}},
           fillPattern=FillPattern.Solid),
         Line(
           points={{-60,100},{40,100}},
           color={95,95,95},
           pattern=LinePattern.Dot),
-        Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}}),
-        Line(points={{77,45},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}})}),
+        Polygon(
+          points={{92,0},{82,36},{60,22},{92,0}},
+          fillPattern=FillPattern.Solid),
+        Text(
+          extent={{-80,90},{100,60}},
+          textColor={192,192,192},
+          textString="resolve")}),
     Documentation(info="<html>
 <p>
 The <strong>3</strong> signals of the <strong>torque</strong> connector are interpreted
