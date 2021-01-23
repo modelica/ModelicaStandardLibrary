@@ -1,9 +1,11 @@
 within Modelica.ComplexBlocks.Examples;
-model ShowTransferFunction "Test Complex Transfer Function Block"
+model ShowTransferFunction "Test complex transfer function block"
   extends Modelica.Icons.Example;
-  parameter Real d=1/sqrt(2) "Damping coefficient";
-  parameter Real b[:]={1} "Numerator polynomial coefficients of the transfer function";
-  parameter Real a[:]={1,2*d,1} "Denominator polynomial coefficients of the transfer function";
+  parameter Real d=0.01 "Damping coefficient in kg/s (not the damping ratio)";
+  parameter Real m=0.2 "Mass in kg";
+  parameter Real c=0.1 "Stiffness in N/m";
+  parameter Real b[:]={-m} "Numerator polynomial coefficients {-m} of the transfer function";
+  parameter Real a[:]={m,d,c} "Denominator polynomial coefficients {m,d,c} of the transfer function";
   parameter Real wMin=0.01 "Lower bound for frequency sweep";
   parameter Real wMax=100 "Upper bound for frequency sweep";
   Real lg_w=log10(logFrequencySweep.y) "Logarithm of frequency";
@@ -28,13 +30,13 @@ equation
   connect(transferFunction.y, complexToPolar.u)
     annotation (Line(points={{-19,0},{-2,0}}, color={85,170,255}));
   annotation (
-    experiment(StopTime=1, Interval=0.001), Documentation(info=
-               "<html>
-<p>This example shows the response of a PT2 defined by its transfer function</p>
+    experiment(StopTime=1, Interval=0.001), Documentation(info="<html>
+<p>This example shows the response of a PT2 (mechanical spring-mass-damper system with
+an acceleration acting on the mass) defined by its transfer function</p>
 <blockquote><pre>
-            1
+              -m
 H(jw)=-------------------
-      1 + 2 d jw + (jw)^2
+      m*(jw)^2 + d*jw + c
 </pre></blockquote>
 <p>Frequency performs a logarithmic ramp from 0.01 to 100 s^-1.</p>
 <p>
