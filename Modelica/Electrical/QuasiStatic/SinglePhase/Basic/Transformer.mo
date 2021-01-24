@@ -150,14 +150,6 @@ equation
           textString="L2",
           lineColor={85,170,255})}),
     Diagram(graphics={
-        Text(
-          extent={{-100,10},{0,-10}},
-          textColor={0,0,255},
-          textString="1=primary"),
-        Text(
-          extent={{0,10},{100,-10}},
-          textColor={0,0,255},
-          textString="2=secondary"),
         Polygon(
           points={{-120,53},{-110,50},{-120,47},{-120,53}},
           lineColor={160,160,164},
