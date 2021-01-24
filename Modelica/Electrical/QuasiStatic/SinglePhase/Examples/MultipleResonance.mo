@@ -17,8 +17,7 @@ model MultipleResonance
   parameter Modelica.Units.SI.Resistance R=5 "Load resistance";
   parameter Modelica.Units.SI.Inductance L=5e-6 "Load inductance";
   parameter Modelica.Units.SI.Capacitance C=50e-12 "Load capacitance";
-  Sources.VariableVoltageSource
-                        voltageSource(
+  Sources.VariableVoltageSource voltageSource(
     gamma(fixed=true))
     annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
@@ -49,7 +48,7 @@ model MultipleResonance
         origin={80,-10})));
   ComplexBlocks.Sources.ComplexConstant complexConst(k(re=V, im=0))
     annotation (Placement(transformation(extent={{-90,10},{-70,30}})));
-  Blocks.Sources.LogFrequencySweep          frequencySweep(
+  Blocks.Sources.LogFrequencySweep frequencySweep(
     duration=1,
     wMin=fLo,
     wMax=fUp) annotation (Placement(transformation(origin={-80,-20}, extent={{-10,
@@ -60,11 +59,9 @@ equation
   connect(voltageSource.pin_n, ground1.pin) annotation (Line(points={{-40,-10},
           {-40,-20},{20,-20}}, color={85,170,255}));
   connect(ground1.pin, transformer.pin_n1) annotation (Line(points={{20,-20},{
-          30,-20},{30,-10}},
-                           color={85,170,255}));
+          30,-20},{30,-10}}, color={85,170,255}));
   connect(transformer.pin_n2, ground2.pin) annotation (Line(points={{50,-9.8},{
-          50,-20},{60,-20}},
-                          color={85,170,255}));
+          50,-20},{60,-20}}, color={85,170,255}));
   connect(ground2.pin, loadCapacitor.pin_n)
     annotation (Line(points={{60,-20},{80,-20}}, color={85,170,255}));
   connect(loadCapacitor.pin_p, loadInductor.pin_n)
@@ -72,8 +69,7 @@ equation
   connect(loadInductor.pin_p, loadResistor.pin_n)
     annotation (Line(points={{80,30},{80,40}}, color={85,170,255}));
   connect(complexConst.y, voltageSource.V) annotation (Line(points={{-69,20},{
-          -60,20},{-60,6},{-52,6}},
-                                color={85,170,255}));
+          -60,20},{-60,6},{-52,6}}, color={85,170,255}));
   connect(transformer.pin_p2, loadResistor.pin_p)
     annotation (Line(points={{50,10},{50,60},{80,60}}, color={85,170,255}));
   connect(voltageSource.pin_p, zi.pin_p)
