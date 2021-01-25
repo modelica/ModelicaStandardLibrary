@@ -323,9 +323,11 @@ and 1 prismatic joint are connected by rigid rods.
           extent={{-50,112},{-11,90}},
           textColor={128,128,128},
           textString="im"),
-        Text(extent={{-130,-29},{130,-47}}, textString="n_a=%n_a"),
         Text(
-          extent={{-140,-55},{140,-80}},
+          extent={{-75,-27},{75,-47}},
+          textString="n_a=%n_a"),
+        Text(
+          extent={{-75,-50},{75,-70}},
           textColor={0,0,255},
           textString="%name")}));
 end JointRRP;
