@@ -7,13 +7,13 @@ model LineForceWithTwoMasses
   Modelica.Mechanics.Translational.Interfaces.Flange_a flange_b
     "1-dim. translational flange (connect force of Translational library between flange_a and flange_b)"
     annotation (Placement(transformation(
-        origin={60,110},
+        origin={60,100},
         extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Mechanics.Translational.Interfaces.Flange_b flange_a
     "1-dim. translational flange (connect force of Translational library between flange_a and flange_b)"
     annotation (Placement(transformation(
-        origin={-60,110},
+        origin={-60,100},
         extent={{-10,-10},{10,10}},
         rotation=90)));
   parameter Boolean animate=true "= true, if animation shall be enabled";
@@ -324,8 +324,8 @@ equation
           extent={{45,15},{74,-13}},
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}),
-        Line(points={{-60,0},{-60,24},{-40,24},{-40,60},{-60,60},{-60,110}}),
-        Line(points={{60,1},{60,21},{40,21},{40,60},{60,60},{60,110}}),
+        Line(points={{-60,0},{-60,24},{-40,24},{-40,60},{-60,60},{-60,100}}),
+        Line(points={{60,1},{60,21},{40,21},{40,60},{60,60},{60,100}}),
         Line(
           points={{-60,0},{60,0}},
           pattern=LinePattern.Dot),

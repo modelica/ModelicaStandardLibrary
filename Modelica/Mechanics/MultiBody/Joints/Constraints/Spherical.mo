@@ -163,7 +163,7 @@ equation
           color={255,0,0},
           thickness=0.5),
         Text(
-          extent={{-150,120},{150,80}},
+          extent={{-150,110},{150,70}},
           textColor={0,0,255},
           textString="%name")}),
     Documentation(info="<html>

@@ -342,7 +342,7 @@ component).
           color={95,95,95},
           thickness=0.5),
         Text(
-          extent={{-140,-45},{140,-70}},
+          extent={{-75,-50},{75,-70}},
           textColor={0,0,255},
           textString="%name"),
         Text(

@@ -270,7 +270,7 @@ frame_b of the joint.
           fillColor={192,192,192},
           lineColor={0,0,0}),
         Text(
-          extent={{-150,120},{150,80}},
+          extent={{-150,110},{150,70}},
           textString="%name",
           textColor={0,0,255})}));
 end Spherical;

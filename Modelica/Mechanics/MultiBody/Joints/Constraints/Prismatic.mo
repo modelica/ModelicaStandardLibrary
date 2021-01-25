@@ -96,6 +96,18 @@ equation
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
+        Rectangle(
+          extent={{-30,-30},{100,20}},
+          pattern=LinePattern.None,
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Rectangle(
+          extent={{-100,-50},{-30,41}},
+          pattern=LinePattern.None,
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
         Text(
           extent={{-100,-70},{100,-100}},
           textColor={95,95,95},
@@ -132,37 +144,25 @@ equation
           textString="lock: x, y, z",
           visible=x_locked and y_locked and z_locked),
         Rectangle(
-          extent={{-100,46},{-30,56}},
+          extent={{-100,40},{-30,50}},
           pattern=LinePattern.None,
           fillPattern=FillPattern.Solid,
           lineColor={0,0,255}),
         Rectangle(
-          extent={{-100,-44},{-30,47}},
-          pattern=LinePattern.None,
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Rectangle(
-          extent={{-30,24},{100,34}},
+          extent={{-30,20},{100,30}},
           pattern=LinePattern.None,
           fillPattern=FillPattern.Solid,
           lineColor={0,0,255}),
-        Rectangle(
-          extent={{-30,-26},{100,24}},
-          pattern=LinePattern.None,
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Line(points={{100,-26},{100,25}}),
-        Line(points={{-30,-44},{-30,56}}),
-        Text(
-          extent={{-150,120},{150,80}},
-          textColor={0,0,255},
-          textString="%name"),
+        Line(points={{100,-30},{100,30}}),
+        Line(points={{-30,-50},{-30,50}}),
         Line(
           points={{-90,-70},{-25,30},{25,-30},{90,70}},
           color={255,0,0},
-          thickness=0.5)}),
+          thickness=0.5),
+        Text(
+          extent={{-150,100},{150,60}},
+          textColor={0,0,255},
+          textString="%name")}),
     Documentation(info="<html>
 <p>This model does not use explicit variables e.g. state variables in order to describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied.  Sometimes this type of formulation is also called an implicit joint in literature.</p>
 <p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>

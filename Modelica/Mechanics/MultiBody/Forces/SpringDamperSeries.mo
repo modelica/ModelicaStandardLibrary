@@ -111,26 +111,26 @@ force element) and der(s_damper) is the time derivative of s_damper.
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
         Line(points={{-100,0},{-15,0}}),
-        Line(points={{-60,-30},{-15,-30}}),
-        Line(points={{-60,30},{-15,30}}),
         Rectangle(
           extent={{-60,30},{-30,-30}},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
+        Line(points={{-60,-30},{-15,-30}}),
+        Line(points={{-60,30},{-15,30}}),
         Line(points={{-15,0},{-5,0},{5,-30},{25,30},{45,-30},{65,30},{75,0},{
               100,0}}),
         Text(
-          extent={{-150,50},{150,90}},
+          extent={{-150,90},{150,50}},
           textString="%name",
           textColor={0,0,255}),
         Text(
-          extent={{-150,-65},{150,-35}},
+          extent={{-150,-35},{150,-65}},
           textString="c=%c"),
         Line(visible=useHeatPort,
           points={{-100,-99},{-100,-24},{-45,-24}},
           color={191,0,0},
           pattern=LinePattern.Dot),
         Text(
-          extent={{-150,-100},{150,-70}},
+          extent={{-150,-70},{150,-100}},
           textString="d=%d")}));
 end SpringDamperSeries;

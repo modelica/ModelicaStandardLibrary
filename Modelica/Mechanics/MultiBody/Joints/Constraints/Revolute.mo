@@ -117,7 +117,7 @@ equation
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
         Text(
-          extent={{-63,-63},{53,-93}},
+          extent={{-150,-110},{150,-80}},
           textString="n=%n"),
         Rectangle(
           extent={{-100,-60},{-30,60}},
@@ -133,14 +133,6 @@ equation
           radius=10),
         Rectangle(extent={{-100,60},{-30,-60}}, lineColor={64,64,64}, radius=10),
         Rectangle(extent={{30,60},{100,-60}}, lineColor={64,64,64}, radius=10),
-        Text(
-          extent={{-90,14},{-54,-11}},
-          textColor={128,128,128},
-          textString="a"),
-        Text(
-          extent={{51,11},{87,-14}},
-          textColor={128,128,128},
-          textString="b"),
         Rectangle(
           extent={{-30,11},{30,-10}},
           lineColor={64,64,64},
@@ -151,10 +143,10 @@ equation
           color={255,0,0},
           thickness=0.5),
         Text(
-          extent={{-49,82},{45,59}},
+          extent={{-100,40},{100,20}},
           textString="constraint"),
         Text(
-          extent={{-150,120},{150,80}},
+          extent={{-150,110},{150,70}},
           textColor={0,0,255},
           textString="%name")}),
       Documentation(info="<html>

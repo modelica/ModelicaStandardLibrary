@@ -500,7 +500,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           textColor={128,128,128},
           textString="im"),
         Text(
-          extent={{-140,-45},{140,-70}},
+          extent={{-75,-50},{75,-70}},
           textColor={0,0,255},
           textString="%name")}));
 end JointUSR;
