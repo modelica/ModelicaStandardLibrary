@@ -57,23 +57,24 @@ equation
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={
-        Rectangle(
-          extent={{-98,99},{99,-98}},
-          lineColor={255,255,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
         Ellipse(
           extent={{-100,-140},{100,60}},
           lineColor={0,0,0},
           startAngle=100,
           endAngle=140,
           closure=EllipseClosure.None),
+        Ellipse(
+          extent={{-100,-140},{100,60}},
+          lineColor={0,0,0},
+          startAngle=40,
+          endAngle=80,
+          closure=EllipseClosure.None),
         Text(
           extent={{-80,90},{100,60}},
           textColor={192,192,192},
           textString="resolve"),
         Text(
-          extent={{-139,-27},{146,-88}},
+          extent={{-150,-30},{150,-70}},
           textString="%name",
           textColor={0,0,255}),
         Polygon(
@@ -89,13 +90,7 @@ equation
         Line(
           points={{-60,100},{40,100}},
           color={95,95,95},
-          pattern=LinePattern.Dot),
-        Ellipse(
-          extent={{-100,-140},{100,60}},
-          lineColor={0,0,0},
-          startAngle=40,
-          endAngle=80,
-          closure=EllipseClosure.None)}),
+          pattern=LinePattern.Dot)}),
     Documentation(info="<html>
 <p>
 The <strong>3</strong> signals of the <strong>torque</strong> connector are interpreted
