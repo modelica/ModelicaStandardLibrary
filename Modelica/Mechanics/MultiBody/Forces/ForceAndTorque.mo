@@ -124,22 +124,26 @@ equation
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
-        Rectangle(
-          extent={{-98,99},{99,-98}},
-          lineColor={255,255,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
+        Ellipse(
+          extent={{-100,-130},{100,70}},
+          lineColor={0,0,0},
+          startAngle=100,
+          endAngle=140,
+          closure=EllipseClosure.None),
+        Ellipse(
+          extent={{-100,-130},{100,70}},
+          lineColor={0,0,0},
+          startAngle=40,
+          endAngle=80,
+          closure=EllipseClosure.None),
         Text(
-          extent={{-59,55},{72,30}},
+          extent={{-80,100},{100,70}},
           textColor={192,192,192},
           textString="resolve"),
         Text(
           extent={{-150,-55},{150,-95}},
           textString="%name",
           textColor={0,0,255}),
-        Polygon(
-          points={{100,21},{84,55},{69,39},{100,21}},
-          fillPattern=FillPattern.Solid),
         Line(
           points={{80,100},{80,0}},
           color={95,95,95},
@@ -148,7 +152,10 @@ equation
           points={{-95,1},{-64,11},{-64,-10},{-95,1}},
           fillPattern=FillPattern.Solid),
         Polygon(
-          points={{-100,20},{-86,53},{-70,42},{-100,20}},
+          points={{-92,10},{-82,46},{-60,32},{-92,10}},
+          fillPattern=FillPattern.Solid),
+        Polygon(
+          points={{92,10},{82,46},{60,32},{92,10}},
           fillPattern=FillPattern.Solid),
         Line(
           points={{-80,100},{80,100}},
@@ -159,8 +166,6 @@ equation
           fillPattern=FillPattern.Solid),
         Line(points={{-64,0},{-20,0}}),
         Line(points={{20,0},{65,0}}),
-        Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}}),
-        Line(points={{76,47},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}}),
         Text(
           extent={{-144,124},{-106,102}},
           textString="f"),
