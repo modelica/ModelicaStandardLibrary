@@ -48,7 +48,9 @@ equation
               80,-70},{80,-44},{76,-40},{-80,-40}},
               lineColor={95,95,95},
               fillColor={135,135,135},
-              fillPattern=FillPattern.Solid)}),
+              fillPattern=FillPattern.Solid),    Text(
+              extent={{-40,-50},{40,-90}},
+              textString="%terminalConnection")}),
     Documentation(info="<html>
 <p>
 This model represents the internal connections of the terminal box of an electric machine.
