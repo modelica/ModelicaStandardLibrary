@@ -223,7 +223,7 @@ equation
   tauLossMax = if tau_etaPos then quadrant1 else quadrant2;
   tauLossMin = if tau_etaPos then quadrant4 else quadrant3;
 
-  // Determine rolling/stuck mode when w_rel = 0
+  // Determine rolling/stuck mode when w_a = 0
   startForward = pre(mode) == Stuck and sa > tauLossMax_p/unitTorque or
     initial() and w_a > 0;
   startBackward = pre(mode) == Stuck and sa < tauLossMin_m/unitTorque or
