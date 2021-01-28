@@ -22,8 +22,8 @@ class References "References"
 
     <tr>
       <td>[Williams2006]</td>
-      <td><a href=\"http://www.freescience.info/go.php?pagename=books&amp;id=1732\">
-<em>Principles and Elements of Power Electronics: Devices, Drivers, Applications, and Passive Components</em></a>, available at <a href=\"http://www.freescience.info/go.php?pagename=books&amp;id=1732\">FreeScience</a>, ISBN 978-0-9553384-0-3</td>
+      <td><a href=\"http://personal.strath.ac.uk/barry.williams/book.htm\">
+<em>Principles and Elements of Power Electronics: Devices, Drivers, Applications, and Passive Components</em></a>, available at <a href=\"http://personal.strath.ac.uk/barry.williams/book.htm\">University of Strathclyde</a>, ISBN 978-0-9553384-0-3</td>
     </tr>
 </table>
 </html>"));
