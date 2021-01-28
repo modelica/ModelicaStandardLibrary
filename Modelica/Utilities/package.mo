@@ -125,20 +125,23 @@ email: <a href=\"mailto:Dag.Bruck@3ds.com\">Dag.Bruck@3ds.com</a>
 <h4>Acknowledgements</h4>
 
 <ul>
-<li> This library has been designed by:<br>
-     <blockquote>
-     Dag Br&uuml;ck, Dassault Syst&egrave;mes AB, Sweden<br>
-     Hilding Elmqvist, previously at Dassault Syst&egrave;mes AB, Sweden<br>
-     Hans Olsson, Dassault Syst&egrave;mes AB, Sweden<br>
-     Martin Otter, DLR Oberpfaffenhofen, Germany.
-     </blockquote></li>
-<li> The library including the C reference implementation has
-     been implemented by Martin Otter and Dag Br&uuml;ck.</li>
-<li> The Examples.calculator demonstration to implement a calculator
-     with this library is from Hilding Elmqvist.</li>
-<li> Helpful comments from Kaj Nystr&ouml;m, PELAB, Link&ouml;ping, Sweden,
-     are appreciated, as well as discussions at the 34th, 36th, and 40th
-     Modelica Design Meetings in Vienna, Link&ouml;ping, and Dresden.</li>
+<li>This library has been designed and developed by:<br>
+    <blockquote>
+    Dag Br&uuml;ck, Dassault Syst&egrave;mes AB, Sweden<br>
+    Hilding Elmqvist, previously at Dassault Syst&egrave;mes AB, Sweden<br>
+    Hans Olsson, Dassault Syst&egrave;mes AB, Sweden<br>
+    Martin Otter, DLR Oberpfaffenhofen, Germany<br>
+    Marco Kessler, Dassault Syst&egrave;mes Austria GmbH, Austria<br>
+    Thomas Beutlich, Germany.<br>
+    </blockquote></li>
+<li>The library including the C reference implementation has
+    been implemented by Martin Otter and Dag Br&uuml;ck.</li>
+<li>The Examples.calculator demonstration to implement a calculator
+    with this library is from Hilding Elmqvist.</li>
+<li>Helpful comments from Kaj Nystr&ouml;m, PELAB, Link&ouml;ping, Sweden,
+    are appreciated, as well as discussions at the 34th, 36th, and 40th
+    Modelica Design Meetings in Vienna, Link&ouml;ping, and Dresden.</li>
+<li>The Utilities.Time sublibrary was implemented by Marco Kessler and Thomas Beutlich.</li>
 </ul>
 </html>"));
   end Contact;
@@ -208,6 +211,8 @@ The following main sublibraries are available:
      provides functions to interact with the environment.
      E.g., get or set the working directory or environment
      variables and to send a command to the default shell.</li>
+<li> <a href=\"modelica://Modelica.Utilities.Time\">Time</a>
+     provides records and functions to work with date and time.</li>
 </ul>
 
 <p>

@@ -1,0 +1,5 @@
+// Convert from Modelica 4.0.0 to Modelica 5.0.0
+
+// Change references to classes that are removed from Modelica Standard Library
+convertClass("Modelica.Utilities.System.getTime",
+              "Modelica.Utilities.Internal.Time.getTime")

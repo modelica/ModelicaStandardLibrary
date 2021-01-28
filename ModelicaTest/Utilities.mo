@@ -216,6 +216,17 @@ extends Modelica.Icons.ExamplesPackage;
     assert(hash1 <> Strings.hashString("this is a tes1"), "Strings.hashString 1 failed");
     assert(hash1 <> Strings.hashString("this is a tes2"), "Strings.hashString 1 failed");
 
+    // Strings.contains
+    assert(Strings.contains("", ""), "Strings.contains 1 failed (empty strings)");
+    assert(Strings.contains("foo bar", "o"), "Strings.contains 2 failed (multiple occurences)");
+    assert(Strings.contains("foo bar", "o ba"), "Strings.contains 3 failed (occurrence at middle)");
+    assert(Strings.contains("foo bar", "fo"), "Strings.contains 4 failed (occurrence at start)");
+    assert(Strings.contains("foo bar", "ar"), "Strings.contains 5 failed (occurrence at end)");
+    assert(not Strings.contains("foo bar", "x"), "Strings.contains 6 failed (no occurrence)");
+    assert(Strings.contains("foo", ""), "Strings.contains 7 failed (empty search string)");
+    assert(not Strings.contains("foo bar", "O"), "Strings.contains 8 failed (case sensitive)");
+    assert(Strings.contains("foo bar", "O", false), "Strings.contains 9 failed (case insensitive)");
+
     ok := true;
   end Strings;
 
@@ -369,32 +380,504 @@ extends Modelica.Icons.ExamplesPackage;
       "Filename where the log is stored";
     output Boolean ok;
   protected
-    Integer ms;
-    Integer sec;
-    Integer min;
-    Integer hour;
-    Integer day;
-    Integer mon;
-    Integer year;
     Integer pid;
   algorithm
     Streams.print("... Test of Modelica.Utilities.System");
     Streams.print("... Test of Modelica.Utilities.System", logFile);
 
-    (ms,sec,min,hour,day,mon,year) :=Modelica.Utilities.System.getTime();
-    Streams.print("    ms   = " + String(ms));
-    Streams.print("    sec  = " + String(sec));
-    Streams.print("    min  = " + String(min));
-    Streams.print("    hour = " + String(hour));
-    Streams.print("    day  = " + String(day));
-    Streams.print("    mon  = " + String(mon));
-    Streams.print("    year = " + String(year));
-
-    pid :=Modelica.Utilities.System.getPid();
+    pid := Modelica.Utilities.System.getPid();
     Streams.print("    pid  = " + String(pid));
 
     ok := true;
   end System;
+
+  function Time "Test functions of Modelica.Utilities.Time"
+    import Modelica.Utilities.Streams;
+    import Modelica.Utilities.Time.{DateTime, dayOfWeek, getTime, isLeapYear, leapDays};
+    extends Modelica.Icons.Function;
+    input String logFile="ModelicaTestLog.txt"
+      "Filename where the log is stored";
+    input String weekDays[7] = Modelica.Utilities.Time.weekDays "Array of week days";
+    output Boolean ok;
+  protected
+    DateTime now;
+    Integer dow(min=1, max=7) "Day of week";
+  algorithm
+    Streams.print("... Test of Modelica.Utilities.Time");
+    Streams.print("... Test of Modelica.Utilities.Time", logFile);
+
+    now := getTime();
+    Streams.print("    ms   = " + String(now.millisecond));
+    Streams.print("    sec  = " + String(now.second));
+    Streams.print("    min  = " + String(now.minute));
+    Streams.print("    hour = " + String(now.hour));
+    Streams.print("    day  = " + String(now.day));
+    Streams.print("    mon  = " + String(now.month));
+    Streams.print("    year = " + String(now.year));
+    dow := dayOfWeek(now);
+    Streams.print("    dow  = " + weekDays[dow]);
+
+    dow := dayOfWeek(DateTime(year=2019, month=12, day=8, hour=12, minute=0, second=0, millisecond=0));
+    assert(7 == dow, "Time.dayOfWeek failed");
+
+    assert(not isLeapYear(1900), "Time.isLeapYear failed");
+    assert(isLeapYear(2000), "Time.isLeapYear failed");
+    assert(not isLeapYear(2019), "Time.isLeapYear failed");
+    assert(isLeapYear(2020), "Time.isLeapYear failed");
+
+    assert(0 == leapDays(2000, 2000), "Time.leapDays failed");
+    assert(5 == leapDays(2000, 2020), "Time.leapDays failed");
+    assert(-5 == leapDays(2020, 2000), "Time.leapDays failed");
+    assert(5 == leapDays(-2020, -2000), "Time.leapDays failed");
+    assert(98 == leapDays(1600, 2001), "Time.leapDays failed");
+    assert(97 == leapDays(1601, 2001), "Time.leapDays failed");
+    assert(97 == leapDays(1600, 2000), "Time.leapDays failed");
+    assert(96 == leapDays(1601, 2000), "Time.leapDays failed");
+
+    ok := true;
+  end Time;
+
+  function DateTime "Test constructors of Duration operator record and conversion to epoch"
+
+    import Modelica.Utilities.Streams;
+    import Modelica.Utilities.Time.DateTime;
+    import Modelica.Utilities.Time.Duration;
+
+    extends Modelica.Icons.Function;
+
+    input String logFile="ModelicaTestLog.txt" "Filename where the log is stored";
+    input Boolean test_past = false "Optionally run / skip tests for DateTimes before epoch year 1970";
+    output Boolean ok;
+
+  protected
+    Real act_r, ref_r;
+    String act_s, ref_s;
+    DateTime act_dt, ref_dt;
+    DateTime dt0, dt1, dt2, dt3;
+    Duration d;
+    Integer rc "Dummy return value";
+
+  algorithm
+
+    Streams.print("... Test of Modelica.Utilities.Time.DateTime");
+    Streams.print("... Test of Modelica.Utilities.Time.DateTime", logFile);
+
+    // ---------------------------------------- //
+    //  constructor and epoch conversion tests  //
+    // ---------------------------------------- //
+
+    // 1 day passed since custom epoch year 2017
+    ref_dt := DateTime(2017,  1,  1,  1,  1,  1, 0);
+    ref_r :=  3661;
+
+    act_dt := DateTime(ref_r, epoch_year=2017);
+    act_r :=  DateTime.epoch(ref_dt, epoch_year=2017);
+
+    assert(ref_dt==act_dt, "constructor test failed (1 day since 2017)");
+    assert(ref_r==act_r, "conversion to epoch failed (1 day since 2017)");
+
+    // 1 day passed since default epoch year 2017
+    ref_dt:= DateTime(1970,  1,  1,  1,  1,  1, 0);
+    ref_r := 3661;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (1 day since 1970)");
+    assert(ref_r==act_r, "conversion to epoch failed (1 day since 1970)");
+
+    // start of new year
+    ref_dt:= DateTime(1999, 12, 31, 23, 59, 59, 0);
+    ref_r := 946684799;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (last second in 1999)");
+    assert(ref_r==act_r, "conversion to epoch failed (last second in 1999)");
+
+    ref_dt:= DateTime(2000,  1,  1,  0,  0,  0, 0);
+    ref_r := 946684800;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (first second in 2000)");
+    assert(ref_r==act_r, "conversion to epoch failed (first second in 2000)");
+
+    // special leap year (new century and multiple of 400)
+    ref_dt:= DateTime(2000,  2, 28, 23, 59, 59, 0);
+    ref_r := 951782399;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (detection of special leap year 1)");
+    assert(ref_r==act_r, "conversion to epoch failed (detection of special leap year 1)");
+
+    ref_dt:= DateTime(2000,  3,  1,  0,  0,  0, 0);
+    ref_r := 951868800;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (detection of special leap year 2)");
+    assert(ref_r==act_r, "conversion to epoch failed (detection of special leap year 2)");
+
+    // no leap year (new century)
+    ref_dt:= DateTime(2100,  2, 28, 23, 59, 59, 0);
+    ref_r := 951782399;
+
+    act_dt:= DateTime(ref_r, epoch_year=2070);
+    act_r := DateTime.epoch(ref_dt, epoch_year=2070);
+
+    assert(ref_dt==act_dt, "constructor test failed (detection of special non-leap year 1)");
+    assert(ref_r==act_r, "conversion to epoch failed (detection of special non-leap year 1)");
+
+    ref_dt:= DateTime(2100,  3,  1,  0,  0,  0, 0);
+    ref_r := 951782400;
+
+    act_dt:= DateTime(ref_r, epoch_year=2070);
+    act_r := DateTime.epoch(ref_dt, epoch_year=2070);
+
+    assert(ref_dt==act_dt, "constructor test failed (detection of special non-leap year 2)");
+    assert(ref_r==act_r, "conversion to epoch failed (detection of special non-leap year 2)");
+
+    // regular year
+    ref_dt:= DateTime(2017,  2, 28, 23, 59, 59, 0);
+    ref_r := 1488326399;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (regular year 1)");
+    assert(ref_r==act_r, "conversion to epoch failed (regular year 1)");
+
+    ref_dt:= DateTime(2017,  3,  1,  0,  0,  0, 0);
+    ref_r := 1488326400;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (regular year 2)");
+    assert(ref_r==act_r, "conversion to epoch failed (regular year 2)");
+
+    // leap year
+    ref_dt:= DateTime(2020,  2, 28, 23, 59, 59, 0);
+    ref_r := 1582934399;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (regular leap year 1)");
+    assert(ref_r==act_r, "conversion to epoch failed (regular leap year 1)");
+
+    ref_dt:= DateTime(2020,  3,  1,  0,  0,  0, 0);
+    ref_r := 1583020800;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (regular leap year 2)");
+    assert(ref_r==act_r, "conversion to epoch failed (regular leap year 2)");
+
+    // end of year
+    ref_dt:= DateTime(2019, 12, 31, 23, 59, 59, 0);
+    ref_r := 1577836799;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (end of regular year)");
+    assert(ref_r==act_r, "conversion to epoch failed (end of regular year)");
+
+    ref_dt:= DateTime(2020, 12, 31, 23, 59, 59, 0);
+    ref_r := 1609459199;
+
+    act_dt:= DateTime(ref_r);
+    act_r := DateTime.epoch(ref_dt);
+
+    assert(ref_dt==act_dt, "constructor test failed (end of leap year)");
+    assert(ref_r==act_r, "conversion to epoch failed (end of leap year)");
+
+    if test_past then
+      // lowest value for 32bit integer
+      // this test is not relevant, as datatype Real is used to count
+      // seconds from epoch. Would be needed, if Integer is used instead
+      // (for whatever reason). But it does not hurt to have it, so we keep it.
+      ref_dt:= DateTime(1901, 12, 13, 20, 45, 53, 0);
+      ref_r := -2147483647;
+
+      act_dt:= DateTime(ref_r);
+      act_r := DateTime.epoch(ref_dt);
+
+      assert(ref_dt==act_dt, "constructor test failed (lowest possible value for 32bit integer)");
+      assert(ref_r==act_r, "conversion to epoch failed (lowest possible value for 32bit integer)");
+
+      // regular year in past
+      ref_dt:= DateTime(1910, 12, 31, 1, 59, 59, 0);
+      ref_r := -1861999201;
+
+      act_dt:= DateTime(ref_r);
+      act_r := DateTime.epoch(ref_dt);
+
+      assert(ref_dt==act_dt, "constructor test failed (regular year before epoch)");
+      assert(ref_r==act_r, "conversion to epoch failed (regular year before epoch)");
+
+      // leap year in past
+      ref_dt:= DateTime(1912, 12, 31, 1, 59, 59, 0);
+      ref_r := -1798840801;
+
+      act_dt:= DateTime(ref_r);
+      act_r := DateTime.epoch(ref_dt);
+
+      assert(ref_dt==act_dt, "constructor test failed (leap regular year before epoch)");
+      assert(ref_r==act_r, "conversion to epoch failed (leap regular year before epoch)");
+    end if;
+
+    // compare two DateTime records created from system time. dt2 should be a few seconds later than dt1
+    dt1 :=DateTime();
+    rc :=Modelica.Utilities.System.command("sleep 1") "Sleep 1s on linux";
+    rc :=Modelica.Utilities.System.command("ping -n 2 127.0.0.1 > NUL") "Sleep 1s on windows";
+    dt2 :=DateTime();
+
+    assert(  (dt2 > dt1) and (DateTime.epoch(dt2)-DateTime.epoch(dt1) < 5),
+      "constructor from system time failed (dt1 is younger than dt2)");
+
+
+    // ---------------- //
+    //  operator tests  //
+    // ---------------- //
+
+    dt1 := DateTime(2019, 12, 31, 23, 59, 59, 999);
+    dt2 := DateTime(2020, 01, 01, 00, 00, 00, 0);
+    dt3 := DateTime(2020, 01, 01, 00, 00, 00, 1);
+
+    // 'String'.formated
+    ref_s :="2020-01-01 00:00:00";
+    act_s :=String(dt3);
+    assert(ref_s==act_s, "default string formating failed. \n"+ref_s+" <> "+act_s);
+
+    ref_s :="Monday, 06. April 20, 13:01:07.999";
+    act_s :=String(DateTime(2020, 4, 6, 13, 01, 7, 999),  format="%A, %d. %B %y, %H:%M:%S.%L");
+    assert(ref_s==act_s, "custom string formating 1 failed. \n"+ref_s+" <> "+act_s);
+
+    ref_s :="Tue, Apr. 07 2020, 01:11:17";
+    act_s :=String(DateTime(2020, 4, 7, 01, 11, 17, 999),  format="%a, %b. %d %Y, %H:%M:%S");
+    assert(ref_s==act_s, "custom string formating 1 failed. \n"+ref_s+" <> "+act_s);
+
+    ref_s :="% Tue, %Apr";
+    act_s :=String(DateTime(2020, 4, 7, 01, 11, 17, 999),  format="%% %a, %%%b");
+    assert(ref_s==act_s, "custom string formating 1 failed. \n"+ref_s+" <> "+act_s);
+
+    // ==
+    assert(dt1==dt1, "dt1==dt1 failed");
+
+    // <>
+    assert(dt1<>dt2, "dt1<>dt2 failed");
+
+    // >
+    assert(dt2>dt1, "dt2>dt1 failed");
+
+    // >=
+    assert(dt2>=dt1, "dt2>=dt1 failed");
+    assert(dt1>=dt1, "dt1>=dt1 failed");
+
+    // <
+    assert(dt2<dt3, "dt2<dt3 failed");
+
+    // <=
+    assert(dt2<=dt3, "dt2<=dt3 failed");
+    assert(dt3<=dt3, "dt3<=dt3 failed");
+
+    // + add Duration
+    dt0 := DateTime("2020-04-20 04:30:00");
+    d := Duration(days=11, hours=2, minutes=3, seconds=100, milliseconds=0);
+    ref_dt := DateTime("2020-05-01 06:34:40");
+    assert(dt0+d==ref_dt, "DateTime+Duration failed");
+    assert(d+dt0==ref_dt, "Duration+DateTime failed");
+
+    // - subtract DateTime
+    assert(dt2-dt1==Duration(days=0, hours=0, minutes=0, seconds=0, milliseconds=1),  "dt2-dt1 failed");
+    assert(dt1-dt2==Duration(days=0, hours=0, minutes=0, seconds=0, milliseconds=-1), "dt1-dt2 failed");
+
+    // - subtract Duration
+    act_dt := DateTime("2020-04-20 04:30:00") - Duration(days=10, hours=2, minutes=3, seconds=4, milliseconds=0);
+    ref_dt := DateTime("2020-04-10 02:26:56");
+    assert(act_dt==ref_dt, "DateTime-Duration failed");
+
+    // return result
+    ok := true;
+
+    annotation ();
+  end DateTime;
+
+  function Duration "Test constructors and functions in Duration operator record"
+
+    import Modelica.Utilities.Streams;
+    import Modelica.Utilities.Time.Duration;
+    import Modelica.Utilities.Time.DateTime;
+
+    extends Modelica.Icons.Function;
+
+    input String logFile="ModelicaTestLog.txt" "Filename where the log is stored";
+    output Boolean ok;
+
+  protected
+    Duration d1, d2, d3;
+    Duration act, ref;
+    Real ref_r, act_r;
+    Integer ref_v[:], act_v[:];
+    String act_s, ref_s;
+
+  algorithm
+
+    Streams.print("... Test of Modelica.Utilities.Time.Duration");
+    Streams.print("... Test of Modelica.Utilities.Time.Duration", logFile);
+
+    // preparation of duration variables, used through out the test
+    d1 :=Duration(days=1, hours=1, minutes=1, seconds=1, milliseconds=1);
+    d2 :=Duration(days=0, hours=23, minutes=59, seconds=59, milliseconds=999);
+    d3 :=Duration(days=-1, hours=-1, minutes=-1, seconds=-1, milliseconds=-1);
+
+    // constructors
+    ref := Duration(days=-45, hours=33, minutes=61, seconds=-9871, milliseconds=-1501);
+    act := Duration(totalSeconds=-3775412.501);
+    assert(ref==act, "constructor test 1 failed (fromSeconds vs fromInput)");
+
+    ref := Duration(dt1=DateTime(2020, 1, 1, 1, 1, 1, 1), dt2=DateTime(2020, 1, 1, 1, 1, 2, 500));
+    act := Duration(totalSeconds=1.499);
+    assert(ref==act, "constructor test 2 failed (fromSeconds vs fromDateTimes, positive result)");
+
+    ref := Duration(dt1=DateTime(2020, 1, 1, 1, 1, 2, 500), dt2=DateTime(2020, 1, 1, 1, 1, 1, 1));
+    act := Duration(totalSeconds=-1.499);
+    assert(ref==act, "constructor test 3 failed (fromSeconds vs fromDateTimes, negative result)");
+
+    ref := Duration(days=-8, hours=-23, minutes=-30, seconds=-0, milliseconds=0);
+    act := Duration(DateTime("2020-1-10 0:0:0"), DateTime("2020-1-1 0:30:0"));
+    assert(ref==act, "constructor test 4a failed (fromInput vs fromDateTimes, negative result)");
+
+    ref_r := -775800.0;
+    act_r := Duration.inSeconds(act);
+    assert(ref_r==act_r, "constructor test 4b failed (real vs fromDateTimes in seconds, negative result)");
+
+    // 'String'.formated
+    ref_s :="1d 1h 1min 1s 1ms";
+    act_s :=String(d1);
+    assert(ref_s==act_s, "default string formating failed. Got "+ref_s+"<>"+act_s);
+
+    ref_s :="25h 01' 01.001''";
+    act_s :=String(d1, format="%Hh %M' %S.%L''");
+    assert(ref_s==act_s, "custom string formating 1 failed. \n"+ref_s+" <> "+act_s);
+
+    ref_s :="25h %01'% 1''";
+    act_s :=String(d1, format="%Hh %%%M'%% %seconds''");
+    assert(ref_s==act_s, "custom string formating 2 failed. \n"+ref_s+" <> "+act_s);
+
+    ref_s :="25h 61s";
+    act_s :=String(d1, format="%Hh %Ss");
+    assert(ref_s==act_s, "custom string formating 3 failed. \n"+ref_s+" <> "+act_s);
+
+    // ==
+    assert(d1==d1, "d1==d1 failed");
+
+    // <>
+    assert(d1<>d2, "d1<>d2 failed");
+
+    // >
+    assert(d1>d2, "d1>d2 failed");
+
+    // >=
+    assert(d1>=d2, "d1>=d2 failed");
+    assert(d1>=d1, "d1>=d1 failed");
+
+    // <
+    assert(d3<d1, "d3<d1 failed");
+
+    // <=
+    assert(d3<=d1, "d3<=d1 failed");
+    assert(d3<=d3, "d3<=d3 failed");
+
+    // +
+    ref :=Duration(days=1, hours=24, minutes=60, seconds=60, milliseconds=1000);
+    act :=d1 + d2;
+    assert(ref==act, "d1+d2 failed");
+
+    ref :=Duration(totalSeconds=0);
+    act := Duration.normalize(d1 + d3);
+    assert(ref==act, "d1+d3 failed");
+
+    // - subtract
+    ref :=Duration(days=-1, hours=22, minutes=58, seconds=58, milliseconds=998);
+    act :=d2 - d1;
+    assert(ref==act, "d2-d1 failed");
+
+    ref :=Duration(days=1, hours=-22, minutes=-58, seconds=-58, milliseconds=-998);
+    act :=d1 - d2;
+    assert(ref==act, "d1-d2 failed");
+
+    // - negate
+    ref :=Duration(days=-1, hours=-1, minutes=-1, seconds=-1, milliseconds=-1);
+    act :=-d1;
+    assert(ref==act, "-d1 failed");
+
+    // * multiply 1
+    ref :=Duration(days=2, hours=2, minutes=2, seconds=2, milliseconds=2);
+    act :=d1 * 2;
+    assert(ref==act, "d1*2 failed");
+
+    // * multiply 2
+    ref :=Duration(days=2, hours=2, minutes=2, seconds=2, milliseconds=2);
+    act := 2 * d1;
+    assert(ref==act, "2*d1 failed");
+
+    // / divide
+    ref := Duration(days=0, hours=12, minutes=30, seconds=30, milliseconds=501);
+    // 501ms result from the implementation of the division: fromSeconds is used, which rounds to the closest full milliseconds
+    // 1 / 2 = 0.5, rounded -> 1
+    act := Duration.normalize(d1 / 2);
+    assert(ref==act, "d1/2 failed");
+
+    // '0'
+    ref := Duration(days=0, hours=0, minutes=0, seconds=0, milliseconds=0);
+    act := Duration.'0'();
+    assert(ref==act, "'0' failed");
+
+    // asVector
+    ref_v :={0, 23, 59, 59, 999};
+    act_v :=Duration.asVector(d2);
+
+    for i in 1:size(ref_v, 1) loop
+      assert(ref_v[i]==act_v[i], "conversion to vector failed (element "+String(i)+")");
+    end for;
+
+    // avg
+    ref := Duration(days=1, hours=0, minutes=30, seconds=30, milliseconds=500);
+    act := Duration.avg({d1, d2});
+    assert(ref==act, "average of {d1, d2} failed");
+
+    // inSeconds
+    ref_r := 2291959.03;
+    act_r := Duration.inSeconds(Duration(days=27, hours=-12, minutes=30, seconds=559, milliseconds=30));
+    assert(ref_r==act_r, "conversion to total seconds failed");
+
+    // normalize
+    ref_v :={2, 5, 38, 0, 1};
+    act_v :=Duration.asVector(
+              Duration.normalize(
+                Duration(days=1, hours=28, minutes=97, seconds=59, milliseconds=1001)));
+
+    for i in 1:size(ref_v, 1) loop
+      assert(ref_v[i]==act_v[i], "normalization failed (element " +String(i)+")");
+    end for;
+
+    // sum
+    assert(sum(Duration(i, 0, 0, 0, 0) for i in 1:2) == Duration(3, 0, 0, 0, 0), "sum failed");
+
+    // return result
+    ok := true;
+
+  end Duration;
 
   function Internal "Test functions of Modelica.Utilities.Internal"
     extends Modelica.Icons.Function;
@@ -499,6 +982,10 @@ extends Modelica.Icons.ExamplesPackage;
     result := ModelicaTest.Utilities.Streams(logFile);
     result := ModelicaTest.Utilities.Files(logFile);
     result := ModelicaTest.Utilities.Internal(logFile);
+    result := ModelicaTest.Utilities.System(logFile);
+    result := ModelicaTest.Utilities.Time(logFile);
+    result := ModelicaTest.Utilities.Duration(logFile);
+    result := ModelicaTest.Utilities.DateTime(logFile);
     ok := true;
   end testAll;
 
