@@ -2,24 +2,15 @@ within Modelica.Mechanics.MultiBody.Interfaces;
 partial model PartialRelativeSensor
   "Base model to measure a relative variable between two frames"
   extends Modelica.Icons.RoundSensor;
-  parameter Integer n_out = 1 "Number of output signals";
-  Interfaces.Frame_a frame_a "Coordinate system a" annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
-  Interfaces.Frame_b frame_b "Coordinate system b" annotation (Placement(transformation(extent={{84,-16},{116,16}})));
+  extends PartialTwoFrames;
 
-  Modelica.Blocks.Interfaces.RealOutput y[n_out]
-    "Measured data as signal vector"
+  parameter Integer n_out = 1 "Number of output signals";
+
+  Modelica.Blocks.Interfaces.RealOutput y[n_out] "Measured data as signal vector"
     annotation (Placement(transformation(
         origin={0,-110},
         extent={{10,-10},{-10,10}},
         rotation=90)));
-protected
-  outer Modelica.Mechanics.MultiBody.World world;
-
-equation
-  assert(cardinality(frame_a) > 0,
-    "Connector frame_a of relative sensor object is not connected");
-  assert(cardinality(frame_b) > 0,
-    "Connector frame_b of relative sensor object is not connected");
 
   annotation (
     Documentation(info="<html>
