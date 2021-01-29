@@ -2,18 +2,13 @@ within Modelica.Mechanics.MultiBody.Interfaces;
 partial model PartialAbsoluteSensor
   "Base model to measure an absolute frame variable"
   extends Modelica.Icons.RoundSensor;
+  extends PartialOneFrame_a;
+
   parameter Integer n_out = 1 "Number of output signals";
-  Interfaces.Frame_a frame_a "Coordinate system from which absolute quantities are provided as output signals" annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
 
-  Modelica.Blocks.Interfaces.RealOutput y[n_out]
-    "Measured data as signal vector"
+  Modelica.Blocks.Interfaces.RealOutput y[n_out] "Measured data as signal vector"
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-protected
-  outer Modelica.Mechanics.MultiBody.World world;
 
-equation
-  assert(cardinality(frame_a) > 0,
-    "Connector frame_a of absolute sensor object is not connected");
   annotation (
     Documentation(info="<html>
 <p>
