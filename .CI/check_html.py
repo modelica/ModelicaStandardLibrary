@@ -6,7 +6,7 @@ Copyright (C) 2020, Modelica Association and contributors
 All rights reserved.
 
 Check Modelica HTML documentation for validity
-python .travis.py [check_function] [path]
+python check_html.py [check_function] [path]
 '''
 
 import importlib
