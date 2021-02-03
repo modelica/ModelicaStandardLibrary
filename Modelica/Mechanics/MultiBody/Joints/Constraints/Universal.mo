@@ -1,23 +1,12 @@
 within Modelica.Mechanics.MultiBody.Joints.Constraints;
 model Universal
   "Universal cut-joint and translational directions may be constrained or released"
-  extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
-  import MBS = Modelica.Mechanics.MultiBody;
+  extends Modelica.Mechanics.MultiBody.Interfaces.PartialConstraint;
 
-  parameter MBS.Types.Axis n_a={1,0,0}
+  parameter Types.Axis n_a={1,0,0}
     "Axis of revolute joint 1 resolved in frame_a" annotation (Evaluate=true);
-  parameter MBS.Types.Axis n_b={0,1,0}
+  parameter Types.Axis n_b={0,1,0}
     "Axis of revolute joint 2 resolved in frame_b" annotation (Evaluate=true);
-
-  parameter Boolean x_locked=true
-    "= true: constraint force in x-direction, resolved in frame_a"
-    annotation (Dialog(group="Constraints in translational motion"), choices(checkBox=true));
-  parameter Boolean y_locked=true
-    "= true: constraint force in y-direction, resolved in frame_a"
-    annotation (Dialog(group="Constraints in translational motion"), choices(checkBox=true));
-  parameter Boolean z_locked=true
-    "= true: constraint force in z-direction, resolved in frame_a"
-    annotation (Dialog(group="Constraints in translational motion"), choices(checkBox=true));
 
   parameter Boolean animation=true
     "= true, if animation shall be enabled (show sphere)"
@@ -25,54 +14,23 @@ model Universal
   parameter SI.Distance sphereDiameter=world.defaultJointLength /3
     "Diameter of sphere representing the spherical joint"
     annotation (Dialog(group="Animation", enable=animation));
-  input MBS.Types.Color sphereColor=MBS.Types.Defaults.JointColor
+  input Types.Color sphereColor=Types.Defaults.JointColor
     "Color of sphere representing the spherical joint"
     annotation (Dialog(colorSelector=true, group="Animation", enable=animation));
-  input MBS.Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+  input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (Dialog(group="Animation", enable=animation));
 protected
-  MBS.Frames.Orientation R_rel
-    "Dummy or relative orientation object from frame_a to frame_b";
   Real w_rel[3];
-  SI.Position r_rel_a[3]
-    "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
 
-  SI.InstantaneousPower P;
 equation
-  // Determine relative position vector resolved in frame_a
-  R_rel = MBS.Frames.relativeRotation(frame_a.R, frame_b.R);
-  w_rel = MBS.Frames.angularVelocity1(R_rel);
-  r_rel_a = MBS.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
-
-  // Constraint equations concerning translations
-  if x_locked then
-    r_rel_a[1]=0;
-  else
-    frame_a.f[1]=0;
-  end if;
-
-  if y_locked then
-    r_rel_a[2]=0;
-  else
-    frame_a.f[2]=0;
-  end if;
-
-  if z_locked then
-    r_rel_a[3]=0;
-  else
-    frame_a.f[3]=0;
-  end if;
+  w_rel = Frames.angularVelocity1(R_rel);
 
   // Constraint equations concerning rotations
   frame_a.t*n_a=0;
   frame_b.t*n_b=0;
   n_b*R_rel.T*n_a=0;
   assert(abs(n_a*n_b) < Modelica.Constants.eps, "The two axes that constitute the Constraints.Universal joint must be different");
-
-  zeros(3)=frame_a.f + MBS.Frames.resolve1(R_rel, frame_b.f);
-  zeros(3) = frame_a.t+MBS.Frames.resolve1(R_rel, frame_b.t)- cross(r_rel_a, frame_a.f);
-  P = frame_a.t*MBS.Frames.angularVelocity2(frame_a.R)+frame_b.t*MBS.Frames.angularVelocity2(frame_b.R) + MBS.Frames.resolve1(frame_b.R,frame_b.f)*der(frame_b.r_0)+MBS.Frames.resolve1(frame_a.R,frame_a.f)*der(frame_a.r_0);
 
   annotation (
     defaultComponentName="constraint",
