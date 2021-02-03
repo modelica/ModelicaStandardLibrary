@@ -2,11 +2,10 @@ within Modelica.Mechanics.MultiBody.Joints.Constraints;
 model Universal
   "Universal cut-joint and translational directions may be constrained or released"
   extends Modelica.Mechanics.MultiBody.Interfaces.PartialConstraint;
-  import MBS = Modelica.Mechanics.MultiBody;
 
-  parameter MBS.Types.Axis n_a={1,0,0}
+  parameter Types.Axis n_a={1,0,0}
     "Axis of revolute joint 1 resolved in frame_a" annotation (Evaluate=true);
-  parameter MBS.Types.Axis n_b={0,1,0}
+  parameter Types.Axis n_b={0,1,0}
     "Axis of revolute joint 2 resolved in frame_b" annotation (Evaluate=true);
 
   parameter Boolean animation=true
@@ -15,17 +14,17 @@ model Universal
   parameter SI.Distance sphereDiameter=world.defaultJointLength /3
     "Diameter of sphere representing the spherical joint"
     annotation (Dialog(group="Animation", enable=animation));
-  input MBS.Types.Color sphereColor=MBS.Types.Defaults.JointColor
+  input Types.Color sphereColor=Types.Defaults.JointColor
     "Color of sphere representing the spherical joint"
     annotation (Dialog(colorSelector=true, group="Animation", enable=animation));
-  input MBS.Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+  input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (Dialog(group="Animation", enable=animation));
 protected
   Real w_rel[3];
 
 equation
-  w_rel = MBS.Frames.angularVelocity1(R_rel);
+  w_rel = Frames.angularVelocity1(R_rel);
 
   // Constraint equations concerning rotations
   frame_a.t*n_a=0;

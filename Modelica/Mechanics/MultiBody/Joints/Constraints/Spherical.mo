@@ -2,7 +2,6 @@ within Modelica.Mechanics.MultiBody.Joints.Constraints;
 model Spherical
   "Spherical cut joint and translational directions may be constrained or released"
   extends Modelica.Mechanics.MultiBody.Interfaces.PartialConstraint;
-  import MBS = Modelica.Mechanics.MultiBody;
 
   parameter Boolean animation=true
     "= true, if animation shall be enabled (show sphere)"
@@ -10,10 +9,10 @@ model Spherical
   parameter SI.Distance sphereDiameter=world.defaultJointLength /3
     "Diameter of sphere representing the spherical joint"
     annotation (Dialog(group="Animation", enable=animation));
-  input MBS.Types.Color sphereColor=MBS.Types.Defaults.JointColor
+  input Types.Color sphereColor=Types.Defaults.JointColor
     "Color of sphere representing the spherical joint"
     annotation (Dialog(colorSelector=true, group="Animation", enable=animation));
-  input MBS.Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+  input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (Dialog(group="Animation", enable=animation));
 
