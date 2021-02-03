@@ -27,9 +27,9 @@ equation
   w_rel = Frames.angularVelocity1(R_rel);
 
   // Constraint equations concerning rotations
-  frame_a.t*n_a=0;
-  frame_b.t*n_b=0;
-  n_b*R_rel.T*n_a=0;
+  frame_a.t * n_a = 0;
+  frame_b.t * n_b = 0;
+  n_b * Frames.resolve2(R_rel, n_a) = 0; // Constraint: R_rel shall assure orthogonality of n_a and n_b
   assert(abs(n_a*n_b) < Modelica.Constants.eps, "The two axes that constitute the Constraints.Universal joint must be different");
 
   annotation (
