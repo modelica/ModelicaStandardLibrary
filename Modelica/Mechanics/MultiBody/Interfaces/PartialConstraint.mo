@@ -44,9 +44,10 @@ equation
     frame_a.f[3]=0;
   end if;
 
-  // Forque and torque balance
+  // Force and torque balance
   zeros(3) = frame_a.f + Frames.resolve1(R_rel, frame_b.f);
   zeros(3) = frame_a.t + Frames.resolve1(R_rel, frame_b.t) - cross(r_rel_a, frame_a.f);
+  // - cross(r_rel_a, frame_a.f) gives the same result like cross(r_rel_a, Frames.resolve1(R_rel, frame_b.f))
 
   // Instantaneous power
   P = frame_a.t * Frames.angularVelocity2(frame_a.R) +
