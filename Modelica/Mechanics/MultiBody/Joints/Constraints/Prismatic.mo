@@ -170,5 +170,12 @@ equation
 <p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
 <p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
 <p>See the subpackage <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Constraints\">Examples.Constraints</a> for testing the joint.</p>
+</html>",revisions="<html><p><strong>Release Notes:</strong></p>
+<ul>
+  <li><em>February 4, 2021</em><br>
+         Improved numeric stability by re-using <a href=\"Modelica://Modelica.Mechanics.MultiBody.Frames.Orientation.equalityConstraint\">equalityConstraint</a> from connection handling as constraint.
+         This ensures that the constraint has non-singular Jacobian and only one solution.
+  </li>
+</ul>
 </html>"));
 end Prismatic;
