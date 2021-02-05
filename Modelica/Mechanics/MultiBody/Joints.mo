@@ -6946,7 +6946,8 @@ pair of joints\" from Woernle and Hiller is described in:
       r_rel_a = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
 
       // Constraint equations concerning rotations
-      ones(3)={R_rel.T[1,1], R_rel.T[2,2], R_rel.T[3,3]};
+      // Same logic as for overdetermined connection graph loops to get good residuals.
+      zeros(3)=Modelica.Mechanics.MultiBody.Frames.Orientation.equalityConstraint(frame_a.R, frame_b.R);
 
       // Constraint equations concerning translations
       if x_locked and y_locked and z_locked then
@@ -7064,6 +7065,13 @@ pair of joints\" from Woernle and Hiller is described in:
 <p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
 <p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
 <p>See the subpackage <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Constraints\">Examples.Constraints</a> for testing the joint.</p>
+</html>",revisions="<html><p><strong>Release Notes:</strong></p>
+<ul>
+  <li><em>February 4, 2021</em><br>
+         Improved numeric stability by re-using <a href=\"Modelica://Modelica.Mechanics.MultiBody.Frames.Orientation.equalityConstraint\">equalityConstraint</a> from connection handling as constraint.
+         This ensures that the constraint has non-singular Jacobian and only one solution.
+  </li>
+</ul>
 </html>"));
     end Prismatic;
 
