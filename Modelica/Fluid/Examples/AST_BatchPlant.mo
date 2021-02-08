@@ -723,7 +723,7 @@ Documentation for this example can be found on the <a href=\"modelica://Modelica
         "Wall heat transfer"
           annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
       HeatTransfer heatTransfer(
-        redeclare final package Medium = Medium,
+        redeclare package Medium = Medium,
         final n=1,
         final states = {medium.state},
         surfaceAreas={crossArea+2*sqrt(crossArea*Modelica.Constants.pi)*level},
@@ -1498,7 +1498,7 @@ Integer type that can have the following values
         "Wall heat transfer"
         annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
     HeatTransfer heatTransfer(
-      redeclare final package Medium = Medium,
+      redeclare package Medium = Medium,
       final n=1,
       final states = {medium.state},
       surfaceAreas={crossArea+2*sqrt(crossArea*Modelica.Constants.pi)*level},
