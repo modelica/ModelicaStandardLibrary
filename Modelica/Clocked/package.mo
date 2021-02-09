@@ -61,7 +61,7 @@ revisions="<html>
          <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
     </td><td valign=\"bottom\">
     Initial version implemented by M. Otter and B. Thiele released as <em>Modelica_Synchronous</em> (version 0.9) library.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
     </td></tr>
     </table>
 </td></tr>

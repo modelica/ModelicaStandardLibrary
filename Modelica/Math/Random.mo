@@ -82,7 +82,7 @@ with a sample period of 0.05 s. Simulations results are shown in the figure belo
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -107,7 +107,7 @@ This package contains examples demonstrating the usage of the functions in packa
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -204,7 +204,7 @@ and the returned state is the one from the last iteration.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -269,7 +269,7 @@ same random number r is returned.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -296,7 +296,7 @@ For an overview, comparison with other random number generators, and links to ar
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -377,7 +377,7 @@ random number generator is used to fill the internal state vector with 64 bit ra
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -442,7 +442,7 @@ same random number r is returned.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -470,7 +470,7 @@ other random number generators, and links to articles, see
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -554,7 +554,7 @@ random number generator is used to fill the internal state vector with 64 bit ra
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -619,7 +619,7 @@ same random number r is returned.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -646,7 +646,7 @@ For an overview, comparison with other random number generators, and links to ar
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -835,7 +835,7 @@ These numbers are mapped to the 52 bit mantissa of double numbers in the range 0
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -898,7 +898,7 @@ These numbers are mapped to the 52 bit mantissa of double numbers in the range 0
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -985,7 +985,7 @@ This function should be only called once during initialization.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1046,7 +1046,7 @@ path is provided.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1137,7 +1137,7 @@ random number generator to fill the internal state vector with 64 bit random num
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1209,7 +1209,7 @@ is returned, so the function is impure.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1269,7 +1269,7 @@ is returned, so the function is impure.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1295,7 +1295,7 @@ that are usually of no interest for the user
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1350,7 +1350,7 @@ package <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>).
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 

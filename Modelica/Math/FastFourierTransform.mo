@@ -72,7 +72,7 @@ package FastFourierTransform
     <td>
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
-     (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
+     (<a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
 </table>
 </html>",
       info="<html>
@@ -174,7 +174,7 @@ Furthermore, note that the FFT phases are with respect to a cos(..) signal.
     <td>
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
-     (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
+     (<a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
 </table>
 </html>",
       info="<html>
@@ -192,7 +192,7 @@ with the only difference that just the amplitudes of the FFT are stored on file 
     <td>
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
-     (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
+     (<a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
 </table>
 </html>"));
   end Examples;
@@ -240,7 +240,7 @@ with the only difference that just the amplitudes of the FFT are stored on file 
     <td>
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
-     (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
+     (<a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
 </table>
 </html>",
         info="<html>
@@ -329,7 +329,7 @@ results in the following output:
     <td>
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
-     (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
+     (<a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
 </table>
 </html>",
       info="<html>
@@ -453,7 +453,7 @@ ns = 5760
     <td>
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
-     (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
+     (<a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
 </table>
 </html>",
       info="<html>
@@ -651,7 +651,7 @@ See detailed example model:
     <td>
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
-     (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
+     (<a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
 </table>
 </html>",
       info="<html>
@@ -753,7 +753,7 @@ used in this function.
     <td>
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
-     (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
+     (<a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
 </table>
 </html>",
       info="<html>
@@ -785,7 +785,7 @@ If this is not possible, success = false, and e2, e3, e5 are dummy values.
     <td>
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
-     (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
+     (<a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
 </table>
 </html>"));
   end Internal;
@@ -843,7 +843,7 @@ resulting in:
     <td>
      Initial version implemented by
      Martin R. Kuhn and Martin Otter
-     (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
+     (<a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
 </table>
 </html>"), Icon(graphics={
         Line(points={{-60,20},{-60,-80}}, color={95,95,95}),
