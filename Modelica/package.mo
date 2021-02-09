@@ -2385,6 +2385,12 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources</strong></td></tr>
+<tr><td>CombiTimeTable</td>
+    <td>Added support of reading CSV files.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Tables</strong></td></tr>
+<tr><td>CombiTable1Ds<br>CombiTable1Dv<br>CombiTable2Ds<br>CombiTable2Dv</td>
+    <td>Added support of reading CSV files.</td></tr>
 <tr><td colspan=\"2\"><strong>Mechanics.Rotational.Components</strong></td></tr>
 <tr><td>BearingFriction</td>
     <td>The table interpolation in <code>tau_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td></tr>

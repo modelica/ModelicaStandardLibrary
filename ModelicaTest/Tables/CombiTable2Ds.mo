@@ -1076,4 +1076,23 @@ double mydummyfunc(double dummy_in) {
         points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test31;
+
+  model Test32 "CSV file (Ticket #3691)"
+    extends Modelica.Icons.Example;
+    extends TestDer(t_new(
+        tableOnFile=true,
+        delimiter=";",
+        nHeaderLines=0,
+        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test2D.csv")));
+    Modelica.Blocks.Sources.ContinuousClock clock1
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.ContinuousClock clock2
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+  equation
+    connect(clock1.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-50,30},{-50,16},{-42,16}}, color={0,0,127}));
+    connect(clock2.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
+    annotation (experiment(StartTime=0, StopTime=60));
+  end Test32;
 end CombiTable2Ds;
