@@ -1505,7 +1505,7 @@ The result of a simulation is shown in the next diagram:
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1611,7 +1611,7 @@ manualSeed2 will produce exactly the same noise.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1679,7 +1679,7 @@ truncated normal distribution has more values centered around the mean value 1.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1784,7 +1784,7 @@ distribution have good statistical properties.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1888,7 +1888,7 @@ distribution have good statistical properties.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1955,7 +1955,7 @@ inputs:
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1998,7 +1998,7 @@ generator. Simulation results are shown in the next figure:
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -2113,7 +2113,7 @@ enableNoise = false in the globalSeed component.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -2288,7 +2288,7 @@ This block is demonstrated in the example
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -2359,7 +2359,7 @@ This block is demonstrated in the example
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -2431,7 +2431,7 @@ This block is demonstrated in the example
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -2472,7 +2472,7 @@ random number generator. This block is used in the example
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -2697,7 +2697,7 @@ actuator example
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -2778,7 +2778,7 @@ actuator example
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -2805,7 +2805,7 @@ actuator example
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -2835,7 +2835,7 @@ This package contains utility models that are used for the examples.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -2861,7 +2861,7 @@ to utilize the blocks from sublibrary
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
