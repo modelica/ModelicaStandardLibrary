@@ -2424,15 +2424,15 @@ Note: The output is updated after each period defined by 1/f.
               u "Connector of Real input signal" annotation (Placement(
           transformation(extent={{-140,-20},{-100,20}})));
     Modelica.Blocks.Interfaces.RealOutput
-              y_min "Max of input signal" annotation (Placement(
+              y_min "Min of input signal" annotation (Placement(
           transformation(extent={{100,-70},{120,-50}})));
     Modelica.Blocks.Interfaces.RealOutput
-              y_max "Min of input signal" annotation (Placement(
+              y_max "Max of input signal" annotation (Placement(
           transformation(extent={{100,50},{120,70}})));
   protected
     parameter SI.Time t0(fixed=false) "Start time of simulation";
     discrete Real y_min_last "Last sampled min value";
-    discrete Real y_max_last "Last sampled min value";
+    discrete Real y_max_last "Last sampled max value";
   initial equation
     t0 = time;
     y_min_last = u;
