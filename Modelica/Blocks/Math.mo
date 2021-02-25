@@ -2498,7 +2498,7 @@ Note: The output is updated after each sample period defined by <code>Ts</code>.
       <td>1.0.0</td>
       <td>2021-02-25</td>
       <td><a href=\"https://github.com/dietmarw\">dietmarw</a>,
-          <a href=\"https://github.com/tinrabuzin\">tinrabuzin</a>
+          <a href=\"https://github.com/tinrabuzin\">tinrabuzin</a></td>
       <td>Initial version</td>
     </tr>
 </table> 
