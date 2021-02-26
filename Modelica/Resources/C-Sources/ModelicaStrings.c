@@ -93,9 +93,6 @@
 #include "ModelicaUtilities.h"
 #include "stdint_wrap.h"
 #define HASH_NO_STDINT 1
-#if !defined(HASH_FUNCTION)
-#define HASH_FUNCTION HASH_AP
-#endif
 #include "uthash.h"
 #undef uthash_fatal /* Ensure that nowhere in this file uses uthash_fatal by accident */
 
@@ -547,6 +544,9 @@ do { \
     } \
 } while (0)
 
+#undef HASH_FUNCTION
+#define HASH_FUNCTION HASH_AP
+
 int ModelicaStrings_hashString(_In_z_ const char* str) {
     /* Compute an unsigned int hash code from a character string */
     size_t len = strlen(str);
@@ -559,6 +559,9 @@ int ModelicaStrings_hashString(_In_z_ const char* str) {
 
     return h.is;
 }
+
+#undef HASH_FUNCTION
+#define HASH_FUNCTION HASH_JEN
 
 #if defined(__clang__)
 #pragma clang diagnostic pop
