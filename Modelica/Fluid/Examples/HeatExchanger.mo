@@ -256,7 +256,7 @@ package HeatExchanger "Demo of a heat exchanger model"
         annotation (Placement(transformation(extent={{-29,-23},{9,35}})));
 
       Pipes.DynamicPipe pipe_1(
-        redeclare final package Medium = Medium_1,
+        redeclare package Medium = Medium_1,
         final isCircular=false,
         final diameter=0,
         final nNodes=nNodes,
@@ -266,7 +266,7 @@ package HeatExchanger "Demo of a heat exchanger model"
         final momentumDynamics=momentumDynamics,
         final length=length,
         final use_HeatTransfer=use_HeatTransfer,
-        redeclare final model HeatTransfer = HeatTransfer_1,
+        redeclare model HeatTransfer = HeatTransfer_1,
         final use_T_start=use_T_start,
         final T_start=T_start_1,
         final h_start=h_start_1,
@@ -277,12 +277,12 @@ package HeatExchanger "Demo of a heat exchanger model"
         final p_a_start=p_a_start1,
         final p_b_start=p_b_start1,
         final roughness=roughness_1,
-        redeclare final model FlowModel = FlowModel_1,
+        redeclare model FlowModel = FlowModel_1,
         final modelStructure=modelStructure_1) annotation (Placement(transformation(extent={{-40,-80},
                 {20,-20}})));
 
       Pipes.DynamicPipe pipe_2(
-        redeclare final package Medium = Medium_2,
+        redeclare package Medium = Medium_2,
         final nNodes=nNodes,
         final allowFlowReversal=allowFlowReversal,
         final energyDynamics=energyDynamics,
@@ -292,7 +292,7 @@ package HeatExchanger "Demo of a heat exchanger model"
         final isCircular=false,
         final diameter=0,
         final use_HeatTransfer=use_HeatTransfer,
-        redeclare final model HeatTransfer = HeatTransfer_2,
+        redeclare model HeatTransfer = HeatTransfer_2,
         final use_T_start=use_T_start,
         final T_start=T_start_2,
         final h_start=h_start_2,
@@ -303,23 +303,23 @@ package HeatExchanger "Demo of a heat exchanger model"
         final p_a_start=p_a_start2,
         final p_b_start=p_b_start2,
         final roughness=roughness_2,
-        redeclare final model FlowModel = FlowModel_2,
+        redeclare model FlowModel = FlowModel_2,
         final modelStructure=modelStructure_2)
                   annotation (Placement(transformation(extent={{20,88},{-40,28}})));
 
-      Modelica.Fluid.Interfaces.FluidPort_b port_b1(redeclare final package
+      Modelica.Fluid.Interfaces.FluidPort_b port_b1(redeclare package
           Medium =
             Medium_1) annotation (Placement(transformation(extent={{100,-12},{120,
                 8}})));
-      Modelica.Fluid.Interfaces.FluidPort_a port_a1(redeclare final package
+      Modelica.Fluid.Interfaces.FluidPort_a port_a1(redeclare package
           Medium =
             Medium_1) annotation (Placement(transformation(extent={{-120,-12},{
                 -100,8}})));
-      Modelica.Fluid.Interfaces.FluidPort_b port_b2(redeclare final package
+      Modelica.Fluid.Interfaces.FluidPort_b port_b2(redeclare package
           Medium =
             Medium_2) annotation (Placement(transformation(extent={{-120,36},{
                 -100,56}})));
-      Modelica.Fluid.Interfaces.FluidPort_a port_a2(redeclare final package
+      Modelica.Fluid.Interfaces.FluidPort_a port_a2(redeclare package
           Medium =
             Medium_2) annotation (Placement(transformation(extent={{100,-56},{120,
                 -36}})));

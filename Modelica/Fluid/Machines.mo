@@ -382,7 +382,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
         "Wall heat transfer"
         annotation (Dialog(tab="Assumptions",group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
     HeatTransfer heatTransfer(
-      redeclare final package Medium = Medium,
+      redeclare package Medium = Medium,
       final n=1,
       surfaceAreas={4*Modelica.Constants.pi*(3/4*V/Modelica.Constants.pi)^(2/3)},
       final states = {medium.state},
@@ -421,7 +421,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
         "Optional pump monitoring"
         annotation(Dialog(tab="Advanced", group="Diagnostics"), choicesAllMatching=true);
     Monitoring monitoring(
-            redeclare final package Medium = Medium,
+            redeclare package Medium = Medium,
             final state_in = Medium.setState_phX(port_a.p, inStream(port_a.h_outflow), inStream(port_a.Xi_outflow)),
             final state = medium.state) "Monitoring model"
        annotation (Placement(transformation(extent={{-64,-42},{-20,0}})));

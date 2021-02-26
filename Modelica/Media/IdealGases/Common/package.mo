@@ -47,7 +47,7 @@ partial package SingleGasNasa
 
   extends Interfaces.PartialPureSubstance(
      ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.pT,
-     redeclare final record FluidConstants =
+     redeclare record FluidConstants =
         Modelica.Media.Interfaces.Types.IdealGas.FluidConstants,
      mediumName=data.name,
      substanceNames={data.name},
