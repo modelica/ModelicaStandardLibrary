@@ -2431,19 +2431,17 @@ Note: The output is updated after each period defined by 1/f.
           transformation(extent={{100,50},{120,70}})));
   protected
     parameter SI.Time t0(fixed=false) "Start time of simulation";
-    discrete Real y_min_last "Last sampled min value";
-    discrete Real y_max_last "Last sampled max value";
+
   initial equation
     t0 = time;
-    y_min_last = u;
-    y_max_last = u;
+    y_min = u;
+    y_max = u;
+
   equation
     when sample(t0 + Ts, Ts) then
-      y_min_last = min(u, pre(y_min_last));
-      y_max_last = max(u, pre(y_max_last));
+      y_min = min(u, pre(y_min));
+      y_max = max(u, pre(y_max));
     end when;
-    y_min = y_min_last;
-    y_max = y_max_last;
     annotation (Icon(graphics={
           Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
           Polygon(
