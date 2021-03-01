@@ -2483,9 +2483,14 @@ Note: The output is updated after each period defined by 1/f.
 <p>
 This block calculates the max and the min of input signal <code>u</code>.
 </p>
-<p>
-Note: The output is updated after each sample period defined by <code>Ts</code>.
-</p>
+<h5>Note:</h5>
+<p>The output is updated after each sample period defined by <code>Ts</code>.
+This means that:</p>
+<ul>
+<li>The extrema will be approximate as it only return the extremas at the sampling points.</li>
+<li>The sampling will generate many events which may slow down the simulation.</li>
+</ul>
+
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
