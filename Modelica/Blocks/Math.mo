@@ -2429,6 +2429,9 @@ Note: The output is updated after each period defined by 1/f.
     Modelica.Blocks.Interfaces.RealOutput
               y_max "Max of input signal" annotation (Placement(
           transformation(extent={{100,50},{120,70}})));
+    discrete Real t_min "Sample time of last found minimum";
+    discrete Real t_max "Sample time of last found maximum";
+
   protected
     parameter SI.Time t0(fixed=false) "Start time of simulation";
 
@@ -2441,6 +2444,16 @@ Note: The output is updated after each period defined by 1/f.
     when sample(t0 + Ts, Ts) then
       y_min = min(u, pre(y_min));
       y_max = max(u, pre(y_max));
+      if y_min<pre(y_min) then
+        t_min = time;
+        t_max=pre(t_max);
+      elseif y_max>pre(y_max) then
+        t_max = time;
+        t_min=pre(t_min);
+      else
+        t_min=pre(t_min);
+        t_max=pre(t_max);
+      end if;
     end when;
     annotation (Icon(graphics={
           Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
@@ -2479,7 +2492,9 @@ Note: The output is updated after each period defined by 1/f.
             color={0,0,0},
             pattern=LinePattern.Dash)}), Documentation(info="<html>
 <p>
-This block calculates the max and the min of input signal <code>u</code>.
+This block calculates the min and the max of the input signal <code>u</code>
+and stores the time at which the last min or max was reached in the 
+variables <code>t_min</code> and <code>t_max</code> respectively.
 </p>
 <h5>Note:</h5>
 <p>The output is updated after each sample period defined by <code>Ts</code>.
