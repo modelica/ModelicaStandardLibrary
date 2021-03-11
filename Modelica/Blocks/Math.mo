@@ -2439,6 +2439,8 @@ Note: The output is updated after each period defined by 1/f.
     t0 = time;
     y_min = u;
     y_max = u;
+    t_min = time;
+    t_max = time;
 
   equation
     when sample(t0 + Ts, Ts) then
