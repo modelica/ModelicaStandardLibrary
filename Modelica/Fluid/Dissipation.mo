@@ -1022,19 +1022,19 @@ This record is used as <strong>input record</strong> for the heat transfer funct
         type TYP =
             Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes;
 
+        SI.Length h=if IN_con.geometry == TYP.RectangularFin then IN_con.D_h*(1 +
+            IN_con.alpha)/(2*IN_con.alpha) else 0 "Free flow height";
+        SI.Length s=if IN_con.geometry == TYP.RectangularFin then h*IN_con.alpha else
+                  0 "Lateral fin spacing (free flow width)";
+        SI.Length t=if IN_con.geometry == TYP.RectangularFin then s*IN_con.gamma else
+                  0 "Fin thickness";
+        SI.Length l=if IN_con.geometry == TYP.RectangularFin then t/IN_con.delta else
+                  0 "Fin length";
         SI.Area A_c=if IN_con.geometry == TYP.LouverFin then IN_con.A_fr*((IN_con.F_l
              - IN_con.delta_f)*(IN_con.F_p - IN_con.delta_f)/((IN_con.F_l + IN_con.D_m)
             *IN_con.F_p)) else if IN_con.geometry == TYP.RectangularFin then IN_con.A_fr
             *(h*s/((h + t + IN_con.D_m)*(s + t))) else 0
           "Minimum flow cross-sectional area";
-        SI.Length h=if IN_con.geometry == TYP.RectangularFin then IN_con.D_h*(1 +
-            IN_con.alpha)/(2*IN_con.alpha) else 0 "Free flow height";
-        SI.Length l=if IN_con.geometry == TYP.RectangularFin then t/IN_con.delta else
-                  0 "Fin length";
-        SI.Length s=if IN_con.geometry == TYP.RectangularFin then h*IN_con.alpha else
-                  0 "Lateral fin spacing (free flow width)";
-        SI.Length t=if IN_con.geometry == TYP.RectangularFin then s*IN_con.gamma else
-                  0 "Fin thickness";
       algorithm
         kc := Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_KC(IN_con,
           IN_var);
@@ -1088,26 +1088,26 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
         Real MIN=Modelica.Constants.eps;
         Real Phi=IN_con.Phi*180/PI "Louver angle";
 
-        SI.ReynoldsNumber Re_Dh=max(MIN, (abs(IN_var.m_flow)*IN_con.D_h/(IN_var.eta*
-            A_c))) "Reynolds number based on hydraulic diameter";
-        SI.ReynoldsNumber Re_Lp=max(MIN, (abs(IN_var.m_flow)*IN_con.L_p/(IN_var.eta*
-            A_c))) "Reynolds number based on louver pitch";
         SI.PrandtlNumber Pr=IN_var.eta*IN_var.cp/IN_var.lambda "Prandtl number";
         Real j "Colburn j factor";
 
+        SI.Length h=if IN_con.geometry == TYP.RectangularFin then IN_con.D_h*(1 +
+            IN_con.alpha)/(2*IN_con.alpha) else 0 "Free flow height";
+        SI.Length s=if IN_con.geometry == TYP.RectangularFin then h*IN_con.alpha else
+                  0 "Lateral fin spacing (free flow width)";
+        SI.Length t=if IN_con.geometry == TYP.RectangularFin then s*IN_con.gamma else
+                  0 "Fin thickness";
+        SI.Length l=if IN_con.geometry == TYP.RectangularFin then t/IN_con.delta else
+                  0 "Fin length";
         SI.Area A_c=if IN_con.geometry == TYP.LouverFin then IN_con.A_fr*((IN_con.F_l
              - IN_con.delta_f)*(IN_con.F_p - IN_con.delta_f)/((IN_con.F_l + IN_con.D_m)
             *IN_con.F_p)) else if IN_con.geometry == TYP.RectangularFin then IN_con.A_fr
             *(h*s/((h + t + IN_con.D_m)*(s + t))) else 0
           "Minimum flow cross-sectional area";
-        SI.Length h=if IN_con.geometry == TYP.RectangularFin then IN_con.D_h*(1 +
-            IN_con.alpha)/(2*IN_con.alpha) else 0 "Free flow height";
-        SI.Length l=if IN_con.geometry == TYP.RectangularFin then t/IN_con.delta else
-                  0 "Fin length";
-        SI.Length s=if IN_con.geometry == TYP.RectangularFin then h*IN_con.alpha else
-                  0 "Lateral fin spacing (free flow width)";
-        SI.Length t=if IN_con.geometry == TYP.RectangularFin then s*IN_con.gamma else
-                  0 "Fin thickness";
+        SI.ReynoldsNumber Re_Dh=max(MIN, (abs(IN_var.m_flow)*IN_con.D_h/(IN_var.eta*
+            A_c))) "Reynolds number based on hydraulic diameter";
+        SI.ReynoldsNumber Re_Lp=max(MIN, (abs(IN_var.m_flow)*IN_con.L_p/(IN_var.eta*
+            A_c))) "Reynolds number based on louver pitch";
 
       algorithm
         if IN_con.geometry == TYP.LouverFin then
@@ -1297,9 +1297,6 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
 
         Real MIN=Modelica.Constants.eps;
 
-        SI.ReynoldsNumber Re_Dc=max(MIN, (abs(IN_var.m_flow)*IN_con.D_c/(IN_var.eta*
-            A_c))) "Reynolds number based on fin collar diameter";
-
         SI.ReynoldsNumber Re_i "Reynolds number at transition to linearized calculation for wavy fins";
 
         SI.PrandtlNumber Pr=IN_var.eta*IN_var.cp/IN_var.lambda "Prandtl number";
@@ -1312,6 +1309,8 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
             *PI*IN_con.D_c*(IN_con.F_p - IN_con.delta_f) + 2*(IN_con.P_t*IN_con.L -
             IN_con.N*PI*IN_con.D_c^2/4))/(IN_con.P_t*IN_con.F_p)) else 0
           "Total heat transfer area";
+        SI.ReynoldsNumber Re_Dc=max(MIN, (abs(IN_var.m_flow)*IN_con.D_c/(IN_var.eta*
+            A_c))) "Reynolds number based on fin collar diameter";
         SI.Length D_h=if IN_con.geometry == TYP.LouverFin then 4*A_c*IN_con.L/A_tot else
                   0 "Hydraulic diameter";
 
