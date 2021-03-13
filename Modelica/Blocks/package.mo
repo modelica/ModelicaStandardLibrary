@@ -1476,11 +1476,10 @@ Compare the sinc signal and an exponentially damped sine.
             20},{-40,20},{-40,6},{-22,6}}, color={0,0,127}));
     connect(uniformNoiseFrequency.y, sine.f) annotation (Line(points={{-59,-20},{-40,
             -20},{-40,-6},{-22,-6}}, color={0,0,127}));
-    annotation (                                 experiment(
+    annotation (experiment(
         StopTime=1.5,
         Interval=1e-05,
-        Tolerance=1e-06,
-        __Dymola_Algorithm="Dassl"), Documentation(info="<html>
+        Tolerance=1e-06), Documentation(info="<html>
 <p>
 This example uses a sinusoidal signal with amplitude and frequency randomly set every 10 ms. 
 Amplitude varies in the range of [1,5] and frequency varies in the range of [10, 100] Hz. 
