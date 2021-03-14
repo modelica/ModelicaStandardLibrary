@@ -12,7 +12,7 @@ equation
     annotation (Line(points={{1,-40},{8,-40}},  color={0,0,127}));
   annotation (experiment(
       StopTime=0.1,
-      Interval=1e-05,
+      Interval=1e-06,
       Tolerance=1e-06),
       Documentation(info="<html>
 <p>
