@@ -1449,16 +1449,15 @@ Compare the sinc signal and an exponentially damped sine.
 
   model DemonstrateSignalExtrema "Test detection of signal extrema"
     extends Modelica.Icons.Example;
-    inner Modelica.Blocks.Noise.GlobalSeed globalSeed(useAutomaticSeed=true)
-      annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
-    Modelica.Blocks.Noise.UniformNoise uniformNoiseAmplitude(
-      samplePeriod=1e-2,
-      y_min=1,
-      y_max=5) annotation (Placement(transformation(extent={{-80,10},{-60,30}})));
-    Modelica.Blocks.Noise.UniformNoise uniformNoiseFrequency(
-      samplePeriod=1e-2,
-      y_min=10,
-      y_max=100)
+    Sources.Sine amplitude(
+      amplitude=2,
+      f=63,
+      offset=3)
+      annotation (Placement(transformation(extent={{-80,10},{-60,30}})));
+    Sources.Cosine frequency(
+      amplitude=45,
+      f=77,
+      offset=55)
       annotation (Placement(transformation(extent={{-80,-30},{-60,-10}})));
     Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude sine(
         useConstantFrequency=false, phi(fixed=true))
@@ -1472,17 +1471,17 @@ Compare the sinc signal and an exponentially damped sine.
       annotation (Line(points={{1,0},{20,0},{20,20},{38,20}}, color={0,0,127}));
     connect(sine.y, signalExtrema2.u) annotation (Line(points={{1,0},{20,0},{20,-20},
             {38,-20}}, color={0,0,127}));
-    connect(uniformNoiseAmplitude.y, sine.amplitude) annotation (Line(points={{-59,
-            20},{-40,20},{-40,6},{-22,6}}, color={0,0,127}));
-    connect(uniformNoiseFrequency.y, sine.f) annotation (Line(points={{-59,-20},{-40,
-            -20},{-40,-6},{-22,-6}}, color={0,0,127}));
+    connect(amplitude.y, sine.amplitude) annotation (Line(points={{-59,20},{-40,
+            20},{-40,6},{-22,6}}, color={0,0,127}));
+    connect(frequency.y, sine.f) annotation (Line(points={{-59,-20},{-40,-20},{
+            -40,-6},{-22,-6}}, color={0,0,127}));
     annotation (experiment(
         StopTime=1.5,
         Interval=1e-05,
         Tolerance=1e-06), Documentation(info="<html>
 <p>
-This example uses a sinusoidal signal with amplitude and frequency randomly set every 10 ms. 
-Amplitude varies in the range of [1,5] and frequency varies in the range of [10, 100] Hz. 
+This example uses a sinusoidal signal with amplitude varying sinusoidally in the range of [1,5] with a frequency of 63 Hz, 
+and frequency varying according to a cosine function in the range of [10, 100] Hz with a frqeuncy of 77 Hz.
 </p>
 <p>
 Note that signalExtrema1 doesn't find the extrema exactly since sampling frequency 100 Hz is too small compared to maximum frequency of the input signal, 
