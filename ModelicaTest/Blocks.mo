@@ -2038,12 +2038,4 @@ the whole homotopy transformation.</p>
 </html>"));
   end LimPID;
 
-  model SignalExtrema "Test of determining the extrema (min and max) of a signal"
-    extends Modelica.Icons.Example;
-    Modelica.Blocks.Math.SignalExtrema signalExtrema(Ts(displayUnit="ms") = 0.001) annotation (Placement(transformation(extent={{12,-10},{32,10}})));
-    Modelica.Blocks.Sources.ExpSine expSine(f=10, damping=-1) annotation (Placement(transformation(extent={{-32,-10},{-12,10}})));
-  equation
-    connect(expSine.y, signalExtrema.u) annotation (Line(points={{-11,0},{10,0}}, color={0,0,127}));
-    annotation (experiment(StopTime=1));
-  end SignalExtrema;
 end Blocks;
