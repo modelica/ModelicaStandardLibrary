@@ -1,4 +1,4 @@
-﻿within Modelica;
+within Modelica;
 package Blocks "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
 
   extends Modelica.Icons.Package;
@@ -1480,11 +1480,11 @@ Compare the sinc signal and an exponentially damped sine.
         Interval=1e-05,
         Tolerance=1e-06), Documentation(info="<html>
 <p>
-This example uses a sinusoidal signal with amplitude varying sinusoidally in the range of [1,5] with a frequency of 63 Hz, 
+This example uses a sinusoidal signal with amplitude varying sinusoidally in the range of [1,5] with a frequency of 63 Hz,
 and frequency varying according to a cosine function in the range of [10, 100] Hz with a frqeuncy of 77 Hz.
 </p>
 <p>
-Note that signalExtrema1 doesn't find the extrema exactly since sampling frequency 100 Hz is too small compared to maximum frequency of the input signal, 
+Note that signalExtrema1 doesn't find the extrema exactly since sampling frequency 100 Hz is too small compared to maximum frequency of the input signal,
 whereas signalExtrema2 catches the extrema rather good due to the fact that sampling frequency 10 kHz is high enough.
 </p>
 </html>"));

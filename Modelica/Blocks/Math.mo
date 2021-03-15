@@ -2495,7 +2495,7 @@ Note: The output is updated after each period defined by 1/f.
             pattern=LinePattern.Dash)}), Documentation(info="<html>
 <p>
 This block calculates the min and the max of the input signal <code>u</code>
-and stores the time at which the last min or max was reached in the 
+and stores the time at which the last min or max was reached in the
 variables <code>t_min</code> and <code>t_max</code> respectively.
 </p>
 <h5>Note:</h5>
@@ -2521,7 +2521,7 @@ This means that:</p>
           <a href=\"https://github.com/tinrabuzin\">tinrabuzin</a></td>
       <td>Initial version</td>
     </tr>
-</table> 
+</table>
 </html>"));
   end SignalExtrema;
 
