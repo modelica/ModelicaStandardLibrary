@@ -2416,6 +2416,115 @@ Note: The output is updated after each period defined by 1/f.
             textString="f=%f")}));
   end RootMeanSquare;
 
+  block SignalExtrema "Calculate min and max of a signal"
+    extends Modelica.Blocks.Icons.Block;
+
+    parameter SI.Time Ts(start=0.01) "Sample time";
+    Modelica.Blocks.Interfaces.RealInput
+              u "Connector of Real input signal" annotation (Placement(
+          transformation(extent={{-140,-20},{-100,20}})));
+    Modelica.Blocks.Interfaces.RealOutput
+              y_min "Min of input signal" annotation (Placement(
+          transformation(extent={{100,-70},{120,-50}})));
+    Modelica.Blocks.Interfaces.RealOutput
+              y_max "Max of input signal" annotation (Placement(
+          transformation(extent={{100,50},{120,70}})));
+    discrete Real t_min "Sample time of last found minimum";
+    discrete Real t_max "Sample time of last found maximum";
+
+  protected
+    parameter SI.Time t0(fixed=false) "Start time of simulation";
+
+  initial equation
+    t0 = time;
+    y_min = u;
+    y_max = u;
+    t_min = time;
+    t_max = time;
+
+  equation
+    when sample(t0 + Ts, Ts) then
+      y_min = min(u, pre(y_min));
+      y_max = max(u, pre(y_max));
+      if y_min<pre(y_min) then
+        t_min = time;
+        t_max=pre(t_max);
+      elseif y_max>pre(y_max) then
+        t_max = time;
+        t_min=pre(t_min);
+      else
+        t_min=pre(t_min);
+        t_max=pre(t_max);
+      end if;
+    end when;
+    annotation (Icon(graphics={
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,0},{68,0}}, color={192,192,192}),
+          Polygon(
+            points={{90,0},{68,8},{68,-8},{90,0}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(
+            points={{-80,0},{-75.2,32.3},{-72,50.3},{-68.7,64.5},{-65.5,74.2},{-62.3,79.3},{-59.1,79.6},{-55.9,75.3},{-52.7,67.1},{-48.6,52.2},{-43,25.8},{-35,-13.9},{-30.2,-33.7},{-26.1,-45.9},{-22.1,-53.2},{-18,-56},{-14.1,-52.5},{-10.1,-45.3},{-5.23,-32.1},{8.44,13.7},{13.3,26.4},{18.1,34.8},{22.1,38},{26.9,37.2},{31.8,31.8},{38.2,19.4},{51.1,-10.5},{57.5,-21.2},{63.1,-25.9},{68.7,-25.9},{75.2,-20.5},{80,-13.8}},
+            smooth=Smooth.Bezier,
+            color={192,192,192}),
+          Text(extent={{-150,-110},{150,-150}},
+            textString="Ts=%Ts", lineColor={0,0,0}),
+          Line(
+            points={{-60,80},{52,80}},
+            color={0,0,0},
+            pattern=LinePattern.Dash),    Text(
+          extent={{-150,150},{150,110}},
+          textString="%name",
+          lineColor={0,0,255}),
+          Text(extent={{60,70},{92,50}},
+                                 lineColor={0,0,0},
+            textString="max"),
+          Text(extent={{60,-50},{92,-70}},
+                                 lineColor={0,0,0},
+            textString="min"),
+          Line(
+            points={{-18,-56},{50,-56}},
+            color={0,0,0},
+            pattern=LinePattern.Dash)}), Documentation(info="<html>
+<p>
+This block calculates the min and the max of the input signal <code>u</code>
+and stores the time at which the last min or max was reached in the
+variables <code>t_min</code> and <code>t_max</code> respectively.
+</p>
+<h5>Note:</h5>
+<p>The output is updated after each sample period defined by <code>Ts</code>.
+This means that:</p>
+<ul>
+<li>The extrema will be approximate as it only return the extremas at the sampling points.</li>
+<li>The sampling will generate many events which may slow down the simulation.</li>
+</ul>
+
+</html>",   revisions="<html>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+    <tr>
+      <th>Version</th>
+      <th>Date</th>
+      <th>Author</th>
+      <th>Comment</th>
+    </tr>
+    <tr>
+      <td>1.0.0</td>
+      <td>2021-02-25</td>
+      <td><a href=\"https://github.com/dietmarw\">dietmarw</a>,
+          <a href=\"https://github.com/tinrabuzin\">tinrabuzin</a></td>
+      <td>Initial version</td>
+    </tr>
+</table>
+</html>"));
+  end SignalExtrema;
+
   block Variance "Calculates the empirical variance of its input signal"
     extends Modelica.Blocks.Icons.Block;
     parameter SI.Time t_eps(min=100*Modelica.Constants.eps)=1e-7

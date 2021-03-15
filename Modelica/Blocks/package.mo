@@ -1447,6 +1447,49 @@ Compare the sinc signal and an exponentially damped sine.
 </html>"));
   end CompareSincExpSine;
 
+  model DemonstrateSignalExtrema "Test detection of signal extrema"
+    extends Modelica.Icons.Example;
+    Sources.Sine amplitude(
+      amplitude=2,
+      f=63,
+      offset=3)
+      annotation (Placement(transformation(extent={{-80,10},{-60,30}})));
+    Sources.Cosine frequency(
+      amplitude=45,
+      f=77,
+      offset=55)
+      annotation (Placement(transformation(extent={{-80,-30},{-60,-10}})));
+    Modelica.Blocks.Sources.SineVariableFrequencyAndAmplitude sine(
+        useConstantFrequency=false, phi(fixed=true))
+      annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+    Modelica.Blocks.Math.SignalExtrema signalExtrema1(Ts=1e-2)
+      annotation (Placement(transformation(extent={{40,10},{60,30}})));
+    Modelica.Blocks.Math.SignalExtrema signalExtrema2(Ts=1e-4)
+      annotation (Placement(transformation(extent={{40,-30},{60,-10}})));
+  equation
+    connect(sine.y, signalExtrema1.u)
+      annotation (Line(points={{1,0},{20,0},{20,20},{38,20}}, color={0,0,127}));
+    connect(sine.y, signalExtrema2.u) annotation (Line(points={{1,0},{20,0},{20,-20},
+            {38,-20}}, color={0,0,127}));
+    connect(amplitude.y, sine.amplitude) annotation (Line(points={{-59,20},{-40,
+            20},{-40,6},{-22,6}}, color={0,0,127}));
+    connect(frequency.y, sine.f) annotation (Line(points={{-59,-20},{-40,-20},{
+            -40,-6},{-22,-6}}, color={0,0,127}));
+    annotation (experiment(
+        StopTime=1.5,
+        Interval=1e-05,
+        Tolerance=1e-06), Documentation(info="<html>
+<p>
+This example uses a sinusoidal signal with amplitude varying sinusoidally in the range of [1,5] with a frequency of 63 Hz,
+and frequency varying according to a cosine function in the range of [10, 100] Hz with a frqeuncy of 77 Hz.
+</p>
+<p>
+Note that signalExtrema1 doesn't find the extrema exactly since sampling frequency 100 Hz is too small compared to maximum frequency of the input signal,
+whereas signalExtrema2 catches the extrema rather good due to the fact that sampling frequency 10 kHz is high enough.
+</p>
+</html>"));
+  end DemonstrateSignalExtrema;
+
   package Noise "Library of examples to demonstrate the usage of package Blocks.Noise"
     extends Modelica.Icons.ExamplesPackage;
 
