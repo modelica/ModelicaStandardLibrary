@@ -114,7 +114,7 @@ equation
       Interval=1e-05,
       Tolerance=1e-06), Documentation(info="<html>
 <p>
-Buck/boost chopper example template including both voltage sources; control not included yet
+Buck/boost chopper example template including both voltage sources; control not included.
 </p>
 </html>"));
 end ChopperBuckBoost;

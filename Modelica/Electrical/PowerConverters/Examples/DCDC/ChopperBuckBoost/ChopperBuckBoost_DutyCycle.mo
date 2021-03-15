@@ -27,5 +27,12 @@ Changing the <code>dutyCycle &gt; idleDutyCycle</code>, the low voltage battery 
 The capacitors are precharged to the battery voltages, but the inductor leads zero current. 
 The current sensor may be used to implement current control.
 </p>
+<h4>Control</h4>
+<p>
+For hints implementing control, see:
+Stefan Norbert Matlok, 
+<a href=\"https://nbn-resolving.org/urn:nbn:de:bvb:29-opus4-146221\"><em>Digitale Regelung bidirektionaler Gleichspannungswandler</em></a> 
+(German, <em>Digital control of bidirectional DC/DC converters</em>), PhD thesis University Erlangen-Nuremberg 2020.
+</p>
 </html>"));
 end ChopperBuckBoost_DutyCycle;
