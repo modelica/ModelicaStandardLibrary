@@ -3685,6 +3685,46 @@ value changes discontinuously.]</em></p>
 </html>"));
   end 'floor()';
 
+  class 'getInstanceName()' "getInstanceName()"
+    extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Returns a string with the name of the model/block that is simulated,
+appended with the fully qualified name of the instance in which this
+function is called.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>getInstanceName</strong>()</pre></blockquote>
+<h4>Description</h4>
+<p>
+If this function is not called inside a model or block (e.g., the
+function is called in a function or in a constant of a package), the
+return value is not specified.</p>
+
+<h4>Examples</h4>
+<blockquote><pre>
+<strong>package</strong> MyLib
+  <strong>model</strong> Vehicle
+    Engine engine;
+    ...
+  <strong>end</strong> Vehicle;
+  <strong>model</strong> Engine
+    Controller controller;
+    ...
+  <strong>end</strong> Engine;
+  <strong>model</strong> Controller
+  equation
+    Modelica.Utilities.Streams.print(\"Info from: \" + getInstanceName());
+  <strong>end</strong> Controller;
+<strong>end</strong> MyLib;
+</pre></blockquote>
+
+<p>If <code>MyLib.Vehicle</code> is simulated, the call of <code>getInstanceName()</code>
+returns <code>Vehicle.engine.controller</code>
+</p>
+</html>"));
+  end 'getInstanceName()';
+
   class 'hold()' "hold()"
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
