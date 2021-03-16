@@ -243,7 +243,8 @@ Specification (version &ge; 3.3).
       noneFromVersion="1.1",
       noneFromVersion="1.2",
       noneFromVersion="3.2.1",
-      noneFromVersion="3.2.2"),
+      noneFromVersion="3.2.2",
+      noneFromVersion="3.2.3"),
     Documentation(info="<html>
 <p>
 This package contains a set of functions and models to be used in the
