@@ -38,7 +38,7 @@ model ChopperBuckBost "Bidirectional chopper"
     useHeatPort=useHeatPort,
     Ron=RonTransistor,
     Goff=GoffTransistor,
-    Vknee=VkneeTransistor) "Switching transistor hugh side" annotation (
+    Vknee=VkneeTransistor) "Switching transistor high side" annotation (
       Placement(transformation(
         origin={50,60},
         extent={{-10,-10},{10,10}},
