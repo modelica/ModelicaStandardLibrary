@@ -111,10 +111,10 @@ package HeatExchanger "Demo of a heat exchanger model"
         annotation(Evaluate=true, Dialog(tab="General",group="Fluid 2"));
       replaceable package Medium_1 = Modelica.Media.Water.StandardWater constrainedby
         Modelica.Media.Interfaces.PartialMedium "Fluid 1"
-                                                        annotation(choicesAllMatching, Dialog(tab="General",group="Fluid 1"));
+                                                        annotation(choicesAllMatching=true, Dialog(tab="General",group="Fluid 1"));
       replaceable package Medium_2 = Modelica.Media.Water.StandardWater constrainedby
         Modelica.Media.Interfaces.PartialMedium "Fluid 2"
-                                                        annotation(choicesAllMatching,Dialog(tab="General", group="Fluid 2"));
+                                                        annotation(choicesAllMatching=true,Dialog(tab="General", group="Fluid 2"));
       parameter SI.Area crossArea_1 "Cross sectional area" annotation(Dialog(tab="General",group="Fluid 1"));
       parameter SI.Area crossArea_2 "Cross sectional area" annotation(Dialog(tab="General",group="Fluid 2"));
       parameter SI.Length perimeter_1 "Flow channel perimeter" annotation(Dialog(tab="General",group="Fluid 1"));
@@ -127,13 +127,13 @@ package HeatExchanger "Demo of a heat exchanger model"
           Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer
         constrainedby
         Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer
-        "Heat transfer model" annotation(choicesAllMatching, Dialog(tab="General", group="Fluid 1", enable=use_HeatTransfer));
+        "Heat transfer model" annotation(choicesAllMatching=true, Dialog(tab="General", group="Fluid 1", enable=use_HeatTransfer));
 
       replaceable model HeatTransfer_2 =
           Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer
         constrainedby
         Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer
-        "Heat transfer model" annotation(choicesAllMatching, Dialog(tab="General", group="Fluid 2", enable=use_HeatTransfer));
+        "Heat transfer model" annotation(choicesAllMatching=true, Dialog(tab="General", group="Fluid 2", enable=use_HeatTransfer));
 
       parameter SI.Area area_h_1 "Heat transfer area" annotation(Dialog(tab="General",group="Fluid 1"));
       parameter SI.Area area_h_2 "Heat transfer area" annotation(Dialog(tab="General",group="Fluid 2"));
@@ -228,12 +228,12 @@ package HeatExchanger "Demo of a heat exchanger model"
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow
         constrainedby
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel
-        "Characteristic of wall friction" annotation(choicesAllMatching, Dialog(tab="General", group="Fluid 1"));
+        "Characteristic of wall friction" annotation(choicesAllMatching=true, Dialog(tab="General", group="Fluid 1"));
       replaceable model FlowModel_2 =
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow
         constrainedby
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel
-        "Characteristic of wall friction" annotation(choicesAllMatching, Dialog(tab="General", group="Fluid 2"));
+        "Characteristic of wall friction" annotation(choicesAllMatching=true, Dialog(tab="General", group="Fluid 2"));
       parameter Modelica.Fluid.Types.Roughness roughness_1=2.5e-5
         "Absolute roughness of pipe (default = smooth steel pipe)" annotation(Dialog(tab="General", group="Fluid 1"));
       parameter Modelica.Fluid.Types.Roughness roughness_2=2.5e-5
