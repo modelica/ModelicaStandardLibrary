@@ -1,6 +1,7 @@
 within Modelica.Electrical.PowerConverters;
 package DCDC "DC to DC converters"
   extends Modelica.Icons.Package;
+
   annotation (Documentation(info="<html>
 <p>
 General information about DC/DC converters can be found at the
