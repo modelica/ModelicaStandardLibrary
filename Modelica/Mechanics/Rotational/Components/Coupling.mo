@@ -1,8 +1,8 @@
 within Modelica.Mechanics.Rotational.Components;
 model Coupling "Ideal rotational coupling"
   extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
-  Modelica.Units.SI.AngularVelocity w(displayUnit="rpm") = der(flange_a.phi) "Angular velocity of bith flanges";
-  Modelica.Units.SI.Torque tau = flange_a.tau "Torque driving b from a";
+  Modelica.Units.SI.AngularVelocity w(displayUnit="rpm") = der(flange_a.phi) "Angular velocity of flange_a";
+  Modelica.Units.SI.Torque tau = flange_a.tau "Torque of flange_a and flange_b";
 equation
   flange_a.phi + flange_b.phi = 0;
   flange_a.tau - flange_b.tau = 0;
