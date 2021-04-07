@@ -8,6 +8,7 @@ on:
 jobs:
   html_documentation_link_checks:
     timeout-minutes: 5
+    if: github.repository_owner == 'modelica'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
