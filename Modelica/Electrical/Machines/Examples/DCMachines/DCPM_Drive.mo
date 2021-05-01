@@ -135,7 +135,7 @@ Note that in stationary operation the <code>battery</code> only delivers the los
 Only during short time spans with transient operation power is delivered back to the <code>battery</code>, 
 which is the case after accelerating the whole drive when angular velocity settles. 
 An additional energy storage between the battery and the inverters (like a large capacitor or a super capacitor) would help to avoid such situations 
-as well as smoothing current spikes.
+and to smooth possible current spikes.
 </p>
 </html>"));
 end DCPM_Drive;

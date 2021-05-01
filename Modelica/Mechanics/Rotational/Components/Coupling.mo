@@ -68,8 +68,7 @@ The usage is demonstrated in an <a href=\"modelica://Modelica.Electrical.Machine
 </p>
 <p>
 Variable <code>w</code> shows angular velocity of the connected flanges, 
-whereas <code>tau</code> shows the torque transferred from flange_a to flange_b, 
-i.e. a positive torque means flange_a is driving flange_b. 
+whereas <code>tau</code> shows the torque transferred between flange_a and flange_b.
 </p>
 </html>"));
 end Coupling;
