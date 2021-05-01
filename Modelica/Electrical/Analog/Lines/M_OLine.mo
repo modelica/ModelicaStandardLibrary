@@ -26,6 +26,8 @@ public
     each final min=Modelica.Constants.small,
     each unit="F/m") = {2.38e-11,1.01e-10,8.56e-11,5.09e-12,2.71e-11,2.09e-11,
     7.16e-11,1.83e-11,1.23e-10,2.07e-11} "Capacitance per meter";
+  parameter Boolean useInternalGround=false "Default: false = internal ground / true = ground pin"
+    annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
   parameter SI.LinearTemperatureCoefficient alpha_R=0
     "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
   parameter SI.LinearTemperatureCoefficient alpha_G=0
@@ -51,6 +53,9 @@ public
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}}), iconTransformation(extent={{-110,-10},{-90,10}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
       annotation (Placement(transformation(extent={{90,-10},{110,10}}), iconTransformation(extent={{90,-10},{110,10}})));
+    Modelica.Electrical.Analog.Interfaces.NegativePin ground if not useInternalGround "Ground pin"
+      annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
+          iconTransformation(extent={{-10,-110},{10,-90}})));
 
     parameter Real Cl[dim_vector_lgc]=fill(1, dim_vector_lgc)
       "Capacitance matrix";
@@ -59,6 +64,8 @@ public
       "Inductance matrix";
     parameter Real Gl[dim_vector_lgc]=fill(1, dim_vector_lgc)
       "Conductance matrix";
+    parameter Boolean useInternalGround=true "Default: false = internal ground / true = ground pin"
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter SI.LinearTemperatureCoefficient alpha_R
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
     parameter SI.LinearTemperatureCoefficient alpha_G
@@ -71,11 +78,11 @@ public
     parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false"
       annotation (Dialog(enable=not useHeatPort));
-    parameter SI.Temperature T_ref;
+    parameter SI.Temperature T_ref(start=293.15);
 
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if
-      useHeatPort annotation (Placement(transformation(extent={{-10,-110},{10,
-              -90}}), iconTransformation(extent={{-110,-110},{-90,-90}})));
+      useHeatPort annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
+                      iconTransformation(extent={{-110,-110},{-90,-90}})));
 
     Modelica.Electrical.Analog.Basic.Capacitor C[dim_vector_lgc](C=Cl);
     Modelica.Electrical.Analog.Basic.Resistor R[lines](
@@ -91,7 +98,8 @@ public
       useHeatPort=fill(useHeatPort, dim_vector_lgc),
       T=fill(T, dim_vector_lgc));
     Modelica.Electrical.Analog.Basic.M_Transformer inductance(N=lines, L=Ll);
-    Modelica.Electrical.Analog.Basic.Ground M;
+    Modelica.Electrical.Analog.Basic.Ground M if useInternalGround
+      annotation (Placement(transformation(extent={{10,-100},{30,-80}})));
 
   equation
     for j in 1:lines - 1 loop
@@ -102,9 +110,11 @@ public
       connect(inductance.n[j], C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
         2))].p);
       connect(C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n, M.p);
+      connect(C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n, ground);
       connect(inductance.n[j], G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
         2))].p);
       connect(G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n, M.p);
+      connect(G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n, ground);
 
       for i in j + 1:lines loop
         connect(inductance.n[j], C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
@@ -123,8 +133,10 @@ public
     connect(inductance.n[lines], n[lines]);
     connect(inductance.n[lines], C[dim_vector_lgc].p);
     connect(C[dim_vector_lgc].n, M.p);
+    connect(C[dim_vector_lgc].n, ground);
     connect(inductance.n[lines], G[dim_vector_lgc].p);
     connect(G[dim_vector_lgc].n, M.p);
+    connect(G[dim_vector_lgc].n, ground);
 
     if useHeatPort then
 
@@ -173,18 +185,16 @@ public
     parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false"
       annotation (Dialog(enable=not useHeatPort));
-    parameter SI.Temperature T_ref;
+    parameter SI.Temperature T_ref(start=293.15);
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if
-      useHeatPort annotation (Placement(transformation(extent={{-10,-110},{10,
-              -90}}), iconTransformation(extent={{-110,-110},{-90,-90}})));
+      useHeatPort annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
+                      iconTransformation(extent={{-110,-110},{-90,-90}})));
     Modelica.Electrical.Analog.Basic.Resistor R[lines](
       R=Rl,
       T_ref=fill(T_ref, lines),
       useHeatPort=fill(useHeatPort, lines),
       T=fill(T, lines));
     Modelica.Electrical.Analog.Basic.M_Transformer inductance(N=lines, L=Ll);
-    Modelica.Electrical.Analog.Basic.Ground M;
-
   equation
     for j in 1:lines - 1 loop
 
@@ -221,6 +231,7 @@ public
     Ll=fill(l*length/N, N - 1),
     Cl=fill(c*length/N, N - 1),
     Gl=fill(g*length/N, N - 1),
+    each final useInternalGround=false,
     alpha_R=fill(alpha_R, N - 1),
     alpha_G=fill(alpha_G, N - 1),
     T_ref=fill(T_ref, N - 1),
@@ -233,6 +244,7 @@ public
     Cl=c*length/(N),
     Ll=l*length/(2*N),
     Gl=g*length/(N),
+    final useInternalGround=false,
     alpha_R=alpha_R,
     alpha_G=alpha_G,
     T_ref=T_ref,
@@ -251,6 +263,11 @@ public
   Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
     annotation (Placement(transformation(extent={{90,-60},{110,60}})));
 
+  Interfaces.NegativePin  ground if not useInternalGround "Ground pin"
+    annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
+        iconTransformation(extent={{-10,-110},{10,-90}})));
+  Basic.Ground  M if useInternalGround
+    annotation (Placement(transformation(extent={{10,-100},{30,-80}})));
 equation
   connect(p, s_first.p);
   connect(s_first.n, s[1].p);
@@ -259,6 +276,13 @@ equation
   end for;
   connect(s[N - 1].n, s_last.p);
   connect(s_last.n, n);
+  connect(s_first.ground, ground);
+  connect(s_first.ground, M.p);
+  for i in 1:N-1 loop
+    connect(s[i].ground, ground);
+    connect(s[i].ground, M.p);
+  end for;
+
   if useHeatPort then
     connect(heatPort, s_first.heatPort);
     for i in 1:N - 1 loop
