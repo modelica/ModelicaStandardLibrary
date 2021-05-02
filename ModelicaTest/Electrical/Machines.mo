@@ -477,7 +477,7 @@ By simply redeclaring the machine parameter record instantiated in the drive par
       annotation (
         Icon(graphics={Text(
               extent={{-100,-100},{100,-140}},
-              lineColor={28,108,200},
+              textColor={28,108,200},
               textString="%name")}), Documentation(info="<html>
 <p>
 Simple model of a DC PM machine, comprising armature resistance, armature inductance, emf (including torque generation), inertia and speed measurement.

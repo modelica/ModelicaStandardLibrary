@@ -2475,19 +2475,19 @@ Note: The output is updated after each period defined by 1/f.
             smooth=Smooth.Bezier,
             color={192,192,192}),
           Text(extent={{-150,-110},{150,-150}},
-            textString="Ts=%Ts", lineColor={0,0,0}),
+            textString="Ts=%Ts", textColor={0,0,0}),
           Line(
             points={{-60,80},{52,80}},
             color={0,0,0},
             pattern=LinePattern.Dash),    Text(
           extent={{-150,150},{150,110}},
           textString="%name",
-          lineColor={0,0,255}),
+          textColor={0,0,255}),
           Text(extent={{60,70},{92,50}},
-                                 lineColor={0,0,0},
+                                 textColor={0,0,0},
             textString="max"),
           Text(extent={{60,-50},{92,-70}},
-                                 lineColor={0,0,0},
+                                 textColor={0,0,0},
             textString="min"),
           Line(
             points={{-18,-56},{50,-56}},

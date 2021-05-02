@@ -84,11 +84,11 @@ equation
         Text(
           extent={{-150,150},{150,110}},
           textString="%name",
-          lineColor={0,0,255}),
+          textColor={0,0,255}),
         Text(
           extent={{-20,-60},{20,-100}},
           textString="M",
-          lineColor={85,170,255}),
+          textColor={85,170,255}),
         Line(points={{-40,60},{-40,100},{-90,100}}, color={85,170,255}),
         Line(points={{40,60},{40,100},{90,100}}, color={85,170,255}),
         Line(points={{-40,-60},{-40,-100},{-90,-100}}, color={85,170,255}),
@@ -144,11 +144,11 @@ equation
         Text(
           extent={{-100,20},{-58,-20}},
           textString="L1",
-          lineColor={85,170,255}),
+          textColor={85,170,255}),
         Text(
           extent={{60,20},{100,-20}},
           textString="L2",
-          lineColor={85,170,255})}),
+          textColor={85,170,255})}),
     Diagram(graphics={
         Polygon(
           points={{-120,53},{-110,50},{-120,47},{-120,53}},
