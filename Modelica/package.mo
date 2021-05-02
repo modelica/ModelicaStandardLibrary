@@ -3559,8 +3559,7 @@ and will interpret it in the same way. Short Overview:
      </li>
 
 <li> An open source implementation of the <strong>table blocks</strong> has been provided
-     by <a href=\"http://www.itisim.com\">ITI GmbH</a>. This work has been
-     <a href=\"https://www.modelica.org/news_items/call-texts-to-improve-modelica-2012/2012-12-20-Call-for-quotation-for-MSL-tables.pdf/at_download/file\">paid by Modelica Association</a>.
+     by <a href=\"http://www.itisim.com\">ITI GmbH</a>. This work has been paid by Modelica Association.
      As a result, all parts of package Modelica are now available
      in a free implementation. Additionally new features have been added to the table blocks
      by this implementation:
