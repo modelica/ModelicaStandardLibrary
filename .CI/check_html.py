@@ -14,7 +14,7 @@ import os.path
 import sys
 
 if __name__ == '__main__':
-    module_dir, _ = os.path.split(__file__)
+    module_dir = os.path.split(__file__)[0]
     if len(sys.argv) == 1:
         function = 'checkTags'
         path = os.path.realpath(module_dir)
