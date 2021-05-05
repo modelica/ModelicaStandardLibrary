@@ -152,8 +152,7 @@ equation
     experiment(
       StopTime=2.5,
       Interval=0.0001,
-      Tolerance=1e-06,
-      __Dymola_Algorithm="Dassl"),
+      Tolerance=1e-06),
     Documentation(info="<html>
 <p>
 This example demonstrates idealized field weakening of a quasistatic permanent magnet synchronous machine.
