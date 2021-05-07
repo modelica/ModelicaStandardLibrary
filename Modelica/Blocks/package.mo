@@ -1,4 +1,4 @@
-within Modelica;
+﻿within Modelica;
 package Blocks "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
 
   extends Modelica.Icons.Package;
@@ -1489,6 +1489,66 @@ whereas signalExtrema2 catches the extrema rather good due to the fact that samp
 </p>
 </html>"));
   end DemonstrateSignalExtrema;
+
+  model DemoSignalCharacteristic
+    "Demonstrate characteristic values of a signal"
+    extends Modelica.Icons.Example;
+    import Modelica.Constants.pi;
+    parameter Real app(final min=0)=1 "Peak-to-peak";
+    parameter Real dutyCycle(final min=0, final max=1)=0.5 "Duty cycle";
+    parameter Real offset=0 "Offset";
+    parameter Modelica.Units.SI.Frequency f=50 "Base frequency";
+    //Analytical prediction of results
+    parameter Real y_mean=offset + app*dutyCycle "Mean value";
+    parameter Real y_rect=abs(offset + app)*dutyCycle + abs(offset)*(1 - dutyCycle) "Rectified mean";
+    parameter Real y_rms=sqrt((offset + app)^2*dutyCycle + offset^2*(1 - dutyCycle)) "Root mean square";
+    parameter Real y_cos=((offset + app)*( sin(dutyCycle*2*pi) - sin(0)) + offset*( sin(2*pi) - sin(dutyCycle*2*pi)))/pi/sqrt(2) "1st harmonic - cos";
+    parameter Real y_sin=((offset + app)*(-cos(dutyCycle*2*pi) + cos(0)) + offset*(-cos(2*pi) + cos(dutyCycle*2*pi)))/pi/sqrt(2) "1st harmonic - sin";
+    Sources.Pulse pulse(
+      amplitude=app,
+      width=dutyCycle*100,
+      period=1/f,
+      offset=offset)
+      annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+    Math.Mean mean(f=f, y0=y_mean)
+      annotation (Placement(transformation(extent={{-10,50},{10,70}})));
+    Math.RectifiedMean rectifiedMean(f=f, y0=y_rect)
+      annotation (Placement(transformation(extent={{-10,10},{10,30}})));
+    Math.RootMeanSquare rootMeanSquare(f=f, y0=y_rms)
+      annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
+    Math.Harmonic harmonic(f=f, k=1,
+      y0Cos=y_cos,
+      y0Sin=y_sin)
+      annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
+  equation
+    connect(pulse.y, mean.u) annotation (Line(points={{-39,0},{-20,0},{-20,60},{-12,
+            60}}, color={0,0,127}));
+    connect(pulse.y, rectifiedMean.u) annotation (Line(points={{-39,0},{-20,0},{-20,
+            20},{-12,20}}, color={0,0,127}));
+    connect(pulse.y, rootMeanSquare.u) annotation (Line(points={{-39,0},{-20,0},{-20,
+            -20},{-12,-20}}, color={0,0,127}));
+    connect(pulse.y, harmonic.u) annotation (Line(points={{-39,0},{-20,0},{-20,-60},
+            {-12,-60}}, color={0,0,127}));
+    annotation (experiment(
+        StopTime=0.5,
+        Interval=0.0005,
+        Tolerance=1e-06), Documentation(info="<html>
+<p>This example demonstrate hiw to calculate characteristic values of a signal:</p>
+<ul>
+<li>Mean</li>
+<li>RectfiedMean</li>
+<li>RootMeanSquare<li>
+<li>1stHarmonic</li>
+</ul>
+<p>The output of these blocks is updated after each period of the signal.</p>
+<p>
+Using a simple pulse series, these values can be calculated analytically. 
+Propagating these values as intitial values for the output, 
+we can compare the numerical solution with the analytical solution: 
+The output is constant from the beginning.
+</p>
+</html>"));
+  end DemoSignalCharacteristic;
 
   package Noise "Library of examples to demonstrate the usage of package Blocks.Noise"
     extends Modelica.Icons.ExamplesPackage;
