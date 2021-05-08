@@ -1533,7 +1533,7 @@ whereas signalExtrema2 catches the extrema rather good due to the fact that samp
         StopTime=0.5,
         Interval=0.0005,
         Tolerance=1e-06), Documentation(info="<html>
-<p>This example demonstrate hiw to calculate characteristic values of a signal:</p>
+<p>This example demonstrate how to calculate characteristic values of a signal:</p>
 <ul>
 <li>Mean</li>
 <li>RectfiedMean</li>
