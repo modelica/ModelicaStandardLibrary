@@ -2794,7 +2794,7 @@ Note: The output is updated after each period defined by 1/f.
 <h4>Note:</h4>
 <ul>
 <li>The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t - arg)</code> if useConjugateComplex=false (default)</li>
-<li>The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if useConjugateComplex=true<(li>
+<li>The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if useConjugateComplex=true</li>
 </ul>
 </html>"), Icon(graphics={
           Text(
