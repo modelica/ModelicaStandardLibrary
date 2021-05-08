@@ -1,4 +1,4 @@
-﻿within Modelica;
+within Modelica;
 package Blocks "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
 
   extends Modelica.Icons.Package;
@@ -1537,7 +1537,7 @@ whereas signalExtrema2 catches the extrema rather good due to the fact that samp
 <ul>
 <li>Mean</li>
 <li>RectfiedMean</li>
-<li>RootMeanSquare<li>
+<li>RootMeanSquare</li>
 <li>1stHarmonic</li>
 </ul>
 <p>The output of these blocks is updated after each period of the signal.</p>
