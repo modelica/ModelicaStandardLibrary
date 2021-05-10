@@ -35,7 +35,7 @@ partial model PartialControlledDCPM
   DcdcInverter armatureInverter(
     fS=driveData.fS,
     Tdv=driveData.Tdv,
-    Tdi=driveData.Tdi,
+    Tdm=driveData.Tdm,
     VMax=driveData.VaMax)
     annotation (Placement(transformation(extent={{20,-10},{40,10}})));
   Battery source(

@@ -3,7 +3,7 @@ model DcdcInverter "DC-DC inverter"
   parameter Boolean useIdealInverter=true "Use ideal averaging inverter, otherwise switching inverter";
   parameter SI.Frequency fS "Switching frequency";
   parameter SI.Time Tdv=0.5/fS "Dead time of inverter voltage ";
-  parameter SI.Time Tdi=0.5/fS "Dead time of (current) measurement";
+  parameter SI.Time Tdm=0.5/fS "Dead time of measurements";
   parameter SI.Voltage VMax "Maximum Voltage";
   parameter SI.Time Ti=1e-6 "Time constant of integral power controller"
     annotation(Dialog(group="Averaging", enable=useIdealInverter));
@@ -66,17 +66,12 @@ model DcdcInverter "DC-DC inverter"
         origin={0,100})));
   Modelica.Electrical.Analog.Sensors.CurrentSensor iMotSensor
     annotation (Placement(transformation(extent={{-50,-70},{-30,-90}})));
-  Modelica.Blocks.Continuous.FirstOrder vBatFilter(
-    k=1,
-    T=Tdi,
-    initType=Modelica.Blocks.Types.Init.InitialOutput,
-    y_start=VMax)
+  Filter                                vBatFilter(
+    fS=fS,
+    Td=Tdm,
+    y0=VMax)
     annotation (Placement(transformation(extent={{-60,50},{-80,70}})));
-  Modelica.Blocks.Continuous.FirstOrder iMotFilter(
-    k=1,
-    T=Tdi,
-    initType=Modelica.Blocks.Types.Init.InitialOutput,
-    y_start=0)
+  Filter                                iMotFilter(fS=fS, Td=Tdm)
     annotation (Placement(transformation(extent={{-60,-70},{-80,-50}})));
   IdealDcDc idealDcDc(
     fS=fS,
@@ -99,17 +94,9 @@ model DcdcInverter "DC-DC inverter"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={0,-100})));
-  Modelica.Blocks.Continuous.FirstOrder vMotFilter(
-    k=1,
-    T=Tdi,
-    initType=Modelica.Blocks.Types.Init.InitialOutput,
-    y_start=0)
+  Filter                                vMotFilter(fS=fS, Td=Tdm)
     annotation (Placement(transformation(extent={{60,-70},{80,-50}})));
-  Modelica.Blocks.Continuous.FirstOrder iBatFilter(
-    k=1,
-    T=Tdi,
-    initType=Modelica.Blocks.Types.Init.InitialOutput,
-    y_start=VMax)
+  Filter                                iBatFilter(fS=fS, Td=Tdm)
     annotation (Placement(transformation(extent={{60,50},{80,70}})));
 equation
   connect(iMotSensor.p, pin_nMot) annotation (Line(points={{-50,-80},{

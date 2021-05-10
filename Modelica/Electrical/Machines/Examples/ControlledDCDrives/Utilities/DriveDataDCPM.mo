@@ -34,9 +34,9 @@ record DriveDataDCPM
     annotation(Dialog(tab="Inverter", group="Armature inverter"));
   parameter SI.Time Tdv=0.5/fS "Dead time of inverter voltage"
     annotation(Dialog(tab="Inverter", group="Armature inverter", enable=false));
-  parameter SI.Time Tdi=0.5/fS "Dead time of (current) measurement"
+  parameter SI.Time Tdm=0.5/fS "Dead time of measurements"
     annotation(Dialog(tab="Inverter", group="Armature inverter", enable=false));
-  parameter SI.Time Tsigma=Tdv + Tdi "Sum of small time constants"
+  parameter SI.Time Tsigma=Tdv + Tdm "Sum of small time constants"
     annotation(Dialog(tab="Inverter", group="Armature inverter", enable=false));
 //Load
   parameter SI.Inertia JL=motorData.Jr "Load inertia"
