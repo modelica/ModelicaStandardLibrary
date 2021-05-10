@@ -23,7 +23,7 @@ Therefore sampling at the middle of the switching interval hits the average of t
 There are two choices for the DC-DC inverter that can be compared:
 </p>
 <ul>
-<li>Switching inverter: Reference voltage and actual current are sampled once during the switching interval, thus defining the delays (see Fig. 1).</lI>
+<li>Switching inverter: Reference voltage and actual current are sampled once during the switching interval, thus defining the delays (see Fig. 1).</li>
 <li>Averaging inverter: The delays are approximated using first order - blocks.</li>
 </ul>
 <p>
