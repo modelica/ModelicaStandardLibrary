@@ -43,7 +43,7 @@ equation
           {-130,-20},{-122,-20}},           color={0,0,127}));
   connect(speedController.u, preFilter.y) annotation (Line(points={{-82,0},{-90,
           0},{-90,20},{-99,20}},           color={0,0,127}));
-  annotation (experiment(StopTime=1, Interval=0.0001), Documentation(info="<html>
+  annotation (experiment(StopTime=1, Interval=0.5e-04,Tolerance=1e-06), Documentation(info="<html>
 <p>This model demonstrates how a speed controller for a current controlled DC PM drive works.</p>
 <p>
 The inner current controller is parameterized according to the absolute optimum.

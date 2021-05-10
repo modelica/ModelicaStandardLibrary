@@ -15,16 +15,19 @@ record DriveDataDCPM
   parameter SI.Time Ta=motorData.La/Ra "Armature time constant"
     annotation(Dialog(group="Motor", enable=false));
   parameter SI.Power PNominal=motorData.ViNominal*motorData.IaNominal
-    -motorData.frictionParameters.PRef -motorData.coreParameters.PRef -motorData.strayLoadParameters.PRef
+    - motorData.coreParameters.PRef - motorData.frictionParameters.PRef - motorData.strayLoadParameters.PRef
     "Nominal mechanical output"
     annotation(Dialog(group="Motor", enable=false));
-  parameter SI.Torque tauNominal=PNominal/motorData.wNominal
-    "Nominal torque"
+  parameter SI.Torque tauElNominal=(motorData.ViNominal*motorData.IaNominal - motorData.coreParameters.PRef)/motorData.wNominal
+    "Nominal electrical torque"
     annotation(Dialog(group="Motor", enable=false));
-  parameter SI.ElectricalTorqueConstant kPhi=tauNominal/motorData.IaNominal
+  parameter SI.Torque tauNominal=PNominal/motorData.wNominal
+    "Nominal shaft torque"
+    annotation(Dialog(group="Motor", enable=false));
+  parameter SI.ElectricalTorqueConstant kPhi=motorData.ViNominal/motorData.wNominal
     "Torque constant"
     annotation(Dialog(group="Motor", enable=false));
-  parameter SI.AngularVelocity w0=motorData.wNominal*motorData.VaNominal/motorData.ViNominal
+  parameter SI.AngularVelocity w0(displayUnit="rpm")=motorData.wNominal*motorData.VaNominal/motorData.ViNominal
     "No-load speed"
   annotation(Dialog(group="Motor", enable=false));
 //Inverter
@@ -46,15 +49,15 @@ record DriveDataDCPM
     annotation(Dialog(tab="Controller", group="Limits"));
   parameter SI.Current IaMax=1.5*motorData.IaNominal "Maximum current"
     annotation(Dialog(tab="Controller", group="Limits"));
-  parameter SI.Torque tauMax=kPhi*IaMax "Maximum torque"
+  parameter SI.Torque tauMax=kPhi*IaMax "Maximum el. torque"
     annotation(Dialog(tab="Controller", group="Limits", enable=false));
   parameter SI.AngularVelocity wMax=w0 "Maximum speed"
     annotation(Dialog(tab="Controller", group="Limits"));
-  parameter SI.AngularAcceleration aMax=tauMax/(JL +motorData.Jr)
+  parameter SI.AngularAcceleration aMax=tauMax/(JL + motorData.Jr)
     "Maximum acceleration"
     annotation(Dialog(tab="Controller", group="Limits", enable=false));
 //Current controller: absolute optimum
-  parameter Real kpI=motorData.La/(2*Tsigma) "Proportional gain" annotation (
+  parameter Real kpI=Ra*Ta/(2*Tsigma) "Proportional gain" annotation (
       Dialog(
       tab="Controller",
       group="Current controller",
@@ -64,18 +67,22 @@ record DriveDataDCPM
   parameter SI.Time Tsub=2*Tsigma "Substitute time constant"
     annotation(Dialog(tab="Controller", group="Current controller", enable=false));
 //Speed controller: symmetrical optimum
-  parameter Real kpw=(JL + motorData.Jr)/(2*Tsub) "Proportional gain"
+  parameter Real a=2 "Parameter of the symmetrical optimum"
+    annotation (Dialog(
+      tab="Controller",
+      group="Speed controller"));
+  parameter Real kpw=(JL + motorData.Jr)/(a*Tsub) "Proportional gain"
     annotation (Dialog(
       tab="Controller",
       group="Speed controller",
       enable=false));
-  parameter SI.Time Tiw=4*Tsub "Integral time constant"
+  parameter SI.Time Tiw=a^2*Tsub "Integral time constant"
     annotation(Dialog(tab="Controller", group="Speed controller", enable=false));
   parameter SI.Time Tfw=Tiw "Filter time constant"
     annotation(Dialog(tab="Controller", group="Speed controller", enable=false));
 //Position controller
   parameter Real kpP=1/(16*Tsub) "Proportional gain"
-    annotation(Dialog(tab="Controller", group="Position controller", enable=false));
+    annotation(Dialog(tab="Controller", group="Position controller"));
   annotation (
     defaultComponentName="dcpmDriveData",
     defaultComponentPrefixes="parameter",

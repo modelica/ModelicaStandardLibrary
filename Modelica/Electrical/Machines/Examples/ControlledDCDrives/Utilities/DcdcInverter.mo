@@ -49,7 +49,6 @@ model DcdcInverter "DC-DC inverter"
         extent={{10,-10},{-10,10}},
         rotation=180,
         origin={110,60})));
-
   Modelica.Blocks.Interfaces.RealOutput vMot annotation (Placement(
         transformation(
         extent={{10,-10},{-10,10}},
@@ -60,26 +59,43 @@ model DcdcInverter "DC-DC inverter"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-110,-60})));
-  Modelica.Electrical.Analog.Sensors.VoltageSensor vDCSensor annotation (
+  Modelica.Electrical.Analog.Sensors.VoltageSensor vDCSensor
+    annotation (
       Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=180,
         origin={0,100})));
+  Modelica.Electrical.Analog.Sensors.CurrentSensor iDCSensor
+    annotation (Placement(transformation(extent={{50,70},{30,90}})));
+  Modelica.Electrical.Analog.Sensors.VoltageSensor vMotSensor
+    annotation (
+      Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=180,
+        origin={0,-100})));
   Modelica.Electrical.Analog.Sensors.CurrentSensor iMotSensor
     annotation (Placement(transformation(extent={{-50,-70},{-30,-90}})));
-  Filter                                vBatFilter(
+  Filter vDCFilter(
     filterType=if useIdealInverter then FilterType.FirstOrder else FilterType.Mean,
+
     fS=fS,
     Td=Tdm,
-    y0=VMax)
-    annotation (Placement(transformation(extent={{-60,50},{-80,70}})));
-  Filter                                iMotFilter(
+    y0=VMax) annotation (Placement(transformation(extent={{-60,50},{-80,70}})));
+  Filter iDCFilter(
+    filterType=if useIdealInverter then FilterType.FirstOrder else FilterType.Mean,
+
+    fS=fS,
+    Td=Tdm) annotation (Placement(transformation(extent={{60,50},{80,70}})));
+  Filter vMotFilter(
+    filterType=if useIdealInverter then FilterType.FirstOrder else FilterType.Mean,
+    fS=fS, Td=Tdm)
+    annotation (Placement(transformation(extent={{60,-70},{80,-50}})));
+  Filter iMotFilter(
     filterType=if useIdealInverter then FilterType.FirstOrder else FilterType.Sampler,
-                                                   fS=fS, Td=Tdm)
+    fS=fS, Td=Tdm)
     annotation (Placement(transformation(extent={{-60,-70},{-80,-50}})));
   IdealDcDc idealDcDc(
-    fS=fS,
-    Tdv=Tdv,                 Ti=Ti) if useIdealInverter
+    fS=fS, Tdv=Tdv, Ti=Ti) if useIdealInverter
     annotation (Placement(transformation(extent={{10,-30},{30,-10}})));
   SwitchingDcDc switchingDcDc(
     fS=fS,
@@ -91,21 +107,6 @@ model DcdcInverter "DC-DC inverter"
     GoffD=GoffD,
     VkneeD=VkneeD) if not useIdealInverter
     annotation (Placement(transformation(extent={{-30,10},{-10,30}})));
-  Modelica.Electrical.Analog.Sensors.CurrentSensor iDCSensor
-    annotation (Placement(transformation(extent={{50,70},{30,90}})));
-  Modelica.Electrical.Analog.Sensors.VoltageSensor vMotSensor annotation (
-      Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=180,
-        origin={0,-100})));
-  Filter                                vMotFilter(
-    filterType=if useIdealInverter then FilterType.FirstOrder else FilterType.Mean,
-                                                   fS=fS, Td=Tdm)
-    annotation (Placement(transformation(extent={{60,-70},{80,-50}})));
-  Filter                                iBatFilter(
-    filterType=if useIdealInverter then FilterType.FirstOrder else FilterType.Mean,
-                                                   fS=fS, Td=Tdm)
-    annotation (Placement(transformation(extent={{60,50},{80,70}})));
 equation
   connect(iMotSensor.p, pin_nMot) annotation (Line(points={{-50,-80},{
           -60,-80},{-60,-100}},
@@ -114,7 +115,7 @@ equation
     annotation (Line(points={{-40,-69},{-40,-60},{-58,-60}}, color={0,0,127}));
   connect(iMotFilter.y, iMot)
     annotation (Line(points={{-81,-60},{-110,-60}}, color={0,0,127}));
-  connect(vBatFilter.y, vDC)
+  connect(vDCFilter.y, vDC)
     annotation (Line(points={{-81,60},{-110,60}}, color={0,0,127}));
   connect(iDCSensor.p, pin_pBat)
     annotation (Line(points={{50,80},{60,80},{60,100}}, color={0,0,255}));
@@ -122,9 +123,9 @@ equation
     annotation (Line(points={{-30,-80},{-30,10}},           color={0,0,255}));
   connect(vMotFilter.y, vMot)
     annotation (Line(points={{81,-60},{110,-60}}, color={0,0,127}));
-  connect(iDCSensor.i, iBatFilter.u)
+  connect(iDCSensor.i, iDCFilter.u)
     annotation (Line(points={{40,69},{40,60},{58,60}}, color={0,0,127}));
-  connect(iBatFilter.y, iDC)
+  connect(iDCFilter.y, iDC)
     annotation (Line(points={{81,60},{110,60}}, color={0,0,127}));
   connect(idealDcDc.pin_pBat, iDCSensor.n)
     annotation (Line(points={{30,-10},{30,80}}, color={0,0,255}));
@@ -152,7 +153,7 @@ equation
     annotation (Line(points={{60,-100},{10,-100}}, color={0,0,255}));
   connect(vMotFilter.u, vMotSensor.v)
     annotation (Line(points={{58,-60},{0,-60},{0,-89}}, color={0,0,127}));
-  connect(vBatFilter.u, vDCSensor.v)
+  connect(vDCFilter.u, vDCSensor.v)
     annotation (Line(points={{-58,60},{0,60},{0,89}}, color={0,0,127}));
   connect(vDC, switchingDcDc.vMax) annotation (Line(points={{-110,60},{-90,60},{
           -90,26},{-32,26}}, color={0,0,127}));

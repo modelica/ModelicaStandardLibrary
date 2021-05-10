@@ -20,7 +20,7 @@ equation
   connect(step.y, tau2i.u)
     annotation (Line(points={{-59,0},{-54,0},{-54,1.77636e-15},{-52,1.77636e-15}},
                                                  color={0,0,127}));
-  annotation (experiment(StopTime=2, Interval=0.0001), Documentation(info="<html>
+  annotation (experiment(StopTime=2, Interval=0.5e-04, Tolerance=1e-06), Documentation(info="<html>
 <p>This model demonstrates how a current controller for a DC PM drive works.</p>
 <p>
 The current controller is parameterized according to the absolute optimum.

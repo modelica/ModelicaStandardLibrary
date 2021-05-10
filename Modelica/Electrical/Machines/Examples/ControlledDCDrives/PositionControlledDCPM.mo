@@ -52,8 +52,7 @@ equation
   connect(speedController.y, tau2i.u)
     annotation (Line(points={{-59,0},{-52,0},{-52,1.55431e-15}},
                                                  color={0,0,127}));
-  annotation (experiment(StopTime=2.5, Interval=0.0001),
-                                                       Documentation(info="<html>
+  annotation (experiment(StopTime=2.5, Interval=0.5e-04, Tolerance=1e-06), Documentation(info="<html>
 <p>This model demonstrates how a position controller for a speed controlled DC PM drive works.</p>
 <p>
 The inner current controller is parameterized according to the absolute optimum.
