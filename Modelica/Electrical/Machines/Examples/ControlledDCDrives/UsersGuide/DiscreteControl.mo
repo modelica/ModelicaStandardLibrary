@@ -1,5 +1,5 @@
 within Modelica.Electrical.Machines.Examples.ControlledDCDrives.UsersGuide;
-class DiscreteControl "Concept of quasi-contonuous discrete control"
+class DiscreteControl "Concept of quasi-continuous discrete control"
   extends Modelica.Icons.Information;
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
@@ -29,7 +29,7 @@ There are two choices for the DC-DC inverter that can be compared:
 <p>
 Investigating the correct parameterization of the controller or the energy consumption, the averaging inverter is sufficient and shows much higher performance. 
 Investigating the current ripple, the averaging inverter has to be used in critical points of operation for rather short time spans. 
-Of course, some differences between the trajectories of the switching and the averaging inverter remain. 
+Of course, some differences between the trajectories of the switching and the averaging inverter remain, which are mainly caused by the non-constant battery voltage. 
 </p>
 </html>"));
 end DiscreteControl;
