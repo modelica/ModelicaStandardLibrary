@@ -6,4 +6,5 @@ DcdcInverter
 IdealDcDc
 SwitchingDcDc
 Filter
+FilterType
 Mean

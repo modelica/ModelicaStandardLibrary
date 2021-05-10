@@ -1,5 +1,6 @@
 within Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities;
 model DcdcInverter "DC-DC inverter"
+  import Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities.FilterType;
   parameter Boolean useIdealInverter=true "Use ideal averaging inverter, otherwise switching inverter";
   parameter SI.Frequency fS "Switching frequency";
   parameter SI.Time Tdv=0.5/fS "Dead time of inverter voltage ";
@@ -67,11 +68,14 @@ model DcdcInverter "DC-DC inverter"
   Modelica.Electrical.Analog.Sensors.CurrentSensor iMotSensor
     annotation (Placement(transformation(extent={{-50,-70},{-30,-90}})));
   Filter                                vBatFilter(
+    filterType=if useIdealInverter then FilterType.FirstOrder else FilterType.Mean,
     fS=fS,
     Td=Tdm,
     y0=VMax)
     annotation (Placement(transformation(extent={{-60,50},{-80,70}})));
-  Filter                                iMotFilter(fS=fS, Td=Tdm)
+  Filter                                iMotFilter(
+    filterType=if useIdealInverter then FilterType.FirstOrder else FilterType.Sampler,
+                                                   fS=fS, Td=Tdm)
     annotation (Placement(transformation(extent={{-60,-70},{-80,-50}})));
   IdealDcDc idealDcDc(
     fS=fS,
@@ -94,9 +98,13 @@ model DcdcInverter "DC-DC inverter"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={0,-100})));
-  Filter                                vMotFilter(fS=fS, Td=Tdm)
+  Filter                                vMotFilter(
+    filterType=if useIdealInverter then FilterType.FirstOrder else FilterType.Mean,
+                                                   fS=fS, Td=Tdm)
     annotation (Placement(transformation(extent={{60,-70},{80,-50}})));
-  Filter                                iBatFilter(fS=fS, Td=Tdm)
+  Filter                                iBatFilter(
+    filterType=if useIdealInverter then FilterType.FirstOrder else FilterType.Mean,
+                                                   fS=fS, Td=Tdm)
     annotation (Placement(transformation(extent={{60,50},{80,70}})));
 equation
   connect(iMotSensor.p, pin_nMot) annotation (Line(points={{-50,-80},{
