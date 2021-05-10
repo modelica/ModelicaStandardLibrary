@@ -32,11 +32,11 @@ record DriveDataDCPM
     annotation(Dialog(tab="Inverter", group="Armature inverter"));
   parameter SI.Voltage VBat=VaMax "DC no-load voltage"
     annotation(Dialog(tab="Inverter", group="Armature inverter"));
-  parameter SI.Time Td=0.5/fS "Dead time of inverter"
+  parameter SI.Time Tdv=0.5/fS "Dead time of inverter voltage"
     annotation(Dialog(tab="Inverter", group="Armature inverter", enable=false));
-  parameter SI.Time Tmf=4*Td "Measurement filter time constant"
+  parameter SI.Time Tdi=0.5/fS "Dead time of (current) measurement"
     annotation(Dialog(tab="Inverter", group="Armature inverter", enable=false));
-  parameter SI.Time Tsigma=Td + Tmf "Sum of small time constants"
+  parameter SI.Time Tsigma=Tdv + Tdi "Sum of small time constants"
     annotation(Dialog(tab="Inverter", group="Armature inverter", enable=false));
 //Load
   parameter SI.Inertia JL=motorData.Jr "Load inertia"
@@ -48,8 +48,7 @@ record DriveDataDCPM
     annotation(Dialog(tab="Controller", group="Limits"));
   parameter SI.Torque tauMax=kPhi*IaMax "Maximum torque"
     annotation(Dialog(tab="Controller", group="Limits", enable=false));
-  parameter SI.AngularVelocity wMax=motorData.wNominal*motorData.VaNominal/motorData.ViNominal
-    "Maximum speed"
+  parameter SI.AngularVelocity wMax=w0 "Maximum speed"
     annotation(Dialog(tab="Controller", group="Limits"));
   parameter SI.AngularAcceleration aMax=tauMax/(JL +motorData.Jr)
     "Maximum acceleration"

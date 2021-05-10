@@ -17,7 +17,9 @@ model SwitchingDcDc "Switching DC-DC inverter"
     adaptor(useConstantVoltageLimit=false, VLim=VMax)
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
   Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM pwm(
-      useConstantDutyCycle=false, f=fS) annotation (Placement(
+      useConstantDutyCycle=false, f=fS,
+    refType=Modelica.Electrical.PowerConverters.Types.SingleReferenceType.Triangle)
+                                        annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
