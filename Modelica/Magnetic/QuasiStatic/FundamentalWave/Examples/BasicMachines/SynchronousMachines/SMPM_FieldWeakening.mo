@@ -49,7 +49,7 @@ model SMPM_FieldWeakening
       Placement(transformation(extent={{-10,-10},{10,10}}, origin={20,-30})));
   Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.TerminalBox terminalBox(
       terminalConnection="Y", m=m)
-    annotation (Placement(transformation(extent={{30,-20},{50,0}})));
+    annotation (Placement(transformation(extent={{30,-24},{50,-4}})));
   Magnetic.QuasiStatic.FundamentalWave.Utilities.CurrentController dqToThreePhase(m=m, p=
         smpm.p)
     annotation (Placement(transformation(extent={{-10,30},{10,50}})));
@@ -106,14 +106,14 @@ equation
   connect(starS.pin_n, groundeQS.pin)
     annotation (Line(points={{80,30},{80,20}}, color={85,170,255}));
   connect(terminalBox.plug_sn, smpm.plug_sn)
-    annotation (Line(points={{34,-16},{34,-20}}, color={85,170,255}));
+    annotation (Line(points={{34,-20},{34,-20}}, color={85,170,255}));
   connect(terminalBox.plug_sp, smpm.plug_sp)
-    annotation (Line(points={{46,-16},{46,-20}},
+    annotation (Line(points={{46,-20},{46,-20}},
                                                color={85,170,255}));
   connect(terminalBox.plug_sn, voltageQuasiRMSSensorQS.plug_n) annotation (Line(
-        points={{34,-16},{34,-10},{30,-10}},  color={85,170,255}));
+        points={{34,-20},{34,-10},{30,-10}},  color={85,170,255}));
   connect(voltageQuasiRMSSensorQS.plug_p, terminalBox.plug_sp)
-    annotation (Line(points={{30,10},{46,10},{46,-16}},color={85,170,255}));
+    annotation (Line(points={{30,10},{46,10},{46,-20}},color={85,170,255}));
   connect(dqToThreePhase.I, referenceCurrentSource.I) annotation (Line(points={{11,44},
           {20,44},{20,46},{28,46}},            color={85,170,255}));
   connect(dqToThreePhase.gamma, referenceCurrentSource.gamma) annotation (Line(
@@ -135,7 +135,7 @@ equation
   connect(gainCurrent.y, fieldWeakeningController.iqRef)
     annotation (Line(points={{-49,40},{-42,40}}, color={0,0,127}));
   connect(terminalBox.plugSupply, referenceCurrentSource.plug_n)
-    annotation (Line(points={{40,-14},{40,30}}, color={85,170,255}));
+    annotation (Line(points={{40,-18},{40,30}}, color={85,170,255}));
   connect(voltageQuasiRMSSensorQS.V, fieldWeakeningController.vs) annotation (
       Line(points={{19,8.88178e-16},{-30,8.88178e-16},{-30,28}}, color={0,0,127}));
   connect(gainSpeed.y, speedSource.w_ref) annotation (Line(points={{-49,-80},{100,
@@ -145,15 +145,13 @@ equation
   connect(speed.y, gainSpeed.u)
     annotation (Line(points={{-79,-80},{-72,-80}}, color={0,0,127}));
   connect(terminalBox.starpoint, groundM.pin)
-    annotation (Line(points={{30,-14},{20,-14},{20,-20}}, color={85,170,255}));
+    annotation (Line(points={{30,-18},{20,-18},{20,-20}}, color={85,170,255}));
   connect(referenceCurrentSource.plug_n, resistorS.plug_n)
     annotation (Line(points={{40,30},{60,30}}, color={85,170,255}));
-  annotation (
-    experiment(
+  annotation (experiment(
       StopTime=2.5,
       Interval=0.0001,
-      Tolerance=1e-06),
-    Documentation(info="<html>
+      Tolerance=1e-06), Documentation(info="<html>
 <p>
 This example demonstrates idealized field weakening of a quasistatic permanent magnet synchronous machine.
 </p>
