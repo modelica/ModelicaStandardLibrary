@@ -1494,17 +1494,19 @@ whereas signalExtrema2 catches the extrema rather good due to the fact that samp
     "Demonstrate characteristic values of a signal"
     extends Modelica.Icons.Example;
     import Modelica.Constants.pi;
-    parameter Real app(final min=0)=1 "Peak-to-peak";
-    parameter Real dutyCycle(final min=0, final max=1)=0.5 "Duty cycle";
-    parameter Real offset=0 "Offset";
-    parameter Modelica.Units.SI.Frequency f=50 "Base frequency";
-    //Analytical prediction of results
+    parameter Real app(final min=0)=1 "Peak-to-peak value of pulse signal";
+    parameter Real dutyCycle(final min=0, final max=1)=0.5 "Duty cycle of pulse signal";
+    parameter Real offset=0 "Offset of pulse signal";
+    parameter Modelica.Units.SI.Frequency f=50 "Base frequency of pulse signal";
     Real y = pulse.y "Investigated pulse signal";
+    //Analytical prediction of results
     parameter Real y_mean=offset + app*dutyCycle "Mean value";
     parameter Real y_rect=abs(offset + app)*dutyCycle + abs(offset)*(1 - dutyCycle) "Rectified mean";
     parameter Real y_rms=sqrt((offset + app)^2*dutyCycle + offset^2*(1 - dutyCycle)) "Root mean square";
-    parameter Real y_cos=((offset + app)*( sin(dutyCycle*2*pi) - sin(0)) + offset*( sin(2*pi) - sin(dutyCycle*2*pi)))/pi/sqrt(2) "1st harmonic - cos";
-    parameter Real y_sin=((offset + app)*(-cos(dutyCycle*2*pi) + cos(0)) + offset*(-cos(2*pi) + cos(dutyCycle*2*pi)))/pi/sqrt(2) "1st harmonic - sin";
+    parameter Real y1_cos=((offset + app)*( sin(dutyCycle*2*pi) - sin(0)) + offset*( sin(2*pi) - sin(dutyCycle*2*pi)))/pi/sqrt(2) "First harmonic cosine rms component";
+    parameter Real y1_sin=((offset + app)*(-cos(dutyCycle*2*pi) + cos(0)) + offset*(-cos(2*pi) + cos(dutyCycle*2*pi)))/pi/sqrt(2) "First harmonic sine rms component";
+    parameter Real y1_rms=sqrt(y1_cos^2+y1_sin^2) "RMS value of first harmonic";
+    parameter Real y1_arg=atan2(y1_sin,y1_cos) "Argument of first harmonic";
     Sources.Pulse pulse(
       amplitude=app,
       width=dutyCycle*100,
@@ -1518,8 +1520,8 @@ whereas signalExtrema2 catches the extrema rather good due to the fact that samp
     Math.RootMeanSquare rootMeanSquare(f=f, y0=y_rms)
       annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
     Math.Harmonic harmonic(f=f, k=1,
-      y0Cos=y_cos,
-      y0Sin=y_sin)
+      y0Cos=y1_cos,
+      y0Sin=y1_sin)
       annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
   equation
     connect(pulse.y, mean.u) annotation (Line(points={{-39,0},{-20,0},{-20,60},{-12,
@@ -1534,13 +1536,35 @@ whereas signalExtrema2 catches the extrema rather good due to the fact that samp
         StopTime=0.5,
         Interval=0.0005,
         Tolerance=1e-06), Documentation(info="<html>
-<p>This example demonstrate how to calculate characteristic values of a signal:</p>
-<ul>
-<li>Mean</li>
-<li>RectfiedMean</li>
-<li>RootMeanSquare</li>
-<li>1stHarmonic</li>
-</ul>
+<p>This example demonstrates how to calculate characteristic values of the pulse signal <code>y</code></p>
+
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
+<td><p>Characteristic quantity</code></td>
+<td><p>Numerically calculated</code></td>
+<td><p>Analytically calculated</code></td>
+</tr>
+<tr>
+<td><p>Mean</code></td>
+<td><code>mean.y</span></code></td>
+<td><code>y_mean</span></code></td>
+</tr>
+<tr>
+<td><p>Rectfied mean</code></td>
+<td><code>rectifiedMean.y</span></code></td>
+<td><code>y_rect</span></code></td>
+</tr>
+<tr>
+<td><p>Root mean square</code></td>
+<td><code>rootMeanSquare.y</span></code></td>
+<td><code>y_rms</span></code></td>
+</tr>
+<tr>
+<td><p>First harmonic</code></td>
+<td><code>harmonic.y_rms</code><br><code>harmonic.y_arg</code></td>
+<td><code>y1_abs</code><br><code>y1_arg</code></td>
+</tr>
+</table>
+
 <p>The output of these blocks is updated after each period of the signal.</p>
 <p>
 Using a simple pulse series, these values can be calculated analytically. 
