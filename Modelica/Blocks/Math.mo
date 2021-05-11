@@ -2820,8 +2820,10 @@ Note: The output is updated after each period defined by 1/f.
       final f=f,
       final k=1,
       final x0Cos=0,
-      final x0Sin=0) annotation (Placement(transformation(extent={{-70,-62},{-50,-42}})));
-    RootMeanSquare rootMeanSquare(final f=f, final x0=0) annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
+      final x0Sin=0,
+      final y0Cos=0,
+      final y0Sin=0) annotation (Placement(transformation(extent={{-70,-62},{-50,-42}})));
+    RootMeanSquare rootMeanSquare(final f=f, final x0=0, final y0=0) annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
     Logical.GreaterThreshold greaterThreshold annotation (Placement(transformation(extent={{10,-70},{30,-50}})));
     Interfaces.BooleanOutput valid "True, if output y is valid" annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
     Division division annotation (Placement(transformation(extent={{60,-10},{80,10}})));
