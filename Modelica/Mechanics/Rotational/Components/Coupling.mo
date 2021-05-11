@@ -60,7 +60,7 @@ equation
       Documentation(info="<html>
 <p>
 This is a model of an ideal stiff coupling (face to face), 
-i.e. the angular velocity if flange_b is exactly in opposite direction of flange_a, 
+i.e., the angular velocity if <code>flange_b</code> is exactly in opposite direction of <code>flange_a</code>, 
 and the torque of both flanges is identical.
 </p>
 <p>
@@ -68,7 +68,7 @@ The usage is demonstrated in an <a href=\"modelica://Modelica.Electrical.Machine
 </p>
 <p>
 Variable <code>w</code> shows angular velocity of the connected flanges, 
-whereas <code>tau</code> shows the torque transferred between flange_a and flange_b.
+whereas <code>tau</code> shows the torque transferred between <code>flange_a</code> and <code>flange_b</code>.
 </p>
 </html>"));
 end Coupling;
