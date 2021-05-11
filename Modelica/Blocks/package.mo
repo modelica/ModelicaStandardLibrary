@@ -1499,6 +1499,7 @@ whereas signalExtrema2 catches the extrema rather good due to the fact that samp
     parameter Real offset=0 "Offset";
     parameter Modelica.Units.SI.Frequency f=50 "Base frequency";
     //Analytical prediction of results
+    Real y = pulse.y "Investigated pulse signal";
     parameter Real y_mean=offset + app*dutyCycle "Mean value";
     parameter Real y_rect=abs(offset + app)*dutyCycle + abs(offset)*(1 - dutyCycle) "Rectified mean";
     parameter Real y_rms=sqrt((offset + app)^2*dutyCycle + offset^2*(1 - dutyCycle)) "Root mean square";
