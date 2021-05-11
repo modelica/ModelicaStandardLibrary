@@ -1139,9 +1139,7 @@ they were not deleted yet.")}));
       annotation (Line(points={{-119,-220},{-112,-220}}, color={0,0,127}));
     connect(step.y, torque2.tau)
       annotation (Line(points={{39,-220},{32,-220}}, color={0,0,127}));
-    annotation (experiment(StopTime=0.9), Diagram(coordinateSystem(
-            preserveAspectRatio=true, extent={{-180,-240},{180,160}})),
-      Icon(coordinateSystem(extent={{-100,-100},{100,100}})));
+    annotation (experiment(StopTime=0.9), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-180,-240},{180,160}})));
   end AllComponents;
 
   model TestBearingConversion
