@@ -171,7 +171,5 @@ Current is kept &le; maximum current. Simulate and plot:
 <h5>Note</h5>
 <p>The resistors connected to the terminals of the windings of the quasi-static machine model are necessary
 to numerically stabilize the simulation.</p>
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}})));
+</html>"));
 end SMPM_FieldWeakening;
