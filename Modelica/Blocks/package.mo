@@ -1561,7 +1561,7 @@ whereas signalExtrema2 catches the extrema rather good due to the fact that samp
 <tr>
 <td><p>First harmonic</code></td>
 <td><code>harmonic.y_rms</code><br><code>harmonic.y_arg</code></td>
-<td><code>y1_abs</code><br><code>y1_arg</code></td>
+<td><code>y1_rms</code><br><code>y1_arg</code></td>
 </tr>
 </table>
 
