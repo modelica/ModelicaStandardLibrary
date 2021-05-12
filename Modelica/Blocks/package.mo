@@ -1,4 +1,4 @@
-﻿within Modelica;
+within Modelica;
 package Blocks "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
 
   extends Modelica.Icons.Package;
@@ -1545,22 +1545,22 @@ whereas signalExtrema2 catches the extrema rather good due to the fact that samp
 <td>Analytically calculated</td>
 </tr>
 <tr>
-<td><code>Mean</code></td>
+<td>Mean</td>
 <td><code>mean.y</code></td>
 <td><code>y_mean</code></td>
 </tr>
 <tr>
-<td><code>Rectfied mean</code></td>
+<td>Rectfied mean</td>
 <td><code>rectifiedMean.y</code></td>
 <td><code>y_rect</code></td>
 </tr>
 <tr>
-<td><code>Root mean square</code></td>
+<td>Root mean square</td>
 <td><code>rootMeanSquare.y</code></td>
 <td><code>y_rms</code></td>
 </tr>
 <tr>
-<td><code>First harmonic</code></td>
+<td>First harmonic</td>
 <td><code>harmonic.y_rms</code><br><code>harmonic.y_arg</code></td>
 <td><code>y1_rms</code><br><code>y1_arg</code></td>
 </tr>
@@ -3148,7 +3148,7 @@ This library contains input/output blocks to build up block diagrams.
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
     Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)<br>
     Institut f&uuml;r Systemdynamik und Regelungstechnik (SR)<br>
-    M&uuml;nchener Straße 20<br>
+    M&uuml;nchener Stra&szlig;e 20<br>
     D-82234 We&szlig;ling<br>
     Germany<br>
     email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a><br></dd>
