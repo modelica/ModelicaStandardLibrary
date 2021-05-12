@@ -1490,6 +1490,92 @@ whereas signalExtrema2 catches the extrema rather good due to the fact that samp
 </html>"));
   end DemonstrateSignalExtrema;
 
+  model DemoSignalCharacteristic
+    "Demonstrate characteristic values of a signal"
+    extends Modelica.Icons.Example;
+    import Modelica.Constants.pi;
+    parameter Real app(final min=0)=1 "Peak-to-peak value of pulse signal";
+    parameter Real dutyCycle(final min=0, final max=1)=0.5 "Duty cycle of pulse signal";
+    parameter Real offset=0 "Offset of pulse signal";
+    parameter Modelica.Units.SI.Frequency f=50 "Base frequency of pulse signal";
+    Real y = pulse.y "Investigated pulse signal";
+    //Analytical prediction of results
+    parameter Real y_mean=offset + app*dutyCycle "Mean value";
+    parameter Real y_rect=abs(offset + app)*dutyCycle + abs(offset)*(1 - dutyCycle) "Rectified mean";
+    parameter Real y_rms=sqrt((offset + app)^2*dutyCycle + offset^2*(1 - dutyCycle)) "Root mean square";
+    parameter Real y1_cos=((offset + app)*( sin(dutyCycle*2*pi) - sin(0)) + offset*( sin(2*pi) - sin(dutyCycle*2*pi)))/pi/sqrt(2) "First harmonic cosine rms component";
+    parameter Real y1_sin=((offset + app)*(-cos(dutyCycle*2*pi) + cos(0)) + offset*(-cos(2*pi) + cos(dutyCycle*2*pi)))/pi/sqrt(2) "First harmonic sine rms component";
+    parameter Real y1_rms=sqrt(y1_cos^2+y1_sin^2) "RMS value of first harmonic";
+    parameter Real y1_arg=atan2(y1_sin,y1_cos) "Argument of first harmonic";
+    Sources.Pulse pulse(
+      amplitude=app,
+      width=dutyCycle*100,
+      period=1/f,
+      offset=offset)
+      annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+    Math.Mean mean(f=f, y0=y_mean)
+      annotation (Placement(transformation(extent={{-10,50},{10,70}})));
+    Math.RectifiedMean rectifiedMean(f=f, y0=y_rect)
+      annotation (Placement(transformation(extent={{-10,10},{10,30}})));
+    Math.RootMeanSquare rootMeanSquare(f=f, y0=y_rms)
+      annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
+    Math.Harmonic harmonic(f=f, k=1,
+      y0Cos=y1_cos,
+      y0Sin=y1_sin)
+      annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
+  equation
+    connect(pulse.y, mean.u) annotation (Line(points={{-39,0},{-20,0},{-20,60},{-12,
+            60}}, color={0,0,127}));
+    connect(pulse.y, rectifiedMean.u) annotation (Line(points={{-39,0},{-20,0},{-20,
+            20},{-12,20}}, color={0,0,127}));
+    connect(pulse.y, rootMeanSquare.u) annotation (Line(points={{-39,0},{-20,0},{-20,
+            -20},{-12,-20}}, color={0,0,127}));
+    connect(pulse.y, harmonic.u) annotation (Line(points={{-39,0},{-20,0},{-20,-60},
+            {-12,-60}}, color={0,0,127}));
+    annotation (experiment(
+        StopTime=0.5,
+        Interval=0.0005,
+        Tolerance=1e-06), Documentation(info="<html>
+<p>This example demonstrates how to calculate characteristic values of the pulse signal <code>y</code></p>
+
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\">
+<tr>
+<td>Characteristic quantity</td>
+<td>Numerically calculated</td>
+<td>Analytically calculated</td>
+</tr>
+<tr>
+<td>Mean</td>
+<td><code>mean.y</code></td>
+<td><code>y_mean</code></td>
+</tr>
+<tr>
+<td>Rectfied mean</td>
+<td><code>rectifiedMean.y</code></td>
+<td><code>y_rect</code></td>
+</tr>
+<tr>
+<td>Root mean square</td>
+<td><code>rootMeanSquare.y</code></td>
+<td><code>y_rms</code></td>
+</tr>
+<tr>
+<td>First harmonic</td>
+<td><code>harmonic.y_rms</code><br><code>harmonic.y_arg</code></td>
+<td><code>y1_rms</code><br><code>y1_arg</code></td>
+</tr>
+</table>
+
+<p>The output of these blocks is updated after each period of the signal.</p>
+<p>
+Using a simple pulse series, these values can be calculated analytically. 
+Propagating these values as intitial values for the output, 
+we can compare the numerical solution with the analytical solution: 
+The output is constant from the beginning.
+</p>
+</html>"));
+  end DemoSignalCharacteristic;
+
   package Noise "Library of examples to demonstrate the usage of package Blocks.Noise"
     extends Modelica.Icons.ExamplesPackage;
 
@@ -3062,7 +3148,7 @@ This library contains input/output blocks to build up block diagrams.
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
     Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)<br>
     Institut f&uuml;r Systemdynamik und Regelungstechnik (SR)<br>
-    M&uuml;nchener Straße 20<br>
+    M&uuml;nchener Stra&szlig;e 20<br>
     D-82234 We&szlig;ling<br>
     Germany<br>
     email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a><br></dd>
