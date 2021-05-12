@@ -1,4 +1,4 @@
-within Modelica;
+﻿within Modelica;
 package Blocks "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
 
   extends Modelica.Icons.Package;
@@ -1538,28 +1538,29 @@ whereas signalExtrema2 catches the extrema rather good due to the fact that samp
         Tolerance=1e-06), Documentation(info="<html>
 <p>This example demonstrates how to calculate characteristic values of the pulse signal <code>y</code></p>
 
-<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
-<td><p>Characteristic quantity</code></td>
-<td><p>Numerically calculated</code></td>
-<td><p>Analytically calculated</code></td>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\">
+<tr>
+<td>Characteristic quantity</td>
+<td>Numerically calculated</td>
+<td>Analytically calculated</td>
 </tr>
 <tr>
-<td><p>Mean</code></td>
+<td><code>Mean</code></td>
 <td><code>mean.y</code></td>
 <td><code>y_mean</code></td>
 </tr>
 <tr>
-<td><p>Rectfied mean</code></td>
+<td><code>Rectfied mean</code></td>
 <td><code>rectifiedMean.y</code></td>
 <td><code>y_rect</code></td>
 </tr>
 <tr>
-<td><p>Root mean square</code></td>
+<td><code>Root mean square</code></td>
 <td><code>rootMeanSquare.y</code></td>
 <td><code>y_rms</code></td>
 </tr>
 <tr>
-<td><p>First harmonic</code></td>
+<td><code>First harmonic</code></td>
 <td><code>harmonic.y_rms</code><br><code>harmonic.y_arg</code></td>
 <td><code>y1_rms</code><br><code>y1_arg</code></td>
 </tr>
