@@ -7,15 +7,15 @@ block FieldWeakeningController "Filed weakening for a QS SMPM"
   parameter Modelica.Units.SI.Time Ti=1e-6 "Integral time constant of field weakening controller";
   Blocks.Interfaces.RealInput iqRef
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-  Blocks.Interfaces.RealInput vs annotation (Placement(transformation(
+  Blocks.Interfaces.RealInput vs "Stator voltage magnitude" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=90,
         origin={0,-120})));
-  Blocks.Interfaces.RealOutput is
+  Blocks.Interfaces.RealOutput is "Stator current magnitude"
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-  Blocks.Interfaces.RealOutput id
+  Blocks.Interfaces.RealOutput id "Stator direct axis current"
     annotation (Placement(transformation(extent={{100,50},{120,70}})));
-  Blocks.Interfaces.RealOutput iq
+  Blocks.Interfaces.RealOutput iq "Stator quadrature axis current"
     annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
   Blocks.Sources.Constant vRef(k=VNominal)
     annotation (Placement(transformation(extent={{-80,50},{-60,70}})));
