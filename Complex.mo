@@ -106,10 +106,10 @@ operator record Complex "Complex number with overloaded operators"
                       c3.im + c1[i].re * c2[i].im - c1[i].im * c2[i].re);
       end for;
 
-    annotation(Inline=true, smoothOrder=100, Documentation(info = "<html><head></head><body><p>This function returns the scalar product of two given vectors of Complex numbers of length <code>n</code>.</p>
+    annotation(Inline=true, smoothOrder=100, Documentation(info = "<html><p>This function returns the scalar product of two given vectors of Complex numbers of length <code>n</code>.</p>
 <blockquote><pre>c3 = sum(conj(c1[k]) * c2[k] for k in 1:n)
 </pre></blockquote>
-    </body></html>",
+</html>",
         revisions = "<html><em>Important bug fix note:</em> The scalar product function was originally implemented without conjugating the argument <code>c1</code>. This issue is fixed based on <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1260\">#1260</a>.</html>"));
     end scalarProduct;
     annotation (
