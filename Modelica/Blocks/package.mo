@@ -1545,18 +1545,18 @@ whereas signalExtrema2 catches the extrema rather good due to the fact that samp
 </tr>
 <tr>
 <td><p>Mean</code></td>
-<td><code>mean.y</span></code></td>
-<td><code>y_mean</span></code></td>
+<td><code>mean.y</code></td>
+<td><code>y_mean</code></td>
 </tr>
 <tr>
 <td><p>Rectfied mean</code></td>
-<td><code>rectifiedMean.y</span></code></td>
-<td><code>y_rect</span></code></td>
+<td><code>rectifiedMean.y</code></td>
+<td><code>y_rect</code></td>
 </tr>
 <tr>
 <td><p>Root mean square</code></td>
-<td><code>rootMeanSquare.y</span></code></td>
-<td><code>y_rms</span></code></td>
+<td><code>rootMeanSquare.y</code></td>
+<td><code>y_rms</code></td>
 </tr>
 <tr>
 <td><p>First harmonic</code></td>
