@@ -77,15 +77,15 @@ model DcdcInverter "DC-DC inverter"
     annotation (Placement(transformation(extent={{-50,-70},{-30,-90}})));
   Filter vDCFilter(
     filterType=if useIdealInverter then FilterType.FirstOrder else FilterType.Mean,
-
     fS=fS,
     Td=Tdm,
     y0=VMax) annotation (Placement(transformation(extent={{-60,50},{-80,70}})));
+
   Filter iDCFilter(
     filterType=if useIdealInverter then FilterType.FirstOrder else FilterType.Mean,
-
     fS=fS,
     Td=Tdm) annotation (Placement(transformation(extent={{60,50},{80,70}})));
+
   Filter vMotFilter(
     filterType=if useIdealInverter then FilterType.FirstOrder else FilterType.Mean,
     fS=fS, Td=Tdm)

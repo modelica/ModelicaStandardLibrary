@@ -13,7 +13,8 @@ block Filter "Filter or sample current or voltage"
     initType=Modelica.Blocks.Types.Init.InitialOutput,
     y_start=y0) if filterType==FilterType.FirstOrder
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  Mean mean(f=fS, y0=y0) if filterType==FilterType.Mean
+  Blocks.Math.Mean
+       mean(f=fS, y0=y0) if filterType==FilterType.Mean
     annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
   Blocks.Discrete.ZeroOrderHold zeroOrderHold(
     samplePeriod=1/fS,
