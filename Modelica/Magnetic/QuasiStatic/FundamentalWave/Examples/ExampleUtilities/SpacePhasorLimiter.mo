@@ -11,15 +11,15 @@ If <code>u1</code> is greater than <code>yMax</code>, this cannot be satisfied e
 </p>
 </html>"), Icon(graphics={
         Text(
-          extent={{-100,80},{-60,40}},
-          textColor={28,108,200},
+          extent={{-90,80},{-50,40}},
+          textColor={0,0,0},
           textString="re"),
         Text(
-          extent={{-100,-40},{-60,-80}},
-          textColor={28,108,200},
+          extent={{-90,-40},{-50,-80}},
+          textColor={0,0,0},
           textString="im"),
         Text(
-          extent={{20,20},{100,-20}},
-          textColor={28,108,200},
+          extent={{10,20},{90,-20}},
+          textColor={0,0,0},
           textString="lim.im")}));
 end SpacePhasorLimiter;

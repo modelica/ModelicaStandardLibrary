@@ -57,22 +57,22 @@ Controls <code>id</code> to keep the voltage <code>vs</code> &le; <code>VNominal
 </html>"), Icon(graphics={
         Text(
           extent={{-90,20},{-50,-20}},
-          textColor={28,108,200},
+          textColor={0,0,0},
           textString="idRef"),
         Text(
           extent={{60,80},{100,40}},
-          textColor={28,108,200},
+          textColor={0,0,0},
           textString="id"),
         Text(
           extent={{60,-40},{100,-80}},
-          textColor={28,108,200},
+          textColor={0,0,0},
           textString="iq"),
         Text(
           extent={{60,20},{100,-20}},
-          textColor={28,108,200},
+          textColor={0,0,0},
           textString="is"),
         Text(
           extent={{-20,-60},{20,-100}},
-          textColor={28,108,200},
+          textColor={0,0,0},
           textString="vs")}));
 end FieldWeakeningController;
