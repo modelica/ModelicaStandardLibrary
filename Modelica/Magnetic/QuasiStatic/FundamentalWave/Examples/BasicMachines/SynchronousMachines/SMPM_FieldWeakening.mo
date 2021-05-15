@@ -5,8 +5,8 @@ model SMPM_FieldWeakening
   import Modelica.Constants.pi;
   constant Integer m=3 "Number of phases";
   parameter SI.Voltage VNominal=100 "Nominal RMS voltage per phase";
-  parameter SI.Current INominal=100 "Nominal RMS current per phase";
-  parameter SI.Current IMax=1.5*INominal "Maximum RMS current per phase";
+  parameter SI.Current IqNominal=100 "Nominal RMS q current per phase";
+  parameter SI.Current INominal=150 "Nominal RMS current per phase";
   parameter SI.AngularVelocity wNominal=2*pi*smpmData.fsNominal/smpmData.p "Nominal speed";
   parameter
     Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
@@ -20,7 +20,7 @@ model SMPM_FieldWeakening
     Rs=smpmData.Rs,
     TsRef=smpmData.TsRef,
     Lssigma=smpmData.Lssigma,
-    Jr=smpmData.Jr,
+    Jr=0,
     Js=smpmData.Js,
     frictionParameters=smpmData.frictionParameters,
     wMechanical(fixed=false),
@@ -84,9 +84,9 @@ model SMPM_FieldWeakening
   Mechanics.Rotational.Sources.Speed speedSource(exact=true, phi(fixed=false))
     annotation (Placement(transformation(extent={{90,-40},{70,-20}})));
   ExampleUtilities.FieldWeakeningController fieldWeakeningController(VNominal=
-        VNominal, IMax=IMax)
+        VNominal, IMax=INominal)
     annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
-  Blocks.Math.Gain gainCurrent(k=INominal)
+  Blocks.Math.Gain gainCurrent(k=IqNominal)
     annotation (Placement(transformation(extent={{-70,30},{-50,50}})));
   Blocks.Math.Gain gainSpeed(k=wNominal)
     annotation (Placement(transformation(extent={{-70,-90},{-50,-70}})));
@@ -157,8 +157,9 @@ This example demonstrates idealized field weakening of a quasistatic permanent m
 </p>
 
 <p>
-q-axis current is prescribed by a short ramp as a multiple of nominal current, d-axis current is controlled to keep voltage &le; nominal voltage, while speed is varied. 
-Current is kept &le; maximum current. Simulate and plot:
+At standstill, q-axis current is prescribed by a short ramp as nominal q-current.
+d-axis current is controlled to keep voltage &le; nominal voltage, while speed is varied up to four times nominal speed like in an automotive application. 
+Total stator current is kept &le; nominal total current. Simulate and plot versus <code>smpm.wMechanical</code>:
 </p>
 
 <ul>
@@ -168,8 +169,17 @@ Current is kept &le; maximum current. Simulate and plot:
 <li><code>fieldWeakeningController.iq</code>: q-acis current</li>
 </ul>
 
+<p>
+It can be seen that at the beginning of field weakening d-current is applied additionally to the q-current until stator current reaches <code>INominal</code> (voltage limit).
+With further increase of speed, q-current has to be reduced (current limit) to enable further increase of d-current to keep voltage limit.
+</p>
+
 <h5>Note</h5>
-<p>The resistors connected to the terminals of the windings of the quasi-static machine model are necessary
-to numerically stabilize the simulation.</p>
+<ul>
+<li>The resistors connected to the quasi-static source model are necessary to numerically stabilize the simulation.</li>
+<li>Inertia of the machine is set to zero to enable a proper comparison of electrical and mechanical power.</li>
+<li><code>IqNominal</code> denotes q-current for the desired nominal torque in base speed region.</li>
+<li><code>INominal</code> denotes total nominal current, which can be applied without exceeding maximum temperature.</li>
+</ul>
 </html>"));
 end SMPM_FieldWeakening;
