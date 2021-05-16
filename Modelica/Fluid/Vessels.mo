@@ -230,7 +230,7 @@ end OpenTank;
         "Wall heat transfer"
             annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
         HeatTransfer heatTransfer(
-          redeclare final package Medium = Medium,
+          redeclare package Medium = Medium,
           final n=1,
           final states = {medium.state},
           final use_k = use_HeatTransfer)
