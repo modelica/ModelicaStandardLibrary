@@ -67,8 +67,8 @@ and the torque of both flanges is identical.
 The usage is demonstrated in an <a href=\"modelica://Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Drive\">example in Modelica.Electrical.Machines</a>.
 </p>
 <p>
-Variable <code>w</code> shows angular velocity of the connected flanges, 
-whereas <code>tau</code> shows the torque transferred between <code>flange_a</code> and <code>flange_b</code>.
+Variable <code>w</code> represents the angular velocity of <code>flange_a</code>
+and <code>tau</code> represents the torque transferred between <code>flange_a</code> and <code>flange_b</code>.
 </p>
 </html>"));
 end Coupling;
