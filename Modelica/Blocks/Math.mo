@@ -2218,6 +2218,7 @@ y_im = u_abs * sin( u_arg )
     extends Modelica.Blocks.Interfaces.SISO;
     parameter SI.Frequency f(start=50) "Base frequency";
     parameter Real x0=0 "Start value of integrator state";
+    parameter Real y0=0 "Start value of output";
     parameter Boolean yGreaterOrEqualZero=false
       "= true, if output y is guaranteed to be >= 0 for the exact solution"
       annotation (Evaluate=true, Dialog(tab="Advanced"));
@@ -2228,7 +2229,7 @@ y_im = u_abs * sin( u_arg )
   initial equation
     t0 = time;
     x = x0;
-    y_last = 0;
+    y_last = y0;
   equation
     der(x) = u;
     when sample(t0 + 1/f, 1/f) then
@@ -2267,7 +2268,9 @@ explicitly set to 0.0, if the mean value results in a negative value.
     extends Modelica.Blocks.Interfaces.SISO;
     parameter SI.Frequency f(start=50) "Base frequency";
     parameter Real x0=0 "Start value of integrator state";
-    Mean mean(final f=f, final x0=x0)
+    parameter Real y0(final min=0)=0 "Start value of output";
+    Mean mean(final f=f, final x0=x0,
+      final y0=y0)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Blocks.Math.Abs abs1
       annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
@@ -2380,10 +2383,12 @@ This block is demonstrated in the examples
     extends Modelica.Blocks.Interfaces.SISO;
     parameter SI.Frequency f(start=50) "Base frequency";
     parameter Real x0=0 "Start value of integrator state";
+    parameter Real y0(final min=0)=0 "Start value of output";
     MultiProduct product(nu=2)
       annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
     Mean mean(
       final f=f,
+      final y0=y0^2,
       final yGreaterOrEqualZero=true,
       final x0=x0)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
@@ -2475,19 +2480,19 @@ Note: The output is updated after each period defined by 1/f.
             smooth=Smooth.Bezier,
             color={192,192,192}),
           Text(extent={{-150,-110},{150,-150}},
-            textString="Ts=%Ts", lineColor={0,0,0}),
+            textString="Ts=%Ts", textColor={0,0,0}),
           Line(
             points={{-60,80},{52,80}},
             color={0,0,0},
             pattern=LinePattern.Dash),    Text(
           extent={{-150,150},{150,110}},
           textString="%name",
-          lineColor={0,0,255}),
+          textColor={0,0,255}),
           Text(extent={{60,70},{92,50}},
-                                 lineColor={0,0,0},
+                                 textColor={0,0,0},
             textString="max"),
           Text(extent={{60,-50},{92,-70}},
-                                 lineColor={0,0,0},
+                                 textColor={0,0,0},
             textString="min"),
           Line(
             points={{-18,-56},{50,-56}},
@@ -2714,6 +2719,9 @@ This block is demonstrated in the examples
       annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Real x0Cos=0 "Start value of cos integrator state";
     parameter Real x0Sin=0 "Start value of sin integrator state";
+    parameter Real y0Cos=0 "Start value of cos result";
+    parameter Real y0Sin=0 "Start value of sin result";
+
     Sources.Cosine      sin1(
       final amplitude=sqrt(2),
       final f=k*f,
@@ -2732,9 +2740,11 @@ This block is demonstrated in the examples
       annotation (Placement(transformation(extent={{-60,30},{-40,50}})));
     MultiProduct product2(nu=2)
       annotation (Placement(transformation(extent={{-60,-50},{-40,-30}})));
-    Mean mean1(final f=f, final x0=x0Cos)
+    Mean mean1(final f=f, final x0=x0Cos,
+      final y0=y0Cos)
       annotation (Placement(transformation(extent={{-20,30},{0,50}})));
-    Mean mean2(final f=f, final x0=x0Sin)
+    Mean mean2(final f=f, final x0=x0Sin,
+      final y0=y0Sin)
       annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
     Blocks.Interfaces.RealInput u
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
@@ -2781,11 +2791,11 @@ This block calculates the root mean square and the phase angle of a single harmo
 <p>
 Note: The output is updated after each period defined by 1/f.
 </p>
-<p>
-Note:<br>
-The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t - arg)</code> if useConjugateComplex=false (default)<br>
-The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if useConjugateComplex=true
-</p>
+<h4>Note:</h4>
+<ul>
+<li>The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t - arg)</code> if useConjugateComplex=false (default)</li>
+<li>The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if useConjugateComplex=true</li>
+</ul>
 </html>"), Icon(graphics={
           Text(
             extent={{-80,60},{80,20}},
@@ -2810,8 +2820,10 @@ The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if 
       final f=f,
       final k=1,
       final x0Cos=0,
-      final x0Sin=0) annotation (Placement(transformation(extent={{-70,-62},{-50,-42}})));
-    RootMeanSquare rootMeanSquare(final f=f, final x0=0) annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
+      final x0Sin=0,
+      final y0Cos=0,
+      final y0Sin=0) annotation (Placement(transformation(extent={{-70,-62},{-50,-42}})));
+    RootMeanSquare rootMeanSquare(final f=f, final x0=0, final y0=0) annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
     Logical.GreaterThreshold greaterThreshold annotation (Placement(transformation(extent={{10,-70},{30,-50}})));
     Interfaces.BooleanOutput valid "True, if output y is valid" annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
     Division division annotation (Placement(transformation(extent={{60,-10},{80,10}})));

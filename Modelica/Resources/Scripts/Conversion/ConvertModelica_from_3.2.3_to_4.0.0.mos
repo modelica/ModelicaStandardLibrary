@@ -1761,6 +1761,15 @@ convertElement({"Modelica.Electrical.Machines.BasicMachines.SynchronousInduction
                 "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited",
                 "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor"},
                 "airGapR", "airGap")
+convertModifiers({"Modelica.Electrical.Spice3.Internal.MOS2"},
+                  {"vp"}, fill("", 0))
+convertModifiers({"Modelica.Fluid.Machines.BaseClasses.PartialPump"},
+                  {"show_NPSHa"}, fill("", 0))
+convertModifiers({"Modelica.Mechanics.MultiBody.Parts.Body"},
+                  {"z_a_start"}, fill("", 0))
+convertModifiers({"Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.SwitchYD",
+                  "Modelica.Electrical.Machines.Utilities.SwitchYD"},
+                  {"idealCommutingSwitch"}, fill("", 0))
 
 // New element Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector
 convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor",
