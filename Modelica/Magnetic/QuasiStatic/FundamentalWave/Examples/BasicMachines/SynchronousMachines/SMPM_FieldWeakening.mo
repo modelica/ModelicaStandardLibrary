@@ -157,8 +157,8 @@ This example demonstrates idealized field weakening of a quasistatic permanent m
 </p>
 
 <p>
-At standstill, q-axis current is prescribed by a short ramp as nominal q-current.
-d-axis current is controlled to keep voltage &le; nominal voltage, while speed is varied up to four times nominal speed like in an automotive application. 
+At standstill, the q-axis current is prescribed by a short ramp up to the nominal q-axis current.
+The d-axis current is controlled to keep voltage &le; nominal voltage, while speed is varied up to four times nominal speed like in an automotive application. 
 Total stator current is kept &le; nominal total current. Simulate and plot versus <code>smpm.wMechanical</code>:
 </p>
 
@@ -166,19 +166,19 @@ Total stator current is kept &le; nominal total current. Simulate and plot versu
 <li><code>fieldWeakeningController.vs</code>: stator voltage</li>
 <li><code>fieldWeakeningController.is</code>: stator current</li>
 <li><code>fieldWeakeningController.id</code>: d-axis current</li>
-<li><code>fieldWeakeningController.iq</code>: q-acis current</li>
+<li><code>fieldWeakeningController.iq</code>: q-axis current</li>
 </ul>
 
 <p>
-It can be seen that at the beginning of field weakening d-current is applied additionally to the q-current until stator current reaches <code>INominal</code> (voltage limit).
-With further increase of speed, q-current has to be reduced (current limit) to enable further increase of d-current to keep voltage limit.
+It can be seen that at the beginning of field weakening the d-axis current is applied additionally to the q-axis current until stator current reaches <code>INominal</code> (voltage limit).
+With further increase of speed, the q-axis current has to be reduced (current limit) to enable further increase of the d-axis current to keep voltage limit.
 </p>
 
 <h5>Note</h5>
 <ul>
 <li>The resistors connected to the quasi-static source model are necessary to numerically stabilize the simulation.</li>
 <li>Inertia of the machine is set to zero to enable a proper comparison of electrical and mechanical power.</li>
-<li><code>IqNominal</code> denotes q-current for the desired nominal torque in base speed region.</li>
+<li><code>IqNominal</code> denotes the q-axis current for the desired nominal torque in base speed region.</li>
 <li><code>INominal</code> denotes total nominal current, which can be applied without exceeding maximum temperature.</li>
 </ul>
 </html>"));
