@@ -5,7 +5,6 @@ model SMPM_FieldWeakening
   import Modelica.Constants.pi;
   constant Integer m=3 "Number of phases";
   parameter SI.Voltage VNominal=100 "Nominal RMS voltage per phase";
-  parameter SI.Current IqNominal=100 "Nominal RMS q current per phase";
   parameter SI.Current INominal=150 "Nominal RMS current per phase";
   parameter SI.AngularVelocity wNominal=2*pi*smpmData.fsNominal/smpmData.p "Nominal speed";
   parameter
@@ -86,7 +85,7 @@ model SMPM_FieldWeakening
   ExampleUtilities.FieldWeakeningController fieldWeakeningController(VNominal=
         VNominal, IMax=INominal)
     annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
-  Blocks.Math.Gain gainCurrent(k=IqNominal)
+  Blocks.Math.Gain gainCurrent(k=INominal)
     annotation (Placement(transformation(extent={{-70,30},{-50,50}})));
   Blocks.Math.Gain gainSpeed(k=wNominal)
     annotation (Placement(transformation(extent={{-70,-90},{-50,-70}})));
@@ -157,7 +156,7 @@ This example demonstrates idealized field weakening of a quasistatic permanent m
 </p>
 
 <p>
-At standstill, the q-axis current is prescribed by a short ramp up to the nominal q-axis current.
+At standstill, the q-axis current is prescribed by a short ramp up to the nominal current.
 The d-axis current is controlled to keep voltage &le; nominal voltage, while speed is varied up to four times nominal speed like in an automotive application. 
 Total stator current is kept &le; nominal total current. Simulate and plot versus <code>smpm.wMechanical</code>:
 </p>
@@ -170,15 +169,14 @@ Total stator current is kept &le; nominal total current. Simulate and plot versu
 </ul>
 
 <p>
-It can be seen that at the beginning of field weakening the d-axis current is applied additionally to the q-axis current until stator current reaches <code>INominal</code> (voltage limit).
-With further increase of speed, the q-axis current has to be reduced (current limit) to enable further increase of the d-axis current to keep voltage limit.
+It can be seen that when field weakening begins negative d-axis current is increased from zero while the q-axis current current has to be reduced (current limit) 
+to enable increase of the d-axis current (voltage limit).
 </p>
 
 <h5>Note</h5>
 <ul>
 <li>The resistors connected to the quasi-static source model are necessary to numerically stabilize the simulation.</li>
 <li>Inertia of the machine is set to zero to enable a proper comparison of electrical and mechanical power.</li>
-<li><code>IqNominal</code> denotes the q-axis current for the desired nominal torque in base speed region.</li>
 <li><code>INominal</code> denotes total nominal current, which can be applied without exceeding maximum temperature.</li>
 </ul>
 </html>"));
