@@ -45,18 +45,18 @@ def _checkFileTags(file_name):
                 if bool(stack):
                     if tag.lower() in AVOIDABLE_TAGS:
                         found_invalid.append((i, tag))
-                    if tag != tag.lower():
-                        found_case.append((i, tag))
-                if tag == 'img' and len(stack) == 1:
+                if tag != tag.lower() and (bool(stack) or tag.lower() in ('html', '/html')):
+                    found_case.append((i, tag))
+                if tag.lower() == 'img' and len(stack) == 1:
                     found_inline.append((i, tag))
-                if tag == 'html':
+                if tag.lower() == 'html':
                     if bool(stack):
                         found_mismatch.append((i, tag))
                         found_mismatch.append(stack[-1])
                         stack = []
                     stack.append((i, tag))
-                elif tag == '/html':
-                    if not bool(stack) or len(stack) != 1 or stack[-1][1] != 'html':
+                elif tag.lower() == '/html':
+                    if not bool(stack) or len(stack) != 1 or stack[-1][1].lower() != 'html':
                         found_mismatch.append((i, tag))
                         found_mismatch.append(stack[-1])
                     stack = []
