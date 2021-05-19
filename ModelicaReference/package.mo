@@ -5003,6 +5003,37 @@ discontinuously.]</em></p>
 </html>"));
   end 'smooth()';
 
+  class 'spatialDistribution()' "spatialDistribution()"
+    extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Allows the infinite-dimensional problem below to be solved efficiently with good accuracy.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre>
+(out0, out1) = <strong>spatialDistribution</strong>(in0, in1, x, positiveVelocity,
+                               initialPoints = {0.0, 1.0},
+                               initialValues = {0.0, 0.0}); 
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Many applications involve the modelling of variable-speed transport of properties. 
+One option to model this infinite-dimensional system is to approximate it by an ODE, 
+but this requires a large number of state variables and might introduce either 
+numerical diffusion or numerical oscillations. Another option is to use a built-in 
+operator that keeps track of the spatial distribution of <code>z⁢(x,t)</code>,
+by suitable sampling, interpolation, and shifting of the stored distribution. 
+In this case, the internal state of the operator is hidden from the ODE solver.
+</p>
+
+<p>
+See <a href=\"https://specification.modelica.org/maint/3.4/Ch3.html#spatialdistribution\">
+Section 3.7.2.2 of the Modelica Language Specification 3.4</a> for a more in-depth description 
+and elaborate example.
+</p>
+</html>"));
+  end 'spatialDistribution()';
+
   class 'sqrt()' "sqrt()"
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
