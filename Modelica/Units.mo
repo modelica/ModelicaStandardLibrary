@@ -545,7 +545,7 @@ end UsersGuide;
                "1");
     type LeakageCoefficient = Real (final quantity="LeakageCoefficient", final unit=
                "1");
-    type Permeability = Real (final quantity="Permeability", final unit="H/m");
+    type Permeability = Real (final quantity="Permeability", final unit="V.s/(A.m)");
     type PermeabilityOfVacuum = Permeability;
     type RelativePermeability = Real (final quantity="RelativePermeability",
           final unit="1");
