@@ -3720,7 +3720,7 @@ return value is not specified.</p>
 </pre></blockquote>
 
 <p>If <code>MyLib.Vehicle</code> is simulated, the call of <code>getInstanceName()</code>
-returns <code>Vehicle.engine.controller</code>
+returns <code>Vehicle.engine.controller</code>.
 </p>
 </html>"));
   end 'getInstanceName()';
