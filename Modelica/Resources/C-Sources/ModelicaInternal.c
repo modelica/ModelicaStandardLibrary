@@ -1221,7 +1221,7 @@ void ModelicaInternal_setenv(_In_z_ const char* name,
         if (1 == convertFromSlash) {
             ModelicaConvertFromUnixDirectorySeparator(&buf[strlen(name) + 1]);
         }
-#if defined(__WATCOMC__) || defined(__BORLANDC__)
+#if defined(__WATCOMC__) || defined(__BORLANDC__) || defined(__LCC__)
         result = putenv(buf);
 #else
         result = _putenv(buf);
@@ -1353,13 +1353,10 @@ void ModelicaInternal_getTime(_Out_ int* ms, _Out_ int* sec, _Out_ int* min, _Ou
     {
 #if defined(__BORLANDC__)
         struct timeb timebuffer;
+        ftime( &timebuffer );                   /* Retrieve ms time */
 #else
         struct _timeb timebuffer;
-#endif
-#if defined(__BORLANDC__) || defined(__LCC__)
-        ftime( &timebuffer );                     /* Retrieve ms time */
-#else
-        _ftime( &timebuffer );                    /* Retrieve ms time */
+        _ftime( &timebuffer );                  /* Retrieve ms time */
 #endif
         ms0 = (int)(timebuffer.millitm);        /* Convert unsigned int to int */
     }
