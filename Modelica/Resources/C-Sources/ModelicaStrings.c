@@ -201,34 +201,6 @@ static int SkipNonWhiteSpaceSeparator(const char* string, int i, const char* sep
     return i;
 }
 
-static int get_token(const char* string, int startIndex, const char* separators,
-                     int* output_index, int* token_start, int* token_length) {
-    int past_token;
-    int sep_pos;
-
-    *token_start = ModelicaStrings_skipWhiteSpace(string, startIndex);
-    /* Index of first char of token, after ws. */
-
-    past_token = SkipNonWhiteSpaceSeparator(string, *token_start, separators);
-    /* Index of first char after token, ws or separator. */
-
-    sep_pos = ModelicaStrings_skipWhiteSpace(string, past_token);
-    /* Index of first char after ws after token, maybe a separator. */
-
-    *output_index = InSet(string, sep_pos, separators) ? sep_pos + 1 : sep_pos;
-    /* Skip any separator. */
-
-    *token_length = past_token-*token_start;
-
-    if (*token_length == 0 || *token_length > MAX_TOKEN_SIZE) {
-        /* Token missing or too long. */
-        *output_index = startIndex;
-        return 0; /* error */
-    }
-
-    return 1; /* ok */
-}
-
 static int MatchUnsignedInteger(const char* string, int start) {
     /* Starts matching character which make an unsigned integer. The matching
        begins at the start index (first char has index 1). Returns the number
