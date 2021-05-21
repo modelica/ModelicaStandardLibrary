@@ -10330,7 +10330,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
           if (in_f.m_uic and int_f.m_bICVGSIsGiven > 0.5) then
             int_f.m_vgs := in_m_type * int_f.m_dICVGS;
           elseif (Modelica.Electrical.Spice3.Internal.SpiceRoot.initJunctionVoltagesRevised()) then
-            if (int_f.m_off) then
+            if int_f.m_off then
               int_f.m_vgs := 0;
             else
               int_f.m_vgs := int_f.m_vcrit;
