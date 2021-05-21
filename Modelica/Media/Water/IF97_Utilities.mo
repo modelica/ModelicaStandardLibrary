@@ -4071,7 +4071,7 @@ Ordinary Water Substance<br>
              + "of validity of the IF97 formulation: p = " + String(p) +
             " Pa, Tc = " + String(Tc) + " K");
         end if;
-        if industrialMethod == true then
+        if industrialMethod then
           deltaTREL := abs(TREL - 1) + C[4];
           Q := 2 + C[5]/deltaTREL^(3/5);
           if TREL >= 1 then
