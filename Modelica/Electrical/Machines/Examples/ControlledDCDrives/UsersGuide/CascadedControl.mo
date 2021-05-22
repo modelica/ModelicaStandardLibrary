@@ -2,7 +2,7 @@ within Modelica.Electrical.Machines.Examples.ControlledDCDrives.UsersGuide;
 class CascadedControl "Concept of cascaded control"
   extends Modelica.Icons.Information;
   annotation (DocumentationClass=true, Documentation(info="<html>
-<p>The concept of cascaded control is hown in Fig.1.</p>
+<p>The concept of cascaded control is shown in Fig. 1.</p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\"><strong>Fig. 1:</strong> Structure of cascaded control</caption>
   <tr>
@@ -12,7 +12,7 @@ class CascadedControl "Concept of cascaded control"
   </tr>
 </table>
 <p>
-Fig.2 shows the euqations describing the drive, using for parameterizing the controllers. 
+Fig. 2 shows the equations describing the drive, using for parameterizing the controllers. 
 The behaviour of the actuator is a delay which can be approximated by a first order. 
 Additionally, filtering or sampling the current defines an additional delay which can be approximated by a first order. 
 Both delays define the sum of small time constants T<sub>&sigma;</sub>.
