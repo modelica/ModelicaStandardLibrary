@@ -45,11 +45,11 @@ record DriveDataDCPM
   parameter SI.Inertia JL=motorData.Jr "Load inertia"
     annotation(Dialog(group="Load"));
 //Limits
-  parameter SI.Voltage VaMax=1.2*motorData.VaNominal "Maximum Voltage"
+  parameter SI.Voltage VaMax=1.2*motorData.VaNominal "Maximum voltage"
     annotation(Dialog(tab="Controller", group="Limits"));
   parameter SI.Current IaMax=1.5*motorData.IaNominal "Maximum current"
     annotation(Dialog(tab="Controller", group="Limits"));
-  parameter SI.Torque tauMax=kPhi*IaMax "Maximum el. torque"
+  parameter SI.Torque tauMax=kPhi*IaMax "Maximum electrical torque"
     annotation(Dialog(tab="Controller", group="Limits", enable=false));
   parameter SI.AngularVelocity wMax=w0 "Maximum speed"
     annotation(Dialog(tab="Controller", group="Limits"));
