@@ -2,5 +2,6 @@ SMPM_OpenCircuit
 SMPM_Mains
 SMPM_CurrentSource
 SMPM_MTPA
+SMPM_FieldWeakening
 SMEE_Generator
 SMR_CurrentSource
