@@ -26,6 +26,8 @@ public
     each final min=Modelica.Constants.small,
     each unit="F/m") = {2.38e-11,1.01e-10,8.56e-11,5.09e-12,2.71e-11,2.09e-11,
     7.16e-11,1.83e-11,1.23e-10,2.07e-11} "Capacitance per meter";
+  parameter Boolean useInternalGround=true "Default: true = use internal ground / false = use reference pin"
+    annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
   parameter SI.LinearTemperatureCoefficient alpha_R=0
     "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
   parameter SI.LinearTemperatureCoefficient alpha_G=0
@@ -51,6 +53,10 @@ public
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}}), iconTransformation(extent={{-110,-10},{-90,10}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
       annotation (Placement(transformation(extent={{90,-10},{110,10}}), iconTransformation(extent={{90,-10},{110,10}})));
+    Modelica.Electrical.Analog.Interfaces.NegativePin refPin if not useInternalGround
+      "Reference pin"
+      annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
+          iconTransformation(extent={{-10,-110},{10,-90}})));
 
     parameter Real Cl[dim_vector_lgc]=fill(1, dim_vector_lgc)
       "Capacitance matrix";
@@ -59,6 +65,8 @@ public
       "Inductance matrix";
     parameter Real Gl[dim_vector_lgc]=fill(1, dim_vector_lgc)
       "Conductance matrix";
+    parameter Boolean useInternalGround=true "Default: false = use internal ground / true = use reference pin"
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter SI.LinearTemperatureCoefficient alpha_R
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
     parameter SI.LinearTemperatureCoefficient alpha_G
@@ -73,10 +81,9 @@ public
       annotation (Dialog(enable=not useHeatPort));
     parameter SI.Temperature T_ref;
 
-    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if
-      useHeatPort annotation (Placement(transformation(extent={{-10,-110},{10,
-              -90}}), iconTransformation(extent={{-110,-110},{-90,-90}})));
-
+    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
+      annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
+                      iconTransformation(extent={{-110,-110},{-90,-90}})));
     Modelica.Electrical.Analog.Basic.Capacitor C[dim_vector_lgc](C=Cl);
     Modelica.Electrical.Analog.Basic.Resistor R[lines](
       R=Rl,
@@ -91,8 +98,8 @@ public
       useHeatPort=fill(useHeatPort, dim_vector_lgc),
       T=fill(T, dim_vector_lgc));
     Modelica.Electrical.Analog.Basic.M_Transformer inductance(N=lines, L=Ll);
-    Modelica.Electrical.Analog.Basic.Ground M;
-
+    Modelica.Electrical.Analog.Basic.Ground ground if useInternalGround
+      annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
   equation
     for j in 1:lines - 1 loop
 
@@ -101,10 +108,12 @@ public
       connect(inductance.n[j], n[j]);
       connect(inductance.n[j], C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
         2))].p);
-      connect(C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n, M.p);
+      connect(C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n, ground.p);
+      connect(C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n,refPin);
       connect(inductance.n[j], G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
         2))].p);
-      connect(G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n, M.p);
+      connect(G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n, ground.p);
+      connect(G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n,refPin);
 
       for i in j + 1:lines loop
         connect(inductance.n[j], C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
@@ -122,9 +131,11 @@ public
     connect(R[lines].n, inductance.p[lines]);
     connect(inductance.n[lines], n[lines]);
     connect(inductance.n[lines], C[dim_vector_lgc].p);
-    connect(C[dim_vector_lgc].n, M.p);
+    connect(C[dim_vector_lgc].n, ground.p);
+    connect(C[dim_vector_lgc].n,refPin);
     connect(inductance.n[lines], G[dim_vector_lgc].p);
-    connect(G[dim_vector_lgc].n, M.p);
+    connect(G[dim_vector_lgc].n, ground.p);
+    connect(G[dim_vector_lgc].n,refPin);
 
     if useHeatPort then
 
@@ -173,10 +184,10 @@ public
     parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false"
       annotation (Dialog(enable=not useHeatPort));
-    parameter SI.Temperature T_ref;
-    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if
-      useHeatPort annotation (Placement(transformation(extent={{-10,-110},{10,
-              -90}}), iconTransformation(extent={{-110,-110},{-90,-90}})));
+    parameter SI.Temperature T_ref(start=293.15);
+    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
+      annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
+                      iconTransformation(extent={{-110,-110},{-90,-90}})));
     Modelica.Electrical.Analog.Basic.Resistor R[lines](
       R=Rl,
       T_ref=fill(T_ref, lines),
@@ -251,6 +262,11 @@ public
   Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
     annotation (Placement(transformation(extent={{90,-60},{110,60}})));
 
+  Interfaces.NegativePin  refPin if not useInternalGround "Reference pin"
+    annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
+        iconTransformation(extent={{-10,-110},{10,-90}})));
+  Basic.Ground ground if useInternalGround
+    annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
 equation
   connect(p, s_first.p);
   connect(s_first.n, s[1].p);
@@ -259,6 +275,13 @@ equation
   end for;
   connect(s[N - 1].n, s_last.p);
   connect(s_last.n, n);
+  connect(s_first.refPin,refPin);
+  connect(s_first.refPin, ground.p);
+  for i in 1:N-1 loop
+    connect(s[i].refPin,refPin);
+    connect(s[i].refPin, ground.p);
+  end for;
+
   if useHeatPort then
     connect(heatPort, s_first.heatPort);
     for i in 1:N - 1 loop
@@ -294,16 +317,19 @@ equation
 <p>The M_OLine is a multi line model which consists of several segments and several single lines. Each segment consists of resistors and inductors that are connected in series in each single line, and of capacitors and conductors both between the lines and to the ground. The inductors are coupled to each other like in the M_Transformer model. The following picture shows the schematic of a segment with four single lines (lines=4):</p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/segment.png\"
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/segment.png\"
      alt=\"segment.png\">
 </blockquote>
 
+<p>Note that the user can choose whether the optional &quot;refPin&quot; is active (so that it can be connected to any other pin), 
+otherwise the internal &quot;ground&quot; is used. This is done with the checkbox useInternalGround, true by default (for compatibility with previous versions).
+Obviously the  potential of the internal ground is always zero, its current can be accessed for plotting.</p>
 <p>The complete multi line consists of N segments and an auxiliary segment_last:</p>
 <p align=\"center\"><code>-- segment_1 -- segment_2 -- ... -- segment_N -- segment_last --</code></p>
 <p>In the picture of the segment can be seen, that a single segment is asymmetric. Connecting such asymmetric segments in a series forces also an asymmetric multi line. To get a symmetric model which is useful for coupling and which guaranties the same pin properties, in the segment_1 only half valued resistors and inductors are used. The remaining resistors and inductors are at the other end of the line within the auxiliary segment_last. For the example with 4 lines the schematic of segment_last is like this:</p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/segment_last.png\"
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/segment_last.png\"
      alt=\"segment_last.png\">
 </blockquote>
 
