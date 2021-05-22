@@ -85,9 +85,9 @@ equation
   annotation (Documentation(info="<html>
   <p>This is a partial model of a controlled DC PM drive.</p>
 <p>
-Electrical power is taken from a battery (constant voltage with inner resistance) and fed to the motor via a DC-DC inverter.
-The level of detail of the DC-DC inverter may be chosen from ideal averaging or switching.
-The DC-DC inverter is commanded by the current controller.
+Electrical power is taken from a battery (constant voltage with inner resistance) and fed to the motor via a DC/DC inverter.
+The level of detail of the DC/DC inverter may be chosen from ideal averaging or switching.
+The DC/DC inverter is commanded by the current controller.
 The current controller is parameterized according to the absolute optimum.
 </p>
 <p>

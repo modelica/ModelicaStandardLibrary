@@ -1,5 +1,5 @@
 within Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities;
-model SwitchingDcDc "Switching DC-DC inverter"
+model SwitchingDcDc "Switching DC/DC inverter"
   parameter SI.Frequency fS "Switching frequency";
   parameter SI.Voltage VMax "Maximum Voltage";
   parameter SI.Resistance RonT=1e-05
@@ -91,6 +91,6 @@ equation
           extent={{-40,-60},{40,-80}},
           textColor={128,128,128},
           textString="Mot")}),    Documentation(info="<html>
-<p>This is a model of a switching DC-DC inverter based on a H-bridge.</p>
+<p>This is a model of a switching DC/DC inverter based on a H-bridge.</p>
 </html>"));
 end SwitchingDcDc;
