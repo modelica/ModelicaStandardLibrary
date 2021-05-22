@@ -2218,6 +2218,7 @@ y_im = u_abs * sin( u_arg )
     extends Modelica.Blocks.Interfaces.SISO;
     parameter SI.Frequency f(start=50) "Base frequency";
     parameter Real x0=0 "Start value of integrator state";
+    parameter Real y0=0 "Start value of output";
     parameter Boolean yGreaterOrEqualZero=false
       "= true, if output y is guaranteed to be >= 0 for the exact solution"
       annotation (Evaluate=true, Dialog(tab="Advanced"));
@@ -2228,7 +2229,7 @@ y_im = u_abs * sin( u_arg )
   initial equation
     t0 = time;
     x = x0;
-    y_last = 0;
+    y_last = y0;
   equation
     der(x) = u;
     when sample(t0 + 1/f, 1/f) then
@@ -2267,7 +2268,9 @@ explicitly set to 0.0, if the mean value results in a negative value.
     extends Modelica.Blocks.Interfaces.SISO;
     parameter SI.Frequency f(start=50) "Base frequency";
     parameter Real x0=0 "Start value of integrator state";
-    Mean mean(final f=f, final x0=x0)
+    parameter Real y0(final min=0)=0 "Start value of output";
+    Mean mean(final f=f, final x0=x0,
+      final y0=y0)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Blocks.Math.Abs abs1
       annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
@@ -2328,7 +2331,7 @@ Note: The output is updated after each period defined by 1/f.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -2380,10 +2383,12 @@ This block is demonstrated in the examples
     extends Modelica.Blocks.Interfaces.SISO;
     parameter SI.Frequency f(start=50) "Base frequency";
     parameter Real x0=0 "Start value of integrator state";
+    parameter Real y0(final min=0)=0 "Start value of output";
     MultiProduct product(nu=2)
       annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
     Mean mean(
       final f=f,
+      final y0=y0^2,
       final yGreaterOrEqualZero=true,
       final x0=x0)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
@@ -2415,6 +2420,115 @@ Note: The output is updated after each period defined by 1/f.
             extent={{-80,-20},{80,-60}},
             textString="f=%f")}));
   end RootMeanSquare;
+
+  block SignalExtrema "Calculate min and max of a signal"
+    extends Modelica.Blocks.Icons.Block;
+
+    parameter SI.Time Ts(start=0.01) "Sample time";
+    Modelica.Blocks.Interfaces.RealInput
+              u "Connector of Real input signal" annotation (Placement(
+          transformation(extent={{-140,-20},{-100,20}})));
+    Modelica.Blocks.Interfaces.RealOutput
+              y_min "Min of input signal" annotation (Placement(
+          transformation(extent={{100,-70},{120,-50}})));
+    Modelica.Blocks.Interfaces.RealOutput
+              y_max "Max of input signal" annotation (Placement(
+          transformation(extent={{100,50},{120,70}})));
+    discrete Real t_min "Sample time of last found minimum";
+    discrete Real t_max "Sample time of last found maximum";
+
+  protected
+    parameter SI.Time t0(fixed=false) "Start time of simulation";
+
+  initial equation
+    t0 = time;
+    y_min = u;
+    y_max = u;
+    t_min = time;
+    t_max = time;
+
+  equation
+    when sample(t0 + Ts, Ts) then
+      y_min = min(u, pre(y_min));
+      y_max = max(u, pre(y_max));
+      if y_min<pre(y_min) then
+        t_min = time;
+        t_max=pre(t_max);
+      elseif y_max>pre(y_max) then
+        t_max = time;
+        t_min=pre(t_min);
+      else
+        t_min=pre(t_min);
+        t_max=pre(t_max);
+      end if;
+    end when;
+    annotation (Icon(graphics={
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,0},{68,0}}, color={192,192,192}),
+          Polygon(
+            points={{90,0},{68,8},{68,-8},{90,0}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(
+            points={{-80,0},{-75.2,32.3},{-72,50.3},{-68.7,64.5},{-65.5,74.2},{-62.3,79.3},{-59.1,79.6},{-55.9,75.3},{-52.7,67.1},{-48.6,52.2},{-43,25.8},{-35,-13.9},{-30.2,-33.7},{-26.1,-45.9},{-22.1,-53.2},{-18,-56},{-14.1,-52.5},{-10.1,-45.3},{-5.23,-32.1},{8.44,13.7},{13.3,26.4},{18.1,34.8},{22.1,38},{26.9,37.2},{31.8,31.8},{38.2,19.4},{51.1,-10.5},{57.5,-21.2},{63.1,-25.9},{68.7,-25.9},{75.2,-20.5},{80,-13.8}},
+            smooth=Smooth.Bezier,
+            color={192,192,192}),
+          Text(extent={{-150,-110},{150,-150}},
+            textString="Ts=%Ts", textColor={0,0,0}),
+          Line(
+            points={{-60,80},{52,80}},
+            color={0,0,0},
+            pattern=LinePattern.Dash),    Text(
+          extent={{-150,150},{150,110}},
+          textString="%name",
+          textColor={0,0,255}),
+          Text(extent={{60,70},{92,50}},
+                                 textColor={0,0,0},
+            textString="max"),
+          Text(extent={{60,-50},{92,-70}},
+                                 textColor={0,0,0},
+            textString="min"),
+          Line(
+            points={{-18,-56},{50,-56}},
+            color={0,0,0},
+            pattern=LinePattern.Dash)}), Documentation(info="<html>
+<p>
+This block calculates the min and the max of the input signal <code>u</code>
+and stores the time at which the last min or max was reached in the
+variables <code>t_min</code> and <code>t_max</code> respectively.
+</p>
+<h5>Note:</h5>
+<p>The output is updated after each sample period defined by <code>Ts</code>.
+This means that:</p>
+<ul>
+<li>The extrema will be approximate as it only return the extremas at the sampling points.</li>
+<li>The sampling will generate many events which may slow down the simulation.</li>
+</ul>
+
+</html>",   revisions="<html>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+    <tr>
+      <th>Version</th>
+      <th>Date</th>
+      <th>Author</th>
+      <th>Comment</th>
+    </tr>
+    <tr>
+      <td>1.0.0</td>
+      <td>2021-02-25</td>
+      <td><a href=\"https://github.com/dietmarw\">dietmarw</a>,
+          <a href=\"https://github.com/tinrabuzin\">tinrabuzin</a></td>
+      <td>Initial version</td>
+    </tr>
+</table>
+</html>"));
+  end SignalExtrema;
 
   block Variance "Calculates the empirical variance of its input signal"
     extends Modelica.Blocks.Icons.Block;
@@ -2451,7 +2565,7 @@ Note: The output is updated after each period defined by 1/f.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -2542,7 +2656,7 @@ This block is demonstrated in the examples
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -2605,6 +2719,9 @@ This block is demonstrated in the examples
       annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Real x0Cos=0 "Start value of cos integrator state";
     parameter Real x0Sin=0 "Start value of sin integrator state";
+    parameter Real y0Cos=0 "Start value of cos result";
+    parameter Real y0Sin=0 "Start value of sin result";
+
     Sources.Cosine      sin1(
       final amplitude=sqrt(2),
       final f=k*f,
@@ -2623,9 +2740,11 @@ This block is demonstrated in the examples
       annotation (Placement(transformation(extent={{-60,30},{-40,50}})));
     MultiProduct product2(nu=2)
       annotation (Placement(transformation(extent={{-60,-50},{-40,-30}})));
-    Mean mean1(final f=f, final x0=x0Cos)
+    Mean mean1(final f=f, final x0=x0Cos,
+      final y0=y0Cos)
       annotation (Placement(transformation(extent={{-20,30},{0,50}})));
-    Mean mean2(final f=f, final x0=x0Sin)
+    Mean mean2(final f=f, final x0=x0Sin,
+      final y0=y0Sin)
       annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
     Blocks.Interfaces.RealInput u
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
@@ -2672,11 +2791,11 @@ This block calculates the root mean square and the phase angle of a single harmo
 <p>
 Note: The output is updated after each period defined by 1/f.
 </p>
-<p>
-Note:<br>
-The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t - arg)</code> if useConjugateComplex=false (default)<br>
-The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if useConjugateComplex=true
-</p>
+<h4>Note:</h4>
+<ul>
+<li>The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t - arg)</code> if useConjugateComplex=false (default)</li>
+<li>The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if useConjugateComplex=true</li>
+</ul>
 </html>"), Icon(graphics={
           Text(
             extent={{-80,60},{80,20}},
@@ -2701,8 +2820,10 @@ The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if 
       final f=f,
       final k=1,
       final x0Cos=0,
-      final x0Sin=0) annotation (Placement(transformation(extent={{-70,-62},{-50,-42}})));
-    RootMeanSquare rootMeanSquare(final f=f, final x0=0) annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
+      final x0Sin=0,
+      final y0Cos=0,
+      final y0Sin=0) annotation (Placement(transformation(extent={{-70,-62},{-50,-42}})));
+    RootMeanSquare rootMeanSquare(final f=f, final x0=0, final y0=0) annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
     Logical.GreaterThreshold greaterThreshold annotation (Placement(transformation(extent={{10,-70},{30,-50}})));
     Interfaces.BooleanOutput valid "True, if output y is valid" annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
     Division division annotation (Placement(transformation(extent={{60,-10},{80,10}})));

@@ -114,8 +114,10 @@ package Types
       input SI.Time shiftTime=0.0;
       input Modelica.Blocks.Types.TimeEvents timeEvents=Modelica.Blocks.Types.TimeEvents.Always;
       input Boolean verboseRead=true "= true: Print info message; = false: No info message";
+      input String delimiter="," "Column delimiter character for CSV file";
+      input Integer nHeaderLines=0 "Number of header lines to ignore for CSV file";
       output ExternalCombiTimeTable externalCombiTimeTable;
-    external "C" externalCombiTimeTable = ModelicaStandardTables_CombiTimeTable_init2(
+    external "C" externalCombiTimeTable = ModelicaStandardTables_CombiTimeTable_init3(
             fileName,
             tableName,
             table,
@@ -128,7 +130,9 @@ package Types
             extrapolation,
             shiftTime,
             timeEvents,
-            verboseRead) annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+            verboseRead,
+            delimiter,
+            nHeaderLines) annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end constructor;
 
     function destructor "Terminate 1-dim. table where first column is time"
@@ -153,8 +157,10 @@ package Types
       input Modelica.Blocks.Types.Smoothness smoothness;
       input Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints;
       input Boolean verboseRead=true "= true: Print info message; = false: No info message";
+      input String delimiter="," "Column delimiter character for CSV file";
+      input Integer nHeaderLines=0 "Number of header lines to ignore for CSV file";
       output ExternalCombiTable1D externalCombiTable1D;
-    external "C" externalCombiTable1D = ModelicaStandardTables_CombiTable1D_init2(
+    external "C" externalCombiTable1D = ModelicaStandardTables_CombiTable1D_init3(
             fileName,
             tableName,
             table,
@@ -164,7 +170,9 @@ package Types
             size(columns, 1),
             smoothness,
             extrapolation,
-            verboseRead) annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+            verboseRead,
+            delimiter,
+            nHeaderLines) annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end constructor;
 
     function destructor "Terminate 1-dim. table defined by matrix"
@@ -188,8 +196,10 @@ package Types
       input Modelica.Blocks.Types.Smoothness smoothness;
       input Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints;
       input Boolean verboseRead=true "= true: Print info message; = false: No info message";
+      input String delimiter="," "Column delimiter character for CSV file";
+      input Integer nHeaderLines=0 "Number of header lines to ignore for CSV file";
       output ExternalCombiTable2D externalCombiTable2D;
-    external "C" externalCombiTable2D = ModelicaStandardTables_CombiTable2D_init2(
+    external "C" externalCombiTable2D = ModelicaStandardTables_CombiTable2D_init3(
             fileName,
             tableName,
             table,
@@ -197,7 +207,9 @@ package Types
             size(table, 2),
             smoothness,
             extrapolation,
-            verboseRead) annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+            verboseRead,
+            delimiter,
+            nHeaderLines) annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaStandardTables.h\"", Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end constructor;
 
     function destructor "Terminate 2-dim. table defined by matrix"

@@ -57,7 +57,7 @@ density(0,-1,1) // = 0.5
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -128,7 +128,7 @@ cumulative(0,-1,1) // = 0.5
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -207,7 +207,7 @@ quantile(0.5,-1,1) // = 0
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -258,7 +258,7 @@ For more details of this distribution see
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -322,7 +322,7 @@ density(3,1,0.5) // = 0.00026766045152977074
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -393,7 +393,7 @@ cumulative(0,1,0.5)  // = 0.15865525393145707
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -477,7 +477,7 @@ quantile(0.5,1,0.5) // = 1
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -538,7 +538,7 @@ For more details of this distribution see
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -621,7 +621,7 @@ density(0.5,-1.5,1.5,1,0.9) // = 0.5365495585520803
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -713,7 +713,7 @@ cumulative(0.5,-1.5,1.5,1,0.9)  // = 0.4046868865634537
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -813,7 +813,7 @@ quantile(0.5,0,1,0.5,0.9) // = 0.5
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -885,7 +885,7 @@ of truncated distributions, see
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -958,7 +958,7 @@ density(1,0.5,2) // = 0.14652511110987343
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1038,7 +1038,7 @@ cumulative(0.5,0.5,1) // = 0.6321205588285577
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1117,7 +1117,7 @@ quantile(0.5,1,0.5) // = 0.41627730557884884
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1173,7 +1173,7 @@ For more details of this distribution see
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1256,7 +1256,7 @@ density(0.5,0,0.8,0.5,2) // = 1.5948036466479143
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1347,7 +1347,7 @@ cumulative(0.5,0,0.8,0.5,2) // = 0.6850805314988328
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1448,7 +1448,7 @@ quantile(0.5,0,1,0.5,0.9) // = 0.256951787882498
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1517,7 +1517,7 @@ of truncated distributions, see
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1551,7 +1551,7 @@ arguments of the probability density functions.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1582,7 +1582,7 @@ arguments of the cumulative distribution functions.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1614,7 +1614,7 @@ arguments of the quantile functions.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1645,7 +1645,7 @@ arguments of the probability density functions of truncated distributions.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1676,7 +1676,7 @@ arguments of the cumulative distribution functions for a truncated distribution.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1707,7 +1707,7 @@ arguments of the quantile functions for truncated distributions.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1733,7 +1733,7 @@ truncated distribution functions.
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 
@@ -1874,7 +1874,7 @@ compared with its truncated distribution:
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+         <a href=\"https://www.dlr.de/sr/en\">DLR Institute of System Dynamics and Control</a>
 </td></tr></table>
 </td></tr>
 

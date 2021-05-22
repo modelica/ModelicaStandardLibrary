@@ -6,7 +6,7 @@ Copyright (C) 2020, Modelica Association and contributors
 All rights reserved.
 
 Check Modelica HTML documentation for validity
-python .travis.py [check_function] [path]
+python check_html.py [check_function] [path]
 '''
 
 import importlib
@@ -14,7 +14,7 @@ import os.path
 import sys
 
 if __name__ == '__main__':
-    module_dir, _ = os.path.split(__file__)
+    module_dir = os.path.split(__file__)[0]
     if len(sys.argv) == 1:
         function = 'checkTags'
         path = os.path.realpath(module_dir)

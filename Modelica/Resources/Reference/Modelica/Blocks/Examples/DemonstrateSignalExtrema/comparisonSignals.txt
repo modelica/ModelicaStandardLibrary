@@ -1,0 +1,10 @@
+time
+signalExtrema1.y_min
+signalExtrema1.y_max
+signalExtrema1.t_min
+signalExtrema1.t_max
+signalExtrema2.y_min
+signalExtrema2.y_max
+signalExtrema2.t_min
+signalExtrema2.t_max
+

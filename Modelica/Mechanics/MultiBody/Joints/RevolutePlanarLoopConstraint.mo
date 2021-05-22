@@ -105,10 +105,10 @@ definition of the axes vectors n in the revolute joints of the planar loop.
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
         Text(
-          extent={{-150,70},{150,100}},
+          extent={{-150,-110},{150,-80}},
           textString="n=%n"),
         Text(
-          extent={{-150,-110},{150,-70}},
+          extent={{-150,70},{150,110}},
           textString="%name",
           textColor={0,0,255}),
         Rectangle(
@@ -139,7 +139,7 @@ definition of the axes vectors n in the revolute joints of the planar loop.
           textColor={128,128,128},
           textString="b"),
         Line(
-          points={{-91,-76},{-33,15},{30,-49},{87,61}},
+          points={{-90,-70},{-25,30},{25,-30},{90,70}},
           color={255,0,0},
           thickness=0.5)}),
     Documentation(info="<html>

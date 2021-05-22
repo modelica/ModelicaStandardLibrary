@@ -1,0 +1,25 @@
+name: Cron
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "7 3 * * 0"
+
+jobs:
+  html_documentation_link_checks:
+    timeout-minutes: 5
+    if: github.repository_owner == 'modelica'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 5
+      - name: Setup python environment
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install python packages
+        run: pip install --user futures
+      - name: Check links
+        timeout-minutes: 3
+        run: python ./.CI/check_html.py checkLinks ./

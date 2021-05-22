@@ -1555,7 +1555,7 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
   end TimeTable;
 
   block CombiTimeTable
-    "Table look-up with respect to time and linear/periodic extrapolation methods (data from matrix/file)"
+    "Table look-up with respect to time and various interpolation and extrapolation methods (data from matrix/file)"
     import Modelica.Blocks.Tables.Internal;
     extends Modelica.Blocks.Interfaces.MO(final nout=max([size(columns, 1); size(offset, 1)]));
     parameter Boolean tableOnFile=false
@@ -1571,8 +1571,15 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
       annotation (Dialog(
         group="Table data definition",
         enable=tableOnFile,
-        loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat)",
+        loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat);;Comma-separated values files (*.csv)",
             caption="Open file in which table is present")));
+    parameter String delimiter="," "Column delimiter character for CSV file"
+      annotation (Dialog(
+        group="Table data definition",
+        enable=tableOnFile and isCsvExt),
+        choices(choice=" " "Blank", choice="," "Comma", choice="\t" "Horizontal tabulator", choice=";" "Semicolon"));
+    parameter Integer nHeaderLines=0 "Number of header lines to ignore for CSV file"
+      annotation (Dialog(group="Table data definition",enable=tableOnFile and isCsvExt));
     parameter Boolean verboseRead=true
       "= true, if info message that file is loading is to be printed"
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
@@ -1616,7 +1623,7 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
       "Offsets of output signals";
     parameter Modelica.Blocks.Types.ExternalCombiTimeTable tableID=
         Modelica.Blocks.Types.ExternalCombiTimeTable(
-          if tableOnFile then tableName else "NoName",
+          if tableOnFile then if isCsvExt then "Values" else tableName else "NoName",
           if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
           table,
           startTime/timeScale,
@@ -1625,15 +1632,18 @@ parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
           extrapolation,
           shiftTime/timeScale,
           if smoothness == Modelica.Blocks.Types.Smoothness.LinearSegments then timeEvents elseif smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then Modelica.Blocks.Types.TimeEvents.Always else Modelica.Blocks.Types.TimeEvents.NoTimeEvents,
-          if tableOnFile then verboseRead else false) "External table object";
+          if tableOnFile then verboseRead else false,
+          delimiter,
+          nHeaderLines) "External table object";
     discrete SI.Time nextTimeEvent(start=0, fixed=true)
       "Next time event instant";
     discrete Real nextTimeEventScaled(start=0, fixed=true)
       "Next scaled time event instant";
     Real timeScaled "Scaled time";
+    final parameter Boolean isCsvExt = if tableOnFile then Modelica.Utilities.Strings.findLast(fileName, ".csv", caseSensitive=false) + 3 == Modelica.Utilities.Strings.length(fileName) else false;
   equation
     if tableOnFile then
-      assert(tableName <> "NoName",
+      assert(tableName <> "NoName" or isCsvExt,
         "tableOnFile = true and no table name given");
     else
       assert(size(table, 1) > 0 and size(table, 2) > 0,
@@ -1798,7 +1808,7 @@ tableName is \"NoName\" or has only blanks,
 fileName  is \"NoName\" or has only blanks.
 </pre></blockquote></li>
 <li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
-    \"tableName\". Both text and MATLAB MAT-file format is possible.
+    \"tableName\". CSV, text and MATLAB MAT-file format is possible.
     (The text format is described below).
     The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
     The library supports at least v4, v6 and v7 whereas v7.3 is optional.
@@ -1881,25 +1891,26 @@ MATLAB is a registered trademark of The MathWorks, Inc.
 </html>"),
       Icon(
       coordinateSystem(preserveAspectRatio=true,
-        extent={{-100.0,-100.0},{100.0,100.0}}),
+        extent={{-100,-100},{100,100}}),
         graphics={
       Polygon(lineColor={192,192,192},
         fillColor={192,192,192},
         fillPattern=FillPattern.Solid,
-        points={{-80.0,90.0},{-88.0,68.0},{-72.0,68.0},{-80.0,90.0}}),
-      Line(points={{-80.0,68.0},{-80.0,-80.0}},
+        points={{-80,90},{-88,68},{-72,68},{-80,90}}),
+      Line(points={{-80,68},{-80,-80}},
         color={192,192,192}),
-      Line(points={{-90.0,-70.0},{82.0,-70.0}},
+      Line(points={{-90,-70},{82,-70}},
         color={192,192,192}),
       Polygon(lineColor={192,192,192},
         fillColor={192,192,192},
         fillPattern=FillPattern.Solid,
-        points={{90.0,-70.0},{68.0,-62.0},{68.0,-78.0},{90.0,-70.0}}),
+        points={{90,-70},{68,-62},{68,-78},{90,-70}}),
       Rectangle(lineColor={255,255,255},
         fillColor={255,215,136},
         fillPattern=FillPattern.Solid,
-        extent={{-48.0,-50.0},{2.0,70.0}}),
-      Line(points={{-48.0,-50.0},{-48.0,70.0},{52.0,70.0},{52.0,-50.0},{-48.0,-50.0},{-48.0,-20.0},{52.0,-20.0},{52.0,10.0},{-48.0,10.0},{-48.0,40.0},{52.0,40.0},{52.0,70.0},{2.0,70.0},{2.0,-51.0}})}));
+        extent={{-48,-50},{2,70}}),
+      Line(points={{-48,-50},{-48,70},{52,70},{52,-50},{-48,-50},{-48,-20},{52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}}),
+      Text(extent={{-150,-150},{150,-110}}, textString="tableOnFile=%tableOnFile")}));
   end CombiTimeTable;
 
   block BooleanConstant "Generate constant signal of type Boolean"

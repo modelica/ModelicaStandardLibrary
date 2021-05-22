@@ -123,64 +123,77 @@ extends Modelica.Icons.ExamplesPackage;
       m=1,
       s(fixed=true, start=0),
       v(fixed=true, start=100))
-      annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
+      annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
     Modelica.Mechanics.Translational.Sources.LinearSpeedDependentForce
       linearSpeedDependentForce(f_nominal=-100, v_nominal=100)
-      annotation (Placement(transformation(extent={{40,50},{20,70}})));
+      annotation (Placement(transformation(extent={{40,70},{20,90}})));
     Modelica.Mechanics.Translational.Components.Mass mass2(
       m=1,
       s(fixed=true, start=0),
       v(fixed=true, start=100))
-      annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+      annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
     Modelica.Mechanics.Translational.Sources.QuadraticSpeedDependentForce
       quadraticSpeedDependentForce(f_nominal=-100, v_nominal=100)
-      annotation (Placement(transformation(extent={{40,20},{20,40}})));
+      annotation (Placement(transformation(extent={{40,40},{20,60}})));
     Modelica.Mechanics.Translational.Components.Mass mass3(
       m=1,
       s(fixed=true, start=0),
       v(fixed=true, start=100))
-      annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+      annotation (Placement(transformation(extent={{-40,10},{-20,30}})));
     Modelica.Mechanics.Translational.Sources.ConstantForce constantForce(
         f_constant=-100)
-      annotation (Placement(transformation(extent={{40,-10},{20,10}})));
+      annotation (Placement(transformation(extent={{40,10},{20,30}})));
     Modelica.Mechanics.Translational.Components.Mass mass4(
       m=1,
       s(fixed=true, start=0),
       v(fixed=true, start=100))
-      annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
+      annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
     Modelica.Mechanics.Translational.Sources.SignForce signForce(f_nominal=-100,
-        v0=1) annotation (Placement(transformation(extent={{40,-40},{20,-20}})));
+        v0=1) annotation (Placement(transformation(extent={{40,-20},{20,0}})));
     Modelica.Mechanics.Translational.Sources.EddyCurrentForce eddyCurrentForce(
       f_nominal=100,
       v_nominal=10,
       useHeatPort=true,
       TRef=293.15,
       alpha20(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper)
-      annotation (Placement(transformation(extent={{40,-70},{20,-50}})));
+      annotation (Placement(transformation(extent={{40,-50},{20,-30}})));
     Modelica.Mechanics.Translational.Components.Mass mass5(
       m=1,
       s(fixed=true, start=0),
       v(fixed=true, start=20))
-      annotation (Placement(transformation(extent={{-40,-70},{-20,-50}})));
+      annotation (Placement(transformation(extent={{-40,-50},{-20,-30}})));
     Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(C=1, T(
           fixed=true)) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=180,
-          origin={40,-90})));
+          origin={60,-60})));
+    Modelica.Mechanics.Translational.Components.Mass mass6(
+      m=1,
+      s(fixed=true, start=0),
+      v(fixed=true, start=100))
+      annotation (Placement(transformation(extent={{-40,-90},{-20,-70}})));
+    Modelica.Mechanics.Translational.Sources.InverseSpeedDependentForce inverseSpeedDependentForce(
+      f_nominal=-100,
+      v_nominal=100,
+      v0=1) annotation (Placement(transformation(extent={{40,-90},{20,-70}})));
   equation
     connect(mass1.flange_b, linearSpeedDependentForce.flange)
-      annotation (Line(points={{-20,60},{20,60}}, color={0,127,0}));
+      annotation (Line(points={{-20,80},{20,80}}, color={0,127,0}));
     connect(quadraticSpeedDependentForce.flange, mass2.flange_b)
-      annotation (Line(points={{20,30},{-20,30}}, color={0,127,0}));
+      annotation (Line(points={{20,50},{-20,50}}, color={0,127,0}));
     connect(constantForce.flange, mass3.flange_b)
-      annotation (Line(points={{20,0},{-20,0}}, color={0,127,0}));
+      annotation (Line(points={{20,20},{-20,20}},
+                                                color={0,127,0}));
     connect(signForce.flange, mass4.flange_b)
-      annotation (Line(points={{20,-30},{-20,-30}}, color={0,127,0}));
+      annotation (Line(points={{20,-10},{-20,-10}}, color={0,127,0}));
     connect(eddyCurrentForce.heatPort, heatCapacitor.port) annotation (Line(
-          points={{40,-70},{40,-80}}, color={191,0,0}));
-    connect(eddyCurrentForce.flange, mass5.flange_b) annotation (Line(points={{20,-60},{-20,-60}}, color={0,127,0}));
+          points={{40,-50},{60,-50}}, color={191,0,0}));
+    connect(eddyCurrentForce.flange, mass5.flange_b) annotation (Line(points={{20,-40},{-20,-40}}, color={0,127,0}));
+    connect(inverseSpeedDependentForce.flange, mass6.flange_b)
+      annotation (Line(points={{20,-80},{-20,-80}},   color={0,127,0}));
     annotation (
-      experiment(StopTime=2));
+      experiment(StopTime=2),
+      Diagram(coordinateSystem(extent={{-100,-100},{100,100}})));
   end TestBraking;
 
   model Vehicles

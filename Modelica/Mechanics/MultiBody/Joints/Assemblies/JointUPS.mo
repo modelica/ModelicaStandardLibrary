@@ -382,75 +382,106 @@ component).
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         initialScale=0.2), graphics={
-        Text(
-          extent={{-140,-50},{140,-75}},
-          textColor={0,0,255},
-          textString="%name"),
+        Rectangle(
+          extent={{-6,-7},{52,6}},
+          pattern=LinePattern.None,
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Rectangle(
+          extent={{-6,6},{52,10}},
+          pattern=LinePattern.None,
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
         Ellipse(
-          extent={{-100,-40},{-19,40}},
+          extent={{20,-40},{100,40}},
+          startAngle=-110,
+          endAngle=110,
+          lineColor={0,0,0},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          closure=EllipseClosure.Radial),
+        Ellipse(
+          extent={{30,-30},{90,30}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          startAngle=-115,
+          endAngle=115,
+          lineColor={255,255,255}),
+        Ellipse(
+          extent={{30,-30},{90,30}},
+          startAngle=-110,
+          endAngle=110,
+          lineColor={0,0,0},
+          closure=EllipseClosure.None),
+        Ellipse(
+          extent={{44,16},{76,-16}},
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}),
         Ellipse(
-          extent={{-90,-30},{-29,29}},
-          lineColor={160,160,164},
+          extent={{-100,-40},{-20,40}},
+          startAngle=90,
+          endAngle=270,
+          lineColor={64,64,64},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          closure=EllipseClosure.Radial),
+        Ellipse(
+          extent={{-90,-30},{-30,30}},
           fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{-60,41},{-9,-44}},
-          lineColor={255,255,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
+          fillPattern=FillPattern.Solid,
+          startAngle=85,
+          endAngle=275,
+          lineColor={255,255,255}),
+          Ellipse(
+          extent={{-90,-30},{-30,30}},
+          startAngle=90,
+          endAngle=270,
+          lineColor={64,64,64},
+          closure=EllipseClosure.None),
         Line(
           points={{-60,40},{-60,-40}},
           thickness=0.5),
         Ellipse(
-          extent={{-83,-17},{-34,21}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
-        Ellipse(
-          extent={{-74,-12},{-40,15}},
-          lineColor={160,160,164},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Polygon(
-          points={{-72,-20},{-89,3},{-69,25},{-45,27},{-72,-20}},
+          extent={{-90,-20},{-30,20}},
+          fillPattern=FillPattern.Solid,
+          fillColor={192,192,192},
+          startAngle=-124,
+          endAngle=56,
+          lineColor={64,64,64}),
+        Rectangle(
+          extent={{-34,-14},{0,14}},
           pattern=LinePattern.None,
-          fillColor={255,255,255},
+          fillColor={192,192,192},
           fillPattern=FillPattern.Solid,
           lineColor={0,0,255}),
+        Ellipse(
+          extent={{-80,-10},{-40,10}},
+          lineColor={255,255,255},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          startAngle=0,
+          endAngle=360),
+        Ellipse(
+          extent={{-80,-10},{-40,10}},
+          lineColor={64,64,64},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          startAngle=-113,
+          endAngle=63,
+          closure=EllipseClosure.None),
+        Line(
+          points={{-42,18},{-78,-18}},
+          thickness=0.5),
         Line(
           points={{-60,40},{-60,-10}},
           thickness=0.5),
-        Line(
-          points={{-49,20},{-69,-15}},
-          thickness=0.5),
-        Ellipse(
-          extent={{44,14},{73,-14}},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{20,-40},{100,40}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
-        Ellipse(
-          extent={{30,-30},{90,30}},
-          lineColor={192,192,192},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{-22,45},{40,-43}},
-          lineColor={255,255,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{45,14},{74,-14}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
         Text(
           extent={{-98,84},{-60,65}},
           textColor={128,128,128},
           textString="ia"),
         Line(
-          points={{-40,0},{-40,90},{-80,90},{-80,97}},
+          points={{-40,0},{-40,90},{-80,90},{-80,100}},
           color={95,95,95},
           thickness=0.5),
         Text(
@@ -458,30 +489,13 @@ component).
           textColor={128,128,128},
           textString="ib"),
         Rectangle(
-          extent={{-35,-13},{-6,14}},
-          pattern=LinePattern.None,
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Rectangle(
-          extent={{-35,14},{-6,18}},
+          extent={{-34,14},{0,18}},
           pattern=LinePattern.None,
           fillPattern=FillPattern.Solid,
           lineColor={0,0,255}),
-        Rectangle(
-          extent={{-6,-7},{46,6}},
-          pattern=LinePattern.None,
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Rectangle(
-          extent={{-6,6},{46,10}},
-          pattern=LinePattern.None,
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Line(points={{-6,-13},{-6,18}}),
+        Line(points={{0,-14},{0,18}}),
         Line(
-          points={{60,-1},{60,90},{80,90},{80,97}},
+          points={{60,0},{60,90},{80,90},{80,100}},
           color={95,95,95},
           thickness=0.5),
         Line(
@@ -497,5 +511,9 @@ component).
         Line(
           points={{-40,90},{-40,90},{-40,95}},
           color={95,95,95},
-          thickness=0.5)}));
+          thickness=0.5),
+        Text(
+          extent={{-75,-50},{75,-70}},
+          textColor={0,0,255},
+          textString="%name")}));
 end JointUPS;

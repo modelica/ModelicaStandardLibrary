@@ -252,64 +252,56 @@ component).
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         initialScale=0.2), graphics={
-        Text(
-          extent={{-140,-40},{140,-65}},
-          textColor={0,0,255},
-          textString="%name"),
-        Ellipse(
-          extent={{-100,-30},{-40,30}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
-        Ellipse(
-          extent={{-93,-22},{-48,23}},
-          lineColor={160,160,164},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
         Rectangle(
-          extent={{-63,33},{-39,-33}},
-          lineColor={255,255,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{-40,-30},{20,30}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
-        Ellipse(
-          extent={{-33,-22},{12,23}},
-          lineColor={192,192,192},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{-44,31},{-19,-30}},
-          lineColor={255,255,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{-23,10},{-3,-10}},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{19,6},{61,-6}},
+          extent={{10,6},{61,-6}},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={192,192,192}),
-        Text(
-          extent={{89,115},{132,92}},
-          textColor={128,128,128},
-          textString="ib"),
         Ellipse(
-          extent={{-80,11},{-60,-9}},
-          fillPattern=FillPattern.Solid),
+          extent={{-100,-24},{-52,24}},
+          startAngle=70,
+          endAngle=290,
+          lineColor={0,0,0},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          closure=EllipseClosure.Radial),
+        Ellipse(
+          extent={{-94,-18},{-58,18}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          startAngle=65,
+          endAngle=295,
+          lineColor={255,255,255}),
+          Ellipse(
+          extent={{-94,-18},{-58,18}},
+          startAngle=70,
+          endAngle=290,
+          lineColor={0,0,0},
+          closure=EllipseClosure.None),
+        Ellipse(
+          extent={{-34,-24},{14,24}},
+          startAngle=-110,
+          endAngle=110,
+          lineColor={0,0,0},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          closure=EllipseClosure.Radial),
+        Ellipse(
+          extent={{-28,-18},{8,18}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          startAngle=-115,
+          endAngle=115,
+          lineColor={255,255,255}),
+          Ellipse(
+          extent={{-28,-18},{8,18}},
+          startAngle=-110,
+          endAngle=110,
+          lineColor={0,0,0},
+          closure=EllipseClosure.None),
         Rectangle(
-          extent={{-62,6},{-21,-5}},
+          extent={{-76,5},{-10,-5}},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={192,192,192}),
-        Line(
-          points={{19,6},{19,80},{0,80},{0,100}},
-          color={95,95,95},
-          thickness=0.5),
-        Text(
-          extent={{-49,114},{-11,92}},
-          textColor={128,128,128},
-          textString="im"),
         Rectangle(
           extent={{50,20},{80,-20}},
           fillColor={192,192,192},
@@ -339,5 +331,29 @@ component).
         Line(
           points={{99,40},{90,40},{90,30}},
           color={95,95,95},
-          thickness=0.5)}));
+          thickness=0.5),
+          Ellipse(
+            extent={{-20,10},{0,-10}},
+            fillPattern=FillPattern.Sphere,
+            fillColor={192,192,192}),
+          Ellipse(
+            extent={{-86,10},{-66,-10}},
+            fillPattern=FillPattern.Sphere,
+            fillColor={192,192,192}),
+        Line(
+          points={{14,0},{14,80},{0,80},{0,100}},
+          color={95,95,95},
+          thickness=0.5),
+        Text(
+          extent={{-43,110},{-10,90}},
+          textColor={128,128,128},
+          textString="im"),
+        Text(
+          extent={{40,110},{77,90}},
+          textColor={128,128,128},
+          textString="ib"),
+        Text(
+          extent={{-75,-50},{75,-70}},
+          textColor={0,0,255},
+          textString="%name")}));
 end JointSSP;

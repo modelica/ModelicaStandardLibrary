@@ -70,34 +70,22 @@ equation
   r_rel_a = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
 
   // Constraint equations concerning translations
-  if x_locked and y_locked and z_locked then
-    r_rel_a=zeros(3);
-  elseif x_locked and y_locked and not z_locked then
+  if x_locked then
     r_rel_a[1]=0;
-    r_rel_a[2]=0;
-    frame_a.f[3]=0;
-  elseif x_locked and not y_locked and z_locked then
-    r_rel_a[1]=0;
-    r_rel_a[3]=0;
-    frame_a.f[2]=0;
-  elseif x_locked and not y_locked and not z_locked then
-    r_rel_a[1]=0;
-    frame_a.f[2]=0;
-    frame_a.f[3]=0;
-  elseif not x_locked and y_locked and z_locked then
-    r_rel_a[2]=0;
-    r_rel_a[3]=0;
-    frame_a.f[1]=0;
-  elseif not x_locked and y_locked and not z_locked then
-    r_rel_a[2]=0;
-    frame_a.f[1]=0;
-    frame_a.f[3]=0;
-  elseif not x_locked and not y_locked and z_locked then
-    r_rel_a[3]=0;
-    frame_a.f[1]=0;
-    frame_a.f[2]=0;
   else
-    frame_a.f=zeros(3);
+    frame_a.f[1]=0;
+  end if;
+
+  if y_locked then
+    r_rel_a[2]=0;
+  else
+    frame_a.f[2]=0;
+  end if;
+
+  if z_locked then
+    r_rel_a[3]=0;
+  else
+    frame_a.f[3]=0;
   end if;
 
   // Constraint equations concerning rotations
@@ -117,7 +105,7 @@ equation
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
         Text(
-          extent={{-63,-63},{53,-93}},
+          extent={{-150,-110},{150,-80}},
           textString="n=%n"),
         Rectangle(
           extent={{-100,-60},{-30,60}},
@@ -133,28 +121,20 @@ equation
           radius=10),
         Rectangle(extent={{-100,60},{-30,-60}}, lineColor={64,64,64}, radius=10),
         Rectangle(extent={{30,60},{100,-60}}, lineColor={64,64,64}, radius=10),
-        Text(
-          extent={{-90,14},{-54,-11}},
-          textColor={128,128,128},
-          textString="a"),
-        Text(
-          extent={{51,11},{87,-14}},
-          textColor={128,128,128},
-          textString="b"),
         Rectangle(
           extent={{-30,11},{30,-10}},
           lineColor={64,64,64},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
         Line(
-          points={{-81,-66},{-23,25},{40,-39},{97,71}},
+          points={{-90,-70},{-25,30},{25,-30},{90,70}},
           color={255,0,0},
           thickness=0.5),
         Text(
-          extent={{-49,82},{45,59}},
+          extent={{-100,40},{100,20}},
           textString="constraint"),
         Text(
-          extent={{-150,120},{150,80}},
+          extent={{-150,110},{150,70}},
           textColor={0,0,255},
           textString="%name")}),
       Documentation(info="<html>

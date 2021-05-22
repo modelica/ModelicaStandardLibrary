@@ -1,6 +1,7 @@
 within Modelica.Magnetic.FundamentalWave.BasicMachines;
 package SynchronousMachines "Synchronous machines"
   extends Modelica.Icons.VariantsPackage;
+
   annotation (Documentation(info="<html>
 <p>This package contains various synchronous machine models.</p>
 

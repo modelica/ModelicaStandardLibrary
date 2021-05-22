@@ -4,6 +4,7 @@ Conductor
 Capacitor
 Inductor
 Impedance
+Transformer
 Admittance
 VariableResistor
 VariableConductor

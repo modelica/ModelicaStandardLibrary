@@ -722,7 +722,7 @@ The pressure loss characteristic is divided into three regions:
      Therefore:
      <blockquote><pre>
 dp = 128*&mu;*L/(&pi;*D^4*&rho;)*m_flow
-     </pre></blockquote><br>&nbsp;
+     </pre></blockquote>
 </li>
 
 <li> <strong>Region 3</strong>:

@@ -37,3 +37,5 @@ clutch.startBackward
 clutch.startForward
 gear2_1.lossyGear.mode
 lossyGear.mode
+coupling.w
+coupling.tau

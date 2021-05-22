@@ -1,6 +1,6 @@
 within Modelica.Clocked.RealSignals.Sampler;
 block ShiftSample
-  "Shift the clocked Real input signal by a fraction of the last interval and and provide it as clocked output signal"
+  "Shift the clocked Real input signal by a fraction of the last interval and provide it as clocked output signal"
 
   parameter Integer shiftCounter(min=0)=0 "Numerator of shifting formula"
         annotation(Evaluate=true, Dialog(group="Shift first clock activation for 'shiftCounter/resolution*interval(u)' seconds"));

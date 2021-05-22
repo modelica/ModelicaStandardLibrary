@@ -2385,11 +2385,20 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Sources</strong></td></tr>
+<tr><td>CombiTimeTable</td>
+    <td>Added support of reading CSV files.</td></tr>
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Tables</strong></td></tr>
+<tr><td>CombiTable1Ds<br>CombiTable1Dv<br>CombiTable2Ds<br>CombiTable2Dv</td>
+    <td>Added support of reading CSV files.</td></tr>
 <tr><td colspan=\"2\"><strong>Mechanics.Rotational.Components</strong></td></tr>
 <tr><td>BearingFriction</td>
     <td>The table interpolation in <code>tau_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td></tr>
 <tr><td>LossyGear</td>
     <td>The table interpolation in <code>lossTable</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Translational.Components</strong></td></tr>
+<tr><td>SupportFriction</td>
+    <td>The table interpolation in <code>f_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td></tr>
 </table>
 
 <p><br>
@@ -2399,6 +2408,9 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><strong>Mechanics.Rotational.Components</strong></td></tr>
 <tr><td>Brake<br>Clutch<br>OneWayClutch</td>
+    <td>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.<br>The public variable <code>mu0</code> was changed to a protected final parameter.</td></tr>
+<tr><td colspan=\"2\"><strong>Mechanics.Translational.Components</strong></td></tr>
+<tr><td>Brake</td>
     <td>The table interpolation in <code>mu_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.<br>The public variable <code>mu0</code> was changed to a protected final parameter.</td></tr>
 </table>
 
@@ -3547,8 +3559,7 @@ and will interpret it in the same way. Short Overview:
      </li>
 
 <li> An open source implementation of the <strong>table blocks</strong> has been provided
-     by <a href=\"http://www.itisim.com\">ITI GmbH</a>. This work has been
-     <a href=\"https://www.modelica.org/news_items/call-texts-to-improve-modelica-2012/2012-12-20-Call-for-quotation-for-MSL-tables.pdf/at_download/file\">paid by Modelica Association</a>.
+     by <a href=\"http://www.itisim.com\">ITI GmbH</a>. This work has been paid by Modelica Association.
      As a result, all parts of package Modelica are now available
      in a free implementation. Additionally new features have been added to the table blocks
      by this implementation:

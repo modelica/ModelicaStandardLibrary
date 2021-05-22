@@ -132,6 +132,10 @@
                      ModelicaInternal_getFullPath
 */
 
+#if defined(__gnu_linux__) && !defined(NO_FILE_SYSTEM)
+#define _GNU_SOURCE 1
+#endif
+
 #include "ModelicaInternal.h"
 #include "ModelicaUtilities.h"
 
@@ -207,6 +211,8 @@ void ModelicaInternal_setenv(_In_z_ const char* name,
   #define _POSIX_ 1
 #endif
 
+#include "stdint_wrap.h"
+#define HASH_NO_STDINT 1
 #define HASH_NONFATAL_OOM 1
 #include "uthash.h"
 #include "gconstructor.h"
@@ -814,7 +820,6 @@ static void CloseCachedFile(const char* fileName) {
 static FILE* ModelicaStreams_openFileForReading(const char* fileName, int lineNumber, int* lineNumberOffset, char** buf, int* bufLen) {
     /* Open text file for reading */
     FILE* fp;
-    int c = 1;
     FileCache* fv;
     size_t len = strlen(fileName);
     *lineNumberOffset = 0;

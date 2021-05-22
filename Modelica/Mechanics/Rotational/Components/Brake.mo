@@ -6,7 +6,7 @@ model Brake "Brake based on Coulomb friction"
   import Modelica.Blocks.Tables.Internal.{getTable1DValue, getTable1DValueNoDer, getTable1DValueNoDer2};
 
   parameter Real mu_pos[:, 2] = [0, 0.5]
-    "Positive sliding friction coefficient [-] as function of w_rel [rad/s] (w_rel>=0)";
+    "Positive sliding friction coefficient [-] as function of w [rad/s] (w>=0)";
   parameter Smoothness smoothness = Smoothness.LinearSegments
     "Smoothness of table interpolation in mu_pos";
   parameter Real peak(final min=1) = 1
@@ -50,7 +50,7 @@ protected
     "Friction coefficient for w=0 and forward sliding";
 
   Real table_signs[2]
-    "Signs for sliding friction coefficient table interpolation: [sign for w_rel, sign for mu]";
+    "Signs for sliding friction coefficient table interpolation: [sign for w, sign for mu]";
 
 equation
   assert(size(mu_pos, 1) > 0 and size(mu_pos, 2) > 0, "Parameter mu_pos is an empty matrix");
@@ -64,7 +64,7 @@ equation
   w_relfric = w;
   a_relfric = a;
 
-  // Friction torque, normal force and friction torque for w_rel=0
+  // Friction torque, normal force and friction torque for w=0
   flange_a.tau + flange_b.tau - tau = 0;
   fn = fn_max*f_normalized;
   tau0 = mu0*cgeo*fn;

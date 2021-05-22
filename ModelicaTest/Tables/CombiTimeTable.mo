@@ -1158,4 +1158,14 @@ double mydummyfunc(double* dummy_in) {
       connect(t_new_4.y[1],d_t_new_4.u) annotation(Line(points={{-19,-80},{-2,-80}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=9));
   end Test88;
+
+  model Test89 "CSV file (Ticket #3691)"
+    extends Modelica.Icons.Example;
+    extends TestDer(t_new(
+        tableOnFile=true,
+        delimiter=",",
+        nHeaderLines=1,
+        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test1D.csv")));
+    annotation (experiment(StartTime=0, StopTime=100));
+  end Test89;
 end CombiTimeTable;

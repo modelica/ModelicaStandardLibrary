@@ -9,3 +9,5 @@ inertia4.phi
 inertia4.w
 inertia5.phi
 inertia5.w
+inertia6.phi
+inertia6.w

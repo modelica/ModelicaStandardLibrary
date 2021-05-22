@@ -27,7 +27,7 @@ it can be redistributed and/or modified under the terms of the [3-Clause BSD Lic
 
 ## Status
 
-[![CI checks](https://travis-ci.org/modelica/ModelicaStandardLibrary.svg?branch=master)](https://travis-ci.org/modelica/ModelicaStandardLibrary) [![CLA assistant](https://cla-assistant.io/readme/badge/modelica/ModelicaStandardLibrary)](https://cla-assistant.io/modelica/ModelicaStandardLibrary)
+[![CI checks](https://github.com/modelica/ModelicaStandardLibrary/workflows/CI/badge.svg)](https://github.com/modelica/ModelicaStandardLibrary/actions) [![CLA assistant](https://cla-assistant.io/readme/badge/modelica/ModelicaStandardLibrary)](https://cla-assistant.io/modelica/ModelicaStandardLibrary)
 
 ## Development and contribution
 

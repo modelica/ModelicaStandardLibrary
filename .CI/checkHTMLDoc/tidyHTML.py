@@ -34,7 +34,7 @@ def _tidyHTML(doc):
     for error in error_list:
         error = error.rstrip().split('\n')
         for err in error:
-            if err is not '' and not any(id in err for id in IGNORE_IDS):
+            if bool(err) and not any(id in err for id in IGNORE_IDS):
                 errors.append(err)
 
     return errors

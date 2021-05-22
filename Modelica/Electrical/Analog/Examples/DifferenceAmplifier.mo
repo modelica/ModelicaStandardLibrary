@@ -105,7 +105,7 @@ equation
   annotation (
     Documentation(info="<html>
 <p>It is a simple NPN transistor amplifier circuit. The voltage difference between R1.p and R3.n is amplified. The output signal is the voltage between R2.n and R4.n. In this example the voltage at V1 is amplified because R3.n is grounded.</p>
-<p>The simulation end time should be set to 1e- 8. Please plot the input voltage V1.v, and the output voltages R2.n.v, and R4.n.v.</p>
+<p>The simulation end time should be set to 1e-8. Please plot the input voltage V1.v, and the output voltages R2.n.v, and R4.n.v.</p>
 <p><strong>Reference:</strong></p>
 <p>Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin Heidelberg NewYork 1980, p. 59</p>
 </html>",
@@ -126,7 +126,7 @@ Christoph Clau&szlig;
 </dd>
 </dl>
 </html>"),
-    experiment(StopTime=1),
+    experiment(StopTime=1e-8),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
             100,100}}), graphics={Text(
           extent={{-98,106},{22,60}},

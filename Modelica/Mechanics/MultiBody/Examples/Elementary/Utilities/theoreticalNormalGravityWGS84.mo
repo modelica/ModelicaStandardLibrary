@@ -40,7 +40,7 @@ algorithm
   annotation (Documentation(info="<html>
 <p>
 Function that computes the theoretical gravity of the
-<a href=\"https://earth-info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf\">WGS84 ellipsoid earth model</a> at and close to the earth ellipsoid surface, for the
+<a href=\"https://earth-info.nga.mil/php/download.php?file=coord-wgs84\">WGS84 ellipsoid earth model</a> at and close to the earth ellipsoid surface, for the
 given \"geodeticLatitude\" and the given \"height=r[2]\" over the
 ellipsoid surface.
 </p>
