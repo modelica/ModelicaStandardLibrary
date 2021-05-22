@@ -8,7 +8,7 @@ class References "References"
     <tr>
       <td>[Lutz2012]</td>
       <td>Holger Lutz and Wolfgang Wendt,
-        <em>Taschennuch der Regelungstechnik</em>, Verlag Harri Deutsch, 2012.
+        <em>Taschenbuch der Regelungstechnik</em>, Verlag Harri Deutsch, 2012.
       </td>
     </tr>
 
