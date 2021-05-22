@@ -50,7 +50,7 @@ package Constants
     "Stefan-Boltzmann constant ";
   final constant Real N_A(final unit="1/mol") = 6.02214076e23
     "Avogadro constant";
-  final constant Real mu_0(final unit="N/A2") = 4*pi*1.00000000055e-7 "Magnetic constant";
+  final constant SI.Permeability mu_0 = 4*pi*1.00000000055e-7 "Magnetic constant";
   final constant Real epsilon_0(final unit="F/m") = 1/(mu_0*c*c)
     "Electric constant";
   final constant NonSI.Temperature_degC T_zero=-273.15
