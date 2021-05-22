@@ -281,7 +281,6 @@ equation
     connect(s[i].refPin,refPin);
     connect(s[i].refPin, ground.p);
   end for;
-
   if useHeatPort then
     connect(heatPort, s_first.heatPort);
     for i in 1:N - 1 loop
