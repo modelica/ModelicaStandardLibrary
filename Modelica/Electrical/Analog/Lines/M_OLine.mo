@@ -109,11 +109,11 @@ public
       connect(inductance.n[j], C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
         2))].p);
       connect(C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n, ground.p);
-      connect(C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n,refPin);
+      connect(C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n, refPin);
       connect(inductance.n[j], G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
         2))].p);
       connect(G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n, ground.p);
-      connect(G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n,refPin);
+      connect(G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n, refPin);
 
       for i in j + 1:lines loop
         connect(inductance.n[j], C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
@@ -132,10 +132,10 @@ public
     connect(inductance.n[lines], n[lines]);
     connect(inductance.n[lines], C[dim_vector_lgc].p);
     connect(C[dim_vector_lgc].n, ground.p);
-    connect(C[dim_vector_lgc].n,refPin);
+    connect(C[dim_vector_lgc].n, refPin);
     connect(inductance.n[lines], G[dim_vector_lgc].p);
     connect(G[dim_vector_lgc].n, ground.p);
-    connect(G[dim_vector_lgc].n,refPin);
+    connect(G[dim_vector_lgc].n, refPin);
 
     if useHeatPort then
 
@@ -262,10 +262,10 @@ public
   Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
     annotation (Placement(transformation(extent={{90,-60},{110,60}})));
 
-  Interfaces.NegativePin  refPin if not useInternalGround "Reference pin"
+  Modelica.Electrical.Analog.Interfaces.NegativePin refPin if not useInternalGround "Reference pin"
     annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
         iconTransformation(extent={{-10,-110},{10,-90}})));
-  Basic.Ground ground if useInternalGround
+  Modelica.Electrical.Analog.Basic.Ground ground if useInternalGround
     annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
 equation
   connect(p, s_first.p);
@@ -275,10 +275,10 @@ equation
   end for;
   connect(s[N - 1].n, s_last.p);
   connect(s_last.n, n);
-  connect(s_first.refPin,refPin);
+  connect(s_first.refPin, refPin);
   connect(s_first.refPin, ground.p);
   for i in 1:N-1 loop
-    connect(s[i].refPin,refPin);
+    connect(s[i].refPin, refPin);
     connect(s[i].refPin, ground.p);
   end for;
   if useHeatPort then
