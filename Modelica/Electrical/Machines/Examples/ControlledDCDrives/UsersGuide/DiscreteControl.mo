@@ -3,10 +3,11 @@ class DiscreteControl "Concept of quasi-continuous discrete control"
   extends Modelica.Icons.Information;
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
+According to <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.References\">[Latzel1995]</a> we can state: 
 Provided the sampling frequency of the I/O between controller and drive is much higher than the eigenvalues of the drive, 
 and the sum of small time constants due to the delays in setting the desired voltage and mesuring the actual current into account,
 the controller can be designed as a time-continuous controller. 
-These delay have to be investigated acoording to the used implementation. 
+These delays have to be investigated acoording to the used implementation. 
 In these examples, timing is used according to Fig. 1. 
 Here a triangle is used as the reference signal of the intersective pwm. 
 Therefore sampling at the middle of the switching interval hits the average of the current with high accuracy. 
