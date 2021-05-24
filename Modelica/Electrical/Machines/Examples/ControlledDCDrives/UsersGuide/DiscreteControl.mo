@@ -24,7 +24,7 @@ There are two choices for the DC-DC inverter that can be compared:
 </p>
 <ul>
 <li>Switching inverter: Reference voltage and actual current are sampled once during the switching interval, thus defining the delays (see Fig. 1).</li>
-<li>Averaging inverter: The delays are approximated using first order - blocks.</li>
+<li>Averaging inverter: The delays are approximated using first order blocks.</li>
 </ul>
 <p>
 Investigating the correct parameterization of the controller or the energy consumption, the averaging inverter is sufficient and shows much higher performance. 
