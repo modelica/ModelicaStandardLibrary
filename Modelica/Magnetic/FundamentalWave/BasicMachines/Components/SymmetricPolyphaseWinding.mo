@@ -74,8 +74,10 @@ model SymmetricPolyphaseWinding
   Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter electroMagneticConverter(
     final m=m,
     final effectiveTurns=fill(effectiveTurns, m),
-    final orientation=
-        Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m))
+    final orientation=Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
+    final useStrayPermeance=(ratioCommonLeakage<(1 - eps)),
+    final G_m_sigma(d=2/m*(1 - ratioCommonLeakage)*Lsigma/effectiveTurns^2, q=2
+          /m*(1 - ratioCommonLeakage)*Lsigma/effectiveTurns^2))
     "Symmetric winding"
     annotation (Placement(transformation(extent={{-10,-20},{10,0}})));
   Modelica.Electrical.Polyphase.Basic.ZeroInductor zeroInductor(final m=m, final Lzero=Lzero) if
@@ -111,20 +113,13 @@ model SymmetricPolyphaseWinding
     "Core loss model (currently eddy currents only)" annotation (Placement(
         transformation(extent={{-10,-10},{10,10}}, origin={50,-40})));
   Modelica.Magnetic.FundamentalWave.Components.Permeance stray(final G_m(
-    d=2*ratioCommonLeakage*Lsigma/m/effectiveTurns^2,
-    q=2*ratioCommonLeakage*Lsigma/m/effectiveTurns^2)) if ratioCommonLeakage>eps
+    d=2/m*ratioCommonLeakage*Lsigma/effectiveTurns^2,
+    q=2/m*ratioCommonLeakage*Lsigma/effectiveTurns^2)) if ratioCommonLeakage>eps
     "Stray permeance equivalent to ideally coupled stray inductances" annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={80,30})));
 
-  Modelica.Magnetic.FundamentalWave.Components.Permeance strayIndividual(final G_m(
-    d=2*(1 - ratioCommonLeakage)*Lsigma/m/effectiveTurns^2,
-    q=2*(1 - ratioCommonLeakage)*Lsigma/m/effectiveTurns^2)) if ratioCommonLeakage<(1 - eps)
-    "Individual stray permeance" annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={20,-10})));
 equation
   connect(plug_p, resistor.plug_p) annotation (Line(points={{-100,100},{-20,
           100},{-20,80}}, color={0,0,255}));
@@ -154,10 +149,6 @@ equation
     annotation (Line(points={{-20,60},{-20,40},{-10,40}}, color={0,0,255}));
   connect(electroMagneticConverter.plug_p, short.plug_n) annotation (Line(
         points={{-10,0},{-20,0},{-20,20},{-10,20}},     color={0,0,255}));
-  connect(electroMagneticConverter.port_n, strayIndividual.port_n)
-    annotation (Line(points={{10,-20},{20,-20}}, color={255,128,0}));
-  connect(electroMagneticConverter.port_p, strayIndividual.port_p)
-    annotation (Line(points={{10,0},{20,0}}, color={255,128,0}));
   annotation (defaultComponentName="winding", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={
         Line(points={{100,-100},{94,-100},{84,-98},{76,-94},{64,-86},{50,

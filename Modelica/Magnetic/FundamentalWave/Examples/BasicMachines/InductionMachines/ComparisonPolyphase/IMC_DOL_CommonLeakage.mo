@@ -168,9 +168,9 @@ model IMC_DOL_CommonLeakage
     useSupport=false) annotation (Placement(transformation(extent={{80,-80},{60,
             -60}})));
 initial equation
-  aimc0.is[1:2] = zeros(2);
+  aimc0.is[1:4] = zeros(4);
   aimc0.rotorCage.electroMagneticConverter.Phi = Complex(0, 0);
-  aimcH.is[1:2] = zeros(2);
+  aimcH.is[1:4] = zeros(4);
   aimcH.rotorCage.electroMagneticConverter.Phi = Complex(0, 0);
   aimc1.is[1:2] = zeros(2);
   aimc1.rotorCage.electroMagneticConverter.Phi = Complex(0, 0);

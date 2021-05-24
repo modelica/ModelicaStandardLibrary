@@ -57,5 +57,12 @@ Therefore this splitted stray inductance is only modeled in the <a href=\"Modeli
 The parameter <code>ratioCommonLeakage</code> has a default of 1, which is perfectly backwards compatible.
 </p>
 
+<h4>Note:</h4>
+<p>
+For a model with <code>ratioCommonLeakage &lt; 1 - eps</code> (including indvidual stray inductances) 
+typically more states have to be inialized than
+for a model with <code>ratioCommonLeakage = 1</code> (without indvidual stray inductances).
+</p>
+
 </html>"));
 end WindingModel;
