@@ -53,7 +53,7 @@ public
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}}), iconTransformation(extent={{-110,-10},{-90,10}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
       annotation (Placement(transformation(extent={{90,-10},{110,10}}), iconTransformation(extent={{90,-10},{110,10}})));
-    Modelica.Electrical.Analog.Interfaces.NegativePin refPin if not useInternalGround
+    Modelica.Electrical.Analog.Interfaces.NegativePin refPin
       "Reference pin"
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-10,-110},{10,-90}})));
@@ -65,8 +65,6 @@ public
       "Inductance matrix";
     parameter Real Gl[dim_vector_lgc]=fill(1, dim_vector_lgc)
       "Conductance matrix";
-    parameter Boolean useInternalGround=true "Default: false = use internal ground / true = use reference pin"
-      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter SI.LinearTemperatureCoefficient alpha_R
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
     parameter SI.LinearTemperatureCoefficient alpha_G
@@ -98,8 +96,6 @@ public
       useHeatPort=fill(useHeatPort, dim_vector_lgc),
       T=fill(T, dim_vector_lgc));
     Modelica.Electrical.Analog.Basic.M_Transformer inductance(N=lines, L=Ll);
-    Modelica.Electrical.Analog.Basic.Ground ground if useInternalGround
-      annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
   equation
     for j in 1:lines - 1 loop
 
@@ -108,11 +104,9 @@ public
       connect(inductance.n[j], n[j]);
       connect(inductance.n[j], C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
         2))].p);
-      connect(C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n, ground.p);
       connect(C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n,refPin);
       connect(inductance.n[j], G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
         2))].p);
-      connect(G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n, ground.p);
       connect(G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n,refPin);
 
       for i in j + 1:lines loop
@@ -131,10 +125,8 @@ public
     connect(R[lines].n, inductance.p[lines]);
     connect(inductance.n[lines], n[lines]);
     connect(inductance.n[lines], C[dim_vector_lgc].p);
-    connect(C[dim_vector_lgc].n, ground.p);
     connect(C[dim_vector_lgc].n,refPin);
     connect(inductance.n[lines], G[dim_vector_lgc].p);
-    connect(G[dim_vector_lgc].n, ground.p);
     connect(G[dim_vector_lgc].n,refPin);
 
     if useHeatPort then
