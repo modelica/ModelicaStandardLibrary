@@ -1,6 +1,7 @@
 within Modelica.Magnetic.FundamentalWave.BasicMachines.Components;
 model SymmetricPolyphaseWinding
   "Symmetric winding model coupling electrical and magnetic domain"
+  import Modelica.Constants.eps;
   // Orientation changed
   Modelica.Electrical.Polyphase.Interfaces.PositivePlug plug_p(final m=m)
     "Positive plug" annotation (Placement(transformation(
@@ -40,6 +41,8 @@ model SymmetricPolyphaseWinding
     annotation (Dialog(enable=not useHeatPort));
   parameter SI.Inductance Lsigma
     "Winding stray inductance per phase";
+  parameter Real ratioCommonLeakage(final min=0, final max=1)=1
+    "Ratio of common stray inductance / total stray inductance";
   parameter SI.Inductance Lzero
     "Zero sequence inductance of winding";
   parameter Real effectiveTurns=1 "Effective number of turns per phase";
@@ -74,7 +77,7 @@ model SymmetricPolyphaseWinding
     final orientation=
         Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m))
     "Symmetric winding"
-    annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
+    annotation (Placement(transformation(extent={{-10,-20},{10,0}})));
   Modelica.Electrical.Polyphase.Basic.ZeroInductor zeroInductor(final m=m, final Lzero=Lzero) if
        mBase<>2 "Zero sequence inductance of winding"
     annotation (Placement(transformation(
@@ -107,39 +110,54 @@ model SymmetricPolyphaseWinding
         useHeatPort, final G=(m/2)*GcRef*effectiveTurns^2)
     "Core loss model (currently eddy currents only)" annotation (Placement(
         transformation(extent={{-10,-10},{10,10}}, origin={50,-40})));
-  Modelica.Magnetic.FundamentalWave.Components.Permeance stray(
-    final G_m(d=2*Lsigma/m/effectiveTurns^2, q=2*Lsigma/m/effectiveTurns^2))
+  Modelica.Magnetic.FundamentalWave.Components.Permeance stray(final G_m(
+    d=2*ratioCommonLeakage*Lsigma/m/effectiveTurns^2,
+    q=2*ratioCommonLeakage*Lsigma/m/effectiveTurns^2)) if ratioCommonLeakage>eps
     "Stray permeance equivalent to ideally coupled stray inductances" annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={80,30})));
 
+  Modelica.Magnetic.FundamentalWave.Components.Permeance strayIndividual(final G_m(
+    d=2*(1 - ratioCommonLeakage)*Lsigma/m/effectiveTurns^2,
+    q=2*(1 - ratioCommonLeakage)*Lsigma/m/effectiveTurns^2)) if ratioCommonLeakage<(1 - eps)
+    "Individual stray permeance" annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=270,
+        origin={20,-10})));
 equation
   connect(plug_p, resistor.plug_p) annotation (Line(points={{-100,100},{-20,
           100},{-20,80}}, color={0,0,255}));
   connect(resistor.plug_n, zeroInductor.plug_p) annotation (Line(points={{-20,60},
           {-20,55},{-20,40},{-30,40}}, color={0,0,255}));
   connect(electroMagneticConverter.plug_n, plug_n) annotation (Line(
-        points={{-10,-40},{-10,-40},{-100,-40},{-100,-100}}, color={0,0,
+        points={{-10,-20},{-20,-20},{-20,-40},{-100,-40},{-100,-100}},
+                                                             color={0,0,
           255}));
   connect(electroMagneticConverter.port_p, port_p) annotation (Line(
-        points={{10,-20},{10,100},{100,100}}, color={255,128,0}));
+        points={{10,0},{10,100},{100,100}},   color={255,128,0}));
   connect(resistor.heatPort, heatPortWinding) annotation (Line(
       points={{-30,70},{-40,70},{-40,-100}}, color={191,0,0}));
   connect(electroMagneticConverter.port_n, core.port_p) annotation (Line(
-      points={{10,-40},{40,-40}}, color={255,128,0}));
+      points={{10,-20},{10,-40},{40,-40}},
+                                  color={255,128,0}));
   connect(core.port_n, port_n) annotation (Line(
       points={{60,-40},{100,-40},{100,-100}}, color={255,128,0}));
   connect(core.heatPort, heatPortCore) annotation (Line(
       points={{40,-50},{40,-100}}, color={191,0,0}));
   connect(stray.port_n, core.port_n) annotation (Line(points={{80,20},{80,-40},{60,-40}}, color={255,128,0}));
-  connect(stray.port_p, electroMagneticConverter.port_p) annotation (Line(points={{80,40},{80,100},{10,100},{10,-20}}, color={255,128,0}));
+  connect(stray.port_p, electroMagneticConverter.port_p) annotation (Line(points={{80,40},
+          {80,100},{10,100},{10,0}},                                                                                   color={255,128,0}));
   connect(zeroInductor.plug_n, electroMagneticConverter.plug_p) annotation (
-      Line(points={{-30,20},{-20,20},{-20,-20},{-10,-20}}, color={0,0,255}));
+      Line(points={{-30,20},{-20,20},{-20,0},{-10,0}},     color={0,0,255}));
   connect(resistor.plug_n, short.plug_p)
     annotation (Line(points={{-20,60},{-20,40},{-10,40}}, color={0,0,255}));
   connect(electroMagneticConverter.plug_p, short.plug_n) annotation (Line(
-        points={{-10,-20},{-20,-20},{-20,20},{-10,20}}, color={0,0,255}));
+        points={{-10,0},{-20,0},{-20,20},{-10,20}},     color={0,0,255}));
+  connect(electroMagneticConverter.port_n, strayIndividual.port_n)
+    annotation (Line(points={{10,-20},{20,-20}}, color={255,128,0}));
+  connect(electroMagneticConverter.port_p, strayIndividual.port_p)
+    annotation (Line(points={{10,0},{20,0}}, color={255,128,0}));
   annotation (defaultComponentName="winding", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={
         Line(points={{100,-100},{94,-100},{84,-98},{76,-94},{64,-86},{50,

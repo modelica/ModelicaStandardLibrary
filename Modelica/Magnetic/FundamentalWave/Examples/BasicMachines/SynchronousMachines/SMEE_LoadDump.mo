@@ -31,6 +31,7 @@ model SMEE_LoadDump
     smee(
     fsNominal=smeeData.fsNominal,
     TsRef=smeeData.TsRef,
+    ratioCommonStatorLeakage=smeeData.ratioCommonStatorLeakage,
     Lrsigmad=smeeData.Lrsigmad,
     Lrsigmaq=smeeData.Lrsigmaq,
     Rrd=smeeData.Rrd,
@@ -78,11 +79,9 @@ model SMEE_LoadDump
     TsSpecification=293.15,
     TsRef=293.15,
     alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
     TrSpecification=293.15,
     TrRef=293.15,
     alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
     TeSpecification=293.15,
     TeRef=293.15,
     alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero)

@@ -61,6 +61,7 @@ model IMC_DOL
     TsRef=aimcData.TsRef,
     alpha20s(displayUnit="1/K") = aimcData.alpha20s,
     Lssigma=aimcData.Lssigma,
+    ratioCommonStatorLeakage=aimcData.ratioCommonStatorLeakage,
     Lszero=aimcData.Lszero,
     frictionParameters=aimcData.frictionParameters,
     statorCoreParameters=aimcData.statorCoreParameters,

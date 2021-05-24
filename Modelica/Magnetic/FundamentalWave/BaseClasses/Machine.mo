@@ -33,6 +33,9 @@ partial model Machine "Base model of machines"
   parameter SI.Inductance Lssigma(start=3*(1 - sqrt(1 -
         0.0667))/(2*pi*fsNominal)) "Stator stray inductance"
     annotation (Dialog(tab="Nominal resistances and inductances"));
+  parameter Real ratioCommonStatorLeakage(final min=0, final max=1)=1
+    "Ratio of common stray inductance / total stray inductance of stator winding"
+    annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter SI.Inductance Lszero=Lssigma
     "Stator zero inductance"
     annotation (Dialog(tab="Nominal resistances and inductances"));
@@ -112,6 +115,7 @@ partial model Machine "Base model of machines"
     final RRef=Rs,
     final TRef=TsRef,
     final Lsigma=Lssigma,
+    final ratioCommonLeakage=ratioCommonStatorLeakage,
     final effectiveTurns=effectiveStatorTurns,
     final TOperational=TsOperational,
     final GcRef=statorCoreParameters.GcRef,

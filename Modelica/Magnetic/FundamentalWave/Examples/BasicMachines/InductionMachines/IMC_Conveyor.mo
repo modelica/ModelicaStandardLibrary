@@ -22,6 +22,7 @@ model IMC_Conveyor
     alpha20s(displayUnit="1/K") = aimcData.alpha20s,
     Jr=aimcData.Jr,
     Js=aimcData.Js,
+    ratioCommonStatorLeakage=aimcData.ratioCommonStatorLeakage,
     frictionParameters=aimcData.frictionParameters,
     phiMechanical(fixed=true),
     wMechanical(fixed=true),

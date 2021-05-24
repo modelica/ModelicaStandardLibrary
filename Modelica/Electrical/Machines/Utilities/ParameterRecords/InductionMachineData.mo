@@ -23,6 +23,9 @@ record InductionMachineData "Common parameters for induction machines"
   parameter SI.Inductance Lssigma=3*(1 - sqrt(1 - 0.0667))/
       (2*pi*fsNominal) "Stator stray inductance per phase"
     annotation (Dialog(tab="Nominal resistances and inductances"));
+  parameter Real ratioCommonStatorLeakage(final min=0, final max=1)=1
+    "Ratio of common stray inductance / total stray inductance of stator winding"
+    annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter Machines.Losses.FrictionParameters frictionParameters(PRef=0, wRef=
         2*pi*fsNominal/p) "Friction loss parameter record"
     annotation (Dialog(tab="Losses"));

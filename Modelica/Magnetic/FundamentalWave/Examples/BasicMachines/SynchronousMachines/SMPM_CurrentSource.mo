@@ -18,6 +18,7 @@ model SMPM_CurrentSource
     TsRef=smpmData.TsRef,
     Jr=smpmData.Jr,
     Js=smpmData.Js,
+    ratioCommonStatorLeakage=smpmData.ratioCommonStatorLeakage,
     frictionParameters=smpmData.frictionParameters,
     phiMechanical(fixed=true),
     wMechanical(fixed=true),

@@ -10,6 +10,9 @@ record IM_SlipRingData
       (2*pi*fsNominal)/turnsRatio^2
     "Rotor stray inductance per phase w.r.t. rotor side"
     annotation (Dialog(tab="Nominal resistances and inductances"));
+  parameter Real ratioCommonRotorLeakage(final min=0, final max=1)=1
+    "Ratio of common stray inductance / total stray inductance of rotor winding"
+    annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter SI.Inductance Lrzero=Lrsigma/turnsRatio^2
     "Rotor zero sequence inductance w.r.t. rotor side"
     annotation (Dialog(tab="Nominal resistances and inductances"));

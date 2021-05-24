@@ -61,6 +61,7 @@ model SMEE_Generator
             {10,-54}})));
   Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited
     smeeM(
+    ratioCommonStatorLeakage=smeeData.ratioCommonStatorLeakage,
     phiMechanical(start=-(Modelica.Constants.pi + gamma0)/p, fixed=true),
     Jr=0.29,
     Js=0.29,
@@ -193,11 +194,8 @@ model SMEE_Generator
     Td0Subtransient=0.006963029,
     Tq0Subtransient=0.123345081,
     alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
     alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
     alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
     TsSpecification=293.15,
     TsRef=293.15,
     TrSpecification=293.15,
@@ -205,6 +203,7 @@ model SMEE_Generator
     TeSpecification=293.15,
     TeRef=293.15) "Synchronous machine data"
     annotation (Placement(transformation(extent={{-80,-80},{-60,-60}})));
+
   SI.Angle thetaM=rotorAngleM.rotorDisplacementAngle "Rotor displacement angle, FundamentalWave machine";
   SI.Angle thetaE=rotorAngleE.rotorDisplacementAngle "Rotor displacement angle, Electrical machine";
 

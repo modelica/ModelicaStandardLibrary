@@ -12,6 +12,7 @@ model SMPM_Braking
     "Load's moment of inertia";
   Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet
     smpm(
+    ratioCommonStatorLeakage=smpmData.ratioCommonStatorLeakage,
     phiMechanical(start=0, fixed=true),
     useSupport=false,
     useThermalPort=false,

@@ -58,6 +58,7 @@ model SMPM_Inverter
     TsRef=smpmData.TsRef,
     alpha20s(displayUnit="1/K") = smpmData.alpha20s,
     Lssigma=smpmData.Lssigma,
+    ratioCommonStatorLeakage=smpmData.ratioCommonStatorLeakage,
     Lszero=smpmData.Lszero,
     phiMechanical(fixed=true),
     wMechanical(fixed=true),
