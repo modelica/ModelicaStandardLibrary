@@ -52,7 +52,7 @@ which aims at optimal transfer function with respect to disturbance (load torque
 <li>Limitation of the output (reference torque) to the possible torque (current)</li>
 <li>Subsequently, an anti-windup method</li>
 <li>If reference speed is not prescribed by a correctly parameterized position controller which is commanded by a kinematicPTP (optimal path planning), 
-    reference has to be filtered or limited in slew rate.</li>
+    reference has to be filtered or limited in slew rate</li>
 </ul>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\"><strong>Fig. 4:</strong> Parameterization of the speed controller</caption>
