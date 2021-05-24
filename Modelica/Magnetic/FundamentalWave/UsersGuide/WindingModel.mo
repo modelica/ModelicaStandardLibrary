@@ -4,7 +4,7 @@ class WindingModel "Polyphase winding model"
   annotation (Documentation(info="<html>
 <p>
 The <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding\">SymmetricPolyphaseWinding</a> model shown in Fig. 1 
-has an electric circuit with <i>m</i> phase currents and voltages and a magnetic circuit with the phasors representing the fundamental wave of 
+has an electric circuit with <code>m</code> phase currents and voltages and a magnetic circuit with the phasors representing the fundamental wave of 
 magnetic potential and magnetic flux.
 </p>
 
@@ -20,14 +20,14 @@ magnetic potential and magnetic flux.
 
 <h4>Electric circuit</h4>
 <p>
-The electric circuit models the (temperature dependent) resistances of the <i>m</i> phases and the zero inductance, 
+The electric circuit models the (temperature dependent) resistances of the <code>m</code> phases and the zero inductance, 
 i.e. induced voltages caused by the derivative of the sum of all phase currents (in case the sum of the currents is not zero).
 </p>
 
 <h4>Electro-Magnetic coupling</h4>
 <p>
 The <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter\">PolyphaseElectroMagneticConverter</a> 
-calculates the magnetic voltages (MMF) caused by the currents of the <i>m</i> phases according to the spatial orientation of the phases. 
+calculates the magnetic voltages (MMF) caused by the currents of the <code>m</code> phases according to the spatial orientation of the phases. 
 To complete the coupling, the induced voltages caused by the derivative of magentic flux are calculated, 
 again according to the spatial orientation of the phases. 
 </p>
