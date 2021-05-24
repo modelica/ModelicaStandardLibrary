@@ -254,10 +254,10 @@ public
   Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
     annotation (Placement(transformation(extent={{90,-60},{110,60}})));
 
-  Interfaces.NegativePin  refPin if not useInternalGround "Reference pin"
+  Modelica.Electrical.Analog.Interfaces.NegativePin refPin if not useInternalGround "Reference pin"
     annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
         iconTransformation(extent={{-10,-110},{10,-90}})));
-  Basic.Ground ground if useInternalGround
+  Modelica.Electrical.Analog.Basic.Ground ground if useInternalGround
     annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
 equation
   connect(p, s_first.p);
@@ -267,10 +267,10 @@ equation
   end for;
   connect(s[N - 1].n, s_last.p);
   connect(s_last.n, n);
-  connect(s_first.refPin,refPin);
+  connect(s_first.refPin, refPin);
   connect(s_first.refPin, ground.p);
   for i in 1:N-1 loop
-    connect(s[i].refPin,refPin);
+    connect(s[i].refPin, refPin);
     connect(s[i].refPin, ground.p);
   end for;
   if useHeatPort then
