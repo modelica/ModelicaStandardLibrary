@@ -37,8 +37,7 @@ equation
   connect(speedSensor.w, speedController.u_m) annotation (Line(points={{50,-71},
           {50,-90},{-76,-90},{-76,-12}},     color={0,0,127}));
   connect(speedController.y, tau2i.u)
-    annotation (Line(points={{-59,0},{-56,0},{-56,1.77636e-15},{-52,1.77636e-15}},
-                                                 color={0,0,127}));
+    annotation (Line(points={{-59,0},{-56,0} ,{-52,0}},   color={0,0,127}));
   connect(step.y, slewRateLimiter.u) annotation (Line(points={{-139,0},{-130,0},
           {-130,-20},{-122,-20}},           color={0,0,127}));
   connect(speedController.u, preFilter.y) annotation (Line(points={{-82,0},{-90,

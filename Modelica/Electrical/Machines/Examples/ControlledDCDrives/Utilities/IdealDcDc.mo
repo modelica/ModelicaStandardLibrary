@@ -1,5 +1,5 @@
 within Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities;
-model IdealDcDc "Ideal DC-DC inverter"
+model IdealDcDc "Ideal DC/DC inverter"
   parameter SI.Frequency fS "Switching frequency";
   parameter SI.Time Tdv=0.5/fS "Dead time of inverter voltage";
   parameter SI.Time Ti=1e-6 "Time constant of integral power controller";
@@ -122,6 +122,6 @@ equation
           extent={{-40,-60},{40,-80}},
           textColor={128,128,128},
           textString="Mot")}),    Documentation(info="<html>
-<p>This is a model of an ideal DC-DC inverter based on a power balance achieved by an integral controller.</p>
+<p>This is a model of an ideal DC/DC inverter based on a power balance achieved by an integral controller.</p>
 </html>"));
 end IdealDcDc;
