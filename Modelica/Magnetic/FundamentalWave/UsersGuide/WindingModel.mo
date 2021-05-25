@@ -20,7 +20,7 @@ magnetic potential and magnetic flux.
 
 <h4>Electric circuit</h4>
 <p>
-The electric circuit models the (temperature dependent) resistances of the <code>m</code> phases and the zero inductance, 
+The electric circuit models the (temperature dependent) resistances of the <code>m</code> phases, the individual stray inductances and the zero inductance, 
 i.e. induced voltages caused by the derivative of the sum of all phase currents (in case the sum of the currents is not zero).
 </p>
 
@@ -28,21 +28,21 @@ i.e. induced voltages caused by the derivative of the sum of all phase currents 
 <p>
 The <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter\">PolyphaseElectroMagneticConverter</a> 
 calculates the magnetic voltages (MMF) caused by the currents of the <code>m</code> phases according to the spatial orientation of the phases. 
-To complete the coupling, the induced voltages caused by the derivative of magentic flux are calculated, 
-again according to the spatial orientation of the phases. 
+To complete the coupling, the induced voltages caused by the derivative of magentic flux are calculated, again according to the spatial orientation of the phases. 
 </p>
 
 <h4>Magnetic circuit</h4>
 <p>
-The magnetic circuit models stray (leakage) flux as well as 
+The magnetic circuit models common stray (leakage) flux as well as 
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">core losses</a>. 
 Note that up to now only eddy curretn losses are taken into account, since hysteresis losses require the detection of remagnetization frequency.
 </p>
 
 <p>
-Stray field (leakage) is modeled by two <a href=\"Modelica.Magnetic.FundamentalWave.Components.Permeance\">permeances</a> (see Fig. 1): 
-One represents the part of the stray field that is coupled with all phases (common part), 
-the other one the parts of the stray field that are coupled individually with every single phase (individual part). 
+Stray field (leakage) is modeled by an <a href=\"Modelica.Electrical.Polyphase.Basic.Inductor\">inductor</a> and a
+<a href=\"Modelica.Magnetic.FundamentalWave.Components.Permeance\">permeance</a> (see Fig. 1): 
+The permeance represents the part of the stray field that is coupled with all phases (common part), 
+the inductor the parts of the stray field that are coupled individually with every single phase (individual part). 
 The parameter <code>0 &le; ratioCommonLeakage &le; 1</code> describes the discrimination in common and individual stray field. 
 Note that for <code>ratioCommonLeakage &gt; 1 - eps</code> the individual part is conditionally removed, 
 whereas for <code>ratioCommonLeakage &lt; eps</code> the common part is conditionally removed. 
@@ -51,7 +51,7 @@ whereas for <code>ratioCommonLeakage &lt; eps</code> the common part is conditio
 Note that for <a href=\"Modelica.Electrical.Machines\">machines with three phases</a> and for 
 <a href=\"Modelica.Magnetic.QuasiStatic.FundamentalWave\">quasistatic machines</a> the parameter <code>ratioCommonLeakage</code> has no influence. 
 Feeding polyphase machines with more than three phases by switching power electronics, this discrimination is essential. 
-Therefore this splitted stray inductance is only modeled in the <a href=\"Modelica.Magnetic.FundamentalWave\">FundamentalWave library</a>.
+Therefore this splitted stray field reprsentation is only modeled in the <a href=\"Modelica.Magnetic.FundamentalWave\">FundamentalWave library</a>.
 </p>
 <p>
 The parameter <code>ratioCommonLeakage</code> has a default of 1, which is perfectly backwards compatible.
@@ -59,9 +59,9 @@ The parameter <code>ratioCommonLeakage</code> has a default of 1, which is perfe
 
 <h4>Note:</h4>
 <p>
-For a model with <code>ratioCommonLeakage &lt; 1 - eps</code> (including indvidual stray inductances) 
+For a model with <code>ratioCommonLeakage &lt; 1 - eps</code> (including individual stray inductances) 
 typically more states have to be inialized than
-for a model with <code>ratioCommonLeakage = 1</code> (without indvidual stray inductances).
+for a model with <code>ratioCommonLeakage = 1</code> (without individual stray inductances).
 </p>
 
 </html>"));
