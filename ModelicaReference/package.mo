@@ -1,4 +1,4 @@
-within ;
+﻿within ;
 package ModelicaReference "Modelica Reference"
 extends ModelicaReference.Icons.Information;
 
@@ -1125,7 +1125,7 @@ If true, the model developer proposes to inline the function after the function 
   ...
 <strong>end</strong> T_phX;</pre></blockquote>
 </html>"));
-  end inverse;
+    end inverse;
 
   class LateInline "LateInline"
     extends ModelicaReference.Icons.Information;
@@ -1928,10 +1928,10 @@ The external C-functions may be defined in the following way:
   class 'function' "function"
     extends ModelicaReference.Icons.Information;
 
-class 'function partial application' "function partial application"
-    extends ModelicaReference.Icons.Information;
+    class 'function partial application' "function partial application"
+        extends ModelicaReference.Icons.Information;
 
-    annotation (Documentation(info="<html>
+        annotation (Documentation(info="<html>
 <p>
 A function partial application is a function call with certain
 formal parameters bound to expressions. A function partial application
@@ -2045,7 +2045,7 @@ a component, according to case (d) above:
 <strong>end</strong> surfaceQuadrature;
 </pre></blockquote>
 </html>"));
-  end 'function partial application';
+    end 'function partial application';
 
   class 'pure function' "pure function"
     extends ModelicaReference.Icons.Information;
@@ -2715,7 +2715,8 @@ The acos function can also be accessed as Modelica.Math.acos.
   end 'acos()';
 
     class 'activeState()' "activeState()"
-extends ModelicaReference.Icons.Information;
+    extends
+        ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 This operator returns true if state is active in a <a href=\"modelica://ModelicaReference.StateMachines\">state machine</a>.
@@ -2729,7 +2730,7 @@ The operator returns <strong>true</strong>, if this instance is a state of a sta
 If it is not active, the operator returns <strong>false</strong>.
 </p>
 </html>"));
-  end 'activeState()';
+    end 'activeState()';
 
   class 'actualStream()' "actualStream()"
     extends ModelicaReference.Icons.Information;
@@ -5007,7 +5008,7 @@ discontinuously.]</em></p>
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Allows the infinite-dimensional problem below to be solved efficiently with good accuracy.
+Allows the infinite-dimensional problem to be solved efficiently with good accuracy.
 </p>
 <h4>Syntax</h4>
 <blockquote><pre>
