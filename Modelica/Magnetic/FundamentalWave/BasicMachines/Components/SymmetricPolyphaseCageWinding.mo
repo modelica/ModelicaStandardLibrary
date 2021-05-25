@@ -57,8 +57,8 @@ model SymmetricPolyphaseCageWinding "Symmetrical rotor cage"
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortWinding if
     useHeatPort "Heat ports of winding resistor"
     annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-  Modelica.Thermal.HeatTransfer.Components.ThermalCollector thermalCollector(final m=m)
-    if useHeatPort "Connector of thermal rotor resistance heat ports"
+  Modelica.Thermal.HeatTransfer.Components.ThermalCollector thermalCollector(final m=m) if
+       useHeatPort "Connector of thermal rotor resistance heat ports"
     annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
   Magnetic.FundamentalWave.Components.Reluctance strayReluctance(final R_m(d=m*
           effectiveTurns^2/2/Lsigma, q=m*effectiveTurns^2/2/Lsigma))
