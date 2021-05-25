@@ -26,7 +26,7 @@ public
     each final min=Modelica.Constants.small,
     each unit="F/m") = {2.38e-11,1.01e-10,8.56e-11,5.09e-12,2.71e-11,2.09e-11,
     7.16e-11,1.83e-11,1.23e-10,2.07e-11} "Capacitance per meter";
-  parameter Boolean useInternalGround=true "Default: true = use internal ground / false = use reference pin"
+  parameter Boolean useInternalGround=true "= true if internal ground is used, otherwise use reference pin"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
   parameter SI.LinearTemperatureCoefficient alpha_R=0
     "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
