@@ -1,6 +1,7 @@
 time
-converter_m.singlePhaseElectroMagneticConverter[1].Phi.re
-converter_m.singlePhaseElectroMagneticConverter[2].Phi.im
-inductor_e.inductor[1].i
-inductor_e.inductor[2].i
-inductor_e.inductor[3].i
+resistor_e.i[1]
+resistor_e.i[2]
+resistor_s.i[1]
+resistor_s.i[2]
+resistor_m.i[1]
+resistor_m.i[2]
