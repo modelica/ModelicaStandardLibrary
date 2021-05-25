@@ -51,7 +51,7 @@ whereas for <code>ratioCommonLeakage &lt; eps</code> the common part is conditio
 Note that for <a href=\"Modelica.Electrical.Machines\">machines with three phases</a> and for 
 <a href=\"Modelica.Magnetic.QuasiStatic.FundamentalWave\">quasistatic machines</a> the parameter <code>ratioCommonLeakage</code> has no influence. 
 Feeding polyphase machines with more than three phases by switching power electronics, this discrimination is essential. 
-Therefore this splitted stray field reprsentation is only modeled in the <a href=\"Modelica.Magnetic.FundamentalWave\">FundamentalWave library</a>.
+Therefore this split stray field representation is only modeled in the <a href=\"Modelica.Magnetic.FundamentalWave\">FundamentalWave library</a>.
 </p>
 <p>
 The parameter <code>ratioCommonLeakage</code> has a default of 1, which is perfectly backwards compatible.
