@@ -74,23 +74,20 @@ model SymmetricPolyphaseWinding
   Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter electroMagneticConverter(
     final m=m,
     final effectiveTurns=fill(effectiveTurns, m),
-    final orientation=Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m),
-    final useStrayPermeance=(ratioCommonLeakage<(1 - eps)),
-    final G_m_sigma(d=2/m*(1 - ratioCommonLeakage)*Lsigma/effectiveTurns^2, q=2
-          /m*(1 - ratioCommonLeakage)*Lsigma/effectiveTurns^2))
+    final orientation=Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m))
     "Symmetric winding"
     annotation (Placement(transformation(extent={{-10,-20},{10,0}})));
   Modelica.Electrical.Polyphase.Basic.ZeroInductor zeroInductor(final m=m, final Lzero=Lzero) if
        mBase<>2 "Zero sequence inductance of winding"
     annotation (Placement(transformation(
-        origin={-30,30},
-        extent={{-10,-10},{10,10}},
-        rotation=270)));
+        origin={-70,-30},
+        extent={{10,-10},{-10,10}},
+        rotation=0)));
   Modelica.Electrical.Polyphase.Ideal.Short short(final m=m) if mBase == 2
     annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={-10,30})));
+        extent={{10,-10},{-10,10}},
+        rotation=0,
+        origin={-70,-50})));
   Modelica.Electrical.Polyphase.Basic.Resistor resistor(
     final m=m,
     final useHeatPort=useHeatPort,
@@ -120,15 +117,21 @@ model SymmetricPolyphaseWinding
         rotation=270,
         origin={80,30})));
 
+  Electrical.Polyphase.Basic.Inductor individialStrayInductor(final m=m, final
+      L=fill((1 - ratioCommonLeakage)*Lsigma, m)) if                ratioCommonLeakage<(1 - eps)
+    annotation (Placement(transformation(
+        extent={{-10,10},{10,-10}},
+        rotation=270,
+        origin={-30,30})));
+  Electrical.Polyphase.Ideal.Short shortSigma(final m=m) if ratioCommonLeakage>=(1 - eps)
+    annotation (Placement(transformation(
+        extent={{-10,10},{10,-10}},
+        rotation=270,
+        origin={-10,30})));
+
 equation
   connect(plug_p, resistor.plug_p) annotation (Line(points={{-100,100},{-20,
           100},{-20,80}}, color={0,0,255}));
-  connect(resistor.plug_n, zeroInductor.plug_p) annotation (Line(points={{-20,60},
-          {-20,55},{-20,40},{-30,40}}, color={0,0,255}));
-  connect(electroMagneticConverter.plug_n, plug_n) annotation (Line(
-        points={{-10,-20},{-20,-20},{-20,-40},{-100,-40},{-100,-100}},
-                                                             color={0,0,
-          255}));
   connect(electroMagneticConverter.port_p, port_p) annotation (Line(
         points={{10,0},{10,100},{100,100}},   color={255,128,0}));
   connect(resistor.heatPort, heatPortWinding) annotation (Line(
@@ -143,12 +146,22 @@ equation
   connect(stray.port_n, core.port_n) annotation (Line(points={{80,20},{80,-40},{60,-40}}, color={255,128,0}));
   connect(stray.port_p, electroMagneticConverter.port_p) annotation (Line(points={{80,40},
           {80,100},{10,100},{10,0}},                                                                                   color={255,128,0}));
-  connect(zeroInductor.plug_n, electroMagneticConverter.plug_p) annotation (
-      Line(points={{-30,20},{-20,20},{-20,0},{-10,0}},     color={0,0,255}));
-  connect(resistor.plug_n, short.plug_p)
+  connect(short.plug_n, plug_n) annotation (Line(points={{-80,-50},{-80,-40},{-100,
+          -40},{-100,-100}}, color={0,0,255}));
+  connect(plug_n, zeroInductor.plug_n) annotation (Line(points={{-100,-100},{-100,
+          -40},{-80,-40},{-80,-30}}, color={0,0,255}));
+  connect(electroMagneticConverter.plug_n, zeroInductor.plug_p) annotation (
+      Line(points={{-10,-20},{-10,-40},{-60,-40},{-60,-30}}, color={0,0,255}));
+  connect(electroMagneticConverter.plug_n, short.plug_p) annotation (Line(
+        points={{-10,-20},{-10,-40},{-60,-40},{-60,-50}}, color={0,0,255}));
+  connect(individialStrayInductor.plug_n, electroMagneticConverter.plug_p)
+    annotation (Line(points={{-30,20},{-20,20},{-20,0},{-10,0}}, color={0,0,255}));
+  connect(electroMagneticConverter.plug_p, shortSigma.plug_n) annotation (Line(
+        points={{-10,0},{-20,0},{-20,20},{-10,20}}, color={0,0,255}));
+  connect(resistor.plug_n, individialStrayInductor.plug_p)
+    annotation (Line(points={{-20,60},{-20,40},{-30,40}}, color={0,0,255}));
+  connect(resistor.plug_n, shortSigma.plug_p)
     annotation (Line(points={{-20,60},{-20,40},{-10,40}}, color={0,0,255}));
-  connect(electroMagneticConverter.plug_p, short.plug_n) annotation (Line(
-        points={{-10,0},{-20,0},{-20,20},{-10,20}},     color={0,0,255}));
   annotation (defaultComponentName="winding", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={
         Line(points={{100,-100},{94,-100},{84,-98},{76,-94},{64,-86},{50,

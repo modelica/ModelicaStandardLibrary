@@ -41,19 +41,9 @@ model PolyphaseElectroMagneticConverter
   parameter Real effectiveTurns[m] "Effective number of turns";
   parameter SI.Angle orientation[m]
     "Orientation of the resulting fundamental wave field phasor";
-  parameter Boolean useStrayPermeance=false "If false, strayPermeance is conditionally removed";
-  parameter Magnetic.FundamentalWave.Types.SalientPermeance G_m_sigma(d=0, q=0)
-    "Magnetic permeance in d=re and q=im axis"
-    annotation(Dialog(enable=useStrayPermeance));
   Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter singlePhaseElectroMagneticConverter[m](
     final effectiveTurns=effectiveTurns, final orientation=orientation)
     annotation (Placement(transformation(extent={{-8,-10},{12,10}})));
-  Permeance strayPermeance[m](each final G_m=G_m_sigma) if useStrayPermeance
-    annotation (
-      Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={30,0})));
 equation
   connect(plug_p.pin, singlePhaseElectroMagneticConverter.pin_p)
     annotation (Line(
@@ -71,10 +61,6 @@ equation
   connect(singlePhaseElectroMagneticConverter[m].port_n, port_n)
     annotation (Line(
       points={{12,-10},{12,-100},{100,-100}}, color={255,128,0}));
-  connect(singlePhaseElectroMagneticConverter.port_p, strayPermeance.port_p)
-    annotation (Line(points={{12,10},{30,10}}, color={255,128,0}));
-  connect(singlePhaseElectroMagneticConverter.port_n, strayPermeance.port_n)
-    annotation (Line(points={{12,-10},{30,-10}}, color={255,128,0}));
   annotation (defaultComponentName="converter",
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
             100,100}}), graphics={           Line(points={{100,-100},{94,-100},{84,-98},{76,-94},{64,-86},{50,-72},{42,-58},{36,-40},{30,-18},{30,0},{30,18},{34,36},{46,66},{62,84},{78,96},{90,100},{100,100}},
