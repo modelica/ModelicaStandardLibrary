@@ -120,7 +120,8 @@ partial model Machine "Base model of machines"
     final TOperational=TsOperational,
     final GcRef=statorCoreParameters.GcRef,
     final alpha20=alpha20s,
-    final Lzero=Lszero) "Symmetric stator winding including resistances, zero and stray inductances and core losses"
+    final Lzero=Lszero)
+    "Symmetric stator winding including resistances, zero and stray inductances and core losses"
     annotation (Placement(transformation(
         origin={0,40},
         extent={{-10,-10},{10,10}},

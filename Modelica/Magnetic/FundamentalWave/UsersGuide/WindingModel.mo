@@ -20,7 +20,7 @@ magnetic potential and magnetic flux.
 
 <h4>Electric circuit</h4>
 <p>
-The electric circuit models the (temperature dependent) resistances of the <code>m</code> phases, the individual stray inductances and the zero inductance, 
+The electric circuit models the (temperature dependent) resistances of the <code>m</code> phases and the zero inductance, 
 i.e. induced voltages caused by the derivative of the sum of all phase currents (in case the sum of the currents is not zero).
 </p>
 
@@ -33,16 +33,13 @@ To complete the coupling, the induced voltages caused by the derivative of magen
 
 <h4>Magnetic circuit</h4>
 <p>
-The magnetic circuit models common stray (leakage) flux as well as 
+The magnetic circuit models individual and common stray (leakage) flux as well as 
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">core losses</a>. 
-Note that up to now only eddy curretn losses are taken into account, since hysteresis losses require the detection of remagnetization frequency.
+Note that up to now only eddy current losses are taken into account, since hysteresis losses require the detection of remagnetization frequency.
 </p>
 
 <p>
-Stray field (leakage) is modeled by an <a href=\"Modelica.Electrical.Polyphase.Basic.Inductor\">inductor</a> and a
-<a href=\"Modelica.Magnetic.FundamentalWave.Components.Permeance\">permeance</a> (see Fig. 1): 
-The permeance represents the part of the stray field that is coupled with all phases (common part), 
-the inductor the parts of the stray field that are coupled individually with every single phase (individual part). 
+Individual and common stray field (leakage) is modeled as <a href=\"Modelica.Magnetic.FundamentalWave.Components.Permeance\">permeances</a> (see Fig. 1): 
 The parameter <code>0 &le; ratioCommonLeakage &le; 1</code> describes the discrimination in common and individual stray field. 
 Note that for <code>ratioCommonLeakage &gt; 1 - eps</code> the individual part is conditionally removed, 
 whereas for <code>ratioCommonLeakage &lt; eps</code> the common part is conditionally removed. 
@@ -61,7 +58,10 @@ The parameter <code>ratioCommonLeakage</code> has a default of 1, which is perfe
 <p>
 For a model with <code>ratioCommonLeakage &lt; 1 - eps</code> (including individual stray inductances) 
 typically more states have to be inialized than
-for a model with <code>ratioCommonLeakage = 1</code> (without individual stray inductances).
+for a model with <code>ratioCommonLeakage = 1</code> (without individual stray inductances). 
+See: <code>initial equation</code> section of example 
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage\">IMC_DOL_CommonLeakage</a>, 
+which compares the behaviour of three identical machines except <code>ratioCommonLeakage={0, 0.5, 1}.
 </p>
 
 </html>"));

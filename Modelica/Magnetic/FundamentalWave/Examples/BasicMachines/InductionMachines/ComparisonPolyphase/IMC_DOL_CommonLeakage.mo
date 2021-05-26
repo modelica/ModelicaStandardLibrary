@@ -186,9 +186,9 @@ model IMC_DOL_CommonLeakage
         rotation=270,
         origin={-10,-68})));
 initial equation
-  aimc0.is[1:4] = zeros(4);
+  aimc0.is[1:m - 1] = zeros(m - 1);
   aimc0.rotorCage.electroMagneticConverter.Phi = Complex(0, 0);
-  aimcH.is[1:4] = zeros(4);
+  aimcH.is[1:m - 1] = zeros(m - 1);
   aimcH.rotorCage.electroMagneticConverter.Phi = Complex(0, 0);
   aimc1.is[1:2] = zeros(2);
   aimc1.rotorCage.electroMagneticConverter.Phi = Complex(0, 0);
