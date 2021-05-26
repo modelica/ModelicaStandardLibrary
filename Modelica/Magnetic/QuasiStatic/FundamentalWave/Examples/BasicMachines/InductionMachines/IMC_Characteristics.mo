@@ -121,7 +121,7 @@ Simulate for 1 second and plot (versus <code>imcQS.wMechanical</code> or <code>s
 </p>
 
 <ul>
-<li><code>currentSensorQS.abs_i[1]</code>: (equivalent) RMS stator current</li>
+<li><code>iSensorQS.I</code>: (equivalent) RMS stator current</li>
 <li><code>imcQS.tauElectrical</code>: machine torque</li>
 <li><code>imcQS.powerBalance.powerStator</code>: stator power</li>
 <li><code>imcQS.powerBalance.powerMechanical</code>: mechanical power</li>

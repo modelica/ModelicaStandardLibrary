@@ -183,9 +183,9 @@ At start time tStart three-phase voltage is supplied to the induction machine wi
 <p>Simulate for 2.5 seconds and plot (versus time):</p>
 
 <ul>
-<li>currentQuasiRMSSensor.I: stator current RMS</li>
-<li>aimc.wMechanical: motor's speed</li>
-<li>aimc.tauElectrical: motor's torque</li>
+<li><code>currentQuasiRMSSensor|currentQuasiRMSSensorQS.I</code>: (equivalent) stator current RMS</li>
+<li><code>imc|imcQS.wMechanical</code>: machine speed</li>
+<li><code>imc|imcQS.tauElectrical</code>: machine torque</li>
 </ul>
 <p>
 Default machine parameters are used.</p>

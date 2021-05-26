@@ -176,9 +176,9 @@ The induction machine with squirrel cage is initialized in steady-state at no-lo
 at time tStart a load torque step is applied.<br>
 Simulate for 1.5 seconds and plot (versus time):
 <ul>
-<li>currentQuasiRMSSensor.I: stator current RMS</li>
-<li>aimc.wMechanical: motor's speed</li>
-<li>aimc.tauElectrical: motor's torque</li>
+<li><code>currentQuasiRMSSensor|currentQuasiRMSSensorQS.I</code>: (equivalent) RMS stator current</li>
+<li><code>imc|imcQS.wMechanical</code>: machine speed</li>
+<li><code>imc|imcQS.tauElectrical</code>: machine torque</li>
 </ul>
 Default machine parameters of model <em>IM_SquirrelCage</em> are used.
 </html>"),

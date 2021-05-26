@@ -201,9 +201,9 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
 </p>
 <p>Simulate for 20 seconds and plot (versus time):</p>
 <ul>
-<li>currentQuasiRMSSensor|currentQuasiRMSSensorQS.I: stator current RMS</li>
-<li>imc|imcQS.wMechanical: machine speed</li>
-<li>imc|imcQS.tauElectrical: machine torque</li>
+<li><code>currentQuasiRMSSensor|currentQuasiRMSSensorQS.I</code>: (equivalent) stator current RMS</li>
+<li><code>imc|imcQS.wMechanical</code>: machine speed</li>
+<li><code>imc|imcQS.tauElectrical</code>: machine torque</li>
 </ul>
 <p>Default machine parameters are used.</p>
 </html>"),
