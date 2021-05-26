@@ -44,7 +44,7 @@ model OLine "Lossy Transmission Line"
     annotation (Dialog(enable=not useHeatPort));
   parameter SI.Temperature T_ref=300.15 "Reference temperature";
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
-    annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
+    annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
         iconTransformation(extent={{-110,-110},{-90,-90}})));
 protected
   parameter SI.Resistance rm[N + 1]=

@@ -35,8 +35,8 @@ model ULine "Lossy RC Line"
     annotation (Dialog(enable=not useHeatPort));
   parameter SI.Temperature T_ref=300.15 "Reference temperature";
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
-    annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
-        iconTransformation(extent={{-108,-110},{-88,-90}})));
+    annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
+        iconTransformation(extent={{-110,-110},{-90,-90}})));
 protected
    parameter SI.Resistance rm[N + 1]=
   {if i==1 or i==N + 1 then r*length/(N*2) else r*length/N for i in 1:N+1};
