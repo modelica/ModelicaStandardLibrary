@@ -61,7 +61,7 @@ typically more states have to be inialized than
 for a model with <code>ratioCommonLeakage = 1</code> (without individual stray inductances). 
 See: <code>initial equation</code> section of example 
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.ComparisonPolyphase.IMC_DOL_CommonLeakage\">IMC_DOL_CommonLeakage</a>, 
-which compares the behaviour of three identical machines except <code>ratioCommonLeakage={0, 0.5, 1}.
+which compares the behaviour of three identical machines except <code>ratioCommonLeakage={0, 0.5, 1}</code>.
 </p>
 
 </html>"));
