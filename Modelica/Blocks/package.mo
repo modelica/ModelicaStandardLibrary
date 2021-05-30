@@ -1592,8 +1592,7 @@ The output is constant from the beginning.
     annotation (experiment(
         StopTime=0.001,
         Interval=1e-07,
-        Tolerance=1e-06,
-        __Dymola_Algorithm="Dassl"), Documentation(info="<html>
+        Tolerance=1e-06), Documentation(info="<html>
 <p>
 This example demonstrate the trajectory of the current of a lightning with <code>amplitude = 100 A, T1 = 10 &micro;s, T2 = 350 %micro;s</code>. 
 Furthermore it is shown that the integral of the output goes to <code>Q = 50 mC</code>, and the first derivative of the output is continuous. 
