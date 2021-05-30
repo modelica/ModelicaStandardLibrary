@@ -1576,6 +1576,33 @@ The output is constant from the beginning.
 </html>"));
   end DemoSignalCharacteristic;
 
+  model ShowLightning "Demonstrate lightnung trajectory"
+    extends Modelica.Icons.Example;
+    Sources.Lightning lightning(amplitude=100)
+      annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+    Continuous.Integrator integrator
+      annotation (Placement(transformation(extent={{10,-10},{30,10}})));
+    Continuous.Der der1
+      annotation (Placement(transformation(extent={{10,-40},{30,-20}})));
+  equation
+    connect(lightning.y, integrator.u)
+      annotation (Line(points={{-9,0},{8,0}}, color={0,0,127}));
+    connect(lightning.y, der1.u) annotation (Line(points={{-9,0},{0,0},{0,-30},
+            {8,-30}}, color={0,0,127}));
+    annotation (experiment(
+        StopTime=0.001,
+        Interval=1e-07,
+        Tolerance=1e-06,
+        __Dymola_Algorithm="Dassl"), Documentation(info="<html>
+<p>
+This example demonstrate the trajectory of the current of a lightning with <code>amplitude = 100 A, T1 = 10 &micro;s, T2 = 350 %micro;s</code>. 
+Furthermore it is shown that the integral of the output goes to <code>Q = 50 mC</code>, and the first derivative of the output is continuous. 
+The block can be used to drive a <a href=\"modelica://Modelica.Electrical.Analog.Sources.SignalCurrent\">current source</a> 
+to investigate the effects when a lightnung hits e.g. a <a href=\"modelica://Modelica.Electrical.Analog.Lines\">transmission line</a>.
+</p>
+</html>"));
+  end ShowLightning;
+
   package Noise "Library of examples to demonstrate the usage of package Blocks.Noise"
     extends Modelica.Icons.ExamplesPackage;
 

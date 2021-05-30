@@ -930,6 +930,84 @@ The Real output y is a trapezoid signal:
 </html>"));
   end Trapezoid;
 
+  block Lightning "Trajectory of lightning current"
+    extends Modelica.Blocks.Interfaces.SO;
+    parameter Real amplitude "Amplitude";
+    parameter Modelica.Units.SI.Time T1=10e-6 "Rise time until 90% of amplitude";
+    parameter Modelica.Units.SI.Time T2=350e-6 "Falling time until 50% of amplitude";
+    parameter Modelica.Units.SI.Time tStart=0 "Start time";
+  protected
+    parameter Modelica.Units.SI.Time TPar(final min=T1, final max=T2, fixed=false, start=T1) "Time of changeover from sin to exp";
+    parameter Real yPar=amplitude*sin(w*TPar) "y(t=TPar)";
+    parameter Modelica.Units.SI.AngularVelocity w=asin(0.9)/T1 "Rise time until 90% of yMax";
+    parameter Modelica.Units.SI.Time Tau(final min=0, fixed=false, start=T2) "Parameter of falling exponential";
+  initial equation
+    //fall time T2 below 50% of yMax
+    amplitude/2=yPar*exp(-(T2 - TPar)/Tau);
+    //continuous first derivative
+    amplitude*w*cos(w*TPar)=-yPar/Tau;
+  equation
+    if time<tStart then
+      y=0;
+    elseif time<(tStart + TPar) then
+      y=amplitude*sin(w*(time - tStart));
+    else
+      y=yPar*exp(-(time - (tStart + TPar))/Tau);
+    end if;
+    annotation (Documentation(info="<html>
+<p>
+Simplified trajectory of the current of lightnings:
+</p>
+<ul>
+<li>Current rise according to a sine function</li>
+<li>Current fall according to an exponential function</li>
+</ul>
+<p>
+The parameters of the trajectory are given by:
+</p>
+<ul>
+<li>The maximum of the trajectory <code>amplitude</code></li>
+<li>The rise time <code>T1</code> until 90% of the <code>amplitude</code> is reached.</li>
+<li>The fall time <code>T2</code> until <code>y</code> falls below 50% of the <code>amplitude</code></li>
+</ul>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 1:</strong> Parameters of the lightning current</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Lightning.png\">
+    </td>
+  </tr>
+</table>
+<p>
+The parameters of the rising sine and the falling exponential are calculated internally such way that the output is continuous and continuous differentiable.
+</p>
+<h4>Note</h4>
+<p>
+For a standard trajectory with <code>amplitude = 100 kA, T1 = 10 &micro;s, T2 = 350 &micro;s</code> the integral of the output matches the required charge <code>Q = 50 C</code> nearly perfect.
+</p>
+<h4>References</h4>
+<ul>
+<li>Fridolin Heidler, Blitzstromparameter nach IEC 62305 - Hintergrund, Erfahrung und Ausblick. Elektronik &amp; Automation (etz) (1) 2009, pp. 57-64.</li>
+<li>Michael Rock, Pr&uuml;fgeneratoren zur Simulation von Blitzimpulsstr&ouml;men im Labor und ihre Wechselwirkung mit den Pr&uuml;fobjekten.
+    Habilitation, Universit&auml;t Ilmenau 2012, ISBN 978-3-86360-032-7.</li>
+</ul>
+</html>"),
+      Icon(graphics={
+          Polygon(
+            points={{-80,80},{-88,58},{-72,58},{-80,80}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-80,58},{-80,-90}}, color={192,192,192}),
+          Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
+          Polygon(
+            points={{90,-80},{68,-72},{68,-88},{90,-80}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-80,-80},{-60,80},{-20,0},{80,-40}}, color={0,0,0})}));
+  end Lightning;
+
   block LogFrequencySweep "Logarithmic frequency sweep"
     extends Modelica.Blocks.Interfaces.SO;
     import Modelica.Constants.eps;
