@@ -1595,7 +1595,7 @@ The output is constant from the beginning.
         Tolerance=1e-06), Documentation(info="<html>
 <p>
 This example demonstrate the trajectory of the current of a lightning with <code>amplitude = 100 A, T1 = 10 &micro;s, T2 = 350 %micro;s</code>. 
-Furthermore it is shown that the integral of the output goes to <code>Q = 50 mC</code>, and the first derivative of the output is continuous. 
+Furthermore it is shown that the integral of the output reaches approximately <code>Q = 50 mC</code>, and the first derivative of the output is continuous.
 The block can be used to drive a <a href=\"modelica://Modelica.Electrical.Analog.Sources.SignalCurrent\">current source</a> 
 to investigate the effects when a lightnung hits e.g. a <a href=\"modelica://Modelica.Electrical.Analog.Lines\">transmission line</a>.
 </p>
