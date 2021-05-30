@@ -939,20 +939,20 @@ The Real output y is a trapezoid signal:
   protected
     parameter Modelica.Units.SI.Time TPar(final min=T1, final max=T2, fixed=false, start=T1) "Time of changeover from sin to exp";
     parameter Real yPar=amplitude*sin(w*TPar) "y(t=TPar)";
-    parameter Modelica.Units.SI.AngularVelocity w=asin(0.9)/T1 "Rise time until 90% of yMax";
-    parameter Modelica.Units.SI.Time Tau(final min=0, fixed=false, start=T2) "Parameter of falling exponential";
+    parameter Modelica.Units.SI.AngularVelocity w=asin(0.9)/T1 "Rise time until 90% of maximum of y";
+    parameter Modelica.Units.SI.Time tau(final min=0, fixed=false, start=T2) "Parameter of falling exponential";
   initial equation
-    //fall time T2 below 50% of yMax
-    amplitude/2=yPar*exp(-(T2 - TPar)/Tau);
-    //continuous first derivative
-    amplitude*w*cos(w*TPar)=-yPar/Tau;
+    // Fall time T2 below 50% of yMax
+    amplitude/2=yPar*exp(-(T2 - TPar)/tau);
+    // Continuous first derivative
+    amplitude*w*cos(w*TPar)=-yPar/tau;
   equation
     if time<tStart then
       y=0;
     elseif time<(tStart + TPar) then
       y=amplitude*sin(w*(time - tStart));
     else
-      y=yPar*exp(-(time - (tStart + TPar))/Tau);
+      y=yPar*exp(-(time - (tStart + TPar))/tau);
     end if;
     annotation (Documentation(info="<html>
 <p>
