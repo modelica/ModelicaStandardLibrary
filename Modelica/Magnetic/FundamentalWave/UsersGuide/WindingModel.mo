@@ -9,7 +9,7 @@ magnetic potential and magnetic flux.
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 1: </strong>Symmetrical Polyphase Winding</caption>
+  <caption align=\"bottom\"><strong>Fig. 1: </strong>Symmetric polyphase winding</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/WindingModel/SymmetricPolyphaseWinding.png\"
@@ -20,11 +20,11 @@ magnetic potential and magnetic flux.
 
 <h4>Electric circuit</h4>
 <p>
-The electric circuit models the (temperature dependent) resistances of the <code>m</code> phases and the zero inductance, 
-i.e. induced voltages caused by the derivative of the sum of all phase currents (in case the sum of the currents is not zero).
+The electric circuit models consists of the (temperature dependent) resistances of the <code>m</code> phases and the zero inductance, 
+i.e., induced voltages caused by the derivative of the sum of all phase currents (in case the sum of the currents is not zero).
 </p>
 
-<h4>Electro-Magnetic coupling</h4>
+<h4>Electromagnetic coupling</h4>
 <p>
 The <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter\">PolyphaseElectroMagneticConverter</a> 
 calculates the magnetic voltages (MMF) caused by the currents of the <code>m</code> phases according to the spatial orientation of the phases. 
@@ -34,8 +34,8 @@ To complete the coupling, the induced voltages caused by the derivative of magen
 <h4>Magnetic circuit</h4>
 <p>
 The magnetic circuit models individual and common stray (leakage) flux as well as 
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">core losses</a>. 
-Note that up to now only eddy current losses are taken into account, since hysteresis losses require the detection of remagnetization frequency.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">core loss</a>. 
+Note that up to now only the eddy current loss is taken into account, since the hysteresis loss require the detection of the re-magnetization frequency.
 </p>
 
 <p>
@@ -46,15 +46,15 @@ whereas for <code>ratioCommonLeakage &lt; eps</code> the common part is conditio
 </p>
 <p>
 Note that for <a href=\"Modelica.Electrical.Machines\">machines with three phases</a> and for 
-<a href=\"Modelica.Magnetic.QuasiStatic.FundamentalWave\">quasistatic machines</a> the parameter <code>ratioCommonLeakage</code> has no influence. 
+<a href=\"Modelica.Magnetic.QuasiStatic.FundamentalWave\">quasi-static machines</a> the parameter <code>ratioCommonLeakage</code> has no influence. 
 Feeding polyphase machines with more than three phases by switching power electronics, this discrimination is essential. 
-Therefore this split stray field representation is only modeled in the <a href=\"Modelica.Magnetic.FundamentalWave\">FundamentalWave library</a>.
+Therefore the split stray field representation is only modeled in the <a href=\"Modelica.Magnetic.FundamentalWave\">FundamentalWave library</a>.
 </p>
 <p>
 The parameter <code>ratioCommonLeakage</code> has a default of 1, which is perfectly backwards compatible.
 </p>
 
-<h4>Note:</h4>
+<h4>Note</h4>
 <p>
 For a model with <code>ratioCommonLeakage &lt; 1 - eps</code> (including individual stray inductances) 
 typically more states have to be inialized than
