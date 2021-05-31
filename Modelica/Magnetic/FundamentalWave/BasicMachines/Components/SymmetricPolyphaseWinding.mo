@@ -149,7 +149,7 @@ equation
     annotation (Line(points={{100,100},{80,100},{80,40}}, color={255,128,0}));
   connect(port_p, electroMagneticConverter[1].port_p)
     annotation (Line(points={{100,100},{10,100},{10,0}}, color={255,128,0}));
-  for k in 1:m loop
+  for k in 1:m-1 loop
     connect(electroMagneticConverter[k].port_n, electroMagneticConverter[k + 1].port_p);
   end for;
   connect(core.port_p, electroMagneticConverter[m].port_n)
