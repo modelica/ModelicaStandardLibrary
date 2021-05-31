@@ -126,7 +126,7 @@ model SymmetricPolyphaseWinding
   Modelica.Magnetic.FundamentalWave.Components.Permeance strayIndividual[m](each final G_m(
     d=(1 - ratioCommonLeakage)*Lsigma/effectiveTurns^2,
     q=(1 - ratioCommonLeakage)*Lsigma/effectiveTurns^2)) if ratioCommonLeakage<(1 - eps)
-    "Individual stray permeance equivalent to ideally coupled stray inductances"
+    "Individual stray permeance equivalent to uncoupled stray inductances"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
