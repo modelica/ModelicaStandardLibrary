@@ -9,7 +9,7 @@ package UsersGuide "User's Guide"
 </p>
 
 <p>
-A general introduction into <strong>quasi-static</strong> (quasi-static) phasor can be found in
+A general introduction into <strong>quasi-static</strong> phasor can be found in
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview\">Modelica.Electrical.QuasiStatic</a>.
 </p>
 
