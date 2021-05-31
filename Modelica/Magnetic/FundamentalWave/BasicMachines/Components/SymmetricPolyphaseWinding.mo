@@ -72,8 +72,8 @@ model SymmetricPolyphaseWinding
         Modelica.Electrical.Polyphase.Functions.symmetricOrientation(m))
     "Symmetric winding"
     annotation (Placement(transformation(extent={{-10,-20},{10,0}})));
-  Modelica.Electrical.Polyphase.Basic.ZeroInductor zeroInductor(final m=m, final Lzero=Lzero) if
-       mBase<>2 "Zero sequence inductance of winding"
+  Modelica.Electrical.Polyphase.Basic.ZeroInductor zeroInductor(final m=m, final Lzero=Lzero)
+    if mBase<>2 "Zero sequence inductance of winding"
     annotation (Placement(transformation(
         origin={-70,-30},
         extent={{10,-10},{-10,10}},
@@ -94,21 +94,21 @@ model SymmetricPolyphaseWinding
         origin={-20,70},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortWinding[m] if
-    useHeatPort "Heat ports of winding resistors"
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortWinding[m]
+    if useHeatPort "Heat ports of winding resistors"
     annotation (Placement(transformation(extent={{-50,-110},{-30,-90}})));
-  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortCore if
-    useHeatPort "Heat port of core"
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortCore
+    if useHeatPort "Heat port of core"
     annotation (Placement(transformation(extent={{30,-110},{50,-90}})));
-  Magnetic.FundamentalWave.Components.EddyCurrent core(final useHeatPort=
-        useHeatPort, final G=(m/2)*GcRef*effectiveTurns^2)
+  Magnetic.FundamentalWave.Components.EddyCurrent core(
+    final useHeatPort=useHeatPort, final G=(m/2)*GcRef*effectiveTurns^2)
     "Core loss model (currently eddy currents only)" annotation (Placement(
         transformation(extent={{-10,-10},{10,10}}, origin={50,-40})));
   Modelica.Magnetic.FundamentalWave.Components.Permeance stray(final G_m(
     d=2/m*ratioCommonLeakage*Lsigma/effectiveTurns^2,
     q=2/m*ratioCommonLeakage*Lsigma/effectiveTurns^2)) if ratioCommonLeakage>eps
     "Common stray permeance equivalent to ideally coupled stray inductances"
-                                                                      annotation (Placement(transformation(
+      annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={80,30})));
