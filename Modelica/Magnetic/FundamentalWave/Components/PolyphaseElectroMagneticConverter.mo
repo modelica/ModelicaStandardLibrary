@@ -3,6 +3,7 @@ model PolyphaseElectroMagneticConverter
   "Polyphase electromagnetic converter"
 
   import Modelica.Constants.pi;
+  import Modelica.Magnetic.FundamentalWave.Types.SalientPermeance;
 
   // Global plug and port variables
   SI.Voltage v[m]=plug_p.pin.v - plug_n.pin.v "Voltage";
@@ -41,9 +42,18 @@ model PolyphaseElectroMagneticConverter
   parameter Real effectiveTurns[m] "Effective number of turns";
   parameter SI.Angle orientation[m]
     "Orientation of the resulting fundamental wave field phasor";
+  parameter Boolean useStrayPermeance=false "Use optional stray permenace";
+  parameter SI.Inductance Lsigma=0 "Optional stray inductance"
+    annotation(Dialog(enable=useStrayPermeance));
   Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter singlePhaseElectroMagneticConverter[m](
     final effectiveTurns=effectiveTurns, final orientation=orientation)
     annotation (Placement(transformation(extent={{-8,-10},{12,10}})));
+  Permeance strayPermeance[m](final G_m={SalientPermeance(
+    d=Lsigma/effectiveTurns[k]^2, q=Lsigma/effectiveTurns[k]^2) for k in 1:m}) if useStrayPermeance
+    annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=270,
+        origin={30,0})));
 equation
   connect(plug_p.pin, singlePhaseElectroMagneticConverter.pin_p)
     annotation (Line(
@@ -61,6 +71,10 @@ equation
   connect(singlePhaseElectroMagneticConverter[m].port_n, port_n)
     annotation (Line(
       points={{12,-10},{12,-100},{100,-100}}, color={255,128,0}));
+  connect(singlePhaseElectroMagneticConverter.port_p, strayPermeance.port_p)
+    annotation (Line(points={{12,10},{30,10}}, color={255,128,0}));
+  connect(singlePhaseElectroMagneticConverter.port_n, strayPermeance.port_n)
+    annotation (Line(points={{12,-10},{30,-10}}, color={255,128,0}));
   annotation (defaultComponentName="converter",
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
             100,100}}), graphics={           Line(points={{100,-100},{94,-100},{84,-98},{76,-94},{64,-86},{50,-72},{42,-58},{36,-40},{30,-18},{30,0},{30,18},{34,36},{46,66},{62,84},{78,96},{90,100},{100,100}},
