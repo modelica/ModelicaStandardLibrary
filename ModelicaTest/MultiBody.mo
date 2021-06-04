@@ -1037,6 +1037,74 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       connect(Constant1.y, FrameTorque1.torque) annotation (Line(points={{69,-30},{52,-30}}, color={0,0,127}));
       annotation (experiment(StopTime=1.1));
     end AngularVelocity;
+
+    model QuaternionFromT
+      extends Modelica.Icons.Example;
+      import TM = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
+      import Modelica.Mechanics.MultiBody.Frames.Quaternions;
+
+      parameter TM.Orientation T1 = TM.from_nxy({1, 0, 0}, {0, 1, 0});
+      parameter TM.Orientation T2 = TM.from_nxy({1, 0, 0}, {0,-1, 0});
+      parameter TM.Orientation T3 = TM.from_nxy({1, 0, 0}, {0, 0, 1});
+      parameter TM.Orientation T4 = TM.from_nxy({1, 0, 0}, {0, 0,-1});
+
+      parameter TM.Orientation T5 = TM.from_nxy({-1, 0, 0}, {0, 1, 0});
+      parameter TM.Orientation T6 = TM.from_nxy({-1, 0, 0}, {0,-1, 0});
+      parameter TM.Orientation T7 = TM.from_nxy({-1, 0, 0}, {0, 0, 1});
+      parameter TM.Orientation T8 = TM.from_nxy({-1, 0, 0}, {0, 0,-1});
+
+      parameter TM.Orientation T9 =  TM.from_nxy({0, 1, 0}, { 1, 0, 0});
+      parameter TM.Orientation T10 = TM.from_nxy({0, 1, 0}, {-1, 0, 0});
+      parameter TM.Orientation T11 = TM.from_nxy({0, 1, 0}, { 0, 0, 1});
+      parameter TM.Orientation T12 = TM.from_nxy({0, 1, 0}, { 0, 0,-1});
+
+      parameter TM.Orientation T13 = TM.from_nxy({0,-1, 0}, { 1, 0, 0});
+      parameter TM.Orientation T14 = TM.from_nxy({0,-1, 0}, {-1, 0, 0});
+      parameter TM.Orientation T15 = TM.from_nxy({0,-1, 0}, { 0, 0, 1});
+      parameter TM.Orientation T16 = TM.from_nxy({0,-1, 0}, { 0, 0,-1});
+
+      parameter TM.Orientation T17 = TM.from_nxy({0, 0, 1}, { 1, 0, 0});
+      parameter TM.Orientation T18 = TM.from_nxy({0, 0, 1}, {-1, 0, 0});
+      parameter TM.Orientation T19 = TM.from_nxy({0, 0, 1}, { 0, 1, 0});
+      parameter TM.Orientation T20 = TM.from_nxy({0, 0, 1}, { 0,-1, 0});
+
+      parameter TM.Orientation T21 = TM.from_nxy({0, 0,-1}, { 1, 0, 0});
+      parameter TM.Orientation T22 = TM.from_nxy({0, 0,-1}, {-1, 0, 0});
+      parameter TM.Orientation T23 = TM.from_nxy({0, 0,-1}, { 0, 1, 0});
+      parameter TM.Orientation T24 = TM.from_nxy({0, 0,-1}, { 0,-1, 0});
+
+      Quaternions.Orientation Q1 =  Quaternions.from_T(T1);
+      Quaternions.Orientation Q2 =  Quaternions.from_T(T2);
+      Quaternions.Orientation Q3 =  Quaternions.from_T(T3);
+      Quaternions.Orientation Q4 =  Quaternions.from_T(T4);
+
+      Quaternions.Orientation Q5 =  Quaternions.from_T(T5);
+      Quaternions.Orientation Q6 =  Quaternions.from_T(T6);
+      Quaternions.Orientation Q7 =  Quaternions.from_T(T7);
+      Quaternions.Orientation Q8 =  Quaternions.from_T(T8);
+
+      Quaternions.Orientation Q9 =  Quaternions.from_T(T9);
+      Quaternions.Orientation Q10 = Quaternions.from_T(T10);
+      Quaternions.Orientation Q11 = Quaternions.from_T(T11);
+      Quaternions.Orientation Q12 = Quaternions.from_T(T12);
+
+      Quaternions.Orientation Q13 = Quaternions.from_T(T13);
+      Quaternions.Orientation Q14 = Quaternions.from_T(T14);
+      Quaternions.Orientation Q15 = Quaternions.from_T(T15);
+      Quaternions.Orientation Q16 = Quaternions.from_T(T16);
+
+      Quaternions.Orientation Q17 = Quaternions.from_T(T17);
+      Quaternions.Orientation Q18 = Quaternions.from_T(T18);
+      Quaternions.Orientation Q19 = Quaternions.from_T(T19);
+      Quaternions.Orientation Q20 = Quaternions.from_T(T20);
+
+      Quaternions.Orientation Q21 = Quaternions.from_T(T21);
+      Quaternions.Orientation Q22 = Quaternions.from_T(T22);
+      Quaternions.Orientation Q23 = Quaternions.from_T(T23);
+      Quaternions.Orientation Q24 = Quaternions.from_T(T24);
+
+      annotation (experiment(StopTime=0.1, Interval=0.1));
+    end QuaternionFromT;
   end Frames;
 
   package Forces
