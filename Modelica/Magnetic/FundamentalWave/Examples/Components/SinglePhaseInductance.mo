@@ -71,5 +71,27 @@ equation
       points={{-60,-20},{-40,-20}}, color={0,0,255}));
   connect(resistor_m.n, converter_m.pin_p) annotation (Line(
       points={{-20,-20},{0,-20}}, color={0,0,255}));
-  annotation (experiment(StopTime=100, Interval=0.01));
+  annotation (experiment(StopTime=100, Interval=0.01), Documentation(info="<html>
+<p>
+This example compares an electric single-phase inductor with an equivalent fundamental wave reluctance circuit.
+The phase inductance <code>L</code> and the magnetic fundamental wave reluctance <code>R_m</code> are related by:
+</p>
+
+<blockquote><pre>
+R_m = effectiveTurns^2 / L
+</pre></blockquote>
+
+<p>
+The two currents
+</p>
+
+<ul>
+<li><code>resistor_e.i</code></li>
+<li><code>resistor_m.i</code></li>
+</ul>
+
+<p>
+show the same waveforms and thus prove the equivalence of the two different modelling approaches.
+</p>
+</html>"));
 end SinglePhaseInductance;
