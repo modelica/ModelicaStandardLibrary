@@ -7,9 +7,9 @@ model TLine2
     "Characteristic impedance";
   parameter SI.Frequency F(start=1) "Frequency";
   parameter Real NL(start=1) "Normalized length";
+  SI.Voltage er(start=0);
+  SI.Voltage es(start=0);
 protected
-  SI.Voltage er;
-  SI.Voltage es;
   parameter SI.Time TD=NL/F;
 equation
   assert(Z0 > 0, "Z0 has to be positive");

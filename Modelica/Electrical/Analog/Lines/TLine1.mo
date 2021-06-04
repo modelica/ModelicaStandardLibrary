@@ -6,9 +6,8 @@ model TLine1
   parameter SI.Resistance Z0(start=1)
     "Characteristic impedance";
   parameter SI.Time TD(start=1) "Transmission delay";
-protected
-  SI.Voltage er;
-  SI.Voltage es;
+  SI.Voltage er(start=0);
+  SI.Voltage es(start=0);
 equation
   assert(Z0 > 0, "Z0 has to be positive");
   assert(TD > 0, "TD has to be positive");
