@@ -96,6 +96,10 @@ public
       useHeatPort=fill(useHeatPort, dim_vector_lgc),
       T=fill(T, dim_vector_lgc));
     Modelica.Electrical.Analog.Basic.M_Transformer inductance(N=lines, L=Ll);
+    Ideal.Short M annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=270,
+          origin={0,-70})));
   equation
     for j in 1:lines - 1 loop
 
@@ -104,10 +108,10 @@ public
       connect(inductance.n[j], n[j]);
       connect(inductance.n[j], C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
         2))].p);
-      connect(C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n,refPin);
+      connect(C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n,M.p);
       connect(inductance.n[j], G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
         2))].p);
-      connect(G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n,refPin);
+      connect(G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n,M.p);
 
       for i in j + 1:lines loop
         connect(inductance.n[j], C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
@@ -125,9 +129,9 @@ public
     connect(R[lines].n, inductance.p[lines]);
     connect(inductance.n[lines], n[lines]);
     connect(inductance.n[lines], C[dim_vector_lgc].p);
-    connect(C[dim_vector_lgc].n,refPin);
+    connect(C[dim_vector_lgc].n,M.p);
     connect(inductance.n[lines], G[dim_vector_lgc].p);
-    connect(G[dim_vector_lgc].n,refPin);
+    connect(G[dim_vector_lgc].n,M.p);
 
     if useHeatPort then
 
@@ -143,6 +147,8 @@ public
       connect(heatPort, G[dim_vector_lgc].heatPort);
     end if;
 
+    connect(M.n, refPin)
+      annotation (Line(points={{0,-80},{0,-100}}, color={0,0,255}));
     annotation (defaultComponentName="segment", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(extent={{40,-40},{-40,40}},
             lineColor={0,0,255}),
@@ -186,7 +192,6 @@ public
       useHeatPort=fill(useHeatPort, lines),
       T=fill(T, lines));
     Modelica.Electrical.Analog.Basic.M_Transformer inductance(N=lines, L=Ll);
-    Modelica.Electrical.Analog.Basic.Ground M;
 
   equation
     for j in 1:lines - 1 loop

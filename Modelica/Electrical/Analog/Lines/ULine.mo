@@ -37,9 +37,6 @@ model ULine "Lossy RC Line"
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
     annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
         iconTransformation(extent={{-110,-110},{-90,-90}})));
-protected
-   parameter SI.Resistance rm[N + 1]=
-  {if i==1 or i==N + 1 then r*length/(N*2) else r*length/N for i in 1:N+1};
   Modelica.Electrical.Analog.Basic.Resistor R[N + 1](
     R=rm,
     T_ref=fill(T_ref, N + 1),
@@ -47,6 +44,9 @@ protected
     useHeatPort=fill(useHeatPort, N + 1),
     T=fill(T, N + 1));
   Modelica.Electrical.Analog.Basic.Capacitor C[N](C=fill(c*length/(N), N));
+protected
+   parameter SI.Resistance rm[N + 1]=
+  {if i==1 or i==N + 1 then r*length/(N*2) else r*length/N for i in 1:N+1};
 equation
   v13 = p1.v - p3.v;
   v23 = p2.v - p3.v;
