@@ -41,7 +41,7 @@ model PolyphaseElectroMagneticConverter
   parameter Real effectiveTurns[m] "Effective number of turns";
   parameter SI.Angle orientation[m]
     "Orientation of the resulting fundamental wave field phasor";
-  parameter Boolean useStrayPermeance=false "Use optional stray permenace";
+  parameter Boolean useStrayPermeance=false "Use optional stray permeance";
   parameter SI.Inductance Lsigma=0 "Optional stray inductance"
     annotation(Dialog(enable=useStrayPermeance));
   Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter singlePhaseElectroMagneticConverter[m](
