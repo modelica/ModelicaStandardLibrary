@@ -1,8 +1,8 @@
 within Modelica.Electrical.Analog.Lines;
 model TLine1
   "Lossless transmission line with characteristic impedance Z0 and transmission delay TD"
-
   extends Modelica.Electrical.Analog.Interfaces.TwoPort;
+  extends Modelica.Icons.ObsoleteModel;
   parameter SI.Resistance Z0(start=1)
     "Characteristic impedance";
   parameter SI.Time TD(start=1) "Transmission delay";
@@ -23,6 +23,8 @@ equation
 <p><strong>References:</strong>
    [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>],
    [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Hoefer1985</a>]</p>
+<h4>Note:</h4>
+<p>This model is replaced by <a href=\"modelica://Modelica.Electrical.Analog.Lines.TLine\">TLine</a> with appropriate parameterization.</p>
 </html>",    revisions="<html>
 <ul>
 <li><em> 1998   </em>
