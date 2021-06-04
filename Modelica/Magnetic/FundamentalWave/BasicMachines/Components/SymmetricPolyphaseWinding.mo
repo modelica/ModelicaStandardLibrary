@@ -144,8 +144,7 @@ equation
     annotation (Line(points={{-20,60},{-20,0},{-10,0}}, color={0,0,255}));
   connect(electroMagneticConverter.port_p, port_p)
     annotation (Line(points={{10,0},{10,100},{100,100}}, color={255,128,0}));
-  annotation (defaultComponentName="winding", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}), graphics={
+  annotation (defaultComponentName="winding", Icon(graphics={
         Line(points={{100,-100},{94,-100},{84,-98},{76,-94},{64,-86},{50,
               -72},{42,-58},{36,-40},{30,-18},{30,0},{30,18},{34,36},{46,
               66},{62,84},{78,96},{90,100},{100,100}}, color={255,128,0}),

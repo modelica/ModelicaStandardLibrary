@@ -268,9 +268,7 @@ Note that due to the mode of operation, the behaviour of all three machines is i
 Only when fed by switching power electronics, parameter <code>ratioCommonLeakage</code> is essential.
 </p>
 </html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}),
-                         graphics={       Text(
+    Diagram(graphics={       Text(
                 extent={{10,80},{90,72}},
                 fillColor={255,255,170},
                 fillPattern=FillPattern.Solid,
