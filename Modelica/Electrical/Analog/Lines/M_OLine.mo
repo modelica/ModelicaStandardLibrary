@@ -26,11 +26,7 @@ public
     each final min=Modelica.Constants.small,
     each unit="F/m") = {2.38e-11,1.01e-10,8.56e-11,5.09e-12,2.71e-11,2.09e-11,
     7.16e-11,1.83e-11,1.23e-10,2.07e-11} "Capacitance per meter";
-<<<<<<< HEAD
   parameter Boolean useInternalGround=true "Default: true = use internal ground / false = use reference pin"
-=======
-  parameter Boolean useInternalGround=true "= true if internal ground is used, otherwise use reference pin"
->>>>>>> eb303c7fb703e0ddaa18224b20b8ee6cd18e9868
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
   parameter SI.LinearTemperatureCoefficient alpha_R=0
     "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
@@ -321,20 +317,9 @@ The following picture shows the schematic of a segment with four single lines (l
      alt=\"segment.png\">
 </blockquote>
 
-<<<<<<< HEAD
 <p>Note that the user can choose whether the optional &quot;refPin&quot; is active (so that it can be connected to any other pin), 
 otherwise the internal &quot;ground&quot; is used. This is done with the checkbox useInternalGround, true by default (for compatibility with previous versions).
 Obviously the  potential of the internal ground is always zero, its current can be accessed for plotting.</p>
-=======
-<p>Note that the user can choose whether the optional &quot;refPin&quot; 
-is active (so that it can be connected to any other pin), 
-otherwise the internal &quot;ground&quot; is used. 
-This is done with the checkbox useInternalGround, true by default
- (for compatibility with previous versions).
-Obviously the  potential of the internal ground is always zero, 
-its current can be accessed for plotting.</p>
-
->>>>>>> eb303c7fb703e0ddaa18224b20b8ee6cd18e9868
 <p>The complete multi line consists of N segments and an auxiliary segment_last:</p>
 
 <p align=\"center\"><code>-- segment_1 -- segment_2 -- ... -- segment_N -- segment_last --</code></p>
