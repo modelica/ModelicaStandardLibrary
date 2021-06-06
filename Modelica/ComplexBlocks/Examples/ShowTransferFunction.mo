@@ -1,11 +1,20 @@
 within Modelica.ComplexBlocks.Examples;
 model ShowTransferFunction "Test complex transfer function block"
   extends Modelica.Icons.Example;
-  parameter Real d=0.01 "Damping coefficient in kg/s (not the damping ratio)";
-  parameter Real m=0.2 "Mass in kg";
-  parameter Real c=0.1 "Stiffness in N/m";
-  parameter Real b[:]={-m} "Numerator polynomial coefficients {-m} of the transfer function";
-  parameter Real a[:]={m,d,c} "Denominator polynomial coefficients {m,d,c} of the transfer function";
+  parameter Modelica.Units.SI.Mass m = 0.2 "Mass";
+  parameter Modelica.Units.SI.TranslationalDampingConstant d = 0.01 "Damping coefficient (not the damping ratio)";
+  parameter Modelica.Units.SI.TranslationalSpringConstant c = 0.1 "Stiffness";
+protected
+  final constant Modelica.Units.SI.Mass oneUnitMass = 1
+    "Helping constant to satisfy unit check";
+  final constant Modelica.Units.SI.TranslationalDampingConstant oneUnitDampingConstant = 1
+    "Helping constant to satisfy unit check";
+  final constant Modelica.Units.SI.TranslationalSpringConstant oneUnitSpringConstant = 1
+    "Helping constant to satisfy unit check";
+public
+  final parameter Real b[:]={-m} "Numerator polynomial coefficients {-m} of the transfer function";
+  final parameter Real a[:]={m/oneUnitMass, d/oneUnitDampingConstant, c/oneUnitSpringConstant}
+    "Unitless denominator polynomial coefficients {m,d,c} of the transfer function";
   parameter Real wMin=0.01 "Lower bound for frequency sweep";
   parameter Real wMax=100 "Upper bound for frequency sweep";
   Real lg_w=log10(logFrequencySweep.y) "Logarithm of frequency";
@@ -17,8 +26,8 @@ model ShowTransferFunction "Test complex transfer function block"
     wMax=wMax) annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
   Modelica.ComplexBlocks.Sources.ComplexConstant const(k(re=1, im=0))
     annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
-  Modelica.ComplexBlocks.ComplexMath.TransferFunction transferFunction(b=b,
-      a=a)
+  Modelica.ComplexBlocks.ComplexMath.TransferFunction transferFunction(final b=b,
+      final a=a)
     annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
   Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar
     annotation (Placement(transformation(extent={{0,-10},{20,10}})));
