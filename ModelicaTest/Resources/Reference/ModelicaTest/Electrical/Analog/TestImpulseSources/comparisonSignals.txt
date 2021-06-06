@@ -1,0 +1,5 @@
+time
+resistor1.i
+resistor2.i
+resistor3.v
+resistor4.v

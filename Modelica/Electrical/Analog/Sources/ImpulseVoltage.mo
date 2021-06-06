@@ -1,0 +1,31 @@
+within Modelica.Electrical.Analog.Sources;
+model ImpulseVoltage "Impulse voltage"
+  parameter Modelica.Blocks.Types.ImpulseApproximation approximation=Modelica.Blocks.Types.ImpulseApproximation.DoubleExp
+    "Approximation of impulse";
+  parameter SI.Voltage V "Amplitude";
+  parameter SI.Time T1=10e-6
+    "Rise time until 90% of amplitude";
+  parameter SI.Time T2=350e-6
+    "Decay time until 50% of amplitude";
+  parameter Integer m(final min=2)=5 "Integer exponent of Heidler-function 5..10"
+    annotation(Dialog(tab="Advanced", enable=approximation == Modelica.Blocks.Types.ImpulseApproximation.Heidler));
+  extends Modelica.Electrical.Analog.Interfaces.VoltageSource(redeclare
+      Modelica.Blocks.Sources.Impulse signalSource(
+      final approximation=approximation,
+      final amplitude=V,
+      final T1=T1,
+      final T2=T2,
+      final m=m));
+  annotation (Icon(graphics={
+        Line(points={{-28,-80},{-2,74},{-2,74},{-2,74},{-2,74},{-2,74},{-2,74},
+              {-2,74},{-2,74},{-2,74},{-2,74},{0,74},{0,74},{0,74},{0,74},{2.12,
+              61.5},{4.95,46.7},{7.78,33.8},{10.606,22.45},{14.14,10.3},{17.68,
+              0},{21.9,-10.2},{26.2,-18.6},{31.1,-26.5},{36.8,-33.4},{43.1,
+              -39.3},{50.9,-44.5},{60.8,-48.8},{70,-51.4}})}),
+                                     Documentation(info="<html>
+<p>
+Impulse voltage using either a double exponential function or a Heidler function, 
+see block <a href=\"modelica://Modelica.Blocks.Sources.Impulse\">Impulse</a>.
+</p>
+</html>"));
+end ImpulseVoltage;

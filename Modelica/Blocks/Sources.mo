@@ -930,6 +930,130 @@ The Real output y is a trapezoid signal:
 </html>"));
   end Trapezoid;
 
+  block Impulse "Impulse trajectory"
+    import Modelica.Blocks.Types.ImpulseApproximation;
+    import Modelica.Constants.small;
+    import Modelica.Constants.pi;
+    parameter Modelica.Blocks.Types.ImpulseApproximation approximation=Modelica.Blocks.Types.ImpulseApproximation.DoubleExp
+      "Approximation of impulse";
+    parameter Real amplitude "Amplitude";
+    parameter SI.Time T1=10e-6
+      "Rise time until 90% of amplitude";
+    parameter SI.Time T2=350e-6
+      "Decay time until 50% of amplitude";
+    extends Modelica.Blocks.Interfaces.SignalSource;
+    parameter Integer m(final min=2)=5 "Integer exponent of Heidler-function 5..10"
+      annotation(Dialog(tab="Advanced", enable=approximation == Modelica.Blocks.Types.ImpulseApproximation.Heidler));
+  protected
+    parameter Real eta(final min=small, fixed=false, start=1)
+      "Amplitude parameter";
+    parameter Modelica.Units.SI.Time T(
+      final min=small,
+      fixed=false,
+      start=if approximation == Modelica.Blocks.Types.ImpulseApproximation.DoubleExp
+           then T2*T1/(T2 - T1)*log(T2/T1) else T1*(m*T2/T1)^(1/(m + 1)))
+      "Time parameter";
+    parameter Modelica.Units.SI.Time tau1(
+      final min=small,
+      fixed=false,
+      start=if approximation == Modelica.Blocks.Types.ImpulseApproximation.DoubleExp
+           then T2 else T1) "Time constant of 1st exponential";
+    parameter Modelica.Units.SI.Time tau2(
+      final min=small,
+      fixed=false,
+      start=if approximation == Modelica.Blocks.Types.ImpulseApproximation.DoubleExp
+           then T1 else T2) "Time constant of 2nd exponential";
+  initial equation
+    if approximation == Modelica.Blocks.Types.ImpulseApproximation.DoubleExp then
+      //time T when maximum occurs
+      T=tau1*tau2/(tau1 - tau2)*log(tau1/tau2);
+      //eta to reach amplitude at T
+      eta=exp(-T/tau1) - exp(-T/tau2);
+      //at T1 the output rises to 90% of the amplitude
+      0.9*eta=exp(-T1/tau1) - exp(-T1/tau2);
+      //at T2 the output falls below 50% of the amplitude
+      0.5*eta=exp(-T2/tau1) - exp(-T2/tau2);
+    else
+      //time T when maximum occurs
+      tau2/T*m=1 + (T/tau1)^m;
+      //eta to reach amplitude at T
+      eta=(T/tau1)^m/(1 + (T/tau1)^m)*exp(-T/tau2);
+      //at T1 the output rises to 90% of the amplitude
+      0.9*eta=(T1/tau1)^m/(1 + (T1/tau1)^m)*exp(-T1/tau2);
+      //at T2 the output falls below 50% of the amplitude
+      0.5*eta=(T2/tau1)^m/(1 + (T2/tau1)^m)*exp(-T2/tau2);
+    end if;
+  equation
+    assert(approximation == Modelica.Blocks.Types.ImpulseApproximation.Heidler
+       or T1 <= 0.2*T2, "Rise time has to be smaller than 0.2*decay time!");
+    if time<startTime then
+      y=offset;
+    else
+      if approximation == Modelica.Blocks.Types.ImpulseApproximation.DoubleExp then
+        y=offset + amplitude/eta*(exp(-(time - startTime)/tau1) - exp(-(time - startTime)/tau2));
+      else
+        y=offset + amplitude/eta*((time - startTime)/tau1)^m/(1 + ((time - startTime)/tau1)^m)*exp(-(time - startTime)/tau2);
+      end if;
+    end if;
+    annotation (defaultComponentName="lightning",
+    Documentation(info="<html>
+<p>
+Simplified trajectory of an impulse (like e.g. the current of lightnings) as one of two choices:
+</p>
+<ul>
+<li>double-exponential function <code>y = amplitude/eta*(exp(-time/tau1) - exp(-time/tau2))</code></li>
+<li>so-called Heidler function <code>y = amplitude/eta*(time/tau1)<sup>m</sup>/(1 + (time/tau1)<sup>m</sup>)*exp(-time/tau2)</code></li>
+</ul>
+<p>
+The parameters of the trajectory are defined by:
+</p>
+<ul>
+<li>The maximum of the trajectory <code>amplitude</code></li>
+<li>Rise time <code>T1</code> until 90% of the <code>amplitude</code> is reached</li>
+<li>Decay time <code>T2</code> until <code>y</code> falls below 50% of the <code>amplitude</code></li>
+<li>For the Heidler function, integer exponent <code>m = 5..10</code> is recommended.
+</ul>
+<p>Note: Due to numerical reasons, for the double-exponential function <code>T1 &le; 0.2*T2</code> is required.</p>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 1:</strong> Parameters of the lightning current</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Lightning.png\">
+    </td>
+  </tr>
+</table>
+<h4>Note</h4>
+<p>
+For a standard trajectory with <code>amplitude = 100 kA, T1 = 10 &micro;s, T2 = 350 &micro;s</code> the integral of the output reaches the required charge <code>Q = 50 C</code> nearly perfect.
+</p>
+<h4>References</h4>
+<ul>
+<li>Fridolin Heidler, Blitzstromparameter nach IEC 62305 - Hintergrund, Erfahrung und Ausblick. Elektronik &amp; Automation (etz) (1) 2009, pp. 57-64.</li>
+<li>Michael Rock, Pr&uuml;fgeneratoren zur Simulation von Blitzimpulsstr&ouml;men im Labor und ihre Wechselwirkung mit den Pr&uuml;fobjekten.
+    Habilitation, Universit&auml;t Ilmenau 2012, ISBN 978-3-86360-032-7.</li>
+</ul>
+</html>"),
+      Icon(graphics={
+          Polygon(
+            points={{-80,80},{-88,58},{-72,58},{-80,80}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-80,58},{-80,-90}}, color={192,192,192}),
+          Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
+          Polygon(
+            points={{90,-80},{68,-72},{68,-88},{90,-80}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-80,-78},{-54,76},{-54,76},{-54,76},{-54,76},{-54,76},{
+                -54,76},{-54,76},{-54,76},{-54,76},{-54,76},{-52,76},{-52,76},{
+                -52,76},{-52,76},{-49.88,63.5},{-47.05,48.7},{-44.22,35.8},{
+                -41.394,24.45},{-37.86,12.3},{-34.32,2},{-30.1,-8.2},{-25.8,-16.6},
+                {-20.9,-24.5},{-15.2,-31.4},{-8.9,-37.3},{-1.1,-42.5},{8.8,-46.8},
+                {18,-49.4}})}));
+  end Impulse;
+
   block LogFrequencySweep "Logarithmic frequency sweep"
     extends Modelica.Blocks.Interfaces.SO;
     import Modelica.Constants.eps;

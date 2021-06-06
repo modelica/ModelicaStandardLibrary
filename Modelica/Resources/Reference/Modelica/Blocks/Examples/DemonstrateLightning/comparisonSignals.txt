@@ -1,0 +1,7 @@
+time
+impulse1.y
+integrator1.y
+der1.y
+impulse2.y
+integrator2.y
+der2.y
