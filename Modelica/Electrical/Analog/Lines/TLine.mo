@@ -7,12 +7,12 @@ model TLine
     "Transmission delay: specify > 0 if F and NL are not given";
   parameter Modelica.Units.SI.Frequency F=0
     "Frequency: specify > 0 if TD is not given";
-  parameter Real NL=1/4 "Normalized length: has to be specified if TD is not given";
+  parameter Real NL=1/4 "Normalized length: specify if TD is not given";
   Modelica.Units.SI.Voltage es "Voltage source of forward travelling wave";
   Modelica.Units.SI.Voltage er "Voltage source of reflected wave";
 protected
   parameter Modelica.Units.SI.Time TDi=if F > 0 then NL/F else TD
-    "Internally used Transmission delay";
+    "Internally used transmission delay";
 equation
   assert(Z0 > 0, "Z0 has to be positive");
   assert((F > 0) or (TD > 0), "F or TD has to be positive");
