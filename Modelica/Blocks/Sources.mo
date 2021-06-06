@@ -1011,7 +1011,7 @@ The parameters of the trajectory are defined by:
 <li>The maximum of the trajectory <code>amplitude</code></li>
 <li>Rise time <code>T1</code> until 90% of the <code>amplitude</code> is reached</li>
 <li>Decay time <code>T2</code> until <code>y</code> falls below 50% of the <code>amplitude</code></li>
-<li>For the Heidler function, integer exponent <code>m = 5..10</code> is recommended.
+<li>For the Heidler function, integer exponent <code>m = 5..10</code> is recommended.</li>
 </ul>
 <p>Note: Due to numerical reasons, for the double-exponential function <code>T1 &le; 0.2*T2</code> is required.</p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
