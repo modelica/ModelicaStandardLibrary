@@ -4,8 +4,8 @@ model TLine3
   extends Modelica.Electrical.Analog.Interfaces.TwoPort;
   parameter SI.Resistance Z0(start=1) "Natural impedance";
   parameter SI.Frequency F(start=1) "Frequency";
-  SI.Voltage er(start=0) "Reflected voltage wave";
-  SI.Voltage es(start=0) "Incident voltage wave";
+  SI.Voltage es(start=0) "Voltage source of forward travelling wave";
+  SI.Voltage er(start=0) "Voltage source of reflected wave";
 protected
   parameter SI.Time TD=1/F/4;
 equation
