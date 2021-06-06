@@ -96,7 +96,7 @@ public
       useHeatPort=fill(useHeatPort, dim_vector_lgc),
       T=fill(T, dim_vector_lgc));
     Modelica.Electrical.Analog.Basic.M_Transformer inductance(N=lines, L=Ll);
-    Ideal.Short M annotation (Placement(transformation(
+    Modelica.Electrical.Analog.Ideal.Short M annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={0,-70})));
