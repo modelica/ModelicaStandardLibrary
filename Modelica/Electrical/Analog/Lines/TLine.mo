@@ -8,8 +8,8 @@ model TLine
   parameter Modelica.Units.SI.Frequency F=0
     "Frequency: specify > 0 if TD is not given";
   parameter Real NL=1/4 "Normalized length: specify if TD is not given";
-  Modelica.Units.SI.Voltage es "Voltage source of forward travelling wave";
-  Modelica.Units.SI.Voltage er "Voltage source of reflected wave";
+  Modelica.Units.SI.Voltage es(start=0) "Voltage source of forward travelling wave";
+  Modelica.Units.SI.Voltage er(start=0) "Voltage source of reflected wave";
 protected
   parameter Modelica.Units.SI.Time TDi=if F > 0 then NL/F else TD
     "Internally used transmission delay";
