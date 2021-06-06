@@ -7,8 +7,8 @@ model TLine2
     "Characteristic impedance";
   parameter SI.Frequency F(start=1) "Frequency";
   parameter Real NL(start=1) "Normalized length";
-  SI.Voltage er(start=0);
-  SI.Voltage es(start=0);
+  SI.Voltage er(start=0) "Reflected voltage wave";
+  SI.Voltage es(start=0) "Incident voltage wave";
 protected
   parameter SI.Time TD=NL/F;
 equation
