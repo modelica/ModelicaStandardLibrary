@@ -955,7 +955,7 @@ The Real output y is a trapezoid signal:
     parameter Modelica.Units.SI.Time T(final min=small,
       fixed=false, start=T0[iApp]) "Time when maximum occurs";
     parameter Modelica.Units.SI.Time T10(final min=small,
-      fixed=false, start=0.1*T0[iApp]) "Time to 10%";
+      fixed=false, start=0.01*T0[iApp]) "Time to 10%";
     parameter Modelica.Units.SI.Time tau1(final min=small,
       fixed=false, start=tau10[iApp]) "Time constant 1";
     parameter Modelica.Units.SI.Time tau2(final min=small,
@@ -988,7 +988,6 @@ The Real output y is a trapezoid signal:
     end if;
   equation
     assert(approximation==ImpulseApproximation.Heidler or T1<0.2*T2,"Rise time has to be smaller than 0.2*decay time!");
-    assert(approximation==ImpulseApproximation.Heidler or T1>0.01*T2,"Rise time has to be greater than 0.01*decay time!");
     if time<startTime then
       y=offset;
     else
@@ -1023,7 +1022,7 @@ The virtual start of the trajectory is defined by the intersection of this strai
 The rise time <code>T1</code> is defined as the time span between the virtual start of the trajectory and the point in time when the straight line reaches the amplitude.
 The decay time to half value <code>T2</code> is defined as the time span between the virtual start and the point in time when the output falls below 0.5 of the amplitude.
 </p>
-<p>Note: Due to numerical reasons, for the double-exponential function <code>0.01*T1 &lt; T1 &lt; 0.2*T2</code> is required.</p>
+<p>Note: Due to numerical reasons, for the double-exponential function <code>T1 &lt; 0.2*T2</code> is required.</p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\"><strong>Fig. 1:</strong> Parameters of the lightning current</caption>
   <tr>
