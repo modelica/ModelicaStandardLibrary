@@ -129,9 +129,9 @@ public
     connect(R[lines].n, inductance.p[lines]);
     connect(inductance.n[lines], n[lines]);
     connect(inductance.n[lines], C[dim_vector_lgc].p);
-    connect(C[dim_vector_lgc].n,M.p);
+    connect(C[dim_vector_lgc].n, M.p);
     connect(inductance.n[lines], G[dim_vector_lgc].p);
-    connect(G[dim_vector_lgc].n,M.p);
+    connect(G[dim_vector_lgc].n, M.p);
 
     if useHeatPort then
 
