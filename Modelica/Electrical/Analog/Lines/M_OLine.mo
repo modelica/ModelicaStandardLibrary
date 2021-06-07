@@ -147,8 +147,7 @@ public
       connect(heatPort, G[dim_vector_lgc].heatPort);
     end if;
 
-    connect(M.n, refPin) annotation (Line(points={{-1.77636e-15,-80},{-1.77636e-15,
-            -91},{0,-91},{0,-100}}, color={0,0,255}));
+    connect(M.n, refPin) annotation (Line(points={{0,-80},{0,-91},{0,-100}}, color={0,0,255}));
     annotation (defaultComponentName="segment", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(extent={{40,-40},{-40,40}},
             lineColor={0,0,255}),
