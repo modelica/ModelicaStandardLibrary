@@ -130,6 +130,10 @@ The voltages <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamenta
   </tr>
 </table>
 
+<p>
+The converter model optionally (if <code>useStrayPermeance = true</code>) considers stray field permeances (inductance) solely coupled to each individual phase, but no mutual stray inductance.
+</p>
+
 <h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">SinglePhaseElectroMagneticConverter</a>
