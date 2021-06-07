@@ -935,7 +935,7 @@ The Real output y is a trapezoid signal:
     import Modelica.Constants.small;
     import Modelica.Constants.pi;
     parameter ImpulseApproximation approximation=
-      LinesExamples.Blocks.Types.ImpulseApproximation.Heidler "Approximation of impulse";
+      Modelica.Blocks.Types.ImpulseApproximation.Heidler "Approximation of impulse";
     parameter Real amplitude "Amplitude";
     parameter Modelica.Units.SI.Time T1=10e-6 "Rise time";
     parameter Modelica.Units.SI.Time T2=350e-6 "Decay time to half value";
@@ -956,8 +956,6 @@ The Real output y is a trapezoid signal:
       fixed=false, start=T0[iApp]) "Time when maximum occurs";
     parameter Modelica.Units.SI.Time T10(final min=small,
       fixed=false, start=0.1*T0[iApp]) "Time to 10%";
-    parameter Modelica.Units.SI.Time T90(final min=small,
-      fixed=false, start=0.9*T0[iApp]) "Time to 90%";
     parameter Modelica.Units.SI.Time tau1(final min=small,
       fixed=false, start=tau10[iApp]) "Time constant 1";
     parameter Modelica.Units.SI.Time tau2(final min=small,
@@ -971,12 +969,10 @@ The Real output y is a trapezoid signal:
       eta=exp(-T/tau1) - exp(-T/tau2);
       //at T10 the output rises to 10% of the amplitude
       0.1*eta=exp(-T10/tau1) - exp(-T10/tau2);
-      //at T90 the output rises to 90% of the amplitude
-      0.9*eta=exp(-T90/tau1) - exp(-T90/tau2);
-      //T1 is defined as extrapolation between T10 and T90
-      0.8*T1=T90 - T10;
+      //at T10 + 0.8*T1 the output rises to 90% of the amplitude
+      0.9*eta=exp(-(T10 + 0.8*T1)/tau1) - exp(-(T10 + 0.8*T1)/tau2);
       //at T2 from virtual start the output falls below 50% of the amplitude
-      0.5*eta=exp(-(T10 - 0.1*T + T2)/tau1) - exp(-(T10 - 0.1*T + T2)/tau2);
+      0.5*eta=exp(-(T10 - 0.1*T1 + T2)/tau1) - exp(-(T10 - 0.1*T1 + T2)/tau2);
     else
       //y=1/eta*(time/tau1)^m/(1 + (time/tau1)^m)*exp(-time/tau2);
       //time T when maximum occurs
@@ -985,12 +981,10 @@ The Real output y is a trapezoid signal:
       eta=(T/tau1)^m/(1 + (T/tau1)^m)*exp(-T/tau2);
       //at T10 the output rises to 10% of the amplitude
       0.1*eta=(T10/tau1)^m/(1 + (T10/tau1)^m)*exp(-T10/tau2);
-      //at T90 the output rises to 90% of the amplitude
-      0.9*eta=(T90/tau1)^m/(1 + (T90/tau1)^m)*exp(-T90/tau2);
-      //T1 is defined as extrapolation between T10 and T90
-      0.8*T1=T90 - T10;
+      //at T10 + 0.8*T1 the output rises to 90% of the amplitude
+      0.9*eta=((T10 + 0.8*T1)/tau1)^m/(1 + ((T10 + 0.8*T1)/tau1)^m)*exp(-(T10 + 0.8*T1)/tau2);
       //at T2 from virtual start the output falls below 50% of the amplitude
-      0.5*eta=((T10 - 0.1*T + T2)/tau1)^m/(1 + ((T10 - 0.1*T + T2)/tau1)^m)*exp(-(T10 - 0.1*T + T2)/tau2);
+      0.5*eta=((T10 - 0.1*T1 + T2)/tau1)^m/(1 + ((T10 - 0.1*T1 + T2)/tau1)^m)*exp(-(T10 - 0.1*T1 + T2)/tau2);
     end if;
   equation
     assert(approximation==ImpulseApproximation.Heidler or T1<0.2*T2,"Rise time has to be smaller than 0.2*decay time!");
