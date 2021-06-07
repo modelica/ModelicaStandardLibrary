@@ -108,10 +108,10 @@ public
       connect(inductance.n[j], n[j]);
       connect(inductance.n[j], C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
         2))].p);
-      connect(C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n,M.p);
+      connect(C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n, M.p);
       connect(inductance.n[j], G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
         2))].p);
-      connect(G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n,M.p);
+      connect(G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n, M.p);
 
       for i in j + 1:lines loop
         connect(inductance.n[j], C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
