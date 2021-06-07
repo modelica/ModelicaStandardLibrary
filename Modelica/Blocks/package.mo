@@ -1578,14 +1578,22 @@ The output is constant from the beginning.
 
   model DemonstrateLightning "Demonstrate trajectory of lightning current"
     extends Modelica.Icons.Example;
-    Modelica.Blocks.Sources.LightningImpulse impulse1(amplitude=100e3)
+    parameter Modelica.Units.SI.Time T1=10e-6 "Rise time";
+    parameter Modelica.Units.SI.Time T2=350e-6 "Decay time to half value";
+    Modelica.Blocks.Sources.LightningImpulse impulse1(
+      approximation=Modelica.Blocks.Types.ImpulseApproximation.DoubleExp,
+                                                      amplitude=100e3,
+      T1=T1,
+      T2=T2)
       annotation (Placement(transformation(extent={{-30,40},{-10,60}})));
     Modelica.Blocks.Continuous.Integrator integrator1
       annotation (Placement(transformation(extent={{10,40},{30,60}})));
     Modelica.Blocks.Continuous.Der der1
       annotation (Placement(transformation(extent={{10,10},{30,30}})));
     Modelica.Blocks.Sources.LightningImpulse impulse2(approximation=Modelica.Blocks.Types.ImpulseApproximation.Heidler,
-        amplitude=100e3)
+        amplitude=100e3,
+      T1=T1,
+      T2=T2)
       annotation (Placement(transformation(extent={{-30,-40},{-10,-20}})));
     Modelica.Blocks.Continuous.Integrator integrator2
       annotation (Placement(transformation(extent={{10,-40},{30,-20}})));

@@ -934,16 +934,14 @@ The Real output y is a trapezoid signal:
     import Modelica.Blocks.Types.ImpulseApproximation;
     import Modelica.Constants.small;
     import Modelica.Constants.pi;
-    parameter Modelica.Blocks.Types.ImpulseApproximation approximation=Modelica.Blocks.Types.ImpulseApproximation.DoubleExp
-      "Approximation of impulse";
+    parameter ImpulseApproximation approximation=
+      LinesExamples.Blocks.Types.ImpulseApproximation.Heidler "Approximation of impulse";
     parameter Real amplitude "Amplitude";
-    parameter SI.Time T1=10e-6
-      "Rise time until 90% of amplitude";
-    parameter SI.Time T2=350e-6
-      "Decay time until 50% of amplitude";
+    parameter Modelica.Units.SI.Time T1=10e-6 "Rise time";
+    parameter Modelica.Units.SI.Time T2=350e-6 "Decay time to half value";
     extends Modelica.Blocks.Interfaces.SignalSource;
     parameter Integer m(final min=2)=5 "Integer exponent of Heidler-function 5..10"
-      annotation(Dialog(tab="Advanced", enable=approximation == Modelica.Blocks.Types.ImpulseApproximation.Heidler));
+      annotation(Dialog(tab="Advanced", enable=approximation==ImpulseApproximation.Heidler));
   protected
     parameter Integer iApp=Integer(approximation) "Ordinal of choice";
     parameter Modelica.Units.SI.Time T0[:]={T2*T1/(T2 - T1)*log(T2/T1), T1*(m*T2/T1)^(1/(m + 1))}
@@ -955,38 +953,52 @@ The Real output y is a trapezoid signal:
     parameter Real eta(final min=small, fixed=false, start=1)
       "Amplitude parameter";
     parameter Modelica.Units.SI.Time T(final min=small,
-      fixed=false, start=T0[iApp]) "Time parameter";
+      fixed=false, start=T0[iApp]) "Time when maximum occurs";
+    parameter Modelica.Units.SI.Time T10(final min=small,
+      fixed=false, start=0.1*T0[iApp]) "Time to 10%";
+    parameter Modelica.Units.SI.Time T90(final min=small,
+      fixed=false, start=0.9*T0[iApp]) "Time to 90%";
     parameter Modelica.Units.SI.Time tau1(final min=small,
       fixed=false, start=tau10[iApp]) "Time constant 1";
     parameter Modelica.Units.SI.Time tau2(final min=small,
       fixed=false, start=tau20[iApp]) "Time constant 2";
   initial equation
-    if approximation == Modelica.Blocks.Types.ImpulseApproximation.DoubleExp then
+    if approximation==ImpulseApproximation.DoubleExp then
+      //y=1/eta*(exp(-time/tau1) - exp(-time/tau2));
       //time T when maximum occurs
-      T=tau1*tau2/(tau1 - tau2)*log(tau1/tau2);
+      exp(-T/tau1)/tau1 = exp(-T/tau2)/tau2;
       //eta to reach amplitude at T
       eta=exp(-T/tau1) - exp(-T/tau2);
-      //at T1 the output rises to 90% of the amplitude
-      0.9*eta=exp(-T1/tau1) - exp(-T1/tau2);
-      //at T2 the output falls below 50% of the amplitude
-      0.5*eta=exp(-T2/tau1) - exp(-T2/tau2);
+      //at T10 the output rises to 10% of the amplitude
+      0.1*eta=exp(-T10/tau1) - exp(-T10/tau2);
+      //at T90 the output rises to 90% of the amplitude
+      0.9*eta=exp(-T90/tau1) - exp(-T90/tau2);
+      //T1 is defined as extrapolation between T10 and T90
+      0.8*T1=T90 - T10;
+      //at T2 from virtual start the output falls below 50% of the amplitude
+      0.5*eta=exp(-(T10 - 0.1*T + T2)/tau1) - exp(-(T10 - 0.1*T + T2)/tau2);
     else
+      //y=1/eta*(time/tau1)^m/(1 + (time/tau1)^m)*exp(-time/tau2);
       //time T when maximum occurs
       tau2/T*m=1 + (T/tau1)^m;
       //eta to reach amplitude at T
       eta=(T/tau1)^m/(1 + (T/tau1)^m)*exp(-T/tau2);
-      //at T1 the output rises to 90% of the amplitude
-      0.9*eta=(T1/tau1)^m/(1 + (T1/tau1)^m)*exp(-T1/tau2);
-      //at T2 the output falls below 50% of the amplitude
-      0.5*eta=(T2/tau1)^m/(1 + (T2/tau1)^m)*exp(-T2/tau2);
+      //at T10 the output rises to 10% of the amplitude
+      0.1*eta=(T10/tau1)^m/(1 + (T10/tau1)^m)*exp(-T10/tau2);
+      //at T90 the output rises to 90% of the amplitude
+      0.9*eta=(T90/tau1)^m/(1 + (T90/tau1)^m)*exp(-T90/tau2);
+      //T1 is defined as extrapolation between T10 and T90
+      0.8*T1=T90 - T10;
+      //at T2 from virtual start the output falls below 50% of the amplitude
+      0.5*eta=((T10 - 0.1*T + T2)/tau1)^m/(1 + ((T10 - 0.1*T + T2)/tau1)^m)*exp(-(T10 - 0.1*T + T2)/tau2);
     end if;
   equation
-    assert(approximation == Modelica.Blocks.Types.ImpulseApproximation.Heidler
-       or T1 <= 0.2*T2, "Rise time has to be smaller than 0.2*decay time!");
+    assert(approximation==ImpulseApproximation.Heidler or T1<0.2*T2,"Rise time has to be smaller than 0.2*decay time!");
+    assert(approximation==ImpulseApproximation.Heidler or T1>0.01*T2,"Rise time has to be greater than 0.01*decay time!");
     if time<startTime then
       y=offset;
     else
-      if approximation == Modelica.Blocks.Types.ImpulseApproximation.DoubleExp then
+      if approximation==ImpulseApproximation.DoubleExp then
         y=offset + amplitude/eta*(exp(-(time - startTime)/tau1) - exp(-(time - startTime)/tau2));
       else
         y=offset + amplitude/eta*((time - startTime)/tau1)^m/(1 + ((time - startTime)/tau1)^m)*exp(-(time - startTime)/tau2);
@@ -1005,12 +1017,19 @@ Simplified trajectory of an impulse (like e.g. the current of lightnings) as one
 The parameters of the trajectory are defined by:
 </p>
 <ul>
-<li>The maximum of the trajectory <code>amplitude</code></li>
-<li>Rise time <code>T1</code> until 90% of the <code>amplitude</code> is reached</li>
-<li>Decay time <code>T2</code> until <code>y</code> falls below 50% of the <code>amplitude</code></li>
+<li>The <code>amplitude</code> of the trajectory</li>
+<li>Rise time <code>T1</code></li>
+<li>Decay time to half value <code>T2</code></li>
 <li>For the Heidler function, integer exponent <code>m = 5..10</code> is recommended.</li>
 </ul>
-<p>Note: Due to numerical reasons, for the double-exponential function <code>T1 &le; 0.2*T2</code> is required.</p>
+<h4>Explanations</h4>
+<p>
+According to Fig. 1, a straight line between 0.1 and 0.9 of the amplitude is drawn. 
+The virtual start of the trajectory is defined by the intersection of this straight line and the abscissa. 
+The rise time <code>T1</code> is defined as the time span between the virtual start of the trajectory and the point in time when the straight line reaches the amplitude.
+The decay time to half value <code>T2</code> is defined as the time span between the virtual start and the point in time when the output falls below 0.5 of the amplitude.
+</p>
+<p>Note: Due to numerical reasons, for the double-exponential function <code>0.01*T1 &lt; T1 &lt; 0.2*T2</code> is required.</p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\"><strong>Fig. 1:</strong> Parameters of the lightning current</caption>
   <tr>

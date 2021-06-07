@@ -1,12 +1,10 @@
 within Modelica.Electrical.Analog.Sources;
 model LightningImpulseCurrent "Lightning impulse current"
-  parameter Modelica.Blocks.Types.ImpulseApproximation approximation=Modelica.Blocks.Types.ImpulseApproximation.DoubleExp
-    "Approximation of impulse";
+  parameter Modelica.Blocks.Types.ImpulseApproximation approximation=
+    Modelica.Blocks.Types.ImpulseApproximation.Heidler "Approximation of impulse";
   parameter SI.Current I "Amplitude";
-  parameter Units.SI.Time T1=10e-6
-    "Rise time until 90% of amplitude";
-  parameter Units.SI.Time T2=350e-6
-    "Decay time until 50% of amplitude";
+  parameter SI.Time T1=10e-6 "Rise time";
+  parameter SI.Time T2=350e-6 "Decay time to half value";
   parameter Integer m(final min=2)=5 "Integer exponent of Heidler-function 5..10"
     annotation(Dialog(tab="Advanced", enable=approximation == Modelica.Blocks.Types.ImpulseApproximation.Heidler));
   extends Modelica.Electrical.Analog.Interfaces.CurrentSource(redeclare
