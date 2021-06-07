@@ -1,5 +1,5 @@
 within Modelica.Electrical.Analog.Sources;
-model ImpulseVoltage "Impulse voltage"
+model LightningImpulseVoltage "Lightning impulse voltage"
   parameter Modelica.Blocks.Types.ImpulseApproximation approximation=Modelica.Blocks.Types.ImpulseApproximation.DoubleExp
     "Approximation of impulse";
   parameter SI.Voltage V "Amplitude";
@@ -10,7 +10,7 @@ model ImpulseVoltage "Impulse voltage"
   parameter Integer m(final min=2)=5 "Integer exponent of Heidler-function 5..10"
     annotation(Dialog(tab="Advanced", enable=approximation == Modelica.Blocks.Types.ImpulseApproximation.Heidler));
   extends Modelica.Electrical.Analog.Interfaces.VoltageSource(redeclare
-      Modelica.Blocks.Sources.Impulse signalSource(
+      Modelica.Blocks.Sources.LightningImpulse signalSource(
       final approximation=approximation,
       final amplitude=V,
       final T1=T1,
@@ -24,8 +24,8 @@ model ImpulseVoltage "Impulse voltage"
               -39.3},{50.9,-44.5},{60.8,-48.8},{70,-51.4}})}),
                                      Documentation(info="<html>
 <p>
-Impulse voltage using either a double exponential function or a Heidler function, 
-see block <a href=\"modelica://Modelica.Blocks.Sources.Impulse\">Impulse</a>.
+Lightning impulse voltage using either a double exponential function or a Heidler function, 
+see block <a href=\"modelica://Modelica.Blocks.Sources.LightningImpulse\">LightningImpulse</a>.
 </p>
 </html>"));
-end ImpulseVoltage;
+end LightningImpulseVoltage;

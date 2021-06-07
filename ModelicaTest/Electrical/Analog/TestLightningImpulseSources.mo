@@ -1,12 +1,12 @@
 within ModelicaTest.Electrical.Analog;
-model TestImpulseSources "Test the impulse sources"
+model TestLightningImpulseSources "Test the lightning impulse sources"
   extends Modelica.Icons.Example;
   parameter Real eps = 1e-9;
   parameter Real amplitude=100;
   parameter Modelica.Units.SI.Time T1=10e-3;
   parameter Modelica.Units.SI.Time T2=350e-3;
   parameter Modelica.Units.SI.Time startTime=0.15;
-  Modelica.Electrical.Analog.Sources.ImpulseVoltage impulseSource1(
+  Modelica.Electrical.Analog.Sources.LightningImpulseVoltage impulseSource1(
     approximation=Modelica.Blocks.Types.ImpulseApproximation.DoubleExp,
     V=amplitude,
     T1=T1,
@@ -15,7 +15,7 @@ model TestImpulseSources "Test the impulse sources"
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={-20,70})));
-  Modelica.Electrical.Analog.Sources.ImpulseVoltage impulseSource2(
+  Modelica.Electrical.Analog.Sources.LightningImpulseVoltage impulseSource2(
     approximation=Modelica.Blocks.Types.ImpulseApproximation.Heidler,
     V=amplitude,
     T1=T1,
@@ -24,7 +24,7 @@ model TestImpulseSources "Test the impulse sources"
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={-20,30})));
-  Modelica.Electrical.Analog.Sources.ImpulseCurrent impulseSource3(
+  Modelica.Electrical.Analog.Sources.LightningImpulseCurrent impulseSource3(
     approximation=Modelica.Blocks.Types.ImpulseApproximation.DoubleExp,
     I=amplitude,
     T1=T1,
@@ -33,7 +33,7 @@ model TestImpulseSources "Test the impulse sources"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-20,-30})));
-  Modelica.Electrical.Analog.Sources.ImpulseCurrent impulseSource4(
+  Modelica.Electrical.Analog.Sources.LightningImpulseCurrent impulseSource4(
     approximation=Modelica.Blocks.Types.ImpulseApproximation.Heidler,
     I=amplitude,
     T1=T1,
@@ -112,7 +112,7 @@ equation
       Interval=0.0001,
       Tolerance=1e-06), Documentation(info="<html>
 <p>
-This test compares impulse voltage and current sources, both using a double-exponential and a Heidler function.
+This test compares lightning impulse voltage and current sources, both using a double-exponential and a Heidler function.
 </p>
 </html>"));
-end TestImpulseSources;
+end TestLightningImpulseSources;

@@ -930,7 +930,7 @@ The Real output y is a trapezoid signal:
 </html>"));
   end Trapezoid;
 
-  block Impulse "Impulse trajectory"
+  block LightningImpulse "Lightning impulse voltage or current trajectory"
     import Modelica.Blocks.Types.ImpulseApproximation;
     import Modelica.Constants.small;
     import Modelica.Constants.pi;
@@ -1025,7 +1025,9 @@ For a standard trajectory with <code>amplitude = 100 kA, T1 = 10 &micro;s, T2 = 
 </p>
 <h4>References</h4>
 <ul>
+<li>Fridollin Heidler and Klaus Stimper, Blitz und Blitzschutz. VDE 2009, ISBN 978-3-8007-2974-6.</li>
 <li>Fridolin Heidler, Blitzstromparameter nach IEC 62305 - Hintergrund, Erfahrung und Ausblick. Elektronik &amp; Automation (etz) (1) 2009, pp. 57-64.</li>
+<li>DIN EN 62305-1 (VDE 0185-305-1):2011-10 Blitzschutz - Teil 1: Allgemeine Grunds&auml;tze.</li>
 <li>Michael Rock, Pr&uuml;fgeneratoren zur Simulation von Blitzimpulsstr&ouml;men im Labor und ihre Wechselwirkung mit den Pr&uuml;fobjekten.
     Habilitation, Universit&auml;t Ilmenau 2012, ISBN 978-3-86360-032-7.</li>
 </ul>
@@ -1049,7 +1051,7 @@ For a standard trajectory with <code>amplitude = 100 kA, T1 = 10 &micro;s, T2 = 
                 -41.394,24.45},{-37.86,12.3},{-34.32,2},{-30.1,-8.2},{-25.8,-16.6},
                 {-20.9,-24.5},{-15.2,-31.4},{-8.9,-37.3},{-1.1,-42.5},{8.8,-46.8},
                 {18,-49.4}})}));
-  end Impulse;
+  end LightningImpulse;
 
   block LogFrequencySweep "Logarithmic frequency sweep"
     extends Modelica.Blocks.Interfaces.SO;

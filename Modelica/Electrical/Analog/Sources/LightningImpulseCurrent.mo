@@ -1,5 +1,5 @@
 within Modelica.Electrical.Analog.Sources;
-model ImpulseCurrent "Impulse current"
+model LightningImpulseCurrent "Lightning impulse current"
   parameter Modelica.Blocks.Types.ImpulseApproximation approximation=Modelica.Blocks.Types.ImpulseApproximation.DoubleExp
     "Approximation of impulse";
   parameter SI.Current I "Amplitude";
@@ -10,7 +10,7 @@ model ImpulseCurrent "Impulse current"
   parameter Integer m(final min=2)=5 "Integer exponent of Heidler-function 5..10"
     annotation(Dialog(tab="Advanced", enable=approximation == Modelica.Blocks.Types.ImpulseApproximation.Heidler));
   extends Modelica.Electrical.Analog.Interfaces.CurrentSource(redeclare
-      Modelica.Blocks.Sources.Impulse signalSource(
+      Modelica.Blocks.Sources.LightningImpulse signalSource(
       final approximation=approximation,
       final amplitude=I,
       final T1=T1,
@@ -24,8 +24,8 @@ model ImpulseCurrent "Impulse current"
               -39.3},{50.9,-44.5},{60.8,-48.8},{70,-51.4}})}),
                                      Documentation(info="<html>
 <p>
-Impulse current using either a double exponential function or a Heidler function, 
-see block <a href=\"modelica://Modelica.Blocks.Sources.Impulse\">Impulse</a>.
+Lightning impulse current using either a double exponential function or a Heidler function, 
+see block <a href=\"modelica://Modelica.Blocks.Sources.LightningImpulse\">LightningImpulse</a>.
 </p>
 </html>"));
-end ImpulseCurrent;
+end LightningImpulseCurrent;
