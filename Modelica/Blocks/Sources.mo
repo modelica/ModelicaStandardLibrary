@@ -945,24 +945,21 @@ The Real output y is a trapezoid signal:
     parameter Integer m(final min=2)=5 "Integer exponent of Heidler-function 5..10"
       annotation(Dialog(tab="Advanced", enable=approximation == Modelica.Blocks.Types.ImpulseApproximation.Heidler));
   protected
+    parameter Integer iApp=Integer(approximation) "Ordinal of choice";
+    parameter Modelica.Units.SI.Time T0[:]={T2*T1/(T2 - T1)*log(T2/T1), T1*(m*T2/T1)^(1/(m + 1))}
+      "Intial values of time parameter";
+    parameter Modelica.Units.SI.Time tau10[:]={T2, T1}
+      "Intial values of time constant 1";
+    parameter Modelica.Units.SI.Time tau20[:]={T1, T2}
+      "Intial values of time constant 2";
     parameter Real eta(final min=small, fixed=false, start=1)
       "Amplitude parameter";
-    parameter Modelica.Units.SI.Time T(
-      final min=small,
-      fixed=false,
-      start=if approximation == Modelica.Blocks.Types.ImpulseApproximation.DoubleExp
-           then T2*T1/(T2 - T1)*log(T2/T1) else T1*(m*T2/T1)^(1/(m + 1)))
-      "Time parameter";
-    parameter Modelica.Units.SI.Time tau1(
-      final min=small,
-      fixed=false,
-      start=if approximation == Modelica.Blocks.Types.ImpulseApproximation.DoubleExp
-           then T2 else T1) "Time constant of 1st exponential";
-    parameter Modelica.Units.SI.Time tau2(
-      final min=small,
-      fixed=false,
-      start=if approximation == Modelica.Blocks.Types.ImpulseApproximation.DoubleExp
-           then T1 else T2) "Time constant of 2nd exponential";
+    parameter Modelica.Units.SI.Time T(final min=small,
+      fixed=false, start=T0[iApp]) "Time parameter";
+    parameter Modelica.Units.SI.Time tau1(final min=small,
+      fixed=false, start=tau10[iApp]) "Time constant 1";
+    parameter Modelica.Units.SI.Time tau2(final min=small,
+      fixed=false, start=tau20[iApp]) "Time constant 2";
   initial equation
     if approximation == Modelica.Blocks.Types.ImpulseApproximation.DoubleExp then
       //time T when maximum occurs
