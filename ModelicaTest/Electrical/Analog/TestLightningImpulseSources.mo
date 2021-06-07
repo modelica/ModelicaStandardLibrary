@@ -71,18 +71,6 @@ model TestLightningImpulseSources "Test the lightning impulse sources"
         rotation=270,
         origin={20,-70})));
 equation
-  when time>=startTime + T1 then
-    assert(abs(resistor1.i - 0.9*amplitude)<eps, "Error impulseVoltageDoubleExp");
-    assert(abs(resistor2.i - 0.9*amplitude)<eps, "Error impulseVoltageHeidler");
-    assert(abs(resistor3.v - 0.9*amplitude)<eps, "Error impulseCurrentDoubleExp");
-    assert(abs(resistor4.v - 0.9*amplitude)<eps, "Error impulseCurrentHeidler");
-  end when;
-  when time>=startTime + T2 then
-    assert(abs(resistor1.i - 0.5*amplitude)<eps, "Error impulseVoltageDoubleExp");
-    assert(abs(resistor2.i - 0.5*amplitude)<eps, "Error impulseVoltageHeidler");
-    assert(abs(resistor3.v - 0.5*amplitude)<eps, "Error impulseCurrentDoubleExp");
-    assert(abs(resistor4.v - 0.5*amplitude)<eps, "Error impulseCurrentHeidler");
-  end when;
   connect(impulseSource4.p, ground4.p)
     annotation (Line(points={{-20,-80},{0,-80}}, color={0,0,255}));
   connect(ground4.p, resistor4.n)
