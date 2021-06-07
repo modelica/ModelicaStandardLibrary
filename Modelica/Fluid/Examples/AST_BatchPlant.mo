@@ -1940,7 +1940,7 @@ Implemented trace substances and missing equation for outflow of multi substance
               {-20,-30},{-20,-21},{-22,-21}}, color={0,127,255}));
       connect(pipe.port_a, tank1.ports[2]) annotation (Line(points={{40,0},{40,-28},
               {-18,-28},{-18,-20},{-18,-21}}, color={0,127,255}));
-      annotation (experiment(StopTime=35));
+      annotation (experiment(StopTime=35, Tolerance=1e-7));
     end TankWithEmptyingPipe1;
 
     model TankWithEmptyingPipe2
