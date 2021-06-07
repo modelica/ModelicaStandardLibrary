@@ -2,6 +2,7 @@ within Modelica.Electrical.Analog.Lines;
 model TLine3
   "Lossless transmission line with characteristic impedance Z0 and frequency F"
   extends Modelica.Electrical.Analog.Interfaces.TwoPort;
+  extends Modelica.Icons.ObsoleteModel;
   parameter SI.Resistance Z0(start=1) "Natural impedance";
   parameter SI.Frequency F(start=1) "Frequency";
   SI.Voltage es(start=0) "Voltage source of forward travelling wave";
@@ -21,6 +22,8 @@ equation
 <p><strong>References:</strong>
    [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>],
    [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Hoefer1985</a>]</p>
+<h4>Note:</h4>
+<p>This model is replaced by <a href=\"modelica://Modelica.Electrical.Analog.Lines.TLine\">TLine</a> with appropriate parameterization.</p>
 </html>",    revisions="<html>
 <ul>
 <li><em> 1998   </em>
