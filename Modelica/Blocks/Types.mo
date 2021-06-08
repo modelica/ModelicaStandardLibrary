@@ -221,10 +221,6 @@ package Types
 
   end ExternalCombiTable2D;
 
-  type ImpulseApproximation = enumeration(
-      DoubleExp "Double exponential function",
-      Heidler "Heidler function")
-    "Enumeration defining the approximation of impulse trajectory";
   annotation (Documentation(info="<html>
 <p>
 In this package <strong>types</strong>, <strong>constants</strong> and <strong>external objects</strong> are defined that are used

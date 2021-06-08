@@ -1576,49 +1576,6 @@ The output is constant from the beginning.
 </html>"));
   end DemoSignalCharacteristic;
 
-  model DemonstrateLightning "Demonstrate trajectory of lightning current"
-    extends Modelica.Icons.Example;
-    parameter Modelica.Units.SI.Time T1=10e-6 "Rise time";
-    parameter Modelica.Units.SI.Time T2=350e-6 "Decay time to half value";
-    Modelica.Blocks.Sources.LightningImpulse impulse1(
-      approximation=Modelica.Blocks.Types.ImpulseApproximation.DoubleExp,
-                                                      amplitude=100e3,
-      T1=T1,
-      T2=T2)
-      annotation (Placement(transformation(extent={{-30,40},{-10,60}})));
-    Modelica.Blocks.Continuous.Integrator integrator1
-      annotation (Placement(transformation(extent={{10,40},{30,60}})));
-    Modelica.Blocks.Continuous.Der der1
-      annotation (Placement(transformation(extent={{10,10},{30,30}})));
-    Modelica.Blocks.Sources.LightningImpulse impulse2(approximation=Modelica.Blocks.Types.ImpulseApproximation.Heidler,
-        amplitude=100e3,
-      T1=T1,
-      T2=T2)
-      annotation (Placement(transformation(extent={{-30,-40},{-10,-20}})));
-    Modelica.Blocks.Continuous.Integrator integrator2
-      annotation (Placement(transformation(extent={{10,-40},{30,-20}})));
-    Modelica.Blocks.Continuous.Der der2
-      annotation (Placement(transformation(extent={{10,-70},{30,-50}})));
-  equation
-    connect(impulse1.y, integrator1.u)
-      annotation (Line(points={{-9,50},{8,50}}, color={0,0,127}));
-    connect(impulse1.y, der1.u) annotation (Line(points={{-9,50},{0,50},{0,20},
-            {8,20}}, color={0,0,127}));
-    connect(impulse2.y, integrator2.u)
-      annotation (Line(points={{-9,-30},{8,-30}}, color={0,0,127}));
-    connect(impulse2.y, der2.u) annotation (Line(points={{-9,-30},{0,-30},{0,
-            -60},{8,-60}}, color={0,0,127}));
-    annotation (experiment(
-        StopTime=0.001,
-        Interval=1e-07,
-        Tolerance=1e-06), Documentation(info="<html>
-<p>
-Demonstrate the trajectory of a lightning current 100 kA, 10/350 &micro;s. 
-<code>impulse1</code> uses a double exponential, <code>impulse2</code> a Heidler function.
-</p>
-</html>"));
-  end DemonstrateLightning;
-
   package Noise "Library of examples to demonstrate the usage of package Blocks.Noise"
     extends Modelica.Icons.ExamplesPackage;
 

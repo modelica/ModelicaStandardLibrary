@@ -24,8 +24,8 @@ model TestFlowRate
   Modelica.Fluid.Sensors.MassFlowRate massFlowRate(redeclare package Medium =
         Modelica.Media.Water.StandardWater) annotation (Placement(
         transformation(extent={{10,-10},{30,10}})));
-  Modelica.Fluid.Sensors.VolumeFlowRate volumeFlowRate(redeclare package Medium
-      = Modelica.Media.Water.StandardWater) annotation (Placement(
+  Modelica.Fluid.Sensors.VolumeFlowRate volumeFlowRate(redeclare package Medium =
+        Modelica.Media.Water.StandardWater) annotation (Placement(
         transformation(extent={{50,-10},{70,10}})));
 equation
   connect(sine.y, massFlowRate1.m_flow_in) annotation (Line(

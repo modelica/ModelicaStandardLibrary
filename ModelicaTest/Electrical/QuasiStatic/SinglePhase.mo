@@ -208,8 +208,7 @@ package SinglePhase "Single-phase quasi-static package"
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={50,40})));
-    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground groundV1
-                                                                         annotation (Placement(transformation(extent={{-10,0},{10,20}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground groundV1    annotation (Placement(transformation(extent={{-10,0},{10,20}})));
     Modelica.ComplexBlocks.Sources.ComplexRampPhasor complexRampL(
       magnitude1=100,
       magnitude2=0.01,
@@ -230,8 +229,7 @@ package SinglePhase "Single-phase quasi-static package"
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={50,-40})));
-    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground groundI1
-                                                                         annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground groundI1    annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
     Modelica.ComplexBlocks.Sources.ComplexRampPhasor complexRampC(
       useLogRamp=true,
       startTime=0,

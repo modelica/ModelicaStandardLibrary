@@ -7,8 +7,8 @@ model TestControlledPump "Test controlled pump"
     amplitude=0.5,
     offset=1,
     f=1/7) annotation (Placement(transformation(extent={{-70,60},{-50,80}})));
-  Modelica.Fluid.Sources.Boundary_pT source(nPorts=1, redeclare package Medium
-      = Modelica.Media.Water.StandardWater,
+  Modelica.Fluid.Sources.Boundary_pT source(nPorts=1, redeclare package Medium =
+        Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
     p=100000)
   annotation (Placement(transformation(extent={{-90,20},{-70,40}})));
@@ -44,8 +44,8 @@ model TestControlledPump "Test controlled pump"
     f=1/7,
     offset=10e5)
                 annotation (Placement(transformation(extent={{-70,-40},{-50,-20}})));
-  Modelica.Fluid.Sources.Boundary_pT source1(nPorts=1,redeclare package Medium
-      = Modelica.Media.Water.StandardWater,
+  Modelica.Fluid.Sources.Boundary_pT source1(nPorts=1,redeclare package Medium =
+        Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
     p=100000)
   annotation (Placement(transformation(extent={{-90,-80},{-70,-60}})));

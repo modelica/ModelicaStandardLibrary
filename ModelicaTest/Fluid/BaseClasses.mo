@@ -244,8 +244,10 @@ pipe wall/environment).
       dp_start = dp_fric_nominal + system.g*height_ab*rho_nominal,
       m_flow_small = if system.use_eps_Re then system.eps_m_flow*m_flow_nominal else system.m_flow_small);
 
-    replaceable package WallFriction = Modelica.Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent
-      constrainedby Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction
+    replaceable package WallFriction =
+        Modelica.Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent
+      constrainedby
+      Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction
       "Characteristic of wall friction" annotation(choicesAllMatching=true);
 
     parameter SI.Length length "Length of pipe";
