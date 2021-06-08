@@ -12,7 +12,7 @@ protected
   final constant Modelica.Units.SI.TranslationalSpringConstant oneUnitSpringConstant = 1
     "Helping constant to satisfy unit check";
 public
-  final parameter Real b[:]={-m} "Numerator polynomial coefficients {-m} of the transfer function";
+  final parameter Real b[:]={-m/oneUnitMass} "Unitless numerator polynomial coefficients {-m} of the transfer function";
   final parameter Real a[:]={m/oneUnitMass, d/oneUnitDampingConstant, c/oneUnitSpringConstant}
     "Unitless denominator polynomial coefficients {m,d,c} of the transfer function";
   parameter Real wMin=0.01 "Lower bound for frequency sweep";
