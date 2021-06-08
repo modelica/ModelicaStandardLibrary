@@ -60,6 +60,7 @@ model SMR_Inverter
     TsRef=smrData.TsRef,
     alpha20s(displayUnit="1/K") = smrData.alpha20s,
     Lssigma=smrData.Lssigma,
+    ratioCommonStatorLeakage=smrData.ratioCommonStatorLeakage,
     Lszero=smrData.Lszero,
     frictionParameters=smrData.frictionParameters,
     statorCoreParameters=smrData.statorCoreParameters,

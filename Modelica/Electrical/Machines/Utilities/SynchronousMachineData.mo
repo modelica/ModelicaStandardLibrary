@@ -95,6 +95,9 @@ record SynchronousMachineData
   parameter SI.Inductance Lssigma=x0*ZReference/omega
     "Stator stray inductance per phase"
     annotation (Dialog(tab="Result", enable=false));
+  parameter Real ratioCommonStatorLeakage(final min=0, final max=1)=1
+    "Ratio of common stray inductance / total stray inductance of stator winding"
+    annotation (Dialog(tab="Result"));
   parameter SI.Inductance Lmd=xmd*ZReference/omega
     "Main field inductance per phase in d-axis"
     annotation (Dialog(tab="Result", enable=false));

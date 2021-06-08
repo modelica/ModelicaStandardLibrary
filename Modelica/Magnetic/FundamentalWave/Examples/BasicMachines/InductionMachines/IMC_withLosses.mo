@@ -56,6 +56,7 @@ public
     alpha20s(displayUnit="1/K") = aimcData.alpha20s,
     Jr=aimcData.Jr,
     Js=aimcData.Js,
+    ratioCommonStatorLeakage=aimcData.ratioCommonStatorLeakage,
     frictionParameters=aimcData.frictionParameters,
     phiMechanical(fixed=true),
     statorCoreParameters=aimcData.statorCoreParameters,
@@ -130,7 +131,6 @@ public
     Jr=0.12,
     Rs=0.56,
     alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
-
     Lssigma=1.52/(2*pi*fNominal),
     frictionParameters(PRef=180, wRef=wNominal),
     strayLoadParameters(

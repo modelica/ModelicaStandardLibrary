@@ -13,6 +13,7 @@ model SMEE_DOL
     annotation (Placement(visible=false));
   Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited
     smee(
+    ratioCommonStatorLeakage=smeeData.ratioCommonStatorLeakage,
     phiMechanical(start=-(Modelica.Constants.pi + gamma0)/smee.p, fixed=true),
     fsNominal=smeeData.fsNominal,
     TsRef=smeeData.TsRef,

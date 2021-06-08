@@ -63,6 +63,7 @@ model SMEE_Generator_Polyphase
           extent={{-10,-74},{10,-54}})));
   Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited
     smeeM(
+    ratioCommonStatorLeakage=smeeData.ratioCommonStatorLeakage,
     phiMechanical(start=-(Modelica.Constants.pi + gamma0)/p, fixed=true),
     Jr=0.29,
     Js=0.29,
@@ -100,6 +101,7 @@ model SMEE_Generator_Polyphase
 
   Magnetic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited
     smee3(
+    ratioCommonStatorLeakage=smeeData.ratioCommonStatorLeakage,
     phiMechanical(start=-(Modelica.Constants.pi + gamma0)/p, fixed=true),
     p=2,
     fsNominal=smeeData.fsNominal,
@@ -191,11 +193,8 @@ model SMEE_Generator_Polyphase
     Td0Subtransient=0.006963029,
     Tq0Subtransient=0.123345081,
     alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
     alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
     alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
     TsSpecification=293.15,
     TsRef=293.15,
     TrSpecification=293.15,

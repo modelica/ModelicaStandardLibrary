@@ -39,6 +39,9 @@ model IM_SlipRing "Induction machine with slip ring rotor"
         0.0667))/(2*pi*fsNominal))
     "Rotor leakage inductance w.r.t. rotor side"
     annotation (Dialog(tab="Nominal resistances and inductances"));
+  parameter Real ratioCommonRotorLeakage(final min=0, final max=1)=1
+    "Ratio of common stray inductance / total stray inductance of rotor winding"
+    annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter SI.Inductance Lrzero=Lrsigma
     "Rotor zero inductance w.r.t. rotor side"
     annotation (Dialog(tab="Nominal resistances and inductances"));
@@ -87,6 +90,7 @@ protected
 public
   Components.SymmetricPolyphaseWinding rotor(
     final Lsigma=Lrsigma,
+    final ratioCommonLeakage=ratioCommonRotorLeakage,
     final effectiveTurns=effectiveStatorTurns/internalTurnsRatio,
     final useHeatPort=true,
     final RRef=Rr,

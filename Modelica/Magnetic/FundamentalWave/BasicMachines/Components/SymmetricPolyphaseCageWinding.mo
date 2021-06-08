@@ -1,6 +1,5 @@
 within Modelica.Magnetic.FundamentalWave.BasicMachines.Components;
 model SymmetricPolyphaseCageWinding "Symmetrical rotor cage"
-  import Modelica.Constants.pi;
   extends Magnetic.FundamentalWave.Interfaces.TwoPortExtended;
   parameter Integer m=3 "Number of phases" annotation(Evaluate=true);
   parameter Boolean useHeatPort=false
@@ -57,8 +56,8 @@ model SymmetricPolyphaseCageWinding "Symmetrical rotor cage"
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortWinding if
     useHeatPort "Heat ports of winding resistor"
     annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-  Modelica.Thermal.HeatTransfer.Components.ThermalCollector thermalCollector(final m=m)
-    if useHeatPort "Connector of thermal rotor resistance heat ports"
+  Modelica.Thermal.HeatTransfer.Components.ThermalCollector thermalCollector(final m=m) if
+       useHeatPort "Connector of thermal rotor resistance heat ports"
     annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
   Magnetic.FundamentalWave.Components.Reluctance strayReluctance(final R_m(d=m*
           effectiveTurns^2/2/Lsigma, q=m*effectiveTurns^2/2/Lsigma))
@@ -92,8 +91,7 @@ equation
   connect(resistor.plug_n, multiStar.plug_p)
     annotation (Line(points={{-20,-60},{20,-60},{20,-20}}, color={0,0,255}));
   annotation (defaultComponentName="cage",
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-            {100,100}}), graphics={
+    Icon(graphics={
         Ellipse(
           extent={{-80,80},{80,-80}},
           fillColor={175,175,175},
