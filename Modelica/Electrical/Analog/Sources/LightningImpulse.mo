@@ -21,7 +21,7 @@ protected
   parameter Modelica.Units.SI.Time T(final min=small,
     fixed=false, start=T0) "Time when maximum occurs";
   parameter Modelica.Units.SI.Time T10(final min=small,
-    fixed=false, start=0.01*T0) "Time to 10%";
+    fixed=false, start=if approximation==ImpulseApproximation.DoubleExp then 0.01*T0 else 0.1*T0) "Time to 10%";
   parameter Modelica.Units.SI.Time tau1(final min=small,
     fixed=false, start=if approximation==ImpulseApproximation.DoubleExp then T2 else T1) "Time constant 1";
   parameter Modelica.Units.SI.Time tau2(final min=small,

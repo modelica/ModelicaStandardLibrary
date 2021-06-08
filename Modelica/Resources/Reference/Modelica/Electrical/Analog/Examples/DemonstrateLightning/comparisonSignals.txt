@@ -1,7 +1,7 @@
 time
-lightning1.y
+currentSensor1.y
 integrator1.y
 der1.y
-lightning1.y
+currentSensor2.y
 integrator2.y
 der2.y
