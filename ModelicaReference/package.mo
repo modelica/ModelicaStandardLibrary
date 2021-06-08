@@ -5008,8 +5008,18 @@ discontinuously.]</em></p>
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Allows the infinite-dimensional problem to be solved efficiently with good accuracy.
+The operator <strong>spatialDistribution</strong> allows the infinite-dimensional problem below to be solved efficiently with good accuracy
 </p>
+<blockquote>
+<img src=\"modelica://ModelicaReference/Resources/Images/spatialdistribution.png\"
+     alt=\"spatialdistribution.png\">
+</blockquote> 
+where <code>z(y, t)</code> is the transported quantity, <code>y</code> is the
+normalized spatial coordinate (0.0 &le; <code>y</code> &le; 1.0), <code>t</code> is the
+time, <code>v(t)</code> = <code>der(x)</code> is the normalized
+transport velocity and the boundary conditions are set at either
+<code>y</code> = 0.0 or <code>y</code> = 1.0, depending on the sign of the velocity.
+
 <h4>Syntax</h4>
 <blockquote><pre>
 (out0, out1) = <strong>spatialDistribution</strong>(in0, in1, x, positiveVelocity,
