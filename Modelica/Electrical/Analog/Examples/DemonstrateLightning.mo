@@ -83,5 +83,14 @@ equation
 <p>
 Compare 2 lightning trajectories: No.1 with double exponential function, No.2 with Heidler function.
 </p>
+<p>Variables of interest are:</p>
+<ul>
+<li><code>currentSensor1.y</code></li>
+<li><code>integrator1.y</code></li>
+<li><code>der1.y</code></li>
+<li><code>currentSensor2.y</code></li>
+<li><code>integrator2.y</code></li>
+<li><code>der2.y</code></li>
+</ul>
 </html>"));
 end DemonstrateLightning;
