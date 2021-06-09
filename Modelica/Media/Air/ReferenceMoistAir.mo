@@ -3283,9 +3283,9 @@ for region 2.
               p_der,
               T_der);
         //pd := xw/(Modelica.Media.Air.ReferenceMoistAir.k_mair + xw)*p;
-        pd_der := (xw_der*(Modelica.Media.Air.ReferenceMoistAir.k_mair + xw) -
-          xw*xw_der)*p + xw/(Modelica.Media.Air.ReferenceMoistAir.k_mair + xw)*
-          p_der;
+        pd_der := xw_der*Modelica.Media.Air.ReferenceMoistAir.k_mair/
+        (Modelica.Media.Air.ReferenceMoistAir.k_mair + xw)^2*p
+         + xw/(Modelica.Media.Air.ReferenceMoistAir.k_mair + xw)*p_der;
         xws := Modelica.Media.Air.ReferenceMoistAir.Utilities.xws_pT(p, T);
         pd_der := if (xw <= xws) then pd_der else pds_der;
       end if;
