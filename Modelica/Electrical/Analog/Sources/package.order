@@ -11,7 +11,9 @@ ExponentialsVoltage
 PulseVoltage
 SawToothVoltage
 TrapezoidVoltage
+LightningImpulseVoltage
 TableVoltage
+SupplyVoltage
 SignalCurrent
 ConstantCurrent
 StepCurrent
@@ -25,5 +27,6 @@ ExponentialsCurrent
 PulseCurrent
 SawToothCurrent
 TrapezoidCurrent
+LightningImpulseCurrent
 TableCurrent
-SupplyVoltage
+LightningImpulse
