@@ -1125,7 +1125,7 @@ If true, the model developer proposes to inline the function after the function 
   ...
 <strong>end</strong> T_phX;</pre></blockquote>
 </html>"));
-  end inverse;
+    end inverse;
 
   class LateInline "LateInline"
     extends ModelicaReference.Icons.Information;
@@ -1928,10 +1928,10 @@ The external C-functions may be defined in the following way:
   class 'function' "function"
     extends ModelicaReference.Icons.Information;
 
-class 'function partial application' "function partial application"
-    extends ModelicaReference.Icons.Information;
+    class 'function partial application' "function partial application"
+        extends ModelicaReference.Icons.Information;
 
-    annotation (Documentation(info="<html>
+        annotation (Documentation(info="<html>
 <p>
 A function partial application is a function call with certain
 formal parameters bound to expressions. A function partial application
@@ -2045,7 +2045,7 @@ a component, according to case (d) above:
 <strong>end</strong> surfaceQuadrature;
 </pre></blockquote>
 </html>"));
-  end 'function partial application';
+    end 'function partial application';
 
   class 'pure function' "pure function"
     extends ModelicaReference.Icons.Information;
@@ -2715,7 +2715,8 @@ The acos function can also be accessed as Modelica.Math.acos.
   end 'acos()';
 
     class 'activeState()' "activeState()"
-extends ModelicaReference.Icons.Information;
+    extends
+        ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 This operator returns true if state is active in a <a href=\"modelica://ModelicaReference.StateMachines\">state machine</a>.
@@ -2729,7 +2730,7 @@ The operator returns <strong>true</strong>, if this instance is a state of a sta
 If it is not active, the operator returns <strong>false</strong>.
 </p>
 </html>"));
-  end 'activeState()';
+    end 'activeState()';
 
   class 'actualStream()' "actualStream()"
     extends ModelicaReference.Icons.Information;
@@ -3684,6 +3685,46 @@ value changes discontinuously.]</em></p>
  = {-4.0, 3.0}</pre></blockquote>
 </html>"));
   end 'floor()';
+
+  class 'getInstanceName()' "getInstanceName()"
+    extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Returns a string with the name of the model/block that is simulated,
+appended with the fully qualified name of the instance in which this
+function is called.
+</p>
+<h4>Syntax</h4>
+<blockquote><pre><strong>getInstanceName</strong>()</pre></blockquote>
+<h4>Description</h4>
+<p>
+If this function is not called inside a model or block (e.g., the
+function is called in a function or in a constant of a package), the
+return value is not specified.</p>
+
+<h4>Examples</h4>
+<blockquote><pre>
+<strong>package</strong> MyLib
+  <strong>model</strong> Vehicle
+    Engine engine;
+    ...
+  <strong>end</strong> Vehicle;
+  <strong>model</strong> Engine
+    Controller controller;
+    ...
+  <strong>end</strong> Engine;
+  <strong>model</strong> Controller
+  equation
+    Modelica.Utilities.Streams.print(\"Info from: \" + getInstanceName());
+  <strong>end</strong> Controller;
+<strong>end</strong> MyLib;
+</pre></blockquote>
+
+<p>If <code>MyLib.Vehicle</code> is simulated, the call of <code>getInstanceName()</code>
+returns <code>Vehicle.engine.controller</code>.
+</p>
+</html>"));
+  end 'getInstanceName()';
 
   class 'hold()' "hold()"
     extends ModelicaReference.Icons.Information;
@@ -4962,6 +5003,47 @@ discontinuously.]</em></p>
   // noEvent is necessary.</pre></blockquote>
 </html>"));
   end 'smooth()';
+
+  class 'spatialDistribution()' "spatialDistribution()"
+    extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+The operator <strong>spatialDistribution</strong> allows the infinite-dimensional problem below to be solved efficiently with good accuracy
+</p>
+<blockquote>
+<img src=\"modelica://ModelicaReference/Resources/Images/spatialdistribution.png\"
+     alt=\"spatialdistribution.png\">
+</blockquote> 
+where <code>z(y, t)</code> is the transported quantity, <code>y</code> is the
+normalized spatial coordinate (0.0 &le; <code>y</code> &le; 1.0), <code>t</code> is the
+time, <code>v(t)</code> = <code>der(x)</code> is the normalized
+transport velocity and the boundary conditions are set at either
+<code>y</code> = 0.0 or <code>y</code> = 1.0, depending on the sign of the velocity.
+
+<h4>Syntax</h4>
+<blockquote><pre>
+(out0, out1) = <strong>spatialDistribution</strong>(in0, in1, x, positiveVelocity,
+                               initialPoints = {0.0, 1.0},
+                               initialValues = {0.0, 0.0}); 
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Many applications involve the modelling of variable-speed transport of properties. 
+One option to model this infinite-dimensional system is to approximate it by an ODE, 
+but this requires a large number of state variables and might introduce either 
+numerical diffusion or numerical oscillations. Another option is to use a built-in 
+operator that keeps track of the spatial distribution of <code>z⁢(x,t)</code>,
+by suitable sampling, interpolation, and shifting of the stored distribution. 
+In this case, the internal state of the operator is hidden from the ODE solver.
+</p>
+
+<p>
+See <a href=\"https://specification.modelica.org/maint/3.4/Ch3.html#spatialdistribution\">
+Section 3.7.2.2 of the Modelica Language Specification 3.4</a> for a more in-depth description 
+and elaborate example.
+</p>
+</html>"));
+  end 'spatialDistribution()';
 
   class 'sqrt()' "sqrt()"
     extends ModelicaReference.Icons.Information;
