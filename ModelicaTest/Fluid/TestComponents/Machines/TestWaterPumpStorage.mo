@@ -2,8 +2,8 @@ within ModelicaTest.Fluid.TestComponents.Machines;
 model TestWaterPumpStorage "Test pump with fluid volume>0 "
   import Modelica.Fluid;
   extends Modelica.Icons.Example;
-  Modelica.Fluid.Sources.Boundary_pT Source(nPorts=1, redeclare package Medium =
-        Modelica.Media.Water.StandardWater, p=1e5,
+  Modelica.Fluid.Sources.Boundary_pT Source(nPorts=1, redeclare package Medium
+      = Modelica.Media.Water.StandardWater, p=1e5,
     T=system.T_ambient)
   annotation (Placement(transformation(extent={{-100,20},{-80,40}})));
   Modelica.Fluid.Sources.Boundary_pT Sink(nPorts=1,

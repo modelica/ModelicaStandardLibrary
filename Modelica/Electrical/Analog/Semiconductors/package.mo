@@ -4,7 +4,7 @@ package Semiconductors "Semiconductor devices such as diode, MOS and bipolar tra
   import Modelica.Constants.k "Boltzmann's constant, [J/K]";
   import Modelica.Constants.q "Electron charge, [As]";
 
-protected 
+protected
         function pow "Just a helper function for x^y in order that a symbolic engine can apply some transformations more easily"
           extends Modelica.Icons.Function;
           input Real x;

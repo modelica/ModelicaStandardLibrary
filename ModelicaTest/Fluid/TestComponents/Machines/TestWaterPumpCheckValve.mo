@@ -9,8 +9,8 @@ model TestWaterPumpCheckValve "Test pump with check valve behaviour"
     offset=1500,
     height=-1500)
                 annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
-  Modelica.Fluid.Sources.Boundary_pT Source(nPorts=1, redeclare package Medium =
-        Modelica.Media.Water.StandardWater,
+  Modelica.Fluid.Sources.Boundary_pT Source(nPorts=1, redeclare package Medium
+      = Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
     p=100000)
   annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));

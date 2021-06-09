@@ -220,7 +220,6 @@ package Types
     end destructor;
 
   end ExternalCombiTable2D;
-
   annotation (Documentation(info="<html>
 <p>
 In this package <strong>types</strong>, <strong>constants</strong> and <strong>external objects</strong> are defined that are used

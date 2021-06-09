@@ -24,8 +24,8 @@ extends Modelica.Icons.ExamplesPackage;
       m_flow_nominal=10,
       dp_nominal=100000)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
-    Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1,redeclare package Medium =
-          Modelica.Media.Water.StandardWater, p=100000)
+    Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1,redeclare package Medium
+        = Modelica.Media.Water.StandardWater, p=100000)
                 annotation (Placement(transformation(extent={{60,-10},{40,10}})));
     Modelica.Blocks.Sources.Ramp ramp(
       height=-1,
@@ -77,8 +77,8 @@ extends Modelica.Icons.ExamplesPackage;
       rho_nominal=100,
       p_nominal=10000000)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
-    Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1,redeclare package Medium =
-          Modelica.Media.Water.StandardWaterOnePhase, p=9500000)
+    Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1,redeclare package Medium
+        = Modelica.Media.Water.StandardWaterOnePhase, p=9500000)
                 annotation (Placement(transformation(extent={{60,-10},{40,10}})));
     Modelica.Blocks.Sources.Ramp ramp(
       offset=1,
@@ -1390,8 +1390,8 @@ Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and
       rho_nominal=100,
       p_nominal=10000000)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
-    Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1,redeclare package Medium =
-          Modelica.Media.Water.StandardWaterOnePhase, p=9500000)
+    Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1,redeclare package Medium
+        = Modelica.Media.Water.StandardWaterOnePhase, p=9500000)
                 annotation (Placement(transformation(extent={{60,-10},{40,10}})));
     Modelica.Blocks.Sources.Ramp ramp(
       offset=1,

@@ -3,8 +3,8 @@ model TestWaterPumpCharacteristics
   "Test pump with default options and different selections of flowCharacteristic"
   import Modelica.Fluid;
   extends Modelica.Icons.Example;
-  Modelica.Fluid.Sources.Boundary_pT Source(nPorts=4, redeclare package Medium =
-        Modelica.Media.Water.StandardWater,
+  Modelica.Fluid.Sources.Boundary_pT Source(nPorts=4, redeclare package Medium
+      = Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
     p=200000)
   annotation (Placement(transformation(extent={{-100,20},{-80,40}})));

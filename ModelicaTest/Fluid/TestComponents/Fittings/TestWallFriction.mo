@@ -34,8 +34,7 @@ model TestWallFriction
     redeclare package Medium = Medium,
     roughness=roughness,
     port_a(m_flow(start=-0.6)),
-    redeclare package WallFriction =
-        Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed,
+    redeclare package WallFriction = Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed,
     show_Re=true) annotation (Placement(transformation(extent={{0,40},{20,60}})));
   ModelicaTest.Fluid.BaseClasses.WallFrictionAndGravity
     pipe2(
@@ -43,8 +42,7 @@ model TestWallFriction
     diameter=0.1,
     redeclare package Medium = Medium,
     roughness=roughness,
-    redeclare package WallFriction =
-        Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed,
+    redeclare package WallFriction = Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed,
     from_dp=false,
     show_Re=true,
     port_a(m_flow(start=-0.6))) annotation (Placement(transformation(extent={{0,10},{20,30}})));
@@ -79,8 +77,7 @@ model TestWallFriction
     length=1,
     diameter=0.1,
     roughness=roughness,
-    redeclare model FlowModel =
-        Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow)
+    redeclare model FlowModel = Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow)
     annotation (Placement(transformation(extent={{0,-80},{20,-60}})));
   Modelica.Fluid.Sources.Boundary_pT ambient_p5(nPorts=1,
     redeclare package Medium = Medium,

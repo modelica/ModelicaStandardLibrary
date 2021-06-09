@@ -3,8 +3,8 @@ model TestWaterPumpDCMotor "Test pump with dc motor (startup transient)"
   import Modelica.Fluid;
   extends Modelica.Icons.Example;
 
-  Modelica.Fluid.Sources.Boundary_pT Source(nPorts=1, redeclare package Medium =
-        Modelica.Media.Water.StandardWater,
+  Modelica.Fluid.Sources.Boundary_pT Source(nPorts=1, redeclare package Medium
+      = Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
     p=100000)
   annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));

@@ -1397,8 +1397,10 @@ extends Modelica.Icons.ExamplesPackage;
             annotation (Placement(transformation(extent={{40,-20},{60,0}})));
 
           //output variables
-          SI.MassFlowRate m_flow[n] "Mass flow rate" annotation (Dialog(group="Output"));
-          SI.NusseltNumber Nu[n] "Nusselt number" annotation (Dialog(group="Output"));
+          SI.MassFlowRate m_flow[n] "Mass flow rate"
+                                                     annotation (Dialog(group="Output"));
+          SI.NusseltNumber Nu[n] "Nusselt number"
+                                                  annotation (Dialog(group="Output"));
 
         public
           Modelica.Blocks.Sources.Ramp input_Re(
@@ -1658,8 +1660,10 @@ extends Modelica.Icons.ExamplesPackage;
             annotation (Placement(transformation(extent={{40,-20},{60,0}})));
 
           //output variables
-          SI.MassFlowRate m_flow[n] "Mass flow rate" annotation (Dialog(group="Output"));
-          SI.NusseltNumber Nu[n] "Nusselt number" annotation (Dialog(group="Output"));
+          SI.MassFlowRate m_flow[n] "Mass flow rate"
+                                                     annotation (Dialog(group="Output"));
+          SI.NusseltNumber Nu[n] "Nusselt number"
+                                                  annotation (Dialog(group="Output"));
 
         public
           Modelica.Blocks.Sources.Ramp input_Re(
@@ -5853,7 +5857,8 @@ extends Modelica.Icons.ExamplesPackage;
           SI.Length K[1]={0}
             "Roughness (average height of surface asperities)"
             annotation (Dialog(group="Straight pipe"));
-          SI.Length L=1 "Length" annotation (Dialog(group="Straight pipe"));
+          SI.Length L=1 "Length"
+                                 annotation (Dialog(group="Straight pipe"));
 
           //fluid property variables
           SI.DynamicViscosity eta=1e-3
@@ -5970,7 +5975,8 @@ extends Modelica.Icons.ExamplesPackage;
           SI.Length K[4]={0,2e-4*d_hyd,2e-3*d_hyd,2e-2*d_hyd}
             "Roughness (average height of surface asperities)"
             annotation (Dialog(group="Straight pipe"));
-          SI.Length L=1 "Length" annotation (Dialog(group="Straight pipe"));
+          SI.Length L=1 "Length"
+                                 annotation (Dialog(group="Straight pipe"));
 
           //fluid property variables
           SI.DynamicViscosity eta=1e-3
@@ -6099,7 +6105,8 @@ extends Modelica.Icons.ExamplesPackage;
           SI.Length K[4]={0,2e-4*d_hyd,2e-3*d_hyd,2e-2*d_hyd}
             "Roughness (average height of surface asperities)"
             annotation (Dialog(group="Straight pipe"));
-          SI.Length L=1 "Length" annotation (Dialog(group="Straight pipe"));
+          SI.Length L=1 "Length"
+                                 annotation (Dialog(group="Straight pipe"));
 
           //fluid property variables
           SI.DynamicViscosity eta=1e-3
