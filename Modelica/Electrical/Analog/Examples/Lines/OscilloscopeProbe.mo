@@ -83,20 +83,17 @@ equation
   connect(ri.n, cProbe.p)
     annotation (Line(points={{-60,30},{-50,30},{-50,20}}, color={0,0,255}));
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}})),
-    Icon(coordinateSystem(extent={{-100,-100},{100,100}})),
     experiment(
       StopTime=0.01,
       Interval=1e-06,
       Tolerance=1e-06),
     Documentation(info="<html>
 <p>
-An oscilloscope (input impedance <code>R<sub>Osci</sub>=1 M&Omega;, C<sub>Osci</sub>=20 pF</code>) is connected 
-via a coaxial cable (<code>len=1 m, c=100 pF/m</code>) 
-to a probe (attenuation factor 10:1, i.e. <code>R<sub>Probe</sub>=9*R<sub>Osci</sub></code>). 
-The impedance of the probe has to be balanced <code>C<sub>Probe</sub>*R<sub>Probe</sub>=R<sub>Osci</sub>*(C<sub>Osci</sub> + len*c)</code> to preserve the signal shape (1 kHz pulse). 
-Note that the resistance of the cable is neglectible. The source needs a (small) inner resistance. 
+An oscilloscope (input impedance <code>R<sub>Osci</sub>=1 M&Omega;, C<sub>Osci</sub>=20 pF</code>) is connected
+via a coaxial cable (<code>len=1 m, c=100 pF/m</code>)
+to a probe (attenuation factor 10:1, i.e. <code>R<sub>Probe</sub>=9*R<sub>Osci</sub></code>).
+The impedance of the probe has to be balanced <code>C<sub>Probe</sub>*R<sub>Probe</sub>=R<sub>Osci</sub>*(C<sub>Osci</sub> + len*c)</code> to preserve the signal shape (1 kHz pulse).
+Note that the resistance of the cable is neglectible. The source needs a (small) inner resistance.
 </p>
 </html>",
         revisions="<html>

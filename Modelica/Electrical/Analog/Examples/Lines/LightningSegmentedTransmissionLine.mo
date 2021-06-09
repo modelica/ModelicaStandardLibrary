@@ -68,24 +68,21 @@ equation
   connect(ground.p, line2.p3)
     annotation (Line(points={{0,-10},{30,-10},{30,10}}, color={0,0,255}));
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}})),
-    Icon(coordinateSystem(extent={{-100,-100},{100,100}})),
     experiment(
       StopTime=0.025,
       Interval=1e-07,
       Tolerance=1e-06),
     Documentation(info="<html>
 <p>
-This example shows what happens when a lightning hits a transmission line. 
-We consider a segmented single-phase equivalent circuit taking losses into account with two parts of the transmission line, each 50 km long. 
-The RMS voltage is 380 kV / &#x221A;3, the RMS load current is roughly 1090 A. 
-Realistic parameters of the 380 kV transmission line are used. 
-Note that after the source starts, the traveling wave arrives at the load 350 &micro;s later. 
-After 20 ms, a lightning (10/350 &micro;s) with an amplitude of 10 kA hits the transmission line just in the middle. 
-Note that the traveling wave hits source and load approximately 200 &micro;s after the lightning hits the transmission line. 
-Plot voltage and current at the load. Without overvoltage protection, the load would be destroyed. 
-Note that using a sparse solver saves some simulation time. 
+This example shows what happens when a lightning hits a transmission line.
+We consider a segmented single-phase equivalent circuit taking losses into account with two parts of the transmission line, each 50 km long.
+The RMS voltage is 380 kV / &#x221A;3, the RMS load current is roughly 1090 A.
+Realistic parameters of the 380 kV transmission line are used.
+Note that after the source starts, the traveling wave arrives at the load 350 &micro;s later.
+After 20 ms, a lightning (10/350 &micro;s) with an amplitude of 10 kA hits the transmission line just in the middle.
+Note that the traveling wave hits source and load approximately 200 &micro;s after the lightning hits the transmission line.
+Plot voltage and current at the load. Without overvoltage protection, the load would be destroyed.
+Note that using a sparse solver saves some simulation time.
 Using a <a href=\"modelica://Modelica.Electrical.Analog.Lines.TLine\">lossless transmission line model</a> simulates even much quicker.
 </p>
 </html>",

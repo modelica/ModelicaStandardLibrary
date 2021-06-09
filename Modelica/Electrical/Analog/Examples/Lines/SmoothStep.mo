@@ -79,7 +79,7 @@ model SmoothStep "Compares oLine and tLine behaviour"
     TD=td,
     er(start=0),
     v2(start=0)) annotation (Placement(transformation(extent={{-30,
-            -40},{-10,-20}}, rotation=0)));
+            -40},{-10,-20}})));
 
   Modelica.Electrical.Analog.Basic.Resistor Rdistr(R=Rload) annotation (
       Placement(transformation(
@@ -161,9 +161,6 @@ equation
   connect(groundO.p, R5.n)
     annotation (Line(points={{80,-10},{80,20},{60,20}}, color={0,0,255}));
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}})),
-    Icon(coordinateSystem(extent={{-100,-100},{100,100}})),
     experiment(
       StopTime=0.003,
       Interval=1e-06,

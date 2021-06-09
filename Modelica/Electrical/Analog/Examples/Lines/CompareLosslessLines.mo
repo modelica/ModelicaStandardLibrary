@@ -119,47 +119,44 @@ equation
   connect(ri3.n, line3.p1)
     annotation (Line(points={{0,-50},{10,-50}}, color={0,0,255}));
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}})),
-    Icon(coordinateSystem(extent={{-100,-100},{100,100}})),
     experiment(
       StopTime=2e-08,
       Interval=1e-10,
       Tolerance=1e-06),
     Documentation(info="<html>
 <p>
-This example compares three lossless lines with different loads. 
+This example compares three lossless lines with different loads.
 Inductance per meter (l=250&nbsp;nH/m) and capacitance per meter (c=100&nbsp;pF/m) are estimated for an average coaxial cable with characteristic impedance z0=&radic;(l/c)=50&nbsp;&Omega;.
-The speed of the electromagnetic wave is given by c0=1/&radic;(l*c)=2*10<sup>8</sup>&nbsp;m/s. Using a cable with a length of len=1&nbsp;m, we obtain a delay td=len/c0=5&nbsp;ns. 
-The sources impress a single voltage pulse with height=10&nbsp;V and lenght=td/2, starting at td/2. 
+The speed of the electromagnetic wave is given by c0=1/&radic;(l*c)=2*10<sup>8</sup>&nbsp;m/s. Using a cable with a length of len=1&nbsp;m, we obtain a delay td=len/c0=5&nbsp;ns.
+The sources impress a single voltage pulse with height=10&nbsp;V and lenght=td/2, starting at td/2.
 Due to the inner resistances of the sources ri=z0 the pulse at the input of the line (v1) has a height of 5&nbsp;V.
 Simulate for 20&nbsp;ns and compare for each of the lines: <code>v1, v2</code> and <code>i1, i2</code>.
 </p>
 <h4>1. load = idle</h4>
 <p>
-The voltage pulse at the beginning of the line (v1) starts at 2.5&nbsp;ns and lasts for 2.5&nbsp;ns. It arrives at 7.5&nbsp;ns at the end of the line (v2), 
-and is reflected giving a pulse of 10&nbsp;V (superposition of arriving and reflected pulse). 
-At 12.5&nbsp;ns the reflected pulse arrives at the beginning of the line, with a height of 5&nbsp;V (voltage divider of z0 and ri). 
-Bear in mind that the source voltage is zero at that time, i.e. a short. 
-The current at the end of the line (i2) is zero since the load is implemented as an idle. 
+The voltage pulse at the beginning of the line (v1) starts at 2.5&nbsp;ns and lasts for 2.5&nbsp;ns. It arrives at 7.5&nbsp;ns at the end of the line (v2),
+and is reflected giving a pulse of 10&nbsp;V (superposition of arriving and reflected pulse).
+At 12.5&nbsp;ns the reflected pulse arrives at the beginning of the line, with a height of 5&nbsp;V (voltage divider of z0 and ri).
+Bear in mind that the source voltage is zero at that time, i.e. a short.
+The current at the end of the line (i2) is zero since the load is implemented as an idle.
 The current at the beginning of the line i1 is 5&nbsp;V/z0=100&nbsp;mA at 2.5&nbsp;mA and 12.5&nbsp;ns.
 </p>
 <h4>2. load = z0</h4>
 <p>
-The voltage pulse at the beginning of the line (v1) starts at 2.5&nbsp;ns and lasts for 2.5&nbsp;ns. It arrives at 7.5&nbsp;ns at the end of the line (v2). 
-Due to load resistance=z0 no reflection occurs. 
-The current at the beginning of the line i1 is 5&nbsp;V/z0=100&nbsp;mA at 2.5&nbsp;ns. 
-The current at the end of the line i2 is -5&nbsp;V/z0=100&nbsp;mA at 7.5&nbsp;ns. 
+The voltage pulse at the beginning of the line (v1) starts at 2.5&nbsp;ns and lasts for 2.5&nbsp;ns. It arrives at 7.5&nbsp;ns at the end of the line (v2).
+Due to load resistance=z0 no reflection occurs.
+The current at the beginning of the line i1 is 5&nbsp;V/z0=100&nbsp;mA at 2.5&nbsp;ns.
+The current at the end of the line i2 is -5&nbsp;V/z0=100&nbsp;mA at 7.5&nbsp;ns.
 </p>
 <h4>3. load = short</h4>
 <p>
-The voltage pulse at the beginning of the line (v1) starts at 2.5&nbsp;ns and lasts for 2.5&nbsp;ns. 
-Since the load is implemented as a short, the voltage at the end of the line (v2) is zero. 
-This is possible due to a reflection with negative sign, i.e. the superposition of arriving and reflected pulse gives zero. 
-The reflected voltage pulse arrives at 12.5&nbsp;ns at the beginning of the line. 
-The current pulse at the beginning of the line (i1) is 5&nbsp;V/z0=100&nbsp;mA at 2.5 ns. 
-At the end of the line (i2) a reflection occurs at 7.5&nbsp;ns giving a current pulse of 200&nbsp;mA (superposition of arriving and reflected pulse). 
-The reflected pulse (100&nbsp;mA) arrives at 12.5&nbsp;ns at the beginning of the line (i1). 
+The voltage pulse at the beginning of the line (v1) starts at 2.5&nbsp;ns and lasts for 2.5&nbsp;ns.
+Since the load is implemented as a short, the voltage at the end of the line (v2) is zero.
+This is possible due to a reflection with negative sign, i.e. the superposition of arriving and reflected pulse gives zero.
+The reflected voltage pulse arrives at 12.5&nbsp;ns at the beginning of the line.
+The current pulse at the beginning of the line (i1) is 5&nbsp;V/z0=100&nbsp;mA at 2.5 ns.
+At the end of the line (i2) a reflection occurs at 7.5&nbsp;ns giving a current pulse of 200&nbsp;mA (superposition of arriving and reflected pulse).
+The reflected pulse (100&nbsp;mA) arrives at 12.5&nbsp;ns at the beginning of the line (i1).
 </p>
 </html>",
         revisions="<html>

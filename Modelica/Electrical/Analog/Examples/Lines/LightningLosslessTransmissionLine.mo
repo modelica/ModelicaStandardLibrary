@@ -62,23 +62,20 @@ equation
   connect(lightningImpulseCurrent.n, line2.p1) annotation (Line(points={{10,20},{20,20}}, color={0,0,255}));
   connect(ground.p, lightningImpulseCurrent.p) annotation (Line(points={{0,-10},{10,-10},{10,0}}, color={0,0,255}));
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}})),
-    Icon(coordinateSystem(extent={{-100,-100},{100,100}})),
     experiment(
       StopTime=0.025,
       Interval=1e-06,
       Tolerance=1e-06),
     Documentation(info="<html>
 <p>
-This example shows what happens when a lightning hits a transmission line. 
-We consider a lossless single-phase equivalent circuit with two parts of the transmission line, each 50 km long. 
-The RMS voltage is 380 kV / &#x221A;3, the RMS load current is roughly 1090 A. 
-Realistic parameters of the 380 kV transmission line are used. 
-Note that after the source starts, the traveling wave arrives at the load 350 &micro;s later. 
-After 20 ms, a lightning (10/350 &micro;s) with an amplitude of 10 kA hits the transmission line just in the middle. 
-Note that the traveling wave hits source and load approximately 200 &micro;s after the lightning hits the transmission line. 
-Plot voltage and current at the load. Without overvoltage protection, the load would be destroyed. 
+This example shows what happens when a lightning hits a transmission line.
+We consider a lossless single-phase equivalent circuit with two parts of the transmission line, each 50 km long.
+The RMS voltage is 380 kV / &#x221A;3, the RMS load current is roughly 1090 A.
+Realistic parameters of the 380 kV transmission line are used.
+Note that after the source starts, the traveling wave arrives at the load 350 &micro;s later.
+After 20 ms, a lightning (10/350 &micro;s) with an amplitude of 10 kA hits the transmission line just in the middle.
+Note that the traveling wave hits source and load approximately 200 &micro;s after the lightning hits the transmission line.
+Plot voltage and current at the load. Without overvoltage protection, the load would be destroyed.
 One could compare the results with that obtained by using a <a href=\"modelica://Modelica.Electrical.Analog.Lines.OLine\">transmission line model taking losses into account</a>.
 </p>
 </html>",

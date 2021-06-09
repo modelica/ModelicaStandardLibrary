@@ -155,14 +155,11 @@ connect(tline4.p1, tline3.p2) annotation (
   connect(ground2.p, tLine1.n2)
     annotation (Line(points={{-40,-50},{-10,-50},{-10,-40}}, color={0,0,255}));
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}})),
-    Icon(coordinateSystem(extent={{-100,-100},{100,100}})),
     experiment(StopTime=0.004, Interval=4e-006, Tolerance=1e-06),
     Documentation(info="<html>
 <p>This example shows a way to look at the traveling wave moving along a power line.</p>
 <p>This wave can be seen looking at intermediate points of the line, looking at both OLine (several segments per line trunk) and TLine models.</p>
-<p>OLine in the lossless case is less accurate, since shows oscillations that are not present in a distributed parameter line but, 
+<p>OLine in the lossless case is less accurate, since shows oscillations that are not present in a distributed parameter line but,
 since it allows the addition of resistances and conductances, allows evaluation of losses.</p>
 <p>Suggested tests:</p>
 <h4>7 segments per trunk, lossless</h4>
