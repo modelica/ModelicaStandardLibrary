@@ -2,7 +2,6 @@ within Modelica.Electrical.Analog.Sources;
 block LightningImpulse "Lightning impulse voltage or current trajectory"
   import Modelica.Electrical.Analog.Types.ImpulseApproximation;
   import Modelica.Constants.small;
-  import Modelica.Constants.pi;
   parameter ImpulseApproximation approximation=Modelica.Electrical.Analog.Types.ImpulseApproximation.Heidler
     "Approximation of impulse";
   parameter Real amplitude "Amplitude";
