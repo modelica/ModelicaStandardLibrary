@@ -3,9 +3,17 @@ function isPowerOf2 "Determine if the integer input is a power of 2"
   extends Modelica.Icons.Function;
   input Integer i(min=1) "Integer scalar";
   output Boolean result "= true, if integer scalar is a power of 2";
+protected 
+  Integer power;
+  Integer halfPower;
 algorithm
   assert(i>=1, "Integer input to isPowerOf2 has to be >= 1");
-  result := i == 2^integer(log(i)/log(2)+0.5);
+  power:=integer(log(i)/log(2)+0.5);
+  halfPower:=integer(0.5+2^div(power,2));
+  result := mod(i, halfPower)==0 and div(i,halfPower) == halfPower*(if mod(power,2)==1 then 2 else 1);
+  // These extra computations ensure that even if Integer has as many bits
+  // as Reals the right-hand-side can be correctly evaluated as an Integer
+  // The division by halfPower ensure that we avoid overflow for large integers.
   annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
