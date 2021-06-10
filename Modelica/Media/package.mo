@@ -759,43 +759,43 @@ elements</p>
 
   <tr><td>Boolean</td>
       <td>hasIdealGasHeatCapacity</td>
-      <td>true if ideal gas heat capacity is available</td></tr>
+      <td>true, if ideal gas heat capacity is available</td></tr>
 
   <tr><td>Boolean</td>
       <td>hasCriticalData</td>
-      <td>true if critical data are known</td></tr>
+      <td>true, if critical data are known</td></tr>
 
   <tr><td>Boolean</td>
       <td>hasDipoleMoment</td>
-      <td>true if a dipole moment known</td></tr>
+      <td>true, if a dipole moment known</td></tr>
 
   <tr><td>Boolean</td>
       <td>hasFundamentalEquation</td>
-      <td>true if a fundamental equation</td></tr>
+      <td>true, if a fundamental equation</td></tr>
 
   <tr><td>Boolean</td>
       <td>hasLiquidHeatCapacity</td>
-      <td>true if liquid heat capacity is available</td></tr>
+      <td>true, if liquid heat capacity is available</td></tr>
 
   <tr><td>Boolean</td>
       <td>hasSolidHeatCapacity</td>
-      <td>true if solid heat capacity is available</td></tr>
+      <td>true, if solid heat capacity is available</td></tr>
 
   <tr><td>Boolean</td>
       <td>hasAccurateViscosityData</td>
-      <td>true if accurate data for a viscosity function is available</td></tr>
+      <td>true, if accurate data for a viscosity function is available</td></tr>
 
   <tr><td>Boolean</td>
       <td>hasAccurateConductivityData</td>
-      <td>true if accurate data for thermal conductivity is available</td></tr>
+      <td>true, if accurate data for thermal conductivity is available</td></tr>
 
   <tr><td>Boolean</td>
       <td>hasVapourPressureCurve</td>
-      <td>true if vapour pressure data, e.g., Antoine coefficients are known</td></tr>
+      <td>true, if vapour pressure data, e.g., Antoine coefficients are known</td></tr>
 
   <tr><td>Boolean</td>
       <td>hasAcentricFactor</td>
-      <td>true if Pitzer acentric factor is known</td></tr>
+      <td>true, if Pitzer acentric factor is known</td></tr>
 
   <tr><td>SpecificEnthalpy</td>
       <td>HCRIT0</td>
@@ -1396,7 +1396,7 @@ setting the following package constants:
 <li>mediumName is a String containing the name of the medium.</li>
 <li>substanceNames is a vector of strings containing the names of the substances
     that make up the medium. In this case, it will contain only mediumName.</li>
-<li>singleState can be set to true if u and d in BaseProperties do not depend
+<li>singleState can be set to true, if u and d in BaseProperties do not depend
     on pressure. In other words, density does not depend on pressure
     (incompressible fluid), and it is assumed that also u does not depend on
     pressure. This setting can be useful for fluids having high density and
@@ -2461,15 +2461,15 @@ is given to compare the approximation.
 
     SI.MassFraction x(start=x_start)
       "Absolute humidity in kg water/kg dry air";
-    SI.SpecificEnthalpy[n_T] hx_T "h_1+x for const T";
+    SI.SpecificEnthalpy[n_T] hx_T "h_1+x for constant T";
     SI.SpecificEnthalpy[n_h] hx_h(start=h_const, each fixed=true)
-      "Const h_1+x";
-    SI.SpecificEnthalpy[n_phi] hx_phi "h_1+x for const phi";
-    SI.SpecificEnthalpy[n_T] y_T "Chart enthalpy for const T";
-    SI.SpecificEnthalpy[n_h] y_h "Chart enthalpy for const h";
-    SI.SpecificEnthalpy[n_phi] y_phi "Chart enthalpy for const phi";
-    Medium.BaseProperties[n_T] medium_T "Medium properties for const T";
-    Medium.BaseProperties[n_phi] medium_phi "Medium properties for const phi";
+      "Constanst h_1+x";
+    SI.SpecificEnthalpy[n_phi] hx_phi "h_1+x for constanst phi";
+    SI.SpecificEnthalpy[n_T] y_T "Chart enthalpy for constant T";
+    SI.SpecificEnthalpy[n_h] y_h "Chart enthalpy for constant h";
+    SI.SpecificEnthalpy[n_phi] y_phi "Chart enthalpy for constant phi";
+    Medium.BaseProperties[n_T] medium_T "Medium properties for constant T";
+    Medium.BaseProperties[n_phi] medium_phi "Medium properties for constant phi";
 
   protected
     SI.Pressure[n_phi] ps_phi "Saturation pressure for constant-phi-lines";
@@ -3777,13 +3777,13 @@ package Interfaces "Interfaces for media models"
     /* The vector substanceNames is mandatory, as the number of
          substances is determined based on its size. Here we assume
          a single-component medium.
-         singleState is true if u and d do not depend on pressure, but only
+         singleState is true, if u and d do not depend on pressure, but only
          on a thermal variable (temperature or enthalpy). Otherwise, set it
          to false.
          For a single-substance medium, just set reducedX and fixedX to true, and there's
          no need to bother about medium compositions at all. Otherwise, set
-         final reducedX = true if the medium model has nS-1 independent mass
-         fraction, or reducedX = false if the medium model has nS independent
+         final reducedX = true, if the medium model has nS-1 independent mass
+         fraction, or reducedX = false, if the medium model has nS independent
          mass fractions (nS = number of substances).
          If a mixture has a fixed composition set fixedX=true, otherwise false.
          The modifiers for reducedX and fixedX should normally be final
@@ -3932,9 +3932,9 @@ Modelica source.
     constant Boolean singleState
       "= true, if u and d are not a function of pressure";
     constant Boolean reducedX=true
-      "= true if medium contains the equation sum(X) = 1.0; set reducedX=true if only one substance (see docu for details)";
+      "= true, if medium contains the equation sum(X) = 1.0; set reducedX=true, if only one substance (see docu for details)";
     constant Boolean fixedX=false
-      "= true if medium contains the equation X = reference_X";
+      "= true, if medium contains the equation X = reference_X";
     constant AbsolutePressure reference_p=101325
       "Reference pressure of Medium: default 1 atmosphere";
     constant Temperature reference_T=298.15
@@ -3989,7 +3989,7 @@ Modelica source.
       ThermodynamicState state
         "Thermodynamic state record for optional functions";
       parameter Boolean preferredMediumStates=false
-        "= true if StateSelect.prefer shall be used for the independent property variables of the medium"
+        "= true, if StateSelect.prefer shall be used for the independent property variables of the medium"
         annotation (Evaluate=true, Dialog(tab="Advanced"));
       parameter Boolean standardOrderComponents=true
         "If true, and reducedX = true, the last element of X will be computed from the other ones";
@@ -4344,9 +4344,11 @@ This function computes an isentropic state transformation:
       input ThermodynamicState state "Thermodynamic state record";
       output IsobaricExpansionCoefficient beta "Isobaric expansion coefficient";
       annotation (Documentation(info="<html>
+<p>The isobaric expansion coefficient <code>beta</code> is defined as</p>
 <blockquote><pre>
-beta is defined as  1/v * der(v,T), with v = 1/d, at constant pressure p.
+1/v * der(v,T)
 </pre></blockquote>
+<p>with <code>v</code> = <code>1/d</code>, at constant pressure <code>p</code>.</p>
 </html>"));
     end isobaricExpansionCoefficient;
 
@@ -4359,11 +4361,11 @@ beta is defined as  1/v * der(v,T), with v = 1/d, at constant pressure p.
       input ThermodynamicState state "Thermodynamic state record";
       output SI.IsothermalCompressibility kappa "Isothermal compressibility";
       annotation (Documentation(info="<html>
+<p>The isothermal compressibility factor <code>kappa</code> is defined as</p>
 <blockquote><pre>
-
-kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
-
+-1/v * der(v,p)
 </pre></blockquote>
+<p>with <code>v</code> = <code>1/d</code> at constant temperature <code>T</code>.</p>
 </html>"));
     end isothermalCompressibility;
 
@@ -4372,7 +4374,7 @@ kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
 
     // explicit derivative functions for finite element models
     replaceable partial function density_derp_h
-      "Return density derivative w.r.t. pressure at const specific enthalpy"
+      "Return density derivative w.r.t. pressure at constant specific enthalpy"
       extends Modelica.Icons.Function;
       input ThermodynamicState state "Thermodynamic state record";
       output DerDensityByPressure ddph "Density derivative w.r.t. pressure";
@@ -4387,7 +4389,7 @@ kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
     end density_derh_p;
 
     replaceable partial function density_derp_T
-      "Return density derivative w.r.t. pressure at const temperature"
+      "Return density derivative w.r.t. pressure at constant temperature"
       extends Modelica.Icons.Function;
       input ThermodynamicState state "Thermodynamic state record";
       output DerDensityByPressure ddpT "Density derivative w.r.t. pressure";
@@ -4434,7 +4436,7 @@ kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
     end specificEnthalpy_pTX;
 
     replaceable function specificEntropy_pTX
-      "Return specific enthalpy from p, T, and X or Xi"
+      "Return specific entropy from p, T, and X or Xi"
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
@@ -4493,7 +4495,7 @@ kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
     end density_phX;
 
     replaceable function temperature_psX
-      "Return temperature from p,s, and X or Xi"
+      "Return temperature from p, s, and X or Xi"
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
@@ -4951,7 +4953,7 @@ one, which would require a numeric solution.
     end isobaricExpansionCoefficient;
 
     redeclare function extends density_derp_h
-      "Return density derivative w.r.t. pressure at const specific enthalpy"
+      "Return density derivative w.r.t. pressure at constant specific enthalpy"
     algorithm
       ddph := if constantJacobian then kappa_const*reference_d + (beta_const*(1
          - reference_T*beta_const))/cp_const else kappa_const*density(state) +
@@ -4966,7 +4968,7 @@ one, which would require a numeric solution.
     end density_derh_p;
 
     redeclare function extends density_derp_T
-      "Return density derivative w.r.t. pressure at const temperature"
+      "Return density derivative w.r.t. pressure at constant temperature"
     algorithm
       ddpT := if constantJacobian then kappa_const*reference_d else kappa_const
         *density(state);
@@ -5286,9 +5288,9 @@ to the above list of assumptions</li>
     extends PartialPureSubstance(redeclare replaceable record FluidConstants =
           Modelica.Media.Interfaces.Types.TwoPhase.FluidConstants);
     constant Boolean smoothModel=false
-      "True if the (derived) model should not generate state events";
+      "= true, if the (derived) model should not generate state events";
     constant Boolean onePhase=false
-      "True if the (derived) model should never be called with two-phase inputs";
+      "= true, if the (derived) model should never be called with two-phase inputs";
 
     constant FluidConstants[nS] fluidConstants "Constant data for the fluid";
 
@@ -6709,22 +6711,22 @@ Note: Reference enthalpy might have to be extended with enthalpy of formation.
         DipoleMoment dipoleMoment
           "Dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)";
         Boolean hasIdealGasHeatCapacity=false
-          "True if ideal gas heat capacity is available";
-        Boolean hasCriticalData=false "True if critical data are known";
-        Boolean hasDipoleMoment=false "True if a dipole moment known";
-        Boolean hasFundamentalEquation=false "True if a fundamental equation";
+          "= true, if ideal gas heat capacity is available";
+        Boolean hasCriticalData=false "= true, if critical data are known";
+        Boolean hasDipoleMoment=false "= true, if a dipole moment known";
+        Boolean hasFundamentalEquation=false "= true, if a fundamental equation";
         Boolean hasLiquidHeatCapacity=false
-          "True if liquid heat capacity is available";
+          "= true, if liquid heat capacity is available";
         Boolean hasSolidHeatCapacity=false
-          "True if solid heat capacity is available";
+          "= true, if solid heat capacity is available";
         Boolean hasAccurateViscosityData=false
-          "True if accurate data for a viscosity function is available";
+          "= true, if accurate data for a viscosity function is available";
         Boolean hasAccurateConductivityData=false
-          "True if accurate data for thermal conductivity is available";
+          "= true, if accurate data for thermal conductivity is available";
         Boolean hasVapourPressureCurve=false
-          "True if vapour pressure data, e.g., Antoine coefficients are known";
+          "= true, if vapour pressure data, e.g., Antoine coefficients are known";
         Boolean hasAcentricFactor=false
-          "True if Pitzer acentric factor is known";
+          "= true, if Pitzer acentric factor is known";
         SpecificEnthalpy HCRIT0=0.0
           "Critical specific enthalpy of the fundamental equation";
         SpecificEntropy SCRIT0=0.0
@@ -6753,22 +6755,22 @@ Note: Reference enthalpy might have to be extended with enthalpy of formation.
         DipoleMoment dipoleMoment
           "Dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)";
         Boolean hasIdealGasHeatCapacity=false
-          "True if ideal gas heat capacity is available";
-        Boolean hasCriticalData=false "True if critical data are known";
-        Boolean hasDipoleMoment=false "True if a dipole moment known";
-        Boolean hasFundamentalEquation=false "True if a fundamental equation";
+          "= true, if ideal gas heat capacity is available";
+        Boolean hasCriticalData=false "= true, if critical data are known";
+        Boolean hasDipoleMoment=false "= true, if a dipole moment known";
+        Boolean hasFundamentalEquation=false "= true, if a fundamental equation";
         Boolean hasLiquidHeatCapacity=false
-          "True if liquid heat capacity is available";
+          "= true, if liquid heat capacity is available";
         Boolean hasSolidHeatCapacity=false
-          "True if solid heat capacity is available";
+          "= true, if solid heat capacity is available";
         Boolean hasAccurateViscosityData=false
-          "True if accurate data for a viscosity function is available";
+          "= true, if accurate data for a viscosity function is available";
         Boolean hasAccurateConductivityData=false
-          "True if accurate data for thermal conductivity is available";
+          "= true, if accurate data for thermal conductivity is available";
         Boolean hasVapourPressureCurve=false
-          "True if vapour pressure data, e.g., Antoine coefficients are known";
+          "= true, if vapour pressure data, e.g., Antoine coefficients are known";
         Boolean hasAcentricFactor=false
-          "True if Pitzer acentric factor is known";
+          "= true, if Pitzer acentric factor is known";
         SpecificEnthalpy HCRIT0=0.0
           "Critical specific enthalpy of the fundamental equation";
         SpecificEntropy SCRIT0=0.0
@@ -7681,7 +7683,7 @@ public
     "Thermodynamic base properties on the phase boundary for IF97 steam tables"
 
     extends Modelica.Icons.Record;
-    Boolean region3boundary "True if boundary between 2-phase and region 3";
+    Boolean region3boundary "= true, if boundary between 2-phase and region 3";
     SI.SpecificHeatCapacity R_s "Specific heat capacity";
     SI.Temperature T "Temperature";
     SI.Density d "Density";
@@ -7794,7 +7796,7 @@ public
     IsentropicExponent kappa "Isentropic expansion coefficient";
     // k in Bejan
     IsenthalpicExponent theta "Isenthalpic exponent";
-    // same as kappa, except derivative at const h
+    // same as kappa, except derivative at constant h
     IsobaricVolumeExpansionCoefficient alpha
       "Isobaric volume expansion coefficient";
     // beta in Bejan
@@ -8302,7 +8304,7 @@ end BridgmansTablesForWater;
     by <a href=\"mailto:Martin.Otter@DLR.de\">Martin Otter</a>:<br>
     Designed and implemented.</li>
 <li><em>August 12, 2008</em>
-    by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br>
+    by <a href=\"https://github.com/sielemann\">Michael Sielemann</a>:<br>
     Minor modification to cover the limit case <code>x_small -> 0</code> without division by zero.</li>
 </ul>
 </html>", info="<html>

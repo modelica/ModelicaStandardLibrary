@@ -88,14 +88,11 @@ model MassWithStopAndFriction
       startBackward then sa + f0_max/unitForce else if pre(mode) == Forward
        then sa - f0_max/unitForce else sa + f0_max/unitForce;
 
-    /* Friction torque has to be defined in a subclass. Example for a clutch:
-   f = if locked then sa else
-       if free then   0 else
-       cgeo*fn*(if startForward then          Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], v_relfric, 1) else
-                if startBackward then        -Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], -v_relfric, 1) else
-                if pre(mode) == Forward then  Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], v_relfric, 1) else
-                                             -Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], -v_relfric, 1));
+    /* Friction force "f" has to be defined in a subclass. Example for possible
+     realization of friction utilizing interpolation by ExternalCombiTable1D see:
+     Modelica.Mechanics.Translational.Components.SupportFriction
 */
+
     // finite state machine to determine configuration
     mode = if free then Free else (if (pre(mode) == Forward or pre(mode)
        == Free or startForward) and v_relfric > 0 and s < (smax - L/2)

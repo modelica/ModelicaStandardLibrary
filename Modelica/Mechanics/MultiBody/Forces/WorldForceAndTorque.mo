@@ -96,24 +96,25 @@ equation
   annotation (defaultComponentName="forceAndTorque",
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
+        Ellipse(
+          extent={{-108,-80},{82,80}},
+          lineColor={0,0,0},
+          startAngle=40,
+          endAngle=150,
+          closure=EllipseClosure.None),
         Text(
-          extent={{-63,56},{44,19}},
+          extent={{-100,50},{80,20}},
           textColor={192,192,192},
           textString="resolve"),
         Text(
           extent={{-150,-75},{150,-115}},
           textString="%name",
           textColor={0,0,255}),
-        Line(
-          points={{-100,60},{-86,68},{-80,72},{-70,78},{-64,82},{-46,86},{-34,
-              88},{-16,88},{-2,86},{12,80},{24,74},{34,68},{46,58},{52,54},{
-              58,48}},
-          thickness=0.5),
         Polygon(
-          points={{89,17},{64,76},{30,41},{89,17}},
+          points={{91,21},{64,76},{36,48},{91,21}},
           fillPattern=FillPattern.Solid),
         Line(
-          points={{0,95},{0,-26}},
+          points={{0,101},{0,-20}},
           color={95,95,95},
           pattern=LinePattern.Dot),
         Line(

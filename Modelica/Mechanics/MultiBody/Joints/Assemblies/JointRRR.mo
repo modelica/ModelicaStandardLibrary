@@ -232,78 +232,83 @@ are connected by rigid rods.
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         initialScale=0.2), graphics={
-        Rectangle(
-          extent={{-90,90},{90,-90}},
-          lineColor={255,255,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Text(
-          extent={{-140,-55},{140,-80}},
-          textColor={0,0,255},
-          textString="%name"),
-        Text(
-          extent={{36,114},{71,92}},
-          textColor={128,128,128},
-          textString="ib"),
-        Text(
-          extent={{-126,115},{-87,90}},
-          textColor={128,128,128},
-          textString="ia"),
         Ellipse(
-          extent={{-100,25},{-50,-25}},
+          extent={{-100,20},{-60,-20}},
           fillColor={192,192,192},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{-85,10},{-65,-10}},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{50,25},{100,-25}},
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{65,10},{85,-10}},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{-26,80},{24,30}},
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{-10,66},{10,46}},
-          fillPattern=FillPattern.Solid),
-        Polygon(
-          points={{-71,9},{-24,45},{-19,39},{-66,3},{-71,9}},
-          fillPattern=FillPattern.Solid),
-        Polygon(
-          points={{54,12},{5,47},{10,52},{59,18},{54,12}},
-          fillPattern=FillPattern.Solid),
-        Polygon(
-          points={{100,-4},{83,-4},{84,3},{100,3},{100,-4}},
-          fillPattern=FillPattern.Solid),
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,0}),
         Line(
-          points={{80,24},{80,80},{80,80},{80,100}},
+          points={{100,40},{90,40},{90,0}},
           color={95,95,95},
           thickness=0.5),
-        Text(
-          extent={{-128,-29},{136,-47}},
-          textString="n_a=%n_a"),
+        Ellipse(
+          extent={{60,20},{100,-20}},
+          fillColor={128,128,128},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,0}),
+        Polygon(
+          points={{-2,56},{78,-4},{82,4},{2,64},{-2,56}},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,0},
+          fillColor={192,192,192}),
         Line(
-          points={{0,57},{0,86},{0,86},{0,100}},
+          points={{0,74},{0,100}},
           color={95,95,95},
           thickness=0.5),
-        Text(
-          extent={{-46,114},{-7,91}},
-          textColor={128,128,128},
-          textString="im"),
+        Ellipse(
+          extent={{-20,80},{20,40}},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,0}),
+        Polygon(
+          points={{-82,2},{-2,62},{2,58},{-78,-2},{-82,2}},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,0},
+          fillColor={0,0,0}),
+        Ellipse(
+          extent={{-90,10},{-70,-10}},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,0},
+          fillColor={0,0,0}),
+        Ellipse(
+          extent={{-10,70},{10,50}},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,0},
+          fillColor={0,0,0}),
         Line(
-          points={{-80,100},{-80,8}},
+          points={{-80,100},{-80,0}},
           color={95,95,95},
           thickness=0.5),
         Line(
           points={{80,80},{101,80}},
           color={95,95,95},
           thickness=0.5),
+        Ellipse(
+          extent={{70,10},{90,-10}},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,0},
+          fillColor={192,192,192}),
         Line(
-          points={{100,40},{93,40},{93,3}},
+          points={{80,0},{80,80},{80,80},{80,100}},
           color={95,95,95},
-          thickness=0.5)}));
+          thickness=0.5),
+        Text(
+          extent={{34,112},{69,90}},
+          textColor={128,128,128},
+          textString="ib"),
+        Text(
+          extent={{-130,112},{-91,90}},
+          textColor={128,128,128},
+          textString="ia"),
+        Text(
+          extent={{-50,112},{-11,90}},
+          textColor={128,128,128},
+          textString="im"),
+        Text(
+          extent={{-75,-27},{75,-47}},
+          textString="n_a=%n_a"),
+        Text(
+          extent={{-75,-50},{75,-70}},
+          textColor={0,0,255},
+          textString="%name")}));
 end JointRRR;

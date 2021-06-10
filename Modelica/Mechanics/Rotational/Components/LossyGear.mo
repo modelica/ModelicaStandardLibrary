@@ -5,10 +5,15 @@ model LossyGear
   extends Modelica.Mechanics.Rotational.Icons.Gear;
   extends Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
 
+  import Modelica.Blocks.Types.{ExternalCombiTable1D, Extrapolation, Smoothness};
+  import Modelica.Blocks.Tables.Internal.{getTable1DValue, getTable1DValueNoDer, getTable1DValueNoDer2};
+
   parameter Real ratio(start=1)
     "Transmission ratio (flange_a.phi/flange_b.phi)";
   parameter Real lossTable[:, 5]=[0, 1, 1, 0, 0]
     "Array for mesh efficiencies and bearing friction depending on speed";
+  parameter Smoothness smoothness = Smoothness.LinearSegments
+    "Smoothness of interpolation in lossTable table";
   extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
   SI.Angle phi_a
     "Angle between left shaft flange and support";
@@ -87,10 +92,22 @@ protected
   constant SI.Torque unitTorque=1;
 
   // get friction and eta information for omega=0
-  parameter Real eta_mf1_0(unit="1")=Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,2], 0, 1);
-  parameter Real eta_mf2_0(unit="1")=Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,3], 0, 1);
-  parameter SI.Torque tau_bf1_0=abs(Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,4], 0, 1));
-  parameter SI.Torque tau_bf2_0=abs(Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,5], 0, 1));
+  parameter Real eta_mf1_0(unit="1")=
+    if     smoothness == Smoothness.ConstantSegments then getTable1DValueNoDer(tableID, 1, 0)
+    elseif smoothness == Smoothness.LinearSegments   then getTable1DValueNoDer2(tableID, 1, 0)
+    else                                                  getTable1DValue(tableID, 1, 0);
+  parameter Real eta_mf2_0(unit="1")=
+    if     smoothness == Smoothness.ConstantSegments then getTable1DValueNoDer(tableID, 2, 0)
+    elseif smoothness == Smoothness.LinearSegments   then getTable1DValueNoDer2(tableID, 2, 0)
+    else                                                  getTable1DValue(tableID, 2, 0);
+  parameter SI.Torque tau_bf1_0 = abs(
+    if     smoothness == Smoothness.ConstantSegments then getTable1DValueNoDer(tableID, 3, 0)
+    elseif smoothness == Smoothness.LinearSegments   then getTable1DValueNoDer2(tableID, 3, 0)
+    else                                                  getTable1DValue(tableID, 3, 0));
+  parameter SI.Torque tau_bf2_0 = abs(
+    if     smoothness == Smoothness.ConstantSegments then getTable1DValueNoDer(tableID, 4, 0)
+    elseif smoothness == Smoothness.LinearSegments   then getTable1DValueNoDer2(tableID, 4, 0)
+    else                                                  getTable1DValue(tableID, 4, 0));
   parameter SI.Torque tau_bf_a_0=if Modelica.Math.isEqual(
           eta_mf1_0,
           1.0,
@@ -105,9 +122,20 @@ protected
   // Calculate tau_bf_a_0 from the following equations
   //  tau_bf1_0=eta_mf1_0*tau_bf_a_0 + 1/ratio a_0
   //  tau_bf2_0=1/eta_mf2*tau_bf_a_0 + 1/ratio tau_bf_a_0
+
+  final parameter ExternalCombiTable1D tableID = ExternalCombiTable1D(
+    tableName="NoName",
+    fileName="NoName",
+    table=lossTable,
+    columns={2,3,4,5},
+    smoothness=smoothness,
+    extrapolation=Extrapolation.LastTwoPoints,
+    verboseRead=false) "External table object for sliding friction coefficient";
+
 equation
   assert(abs(ratio) > 0,
     "Error in initialization of LossyGear: ratio may not be zero");
+  assert(size(lossTable, 1) > 0 and size(lossTable, 2) > 0, "Parameter lossTable is an empty matrix");
 
   ideal = Modelica.Math.Matrices.isEqual(
         lossTable,
@@ -121,11 +149,12 @@ equation
     tau_bf1 = 0;
     tau_bf2 = 0;
   else
-    interpolation_result = [
-      Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,2], noEvent(abs(w_a)), 1),
-      Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,3], noEvent(abs(w_a)), 1),
-      Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,4], noEvent(abs(w_a)), 1),
-      Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,5], noEvent(abs(w_a)), 1)];
+    for i in 1:size(interpolation_result,2) loop
+      interpolation_result[1, i] =
+        if     smoothness == Smoothness.ConstantSegments then getTable1DValueNoDer(tableID, i, noEvent(abs(w_a)))
+        elseif smoothness == Smoothness.LinearSegments   then getTable1DValueNoDer2(tableID, i, noEvent(abs(w_a)))
+        else                                                  getTable1DValue(tableID, i, noEvent(abs(w_a)));
+    end for;
     eta_mf1 = interpolation_result[1, 1];
     eta_mf2 = interpolation_result[1, 2];
     tau_bf1 = noEvent(abs(interpolation_result[1, 3]));
@@ -194,7 +223,7 @@ equation
   tauLossMax = if tau_etaPos then quadrant1 else quadrant2;
   tauLossMin = if tau_etaPos then quadrant4 else quadrant3;
 
-  // Determine rolling/stuck mode when w_rel = 0
+  // Determine rolling/stuck mode when w_a = 0
   startForward = pre(mode) == Stuck and sa > tauLossMax_p/unitTorque or
     initial() and w_a > 0;
   startBackward = pre(mode) == Stuck and sa < tauLossMin_m/unitTorque or

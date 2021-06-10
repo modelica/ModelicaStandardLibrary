@@ -170,50 +170,47 @@ package Icons "Library of icons"
 
   partial package VariantsPackage "Icon for package containing variants"
     extends Modelica.Icons.Package;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-              {100,100}}), graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
+        graphics={
           Ellipse(
-            origin={10.0,10.0},
+            extent={{-70.0,-70.0},{-10.0,-10.0}},
+            lineColor={76,76,76},
             fillColor={76,76,76},
-            pattern=LinePattern.None,
-            fillPattern=FillPattern.Solid,
-            extent={{-80.0,-80.0},{-20.0,-20.0}}),
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            origin={10.0,10.0},
-            pattern=LinePattern.None,
-            fillPattern=FillPattern.Solid,
-            extent={{0.0,-80.0},{60.0,-20.0}}),
+            extent={{70.0,-70.0},{10.0,-10.0}},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            origin={10.0,10.0},
+            extent={{70.0,70.0},{10.0,10.0}},
+            lineColor={128,128,128},
             fillColor={128,128,128},
-            pattern=LinePattern.None,
-            fillPattern=FillPattern.Solid,
-            extent={{0.0,0.0},{60.0,60.0}}),
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            origin={10.0,10.0},
+            extent={{-70.0,70.0},{-10.0,10.0}},
             lineColor={128,128,128},
             fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            extent={{-80.0,0.0},{-20.0,60.0}})}),
-                              Documentation(info="<html>
+            fillPattern=FillPattern.Solid)}),
+      Documentation(info="<html>
 <p>This icon shall be used for a package/library that contains several variants of one component.</p>
 </html>"));
   end VariantsPackage;
 
   partial package InterfacesPackage "Icon for packages containing interfaces"
     extends Modelica.Icons.Package;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={
-          Polygon(origin={20.0,0.0},
+    annotation (
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+        graphics={
+          Polygon(
             lineColor={64,64,64},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
-            points={{-10.0,70.0},{10.0,70.0},{40.0,20.0},{80.0,20.0},{80.0,-20.0},{40.0,-20.0},{10.0,-70.0},{-10.0,-70.0}}),
-          Polygon(fillColor={102,102,102},
-            pattern=LinePattern.None,
+            points={{10,70},{30,70},{60,20},{100,20},{100,-20},{60,-20},{30,-70},{10,-70}}),
+          Polygon(
+            lineColor={102,102,102},
+            fillColor={102,102,102},
             fillPattern=FillPattern.Solid,
-            points={{-100.0,20.0},{-60.0,20.0},{-30.0,70.0},{-10.0,70.0},{-10.0,-70.0},{-30.0,-70.0},{-60.0,-20.0},{-100.0,-20.0}})}),
-                              Documentation(info="<html>
+            points={{-100,20},{-60,20},{-30,70},{-10,70},{-10,-70},{-30,-70},{-60,-20},{-100,-20}})}),
+      Documentation(info="<html>
 <p>This icon indicates packages containing interfaces.</p>
 </html>"));
   end InterfacesPackage;
@@ -797,17 +794,16 @@ corresponding library in a future release.
 
 <dl>
 <dt><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></dt>
-    <dd>Deutsches Zentrum fuer Luft und Raumfahrt e.V. (DLR)</dd>
-    <dd>Oberpfaffenhofen</dd>
-    <dd>Postfach 1116</dd>
-    <dd>D-82230 Wessling</dd>
-    <dd>email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a></dd>
+    <dd>Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)</dd>
+    <dd>Institut f&uuml;r Systemdynamik und Regelungstechnik (SR)</dd>
+    <dd>M&uuml;nchener Straße 20</dd>
+    <dd>D-82234 We&szlig;ling</dd>
+    <dd>Germany</dd>
+    <dd>email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a><br></dd>
 <dt>Christian Kral</dt>
-
-    <dd>  <a href=\"https://christiankral.net/\">Electric Machines, Drives and Systems</a><br>
-</dd>
+    <dd><a href=\"https://christiankral.net/\">Electric Machines, Drives and Systems</a></dd>
     <dd>1060 Vienna, Austria</dd>
-    <dd>email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a></dd>
+    <dd>email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a><br></dd>
 <dt>Johan Andreasson</dt>
     <dd><a href=\"https://www.modelon.com/\">Modelon AB</a></dd>
     <dd>Ideon Science Park</dd>

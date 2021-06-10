@@ -98,31 +98,31 @@ and der(s) is the time derivative of s.
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
         Text(
-          extent={{-150,-150},{150,-110}},
+          extent={{-150,120},{150,80}},
           textString="%name",
           textColor={0,0,255}),
         Line(points={{-80,40},{-60,40},{-45,10},{-15,70},{15,10},{45,70},{60,
               40},{80,40}}),
-        Line(points={{-80,40},{-80,-70}}),
-        Line(points={{-80,-70},{-52,-70}}),
+        Line(points={{-80,40},{-80,-40}}),
+        Line(points={{-80,-40},{80,-40}}),
         Rectangle(
-          extent={{-52,-40},{38,-100}},
+          extent={{-50,-14},{40,-66}},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
-        Line(points={{-52,-40},{68,-40}}),
-        Line(points={{-52,-100},{68,-100}}),
-        Line(points={{38,-70},{80,-70}}),
-        Line(points={{80,40},{80,-70}}),
+        Line(points={{-50,-14},{68,-14}}),
+        Line(points={{-50,-66},{70,-66}}),
+        Line(points={{80,40},{80,-40}}),
         Line(points={{-100,0},{-80,0}}),
         Line(points={{80,0},{100,0}}),
         Text(
-          extent={{-150,70},{150,100}},
+          extent={{-150,-105},{150,-135}},
           textString="d=%d"),
-        Line(visible=useHeatPort,
-          points={{-100,-101},{-100,-80},{-6,-80}},
+        Line(
+          visible=useHeatPort,
+          points={{-100,-110},{-100,-60},{0,-60}},
           color={191,0,0},
           pattern=LinePattern.Dot),
         Text(
-          extent={{-150,105},{150,135}},
+          extent={{-150,-70},{150,-100}},
           textString="c=%c")}));
 end SpringDamperParallel;

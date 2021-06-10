@@ -8,7 +8,7 @@ equation
   f = flange.f;
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={Rectangle(
-              extent={{-96,100},{96,-92}},
+              extent={{-96,96},{96,-96}},
               lineColor={255,255,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Line(points={{0,-60},{0,-100}}, color={0,127,0}),

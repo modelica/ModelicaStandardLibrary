@@ -111,10 +111,10 @@ package HeatExchanger "Demo of a heat exchanger model"
         annotation(Evaluate=true, Dialog(tab="General",group="Fluid 2"));
       replaceable package Medium_1 = Modelica.Media.Water.StandardWater constrainedby
         Modelica.Media.Interfaces.PartialMedium "Fluid 1"
-                                                        annotation(choicesAllMatching, Dialog(tab="General",group="Fluid 1"));
+                                                        annotation(choicesAllMatching=true, Dialog(tab="General",group="Fluid 1"));
       replaceable package Medium_2 = Modelica.Media.Water.StandardWater constrainedby
         Modelica.Media.Interfaces.PartialMedium "Fluid 2"
-                                                        annotation(choicesAllMatching,Dialog(tab="General", group="Fluid 2"));
+                                                        annotation(choicesAllMatching=true,Dialog(tab="General", group="Fluid 2"));
       parameter SI.Area crossArea_1 "Cross sectional area" annotation(Dialog(tab="General",group="Fluid 1"));
       parameter SI.Area crossArea_2 "Cross sectional area" annotation(Dialog(tab="General",group="Fluid 2"));
       parameter SI.Length perimeter_1 "Flow channel perimeter" annotation(Dialog(tab="General",group="Fluid 1"));
@@ -127,13 +127,13 @@ package HeatExchanger "Demo of a heat exchanger model"
           Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer
         constrainedby
         Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer
-        "Heat transfer model" annotation(choicesAllMatching, Dialog(tab="General", group="Fluid 1", enable=use_HeatTransfer));
+        "Heat transfer model" annotation(choicesAllMatching=true, Dialog(tab="General", group="Fluid 1", enable=use_HeatTransfer));
 
       replaceable model HeatTransfer_2 =
           Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer
         constrainedby
         Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer
-        "Heat transfer model" annotation(choicesAllMatching, Dialog(tab="General", group="Fluid 2", enable=use_HeatTransfer));
+        "Heat transfer model" annotation(choicesAllMatching=true, Dialog(tab="General", group="Fluid 2", enable=use_HeatTransfer));
 
       parameter SI.Area area_h_1 "Heat transfer area" annotation(Dialog(tab="General",group="Fluid 1"));
       parameter SI.Area area_h_2 "Heat transfer area" annotation(Dialog(tab="General",group="Fluid 2"));
@@ -228,12 +228,12 @@ package HeatExchanger "Demo of a heat exchanger model"
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow
         constrainedby
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel
-        "Characteristic of wall friction" annotation(choicesAllMatching, Dialog(tab="General", group="Fluid 1"));
+        "Characteristic of wall friction" annotation(choicesAllMatching=true, Dialog(tab="General", group="Fluid 1"));
       replaceable model FlowModel_2 =
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow
         constrainedby
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel
-        "Characteristic of wall friction" annotation(choicesAllMatching, Dialog(tab="General", group="Fluid 2"));
+        "Characteristic of wall friction" annotation(choicesAllMatching=true, Dialog(tab="General", group="Fluid 2"));
       parameter Modelica.Fluid.Types.Roughness roughness_1=2.5e-5
         "Absolute roughness of pipe (default = smooth steel pipe)" annotation(Dialog(tab="General", group="Fluid 1"));
       parameter Modelica.Fluid.Types.Roughness roughness_2=2.5e-5
@@ -256,7 +256,7 @@ package HeatExchanger "Demo of a heat exchanger model"
         annotation (Placement(transformation(extent={{-29,-23},{9,35}})));
 
       Pipes.DynamicPipe pipe_1(
-        redeclare final package Medium = Medium_1,
+        redeclare package Medium = Medium_1,
         final isCircular=false,
         final diameter=0,
         final nNodes=nNodes,
@@ -266,7 +266,7 @@ package HeatExchanger "Demo of a heat exchanger model"
         final momentumDynamics=momentumDynamics,
         final length=length,
         final use_HeatTransfer=use_HeatTransfer,
-        redeclare final model HeatTransfer = HeatTransfer_1,
+        redeclare model HeatTransfer = HeatTransfer_1,
         final use_T_start=use_T_start,
         final T_start=T_start_1,
         final h_start=h_start_1,
@@ -277,12 +277,12 @@ package HeatExchanger "Demo of a heat exchanger model"
         final p_a_start=p_a_start1,
         final p_b_start=p_b_start1,
         final roughness=roughness_1,
-        redeclare final model FlowModel = FlowModel_1,
+        redeclare model FlowModel = FlowModel_1,
         final modelStructure=modelStructure_1) annotation (Placement(transformation(extent={{-40,-80},
                 {20,-20}})));
 
       Pipes.DynamicPipe pipe_2(
-        redeclare final package Medium = Medium_2,
+        redeclare package Medium = Medium_2,
         final nNodes=nNodes,
         final allowFlowReversal=allowFlowReversal,
         final energyDynamics=energyDynamics,
@@ -292,7 +292,7 @@ package HeatExchanger "Demo of a heat exchanger model"
         final isCircular=false,
         final diameter=0,
         final use_HeatTransfer=use_HeatTransfer,
-        redeclare final model HeatTransfer = HeatTransfer_2,
+        redeclare model HeatTransfer = HeatTransfer_2,
         final use_T_start=use_T_start,
         final T_start=T_start_2,
         final h_start=h_start_2,
@@ -303,23 +303,23 @@ package HeatExchanger "Demo of a heat exchanger model"
         final p_a_start=p_a_start2,
         final p_b_start=p_b_start2,
         final roughness=roughness_2,
-        redeclare final model FlowModel = FlowModel_2,
+        redeclare model FlowModel = FlowModel_2,
         final modelStructure=modelStructure_2)
                   annotation (Placement(transformation(extent={{20,88},{-40,28}})));
 
-      Modelica.Fluid.Interfaces.FluidPort_b port_b1(redeclare final package
+      Modelica.Fluid.Interfaces.FluidPort_b port_b1(redeclare package
           Medium =
             Medium_1) annotation (Placement(transformation(extent={{100,-12},{120,
                 8}})));
-      Modelica.Fluid.Interfaces.FluidPort_a port_a1(redeclare final package
+      Modelica.Fluid.Interfaces.FluidPort_a port_a1(redeclare package
           Medium =
             Medium_1) annotation (Placement(transformation(extent={{-120,-12},{
                 -100,8}})));
-      Modelica.Fluid.Interfaces.FluidPort_b port_b2(redeclare final package
+      Modelica.Fluid.Interfaces.FluidPort_b port_b2(redeclare package
           Medium =
             Medium_2) annotation (Placement(transformation(extent={{-120,36},{
                 -100,56}})));
-      Modelica.Fluid.Interfaces.FluidPort_a port_a2(redeclare final package
+      Modelica.Fluid.Interfaces.FluidPort_a port_a2(redeclare package
           Medium =
             Medium_2) annotation (Placement(transformation(extent={{100,-56},{120,
                 -36}})));

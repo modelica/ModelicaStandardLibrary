@@ -8,7 +8,7 @@ class References "References"
     <tr>
       <td>[Grimm2019]</td>
       <td>Alexander Grimm and Anton Haumer,
-        <a href=\"https://modelica.org/events/modelica2019/proceedings/html/papers/Modelica2019paper2D1.pdf\">
+        <a href=\"https://2019.international.conference.modelica.org/proceedings/html/papers/Modelica2019paper2D1.pdf\">
         <em>Parameterization Of A Simplified Physical Battery Model</em></a>,
         13th International Modelica Conference 2019, Regensburg, Germany</td>
     </tr>

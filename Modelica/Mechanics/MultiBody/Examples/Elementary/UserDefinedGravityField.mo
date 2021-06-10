@@ -52,7 +52,7 @@ This example demonstrates a user defined gravity field.
 Function \"world.gravityAcceleration\" is redeclared to function
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.theoreticalNormalGravityWGS84\">theoreticalNormalGravityWGS84</a>
 that computes the theoretical gravity of the
-<a href=\"https://earth-info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf\">WGS84 ellipsoid earth model</a> at and close to
+<a href=\"https://earth-info.nga.mil/php/download.php?file=coord-wgs84\">WGS84 ellipsoid earth model</a> at and close to
 the earth ellipsoid surface. In the gravity field, a large, single pendulum is present. Via parameter \"geodeticLatitude\", the geodetic latitude on the earth can be defined, where the pendulum is present. The world frame is located at the WGS84 earth ellipsoid at this latitude. The result variable
 \"gravity\" is the gravity vector at the center of mass of the pendulum mass.
 Since the height of this mass is changing, the value of the gravity is also changing

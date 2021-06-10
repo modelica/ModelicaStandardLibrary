@@ -58,14 +58,11 @@ equation
     startBackward then sa + tau0_max/unitTorque else if pre(mode) ==
     Forward then sa - tau0_max/unitTorque else sa + tau0_max/unitTorque;
 
-  /* Friction torque has to be defined in a subclass. Example for a clutch:
-   tau = if locked then sa else
-         if free then   0 else
-         cgeo*fn*(if startForward then          Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], w_relfric, 1) else
-                  if startBackward then        -Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], -w_relfric, 1) else
-                  if pre(mode) == Forward then  Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], w_relfric, 1) else
-                                               -Modelica.Math.Vectors.interpolate(mu_pos[:,1], mu_pos[:,2], -w_relfric, 1));
+  /* Friction torque "tau" has to be defined in a subclass. Example for possible
+     realization of a clutch utilizing interpolation by ExternalCombiTable1D see:
+     Modelica.Mechanics.Rotational.Components.Clutch
 */
+
   // finite state machine to determine configuration
   mode = if free then Free else (if (pre(mode) == Forward or pre(mode) ==
     Free or startForward) and w_relfric > 0 then Forward else if (pre(mode)
@@ -77,16 +74,39 @@ Basic model for Coulomb friction that models the stuck phase in a reliable way.
 </p>
 
 <p>
-This procedure is implemented in a \"clean\" way by state events and
-leads to a mixed continuous/discrete systems of equations if friction elements
-are dynamically coupled which have to be solved by appropriate
-numerical methods. The method is described in
-(see also a short sketch in <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
+This procedure is implemented in a&nbsp;&quot;clean&quot; way
+by state events and leads to a&nbsp;mixed continuous/discrete
+system of equations if friction elements are dynamically coupled
+which has to be solved by appropriate numerical methods.
+The method is described in [Otter1999]
+(see also a&nbsp;short sketch in
+<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>).
 </p>
-<dl>
-<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
-<dd><strong>Hybrid Modeling in Modelica based on the Synchronous
-    Data Flow Principle</strong>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
-</dl>
+<p>
+The parameter <code>w_small</code> is introduced for particular
+cases where a&nbsp;reinit is triggered at zero velocity. 
+For such &ndash; rather rare &ndash; cases the friction handling
+logic is no longer correct. On the other hand, introducing
+<code>w_small</code> in general leads to problems when more
+friction elements are connected together. To omit such problems
+in the most common situations, the parameter has a&nbsp;large
+value per default, thus eliminating its effect.
+The user has to <strong>set <code>w_small</code> to
+a&nbsp;small value only when</strong> the special case with
+<strong>reinit occurs</strong>.
+</p>
+
+<h4>References</h4>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <tr>
+    <td>[Otter1999]</td>
+    <td>Otter M., Elmqvist H., and Mattsson S.E.,
+        &quot;<a href=\"https://ieeexplore.ieee.org/document/808640\">Hybrid
+        Modeling in Modelica based on the Synchronous Data Flow Principle</a>&quot;,
+        <em>CACSD'99</em>,
+        Aug. 22.-26, Hawaii 1999.
+    </td>
+  </tr>
+</table> 
 </html>"));
 end PartialFriction;

@@ -1,0 +1,5 @@
+time
+coupling.w
+coupling.tau
+multiSensor.v
+multiSensor.i

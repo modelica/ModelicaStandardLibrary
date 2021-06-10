@@ -23,19 +23,32 @@ blocks of Modelica.Blocks.Sources.
 </p>
 </html>"),
     Icon(
-    coordinateSystem(preserveAspectRatio=true,
+      coordinateSystem(preserveAspectRatio=true,
       extent={{-100,-100},{100,100}}),
       graphics={
-    Text(extent={{-150,-40},{150,-80}},
-      textString="%name",
-      textColor={0,0,255}),
-    Polygon(points={{-78,24},{-69,17},{-89,0},{-78,24}},
-      lineThickness=0.5,
-      fillPattern=FillPattern.Solid),
-    Line(points={{-74,20},{-70,23},{-65,26},{-60,28},{-56,29},{-50,30},{-41,30},{-35,29},{-31,28},{-26,26},{-21,23},{-17,20},{-13,15},{-10,9}},
-      thickness=0.5, smooth=Smooth.Bezier),
-    Line(points={{74,20},{70,23},{65,26},{60,28},{56,29},{50,30},{41,30},{35,29},{31,28},{26,26},{21,23},{17,20},{13,15},{10,9}},
-      thickness=0.5, smooth=Smooth.Bezier),
-    Polygon(points={{89,0},{78,24},{69,17},{89,0}},
-      fillPattern=FillPattern.Solid)}));
+        Ellipse(
+          extent={{-50,-50},{50,50}},
+          lineColor={0,0,0},
+          startAngle=40,
+          endAngle=140,
+          closure=EllipseClosure.None,
+          origin={50,-20}),
+        Ellipse(
+          extent={{-50,-50},{50,50}},
+          lineColor={0,0,0},
+          startAngle=40,
+          endAngle=140,
+          closure=EllipseClosure.None,
+          origin={-50,-20}),
+        Text(
+          extent={{-150,-40},{150,-80}},
+          textString="%name",
+          textColor={0,0,255}),
+        Polygon(
+          points={{-80,28},{-72,18},{-92,8},{-80,28}},
+          lineThickness=0.5,
+          fillPattern=FillPattern.Solid),
+        Polygon(
+          points={{80,28},{72,18},{92,8},{80,28}},
+          fillPattern=FillPattern.Solid)}));
 end Torque2;

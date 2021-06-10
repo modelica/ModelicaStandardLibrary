@@ -2,11 +2,14 @@ within Modelica.Electrical.PowerConverters.DCDC.Control;
 model SignalPWM
   "Generates a pulse width modulated (PWM) boolean fire signal"
   extends Icons.Control;
+  import Modelica.Electrical.PowerConverters.Types.SingleReferenceType;
   parameter Boolean useConstantDutyCycle=true
     "Enables constant duty cycle";
   parameter Real constantDutyCycle=0 "Constant duty cycle"
     annotation (Dialog(enable=useConstantDutyCycle));
   parameter SI.Frequency f=1000 "Switching frequency";
+  parameter SingleReferenceType refType=Modelica.Electrical.PowerConverters.Types.SingleReferenceType.Sawtooth
+    "Type of reference signal";
   parameter SI.Time startTime=0 "Start time";
   Modelica.Blocks.Interfaces.RealInput dutyCycle if not
     useConstantDutyCycle "Duty cycle"
@@ -38,9 +41,18 @@ model SignalPWM
     final amplitude=1,
     final nperiod=-1,
     final offset=0,
-    final startTime=startTime) annotation (Placement(transformation(
-        origin={-50,-50},
-        extent={{-10,-10},{10,10}})));
+    final startTime=startTime) if refType==SingleReferenceType.Sawtooth
+    annotation (Placement(transformation(origin={-50,-50}, extent={{-10,-10},{10,10}})));
+  Modelica.Blocks.Sources.Trapezoid triangle(
+    rising=0.5/f,
+    width=0,
+    falling=0.5/f,
+    final period=1/f,
+    final amplitude=1,
+    final nperiod=-1,
+    final offset=0,
+    final startTime=startTime) if refType==SingleReferenceType.Triangle
+    annotation (Placement(transformation(origin={-50,-80}, extent={{-10,-10},{10,10}})));
   Modelica.Blocks.Logical.Not inverse annotation (Placement(
         transformation(
         extent={{-10,10},{10,-10}},
@@ -63,6 +75,8 @@ equation
       points={{33,-8},{36,-8},{36,80},{-60,80},{-60,110}}, color={255,0,255}));
   connect(inverse.y, notFire) annotation (Line(
       points={{52,31},{52,80},{60,80},{60,110}}, color={255,0,255}));
+  connect(greaterEqual.u1, triangle.y) annotation (Line(points={{10,-8},{0,-8},{
+          0,-80},{-39,-80}}, color={0,0,127}));
   annotation (defaultComponentName="pwm",
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
             {100,100}}),graphics={Line(

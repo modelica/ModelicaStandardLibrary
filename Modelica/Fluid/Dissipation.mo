@@ -1022,19 +1022,19 @@ This record is used as <strong>input record</strong> for the heat transfer funct
         type TYP =
             Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes;
 
+        SI.Length h=if IN_con.geometry == TYP.RectangularFin then IN_con.D_h*(1 +
+            IN_con.alpha)/(2*IN_con.alpha) else 0 "Free flow height";
+        SI.Length s=if IN_con.geometry == TYP.RectangularFin then h*IN_con.alpha else
+                  0 "Lateral fin spacing (free flow width)";
+        SI.Length t=if IN_con.geometry == TYP.RectangularFin then s*IN_con.gamma else
+                  0 "Fin thickness";
+        SI.Length l=if IN_con.geometry == TYP.RectangularFin then t/IN_con.delta else
+                  0 "Fin length";
         SI.Area A_c=if IN_con.geometry == TYP.LouverFin then IN_con.A_fr*((IN_con.F_l
              - IN_con.delta_f)*(IN_con.F_p - IN_con.delta_f)/((IN_con.F_l + IN_con.D_m)
             *IN_con.F_p)) else if IN_con.geometry == TYP.RectangularFin then IN_con.A_fr
             *(h*s/((h + t + IN_con.D_m)*(s + t))) else 0
           "Minimum flow cross-sectional area";
-        SI.Length h=if IN_con.geometry == TYP.RectangularFin then IN_con.D_h*(1 +
-            IN_con.alpha)/(2*IN_con.alpha) else 0 "Free flow height";
-        SI.Length l=if IN_con.geometry == TYP.RectangularFin then t/IN_con.delta else
-                  0 "Fin length";
-        SI.Length s=if IN_con.geometry == TYP.RectangularFin then h*IN_con.alpha else
-                  0 "Lateral fin spacing (free flow width)";
-        SI.Length t=if IN_con.geometry == TYP.RectangularFin then s*IN_con.gamma else
-                  0 "Fin thickness";
       algorithm
         kc := Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_KC(IN_con,
           IN_var);
@@ -1046,6 +1046,9 @@ This record is used as <strong>input record</strong> for the heat transfer funct
         elseif IN_con.geometry == TYP.RectangularFin then
           Re := abs(IN_var.m_flow)*IN_con.D_h/(IN_var.eta*A_c);
           Nu := max(1e-3, kc*IN_con.D_h/IN_var.lambda);
+        else
+          assert(IN_con.geometry == TYP.LouverFin or IN_con.geometry == TYP.RectangularFin,
+            "Unknown choice of geometry is selected");
         end if;
 
         failureStatus := if IN_con.geometry == TYP.LouverFin then if Re < 100 or Re
@@ -1058,7 +1061,7 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_flatTube\">See more information</a> .
 </p>
 
-</html>",       revisions="<html>
+</html>", revisions="<html>
 <p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>
 </html>"), smoothOrder(normallyConstant=IN_con) = 2);
       end kc_flatTube;
@@ -1088,26 +1091,26 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
         Real MIN=Modelica.Constants.eps;
         Real Phi=IN_con.Phi*180/PI "Louver angle";
 
-        SI.ReynoldsNumber Re_Dh=max(MIN, (abs(IN_var.m_flow)*IN_con.D_h/(IN_var.eta*
-            A_c))) "Reynolds number based on hydraulic diameter";
-        SI.ReynoldsNumber Re_Lp=max(MIN, (abs(IN_var.m_flow)*IN_con.L_p/(IN_var.eta*
-            A_c))) "Reynolds number based on louver pitch";
         SI.PrandtlNumber Pr=IN_var.eta*IN_var.cp/IN_var.lambda "Prandtl number";
         Real j "Colburn j factor";
 
+        SI.Length h=if IN_con.geometry == TYP.RectangularFin then IN_con.D_h*(1 +
+            IN_con.alpha)/(2*IN_con.alpha) else 0 "Free flow height";
+        SI.Length s=if IN_con.geometry == TYP.RectangularFin then h*IN_con.alpha else
+                  0 "Lateral fin spacing (free flow width)";
+        SI.Length t=if IN_con.geometry == TYP.RectangularFin then s*IN_con.gamma else
+                  0 "Fin thickness";
+        SI.Length l=if IN_con.geometry == TYP.RectangularFin then t/IN_con.delta else
+                  0 "Fin length";
         SI.Area A_c=if IN_con.geometry == TYP.LouverFin then IN_con.A_fr*((IN_con.F_l
              - IN_con.delta_f)*(IN_con.F_p - IN_con.delta_f)/((IN_con.F_l + IN_con.D_m)
             *IN_con.F_p)) else if IN_con.geometry == TYP.RectangularFin then IN_con.A_fr
             *(h*s/((h + t + IN_con.D_m)*(s + t))) else 0
           "Minimum flow cross-sectional area";
-        SI.Length h=if IN_con.geometry == TYP.RectangularFin then IN_con.D_h*(1 +
-            IN_con.alpha)/(2*IN_con.alpha) else 0 "Free flow height";
-        SI.Length l=if IN_con.geometry == TYP.RectangularFin then t/IN_con.delta else
-                  0 "Fin length";
-        SI.Length s=if IN_con.geometry == TYP.RectangularFin then h*IN_con.alpha else
-                  0 "Lateral fin spacing (free flow width)";
-        SI.Length t=if IN_con.geometry == TYP.RectangularFin then s*IN_con.gamma else
-                  0 "Fin thickness";
+        SI.ReynoldsNumber Re_Dh=max(MIN, (abs(IN_var.m_flow)*IN_con.D_h/(IN_var.eta*
+            A_c))) "Reynolds number based on hydraulic diameter";
+        SI.ReynoldsNumber Re_Lp=max(MIN, (abs(IN_var.m_flow)*IN_con.L_p/(IN_var.eta*
+            A_c))) "Reynolds number based on louver pitch";
 
       algorithm
         if IN_con.geometry == TYP.LouverFin then
@@ -1122,7 +1125,8 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
           kc := j*(Re_Dh*Pr^(1/3)*IN_var.lambda/IN_con.D_h);
 
         else
-
+          assert(IN_con.geometry == TYP.LouverFin or IN_con.geometry == TYP.RectangularFin,
+            "Unknown choice of geometry is selected");
         end if;
 
       annotation (Inline=false, Documentation(info="<html>
@@ -1252,6 +1256,10 @@ This record is used as <strong>input record</strong> for the heat transfer funct
             IN_con.geometry == TYP.SlitFin or IN_con.geometry == TYP.WavyFin then
           Re := abs(IN_var.m_flow)*IN_con.D_c/(IN_var.eta*A_c);
           Nu := max(1e-3, kc*IN_con.D_c/IN_var.lambda);
+        else
+          assert(IN_con.geometry == TYP.PlainFin or IN_con.geometry == TYP.LouverFin or
+            IN_con.geometry == TYP.SlitFin or IN_con.geometry == TYP.WavyFin,
+            "Unknown choice of geometry is selected");
         end if;
 
         failureStatus := if IN_con.geometry == TYP.PlainFin then if Re < 300 or Re >
@@ -1297,9 +1305,6 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
 
         Real MIN=Modelica.Constants.eps;
 
-        SI.ReynoldsNumber Re_Dc=max(MIN, (abs(IN_var.m_flow)*IN_con.D_c/(IN_var.eta*
-            A_c))) "Reynolds number based on fin collar diameter";
-
         SI.ReynoldsNumber Re_i "Reynolds number at transition to linearized calculation for wavy fins";
 
         SI.PrandtlNumber Pr=IN_var.eta*IN_var.cp/IN_var.lambda "Prandtl number";
@@ -1312,6 +1317,8 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
             *PI*IN_con.D_c*(IN_con.F_p - IN_con.delta_f) + 2*(IN_con.P_t*IN_con.L -
             IN_con.N*PI*IN_con.D_c^2/4))/(IN_con.P_t*IN_con.F_p)) else 0
           "Total heat transfer area";
+        SI.ReynoldsNumber Re_Dc=max(MIN, (abs(IN_var.m_flow)*IN_con.D_c/(IN_var.eta*
+            A_c))) "Reynolds number based on fin collar diameter";
         SI.Length D_h=if IN_con.geometry == TYP.LouverFin then 4*A_c*IN_con.L/A_tot else
                   0 "Hydraulic diameter";
 
@@ -1401,7 +1408,9 @@ Calculation of the mean convective heat transfer coefficient <strong>kc</strong>
           kc := j*(Re_Dc*Pr^(1/3)*IN_var.lambda/IN_con.D_c);
 
         else
-
+          assert(IN_con.geometry == TYP.PlainFin or IN_con.geometry == TYP.LouverFin or
+            IN_con.geometry == TYP.SlitFin or IN_con.geometry == TYP.WavyFin,
+            "Unknown choice of geometry is selected");
         end if;
 
       annotation (Inline=false, Documentation(info="<html>
@@ -2582,7 +2591,8 @@ This record is used as <strong>input record</strong> for the heat transfer funct
             fstatus[1] := 0;
           end if;
         else
-          assert(false, "No choice of roughness is selected");
+          assert(IN_con.roughness == TYP.Neglected or IN_con.roughness == TYP.Considered,
+            "Unknown choice of roughness is selected");
         end if;
         fstatus[2] := if Pr < 0.6 or Pr > 1e3 then 1 else 0;
         fstatus[3] := if IN_con.d_hyd/max(MIN, IN_con.L) > 1 then 1 else 0;
@@ -2749,7 +2759,8 @@ This record is used as <strong>input record</strong> for the heat transfer funct
             fstatus[1] := 0;
           end if;
         else
-          assert(false, "No choice of roughness is selected");
+          assert(IN_con.roughness == TYP.Neglected or IN_con.roughness == TYP.Considered,
+            "Unknown choice of roughness is selected");
         end if;
         fstatus[2] := if Pr <= 0.6 or Pr >= 1e3 then 1 else 0;
         fstatus[3] := if IN_con.d_hyd/max(MIN, IN_con.L) > 1 then 1 else 0;
@@ -2762,7 +2773,7 @@ This record is used as <strong>input record</strong> for the heat transfer funct
         end for;
       annotation (Inline=false, Documentation(info="<html>
 <p>
-Calculation of mean convective heat transfer coefficient <strong>kc</strong> of a straight pipe for a hydrodynamically developed turbulent fluid flow at uniform wall temperature <strong>or</strong> uniform heat flux with neglecting <strong>or</strong> considering of pressure loss influence. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_turbulent\">See more information</a> .
+Calculation of mean convective heat transfer coefficient <strong>kc</strong> of a straight pipe for a hydrodynamically developed turbulent fluid flow at uniform wall temperature <strong>or</strong> uniform heat flux with neglecting <strong>or</strong> considering of pressure loss influence. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_turbulent\">See more information</a> .
 </p>
 </html>", revisions="<html>
 <p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate.</p>

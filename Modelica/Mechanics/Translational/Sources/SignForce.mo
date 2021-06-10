@@ -27,7 +27,9 @@ equation
           Line(points={{0,66},{0,-20}}, color={192,192,192}),
           Line(points={{-75,24},{75,24}},
                                         color={192,192,192}),
-        Line(points={{-74,-12},{-8,-12},{-6,-10},{6,58},{8,60},{74,60}})}), Documentation(info="<html>
+        Line(points={{-74,-12},{-8,-12},{-6,-10},{6,58},{8,60},{74,60}},
+          color={0,0,127})}),
+    Documentation(info="<html>
 <p>Model of constant force which changes sign with direction of movement.</p>
 <p>Please note:<br>
 Positive force accelerates in both directions of movement.<br>

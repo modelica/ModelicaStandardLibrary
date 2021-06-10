@@ -473,7 +473,7 @@ end PartialTwoPortTransport;
       annotation (Placement(transformation(extent={{-10,60},{10,80}}), iconTransformation(extent={{-20,60},{20,80}})));
 
     // Variables
-    SI.Temperature[n] Ts = Medium.temperature(states)
+    Medium.Temperature[n] Ts = Medium.temperature(states)
       "Temperatures defined by fluid states";
 
   equation

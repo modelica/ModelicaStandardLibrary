@@ -90,12 +90,10 @@ where a mass is hanging on a damper.
           fillPattern=FillPattern.Solid),
         Line(points={{30,0},{100,0}}),
         Text(
-          extent={{-150,50},{150,90}},
+          extent={{-150,90},{150,50}},
           textString="%name",
           textColor={0,0,255}),
-        Text(
-          extent={{-150,-75},{150,-45}},
-          textString="d=%d"),
+        Text(extent={{-150,-50},{150,-80}}, textString="d=%d"),
         Line(visible=useHeatPort,
           points={{-100,-99},{-100,-25},{-10,-25}},
           color={191,0,0},

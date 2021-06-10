@@ -88,11 +88,10 @@ First version of the ModelicaServices library.
 <tr>
 <td>
 <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
-    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Robotik und Mechatronik Zentrum (RMC)<br>
+    Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)<br>
     Institut f&uuml;r Systemdynamik und Regelungstechnik (SR)<br>
-    Postfach 1116<br>
-    D-82230 Wessling<br>
+    M&uuml;nchener Straße 20<br>
+    D-82234 We&szlig;ling<br>
     Germany<br>
     email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a></td>
 </tr>
@@ -165,7 +164,7 @@ The interface of this model is defined at
       "Return the absolute path name of a URI or local file name (in this default implementation URIs are not supported, but only local file names)"
       extends
         Modelica.Utilities.Internal.PartialModelicaServices.ExternalReferences.PartialLoadResource;
-      algorithm
+    algorithm
       fileReference := Modelica.Utilities.Files.fullPathName(uri);
 
       annotation (Documentation(info="<html>
@@ -243,7 +242,8 @@ Specification (version &ge; 3.3).
       noneFromVersion="1.1",
       noneFromVersion="1.2",
       noneFromVersion="3.2.1",
-      noneFromVersion="3.2.2"),
+      noneFromVersion="3.2.2",
+      noneFromVersion="3.2.3"),
     Documentation(info="<html>
 <p>
 This package contains a set of functions and models to be used in the

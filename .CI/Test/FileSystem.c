@@ -1,10 +1,8 @@
-#include <string.h>
-#include <assert.h>
-
+#include "../../Modelica/Resources/C-Sources/ModelicaInternal.h"
 #include "Common.c"
 
-void ModelicaInternal_mkdir(const char* string);
-void ModelicaInternal_rmdir(const char* string);
+#include <assert.h>
+#include <string.h>
 
 int main(int argc, char **argv) {
     ModelicaInternal_mkdir("abc");

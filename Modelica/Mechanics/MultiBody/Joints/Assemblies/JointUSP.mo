@@ -370,6 +370,78 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         extent={{-100,-100},{100,100}},
         initialScale=0.2), graphics={
         Rectangle(
+          extent={{10,6},{52,-6}},
+          fillPattern=FillPattern.HorizontalCylinder,
+          fillColor={192,192,192}),
+        Ellipse(
+          extent={{-34,-24},{14,24}},
+          startAngle=-110,
+          endAngle=110,
+          lineColor={0,0,0},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          closure=EllipseClosure.Radial),
+        Ellipse(
+          extent={{-28,-18},{8,18}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          startAngle=-115,
+          endAngle=115,
+          lineColor={255,255,255}),
+          Ellipse(
+          extent={{-28,-18},{8,18}},
+          startAngle=-110,
+          endAngle=110,
+          lineColor={0,0,0},
+          closure=EllipseClosure.None),
+        Ellipse(
+          extent={{-100,-30},{-40,30}},
+          startAngle=90,
+          endAngle=270,
+          lineColor={64,64,64},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          closure=EllipseClosure.Radial),
+        Ellipse(
+          extent={{-94,-24},{-46,24}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          startAngle=85,
+          endAngle=275,
+          lineColor={255,255,255}),
+          Ellipse(
+          extent={{-94,-24},{-46,24}},
+          startAngle=90,
+          endAngle=270,
+          lineColor={64,64,64},
+          closure=EllipseClosure.None),
+        Rectangle(
+          extent={{-50,5},{-10,-5}},
+          fillPattern=FillPattern.HorizontalCylinder,
+          fillColor={192,192,192}),
+          Ellipse(
+            extent={{-20,10},{0,-10}},
+            fillPattern=FillPattern.Sphere,
+            fillColor={192,192,192}),
+        Line(
+          points={{-70,28},{-70,-30}},
+          thickness=0.5),
+        Ellipse(
+          extent={{-92,-14},{-48,14}},
+          fillPattern=FillPattern.Solid,
+          fillColor={192,192,192},
+          startAngle=-123,
+          endAngle=57,
+          lineColor={64,64,64}),
+        Line(
+          points={{-50,0},{-50,80},{-80,80},{-80,100}},
+          color={95,95,95},
+          thickness=0.5),
+        Line(
+          points={{14,0},{14,80},{0,80},{0,100}},
+          color={95,95,95},
+          thickness=0.5),
+        Rectangle(
           extent={{50,20},{80,-20}},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
@@ -377,95 +449,8 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           extent={{80,30},{100,-30}},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
-        Text(
-          extent={{-140,-45},{140,-70}},
-          textColor={0,0,255},
-          textString="%name"),
-        Ellipse(
-          extent={{-100,-30},{-40,30}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
-        Ellipse(
-          extent={{-93,-22},{-48,23}},
-          lineColor={160,160,164},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{-70,40},{-39,-33}},
-          lineColor={255,255,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Line(
-          points={{-70,28},{-70,-30}},
-          thickness=0.5),
-        Ellipse(
-          extent={{-89,-18},{-48,18}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
-        Ellipse(
-          extent={{-84,-12},{-53,13}},
-          lineColor={160,160,164},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Polygon(
-          points={{-81,-17},{-92,-1},{-83,16},{-57,24},{-81,-17}},
-          pattern=LinePattern.None,
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Line(
-          points={{-70,30},{-70,-10}},
-          thickness=0.5),
-        Line(
-          points={{-61,16},{-79,-15}},
-          thickness=0.5),
-        Line(
-          points={{-50,0},{-50,80},{-80,80},{-80,100}},
-          color={95,95,95},
-          thickness=0.5),
-        Ellipse(
-          extent={{-40,-30},{20,30}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
-        Ellipse(
-          extent={{-33,-22},{12,23}},
-          lineColor={192,192,192},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{-44,31},{-14,-30}},
-          lineColor={255,255,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{-23,10},{-3,-10}},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{19,6},{50,-6}},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={192,192,192}),
-        Rectangle(
-          extent={{-50,5},{-21,-5}},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={192,192,192}),
-        Text(
-          extent={{37,109},{68,90}},
-          textColor={128,128,128},
-          textString="ib"),
-        Text(
-          extent={{-124,110},{-93,90}},
-          textColor={128,128,128},
-          textString="ia"),
         Line(
           points={{50,6},{50,80},{80,80},{80,100}},
-          color={95,95,95},
-          thickness=0.5),
-        Text(
-          extent={{-44,111},{-8,91}},
-          textColor={128,128,128},
-          textString="im"),
-        Line(
-          points={{19,6},{19,80},{0,80},{0,100}},
           color={95,95,95},
           thickness=0.5),
         Rectangle(
@@ -485,7 +470,44 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         Line(
           points={{95,40},{90,40},{90,30}},
           color={135,135,135},
-          thickness=0.5)}),
+          thickness=0.5),
+        Text(
+          extent={{-124,110},{-95,90}},
+          textColor={128,128,128},
+          textString="ia"),
+        Text(
+          extent={{-43,110},{-10,90}},
+          textColor={128,128,128},
+          textString="im"),
+        Text(
+          extent={{40,110},{77,90}},
+          textColor={128,128,128},
+          textString="ib"),
+        Ellipse(
+          extent={{-86,-8},{-54,8}},
+          lineColor={255,255,255},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          startAngle=0,
+          endAngle=360),
+        Ellipse(
+          extent={{-86,-8},{-54,8}},
+          lineColor={64,64,64},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          startAngle=-114,
+          endAngle=61,
+          closure=EllipseClosure.None),
+        Line(
+          points={{-70,30},{-70,-8}},
+          thickness=0.5),
+        Line(
+          points={{-56,14},{-84,-14}},
+          thickness=0.5),
+        Text(
+          extent={{-75,-50},{75,-70}},
+          textColor={0,0,255},
+          textString="%name")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},

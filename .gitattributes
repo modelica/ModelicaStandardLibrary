@@ -4,6 +4,7 @@
 # Explicitly declare text files we want to always be normalized and converted
 # to native line endings on checkout.
 *.c text
+*.csv text
 *.h text
 *.htm* text
 *.md text
@@ -30,10 +31,11 @@ ObsoleteModelica4.mo export-subst
 # list of files that git archive should ignore
 .CI export-ignore
 .gitattributes export-ignore
+.github export-ignore
 .gitignore export-ignore
-CONTRIBUTING.md export-ignore
 .mailmap export-ignore
-.travis.yml export-ignore
+CONTRIBUTING.md export-ignore
+SECURITY.md export-ignore
 *.ipe export-ignore
 Modelica/Resources/Documentation/Clocked/Modelica_Synchronous.pptx export-ignore
 Modelica/Resources/Documentation/Fluid/Stream-Connectors-Overview-Rationale.ppt export-ignore

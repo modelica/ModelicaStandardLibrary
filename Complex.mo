@@ -97,24 +97,23 @@ operator record Complex "Complex number with overloaded operators"
 </html>"));
     end multiply;
 
-    function scalarProduct "Scalar product c1*c2 of two complex vectors"
+    function scalarProduct "Scalar product of two complex vectors c1 and c2"
       import Complex;
       input Complex c1[:] "Vector of Complex numbers 1";
       input Complex c2[size(c1,1)] "Vector of Complex numbers 2";
-      output Complex c3 "= c1*c2";
+      output Complex c3 "Scalar product of c1 and c2";
     algorithm
-      c3 :=Complex(0);
+      c3 := Complex(0);
       for i in 1:size(c1,1) loop
-         c3 :=c3 + c1[i]*c2[i];
-         /*
-       c3 :=Complex(c3.re + c1[i].re*c2[i].re - c1[i].im*c2[i].im,
-                    c3.im + c1[i].re*c2[i].im + c1[i].im*c2[i].re);
-       */
+        c3 := Complex(c3.re + c1[i].re * c2[i].re + c1[i].im * c2[i].im,
+                      c3.im + c1[i].re * c2[i].im - c1[i].im * c2[i].re);
       end for;
 
-    annotation(Inline=true, smoothOrder=100, Documentation(info="<html>
-<p>This function returns the scalar product of two given arrays of Complex numbers.</p>
-</html>"));
+    annotation(Inline=true, smoothOrder=100, Documentation(info = "<html><p>This function returns the scalar product of two given vectors of Complex numbers of length <code>n</code>.</p>
+<blockquote><pre>c3 = sum(conj(c1[k]) * c2[k] for k in 1:n)
+</pre></blockquote>
+</html>",
+        revisions = "<html><em>Important bug fix note:</em> The scalar product function was originally implemented without conjugating the argument <code>c1</code>. This issue is fixed based on <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/1260\">#1260</a>.</html>"));
     end scalarProduct;
     annotation (
       Documentation(info="<html>
@@ -166,21 +165,35 @@ operator record Complex "Complex number with overloaded operators"
 </html>"));
   end '/';
 
-  encapsulated operator function '^' "Complex power of complex number"
-    import Complex;
-    input Complex c1 "Complex number";
-    input Complex c2 "Complex exponent";
-    output Complex c3 "= c1^c2";
-  protected
-    Real lnz=0.5*log(c1.re*c1.re + c1.im*c1.im);
-    Real phi=atan2(c1.im, c1.re);
-    Real re=lnz*c2.re - phi*c2.im;
-    Real im=lnz*c2.im + phi*c2.re;
-  algorithm
-    c3 := Complex(exp(re)*cos(im), exp(re)*sin(im));
-    annotation(Inline=true, smoothOrder=100, Documentation(info="<html>
-<p>This function returns the given Complex numbers c1 to the power of the Complex number c2.</p>
+  encapsulated operator '^' "Power"
+    function complexPower "Complex power of complex number"
+      import Complex;
+      input Complex c1 "Complex number";
+      input Complex c2 "Complex exponent";
+      output Complex c3 "= c1^c2";
+    protected
+      Real lnz=0.5*log(c1.re*c1.re + c1.im*c1.im);
+      Real phi=atan2(c1.im, c1.re);
+      Real re=lnz*c2.re - phi*c2.im;
+      Real im=lnz*c2.im + phi*c2.re;
+    algorithm
+      c3 := Complex(exp(re)*cos(im), exp(re)*sin(im));
+      annotation(Inline=true, smoothOrder=100, Documentation(info="<html>
+<p>This function returns the given Complex number c1 to the power of the Complex number c2.</p>
 </html>"));
+    end complexPower;
+    function integerPower "Integer power of complex number"
+      import Complex;
+      input Complex c1 "Complex number";
+      input Integer c2 "Integer exponent";
+      output Complex c3 "= c1^c2";
+    algorithm
+      c3 := if c2==0 then Complex(1) else Complex.'^'.complexPower(c1,Complex(c2));
+      annotation(Inline=true, smoothOrder=100, Documentation(info="<html>
+<p>This function returns the given Complex number c1 to the power of the Integer number c2.</p>
+<p>This also works for zero exponent.</p>
+</html>"));
+    end integerPower;
   end '^';
 
   encapsulated operator function '=='
@@ -240,6 +253,7 @@ versionDate="2020-06-04",
 dateModified = "2020-06-04 11:00:00Z",
 revisionId="$Format:%h %ci$",
 conversion(
+ noneFromVersion="3.2.3",
  noneFromVersion="3.2.2",
  noneFromVersion="3.2.1",
  noneFromVersion="1.0",

@@ -4,6 +4,7 @@ Accelerate
 Move
 Force
 Force2
+InverseSpeedDependentForce
 LinearSpeedDependentForce
 QuadraticSpeedDependentForce
 ConstantForce

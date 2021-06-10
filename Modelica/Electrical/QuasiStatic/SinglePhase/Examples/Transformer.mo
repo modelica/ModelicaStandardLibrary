@@ -28,13 +28,13 @@ model Transformer "Example of transformer with short circuit impedance, transmis
   Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex
     annotation (Placement(transformation(extent={{60,52},{80,72}})));
   Modelica.Blocks.Sources.Constant const(k=250)
-    annotation (Placement(transformation(extent={{-34,70},{-14,90}})));
+    annotation (Placement(transformation(extent={{-20,70},{0,90}})));
   Modelica.Blocks.Sources.Ramp ramp(
     duration=1,
     offset=0,
     startTime=0,
     height=2*Modelica.Constants.pi)
-    annotation (Placement(transformation(extent={{-14,40},{6,60}})));
+    annotation (Placement(transformation(extent={{-20,40},{0,60}})));
   Modelica.Blocks.Sources.Constant constFrequency(k=50)
     annotation (Placement(transformation(extent={{60,-90},{80,-70}})));
   Sensors.CurrentSensor i2 annotation (Placement(transformation(extent={{20,-20},{40,0}})));
@@ -48,8 +48,10 @@ equation
   connect(sensor0.currentP, sensor0.voltageP) annotation (Line(points={{-80,-10},{-80,-10},{-80,0},{-70,0}}, color={85,170,255}));
   connect(sensor0.voltageN, ground1.pin) annotation (Line(points={{-70,-20},{-70,-50},{-90,-50}}, color={85,170,255}));
   connect(v2.pin_n, ground2.pin) annotation (Line(points={{40,-42},{40,-42},{40,-50}}, color={85,170,255}));
-  connect(const.y, polarToComplex.len) annotation (Line(points={{-13,80},{-4,80},{20,80},{20,68},{58,68}}, color={0,0,127}));
-  connect(ramp.y, polarToComplex.phi) annotation (Line(points={{7,50},{20,50},{20,50},{20,56},{58,56}}, color={0,0,127}));
+  connect(const.y, polarToComplex.len) annotation (Line(points={{1,80},{20,80},
+          {20,68},{58,68}},                                                                                color={0,0,127}));
+  connect(ramp.y, polarToComplex.phi) annotation (Line(points={{1,50},{20,50},{
+          20,56},{58,56}},                                                                              color={0,0,127}));
   connect(load.pin_p, sensorL.currentN) annotation (Line(points={{80,-20},{80,-20},{80,-12},{80,-10},{70,-10}}, color={85,170,255}));
   connect(sensorL.voltageN, ground2.pin) annotation (Line(points={{60,-20},{60,-20},{60,-44},{60,-50},{40,-50}}, color={85,170,255}));
   connect(load.pin_n, ground2.pin) annotation (Line(points={{80,-40},{80,-40},{80,-50},{40,-50}}, color={85,170,255}));

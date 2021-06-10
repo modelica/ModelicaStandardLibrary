@@ -197,6 +197,7 @@ present as for T_twoPort.T.
     Modelica.Fluid.Fittings.AbruptAdaptor suddenExpansion1(
       diameter_a=0.1,
       diameter_b=0.2,
+      m_flow_start=60,
       redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
       show_totalPressures=true,
       show_portVelocities=true)

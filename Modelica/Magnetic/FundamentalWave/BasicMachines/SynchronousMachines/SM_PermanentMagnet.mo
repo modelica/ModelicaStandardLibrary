@@ -39,24 +39,24 @@ model SM_PermanentMagnet
           "Nominal resistances and inductances", group="Damper cage"));
   parameter SI.Inductance Lrsigmad(start=0.05/(2*pi*
         fsNominal))
-    "Rotor leakage inductance, d-axis, w.r.t. stator side" annotation (
+    "Rotor damper cage leakage inductance, d-axis, w.r.t. stator side" annotation (
       Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",
       enable=useDamperCage));
   parameter SI.Inductance Lrsigmaq=Lrsigmad
-    "Rotor leakage inductance, q-axis, w.r.t. stator side" annotation (
+    "Rotor damper cage leakage inductance, q-axis, w.r.t. stator side" annotation (
       Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",
       enable=useDamperCage));
   parameter SI.Resistance Rrd(start=0.04)
-    "Rotor resistance, d-axis, w.r.t. stator side" annotation (Dialog(
+    "Rotor damper cage resistance, d-axis, w.r.t. stator side" annotation (Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",
       enable=useDamperCage));
   parameter SI.Resistance Rrq=Rrd
-    "Rotor resistance , q-axis, w.r.t. stator side" annotation (Dialog(
+    "Rotor damper cage resistance, q-axis, w.r.t. stator side" annotation (Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",
       enable=useDamperCage));

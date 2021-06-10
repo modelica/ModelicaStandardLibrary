@@ -4,6 +4,7 @@ Accelerate
 Move
 Torque
 Torque2
+InverseSpeedDependentTorque
 LinearSpeedDependentTorque
 QuadraticSpeedDependentTorque
 ConstantTorque

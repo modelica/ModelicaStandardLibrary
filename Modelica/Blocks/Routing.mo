@@ -214,8 +214,10 @@ block Extractor
 
   extends Modelica.Blocks.Interfaces.MISO;
 
-  parameter Boolean allowOutOfRange=false "Index may be out of range";
-  parameter Real outOfRangeValue=1e10 "Output signal if index is out of range";
+  parameter Boolean allowOutOfRange=false "= true, if index may be out of range"
+    annotation(choices(checkBox=true));
+  parameter Real outOfRangeValue=1e10 "Output signal if index is out of range"
+    annotation(Dialog(enable=allowOutOfRange));
 
   Modelica.Blocks.Interfaces.IntegerInput index annotation (Placement(
           transformation(
@@ -230,13 +232,18 @@ equation
 
     for i in 1:nin loop
       k[i] = if index == i then 1 else 0;
-
     end for;
 
   end when;
 
-  y = if not allowOutOfRange or index > 0 and index <= nin then
+  y = if not allowOutOfRange or index >= 1 and index <= nin then
               k*u else outOfRangeValue;
+
+  if not allowOutOfRange then
+    assert(index >= 1 and index <= nin,
+      "The input index (=" + String(index) + ") is out of range.");
+  end if;
+
   annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -302,7 +309,7 @@ equation
             fillColor={255,128,0},
             fillPattern=FillPattern.Solid)}),
                             Documentation(info="<html>
-<p>This block extracts a scalar output signal out the
+<p>This block extracts a scalar output signal out of the
 vector of input signals dependent on the Integer
 value of the additional u index:</p>
 <blockquote><pre>

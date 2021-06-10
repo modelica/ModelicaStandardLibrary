@@ -19,7 +19,7 @@ package Pipes "Devices for conveying fluid"
        annotation(Evaluate=true, Dialog(tab = "Initialization"));
 
     FlowModel flowModel(
-            redeclare final package Medium = Medium,
+            redeclare package Medium = Medium,
             final n=2,
             states={Medium.setState_phX(port_a.p, inStream(port_a.h_outflow), inStream(port_a.Xi_outflow)),
                    Medium.setState_phX(port_b.p, inStream(port_b.h_outflow), inStream(port_b.Xi_outflow))},
@@ -107,7 +107,7 @@ or other flow models without storage, are directly connected.
               {32,52}})));
 
     HeatTransfer heatTransfer(
-      redeclare final package Medium = Medium,
+      redeclare package Medium = Medium,
       final n=n,
       final nParallel=nParallel,
       final surfaceAreas=perimeter*lengths,
@@ -358,7 +358,7 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
         "Wall friction, gravity, momentum flow"
           annotation(Dialog(group="Pressure loss"), choicesAllMatching=true);
       FlowModel flowModel(
-              redeclare final package Medium = Medium,
+              redeclare package Medium = Medium,
               final n=nFM+1,
               final states=statesFM,
               final vs=vsFM,

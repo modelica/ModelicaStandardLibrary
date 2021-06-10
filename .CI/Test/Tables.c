@@ -1,30 +1,33 @@
-#include <string.h>
-#include <assert.h>
-
+#include "../../Modelica/Resources/C-Sources/ModelicaStandardTables.h"
 #include "Common.c"
 
-int usertab(char* tableName, int nipo, int dim[], int* colWise,
-                 double** table) {
-    ModelicaFormatMessage("Requested tableName %s nipo %d\n", tableName, nipo);
+#include <assert.h>
+#include <math.h>
+#include <string.h>
+
+static double tab[4] = {0.0, 1.0, 1.0, 2.0};
+
+int usertab(char* tableName, int nipo, int dim[], int* colWise, double** table) {
+    *table = tab;
     *colWise = 0;
     dim[0] = 2;
     dim[1] = 2;
     return 0; /* OK */
 }
 
-void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
-                                                 const char* fileName,
-                                                 double* table, size_t nRow,
-                                                 size_t nColumn,
-                                                 double startTime,
-                                                 int* columns,
-                                                 size_t nCols, int smoothness,
-                                                 int extrapolation);
-
 int main(int argc, char **argv) {
-    double tab[4] = {0.0, 1.0, 1.0, 2.0};
-    int cols[1] = {1};
-    void *table = ModelicaStandardTables_CombiTimeTable_init("abc", "NoName", tab, 2, 2, 0.0, cols, 1, 1, 0);
+    double dummy = 0.0;
+    int cols[1] = {2};
+    double tmin, tmax, te, y;
+    void *table = ModelicaStandardTables_CombiTimeTable_init2("NoName", "abc", &dummy, 0, 0, 0.0, cols, 1, 1, 3, 0.0, 3, 1);
     assert(table);
+    tmin = ModelicaStandardTables_CombiTimeTable_minimumTime(table);
+    assert(fabs(tmin - 0.0) < 1e-6);
+    tmax = ModelicaStandardTables_CombiTimeTable_maximumTime(table);
+    assert(fabs(tmax - 1.0) < 1e-6);
+    te = ModelicaStandardTables_CombiTimeTable_nextTimeEvent(table, 1.5);
+    y = ModelicaStandardTables_CombiTimeTable_getValue(table, 1, 1.5, te, te);
+    assert(fabs(y - (1.0 + 2.0)/2) < 1e-6);
+    ModelicaStandardTables_CombiTimeTable_close(table);
     return 0;
 }

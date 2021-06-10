@@ -52,34 +52,22 @@ equation
   r_rel_a = MBS.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
 
   // Constraint equations concerning translation
-  if x_locked and y_locked and z_locked then
-    r_rel_a=zeros(3);
-  elseif x_locked and y_locked and not z_locked then
+  if x_locked then
     r_rel_a[1]=0;
-    r_rel_a[2]=0;
-    frame_a.f[3]=0;
-  elseif x_locked and not y_locked and z_locked then
-    r_rel_a[1]=0;
-    r_rel_a[3]=0;
-    frame_a.f[2]=0;
-  elseif x_locked and not y_locked and not z_locked then
-    r_rel_a[1]=0;
-    frame_a.f[2]=0;
-    frame_a.f[3]=0;
-  elseif not x_locked and y_locked and z_locked then
-    r_rel_a[2]=0;
-    r_rel_a[3]=0;
-    frame_a.f[1]=0;
-  elseif not x_locked and y_locked and not z_locked then
-    r_rel_a[2]=0;
-    frame_a.f[1]=0;
-    frame_a.f[3]=0;
-  elseif not x_locked and not y_locked and z_locked then
-    r_rel_a[3]=0;
-    frame_a.f[1]=0;
-    frame_a.f[2]=0;
   else
-    frame_a.f=zeros(3);
+    frame_a.f[1]=0;
+  end if;
+
+  if y_locked then
+    r_rel_a[2]=0;
+  else
+    frame_a.f[2]=0;
+  end if;
+
+  if z_locked then
+    r_rel_a[3]=0;
+  else
+    frame_a.f[3]=0;
   end if;
 
   //frame_a.t = zeros(3);
@@ -92,10 +80,37 @@ equation
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics={
-        Text(
-          extent={{-150,120},{150,80}},
-          textColor={0,0,255},
-          textString="%name"),
+        Rectangle(
+          extent={{-100,10},{100,-10}},
+          fillPattern=FillPattern.HorizontalCylinder,
+          fillColor={192,192,192}),
+        Ellipse(
+          extent={{-60,-60},{60,60}},
+          fillPattern=FillPattern.Solid,
+          fillColor={192,192,192},
+          lineColor={0,0,0},
+          closure=EllipseClosure.Radial,
+          startAngle=60,
+          endAngle=300),
+        Ellipse(
+          extent={{-44,-44},{44,44}},
+          lineColor={255,255,255},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          closure=EllipseClosure.Radial,
+          startAngle=55,
+          endAngle=305),
+        Ellipse(
+          extent={{-44,-44},{44,44}},
+          startAngle=60,
+          endAngle=300,
+          lineColor={0,0,0},
+          closure=EllipseClosure.None),
+        Ellipse(
+          extent={{-26,26},{26,-26}},
+          fillPattern=FillPattern.Sphere,
+          fillColor={192,192,192},
+          lineColor={0,0,0}),
         Text(
           extent={{-100,-70},{100,-100}},
           textColor={95,95,95},
@@ -131,36 +146,14 @@ equation
           textColor={95,95,95},
           textString="lock: x, y, z",
           visible=x_locked and y_locked and z_locked),
-        Ellipse(
-          extent={{-66,-70},{74,70}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
-        Ellipse(
-          extent={{-45,-50},{55,50}},
-          lineColor={128,128,128},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{34,70},{75,-68}},
-          lineColor={255,255,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{-96,10},{-64,-10}},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={192,192,192}),
-        Rectangle(
-          extent={{27,10},{104,-10}},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={192,192,192}),
-        Ellipse(
-          extent={{-20,25},{30,-25}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={160,160,164}),
         Line(
-          points={{-81,-66},{-23,25},{40,-39},{97,71}},
+          points={{-90,-70},{-25,30},{25,-30},{90,70}},
           color={255,0,0},
-          thickness=0.5)}),
+          thickness=0.5),
+        Text(
+          extent={{-150,110},{150,70}},
+          textColor={0,0,255},
+          textString="%name")}),
     Documentation(info="<html>
 <p>This model does not use explicit variables e.g. state variables in order to describe the relative motion of frame_b with to respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
 <p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
