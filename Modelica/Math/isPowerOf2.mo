@@ -5,7 +5,7 @@ function isPowerOf2 "Determine if the integer input is a power of 2"
   output Boolean result "= true, if integer scalar is a power of 2";
 algorithm
   assert(i>=1, "Integer input to isPowerOf2 has to be >= 1");
-  result := i == 2^integer(log(i)/log(2)+0.5);
+  result := i == integer(2^integer(log(i)/log(2)+0.5)+0.5);
   annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
