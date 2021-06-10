@@ -37,8 +37,7 @@ model JointRRR
     "Axes of revolute joints resolved in frame_a (all axes are parallel to each other)"
     annotation (Evaluate=true);
   final parameter Real n_b[3](each final unit="1",each fixed=false, start = {0,0,1})
-    "Axis of revolute joint fixed and resolved in frame_b"
-    annotation (Evaluate=true);
+    "Axis of revolute joint fixed and resolved in frame_b";
   parameter SI.Position rRod1_ia[3]={1,0,0}
     "Vector from origin of frame_a to revolute joint in the middle, resolved in frame_ia"
     annotation (Evaluate=true);
