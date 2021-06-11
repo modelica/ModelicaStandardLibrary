@@ -10,7 +10,7 @@ package Spice3 "Library for components of the Berkeley SPICE3 simulator"
     annotation (Documentation(info="<html>
 <h4>Overview of Spice3 library</h4>
 <p>The Spice3 library is a Modelica library that contains some models of the Berkeley SPICE3 analog simulator.</p>
-<p><u>General information about the analog simulator SPICE3 </u></p>
+<p><u>General information about the analog simulator SPICE3</u></p>
 <p>SPICE (Simulation Program with Integrated Circuit Emphasis) is a simulator for analog electrical circuits. It was developed as one of the first analog simulators in the university of Berkeley. SPICE netlists, which contain the circuit that shall be simulated, are a de-facto-standard up to now. For nearly every electrical circuit a SPICE netlist exists. Today the current version of SPICE is SPICE3e/SPICE3f. SPICE contains basic elements (resistor, inductor, capacitor), sources and semiconductor devices (diode, bipolar transistors, junction field effect transistors, MOS-field effect transistors) as well as models of lines. Out of this offered pool of elements, the circuits that shall be simulated are build as SPICE netlists.</p>
 <p><u>The Spice3-library for Modelica</u></p>
 <p>The Spice3 library was extracted from original SPICE3 C++ code. To be sure the Modelica models are correct the simulation results were compared to SPICE3. This way was chosen since SPICE3 is the only open source Spice simulator.</p>
@@ -427,7 +427,7 @@ Zeunerstra&szlig;e 38<br />
 <p>Input voltages: vin.p.v and v.p.v</p>
 <p>Output voltage of the first inverter: mn1.D.v</p>
 <p>Output voltage of the second Inverter: mn2.D.v</p>
-<p>This example shows one possibility to make the record of the technology parameters available for more than one transistor. For each transistor in the circuit a record with the technology parameters is made available as an instance of the record modelcardMOS. In this circuit we need two different records for technology parameters, one for PMOS (MPmos) and one for NMOS (MNmos). This instances of the record for the technology parameters were made available for every transistor as one of theirs parameters (Spice3.Repository.MOS mn1(mtype=0, modelcard=MNmos).</p>
+<p>This example shows one possibility to make the record of the technology parameters available for more than one transistor. For each transistor in the circuit a record with the technology parameters is made available as an instance of the record modelcardMOS. In this circuit we need two different records for technology parameters, one for PMOS (MPmos) and one for NMOS (MNmos). This instances of the record for the technology parameters were made available for every transistor as one of theirs parameters (Spice3.Internal.MOS mn1(mtype=0, modelcard=MNmos).</p>
 </html>", revisions="<html>
 <ul>
 <li><em>April 2009</em> by Kristin Majetta initially implemented</li>
@@ -532,7 +532,7 @@ Zeunerstra&szlig;e 38<br />
 <p>Input voltages: vin.p.v and v.p.v</p>
 <p>Output voltage of the first inverter: mn1.D.v</p>
 <p>Output voltage of the second Inverter: mn2.D.v</p>
-<p>This example shows one possibility to make the record of the technology parameters available for more than one transistor. For each set of technology parameters an apart model has to be defined (in this example: MPmos and MNmos). Inside the model definition the technology parameters are appointed (Spice3.Semiconductors.modelcardMOS M(GAMMA=0.37, LAMBDA=0.02)). Every model extends a transistor. In this process the required technology parameters are specified (extends Spice3.Repository.MOS(final mtype=1, modelcard=M). To make transistors available in the circuit instances of the defined models are applied (MPmos mp1; MNmos mn1; MPmos mp2; MNmos mn2;).</p>
+<p>This example shows one possibility to make the record of the technology parameters available for more than one transistor. For each set of technology parameters an apart model has to be defined (in this example: MPmos and MNmos). Inside the model definition the technology parameters are appointed (Spice3.Semiconductors.modelcardMOS M(GAMMA=0.37, LAMBDA=0.02)). Every model extends a transistor. In this process the required technology parameters are specified (extends Spice3.Internal.MOS(final mtype=1, modelcard=M). To make transistors available in the circuit instances of the defined models are applied (MPmos mp1; MNmos mn1; MPmos mp2; MNmos mn2;).</p>
 </html>", revisions="<html>
 <ul>
 <li><em>April 2009</em> by Kristin Majetta initially implemented</li>
@@ -2726,9 +2726,6 @@ Christoph Clau&szlig;
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>The model M_PMOS is a P channel MOSFET transistor with fixed level 1: Shichman-Hodges model</p>
-<p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
-<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
-<p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
 <li><em>March 2008</em> by Kristin Majetta <br>initially implemented</li>
@@ -2746,9 +2743,6 @@ Christoph Clau&szlig;
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>The model M_NMOS is a N channel MOSFET transistor with fixed level 1: Shichman-Hodges model</p>
-<p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
-<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
-<p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
 <li><em>March 2008</em> by Kristin Majetta <br>initially implemented</li>
@@ -2774,10 +2768,7 @@ Christoph Clau&szlig;
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}), Documentation(info="<html>
-<p>The model M_NMOS is a N channel MOSFET transistor with fixed level 2:</p>
-<p>The models from the package Semiconductors accesses to the package Internal where all functions,</p>
-<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
-<p>The package Semiconductors is for user access but not the package Internal.</p>
+<p>The model M_NMOS is a N channel MOSFET transistor with fixed level 2</p>
 </html>", revisions="<html>
 <ul>
 <li><em>March 2008</em> by Kristin Majetta <br>initially implemented</li>
@@ -2794,10 +2785,7 @@ Christoph Clau&szlig;
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}), Documentation(info="<html>
-<p>The model M_PMOS is a P channel MOSFET transistor with fixed level 2:</p>
-<p>The models from the package Semiconductors accesses to the package Internal where all functions,</p>
-<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
-<p>The package Semiconductors is for user access but not the package Internal.</p>
+<p>The model M_PMOS is a P channel MOSFET transistor with fixed level 2</p>
 </html>", revisions="<html>
 <ul>
 <li><em>March 2008</em> by Kristin Majetta <br>initially implemented</li>
@@ -2826,9 +2814,6 @@ Christoph Clau&szlig;
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
 <p>The model Q_NPNBJT is a NPN bipolar junction transistor model: Modified Gummel-Poon.</p>
-<p>The models from the package Semiconductors accesses to the package Internal where all functions,</p>
-<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
-<p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
 <li><em>August 2009</em> by Kristin Majetta <br>initially implemented</li>
@@ -2849,9 +2834,6 @@ Christoph Clau&szlig;
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
 <p>The model Q_PNPBJT is a PNP bipolar junction transistor model: Modified Gummel-Poon.</p>
-<p>The models from the package Semiconductors accesses to the package Internal where all functions,</p>
-<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
-<p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
 <li><em>August 2009</em> by Kristin Majetta <br>initially implemented</li>
@@ -2876,10 +2858,9 @@ Christoph Clau&szlig;
         Documentation(info="<html>
 <p>J_PJFJFET is a P-channel junction field-effect transistor.</p>
 <p>The junction field-effect transistor is derived from the FET model of Shichman and Hodges.</p>
-<p>The models from the package Semiconductors accesses to the package Internal where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>September 2011 </em>revised by Sandra B&ouml;hme</li>
+<li><em>September 2011</em> revised by Sandra B&ouml;hme</li>
 <li><em>August 2009</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"),
@@ -2899,10 +2880,9 @@ Christoph Clau&szlig;
         Documentation(info="<html>
 <p>J_NJFJFET is a N-channel junction field-effect transistor.</p>
 <p>The junction field-effect transistor is derived from the FET model of Shichman and Hodges.</p>
-<p>The models from the package Semiconductors accesses to the package Internal where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>September 2011 </em>revised by Sandra B&ouml;hme</li>
+<li><em>September 2011</em> revised by Sandra B&ouml;hme</li>
 <li><em>August 2009</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -2930,9 +2910,6 @@ Christoph Clau&szlig;
      annotation (
         Documentation(info="<html>
 <p>The model D_DIODE is a Junction diode model</p>
-<p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
-<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
-<p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
 <li><em>Nov. 2008</em> by Kristin Majetta <br>initially implemented</li>
@@ -2954,9 +2931,6 @@ Christoph Clau&szlig;
     extends Modelica.Electrical.Spice3.Internal.R_SEMI;
                     annotation (Documentation(info="<html>
 <p>The model R_Resistor is a Semiconductor resistor model.</p>
-<p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
-<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
-<p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
 <li><em>April 2009</em> by Kristin Majetta <br>initially implemented</li>
@@ -2980,10 +2954,9 @@ Christoph Clau&szlig;
         Documentation(info="<html>
 <p>C_Capacitor is a Semiconductor Capacitor model.</p>
 <p>This capacitor model allows the calculation of the actual capacitance value from strictly geometric information and the specification of the process.</p>
-<p>The models from the package Semiconductors accesses to the package Repository where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>September 2011 </em>revised by Sandra B&ouml;hme</li>
+<li><em>September 2011</em> revised by Sandra B&ouml;hme</li>
 <li><em>April 2009</em> by Kristin Majetta <br>initially implemented</li>
 </ul>
 </html>"));
@@ -3000,8 +2973,8 @@ Christoph Clau&szlig;
     end ModelcardCAPACITOR;
     annotation(preferredView="info",
       Documentation(info="<html>
-<p>This package contains both the semiconductor devices models of SPICE3, which are available, and their modelcards. The user should apply the models of this package.</p>
-<p>All models of this package extend models of the package Repository, which contains the functions, parameters and data which are necessary to model the behaviour of the semiconductor devices. The modelcard records contain the SPICE3 technology parameters, which can be adjusted for more than one MOS simultaneously.</p>
+<p>This package contains both the semiconductor devices models of SPICE3, which are available, and their modelcards. The user should utilize the models of this package.</p>
+<p>All models of this package extend models of the package Internal, which contains the functions, parameters and data that are necessary to model the behaviour of the semiconductor devices. The modelcard records contain the SPICE3 technology parameters, which can be adjusted for more than one MOS simultaneously.</p>
 </html>"));
   end Semiconductors;
 
@@ -3773,7 +3746,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
 <p><strong>Note:</strong> There are differences between SPICE3 and Modelica concerning the default values of the parameter. Therefore it is recommended to specify <strong>all</strong> parameters of the source.</p>
 </html>", revisions="<html>
 <ul>
-<li><em>August 2009 </em>default values improved by Jonathan Kress<br></li>
+<li><em>August 2009</em> default values improved by Jonathan Kress<br></li>
 <li><em>October 2008</em> by Christoph Clauss initially implemented.</li>
 </ul>
 </html>"));
@@ -4593,7 +4566,6 @@ on the model behaviour.
 
     annotation (Documentation(info="<html>
 <p>MOSFET model, both N and P channel, LEVEL 1: Shichman-Hodges</p>
-<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>", revisions="<html>
 <ul>
 <li><em>March 2008</em> by Kristin Majetta <br>initially implemented</li>
@@ -4663,7 +4635,6 @@ on the model behaviour.
        constant Integer LEVEL=1 "Model level: Shichman-Hodges";
       annotation (Documentation(info="<html>
 <p>Modelcard parameters for MOSFET model, both N and P channel, LEVEL 1: Shichman-Hodges</p>
-<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
      end ModelcardMOS;
 
@@ -4849,7 +4820,6 @@ on the model behaviour.
 
     annotation (Documentation(info="<html>
 <p>MOSFET model, both N and P channel, LEVEL 2</p>
-<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>", revisions="<html>
 <ul>
 <li><em>January 2009</em> by Kristin Majetta <br>initially implemented</li>
@@ -4886,7 +4856,6 @@ on the model behaviour.
 
       annotation (Documentation(info="<html>
 <p>Modelcard parameters for MOSFET model, both N and P channel, LEVEL 2</p>
-<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
      end ModelcardMOS2;
 
@@ -5320,7 +5289,6 @@ on the model behaviour.
              textColor={0,0,255})}),
        Documentation(info="<html>
 <p>DIODE model</p>
-<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>", revisions="<html>
 <ul>
 <li><em>Nov. 2008</em> by Kristin Majetta <br>initially implemented</li>
@@ -5348,7 +5316,6 @@ on the model behaviour.
     parameter SI.Conductance G=0 "Ohmic conductance";
      annotation (Documentation(info="<html>
 <p>Modelcard parameters for DIODE model</p>
-<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
    end ModelcardDIODE;
 
@@ -5415,7 +5382,6 @@ on the model behaviour.
 </dl>
 </html>", info="<html>
 <p>Semiconductor resistance model</p>
-<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
     end R_SEMI;
 
@@ -5432,7 +5398,6 @@ on the model behaviour.
      parameter SI.Length NARROW = 0 "Narrowing of resistor due to side etching";
       annotation (Documentation(info="<html>
 <p>Modelcard parameters for semiconductor resistance model</p>
-<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
     end ModelcardR;
 
@@ -5512,7 +5477,6 @@ on the model behaviour.
 </ul>
 </html>", info="<html>
 <p>Semiconductor capacitance model</p>
-<p><br>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
     end C_SEMI;
 
@@ -5526,7 +5490,6 @@ on the model behaviour.
       parameter SI.Length  NARROW=0 "Narrowing due to side etching";
       annotation (Documentation(info="<html>
 <p>Modelcard parameters for semiconductor capacitance model</p>
-<p><br>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
     end ModelcardC;
 
@@ -5577,7 +5540,6 @@ on the model behaviour.
       constant Types.PerVolume IntCondCarrDensity = 1.45e16;
      annotation (Documentation(info="<html>
 <p>Definition of Material parameters</p>
-<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
     end MaterialParameters;
 
@@ -10539,7 +10501,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
   end Internal;
 
     annotation (Documentation(info="<html>
-<p>The Spice3 package contains models of the electronic simulator SPICE3. The models were translated into Modelica by rewriting the SPICE3 model code. </p>
+<p>The Spice3 package contains models of the electronic simulator SPICE3. The models were translated into Modelica by rewriting the SPICE3 model code.</p>
 </html>"), Icon(graphics={
           Line(points={{-20,40},{-20,-40}}),
           Line(points={{-90,0},{-20,0}}),
