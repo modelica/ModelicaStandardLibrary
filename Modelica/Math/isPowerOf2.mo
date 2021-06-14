@@ -11,14 +11,14 @@ algorithm
   /* To avoid overflow we divide input by 2, but first check whether it is odd, with special case for 1. */
   /* And then we check whether 2^... equals the target. */
   if mod(i, 2) == 1 then
-    result:= i==1;
+    result := i == 1;
   else
-    target:= div(i, 2);
-    powOf2:= 1;
+    target := div(i, 2);
+    powOf2 := 1;
     while powOf2 < target loop
-      powOf2:= powOf2 * 2;
+      powOf2 := powOf2 * 2;
     end while;
-    result:= target == powOf2;
+    result := target == powOf2;
   end if;
   annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
