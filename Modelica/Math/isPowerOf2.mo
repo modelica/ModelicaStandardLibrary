@@ -20,7 +20,7 @@ algorithm
     end while;
     result := target == powOf2;
   end if;
-  annotation (Inline=true, Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Math.<strong>isPowerOf2</strong>(i);
