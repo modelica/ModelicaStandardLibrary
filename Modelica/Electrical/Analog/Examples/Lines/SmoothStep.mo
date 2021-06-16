@@ -4,10 +4,10 @@ model SmoothStep "Compares oLine and tLine behaviour"
   import Modelica.Units.SI;
   import Modelica.Constants.small;
   parameter SI.Resistance Rload=1000 "Load resistance";
-  parameter Real r1(final min=small, unit="Ohm/m")=1e-6 "Resistance per meter";
-  parameter Real g1(final min=small, unit="S/m")=1e-12 "Conductance per meter";
-  parameter Real l1(final min=small, unit="H/m")=1e-6 "Inductance per meter";
-  parameter Real c1(final min=small, unit="F/m")=1e-11 "Capacitance per meter";
+  parameter Real r1(final min=small, final unit="Ohm/m")=1e-6 "Resistance per meter";
+  parameter Real g1(final min=small, final unit="S/m")=1e-12 "Conductance per meter";
+  parameter Real l1(final min=small, final unit="H/m")=1e-6 "Inductance per meter";
+  parameter Real c1(final min=small, final unit="F/m")=1e-11 "Capacitance per meter";
   parameter SI.Length len=100e3 "Length of line";
   parameter Integer N1=1 "Number of lumped segments of oline1";
   parameter Integer N5=5 "Number of lumped segments of oline5";
