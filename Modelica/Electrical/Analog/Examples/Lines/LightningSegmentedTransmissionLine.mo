@@ -5,10 +5,10 @@ model LightningSegmentedTransmissionLine
   import Modelica.Units.SI;
   import Modelica.Constants.small;
   parameter SI.Resistance Rload=200 "Load resistance";
-  parameter Real r(final min=small, unit="Ohm/m")=25e-6 "Resistance per meter";
-  parameter Real g(final min=small, unit="S/m")=15e-12 "Conductance per meter";
-  parameter Real l(final min=small, unit="H/m")=1e-6 "Inductance per meter";
-  parameter Real c(final min=small, unit="F/m")=15e-12 "Capacitance per meter";
+  parameter Real r(final min=small, final unit="Ohm/m")=25e-6 "Resistance per meter";
+  parameter Real g(final min=small, final unit="S/m")=15e-12 "Conductance per meter";
+  parameter Real l(final min=small, final unit="H/m")=1e-6 "Inductance per meter";
+  parameter Real c(final min=small, final unit="F/m")=15e-12 "Capacitance per meter";
   parameter SI.Length len=100e3 "Length of line";
   parameter Integer N=100 "Number of segments";
   Modelica.Electrical.Analog.Lines.OLine line1(

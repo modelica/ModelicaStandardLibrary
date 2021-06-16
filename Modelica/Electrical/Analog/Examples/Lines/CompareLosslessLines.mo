@@ -4,8 +4,8 @@ model CompareLosslessLines
   extends Modelica.Icons.Example;
   import Modelica.Units.SI;
   import Modelica.Constants.small;
-  parameter Real l(final min=small, unit="H/m")=250e-9 "Inductance per meter";
-  parameter Real c(final min=small, unit="F/m")=100e-12 "Capacitance per meter";
+  parameter Real l(final min=small, final unit="H/m")=250e-9 "Inductance per meter";
+  parameter Real c(final min=small, final unit="F/m")=100e-12 "Capacitance per meter";
   parameter SI.Length len=1 "Length of line";
   parameter SI.Velocity c0=1/sqrt(l*c) "Speed of EM wave";
   parameter SI.Time td=len/c0 "Transmission delay";

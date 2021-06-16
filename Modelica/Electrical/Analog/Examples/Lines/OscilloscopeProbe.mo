@@ -7,8 +7,8 @@ model OscilloscopeProbe "Demonstrate 10:1 probe at an oscilloscope"
   parameter SI.Resistance RProbe=(attenuation - 1)*ROsci "Resistance of probe";
   parameter SI.Capacitance CProbe=ROsci/RProbe*(COsci + len*c) "Capacitance of probe";
   parameter SI.Length len=1 "Length of line";
-  parameter Real r(final min=small, unit="Ohm/m")=25e-3 "resistance per meter";
-  parameter Real c(final min=small, unit="F/m")=100e-12 "Capacitance per meter";
+  parameter Real r(final min=small, final unit="Ohm/m")=25e-3 "resistance per meter";
+  parameter Real c(final min=small, final unit="F/m")=100e-12 "Capacitance per meter";
   parameter Integer N=10 "Number of lumped segments";
   parameter SI.Resistance ROsci=1e6 "Resistance of oscilloscope";
   parameter SI.Capacitance COsci=20e-12 "Capacitance of oscilloscope";
