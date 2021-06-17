@@ -4,10 +4,10 @@ model CompareLineTrunks "Compares oLine and tLine splitting lines into trunks"
   import Modelica.Units.SI;
   import Modelica.Constants.small;
   parameter SI.Resistance Rload=1000 "Load resistance";
-  parameter Real r1(final min=small, unit="Ohm/m")=1e-6 "Resistance per meter";
-  parameter Real g1(final min=small, unit="S/m")=1e-12 "Conductance per meter";
-  parameter Real l1(final min=small, unit="H/m")=1e-6 "Inductance per meter";
-  parameter Real c1(final min=small, unit="F/m")=1e-11 "Capacitance per meter";
+  parameter Real r1(final min=small, final unit="Ohm/m")=1e-6 "Resistance per meter";
+  parameter Real g1(final min=small, final unit="S/m")=1e-12 "Conductance per meter";
+  parameter Real l1(final min=small, final unit="H/m")=1e-6 "Inductance per meter";
+  parameter Real c1(final min=small, final unit="F/m")=1e-11 "Capacitance per meter";
   parameter SI.Length len=100e3 "Length of line";
   parameter Integer segsPerTrunk=7 "Segments per trunk";
   parameter SI.Velocity c=1/sqrt(l1*c1) "Speed of EM wave";
