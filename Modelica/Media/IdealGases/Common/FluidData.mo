@@ -3,12 +3,11 @@ package FluidData "Critical data, dipole moments and related data"
 
   extends Modelica.Icons.Package;
 
-  import Modelica.Media.Interfaces.PartialMixtureMedium;
   import Modelica.Media.IdealGases.Common.SingleGasesData;
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants N2(
                        chemicalFormula =        "N2",
-                       iupacName =              "unknown",
+                       iupacName =              "molecular nitrogen",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "7727-37-9",
                        meltingPoint =            63.15,
@@ -22,11 +21,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Nitrogen";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants O2(
                        chemicalFormula =        "O2",
-                       iupacName =              "unknown",
+                       iupacName =              "molecular oxygen",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "7782-44-7",
                        meltingPoint =            54.36,
@@ -40,11 +39,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Oxygen";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants CL2(
                        chemicalFormula =        "CL2",
-                       iupacName =              "unknown",
+                       iupacName =              "molecular chlorine",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "7782-50-5",
                        meltingPoint =           172.19,
@@ -58,11 +57,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Chlorine";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants F2(
                        chemicalFormula =        "F2",
-                       iupacName =              "unknown",
+                       iupacName =              "molecular fluorine",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "7782-41-4",
                        meltingPoint =            53.48,
@@ -76,7 +75,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Fluorine";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants CO2(
                        chemicalFormula =        "CO2",
@@ -94,11 +93,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true); // does not exist!
+                       hasAcentricFactor =     true) "Carbon Dioxide"; // does not exist!
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants CO(
                        chemicalFormula =        "CO",
-                       iupacName =              "unknown",
+                       iupacName =              "carbon monoxide",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "630-08-0",
                        meltingPoint =            68.15,
@@ -112,11 +111,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Carbon Monoxide";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants H2(
                        chemicalFormula =        "H2",
-                       iupacName =              "unknown",
+                       iupacName =              "molecular hydrogen",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "800000-51-5",
                        meltingPoint =            13.56,
@@ -130,7 +129,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Hydrogen";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants H2O(
                        chemicalFormula =        "H2O",
@@ -148,11 +147,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Steam";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants N2O(
                        chemicalFormula =        "N2O",
-                       iupacName =              "unknown",
+                       iupacName =              "nitrous oxide",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "10024-97-2",
                        meltingPoint =           182.33,
@@ -166,11 +165,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Nitrous Oxide";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants NO(
                        chemicalFormula =        "NO",
-                       iupacName =              "unknown",
+                       iupacName =              "nitric oxide",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "10102-43-9",
                        meltingPoint =           109.51,
@@ -184,7 +183,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Nitric Oxide";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants NO2(
                        chemicalFormula =        "NO2",
@@ -202,11 +201,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Nitrogen Dioxide";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants NH3(
                        chemicalFormula =        "NH3",
-                       iupacName =              "unknown",
+                       iupacName =              "azane",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "7664-41-7",
                        meltingPoint =           195.41,
@@ -220,11 +219,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Ammonia";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants SO2(
                        chemicalFormula =        "SO2",
-                       iupacName =              "unknown",
+                       iupacName =              "sulfur dioxide",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "7446-09-5",
                        meltingPoint =           197.67,
@@ -238,11 +237,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Sulfur Dioxide";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants SO3(
                        chemicalFormula =        "SO3",
-                       iupacName =              "unknown",
+                       iupacName =              "sulfur trioxide",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "7446-11-9",
                        meltingPoint =           289.95,
@@ -256,11 +255,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Sulfur Trioxide";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants Ar(
                        chemicalFormula =        "Ar",
-                       iupacName =              "unknown",
+                       iupacName =              "argon",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "7440-37-1",
                        meltingPoint =            83.80,
@@ -274,11 +273,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Argon";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants He(
                        chemicalFormula =        "He",
-                       iupacName =              "unknown",
+                       iupacName =              "helium",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "7440-59-7",
                        meltingPoint =             2.15,
@@ -292,11 +291,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Helium";
 
  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants Ne(
                        chemicalFormula =        "Ne",
-                       iupacName =              "unknown",
+                       iupacName =              "neon",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "7440-01-9",
                        meltingPoint =            24.56,
@@ -310,11 +309,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Neon";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants CH4(
                        chemicalFormula =        "CH4",
-                       iupacName =              "unknown",
+                       iupacName =              "methane",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "74-82-8",
                        meltingPoint =            90.69,
@@ -328,11 +327,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Methane";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C2H6(
                        chemicalFormula =        "C2H6",
-                       iupacName =              "unknown",
+                       iupacName =              "ethane",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "74-84-0",
                        meltingPoint =            90.35,
@@ -346,11 +345,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Ethane";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C3H8(
                        chemicalFormula =        "C3H8",
-                       iupacName =              "unknown",
+                       iupacName =              "propane",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "74-98-6",
                        meltingPoint =            91.45,
@@ -364,11 +363,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Propane";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C4H10_n_butane(
                        chemicalFormula =        "C4H10",
-                       iupacName =              "unknown",
+                       iupacName =              "butane",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "106-97-8",
                        meltingPoint =           134.79,
@@ -382,11 +381,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "N-Butane";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C5H12_n_pentane(
                        chemicalFormula =        "C5H12",
-                       iupacName =              "unknown",
+                       iupacName =              "pentane",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "109-66-0",
                        meltingPoint =           143.43,
@@ -400,11 +399,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "N-Pentane";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C6H14_n_hexane(
                        chemicalFormula =        "C6H14",
-                       iupacName =              "unknown",
+                       iupacName =              "hexane",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "110-54-3",
                        meltingPoint =           177.84,
@@ -418,11 +417,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "N-Hexane";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C7H16_n_heptane(
                        chemicalFormula =        "C7H16",
-                       iupacName =              "unknown",
+                       iupacName =              "heptane",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "142-82-5",
                        meltingPoint =           182.59,
@@ -436,11 +435,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "N-Heptane";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C2H4(
                        chemicalFormula =        "C2H4",
-                       iupacName =              "unknown",
+                       iupacName =              "ethene",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "74-85-1",
                        meltingPoint =           103.99,
@@ -454,11 +453,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Ethylene";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C3H6_propylene(
                        chemicalFormula =        "C3H6",
-                       iupacName =              "unknown",
+                       iupacName =              "prop-1-ene",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "115-07-1",
                        meltingPoint =            87.89,
@@ -472,11 +471,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Propylene";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C4H8_1_butene(
                        chemicalFormula =        "C4H8",
-                       iupacName =              "unknown",
+                       iupacName =              "but-1-ene",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "106-98-9",
                        meltingPoint =            87.79,
@@ -490,11 +489,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "1-Butene";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C5H10_1_pentene(
                        chemicalFormula =        "C5H10",
-                       iupacName =              "unknown",
+                       iupacName =              "pent-1-ene",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "109-67-1",
                        meltingPoint =           106.95,
@@ -508,11 +507,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "1-Pentene";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C6H12_1_hexene(
                        chemicalFormula =        "C6H12",
-                       iupacName =              "unknown",
+                       iupacName =              "hex-1-ene",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "592-41-6",
                        meltingPoint =           133.34,
@@ -526,11 +525,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "1-Hexene";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C7H14_1_heptene(
                        chemicalFormula =        "C7H14",
-                       iupacName =              "unknown",
+                       iupacName =              "hept-1-ene",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "592-76-7",
                        meltingPoint =           153.45,
@@ -544,11 +543,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "1-Heptene";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C2H2_vinylidene(
                        chemicalFormula =        "C2H2",
-                       iupacName =              "unknown",
+                       iupacName =              "acetylene",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "74-86-2",
                        meltingPoint =           192.35,
@@ -562,11 +561,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Acetylene";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C6H6(
                        chemicalFormula =        "C6H6",
-                       iupacName =              "unknown",
+                       iupacName =              "benzene",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "71-43-2",
                        meltingPoint =           278.68,
@@ -580,11 +579,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Benzene";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C8H18_n_octane(
                        chemicalFormula =        "C8H18",
-                       iupacName =              "unknown",
+                       iupacName =              "octane",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "111-65-9",
                        meltingPoint =           216.39,
@@ -598,11 +597,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "N-Octane";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C8H10_ethylbenz(
                        chemicalFormula =        "C8H10",
-                       iupacName =              "unknown",
+                       iupacName =              "ethylbenzene",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "100-41-4",
                        meltingPoint =           178.18,
@@ -616,11 +615,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Ethylbenzene";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants CH3OH(
                        chemicalFormula =        "CH3OH",
-                       iupacName =              "unknown",
+                       iupacName =              "methanol",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "67-56-1",
                        meltingPoint =           175.49,
@@ -634,11 +633,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Methanol";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C2H5OH(
                        chemicalFormula =        "C2H5OH",
-                       iupacName =              "unknown",
+                       iupacName =              "ethanol",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "64-17-5",
                        meltingPoint =           159.05,
@@ -652,11 +651,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "Ethanol";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C3H7OH(
                        chemicalFormula =        "C3H7OH",
-                       iupacName =              "unknown",
+                       iupacName =              "propan-1-ol",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "71-23-8",
                        meltingPoint =           147.00,
@@ -670,11 +669,11 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "1-Propanol";
 
   constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C4H9OH(
                        chemicalFormula =        "C4H9OH",
-                       iupacName =              "unknown",
+                       iupacName =              "butan-1-ol",
                        structureFormula =       "unknown",
                        casRegistryNumber =      "71-36-3",
                        meltingPoint =           183.35,
@@ -688,24 +687,23 @@ package FluidData "Critical data, dipole moments and related data"
                        hasDipoleMoment =       true,
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
-                       hasAcentricFactor =     true);
+                       hasAcentricFactor =     true) "1-Butanol";
 
   annotation (Documentation(info="<html>
 <p>
-This package contains FluidConstants data records for the following 37 gases
+This package contains FluidConstants data records for the following 38 gases
 (see also the description in
 <a href=\"modelica://Modelica.Media.IdealGases\">Modelica.Media.IdealGases</a>):
 </p>
 <blockquote><pre>
-Argon             Methane          Methanol       Carbon Monoxide  Carbon Dioxide
-Acetylene         Ethylene         Ethanol        Ethane           Propylene
-Propane           1-Propanol       1-Butene       N-Butane         1-Pentene
-N-Pentane         Benzene          1-Hexene       N-Hexane         1-Heptane
-N-Heptane         Ethylbenzene     N-Octane       Chlorine         Fluorine
-Hydrogen          Steam            Helium         Ammonia          Nitric Oxide
-Nitrogen Dioxide  Nitrogen         Nitrous        Oxide            Neon Oxygen
-Sulfur Dioxide    Sulfur Trioxide
+Argon         Methane           Methanol         Carbon Monoxide  Carbon Dioxide
+Acetylene     Ethylene          Ethanol          Ethane           Propylene
+Propane       1-Propanol        1-Butene         N-Butane         1-Butanol
+1-Pentene     N-Pentane         Benzene          1-Hexene         N-Hexane
+1-Heptene     N-Heptane         Ethylbenzene     N-Octane         Chlorine
+Fluorine      Hydrogen          Steam            Helium           Ammonia
+Nitric Oxide  Nitrogen Dioxide  Nitrogen         Nitrous Oxide    Neon
+Oxygen        Sulfur Dioxide    Sulfur Trioxide
 </pre></blockquote>
-
 </html>"));
 end FluidData;
