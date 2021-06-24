@@ -217,7 +217,7 @@ public
             extent={{-150,90},{150,50}},
             textString="%name",
             textColor={0,0,255})}), Documentation(info="<html>
-<p>The segment_last model is part of the multiple line model. It describes the special  line segment which is used to get the line symmetrical as outlined in the <code>M_OLine</code> description. Using the loop possibilities of Modelica it is formulated by connecting components the number of which depends on the number of lines.</p>
+<p>The segment_last model is part of the multiple line model. It describes the special line segment which is used to design the line symmetrical as outlined in the <code>M_OLine</code> description. Using the loop possibilities of Modelica it is formulated by connecting components the number of which depends on the number of lines.</p>
 </html>"));
   end segment_last;
 
