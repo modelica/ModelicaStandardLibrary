@@ -521,7 +521,7 @@ void ModelicaInternal_readDirectory(_In_z_ const char* directory, int nFiles,
             }
 
             /* Allocate Modelica memory for file/directory name and copy name */
-            pName = ModelicaAllocateStringWithErrorReturn(strlen(pinfo->d_name));
+            pName = ModelicaDuplicateStringWithErrorReturn(pinfo->d_name);
             if ( pName == NULL ) {
                 errnoTemp = errno;
                 closedir(pdir);
@@ -534,7 +534,6 @@ void ModelicaInternal_readDirectory(_In_z_ const char* directory, int nFiles,
                         directory, strerror(errnoTemp));
                 }
             }
-            strcpy(pName, pinfo->d_name);
 
             /* Save pointer to file */
             files[iFiles] = pName;
@@ -618,8 +617,7 @@ _Ret_z_ const char* ModelicaInternal_fullPathName(_In_z_ const char* name) {
             name, strerror(errno));
         return "";
     }
-    fullName = ModelicaAllocateString(strlen(tempName));
-    strcpy(fullName, tempName);
+    fullName = ModelicaDuplicateString(tempName);
     ModelicaConvertToUnixDirectorySeparator(fullName);
     return fullName;
 #elif (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED || _POSIX_VERSION >= 200112L)
@@ -684,8 +682,7 @@ _Ret_z_ const char* ModelicaInternal_temporaryFileName(void) {
         ModelicaFormatError("Not possible to get temporary filename\n%s", strerror(errno));
         return "";
     }
-    fullName = ModelicaAllocateString(strlen(tempName));
-    strcpy(fullName, tempName);
+    fullName = ModelicaDuplicateString(tempName);
     ModelicaConvertToUnixDirectorySeparator(fullName);
 
     return fullName;
@@ -1007,12 +1004,11 @@ void ModelicaInternal_readFile(_In_z_ const char* fileName,
     while (iLines <= nLines) {
         readLine(&buf, &bufLen, fp);
 
-        line = ModelicaAllocateStringWithErrorReturn(strlen(buf));
+        line = ModelicaDuplicateStringWithErrorReturn(buf);
         if ( line == NULL ) {
             goto Modelica_OOM_ERROR1;
         }
 
-        strcpy(line, buf);
         string[iLines - 1] = line;
         iLines++;
     }
@@ -1059,12 +1055,11 @@ _Ret_z_ const char* ModelicaInternal_readLine(_In_z_ const char* fileName,
         }
     }
 
-    line = ModelicaAllocateStringWithErrorReturn(strlen(buf));
+    line = ModelicaDuplicateStringWithErrorReturn(buf);
     if (line == NULL) {
         goto Modelica_OOM_ERROR2;
     }
 
-    strcpy(line, buf);
     CacheFileForReading(fp, fileName, lineNumber, buf, bufLen);
     *endOfFile = 0;
     return line;
@@ -1130,8 +1125,7 @@ _Ret_z_ const char* ModelicaInternal_getcwd(int dummy) {
         cwd = "";
     }
 #endif
-    directory = ModelicaAllocateString(strlen(cwd));
-    strcpy(directory, cwd);
+    directory = ModelicaDuplicateString(cwd);
     ModelicaConvertToUnixDirectorySeparator(directory);
     return directory;
 }
