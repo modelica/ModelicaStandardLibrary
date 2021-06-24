@@ -407,7 +407,7 @@ for the <code>M_OLine</code> model, a sensible conductance-matrix would be:</p>
 </blockquote>
 
 <p>The user has the possibility to enable a conditional heatport. If so, the <code>M_OLine</code> 
-can be connected to a thermal network. When the parameter <code>alpha</code> is set to a value different than zero,
+can be connected to a thermal network. If the parameter <code>alpha</code> is set to a value different than zero,
 the <code>M_OLine</code> becomes temperature sensitive due to their resistors which resistances 
 are calculated by</p>
 
