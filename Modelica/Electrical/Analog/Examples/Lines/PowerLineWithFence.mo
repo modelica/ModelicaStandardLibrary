@@ -115,7 +115,7 @@ equation
 <p>This example shows the usage of M_OLine in a overhead PowerLine. The line geometry is the one shown in figure 4.1 of [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>].</p>
 <p>A common rule-of-thumb states that for steady-state analysis at industrial frequency each segment (PI model) should be not longer than one tenth of the wave length. For 50 Hz, the wavelength is 6000 km, therefore each pi should not overcome 60 km. This is why for our 100 km line we have chosen just two trunks. </p>
 <p>This example has some limitations:</p>
-<p>- the results are are valid only for their steady-state trend. If we want to simulate transients effectively, the number of trunks must be enlarged consistently. See example &quot;CmpLineTrunks&quot;. </p>
+<p>- the results are are valid only for their steady-state trend. If we want to simulate transients effectively, the number of trunks must be enlarged consistently. See example &quot;CompareLineTrunks&quot;. </p>
 <p>- since it is based on M_OLine, which requires zero-valued resistances on the off-diagonal elements of Z impedance matrix, it does not take into account the influence of the soil resistance into Z matrix; however, for simulations like this one in wh&igrave;ch the current through the soil is neglibible and we analyse the results at power frequency where soil resistance is very low, this implies negligible errors</p>
 <p><br>The considered line is a three-phase line with a fence all along the line (conductor #4). An interesting result of this example is the fence steady-state due to the capacitive coupling with the other wires.</p>
 <p><u>Test 1:</u></p>
