@@ -5,8 +5,7 @@ record LineGeometry "Contains multi-wire line geometry data"
   parameter Modelica.Units.SI.Length x[n] "Horizontal abscissas of conductors";
   parameter Modelica.Units.SI.Length y[n] "Vertical abscissas of conductors";
   parameter Modelica.Units.SI.Length r[n] "Conductor radii";
-  parameter Real R1[n](unit="ohm/m")
-    "Resistance per length of conductors";
+  parameter Real R1[n]   "Resistance per length of conductors (ohm/m)";
   parameter Real k_s[n]=fill(0.7,n) "ratio of GMR to actual conductor radius";
   parameter Modelica.Units.SI.Resistivity rho=100 "earth resistivity";
   parameter Modelica.Units.SI.Frequency f=50 "line frequency";
