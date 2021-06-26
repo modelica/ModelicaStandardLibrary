@@ -118,27 +118,38 @@ equation
         info="<html>
 <p>An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.
 Frequency is raised by a ramp, causing the induction machine with squirrel cage to start,
-and accelerating inertias. At time tStep a load step is applied.</p>
+and accelerate inertias. At time <code>tStep</code> a load step is applied.</p>
 
 <p>Simulate for 1.5 seconds and plot (versus time):</p>
 
 <ul>
-<li>currentQuasiRMSSensor.I: stator current RMS</li>
-<li>aimc.wMechanical: motor's speed</li>
-<li>aimc.tauElectrical: motor's torque</li>
+<li><code>currentQuasiRMSSensor.I</code>: stator current RMS</li>
+<li><code>aimc.wMechanical</code>: machine speed</li>
+<li><code>aimc.tauElectrical</code>: machine torque</li>
+<li><code>fs</code>: stator frequency</li>
+<li><code>fr</code>: rotor frequency</li>
+<li><code>s</code>: slip</li>
 </ul>
+
 <p>
 Compare with transient models 
 <a href=\"modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Inverter\">IMC_Inverter (Electrical.Machines)</a> and
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Inverter\">IMC_Inverter (FundamentalWave)</a>. 
 Note that electrical transients are neglected, but mechanical transients are taken into account. 
 </p>
+
+<h4>Theoretical thoughts</h4>
+
 <p>
-By setting the stator resistance <code>Rs = 0</code>, comparing the quasistatic point of operation for different frequencies <code>f</code>, 
-it can be seen that in the base region <code>f &le; fNominal</code> rotor frequency <code>fr</code> is constant, 
-whereas in the field weakening region <code>f &ge; fNominal</code> slip is constant, 
-if load torque is adapted accordingly <code>tau = tauNominal*fNominal/f</code>.
-</p>
+By setting the stator resistance <code>Rs = 0</code>, comparing quasistatic points of operation for different stator frequencies <code>fs</code>, 
+it can be seen that</p>
+
+<ul>
+<li>in the base region <code>fs &le; fNominal</code> rotor frequency <code>fr</code> is constant, if the load torque is constant,<li>
+<li>whereas in the field weakening region <code>f &ge; fNominal</code> slip is constant, 
+if load torque is adapted according to <code>tau = tauNominal*fNominal/f</code>.</li>
+</ul>
+
 <p>Default machine parameters are used.</p>
 </html>"));
 end IMC_Inverter;
