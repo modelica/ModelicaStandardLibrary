@@ -169,7 +169,7 @@ since it allows the addition of resistances and conductances, allows evaluation 
 <h4>50 segments per trunk, lossless</h4>
 <p>Try increasing this number from 7 to 50 using parameter <code>segsPerTrunk</code>, and look at the same plots as per test 1</p>
 <h4>50 segments per trunk, losses</h4>
-<p>Leave segsPerTrunk=50, change rl to 1e-3 ohms, re-simulate: the effect of losses is visible only on the oLine plot.</p>
+<p>Leave <code>segsPerTrunk=50</code>, change <code>r1</code> to 1e-3&nbsp;&Omega;, re-simulate: the effect of losses is visible only on the oLine plot.</p>
 </html>",
         revisions="<html>
 <ul>
