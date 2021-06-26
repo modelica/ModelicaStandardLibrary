@@ -75,7 +75,7 @@ Note that after the source starts, the traveling wave arrives at the load 350 &m
 After 20 ms, a lightning (10/350 &micro;s) with an amplitude of 10 kA hits the transmission line just in the middle.
 Note that the traveling wave hits source and load approximately 200 &micro;s after the lightning hits the transmission line.
 Plot voltage and current at the load. Without overvoltage protection, the load would be destroyed.
-One could compare the results with that obtained by using a <a href=\"modelica://Modelica.Electrical.Analog.Lines.OLine\">transmission line model taking losses into account</a>.
+One could compare the results with that obtained by using a <a href=\"modelica://Modelica.Electrical.Analog.Examples.Lines.LightningSegmentedTransmissionLine\">transmission line model taking losses into account</a>.
 </p>
 </html>",
         revisions="<html>
