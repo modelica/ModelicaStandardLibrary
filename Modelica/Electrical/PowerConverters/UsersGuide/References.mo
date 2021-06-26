@@ -16,7 +16,7 @@ class References "References"
     <tr>
       <td>[Luo05]</td>
       <td>Fang Lin Luo, Hong Ye and Muhammad H. Rashid,
-        <a href=\"http://store.elsevier.com/product.jsp?isbn=9780120887576&amp;_requestid=1725\"><em>Digital Power Electronics and Applications</em></a>,
+        <a href=\"https://www.elsevier.com/books/digital-power-electronics-and-applications/luo/978-0-12-088757-6\"><em>Digital Power Electronics and Applications</em></a>,
         Elsevier Academic Press, 2005, ISBN 978-0120887576</td>
     </tr>
 
