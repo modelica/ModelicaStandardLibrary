@@ -170,10 +170,10 @@ equation
 <p>If resistances and conductances are negligible, with OLine the results should become closer and closer as the number of segments increases.</p>
 <p>Suggested tests:</p>
 <h4>Steep step</h4>
-<p>Use the model as it is (it has firstOrder.T=1e-9s) and comapare <code>R1.v, R5.v, R50.v, Rdistr.v: Rdistr.v</code> is the ideal voltage of the receiving-end resistor for a lossless line, while the others are approximations with 1, 5, 50 cascaded segment models.</p>
+<p>Use the model as it is (it has <code>firstOrder.T=1e-9</code>&nbsp;s) and comapare <code>R1.v, R5.v, R50.v, Rdistr.v: Rdistr.v</code> is the ideal voltage of the receiving-end resistor for a lossless line, while the others are approximations with 1, 5, 50 cascaded segment models.</p>
 <p>The step in this case is nearly ideal, and therefore is a very tough test for cascaded segments, and in fact they are not very good in approximating the real line behaviour.</p>
 <h4>Smoother step</h4>
-<p>Repeat the simulation using <code>firstOrder.T=20e-6.</code> You will see that the OLine compliance with the reference result given by TLine is much better, and 50 segments are probably adequate for several applications; in comparison with , they add the option of evaluating losses.</p>
+<p>Repeat the simulation using <code>firstOrder.T=20e-6</code>&nbsp;s. You will see that the OLine compliance with the reference result given by TLine is much better, and 50 segments are probably adequate for several applications; in comparison with, they add the option of evaluating losses.</p>
 </html>",
         revisions="<html>
 <ul>
