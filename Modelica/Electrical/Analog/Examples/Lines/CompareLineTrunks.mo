@@ -102,9 +102,9 @@ equation
                                                           color={0,0,127}));
   connect(oLine1.p1, srcLump.p) annotation (Line(points={{-30,40},{-40,40}},
                          color={0,0,255}));
-connect(tLine1.p1, srcDistr.p) annotation (
+  connect(tLine1.p1, srcDistr.p) annotation (
     Line(points={{-30,-20},{-40,-20}}, color={0,0,255}));
-connect(srcDistr.n, tLine1.n1) annotation (
+  connect(srcDistr.n, tLine1.n1) annotation (
     Line(points={{-40,-40},{-30,-40}}, color={0,0,255}));
   connect(oLine1.p2, oLine2.p1)
     annotation (Line(points={{-10,40},{0,40}}, color={0,0,255}));
@@ -116,17 +116,17 @@ connect(srcDistr.n, tLine1.n1) annotation (
     annotation (Line(points={{80,40},{90,40}}, color={0,0,255}));
   connect(srcDistr.v, ramp.y) annotation (Line(points={{-52,-30},{-60,-30},{-60,
           0},{-67,0}}, color={0,0,127}));
-connect(tline2.n1, tLine1.n2) annotation (
+  connect(tline2.n1, tLine1.n2) annotation (
     Line(points={{0,-40},{-10,-40}}, color={0,0,255}));
-connect(tline2.p1, tLine1.p2) annotation (
+  connect(tline2.p1, tLine1.p2) annotation (
     Line(points={{0,-20},{-10,-20}}, color={0,0,255}));
-connect(tline3.n1, tline2.n2) annotation (
+  connect(tline3.n1, tline2.n2) annotation (
     Line(points={{30,-40},{20,-40}}, color={0,0,255}));
-connect(tline3.p1, tline2.p2) annotation (
+  connect(tline3.p1, tline2.p2) annotation (
     Line(points={{30,-20},{20,-20}}, color={0,0,255}));
-connect(tline4.n1, tline3.n2) annotation (
+  connect(tline4.n1, tline3.n2) annotation (
     Line(points={{60,-40},{50,-40}}, color={0,0,255}));
-connect(tline4.p1, tline3.p2) annotation (
+  connect(tline4.p1, tline3.p2) annotation (
     Line(points={{60,-20},{50,-20}}, color={0,0,255}));
   connect(srcLump.n, ground1.p)
     annotation (Line(points={{-40,20},{-40,10}}, color={0,0,255}));

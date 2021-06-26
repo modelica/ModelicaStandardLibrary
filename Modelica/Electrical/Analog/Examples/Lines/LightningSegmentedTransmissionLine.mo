@@ -38,8 +38,7 @@ model LightningSegmentedTransmissionLine
         origin={60,10})));
   Basic.Ground ground
     annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
-  Sources.LightningImpulseCurrent
-                        lightningImpulseCurrent(
+  Sources.LightningImpulseCurrent lightningImpulseCurrent(
     approximation=Modelica.Electrical.Analog.Types.ImpulseApproximation.Heidler,
     I=10e3,
     startTime=0.02)                   annotation (Placement(transformation(
