@@ -145,7 +145,7 @@ By setting the stator resistance <code>Rs = 0</code>, comparing quasistatic poin
 it can be seen that</p>
 
 <ul>
-<li>in the base region <code>fs &le; fNominal</code> rotor frequency <code>fr</code> is constant, if the load torque is constant,<li>
+<li>in the base region <code>fs &le; fNominal</code> rotor frequency <code>fr</code> is constant, if the load torque is constant,</li>
 <li>whereas in the field weakening region <code>f &ge; fNominal</code> slip is constant, 
 if load torque is adapted according to <code>tau = tauNominal*fNominal/f</code>.</li>
 </ul>
