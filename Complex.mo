@@ -76,8 +76,11 @@ operator record Complex "Complex number with overloaded operators"
             lineColor={128,128,128},
             extent={{-100,-100},{100,100}},
             radius=25.0),
-          Line(
-            points={{-50,0},{50,0}})}));
+          Text(
+            extent={{-200,-200},{200,250}},
+            textColor={128,128,128},
+            textString="-",
+            fontName="serif")}));
   end '-';
 
   encapsulated operator '*' "Multiplication"
@@ -130,14 +133,11 @@ operator record Complex "Complex number with overloaded operators"
             lineColor={128,128,128},
             extent={{-100,-100},{100,100}},
             radius=25.0),
-          Line(
-            points={{-42,36},{39,-34}}),
-          Line(
-            points={{-42,-35},{39,37}}),
-          Line(
-            points={{-55,1},{52,1}}),
-          Line(
-            points={{-1.5,55},{-2,-53}})}));
+          Text(
+            extent={{-200,-200},{200,100}},
+            textColor={128,128,128},
+            fontName="serif",
+            textString="*")}));
   end '*';
 
   encapsulated operator function '+' "Add two complex numbers"
