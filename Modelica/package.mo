@@ -738,7 +738,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 
 <blockquote><pre>
 &lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
-  &lt;caption align=&quot;bottom&quot;&gt;Caption starts with a capital letter&lt;/caption&gt;
+  &lt;caption&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;td&gt;
       &lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
@@ -756,7 +756,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 
 <blockquote><pre>
 &lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
-  &lt;caption align=&quot;bottom&quot;&gt;&lt;strong&gt;Fig. 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/caption&gt;
+  &lt;caption&gt;&lt;strong&gt;Fig. 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;td&gt;
       &lt;img src=&quot;modelica://Modelica/Resources/Images/Blocks/PID_controller.png&quot;
@@ -912,7 +912,7 @@ and
 
 <blockquote><pre>
 &lt;table border=&quot;1&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
-  &lt;caption align=&quot;bottom&quot;&gt;Caption starts with a capital letter&lt;/caption&gt;
+  &lt;caption&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;th&gt;Head 1&lt;/th&gt;
     &lt;th&gt;Head 2&lt;/th&gt;
@@ -929,7 +929,7 @@ and
 </pre></blockquote>
 <p>appears as</p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\">Caption starts with a capital letter</caption>
+  <caption>Caption starts with a capital letter</caption>
   <tr>
     <th><strong>Head 1</strong></th>
     <th><strong>Head 2</strong></th>
@@ -952,7 +952,7 @@ and enumeration should look like this: <strong>Tab. 1:</strong> Tables have to b
 
 <blockquote><pre>
 &lt;table border=&quot;1&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;
-  &lt;caption align=&quot;bottom&quot;&gt;&lt;strong&gt;Tab 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/caption&gt;
+  &lt;caption&gt;&lt;strong&gt;Tab 2:&lt;/strong&gt; Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;th&gt;Head 1&lt;/th&gt;
     &lt;th&gt;Head 2&lt;/th&gt;
@@ -969,7 +969,7 @@ and enumeration should look like this: <strong>Tab. 1:</strong> Tables have to b
 </pre></blockquote>
 <p>appears as</p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Tab. 2:</strong> Caption starts with a capital letter</caption>
+  <caption><strong>Tab. 2:</strong> Caption starts with a capital letter</caption>
   <tr>
     <th>Head 1</th>
     <th>Head 2</th>
@@ -1120,7 +1120,7 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
 <p>The terms listed in this package shall be in accordance with <a href=\"http://www.electropedia.org/\">Electropedia</a>.</p>
 
 <table border=\"1\" cellpadding=\"2\" cellspacing=\"0\" >
-  <caption align=\"bottom\">List of electrical term spellings</caption>
+  <caption>List of electrical term spellings</caption>
   <tr>
     <th>To be used</th>
     <th>Not to be used</th>
@@ -1182,7 +1182,7 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
 <p>The terms listed in this package shall be in accordance with <a href=\"http://www.electropedia.org/\">Electropedia</a>.</p>
 
 <table border=\"1\" cellpadding=\"2\" cellspacing=\"0\" >
-  <caption align=\"bottom\">List of magnetic term spellings</caption>
+  <caption>List of magnetic term spellings</caption>
   <tr>
     <th>To be used</th>
     <th>Not to be used</th>
@@ -1268,7 +1268,7 @@ For Boolean parameters, the description string should start with &quot;= true, &
 <p>In the following table typical variable names are listed. This list should be completed.</p>
 
 <table border=\"1\" cellpadding=\"2\" cellspacing=\"0\" >
-   <caption align=\"bottom\">Variables and names</caption>
+   <caption>Variables and names</caption>
    <tr>
       <th>Variable</th>
       <th>Quantity</th>
@@ -1887,7 +1887,7 @@ The authors would like to thank following persons for their support ...
 In the Modelica Standard Library the following color schemes apply:</p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\">Color schemes applied to particular libraries</caption>
+  <caption>Color schemes applied to particular libraries</caption>
   <tr>
     <th>Package</th>
     <th>Color RGB code</th>
@@ -2036,7 +2036,7 @@ In the Modelica Standard Library the following color schemes apply:</p>
 and the most significant parameter can be displayed within the vertical Diagram range of the icon.</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 1</strong>: (a) Typical icon, (b) including dimensions</caption>
+  <caption><strong>Fig. 1</strong>: (a) Typical icon, (b) including dimensions</caption>
   <tr>
     <td> (a)
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name.png\"
@@ -2063,7 +2063,7 @@ shall be 10 units below the upper icon boundary, see <strong>Fig.&nbsp;1</strong
 the component name shall be placed above the icon with vertical 10 units of space between icon and lower text box, see <strong>Fig.&nbsp;2</strong>.</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 2</strong>: Block component name</caption>
+  <caption><strong>Fig. 2</strong>: Block component name</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Block_name.png\"
@@ -2078,7 +2078,7 @@ shall be avoided to keep the design straight, see <strong>Fig.&nbsp;4</strong>. 
 the line shall be interrupted such that this line does not interfere with component name.</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 3</strong>: Component name between actual icon and connector</caption>
+  <caption><strong>Fig. 3</strong>: Component name between actual icon and connector</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_connector_above.png\"
@@ -2090,7 +2090,7 @@ the line shall be interrupted such that this line does not interfere with compon
 <p>In some cases, if there is not alternative, the component name has to be placed below the actual icon, see. <strong>Fig.&nbsp;4</strong>.</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 4</strong>: Component name below actual icon</caption>
+  <caption><strong>Fig. 4</strong>: Component name below actual icon</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_name_below.png\"
@@ -2120,7 +2120,7 @@ Preferred connector locations are:</p>
 </ul>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 5</strong>: Connectors located at the four corners of the icon diagram</caption>
+  <caption><strong>Fig. 5</strong>: Connectors located at the four corners of the icon diagram</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_connector_corner.png\"
@@ -2162,7 +2162,7 @@ design of sensors apply:
 </ul>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 6</strong>: Round sensor with (a) short and (b) longer SI unit</caption>
+  <caption><strong>Fig. 6</strong>: Round sensor with (a) short and (b) longer SI unit</caption>
   <tr>
     <td> (a)
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_round.png\"
@@ -2176,7 +2176,7 @@ design of sensors apply:
 </table>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 7</strong>: Rectangular sensor </caption>
+  <caption><strong>Fig. 7</strong>: Rectangular sensor </caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_rectangular.png\"
@@ -2186,7 +2186,7 @@ design of sensors apply:
 </table>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 8</strong>: Sensor with multiple signal outputs and SI units located next to the output connectors</caption>
+  <caption><strong>Fig. 8</strong>: Sensor with multiple signal outputs and SI units located next to the output connectors</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Icon_sensor_multi.png\"
