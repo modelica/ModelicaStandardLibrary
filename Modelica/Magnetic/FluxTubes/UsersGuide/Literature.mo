@@ -91,7 +91,7 @@ class Literature "Literature"
       <td>[Va01]</td>
       <td>VAC Vacuumschmelze:
         <em>Soft Magnetic Cobalt-Iron-Alloys</em>, 2001.
-        Download from: <a href=\"https://vacuumschmelze.com/Assets/Cobalt-Iron%20Alloys.pdf\">https://vacuumschmelze.com/Assets/Cobalt-Iron%20Alloys.pdf</a></td>
+        Download from: <a href=\"https://vacuumschmelze.com/03_Documents/Brochures/Cobalt-Iron%20Alloys.pdf\">https://vacuumschmelze.com/03_Documents/Brochures/Cobalt-Iron%20Alloys.pdf</a></td>
     </tr>
     <tr>
       <td>[YUY89]</td>
