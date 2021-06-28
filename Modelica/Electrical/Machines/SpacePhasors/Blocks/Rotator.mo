@@ -37,7 +37,7 @@ Rotates a space phasor (voltage or current) input <code>u</code> by the <code>an
       <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/Rotator.png\">
     </td>
   </tr>
-  <caption align=\"bottom\"><strong>Fig. 1:</strong> Original and rotated reference frame of a space phasor </caption>
+  <caption><strong>Fig. 1:</strong> Original and rotated reference frame of a space phasor </caption>
 </table>
 
 </html>"));

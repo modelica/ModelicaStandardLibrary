@@ -89,7 +89,7 @@ The decay time to half value <code>T2</code> is defined as the time span between
 </p>
 <p>Note: Due to numerical reasons, for the double-exponential function <code>T1 &lt; 0.2*T2</code> is required.</p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 1:</strong> Parameters of the lightning current</caption>
+  <caption><strong>Fig. 1:</strong> Parameters of the lightning current</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Sources/Lightning.png\">

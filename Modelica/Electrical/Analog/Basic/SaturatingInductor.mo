@@ -76,7 +76,7 @@ This approximation is with good performance and easy to adjust to a given charac
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Tab.&nbsp;1:</strong> Characteristic parameters of the saturating inductor model</caption>
+  <caption><strong>Tab.&nbsp;1:</strong> Characteristic parameters of the saturating inductor model</caption>
   <tr>
     <th>Variable</th>
     <th>Description</th>
@@ -106,7 +106,7 @@ Lnom = Linf + (Lzer - Linf)*atan(Inom/Ipar)/(Inom/Ipar)
 </pre></blockquote>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig.&nbsp;1:</strong> Actual inductance <code>Lact</code> versus current <code>i</code></caption>
+  <caption><strong>Fig.&nbsp;1:</strong> Actual inductance <code>Lact</code> versus current <code>i</code></caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Basic/SaturatingInductor_Lact_i.png\" alt=\"Lact vs. i\">
@@ -115,7 +115,7 @@ Lnom = Linf + (Lzer - Linf)*atan(Inom/Ipar)/(Inom/Ipar)
 </table>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig.&nbsp;2:</strong> Actual flux linkage <code>Psi</code> versus current <code>i</code></caption>
+  <caption><strong>Fig.&nbsp;2:</strong> Actual flux linkage <code>Psi</code> versus current <code>i</code></caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Basic/SaturatingInductor_Psi_i.png\" alt=\"Psi vs. i\">

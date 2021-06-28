@@ -122,7 +122,7 @@ equation
 The H bridge is a four quadrant DC/DC converter. It consists of two single-phase DC/AC converters which are controlled differently; see Fig.&nbsp;1.</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 1:</strong> H bridge</caption>
+  <caption><strong>Fig. 1:</strong> H bridge</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Electrical/PowerConverters/Hbridge.png\">
