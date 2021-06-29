@@ -4,7 +4,6 @@ model Rotator "Rotates space phasor"
 protected
   Real RotationMatrix[2, 2]={{+cos(-angle),-sin(-angle)},{+sin(-angle),+
       cos(-angle)}};
-  //Real InverseRotator[2,2] = {{+cos(+angle),-sin(+angle)},{+sin(+angle),+cos(+angle)}};
 public
   Machines.Interfaces.SpacePhasor spacePhasor_a
     annotation (Placement(transformation(extent={{-110,90},{-90,110}})));
@@ -17,9 +16,7 @@ public
         rotation=90)));
 equation
   spacePhasor_b.v_ = RotationMatrix*spacePhasor_a.v_;
-  //spacePhasor_a.v_ = InverseRotator*spacePhasor_b.v_;
   spacePhasor_b.i_ + RotationMatrix*spacePhasor_a.i_ = zeros(2);
-  //spacePhasor_a.i_ + InverseRotator*spacePhasor_b.i_ = zeros(2);
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={
                                      Line(points={{0,0},{80,0},{60,10},{
