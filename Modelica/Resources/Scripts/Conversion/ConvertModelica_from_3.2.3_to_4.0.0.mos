@@ -1948,3 +1948,7 @@ convertElement("Modelica.Media.Interfaces.PartialSimpleMedium.BaseProperties", "
 convertElement("Modelica.Media.Interfaces.PartialTwoPhaseMedium.BaseProperties", "R", "R_s")
 convertElement("Modelica.Media.R134a.R134a_ph.BaseProperties", "R", "R_s")
 convertElement("Modelica.Media.Water.WaterIF97_base.BaseProperties", "R", "R_s")
+
+// Reported by https://trac.openmodelica.org/OpenModelica/ticket/5297#comment:13
+convertElement("Modelica.Media.Interfaces.PartialCondensingGases.gasConstant", "R", "R_s");
+convertElement("Modelica.Media.Interfaces.PartialRealCondensingGases.gasConstant", "R", "R_s");

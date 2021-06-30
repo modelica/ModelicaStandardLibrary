@@ -2837,6 +2837,46 @@ Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrar
 </p>
 </html>"));
     end Issue3205;
+
+    package Issue3767_PartialCondensingGases
+      extends Modelica.Media.Interfaces.PartialCondensingGases(
+        mediumName="Test",
+        substanceNames={"water", "air"});
+
+      redeclare function setState_pTX
+        extends Modelica.Media.Air.MoistAir.setState_pTX;
+      end setState_pTX;
+
+      redeclare function extends gasConstant "Gas constant"
+      algorithm
+        R := 23;
+      end gasConstant;
+      annotation(Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3767\">#3767</a>.
+</p>
+</html>"));
+    end Issue3767_PartialCondensingGases;
+
+    package Issue3767_PartialRealCondensingGases
+      extends Modelica.Media.Interfaces.PartialRealCondensingGases(
+        mediumName="Test",
+        substanceNames={"water", "air"});
+
+      redeclare function setState_pTX
+        extends Modelica.Media.Air.MoistAir.setState_pTX;
+      end setState_pTX;
+
+      redeclare function extends gasConstant "Gas constant"
+      algorithm
+        R := 23;
+      end gasConstant;
+      annotation(Documentation(info="<html>
+<p>
+Conversion test for <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3767\">#3767</a>.
+</p>
+</html>"));
+    end Issue3767_PartialRealCondensingGases;
   end Media;
 
   package Thermal
