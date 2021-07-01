@@ -61,8 +61,10 @@ algorithm
 <p>The results obtained with this function have been checked with Fig. 4.1 of [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>], with good compliance.</p>
 <p>The output array contains the elements of the C matrix ordered as described in the M_OLine model, and is used in example Examples.Lines.PowerLineWithFence in conjunction with M_OLine.</p>
 </html>", revisions="<html>
+<ul>
 <li><em>May, 2021</em> 
         Massimo Ceraolo of the University of Pisa <br> 
         originally created</li> 
+</ul>		
 </html>"));
 end LineCmatrix;
