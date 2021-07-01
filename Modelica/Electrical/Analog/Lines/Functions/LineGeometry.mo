@@ -14,8 +14,10 @@ record LineGeometry "Contains multi-wire line geometry data"
 <p>It will be used by functions LineZmatrix and LineCmatrix that compute longitudinal (flow) and transverse (cross) line matrices.</p>
 <p>Even though frequency is not part of the line geometry, it is a parameter needed by LineZmatrix and therefore it is included here.</p>
 </html>", revisions="<html>
+<ul>
 <li><em>May, 2021</em> 
         Massimo Ceraolo of the University of Pisa <br> 
         originally created</li> 
+</ul>		
 </html>"));
 end LineGeometry;
