@@ -77,7 +77,7 @@ public
     parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false"
       annotation (Dialog(enable=not useHeatPort));
-    parameter SI.Temperature T_ref;
+    parameter SI.Temperature T_ref "Reference temperature";
 
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
       annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
@@ -108,10 +108,10 @@ public
       connect(inductance.n[j], n[j]);
       connect(inductance.n[j], C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
         2))].p);
-      connect(C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n,M.p);
+      connect(C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n, M.p);
       connect(inductance.n[j], G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
         2))].p);
-      connect(G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n,M.p);
+      connect(G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n, M.p);
 
       for i in j + 1:lines loop
         connect(inductance.n[j], C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
@@ -129,9 +129,9 @@ public
     connect(R[lines].n, inductance.p[lines]);
     connect(inductance.n[lines], n[lines]);
     connect(inductance.n[lines], C[dim_vector_lgc].p);
-    connect(C[dim_vector_lgc].n,M.p);
+    connect(C[dim_vector_lgc].n, M.p);
     connect(inductance.n[lines], G[dim_vector_lgc].p);
-    connect(G[dim_vector_lgc].n,M.p);
+    connect(G[dim_vector_lgc].n, M.p);
 
     if useHeatPort then
 
@@ -147,8 +147,7 @@ public
       connect(heatPort, G[dim_vector_lgc].heatPort);
     end if;
 
-    connect(M.n, refPin) annotation (Line(points={{-1.77636e-15,-80},{-1.77636e-15,
-            -91},{0,-91},{0,-100}}, color={0,0,255}));
+    connect(M.n, refPin) annotation (Line(points={{0,-80},{0,-91},{0,-100}}, color={0,0,255}));
     annotation (defaultComponentName="segment", Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(extent={{40,-40},{-40,40}},
             lineColor={0,0,255}),
@@ -156,7 +155,7 @@ public
             extent={{-150,90},{150,50}},
             textString="%name",
             textColor={0,0,255})}), Documentation(info="<html>
-<p>The segment model is part of the multiple line model. It describes one line segment as outlined in the M_OLine description. Using the loop possibilities of Modelica it is formulated by connecting components the number of which depends on the number of lines.</p>
+<p>The segment model is part of the multiple line model. It describes one line segment as outlined in the <code>M_OLine</code> description. Using the loop possibilities of Modelica it is formulated by connecting components the number of which depends on the number of lines.</p>
 </html>"));
   end segment;
 
@@ -182,7 +181,7 @@ public
     parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false"
       annotation (Dialog(enable=not useHeatPort));
-    parameter SI.Temperature T_ref(start=293.15);
+    parameter SI.Temperature T_ref(start=293.15) "Reference temperature";
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
       annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
                       iconTransformation(extent={{-110,-110},{-90,-90}})));
@@ -218,7 +217,7 @@ public
             extent={{-150,90},{150,50}},
             textString="%name",
             textColor={0,0,255})}), Documentation(info="<html>
-<p>The segment_last model is part of the multiple line model. It describes the special  line segment which is used to get the line symmetrical as outlined in the M_OLine description. Using the loop possibilities of Modelica it is formulated by connecting components the number of which depends on the number of lines.</p>
+<p>The segment_last model is part of the multiple line model. It describes the special line segment which is used to design the line symmetrical as outlined in the <code>M_OLine</code> description. Using the loop possibilities of Modelica it is formulated by connecting components the number of which depends on the number of lines.</p>
 </html>"));
   end segment_last;
 
@@ -334,12 +333,12 @@ its current can be accessed for plotting.</p>
 
 <p align=\"center\"><code>-- segment_1 -- segment_2 -- ... -- segment_N -- segment_last --</code></p>
 
-<p>In the picture of the segment can be seen, that a single segment is asymmetric. 
-Connecting such asymmetric segments in a series forces also an asymmetric multi line. 
-To get a symmetric model which is useful for coupling and which guaranties the same pin properties, 
-in the <code>segment_1</code> only half valued resistors and inductors are used. 
+<p>In the picture of the segment can be seen, that a single segment is asymmetrical. 
+Connecting such asymmetrical segments in a series forces also an asymmetrical multi line. 
+To design a symmetrical model which is useful for coupling and which guaranties the same pin properties, 
+in <code>segment_1</code> only half valued resistors and inductors are used. 
 The remaining resistors and inductors are at the other end of the line within 
-the auxiliary segment_last. For the example with 4 lines the schematic of 
+the auxiliary <code>segment_last</code>. For the example with 4 lines the schematic of 
 <code>segment_last</code> is like this:</p>
 
 <blockquote>
@@ -348,7 +347,7 @@ the auxiliary segment_last. For the example with 4 lines the schematic of
 </blockquote>
 
 <p>The number of the capacitors and conductors depends on the number of single lines that are used,
-because each line is connected to every other line by both a capacitor and a conductor. 
+because each line is coupled to every other line by both a capacitor and a conductor. 
 One line consists of <strong>at least two segments</strong>. 
 Inside the model <code>M_OLine</code> the model <code>segment</code> is used. 
 This model represents one segment which is build as described above. 
@@ -367,10 +366,10 @@ The vector length <code>dim_vector_lgc</code> is calculated by:</p>
 <pre>dim_vector_lgc = lines*(lines+1)/2</pre>
 </blockquote>
 
-<p>Inside the model a symmetric inductance matrix, a symmetric capacitance matrix and
-a symmetric conductance matrix are built out of the entries of the vectors given by the user. 
+<p>Inside the model a symmetrical inductance matrix, a symmetrical capacitance matrix and
+a symmetrical conductance matrix are built out of the entries of the vectors given by the user. 
 The way of building is the same for each matrix, so the approach for filling one of the matrices
-will be shown in the the examplebelow.</p>
+will be shown in the the example below.</p>
 
 <h5>Example</h5>
 
@@ -408,7 +407,7 @@ for the <code>M_OLine</code> model, a sensible conductance-matrix would be:</p>
 </blockquote>
 
 <p>The user has the possibility to enable a conditional heatport. If so, the <code>M_OLine</code> 
-can be connected to a thermal network. When the parameter <code>alpha</code> is set to a value greater than zero,
+can be connected to a thermal network. If the parameter <code>alpha</code> is set to a value different than zero,
 the <code>M_OLine</code> becomes temperature sensitive due to their resistors which resistances 
 are calculated by</p>
 
