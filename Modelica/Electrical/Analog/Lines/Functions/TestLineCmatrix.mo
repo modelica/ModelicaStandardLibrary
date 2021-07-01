@@ -45,7 +45,7 @@ algorithm
     Documentation(info="<html>
 <p>This model tests the C matrix as computed with function LineCmatrix, with the geometry of fig. 4.11 of [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>]. </p>
 <p>The results are given textually in the log and show a good agreement with the reference.</p>
-<p>This simulation runs correctly with both Dymola and OpenModelica. Computation result using Dymola 2020:<span style=\"font-family: Courier New;\"> </span></p>
+<p>This simulation runs correctly with both Dymola and OpenModelica. Computation result using Dymola 2020:</p>
 <p> <pre><span style=\"font-family: Courier New; font-size: 9pt;\">*****              Using LineCmatrix, RESULTS in nF/km               *****</span></pre></p>
 <p><span style=\"font-family: Courier New; font-size: 9pt;\">     *** (one row per matrix row; numbers should be intended right-aligned) ***</span> </p>
 <p><span style=\"font-family: Courier New; font-size: 9pt;\">7.57087&nbsp; -1.62658&nbsp; -1.63038&nbsp; -0.168826&nbsp; </span></p>
