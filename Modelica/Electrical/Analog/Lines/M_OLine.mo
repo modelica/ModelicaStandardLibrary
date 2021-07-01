@@ -335,7 +335,7 @@ its current can be accessed for plotting.</p>
 
 <p>In the picture of the segment can be seen, that a single segment is asymmetric. 
 Connecting such asymmetric segments in a series forces also an asymmetric multi line. 
-To get a symmetric model which is useful for coupling and which guaranties the same pin properties, 
+To design a symmetric model which is useful for coupling and which guaranties the same pin properties, 
 in <code>segment_1</code> only half valued resistors and inductors are used. 
 The remaining resistors and inductors are at the other end of the line within 
 the auxiliary <code>segment_last</code>. For the example with 4 lines the schematic of 
