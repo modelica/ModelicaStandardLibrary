@@ -60,5 +60,5 @@ algorithm
         originally created</li>
 </ul>
 </html>"),
-    experiment(StopTime=0);
+    experiment(StopTime=0));
 end TestLineCmatrix;
