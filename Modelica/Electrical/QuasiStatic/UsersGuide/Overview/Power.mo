@@ -46,7 +46,7 @@ Therefore, the instantaneous power is
            alt=\"power_resistor.png\">
     </td>
   </tr>
-  <caption align=\"bottom\">Fig. 1: Instantaneous voltage, current of power of a resistor</caption>
+  <caption>Fig. 1: Instantaneous voltage, current of power of a resistor</caption>
 </table>
 
 <p>Real power of the resistor is the average of instantaneous power:</p>
@@ -84,7 +84,7 @@ Therefore, the instantaneous power is
            alt=\"power_inductor.png\">
     </td>
   </tr>
-  <caption align=\"bottom\">Fig. 2: Instantaneous voltage, current of power of an inductor</caption>
+  <caption>Fig. 2: Instantaneous voltage, current of power of an inductor</caption>
 </table>
 
 <p>Reactive power of the inductor is:</p>
@@ -122,7 +122,7 @@ Therefore, the instantaneous power is
            alt=\"power_capacitor.png\">
     </td>
   </tr>
-  <caption align=\"bottom\">Fig. 3: Instantaneous voltage, current of power of a capacitor</caption>
+  <caption>Fig. 3: Instantaneous voltage, current of power of a capacitor</caption>
 </table>
 
 <p>Reactive power of the capacitor is:</p>

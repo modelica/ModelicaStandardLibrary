@@ -36,7 +36,7 @@ spatial domain which also applies to polyphase systems.
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 1: </strong>Symmetrical (a) three-phase and (b) five-phase current system</caption>
+  <caption><strong>Fig. 1: </strong>Symmetrical (a) three-phase and (b) five-phase current system</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/phase35.png\"
@@ -46,7 +46,7 @@ spatial domain which also applies to polyphase systems.
 </table>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 2: </strong>Symmetrical (a) three-phase and (b) five-phase winding</caption>
+  <caption><strong>Fig. 2: </strong>Symmetrical (a) three-phase and (b) five-phase winding</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/winding35.png\"
@@ -95,7 +95,7 @@ A function for calculating the <a href=\"modelica://Modelica.Electrical.Polyphas
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 3: </strong>Symmetrical (a) six and (b) ten phase current system</caption>
+  <caption><strong>Fig. 3: </strong>Symmetrical (a) six and (b) ten phase current system</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/phase610.png\"
@@ -105,7 +105,7 @@ A function for calculating the <a href=\"modelica://Modelica.Electrical.Polyphas
 </table>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 4: </strong>Symmetrical (a) six and (b) ten phase winding</caption>
+  <caption><strong>Fig. 4: </strong>Symmetrical (a) six and (b) ten phase winding</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/winding610.png\"

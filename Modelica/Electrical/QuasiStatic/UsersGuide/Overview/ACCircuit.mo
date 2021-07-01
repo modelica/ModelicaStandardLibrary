@@ -18,7 +18,7 @@ the voltage drops across the resistor, the inductor and the capacitor should be 
            alt=\"resonance_circuit.png\">
     </td>
   </tr>
-  <caption align=\"bottom\">Fig. 1: Series AC circuit of a resistor and an inductor at variable frequency</caption>
+  <caption>Fig. 1: Series AC circuit of a resistor and an inductor at variable frequency</caption>
 </table>
 
 <p>
@@ -80,7 +80,7 @@ as illustrated in the phasor diagram of Fig. 2.
            alt=\"phasor_diagram.png\">
     </td>
   </tr>
-  <caption align=\"bottom\">Fig. 2: Phasor diagram of a resistor and inductance series connection</caption>
+  <caption>Fig. 2: Phasor diagram of a resistor and inductance series connection</caption>
 </table>
 
 <p>Due to the series connection of the resistor, inductor and capacitor, the three currents are all equal:</p>

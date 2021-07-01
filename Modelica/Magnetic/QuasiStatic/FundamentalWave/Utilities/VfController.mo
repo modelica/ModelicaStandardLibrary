@@ -60,7 +60,7 @@ The output voltages may serve as inputs for complex voltage sources with phase i
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 1:</strong> Voltage vs. frequency of voltage frequency controller</caption>
+  <caption><strong>Fig. 1:</strong> Voltage vs. frequency of voltage frequency controller</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Utilities/VoltageFrequencyController.png\">

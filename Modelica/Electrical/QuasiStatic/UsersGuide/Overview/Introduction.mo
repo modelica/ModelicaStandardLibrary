@@ -49,7 +49,7 @@ This equation is also illustrated in Fig. 1.
            alt=\"phasor_voltage.png\">
     </td>
   </tr>
-  <caption align=\"bottom\">Fig. 1: Relationship between voltage phasor and time domain voltage</caption>
+  <caption>Fig. 1: Relationship between voltage phasor and time domain voltage</caption>
 </table>
 
 <p>

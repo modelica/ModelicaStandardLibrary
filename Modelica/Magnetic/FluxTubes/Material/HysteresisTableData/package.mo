@@ -12,7 +12,7 @@ Fig. 1 and Fig. 2 show library entries based on own measurements of several stee
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-<caption align=\"bottom\"><strong>Fig. 1:</strong> Static hysteresis envelope curves of several steel sheets</caption>
+<caption><strong>Fig. 1:</strong> Static hysteresis envelope curves of several steel sheets</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/StaticLoops01.png\">
@@ -21,7 +21,7 @@ Fig. 1 and Fig. 2 show library entries based on own measurements of several stee
 </table>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-<caption align=\"bottom\"><strong>Fig. 2:</strong> Static hysteresis envelope curves of several steel sheets</caption>
+<caption><strong>Fig. 2:</strong> Static hysteresis envelope curves of several steel sheets</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/StaticLoops02.png\">
@@ -34,7 +34,7 @@ Fig. 3 shows the static hysteresis loop library entries for soft magnetic cobalt
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-<caption align=\"bottom\"><strong>Fig. 3:</strong> Soft magnetic cobalt iron library entries <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Va01]</a></caption>
+<caption><strong>Fig. 3:</strong> Soft magnetic cobalt iron library entries <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Va01]</a></caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/StaticLoops03.png\">

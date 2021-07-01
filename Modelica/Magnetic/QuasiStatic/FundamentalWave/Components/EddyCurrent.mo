@@ -48,7 +48,7 @@ The eddy current loss model with respect to fundamental wave effects is designed
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\">Fig. 1: equivalent models of eddy current losses</caption>
+  <caption>Fig. 1: equivalent models of eddy current losses</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/eddycurrent_electric.png\">

@@ -103,7 +103,7 @@ The air gap model has two magnetic stator and two magnetic rotor
 according to the following figure.
 </p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig:</strong> Magnetic equivalent circuit of the air gap model</caption>
+  <caption><strong>Fig:</strong> Magnetic equivalent circuit of the air gap model</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Machines/Components/airgap_phasors.png\">

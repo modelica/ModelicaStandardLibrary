@@ -21,7 +21,7 @@ In symmetrical polyphase systems odd and even phase numbers have to be distingui
 For a symmetrical polyphase system with m phases the displacement of the sine waves is 2 &pi; / m.
 </p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 1: </strong>Symmetrical (a) three-phase and (b) five-phase current system</caption>
+  <caption><strong>Fig. 1: </strong>Symmetrical (a) three-phase and (b) five-phase current system</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/phase35.png\"
@@ -41,7 +41,7 @@ The number of base systems n<sub>Base</sub> is defined by the number of division
 For a base system with m<sub>Base</sub> phases the displacement of the sine waves belonging to that base system is 2 &pi; / m<sub>Base</sub>.
 </p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 2: </strong>Symmetrical (a) six and (b) ten phase current system</caption>
+  <caption><strong>Fig. 2: </strong>Symmetrical (a) six and (b) ten phase current system</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Polyphase/phase610.png\"
@@ -75,7 +75,7 @@ For polyphase systems, star connection of the m phases is unambiguous, i.e., eac
 whereas for polygon connection (m<sub>Base</sub> - 1)/2 alternatives exist (refer to Fig. 3).
 </p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 3: </strong>Line-to-neutral voltages and line-to-line voltages for different systems</caption>
+  <caption><strong>Fig. 3: </strong>Line-to-neutral voltages and line-to-line voltages for different systems</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Electrical/Polyphase/Polygon2phase.png\" alt=\"Polygon2phase.png\">

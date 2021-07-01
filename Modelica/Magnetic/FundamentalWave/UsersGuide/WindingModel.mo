@@ -9,7 +9,7 @@ magnetic potential and magnetic flux.
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 1: </strong>Symmetric polyphase winding</caption>
+  <caption><strong>Fig. 1: </strong>Symmetric polyphase winding</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/WindingModel/SymmetricPolyphaseWinding.png\"

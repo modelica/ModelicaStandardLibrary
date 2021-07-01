@@ -14,7 +14,7 @@ which are defined in sublibrary
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\">List of common base classes for 1-dimensional translational components</caption>
+  <caption>List of common base classes for 1-dimensional translational components</caption>
   <tr><th>Name</th><th>Description</th></tr>
   <tr>
     <td><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialCompliant\">PartialCompliant</a>
