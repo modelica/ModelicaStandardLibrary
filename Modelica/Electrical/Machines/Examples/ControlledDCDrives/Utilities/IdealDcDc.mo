@@ -1,6 +1,7 @@
 within Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities;
-model IdealDcDc "Ideal DC-DC inverter"
-  parameter SI.Time Td "Dead time";
+model IdealDcDc "Ideal DC/DC inverter"
+  parameter SI.Frequency fS "Switching frequency";
+  parameter SI.Time Tdv=0.5/fS "Dead time of inverter voltage";
   parameter SI.Time Ti=1e-6 "Time constant of integral power controller";
   Modelica.Electrical.Analog.Sources.SignalVoltage signalVoltage
     annotation (Placement(transformation(extent={{10,-80},{-10,-60}})));
@@ -20,7 +21,8 @@ model IdealDcDc "Ideal DC-DC inverter"
     k=1,
     initType=Modelica.Blocks.Types.Init.InitialOutput,
     y_start=0,
-    T=Td) annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+    T=Tdv)
+          annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
   Modelica.Blocks.Math.Feedback feedback annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -45,6 +47,14 @@ model IdealDcDc "Ideal DC-DC inverter"
     annotation (Placement(transformation(extent={{90,-112},{110,-92}})));
   Modelica.Blocks.Interfaces.RealInput vRef
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+  Blocks.Interfaces.RealInput          vMax
+    annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
+  Blocks.Math.Gain          gain(k=-1) annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=270,
+        origin={-90,30})));
+  Blocks.Nonlinear.VariableLimiter          variableLimiter
+    annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
 equation
   connect(signalCurrent.p, powerBat.nc)
     annotation (Line(points={{10,70},{20,70}},         color={0,0,255}));
@@ -79,11 +89,19 @@ equation
           {-100,-80},{-90,-80}},color={0,0,255}));
   connect(deadTime.y, signalVoltage.v)
     annotation (Line(points={{-9,0},{0,0},{0,-58}}, color={0,0,127}));
-  connect(vRef, deadTime.u)
-    annotation (Line(points={{-120,0},{-32,0}}, color={0,0,127}));
   connect(signalVoltage.n, pin_nMot) annotation (Line(points={{-10,-70},
           {-100,-70},{-100,-100}},
                                  color={0,0,255}));
+  connect(vRef, variableLimiter.u)
+    annotation (Line(points={{-120,0},{-62,0}}, color={0,0,127}));
+  connect(variableLimiter.y, deadTime.u)
+    annotation (Line(points={{-39,0},{-32,0}}, color={0,0,127}));
+  connect(vMax, gain.u)
+    annotation (Line(points={{-120,60},{-90,60},{-90,42}},   color={0,0,127}));
+  connect(vMax, variableLimiter.limit1) annotation (Line(points={{-120,60},{-70,
+          60},{-70,8},{-62,8}}, color={0,0,127}));
+  connect(gain.y, variableLimiter.limit2)
+    annotation (Line(points={{-90,19},{-90,-8},{-62,-8}},   color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
         Rectangle(
           extent={{-100,100},{100,-100}},
@@ -104,6 +122,6 @@ equation
           extent={{-40,-60},{40,-80}},
           textColor={128,128,128},
           textString="Mot")}),    Documentation(info="<html>
-<p>This is a model of an ideal DC-DC inverter based on a power balance achieved by an integral controller.</p>
+<p>This is a model of an ideal DC/DC inverter based on a power balance achieved by an integral controller.</p>
 </html>"));
 end IdealDcDc;

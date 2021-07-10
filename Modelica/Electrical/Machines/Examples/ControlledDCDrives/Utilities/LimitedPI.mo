@@ -150,8 +150,8 @@ equation
           -8},{64,-8},{64,-60},{61,-60}}, color={0,0,127}));
   connect(yMaxVar, variableLimiter.limit1) annotation (Line(points={{120,60},
           {64,60},{64,8},{68,8}}, color={0,0,127}));
-  connect(variableLimiter.limit1, yMaxConst.y) annotation (Line(points={{68,
-          8},{64,8},{64,60},{61,60}}, color={0,0,127}));
+  connect(variableLimiter.limit1, yMaxConst.y) annotation (Line(points={{68,8},{
+          64,8},{64,60},{61,60}},     color={0,0,127}));
   connect(variableLimiter.limit2, gain.y)
     annotation (Line(points={{68,-8},{58,-8},{58,5.6}}, color={0,0,127}));
   connect(variableLimiter.limit1, gain.u) annotation (Line(points={{68,8},{

@@ -5,3 +5,5 @@ Battery
 DcdcInverter
 IdealDcDc
 SwitchingDcDc
+Filter
+FilterType
