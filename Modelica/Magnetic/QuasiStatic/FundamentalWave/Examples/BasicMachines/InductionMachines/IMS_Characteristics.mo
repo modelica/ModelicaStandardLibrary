@@ -94,8 +94,8 @@ model IMS_Characteristics "Characteristic curves of induction machine with slip 
         origin={-10,30},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor resistor(m=mr, R_ref
-      =fill(Rr, mr)) annotation (Placement(transformation(
+  Modelica.Electrical.QuasiStatic.Polyphase.Basic.Resistor resistor(m=mr, R_ref=
+       fill(Rr, mr)) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={10,36})));

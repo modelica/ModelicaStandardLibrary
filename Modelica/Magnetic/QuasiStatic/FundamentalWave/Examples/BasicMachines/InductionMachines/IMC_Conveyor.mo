@@ -67,8 +67,8 @@ model IMC_Conveyor "Induction machine with squirrel cage and inverter driving a 
     annotation (Placement(transformation(extent={{32,10},{12,30}})));
   Modelica.Mechanics.Translational.Components.Mass massQS(m=JLoad/r^2)
     annotation (Placement(transformation(extent={{0,10},{-20,30}})));
-  Modelica.Mechanics.Translational.Sources.SignForce signForceQS(v0(displayUnit
-        ="m/s") = 0.01*wNominal*r, f_nominal=-TLoad/r)
+  Modelica.Mechanics.Translational.Sources.SignForce signForceQS(v0(displayUnit=
+         "m/s") = 0.01*wNominal*r, f_nominal=-TLoad/r)
     annotation (Placement(transformation(extent={{-50,10},{-30,30}})));
   Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground groundMachineQS
     annotation (Placement(transformation(extent={{-10,-10},{10,10}}, origin={90,
