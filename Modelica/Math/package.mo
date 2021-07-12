@@ -2949,9 +2949,9 @@ r = 3.162;
     (sigma,,V) := Modelica.Math.Matrices.singularValues(A);
     V := transpose(V);
     // rank computation
-    eps := max(size(A, 1), size(A, 2))*max(sigma)*Modelica.Constants.eps;
     rank := 0;
     if n > 0 then
+      eps := max(size(A, 1), size(A, 2)) * max(sigma) * Modelica.Constants.eps;
       while i > 0 loop
         if sigma[i] > eps then
           rank := i;
