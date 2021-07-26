@@ -47,7 +47,7 @@ jobs:
           pip install --user futures
       - name: Build html tidy
         run: |
-          git clone --branch 5.7.28 --depth=1 https://github.com/htacg/tidy-html5.git
+          git clone --branch 5.8.0 --depth=1 https://github.com/htacg/tidy-html5.git
           pushd tidy-html5
           cmake .
           make
