@@ -1,7 +1,9 @@
 within Modelica.Mechanics.MultiBody.Sensors;
 model CutTorque "Measure cut torque vector"
 
-  Modelica.Blocks.Interfaces.RealOutput torque[3]
+  Modelica.Blocks.Interfaces.RealOutput torque[3](
+    each final quantity="Torque",
+    each final unit="N.m")
     "Cut torque resolved in frame defined by resolveInFrame"
        annotation (Placement(transformation(
         origin={-80,-110},

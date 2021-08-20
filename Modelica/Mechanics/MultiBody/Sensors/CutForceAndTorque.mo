@@ -3,13 +3,17 @@ model CutForceAndTorque "Measure cut force and cut torque vector"
 
   import Modelica.Mechanics.MultiBody.Types;
 
-  Modelica.Blocks.Interfaces.RealOutput force[3](each final quantity="Force", each final unit="N")
+  Modelica.Blocks.Interfaces.RealOutput force[3](
+    each final quantity="Force",
+    each final unit="N")
     "Cut force resolved in frame defined by resolveInFrame"
        annotation (Placement(transformation(
         origin={-80,-110},
         extent={{10,-10},{-10,10}},
         rotation=90)));
-  Modelica.Blocks.Interfaces.RealOutput torque[3]
+  Modelica.Blocks.Interfaces.RealOutput torque[3](
+    each final quantity="Torque",
+    each final unit="N.m")
     "Cut torque resolved in frame defined by resolveInFrame"
        annotation (Placement(transformation(
         origin={0,-110},
