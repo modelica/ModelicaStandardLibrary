@@ -16,8 +16,8 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Measures the <strong>cut-torque between two flanges</strong> in an ideal way
-and provides the result as output signal <strong>tau</strong>
+Measures the <em>cut-torque</em>&nbsp;<var>&tau;</var> between two flanges
+in an ideal way and provides the result as output signal <code>tau</code>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
 </html>"),

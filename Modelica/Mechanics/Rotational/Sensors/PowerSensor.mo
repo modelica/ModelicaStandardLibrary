@@ -1,6 +1,6 @@
 within Modelica.Mechanics.Rotational.Sensors;
 model PowerSensor
-  "Ideal sensor to measure the power between two flanges (= flange_a.tau*der(flange_a.phi))"
+  "Ideal sensor to measure the power between two flanges (= flange_a.tau * der(flange_a.phi))"
 
   extends Rotational.Interfaces.PartialRelativeSensor;
   Modelica.Blocks.Interfaces.RealOutput power(unit="W")
@@ -16,8 +16,8 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Measures the <strong>power between two flanges</strong> in an ideal way
-and provides the result as output signal <strong>power</strong>
+Measures the <em>power</em>&nbsp;<var>P</var> between two flanges
+in an ideal way and provides the result as output signal <code>power</code>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
 </html>"),

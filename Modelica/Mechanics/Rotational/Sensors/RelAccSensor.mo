@@ -22,8 +22,8 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Measures the <strong>relative angular acceleration a_rel</strong> between two flanges
-in an ideal way and provides the result as output signal <strong>a_rel</strong>
+Measures the <em>relative angular acceleration</em>&nbsp;<var>a<sub>rel</sub></var> between two flanges
+in an ideal way and provides the result as output signal <code>a_rel</code>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
 </html>"),
