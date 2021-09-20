@@ -12,13 +12,6 @@ inertia5.w
 oneWayClutch.phi_rel
 oneWayClutch.w_rel
 bearingFriction.mode
-bearingFriction.startBackward
-bearingFriction.startForward
 brake.mode
-brake.startBackward
-brake.startForward
 clutch.mode
-clutch.startBackward
-clutch.startForward
-oneWayClutch.startForward
 oneWayClutch.stuck
