@@ -38,7 +38,7 @@ algorithm
   // Self impedances with ground return:
   for i in 1:n loop
     a:=a0*2*y[i];
-    assert(a<0.25,"Parameter a="+String(a)+
+    assert(a<=0.25,"Parameter a="+String(a)+
                   " >0.25 will result in inadequate precision of Carson's formulas",
                   AssertionLevel.warning);
     P := pi/8 - sqrt(2)/6*a + a^2/16*(0.672784 + log(2/a));
