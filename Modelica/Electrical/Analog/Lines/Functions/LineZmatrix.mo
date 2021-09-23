@@ -31,7 +31,7 @@ protected
   //  a0*D=a; a is the same as r in Carson's paper
   // where D=2h for self impedanze, D=Dik for mutual impedance
   Real R_g=pi^2*f*1e-7;
-  Real w=2*pi*f;
+  Modelica.Units.SI.AngularFrequency w=2*pi*f;
   Real a;
   Integer k;
 algorithm
