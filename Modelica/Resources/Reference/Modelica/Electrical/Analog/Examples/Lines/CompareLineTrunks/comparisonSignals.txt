@@ -1,0 +1,10 @@
+time
+ramp.y
+oLine1.p2.v
+oLine2.p2.v
+oLine3.p2.v
+oLine4.p2.v
+tLine1.p2.v
+tLine2.p2.v
+tLine3.p2.v
+tLine4.p2.v
