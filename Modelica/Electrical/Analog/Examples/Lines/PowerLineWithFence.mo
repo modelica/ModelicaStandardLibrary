@@ -134,5 +134,6 @@ equation
 </html>"),
     experiment(
       StopTime=0.04,
-      Interval=0.0001));
+      Interval=1e-05,
+      Tolerance=1e-06));
 end PowerLineWithFence;
