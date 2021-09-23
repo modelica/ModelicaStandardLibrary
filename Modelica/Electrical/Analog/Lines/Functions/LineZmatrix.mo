@@ -16,7 +16,7 @@ function LineZmatrix
   input Real f=50 "Frequency";
   output Real Rcomp[div(n * (n + 1), 2)](each unit="Ohm/m") "Compact resistance matrix";
   output Real Xcomp[div(n * (n + 1), 2)](each unit="Ohm/m") "Compact reactance matrix";
-  output Real Lcomp[div(n * (n + 1), 2)](each unit="H/m") "Compact inductance";
+  output Real Lcomp[div(n * (n + 1), 2)](each unit="H/m") "Compact inductance matrix";
 protected
   constant Complex j=Complex(0, 1) "Imaginary unit";
   Modelica.Units.SI.Distance D "Generic larger distance";
