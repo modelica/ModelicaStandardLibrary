@@ -11,7 +11,7 @@ The elements provided in the package Shapes.HysteresisAndMagnets allow for consi
 </p>
 
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
-  <caption align=\"bottom\"><strong>Fig. 1:</strong> Inductor with ferromagnetic core and hysteresis effects; (a) diagram of the network model; (b) simulated hysteresis characteristics of the core for different excitation frequencies of 0, 10 and 100 Hz (the example model can be found at: <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.InductorWithHysteresis\">Examples.Hysteresis.InductorWithHysteresis</a>)</caption>
+  <caption><strong>Fig. 1:</strong> Inductor with ferromagnetic core and hysteresis effects; (a) diagram of the network model; (b) simulated hysteresis characteristics of the core for different excitation frequencies of 0, 10 and 100 Hz (the example model can be found at: <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.InductorWithHysteresis\">Examples.Hysteresis.InductorWithHysteresis</a>)</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/InductorWithHysteresis_DiagramAndSim.png\">

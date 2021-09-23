@@ -162,7 +162,7 @@ An example simulation shows the transformer inrush currents due to an initially 
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-<caption align=\"bottom\"><strong>Fig. 1:</strong> Transformer inrush currents due to initial magnetization of the magnetic core; (a) transformer primary currents; (b)  transformer secondary currents; (c) flux densities of the transformer legs; (d) B(H) hysteresis loops of transformer leg one.; (e) instantaneous static hysteresis, eddy current and copper losses of the transformer; (f) approximated average static hysteresis, eddy current and copper losses of the transformer</caption>
+<caption><strong>Fig. 1:</strong> Transformer inrush currents due to initial magnetization of the magnetic core; (a) transformer primary currents; (b)  transformer secondary currents; (c) flux densities of the transformer legs; (d) B(H) hysteresis loops of transformer leg one.; (e) instantaneous static hysteresis, eddy current and copper losses of the transformer; (f) approximated average static hysteresis, eddy current and copper losses of the transformer</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/ThreePhaseTransformerWithRectifier/plot01.png\" hspace=\"10\" vspace=\"10\">

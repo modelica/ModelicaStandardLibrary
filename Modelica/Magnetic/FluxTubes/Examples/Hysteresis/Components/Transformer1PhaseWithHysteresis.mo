@@ -225,7 +225,7 @@ Simple model of a single-phase transformer with a primary and a secondary windin
 </p>
 
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
-  <caption align=\"bottom\"><strong>Fig. 1:</strong> Sketch of the modelled transformer with magnetic core, primary and secondary winding</caption>
+  <caption><strong>Fig. 1:</strong> Sketch of the modelled transformer with magnetic core, primary and secondary winding</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/Components/Transformer1PhaseWithHysteresis/Core_SinglePhase.png\">

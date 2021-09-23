@@ -71,7 +71,7 @@ equation
   annotation (defaultComponentName="line",
     Documentation(info="<html>
 <p>As can be seen in the picture below, the lossy RC line ULine is a single conductor lossy transmission line which consists of segments of lumped series resistors and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.
-<br>To get a symmetric line model, the first resistor is cut into two parts (R1 and R_Nplus1). These two new resistors have the half of the resistance of the original resistor.
+<br>To get a symmetrical line model, the first resistor is cut into two parts (R1 and R_Nplus1). These two new resistors have the half of the resistance of the original resistor.
 </p>
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/ULine.png\"

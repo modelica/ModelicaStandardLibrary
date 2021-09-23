@@ -34,7 +34,7 @@ Where <code>&sigma;</code> is the electrical conductivity and <code>d</code> the
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-<caption align=\"bottom\"><strong>Fig. 1:</strong> Static and dynamic portion of the hysteresis B(H)</caption>
+<caption><strong>Fig. 1:</strong> Static and dynamic portion of the hysteresis B(H)</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/DynamicHysteresis/Eddy_BHBHstatBHeddy.png\">
@@ -47,7 +47,7 @@ The following two figures show a comparison between measured and simulated dynam
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-<caption align=\"bottom\"><strong>Fig. 2:</strong> Dynamic hysteresis measurements with an 25 cm Epstein frame according to DIN EN 60404-2 (Material: M330-50A, 4 Sheets)</caption>
+<caption><strong>Fig. 2:</strong> Dynamic hysteresis measurements with an 25 cm Epstein frame according to DIN EN 60404-2 (Material: M330-50A, 4 Sheets)</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/DynamicHysteresis/EddyCurrent_Epstein_Meas.png\">
@@ -56,7 +56,7 @@ The following two figures show a comparison between measured and simulated dynam
 </table>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-<caption align=\"bottom\"><strong>Fig. 3:</strong> Simulation results of a 25 cm Epstein frame model according to the measurement setup of Fig. 1</caption>
+<caption><strong>Fig. 3:</strong> Simulation results of a 25 cm Epstein frame model according to the measurement setup of Fig. 1</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/DynamicHysteresis/EddyCurrent_Epstein_Sim.png\">

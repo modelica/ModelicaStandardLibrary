@@ -39,7 +39,7 @@ respectively, by means of:
 This is a strict consequence of the electromagnetic coupling between the quasi-static electric and the quasi-static magnetic domain.</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><strong>Fig. 1:</strong> Reference frames of the quasi-static fundamental wave library</caption>
+  <caption><strong>Fig. 1:</strong> Reference frames of the quasi-static fundamental wave library</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/ReferenceFrames.png\"/>
