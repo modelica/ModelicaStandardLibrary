@@ -502,6 +502,9 @@ end UsersGuide;
         final quantity="Capacitance",
         final unit="F",
         min=0);
+    type CapacitancePerLength = Real (
+        final quantity="CapacitancePerLength",
+        final unit="F/m");
     type CapacitancePerArea =
                 Real (final quantity="CapacitancePerArea", final unit="F/m2")
       "Capacitance per area";
@@ -541,6 +544,9 @@ end UsersGuide;
         final unit="H");
     type SelfInductance = Inductance(min=0);
     type MutualInductance = Inductance;
+    type InductancePerLength = Real (
+        final quantity="InductancePerLength",
+        final unit="H/m");
     type CouplingCoefficient = Real (final quantity="CouplingCoefficient", final unit=
                "1");
     type LeakageCoefficient = Real (final quantity="LeakageCoefficient", final unit=
@@ -565,6 +571,9 @@ end UsersGuide;
     type Resistance = Real (
         final quantity="Resistance",
         final unit="Ohm");
+    type ResistancePerLength = Real (
+        final quantity="ResistancePerLength",
+        final unit="Ohm/m");
     type Resistivity = Real (final quantity="Resistivity", final unit="Ohm.m");
     type Conductivity = Real (final quantity="Conductivity", final unit="S/m");
     type Reluctance = Real (final quantity="Reluctance", final unit="H-1");
@@ -574,8 +583,10 @@ end UsersGuide;
         final unit="rad",
         displayUnit="deg");
     type Impedance = Resistance;
+    type ImpedancePerLength = ResistancePerLength;
     type ModulusOfImpedance = Resistance;
     type Reactance = Resistance;
+    type ReactancePerLength = ResistancePerLength;
     type QualityFactor = Real (final quantity="QualityFactor", final unit="1");
     type LossAngle = Real (
         final quantity="Angle",
@@ -584,9 +595,14 @@ end UsersGuide;
     type Conductance = Real (
         final quantity="Conductance",
         final unit="S");
+    type ConductancePerLength = Real (
+        final quantity="ConductancePerLength",
+        final unit="S/m");
     type Admittance = Conductance;
+    type AdmittancePerLength = ConductancePerLength;
     type ModulusOfAdmittance = Conductance;
     type Susceptance = Conductance;
+    type SusceptancePerLength = ConductancePerLength;
     type InstantaneousPower = Real (final quantity="Power", final unit="W");
     type ActivePower = Real (final quantity="Power", final unit="W");
     type ApparentPower = Real (final quantity="Power", final unit="V.A");
@@ -1148,10 +1164,18 @@ which is only valid in the rotor-fixed coordinate system.
       Complex(redeclare Resistance re "Real part of complex impedance (resistance)",
               redeclare Reactance im "Imaginary part of complex impedance (reactance)")
       "Complex impedance";
+    operator record ComplexImpedancePerLength =
+      Complex(redeclare ResistancePerLength re "Real part of complex impedance (resistance) per length",
+              redeclare ReactancePerLength im "Imaginary part of complex impedance (reactance) per length")
+      "Complex impedance per length";
     operator record ComplexAdmittance =
       Complex(redeclare Conductance re "Real part of complex admittance (conductance)",
               redeclare Susceptance im "Imaginary part of complex admittance (susceptance)")
       "Complex admittance";
+    operator record ComplexAdmittancePerLength =
+      Complex(redeclare ConductancePerLength re "Real part of complex admittance (conductance) per length",
+              redeclare SusceptancePerLength im "Imaginary part of complex admittance (susceptance) per length")
+      "Complex admittance per length";
     operator record ComplexPower =
       Complex(redeclare ActivePower re "Real part of complex apparent power (active power)",
               redeclare ReactivePower im "Imaginary part of complex apparent power (reactive power)")
