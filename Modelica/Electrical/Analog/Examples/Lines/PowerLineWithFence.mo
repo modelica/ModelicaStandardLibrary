@@ -1,15 +1,14 @@
 within Modelica.Electrical.Analog.Examples.Lines;
 model PowerLineWithFence
   extends Modelica.Icons.Example;
-
   Modelica.Electrical.Analog.Lines.M_OLine line(
     N=2,  c = Ccomp, g = fill(1e-12, div(g.n * (g.n + 1), 2)), l = Lcomp,
     length=100e3,  lines = g.n, r = g.R1) annotation (
     Placement(visible = true, transformation(origin={-28,18},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Electrical.Analog.Sources.SineVoltage Ub(
-    V=Ua.V,
+  Modelica.Electrical.Analog.Sources.SineVoltage v2(
+    V=v1.V,
     phase=-2.0943951023932,
-    f=Ua.f) annotation (Placement(visible=true, transformation(
+    f=v1.f) annotation (Placement(visible=true, transformation(
         origin={-62,18},
         extent={{10,10},{-10,-10}},
         rotation=180)));
@@ -17,10 +16,10 @@ model PowerLineWithFence
     Placement(visible = true, transformation(origin={-86,-32},    extent = {{-8, 8}, {8, -8}}, rotation = 270)));
   Modelica.Electrical.Analog.Basic.Ground ground annotation (
     Placement(visible = true, transformation(extent={{-96,-64},{-76,-44}},      rotation = 0)));
-  Modelica.Electrical.Analog.Sources.SineVoltage Uc(
-    V=Ua.V,
+  Modelica.Electrical.Analog.Sources.SineVoltage v3(
+    V=v1.V,
     phase=2.0943951023932,
-    f=Ua.f) annotation (Placement(visible=true, transformation(
+    f=v1.f) annotation (Placement(visible=true, transformation(
         origin={-62,-2},
         extent={{10,10},{-10,-10}},
         rotation=180)));
@@ -48,7 +47,7 @@ model PowerLineWithFence
     k_s={0.287,0.287,0.287,0.779},
     f=60)
     annotation (Placement(transformation(extent={{42,6},{62,26}})));
-  Modelica.Electrical.Analog.Sources.SineVoltage Ua(V=345e3*sqrt(2/3), f=60)
+  Modelica.Electrical.Analog.Sources.SineVoltage v1(V=345e3*sqrt(2/3), f=60)
     annotation (Placement(visible=true, transformation(
         origin={-62,36},
         extent={{10,10},{-10,-10}},
@@ -58,11 +57,9 @@ model PowerLineWithFence
         origin={-18,-22},
         extent={{-8,8},{8,-8}},
         rotation=270)));
-
   parameter Real Rcomp[div(g.n * (g.n + 1), 2)]( each fixed=false) "Compact resistance matrix (ohm/m)";
   parameter Real Xcomp[div(g.n * (g.n + 1), 2)]( each fixed=false) "Compact reactance matrix (ohm/m)";
   parameter Real Lcomp[div(g.n * (g.n + 1), 2)]( each fixed=false) "Compact inductance (H/m)";
-
 protected
   parameter Real Ccomp[div(g.n * (g.n + 1), 2)] = Modelica.Electrical.Analog.Lines.Functions.LineCmatrix(
                                     n = g.n, x = g.x, y = g.y, r = g.r);
@@ -77,7 +74,6 @@ initial algorithm
     rho=g.rho,
     f=g.f);
 equation
-
   connect(ground.p, rgUL.n) annotation (
     Line(points={{-86,-44},{-86,-40}},      color = {0, 0, 255}));
   connect(r1.p, line.n[1])
@@ -91,17 +87,17 @@ equation
   connect(r3.p, line.n[3])
     annotation (Line(points={{2,-2},{-14,-2},{-14,14},{-18,14},{-18,18}},
                                                         color={0,0,255}));
-  connect(Ua.n, line.p[1])
+  connect(v1.n, line.p[1])
     annotation (Line(points={{-52,36},{-38,36},{-38,18}}, color={0,0,255}));
-  connect(Ub.n, line.p[2])
+  connect(v2.n, line.p[2])
     annotation (Line(points={{-52,18},{-38,18}}, color={0,0,255}));
-  connect(Uc.n, line.p[3])
+  connect(v3.n, line.p[3])
     annotation (Line(points={{-52,-2},{-38,-2},{-38,18}}, color={0,0,255}));
-  connect(Ua.p, rgUL.p)
+  connect(v1.p, rgUL.p)
     annotation (Line(points={{-72,36},{-86,36},{-86,-24}}, color={0,0,255}));
-  connect(Ub.p, rgUL.p)
+  connect(v2.p, rgUL.p)
     annotation (Line(points={{-72,18},{-86,18},{-86,-24}}, color={0,0,255}));
-  connect(Uc.p, rgUL.p)
+  connect(v3.p, rgUL.p)
     annotation (Line(points={{-72,-2},{-86,-2},{-86,-24}}, color={0,0,255}));
   connect(body.p, line.n[4])
     annotation (Line(points={{-18,-14},{-18,18}}, color={0,0,255}));
@@ -130,7 +126,7 @@ equation
 <li><em>May, 2021</em> 
         Massimo Ceraolo of the University of Pisa <br> 
         originally created</li> 
-</ul>		
+</ul>                
 </html>"),
     experiment(
       StopTime=0.04,
