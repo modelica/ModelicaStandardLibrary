@@ -13,8 +13,8 @@ function LineCmatrix
   output Real Pself(unit="F/m"), Pmutual(unit="F/m") "Transposed line self and mutual impedance";
 protected
   constant Complex j = Complex(0, 1) "Imaginary unit";
-  constant Real K(unit="V.m/(A.s)") = 1 / (2 * pi * epsilon_0);
-  Real p[n, n](each unit="V.m/(A.s)") "Maxwell's potential matrix";
+  constant Real K(unit="F/m") = 1 / (2 * pi * epsilon_0);
+  Real p[n, n](each unit="F/m") "Maxwell's potential matrix";
   Real C[n, n](each unit="F/m") "Computed matrix";
   Modelica.Units.SI.Distance D "Generic larger distance";
   Modelica.Units.SI.Distance d "Generic smaller distance";
