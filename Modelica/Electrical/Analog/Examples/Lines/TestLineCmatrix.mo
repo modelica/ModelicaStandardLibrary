@@ -8,6 +8,7 @@ model TestLineCmatrix "Test model of LineCmatrix"
     y={12.192,12.192,12.192,3.048},
     r=1e-3/2*{12.7,12.7,12.7,4.064},
     R1=1e-3*{0.348,0.348,0.348,1.802})
+    "Line geometry"
     annotation (Placement(transformation(extent={{-10,-6},{10,14}})));
   String sC;
   Real Ccomp[div(g.n*(g.n + 1), 2)] "Compacted matrix";

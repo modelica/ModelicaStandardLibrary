@@ -9,7 +9,7 @@ model TestLineZmatrix "Test model of LineZmatrix"
     r=1e-3/2*{12.7,12.7,12.7,4.064},
     R1=1e-3*{0.348,0.348,0.348,1.802},
     k_s={0.287,0.287,0.287,0.779},
-    f=60) annotation (Placement(transformation(extent={{-10,-6},{10,14}})));
+    f=60) "Line geometry" annotation (Placement(transformation(extent={{-10,-6},{10,14}})));
   String sC;
   Real Rcomp[div(g.n*(g.n + 1), 2)] "Compacted matrix";
   Real Xcomp[div(g.n*(g.n + 1), 2)] "Compacted matrix";
