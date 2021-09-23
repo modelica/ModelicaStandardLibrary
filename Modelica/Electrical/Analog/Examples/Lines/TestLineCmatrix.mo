@@ -1,5 +1,5 @@
 within Modelica.Electrical.Analog.Examples.Lines;
-model TestLineCmatrix
+model TestLineCmatrix "Test model of LineCmatrix"
   extends Modelica.Icons.Example;
   import Modelica.Utilities.*;
   parameter Modelica.Electrical.Analog.Lines.Functions.LineGeometry g(
@@ -21,11 +21,11 @@ algorithm
       y=g.y,
       r=g.r);
     Streams.print("\n *****              Using LineCmatrix, RESULTS in nF/km               *****");
-    Streams.print(  " *** (one row per matrix row; numbers should be intended right-aligned) ***");
+    Streams.print(  " *** (One row per matrix row; numbers should be intended right-aligned) ***");
     k:=0;
-    for i in 1:g.n loop  //matrix row
+    for i in 1:g.n loop  // Matrix row
       sC := "";
-      for j in 1:g.n-i+1 loop  // matrix column
+      for j in 1:g.n-i+1 loop  // Matrix column
         k:=k+1;
         sC := sC + String(1e12*Ccomp[k]) + "  ";
       end for;
