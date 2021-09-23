@@ -28,7 +28,7 @@ algorithm
       sC := "";
       for j in 1:g.n-i+1 loop  // Matrix column
         k:=k+1;
-        sC := sC + String(1e12*Ccomp[k]) + "  ";
+        sC := sC + String(1e12*Ccomp[k]) + "\t";
       end for;
       Streams.print(sC);
     end for;
@@ -47,14 +47,13 @@ algorithm
 <p>This simulation runs correctly with both Dymola and OpenModelica. Computation result using Dymola 2020:</p>
 
 <blockquote><pre>
-*****              Using LineCmatrix, RESULTS in nF/km               *****
-*** (one row per matrix row; numbers should be intended right-aligned) ***
+ *****              Using LineCmatrix, RESULTS in nF/km               *****
+ *** (one row per matrix row; numbers should be intended right-aligned) ***
 7.57087&nbsp; -1.62658&nbsp; -1.63038&nbsp; -0.168826
 7.30876&nbsp; -0.834876&nbsp; -0.275822
 7.29987&nbsp; -0.118934
 6.97273
 ... &quot;TestLineCmatrix.mat&quot; creating (simulation result file)</span> </p>
-
 </pre></blockquote>
 </html>", revisions="<html>
 <ul>

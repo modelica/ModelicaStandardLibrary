@@ -26,14 +26,14 @@ algorithm
       k_s=g.k_s,
       rho=g.rho,
       f=g.f);
-    Streams.print("\n *****              Using LineZmatrix, RESULTS in ohm/km              *****");
+    Streams.print("\n *****              Using LineZmatrix, RESULTS in Ohm/km              *****");
     Streams.print(  " *** (One row per matrix row; numbers should be intended right-aligned) ***");
     k:=0;
     for i in 1:g.n loop  // Matrix row
       sC := "";
       for j in 1:g.n-i+1 loop  // Matrix column
         k:=k+1;
-        sC := sC + String(1000*Rcomp[k]) +"+j"+String(1000*Xcomp[k])+ "   ";
+        sC := sC + String(1000*Rcomp[k]) +"+j"+String(1000*Xcomp[k])+ "\t";
       end for;
       Streams.print(sC);
       end for;
@@ -47,8 +47,8 @@ algorithm
 
 
 <blockquote><pre>
-*****              Using LineZmatrix, RESULTS in ohm/km              *****
-*** (one row per matrix row; numbers should be intended right-aligned) ***
+ *****              Using LineZmatrix, RESULTS in Ohm/km              *****
+ *** (one row per matrix row; numbers should be intended right-aligned) ***
 0.405445+j0.986077 0.0574443+j0.426468 0.0574443+j0.426468 0.058076+j0.316811 
 0.405445+j0.986077 0.0574408+j0.374207 0.0580827+j0.329078 
 0.405445+j0.986077 0.0580667+j0.304429 
@@ -62,5 +62,5 @@ algorithm
         originally created</li> 
 </ul>                
 </html>"),
-    experiment(StopTime=0, __Dymola_Algorithm="Dassl"));
+    experiment(StopTime=0));
 end TestLineZmatrix;
