@@ -11,7 +11,7 @@ model TestLineCmatrix "Test model of LineCmatrix"
     "Line geometry"
     annotation (Placement(transformation(extent={{-10,-6},{10,14}})));
   String sC;
-  Real Ccomp[div(g.n*(g.n + 1), 2)] "Compacted matrix";
+  Real Ccomp[div(g.n*(g.n + 1), 2)](each final unit="F/m") "Compacted matrix";
 protected
   Integer k;
 algorithm

@@ -57,12 +57,13 @@ model PowerLineWithFence
         origin={-18,-22},
         extent={{-8,8},{8,-8}},
         rotation=270)));
-  parameter Real Rcomp[div(g.n * (g.n + 1), 2)]( each fixed=false) "Compact resistance matrix (ohm/m)";
-  parameter Real Xcomp[div(g.n * (g.n + 1), 2)]( each fixed=false) "Compact reactance matrix (ohm/m)";
-  parameter Real Lcomp[div(g.n * (g.n + 1), 2)]( each fixed=false) "Compact inductance (H/m)";
+  parameter Real Rcomp[div(g.n * (g.n + 1), 2)](each final unit="Ohm/m", each fixed=false) "Compact resistance matrix";
+  parameter Real Xcomp[div(g.n * (g.n + 1), 2)](each final unit="Ohm/m", each fixed=false) "Compact reactance matrix";
+  parameter Real Lcomp[div(g.n * (g.n + 1), 2)](each final unit="H/m",  each fixed=false) "Compact inductance";
 protected
-  parameter Real Ccomp[div(g.n * (g.n + 1), 2)] = Modelica.Electrical.Analog.Lines.Functions.LineCmatrix(
-                                    n = g.n, x = g.x, y = g.y, r = g.r);
+  parameter Real Ccomp[div(g.n * (g.n + 1), 2)](each final unit="F/m")=
+    Modelica.Electrical.Analog.Lines.Functions.LineCmatrix(
+      n = g.n, x = g.x, y = g.y, r = g.r);
 initial algorithm
   (Rcomp,Xcomp,Lcomp) :=Modelica.Electrical.Analog.Lines.Functions.LineZmatrix(
     n=g.n,

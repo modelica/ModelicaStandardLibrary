@@ -9,14 +9,14 @@ function LineZmatrix
   input Modelica.Units.SI.Length x[n] "Horizontal abscissas of conductors";
   input Modelica.Units.SI.Length y[n] "Vertical abscissas of conductors";
   input Modelica.Units.SI.Radius r[n] "Conductors radii";
-  input Real R1[n](each unit="Ohm/m") "Conductors lineic resistance";
+  input Real R1[n](each final unit="Ohm/m") "Conductors lineic resistance";
   input Real k_s[n]=fill(0.7,n) "Ratio of equivalent shell radius to actual radius";
   // in case of cylindric conductor this is equal to exp(-mu_r/4)=exp(-0.25)
   input Real rho=100 "Ground resistivity";
   input Real f=50 "Frequency";
-  output Real Rcomp[div(n * (n + 1), 2)](each unit="Ohm/m") "Compact resistance matrix";
-  output Real Xcomp[div(n * (n + 1), 2)](each unit="Ohm/m") "Compact reactance matrix";
-  output Real Lcomp[div(n * (n + 1), 2)](each unit="H/m") "Compact inductance matrix";
+  output Real Rcomp[div(n * (n + 1), 2)](each final unit="Ohm/m") "Compact resistance matrix";
+  output Real Xcomp[div(n * (n + 1), 2)](each final unit="Ohm/m") "Compact reactance matrix";
+  output Real Lcomp[div(n * (n + 1), 2)](each final unit="H/m") "Compact inductance matrix";
 protected
   constant Complex j=Complex(0, 1) "Imaginary unit";
   Modelica.Units.SI.Distance D "Generic larger distance";
@@ -25,7 +25,7 @@ protected
   Modelica.Units.SI.Inductance L "Generic inductance";
   Real P "P Coefficient from Carson's original paper";
   Real Q "Q Coefficient from Carson's original paper";
-  Complex Z[n, n](re(each unit="Ohm/m"),im(each unit="Ohm/m")) "Computed matrix";
+  Complex Z[n, n](re(each final unit="Ohm/m"),im(each final unit="Ohm/m")) "Computed matrix";
   parameter Real a0=4*pi*sqrt(5)*1e-4*sqrt(f/rho)
     "Multiplies D in a-pameter from EMTPs Theory Book";
   //  a0*D=a; a is the same as r in Carson's paper

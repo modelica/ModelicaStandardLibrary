@@ -11,8 +11,8 @@ model TestLineZmatrix "Test model of LineZmatrix"
     k_s={0.287,0.287,0.287,0.779},
     f=60) "Line geometry" annotation (Placement(transformation(extent={{-10,-6},{10,14}})));
   String sC;
-  Real Rcomp[div(g.n*(g.n + 1), 2)] "Compacted matrix";
-  Real Xcomp[div(g.n*(g.n + 1), 2)] "Compacted matrix";
+  Real Rcomp[div(g.n*(g.n + 1), 2)](each final unit="Ohm/m") "Compacted resistance matrix";
+  Real Xcomp[div(g.n*(g.n + 1), 2)](each final unit="Ohm/m") "Compacted reactance matrix";
 protected
   Integer k;
 algorithm

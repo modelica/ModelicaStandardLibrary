@@ -9,13 +9,13 @@ function LineCmatrix
   input Modelica.Units.SI.Length x[n] "Horizontal abscissas of conductors";
   input Modelica.Units.SI.Length y[n] "Vertical abscissas of conductors";
   input Modelica.Units.SI.Radius r[n] "Conductors radii (m)";
-  output Real Ccompact[div(n*(n + 1), 2)](each unit="F/m") "Vector of capacitances";
-  output Real Pself(unit="F/m"), Pmutual(unit="F/m") "Transposed line self and mutual impedance";
+  output Real Ccompact[div(n*(n + 1), 2)](each final unit="F/m") "Vector of capacitances";
+  output Real Pself(final unit="F/m"), Pmutual(final unit="F/m") "Transposed line self and mutual impedance";
 protected
   constant Complex j = Complex(0, 1) "Imaginary unit";
-  constant Real K(unit="F/m") = 1 / (2 * pi * epsilon_0);
-  Real p[n, n](each unit="F/m") "Maxwell's potential matrix";
-  Real C[n, n](each unit="F/m") "Computed matrix";
+  constant Real K(final unit="F/m") = 1 / (2 * pi * epsilon_0);
+  Real p[n, n](each final unit="F/m") "Maxwell's potential matrix";
+  Real C[n, n](each final unit="F/m") "Computed matrix";
   Modelica.Units.SI.Distance D "Generic larger distance";
   Modelica.Units.SI.Distance d "Generic smaller distance";
   Integer k;
