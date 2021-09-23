@@ -1,30 +1,30 @@
 within Modelica.Electrical.Analog.Lines.Functions;
 function LineCmatrix
   "Compute matrix of transverse capacitances per metre of a multi-conductor line"
-  // Function created by Massimo Ceraolo from the University of Pisa on May 2021
-  import Modelica.Constants.*;
+  import Modelica.Constants.epsilon_0;
+  import Modelica.Constants.pi;
   import Modelica.ComplexMath;
   import Modelica.Utilities.Streams;
-  input Integer n "number of conductors in bundle";
-  input Real x[n] "horizontal abscissas of conductors (m)";
-  input Real y[n] "vertical abscissas of conductors (m)";
-  input Real r[n] "conductors radii (m)";
-  output Real Ccompact[div(n*(n + 1), 2)] "Vector of capacitances (F/m)";
-  output Real Pself, Pmutual "Transposed line self and mutual impedance";
+  input Integer n "Number of conductors in bundle";
+  input Modelica.Units.SI.Length x[n] "Horizontal abscissas of conductors";
+  input Modelica.Units.SI.Length y[n] "Vertical abscissas of conductors";
+  input Modelica.Units.SI.Radius r[n] "Conductors radii (m)";
+  output Real Ccompact[div(n*(n + 1), 2)](each unit="F/m") "Vector of capacitances";
+  output Real Pself(unit="F/m"), Pmutual(unit="F/m") "Transposed line self and mutual impedance";
 protected
   constant Complex j = Complex(0, 1) "Imaginary unit";
-  constant Real K = 1 / (2 * pi * epsilon_0);
-  Real p[n, n] "Maxwell's potential matrix";
-  Real C[n, n] "Computed matrix (F/m)";
-  Real D "generic larger distance";
-  Real d "generic smaller distance";
+  constant Real K(unit="V.m/(A.s)") = 1 / (2 * pi * epsilon_0);
+  Real p[n, n](each unit="V.m/(A.s)") "Maxwell's potential matrix";
+  Real C[n, n](each unit="F/m") "Computed matrix";
+  Modelica.Units.SI.Distance D "Generic larger distance";
+  Modelica.Units.SI.Distance d "Generic smaller distance";
   Integer k;
 algorithm
-//Diagonal elements of the potential matrix:
+  // Diagonal elements of the potential matrix:
   for i in 1:n loop
     p[i, i] := K * log(2 * y[i] / r[i]);
   end for;
-//Out-of Diagonal elements of the potential matrix:
+  // Out-of diagonal elements of the potential matrix:
   for i in 1:n loop
     for jj in 1:i - 1 loop
       d := sqrt((x[i] - x[jj]) ^ 2 + (y[i] - y[jj]) ^ 2);
@@ -37,9 +37,9 @@ algorithm
       p[i, jj] := p[jj, i];
     end for;
   end for;
-//The capacitance function is the inverse of the matrix of potentials
+  // The capacitance function is the inverse of the matrix of potentials
   C := Modelica.Math.Matrices.inv(p);
-//Select the elements needed by _Oline in a vetor which it can use directly
+  // Select the elements needed by _Oline in a vetor which it can use directly
   k := 0;
   for i in 1:n loop
     for j in i:n loop
@@ -47,7 +47,6 @@ algorithm
       Ccompact[k] := C[i, j];
     end for;
   end for;
-
   if n == 3 then
     Pself := 1 / 3 * (p[1, 1] + p[2, 2] + p[3, 3]);
     Pmutual := 1 / 3 * (p[1, 2] + p[2, 3] + p[3, 1]);
@@ -65,6 +64,6 @@ algorithm
 <li><em>May, 2021</em> 
         Massimo Ceraolo of the University of Pisa <br> 
         originally created</li> 
-</ul>		
+</ul>                
 </html>"));
 end LineCmatrix;
