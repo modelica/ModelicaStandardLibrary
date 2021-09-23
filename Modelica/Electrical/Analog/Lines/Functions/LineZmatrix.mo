@@ -1,7 +1,8 @@
 within Modelica.Electrical.Analog.Lines.Functions;
 function LineZmatrix
   "Compute matrix of longitudinal impedances per metre of a multi-conductor line"
-  import Modelica.Constants.*;
+  import Modelica.Constants.mu_0;
+  import Modelica.Constants.pi;
   import Modelica.ComplexMath;
   import Modelica.Utilities.Streams;
   input Integer n "Number of conductors in line";
