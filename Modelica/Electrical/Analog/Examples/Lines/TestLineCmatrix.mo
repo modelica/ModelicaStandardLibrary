@@ -53,7 +53,7 @@ algorithm
 7.30876&nbsp; -0.834876&nbsp; -0.275822
 7.29987&nbsp; -0.118934
 6.97273
-... &quot;TestLineCmatrix.mat&quot; creating (simulation result file)</span> </p>
+... &quot;TestLineCmatrix.mat&quot; creating (simulation result file)
 </pre></blockquote>
 </html>", revisions="<html>
 <ul>
