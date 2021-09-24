@@ -43,7 +43,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories=""
+				AdditionalIncludeDirectories="&quot;$(MODELICA_UTILITIES_INCLUDE)&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;MODELICAIO_EXPORTS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -106,7 +106,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories=""
+				AdditionalIncludeDirectories="&quot;$(MODELICA_UTILITIES_INCLUDE)&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;MODELICAIO_EXPORTS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -168,7 +168,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories=""
+				AdditionalIncludeDirectories="&quot;$(MODELICA_UTILITIES_INCLUDE)&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;MODELICAIO_EXPORTS;_CRT_SECURE_NO_WARNINGS"
 				RuntimeLibrary="0"
 				ProgramDataBaseFileName="$(IntDir)\$(ProjectName).pdb"
@@ -228,7 +228,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories=""
+				AdditionalIncludeDirectories="&quot;$(MODELICA_UTILITIES_INCLUDE)&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;MODELICAIO_EXPORTS;_CRT_SECURE_NO_WARNINGS"
 				RuntimeLibrary="0"
 				ProgramDataBaseFileName="$(IntDir)\$(ProjectName).pdb"
@@ -282,15 +282,11 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\..\C-Sources\ModelicaMatIO.h"
-				>
-			</File>
-			<File
 				RelativePath="..\..\C-Sources\ModelicaIO.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\C-Sources\ModelicaUtilities.h"
+				RelativePath="..\..\C-Sources\ModelicaMatIO.h"
 				>
 			</File>
 		</Filter>
@@ -301,4 +297,6 @@
 			>
 		</Filter>
 	</Files>
+	<Globals>
+	</Globals>
 </VisualStudioProject>

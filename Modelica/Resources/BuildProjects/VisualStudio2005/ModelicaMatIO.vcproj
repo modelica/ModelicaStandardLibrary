@@ -43,7 +43,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\C-Sources\zlib\"
+				AdditionalIncludeDirectories="&quot;$(MODELICA_UTILITIES_INCLUDE)&quot;;&quot;..\..\C-Sources\zlib\&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;MODELICAMATIO_EXPORTS;PSNIP_SAFE_FORCE_PORTABLE;HAVE_ZLIB=1"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -106,7 +106,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\C-Sources\zlib\"
+				AdditionalIncludeDirectories="&quot;$(MODELICA_UTILITIES_INCLUDE)&quot;;&quot;..\..\C-Sources\zlib\&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;MODELICAMATIO_EXPORTS;PSNIP_SAFE_FORCE_PORTABLE;HAVE_ZLIB=1"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -168,7 +168,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\C-Sources\zlib\"
+				AdditionalIncludeDirectories="&quot;$(MODELICA_UTILITIES_INCLUDE)&quot;;&quot;..\..\C-Sources\zlib\&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;MODELICAMATIO_EXPORTS;PSNIP_SAFE_FORCE_PORTABLE;_CRT_SECURE_NO_WARNINGS;HAVE_ZLIB=1"
 				RuntimeLibrary="0"
 				ProgramDataBaseFileName="$(IntDir)\$(ProjectName).pdb"
@@ -228,7 +228,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\C-Sources\zlib\"
+				AdditionalIncludeDirectories="&quot;$(MODELICA_UTILITIES_INCLUDE)&quot;;&quot;..\..\C-Sources\zlib\&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;MODELICAMATIO_EXPORTS;PSNIP_SAFE_FORCE_PORTABLE;_CRT_SECURE_NO_WARNINGS;HAVE_ZLIB=1"
 				RuntimeLibrary="0"
 				ProgramDataBaseFileName="$(IntDir)\$(ProjectName).pdb"
@@ -287,10 +287,6 @@
 			>
 			<File
 				RelativePath="..\..\C-Sources\ModelicaMatIO.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\C-Sources\ModelicaUtilities.h"
 				>
 			</File>
 		</Filter>
