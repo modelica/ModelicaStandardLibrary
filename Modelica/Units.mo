@@ -502,9 +502,9 @@ end UsersGuide;
         final quantity="Capacitance",
         final unit="F",
         min=0);
-    type CapacitancePerLength = Real (
-        final quantity="CapacitancePerLength",
-        final unit="F/m");
+    type CapacitancePerUnitLength = Real (
+        final quantity="CapacitancePerUnitLength",
+        final unit="F/m") "Shunt capacitance per unit length of wire/cable/line";
     type CapacitancePerArea =
                 Real (final quantity="CapacitancePerArea", final unit="F/m2")
       "Capacitance per area";
@@ -544,9 +544,9 @@ end UsersGuide;
         final unit="H");
     type SelfInductance = Inductance(min=0);
     type MutualInductance = Inductance;
-    type InductancePerLength = Real (
-        final quantity="InductancePerLength",
-        final unit="H/m");
+    type InductancePerUnitLength = Real (
+        final quantity="InductancePerUnitLength",
+        final unit="H/m") "Inductance per unit length of wire/cable/line";
     type CouplingCoefficient = Real (final quantity="CouplingCoefficient", final unit=
                "1");
     type LeakageCoefficient = Real (final quantity="LeakageCoefficient", final unit=
@@ -571,9 +571,9 @@ end UsersGuide;
     type Resistance = Real (
         final quantity="Resistance",
         final unit="Ohm");
-    type ResistancePerLength = Real (
-        final quantity="ResistancePerLength",
-        final unit="Ohm/m");
+    type ResistancePerUnitLength = Real (
+        final quantity="ResistancePerUnitLength",
+        final unit="Ohm/m") "Resistance per unit length of wire/cable/line";
     type Resistivity = Real (final quantity="Resistivity", final unit="Ohm.m");
     type Conductivity = Real (final quantity="Conductivity", final unit="S/m");
     type Reluctance = Real (final quantity="Reluctance", final unit="H-1");
@@ -583,10 +583,10 @@ end UsersGuide;
         final unit="rad",
         displayUnit="deg");
     type Impedance = Resistance;
-    type ImpedancePerLength = ResistancePerLength;
+    type ImpedancePerUnitLength = ResistancePerUnitLength "Impedance per unit length of wire/cable/line";
     type ModulusOfImpedance = Resistance;
     type Reactance = Resistance;
-    type ReactancePerLength = ResistancePerLength;
+    type ReactancePerUnitLength = ResistancePerUnitLength "Reactance per unit length of wire/cable/line";
     type QualityFactor = Real (final quantity="QualityFactor", final unit="1");
     type LossAngle = Real (
         final quantity="Angle",
@@ -595,14 +595,14 @@ end UsersGuide;
     type Conductance = Real (
         final quantity="Conductance",
         final unit="S");
-    type ConductancePerLength = Real (
-        final quantity="ConductancePerLength",
-        final unit="S/m");
+    type ConductancePerUnitLength = Real (
+        final quantity="ConductancePerUnitLength",
+        final unit="S/m") "Shunt conductance per unit length of wire/cable/line";
     type Admittance = Conductance;
-    type AdmittancePerLength = ConductancePerLength;
+    type AdmittancePerUnitLength = ConductancePerUnitLength "Shunt admittance per unit length of wire/cable/line";
     type ModulusOfAdmittance = Conductance;
     type Susceptance = Conductance;
-    type SusceptancePerLength = ConductancePerLength;
+    type SusceptancePerUnitLength = ConductancePerUnitLength "Shunt susceptance per unit length of wire/cable/line";
     type InstantaneousPower = Real (final quantity="Power", final unit="W");
     type ActivePower = Real (final quantity="Power", final unit="W");
     type ApparentPower = Real (final quantity="Power", final unit="V.A");
@@ -1164,18 +1164,18 @@ which is only valid in the rotor-fixed coordinate system.
       Complex(redeclare Resistance re "Real part of complex impedance (resistance)",
               redeclare Reactance im "Imaginary part of complex impedance (reactance)")
       "Complex impedance";
-    operator record ComplexImpedancePerLength =
-      Complex(redeclare ResistancePerLength re "Real part of complex impedance (resistance) per length",
-              redeclare ReactancePerLength im "Imaginary part of complex impedance (reactance) per length")
-      "Complex impedance per length";
+    operator record ComplexImpedancePerUnitLength =
+      Complex(redeclare ResistancePerUnitLength re "Real part of complex impedance (resistance) per unit length",
+              redeclare ReactancePerUnitLength im "Imaginary part of complex impedance (reactance) per unit length")
+      "Complex impedance per unit length of wire/cable/line";
     operator record ComplexAdmittance =
       Complex(redeclare Conductance re "Real part of complex admittance (conductance)",
               redeclare Susceptance im "Imaginary part of complex admittance (susceptance)")
       "Complex admittance";
-    operator record ComplexAdmittancePerLength =
-      Complex(redeclare ConductancePerLength re "Real part of complex admittance (conductance) per length",
-              redeclare SusceptancePerLength im "Imaginary part of complex admittance (susceptance) per length")
-      "Complex admittance per length";
+    operator record ComplexAdmittancePerUnitLength =
+      Complex(redeclare ConductancePerUnitLength re "Real part of complex shunt admittance (conductance) per unit length",
+              redeclare SusceptancePerUnitLength im "Imaginary part of complex shunt admittance (susceptance) per unit length")
+      "Complex shunt admittance per unit length of wire/cable/line";
     operator record ComplexPower =
       Complex(redeclare ActivePower re "Real part of complex apparent power (active power)",
               redeclare ReactivePower im "Imaginary part of complex apparent power (reactive power)")
