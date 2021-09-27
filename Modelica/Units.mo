@@ -504,7 +504,7 @@ end UsersGuide;
         min=0);
     type CapacitancePerUnitLength = Real (
         final quantity="CapacitancePerUnitLength",
-        final unit="F/m") "Shunt capacitance per unit length of wire/cable/line";
+        final unit="F/m") "Capacitance per unit length of wire/cable/line";
     type CapacitancePerArea =
                 Real (final quantity="CapacitancePerArea", final unit="F/m2")
       "Capacitance per area";
@@ -597,12 +597,12 @@ end UsersGuide;
         final unit="S");
     type ConductancePerUnitLength = Real (
         final quantity="ConductancePerUnitLength",
-        final unit="S/m") "Shunt conductance per unit length of wire/cable/line";
+        final unit="S/m") "Conductance per unit length of wire/cable/line";
     type Admittance = Conductance;
-    type AdmittancePerUnitLength = ConductancePerUnitLength "Shunt admittance per unit length of wire/cable/line";
+    type AdmittancePerUnitLength = ConductancePerUnitLength "Admittance per unit length of wire/cable/line";
     type ModulusOfAdmittance = Conductance;
     type Susceptance = Conductance;
-    type SusceptancePerUnitLength = ConductancePerUnitLength "Shunt susceptance per unit length of wire/cable/line";
+    type SusceptancePerUnitLength = ConductancePerUnitLength "Susceptance per unit length of wire/cable/line";
     type InstantaneousPower = Real (final quantity="Power", final unit="W");
     type ActivePower = Real (final quantity="Power", final unit="W");
     type ApparentPower = Real (final quantity="Power", final unit="V.A");
@@ -1173,9 +1173,9 @@ which is only valid in the rotor-fixed coordinate system.
               redeclare Susceptance im "Imaginary part of complex admittance (susceptance)")
       "Complex admittance";
     operator record ComplexAdmittancePerUnitLength =
-      Complex(redeclare ConductancePerUnitLength re "Real part of complex shunt admittance (conductance) per unit length",
-              redeclare SusceptancePerUnitLength im "Imaginary part of complex shunt admittance (susceptance) per unit length")
-      "Complex shunt admittance per unit length of wire/cable/line";
+      Complex(redeclare ConductancePerUnitLength re "Real part of complex admittance (conductance) per unit length",
+              redeclare SusceptancePerUnitLength im "Imaginary part of complex admittance (susceptance) per unit length")
+      "Complex admittance per unit length of wire/cable/line";
     operator record ComplexPower =
       Complex(redeclare ActivePower re "Real part of complex apparent power (active power)",
               redeclare ReactivePower im "Imaginary part of complex apparent power (reactive power)")
