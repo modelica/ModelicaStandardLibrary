@@ -1,6 +1,7 @@
 within Modelica.Electrical.QuasiStatic;
 package Machines "Quasi-static machine models"
   extends Modelica.Icons.Package;
+
   annotation (Icon(graphics={
         Rectangle(
           origin={0,14.817},
@@ -36,7 +37,7 @@ Copyright &copy; 1998-2020, Modelica Association and contributors
 </p>
 <h4>Note</h4>
 <p>
-Quasi-static DC machines are still operated with Dc voltage and current, whereas the quasi-static induction machines and transformers
+Quasi-static DC machines are still operated with DC voltage and current, whereas the quasi-static induction machines and transformers
 are operated with sinusoidal voltages and currents represented by time phasors. Quasi-static theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.References\">references</a>.
 Quasi-static DC machine models therefore are part of the
