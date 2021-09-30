@@ -32,11 +32,11 @@ package BasicMachines "Basic machine models"
 <p>This package contains components for modeling quasi-static electrical induction machines, based on space phasor theory:</p>
 <ul>
 <li>package Transformers: quasi-static three-phase transformers (see detailed documentation in subpackage)</li>
-<li>package Components: components for quasi-static modeling machines and transformers</li>
+<li>package Components: components for quasi-static modeling of transformers</li>
 </ul>
 <h4>Note</h4>
 <p>
-Quasi-static AC machines (induction machines and synchronous machines) based on space phasor therory are planned but not yet implemented. 
+Quasi-static AC machines (induction machines and synchronous machines) based on space phasor therory are not implemented. 
 Use <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave\">quasi-static fundamental wave machines</a> instead. 
 Fundamental wave machines (transient and quasi-static) are compatible with models based on space phasor theory with respect to connectors and parameters.
 For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a>.
