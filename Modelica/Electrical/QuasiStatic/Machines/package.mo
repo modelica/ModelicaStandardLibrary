@@ -1,7 +1,6 @@
 within Modelica.Electrical.QuasiStatic;
 package Machines "Quasi-static machine models"
   extends Modelica.Icons.Package;
-
   annotation (Icon(graphics={
         Rectangle(
           origin={0,14.817},
