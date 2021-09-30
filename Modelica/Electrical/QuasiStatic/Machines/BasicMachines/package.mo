@@ -28,12 +28,17 @@ package BasicMachines "Basic machine models"
           fillPattern=FillPattern.Solid,
           points={{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{
               60,-100},{-70,-100},{-70,-90}})}), Documentation(info="<html>
-This package contains components for modeling quasi-static electrical induction machines, based on space phasor theory:
+<p>This package contains components for modeling quasi-static electrical induction machines, based on space phasor theory:</p>
 <ul>
-<li>package InductionMachines: quasi-static models of three-phase induction machines</li>
-<li>package SynchronousMachines: quasi-static models of three-phase synchronous machines</li>
 <li>package Transformers: quasi-static three-phase transformers (see detailed documentation in subpackage)</li>
-<li>package Components: components for quasi-static modeling machines and transformers</li>
+<li>package Components: components for quasi-static modeling of transformers</li>
 </ul>
+<h4>Note</h4>
+<p>
+Quasi-static AC machines (induction machines and synchronous machines) based on space phasor therory are not implemented. 
+Use <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave\">quasi-static fundamental wave machines</a> instead. 
+Fundamental wave machines (transient and quasi-static) are compatible with models based on space phasor theory with respect to connectors and parameters.
+For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a>.
+</p>
 </html>"));
 end BasicMachines;
