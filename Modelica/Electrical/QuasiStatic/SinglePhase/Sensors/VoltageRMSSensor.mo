@@ -1,25 +1,24 @@
 within Modelica.Electrical.QuasiStatic.SinglePhase.Sensors;
-model CurrentSensor "Current sensor"
+model VoltageRMSSensor "Continuous voltage RMS sensor for single-phase system"
   extends Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.RelativeSensorElementary;
-  Modelica.ComplexBlocks.Interfaces.ComplexOutput i(re(unit = "A"), im(unit = "A")) "Complex current" annotation (Placement(
-        transformation(
-        origin={0,-110},
-        extent={{-10,-10},{10,10}},
-        rotation=270), iconTransformation(
-        extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={0,-110})));
-  SI.Current abs_i=Modelica.ComplexMath.abs(i) "Magnitude of complex current";
-  SI.Angle arg_i=Modelica.ComplexMath.arg(i) "Argument of complex current";
+  Modelica.Blocks.Interfaces.RealOutput V(unit="V")
+    "Continuous average RMS of voltage" annotation(
+    Placement(transformation(origin = {0, -110}, extent = {{-10, -10}, {10, 10}}, rotation = -90), iconTransformation(origin = {0, -110}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   SI.ComplexVoltage v "Complex voltage";
+  SI.ComplexCurrent i "Complex current";
 equation
-  i = pin_p.i;
+  V = sqrt(v.re^2 + v.im^2);
   v = pin_p.v - pin_n.v;
-  v = Complex(0,0);
+  i = pin_p.i;
+  i = Complex(0,0);
   annotation (Documentation(info="<html>
 <p>
-This sensor can be used to measure the complex current.
+This sensor determines the continuous root mean square (<a href=\"modelica://Modelica.Electrical.QuasiStatic.UsersGuide.Overview.Introduction\">RMS</a>)
+value of a single-phase voltage system.
 </p>
+<blockquote><pre>
+V = abs(v)
+</pre></blockquote>
 
 <h4>See also</h4>
 
@@ -28,7 +27,7 @@ This sensor can be used to measure the complex current.
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.FrequencySensor\">FrequencySensor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PotentialSensor\">PotentialSensor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageSensor\">VoltageSensor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageRMSSensor\">VoltageRMSSensor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentSensor\">CurrentSensor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentRMSSensor\">CurrentRMSSensor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor\">PowerSensor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.MultiSensor\">MultiSensor</a>
@@ -36,9 +35,7 @@ This sensor can be used to measure the complex current.
 
 </html>"),
        Icon(graphics={
-        Text(
-          extent={{-30,-10},{30,-70}},
-          textColor={64,64,64},
-          textString="A"),
-        Line(points={{-70,0},{70,0}},   color={85,170,255})}));
-end CurrentSensor;
+        Text(textColor = {64, 64, 64}, extent = {{-30, -10}, {30, -70}}, textString = "V"),
+        Line(points={{-100,0},{-70,0}}, color={85,170,255}),
+        Line(points={{70,0},{100,0}},   color={85,170,255})}));
+end VoltageRMSSensor;
