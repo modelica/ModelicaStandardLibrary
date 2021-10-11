@@ -46,13 +46,13 @@ partial model PartialControlledDCPM
         origin={30,80})));
   LimitedPI currentController(
     constantLimits=false,
-    k=driveData.kpI,
+    k(unit="")=driveData.kpI,
     Ti=driveData.TiI,
-    KFF=driveData.kPhi,
+    KFF(unit="")=driveData.kPhi,
     initType=Modelica.Blocks.Types.Init.InitialOutput,
     useFF=true)
     annotation (Placement(transformation(extent={{-50,-20},{-30,0}})));
-  Modelica.Blocks.Math.Gain tau2i(k=1/driveData.kPhi) annotation (Placement(
+  Modelica.Blocks.Math.Gain tau2i(k(unit="")=1/driveData.kPhi) annotation (Placement(
         transformation(
         extent={{10,-10},{-10,10}},
         rotation=180,

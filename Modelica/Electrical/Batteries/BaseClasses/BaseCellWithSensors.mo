@@ -24,7 +24,7 @@ partial model BaseCellWithSensors "Partial cell with sensors"
   Modelica.Electrical.Analog.Sensors.MultiSensor multiSensor
     annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
   Modelica.Blocks.Continuous.LimIntegrator limIntegrator(
-    k=1/cellData.Qnom,
+    k(unit="")=1/cellData.Qnom,
     outMax=1 - SOCtolerance,
     outMin=SOCtolerance,
     initType=Modelica.Blocks.Types.Init.InitialOutput,

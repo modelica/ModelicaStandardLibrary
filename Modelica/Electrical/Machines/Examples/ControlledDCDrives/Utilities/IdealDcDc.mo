@@ -28,7 +28,7 @@ model IdealDcDc "Ideal DC-DC inverter"
   Modelica.Blocks.Continuous.Integrator powerController(
     initType=Modelica.Blocks.Types.Init.InitialOutput,
     y_start=0,
-    k=1/Ti) annotation (Placement(transformation(extent={{30,10},{10,30}})));
+    k(unit="")=1/Ti) annotation (Placement(transformation(extent={{30,10},{10,30}})));
   Modelica.Electrical.Analog.Basic.Ground groundMotor annotation (Placement(
         transformation(
         extent={{-10,10},{10,-10}},

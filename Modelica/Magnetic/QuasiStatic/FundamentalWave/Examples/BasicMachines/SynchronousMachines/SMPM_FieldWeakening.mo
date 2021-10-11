@@ -85,9 +85,9 @@ model SMPM_FieldWeakening
   ExampleUtilities.FieldWeakeningController fieldWeakeningController(VNominal=
         VNominal, IMax=INominal)
     annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
-  Blocks.Math.Gain gainCurrent(k=INominal)
+  Blocks.Math.Gain gainCurrent(k(unit="")=INominal)
     annotation (Placement(transformation(extent={{-70,30},{-50,50}})));
-  Blocks.Math.Gain gainSpeed(k=wNominal)
+  Blocks.Math.Gain gainSpeed(k(unit="")=wNominal)
     annotation (Placement(transformation(extent={{-70,-90},{-50,-70}})));
   Blocks.Sources.Ramp     iqRef(
     height=1,

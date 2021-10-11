@@ -70,8 +70,8 @@ block LimitedPI
 
   Modelica.Blocks.Math.Add addAntiWindup(k1=1, k2=-1/k)
     annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
-  Modelica.Blocks.Continuous.Integrator integrator(k=1/Ti, initType=Modelica.Blocks.Types.Init.NoInit) if useI
-    annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
+  Modelica.Blocks.Continuous.Integrator integrator(k(unit="")=1/Ti, initType=Modelica.Blocks.Types.Init.NoInit) 
+    if useI annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
   Modelica.Blocks.Math.Add3 add3(
     k1=k,
     k2=k,

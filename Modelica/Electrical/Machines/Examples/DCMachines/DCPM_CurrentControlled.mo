@@ -77,7 +77,7 @@ model DCPM_CurrentControlled
     annotation (Placement(transformation(extent={{-20,50},{0,70}})));
   Blocks.Continuous.LimPID PID(withFeedForward=true, initType=Modelica.Blocks.Types.Init.InitialOutput,
     controllerType=Modelica.Blocks.Types.SimpleController.PI,
-    k=k,
+    k(unit="")=k,
     Ti=Ti,
     yMax=dcpmData.VaNominal,
     kFF=kPhi)

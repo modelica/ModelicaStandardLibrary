@@ -16,7 +16,7 @@ partial model BaseCellStack
   Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor
     annotation (Placement(transformation(extent={{-90,10},{-70,-10}})));
   Blocks.Continuous.LimIntegrator limIntegrator(
-    final k=1/(Np*cellData.Qnom),
+    final k(unit="")=1/(Np*cellData.Qnom),
     outMax=1 - SOCtolerance,
     outMin=SOCtolerance,
       final initType=Modelica.Blocks.Types.Init.NoInit) annotation (
@@ -29,7 +29,7 @@ partial model BaseCellStack
     final smoothness=cellData.smoothness,
     extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint)
     annotation (Placement(transformation(extent={{-70,40},{-50,60}})));
-  Modelica.Blocks.Math.Gain gainV(final k=Ns*cellData.OCVmax) annotation (
+  Modelica.Blocks.Math.Gain gainV(final k(unit="")=Ns*cellData.OCVmax) annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,

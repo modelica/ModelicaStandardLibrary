@@ -80,7 +80,8 @@ public
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={60,-60})));
-  Blocks.Math.Gain gravForceGain(final k=-m*g) annotation (Placement(transformation(
+  Blocks.Math.Gain gravForceGain(final k(unit="")=-m*g) 
+    annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         origin={20,30})));
 protected

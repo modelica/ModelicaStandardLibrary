@@ -14,7 +14,7 @@ block VoltageToAngle "Reference voltage to firing angle converter"
     max=pi,
     start=pi) "Firing angle"
     annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-  Modelica.Blocks.Math.Gain gain_v(final k=1/VNominal)
+  Modelica.Blocks.Math.Gain gain_v(final k(unit="")=1/VNominal)
     annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
   Modelica.Blocks.Nonlinear.Limiter limiter(final uMax=1, final uMin=0)
     annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));

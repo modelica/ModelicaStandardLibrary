@@ -66,7 +66,7 @@ model Vehicle "One-dimensional vehicle with driving resistances"
     annotation (Placement(transformation(extent={{0,-10},{20,10}})));
   Rotational.Sources.Torque torque1
     annotation (Placement(transformation(extent={{0,40},{20,60}})));
-  Modelica.Blocks.Math.Gain gain(k=(fDrag + fRoll + fGrav)*R)
+  Modelica.Blocks.Math.Gain gain(k(unit="")=(fDrag + fRoll + fGrav)*R)
     annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
   Blocks.Math.Gain gain1(k=2)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
