@@ -780,6 +780,7 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
 
   model UnitDeduction "Test unit deduction"
     extends Modelica.Icons.Example;
+    parameter Real k(unit="1")=1 "Propagated to relevant blocks";
     Modelica.Blocks.Continuous.Integrator integrator
       annotation (Placement(transformation(extent={{0,30},{20,50}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia(
@@ -789,27 +790,30 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
     Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor
       annotation (Placement(transformation(extent={{-50,60},{-30,80}})));
-    Modelica.Blocks.Math.Gain gain(k=2)
+    Modelica.Blocks.Math.Gain gain(k=2*k)
       annotation (Placement(transformation(extent={{0,80},{20,100}})));
-    Modelica.Blocks.Continuous.LimIntegrator limIntegrator(outMax=3)
+    Modelica.Blocks.Continuous.LimIntegrator limIntegrator(outMax=3, k=k)
       annotation (Placement(transformation(extent={{0,0},{20,20}})));
-    Modelica.Blocks.Continuous.Derivative derivative(initType=Modelica.Blocks.Types.Init.InitialState)
+    Modelica.Blocks.Continuous.Derivative derivative(k=k, initType=Modelica.Blocks.Types.Init.InitialState)
       annotation (Placement(transformation(extent={{0,-30},{20,-10}})));
-    Modelica.Blocks.Continuous.FirstOrder firstOrder(T=2, initType=Modelica.Blocks.Types.Init.InitialState)
+    Modelica.Blocks.Continuous.FirstOrder firstOrder(k=k, T=2, initType=Modelica.Blocks.Types.Init.InitialState)
       annotation (Placement(transformation(extent={{0,-60},{20,-40}})));
     Modelica.Blocks.Continuous.SecondOrder secondOrder(
+      k=k,
       w=2,
       D=3,
       initType=Modelica.Blocks.Types.Init.InitialState)
       annotation (Placement(transformation(extent={{0,-90},{20,-70}})));
-    Modelica.Blocks.Continuous.PI PI(T=2, initType=Modelica.Blocks.Types.Init.InitialState)
+    Modelica.Blocks.Continuous.PI PI(T=2, k=k, initType=Modelica.Blocks.Types.Init.InitialState)
       annotation (Placement(transformation(extent={{60,60},{80,80}})));
     Modelica.Blocks.Continuous.PID PID(
+      k=k,
       Ti=2,
       Td=3,
       initType=Modelica.Blocks.Types.Init.InitialState)
       annotation (Placement(transformation(extent={{60,30},{80,50}})));
     Modelica.Blocks.Continuous.LimPID PID1(
+      k=k,
       Ti=2,
       Td=3,
       yMax=4,
