@@ -7,7 +7,7 @@ package Continuous "Library of continuous control blocks with internal states"
 
   block Integrator "Output the integral of the input signal with optional reset"
     import Modelica.Blocks.Types.Init;
-    parameter Real k(unit="1")=1 "Integrator gain";
+    parameter Real k=1 "Integrator gain";
     parameter Boolean use_reset = false "= true, if reset port enabled"
       annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Boolean use_set = false "= true, if set port enabled and used as reinitialization value when reset"
