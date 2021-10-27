@@ -1423,31 +1423,40 @@ Specific entropy of moist air is computed from pressure, temperature and composi
     extends Modelica.Icons.UtilitiesPackage;
     function spliceFunction "Spline interpolation of two functions"
       extends Modelica.Icons.Function;
+      import Modelica.Constants.pi;
+      import Modelica.Math.tan;
+      import Modelica.Math.tanh;
       input Real pos "Returned value for x-deltax >= 0";
       input Real neg "Returned value for x+deltax <= 0";
       input Real x "Function argument";
       input Real deltax=1 "Region around x with spline interpolation";
       output Real out;
     protected
-      Real scaledX;
-      Real scaledX1;
+      Real scaledX1 "x scaled to -1 ... 1 interval";
+      Real scaledXp "x scaled to -pi/2 ... pi/2 interval";
+      Real scaledXt "x scaled to -inf ... inf interval";
       Real y;
     algorithm
       scaledX1 := x/deltax;
-      scaledX := scaledX1*Modelica.Math.asin(1);
       if scaledX1 <= -0.999999999 then
-        y := 0;
+        y := 0.0;
       elseif scaledX1 >= 0.999999999 then
-        y := 1;
+        y := 1.0;
       else
-        y := (Modelica.Math.tanh(Modelica.Math.tan(scaledX)) + 1)/2;
+        scaledXp := scaledX1*0.5*pi;
+        scaledXt := tan(scaledXp);
+        y := 0.5*tanh(scaledXt) + 0.5;
       end if;
-      out := pos*y + (1 - y)*neg;
+      out := pos*y + (1.0 - y)*neg;
+
       annotation (derivative=spliceFunction_der);
     end spliceFunction;
 
     function spliceFunction_der "Derivative of spliceFunction"
       extends Modelica.Icons.Function;
+      import Modelica.Constants.pi;
+      import Modelica.Math.tan;
+      import Modelica.Math.tanh;
       input Real pos;
       input Real neg;
       input Real x;
@@ -1458,26 +1467,27 @@ Specific entropy of moist air is computed from pressure, temperature and composi
       input Real ddeltax=0;
       output Real out;
     protected
-      Real scaledX;
-      Real scaledX1;
+      Real scaledX1 "x scaled to -1 ... 1 interval";
+      Real scaledXp "x scaled to -pi/2 ... pi/2 interval";
+      Real scaledXt "x scaled to -inf ... inf interval";
       Real dscaledX1;
       Real y;
     algorithm
       scaledX1 := x/deltax;
-      scaledX := scaledX1*Modelica.Math.asin(1);
-      dscaledX1 := (dx - scaledX1*ddeltax)/deltax;
-      if scaledX1 <= -0.99999999999 then
-        y := 0;
+      if scaledX1 <= -0.9999999999 then
+        y := 0.0;
       elseif scaledX1 >= 0.9999999999 then
-        y := 1;
+        y := 1.0;
       else
-        y := (Modelica.Math.tanh(Modelica.Math.tan(scaledX)) + 1)/2;
+        scaledXp := scaledX1*0.5*pi;
+        scaledXt := tan(scaledXp);
+        y := 0.5*tanh(scaledXt) + 0.5;
       end if;
       out := dpos*y + (1 - y)*dneg;
+
       if (abs(scaledX1) < 1) then
-        out := out + (pos - neg)*dscaledX1*Modelica.Math.asin(1)/2/(
-          Modelica.Math.cosh(Modelica.Math.tan(scaledX))*Modelica.Math.cos(
-          scaledX))^2;
+        dscaledX1 := (dx - scaledX1*ddeltax)/deltax;
+        out := out + (pos - neg)*dscaledX1*0.25*pi*(1 - tanh(scaledXt)^2)*(scaledXt^2 + 1);
       end if;
     end spliceFunction_der;
 
