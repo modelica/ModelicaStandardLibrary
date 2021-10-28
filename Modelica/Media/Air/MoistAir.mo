@@ -1423,9 +1423,6 @@ Specific entropy of moist air is computed from pressure, temperature and composi
     extends Modelica.Icons.UtilitiesPackage;
     function spliceFunction "Spline interpolation of two functions"
       extends Modelica.Icons.Function;
-      import Modelica.Constants.pi;
-      import Modelica.Math.tan;
-      import Modelica.Math.tanh;
       input Real pos "Returned value for x-deltax >= 0";
       input Real neg "Returned value for x+deltax <= 0";
       input Real x "Function argument";
@@ -1443,9 +1440,9 @@ Specific entropy of moist air is computed from pressure, temperature and composi
       elseif scaledX1 >= 0.999999999 then
         y := 1.0;
       else
-        scaledXp := scaledX1*0.5*pi;
-        scaledXt := tan(scaledXp);
-        y := 0.5*tanh(scaledXt) + 0.5;
+        scaledXp := scaledX1*0.5*Modelica.Constants.pi;
+        scaledXt := Modelica.Math.tan(scaledXp);
+        y := 0.5*Modelica.Math.tanh(scaledXt) + 0.5;
       end if;
       out := pos*y + (1.0 - y)*neg;
 
@@ -1454,9 +1451,6 @@ Specific entropy of moist air is computed from pressure, temperature and composi
 
     function spliceFunction_der "Derivative of spliceFunction"
       extends Modelica.Icons.Function;
-      import Modelica.Constants.pi;
-      import Modelica.Math.tan;
-      import Modelica.Math.tanh;
       input Real pos;
       input Real neg;
       input Real x;
@@ -1479,15 +1473,15 @@ Specific entropy of moist air is computed from pressure, temperature and composi
       elseif scaledX1 >= 0.9999999999 then
         y := 1.0;
       else
-        scaledXp := scaledX1*0.5*pi;
-        scaledXt := tan(scaledXp);
-        y := 0.5*tanh(scaledXt) + 0.5;
+        scaledXp := scaledX1*0.5*Modelica.Constants.pi;
+        scaledXt := Modelica.Math.tan(scaledXp);
+        y := 0.5*Modelica.Math.tanh(scaledXt) + 0.5;
       end if;
       out := dpos*y + (1 - y)*dneg;
 
       if (abs(scaledX1) < 1) then
         dscaledX1 := (dx - scaledX1*ddeltax)/deltax;
-        out := out + (pos - neg)*dscaledX1*0.25*pi*(1 - tanh(scaledXt)^2)*(scaledXt^2 + 1);
+        out := out + (pos - neg)*dscaledX1*0.25*Modelica.Constants.pi*(1 - Modelica.Math.tanh(scaledXt)^2)*(scaledXt^2 + 1);
       end if;
     end spliceFunction_der;
 
