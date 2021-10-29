@@ -1907,9 +1907,8 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
           "Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction"
 
         algorithm
-          assert(false, "function massFlowRate_dp (option: from_dp=true)
-cannot be used for WallFriction.NoFriction. Use instead
-function pressureLoss_m_flow (option: from_dp=false)");
+          assert(false, "Function cannot be used. Use instead
+function pressureLoss_m_flow (option: from_dp=false) for WallFriction.NoFriction.");
           annotation (Documentation(info="<html>
 
 </html>"));
@@ -1929,9 +1928,8 @@ function pressureLoss_m_flow (option: from_dp=false)");
           "Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction and static head"
 
         algorithm
-          assert(false, "function massFlowRate_dp (option: from_dp=true)
-cannot be used for WallFriction.NoFriction. Use instead
-function pressureLoss_m_flow (option: from_dp=false)");
+          assert(false, "Function cannot be used. Use instead
+function pressureLoss_m_flow (option: from_dp=false) for WallFriction.NoFriction.");
           annotation (Documentation(info="<html>
 
 </html>"));
