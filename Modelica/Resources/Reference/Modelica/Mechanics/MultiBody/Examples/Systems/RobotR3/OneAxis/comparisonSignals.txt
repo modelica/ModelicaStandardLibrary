@@ -7,5 +7,3 @@ axis.initializeFlange.w_flange
 axis.motor.C.v
 axis.motor.La.i
 axis.gear.bearingFriction.mode
-axis.gear.bearingFriction.startBackward
-axis.gear.bearingFriction.startForward
