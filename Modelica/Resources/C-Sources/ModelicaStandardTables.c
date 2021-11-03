@@ -2082,7 +2082,7 @@ void* ModelicaStandardTables_CombiTable1D_init2(_In_z_ const char* fileName,
                                                 int verbose) {
     return ModelicaStandardTables_CombiTable1D_init3(fileName, tableName,
         table, nRow, nColumn, columns, nCols, smoothness, extrapolation,
-        1 /* verbose */, ",", 0);
+        verbose, ",", 0);
 }
 
 void* ModelicaStandardTables_CombiTable1D_init3(_In_z_ const char* fileName,
@@ -2888,7 +2888,7 @@ void* ModelicaStandardTables_CombiTable2D_init2(_In_z_ const char* fileName,
                                                 int extrapolation,
                                                 int verbose) {
     return ModelicaStandardTables_CombiTable2D_init3(fileName, tableName,
-        table, nRow, nColumn, smoothness, extrapolation, 1 /* verbose */, ",", 0);
+        table, nRow, nColumn, smoothness, extrapolation, verbose, ",", 0);
 }
 
 void* ModelicaStandardTables_CombiTable2D_init3(_In_z_ const char* fileName,
