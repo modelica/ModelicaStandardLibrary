@@ -1125,4 +1125,84 @@ double mydummyfunc(double dummy_in) {
         points={{-59,-10},{-52,-10},{-52,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=14));
   end Test33;
+  
+  model OneSidedDerivative2D "Test of one sided derivatives in 2D-tables"
+    // We are diagonally sliding through the table
+    extends Modelica.Icons.Example;
+    parameter Real M0[:,:]=[0,-10,1,2,10; -10,2,2,3,4; 1,2,2,3,3; 2,3,3,4,4; 10,3,
+        3,4,4];
+    parameter Real M[:,:]=[M0[1:1,1:1],M0[1:1,3:end-1];M0[3:end-1,1],M0[3:end-1,3:end-1]];
+    Modelica.Blocks.Sources.Ramp ramp(
+      height=1,
+      duration=1,
+      offset=1)
+      annotation (Placement(transformation(extent={{-76,12},{-56,32}})));
+    Modelica.Blocks.Sources.Ramp ramp1(
+      height=-1,
+      duration=1,
+      offset=2)
+      annotation (Placement(transformation(extent={{-80,-36},{-60,-16}})));
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2Ds1(
+      tableOnFile=false,
+      table=M,
+      smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments,
+      extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint)
+      annotation (Placement(transformation(extent={{40,20},{60,40}})));
+    Modelica.Blocks.Continuous.Der der1
+      annotation (Placement(transformation(extent={{80,20},{100,40}})));
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2Ds2(
+      tableOnFile=false,
+      table=M0,
+      smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments,
+      extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints)
+      annotation (Placement(transformation(extent={{40,60},{60,80}})));
+    Modelica.Blocks.Continuous.Der der2
+      annotation (Placement(transformation(extent={{80,60},{100,80}})));
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2Ds3(
+      tableOnFile=false,
+      table=M,
+      smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments,
+      extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint)
+      annotation (Placement(transformation(extent={{40,-80},{60,-60}})));
+    Modelica.Blocks.Continuous.Der der3
+      annotation (Placement(transformation(extent={{80,-80},{100,-60}})));
+    Modelica.Blocks.Tables.CombiTable2Ds combiTable2Ds4(
+      tableOnFile=false,
+      table=M0,
+      smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments,
+      extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints)
+      annotation (Placement(transformation(extent={{40,-40},{60,-20}})));
+    Modelica.Blocks.Continuous.Der der4
+      annotation (Placement(transformation(extent={{80,-40},{100,-20}})));
+  equation
+    connect(combiTable2Ds1.y, der1.u)
+      annotation (Line(points={{61,30},{78,30}},   color={0,0,127}));
+    connect(combiTable2Ds2.y, der2.u)
+      annotation (Line(points={{61,70},{78,70}}, color={0,0,127}));
+    connect(ramp.y, combiTable2Ds2.u1) annotation (Line(points={{-55,22},{14,22},
+            {14,76},{38,76}}, color={0,0,127}));
+    connect(ramp.y, combiTable2Ds1.u1) annotation (Line(points={{-55,22},{14,22},
+            {14,36},{38,36}}, color={0,0,127}));
+    connect(ramp1.y, combiTable2Ds2.u2) annotation (Line(points={{-59,-26},{20,
+            -26},{20,64},{38,64}}, color={0,0,127}));
+    connect(ramp1.y, combiTable2Ds1.u2) annotation (Line(points={{-59,-26},{20,
+            -26},{20,24},{38,24}}, color={0,0,127}));
+    connect(combiTable2Ds3.y,der3. u)
+      annotation (Line(points={{61,-70},{78,-70}}, color={0,0,127}));
+    connect(combiTable2Ds4.y, der4.u)
+      annotation (Line(points={{61,-30},{78,-30}}, color={0,0,127}));
+    connect(ramp.y, combiTable2Ds4.u2) annotation (Line(points={{-55,22},{14,22},
+            {14,-36},{38,-36}}, color={0,0,127}));
+    connect(combiTable2Ds3.u2, combiTable2Ds4.u2) annotation (Line(points={{38,
+            -76},{14,-76},{14,-36},{38,-36}}, color={0,0,127}));
+    connect(combiTable2Ds4.u1, combiTable2Ds2.u2) annotation (Line(points={{38,
+            -24},{30,-24},{30,-22},{20,-22},{20,64},{38,64}}, color={0,0,127}));
+    connect(combiTable2Ds3.u1, combiTable2Ds2.u2) annotation (Line(points={{38,
+            -64},{20,-64},{20,64},{38,64}}, color={0,0,127}));
+    annotation (
+      experiment(
+        StartTime=-1,
+        StopTime=4));
+  end OneSidedDerivative2D;
+
 end CombiTable2Ds;

@@ -39,6 +39,14 @@
       Modelica.Blocks.Tables.CombiTable2Dv
 
    Changelog:
+   
+      Jan. 31, 2022: by Hans Olsson
+                     Added better support for one-sided derivatives of 2d-tables.
+                     The idea is that when we are computing the derivative at a boundary
+                     in the table we should consider the der-value to choose side.
+                     This is less important for 1d-tables and thus ignored in those cases.
+                     (ticket #3893 )
+                     
       Nov. 12, 2021: by Thomas Beutlich
                      Fixed derivatives in CombiTable2D for one-sided extrapolation
                      by constant continuation (ticket #3894)
@@ -4217,6 +4225,8 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
         const double u1Max = TABLE_COL0(nRow - 1);
         const double u2Min = TABLE_ROW0(1);
         const double u2Max = TABLE_ROW0(nCol - 1);
+        const double du1 = der_u1 > 0 ? u1*DBL_EPSILON : -u1*DBL_EPSILON;
+        const double du2 = der_u2 > 0 ? u2*DBL_EPSILON : -u2*DBL_EPSILON;
 
         if (nRow == 2) {
             if (nCol > 2) {
@@ -4238,20 +4248,20 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                         } while (u2 > u2Max);
                     }
                     last2 = findColIndex(&TABLE(0, 1), nCol - 1,
-                        tableID->last2, u2);
+                        tableID->last2, u2 + du2);
                     tableID->last2 = last2;
                 }
-                else if (u2 < u2Min) {
+                else if (u2 + du2 < u2Min) {
                     extrapolate2 = LEFT;
                     last2 = 0;
                 }
-                else if (u2 > u2Max) {
+                else if (u2 + du2 > u2Max) {
                     extrapolate2 = RIGHT;
                     last2 = nCol - 3;
                 }
                 else {
                     last2 = findColIndex(&TABLE(0, 1), nCol - 1,
-                        tableID->last2, u2);
+                        tableID->last2, u2 + du2);
                     tableID->last2 = last2;
                 }
 
@@ -4383,20 +4393,20 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                     } while (u1 > u1Max);
                 }
                 last1 = findRowIndex(&TABLE(1, 0), nRow - 1, nCol,
-                    tableID->last1, u1);
+                    tableID->last1, u1 + du1);
                 tableID->last1 = last1;
             }
-            else if (u1 < u1Min) {
+            else if (u1 + du1 < u1Min) {
                 extrapolate1 = LEFT;
                 last1 = 0;
             }
-            else if (u1 > u1Max) {
+            else if (u1 + du1 > u1Max) {
                 extrapolate1 = RIGHT;
                 last1 = nRow - 3;
             }
             else {
                 last1 = findRowIndex(&TABLE(1, 0), nRow - 1, nCol,
-                    tableID->last1, u1);
+                    tableID->last1, u1 + du1);
                 tableID->last1 = last1;
             }
             if (nCol == 2) {
@@ -4527,20 +4537,20 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                         } while (u2 > u2Max);
                     }
                     last2 = findColIndex(&TABLE(0, 1), nCol - 1,
-                        tableID->last2, u2);
+                        tableID->last2, u2 + du2);
                     tableID->last2 = last2;
                 }
-                else if (u2 < u2Min) {
+                else if (u2 + du2 < u2Min) {
                     extrapolate2 = LEFT;
                     last2 = 0;
                 }
-                else if (u2 > u2Max) {
+                else if (u2 + du2 > u2Max) {
                     extrapolate2 = RIGHT;
                     last2 = nCol - 3;
                 }
                 else {
                     last2 = findColIndex(&TABLE(0, 1), nCol - 1,
-                        tableID->last2, u2);
+                        tableID->last2, u2 + du2);
                     tableID->last2 = last2;
                 }
 
@@ -5138,6 +5148,8 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
         const double u1Max = TABLE_COL0(nRow - 1);
         const double u2Min = TABLE_ROW0(1);
         const double u2Max = TABLE_ROW0(nCol - 1);
+        const double du1 = (der_u1 > 0) || (der_u1==0 && der2_u1>0) ? u1*DBL_EPSILON : -u1*DBL_EPSILON;
+        const double du2 = (der_u2 > 0) || (der_u2==0 && der2_u2>0) ? u2*DBL_EPSILON : -u2*DBL_EPSILON;
 
         if (nRow == 2) {
             if (nCol > 2) {
@@ -5159,7 +5171,7 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
                         } while (u2 > u2Max);
                     }
                     last2 = findColIndex(&TABLE(0, 1), nCol - 1,
-                        tableID->last2, u2);
+                        tableID->last2, u2 + du2);
                     tableID->last2 = last2;
                 }
                 else if (u2 < u2Min) {
@@ -5172,7 +5184,7 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
                 }
                 else {
                     last2 = findColIndex(&TABLE(0, 1), nCol - 1,
-                        tableID->last2, u2);
+                        tableID->last2, u2 + du2);
                     tableID->last2 = last2;
                 }
 
