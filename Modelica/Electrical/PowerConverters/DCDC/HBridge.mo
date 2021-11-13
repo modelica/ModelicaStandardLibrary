@@ -162,6 +162,6 @@ See examples <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.D
 If both versions are provided with the same (complementary) fire signals, identical results are obtained. 
 Additionally, two more switching states are possible: 
 fire_p = fire_n = true (which means switching on both upper switches) and fire_p = fire_n = false (which means switching on both lower switches).
-<p>
+</p>
 </html>"));
 end HBridge;

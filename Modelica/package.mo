@@ -1,4 +1,4 @@
-within ;
+﻿within ;
 package Modelica "Modelica Standard Library - Version 4.0.0"
 extends Modelica.Icons.Package;
 
@@ -2391,6 +2391,12 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Tables</strong></td></tr>
 <tr><td>CombiTable1Ds<br>CombiTable1Dv<br>CombiTable2Ds<br>CombiTable2Dv</td>
     <td>Added support of reading CSV files.</td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.PowerConverters.DCDC</strong></td></tr>
+<tr><td>HBridge</td>
+    <td>An anehanced distribution of the fire signals avoids a short circuit on the source, and enables an enhanced pwm algorithm.</td></tr>
+<tr><td>Control.SignalPWM</td>
+    <td>The reference signal can be choosen between sawtooth and triangle.
+        The comparison between dutyCycle and reference signal is either applied common of separated for both fire ports.</td></tr>
 <tr><td colspan=\"2\"><strong>Mechanics.Rotational.Components</strong></td></tr>
 <tr><td>BearingFriction</td>
     <td>The table interpolation in <code>tau_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td></tr>
