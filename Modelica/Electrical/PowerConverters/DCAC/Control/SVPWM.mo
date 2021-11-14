@@ -1,5 +1,5 @@
 within Modelica.Electrical.PowerConverters.DCAC.Control;
-block SVPWM "SpaceVector Pulse Width Modulation"
+block SVPWM "Space vector pulse width modulation"
   parameter SI.Frequency f "Switching frequency";
   extends Modelica.Blocks.Interfaces.DiscreteBlock(final samplePeriod=1/f);
   import Modelica.Constants.small;
