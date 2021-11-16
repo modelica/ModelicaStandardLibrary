@@ -540,7 +540,7 @@ InverseBlockConstraint invert[3];  // Block to be inverted has 3 input signals
 
   block Gain "Output the product of a gain value with the input signal"
 
-    parameter Real k(start=1, unit="1")
+    parameter Real k(start=1)
       "Gain value multiplied with input signal";
   public
     Interfaces.RealInput u "Input signal connector" annotation (Placement(

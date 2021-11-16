@@ -7,7 +7,7 @@ package Continuous "Library of continuous control blocks with internal states"
 
   block Integrator "Output the integral of the input signal with optional reset"
     import Modelica.Blocks.Types.Init;
-    parameter Real k(unit="1")=1 "Integrator gain";
+    parameter Real k=1 "Integrator gain";
     parameter Boolean use_reset = false "= true, if reset port enabled"
       annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Boolean use_set = false "= true, if set port enabled and used as reinitialization value when reset"
@@ -126,7 +126,7 @@ port has a rising edge.
 
   block LimIntegrator "Integrator with limited value of the output and optional reset"
     import Modelica.Blocks.Types.Init;
-    parameter Real k(unit="1")=1 "Integrator gain";
+    parameter Real k=1 "Integrator gain";
     parameter Real outMax(start=1) "Upper limit of output";
     parameter Real outMin=-outMax "Lower limit of output";
     parameter Boolean use_reset = false "= true, if reset port enabled"
@@ -265,7 +265,7 @@ port has a rising edge.
 
   block Derivative "Approximated derivative block"
     import Modelica.Blocks.Types.Init;
-    parameter Real k(unit="1")=1 "Gains";
+    parameter Real k=1 "Gains";
     parameter SI.Time T(min=Modelica.Constants.small) = 0.01
       "Time constants (T>0 required; T=0 is ideal derivative block)";
     parameter Init initType=Init.NoInit
@@ -350,7 +350,7 @@ If k=0, the block reduces to y=0.
 
   block FirstOrder "First order transfer function block (= 1 pole)"
     import Modelica.Blocks.Types.Init;
-    parameter Real k(unit="1")=1 "Gain";
+    parameter Real k=1 "Gain";
     parameter SI.Time T(start=1) "Time Constant";
     parameter Init initType=Init.NoInit
       "Type of initialization (1: no init, 2: steady state, 3/4: initial output)" annotation(Evaluate=true,
@@ -424,7 +424,7 @@ Example:
 
   block SecondOrder "Second order transfer function block (= 2 poles)"
     import Modelica.Blocks.Types.Init;
-    parameter Real k(unit="1")=1 "Gain";
+    parameter Real k=1 "Gain";
     parameter Real w(start=1) "Angular frequency";
     parameter Real D(start=1) "Damping";
     parameter Init initType=Init.NoInit
@@ -507,7 +507,7 @@ Example:
 
   block PI "Proportional-Integral controller"
     import Modelica.Blocks.Types.Init;
-    parameter Real k(unit="1")=1 "Gain";
+    parameter Real k=1 "Gain";
     parameter SI.Time T(start=1,min=Modelica.Constants.small)
       "Time Constant (T>0 required)";
     parameter Init initType=Init.NoInit
@@ -602,7 +602,7 @@ This is discussed in the description of package
     import Modelica.Blocks.Types.Init;
     extends Interfaces.SISO;
 
-    parameter Real k(unit="1")=1 "Gain";
+    parameter Real k=1 "Gain";
     parameter SI.Time Ti(min=Modelica.Constants.small, start=0.5)
       "Time Constant of Integrator";
     parameter SI.Time Td(min=0, start=0.1)
@@ -765,7 +765,7 @@ to compute u by an algebraic equation.
       "Control error (set point - measurement)";
     parameter .Modelica.Blocks.Types.SimpleController controllerType=
            .Modelica.Blocks.Types.SimpleController.PID "Type of controller";
-    parameter Real k(min=0, unit="1") = 1 "Gain of controller";
+    parameter Real k(min=0) = 1 "Gain of controller";
     parameter SI.Time Ti(min=Modelica.Constants.small)=0.5
       "Time constant of Integrator block" annotation (Dialog(enable=
             controllerType == .Modelica.Blocks.Types.SimpleController.PI or
