@@ -1,6 +1,6 @@
 within Modelica.Mechanics.Rotational.Sensors;
 model TorqueSensor
-  "Ideal sensor to measure the torque between two flanges (= flange_a.tau)"
+  "Ideal sensor to measure the torque between two flanges"
 
   extends Rotational.Interfaces.PartialRelativeSensor;
   Modelica.Blocks.Interfaces.RealOutput tau(unit="N.m")
