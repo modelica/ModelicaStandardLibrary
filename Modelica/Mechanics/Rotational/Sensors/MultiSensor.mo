@@ -28,7 +28,7 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Measures the <em>absolute angular velocity</em> of the <code>flange_a</code>,
+Measures the <em>absolute angular velocity</em> of the <code>flange_a</code> and
 the <em>cut-torque</em> and <em>power</em> between two flanges
 in an ideal way and provides the results as output signals&nbsp;<code>w</code>,
 <code>tau</code> and <code>power</code>, respectively.

@@ -29,7 +29,7 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Measures the <em>absolute velocity</em> of the <code>flange_a</code>,
+Measures the <em>absolute velocity</em> of the <code>flange_a</code> and
 the <em>cut-force</em> and <em>power</em> between two flanges
 in an ideal way and provides the results as output signals&nbsp;<code>v</code>,
 <code>f</code> and <code>power</code>, respectively.
