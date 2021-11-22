@@ -18,7 +18,8 @@ equation
 <p>
 Measures the <em>cut-torque</em> between two flanges
 in an ideal way and provides the result as output signal <code>tau</code>
-(to be further processed with blocks of the Modelica.Blocks library).
+(to be further processed with blocks of the
+<a href=\"modelica://Modelica.Blocks\">Modelica.Blocks</a> library).
 </p>
 </html>"),
        Icon(

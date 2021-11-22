@@ -15,7 +15,8 @@ equation
 Measures the <em>absolute angular velocity</em>
 of a&nbsp;flange in an ideal way and provides the result as
 output signal&nbsp;<code>w</code>
-(to be further processed with blocks of the Modelica.Blocks library).
+(to be further processed with blocks of the
+<a href=\"modelica://Modelica.Blocks\">Modelica.Blocks</a> library).
 </p>
 </html>"),
        Icon(coordinateSystem(

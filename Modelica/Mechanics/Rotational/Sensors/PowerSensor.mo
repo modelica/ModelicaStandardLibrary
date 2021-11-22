@@ -18,7 +18,8 @@ equation
 <p>
 Measures the <em>power</em> between two flanges
 in an ideal way and provides the result as output signal <code>power</code>
-(to be further processed with blocks of the Modelica.Blocks library), i.e.
+(to be further processed with blocks of the
+<a href=\"modelica://Modelica.Blocks\">Modelica.Blocks</a> library), i.e.
 </p>
 <blockquote><pre>
 power = flange_a.tau * der(flange_a.phi)

@@ -14,7 +14,8 @@ equation
 Measures the <em>absolute position</em>
 of a&nbsp;flange in an ideal way and provides the result as
 output signal&nbsp;<code>s</code>
-(to be further processed with blocks of the Modelica.Blocks library).
+(to be further processed with blocks of the
+<a href=\"modelica://Modelica.Blocks\">Modelica.Blocks</a> library).
 </p>
 </html>"),
        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
