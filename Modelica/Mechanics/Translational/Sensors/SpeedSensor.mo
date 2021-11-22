@@ -10,7 +10,7 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Measures the <em>absolute velocity</em>&nbsp;<var>v</var>
+Measures the <em>absolute velocity</em>
 of a&nbsp;flange in an ideal way and provides the result as
 output signal&nbsp;<code>v</code>
 (to be further processed with blocks of the Modelica.Blocks library).

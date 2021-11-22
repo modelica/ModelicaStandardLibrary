@@ -12,7 +12,7 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Measures the <em>absolute acceleration</em>&nbsp;<var>a</var>
+Measures the <em>absolute acceleration</em>
 of a&nbsp;flange in an ideal way and provides the result as
 output signal&nbsp;<code>a</code>
 (to be further processed with blocks of the Modelica.Blocks library).

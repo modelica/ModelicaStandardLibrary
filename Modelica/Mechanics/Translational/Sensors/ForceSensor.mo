@@ -13,7 +13,7 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Measures the <em>cut-force</em>&nbsp;<var>f</var> between two flanges
+Measures the <em>cut-force</em> between two flanges
 in an ideal way and provides the result as output signal&nbsp;<code>f</code>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>

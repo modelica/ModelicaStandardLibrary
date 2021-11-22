@@ -14,7 +14,7 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Measures the <em>relative position</em>&nbsp;<var>s<sub>rel</sub></var> between two flanges
+Measures the <em>relative position</em> between two flanges
 in an ideal way and provides the result as output signal <code>s_rel</code>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>

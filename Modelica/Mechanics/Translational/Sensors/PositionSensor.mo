@@ -11,7 +11,7 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Measures the <em>absolute position</em>&nbsp;<var>s</var>
+Measures the <em>absolute position</em>
 of a&nbsp;flange in an ideal way and provides the result as
 output signal&nbsp;<code>s</code>
 (to be further processed with blocks of the Modelica.Blocks library).

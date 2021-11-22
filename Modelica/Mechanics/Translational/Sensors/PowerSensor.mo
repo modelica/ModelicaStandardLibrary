@@ -14,7 +14,7 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Measures the <em>power</em>&nbsp;<var>P</var> between two flanges
+Measures the <em>power</em> between two flanges
 in an ideal way and provides the result as output signal <code>power</code>
 (to be further processed with blocks of the Modelica.Blocks library), i.e.
 </p>
