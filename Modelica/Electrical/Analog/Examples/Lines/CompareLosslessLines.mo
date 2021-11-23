@@ -128,7 +128,7 @@ equation
 This example compares three lossless lines with different loads.
 Inductance per meter (l=250&nbsp;nH/m) and capacitance per meter (c=100&nbsp;pF/m) are estimated for an average coaxial cable with characteristic impedance z0=&radic;(l/c)=50&nbsp;&Omega;.
 The speed of the electromagnetic wave is given by c0=1/&radic;(l*c)=2*10<sup>8</sup>&nbsp;m/s. Using a cable with a length of len=1&nbsp;m, we obtain a delay td=len/c0=5&nbsp;ns.
-The sources impress a single voltage pulse with height=10&nbsp;V and lenght=td/2, starting at td/2.
+The sources impress a single voltage pulse with height=10&nbsp;V and length=td/2, starting at td/2.
 Due to the inner resistances of the sources ri=z0 the pulse at the input of the line (<code>v1</code>) has a height of 5&nbsp;V.
 Simulate for 20&nbsp;ns and compare for each of the lines: <code>v1</code>, <code>v2</code> and <code>i1</code>, <code>i2</code>.
 </p>

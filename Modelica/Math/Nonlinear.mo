@@ -101,7 +101,7 @@ The following integrals are computed:
         annotation (Dialog(group="Elliptic integral"));
       input Real b3=Modelica.Constants.pi/2 "Upper limit"
         annotation (Dialog(group="Elliptic integral"));
-      input Real k=1/sqrt(2) "Modul"
+      input Real k=1/sqrt(2) "Module"
         annotation (Dialog(group="Elliptic integral"));
 
     protected
@@ -381,7 +381,7 @@ The displacement field <code>u(c,t)</code> of a particle (where <code>c</code> i
 
       function fun6 "y = sqrt(1/(1 - k^2*sin(u)^2))"
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
-        input Real k "Modul";
+        input Real k "Module";
       algorithm
         y := sqrt(1/(1 - k^2*sin(u)^2));
       end fun6;

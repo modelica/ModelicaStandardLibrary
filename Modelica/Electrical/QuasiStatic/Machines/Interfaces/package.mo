@@ -4,7 +4,7 @@ package Interfaces "SpacePhasor connector and PartialMachines"
 
   annotation (Documentation(info="<html>
 <p>
-This package contains partial models for quasi-static transformer and spcae phasor models.
+This package contains partial models for quasi-static transformer and space phasor models.
 </p>
 </html>"));
 end Interfaces;
