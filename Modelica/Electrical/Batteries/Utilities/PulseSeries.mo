@@ -13,11 +13,11 @@ block PulseSeries "Series of pulses"
   extends Modelica.Blocks.Interfaces.SignalSource;
 protected
   parameter SI.Time Tstart1[n1]={startTime + (k-1)*(T1 + Tp1) for k in 1:n1};
-  parameter SI.Time Tstart2[n1]={startTime + n1*(T1 + Tp1) + Tp + (k-1)*(T2 + Tp2) for k in 1:n2};
+  parameter SI.Time Tstart2[n2]={startTime + n1*(T1 + Tp1) + Tp + (k-1)*(T2 + Tp2) for k in 1:n2};
   Boolean on1, on2;
 equation
   on1 = oneTrue({time >= Tstart1[k] and time < Tstart1[k] + T1 for k in 1:n1});
-  on2 = oneTrue({time >= Tstart2[k] and time < Tstart2[k] + T2 for k in 1:n1});
+  on2 = oneTrue({time >= Tstart2[k] and time < Tstart2[k] + T2 for k in 1:n2});
   y= offset + (if on1 then amplitude1 elseif on2 then amplitude2 else 0);
   annotation (Icon(graphics={
         Line(
