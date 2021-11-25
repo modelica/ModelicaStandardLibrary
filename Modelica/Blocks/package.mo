@@ -1569,7 +1569,7 @@ whereas signalExtrema2 catches the extrema rather good due to the fact that samp
 <p>The output of these blocks is updated after each period of the signal.</p>
 <p>
 Using a simple pulse series, these values can be calculated analytically. 
-Propagating these values as intitial values for the output, 
+Propagating these values as initial values for the output, 
 we can compare the numerical solution with the analytical solution: 
 The output is constant from the beginning.
 </p>
