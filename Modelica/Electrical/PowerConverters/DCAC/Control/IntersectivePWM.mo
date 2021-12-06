@@ -15,7 +15,7 @@ block IntersectivePWM "Intersective PWM"
   Modelica.Blocks.Interfaces.BooleanOutput fire_n[m] "Negative fire signal"
     annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
   Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor
-    fromSpacePhasor
+    fromSpacePhasor(m=m)
     annotation (Placement(transformation(extent={{-60,50},{-40,70}})));
   Modelica.Blocks.Sources.Constant zero(k=0) annotation (Placement(
         transformation(
