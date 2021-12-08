@@ -3,7 +3,7 @@ model Shape
   "Visualizing an elementary object with variable size; all data have to be set as modifiers (see info layer)"
 
   extends ModelicaServices.Animation.Shape;
-  extends Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialShape;
+  extends ModelicaAnimationInterface.PartialShape;
 
     annotation (
      Icon(coordinateSystem(

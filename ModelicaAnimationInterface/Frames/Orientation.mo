@@ -1,40 +1,11 @@
-within Modelica.Mechanics.MultiBody.Frames;
+within ModelicaAnimationInterface.Frames;
 record Orientation
-  extends ModelicaAnimationInterface.Frames.Orientation;
+  "Orientation object defining rotation from a frame 1 into a frame 2"
 
-  encapsulated function equalityConstraint
-    "Return the constraint residues to express that two frames have the same orientation"
-
-    import Modelica;
-    import Modelica.Mechanics.MultiBody.Frames;
-    extends Modelica.Icons.Function;
-    input Frames.Orientation R1
-      "Orientation object to rotate frame 0 into frame 1";
-    input Frames.Orientation R2
-      "Orientation object to rotate frame 0 into frame 2";
-    output Real residue[3]
-      "The rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small rotation (should be zero)";
-  algorithm
-    residue := {
-       Modelica.Math.atan2(cross(R1.T[1, :], R1.T[2, :])*R2.T[2, :],R1.T[1,:]*R2.T[1,:]),
-       Modelica.Math.atan2(-cross(R1.T[1, :],R1.T[2, :])*R2.T[1, :],R1.T[2,:]*R2.T[2,:]),
-       Modelica.Math.atan2(R1.T[2, :]*R2.T[1, :],R1.T[3,:]*R2.T[3,:])};
-    annotation(Inline=true, Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-residue = Orientation.<strong>equalityConstraint</strong>(R1, R2);
-</pre></blockquote>
-
-<h4>Description</h4>
-<p>
-The function call <code>Orientation.<strong>equalityConstrain</strong>(R1,R2)</code> returns the Real residue vector
-with 3 elements. This vector has zero elements if orientation objects R1 and R2 are identical
-(= describe the same orientation). The residue vector is determined by computing the relative
-orientation object between R1 and R2 and using the outer-diagonal elements of this matrix to
-formulate the residue in such a way that only identical orientation objects lead to a zero residue vector.
-</p>
-</html>"));
-  end equalityConstraint;
+  extends Icons.Record;
+  Real T[3, 3] "Transformation matrix from world frame to local frame";
+  Types.AngularVelocity w[3]
+    "Absolute angular velocity of local frame, resolved in local frame";
 
   annotation (Documentation(info="<html>
 <p>
