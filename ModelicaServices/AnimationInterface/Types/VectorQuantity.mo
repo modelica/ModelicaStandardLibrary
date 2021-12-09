@@ -1,4 +1,4 @@
-within ModelicaAnimationInterface.Types;
+within ModelicaServices.AnimationInterface.Types;
 
 type VectorQuantity = enumeration(
     Force "Force quantity",

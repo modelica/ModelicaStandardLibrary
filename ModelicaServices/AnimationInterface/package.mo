@@ -1,6 +1,6 @@
-within ;
+within ModelicaServices;
 
-package ModelicaAnimationInterface
+package AnimationInterface
   extends Icons.Package;
   partial model PartialShape "Interface for 3D animation of elementary shapes"
     parameter Types.ShapeType shapeType="box"
@@ -95,11 +95,11 @@ This model is documented at
     preferredView="info",
     version="4.0.0",
     Documentation(info="<html>
-ModelicaAnimationInterface contains the interfaces of elements used to create animations in Modelica.
+AnimationInterface contains the interfaces of elements used to create animations in Modelica.
 These interfaces are used by the Modelica Standard Library and ModelicaServices to ensure that both contain
 the expected interface.
-In ModelicaServices, the actual implementation may be extended to add communication with a Modelica tool in
+In ModelicaServices.Animation, the actual implementation may be extended to add communication with a Modelica tool in
 order to for example visualize the model on the fly.
 </html>")
   );
-end ModelicaAnimationInterface;
+end AnimationInterface;

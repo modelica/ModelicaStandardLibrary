@@ -1,4 +1,4 @@
-within ModelicaAnimationInterface;
+within ModelicaServices;
 package Icons "Library of icons"
   partial class Information "Icon for general information packages"
 
@@ -787,32 +787,5 @@ corresponding library in a future release.
             fillColor={128,128,128},
             pattern=LinePattern.None,
             fillPattern=FillPattern.Solid,
-            extent={{-12.5,-12.5},{12.5,12.5}})}), Documentation(info="<html>
-<p>This package contains definitions for the graphical layout of components which may be used in different libraries. The icons can be utilized by inheriting them in the desired class using &quot;extends&quot; or by directly copying the &quot;icon&quot; layer.</p>
-
-<h4>Main Authors</h4>
-
-<dl>
-<dt><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></dt>
-    <dd>Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)</dd>
-    <dd>Institut f&uuml;r Systemdynamik und Regelungstechnik (SR)</dd>
-    <dd>M&uuml;nchener Straße 20</dd>
-    <dd>D-82234 We&szlig;ling</dd>
-    <dd>Germany</dd>
-    <dd>email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a><br></dd>
-<dt>Christian Kral</dt>
-    <dd><a href=\"https://christiankral.net/\">Electric Machines, Drives and Systems</a></dd>
-    <dd>1060 Vienna, Austria</dd>
-    <dd>email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a><br></dd>
-<dt>Johan Andreasson</dt>
-    <dd><a href=\"https://www.modelon.com/\">Modelon AB</a></dd>
-    <dd>Ideon Science Park</dd>
-    <dd>22370 Lund, Sweden</dd>
-    <dd>email: <a href=\"mailto:johan.andreasson@modelon.se\">johan.andreasson@modelon.se</a></dd>
-</dl>
-
-<p>
-Copyright &copy; 1998-2020, Modelica Association and contributors
-</p>
-</html>"));
+            extent={{-12.5,-12.5},{12.5,12.5}})}));
 end Icons;

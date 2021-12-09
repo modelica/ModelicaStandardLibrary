@@ -1,13 +1,13 @@
 within ;
 package ModelicaServices "ModelicaServices (Default implementation) - Models and functions used in the Modelica Standard Library requiring a tool specific implementation"
-  extends ModelicaAnimationInterface.Icons.Package;
+  extends Icons.Package;
   constant String target="Default"
     "Target of this ModelicaServices implementation";
 
   package UsersGuide "User's Guide"
-    extends ModelicaAnimationInterface.Icons.Information;
+    extends Icons.Information;
     class ReleaseNotes "Release notes"
-      extends ModelicaAnimationInterface.Icons.ReleaseNotes;
+      extends Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 <h4>Version 4.0.0, 2020-06-04</h4>
 
@@ -80,7 +80,7 @@ First version of the ModelicaServices library.
     end ReleaseNotes;
 
     class Contact "Contact"
-      extends ModelicaAnimationInterface.Icons.Contact;
+      extends Icons.Contact;
       annotation (Documentation(info="<html>
 <h5>Main Author</h5>
 
@@ -108,11 +108,11 @@ The design of the Animation.Shape component is from Hilding Elmqvist, previously
   end UsersGuide;
 
   package Animation "Models and functions for 3-dim. animation"
-    extends ModelicaAnimationInterface.Icons.Package;
+    extends Icons.Package;
     model Shape
       "Different visual shapes with variable size; all data have to be set as modifiers (see info layer)"
       extends
-        ModelicaAnimationInterface.PartialShape;
+        AnimationInterface.PartialShape;
 
       annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -130,7 +130,7 @@ The interface of this model is documented at
 
     model Surface
       "Animation of a moveable, parameterized surface; the surface characteristic is provided by a function"
-      extends ModelicaAnimationInterface.PartialSurface;
+      extends AnimationInterface.PartialSurface;
 
       annotation (Documentation(info="<html>
 <p>
@@ -144,7 +144,7 @@ The interface of this model is defined at
     end Surface;
 
     model Vector "Animation of a moveable vector-quantity (the length is not fixed in meters)"
-      extends ModelicaAnimationInterface.PartialVector;
+      extends AnimationInterface.PartialVector;
 
   annotation (Documentation(info="<html>
 <p>
@@ -159,10 +159,10 @@ The interface of this model is defined at
   end Animation;
 
   package ExternalReferences "Library of functions to access external resources"
-    extends ModelicaAnimationInterface.Icons.Package;
+    extends Icons.Package;
     function loadResource
       "Return the absolute path name of a URI or local file name (in this default implementation URIs are not supported, but only local file names)"
-      extends ModelicaAnimationInterface.Icons.Function;
+      extends Icons.Function;
       input String uri "URI or local file name";
       output String fileReference "Absolute path name of file";
     algorithm
@@ -178,7 +178,7 @@ The interface of this model is documented at
   end ExternalReferences;
 
   package Machine "Machine dependent constants"
-    extends ModelicaAnimationInterface.Icons.Package;
+    extends Icons.Package;
     final constant Real eps=1e-15 "Biggest number such that 1.0 + eps = 1.0";
     final constant Real small=1e-60
       "Smallest number such that small and -small are representable on the machine";
@@ -197,9 +197,9 @@ but indirectly via the alias definition in
   end Machine;
 
   package System "System dependent functions"
-    extends ModelicaAnimationInterface.Icons.Package;
+    extends Icons.Package;
     impure function exit "Terminate execution of Modelica environment"
-      extends ModelicaAnimationInterface.Icons.Function;
+      extends Icons.Function;
       input Integer status=0 "Result to be returned by environment (0 means success)";
       external "C" exit(status) annotation(Include="#include <stdlib.h>");
       annotation(Documentation(info="<html>
@@ -211,7 +211,7 @@ Tool-specific implementation of <a href=\"modelica://Modelica.Utilities.System.e
   end System;
 
   package Types "Library of types with vendor specific choices"
-    extends ModelicaAnimationInterface.Icons.Package;
+    extends Icons.Package;
     type SolverMethod = String
       "String defining the integration method to solve differential equations in a clocked discretized continuous-time partition"
       annotation (choices(
@@ -238,7 +238,6 @@ Specification (version &ge; 3.3).
     versionDate="2020-06-04",
     dateModified = "2020-06-04 11:00:00Z",
     revisionId="$Format:%h %ci$",
-    uses(ModelicaAnimationInterface(version="4.0.0")),
     conversion(
       noneFromVersion="1.0",
       noneFromVersion="1.1",

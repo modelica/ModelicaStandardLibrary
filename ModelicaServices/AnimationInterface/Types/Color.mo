@@ -1,4 +1,4 @@
-within ModelicaAnimationInterface.Types;
+within ModelicaServices.AnimationInterface.Types;
 
 type Color = Modelica.Icons.TypeInteger[3] (each min=0, each max=255)
   "RGB representation of color"

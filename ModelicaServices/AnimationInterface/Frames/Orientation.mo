@@ -1,4 +1,4 @@
-within ModelicaAnimationInterface.Frames;
+within ModelicaServices.AnimationInterface.Frames;
 record Orientation
   "Orientation object defining rotation from a frame 1 into a frame 2"
 

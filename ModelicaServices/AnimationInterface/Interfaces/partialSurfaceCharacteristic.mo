@@ -1,4 +1,4 @@
-within ModelicaAnimationInterface.Interfaces;
+within ModelicaServices.AnimationInterface.Interfaces;
 
 partial function partialSurfaceCharacteristic "Interface for a function returning surface characteristics"
   extends Modelica.Icons.Function;

@@ -1,4 +1,4 @@
-within ModelicaAnimationInterface.Types;
+within ModelicaServices.AnimationInterface.Types;
 type SpecularCoefficient = Modelica.Icons.TypeReal(min=0)
   "Reflection of ambient light (= 0: light is completely absorbed)"
      annotation (choices(

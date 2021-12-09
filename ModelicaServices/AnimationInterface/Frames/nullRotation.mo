@@ -1,4 +1,4 @@
-within ModelicaAnimationInterface.Frames;
+within ModelicaServices.AnimationInterface.Frames;
 function nullRotation
   "Return orientation object that does not rotate a frame"
   extends Icons.Function;

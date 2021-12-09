@@ -2,7 +2,7 @@ within Modelica.Mechanics.MultiBody.Visualizers.Advanced;
 model Vector "Visualizing a vector quantity (force, torque, etc.)"
 
   extends ModelicaServices.Animation.Vector;
-  extends Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialVector;
+  extends ModelicaServices.AnimationInterface.PartialVector;
 
   annotation (
     Documentation(info="<html>

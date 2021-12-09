@@ -692,8 +692,6 @@ end temporaryFileName;
 
   function loadResource
     "Return the absolute path name of a URI or local file name"
-     extends
-      Modelica.Utilities.Internal.PartialModelicaServices.ExternalReferences.PartialLoadResource;
      extends ModelicaServices.ExternalReferences.loadResource;
     annotation (
       Documentation(info=

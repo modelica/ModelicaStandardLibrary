@@ -1,4 +1,4 @@
-within ModelicaAnimationInterface;
+within ModelicaServices.AnimationInterface;
 
 package Types
 type Length = Real (final quantity="Length", final unit="m");

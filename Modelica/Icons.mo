@@ -1,11 +1,83 @@
 within Modelica;
 package Icons "Library of icons"
-  partial class Information = ModelicaAnimationInterface.Icons.Information;
-  extends ModelicaAnimationInterface.Icons.Package;
+  partial class Information "Icon for general information packages"
 
-  partial class Contact = ModelicaAnimationInterface.Icons.Contact;
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
+          Ellipse(
+            lineColor={75,138,73},
+            fillColor={75,138,73},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            extent={{-100.0,-100.0},{100.0,100.0}}),
+          Polygon(origin={-4.167,-15.0},
+            fillColor={255,255,255},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            points={{-15.833,20.0},{-15.833,30.0},{14.167,40.0},{24.167,20.0},{4.167,-30.0},{14.167,-30.0},{24.167,-30.0},{24.167,-40.0},{-5.833,-50.0},{-15.833,-30.0},{4.167,20.0},{-5.833,20.0}},
+            smooth=Smooth.Bezier),
+          Ellipse(origin={7.5,56.5},
+            fillColor={255,255,255},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            extent={{-12.5,-12.5},{12.5,12.5}})}),
+                              Documentation(info="<html>
+<p>This icon indicates classes containing only documentation, intended for general description of, e.g., concepts and features of a package.</p>
+</html>"));
+  end Information;
+  extends Icons.Package;
 
-  partial class ReleaseNotes = ModelicaAnimationInterface.Icons.ReleaseNotes;
+  partial class Contact "Icon for contact information"
+
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
+          Rectangle(
+            extent={{-100,70},{100,-72}},
+            fillColor={235,235,235},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{-100,-72},{100,-72},{0,20},{-100,-72}},
+            fillColor={215,215,215},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{22,0},{100,70},{100,-72},{22,0}},
+            fillColor={235,235,235},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{-100,70},{100,70},{0,-20},{-100,70}},
+            fillColor={241,241,241},
+            fillPattern=FillPattern.Solid)}),
+                              Documentation(info="<html>
+<p>This icon shall be used for the contact information of the library developers.</p>
+</html>"));
+  end Contact;
+
+  partial class ReleaseNotes "Icon for release notes in documentation"
+
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
+          Polygon(
+            points={{-80,-100},{-80,100},{0,100},{0,20},{80,20},{80,-100},{-80,
+                -100}},
+            fillColor={245,245,245},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{0,100},{80,20},{0,20},{0,100}},
+            fillColor={215,215,215},
+            fillPattern=FillPattern.Solid),
+          Line(points={{2,-12},{50,-12}}),
+          Ellipse(
+            extent={{-56,2},{-28,-26}},
+            fillColor={215,215,215},
+            fillPattern=FillPattern.Solid),
+          Line(points={{2,-60},{50,-60}}),
+          Ellipse(
+            extent={{-56,-46},{-28,-74}},
+            fillColor={215,215,215},
+            fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+<p>This icon indicates release notes and the revision history of a library.</p>
+</html>"));
+
+  end ReleaseNotes;
 
   partial class References "Icon for external references"
 
@@ -65,7 +137,22 @@ package Icons "Library of icons"
 </html>"));
   end Example;
 
-  partial package Package = ModelicaAnimationInterface.Icons.Package;
+  partial package Package "Icon for standard packages"
+
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
+          Rectangle(
+            lineColor={200,200,200},
+            fillColor={248,248,248},
+            fillPattern=FillPattern.HorizontalCylinder,
+            extent={{-100.0,-100.0},{100.0,100.0}},
+            radius=25.0),
+          Rectangle(
+            lineColor={128,128,128},
+            extent={{-100.0,-100.0},{100.0,100.0}},
+            radius=25.0)}), Documentation(info="<html>
+<p>Standard package icon.</p>
+</html>"));
+  end Package;
 
   partial package BasesPackage "Icon for packages containing base classes"
     extends Modelica.Icons.Package;
@@ -252,7 +339,46 @@ package Icons "Library of icons"
             extent={{-12.5,-12.5},{12.5,12.5}})}));
   end IconsPackage;
 
-  partial package InternalPackage = ModelicaAnimationInterface.Icons.InternalPackage;
+  partial package InternalPackage
+    "Icon for an internal package (indicating that the package should not be directly utilized by user)"
+
+  annotation (
+    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+            100}}), graphics={
+        Rectangle(
+          lineColor={215,215,215},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.HorizontalCylinder,
+          extent={{-100,-100},{100,100}},
+          radius=25),
+        Rectangle(
+          lineColor={215,215,215},
+          extent={{-100,-100},{100,100}},
+          radius=25),
+        Ellipse(
+          extent={{-80,80},{80,-80}},
+          lineColor={215,215,215},
+          fillColor={215,215,215},
+          fillPattern=FillPattern.Solid),
+        Ellipse(
+          extent={{-55,55},{55,-55}},
+          lineColor={255,255,255},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Rectangle(
+          extent={{-60,14},{60,-14}},
+          lineColor={215,215,215},
+          fillColor={215,215,215},
+          fillPattern=FillPattern.Solid,
+          rotation=45)}),
+    Documentation(info="<html>
+
+<p>
+This icon shall be used for a package that contains internal classes not to be
+directly utilized by a user.
+</p>
+</html>"));
+  end InternalPackage;
 
   partial package MaterialPropertiesPackage
     "Icon for package containing property classes"
@@ -372,9 +498,57 @@ This icon is designed for a <strong>translational sensor</strong> model.
 </p></html>"));
   end RectangularSensor;
 
-  partial function Function = ModelicaAnimationInterface.Icons.Function;
+  partial function Function "Icon for functions"
 
-  partial record Record = ModelicaAnimationInterface.Icons.Record;
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
+          Text(
+            textColor={0,0,255},
+            extent={{-150,105},{150,145}},
+            textString="%name"),
+          Ellipse(
+            lineColor = {108,88,49},
+            fillColor = {255,215,136},
+            fillPattern = FillPattern.Solid,
+            extent = {{-100,-100},{100,100}}),
+          Text(
+            textColor={108,88,49},
+            extent={{-90.0,-90.0},{90.0,90.0}},
+            textString="f")}),
+  Documentation(info="<html>
+<p>This icon indicates Modelica functions.</p>
+</html>"));
+  end Function;
+
+  partial record Record "Icon for records"
+
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+          Text(
+            textColor={0,0,255},
+            extent={{-150,60},{150,100}},
+            textString="%name"),
+          Rectangle(
+            origin={0.0,-25.0},
+            lineColor={64,64,64},
+            fillColor={255,215,136},
+            fillPattern=FillPattern.Solid,
+            extent={{-100.0,-75.0},{100.0,75.0}},
+            radius=25.0),
+          Line(
+            points={{-100.0,0.0},{100.0,0.0}},
+            color={64,64,64}),
+          Line(
+            origin={0.0,-50.0},
+            points={{-100.0,0.0},{100.0,0.0}},
+            color={64,64,64}),
+          Line(
+            origin={0.0,-25.0},
+            points={{0.0,75.0},{0.0,-75.0}},
+            color={64,64,64})}), Documentation(info="<html>
+<p>
+This icon is indicates a record.
+</p>
+</html>"));
+  end Record;
 
   type TypeReal "Icon for Real types"
       extends Real;

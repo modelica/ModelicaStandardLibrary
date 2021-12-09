@@ -1,6 +1,11 @@
 within Modelica.Mechanics.MultiBody.Frames;
 record Orientation
-  extends ModelicaAnimationInterface.Frames.Orientation;
+  "Orientation object defining rotation from a frame 1 into a frame 2"
+
+  extends Modelica.Icons.Record;
+  Real T[3, 3] "Transformation matrix from world frame to local frame";
+  SI.AngularVelocity w[3]
+    "Absolute angular velocity of local frame, resolved in local frame";
 
   encapsulated function equalityConstraint
     "Return the constraint residues to express that two frames have the same orientation"

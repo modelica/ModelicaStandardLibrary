@@ -1,4 +1,4 @@
-within ModelicaAnimationInterface.Types;
+within ModelicaServices.AnimationInterface.Types;
 type ShapeType = Icons.TypeString
   "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring, <external shape>)"
    annotation ( choices(
