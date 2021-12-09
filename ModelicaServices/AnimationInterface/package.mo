@@ -5,7 +5,7 @@ package AnimationInterface
   partial model PartialShape "Interface for 3D animation of elementary shapes"
     parameter Types.ShapeType shapeType="box"
       "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring, <external shape>)";
-    input Frames.Orientation R=Frames.nullRotation()
+    input Frames.Orientation R=Frames.Orientation(T=identity(3),w=zeros(3))
       "Orientation object to rotate the world frame into the object frame" annotation(Dialog);
     input Types.Position r[3]={0,0,0}
       "Position vector from origin of world frame to origin of object frame, resolved in world frame" annotation(Dialog);
@@ -35,7 +35,7 @@ This model is documented at
   end PartialShape;
 
   partial model PartialVector "Interface for 3D animation of a vector quantity (force, torque etc)"
-    input Frames.Orientation R=Frames.nullRotation()
+    input Frames.Orientation R=Frames.Orientation(T=identity(3),w=zeros(3))
       "Orientation object to rotate the world frame into the vector frame" annotation(Dialog);
     input Types.Position r[3]={0,0,0}
       "Position vector from origin of world frame to origin of vector frame, resolved in world frame" annotation(Dialog);
@@ -59,7 +59,7 @@ This model is documented at
   end PartialVector;
 
   partial model PartialSurface "Interface for 3D animation of surfaces"
-    input Frames.Orientation R=Frames.nullRotation()
+    input Frames.Orientation R=Frames.Orientation(T=identity(3),w=zeros(3))
       "Orientation object to rotate the world frame into the surface frame"
       annotation(Dialog(group="Surface frame"));
     input Types.Position r_0[3]={0,0,0}
@@ -95,11 +95,12 @@ This model is documented at
     preferredView="info",
     version="4.0.0",
     Documentation(info="<html>
-AnimationInterface contains the interfaces of elements used to create animations in Modelica.
+<p>AnimationInterface contains the interfaces of elements used to create animations in Modelica.
 These interfaces are used by the Modelica Standard Library and ModelicaServices to ensure that both contain
-the expected interface.
-In ModelicaServices.Animation, the actual implementation may be extended to add communication with a Modelica tool in
-order to for example visualize the model on the fly.
+the expected interface.</p>
+<p>In ModelicaServices.Animation, the actual implementation may be extended to add communication with a Modelica tool in
+order to for example visualize the model on the fly.</p>
+<p><strong>This package including any classes below it in the hierarchy are not intended to be modified by a tool vendor.</strong></p>
 </html>")
   );
 end AnimationInterface;
