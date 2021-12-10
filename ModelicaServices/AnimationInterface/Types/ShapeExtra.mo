@@ -1,5 +1,5 @@
 within ModelicaServices.AnimationInterface.Types;
-type ShapeExtra = Modelica.Icons.TypeReal
+type ShapeExtra = Real
   "Type of the additional data that can be defined for an elementary ShapeType"
      annotation (
   Documentation(info="<html>

@@ -1,6 +1,6 @@
 within ModelicaServices.AnimationInterface.Types;
 
-type Color = Modelica.Icons.TypeInteger[3] (each min=0, each max=255)
+type Color = Integer[3] (each min=0, each max=255)
   "RGB representation of color"
   annotation (
     Dialog(colorSelector=true),
