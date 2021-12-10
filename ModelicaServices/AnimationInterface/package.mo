@@ -5,7 +5,7 @@ package AnimationInterface
   partial model PartialShape "Interface for 3D animation of elementary shapes"
     parameter Types.ShapeType shapeType="box"
       "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring, <external shape>)";
-    input Frames.Orientation R=Frames.Orientation(T=identity(3),w=zeros(3))
+    input Frames.Orientation R=Frames.nullRotation()
       "Orientation object to rotate the world frame into the object frame" annotation(Dialog);
     input Types.Position r[3]={0,0,0}
       "Position vector from origin of world frame to origin of object frame, resolved in world frame" annotation(Dialog);
@@ -35,7 +35,7 @@ This model is documented at
   end PartialShape;
 
   partial model PartialVector "Interface for 3D animation of a vector quantity (force, torque etc)"
-    input Frames.Orientation R=Frames.Orientation(T=identity(3),w=zeros(3))
+    input Frames.Orientation R=Frames.nullRotation()
       "Orientation object to rotate the world frame into the vector frame" annotation(Dialog);
     input Types.Position r[3]={0,0,0}
       "Position vector from origin of world frame to origin of vector frame, resolved in world frame" annotation(Dialog);
@@ -59,7 +59,7 @@ This model is documented at
   end PartialVector;
 
   partial model PartialSurface "Interface for 3D animation of surfaces"
-    input Frames.Orientation R=Frames.Orientation(T=identity(3),w=zeros(3))
+    input Frames.Orientation R=Frames.nullRotation()
       "Orientation object to rotate the world frame into the surface frame"
       annotation(Dialog(group="Surface frame"));
     input Types.Position r_0[3]={0,0,0}
