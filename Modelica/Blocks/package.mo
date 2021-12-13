@@ -939,7 +939,7 @@ Note, that
       annotation (Placement(transformation(extent={{-28,60},{-8,80}})));
     Logical.And and2
       annotation (Placement(transformation(extent={{10,60},{30,80}})));
-    Logical.MultiAnd multiAnd(nu=3)
+    Logical.MultiAnd multiAnd(nin=3)
       annotation (Placement(transformation(extent={{10,30},{30,50}})));
     Sources.BooleanPulse booleanPulse2[3](
       each width=20,
@@ -950,7 +950,7 @@ Note, that
       annotation (Placement(transformation(extent={{-30,-40},{-10,-20}})));
     Logical.Or or2
       annotation (Placement(transformation(extent={{10,-40},{30,-20}})));
-    Logical.MultiOr multiOr(nu=3)
+    Logical.MultiOr multiOr(nin=3)
       annotation (Placement(transformation(extent={{10,-70},{30,-50}})));
   equation
     connect(booleanPulse1[1].y, and1.u1) annotation (Line(points={{-59,40},{-50,40},
@@ -961,8 +961,6 @@ Note, that
       annotation (Line(points={{-7,70},{8,70}}, color={255,0,255}));
     connect(booleanPulse1[3].y, and2.u2) annotation (Line(points={{-59,40},{0,40},{
             0,62},{8,62}}, color={255,0,255}));
-    connect(booleanPulse1.y, multiAnd.u)
-      annotation (Line(points={{-59,40},{10,40}}, color={255,0,255}));
     connect(booleanPulse2[1].y, or1.u1) annotation (Line(points={{-59,-60},{-50,
             -60},{-50,-30},{-32,-30}}, color={255,0,255}));
     connect(booleanPulse2[2].y, or1.u2) annotation (Line(points={{-59,-60},{-40,
@@ -971,8 +969,10 @@ Note, that
       annotation (Line(points={{-9,-30},{8,-30}}, color={255,0,255}));
     connect(booleanPulse2[3].y, or2.u2) annotation (Line(points={{-59,-60},{0,
             -60},{0,-38},{8,-38}}, color={255,0,255}));
+    connect(booleanPulse1.y, multiAnd.u)
+      annotation (Line(points={{-59,40},{8,40}}, color={255,0,255}));
     connect(booleanPulse2.y, multiOr.u)
-      annotation (Line(points={{-59,-60},{10,-60}}, color={255,0,255}));
+      annotation (Line(points={{-59,-60},{8,-60}}, color={255,0,255}));
     annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
           coordinateSystem(preserveAspectRatio=false)),
       experiment(StopTime=1),
