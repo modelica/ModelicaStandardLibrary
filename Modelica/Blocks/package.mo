@@ -1576,6 +1576,39 @@ The output is constant from the beginning.
 </html>"));
   end DemoSignalCharacteristic;
 
+  model DemoIntervalTest "Demonstrate usage of interval test"
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Sources.Sine sine(f=2)
+      annotation (Placement(transformation(extent={{-50,-20},{-30,0}})));
+    Modelica.Blocks.Logical.IntervalTest intervalTest(constantLowerLimit=-0.5,
+        constantUpperLimit=0.5)
+      annotation (Placement(transformation(extent={{30,-20},{50,0}})));
+    Modelica.Blocks.Logical.GreaterThreshold greaterThreshold(threshold=-0.5)
+      annotation (Placement(transformation(extent={{-10,50},{10,70}})));
+    Modelica.Blocks.Logical.LessThreshold lessThreshold(threshold=0.5)
+      annotation (Placement(transformation(extent={{-10,10},{10,30}})));
+    Modelica.Blocks.Logical.And and1
+      annotation (Placement(transformation(extent={{30,30},{50,50}})));
+  equation
+    connect(sine.y, lessThreshold.u) annotation (Line(points={{-29,-10},{-20,-10},
+            {-20,20},{-12,20}}, color={0,0,127}));
+    connect(sine.y, intervalTest.u)
+      annotation (Line(points={{-29,-10},{28,-10}}, color={0,0,127}));
+    connect(sine.y, greaterThreshold.u) annotation (Line(points={{-29,-10},{-20,-10},
+            {-20,60},{-12,60}}, color={0,0,127}));
+    connect(lessThreshold.y, and1.u2) annotation (Line(points={{11,20},{20,20},{20,
+            32},{28,32}}, color={255,0,255}));
+    connect(greaterThreshold.y, and1.u1) annotation (Line(points={{11,60},{20,60},
+            {20,40},{28,40}}, color={255,0,255}));
+    annotation (experiment(
+        StopTime=1.0,
+        Interval=0.001), Documentation(info="<html>
+<p>
+Compare and1.y and intervalTest.y
+</p>
+</html>"));
+  end DemoIntervalTest;
+
   package Noise "Library of examples to demonstrate the usage of package Blocks.Noise"
     extends Modelica.Icons.ExamplesPackage;
 
