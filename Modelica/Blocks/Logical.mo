@@ -20,6 +20,20 @@ the output is <strong>false</strong>.
 </html>"));
   end And;
 
+  block MultiAnd "Logical and of Boolean vector elements"
+    extends Modelica.Blocks.Interfaces.PartialBooleanMISO;
+  equation
+    y=Modelica.Math.BooleanVectors.allTrue(u);
+    annotation (Icon(coordinateSystem(initialScale=0.1),
+      graphics={ Text(extent={{-90,40},{90,-40}},textString="and")}),
+      Documentation(info="<html>
+<p>
+The output is <strong>true</strong> if all elements of the input vector are <strong>true</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+</html>"));
+  end MultiAnd;
+
   block Or "Logical 'or': y = u1 or u2"
     extends Blocks.Interfaces.partialBooleanSI2SO;
   equation
@@ -37,6 +51,20 @@ the output is <strong>false</strong>.
 </p>
 </html>"));
   end Or;
+
+  block MultiOr "Logical or of Boolean vector elements"
+    extends Modelica.Blocks.Interfaces.PartialBooleanMISO;
+  equation
+    y=Modelica.Math.BooleanVectors.anyTrue(u);
+    annotation (Icon(coordinateSystem(initialScale=0.1),
+      graphics={ Text(extent={{-90,40},{90,-40}},textString="or")}),
+      Documentation(info="<html>
+<p>
+The output is <strong>true</strong> if any of the elements of the input vector are <strong>true</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+</html>"));
+  end MultiOr;
 
   block Xor "Logical 'xor': y = u1 xor u2"
     extends Blocks.Interfaces.partialBooleanSI2SO;
