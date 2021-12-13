@@ -1576,6 +1576,89 @@ The output is constant from the beginning.
 </html>"));
   end DemoSignalCharacteristic;
 
+  model DemoSignalCharacteristicVaryingFrequency
+    "Demonstrate characteristic values of a signal"
+    extends Modelica.Icons.Example;
+    import Modelica.Constants.pi;
+    Modelica.Blocks.Sources.Ramp rampFrequency(
+      height=40,
+      duration=0.5,
+      offset=10,
+      startTime=0.25)
+      annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
+    Modelica.Blocks.Continuous.Integrator integrator(k=2*pi)
+      annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
+    Modelica.Blocks.Math.WrapAngle wrapAngle(positiveRange=false)
+      annotation (Placement(transformation(extent={{-20,40},{0,60}})));
+    Modelica.Blocks.Logical.LessEqualThreshold lessEqualThreshold(threshold=0)
+      annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=270,
+          origin={10,22})));
+    Modelica.Blocks.Math.Sin sin1
+      annotation (Placement(transformation(extent={{20,40},{40,60}})));
+    Modelica.Blocks.Sources.Ramp rampOffset(
+      height=1,
+      duration=0.5,
+      offset=0,
+      startTime=0.25)
+      annotation (Placement(transformation(extent={{-80,70},{-60,90}})));
+    Modelica.Blocks.Math.Add add annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=270,
+          origin={60,30})));
+    Modelica.Blocks.Math.TriggeredMean triggeredMean
+      annotation (Placement(transformation(extent={{70,0},{90,20}})));
+    Modelica.Blocks.Math.TriggeredRectifiedMean triggeredRectifiedMean
+      annotation (Placement(transformation(extent={{70,-40},{90,-20}})));
+    Modelica.Blocks.Math.TriggeredRootMeanSquare triggeredRootMeanSquare
+      annotation (Placement(transformation(extent={{70,-80},{90,-60}})));
+  equation
+    connect(rampFrequency.y, integrator.u)
+      annotation (Line(points={{-59,50},{-52,50}}, color={0,0,127}));
+    connect(integrator.y, wrapAngle.u)
+      annotation (Line(points={{-29,50},{-22,50}}, color={0,0,127}));
+    connect(wrapAngle.y, sin1.u)
+      annotation (Line(points={{1,50},{18,50}}, color={0,0,127}));
+    connect(wrapAngle.y, lessEqualThreshold.u)
+      annotation (Line(points={{1,50},{10,50},{10,34}}, color={0,0,127}));
+    connect(lessEqualThreshold.y, triggeredRectifiedMean.trigger) annotation (Line(
+          points={{10,11},{10,-50},{80,-50},{80,-42}}, color={255,0,255}));
+    connect(lessEqualThreshold.y, triggeredRootMeanSquare.trigger) annotation (
+        Line(points={{10,11},{10,-90},{80,-90},{80,-82}}, color={255,0,255}));
+    connect(lessEqualThreshold.y, triggeredMean.trigger)
+      annotation (Line(points={{10,11},{10,-10},{80,-10},{80,-2}},
+                                                              color={255,0,255}));
+    connect(sin1.y, add.u2)
+      annotation (Line(points={{41,50},{54,50},{54,42}}, color={0,0,127}));
+    connect(rampOffset.y, add.u1)
+      annotation (Line(points={{-59,80},{66,80},{66,42}}, color={0,0,127}));
+    connect(add.y, triggeredMean.u)
+      annotation (Line(points={{60,19},{60,10},{68,10}}, color={0,0,127}));
+    connect(add.y, triggeredRectifiedMean.u)
+      annotation (Line(points={{60,19},{60,-30},{68,-30}}, color={0,0,127}));
+    connect(add.y, triggeredRootMeanSquare.u)
+      annotation (Line(points={{60,19},{60,-70},{68,-70}}, color={0,0,127}));
+    annotation (experiment(
+        Interval=0.0001,
+        Tolerance=1e-06),
+        Documentation(info="<html>
+<p>
+A sine with continuously varying frequency is added to an offset. 
+The triggered blocks detect mean, rectifiedMean and rootMeanSquare of the signal. 
+The trigger condition (i.e. the edge of the trigger) is detected when the wrapped angle is below zero, i.e. when the sine crosses zero from positive to negative values.
+</p>
+<h4>Note:</h4>
+<p>
+Mathematically it is not correct to talk about characteristc values like rootMeanSquare, 
+if the period of the input signal is not constant (as in this example). 
+So the values during the frequency ramp are more or less an estimaton,
+but at the beginning and at the end - when frequency is constant - the result is mathematically correct: 
+Since the amplitude of the sine is 1, at the beginning (offset=0) rms=1/sqrt(2) and at the end (offset=0) rms=sqrt(3/2) are correct.
+</p>
+</html>"));
+  end DemoSignalCharacteristicVaryingFrequency;
+
   package Noise "Library of examples to demonstrate the usage of package Blocks.Noise"
     extends Modelica.Icons.ExamplesPackage;
 
