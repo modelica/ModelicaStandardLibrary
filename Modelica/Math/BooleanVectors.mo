@@ -2,7 +2,7 @@ within Modelica.Math;
 package BooleanVectors "Library of functions operating on Boolean vectors"
  extends Modelica.Icons.Package;
 function allTrue
-    "Returns true, if all elements of the Boolean input vector are true ('and')"
+    "Returns true, if Boolean input vector is non-empty and all elements are true ('and')"
   extends Modelica.Icons.Function;
   input Boolean b[:] "Boolean vector";
   output Boolean result "= true, if all elements of b are true";
