@@ -26,7 +26,7 @@ the output is <strong>false</strong>.
     Modelica.Blocks.Interfaces.BooleanInput u[nin]
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
   equation
-    y=Modelica.Math.BooleanVectors.allTrue(u);
+    y = Modelica.Math.BooleanVectors.andTrue(u);
     annotation (Icon(coordinateSystem(initialScale=0.1),
       graphics={ Text(extent={{-90,40},{90,-40}},textString="and")}),
       Documentation(info="<html>
