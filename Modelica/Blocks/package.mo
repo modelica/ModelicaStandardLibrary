@@ -1429,7 +1429,7 @@ If desired, the angle can be wrapped to the interval [-&pi;, +&pi;].
 </html>"));
   end SinCosEncoder;
 
-  model DemoATO "Demonstrate ATO to unwrap angle"
+  model DemoUnwrapAngle "Demonstrate unwrap angle"
     extends Modelica.Icons.Example;
     import Modelica.Constants.pi;
     Modelica.Blocks.Sources.Trapezoid refFrequency(
@@ -1487,17 +1487,17 @@ If desired, the angle can be wrapped to the interval [-&pi;, +&pi;].
 The reference frequency signal is integrated to obtain the angle, which is measured by an ideal AngleSensor. 
 The angle is used to build a phasor with real and imaginary part. 
 From this phasor, the (wrapped angle) is calculated which gets unwrapped using an angle tracking observer. 
-Compare angleSensor.phi and unwrapAngel.y.
+Compare angleSensor.phi and unwrapAngle.y.
 </p>
 <p>
 Additionally, it is possible to detect the angular velocity of the phasor. 
 Compare speedSensor.w and unwrapAngle.w.
 </p>
 <p>
-An angle tracking observer is a robust method to evaluate the signals of a sin/cos-encoder.
+An ATO (angle tracking observer) is a robust method to evaluate the signals of a sin/cos-encoder.
 </p>
 </html>"));
-  end DemoATO;
+  end DemoUnwrapAngle;
 
   model CompareSincExpSine "Compare sinc and exponential sine signal"
     extends Modelica.Icons.Example;
