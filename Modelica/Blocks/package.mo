@@ -927,62 +927,87 @@ Note, that
 </html>"));
   end BooleanNetwork1;
 
-  model DemoMulitAndOr "Demonstrate and / or with Boolean vector inputs"
+  model DemoMultiAndOr "Demonstrate and / or with Boolean vector inputs"
     extends Modelica.Icons.Example;
     parameter SI.Time T=0.5 "Period of Boolean pulses";
-    Sources.BooleanPulse booleanPulse1[3](
+    Sources.BooleanPulse booleanPulseA[3](
       each width=50,
       each period=T,
       startTime=T*{0,1/8,1/4})
-      annotation (Placement(transformation(extent={{-80,30},{-60,50}})));
+      annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
     Logical.And and1
-      annotation (Placement(transformation(extent={{-28,60},{-8,80}})));
+      annotation (Placement(transformation(extent={{-28,70},{-8,90}})));
     Logical.And and2
-      annotation (Placement(transformation(extent={{10,60},{30,80}})));
-    Logical.MultiAnd multiAnd(nin=3)
-      annotation (Placement(transformation(extent={{10,30},{30,50}})));
-    Sources.BooleanPulse booleanPulse2[3](
+      annotation (Placement(transformation(extent={{10,70},{30,90}})));
+    Logical.MultiAnd multiAnd(nu=3)
+      annotation (Placement(transformation(extent={{10,40},{30,60}})));
+    Sources.BooleanPulse booleanPulseB[3](
       each width=20,
       each period=T,
       startTime=T*{0,1/4,1/2})
-      annotation (Placement(transformation(extent={{-80,-70},{-60,-50}})));
+      annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
     Logical.Or or1
-      annotation (Placement(transformation(extent={{-30,-40},{-10,-20}})));
+      annotation (Placement(transformation(extent={{-30,-30},{-10,-10}})));
     Logical.Or or2
-      annotation (Placement(transformation(extent={{10,-40},{30,-20}})));
-    Logical.MultiOr multiOr(nin=3)
-      annotation (Placement(transformation(extent={{10,-70},{30,-50}})));
+      annotation (Placement(transformation(extent={{10,-30},{30,-10}})));
+    Logical.MultiOr multiOr(nu=3)
+      annotation (Placement(transformation(extent={{10,-60},{30,-40}})));
+    Logical.Not notA
+      annotation (Placement(transformation(extent={{50,70},{70,90}})));
+    Logical.MultiNand multiNand(nu=3)
+      annotation (Placement(transformation(extent={{50,20},{70,40}})));
+    Logical.Not notB
+      annotation (Placement(transformation(extent={{50,-30},{70,-10}})));
+    Logical.MultiNor multiNor(nu=3)
+      annotation (Placement(transformation(extent={{50,-80},{70,-60}})));
   equation
-    connect(booleanPulse1[1].y, and1.u1) annotation (Line(points={{-59,40},{-50,40},
-            {-50,70},{-30,70}}, color={255,0,255}));
-    connect(booleanPulse1[2].y, and1.u2) annotation (Line(points={{-59,40},{-40,40},
-            {-40,62},{-30,62}}, color={255,0,255}));
+    connect(booleanPulseA[1].y, and1.u1) annotation (Line(points={{-59,50},{-50,
+            50},{-50,80},{-30,80}},
+                                color={255,0,255}));
+    connect(booleanPulseA[2].y, and1.u2) annotation (Line(points={{-59,50},{-40,
+            50},{-40,72},{-30,72}},
+                                color={255,0,255}));
     connect(and1.y, and2.u1)
-      annotation (Line(points={{-7,70},{8,70}}, color={255,0,255}));
-    connect(booleanPulse1[3].y, and2.u2) annotation (Line(points={{-59,40},{0,40},{
-            0,62},{8,62}}, color={255,0,255}));
-    connect(booleanPulse2[1].y, or1.u1) annotation (Line(points={{-59,-60},{-50,
-            -60},{-50,-30},{-32,-30}}, color={255,0,255}));
-    connect(booleanPulse2[2].y, or1.u2) annotation (Line(points={{-59,-60},{-40,
-            -60},{-40,-38},{-32,-38}}, color={255,0,255}));
+      annotation (Line(points={{-7,80},{8,80}}, color={255,0,255}));
+    connect(booleanPulseA[3].y, and2.u2) annotation (Line(points={{-59,50},{0,50},
+            {0,72},{8,72}},color={255,0,255}));
+    connect(booleanPulseB[1].y, or1.u1) annotation (Line(points={{-59,-50},{-50,
+            -50},{-50,-20},{-32,-20}}, color={255,0,255}));
+    connect(booleanPulseB[2].y, or1.u2) annotation (Line(points={{-59,-50},{-40,
+            -50},{-40,-28},{-32,-28}}, color={255,0,255}));
     connect(or1.y, or2.u1)
-      annotation (Line(points={{-9,-30},{8,-30}}, color={255,0,255}));
-    connect(booleanPulse2[3].y, or2.u2) annotation (Line(points={{-59,-60},{0,
-            -60},{0,-38},{8,-38}}, color={255,0,255}));
-    connect(booleanPulse1.y, multiAnd.u)
-      annotation (Line(points={{-59,40},{8,40}}, color={255,0,255}));
-    connect(booleanPulse2.y, multiOr.u)
-      annotation (Line(points={{-59,-60},{8,-60}}, color={255,0,255}));
+      annotation (Line(points={{-9,-20},{8,-20}}, color={255,0,255}));
+    connect(booleanPulseB[3].y, or2.u2) annotation (Line(points={{-59,-50},{0,
+            -50},{0,-28},{8,-28}}, color={255,0,255}));
+    connect(booleanPulseA.y, multiAnd.u)
+      annotation (Line(points={{-59,50},{10,50}}, color={255,0,255}));
+    connect(booleanPulseB.y, multiOr.u)
+      annotation (Line(points={{-59,-50},{10,-50}}, color={255,0,255}));
+    connect(and2.y, notA.u)
+      annotation (Line(points={{31,80},{48,80}}, color={255,0,255}));
+    connect(booleanPulseA.y, multiNand.u) annotation (Line(points={{-59,50},{0,
+            50},{0,30},{50,30}}, color={255,0,255}));
+    connect(or2.y, notB.u)
+      annotation (Line(points={{31,-20},{48,-20}}, color={255,0,255}));
+    connect(booleanPulseB.y, multiNor.u) annotation (Line(points={{-59,-50},{0,
+            -50},{0,-70},{50,-70}}, color={255,0,255}));
     annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
           coordinateSystem(preserveAspectRatio=false)),
       experiment(StopTime=1),
       Documentation(info="<html>
 <p>
-Compare and / or for (only) 3 Boolean input signals, 
-logical operations performed pairwise and as vector (or arbitrary length).
+Compare and / or / nand / nor for (only) 3 Boolean input signals, 
+logical operations performed pairwise and as vector (or arbitrary length). 
+Compare:
 </p>
+<ul>
+<li>and2.y vs. multiAnd.y</li>
+<li>notA.y vs. multiNand.y</li>
+<li>or2.y  vs. multiOr.y</li>
+<li>notB.y vs. multiNor.y</li>
+</ul>
 </html>"));
-  end DemoMulitAndOr;
+  end DemoMultiAndOr;
 
   model Interaction1
     "Demonstrates the usage of blocks from Modelica.Blocks.Interaction.Show"

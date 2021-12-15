@@ -21,10 +21,7 @@ the output is <strong>false</strong>.
   end And;
 
   block MultiAnd "Logical and of Boolean vector elements"
-    extends Modelica.Blocks.Interfaces.partialBooleanSO;
-    parameter Integer nin=2 "Number of inputs";
-    Modelica.Blocks.Interfaces.BooleanInput u[nin]
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+    extends Modelica.Blocks.Interfaces.PartialBooleanMISO;
   equation
     y = Modelica.Math.BooleanVectors.andTrue(u);
     annotation (Icon(coordinateSystem(initialScale=0.1),
@@ -56,10 +53,7 @@ the output is <strong>false</strong>.
   end Or;
 
   block MultiOr "Logical or of Boolean vector elements"
-    extends Modelica.Blocks.Interfaces.partialBooleanSO;
-    parameter Integer nin=2 "Number of inputs";
-    Modelica.Blocks.Interfaces.BooleanInput u[nin]
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+    extends Modelica.Blocks.Interfaces.PartialBooleanMISO;
   equation
     y=Modelica.Math.BooleanVectors.anyTrue(u);
     annotation (Icon(coordinateSystem(initialScale=0.1),
@@ -72,20 +66,36 @@ the output is <strong>false</strong>.
 </html>"));
   end MultiOr;
 
-  block Xor "Logical 'xor': y = u1 xor u2"
+  block Nand "Logical 'nand': y = not (u1 and u2)"
     extends Blocks.Interfaces.partialBooleanSI2SO;
   equation
-    y = not ((u1 and u2) or (not u1 and not u2));
+    y = not (u1 and u2);
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Text(
             extent={{-90,40},{90,-40}},
-            textString="xor")}), Documentation(info="<html>
+            textString="nand")}), Documentation(info="<html>
 <p>
-The output is <strong>true</strong> if exactly one input is <strong>true</strong>, otherwise
+The output is <strong>true</strong> if at least one input is <strong>false</strong>, otherwise
 the output is <strong>false</strong>.
 </p>
 </html>"));
-  end Xor;
+  end Nand;
+
+  block MultiNand "Logical nand of Boolean vector elements"
+    extends Modelica.Blocks.Interfaces.PartialBooleanMISO;
+  equation
+    y=not Modelica.Math.BooleanVectors.allTrue(u);
+    annotation (Icon(coordinateSystem(initialScale=0.1), graphics={
+                 Text(extent={{-80,30},{60,-30}},
+            textString="nand",
+            textColor={0,0,0})}),
+      Documentation(info="<html>
+<p>
+The output is <strong>true</strong> if at least one element of the input vector is <strong>false</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+</html>"));
+  end MultiNand;
 
   block Nor "Logical 'nor': y = not (u1 or u2)"
     extends Blocks.Interfaces.partialBooleanSI2SO;
@@ -102,20 +112,36 @@ the output is <strong>false</strong>.
 </html>"));
   end Nor;
 
-  block Nand "Logical 'nand': y = not (u1 and u2)"
-    extends Blocks.Interfaces.partialBooleanSI2SO;
+  block MultiNor "Logical nor of Boolean vector elements"
+    extends Modelica.Blocks.Interfaces.PartialBooleanMISO;
   equation
-    y = not (u1 and u2);
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={Text(
-            extent={{-90,40},{90,-40}},
-            textString="nand")}), Documentation(info="<html>
+    y=not Modelica.Math.BooleanVectors.anyTrue(u);
+    annotation (Icon(coordinateSystem(initialScale=0.1),
+      graphics={ Text(extent={{-90,40},{90,-40}},
+            textString="nor",
+            textColor={0,0,0})}),
+      Documentation(info="<html>
 <p>
-The output is <strong>true</strong> if at least one input is <strong>false</strong>, otherwise
+The output is <strong>true</strong> if none of the elements of the input vector is <strong>true</strong>, otherwise
 the output is <strong>false</strong>.
 </p>
 </html>"));
-  end Nand;
+  end MultiNor;
+
+  block Xor "Logical 'xor': y = u1 xor u2"
+    extends Blocks.Interfaces.partialBooleanSI2SO;
+  equation
+    y = not ((u1 and u2) or (not u1 and not u2));
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+              {100,100}}), graphics={Text(
+            extent={{-90,40},{90,-40}},
+            textString="xor")}), Documentation(info="<html>
+<p>
+The output is <strong>true</strong> if exactly one input is <strong>true</strong>, otherwise
+the output is <strong>false</strong>.
+</p>
+</html>"));
+  end Xor;
 
   block Not "Logical 'not': y = not u"
     extends Blocks.Interfaces.partialBooleanSISO;
