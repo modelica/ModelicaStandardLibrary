@@ -1,5 +1,7 @@
 time
 and2.y
 multiAnd.y
+multiNand.y
 or2.y
 multiOr.y
+multiMor.y
