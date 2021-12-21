@@ -22,7 +22,7 @@ LICENSE text
 # git archive keyword substitutions for the main package files
 Complex.mo export-subst
 Modelica/package.mo export-subst
-ModelicaReferences/package.mo export-subst
+ModelicaReference/package.mo export-subst
 ModelicaServices/package.mo export-subst
 ModelicaTest/package.mo export-subst
 ModelicaTestOverdetermined.mo export-subst
