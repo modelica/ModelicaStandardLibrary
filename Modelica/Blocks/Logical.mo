@@ -431,7 +431,7 @@ Real input u2, otherwise the output is <strong>false</strong>.
 <p>
 The output is <strong>true</strong> if the Real input is within the interval specified by the lower and the upper limit.
 The Boolean parameters ClosedOnLeft and ClosedOnRight indicate whether the lower and upper limit point, respectively, are included in the interval. 
-If the Boolean parameter InsideInterval = false, the output is inverted, i.e. y is <strom>true</stron> if u is outside the interval.
+If the Boolean parameter InsideInterval = false, the output is inverted, i.e. y is <strong>true</strong> if u is outside the interval.
 </p>
 </html>"));
   end IntervalTest;
