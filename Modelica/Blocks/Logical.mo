@@ -359,7 +359,7 @@ Real input u2, otherwise the output is <strong>false</strong>.
   end LessEqual;
 
   block IntervalTest
-    "Output y is true, if input u is within the specified interval"
+    "Tests if input u is within the specified interval"
     extends Modelica.Blocks.Interfaces.partialBooleanSO;
     parameter Boolean useConstantLimits=true "Use constant limits, if true; otherwise signal input limits are used" annotation(Evaluate=true);
     parameter Real constantLowerLimit "Lower limit of interval" annotation(Dialog(enable=useConstantLimits));
