@@ -360,7 +360,7 @@ Real input u2, otherwise the output is <strong>false</strong>.
 
   block IntervalTest
     "Output y is true, if input u is within the specified interval"
-     extends Modelica.Blocks.Interfaces.partialBooleanSO;
+    extends Modelica.Blocks.Interfaces.partialBooleanSO;
     parameter Boolean useConstantLimits=true "Otherwise dynamic inputs" annotation(Evaluate=true);
     parameter Real constantLowerLimit "Lower limit of interval" annotation(Dialog(enable=useConstantLimits));
     parameter Boolean ClosedOnLeft=false "Include lower limit?" annotation(Evaluate=true);
