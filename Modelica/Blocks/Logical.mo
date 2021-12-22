@@ -361,12 +361,12 @@ Real input u2, otherwise the output is <strong>false</strong>.
   block IntervalTest
     "Output y is true, if input u is within the specified interval"
     extends Modelica.Blocks.Interfaces.partialBooleanSO;
-    parameter Boolean useConstantLimits=true "Otherwise dynamic inputs" annotation(Evaluate=true);
+    parameter Boolean useConstantLimits=true "Use constant limits, if true; otherwise signal input limits are used" annotation(Evaluate=true);
     parameter Real constantLowerLimit "Lower limit of interval" annotation(Dialog(enable=useConstantLimits));
-    parameter Boolean ClosedOnLeft=false "Include lower limit?" annotation(Evaluate=true);
+    parameter Boolean ClosedOnLeft=false "Include lower limit point, if true" annotation(Evaluate=true);
     parameter Real constantUpperLimit "Upper limit of interval" annotation(Dialog(enable=useConstantLimits));
-    parameter Boolean ClosedOnRight=false "Include upper limit?" annotation(Evaluate=true);
-    parameter Boolean InsideInterval=true "u inside interval?" annotation(Evaluate=true);
+    parameter Boolean ClosedOnRight=false "Include upper limit point, if true" annotation(Evaluate=true);
+    parameter Boolean InsideInterval=true "Output u is equal to true, if u is inside interval; otherwise output is inverted" annotation(Evaluate=true);
     Modelica.Blocks.Interfaces.RealInput u annotation (Placement(transformation(
             extent={{-140,-20},{-100,20}}), iconTransformation(extent={{-140,-20},{
               -100,20}})));
@@ -429,9 +429,9 @@ Real input u2, otherwise the output is <strong>false</strong>.
           Line(visible=not useConstantLimits, points={{-100,80},{50,80},{50,34}}, color={0,0,0})}),
                               Documentation(info="<html>
 <p>
-The output is <strong>true</strong> if the Real input is within interval specified by lower and upper limit.
-The Boolean parameters ClosedOnLeft and ClosedOnRight indicate whether lower respectively upper limit are included in the interval. 
-If Boolean parameter InsideInterval = false, the output is inverted (u is outside the interval).
+The output is <strong>true</strong> if the Real input is within the interval specified by the lower and the upper limit.
+The Boolean parameters ClosedOnLeft and ClosedOnRight indicate whether the lower and upper limit point, respectively, are included in the interval. 
+If the Boolean parameter InsideInterval = false, the output is inverted, i.e. y is <strom>true</stron> if u is outside the interval.
 </p>
 </html>"));
   end IntervalTest;
