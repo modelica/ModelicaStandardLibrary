@@ -1648,7 +1648,7 @@ A sine with continuously varying frequency is added to an offset.
 The triggered blocks detect mean, rectifiedMean and rootMeanSquare of the signal. 
 The trigger condition (i.e. the edge of the trigger) is detected when the wrapped angle is below zero, i.e. when the sine crosses zero from positive to negative values.
 </p>
-<h4>Note:</h4>
+<h4>Note</h4>
 <p>
 Mathematically it is not correct to talk about characteristc values like rootMeanSquare, 
 if the period of the input signal is not constant (as in this example). 
