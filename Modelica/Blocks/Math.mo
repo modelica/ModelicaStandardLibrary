@@ -2272,7 +2272,7 @@ explicitly set to 0.0, if the mean value results in a negative value.
     parameter Boolean yGreaterOrEqualZero=false
       "= true, if output y is guaranteed to be >= 0 for the exact solution"
       annotation (Evaluate=true, Dialog(tab="Advanced"));
-    Modelica.Blocks.Interfaces.BooleanInput trigger "Trigger input"
+    Modelica.Blocks.Interfaces.BooleanInput trigger "Trigger input signal"
       annotation (Placement(
           transformation(
           extent={{-20,-20},{20,20}},
@@ -2443,7 +2443,7 @@ Note: The output is updated after each period defined by 1/f.
     extends Modelica.Blocks.Interfaces.SISO;
     parameter Real x0=0 "Start value of integrator state";
     parameter Real y0=0 "Start value of output";
-    Modelica.Blocks.Interfaces.BooleanInput trigger
+    Modelica.Blocks.Interfaces.BooleanInput trigger "Trigger input signal"
       annotation (Placement(
           transformation(
           extent={{-20,-20},{20,20}},
@@ -2525,7 +2525,7 @@ Note: The output is updated after each period defined by 1/f.
     extends Modelica.Blocks.Interfaces.SISO;
     parameter Real x0=0 "Start value of integrator state";
     parameter Real y0=0 "Start value of output";
-    Modelica.Blocks.Interfaces.BooleanInput trigger
+    Modelica.Blocks.Interfaces.BooleanInput trigger "Trigger input signal"
       annotation (Placement(
           transformation(
           extent={{-20,-20},{20,20}},
