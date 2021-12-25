@@ -2272,7 +2272,7 @@ explicitly set to 0.0, if the mean value results in a negative value.
     parameter Boolean yGreaterOrEqualZero=false
       "= true, if output y is guaranteed to be >= 0 for the exact solution"
       annotation (Evaluate=true, Dialog(tab="Advanced"));
-    Modelica.Blocks.Interfaces.BooleanInput trigger
+    Modelica.Blocks.Interfaces.BooleanInput trigger "Trigger input"
       annotation (Placement(
           transformation(
           extent={{-20,-20},{20,20}},
