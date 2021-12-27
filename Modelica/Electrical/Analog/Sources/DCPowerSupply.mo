@@ -70,7 +70,7 @@ equation
         fillColor={215,215,215}, fillPattern=FillPattern.Sphere),
       Ellipse(extent={{20,-10},{80,-70}}, lineColor={0,0,255},
         fillColor={215,215,215}, fillPattern=FillPattern.Sphere),
-      Text(extent={{-140,140},{140,100}}, lineColor={0,0,255},
+      Text(extent={{-140,140},{140,100}}, textColor={0,0,255},
         textString="%name"),
       Text(extent={{-80,60},{80,40}}, textColor={0,0,0},
         textString="%V0", horizontalAlignment=TextAlignment.Left),
@@ -88,7 +88,7 @@ equation
 This is a simple model of a DC power supply, as used in laboratories. 
 It can only work in one quadrant, i.e. positive voltage, delivering current. 
 It has three limitations:
-<p>
+</p>
 <ul>
 <li>ConstantVoltage: <code> v = V0 - Rcv*(-i);</code></li>
 <li>Constant Power:  <code>P0 = v*(-i);</code></li>
