@@ -2420,6 +2420,9 @@ that can lead to wrong simulation results):
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Tables</strong></td></tr>
+<tr><td>CombiTable2Ds<br>CombiTable2Dv</td>
+    <td>The derivatives for one-sided extrapolation by constant continuation (i.e., extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint) returned a constant zero value. This has been corrected.</td></tr>
 </table>
 </html>"));
 end Version_X_Y_0;
