@@ -2350,6 +2350,36 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
+class Version_4_0_1 "Version 4.0.1 (Month D, 20YY)"
+  extends Modelica.Icons.ReleaseNotes;
+
+  annotation (Documentation(info="<html>
+<p>
+Version 4.0.1 is the new bug-fix version.
+Short Overview:
+</p>
+
+<p>
+The following <font color=\"blue\"><strong>Modelica packages</strong></font> have been tested that they work together with this release of package Modelica (alphabetical list).
+</p>
+
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+</table>
+
+
+<p><br>
+The following <font color=\"red\"><strong>critical errors</strong></font> have been fixed (i.e., errors
+that can lead to wrong simulation results):
+</p>
+
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Tables</strong></td></tr>
+<tr><td>CombiTable2Ds<br>CombiTable2Dv</td>
+    <td>The derivatives for one-sided extrapolation by constant continuation (i.e., extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint) returned a constant zero value. This has been corrected.</td></tr>
+</table>
+</html>"));
+end Version_4_0_1;
+
 class Version_4_0_0 "Version 4.0.0 (June 4, 2020)"
   extends Modelica.Icons.ReleaseNotes;
 
