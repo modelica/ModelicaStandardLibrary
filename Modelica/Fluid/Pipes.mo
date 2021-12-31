@@ -232,7 +232,7 @@ or other flow models without storage, are directly connected.
         annotation(Dialog(tab="General", group="Geometry"));
       parameter Boolean isCircular=true
         "= true, if cross sectional area is circular"
-        annotation (Evaluate, Dialog(tab="General", group="Geometry"));
+        annotation (Evaluate=true, Dialog(tab="General", group="Geometry"));
       parameter SI.Diameter diameter "Diameter of circular pipe"
         annotation(Dialog(group="Geometry", enable=isCircular));
       parameter SI.Area crossArea=Modelica.Constants.pi*diameter*diameter/4
