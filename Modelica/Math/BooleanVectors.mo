@@ -48,7 +48,6 @@ function andTrue
   extends Modelica.Icons.Function;
   input Boolean b[:] "Boolean vector";
   output Boolean result = min(b) "= true, if all elements of b are true";
-algorithm
   annotation (Inline = true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
