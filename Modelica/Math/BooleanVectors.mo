@@ -91,7 +91,6 @@ function anyTrue
   extends Modelica.Icons.Function;
   input Boolean b[:] "Boolean vector";
   output Boolean result = max(b) "= true, if at least one element of b is true";
-algorithm
   annotation (Inline = true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
