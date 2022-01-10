@@ -6,7 +6,6 @@ function allTrue
   extends Modelica.Icons.Function;
   input Boolean b[:] "Boolean vector";
   output Boolean result = size(b, 1) > 0 and min(b) "= true, if all elements of b are true";
-algorithm
   annotation (Inline = true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
