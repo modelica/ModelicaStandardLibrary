@@ -5,7 +5,6 @@ model DoubleArrow
   import Modelica.Mechanics.MultiBody.Types;
   import Modelica.Mechanics.MultiBody.Frames;
   import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
-  import Modelica.Units.Conversions.to_unit1;
 
   input Frames.Orientation R=Frames.nullRotation()
     "Orientation object to rotate the world frame into the arrow frame" annotation(Dialog);
