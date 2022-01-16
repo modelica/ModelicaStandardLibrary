@@ -11,7 +11,7 @@ Model <strong>Vector</strong> defines a&nbsp;vector that is dynamically
 visualized at the defined location (see variables below).
 The vector length does not represent
 a&nbsp;physical length, but a&nbsp;different 3-dimensional quantity
-(such as force, torque, speed, &hellip;), except for <strong>RelativePosition</strong>.
+(such as force, torque, speed, &hellip;) (except for <strong>RelativePosition</strong>), defined by <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.VectorQuantity\">MultiBody.Types.VectorQuantity</a>.
 
 That allows the vectors of similar quantities to be scaled appropriately during post-processing.
 This is useful, even for <strong>RelativePosition</strong> and in that case to disable or
