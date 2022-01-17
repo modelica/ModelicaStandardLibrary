@@ -41,7 +41,7 @@ initial algorithm
 equation
   p.i + n.i = 0;
   assert(v >= 0, "Only voltage > 0 allowed");
-  assert(i <= iBack, "No back current allowed!");
+  assert(i <= iBack, "Back current exceeded!");
   cv = (-i) <= iLim;
   cc =   v  <= vLim;
   if cp then
