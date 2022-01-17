@@ -22,9 +22,9 @@ model DCPowerSupply "Simple model of a DC power supply cv - cp - cc"
 protected
   parameter SI.Voltage vLim(fixed=false) "Voltage limit for cc";
   parameter SI.Current iLim(fixed=false) "Current limit for cv";
-  parameter Boolean cp(fixed=false) "cp present?";
-  Boolean cv(start=true)  "operation in cv, otherwise cc (or cp)";
-  Boolean cc(start=false) "operation in cc, otherwise cv (or cp)";
+  parameter Boolean cp(fixed=false) "Is cp present?";
+  Boolean cv(start=true)  "Operation in cv, otherwise cc (or cp)";
+  Boolean cc(start=false) "Operation in cc, otherwise cv (or cp)";
 initial algorithm
   assert(Rcv < (V0/I0), "Rcv too high!");
   assert(Gcc < (I0/V0), "Gcc too high!");
