@@ -282,10 +282,10 @@ expression(\"sin(pi/6)\");  // returns 0.5
                            loadSelector(filter="Text files (*.txt)",
                            caption="Open file in which Real parameters are present")));
     input String name "Name of parameter";
-    input Boolean useDefaultValue = true "If true, 
+    input Boolean useDefaultValue = false "If true, 
     then the default value is returned if parameter not found in file, 
     else an error is printed";
-    input Real defaultValue = 0 "Return value if parameter not found in file";
+    input Real defaultValue=0 "Return value if parameter not found in file" annotation (Dialog(enable=useDefaultValue));
     output Real result "Actual value of parameter on file";
 
   protected
