@@ -17,8 +17,7 @@ model DCPowerSupply "Simple model of a DC power supply cv - cp - cc"
   Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (
     Placement(transformation(extent={{90,-110},{110,-90}})));
   Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (
-    Placement(transformation(extent={{-110,-110},{-90,-90}}),    iconTransformation(extent={{-110,
-            -110},{-90,-90}})));
+    Placement(transformation(extent={{-110,-110},{-90,-90}})));
 protected
   parameter SI.Voltage vLim(fixed=false) "Voltage limit for cc";
   parameter SI.Current iLim(fixed=false) "Current limit for cv";
@@ -61,7 +60,7 @@ equation
   end if;
   annotation (
     defaultComponentName = "dcPowerSupply",
-    Icon(coordinateSystem(preserveAspectRatio = false), graphics={
+    Icon(graphics={
       Rectangle(extent={{-100,100},{100,-100}}, lineColor={0,0,255},
         fillColor={255,255,255}, fillPattern=FillPattern.Solid, radius=10),
       Rectangle(extent={{-94,94},{94,6}}, lineColor={0,0,255},
@@ -82,11 +81,10 @@ equation
         textString="A"),
       Text(extent={{-90,90},{90,70}}, textColor={0,0,0},
         textString="%P0")}),
-    Diagram(coordinateSystem(preserveAspectRatio = false)),
     Documentation(info="<html>
 <p>
 This is a simple model of a DC power supply, as used in laboratories. 
-It can only work in one quadrant, i.e. positive voltage, delivering current. 
+It can only work in one quadrant, i.e., positive voltage, delivering current. 
 It has three limitations:
 </p>
 <ul>
