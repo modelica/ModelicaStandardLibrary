@@ -2,7 +2,6 @@ within Modelica.Electrical.Analog.Examples;
 model DemoPowerSupplyWithBuffer
   "Demonstrate how to avoid back current to the DC Power Supply"
   extends Modelica.Icons.Example;
-  import Modelica.Units.SI;
   parameter SI.Current amplitude = 50 "Pulse current amplitude peak-to-peak";
   parameter SI.Current offset = -25 "Pulse current offset";
   parameter Real dutyCycle(final min = 0, final max = 1) = 0.5 "Pulse current duty cycle";

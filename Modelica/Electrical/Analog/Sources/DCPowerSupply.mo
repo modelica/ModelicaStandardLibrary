@@ -1,6 +1,5 @@
 within Modelica.Electrical.Analog.Sources;
 model DCPowerSupply "Simple model of a DC power supply cv - cp - cc"
-  import Modelica.Units.SI;
   import Modelica.Constants.eps;
   parameter SI.Voltage V0(final min = eps) = 60 "No-load voltage";
   parameter SI.Current I0(final min = eps) = 50 "Short-circuit current";
