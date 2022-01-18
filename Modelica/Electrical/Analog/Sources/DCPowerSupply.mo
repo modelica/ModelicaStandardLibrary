@@ -38,12 +38,12 @@ initial algorithm
   end if;
 equation
   p.i + n.i = 0;
-  assert(v >= 0, "Only voltage > 0 allowed");
+  assert(v >= 0, "Only voltage >= 0 allowed");
   assert(i <= iBack, "Back current exceeded!");
   cv = (-i) <= iLim;
   cc =   v  <= vLim;
   if cp then
-    if     cv then
+    if cv then
        v = V0 - Rcv*(-i);
     elseif cc then
       -i = I0 - Gcc*v;
@@ -51,7 +51,7 @@ equation
       P0 = v*(-i);
     end if;
   else
-    if    cv then
+    if cv then
        v = V0 - Rcv*(-i);
     else//cc
       -i = I0 - Gcc*v;
