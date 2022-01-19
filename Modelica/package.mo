@@ -2396,7 +2396,7 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
     <td>An enhanced distribution of the fire signals avoids a short circuit on the source, and enables an enhanced pwm algorithm.</td></tr>
 <tr><td>Control.SignalPWM</td>
     <td>The reference signal can be choosen between sawtooth and triangle, and 
-        the comparison between dutyCycle and reference signal is either applied common of separated for both fire ports.</td></tr>
+        the comparison between dutyCycle and reference signal is either applied common or separated for both fire ports.</td></tr>
 <tr><td colspan=\"2\"><strong>Mechanics.Rotational.Components</strong></td></tr>
 <tr><td>BearingFriction</td>
     <td>The table interpolation in <code>tau_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td></tr>
