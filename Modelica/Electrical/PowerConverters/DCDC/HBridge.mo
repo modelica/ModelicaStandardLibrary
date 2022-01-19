@@ -73,9 +73,9 @@ equation
   connect(inverter_n.ac, dc_n2) annotation (Line(
       points={{30,-20},{100,-20},{100,-60}},  color={0,0,255}));
   connect(andCondition_p.y, inverter_p.fire_p) annotation (Line(points={{-60,-69},
-          {-60,10},{-26,10},{-26,18}}, color={255,0,255}));
+          {-60, 14},{-26, 14},{-26,18}}, color={255,0,255}));
   connect(andCondition_n.y, inverter_n.fire_p) annotation (Line(points={{60,-69},
-          {60,-60},{14,-60},{14,-32}}, color={255,0,255}));
+          {60, -64},{14, -64},{14,-32}}, color={255,0,255}));
   connect(not_p.y, inverter_p.fire_n)
     annotation (Line(points={{-29,0},{-14,0},{-14,18}}, color={255,0,255}));
   connect(andCondition_p.y, not_p.u)

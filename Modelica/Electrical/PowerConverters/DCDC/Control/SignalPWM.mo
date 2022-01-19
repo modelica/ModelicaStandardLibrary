@@ -93,7 +93,7 @@ equation
   connect(constOne.y, add.u2)
     annotation (Line(points={{-10,-19},{-10,-6},{-2,-6}}, color={0,0,127}));
   connect(zeroOrderHold.y, greaterEqual_p.u1) annotation (Line(points={{-19,0},{-10,
-          0},{-10,20},{-60,20},{-60,58}}, color={0,0,127}));
+          0},{-10, 18},{-60, 18},{-60,58}}, color={0,0,127}));
   connect(add.y, greaterEqual_n.u1)
     annotation (Line(points={{21,0},{60,0},{60,58}}, color={0,0,127}));
   connect(greaterEqual_p.y, fire)
