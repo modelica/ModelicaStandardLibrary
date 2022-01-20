@@ -2,6 +2,7 @@ IMC_Characteristics
 IMC_DOL
 IMC_YD
 IMC_Transformer
+IMC_Inverter
 IMC_Conveyor
 IMC_withLosses
 IMC_Initialize
