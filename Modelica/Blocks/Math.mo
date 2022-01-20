@@ -1957,21 +1957,39 @@ Otherwise the input angle <code>u</code> is wrapped to the interval [0,2*pi[.
             thickness=0.5)}),
         Documentation(info="<html>
 <p>
-An angle tracking observer is a very robust method to determine the angle of a space phasor. 
-If we calculate <code>cos</code> and <code>sin</code> of a wrapped angle - no matter whether in the interval [0, 2&pi;) or (-&pi;, +&pi;] - 
-we can use this algorithm to unwrap the angle.
+This block &quot;unwrap&quot; the input angle having a&nbsp;time discontinuity.
+Such a&nbsp;discontinuity is typical for angles exceeding a&nbsp;limit interval,
+e.g. ]-&pi;, &pi;], cf.
+<a href=\"modelica://Modelica.Blocks.Math.WrapAngle\">Modelica.Blocks.Math.WrapAngle</a>.
+The output&nbsp;<code>y</code> approximates the input in continuous matter.
 </p>
 <p>
-Rotating the space phasor by an angle that is determined by the controller - whose goal is to bring the imaginary part to zero - the result is the desired continuos angle. 
-The result can be differentiated to obtain the angular velocity, but as a bonus the input of the integral controller already is the angular velocity. 
-The result approximates the desired angle by a firstOrder whose time constant is the integral time constant:
+The used calculation method is based on an angle tracking observer as common in electrical
+engineering and is very robust.
+It determines the angle of a&nbsp;space phasor calculating cos(<var>&phi;</var>) and
+sin(<var>&phi;</var>) of a&nbsp;wrapped angle <var>&phi;</var> &ndash; no matter of
+angle interval. Note: the angles are often wrapped within the interval ]-&pi;, +&pi;] or
+[0, 2&pi;[.
 </p>
 <p>
-<code>Im(e<sup>j(&phi;-&phi;')</sup>)=sin(&phi;-&phi;')</code> which can be approximated by <code>(&phi;-&phi;')</code>
+Rotating the space phasor by an angle that is determined by the controller &ndash; whose
+goal is to bring the imaginary part to zero &ndash; the result is the desired continuos angle. 
+The output&nbsp;<code>y</code> approximates the desired angle by a&nbsp;first order system
+whose time constant is the integral time constant:
+</p>
+<blockquote><pre>
+Im(e<sup>j(<var>&phi;</var>-<var>&phi;</var>&apos;)</sup>) = sin(<var>&phi;</var> - <var>&phi;</var>&apos;)
+</pre></blockquote>
+<p>
+which can be approximated for small differences by
+<code>(<var>&phi;</var>&nbsp;- <var>&phi;</var>&apos;)</code>.
+Using an integral controller, the transfer function of the closed loop can, thus, be
+determined as:
+<code><var>&phi;</var>&apos;&nbsp;= <var>&phi;</var>/(1&nbsp;+ s*T<sub>i</sub>)</code>.
 </p>
 <p>
-Using an integral contoller, the transfer function of the closed loop can be determined as:
-<code>&phi;'=&phi;/(1 + s*T<sub>I</sub>)</code>.
+The output&nbsp;<code>y</code> can be differentiated to obtain the angular velocity, but
+this quantity can be also accessed directly with output&nbsp;<code>w</code>.
 </p>
 </html>"));
   end UnwrapAngle;
