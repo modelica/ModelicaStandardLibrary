@@ -36,10 +36,13 @@ equation
         Line(
           points={{80,0},{100,0}},
           color={0,0,0},
-          pattern=LinePattern.Dash)}), Documentation(info="<html>
+          pattern=LinePattern.Dash)}), Documentation(info= "<html>
 <p>
-Starting at <code>time = startTime</code>, first a series of <code>n1</code> pulses of <code>amplitude1</code> with length <code>T1</code> and pause after each pulse <code>Tp1</code> is issued.<br>
+Starting at <code>time = startTime</code>, first a series of <code>n1</code> pulses of <code>amplitude1</code> with length <code>T1</code> and pause after each pulse <code>Tp1</code> is issued.</p>
+<p>
 Then, after a pause <code>Tp</code>, a series of <code>n2</code> pulses of <code>amplitude2</code> with length <code>T2</code> and pause after each pulse <code>Tp2</code> is issued.
 </p>
+
+<img src=\"modelica:///Modelica/Resources/Images/Electrical/Batteries/Utilities/PulseSeries.png\" alt=\"PulseSeries.png\">
 </html>"));
 end PulseSeries;
