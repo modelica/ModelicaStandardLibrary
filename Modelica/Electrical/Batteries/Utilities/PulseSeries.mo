@@ -8,8 +8,8 @@ block PulseSeries "Series of pulses"
   parameter Real amplitude2=-amplitude1 "Amplitude of 2nd pulse series";
   parameter Integer n2(min=0)=1 "Number of pulses of 2nd series";
   parameter SI.Time T2=T1 "Length of pulses of 2nd series";
-  parameter SI.Time Tp2=Tp1 "Pause between pulses of 1st series";
-  parameter SI.Time Tp "Pause between the two series";
+  parameter SI.Time Tp2=Tp1 "Pause between pulses of 2nd series";
+  parameter SI.Time Tp "Pause (in addition to TP1) between the two series";
   extends Modelica.Blocks.Interfaces.SignalSource;
 protected
   parameter SI.Time Tstart1[n1]={startTime + (k-1)*(T1 + Tp1) for k in 1:n1};
