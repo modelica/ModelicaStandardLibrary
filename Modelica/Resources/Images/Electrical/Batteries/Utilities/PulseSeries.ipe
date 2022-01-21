@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70218" creator="Ipe 7.2.24">
-<info created="D:20220120182414" modified="D:20220120194409"/>
+<info created="D:20220120182414" modified="D:20220121104308"/>
 <ipestyle name="ElectricalEngineering">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -2924,14 +2924,6 @@ h
 160 744 m
 172 744 l
 </path>
-<path matrix="1.08333 0 0 1 26.6667 0" stroke="black" pen="small" rarrow="normal/tiny">
-160 744 m
-172 744 l
-</path>
-<path matrix="1 0 0 1 20 0" stroke="black" pen="small">
-172 744 m
-180 744 l
-</path>
 <path matrix="1 0 0 1 20 0" stroke="black" pen="small">
 116 726 m
 116 710 l
@@ -2940,7 +2932,7 @@ h
 <text matrix="1 0 0 1 70 -56" transformations="translations" pos="110 756" stroke="black" type="label" width="31.88" height="-0.015" depth="16.29" valign="top" style="math">\underbrace{\hspace*{32pt}}_{\texttt{n2}~\textrm{pulses}}</text>
 <text matrix="1 0 0 1 20 -1" transformations="translations" pos="216 732" stroke="black" type="label" width="19.925" height="6.565" depth="0.08" halign="right" valign="bottom" style="math">\texttt{time}</text>
 <text matrix="1 0 0 1 -149 36" transformations="translations" pos="216 732" stroke="black" type="label" width="4.981" height="4.462" depth="1.73" valign="top" style="math">\texttt{y}</text>
-<text matrix="1 0 0 1 -130 -18" transformations="translations" pos="216 732" stroke="black" type="label" width="35.866" height="5.246" depth="0.07" halign="center" valign="bottom" size="footnote" style="math">\texttt{startTime}</text>
+<text matrix="1 0 0 1 -130 -17" transformations="translations" pos="216 732" stroke="black" type="label" width="35.866" height="5.246" depth="0.07" halign="center" valign="bottom" size="footnote" style="math">\texttt{startTime}</text>
 <path stroke="black" pen="small">
 63 752 m
 65 752 l
@@ -2958,13 +2950,13 @@ h
 65 704 l
 </path>
 <text matrix="1 0 0 1 -150 -28" transformations="translations" pos="216 732" stroke="black" type="label" width="39.851" height="5.249" depth="1.33" valign="center" size="footnote" style="math">\texttt{amplitude2}</text>
-<text matrix="1 0 0 1 -100 -18" transformations="translations" pos="216 732" stroke="black" type="label" width="7.97" height="5.017" depth="0" halign="center" valign="bottom" size="footnote" style="math">\texttt{T1}</text>
-<text matrix="1 0 0 1 -85.4 -18" transformations="translations" pos="216 732" stroke="black" type="label" width="11.955" height="5.022" depth="1.33" halign="center" valign="baseline" size="footnote" style="math">\texttt{Tp1}</text>
+<text matrix="1 0 0 1 -100 -17" transformations="translations" pos="216 732" stroke="black" type="label" width="7.97" height="5.017" depth="0" halign="center" valign="bottom" size="footnote" style="math">\texttt{T1}</text>
+<text matrix="1 0 0 1 -85.4 -17" transformations="translations" pos="216 732" stroke="black" type="label" width="11.955" height="5.022" depth="1.33" halign="center" valign="baseline" size="footnote" style="math">\texttt{Tp1}</text>
 <text matrix="1 0 0 1 -57 15" transformations="translations" pos="216 732" stroke="black" type="label" width="11.955" height="5.022" depth="1.33" halign="center" valign="baseline" size="footnote" style="math">\texttt{Tp1}</text>
 <text matrix="1 0 0 1 -57 15" transformations="translations" pos="216 732" stroke="black" type="label" width="11.955" height="5.022" depth="1.33" halign="center" valign="baseline" size="footnote" style="math">\texttt{Tp1}</text>
 <text matrix="1 0 0 1 -44 15" transformations="translations" pos="216 732" stroke="black" type="label" width="7.97" height="5.022" depth="1.33" halign="center" valign="baseline" size="footnote" style="math">\texttt{Tp}</text>
 <text matrix="1 0 0 1 -30 15" transformations="translations" pos="216 732" stroke="black" type="label" width="7.97" height="5.017" depth="0" halign="center" valign="baseline" size="footnote" style="math">\texttt{T2}</text>
-<text matrix="1 0 0 1 -9 15" transformations="translations" pos="216 732" stroke="black" type="label" width="11.955" height="5.022" depth="1.33" halign="center" valign="baseline" size="footnote" style="math">\texttt{Tp2}</text>
+<text matrix="1 0 0 1 -18 15" transformations="translations" pos="216 732" stroke="black" type="label" width="11.955" height="5.022" depth="1.33" halign="center" valign="baseline" size="footnote" style="math">\texttt{Tp2}</text>
 <path stroke="black" dash="dashed" pen="small">
 106 752 m
 136 752 l
@@ -2972,6 +2964,10 @@ h
 <path matrix="3.1 0 0 1 -221.6 -48" stroke="black" dash="dashed" pen="small">
 106 752 m
 136 752 l
+</path>
+<path matrix="0.666667 0 0 1 85.3333 0" stroke="black" pen="small" arrow="normal/tiny" rarrow="normal/tiny">
+160 744 m
+172 744 l
 </path>
 </page>
 </ipe>
