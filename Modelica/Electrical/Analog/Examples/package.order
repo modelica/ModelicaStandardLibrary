@@ -29,5 +29,8 @@ InvertingAmp
 SeriesResonance
 ParallelResonance
 DemonstrateLightning
+DemoPowerSupply
+DemoPowerSupplyWithBuffer
+Lines
 OpAmps
 Utilities

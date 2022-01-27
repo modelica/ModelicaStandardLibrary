@@ -8,11 +8,5 @@ springDamper.v_rel
 springDamper1.s_rel
 springDamper1.v_rel
 brake.mode
-brake.startBackward
-brake.startForward
 massWithStopAndFriction.mode
-massWithStopAndFriction.startBackward
-massWithStopAndFriction.startForward
 supportFriction.mode
-supportFriction.startBackward
-supportFriction.startForward

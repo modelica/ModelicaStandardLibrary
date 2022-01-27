@@ -1,6 +1,6 @@
 /* ModelicaStandardTables.c - External table functions
 
-   Copyright (C) 2013-2020, Modelica Association and contributors
+   Copyright (C) 2013-2021, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -39,6 +39,10 @@
       Modelica.Blocks.Tables.CombiTable2Dv
 
    Changelog:
+      Nov. 12, 2021: by Thomas Beutlich
+                     Fixed derivatives in CombiTable2D for one-sided extrapolation
+                     by constant continuation (ticket #3894)
+
       Dec. 22, 2020: by Thomas Beutlich
                      Added reading of CSV files (ticket #1153)
 
@@ -2081,8 +2085,8 @@ void* ModelicaStandardTables_CombiTable1D_init2(_In_z_ const char* fileName,
                                                 int extrapolation,
                                                 int verbose) {
     return ModelicaStandardTables_CombiTable1D_init3(fileName, tableName,
-        table, nRow, nColumn, columns, nCols, smoothness, LAST_TWO_POINTS,
-        1 /* verbose */, ",", 0);
+        table, nRow, nColumn, columns, nCols, smoothness, extrapolation,
+        verbose, ",", 0);
 }
 
 void* ModelicaStandardTables_CombiTable1D_init3(_In_z_ const char* fileName,
@@ -2888,7 +2892,7 @@ void* ModelicaStandardTables_CombiTable2D_init2(_In_z_ const char* fileName,
                                                 int extrapolation,
                                                 int verbose) {
     return ModelicaStandardTables_CombiTable2D_init3(fileName, tableName,
-        table, nRow, nColumn, smoothness, LAST_TWO_POINTS, 1 /* verbose */, ",", 0);
+        table, nRow, nColumn, smoothness, extrapolation, verbose, ",", 0);
 }
 
 void* ModelicaStandardTables_CombiTable2D_init3(_In_z_ const char* fileName,
@@ -4334,6 +4338,9 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                             break;
 
                         case HOLD_LAST_POINT:
+                            der_y = (TABLE(1, last2 + 2) - TABLE(1, last2 + 1))/
+                                (TABLE_ROW0(last2 + 2) - TABLE_ROW0(last2 + 1));
+                            der_y *= der_u2;
                             break;
 
                         case NO_EXTRAPOLATION:
@@ -4476,6 +4483,9 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                             break;
 
                         case HOLD_LAST_POINT:
+                            der_y = (TABLE(last1 + 2, 1) - TABLE(last1 + 1, 1))/
+                                (TABLE_COL0(last1 + 2) - TABLE_COL0(last1 + 1));
+                            der_y *= der_u1;
                             break;
 
                         case NO_EXTRAPOLATION:
@@ -4623,6 +4633,9 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                                  break;
 
                             case HOLD_LAST_POINT:
+                                der_y = (TABLE(last1 + 2, last2 + 1) - TABLE(last1 + 1, last2 + 1))/
+                                    (TABLE_COL0(last1 + 2) - TABLE_COL0(last1 + 1));
+                                der_y *= der_u1;
                                 break;
 
                             case NO_EXTRAPOLATION:
@@ -4691,6 +4704,9 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                                  break;
 
                             case HOLD_LAST_POINT:
+                                der_y = (TABLE(last1 + 2, last2 + 2) - TABLE(last1 + 1, last2 + 2))/
+                                    (TABLE_COL0(last1 + 2) - TABLE_COL0(last1 + 1));
+                                der_y *= der_u1;
                                 break;
 
                             case NO_EXTRAPOLATION:
@@ -4751,6 +4767,9 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                                  break;
 
                             case HOLD_LAST_POINT:
+                                der_y = (TABLE(last1 + 1, last2 + 2) - TABLE(last1 + 1, last2 + 1))/
+                                    (TABLE_ROW0(last2 + 2) - TABLE_ROW0(last2 + 1));
+                                der_y *= der_u2;
                                 break;
 
                             case NO_EXTRAPOLATION:
@@ -4942,6 +4961,9 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                                  break;
 
                             case HOLD_LAST_POINT:
+                                der_y = (TABLE(last1 + 2, last2 + 2) - TABLE(last1 + 2, last2 + 1))/
+                                    (TABLE_ROW0(last2 + 2) - TABLE_ROW0(last2 + 1));
+                                der_y *= der_u2;
                                 break;
 
                             case NO_EXTRAPOLATION:
@@ -5238,6 +5260,9 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
                             break;
 
                         case HOLD_LAST_POINT:
+                            der2_y = (TABLE(1, last2 + 2) - TABLE(1, last2 + 1))/
+                                (TABLE_ROW0(last2 + 2) - TABLE_ROW0(last2 + 1));
+                            der2_y *= der2_u2;
                             break;
 
                         case NO_EXTRAPOLATION:
@@ -5381,6 +5406,9 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
                             break;
 
                         case HOLD_LAST_POINT:
+                            der2_y = (TABLE(last1 + 2, 1) - TABLE(last1 + 1, 1))/
+                                (TABLE_COL0(last1 + 2) - TABLE_COL0(last1 + 1));
+                            der2_y *= der2_u1;
                             break;
 
                         case NO_EXTRAPOLATION:
@@ -5540,6 +5568,9 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
                                  break;
 
                             case HOLD_LAST_POINT:
+                                der2_y = (TABLE(last1 + 2, last2 + 1) - TABLE(last1 + 1, last2 + 1))/
+                                    (TABLE_COL0(last1 + 2) - TABLE_COL0(last1 + 1));
+                                der2_y *= der2_u1;
                                 break;
 
                             case NO_EXTRAPOLATION:
@@ -5610,6 +5641,9 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
                                  break;
 
                             case HOLD_LAST_POINT:
+                                der2_y = (TABLE(last1 + 2, last2 + 2) - TABLE(last1 + 1, last2 + 2))/
+                                    (TABLE_COL0(last1 + 2) - TABLE_COL0(last1 + 1));
+                                der2_y *= der2_u1;
                                 break;
 
                             case NO_EXTRAPOLATION:
@@ -5672,6 +5706,9 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
                                  break;
 
                             case HOLD_LAST_POINT:
+                                der2_y = (TABLE(last1 + 1, last2 + 2) - TABLE(last1 + 1, last2 + 1))/
+                                    (TABLE_ROW0(last2 + 2) - TABLE_ROW0(last2 + 1));
+                                der2_y *= der2_u2;
                                 break;
 
                             case NO_EXTRAPOLATION:
@@ -5872,6 +5909,9 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
                                  break;
 
                             case HOLD_LAST_POINT:
+                                der2_y = (TABLE(last1 + 2, last2 + 2) - TABLE(last1 + 2, last2 + 1))/
+                                    (TABLE_ROW0(last2 + 2) - TABLE_ROW0(last2 + 1));
+                                der2_y *= der2_u2;
                                 break;
 
                             case NO_EXTRAPOLATION:

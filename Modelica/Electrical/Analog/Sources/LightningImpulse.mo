@@ -16,7 +16,7 @@ protected
   parameter Modelica.Units.SI.Time T0=
     if approximation==ImpulseApproximation.DoubleExp then T2*T1/(T2 - T1)*log(T2/T1)
     else T1*(m*T2/T1)^(1/(m + 1))
-    "Intial value of time parameter";
+    "Initial value of time parameter";
   parameter Modelica.Units.SI.Time T(final min=small,
     fixed=false, start=T0) "Time when maximum occurs";
   parameter Modelica.Units.SI.Time T10(final min=small,

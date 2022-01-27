@@ -1,5 +1,5 @@
 within ModelicaTest.Electrical;
-model SingularTransfomer
+model SingularTransformer
   extends Modelica.Icons.Example;
   parameter Real L=2 annotation (Evaluate=true);
   Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage1(
@@ -48,10 +48,10 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-This model shows a transformer, where the transfomer has not 2 states, but only
+This model shows a transformer, where the transformer has not 2 states, but only
 1 state since L1=L2=M. Some tools might be not able to detect this. In this
 case, translation or simulation fails with a division by zero.
 </p>
 </html>"),
     experiment(StopTime=1.1));
-end SingularTransfomer;
+end SingularTransformer;

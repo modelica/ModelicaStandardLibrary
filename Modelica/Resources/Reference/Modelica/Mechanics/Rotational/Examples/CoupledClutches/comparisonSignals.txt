@@ -8,11 +8,5 @@ clutch2.w_rel
 clutch3.phi_rel
 clutch3.w_rel
 clutch1.mode
-clutch1.startBackward
-clutch1.startForward
 clutch2.mode
-clutch2.startBackward
-clutch2.startForward
 clutch3.mode
-clutch3.startBackward
-clutch3.startForward

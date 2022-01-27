@@ -1,0 +1,4 @@
+time
+dcPowerSupply.v
+dcPowerSupply.i
+dcPowerSupply.P

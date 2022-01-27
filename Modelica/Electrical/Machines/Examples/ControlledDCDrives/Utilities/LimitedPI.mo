@@ -37,7 +37,7 @@ block LimitedPI
         extent={{20,-20},{-20,20}})));
   output Real controlError = u - u_m
     "Control error (set point - measurement)";
-  parameter Real k(unit="1")=1 "Gain";
+  parameter Real k=1 "Gain";
   parameter Boolean useI=true "PI else P" annotation(Evaluate=true);
   parameter SI.Time Ti(min=Modelica.Constants.small)=1
     "Integral time constant (T>0 required)" annotation(Dialog(enable=useI));
@@ -45,7 +45,7 @@ block LimitedPI
     annotation(Dialog(group="Feed-forward"));
   parameter Boolean useConstantKFF=true "Use constant feed-forward factor?"
     annotation(Dialog(group="Feed-forward", enable=useFF));
-  parameter Real KFF(unit="1")=1 "Feed-forward gain"
+  parameter Real KFF=1 "Feed-forward gain"
     annotation(Dialog(group="Feed-forward", enable=useFF and useConstantKFF));
   parameter Boolean constantLimits=true "Use constant limits?"
     annotation(Dialog(group="Limitation"));

@@ -502,6 +502,9 @@ end UsersGuide;
         final quantity="Capacitance",
         final unit="F",
         min=0);
+    type CapacitancePerUnitLength = Real (
+        final quantity="CapacitancePerUnitLength",
+        final unit="F/m") "Capacitance per unit length of wire/cable/line";
     type CapacitancePerArea =
                 Real (final quantity="CapacitancePerArea", final unit="F/m2")
       "Capacitance per area";
@@ -541,6 +544,9 @@ end UsersGuide;
         final unit="H");
     type SelfInductance = Inductance(min=0);
     type MutualInductance = Inductance;
+    type InductancePerUnitLength = Real (
+        final quantity="InductancePerUnitLength",
+        final unit="H/m") "Inductance per unit length of wire/cable/line";
     type CouplingCoefficient = Real (final quantity="CouplingCoefficient", final unit=
                "1");
     type LeakageCoefficient = Real (final quantity="LeakageCoefficient", final unit=
@@ -565,6 +571,9 @@ end UsersGuide;
     type Resistance = Real (
         final quantity="Resistance",
         final unit="Ohm");
+    type ResistancePerUnitLength = Real (
+        final quantity="ResistancePerUnitLength",
+        final unit="Ohm/m") "Resistance per unit length of wire/cable/line";
     type Resistivity = Real (final quantity="Resistivity", final unit="Ohm.m");
     type Conductivity = Real (final quantity="Conductivity", final unit="S/m");
     type Reluctance = Real (final quantity="Reluctance", final unit="H-1");
@@ -574,8 +583,10 @@ end UsersGuide;
         final unit="rad",
         displayUnit="deg");
     type Impedance = Resistance;
+    type ImpedancePerUnitLength = ResistancePerUnitLength "Impedance per unit length of wire/cable/line";
     type ModulusOfImpedance = Resistance;
     type Reactance = Resistance;
+    type ReactancePerUnitLength = ResistancePerUnitLength "Reactance per unit length of wire/cable/line";
     type QualityFactor = Real (final quantity="QualityFactor", final unit="1");
     type LossAngle = Real (
         final quantity="Angle",
@@ -584,9 +595,14 @@ end UsersGuide;
     type Conductance = Real (
         final quantity="Conductance",
         final unit="S");
+    type ConductancePerUnitLength = Real (
+        final quantity="ConductancePerUnitLength",
+        final unit="S/m") "Conductance per unit length of wire/cable/line";
     type Admittance = Conductance;
+    type AdmittancePerUnitLength = ConductancePerUnitLength "Admittance per unit length of wire/cable/line";
     type ModulusOfAdmittance = Conductance;
     type Susceptance = Conductance;
+    type SusceptancePerUnitLength = ConductancePerUnitLength "Susceptance per unit length of wire/cable/line";
     type InstantaneousPower = Real (final quantity="Power", final unit="W");
     type ActivePower = Real (final quantity="Power", final unit="W");
     type ApparentPower = Real (final quantity="Power", final unit="V.A");
@@ -1148,10 +1164,18 @@ which is only valid in the rotor-fixed coordinate system.
       Complex(redeclare Resistance re "Real part of complex impedance (resistance)",
               redeclare Reactance im "Imaginary part of complex impedance (reactance)")
       "Complex impedance";
+    operator record ComplexImpedancePerUnitLength =
+      Complex(redeclare ResistancePerUnitLength re "Real part of complex impedance (resistance) per unit length",
+              redeclare ReactancePerUnitLength im "Imaginary part of complex impedance (reactance) per unit length")
+      "Complex impedance per unit length of wire/cable/line";
     operator record ComplexAdmittance =
       Complex(redeclare Conductance re "Real part of complex admittance (conductance)",
               redeclare Susceptance im "Imaginary part of complex admittance (susceptance)")
       "Complex admittance";
+    operator record ComplexAdmittancePerUnitLength =
+      Complex(redeclare ConductancePerUnitLength re "Real part of complex admittance (conductance) per unit length",
+              redeclare SusceptancePerUnitLength im "Imaginary part of complex admittance (susceptance) per unit length")
+      "Complex admittance per unit length of wire/cable/line";
     operator record ComplexPower =
       Complex(redeclare ActivePower re "Real part of complex apparent power (active power)",
               redeclare ReactivePower im "Imaginary part of complex apparent power (reactive power)")
@@ -1871,7 +1895,7 @@ Copyright &copy; 1998-2020, Modelica Association and contributors
 <li><em>May 25, 2011</em> by Stefan Wischhusen:<br>Added molar units for energy and enthalpy.</li>
 <li><em>Jan. 27, 2010</em> by Christian Kral:<br>Added complex units.</li>
 <li><em>Dec. 14, 2005</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>Add User&#39;s Guide and removed &quot;min&quot; values for Resistance and Conductance.</li>
-<li><em>October 21, 2002</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and Christian Schweiger:<br>Added new package <strong>Conversions</strong>. Corrected typo <em>Wavelenght</em>.</li>
+<li><em>October 21, 2002</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and Christian Schweiger:<br>Added new package <strong>Conversions</strong>. Corrected typo <em>Wavelength</em>.</li>
 <li><em>June 6, 2000</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>Introduced the following new types<br>type Temperature = ThermodynamicTemperature;<br>types DerDensityByEnthalpy, DerDensityByPressure, DerDensityByTemperature, DerEnthalpyByPressure, DerEnergyByDensity, DerEnergyByPressure<br>Attribute &quot;final&quot; removed from min and max values in order that these values can still be changed to narrow the allowed range of values.<br>Quantity=&quot;Stress&quot; removed from type &quot;Stress&quot;, in order that a type &quot;Stress&quot; can be connected to a type &quot;Pressure&quot;.</li>
 <li><em>Oct. 27, 1999</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>New types due to electrical library: Transconductance, InversePotential, Damping.</li>
 <li><em>Sept. 18, 1999</em> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>Renamed from SIunit to SIunits. Subpackages expanded, i.e., the SIunits package, does no longer contain subpackages.</li>

@@ -1,0 +1,35 @@
+name: GenerateReleaseNotes
+
+on:
+  workflow_dispatch:
+    inputs:
+      milestone:
+        description: 'Milestone number of the release'
+        default: '61'
+        required: true
+      version:
+        description: 'Version of the release'
+        default: '4.1.0'
+        required: true
+
+jobs:
+  generate_release_notes:
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 5
+      - name: Setup python environment
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install python packages
+        run: pip install --user requests
+      - name: Generate MSL release notes from closed GitHub issues
+        timeout-minutes: 3
+        run: python ./Modelica/Resources/Documentation/Generate-ReleaseNotes.py ${{ github.event.inputs.milestone }} ${{ github.event.inputs.version }}
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ResolvedGitHubIssues-Version-${{ github.event.inputs.version }}
+          path: ./Modelica/Resources/Documentation/Version-${{ github.event.inputs.version }}/

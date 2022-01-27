@@ -6,8 +6,4 @@ inertia3.w
 spring.phi_rel
 spring.w_rel
 brake.mode
-brake.startBackward
-brake.startForward
 clutch.mode
-clutch.startBackward
-clutch.startForward
