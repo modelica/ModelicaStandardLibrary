@@ -40,17 +40,9 @@ slidingMass.v
 slidingMass1.s
 slidingMass1.v
 bearingFriction.mode
-bearingFriction.startBackward
-bearingFriction.startForward
 bearingFriction1.mode
-bearingFriction1.startBackward
-bearingFriction1.startForward
 brake.mode
-brake.startBackward
-brake.startForward
 brake1.mode
-brake1.startBackward
-brake1.startForward
 gear2_1.lossyGear.mode
 gear2_2.lossyGear.mode
 lossyGear.mode

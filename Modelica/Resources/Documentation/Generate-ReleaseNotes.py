@@ -129,7 +129,7 @@ def main(dir, milestone, version, auth):
     with open(os.path.join(path, 'ResolvedGitHubIssues.pdf'), 'wb') as f:
         url = 'http://c.docverter.com/convert'
         css = 'docverter.css'
-        with open(css, 'w') as c:
+        with open(os.path.join(dir, css), 'w') as c:
             pageInfo = '@page {size: A4 portrait;}'
             c.write(pageInfo)
         data = {'to': 'pdf', 'from': 'markdown', 'css': css, 'template': template}

@@ -12,14 +12,7 @@ oneWayClutch.w_rel
 springDamper.phi_rel
 springDamper.w_rel
 bearingFriction.mode
-bearingFriction.startBackward
-bearingFriction.startForward
 brake.mode
-brake.startBackward
-brake.startForward
 clutch.mode
-clutch.startBackward
-clutch.startForward
 lossyGear.mode
-oneWayClutch.startForward
 oneWayClutch.stuck

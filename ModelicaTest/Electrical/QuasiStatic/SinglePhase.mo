@@ -43,6 +43,16 @@ package SinglePhase "Single-phase quasi-static package"
       duration=1,
       offset=10,
       startTime=0) annotation (Placement(transformation(extent={{-100,-30},{-80,-10}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageRMSSensor
+      voltageRMSSensor annotation (Placement(transformation(
+          extent={{-10,10},{10,-10}},
+          rotation=270,
+          origin={10,-20})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.CurrentRMSSensor
+      currentRMSSensor annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=270,
+          origin={90,0})));
   equation
 
     connect(const.y, variableResistor.R_ref) annotation (Line(points={{-29,60},{-20,60},{-20,42}}, color={0,0,127}));
@@ -57,7 +67,6 @@ package SinglePhase "Single-phase quasi-static package"
     connect(variableResistor.pin_n, variableConductor.pin_p) annotation (Line(points={{-10,30},{-5,30},{0,30}}, color={85,170,255}));
     connect(variableConductor.pin_n, variableCapacitor.pin_p) annotation (Line(points={{20,30},{25,30},{30,30}}, color={85,170,255}));
     connect(variableCapacitor.pin_n, variableInductor.pin_p) annotation (Line(points={{50,30},{55,30},{60,30}}, color={85,170,255}));
-    connect(variableInductor.pin_n, variableImpedance.pin_p) annotation (Line(points={{80,30},{90,30},{90,-40},{80,-40}}, color={85,170,255}));
     connect(variableImpedance.pin_n, variableAdmittance.pin_p) annotation (Line(points={{60,-40},{55,-40},{50,-40}}, color={85,170,255}));
     connect(const4.y, variableAdmittance.Y_ref) annotation (Line(points={{21,-60},{30,-60},{40,-60},{40,-52}}, color={85,170,255}));
     connect(const5.y, variableImpedance.Z_ref) annotation (Line(points={{-9,-80},{28,-80},{70,-80},{70,-52}}, color={85,170,255}));
@@ -66,6 +75,10 @@ package SinglePhase "Single-phase quasi-static package"
     connect(voltageSensor.pin_n, ground.pin) annotation (Line(points={{-20,-30},{-20,-40},{-50,-40}}, color={85,170,255}));
     connect(const6.y, currentSource.I) annotation (Line(points={{-79,-50},{-70,-50},{-70,-26},{-62,-26}}, color={85,170,255}));
     connect(ramp.y, currentSource.f) annotation (Line(points={{-79,-20},{-74,-20},{-70,-20},{-70,-14},{-62,-14}}, color={0,0,127}));
+    connect(voltageRMSSensor.pin_p, conductor.pin_p) annotation (Line(points={{10,-10},{10,0},{-90,0}}, color={85,170,255}));
+    connect(voltageRMSSensor.pin_n, ground.pin) annotation (Line(points={{10,-30},{10,-40},{-50,-40}}, color={85,170,255}));
+    connect(variableInductor.pin_n, currentRMSSensor.pin_p) annotation (Line(points={{80,30},{90,30},{90,10}}, color={85,170,255}));
+    connect(currentRMSSensor.pin_n, variableImpedance.pin_p) annotation (Line(points={{90,-10},{90,-40},{80,-40}}, color={85,170,255}));
     annotation (experiment(StopTime=1),
       Documentation(info="<html>
 <p>Serial connection of different single-phase basic components</p>
@@ -208,8 +221,7 @@ package SinglePhase "Single-phase quasi-static package"
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={50,40})));
-    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground groundV1
-                                                                         annotation (Placement(transformation(extent={{-10,0},{10,20}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground groundV1    annotation (Placement(transformation(extent={{-10,0},{10,20}})));
     Modelica.ComplexBlocks.Sources.ComplexRampPhasor complexRampL(
       magnitude1=100,
       magnitude2=0.01,
@@ -230,8 +242,7 @@ package SinglePhase "Single-phase quasi-static package"
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={50,-40})));
-    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground groundI1
-                                                                         annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
+    Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground groundI1    annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
     Modelica.ComplexBlocks.Sources.ComplexRampPhasor complexRampC(
       useLogRamp=true,
       startTime=0,

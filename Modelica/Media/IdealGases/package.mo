@@ -24,10 +24,10 @@ a few additional steps have to be performed:
 <li>
 All single gas media need to define a constant instance of record
 <a href=\"modelica://Modelica.Media.Interfaces.PartialMedium.FluidConstants\">IdealGases.Common.SingleGasNasa.FluidConstants</a>.
-For 37 ideal gases such records are provided in package
+For 38 ideal gases such records are provided in package
 <a href=\"modelica://Modelica.Media.IdealGases.Common.FluidData\">IdealGases.Common.FluidData</a>.
 For the other gases, such a record instance has to be provided by the user, e.g., by getting
-the data from a commercial or public data base. A public source of the needed data is for example the <a href=\"http://webbook.nist.gov/chemistry/\"> NIST Chemistry WebBook</a></li>
+the data from a commercial or public data base. A public source of the needed data is for example the <a href=\"http://webbook.nist.gov/chemistry/\">NIST Chemistry WebBook</a>.</li>
 
 <li>When the data is available, and a user has an instance of a
 <a href=\"modelica://Modelica.Media.Interfaces.PartialMedium.FluidConstants\">FluidConstants</a> record filled with data, a medium package has to be written. Note that only the dipole moment, the acentric factor and critical data are necessary for the viscosity and thermal conductivity functions.</li>

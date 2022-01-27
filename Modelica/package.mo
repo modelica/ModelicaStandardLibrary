@@ -2391,6 +2391,12 @@ The following <font color=\"blue\"><strong>existing components</strong></font> h
 <tr><td colspan=\"2\"><strong>Modelica.Blocks.Tables</strong></td></tr>
 <tr><td>CombiTable1Ds<br>CombiTable1Dv<br>CombiTable2Ds<br>CombiTable2Dv</td>
     <td>Added support of reading CSV files.</td></tr>
+<tr><td colspan=\"2\"><strong>Electrical.PowerConverters.DCDC</strong></td></tr>
+<tr><td>HBridge</td>
+    <td>An enhanced distribution of the fire signals avoids a short circuit on the source, and enables an enhanced pwm algorithm.</td></tr>
+<tr><td>Control.SignalPWM</td>
+    <td>The reference signal can be chosen between sawtooth and triangle, and 
+        the comparison between dutyCycle and reference signal is either applied common or separated for both fire ports.</td></tr>
 <tr><td colspan=\"2\"><strong>Mechanics.Rotational.Components</strong></td></tr>
 <tr><td>BearingFriction</td>
     <td>The table interpolation in <code>tau_pos</code> utilizes the interpolation based on <a href=\"modelica://Modelica.Blocks.Types.ExternalCombiTable1D\">ExternalCombiTable1D</a>.</td></tr>
@@ -2420,6 +2426,9 @@ that can lead to wrong simulation results):
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><strong>Modelica.Blocks.Tables</strong></td></tr>
+<tr><td>CombiTable2Ds<br>CombiTable2Dv</td>
+    <td>The derivatives for one-sided extrapolation by constant continuation (i.e., extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint) returned a constant zero value. This has been corrected.</td></tr>
 </table>
 </html>"));
 end Version_X_Y_0;
@@ -3918,8 +3927,7 @@ the following new language elements (compared to Modelica Specification 3.1):
 <p>
 A large part of the new classes have been developed with
 partial financial support by
-<a href=\"http://www.bmbf.de/en/index.php\">BMBF</a>
-(BMBF F&ouml;rderkennzeichen: 01IS07022F)
+BMBF (BMBF F&ouml;rderkennzeichen: 01IS07022F)
 within the <a href=\"http://www.itea2.org\">ITEA2</a> project
 EUROSYSLIB.
 We highly appreciate this funding.

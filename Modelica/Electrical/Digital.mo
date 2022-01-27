@@ -1165,7 +1165,7 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
               points={{-58,2},{-34,2},{-34,24.55},{-5.3,24.55}}, color={127,0,127}));
           annotation (experiment(StopTime=400),
             Documentation(info="<html>
-<p>This example is a simple and uncomplete test of a single DLATRAM component . After simulation until 400 s plot dLATRAM.addr[1], dLATRAM.addr[2], and dLATRAM.dataOUT[1], dLATRAM.dataOut[2]. The address inputs are  prescribed with all possible combinations of logic values. It can be checked in which cases of address values the output is 'X' or '0'.</p>
+<p>This example is a simple and incomplete test of a single DLATRAM component . After simulation until 400 s plot dLATRAM.addr[1], dLATRAM.addr[2], and dLATRAM.dataOUT[1], dLATRAM.dataOut[2]. The address inputs are  prescribed with all possible combinations of logic values. It can be checked in which cases of address values the output is 'X' or '0'.</p>
 </html>"));
         end RAM;
 

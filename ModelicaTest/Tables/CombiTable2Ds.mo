@@ -1095,4 +1095,34 @@ double mydummyfunc(double dummy_in) {
         points={{-59,-10},{-50,-10},{-50,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=60));
   end Test32;
+
+  model Test33 "Extrapolation by constant continuation (Ticket #3894)"
+    extends Modelica.Icons.Example;
+    extends TestDer(t_new(table=[0, 1, 2; 1, 1, 7; 2, 2, 4],
+            smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments,
+            extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
+    Modelica.Blocks.Sources.Trapezoid trapezoid1(
+      amplitude=3,
+      rising=3,
+      width=3,
+      falling=3,
+      period=12,
+      nperiod=1,
+      offset=0) annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Trapezoid trapezoid2(
+      amplitude=3,
+      rising=3,
+      width=3,
+      falling=3,
+      period=12,
+      nperiod=1,
+      offset=0,
+      startTime=3) annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+  equation
+    connect(trapezoid1.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-52,30},{-52,16},{-42,16}}, color={0,0,127}));
+    connect(trapezoid2.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-52,-10},{-52,4},{-42,4}}, color={0,0,127}));
+    annotation (experiment(StartTime=0, StopTime=14));
+  end Test33;
 end CombiTable2Ds;

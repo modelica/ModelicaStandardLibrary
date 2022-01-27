@@ -1,5 +1,5 @@
 within Modelica.Electrical.PowerConverters.DCAC.Control;
-block SVPWM "SpaceVector Pulse Width Modulation"
+block SVPWM "Space vector pulse width modulation"
   parameter SI.Frequency f "Switching frequency";
   extends Modelica.Blocks.Interfaces.DiscreteBlock(final samplePeriod=1/f);
   import Modelica.Constants.small;
@@ -33,12 +33,14 @@ algorithm
     //Limited relative reference signal
     uRef:=min(sqrt(u[1]^2 + u[2]^2)/(2/3*uMax), cos(pi/6));
     //Determine angle of reference signal within (-pi, +pi]
-    phiRef:=if noEvent(uRef < small) then 0 else atan2(u[2], u[1]);
+    phiRef:=if uRef < small then 0 else atan2(u[2], u[1]);
     //Shift angle to [0, 2*pi)
-    phiPos:=max(phiRef + (if phiRef < -eps then 2*pi else 0), 0);
+    // Note that phiRef is likely to be very close to zero, so the extra logic ensures that
+    // we do not get values at 2*pi since that will look odd.
+    phiPos:=max(0, phiRef + (if phiRef < -2*pi*Modelica.Constants.eps then 2*pi else 0));
     //Determine sector and neighbour sector
-    ka:=integer(phiPos/(pi/m));
-    kb:=if noEvent(ka >= 5) then 0 else ka + 1;
+    ka:=min(integer(phiPos/(pi/m)), 2*m-1); // The min guards against roundoff
+    kb:=mod(ka+1, 2*m);
     //Determine angle within sector in the range of [0, pi/m)
     phiSec:=phiPos - ka*pi/m;
     //Determine limited relative time spans

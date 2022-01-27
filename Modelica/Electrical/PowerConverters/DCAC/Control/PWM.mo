@@ -1,5 +1,5 @@
 within Modelica.Electrical.PowerConverters.DCAC.Control;
-block PWM "PulseWidthModulation"
+block PWM "Pulse width modulation"
   extends Modelica.Blocks.Icons.Block;
   constant Integer m=3 "Number of phases";
   parameter PowerConverters.Types.PWMType pwmType=PowerConverters.Types.PWMType.SVPWM
@@ -51,7 +51,7 @@ equation
 Let the user choose the PWM type from:
 </p>
 <ul>
-<li><a href=\"modelica://Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM\">Space Vector pulse width modulation</a></li>
+<li><a href=\"modelica://Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM\">Space vector pulse width modulation</a></li>
 <li><a href=\"modelica://Modelica.Electrical.PowerConverters.DCAC.Control.IntersectivePWM\">Intersective pulse width modulation</a></li>
 </ul>
 </html>"));
