@@ -1,5 +1,5 @@
 within Modelica.Mechanics.Translational.Sources;
-model Force2 "Input signal acting as torque on two flanges"
+model Force2 "Input signal acting as force on two flanges"
   extends Translational.Interfaces.PartialTwoFlanges;
   Modelica.Blocks.Interfaces.RealInput f(unit="N")
     "Driving force as input signal" annotation (Placement(transformation(
