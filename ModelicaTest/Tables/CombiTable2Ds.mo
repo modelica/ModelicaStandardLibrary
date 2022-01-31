@@ -1126,7 +1126,7 @@ double mydummyfunc(double dummy_in) {
     annotation (experiment(StartTime=0, StopTime=14));
   end Test33;
   
-  model OneSidedDerivative2D "Test of one sided derivatives in 2D-tables"
+  model OneSidedDerivative2D "Test of one sided derivatives in 2D-tables (Ticket #3893)"
     // We are starting at boundaries at the table
     // Case 2 and 4 slide diagonally (from different corners)
     // Case 1 and 3 start at the edge of the real table and then leave it top-left
