@@ -499,10 +499,20 @@ static size_t findRowIndex(const double* table, size_t nRow, size_t nCol,
       * table[i*nCol] <= x
       * table[(i + 1)*nCol] > x for i + 2 < nRow
   */
+static size_t findRowIndex2(const double* table, size_t nRow, size_t nCol,
+    size_t last, double x, double dx);
+/* Using dx as tie-breaker if table[i*nCol] == x to treat x as x+dx*eps */ 
 
 static size_t findColIndex(_In_ const double* table, size_t nCol, size_t last,
                            double x) MODELICA_NONNULLATTR;
   /* Same as findRowIndex but works on rows */
+static size_t findColIndex2(_In_ const double* table, size_t nCol, size_t last,
+                           double x, double dx) MODELICA_NONNULLATTR;
+  /* Same as findRowIndex2 but works on rows */
+
+static int findLess(double x, double dx, double val) {
+	return x<val || (x==val && dx<0);
+}
 
 static int isValidName(_In_z_ const char* name) MODELICA_NONNULLATTR;
   /* Check, whether a file or table name is valid */
@@ -4225,8 +4235,6 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
         const double u1Max = TABLE_COL0(nRow - 1);
         const double u2Min = TABLE_ROW0(1);
         const double u2Max = TABLE_ROW0(nCol - 1);
-        const double du1 = der_u1 > 0 ? u1*DBL_EPSILON : -u1*DBL_EPSILON;
-        const double du2 = der_u2 > 0 ? u2*DBL_EPSILON : -u2*DBL_EPSILON;
 
         if (nRow == 2) {
             if (nCol > 2) {
@@ -4247,21 +4255,21 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                             u2 -= T;
                         } while (u2 > u2Max);
                     }
-                    last2 = findColIndex(&TABLE(0, 1), nCol - 1,
-                        tableID->last2, u2 + du2);
+                    last2 = findColIndex2(&TABLE(0, 1), nCol - 1,
+                        tableID->last2, u2, der_u2);
                     tableID->last2 = last2;
                 }
-                else if (u2 + du2 < u2Min) {
+                else if (findLess(u2, der_u2, u2Min)) {
                     extrapolate2 = LEFT;
                     last2 = 0;
                 }
-                else if (u2 + du2 > u2Max) {
+                else if (!findLess(u2, der_u2, u2Max)) {
                     extrapolate2 = RIGHT;
                     last2 = nCol - 3;
                 }
                 else {
-                    last2 = findColIndex(&TABLE(0, 1), nCol - 1,
-                        tableID->last2, u2 + du2);
+                    last2 = findColIndex2(&TABLE(0, 1), nCol - 1,
+                        tableID->last2, u2, der_u2);
                     tableID->last2 = last2;
                 }
 
@@ -4392,21 +4400,21 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                         u1 -= T;
                     } while (u1 > u1Max);
                 }
-                last1 = findRowIndex(&TABLE(1, 0), nRow - 1, nCol,
-                    tableID->last1, u1 + du1);
+                last1 = findRowIndex2(&TABLE(1, 0), nRow - 1, nCol,
+                    tableID->last1, u1, der_u1);
                 tableID->last1 = last1;
             }
-            else if (u1 + du1 < u1Min) {
+            else if (findLess(u1, der_u1, u1Min)) {
                 extrapolate1 = LEFT;
                 last1 = 0;
             }
-            else if (u1 + du1 > u1Max) {
+            else if (!findLess(u1, der_u1, u1Max)) {
                 extrapolate1 = RIGHT;
                 last1 = nRow - 3;
             }
             else {
-                last1 = findRowIndex(&TABLE(1, 0), nRow - 1, nCol,
-                    tableID->last1, u1 + du1);
+                last1 = findRowIndex2(&TABLE(1, 0), nRow - 1, nCol,
+                    tableID->last1, u1, der_u1);
                 tableID->last1 = last1;
             }
             if (nCol == 2) {
@@ -4536,21 +4544,21 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                             u2 -= T;
                         } while (u2 > u2Max);
                     }
-                    last2 = findColIndex(&TABLE(0, 1), nCol - 1,
-                        tableID->last2, u2 + du2);
+                    last2 = findColIndex2(&TABLE(0, 1), nCol - 1,
+                        tableID->last2, u2, der_u2);
                     tableID->last2 = last2;
                 }
-                else if (u2 + du2 < u2Min) {
+                else if (findLess(u2, der_u2, u2Min)) {
                     extrapolate2 = LEFT;
                     last2 = 0;
                 }
-                else if (u2 + du2 > u2Max) {
+                else if (!findLess(u2, der_u2, u2Max)) {
                     extrapolate2 = RIGHT;
                     last2 = nCol - 3;
                 }
                 else {
-                    last2 = findColIndex(&TABLE(0, 1), nCol - 1,
-                        tableID->last2, u2 + du2);
+                    last2 = findColIndex2(&TABLE(0, 1), nCol - 1,
+                        tableID->last2, u2, der_u2);
                     tableID->last2 = last2;
                 }
 
@@ -5148,8 +5156,6 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
         const double u1Max = TABLE_COL0(nRow - 1);
         const double u2Min = TABLE_ROW0(1);
         const double u2Max = TABLE_ROW0(nCol - 1);
-        const double du1 = (der_u1 > 0) || (der_u1==0 && der2_u1>0) ? u1*DBL_EPSILON : -u1*DBL_EPSILON;
-        const double du2 = (der_u2 > 0) || (der_u2==0 && der2_u2>0) ? u2*DBL_EPSILON : -u2*DBL_EPSILON;
 
         if (nRow == 2) {
             if (nCol > 2) {
@@ -5170,8 +5176,8 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
                             u2 -= T;
                         } while (u2 > u2Max);
                     }
-                    last2 = findColIndex(&TABLE(0, 1), nCol - 1,
-                        tableID->last2, u2 + du2);
+                    last2 = findColIndex2(&TABLE(0, 1), nCol - 1,
+                        tableID->last2, u2, der_u2);
                     tableID->last2 = last2;
                 }
                 else if (u2 < u2Min) {
@@ -5183,8 +5189,8 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
                     last2 = nCol - 3;
                 }
                 else {
-                    last2 = findColIndex(&TABLE(0, 1), nCol - 1,
-                        tableID->last2, u2 + du2);
+                    last2 = findColIndex2(&TABLE(0, 1), nCol - 1,
+                        tableID->last2, u2, der_u2);
                     tableID->last2 = last2;
                 }
 
@@ -6180,14 +6186,14 @@ static int isNearlyEqual(double x, double y) {
     return fabs(y - x) < cmp;
 }
 
-static size_t findRowIndex(const double* table, size_t nRow, size_t nCol,
-                           size_t last, double x) {
+static size_t findRowIndex2(const double* table, size_t nRow, size_t nCol,
+                           size_t last, double x, double dx) {
     size_t i0 = 0;
     size_t i1 = nRow - 1;
-    if (x < TABLE_COL0(last)) {
+    if (findLess(x, dx, TABLE_COL0(last))) {
         i1 = last;
     }
-    else if (x >= TABLE_COL0(last + 1)) {
+    else if (!findLess(x, dx, TABLE_COL0(last + 1))) {
         i0 = last;
     }
     else {
@@ -6197,7 +6203,7 @@ static size_t findRowIndex(const double* table, size_t nRow, size_t nCol,
     /* Binary search */
     while (i1 > i0 + 1) {
         const size_t i = (i0 + i1)/2;
-        if (x < TABLE_COL0(i)) {
+        if (findLess(x, dx, TABLE_COL0(i))) {
             i1 = i;
         }
         else {
@@ -6206,15 +6212,19 @@ static size_t findRowIndex(const double* table, size_t nRow, size_t nCol,
     }
     return i0;
 }
+static size_t findRowIndex(const double* table, size_t nRow, size_t nCol,
+                           size_t last, double x) {
+	return findRowIndex2(table, nRow, nCol, last, x, 0.0);
+}
 
-static size_t findColIndex(_In_ const double* table, size_t nCol, size_t last,
-                           double x) {
+static size_t findColIndex2(_In_ const double* table, size_t nCol, size_t last,
+                           double x, double dx) {
     size_t i0 = 0;
     size_t i1 = nCol - 1;
-    if (x < TABLE_ROW0(last)) {
+    if (findLess(x, dx, TABLE_ROW0(last))) {
         i1 = last;
     }
-    else if (x >= TABLE_ROW0(last + 1)) {
+    else if (findLess(x, dx, TABLE_ROW0(last + 1))) {
         i0 = last;
     }
     else {
@@ -6224,7 +6234,7 @@ static size_t findColIndex(_In_ const double* table, size_t nCol, size_t last,
     /* Binary search */
     while (i1 > i0 + 1) {
         const size_t i = (i0 + i1)/2;
-        if (x < TABLE_ROW0(i)) {
+        if (findLess(x, dx, TABLE_ROW0(i))) {
             i1 = i;
         }
         else {
@@ -6232,6 +6242,9 @@ static size_t findColIndex(_In_ const double* table, size_t nCol, size_t last,
         }
     }
     return i0;
+}
+static size_t findColIndex(_In_ const double* table, size_t nCol, size_t last, double x) {
+	return findColIndex2(table, nCol, last, x, 0.0);
 }
 
 /* ----- Internal check functions ----- */
