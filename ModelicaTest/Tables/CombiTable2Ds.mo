@@ -1127,7 +1127,7 @@ double mydummyfunc(double dummy_in) {
   end Test33;
   
   model OneSidedDerivative2D "Test of one sided derivatives in 2D-tables (Ticket #3893)"
-    // We are starting at boundaries at the table
+    // We are starting at boundaries of the table
     // Case 2 and 4 slide diagonally (from different corners)
     // Case 1 and 3 start at the edge of the real table and then leave it top-left
     //  Interpolating in different ways
