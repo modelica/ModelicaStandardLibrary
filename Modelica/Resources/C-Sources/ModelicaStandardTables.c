@@ -505,10 +505,11 @@ static size_t findRowIndex2(const double* table, size_t nRow, size_t nCol,
 
 static size_t findColIndex(_In_ const double* table, size_t nCol, size_t last,
                            double x) MODELICA_NONNULLATTR;
-  /* Same as findRowIndex but works on rows */
+  /* Same as findRowIndex but works on columns */
+
 static size_t findColIndex2(_In_ const double* table, size_t nCol, size_t last,
                            double x, double dx) MODELICA_NONNULLATTR;
-  /* Same as findRowIndex2 but works on rows */
+  /* Same as findRowIndex2 but works on columns */
 
 static int findLess(double x, double dx, double val) {
 	return x<val || (x==val && dx<0);
