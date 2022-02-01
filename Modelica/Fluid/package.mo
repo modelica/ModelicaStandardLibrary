@@ -1048,7 +1048,7 @@ all named Medium).
 <p>
 Once a system model has been built, it is possible to obtain different approximations by
 appropriately setting the defaults in the System component (and/or the settings of specific
-components.
+components).
 </p>
 <p>
 The Assumptions | allowFlowReversal parameter determines whether reversing flow conditions
