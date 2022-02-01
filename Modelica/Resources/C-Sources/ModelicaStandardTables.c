@@ -6187,8 +6187,8 @@ static int isNearlyEqual(double x, double y) {
     return fabs(y - x) < cmp;
 }
 
-static size_t findRowIndex2(const double* table, size_t nRow, size_t nCol,
-                           size_t last, double x, double dx) {
+static size_t findRowIndex2(_In_ const double* table, size_t nRow, size_t nCol,
+                            size_t last, double x, double dx) {
     size_t i0 = 0;
     size_t i1 = nRow - 1;
     if (isLess(x, dx, TABLE_COL0(last))) {
@@ -6214,13 +6214,13 @@ static size_t findRowIndex2(const double* table, size_t nRow, size_t nCol,
     return i0;
 }
 
-static size_t findRowIndex(const double* table, size_t nRow, size_t nCol,
+static size_t findRowIndex(_In_ const double* table, size_t nRow, size_t nCol,
                            size_t last, double x) {
     return findRowIndex2(table, nRow, nCol, last, x, 0.0);
 }
 
 static size_t findColIndex2(_In_ const double* table, size_t nCol, size_t last,
-                           double x, double dx) {
+                            double x, double dx) {
     size_t i0 = 0;
     size_t i1 = nCol - 1;
     if (isLess(x, dx, TABLE_ROW0(last))) {
