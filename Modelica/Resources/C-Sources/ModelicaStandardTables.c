@@ -39,14 +39,14 @@
       Modelica.Blocks.Tables.CombiTable2Dv
 
    Changelog:
-   
-      Jan. 31, 2022: by Hans Olsson
-                     Added better support for one-sided derivatives of 2d-tables.
+
+      Jan. 31, 2022: by Hans Olsson, Dassault Systemes
+                     Added better support for one-sided derivatives of CombiTable2D.
                      The idea is that when we are computing the derivative at a boundary
                      in the table we should consider the der-value to choose side.
                      This is less important for 1d-tables and thus ignored in those cases.
-                     (ticket #3893 )
-                     
+                     (ticket #3893)
+
       Nov. 12, 2021: by Thomas Beutlich
                      Fixed derivatives in CombiTable2D for one-sided extrapolation
                      by constant continuation (ticket #3894)
@@ -492,16 +492,17 @@ extern int usertab(char* tableName, int nipo, int dim[], int* colWise,
 static int isNearlyEqual(double x, double y);
   /* Compare two floating-point numbers by threshold _EPSILON */
 
-static size_t findRowIndex(const double* table, size_t nRow, size_t nCol,
-    size_t last, double x);
+static size_t findRowIndex(_In_ const double* table, size_t nRow, size_t nCol,
+                           size_t last, double x) MODELICA_NONNULLATTR;
   /* Find the row index i using binary search such that
       * i + 1 < nRow
       * table[i*nCol] <= x
       * table[(i + 1)*nCol] > x for i + 2 < nRow
   */
-static size_t findRowIndex2(const double* table, size_t nRow, size_t nCol,
-    size_t last, double x, double dx);
-/* Using dx as tie-breaker if table[i*nCol] == x to treat x as x+dx*eps */ 
+
+static size_t findRowIndex2(_In_ const double* table, size_t nRow, size_t nCol,
+                            size_t last, double x, double dx) MODELICA_NONNULLATTR;
+  /* Using dx as tie-breaker if table[i*nCol] == x to treat x as x+dx*eps */
 
 static size_t findColIndex(_In_ const double* table, size_t nCol, size_t last,
                            double x) MODELICA_NONNULLATTR;
@@ -511,9 +512,8 @@ static size_t findColIndex2(_In_ const double* table, size_t nCol, size_t last,
                            double x, double dx) MODELICA_NONNULLATTR;
   /* Same as findRowIndex2 but works on columns */
 
-static int findLess(double x, double dx, double val) {
-	return x<val || (x==val && dx<0);
-}
+static int isLess(double x, double dx, double val);
+  /* Check, whether x is less than val, also using dx as tie-breaker */
 
 static int isValidName(_In_z_ const char* name) MODELICA_NONNULLATTR;
   /* Check, whether a file or table name is valid */
@@ -4260,11 +4260,11 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                         tableID->last2, u2, der_u2);
                     tableID->last2 = last2;
                 }
-                else if (findLess(u2, der_u2, u2Min)) {
+                else if (isLess(u2, der_u2, u2Min)) {
                     extrapolate2 = LEFT;
                     last2 = 0;
                 }
-                else if (!findLess(u2, der_u2, u2Max)) {
+                else if (!isLess(u2, der_u2, u2Max)) {
                     extrapolate2 = RIGHT;
                     last2 = nCol - 3;
                 }
@@ -4405,11 +4405,11 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                     tableID->last1, u1, der_u1);
                 tableID->last1 = last1;
             }
-            else if (findLess(u1, der_u1, u1Min)) {
+            else if (isLess(u1, der_u1, u1Min)) {
                 extrapolate1 = LEFT;
                 last1 = 0;
             }
-            else if (!findLess(u1, der_u1, u1Max)) {
+            else if (!isLess(u1, der_u1, u1Max)) {
                 extrapolate1 = RIGHT;
                 last1 = nRow - 3;
             }
@@ -4549,11 +4549,11 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                         tableID->last2, u2, der_u2);
                     tableID->last2 = last2;
                 }
-                else if (findLess(u2, der_u2, u2Min)) {
+                else if (isLess(u2, der_u2, u2Min)) {
                     extrapolate2 = LEFT;
                     last2 = 0;
                 }
-                else if (!findLess(u2, der_u2, u2Max)) {
+                else if (!isLess(u2, der_u2, u2Max)) {
                     extrapolate2 = RIGHT;
                     last2 = nCol - 3;
                 }
@@ -6191,10 +6191,10 @@ static size_t findRowIndex2(const double* table, size_t nRow, size_t nCol,
                            size_t last, double x, double dx) {
     size_t i0 = 0;
     size_t i1 = nRow - 1;
-    if (findLess(x, dx, TABLE_COL0(last))) {
+    if (isLess(x, dx, TABLE_COL0(last))) {
         i1 = last;
     }
-    else if (!findLess(x, dx, TABLE_COL0(last + 1))) {
+    else if (!isLess(x, dx, TABLE_COL0(last + 1))) {
         i0 = last;
     }
     else {
@@ -6204,7 +6204,7 @@ static size_t findRowIndex2(const double* table, size_t nRow, size_t nCol,
     /* Binary search */
     while (i1 > i0 + 1) {
         const size_t i = (i0 + i1)/2;
-        if (findLess(x, dx, TABLE_COL0(i))) {
+        if (isLess(x, dx, TABLE_COL0(i))) {
             i1 = i;
         }
         else {
@@ -6213,19 +6213,20 @@ static size_t findRowIndex2(const double* table, size_t nRow, size_t nCol,
     }
     return i0;
 }
+
 static size_t findRowIndex(const double* table, size_t nRow, size_t nCol,
                            size_t last, double x) {
-	return findRowIndex2(table, nRow, nCol, last, x, 0.0);
+    return findRowIndex2(table, nRow, nCol, last, x, 0.0);
 }
 
 static size_t findColIndex2(_In_ const double* table, size_t nCol, size_t last,
                            double x, double dx) {
     size_t i0 = 0;
     size_t i1 = nCol - 1;
-    if (findLess(x, dx, TABLE_ROW0(last))) {
+    if (isLess(x, dx, TABLE_ROW0(last))) {
         i1 = last;
     }
-    else if (findLess(x, dx, TABLE_ROW0(last + 1))) {
+    else if (isLess(x, dx, TABLE_ROW0(last + 1))) {
         i0 = last;
     }
     else {
@@ -6235,7 +6236,7 @@ static size_t findColIndex2(_In_ const double* table, size_t nCol, size_t last,
     /* Binary search */
     while (i1 > i0 + 1) {
         const size_t i = (i0 + i1)/2;
-        if (findLess(x, dx, TABLE_ROW0(i))) {
+        if (isLess(x, dx, TABLE_ROW0(i))) {
             i1 = i;
         }
         else {
@@ -6244,11 +6245,17 @@ static size_t findColIndex2(_In_ const double* table, size_t nCol, size_t last,
     }
     return i0;
 }
+
 static size_t findColIndex(_In_ const double* table, size_t nCol, size_t last, double x) {
-	return findColIndex2(table, nCol, last, x, 0.0);
+    return findColIndex2(table, nCol, last, x, 0.0);
 }
 
+
 /* ----- Internal check functions ----- */
+
+static int isLess(double x, double dx, double val) {
+    return x < val || (x == val && dx < 0);
+}
 
 static int isValidName(_In_z_ const char* name) {
     int isValid = 0;
