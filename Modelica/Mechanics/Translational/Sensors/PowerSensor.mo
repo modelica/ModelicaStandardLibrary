@@ -1,6 +1,6 @@
 within Modelica.Mechanics.Translational.Sensors;
 model PowerSensor
-  "Ideal sensor to measure the power between two flanges (= flange_a.f*der(flange_a.s))"
+  "Ideal sensor to measure the power between two flanges"
   extends Translational.Interfaces.PartialRelativeSensor;
   Modelica.Blocks.Interfaces.RealOutput power(unit="W")
     "Power in flange flange_a as output signal" annotation (Placement(
@@ -14,10 +14,14 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Measures the <strong>power between two flanges</strong> in an ideal way
-and provides the result as output signal <strong>power</strong>
-(to be further processed with blocks of the Modelica.Blocks library).
+Measures the <em>power</em> between two flanges
+in an ideal way and provides the result as output signal <code>power</code>
+(to be further processed with blocks of the
+<a href=\"modelica://Modelica.Blocks\">Modelica.Blocks</a> library), i.e.
 </p>
+<blockquote><pre>
+power = flange_a.f * der(flange_a.s)
+</pre></blockquote>
 </html>"),
        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
             {100,100}}), graphics={    Line(points={{-80,

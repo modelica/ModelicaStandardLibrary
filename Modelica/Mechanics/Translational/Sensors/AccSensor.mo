@@ -1,5 +1,5 @@
 within Modelica.Mechanics.Translational.Sensors;
-model AccSensor "Ideal sensor to measure the absolute acceleration"
+model AccSensor "Ideal sensor to measure the absolute acceleration of flange"
   extends Translational.Interfaces.PartialAbsoluteSensor;
   SI.Velocity v "Absolute velocity of flange";
   Modelica.Blocks.Interfaces.RealOutput a(unit="m/s2")
@@ -12,12 +12,12 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Measures the <em>absolute acceleration a</em>
-of a flange in an ideal way and provides the result as
-output signals (to be further processed with blocks of the
-Modelica.Blocks library).
+Measures the <em>absolute acceleration</em>
+of a&nbsp;flange in an ideal way and provides the result as
+output signal&nbsp;<code>a</code>
+(to be further processed with blocks of the
+<a href=\"modelica://Modelica.Blocks\">Modelica.Blocks</a> library).
 </p>
-
 </html>"),
        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
             {100,100}}), graphics={
