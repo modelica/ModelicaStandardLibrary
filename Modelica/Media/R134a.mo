@@ -2471,17 +2471,17 @@ This function integrates the derivative of temperature w.r.t. time in order to a
       output SI.Density d "Density";
 
     protected
-      constant Real p_breaks[:]=R134aData.pbreaks
-        "Grid points of reduced pressure";
-      constant Real dl_coef[:, 4]=R134aData.dlcoef
-        "Coefficients of cubic spline for rho_liq(p)";
-      constant Real dv_coef[:, 4]=R134aData.dvcoef
-        "Coefficients of cubic spline for rho_vap(p)";
+      constant Real T_breaks[:]=R134aData.Tbreaks
+        "Grid points of reduced temperature";
+      constant Real dlt_coef[:, 4]=R134aData.dltcoef
+        "Coefficients of cubic spline for rho_liq(T)";
+      constant Real dvt_coef[:, 4]=R134aData.dvtcoef
+        "Coefficients of cubic spline for rho_vap(T)";
 
       Boolean liquid "Is liquid";
       Boolean supercritical "Is supercritcal";
       Integer int "Interval number";
-      Real pred "Reduced pressure";
+      Real Tred "Reduced temperature";
       Real localx "Abscissa of local spline";
       Integer i "Newton iteration number";
       Real dp "Pressure difference";
@@ -2498,9 +2498,9 @@ This function integrates the derivative of temperature w.r.t. time in order to a
       i := 0;
       error := 0;
       found := false;
-      pred := p/R134aData.data.FPCRIT;
-      (int,error) := Common.FindInterval(pred, p_breaks);
-      localx := pred - p_breaks[int];
+      Tred := T/R134aData.data.FTCRIT;
+      (int,error) := Common.FindInterval(Tred, T_breaks);
+      localx := Tred - T_breaks[int];
       // set decent initial guesses for d and T
       supercritical := p > R134aData.data.FPCRIT;
       if supercritical then
@@ -2509,10 +2509,10 @@ This function integrates the derivative of temperature w.r.t. time in order to a
       else
         liquid := T <= Modelica.Media.R134a.R134a_ph.saturationTemperature(p);
         if liquid then
-          d := R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dl_coef[int,
+          d := R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dlt_coef[int,
             1:4])*1.02;
         else
-          d := R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dv_coef[int,
+          d := R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dvt_coef[int,
             1:4])*0.95;
         end if;
       end if;
