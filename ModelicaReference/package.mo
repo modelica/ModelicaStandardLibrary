@@ -5014,11 +5014,11 @@ The operator <strong>spatialDistribution</strong> allows the infinite-dimensiona
 <img src=\"modelica://ModelicaReference/Resources/Images/spatialdistribution.png\"
      alt=\"spatialdistribution.png\">
 </blockquote> 
-where <code>z(y, t)</code> is the transported quantity, <code>y</code> is the
-normalized spatial coordinate (0.0 &le; <code>y</code> &le; 1.0), <code>t</code> is the
+where <code>z(x, t)</code> is the transported quantity, <code>x</code> is the
+normalized spatial coordinate (0.0 &le; <code>x</code> &le; 1.0), <code>t</code> is the
 time, <code>v(t)</code> = <code>der(x)</code> is the normalized
 transport velocity and the boundary conditions are set at either
-<code>y</code> = 0.0 or <code>y</code> = 1.0, depending on the sign of the velocity.
+<code>x</code> = 0.0 or <code>x</code> = 1.0, depending on the sign of the velocity.
 
 <h4>Syntax</h4>
 <blockquote><pre>
