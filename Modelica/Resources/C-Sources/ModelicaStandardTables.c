@@ -4409,7 +4409,7 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                 extrapolate1 = LEFT;
                 last1 = 0;
             }
-            else if (!isLess(u1, der_u1, u1Max)) {
+            else if (isLess(u1Max, -der_u1, u1)) {
                 extrapolate1 = RIGHT;
                 last1 = nRow - 3;
             }
@@ -6226,7 +6226,7 @@ static size_t findColIndex2(_In_ const double* table, size_t nCol, size_t last,
     if (isLess(x, dx, TABLE_ROW0(last))) {
         i1 = last;
     }
-    else if (isLess(x, dx, TABLE_ROW0(last + 1))) {
+    else if (!isLess(x, dx, TABLE_ROW0(last + 1))) {
         i0 = last;
     }
     else {
