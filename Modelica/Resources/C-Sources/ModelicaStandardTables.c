@@ -512,7 +512,7 @@ static size_t findColIndex2(_In_ const double* table, size_t nCol, size_t last,
                            double x, double dx) MODELICA_NONNULLATTR;
   /* Same as findRowIndex2 but works on columns */
 
-static int isLess(double x, double dx, double val);
+static int isLessOrEqualWNegativeSlope(double x, double dx, double val);
   /* Check, whether x is less than val, also using dx as tie-breaker */
 
 static int isValidName(_In_z_ const char* name) MODELICA_NONNULLATTR;
@@ -4260,11 +4260,11 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                         tableID->last2, u2, der_u2);
                     tableID->last2 = last2;
                 }
-                else if (isLess(u2, der_u2, u2Min)) {
+                else if (isLessOrEqualWNegativeSlope(u2, der_u2, u2Min)) {
                     extrapolate2 = LEFT;
                     last2 = 0;
                 }
-                else if (isLess(u2Max, -der_u2, u2)) {
+                else if (isLessOrEqualWNegativeSlope(u2Max, -der_u2, u2)) {
                     extrapolate2 = RIGHT;
                     last2 = nCol - 3;
                 }
@@ -4405,11 +4405,11 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                     tableID->last1, u1, der_u1);
                 tableID->last1 = last1;
             }
-            else if (isLess(u1, der_u1, u1Min)) {
+            else if (isLessOrEqualWNegativeSlope(u1, der_u1, u1Min)) {
                 extrapolate1 = LEFT;
                 last1 = 0;
             }
-            else if (isLess(u1Max, -der_u1, u1)) {
+            else if (isLessOrEqualWNegativeSlope(u1Max, -der_u1, u1)) {
                 extrapolate1 = RIGHT;
                 last1 = nRow - 3;
             }
@@ -4549,11 +4549,11 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                         tableID->last2, u2, der_u2);
                     tableID->last2 = last2;
                 }
-                else if (isLess(u2, der_u2, u2Min)) {
+                else if (isLessOrEqualWNegativeSlope(u2, der_u2, u2Min)) {
                     extrapolate2 = LEFT;
                     last2 = 0;
                 }
-                else if (isLess(u2Max, -der_u2, u2)) {
+                else if (isLessOrEqualWNegativeSlope(u2Max, -der_u2, u2)) {
                     extrapolate2 = RIGHT;
                     last2 = nCol - 3;
                 }
@@ -6191,10 +6191,10 @@ static size_t findRowIndex2(_In_ const double* table, size_t nRow, size_t nCol,
                             size_t last, double x, double dx) {
     size_t i0 = 0;
     size_t i1 = nRow - 1;
-    if (isLess(x, dx, TABLE_COL0(last))) {
+    if (isLessOrEqualWNegativeSlope(x, dx, TABLE_COL0(last))) {
         i1 = last;
     }
-    else if (!isLess(x, dx, TABLE_COL0(last + 1))) {
+    else if (!isLessOrEqualWNegativeSlope(x, dx, TABLE_COL0(last + 1))) {
         i0 = last;
     }
     else {
@@ -6204,7 +6204,7 @@ static size_t findRowIndex2(_In_ const double* table, size_t nRow, size_t nCol,
     /* Binary search */
     while (i1 > i0 + 1) {
         const size_t i = (i0 + i1)/2;
-        if (isLess(x, dx, TABLE_COL0(i))) {
+        if (isLessOrEqualWNegativeSlope(x, dx, TABLE_COL0(i))) {
             i1 = i;
         }
         else {
@@ -6223,10 +6223,10 @@ static size_t findColIndex2(_In_ const double* table, size_t nCol, size_t last,
                             double x, double dx) {
     size_t i0 = 0;
     size_t i1 = nCol - 1;
-    if (isLess(x, dx, TABLE_ROW0(last))) {
+    if (isLessOrEqualWNegativeSlope(x, dx, TABLE_ROW0(last))) {
         i1 = last;
     }
-    else if (!isLess(x, dx, TABLE_ROW0(last + 1))) {
+    else if (!isLessOrEqualWNegativeSlope(x, dx, TABLE_ROW0(last + 1))) {
         i0 = last;
     }
     else {
@@ -6236,7 +6236,7 @@ static size_t findColIndex2(_In_ const double* table, size_t nCol, size_t last,
     /* Binary search */
     while (i1 > i0 + 1) {
         const size_t i = (i0 + i1)/2;
-        if (isLess(x, dx, TABLE_ROW0(i))) {
+        if (isLessOrEqualWNegativeSlope(x, dx, TABLE_ROW0(i))) {
             i1 = i;
         }
         else {
@@ -6253,7 +6253,7 @@ static size_t findColIndex(_In_ const double* table, size_t nCol, size_t last, d
 
 /* ----- Internal check functions ----- */
 
-static int isLess(double x, double dx, double val) {
+static int isLessOrEqualWNegativeSlope(double x, double dx, double val) {
     return x < val || (x == val && dx < 0);
 }
 
