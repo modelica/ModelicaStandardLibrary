@@ -1,6 +1,7 @@
 within Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers;
 package Yz "Transformers: primary Y / secondary zig-zag"
   extends Modelica.Icons.VariantsPackage;
+
   annotation (Documentation(info="<html>
 This package contains transformers primary Y connected / secondary zig-zag connected in all possible vector groups.
 </html>",
