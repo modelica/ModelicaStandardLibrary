@@ -1,7 +1,6 @@
 within Modelica.Electrical.QuasiStatic.Machines.BasicMachines.Transformers;
 package Yd "Transformers: primary Y / secondary d"
   extends Modelica.Icons.VariantsPackage;
-
   annotation (Documentation(info="<html>
 This package contains transformers primary Y connected / secondary d connected in all possible vector groups.
 </html>",
