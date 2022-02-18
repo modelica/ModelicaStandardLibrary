@@ -4264,7 +4264,7 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                     extrapolate2 = LEFT;
                     last2 = 0;
                 }
-                else if (!isLess(u2, der_u2, u2Max)) {
+                else if (isLess(u2Max, -der_u2, u2)) {
                     extrapolate2 = RIGHT;
                     last2 = nCol - 3;
                 }
