@@ -5181,11 +5181,11 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
                         tableID->last2, u2, der_u2);
                     tableID->last2 = last2;
                 }
-                else if (u2 < u2Min) {
+                else if (isLessOrEqualWNegativeSlope(u2, der_u2, u2Min)) {
                     extrapolate2 = LEFT;
                     last2 = 0;
                 }
-                else if (u2 > u2Max) {
+                else if (isLessOrEqualWNegativeSlope(u2Max, -der_u2, u2)) {
                     extrapolate2 = RIGHT;
                     last2 = nCol - 3;
                 }
@@ -5323,21 +5323,21 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
                         u1 -= T;
                     } while (u1 > u1Max);
                 }
-                last1 = findRowIndex(&TABLE(1, 0), nRow - 1, nCol,
-                    tableID->last1, u1);
+                last1 = findRowIndex2(&TABLE(1, 0), nRow - 1, nCol,
+                    tableID->last1, u1, der_u1);
                 tableID->last1 = last1;
             }
-            else if (u1 < u1Min) {
+            else if (isLessOrEqualWNegativeSlope(u1, der_u1, u1Min)) {
                 extrapolate1 = LEFT;
                 last1 = 0;
             }
-            else if (u1 > u1Max) {
+            else if (isLessOrEqualWNegativeSlope(u1Max, -der_u1, u1)) {
                 extrapolate1 = RIGHT;
                 last1 = nRow - 3;
             }
             else {
-                last1 = findRowIndex(&TABLE(1, 0), nRow - 1, nCol,
-                    tableID->last1, u1);
+                last1 = findRowIndex2(&TABLE(1, 0), nRow - 1, nCol,
+                    tableID->last1, u1, der_u1);
                 tableID->last1 = last1;
             }
             if (nCol == 2) {
@@ -5468,21 +5468,21 @@ double ModelicaStandardTables_CombiTable2D_getDer2Value(void* _tableID, double u
                             u2 -= T;
                         } while (u2 > u2Max);
                     }
-                    last2 = findColIndex(&TABLE(0, 1), nCol - 1,
-                        tableID->last2, u2);
+                    last2 = findColIndex2(&TABLE(0, 1), nCol - 1,
+                        tableID->last2, u2, der_u2);
                     tableID->last2 = last2;
                 }
-                else if (u2 < u2Min) {
+                else if (isLessOrEqualWNegativeSlope(u2, der_u2, u2Min)) {
                     extrapolate2 = LEFT;
                     last2 = 0;
                 }
-                else if (u2 > u2Max) {
+                else if (isLessOrEqualWNegativeSlope(u2Max, -der_u2, u2)) {
                     extrapolate2 = RIGHT;
                     last2 = nCol - 3;
                 }
                 else {
-                    last2 = findColIndex(&TABLE(0, 1), nCol - 1,
-                        tableID->last2, u2);
+                    last2 = findColIndex2(&TABLE(0, 1), nCol - 1,
+                        tableID->last2, u2, der_u2);
                     tableID->last2 = last2;
                 }
 
