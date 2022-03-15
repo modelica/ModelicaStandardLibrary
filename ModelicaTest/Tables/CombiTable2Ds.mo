@@ -1125,7 +1125,7 @@ double mydummyfunc(double dummy_in) {
         points={{-59,-10},{-52,-10},{-52,4},{-42,4}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=14));
   end Test33;
-  
+
   model OneSidedDerivative2D "Test of one sided derivatives in 2D-tables (Ticket #3893)"
     // We are starting at boundaries of the table
     // Case 2 and 4 slide diagonally (from different corners)
@@ -1182,7 +1182,7 @@ double mydummyfunc(double dummy_in) {
       annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
     Modelica.Blocks.Continuous.Der der3
       annotation (Placement(transformation(extent={{20,-80},{40,-60}})));
-  equation 
+  equation
     connect(combiTable2Ds2.y, der2.u)
       annotation (Line(points={{61,70},{78,70}}, color={0,0,127}));
     connect(ramp.y, combiTable2Ds2.u1) annotation (Line(points={{-59,50},{18,50},{

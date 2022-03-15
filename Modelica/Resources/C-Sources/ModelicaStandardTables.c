@@ -1,6 +1,6 @@
 /* ModelicaStandardTables.c - External table functions
 
-   Copyright (C) 2013-2021, Modelica Association and contributors
+   Copyright (C) 2013-2022, Modelica Association and contributors
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -6249,7 +6249,6 @@ static size_t findColIndex2(_In_ const double* table, size_t nCol, size_t last,
 static size_t findColIndex(_In_ const double* table, size_t nCol, size_t last, double x) {
     return findColIndex2(table, nCol, last, x, 0.0);
 }
-
 
 /* ----- Internal check functions ----- */
 
