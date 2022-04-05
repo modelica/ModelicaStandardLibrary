@@ -313,4 +313,33 @@ extends Modelica.Icons.ExamplesPackage;
     annotation (
       experiment(StopTime=2));
   end Vehicles;
+
+  model Friction
+    extends Modelica.Icons.Example;
+
+    parameter Real fric=155.9218;
+    Modelica.Mechanics.Translational.Sources.Position position(exact=true)
+      annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+
+    Modelica.Blocks.Sources.Sine sine(
+      amplitude=0.1,
+      f=1,
+      phase=0.78539816339745,
+      offset=0.5) annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
+
+    Modelica.Mechanics.Translational.Components.SupportFriction supportFriction(f_pos=
+          Modelica.Mechanics.Translational.Examples.Utilities.GenerateStribeckFrictionTable(
+          1,
+          5,
+          10,
+          1,
+          12,
+          50), peak=1.001)
+      annotation (Placement(transformation(extent={{46,-10},{66,10}})));
+  equation
+    connect(sine.y, position.s_ref) annotation (Line(points={{-49,0},{-12,0}}, color={0,0,127}));
+
+    connect(position.flange, supportFriction.flange_a) annotation (Line(points={{10,0},{46,0}}, color={0,127,0}));
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
+  end Friction;
 end Translational;
