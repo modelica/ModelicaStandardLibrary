@@ -98,13 +98,13 @@ def main(dir, milestone, version, auth):
     # Write Markdown
     with open(os.path.join(path, 'ResolvedGitHubIssues.md'), 'w') as f:
         url = 'https://github.com/{0}/{1}/milestone/{2}'.format(owner, repo, milestone)
-        f.write('# GitHub issues resolved for v{0}\n'.format(version))
+        f.write('# GitHub issues resolved for v{0}\n\n'.format(version))
         f.write('As part of this release {0} [issues]({1}) (including {2} pull requests (PR)) were closed.\n\n'.format(cntTotal, url, cntPR))
         pattern = r'[\#\1](https://github.com/{0}/{1}/issues/\1)'.format(owner, repo)
         for label, data in sorted(issues.items()):
-            f.write('## {0}\n'.format(label[3:]))
+            f.write('## {0}\n\n'.format(label[3:]))
             for issueType, issue in sorted(data.items()):
-                f.write('### {0}\n'.format(issueType.name))
+                f.write('### {0}\n\n'.format(issueType.name))
                 for t, n, url in issue:
                     t = re.sub('#(\d+)', pattern, t)
                     f.write("* [\#{1}]({2}) {0}\n".format(t, n, url))
