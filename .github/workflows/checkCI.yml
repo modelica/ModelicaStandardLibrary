@@ -43,8 +43,8 @@ jobs:
           python-version: 3.8
       - name: Install python packages
         run: |
-          pip install --user pytidylib
-          pip install --user futures
+          pip install --disable-pip-version-check --user pytidylib
+          pip install --disable-pip-version-check --user futures
       - name: Build html tidy
         run: |
           git clone --branch 5.8.0 --depth=1 https://github.com/htacg/tidy-html5.git
@@ -55,9 +55,15 @@ jobs:
           popd
           sudo ldconfig
       - name: Tidy html
-        run: python ./.CI/check_html.py tidyHTML ./
+        run: |
+          echo "::add-matcher::./.github/tidyHTML.json"
+          python ./.CI/check_html.py tidyHTML ./
+          echo "::remove-matcher owner=tidyHTML::"
       - name: Check tags
-        run: python ./.CI/check_html.py checkTags ./
+        run: |
+          echo "::add-matcher::./.github/checkTags.json"
+          python ./.CI/check_html.py checkTags ./
+          echo "::remove-matcher owner=checkTags::"
   syntax_checks:
     timeout-minutes: 5
     runs-on: ubuntu-latest
@@ -72,7 +78,10 @@ jobs:
       - name: Check for UTF-8 BOM
         run: "! find . -name '*.mo' -print0 | xargs -0 grep -l $'^\\xEF\\xBB\\xBF' | grep ."
       - name: Check syntax
-        run: ModelicaSyntaxChecker/Linux64/moparser -v 3.4 -r Complex.mo Modelica ModelicaReference ModelicaServices ModelicaTest ModelicaTestConversion4.mo ModelicaTestOverdetermined.mo ObsoleteModelica4.mo
+        run: |
+          echo "::add-matcher::./.github/moparser.json"
+          ModelicaSyntaxChecker/Linux64/moparser -v 3.4 -r Complex.mo Modelica ModelicaReference ModelicaServices ModelicaTest ModelicaTestConversion4.mo ModelicaTestOverdetermined.mo ObsoleteModelica4.mo
+          echo "::remove-matcher owner=moparser::"
   deprecation_checks:
     timeout-minutes: 5
     runs-on: ubuntu-latest
@@ -85,4 +94,7 @@ jobs:
         with:
           python-version: 3.8
       - name: Check deprecated Text.lineColor annotation
-        run: python ./.CI/check_deprecated_line_color.py Complex.mo Modelica ModelicaReference ModelicaServices ModelicaTest ModelicaTestConversion4.mo ModelicaTestOverdetermined.mo
+        run: |
+          echo "::add-matcher::./.github/check_deprecated_line_color.json"
+          python ./.CI/check_deprecated_line_color.py Complex.mo Modelica ModelicaReference ModelicaServices ModelicaTest ModelicaTestConversion4.mo ModelicaTestOverdetermined.mo
+          echo "::remove-matcher owner=check_deprecated_line_color::"
