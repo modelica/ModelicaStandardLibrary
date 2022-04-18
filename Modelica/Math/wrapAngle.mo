@@ -1,5 +1,5 @@
 within Modelica.Math;
-function wrapAngle "Wrap angle to interval ]-pi,pi] or [0,2*pi["
+function wrapAngle "Wrap angle to interval [-pi,pi] or [0,2*pi]"
   extends Modelica.Math.Icons.AxisCenter;
   import Modelica.Constants.pi;
   input Modelica.Units.SI.Angle u "Input angle";
@@ -22,8 +22,8 @@ algorithm
         Line(points={{-80,54},{-80,54},{-60,80},{-60,-80},{60,80},{60,-80},{80,-52}})}),
     Documentation(info="<html>
 <p>
-This function wraps the input angle <code>u</code> to the interval ]-pi,pi], if <code>positiveRange == false</code>.
-Otherwise the input angle <code>u</code> is wrapped to the interval [0,2*pi[.
+This function wraps the input angle <code>u</code> to the interval [-pi,pi], if <code>positiveRange == false</code>.
+Otherwise the input angle <code>u</code> is wrapped to the interval [0,2*pi].
 </p>
 </html>"));
 end wrapAngle;
