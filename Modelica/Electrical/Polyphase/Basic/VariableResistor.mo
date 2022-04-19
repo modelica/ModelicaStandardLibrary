@@ -18,7 +18,8 @@ model VariableResistor
   Modelica.Electrical.Analog.Basic.VariableResistor variableResistor[m](
     final T_ref=T_ref,
     final alpha=alpha,
-    each final useHeatPort=useHeatPort) annotation (Placement(
+    each final useHeatPort=useHeatPort,
+    final T=T) annotation (Placement(
         transformation(extent={{-10,-10},{10,10}})));
 equation
   connect(variableResistor.p, plug_p.pin)
