@@ -2,7 +2,7 @@ within Modelica.Mechanics.Rotational.Examples;
 model EddyCurrentBrake "Demonstrate the usage of the rotational eddy current brake"
   extends Modelica.Icons.Example;
   Modelica.Mechanics.Rotational.Sources.EddyCurrentTorque eddyCurrentTorque(
-    useTau_nominalInput=true,
+    useExcitationInput=true,
     tau_nominal=100,
     w_nominal=10,
     useSupport=false,
@@ -21,7 +21,7 @@ model EddyCurrentBrake "Demonstrate the usage of the rotational eddy current bra
         rotation=180,
         origin={-10,-30})));
   Blocks.Sources.Ramp ramp(
-    height=100,
+    height=1,
     duration=0.1,
     offset=0,
     startTime=0.1)
@@ -31,7 +31,7 @@ equation
     annotation (Line(points={{10,0},{16,0},{20,0}}));
   connect(eddyCurrentTorque.heatPort, heatCapacitor.port) annotation (Line(
         points={{-10,-10},{-10,-15},{-10,-20}}, color={191,0,0}));
-  connect(ramp.y, eddyCurrentTorque.tau_input)
+  connect(ramp.y, eddyCurrentTorque.excitation)
     annotation (Line(points={{-29,0},{-12,0}}, color={0,0,127}));
   annotation (
     experiment(StopTime=1.0, Interval=0.001),

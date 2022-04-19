@@ -1,9 +1,10 @@
 within Modelica.Mechanics.Rotational.Sources;
 model EddyCurrentTorque "Simple model of a rotational eddy current brake"
   import Modelica.Electrical.Machines.Thermal.linearTemperatureDependency;
-  parameter Boolean useTau_nominalInput=false "Enable signal input for tau_nominal";
-  parameter SI.Torque tau_nominal=0 "Maximum torque (always braking)"
-    annotation(Dialog(enable=not useTau_nominalInput));
+  parameter Boolean useExcitationInput=false "Enable signal input for excitation";
+  parameter Real constantExcitation=1 "Excitation=1 to reach maximum torque"
+    annotation(Dialog(enable=not useExcitationInput));
+  parameter SI.Torque tau_nominal "Maximum torque (always braking)";
   parameter SI.AngularVelocity w_nominal(min=Modelica.Constants.eps)
     "Nominal speed (leads to maximum torque) at reference temperature";
   parameter SI.Temperature TRef(start=293.15)
@@ -16,19 +17,19 @@ model EddyCurrentTorque "Simple model of a rotational eddy current brake"
   SI.Torque tau "Accelerating torque acting at flange (= flange.tau)";
   SI.AngularVelocity w "Angular velocity of flange with respect to support (= der(phi))";
   Real w_normalized "Relative speed w/w_nominal";
-  Blocks.Interfaces.RealInput tau_input = tau_internal if useTau_nominalInput
-    "Maximum torque"
+  Blocks.Interfaces.RealInput excitation = excitationInternal if useExcitationInput
+    "Excitation"
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
 protected
-  SI.Torque tau_internal "Maximum torque";
+  Real excitationInternal "Excitation";
 equation
-  if not useTau_nominalInput then
-    tau_internal = tau_nominal;
+  if not useExcitationInput then
+    excitationInternal = constantExcitation;
   end if;
   tau = flange.tau;
   w = der(phi);
   w_normalized = w/(w_nominal*linearTemperatureDependency(1, TRef, alpha20, TheatPort));
-  tau = 2*tau_internal*w_normalized/(1 + w_normalized*w_normalized);
+  tau = 2*tau_nominal*excitationInternal^2*w_normalized/(1 + w_normalized*w_normalized);
   lossPower = tau*w;
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -39,7 +40,8 @@ equation
         Line(points={{0,0},{-4,-25},{-8,-41},{-12,-48},{-16,-50},{-20,-49},{-24,-46},{-28,-42},{-32,-38},{-36,-34},{-46,-25},{-56,-18},{-66,-12},{-76,-8}}, color={0,0,127}, smooth=Smooth.Bezier)}),
     Documentation(info="<html>
 <p>This is a simple model of a rotational <strong>eddy current brake</strong>. The torque versus speed characteristic is defined by Kloss' equation.</p>
-<p>The influence of excitation is either constant (<code>useTau_nominalInput=false</code>) or given by the optional input <code>tau_input</code> (<code>useTau_nominalInput=true</code>).</p>
+<p>The influence of excitation is either constant (<code>useExcitationInput=false</code>) or given by the optional input <code>excitation</code> (<code>useExcitationInput=true</code>). 
+Note that maximum torque depends on square of excitation (magnetic field).</p>
 <p><strong>Thermal behaviour:</strong><br>
 The resistance of the braking disc is influenced by the actual temperature Theatport, which in turn shifts the speed w_nominal at which the (unchanged) maximum torque occurs.<br>
 If the heatPort is not used (useHeatPort = false), the operational temperature remains at the given temperature T.<br>

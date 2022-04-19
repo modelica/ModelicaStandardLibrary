@@ -3,7 +3,7 @@ model EddyCurrentBrake "Demonstrate the usage of the translational eddy current 
   extends Modelica.Icons.Example;
   Modelica.Mechanics.Translational.Sources.EddyCurrentForce
     eddyCurrentForce(
-    useF_nominalInput=true,
+    useExcitationInput=true,
     f_nominal=100,
     v_nominal=10,
     useHeatPort=true,
@@ -21,7 +21,7 @@ model EddyCurrentBrake "Demonstrate the usage of the translational eddy current 
         rotation=180,
         origin={-10,-30})));
   Blocks.Sources.Ramp ramp(
-    height=100,
+    height=1,
     duration=0.1,
     offset=0,
     startTime=0.1)
@@ -31,7 +31,7 @@ equation
     annotation (Line(points={{10,0},{20,0}}, color={0,127,0}));
   connect(eddyCurrentForce.heatPort, heatCapacitor.port) annotation (Line(
         points={{-10,-10},{-10,-15},{-10,-20}}, color={191,0,0}));
-  connect(ramp.y, eddyCurrentForce.f_input)
+  connect(ramp.y, eddyCurrentForce.excitation)
     annotation (Line(points={{-29,0},{-12,0}}, color={0,0,127}));
   annotation (
     experiment(StopTime=1.0, Interval=0.001),
