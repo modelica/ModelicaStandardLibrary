@@ -13,7 +13,6 @@ model DemonstrateLightning
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={-70,40})));
-
   Sources.LightningImpulseCurrent lightning2(
     approximation=Modelica.Electrical.Analog.Types.ImpulseApproximation.Heidler,
     I=100e3,
@@ -23,7 +22,6 @@ model DemonstrateLightning
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-70,-60})));
-
   Basic.Ground ground1
     annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
   Basic.Ground ground2
