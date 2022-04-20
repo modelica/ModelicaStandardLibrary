@@ -6,6 +6,7 @@ model DemonstrateLightning
   parameter Modelica.Units.SI.Time T2=350e-6 "Decay time to half value";
   Sources.LightningImpulseVoltage lightning1(
     approximation=Modelica.Electrical.Analog.Types.ImpulseApproximation.DoubleExp,
+
     V=100e3,
     T1=T1,
     T2=T2,
@@ -15,6 +16,7 @@ model DemonstrateLightning
         origin={-70,40})));
   Sources.LightningImpulseCurrent lightning2(
     approximation=Modelica.Electrical.Analog.Types.ImpulseApproximation.Heidler,
+
     I=100e3,
     T1=T1,
     T2=T2,
@@ -22,6 +24,7 @@ model DemonstrateLightning
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-70,-60})));
+
   Basic.Ground ground1
     annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
   Basic.Ground ground2
