@@ -2,12 +2,13 @@
 # -*- coding: utf-8 -*-
 
 '''
-Copyright (C) 2020, Modelica Association and contributors
+Copyright (C) 2020-2022, Modelica Association and contributors
 All rights reserved.
 
 Check Modelica HTML documentation for link validity
 '''
 
+import codecs
 import re
 import os
 try:
@@ -24,7 +25,7 @@ PATTERN = re.compile(r'</?\w+((\s+\w+(\s*=\s*(?:\\"(.|\n)*?\\"|\'(.|\n)*?\'|[^\'
 
 def _getFileURLs(file_name):
     urls = []
-    with open(file_name) as file:
+    with codecs.open(file_name, encoding='utf-8') as file:
         i = 1
         for line in file:
             for match in PATTERN.finditer(line):
@@ -58,7 +59,10 @@ def _checkURL(url):
     except:
         pass
     try:
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64)'}
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64)',
+            'Accept-Encoding': 'gzip, deflate, br'
+        }
         rc = urllib2.urlopen(urllib2.Request(url, None, headers), context=ssl._create_unverified_context()).getcode()
     except urllib2.HTTPError as e:
         rc = e.code
