@@ -1,4 +1,4 @@
-﻿within ;
+within ;
 package ModelicaReference "Modelica Reference"
 extends ModelicaReference.Icons.Information;
 
