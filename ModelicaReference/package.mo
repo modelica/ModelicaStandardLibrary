@@ -1,4 +1,4 @@
-within ;
+﻿within ;
 package ModelicaReference "Modelica Reference"
 extends ModelicaReference.Icons.Information;
 
@@ -4802,7 +4802,7 @@ useful (this follows from the definition):</em>
 <strong>semiLinear</strong>(m_flow, port_h, h);
 </pre></blockquote>
 <p>
-is identical to
+<em>is identical to</em>
 </p>
 <blockquote><pre>
 -<strong>semiLinear</strong>(-m_flow, h, port_h);
