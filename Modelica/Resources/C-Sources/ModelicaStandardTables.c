@@ -6943,7 +6943,7 @@ static CubicHermite2D* spline2DInit(_In_ const double* table, size_t nRow,
             return NULL;
         }
         /* Copy coefficients */
-        for (j = 0; j < nCol - 1; j++) {
+        for (j = 0; j < nCol - 2; j++) {
             const double* c1 = spline1D[j];
             double* c2 = spline[j];
             c2[0] = c1[0];
@@ -6968,7 +6968,7 @@ static CubicHermite2D* spline2DInit(_In_ const double* table, size_t nRow,
             return NULL;
         }
         /* Copy coefficients */
-        for (i = 0; i < nRow - 1; i++) {
+        for (i = 0; i < nRow - 2; i++) {
             const double* c1 = spline1D[i];
             double* c2 = spline[i];
             c2[0] = c1[0];
