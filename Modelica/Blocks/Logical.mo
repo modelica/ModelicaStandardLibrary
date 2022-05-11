@@ -973,6 +973,22 @@ parameter \"terminationText\".
 
 </html>"));
   end TerminateSimulation;
+
+  block AssertCondition "Asserts that input condition u is true"
+    extends Modelica.Blocks.Interfaces.partialBooleanSI;
+    parameter String message=getInstanceName() + "'s input u is false"
+      "Assertion message to be displayed if input u is false";
+    parameter AssertionLevel assertionLevel=AssertionLevel.error
+      "Assertion level";
+  equation
+    assert(u,message,assertionLevel);
+    annotation (Icon(graphics={Text(
+            extent={{-90,40},{90,-40}},
+            textColor={0,0,0},
+            textString="assert")}), Documentation(info="<html>
+<p>This block is used by connecting a (possibly) <strong>time varying</strong> input condition for the Boolean input variable <strong>u</strong>. If this input variable is <strong>false</strong>, the simulation will either abort with a message indicating the cause of the error (if the assertion level is set to error) or not abort with a message indicating the cause of the warning (if the assertion level is set to warning).</p>
+</html>"));
+  end AssertCondition;
   annotation (Documentation(info="<html>
 <p>
 This package provides blocks with Boolean input and output signals
