@@ -942,7 +942,7 @@ The output <code>Q</code> is set by the input <code>S</code>, is reset by the in
       terminate(terminationText);
     end when;
     annotation (Icon(
-        coordinateSystem(preserveAspectRatio=true,
+        coordinateSystem(preserveAspectRatio=false,
           extent={{-200,-20},{200,20}},
           initialScale=0.2),
           graphics={
