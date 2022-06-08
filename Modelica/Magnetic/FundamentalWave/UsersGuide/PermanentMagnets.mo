@@ -20,11 +20,11 @@ It can be calculated as B<sub>r</sub> x H<sub>c</sub> / 4 = 325 kJ/m<sup>3</sup>
 
 <p>
 Using geometry, flux density is proportional to magnetic flux and magnetic field strength is proportional to magnetomotive force. 
-The point of operation can be found at the intersection between the magnet's hysteresis loop and the characteristic of the rest of the machine's magnetic circuit in d-axis. 
+The point of operation can be found at the intersection (1) between the magnet's hysteresis loop and the characteristic of the rest of the machine's magnetic circuit in d-axis. 
 The magnet can be represented as a linear source with open-circuit magnetomotive force mmf<sub>0</sub> resulting from H<sub>c</sub>, 
 short-circuit flux &psi;<sub>sc</sub> resulting from B<sub>r</sub> and an inner magnetic resistance R<sub>i</sub> = &psi;<sub>sc</sub> / mmf<sub>0</sub> equivalent to that of air. 
 If this inner magnetic resistance R<sub>i</sub> is added to the nonlinear characteristic of the rest of the machine's magnetic circuit R<sub>m</sub>, 
-the permanent magnet can be characterized by its open-circuit mmf<sub>0</sub>.
+the permanent magnet can be characterized by its open-circuit mmf<sub>0</sub> (2).
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
