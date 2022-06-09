@@ -1,5 +1,5 @@
 within Modelica.Magnetic.FundamentalWave.UsersGuide;
-class PermanentMagnets "Conecpt of permanent magnet modeling"
+class PermanentMagnets "Concept of permanent magnet modeling"
   extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 
