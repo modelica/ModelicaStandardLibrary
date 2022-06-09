@@ -6,7 +6,7 @@ class PermanentMagnets "Concept of permanent magnet modeling"
 <h4>Concept of permanent magnet modeling</h4>
 
 <p>
-High performace permanent magnets (e.g. NdFeB) operate on their largest hysteresis loop. 
+High performance permanent magnets (e.g. NdFeB) operate on their largest hysteresis loop. 
 This characteristic is nearly linear in the second quadrant between remnant flux density B<sub>r</sub> and coercive field strength H<sub>c</sub>. 
 As an example, typical values are B<sub>r</sub> = 1.3 T and H<sub>c</sub> = 1000 kA/m. 
 This proves that the slope of the hysteresis loop is nearly fully saturated with a relative permeability &mu;<sub>r</sub> = B<sub>r</sub> / H<sub>c</sub> / &mu;<sub>0</sub> = 1.
