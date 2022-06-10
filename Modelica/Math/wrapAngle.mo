@@ -21,6 +21,6 @@ algorithm
           fillPattern=FillPattern.Solid),
         Line(points={{-80,54},{-80,54},{-60,80},{-60,-80},{60,80},{60,-80},{80,-52}})}),
     Documentation(info= "<html><head></head><body><p>
-This function wraps the input angle <code>u</code> to the <a href=\"https://en.wikipedia.org/wiki/Interval_(mathematics)#Notations_for_intervals\">interval</a> ]-pi,pi], if <code>positiveRange == false</code>.
-Otherwise the input angle <code>u</code> is wrapped to the <a href=\"https://en.wikipedia.org/wiki/Interval_(mathematics)#Notations_for_intervals\">interval</a>  [0,2*pi[.</p></body></html>"));
+This function wraps the input angle <code>u</code> to the <a href=\"https://en.wikipedia.org/wiki/Interval_(mathematics)#Including_or_excluding_endpoints\">interval</a> ]-pi,pi], if <code>positiveRange == false</code>.
+Otherwise the input angle <code>u</code> is wrapped to the <a href=\"https://en.wikipedia.org/wiki/Interval_(mathematics)#Including_or_excluding_endpoints\">interval</a>  [0,2*pi[.</p></body></html>"));
 end wrapAngle;
