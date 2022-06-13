@@ -1,6 +1,7 @@
 within Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.CobaltIron;
 record Vacoflux50 "Vacoflux 50 (50% CoFe)"
   extends FluxTubes.Material.SoftMagnetic.BaseData(
+    label="Vacoflux 50",
     mu_i=3850,
     B_myMax=1.75,
     c_a=11790,
