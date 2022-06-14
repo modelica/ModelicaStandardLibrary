@@ -7,7 +7,8 @@ record Permenorm3601K3 "PERMENORM 3601 K3 (36% NiFe)"
     c_a=50000,
     c_b=2.39,
     n=9.3);
-  annotation (Documentation(info="<html>
+  annotation (defaultComponentPrefixes="parameter",
+    Documentation(info="<html>
 <p>
 Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>

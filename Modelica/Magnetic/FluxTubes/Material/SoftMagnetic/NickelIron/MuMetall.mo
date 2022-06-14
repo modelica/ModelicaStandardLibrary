@@ -7,7 +7,8 @@ record MuMetall "MUMETALL (77% NiFe)"
     c_a=1037500,
     c_b=3.67,
     n=10);
-  annotation (Documentation(info="<html>
+  annotation (defaultComponentPrefixes="parameter",
+    Documentation(info="<html>
 <p>
 Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>

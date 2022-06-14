@@ -12,7 +12,8 @@ record BaseData
   parameter Real c_b=1 "Coefficient of approximation function";
   parameter Real n=1 "Exponent of approximation function";
 
-  annotation (Documentation(info="<html>
+  annotation (defaultComponentPrefixes="parameter",
+    Documentation(info="<html>
 <p>
 The parameters needed for <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox\">approximation of the magnetisation characteristics</a> of included soft magnetic materials are declared in this record.
 </p>
