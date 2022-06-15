@@ -1,7 +1,7 @@
 within Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.NickelIron;
 record Permenorm3601K3 "PERMENORM 3601 K3 (36% NiFe)"
   extends FluxTubes.Material.SoftMagnetic.BaseData(
-    label="Permenorm 3601 K3",
+    label="PERMENORM 3601 K3",
     mu_i=3000,
     B_myMax=0.67,
     c_a=50000,
