@@ -1,7 +1,7 @@
 within Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet;
 record M700_100A "M700-100A (1.0826) @ 50Hz"
   extends FluxTubes.Material.SoftMagnetic.BaseData(
-    label="M700-50A",
+    label="M700-100A",
     mu_i=1120,
     B_myMax=1.2,
     c_a=20750,
