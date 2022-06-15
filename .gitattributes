@@ -40,5 +40,9 @@ SECURITY.md export-ignore
 Modelica/Resources/Documentation/Clocked/Modelica_Synchronous.pptx export-ignore
 Modelica/Resources/Documentation/Fluid/Stream-Connectors-Overview-Rationale.ppt export-ignore
 Modelica/Resources/Documentation/Mechanics/Figure_PlanarLoopAnalytic.ppt export-ignore
+Modelica/Resources/Images/Magnetic/FluxTubes/Examples/MagneticCircuit.vsdx export-ignore
+Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Circumferential.vsdx export-ignore
+Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HollowCylinder.vsdx export-ignore
+Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Toroid.vsdx export-ignore
 Modelica/Resources/Reference export-ignore
 ModelicaTest/Resources/Reference export-ignore
