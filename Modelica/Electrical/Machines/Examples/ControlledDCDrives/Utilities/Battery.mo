@@ -13,7 +13,7 @@ model Battery "Simple battery model"
         rotation=270,
         origin={-90,80})));
   Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=V0)
-    annotation (Placement(transformation(extent={{10,50},{-10,70}})));
+    annotation (Placement(transformation(extent={{10,40},{-10,60}})));
   Modelica.Electrical.Analog.Basic.Resistor resistor(R=Ri)
     annotation (Placement(
         transformation(
@@ -24,9 +24,10 @@ equation
   connect(ground.p, pin_n)
     annotation (Line(points={{-80,80},{-60,80},{-60,100}}, color={0,0,255}));
   connect(pin_n, constantVoltage.n)
-    annotation (Line(points={{-60,100},{-60,60},{-10,60}}, color={0,0,255}));
+    annotation (Line(points={{-60,100},{-60,50},{-10,50}}, color={0,0,255}));
   connect(constantVoltage.p, resistor.p)
-    annotation (Line(points={{10,60},{60,60}}, color={0,0,255}));
+    annotation (Line(points={{10,50},{60,50},{60,60}},
+                                               color={0,0,255}));
   connect(resistor.n, pin_p)
     annotation (Line(points={{60,80},{60,100}}, color={0,0,255}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={

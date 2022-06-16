@@ -1,5 +1,5 @@
 within Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities;
-model SwitchingDcDc "Switching DC-DC inverter"
+model SwitchingDcDc "Switching DC/DC inverter"
   parameter SI.Frequency fS "Switching frequency";
   parameter SI.Voltage VMax "Maximum Voltage";
   parameter SI.Resistance RonT=1e-05
@@ -17,7 +17,9 @@ model SwitchingDcDc "Switching DC-DC inverter"
     adaptor(useConstantVoltageLimit=false, VLim=VMax)
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
   Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM pwm(
-      useConstantDutyCycle=false, f=fS) annotation (Placement(
+      useConstantDutyCycle=false, f=fS,
+    refType=Modelica.Electrical.PowerConverters.Types.SingleReferenceType.Triangle)
+                                        annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -89,6 +91,6 @@ equation
           extent={{-40,-60},{40,-80}},
           textColor={128,128,128},
           textString="Mot")}),    Documentation(info="<html>
-<p>This is a model of a switching DC-DC inverter based on a H-bridge.</p>
+<p>This is a model of a switching DC/DC inverter based on a H-bridge.</p>
 </html>"));
 end SwitchingDcDc;
