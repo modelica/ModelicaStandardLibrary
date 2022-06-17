@@ -16,7 +16,7 @@ model HollowCylinderRadialFlux
   parameter SI.Angle alpha=2*Modelica.Constants.pi
   "Central angle";
 equation
-  A = l*pi*(r_o + r_i);
+  A = (r_o + r_i)/2*alpha*l;
   // Area at arithmetic mean radius for calculation of average flux density
   G_m = 2*pi*mu_0*mu_r*l/Modelica.Math.log(r_o/r_i)*alpha/(2*Modelica.Constants.pi);
 
