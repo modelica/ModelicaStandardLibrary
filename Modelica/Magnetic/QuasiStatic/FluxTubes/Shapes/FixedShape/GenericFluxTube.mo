@@ -12,7 +12,7 @@ model GenericFluxTube
     annotation (Dialog(group="Fixed geometry"));
 equation
   A=area;
-  G_m = (mu_0*mu_r*A)/l;
+  G_m = mu_0*mu_r*A/l;
 
   annotation (Documentation(info="<html>
 <p>
