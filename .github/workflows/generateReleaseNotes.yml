@@ -11,6 +11,11 @@ on:
         description: 'Version of the release'
         default: '4.1.0'
         required: true
+      watermark:
+        description: 'PDF contains watermark for test'
+        default: true
+        required: true
+        type: boolean
 
 jobs:
   generate_release_notes:
@@ -25,9 +30,12 @@ jobs:
         with:
           python-version: 3.8
       - name: Install python packages
-        run: pip install --user requests
+        run: pip install --user docraptor==2.0.0 Jinja2==3.1.2 Markdown==3.3.7 requests PyYAML==6.0
       - name: Generate MSL release notes from closed GitHub issues
         timeout-minutes: 3
+        env:
+          DOCRAPTOR_API_KEY: ${{ secrets.DOCRAPTOR_API_KEY }}
+          DOCRAPTOR_TEST: ${{ github.event.inputs.watermark }}
         run: python ./Modelica/Resources/Documentation/Generate-ReleaseNotes.py ${{ github.event.inputs.milestone }} ${{ github.event.inputs.version }}
       - uses: actions/upload-artifact@v3
         with:
