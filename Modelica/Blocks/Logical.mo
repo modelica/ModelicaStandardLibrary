@@ -977,7 +977,7 @@ parameter \"terminationText\".
   block AssertCondition "Asserts that input condition u is true"
     extends Modelica.Blocks.Interfaces.partialBooleanSI;
     parameter String message=getInstanceName() + "'s input u is false"
-      "Assertion message to be displayed if input u is false";
+      "Assertion message to be displayed if the input u is false";
     parameter AssertionLevel assertionLevel=AssertionLevel.error
       "Assertion level";
   equation
