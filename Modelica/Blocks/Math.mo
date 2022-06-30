@@ -1886,10 +1886,10 @@ zero or negative.
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
-      Documentation(info="<html>
+      Documentation(info= "<html>
 <p>
-This blocks wraps the input angle into the interval ]-pi,pi], if <code>positiveRange == false</code>.
-Otherwise the input angle <code>u</code> is wrapped to the interval [0,2*pi[.
+This blocks wraps the input angle into the <a href=\"https://en.wikipedia.org/wiki/Interval_(mathematics)#Including_or_excluding_endpoints\">interval</a> ]-pi,pi], if <code>positiveRange == false</code>.
+Otherwise the input angle <code>u</code> is wrapped to the <a href=\"https://en.wikipedia.org/wiki/Interval_(mathematics)#Including_or_excluding_endpoints\">interval</a> [0,2*pi[.
 </p>
 
 </html>"));
