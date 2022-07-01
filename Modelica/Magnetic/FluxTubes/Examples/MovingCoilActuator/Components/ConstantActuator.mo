@@ -64,7 +64,6 @@ equation
   connect(electroTranslationalConverter.flange, armature.flange_a)
     annotation (Line(points={{-20,0},{0,0},{20,0},{60,0}}, color={0,127,
           0}));
-  connect(p, p) annotation (Line(points={{-100,100},{-100,100}}, color={0,0,255}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={
             {-100,-100},{100,100}}), graphics={Rectangle(
                   extent={{-80,100},{80,-100}},
