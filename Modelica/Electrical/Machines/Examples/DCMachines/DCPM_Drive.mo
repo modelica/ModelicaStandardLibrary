@@ -72,15 +72,23 @@ model DCPM_Drive
         origin={30,-30})));
   Blocks.Sources.BooleanStep booleanStep(startTime=1)
     annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
-  ControlledDCDrives.Utilities.Battery battery(V0=dcpmData.VaNominal, INominal=1000)
-    annotation (Placement(transformation(
-        extent={{10,10},{-10,-10}},
-        rotation=180,
-        origin={0,30})));
   Analog.Sensors.MultiSensor multiSensor annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=90,
         origin={10,70})));
+  Analog.Sources.ConstantVoltage constantVoltage(V=dcpmData.VaNominal)
+    annotation (Placement(transformation(extent={{-10,30},{-30,50}})));
+  Analog.Basic.Resistor resistor(R=0.05*dcpmData.VaNominal/1000)
+    annotation (Placement(
+        transformation(
+        extent={{10,10},{-10,-10}},
+        rotation=180,
+        origin={14,40})));
+  Analog.Basic.Ground ground annotation (Placement(
+        transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=0,
+        origin={-70,30})));
 equation
   connect(dcpm1.flange, coupling.flange_a)
     annotation (Line(points={{-30,-60},{-10,-60}}, color={0,0,0}));
@@ -102,20 +110,24 @@ equation
     annotation (Line(points={{30,-20},{34,-20},{34,-10}}, color={0,0,255}));
   connect(dcdcInverter2.pin_pMot, dcpm2.pin_an) annotation (Line(points={{46,-10},
           {46,-20},{50,-20},{50,-50},{46,-50}}, color={0,0,255}));
-  connect(battery.pin_n, dcdcInverter1.pin_nBat) annotation (Line(points={{-6,40},
-          {-10,40},{-10,50},{-46,50},{-46,10}}, color={0,0,255}));
   connect(multiSensor.nc, dcdcInverter2.pin_pBat) annotation (Line(points={{10,80},
           {10,90},{46,90},{46,10}}, color={0,0,255}));
   connect(multiSensor.nc, dcdcInverter1.pin_pBat) annotation (Line(points={{10,80},
           {10,90},{-34,90},{-34,10}}, color={0,0,255}));
   connect(multiSensor.pc, multiSensor.pv)
     annotation (Line(points={{10,60},{20,60},{20,70}}, color={0,0,255}));
-  connect(battery.pin_n, multiSensor.nv) annotation (Line(points={{-6,40},{-10,40},
-          {-10,70},{0,70}}, color={0,0,255}));
-  connect(battery.pin_n, dcdcInverter2.pin_nBat) annotation (Line(points={{-6,40},
-          {-10,40},{-10,50},{34,50},{34,10}}, color={0,0,255}));
-  connect(battery.pin_p, multiSensor.pc)
-    annotation (Line(points={{6,40},{10,40},{10,60}}, color={0,0,255}));
+  connect(ground.p, constantVoltage.n)
+    annotation (Line(points={{-70,40},{-30,40}}, color={0,0,255}));
+  connect(constantVoltage.p, resistor.p)
+    annotation (Line(points={{-10,40},{4,40}}, color={0,0,255}));
+  connect(dcdcInverter1.pin_nBat, constantVoltage.n)
+    annotation (Line(points={{-46,10},{-46,40},{-30,40}}, color={0,0,255}));
+  connect(dcdcInverter2.pin_nBat, constantVoltage.n) annotation (Line(points={{34,
+          10},{34,20},{-46,20},{-46,40},{-30,40}}, color={0,0,255}));
+  connect(multiSensor.pc, resistor.n) annotation (Line(points={{10,60},{32,60},{
+          32,40},{24,40}}, color={0,0,255}));
+  connect(multiSensor.nv, constantVoltage.n) annotation (Line(points={{0,70},{-46,
+          70},{-46,40},{-30,40}}, color={0,0,255}));
   annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6), Documentation(
         info="<html>
 <p>
