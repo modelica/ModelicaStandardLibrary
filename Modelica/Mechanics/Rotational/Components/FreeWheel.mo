@@ -5,8 +5,8 @@ model FreeWheel "Ideal freewheel"
   SI.Torque tau "Torque between flanges (= flange_a.tau)";
   Boolean free( start=false) "Indicates freewheeling";
   Real s(start=0) "Auxilliary variable";
-  parameter Real tauRes=1e-5 "Residual friction coefficient";
-  parameter Real wRes=1e-5 "Residual relative speed coefficient";
+  parameter SI.Torque tauRes=1e-5 "Residual friction coefficient";
+  parameter SI.AngularVelocity wRes=1e-5 "Residual relative speed coefficient";
 protected
   constant SI.AngularVelocity unit_w=1;
   constant SI.Torque unit_tau=1;
@@ -15,8 +15,8 @@ equation
   tau =  flange_a.tau;
   tau = -flange_b.tau;
   free = w_rel <= 0;
-  w_rel = s*unit_w*(if free then 1 else tauRes);
-  tau   = s*unit_tau*(if free then wRes else 1);
+  w_rel = s*unit_w*(if free then 1 else tauRes/unit_tau);
+  tau   = s*unit_tau*(if free then wRes/unit_w else 1);
   annotation (                                 Icon(graphics={
       Rectangle(  lineColor={64,64,64},
         fillColor={192,192,192},
