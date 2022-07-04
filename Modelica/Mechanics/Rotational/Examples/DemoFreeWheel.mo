@@ -36,9 +36,9 @@ equation
       StopTime=1),
     Documentation(info="<html>
 <p>
-Demonstration of an ideal freewhel: 
-Inertia1 is driven with prescribed speed with sinusoidal trajectory, inertia2 is coupled with an ideal freewheel.
-Inertia2 is accelerated as long as flange_a drives, when freewheeling occurs it is decelerated by a speed dependent torque. 
+Demonstration of an ideal freewheel: 
+Inertia1 is driven with a prescribed sinusoidal speed. Inertia2 is coupled to inertia1 by an ideal freewheel.
+Inertia2 is accelerated as long as flange_a is driven. When freewheeling occurs a speed dependent torque decelerates inertia2. 
 </p>
 </html>"));
 end DemoFreeWheel;
