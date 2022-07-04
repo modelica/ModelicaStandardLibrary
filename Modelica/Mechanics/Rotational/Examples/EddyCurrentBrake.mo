@@ -36,6 +36,8 @@ equation
   annotation (
     experiment(StopTime=1.0, Interval=0.001),
     Documentation(info="<html>
+<p>
 An eddy current brake reduces the speed of a rotating inertia. Kinetic energy is converted to thermal energy which leads to a temperature increase of the thermal capacitance of the brake, which can be assumed as adiabatic during the rather short time span of the braking.
+</p>
 </html>"));
 end EddyCurrentBrake;
