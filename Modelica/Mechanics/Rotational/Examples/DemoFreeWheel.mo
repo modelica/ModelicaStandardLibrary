@@ -1,8 +1,7 @@
 within Modelica.Mechanics.Rotational.Examples;
 model DemoFreeWheel "Demonstrate freewheel"
   extends Modelica.Icons.Example;
-  Modelica.Mechanics.Rotational.Components.FreeWheel
-                                      freeWheel
+  Modelica.Mechanics.Rotational.Components.FreeWheel freeWheel
     annotation (Placement(transformation(extent={{0,-10},{20,10}})));
   Modelica.Mechanics.Rotational.Components.Inertia inertia2(J=1,
     phi(start=0, fixed=true),
@@ -18,8 +17,7 @@ model DemoFreeWheel "Demonstrate freewheel"
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
   Modelica.Mechanics.Rotational.Components.Inertia inertia1(J=1)
     annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
-  Modelica.Blocks.Sources.Sine sine(amplitude=5,
-                                    f=5)
+  Modelica.Blocks.Sources.Sine sine(amplitude=5, f=5)
     annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
 equation
   connect(freeWheel.flange_b, inertia2.flange_a)
