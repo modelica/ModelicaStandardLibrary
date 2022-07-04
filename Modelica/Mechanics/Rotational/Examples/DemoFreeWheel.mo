@@ -32,10 +32,10 @@ equation
     annotation (Line(points={{-10,0},{0,0}},                   color={0,0,0}));
   connect(sine.y, speed.w_ref)
     annotation (Line(points={{-69,0},{-62,0}}, color={0,0,127}));
-  annotation (                                 experiment(
+  annotation (experiment(
       Interval=0.001,
       Tolerance=1e-06,
-      __Dymola_Algorithm="Dassl"),
+      StopTime=1),
     Documentation(info="<html>
 <p>
 Demonstration of an ideal freewhel: 
