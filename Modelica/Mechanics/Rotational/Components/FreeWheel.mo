@@ -6,7 +6,7 @@ model FreeWheel "Ideal freewheel"
   Boolean free( start=false) "Indicates freewheeling";
   Real s(start=0) "Auxilliary variable";
   parameter SI.Torque tauRes=1e-5 "Residual friction coefficient";
-  parameter SI.AngularVelocity wRes=1e-5 "Residual relative speed coefficient";
+  parameter SI.AngularVelocity wRes=1e-5 "Residual relative velocity coefficient";
 protected
   constant SI.AngularVelocity unit_w=1;
   constant SI.Torque unit_tau=1;
@@ -67,11 +67,23 @@ equation
           textString="tauRes")}),
     Documentation(info="<html>
 <p>
-The ideal freewheel can be considered as a mechanical diode:
+An idealized model of a&nbsp;freewheel. Compared to
+<a href=\"modelica://Modelica.Mechanics.Rotational.Components.OneWayClutch\">OneWayClutch</a>
+it is modeled in a&nbsp;simplified way referring to
+<a href=\"Modelica.Electrical.Analog.Ideal.IdealDiode\">an&nbsp;idealized
+model of electrical diode</a>.
+This means in particular that there exist two cases indicated
+by the variable <code>free</code> and distinguished as follows.
 </p>
 <ul>
-<li>flange_a driving: Torque is transfer with a residual difference of angular veolcity of the flanges.</li>
-<li>flange_b driving: The flanges move independently except a residual friction torque.</li>
+  <li>
+    <code>flange_a</code> is driving (<code>free&nbsp;= false</code>): torque is
+    transferred with a&nbsp;residual difference <code>wRes</code> of relative angular
+    velocity of the flanges.
+  </li>
+  <li>
+    <code>flange_b</code> is driving (<code>free&nbsp;= true</code>): the flanges move
+    independently except a&nbsp;residual friction torque <code>tauRes</code>.</li>
 </ul>
 </html>"));
 end FreeWheel;
