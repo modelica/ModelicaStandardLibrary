@@ -8,15 +8,15 @@ model FreeWheel "Ideal freewheel"
   parameter SI.Torque tauRes=1e-5 "Residual friction coefficient";
   parameter SI.AngularVelocity wRes=1e-5 "Residual relative velocity coefficient";
 protected
-  constant SI.AngularVelocity unit_w=1;
-  constant SI.Torque unit_tau=1;
+  constant SI.AngularVelocity unitAngularVelocity=1;
+  constant SI.Torque unitTorque=1;
 equation
   w_rel = der(flange_a.phi) - der(flange_b.phi);
   tau =  flange_a.tau;
   tau = -flange_b.tau;
   free = w_rel <= 0;
-  w_rel = s*unit_w*(if free then 1 else tauRes/unit_tau);
-  tau   = s*unit_tau*(if free then wRes/unit_w else 1);
+  w_rel = s*unitAngularVelocity*(if free then 1 else tauRes/unitTorque);
+  tau   = s*unitTorque*(if free then wRes/unitAngularVelocity else 1);
   annotation (                                 Icon(graphics={
       Rectangle(  lineColor={64,64,64},
         fillColor={192,192,192},
