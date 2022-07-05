@@ -978,6 +978,25 @@ they were not deleted yet.")}));
       offset=0,
       startTime=0.75)
       annotation (Placement(transformation(extent={{60,-230},{40,-210}})));
+    Modelica.Mechanics.Rotational.Components.FreeWheel freeWheel
+      annotation (Placement(transformation(extent={{-50,-268},{-30,-248}})));
+    Modelica.Mechanics.Rotational.Components.Inertia inertia21(
+      J=1,
+      phi(start=0, fixed=true),
+      w(start=0, fixed=true))
+      annotation (Placement(transformation(extent={{-20,-268},{0,-248}})));
+    Modelica.Mechanics.Rotational.Sources.LinearSpeedDependentTorque
+      linearSpeedDependentTorque1(
+      tau_nominal=-5,
+      TorqueDirection=false,
+      w_nominal=1)
+      annotation (Placement(transformation(extent={{30,-268},{10,-248}})));
+    Modelica.Mechanics.Rotational.Sources.Speed speed1(exact=true)
+      annotation (Placement(transformation(extent={{-110,-268},{-90,-248}})));
+    Modelica.Mechanics.Rotational.Components.Inertia inertia22(J=1)
+      annotation (Placement(transformation(extent={{-80,-268},{-60,-248}})));
+    Modelica.Blocks.Sources.Sine sine8(amplitude=5, f=5)
+      annotation (Placement(transformation(extent={{-140,-268},{-120,-248}})));
   equation
     connect(inertia.flange_b, idealGear.flange_a) annotation (Line(
         points={{-60,90},{-50,90}}));
@@ -1139,7 +1158,19 @@ they were not deleted yet.")}));
       annotation (Line(points={{-119,-220},{-112,-220}}, color={0,0,127}));
     connect(step.y, torque2.tau)
       annotation (Line(points={{39,-220},{32,-220}}, color={0,0,127}));
-    annotation (experiment(StopTime=0.9), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-180,-240},{180,160}})));
+    connect(freeWheel.flange_b, inertia21.flange_a)
+      annotation (Line(points={{-30,-258},{-20,-258}}, color={0,0,0}));
+    connect(linearSpeedDependentTorque1.flange, inertia21.flange_b)
+      annotation (Line(points={{10,-258},{0,-258}}, color={0,0,0}));
+    connect(inertia22.flange_a, speed1.flange)
+      annotation (Line(points={{-80,-258},{-90,-258}}, color={0,0,0}));
+    connect(inertia22.flange_b, freeWheel.flange_a)
+      annotation (Line(points={{-60,-258},{-50,-258}}, color={0,0,0}));
+    connect(sine8.y, speed1.w_ref)
+      annotation (Line(points={{-119,-258},{-112,-258}}, color={0,0,127}));
+    annotation (experiment(StopTime=0.9), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-180,
+              -280},{180,160}})),
+      Icon(coordinateSystem(extent={{-180,-280},{180,160}})));
   end AllComponents;
 
   model TestBearingConversion
