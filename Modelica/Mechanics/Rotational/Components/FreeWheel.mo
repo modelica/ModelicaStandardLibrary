@@ -73,9 +73,9 @@ equation
           points={{-70,-20},{0,0},{20,70}},
           thickness=0.5),
         Text(
-          extent={{70,-10},{80,-20}},
+          extent={{60,-10},{80,-20}},
           textColor={128,128,128},
-          textString="w"),
+          textString="w_rel"),
         Text(
           extent={{-20,80},{-10,70}},
           textColor={128,128,128},
