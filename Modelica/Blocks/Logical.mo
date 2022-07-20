@@ -986,7 +986,7 @@ parameter \"terminationText\".
             extent={{-90,40},{90,-40}},
             textColor={0,0,0},
             textString="assert")}), Documentation(info="<html>
-<p>This block is used by connecting a (possibly) <strong>time varying</strong> input condition for the Boolean input variable <strong>u</strong>. If this input variable is <strong>false</strong>, the simulation will either abort with a message indicating the cause of the error (if the assertion level is set to error) or not abort with a message indicating the cause of the warning (if the assertion level is set to warning).</p>
+<p>This block is used by connecting a (possibly) <strong>time varying</strong> input condition for the Boolean input variable <strong>u</strong>. If this input variable is <strong>false</strong>, the simulation will either abort with an error (if <strong>assertionLevel</strong> is set to <strong>error</strong>), or issue a warning and continue (if <strong>assertionLevel</strong> is set to <strong>warning</strong>). The <strong>message</strong> will be included in the message text of the error or warning.</p>
 </html>"));
   end AssertCondition;
   annotation (Documentation(info="<html>
