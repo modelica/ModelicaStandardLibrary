@@ -2530,6 +2530,101 @@ This means that:</p>
 </html>"));
   end SignalExtrema;
 
+  block ContinuousSignalExtrema "Peak of input signal"
+    extends Modelica.Blocks.Icons.Block;
+    parameter Modelica.Units.SI.Time T(min=Modelica.Constants.small)=1e-6 "Derivative time constant";
+    Modelica.Blocks.Interfaces.RealInput u
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+    Modelica.Blocks.Interfaces.RealOutput y_min
+      annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
+    Modelica.Blocks.Interfaces.RealOutput y_max
+      annotation (Placement(transformation(extent={{100,50},{120,70}})));
+    output Modelica.Units.SI.Time t_min "Time instant of last found minimum";
+    output Modelica.Units.SI.Time t_max "Time instant of last found maximum";
+  protected
+    Real x "Aux.state";
+  initial equation
+    x = u;
+    y_min = u;
+    y_max = u;
+    t_min = time;
+    t_max = time;
+  equation
+    //first order approximation of input
+    der(x) = (u - x)/T;
+    //first order approximation of derivative of input
+    when {u<=x, u>=x, terminal()} then
+    //detect local extrema at zero derivative, just before and after a step, and at the end of the simulation
+      y_min = min({pre(y_min), u, pre(u)});
+      y_max = max({pre(y_max), u, pre(u)});
+      if y_min<pre(y_min) then
+        t_min=time;
+        t_max=pre(t_max);
+      elseif y_max>pre(y_max) then
+        t_min=pre(t_min);
+        t_max=time;
+      else
+        t_min=pre(t_min);
+        t_max=pre(t_max);
+      end if;
+    end when;
+    annotation (defaultComponentName="signalExtrema",
+    Documentation(info="<html>
+<p>
+This block detects positive and negative peaks of differentiable and non-differentiable input signals without sampling.
+</p>
+<p>
+For differentiable input singals, an extremum is detected if the derivative of the input signal is zero.
+</p>
+<p>
+To handle non-differentiable input signals, the input signal <code>u</code> is conditioned by a first order wth time constant <code>T</code>. 
+Like in the <a href=\"modelica://Modelica.Blocks.Continuous.Derivative\">derivative block</a>, 
+the derivative of the input signal is approximated by <code>(u - x)/T</code>. 
+This way even steps with local extrema just before and after the step are taken into account.
+</p>
+<p>
+Additionally, when the simulation terminates, <code>y_max</code>y_min and <code>y_max</code> are updated.
+</p>
+</html>"),
+      Icon(graphics={
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(
+            points={{-80,0},{-75.2,32.3},{-72,50.3},{-68.7,64.5},{-65.5,74.2},{
+                -62.3,79.3},{-59.1,79.6},{-55.9,75.3},{-52.7,67.1},{-48.6,52.2},
+                {-43,25.8},{-35,-13.9},{-30.2,-33.7},{-26.1,-45.9},{-22.1,-53.2},
+                {-18,-56},{-14.1,-52.5},{-10.1,-45.3},{-5.23,-32.1},{8.44,13.7},
+                {13.3,26.4},{18.1,34.8},{22.1,38},{26.9,37.2},{31.8,31.8},{38.2,
+                19.4},{51.1,-10.5},{57.5,-21.2},{63.1,-25.9},{68.7,-25.9},{75.2,
+                -20.5},{80,-13.8}},
+            smooth=Smooth.Bezier,
+            color={192,192,192}),
+          Line(points={{-90,0},{68,0}}, color={192,192,192}),
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
+          Polygon(
+            points={{90,0},{68,8},{68,-8},{90,0}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(
+            points={{-60,80},{52,80}},
+            color={0,0,0},
+            pattern=LinePattern.Dash),
+          Line(
+            points={{-18,-56},{50,-56}},
+            color={0,0,0},
+            pattern=LinePattern.Dash),
+          Text(extent={{60,-50},{92,-70}},
+                                 textColor={0,0,0},
+            textString="min"),
+          Text(extent={{60,70},{92,50}},
+                                 textColor={0,0,0},
+            textString="max")}));
+  end ContinuousSignalExtrema;
+
   block Variance "Calculates the empirical variance of its input signal"
     extends Modelica.Blocks.Icons.Block;
     parameter SI.Time t_eps(min=100*Modelica.Constants.eps)=1e-7

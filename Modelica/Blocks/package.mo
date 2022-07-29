@@ -1490,6 +1490,58 @@ whereas signalExtrema2 catches the extrema rather good due to the fact that samp
 </html>"));
   end DemonstrateSignalExtrema;
 
+  model DemonstrateContinuousSignalExtrema
+    "Test the ContinuousSignalExtrema block"
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Sources.Sine sine(
+      amplitude=1,
+      f=9,
+      offset=-2)
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.SawTooth sawTooth(
+      amplitude=2,
+      period=1/9,
+      offset=1)
+      annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
+    Modelica.Blocks.Sources.Sine amplitude(
+      amplitude=1,
+      f=0.75,
+      offset=0)
+      annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+    Modelica.Blocks.Math.Product product1
+      annotation (Placement(transformation(extent={{-20,20},{0,40}})));
+    Modelica.Blocks.Math.Product product2
+      annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
+    Modelica.Blocks.Math.ContinuousSignalExtrema signalExtrema1
+      annotation (Placement(transformation(extent={{20,20},{40,40}})));
+    Modelica.Blocks.Math.ContinuousSignalExtrema signalExtrema2
+      annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
+  equation
+    connect(amplitude.y, product1.u2) annotation (Line(points={{-39,0},{-30,0},{
+            -30,24},{-22,24}}, color={0,0,127}));
+    connect(amplitude.y, product2.u1) annotation (Line(points={{-39,0},{-30,0},{
+            -30,-24},{-22,-24}}, color={0,0,127}));
+    connect(sine.y, product1.u1) annotation (Line(points={{-59,30},{-40,30},{-40,
+            36},{-22,36}}, color={0,0,127}));
+    connect(sawTooth.y, product2.u2) annotation (Line(points={{-59,-30},{-40,-30},
+            {-40,-36},{-22,-36}}, color={0,0,127}));
+    connect(product1.y, signalExtrema1.u)
+      annotation (Line(points={{1,30},{18,30}}, color={0,0,127}));
+    connect(product2.y, signalExtrema2.u)
+      annotation (Line(points={{1,-30},{18,-30}}, color={0,0,127}));
+    annotation (experiment(
+        StopTime=1,
+        Interval=0.0001,
+        Tolerance=1e-06), Documentation(info="<html>
+<p>
+The amplitude of both a differentiable sinudoidal signal (frequency 9 Hz) and a non-differentiable sawtooth signal (period 1/9 s) is modulated sinusoidally /frequency 0.75 Hz).
+</p>
+<p>
+Note that the ContinuousSignalExtremaBlock detects extrema of both signals without sampling.
+</p>
+</html>"));
+  end DemonstrateContinuousSignalExtrema;
+
   model DemoSignalCharacteristic
     "Demonstrate characteristic values of a signal"
     extends Modelica.Icons.Example;
