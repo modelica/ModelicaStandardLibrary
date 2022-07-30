@@ -1505,7 +1505,7 @@ whereas signalExtrema2 catches the extrema rather good due to the fact that samp
       annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
     Modelica.Blocks.Sources.Sine amplitude(
       amplitude=1,
-      f=0.75,
+      f=1.75,
       offset=0)
       annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
     Modelica.Blocks.Math.Product product1

@@ -2557,16 +2557,8 @@ This means that:</p>
     //detect local extrema at zero derivative, just before and after a step, and at the end of the simulation
       y_min = min({pre(y_min), u, pre(u)});
       y_max = max({pre(y_max), u, pre(u)});
-      if y_min<pre(y_min) then
-        t_min=time;
-        t_max=pre(t_max);
-      elseif y_max>pre(y_max) then
-        t_min=pre(t_min);
-        t_max=time;
-      else
-        t_min=pre(t_min);
-        t_max=pre(t_max);
-      end if;
+      t_min = if y_min<pre(y_min) then time else pre(t_min);
+      t_max = if y_max>pre(y_max) then time else pre(t_max);
     end when;
     annotation (defaultComponentName="signalExtrema",
     Documentation(info="<html>
