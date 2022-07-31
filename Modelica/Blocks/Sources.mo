@@ -413,13 +413,13 @@ The Real output y is a cosine signal:
           transformation(
           extent={{-2,-2},{2,2}},
           origin={-80,-60})));
-    Blocks.Sources.Constant amplitude_constant(final k=constantAmplitude) if
-      useConstantAmplitude
+    Blocks.Sources.Constant amplitude_constant(final k=constantAmplitude)
+   if useConstantAmplitude
       annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
           origin={-80,30})));
-    Blocks.Sources.Constant f_constant(final k=constantFrequency) if
-      useConstantFrequency
+    Blocks.Sources.Constant f_constant(final k=constantFrequency)
+   if useConstantFrequency
       annotation (Placement(transformation(extent={{10,-10},{-10,10}},
           rotation=90,
           origin={-80,-30})));
@@ -516,13 +516,13 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
           transformation(
           extent={{-2,-2},{2,2}},
           origin={-80,-60})));
-    Blocks.Sources.Constant amplitude_constant(final k=constantAmplitude) if
-      useConstantAmplitude
+    Blocks.Sources.Constant amplitude_constant(final k=constantAmplitude)
+   if useConstantAmplitude
       annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
           origin={-80,30})));
-    Blocks.Sources.Constant f_constant(final k=constantFrequency) if
-      useConstantFrequency
+    Blocks.Sources.Constant f_constant(final k=constantFrequency)
+   if useConstantFrequency
       annotation (Placement(transformation(extent={{10,-10},{-10,10}},
           rotation=90,
           origin={-80,-30})));
@@ -807,6 +807,52 @@ The Real output y is a pulse signal:
 </div>
 </html>"));
   end Pulse;
+
+  block GaussianPulse "Generate Gaussian pulse signal of type Real"
+    import Modelica.Constants.pi;
+    extends Modelica.Blocks.Interfaces.SO;
+    parameter Real amplitude=1 "Amplitude of pulse";
+    parameter SI.Time duration(final min=Modelica.Constants.small)=0.25
+      "Equivalent pulse duration";
+    parameter Real offset=0 "Offset of output signal y";
+    parameter SI.Time startTime=0.5 "Time instant of pulse maximum";
+  equation
+    y = offset + amplitude*exp(-pi*((time - startTime)/duration)^2);
+    annotation (
+      Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}), graphics={
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+          Polygon(
+            points={{90,-70},{68,-62},{68,-78},{90,-70}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-147,-152},{153,-112}},
+            textString="duration=%duration",
+            textColor={0,0,0}),
+          Line(points={{-80,-70},{-48,-68},{-43,-63},{-32,-48},{-24,-18},{-15,27},
+              {-8,71},{-5,83},{0,90},{5,83},{8,71},{15,27},{24,-18},{32,-48},
+              {43,-63},{48,-68},{80,-70}},
+              color={0,0,0},
+            smooth=Smooth.Bezier)}),
+      Documentation(info="<html>
+<p>
+The Real output y is a (single) Gaussian pulse signal: <code>y = offset + amplitude*exp(-&pi;*((t-startTime)/duration)<sup>2</sup>)</code>
+</p>
+<p>
+Parameter <code>startTime</code> is the time instant when the pulse maximum occurs. 
+Parameter <code>duration</code> is the duration of an equivalent rectangular pulse with same amplitude and area under the pulse. 
+</p>
+</html>"));
+  end GaussianPulse;
 
   block SawTooth "Generate saw tooth signal"
     parameter Real amplitude=1 "Amplitude of saw tooth"
