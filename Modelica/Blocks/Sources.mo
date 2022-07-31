@@ -814,10 +814,21 @@ The Real output y is a pulse signal:
     parameter Real amplitude=1 "Amplitude of pulse";
     parameter SI.Time duration(final min=Modelica.Constants.small)=0.25
       "Equivalent pulse duration";
+    parameter SI.Time period(final min=Modelica.Constants.small)=1
+      "Time for one period";
+    parameter Integer nperiod=1
+      "Number of periods (< 0 means infinite number of periods)";
     parameter Real offset=0 "Offset of output signal y";
     parameter SI.Time startTime=0.5 "Time instant of pulse maximum";
+  protected
+    SI.Time t0(start=startTime, fixed=true);
+  initial equation
   equation
-    y = offset + amplitude*exp(-pi*((time - startTime)/duration)^2);
+    y = offset + (if nperiod==0 then 0 else amplitude*exp(-pi*((time - t0)/duration)^2));
+    when time >= pre(t0) + period/2 then
+      t0 = pre(t0) +
+        (if nperiod>0 and (time - startTime)>=(nperiod - 0.5)*period then 0 else period);
+    end when;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -845,11 +856,15 @@ The Real output y is a pulse signal:
             smooth=Smooth.Bezier)}),
       Documentation(info="<html>
 <p>
-The Real output y is a (single) Gaussian pulse signal: <code>y = offset + amplitude*exp(-&pi;*((t-startTime)/duration)<sup>2</sup>)</code>
+The Real output y is a series of Gaussian pulses, the first pulse is defined by: <code>y = offset + amplitude*exp(-&pi;*((t-startTime)/duration)<sup>2</sup>)</code>
 </p>
 <p>
 Parameter <code>startTime</code> is the time instant when the pulse maximum occurs. 
 Parameter <code>duration</code> is the duration of an equivalent rectangular pulse with same amplitude and area under the pulse. 
+</p>
+<p>
+The Gaussian pulse is repeated <code>nperiod</code> times, with a time span of <code>period</code> between the pulses. 
+The next pulse supersedes the previous pulse.
 </p>
 </html>"));
   end GaussianPulse;

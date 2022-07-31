@@ -1578,14 +1578,16 @@ The output is constant from the beginning.
 
   model ComparePulses "Compare Gaussian and rectangular pulse"
     extends Modelica.Icons.Example;
-    Modelica.Blocks.Sources.GaussianPulse gaussianPulse(duration=1, startTime=2)
+    Modelica.Blocks.Sources.GaussianPulse gaussianPulse(duration=1,
+      period=4,                                                     startTime=2)
       annotation (Placement(transformation(extent={{-30,10},{-10,30}})));
     Modelica.Blocks.Continuous.Integrator integrator1
       annotation (Placement(transformation(extent={{10,10},{30,30}})));
     Modelica.Blocks.Sources.Pulse pulse(
       amplitude=gaussianPulse.amplitude,
-      period=2*gaussianPulse.duration,
-      nperiod=1,
+      width=gaussianPulse.duration/gaussianPulse.period*100,
+      period=gaussianPulse.period,
+      nperiod=gaussianPulse.nperiod,
       offset=gaussianPulse.offset,
       startTime=gaussianPulse.startTime - gaussianPulse.duration/2)
       annotation (Placement(transformation(extent={{-30,-30},{-10,-10}})));
@@ -1600,10 +1602,10 @@ The output is constant from the beginning.
         smooth=Smooth.Bezier));
     annotation (experiment(
         StopTime=4,
-        Interval=0.0001,
+        Interval=0.001,
         Tolerance=1e-06), Documentation(info="<html>
 <p>
-Compare a Gaussian pulse with a rectangular pulse with same amplitude and same area under the pulse.
+Compare a single Gaussian pulse with a single rectangular pulse with same amplitude and same area under the pulse.
 </p>
 </html>"));
   end ComparePulses;
