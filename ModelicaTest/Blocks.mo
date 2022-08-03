@@ -952,7 +952,7 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
     Modelica.Blocks.Logical.Hysteresis hysteresis(uLow=-0.5, uHigh=0.5)
       annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
     Modelica.Blocks.Logical.OnOffController onOffController(bandwidth=0.5)
-      annotation (Placement(transformation(extent={{80,-40},{100,-20}})));
+      annotation (Placement(transformation(extent={{100,-140},{120,-120}})));
     Modelica.Blocks.Logical.TriggeredTrapezoid triggeredTrapezoid(rising=1,
         falling=0.5)
       annotation (Placement(transformation(extent={{106,60},{126,80}})));
@@ -960,6 +960,11 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
       annotation (Placement(transformation(extent={{100,20},{120,40}})));
     Modelica.Blocks.Logical.RSFlipFlop rSFlipFlop
       annotation (Placement(transformation(extent={{140,120},{160,140}})));
+    Modelica.Blocks.Logical.AssertCondition assertCondition(assertionLevel=AssertionLevel.warning) annotation (Placement(transformation(extent={{100,-20},{120,0}})));
+    Modelica.Blocks.Sources.BooleanPulse booleanPulse(
+      width=50,
+      period=0.5,
+      startTime=0) annotation (Placement(transformation(extent={{60,-20},{80,0}})));
   equation
     connect(table1.y, and1.u1) annotation (Line(
         points={{-79,110},{-62,110}}, color={255,0,255}));
@@ -1034,16 +1039,16 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
     connect(switch1.u1, lessEqualThreshold.u) annotation (Line(
         points={{78,-62},{52,-62},{52,-112},{-72,-112},{-72,-94},{-62,-94}}, color={0,0,127}));
     connect(switch1.u3, greaterEqual.u2) annotation (Line(
-        points={{78,-78},{66,-78},{66,-106},{106,-106},{106,-154},{-32,-154},{
-            -32,-138},{-22,-138}}, color={0,0,127}));
+        points={{78,-78},{66,-78},{66,-106},{88,-106},{88,-154},{-32,-154},{-32,-138},{-22,-138}},
+                                   color={0,0,127}));
     connect(sine.y, hysteresis.u) annotation (Line(
         points={{-79,-10},{-72,-10},{-72,50},{-62,50}}, color={0,0,127}));
     connect(onOffController.reference, lessEqualThreshold.u) annotation (Line(
-        points={{78,-24},{66,-24},{66,-24},{52,-24},{52,-112},{-72,-112},{-72,
-            -94},{-62,-94}}, color={0,0,127}));
+        points={{98,-124},{94,-124},{94,-112},{-72,-112},{-72,-94},{-62,-94}},
+                             color={0,0,127}));
     connect(onOffController.u, greaterEqual.u2) annotation (Line(
-        points={{78,-36},{66,-36},{66,-106},{106,-106},{106,-154},{-32,-154},{
-            -32,-138},{-22,-138}}, color={0,0,127}));
+        points={{98,-136},{88,-136},{88,-154},{-32,-154},{-32,-138},{-22,-138}},
+                                   color={0,0,127}));
     connect(table2.y, triggeredTrapezoid.u) annotation (Line(
         points={{-79,70},{104,70}}, color={255,0,255}));
     connect(timer.u, logicalSwitch.u3) annotation (Line(
@@ -1052,6 +1057,7 @@ if homotopy is active, the solution accepted by the assert statement (x = 100) i
         points={{81,150},{128,150},{128,136},{138,136}}, color={255,0,255}));
     connect(pre1.y, rSFlipFlop.R) annotation (Line(
         points={{81,110},{130,110},{130,124},{138,124}}, color={255,0,255}));
+    connect(booleanPulse.y, assertCondition.u) annotation (Line(points={{81,-10},{98,-10}}, color={255,0,255}));
     annotation (experiment(StopTime=10), Diagram(coordinateSystem(
             preserveAspectRatio=false,extent={{-100,-180},{180,180}})));
   end Logical;
