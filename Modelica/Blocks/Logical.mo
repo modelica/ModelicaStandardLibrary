@@ -933,7 +933,7 @@ The output <code>Q</code> is set by the input <code>S</code>, is reset by the in
     extends Modelica.Blocks.Interfaces.partialBooleanSI;
     parameter String message = getInstanceName() + "'s input is false"
       "Assertion message to be displayed if the input u is false";
-    parameter AssertionLevel assertionLevel=AssertionLevel.error
+    parameter AssertionLevel assertionLevel = AssertionLevel.warning
       "Assertion level";
   equation
     assert(u,message,assertionLevel);
