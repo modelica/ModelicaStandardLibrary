@@ -929,6 +929,34 @@ The output <code>Q</code> is set by the input <code>S</code>, is reset by the in
 </html>"));
   end RSFlipFlop;
 
+  block AssertCondition "Asserts that input condition u is true"
+    extends Modelica.Blocks.Interfaces.partialBooleanSI;
+    parameter String message = getInstanceName() + "'s input is false"
+      "Assertion message to be displayed if the input u is false";
+    parameter AssertionLevel assertionLevel=AssertionLevel.error
+      "Assertion level";
+  equation
+    assert(u,message,assertionLevel);
+    annotation (
+      Icon(graphics={
+          Text(
+            extent={{-90,40},{90,-40}},
+            textString="assert")}),
+      Documentation(
+        info="<html>
+<p>
+This block is used by connecting a&nbsp;(possibly) <strong>time varying</strong>
+input condition for the Boolean input variable&nbsp;<strong>u</strong>.
+If this input variable is <strong>false</strong>, the simulation will
+either abort with an error (if <strong>assertionLevel</strong> is set to
+<strong>error</strong>), or issue a&nbsp;warning and continue (if
+<strong>assertionLevel</strong> is set to <strong>warning</strong>).
+The <strong>message</strong> will be included in the message text of
+the error or warning.
+</p>
+</html>"));
+  end AssertCondition;
+
   block TerminateSimulation "Terminate simulation if condition is fulfilled"
 
     Modelica.Blocks.Interfaces.BooleanOutput condition=false
@@ -974,33 +1002,6 @@ parameter \"terminationText\".
 </html>"));
   end TerminateSimulation;
 
-  block AssertCondition "Asserts that input condition u is true"
-    extends Modelica.Blocks.Interfaces.partialBooleanSI;
-    parameter String message = getInstanceName() + "'s input is false"
-      "Assertion message to be displayed if the input u is false";
-    parameter AssertionLevel assertionLevel=AssertionLevel.error
-      "Assertion level";
-  equation
-    assert(u,message,assertionLevel);
-    annotation (
-      Icon(graphics={
-          Text(
-            extent={{-90,40},{90,-40}},
-            textString="assert")}),
-      Documentation(
-        info="<html>
-<p>
-This block is used by connecting a&nbsp;(possibly) <strong>time varying</strong>
-input condition for the Boolean input variable&nbsp;<strong>u</strong>.
-If this input variable is <strong>false</strong>, the simulation will
-either abort with an error (if <strong>assertionLevel</strong> is set to
-<strong>error</strong>), or issue a&nbsp;warning and continue (if
-<strong>assertionLevel</strong> is set to <strong>warning</strong>).
-The <strong>message</strong> will be included in the message text of
-the error or warning.
-</p>
-</html>"));
-  end AssertCondition;
   annotation (Documentation(info="<html>
 <p>
 This package provides blocks with Boolean input and output signals
