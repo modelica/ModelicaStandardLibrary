@@ -1,22 +1,24 @@
 within Modelica.Mechanics.Rotational.Components;
 model FreeWheel "Ideal freewheel"
-  extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
-  SI.AngularVelocity w_rel(start=0) "Relative angular velocity (= flange_a.w - flange_b.w)";
-  SI.Torque tau "Torque between flanges (= flange_a.tau)";
-  Boolean free( start=false) "Indicates freewheeling";
-  Real s(start=0) "Auxilliary variable";
+  extends Modelica.Mechanics.Rotational.Interfaces.PartialCompliant;
+
+  SI.AngularVelocity w_rel(start=0)
+    "Relative angular velocity (= der(phi_rel))";
+  Boolean free(start=false) "Indicates freewheeling";
+
   parameter SI.Torque tauRes=1e-5 "Residual friction coefficient";
   parameter SI.AngularVelocity wRes=1e-5 "Residual relative velocity coefficient";
+
 protected
+  Real s(start=0, final unit="1") "Auxilliary variable";
   constant SI.AngularVelocity unitAngularVelocity=1;
   constant SI.Torque unitTorque=1;
+
 equation
-  w_rel = der(flange_a.phi) - der(flange_b.phi);
-  tau =  flange_a.tau;
-  tau = -flange_b.tau;
-  free = w_rel <= 0;
-  w_rel = s*unitAngularVelocity*(if free then 1 else tauRes/unitTorque);
-  tau   = s*unitTorque*(if free then wRes/unitAngularVelocity else 1);
+  w_rel = der(phi_rel);
+  free = w_rel >= 0;
+  w_rel = -s*unitAngularVelocity*(if free then 1 else tauRes/unitTorque);
+  tau   = -s*unitTorque*(if free then wRes/unitAngularVelocity else 1);
 
   annotation (
     Icon(graphics={
