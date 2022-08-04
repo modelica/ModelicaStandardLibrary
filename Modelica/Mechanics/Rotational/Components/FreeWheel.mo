@@ -17,8 +17,8 @@ protected
 equation
   w_rel = der(phi_rel);
   free = w_rel >= 0;
-  w_rel = -s*unitAngularVelocity*(if free then 1 else tauRes/unitTorque);
-  tau   = -s*unitTorque*(if free then wRes/unitAngularVelocity else 1);
+  w_rel = s*unitAngularVelocity*(if free then 1 else tauRes/unitTorque);
+  tau   = s*unitTorque*(if free then wRes/unitAngularVelocity else 1);
 
   annotation (
     Icon(graphics={
