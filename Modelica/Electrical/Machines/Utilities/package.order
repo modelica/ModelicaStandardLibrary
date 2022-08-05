@@ -11,6 +11,7 @@ TerminalBox
 MultiTerminalBox
 SwitchedRheostat
 RampedRheostat
+Coupling
 DcBrakeSettings
 SynchronousMachineData
 TransformerData

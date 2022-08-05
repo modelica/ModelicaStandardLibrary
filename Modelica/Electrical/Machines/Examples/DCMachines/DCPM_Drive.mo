@@ -46,7 +46,7 @@ model DCPM_Drive
     wMechanical(fixed=false),
     ia(fixed=true))
     annotation (Placement(transformation(extent={{50,-70},{30,-50}})));
-  Mechanics.Rotational.Components.Coupling coupling
+  Utilities.Coupling coupling
     annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
   ControlledDCDrives.Utilities.DcdcInverter dcdcInverter1(fS=1000, VMax=
         dcpmData.VaNominal)
@@ -131,13 +131,13 @@ equation
   annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6), Documentation(
         info="<html>
 <p>
-This example demonstrates how to use a <a href=\"modelica://Modelica.Mechanics.Rotational.Components.Coupling\">coupling</a> 
+This example demonstrates how to use a <a href=\"modelica://Modelica.Electrical.Machines.Utilities.Coupling\">coupling</a> 
 to implement a drive consisting if two permanent magnet DC machines. 
 Note that <code>dcpm1</code> is turning in positive direction, whereas <code>dcpm2</code> is turning in the opposite direction. 
 Therefore, the armature of <code>dcpm2</code> is connected reversed to the source.
 </p>
 <p>
-Machine <code>dcpm1</code> starts the drive with a voltage ramp up to half of the no-load speed, the armature of <code>dcpm2</code> is not connected. 
+Machine <code>dcpm1</code> starts the drive with a voltage ramp up to half of no-load speed, the armature of <code>dcpm2</code> is not connected. 
 Since the induced voltage of <code>dcpm2</code> is the same as that of <code>dcdcInverter2</code>, the <code>switch</code> is closed without any transient. 
 After that, the armature voltage of <code>dcpm2</code> is slightly increased, causing <code>dcpm2</code> to drive as motor and <code>dcpm1</code> to brake as generator. 
 Therefore, the speed <code>coupling.w</code> increases. 
