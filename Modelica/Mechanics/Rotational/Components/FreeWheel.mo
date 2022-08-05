@@ -5,9 +5,8 @@ model FreeWheel "Ideal freewheel"
   SI.AngularVelocity w_rel(start=0)
     "Relative angular velocity (= der(phi_rel))";
   Boolean free(start=false) "Indicates freewheeling";
-
-  parameter SI.Torque tauRes=1e-5 "Residual friction coefficient";
-  parameter SI.AngularVelocity wRes=1e-5 "Residual relative velocity coefficient";
+  parameter SI.RotationalDampingConstant residualFriction=1e-5 "Residual friction coefficient (free = true)";
+  parameter SI.RotationalDampingConstant torqueTransmission=1e5 "Torque transmission coefficient (free = false)";
 
 protected
   Real s(start=0, final unit="1") "Auxilliary variable";
@@ -17,9 +16,8 @@ protected
 equation
   w_rel = der(phi_rel);
   free = w_rel >= 0;
-  w_rel = s*unitAngularVelocity*(if free then 1 else tauRes/unitTorque);
-  tau   = s*unitTorque*(if free then wRes/unitAngularVelocity else 1);
-
+  w_rel = s*unitTorque         *(if free then 1 else 1/torqueTransmission);
+  tau   = s*unitAngularVelocity*(if free then residualFriction else 1);
   annotation (
     Icon(graphics={
         Rectangle(
@@ -72,7 +70,7 @@ equation
           fillColor={128,128,128},
           fillPattern=FillPattern.Solid),
         Line(
-          points={{-70,-20},{0,0},{20,70}},
+          points={{-4,-60},{0,0},{60,4}},
           thickness=0.5),
         Text(
           extent={{60,-10},{80,-20}},
@@ -83,13 +81,17 @@ equation
           textColor={128,128,128},
           textString="tau"),
         Text(
-          extent={{20,60},{40,50}},
+          extent={{0,30},{60,10}},
           textColor={128,128,128},
-          textString="wRes"),
+          textString=" free = true:
+  residualFriction  "),
         Text(
-          extent={{-60,-20},{-40,-30}},
+          extent={{-30,10},{30,-10}},
           textColor={128,128,128},
-          textString="tauRes")}),
+          origin={-20,-30},
+          rotation=90,
+          textString=" free = false:
+torqueTransmission")}),
     Documentation(info="<html>
 <p>
 An idealized model of a&nbsp;freewheel. Compared to
@@ -102,13 +104,18 @@ by the variable <code>free</code> and distinguished as follows.
 </p>
 <ul>
   <li>
-    <code>flange_a</code> is driving (<code>free&nbsp;= false</code>): torque is
-    transferred with a&nbsp;residual difference <code>wRes</code> of relative angular
-    velocity of the flanges.
+    <code>free = false</code>: <code>flange_a</code> is driving <code>flange_b</code>;
+    a residual slip (difference of angular velocities) between the two flanges
+    is defined by the parameter <code>torqueTransmission</code> by the following equation:<br> 
+    <code>tau = w_rel*torqueTransmission</code>.
   </li>
   <li>
-    <code>flange_b</code> is driving (<code>free&nbsp;= true</code>): the flanges move
-    independently except a&nbsp;residual friction torque <code>tauRes</code>.</li>
+    <code>free = true</code>: <code>flange_b</code> is driven such way 
+    that it rotates (nearly) independent of <code>flange_a</code>;
+    a residual friction torque between the two flanges
+    is defined by the parameter <code>residualFriction</code> by the following equation:<br> 
+    <code>tau = w_rel*residualFriction</code>.
+  </li>
 </ul>
 </html>"));
 end FreeWheel;
