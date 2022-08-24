@@ -929,7 +929,7 @@ The output <code>Q</code> is set by the input <code>S</code>, is reset by the in
 </html>"));
   end RSFlipFlop;
 
-  block AssertCondition "Asserts that input condition u is true"
+  block AssertCondition "Assert that input u is true"
     extends Modelica.Blocks.Interfaces.partialBooleanSI;
     parameter String message = getInstanceName() + "'s input is false"
       "Assertion message to be displayed if the input u is false";
@@ -945,14 +945,16 @@ The output <code>Q</code> is set by the input <code>S</code>, is reset by the in
       Documentation(
         info="<html>
 <p>
-This block is used by connecting a&nbsp;(possibly) <strong>time varying</strong>
-input condition for the Boolean input variable&nbsp;<strong>u</strong>.
-If this input variable is <strong>false</strong>, the simulation will
+This block asserts that the Boolean input&nbsp;<strong>u</strong> is <strong>true</strong>.
+If&nbsp;<strong>u</strong> is <strong>false</strong>, the simulation will
 either abort with an error (if <strong>assertionLevel</strong> is set to
 <strong>error</strong>), or issue a&nbsp;warning and continue (if
 <strong>assertionLevel</strong> is set to <strong>warning</strong>).
-The <strong>message</strong> will be included in the message text of
-the error or warning.
+The <strong>message</strong> will be reported in either case.
+Typically, this block is used by connecting a&nbsp;(possibly) <strong>time
+varying</strong> outside condition and the input&nbsp;<strong>u</strong>
+to terminate the simulation if the condition fails.
+
 </p>
 <p>
 For further information, refer to the documentation of
