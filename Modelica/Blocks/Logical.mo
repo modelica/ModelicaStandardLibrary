@@ -954,9 +954,11 @@ either abort with an error (if <strong>assertionLevel</strong> is set to
 The <strong>message</strong> will be included in the message text of
 the error or warning.
 </p>
-For further information, refer to the documantation of
-<a href=\"modelica://ModelicaReference.Operators.'assert()'\">ModelicaReference.Operators.'assert()&apos;</a>
+<p>
+For further information, refer to the documentation of
+<a href=\"modelica://ModelicaReference.Operators.'assert()'\">ModelicaReference.Operators.'assert()'</a>
 &ndash; an operator which this block is based on.
+</p>
 </html>"));
   end AssertCondition;
 
