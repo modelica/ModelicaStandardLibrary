@@ -953,7 +953,7 @@ either abort with an error (if <strong>assertionLevel</strong> is set to
 The <strong>message</strong> will be reported in either case.
 Typically, this block is used by connecting a&nbsp;(possibly) <strong>time
 varying</strong> outside condition and the input&nbsp;<strong>u</strong>
-to stop the simulation if the condition fails.
+to abort the simulation if the condition fails.
 
 </p>
 <p>
