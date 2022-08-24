@@ -951,15 +951,14 @@ either abort with an error (if <strong>assertionLevel</strong> is set to
 <strong>error</strong>), or issue a&nbsp;warning and continue (if
 <strong>assertionLevel</strong> is set to <strong>warning</strong>).
 The <strong>message</strong> will be reported in either case.
-Typically, this block is used by connecting a&nbsp;(possibly) <strong>time
-varying</strong> outside condition and the input&nbsp;<strong>u</strong>
-to abort the simulation if the condition fails.
-
-</p>
-<p>
 For further information, refer to the documentation of
 <a href=\"modelica://ModelicaReference.Operators.'assert()'\">ModelicaReference.Operators.'assert()'</a>
 &ndash; an operator which this block is based on.
+</p>
+<p>
+Typically, this block is used by connecting a&nbsp;(possibly) <strong>time
+varying</strong> outside condition and the input&nbsp;<strong>u</strong>
+to abort the simulation if the condition fails.
 </p>
 </html>"));
   end AssertCondition;
