@@ -6,7 +6,7 @@ model ResonanceCircuits
   parameter SI.Capacitance C=0.01 "Capacitance";
   parameter SI.Inductance L=0.01 "Inductance";
   final parameter SI.Frequency fRes=1/(2*pi*sqrt(L*C)) "Source frequency";
-  parameter Real res=1 "Built from f/fResonanace";
+  parameter Real res=1 "Source to resonance frequency ratio (f/fRes)";
   parameter SI.Frequency f=res*fRes "Source frequency";
 
   Modelica.Electrical.Analog.Sources.SineCurrent current1(I=1, f=f)
