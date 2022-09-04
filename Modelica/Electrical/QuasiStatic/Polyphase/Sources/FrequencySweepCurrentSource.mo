@@ -23,8 +23,7 @@ equation
   connect(logFrequencySweep.y,currentSource. f) annotation (Line(points={{19,-50},{6,-50},{6,-12}},   color={0,0,127}));
   connect(plug_p,currentSource. plug_p) annotation (Line(points={{-100,0},{-10,0}}, color={85,170,255}));
   connect(currentSource.plug_n, plug_n) annotation (Line(points={{10,0},{100,0}}, color={85,170,255}));
-  connect(currentSource.I, const.y) annotation (Line(points={{-6,-12},{-6,-12},{-6,
-          -50},{-39,-50}},                                                                            color={85,170,255}));
+  connect(currentSource.I, const.y) annotation (Line(points={{-6,-12},{-6,-12},{-6,-50},{-39,-50}}, color={85,170,255}));
   annotation (defaultComponentName="currentSource",Icon(graphics={
         Ellipse(
           extent={{-50,50},{50,-50}},
