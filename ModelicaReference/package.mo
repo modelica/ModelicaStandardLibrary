@@ -726,7 +726,7 @@ function f
   input Real x;
   input Real y;
   output Real z;
-  annotation(derivative(noDerivative(y = g(x))) = f_der);
+  annotation(derivative(noDerivative=y) = f_der);
 algorithm
   ...
 end f;
