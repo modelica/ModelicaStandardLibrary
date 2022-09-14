@@ -1,4 +1,4 @@
 time
-smpm.is[1]
-smpm.is[2]
-constantSpeed.phi
+toPolar.y[1]
+toPolar.y[2]
+hallSensor.y

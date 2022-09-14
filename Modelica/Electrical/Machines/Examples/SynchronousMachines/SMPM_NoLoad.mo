@@ -55,10 +55,16 @@ model SMPM_NoLoad "SMPM at no-load"
         transformation(
         extent={{10,-10},{-10,10}},
         origin={40,-30})));
-  Modelica.Mechanics.Rotational.Sources.ConstantSpeed constantSpeed(w_fixed=2*
-        pi*smpmData.fsNominal/smpmData.p)
-    annotation (Placement(transformation(extent={{52,-10},{32,10}})));
+  Mechanics.Rotational.Sources.Speed                  speed(exact=true, phi(
+        fixed=false))
+    annotation (Placement(transformation(extent={{50,-10},{30,10}})));
 
+  Blocks.Sources.Ramp ramp(
+    height=4*pi*smpmData.fsNominal/smpmData.p,
+    duration=0.16,
+    offset=-2*pi*smpmData.fsNominal/smpmData.p,
+    startTime=0.08)
+    annotation (Placement(transformation(extent={{90,-10},{70,10}})));
 equation
   connect(terminalBox.plug_sn, smpm.plug_sn)
     annotation (Line(points={{-6,10},{-6,10}}, color={0,0,255}));
@@ -70,22 +76,23 @@ equation
     annotation (Line(points={{0,20},{0,12}}, color={0,0,255}));
   connect(potentialSensor.phi, toSpacePhasor.u) annotation (Line(points={{8.88178e-16,
           41},{8.88178e-16,50},{8,50}}, color={0,0,127}));
-  connect(constantSpeed.flange, smpm.flange)
-    annotation (Line(points={{32,0},{10,0}}));
+  connect(speed.flange, smpm.flange) annotation (Line(points={{30,0},{10,0}}));
   connect(smpm.flange, hallSensor.flange)
     annotation (Line(points={{10,0},{20,0},{20,-30},{30,-30}}));
   connect(toSpacePhasor.y, toPolar.u)
     annotation (Line(points={{31,50},{38,50}}, color={0,0,127}));
   connect(toPolar.y[2], toDeg.u)
     annotation (Line(points={{61,50},{68,50}}, color={0,0,127}));
-  annotation (experiment(StopTime=0.04,
+  connect(ramp.y, speed.w_ref)
+    annotation (Line(points={{69,0},{52,0}}, color={0,0,127}));
+  annotation (experiment(StopTime=0.32,
         Interval=0.0001),
     Documentation(info="<html>
 <p>
-Synchronous machine with permanent magnets at no-load, driven with constant nominal speed.
+Synchronous machine with permanent magnets at no-load, driven with linear time dependent speed.
 </p>
 <p>
-You may check the terminal voltage = VsOpenCircuit (shown by the length of the space phasor) and the frequency = fsNominal.
+You may check the terminal voltage (shown by the length of the space phasor) and the frequency.
 </p>
 <p>
 Additionally, you may check the phase shift of the stator voltages with respect to the mechanical shaft angle:
