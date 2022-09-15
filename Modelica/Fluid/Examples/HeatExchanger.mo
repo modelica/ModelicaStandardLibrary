@@ -38,7 +38,7 @@ package HeatExchanger "Demo of a heat exchanger model"
           Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer
           (alpha0=2000),
       Twall_start=300,
-      dT=10,
+      dT=1,
       T_start_1=304,
       T_start_2=300) annotation (Placement(transformation(extent={{
               -26,-14},{34,46}})));
