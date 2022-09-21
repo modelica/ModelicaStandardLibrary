@@ -44,7 +44,7 @@ via parameter <strong>samplePeriod</strong>.
 
   equation
     when {sampleTrigger, initial()} then
-      ySample = u;
+      ySample = if time>=startTime then u else pre(ySample);
     end when;
     /* Define y=ySample with an infinitesimal delay to break potential
        algebraic loops if both the continuous and the discrete part have
