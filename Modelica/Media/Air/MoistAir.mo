@@ -1429,15 +1429,16 @@ Specific entropy of moist air is computed from pressure, temperature and composi
       input Real deltax=1 "Region around x with spline interpolation";
       output Real out;
     protected
+	  constant Real lim = 0.9999999999;
       Real scaledX1 "x scaled to -1 ... 1 interval";
       Real scaledXp "x scaled to -pi/2 ... pi/2 interval";
       Real scaledXt "x scaled to -inf ... inf interval";
       Real y;
     algorithm
       scaledX1 := x/deltax;
-      if scaledX1 <= -0.999999999 then
+      if scaledX1 <= -lim then
         y := 0.0;
-      elseif scaledX1 >= 0.999999999 then
+      elseif scaledX1 >= lim then
         y := 1.0;
       else
         scaledXp := scaledX1*0.5*Modelica.Constants.pi;
@@ -1461,6 +1462,7 @@ Specific entropy of moist air is computed from pressure, temperature and composi
       input Real ddeltax=0;
       output Real out;
     protected
+	  constant Real lim = 0.9999999999;
       Real scaledX1 "x scaled to -1 ... 1 interval";
       Real scaledXp "x scaled to -pi/2 ... pi/2 interval";
       Real scaledXt "x scaled to -inf ... inf interval";
@@ -1468,9 +1470,9 @@ Specific entropy of moist air is computed from pressure, temperature and composi
       Real y;
     algorithm
       scaledX1 := x/deltax;
-      if scaledX1 <= -0.9999999999 then
+      if scaledX1 <= -lim then
         y := 0.0;
-      elseif scaledX1 >= 0.9999999999 then
+      elseif scaledX1 >= lim then
         y := 1.0;
       else
         scaledXp := scaledX1*0.5*Modelica.Constants.pi;
@@ -1479,7 +1481,7 @@ Specific entropy of moist air is computed from pressure, temperature and composi
       end if;
       out := dpos*y + (1 - y)*dneg;
 
-      if (abs(scaledX1) < 1) then
+      if (abs(scaledX1) < lim) then
         dscaledX1 := (dx - scaledX1*ddeltax)/deltax;
         out := out + (pos - neg)*dscaledX1*0.25*Modelica.Constants.pi*(1 - Modelica.Math.tanh(scaledXt)^2)*(scaledXt^2 + 1);
       end if;
