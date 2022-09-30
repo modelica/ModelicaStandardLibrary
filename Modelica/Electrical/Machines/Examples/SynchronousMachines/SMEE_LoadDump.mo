@@ -99,8 +99,7 @@ model SMEE_LoadDump
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={30,-50})));
-  Modelica.Blocks.Math.Gain setPointGain(k=(smeeData.VsNominal/wNominal)/
-        unitMagneticFlux)
+  Modelica.Blocks.Math.Gain setPointGain(k=(smeeData.VsNominal/wNominal))
     annotation (Placement(transformation(extent={{-50,-90},{-70,-70}})));
   Machines.Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensor(ToSpacePhasor1(y(
           each start=1E-3, each fixed=true))) annotation (Placement(
