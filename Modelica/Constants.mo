@@ -16,11 +16,11 @@ package Constants
 
   // Machine dependent constants
   final constant Real eps=ModelicaServices.Machine.eps
-    "Biggest number such that 1.0 + eps = 1.0";
+    "The difference between 1 and the least value greater than 1 that is representable in the given floating point type";
   final constant Real small=ModelicaServices.Machine.small
-    "Smallest number such that small and -small are representable on the machine";
+    "Minimum normalized positive floating-point number";
   final constant Real inf=ModelicaServices.Machine.inf
-    "Biggest Real number such that inf and -inf are representable on the machine";
+    "Maximum representable finite floating-point number";
   final constant Integer Integer_inf=ModelicaServices.Machine.Integer_inf
     "Biggest Integer number such that Integer_inf and -Integer_inf are representable on the machine";
 
