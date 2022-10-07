@@ -5,11 +5,11 @@ package Discrete
   extends Modelica.Icons.Package;
 
   block Sampler "Ideal sampling of continuous signals"
-    extends Interfaces.DiscreteSISO(y(start=0, fixed=true));
+    extends Interfaces.DiscreteSISO;
 
   equation
     when {sampleTrigger, initial()} then
-      y = if time>=startTime then u else pre(y);
+      y = u;
     end when;
     annotation (
       Icon(
@@ -44,7 +44,7 @@ via parameter <strong>samplePeriod</strong>.
 
   equation
     when {sampleTrigger, initial()} then
-      ySample = if time>=startTime then u else pre(ySample);
+      ySample = u;
     end when;
     /* Define y=ySample with an infinitesimal delay to break potential
        algebraic loops if both the continuous and the discrete part have
