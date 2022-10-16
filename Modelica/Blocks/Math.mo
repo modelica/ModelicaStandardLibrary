@@ -2575,7 +2575,7 @@ the derivative of the input signal is approximated by <code>(u - x)/T</code>.
 This way even steps with local extrema just before and after the step are taken into account.
 </p>
 <p>
-Additionally, when the simulation terminates, <code>y_max</code>y_min and <code>y_max</code> are updated.
+Additionally, when the simulation terminates, <code>y_min</code> and <code>y_max</code> are updated.
 </p>
 </html>"),
       Icon(graphics={
