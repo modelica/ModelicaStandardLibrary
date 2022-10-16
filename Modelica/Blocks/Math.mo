@@ -2569,7 +2569,7 @@ This block detects positive and negative peaks of differentiable and non-differe
 For differentiable input singals, an extremum is detected if the derivative of the input signal is zero.
 </p>
 <p>
-To handle non-differentiable input signals, the input signal <code>u</code> is conditioned by a first order wth time constant <code>T</code>. 
+To handle non-differentiable input signals, the input signal <code>u</code> is conditioned by a first order with time constant <code>T</code>. 
 Like in the <a href=\"modelica://Modelica.Blocks.Continuous.Derivative\">derivative block</a>, 
 the derivative of the input signal is approximated by <code>(u - x)/T</code>. 
 This way even steps with local extrema just before and after the step are taken into account.
