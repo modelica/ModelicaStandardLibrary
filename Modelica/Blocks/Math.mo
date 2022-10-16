@@ -2530,7 +2530,7 @@ This means that:</p>
 </html>"));
   end SignalExtrema;
 
-  block ContinuousSignalExtrema "Peak of input signal"
+  block ContinuousSignalExtrema "Store the minimum and maximum values of the input signal"
     extends Modelica.Blocks.Icons.Block;
     parameter Modelica.Units.SI.Time T(min=Modelica.Constants.small)=1e-6 "Derivative time constant";
     Modelica.Blocks.Interfaces.RealInput u
