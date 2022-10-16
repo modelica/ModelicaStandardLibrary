@@ -1565,7 +1565,7 @@ whereas signalExtrema2 catches the extrema rather good due to the fact that samp
         Interval=0.0001,
         Tolerance=1e-06), Documentation(info="<html>
 <p>
-The amplitude of both a differentiable sinudoidal signal (frequency 9 Hz) and a non-differentiable sawtooth signal (period 1/9 s) is modulated sinusoidally /frequency 0.75 Hz).
+The amplitude of both a differentiable sinusoidal signal (frequency 9 Hz) and a non-differentiable sawtooth signal (period 1/9 s) is modulated sinusoidally /frequency 0.75 Hz).
 </p>
 <p>
 Note that the ContinuousSignalExtremaBlock detects extrema of both signals without sampling.
