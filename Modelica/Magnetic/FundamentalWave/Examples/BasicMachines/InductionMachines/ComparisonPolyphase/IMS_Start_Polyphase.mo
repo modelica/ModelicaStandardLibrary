@@ -2,6 +2,7 @@ within Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachine
 model IMS_Start_Polyphase
   "Starting of polyphase induction machine with slip rings"
 
+  import Modelica.Constants.pi;
   extends Modelica.Icons.Example;
   constant Integer m3=3 "Number of stator phases of three-phase system";
   parameter Integer m=5 "Number of stator phases" annotation(Evaluate=true);
@@ -33,9 +34,9 @@ model IMS_Start_Polyphase
     TsRef=aimsData3.TsRef,
     alpha20s(displayUnit="1/K") = aimsData3.alpha20s,
     ratioCommonStatorLeakage=aimsData3.ratioCommonStatorLeakage,
-    frictionParameters=aimsData3.frictionParameters,
-    statorCoreParameters=aimsData3.statorCoreParameters,
-    strayLoadParameters=aimsData3.strayLoadParameters,
+    frictionParameters=aimsDataM.frictionParameters,
+    statorCoreParameters=aimsDataM.statorCoreParameters,
+    strayLoadParameters=aimsDataM.strayLoadParameters,
     phiMechanical(fixed=true),
     wMechanical(fixed=true),
     ratioCommonRotorLeakage=aimsData3.ratioCommonRotorLeakage,
@@ -44,7 +45,7 @@ model IMS_Start_Polyphase
     useTurnsRatio=aimsData3.useTurnsRatio,
     VsNominal=aimsData3.VsNominal,
     VrLockedRotor=aimsData3.VrLockedRotor,
-    rotorCoreParameters=aimsData3.rotorCoreParameters,
+    rotorCoreParameters=aimsDataM.rotorCoreParameters,
     TurnsRatio=aimsData3.turnsRatio,
     mr=mr,
     m=m,
@@ -172,6 +173,19 @@ model IMS_Start_Polyphase
     annotation (Placement(transformation(extent={{40,80},{60,100}})));
   Modelica.Blocks.Math.Feedback feedback
     annotation (Placement(transformation(extent={{80,10},{100,-10}})));
+  parameter
+    Electrical.Machines.Utilities.ParameterRecords.IM_SlipRingData          aimsDataM(
+    m=m,
+    Rs=0.03*m/3,
+    Lszero=3*(1 - sqrt(1 - 0.0667))/(2*pi*fNominal)*m/3,
+    Lssigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*fNominal)*m/3,
+    statorCoreParameters(m=m),
+    Lm=3*sqrt(1 - 0.0667)/(2*pi*fNominal),
+    Lrsigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*fNominal)/aimsDataM.turnsRatio^2,
+    Lrzero=3*(1 - sqrt(1 - 0.0667))/(2*pi*fNominal)/aimsDataM.turnsRatio^2,
+    Rr=0.04/aimsDataM.turnsRatio^2,
+    rotorCoreParameters(m=m)) "Induction machine data of m-phase machine"
+    annotation (Placement(transformation(extent={{-100,0},{-80,20}})));
 initial equation
   aims3.is[1:2] = zeros(2);
   aims3.ir[1:3] = zeros(3);
