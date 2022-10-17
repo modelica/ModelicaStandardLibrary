@@ -193,7 +193,7 @@ model SMPM_Inverter_Polyphase
     Lrsigmad=0.05/(2*pi*fsNominal)*m/3,
     Lrsigmaq=0.05/(2*pi*fsNominal)*m/3,
     Rrd=0.04*m/3,
-    Rrq=0.04*m/3) "Synchronous machine data of m-phase machine"
+    Rrq=0.04*m/3) "Synchronous machine data of an m-phase machine"
     annotation (Placement(transformation(extent={{-60,-40},{-40,-20}})));
 initial equation
   smpm3.is[1:2] = zeros(2);

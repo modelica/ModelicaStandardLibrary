@@ -82,7 +82,7 @@ model IMC_DOL_Polyphase
             40},{80,60}})));
   parameter
     Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData
-    aimcData3 "Induction machine data of three phase machine"
+    aimcData3 "Induction machine data of a three-phase machine"
     annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
   Modelica.Electrical.Analog.Basic.Ground ground3 annotation (Placement(
         transformation(
@@ -166,7 +166,7 @@ model IMC_DOL_Polyphase
     statorCoreParameters(m=m),
     Lm=3*sqrt(1 - 0.0667)/(2*pi*fNominal)*m/3,
     Lrsigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*fNominal)*m/3,
-    Rr=0.04*m/3) "Induction machine data of m-phase machine"
+    Rr=0.04*m/3) "Induction machine data of an m-phase machine"
     annotation (Placement(transformation(extent={{-100,0},{-80,20}})));
 initial equation
   aimc3.is[1:2] = zeros(2);

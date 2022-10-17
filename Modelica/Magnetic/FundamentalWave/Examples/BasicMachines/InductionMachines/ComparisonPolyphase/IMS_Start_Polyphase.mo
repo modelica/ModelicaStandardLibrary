@@ -122,7 +122,7 @@ model IMS_Start_Polyphase
             {80,-50}})));
   parameter
     Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SlipRingData aimsData3
-    "Induction machine data of three phase machine"
+    "Induction machine data of a three-phase machine"
     annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
   Modelica.Electrical.Analog.Basic.Ground groundM annotation (Placement(
         transformation(origin={-90,50}, extent={{-10,-10},{10,10}})));
@@ -184,7 +184,7 @@ model IMS_Start_Polyphase
     Lrsigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*fNominal)/aimsDataM.turnsRatio^2,
     Lrzero=3*(1 - sqrt(1 - 0.0667))/(2*pi*fNominal)/aimsDataM.turnsRatio^2,
     Rr=0.04/aimsDataM.turnsRatio^2,
-    rotorCoreParameters(m=m)) "Induction machine data of m-phase machine"
+    rotorCoreParameters(m=m)) "Induction machine data of an m-phase machine"
     annotation (Placement(transformation(extent={{-100,0},{-80,20}})));
 initial equation
   aims3.is[1:2] = zeros(2);
