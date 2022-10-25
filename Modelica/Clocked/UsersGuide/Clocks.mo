@@ -12,7 +12,7 @@ Chapter 16 (for Modelica Language Version &ge; 3.3).
 <p>
 The <strong>Clock</strong> type is a base data type introduced in Modelica 3.3 (additionally to Real, Boolean&hellip;)
 which can be understood as a <em>specialized Boolean</em> type:
-Clock variables are either true (also called "active") or false ("inactive").
+Clock variables are either true (also called \"active\") or false (\"inactive\").
 It is specialized in the sense that each Clock variable generates a <strong>partition</strong>
 consisting of a set of equations which gets activated when the clock is active.
 In fact, every variable and every equation of a Modelica model (starting with Modelica Language Version 3.3)
