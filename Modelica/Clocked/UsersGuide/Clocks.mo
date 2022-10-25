@@ -19,8 +19,8 @@ In fact, every variable and every equation of a Modelica model (starting with Mo
 is assigned to a partition:
 </p>
 <ul>
-    <li>either the global continuous-time partition (no associated clock)
-    <li>or a <strong>clocked partition</strong>, associated to <em>exactly one</em> clock (see more details below).
+    <li>either the global continuous-time partition (no associated clock)</li>
+    <li>or a <strong>clocked partition</strong>, associated to <em>exactly one</em> clock (see more details below).</li>
 </ul>
 <p>
 This feature is visualized in the figure below where c(ti) is a clock that is active
