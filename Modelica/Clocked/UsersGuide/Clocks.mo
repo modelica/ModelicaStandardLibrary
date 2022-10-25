@@ -108,7 +108,7 @@ Notice that it is an error if a partition doesn't fall into one of these two cat
 This means it is <em>not allowed to mix continuous time and discrete-time operators</em> in a clocked partition
 (unlike in the global continuous time partition).
 </p>
-</p>
+<p>
 Also notice that in a clocked discrete-time partition all event-generating mechanisms
 do no longer apply. Especially neither relations, nor one of the built-in event
 triggering operators will trigger an event.
