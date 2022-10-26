@@ -32,7 +32,7 @@ Notice that a clocked variable has <em>only a value when the corresponding clock
 <img src=\"modelica://Modelica/Resources/Images/Clocked/Clocks/clockSignals.png\" alt=\"Clock variables and clocked variables\">
 </div>
 
-<h3>Clock blocks and connectors</h3>
+<h4>Clock blocks and connectors</h4>
 <p>
 The Clock type introduced above is a base type of the Modelica language
 and it is mostly intended for textual model description.
@@ -58,7 +58,7 @@ The output signals of the blocks in the above figure are clock signals,
 by default visualized with dotted grey lines.
 </p>
 
-<h3>Derived clocks (sub/super/shift-sampling)</h3>
+<h4>Derived clocks (sub/super/shift-sampling)</h4>
 <p>
 With the blocks of sublibrary
 <a href=\"modelica://Modelica.Clocked.ClockSignals.Sampler\">ClockSignals.Sampler</a>
@@ -79,7 +79,7 @@ clocks is <strong>exact</strong>, so it is guaranteed that at every 3rd tick of 
 \"periodicRealClock.y\", the clock \"subSample.y\" is active.
 </p>
 
-<h3>The two types of clocked partitions</h3>
+<h4>The two types of clocked partitions</h4>
 <p>
 A clocked partition is a set of equations that depend
 on each other and where the boundary variables are marked
@@ -114,7 +114,7 @@ do no longer apply. Especially neither relations, nor one of the built-in event
 triggering operators will trigger an event.
 </p>
 
-<h3>Solver for clocked discretized continuous-time partitions</h3>
+<h4>Solver for clocked discretized continuous-time partitions</h4>
 <p>
 If a clock is associated to a clocked continuous-time partition, then an <strong>integrator</strong>
 has to be defined that is used to integrate the partition from the previous
