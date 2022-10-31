@@ -13,15 +13,15 @@ model GenericHystTellinenHard
 protected
   final parameter SI.MagneticFluxDensity eps = Br/1000;
   //final parameter Real mu0(final unit="N/A2") = K*mu_0;
-  final parameter SI.MagneticFieldStrength H0= 0.5*log((1+mu0*Hc/Br)/(1-mu0*Hc/Br)) + M*Hc;
+  final parameter Real H0= 0.5*log((1+mu0*Hc/Br)/(1-mu0*Hc/Br)) + M*Hc;
   constant SI.MagneticFieldStrength unitH = 1;
 
   Real tanhR;
   Real tanhF;
 
 equation
-  tanhR = tanh((M*H - H0)/unitH);
-  tanhF = tanh((M*H + H0)/unitH);
+  tanhR = tanh(M*H - H0);
+  tanhF = tanh(M*H + H0);
   hystR = Br*tanhR + mu0*H - eps/2;
   hystF = Br*tanhF + mu0*H + eps/2;
 
