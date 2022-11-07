@@ -1,7 +1,7 @@
 within Modelica.Electrical.Machines.BasicMachines.SynchronousMachines;
 model SM_PermanentMagnet "Permanent magnet synchronous machine"
   extends Machines.Interfaces.PartialBasicInductionMachine(
-    Lssigma(start=0.1*unitR/(2*pi*fsNominal)),
+    Lssigma(start=0.1*ZsRef/(2*pi*fsNominal)),
     final idq_ss=airGap.i_ss,
     final idq_sr=airGap.i_sr,
     final idq_rs=airGap.i_rs,
@@ -47,16 +47,16 @@ model SM_PermanentMagnet "Permanent magnet synchronous machine"
            and useDamperCage));
   parameter SI.Voltage VsOpenCircuit(start=112.3)
     "Open circuit RMS voltage per phase @ fsNominal";
-  parameter SI.Inductance Lmd(start=0.3*unitR/(2*pi*fsNominal))
+  parameter SI.Inductance Lmd(start=0.3*ZsRef/(2*pi*fsNominal))
     "Stator main field inductance per phase in d-axis"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter SI.Inductance Lmq(start=0.3*unitR/(2*pi*fsNominal))
+  parameter SI.Inductance Lmq(start=0.3*ZsRef/(2*pi*fsNominal))
     "Stator main field inductance per phase in q-axis"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter Boolean useDamperCage(start=true)
     "Enable / disable damper cage" annotation (Evaluate=true, Dialog(tab=
           "Nominal resistances and inductances", group="Damper cage"));
-  parameter SI.Inductance Lrsigmad(start=0.05*unitR/(2*pi*
+  parameter SI.Inductance Lrsigmad(start=0.05*ZsRef/(2*pi*
         fsNominal)) "Damper stray inductance in d-axis" annotation (
       Dialog(
       tab="Nominal resistances and inductances",
@@ -114,7 +114,7 @@ model SM_PermanentMagnet "Permanent magnet synchronous machine"
         extent={{-10,-10},{10,10}},
         rotation=270)));
 protected
-  final constant SI.Resistance unitR=1;
+  final parameter SI.Impedance ZsRef = 1 "Reference phase impedance based on nominal voltage 100 V and nominal current 100 A; per phase";
   final parameter SI.Current Ie=sqrt(2)*VsOpenCircuit/(Lmd*
       2*pi*fsNominal) "Equivalent excitation current";
   Modelica.Blocks.Interfaces.RealOutput damperCageLossPower(final
