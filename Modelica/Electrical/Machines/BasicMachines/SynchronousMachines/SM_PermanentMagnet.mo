@@ -67,7 +67,7 @@ model SM_PermanentMagnet "Permanent magnet synchronous machine"
       tab="Nominal resistances and inductances",
       group="Damper cage",
       enable=useDamperCage));
-  parameter SI.Resistance Rrd(start=0.04)
+  parameter SI.Resistance Rrd(start=0.04*ZsRef)
     "Damper resistance in d-axis at TRef" annotation (Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",
@@ -114,7 +114,6 @@ model SM_PermanentMagnet "Permanent magnet synchronous machine"
         extent={{-10,-10},{10,10}},
         rotation=270)));
 protected
-  final parameter SI.Impedance ZsRef = 1 "Reference phase impedance based on nominal voltage 100 V and nominal current 100 A; per phase";
   final parameter SI.Current Ie=sqrt(2)*VsOpenCircuit/(Lmd*
       2*pi*fsNominal) "Equivalent excitation current";
   Modelica.Blocks.Interfaces.RealOutput damperCageLossPower(final

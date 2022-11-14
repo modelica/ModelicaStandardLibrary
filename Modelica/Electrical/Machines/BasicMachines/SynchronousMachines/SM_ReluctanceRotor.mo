@@ -59,7 +59,7 @@ model SM_ReluctanceRotor
       tab="Nominal resistances and inductances",
       group="Damper cage",
       enable=useDamperCage));
-  parameter SI.Resistance Rrd(start=0.04)
+  parameter SI.Resistance Rrd(start=0.04*ZsRef)
     "Damper resistance in d-axis at TRef" annotation (Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",
@@ -94,7 +94,6 @@ model SM_ReluctanceRotor
         extent={{-10,-10},{10,10}},
         rotation=270)));
 protected
-  final SI.Impedance ZsRef = 1 "Reference phase impedance based on nominal voltage 100 V and nominal current 100 A; per phase";
   Modelica.Blocks.Interfaces.RealOutput damperCageLossPower(final
       quantity="Power", final unit="W") "Damper losses";
 equation

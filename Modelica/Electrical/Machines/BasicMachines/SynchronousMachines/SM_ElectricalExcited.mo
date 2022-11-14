@@ -65,7 +65,7 @@ model SM_ElectricalExcited
       tab="Nominal resistances and inductances",
       group="Damper cage",
       enable=useDamperCage));
-  parameter SI.Resistance Rrd(start=0.04)
+  parameter SI.Resistance Rrd(start=0.04*ZsRef)
     "Damper resistance in d-axis at TRef" annotation (Dialog(
       tab="Nominal resistances and inductances",
       group="Damper cage",
@@ -156,7 +156,6 @@ model SM_ElectricalExcited
         rotation=90,
         origin={-80,40})));
 protected
-  final parameter SI.Impedance ZsRef = 1 "Reference phase impedance based on nominal voltage 100 V and nominal current 100 A; per phase";
   final parameter Real turnsRatio=sqrt(2)*VsNominal/(2*pi*fsNominal*Lmd*
       IeOpenCircuit) "Stator current / excitation current";
   final parameter SI.Inductance Lesigma=Lmd*turnsRatio^2*3/
