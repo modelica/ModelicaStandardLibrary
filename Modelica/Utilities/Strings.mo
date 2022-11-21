@@ -114,7 +114,7 @@ Comparison is with regards to lexicographical order,
 e.g., \"a\" &lt; \"b\";
 </p>
 <p>
-It is intended for ASCII, the case-insentive comparison is not guaranteed to work for UTF-8.
+It is intended for ASCII, the case-insensitive comparison is not guaranteed to work for UTF-8.
 </p>
 </html>"));
   end compare;
@@ -141,7 +141,7 @@ Compare whether two strings are identical,
 optionally ignoring case.
 </p>
 <p>
-It is intended for ASCII, the case-insentive comparison is not guaranteed to work for UTF-8.
+It is intended for ASCII, the case-insensitive comparison is not guaranteed to work for UTF-8.
 </p>
 </html>"));
   end isEqual;
@@ -222,7 +222,7 @@ for the counting it does not matter whether a letter is upper
 or lower case.
 </p>
 <p>
-It is intended for ASCII, the case-insentive count is not guaranteed to work for UTF-8.
+It is intended for ASCII, the case-insensitive count is not guaranteed to work for UTF-8.
 </p>
 </html>"));
   end count;
@@ -270,7 +270,7 @@ and upper case are ignored for the search.
 If \"searchString\" is not found, a value of \"0\" is returned.
 </p>
 <p>
-It is intended for ASCII, the case-insentive count is not guaranteed to work for UTF-8.
+It is intended for ASCII, the case-insensitive count is not guaranteed to work for UTF-8.
 </p>
 </html>"));
   end find;
@@ -322,7 +322,7 @@ and upper case are ignored for the search.
 If \"searchString\" is not found, a value of \"0\" is returned.
 </p>
 <p>
-It is intended for ASCII, the case-insentive count is not guaranteed to work for UTF-8.
+It is intended for ASCII, the case-insensitive count is not guaranteed to work for UTF-8.
 </p>
 </html>"));
   end findLast;
@@ -394,7 +394,7 @@ substring by \"replaceString\".
      <strong>false</strong>,
      the search ignores whether letters are upper
      or lower case.</li>
-<li> It is intended for ASCII. The case-insentive search is not guaranteed to work for UTF-8.</li>
+<li> It is intended for ASCII. The case-insensitive search is not guaranteed to work for UTF-8.</li>
 </ul>
 <p>
 The function returns the \"string\" with the
@@ -469,7 +469,7 @@ s1 = {\"force\", \"angle\", \"pressure\"};
 s2 = Strings.sort(s1);
      -> s2 = {\"angle\", \"force\", \"pressure\"};
 </pre></blockquote>
-<p>It is intended for ASCII, the case-insentive sort is not guaranteed to work for UTF-8.</p>
+<p>It is intended for ASCII, the case-insensitive sort is not guaranteed to work for UTF-8.</p>
 </html>"));
   end sort;
 
