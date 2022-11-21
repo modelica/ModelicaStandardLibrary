@@ -2566,7 +2566,7 @@ This means that:</p>
 This block detects positive and negative peaks of differentiable and non-differentiable input signals without sampling.
 </p>
 <p>
-For differentiable input singals, an extremum is detected if the derivative of the input signal is zero.
+For differentiable input signals, an extremum is detected if the derivative of the input signal is zero.
 </p>
 <p>
 To handle non-differentiable input signals, the input signal <code>u</code> is conditioned by a first order with time constant <code>T</code>. 
