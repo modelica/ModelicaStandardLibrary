@@ -1490,6 +1490,89 @@ whereas signalExtrema2 catches the extrema rather good due to the fact that samp
 </html>"));
   end DemonstrateSignalExtrema;
 
+  model DemonstrateContinuousSignalExtrema
+    "Test the ContinuousSignalExtrema block"
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Sources.Sine sine(
+      amplitude=1,
+      f=9,
+      offset=-2)
+      annotation (Placement(transformation(extent={{-60,70},{-40,90}})));
+    Modelica.Blocks.Sources.SawTooth sawTooth(
+      amplitude=2,
+      period=1/9,
+      offset=1)
+      annotation (Placement(transformation(extent={{-60,10},{-40,30}})));
+    Modelica.Blocks.Sources.Sine amplitude(
+      amplitude=1,
+      f=1.75,
+      offset=0)
+      annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
+    Modelica.Blocks.Math.Product product1
+      annotation (Placement(transformation(extent={{0,70},{20,90}})));
+    Modelica.Blocks.Math.Product product2
+      annotation (Placement(transformation(extent={{0,10},{20,30}})));
+    Modelica.Blocks.Math.ContinuousSignalExtrema signalExtrema1
+      annotation (Placement(transformation(extent={{60,70},{80,90}})));
+    Modelica.Blocks.Math.ContinuousSignalExtrema signalExtrema2
+      annotation (Placement(transformation(extent={{60,10},{80,30}})));
+    Sources.Sine                 sine1(
+      amplitude=1,
+      f=7,
+      offset=-2)
+      annotation (Placement(transformation(extent={{-60,-50},{-40,-30}})));
+    Sources.Pulse                    pulse(
+      amplitude=2,
+      period=1/9,
+      offset=1)
+      annotation (Placement(transformation(extent={{-60,-90},{-40,-70}})));
+    Math.Add add
+      annotation (Placement(transformation(extent={{-20,-70},{0,-50}})));
+    Math.Product                 product3
+      annotation (Placement(transformation(extent={{20,-50},{40,-30}})));
+    Sources.SawTooth                 sawTooth1(
+      amplitude=2,
+      period=1/13,
+      offset=-1)
+      annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
+    Math.ContinuousSignalExtrema                 signalExtrema3
+      annotation (Placement(transformation(extent={{60,-50},{80,-30}})));
+  equation
+    connect(amplitude.y, product1.u2) annotation (Line(points={{-19,50},{-10,50},
+            {-10,74},{-2,74}}, color={0,0,127}));
+    connect(amplitude.y, product2.u1) annotation (Line(points={{-19,50},{-10,50},
+            {-10,26},{-2,26}},   color={0,0,127}));
+    connect(sine.y, product1.u1) annotation (Line(points={{-39,80},{-20,80},{-20,
+            86},{-2,86}},  color={0,0,127}));
+    connect(sawTooth.y, product2.u2) annotation (Line(points={{-39,20},{-20,20},
+            {-20,14},{-2,14}},    color={0,0,127}));
+    connect(product1.y, signalExtrema1.u)
+      annotation (Line(points={{21,80},{58,80}},color={0,0,127}));
+    connect(product2.y, signalExtrema2.u)
+      annotation (Line(points={{21,20},{58,20}},  color={0,0,127}));
+    connect(sine1.y, add.u1) annotation (Line(points={{-39,-40},{-32,-40},{-32,
+            -54},{-22,-54}}, color={0,0,127}));
+    connect(pulse.y, add.u2) annotation (Line(points={{-39,-80},{-32,-80},{-32,
+            -66},{-22,-66}}, color={0,0,127}));
+    connect(add.y, product3.u2) annotation (Line(points={{1,-60},{10,-60},{10,
+            -46},{18,-46}}, color={0,0,127}));
+    connect(sawTooth1.y, product3.u1) annotation (Line(points={{1,-20},{10,-20},
+            {10,-34},{18,-34}}, color={0,0,127}));
+    connect(product3.y, signalExtrema3.u)
+      annotation (Line(points={{41,-40},{58,-40}}, color={0,0,127}));
+    annotation (experiment(
+        StopTime=1,
+        Interval=0.0001,
+        Tolerance=1e-06), Documentation(info="<html>
+<p>
+The amplitude of both a differentiable sinusoidal signal (frequency 9 Hz) and a non-differentiable sawtooth signal (period 1/9 s) is modulated sinusoidally /frequency 0.75 Hz).
+</p>
+<p>
+Note that the ContinuousSignalExtremaBlock detects extrema of both signals without sampling.
+</p>
+</html>"));
+  end DemonstrateContinuousSignalExtrema;
+
   model DemoSignalCharacteristic
     "Demonstrate characteristic values of a signal"
     extends Modelica.Icons.Example;
