@@ -46,7 +46,7 @@ The substring computation has the following properties:
 <li>If the <code>endIndex</code> is negative, it is set to the <code>startIndex</code> and a warning is raised. The returned substring is the single character at position <code>startIndex</code> of <code>string</code>.</li>
 <li>If the <code>endIndex</code> is non-negative and less than the <code>startIndex</code>, the returned substring is empty.</li>
 <li>If the <code>endIndex</code> exceeds the string length, it is set to the string length.</li>
-<li>It is only intended for ASCII. For UTF-8 the index is seen as bytes, and some index values may break the string inside glyphs or even inside code points.</li>
+<li>It is only intended for ASCII encoded strings. For UTF-8 encoded strings the index is seen as bytes, and some index values may break the string inside glyphs or even inside code points.</li>
 </ul>
 <h4>Example</h4>
 <blockquote><pre>
