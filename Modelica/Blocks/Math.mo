@@ -1759,6 +1759,42 @@ y = base <strong>^</strong> u;
 </html>"));
   end Power;
 
+  block Exponentiation "Output the input raised to an exponent"
+    extends Interfaces.SISO;
+    parameter Real exponent=2 "Exponent of power" annotation (Evaluate=true);
+  equation
+    y = u^exponent;
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+              {100,100}}), graphics={
+          Line(points={{0,-80},{0,68}}, color={192,192,192}),
+          Polygon(
+            points={{0,90},{-8,68},{8,68},{0,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-86,50},{-14,2}},
+            textColor={192,192,192},
+            textString="^"),
+          Line(points={{-80,60},{-70,27.2},{-60,-1.3},{-50,-25.3},{-40,-45},{-30,-60.3},
+                {-20,-71.3},{-10,-77.8},{0,-80},{10,-77.8},{20,-71.3},{30,-60.3},{
+                40,-45},{50,-25.3},{60,-1.3},{70,27.2},{80,60}}, smooth=Smooth.Bezier),
+          Line(
+            points={{-90,-80.3976},{68,-80.3976}},
+            color={192,192,192},
+            smooth=Smooth.Bezier),
+          Polygon(
+            points={{90,-80.3976},{68,-72.3976},{68,-88.3976},{90,-80.3976}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+<p>This blocks computes the output <strong>y</strong> as the input <strong>u</strong> raised to <em>exponent</em>:</p>
+<blockquote><pre>
+y = u <strong>^</strong> exponent;
+</pre></blockquote>
+</html>"));
+  end Exponentiation;
+
   block Log
     "Output the logarithm (default base e) of the input (input > 0 required)"
 
