@@ -768,7 +768,9 @@ by a falling exponential signal:
     count := integer((time - startTime)/period);
     T_start := startTime + count*period;
   equation
+    //The following formulation causes a state event
     //when integer((time - startTime)/period) > pre(count) then
+    //A formulation causing a time event is more efficient:
     when time >= (pre(count) + 1)*period + startTime then
       count = pre(count) + 1;
       T_start = time;
@@ -824,7 +826,9 @@ The Real output y is a pulse signal:
     count := integer((time - startTime)/period);
     T_start := startTime + count*period;
   equation
+    //The following formulation causes a state event
     //when integer((time - startTime)/period) > pre(count) then
+    //A formulation causing a time event is more efficient:
     when time >= (pre(count) + 1)*period + startTime then
       count = pre(count) + 1;
       T_start = time;
@@ -890,7 +894,9 @@ The Real output y is a saw tooth signal:
     count := integer((time - startTime)/period);
     T_start := startTime + count*period;
   equation
+    //The following formulation causes a state event
     //when integer((time - startTime)/period) > pre(count) then
+    //A formulation causing a time event is more efficient:
     when time >= (pre(count) + 1)*period + startTime then
       count = pre(count) + 1;
       T_start = time;
