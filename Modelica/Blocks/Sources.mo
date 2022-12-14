@@ -413,13 +413,13 @@ The Real output y is a cosine signal:
           transformation(
           extent={{-2,-2},{2,2}},
           origin={-80,-60})));
-    Blocks.Sources.Constant amplitude_constant(final k=constantAmplitude) if
-      useConstantAmplitude
+    Blocks.Sources.Constant amplitude_constant(final k=constantAmplitude)
+   if useConstantAmplitude
       annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
           origin={-80,30})));
-    Blocks.Sources.Constant f_constant(final k=constantFrequency) if
-      useConstantFrequency
+    Blocks.Sources.Constant f_constant(final k=constantFrequency)
+   if useConstantFrequency
       annotation (Placement(transformation(extent={{10,-10},{-10,10}},
           rotation=90,
           origin={-80,-30})));
@@ -516,13 +516,13 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
           transformation(
           extent={{-2,-2},{2,2}},
           origin={-80,-60})));
-    Blocks.Sources.Constant amplitude_constant(final k=constantAmplitude) if
-      useConstantAmplitude
+    Blocks.Sources.Constant amplitude_constant(final k=constantAmplitude)
+   if useConstantAmplitude
       annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
           origin={-80,30})));
-    Blocks.Sources.Constant f_constant(final k=constantFrequency) if
-      useConstantFrequency
+    Blocks.Sources.Constant f_constant(final k=constantFrequency)
+   if useConstantFrequency
       annotation (Placement(transformation(extent={{10,-10},{-10,10}},
           rotation=90,
           origin={-80,-30})));
@@ -768,7 +768,8 @@ by a falling exponential signal:
     count := integer((time - startTime)/period);
     T_start := startTime + count*period;
   equation
-    when integer((time - startTime)/period) > pre(count) then
+    //when integer((time - startTime)/period) > pre(count) then
+    when time >= (pre(count) + 1)*period + startTime then
       count = pre(count) + 1;
       T_start = time;
     end when;
@@ -823,7 +824,8 @@ The Real output y is a pulse signal:
     count := integer((time - startTime)/period);
     T_start := startTime + count*period;
   equation
-    when integer((time - startTime)/period) > pre(count) then
+    //when integer((time - startTime)/period) > pre(count) then
+    when time >= (pre(count) + 1)*period + startTime then
       count = pre(count) + 1;
       T_start = time;
     end when;
@@ -888,7 +890,8 @@ The Real output y is a saw tooth signal:
     count := integer((time - startTime)/period);
     T_start := startTime + count*period;
   equation
-    when integer((time - startTime)/period) > pre(count) then
+    //when integer((time - startTime)/period) > pre(count) then
+    when time >= (pre(count) + 1)*period + startTime then
       count = pre(count) + 1;
       T_start = time;
     end when;
