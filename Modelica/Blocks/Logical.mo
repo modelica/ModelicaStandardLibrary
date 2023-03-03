@@ -976,7 +976,7 @@ to abort the simulation if the condition fails.
       terminate(terminationText);
     end when;
     annotation (Icon(
-        coordinateSystem(preserveAspectRatio=true,
+        coordinateSystem(preserveAspectRatio=false,
           extent={{-200,-20},{200,20}},
           initialScale=0.2),
           graphics={
