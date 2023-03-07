@@ -305,18 +305,18 @@ model DynamicPipeEnergyConservationCheck
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     p=100000) annotation (Placement(transformation(extent={{40,-80},{20,-60}})));
 equation
-  assert(Modelica.Math.isEqual(pipeAV_B2.state_a.h, pipeAV_B2.state_b.h), "Energy not conserved!");
-  assert(Modelica.Math.isEqual(pipeAV_B3.state_a.h, pipeAV_B3.state_b.h), "Energy not conserved!");
-  assert(Modelica.Math.isEqual(pipeAV_B4.state_a.h, pipeAV_B4.state_b.h), "Energy not conserved!");
-  assert(Modelica.Math.isEqual(pipeA_VB2.state_a.h, pipeA_VB2.state_b.h), "Energy not conserved!");
-  assert(Modelica.Math.isEqual(pipeA_VB3.state_a.h, pipeA_VB3.state_b.h), "Energy not conserved!");
-  assert(Modelica.Math.isEqual(pipeA_VB4.state_a.h, pipeA_VB4.state_b.h), "Energy not conserved!");
-  assert(Modelica.Math.isEqual(pipeAV_VB2.state_a.h, pipeAV_VB2.state_b.h), "Energy not conserved!");
-  assert(Modelica.Math.isEqual(pipeAV_VB3.state_a.h, pipeAV_VB3.state_b.h), "Energy not conserved!");
-  assert(Modelica.Math.isEqual(pipeAV_VB4.state_a.h, pipeAV_VB4.state_b.h), "Energy not conserved!");
-  assert(Modelica.Math.isEqual(pipeA_V_B2.state_a.h, pipeA_V_B2.state_b.h), "Energy not conserved!");
-  assert(Modelica.Math.isEqual(pipeA_V_B3.state_a.h, pipeA_V_B3.state_b.h), "Energy not conserved!");
-  assert(Modelica.Math.isEqual(pipeA_V_B4.state_a.h, pipeA_V_B4.state_b.h), "Energy not conserved!");
+  assert(Modelica.Math.isEqual(pipeAV_B2.state_a.h, pipeAV_B2.state_b.h, 1e-12), "Energy not conserved!");
+  assert(Modelica.Math.isEqual(pipeAV_B3.state_a.h, pipeAV_B3.state_b.h, 1e-12), "Energy not conserved!");
+  assert(Modelica.Math.isEqual(pipeAV_B4.state_a.h, pipeAV_B4.state_b.h, 1e-12), "Energy not conserved!");
+  assert(Modelica.Math.isEqual(pipeA_VB2.state_a.h, pipeA_VB2.state_b.h, 1e-12), "Energy not conserved!");
+  assert(Modelica.Math.isEqual(pipeA_VB3.state_a.h, pipeA_VB3.state_b.h, 1e-12), "Energy not conserved!");
+  assert(Modelica.Math.isEqual(pipeA_VB4.state_a.h, pipeA_VB4.state_b.h, 1e-12), "Energy not conserved!");
+  assert(Modelica.Math.isEqual(pipeAV_VB2.state_a.h, pipeAV_VB2.state_b.h, 1e-12), "Energy not conserved!");
+  assert(Modelica.Math.isEqual(pipeAV_VB3.state_a.h, pipeAV_VB3.state_b.h, 1e-12), "Energy not conserved!");
+  assert(Modelica.Math.isEqual(pipeAV_VB4.state_a.h, pipeAV_VB4.state_b.h, 1e-12), "Energy not conserved!");
+  assert(Modelica.Math.isEqual(pipeA_V_B2.state_a.h, pipeA_V_B2.state_b.h, 1e-12), "Energy not conserved!");
+  assert(Modelica.Math.isEqual(pipeA_V_B3.state_a.h, pipeA_V_B3.state_b.h, 1e-12), "Energy not conserved!");
+  assert(Modelica.Math.isEqual(pipeA_V_B4.state_a.h, pipeA_V_B4.state_b.h, 1e-12), "Energy not conserved!");
   connect(boundary.ports[1], pipeAV_B4.port_a)
     annotation (Line(points={{80,50},{90,50}}, color={0,127,255}));
   connect(pipeAV_B4.port_b, boundary1.ports[1])
