@@ -84,11 +84,11 @@ SCRIT and HCRIT are calculated from Helmholtz function for region 3.</p>
   </li>
 </ul>
 <address>
-  Author: Hubertus Tummescheit,<br>
-  Modelon AB<br>
-  Ideon Science Park<br>
-  SE-22370 Lund, Sweden<br>
-  email: hubertus@modelon.se
+Author: Hubertus Tummescheit,<br>
+Modelon AB<br>
+Ideon Science Park<br>
+SE-22370 Lund, Sweden<br>
+email: hubertus@modelon.se
 </address>
 <ul>
   <li>Initial version: July 2000</li>
@@ -6481,7 +6481,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     <td>1/Pa<br>
     </td>
   </tr>
-  <!-- <tr><td>f</td><td>Fugacity</td></tr> --> <tr>
+  <!-- <tr><td>f</td><td>Fugacity</td></tr> -->
   <tr>
     <td>19<br>
     </td>
@@ -6516,7 +6516,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     <td>Surface tension</td>
     <td>sigma (&sigma;)<br>
     </td>
-    <td>>N/m<br>
+    <td>N/m<br>
     </td>
   </tr>
 </table>
@@ -8598,8 +8598,10 @@ public
 <p>
 This package provides high accuracy physical properties for water according
 to the IAPWS/IF97 standard. It has been part of the ThermoFluid Modelica library and been extended,
-reorganized and documented to become part of the Modelica Standard library.</p>
-<p>An important feature that distinguishes this implementation of the IF97 steam property standard
+reorganized and documented to become part of the Modelica Standard library.
+</p>
+<p>
+An important feature that distinguishes this implementation of the IF97 steam property standard
 is that this implementation has been explicitly designed to work well in dynamic simulations. Computational
 performance has been of high importance. This means that there often exist several ways to get the same result
 from different functions if one of the functions is called often but can be optimized for that purpose.
