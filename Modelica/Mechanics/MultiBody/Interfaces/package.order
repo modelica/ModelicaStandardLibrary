@@ -4,10 +4,12 @@ Frame_b
 Frame_resolve
 FlangeWithBearing
 FlangeWithBearingAdaptor
-PartialTwoFrames
-PartialTwoFramesDoubleSize
+OneFrame_a
 PartialOneFrame_a
 PartialOneFrame_b
+TwoFrames
+PartialTwoFrames
+PartialTwoFramesDoubleSize
 PartialConstraint
 PartialElementaryJoint
 PartialForce

@@ -1,16 +1,10 @@
 within Modelica.Mechanics.MultiBody.Parts;
 model BodyShape
   "Rigid body with mass, inertia tensor, different shapes for animation, and two frame connectors (12 potential states)"
+  extends Interfaces.TwoFrames;
 
   import Modelica.Mechanics.MultiBody.Types;
   import Modelica.Units.Conversions.to_unit1;
-
-  Interfaces.Frame_a frame_a
-    "Coordinate system fixed to the component with one cut-force and cut-torque"
-    annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
-  Interfaces.Frame_b frame_b
-    "Coordinate system fixed to the component with one cut-force and cut-torque"
-    annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
   parameter Boolean animation=true
     "= true, if animation shall be enabled (show shape between frame_a and frame_b and optionally a sphere at the center of mass)";
@@ -180,7 +174,6 @@ model BodyShape
     enforceStates=false) annotation (Placement(transformation(extent={{-27.3333,
             -70.3333},{13,-30}})));
 protected
-  outer Modelica.Mechanics.MultiBody.World world;
   Visualizers.Advanced.Shape shape1(
     shapeType=shapeType,
     color=color,
