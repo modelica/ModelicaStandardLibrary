@@ -3,7 +3,7 @@ partial model PartialAbsoluteSensor "Base class for absolute sensor models"
   extends Modelica.Icons.RoundSensor;
 
   Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-    "Coordinate system a of which the absolute kinematic quantities are measured" annotation (Placement(
+    "Coordinate system of which the absolute kinematic quantities are measured" annotation (Placement(
         transformation(extent={{-116,-16},{-84,16}})));
 
 equation
