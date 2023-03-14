@@ -26,8 +26,10 @@ package SimpleAir "Air: Simple dry air model (0..100 degC)"
     "Constant data for the fluid";
 
   annotation (Documentation(info="<html>
-                            <h4>Simple Ideal gas air model for low temperatures</h4>
-                            <p>This model demonstrates how to use the PartialSimpleIdealGas base class to build a
-                            simple ideal gas model with a limited temperature validity range.</p>
-                            </html>"));
+<h4>Simple Ideal gas air model for low temperatures</h4>
+<p>
+This model demonstrates how to use the PartialSimpleIdealGas base class to build a
+simple ideal gas model with a limited temperature validity range.
+</p>
+</html>"));
 end SimpleAir;
