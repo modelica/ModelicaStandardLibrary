@@ -1,6 +1,7 @@
 within Modelica.Electrical.Batteries.Examples;
 model BatteryDischargeCharge "Discharge and charge idealized battery"
   extends Modelica.Icons.Example;
+  constant Modelica.Units.SI.Current i0 = 1200;
   Modelica.Electrical.Batteries.Utilities.PulseSeries pulseSeries(
     n1=7,
     T1=60,
@@ -13,7 +14,7 @@ model BatteryDischargeCharge "Discharge and charge idealized battery"
     Qnom=18000,
     OCVmax=4.2,
     OCVmin=2.5,
-    Ri=cellData1.OCVmax/1200)
+    Ri=cellData1.OCVmax/i0)
     annotation (Placement(transformation(extent={{60,20},{80,40}})));
   Modelica.Electrical.Batteries.BatteryStacks.CellStack battery1(
     Ns=10,
@@ -38,7 +39,7 @@ model BatteryDischargeCharge "Discharge and charge idealized battery"
   parameter Modelica.Electrical.Batteries.ParameterRecords.TransientData.ExampleData cellData2(
     Qnom=18000,
     useLinearSOCDependency=false,
-    Ri=cellData2.OCVmax/1200,
+    Ri=cellData2.OCVmax/i0,
     Idis=0.1,
     nRC=2,
     rcData={Modelica.Electrical.Batteries.ParameterRecords.TransientData.RCData(
