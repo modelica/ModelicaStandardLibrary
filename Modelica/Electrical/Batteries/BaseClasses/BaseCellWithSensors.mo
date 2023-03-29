@@ -66,7 +66,7 @@ equation
           -6},{-90,-80},{-59.95,-80},{-59.95,-79.95}},
                                                    color={0,0,127}));
   connect(heatFlowSensor.port_b, internalHeatPort) annotation (Line(points={{
-          -1.77636e-15,-70},{-1.77636e-15,-75},{0,-75},{0,-80}}, color={191,0,0}));
+          0,-70},{0,-75},{0,-75},{0,-80}}, color={191,0,0}));
   connect(heatFlowSensor.port_a, cell.heatPort)
     annotation (Line(points={{0,-50},{0,-10}}, color={191,0,0}));
   connect(heatFlowSensor.Q_flow, cellBus.lossPower) annotation (Line(points={{-11,-60},
