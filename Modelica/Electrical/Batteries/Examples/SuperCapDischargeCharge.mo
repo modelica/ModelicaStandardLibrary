@@ -46,7 +46,7 @@ equation
   connect(powerSensor.power, energy.u)
     annotation (Line(points={{10,29},{10,20},{58,20}}, color={0,0,127}));
   connect(gain.y, signalCurrent.i) annotation (Line(points={{-29,0},{-12,0},
-          {-12,6.66134e-16}}, color={0,0,127}));
+          {-12,0}}, color={0,0,127}));
   connect(pulseSeries.y, gain.u)
     annotation (Line(points={{-59,0},{-52,0}}, color={0,0,127}));
   annotation (experiment(
