@@ -2332,7 +2332,7 @@ is given to compare the approximation.
         fixed=true,
         stateSelect=StateSelect.prefer),
       X(start={0.1,0.1,0.1,0.2,0.2,0.3}));
-    SI.Mass m2(quantity = "Mass." +  Medium2.mediumName, start=1.0);
+    SI.Mass m2(quantity="Mass." + Medium2.mediumName, start=1.0) "Mass of volume 2";
     SI.InternalEnergy U2;
     Medium2.SpecificHeatCapacity cp2=Medium2.specificHeatCapacityCp(medium2.state);
     Medium2.DynamicViscosity eta2=Medium2.dynamicViscosity(medium2.state);
