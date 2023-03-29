@@ -361,7 +361,7 @@ equation
           textColor={0,0,255},
           textString="%name"),
         Polygon(
-          points={{-20,10},{0,-10},{1.22465e-016,-50},{-10,-60},{-20,-60},{-20,10}},
+          points={{-20,10},{0,-10},{0,-50},{-10,-60},{-20,-60},{-20,10}},
           fillColor={255,128,0},
           fillPattern=FillPattern.VerticalCylinder,
           origin={-60,-40},

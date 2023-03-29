@@ -218,7 +218,7 @@ equation
   connect(star.pin_n, ground.p)
     annotation (Line(points={{50,-20},{50,-20}}, color={0,0,255}));
   connect(signalCurrent.plug_p, star.plug_p) annotation (Line(
-      points={{0,-1.77636e-15},{0,0},{50,0}},
+      points={{0,0},{50,0}},
       color={0,0,255}));
   connect(angleSensor.flange, rotorDisplacementAngle.flange)
     annotation (Line(
@@ -317,7 +317,7 @@ equation
   connect(angleSensorQS.phi, dqToThreePhaseQS.phi) annotation (Line(
         points={{30,71},{30,74},{-40,74},{-40,78}}, color={0,0,127}));
   connect(starMQS.plug_p, voltageQuasiRMSSensorQS.plug_p) annotation (Line(points={{-50,50},{-40,50}}, color={85,170,255}));
-  connect(voltageQuasiRMSSensorQS.plug_n, currentRMSSensorQS.plug_n) annotation (Line(points={{-20,50},{-6.66134e-16,50}}, color={85,170,255}));
+  connect(voltageQuasiRMSSensorQS.plug_n, currentRMSSensorQS.plug_n) annotation (Line(points={{-20,50},{0,50}}, color={85,170,255}));
   connect(starMQS.pin_n, groundMQS.pin) annotation (Line(points={{-50,30},{-50,20},{-60,20}}, color={85,170,255}));
   connect(starMachine.pin_n, groundM.p) annotation (Line(points={{-40,-80},{-60,-80}}, color={0,0,255}));
   connect(starMachine.plug_p, terminalBox.starpoint) annotation (Line(points={{-20,-80},{-20,-68},{-10,-68}},color={0,0,255}));
