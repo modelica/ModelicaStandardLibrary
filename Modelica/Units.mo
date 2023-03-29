@@ -342,6 +342,10 @@ end UsersGuide;
         displayUnit="bar");
     type AbsolutePressure = Pressure (min=0.0, nominal = 1e5);
     type PressureDifference = Pressure;
+    type PressureRate = Real (
+        final quantity="PressureRate",
+        final unit="Pa/s",
+        displayUnit="bar/s");
     type BulkModulus = AbsolutePressure;
     type Stress = Real (final unit="Pa");
     type NormalStress = Stress;
