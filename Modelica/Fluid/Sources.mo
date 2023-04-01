@@ -29,7 +29,7 @@ package Sources "Define fixed or prescribed boundary conditions"
       annotation (Dialog(group="Boundary temperature or boundary specific enthalpy",
                   enable = not use_T));
     parameter Medium.MassFraction X[Medium.nX](
-         quantity="MassFraction." + Medium.substanceNames) = Medium.X_default
+         ) = Medium.X_default
       "Boundary mass fractions m_i/m"
       annotation (Dialog(group = "Only for multi-substance flow", enable=Medium.nXi > 0));
     parameter Medium.ExtraProperty C[Medium.nC](
