@@ -5,7 +5,7 @@ package SimpleAir "Air: Simple dry air model (0..100 degC)"
     mediumName="SimpleAir",
     cp_const=1005.45,
     MM_const=0.0289651159,
-    R_gas=Constants.R/0.0289651159,
+    R_gas=Constants.R/MM_const,
     eta_const=1.82e-5,
     lambda_const=0.026,
     T_min=Cv.from_degC(0),
