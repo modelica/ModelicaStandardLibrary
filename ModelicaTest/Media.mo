@@ -919,7 +919,9 @@ is given to compare the approximation.
       extends Modelica.Icons.Example;
       package Medium = Modelica.Media.Air.MoistAir "Medium model";
       SI.Temperature T = 273.15 + 100;
-      SI.AbsolutePressure p = 2e5 - 1.5e5*time;
+      parameter SI.AbsolutePressure p0 = 2e5 "p at time 0";
+      parameter Real pRate(unit = "Pa/s") = -1.5e5 "p's rate of change";
+      SI.AbsolutePressure p = p0 + pRate*time;
       Medium.MassFraction X[Medium.nX] = {0.05,0.95};
       Medium.ThermodynamicState state = Medium.setState_pTX(p,T,X);
       SI.SpecificEntropy s = Medium.specificEntropy(state);
