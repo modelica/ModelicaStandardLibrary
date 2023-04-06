@@ -2397,6 +2397,14 @@ is given to compare the approximation.
     Real der_T;
   protected
     constant SI.Time unitTime=1;
+    parameter SI.AbsolutePressure p01 = 1.e5 "state1.p at time 0";
+    parameter Real pRate1(unit = "Pa/s") = 1.e5 "state1.p rate of change";
+    parameter SI.Temperature T01 = 300 "state1.T at time 0";
+    parameter SI.TemperatureSlope Trate1 = 10 "state1.T rate of change";
+    parameter SI.AbsolutePressure p02 = 1.e5 "state2.p at time 0";
+    parameter Real pRate2(unit = "Pa/s") = 1.e5/2 "state2.p rate of change";
+    parameter SI.Temperature T02 = 340 "state2.T at time 0";
+    parameter SI.TemperatureSlope Trate2 = -20 "state2.T rate of change";
   equation
     der(medium.p) = 0.0;
     der(medium.T) = 90;
@@ -2406,12 +2414,12 @@ is given to compare the approximation.
     //  medium.X_liquidWater = if medium.X_sat < medium.X[2] then medium.X[2] - medium.X_sat else 0.0;
 
     // Smooth state
-    m_flow_ext = time - 0.5;
-    state1.p = 1.e5*(1 + time);
-    state1.T = 300 + 10*time;
+    m_flow_ext = time/unitTime - 0.5;
+    state1.p = p01 + pRate1*time;
+    state1.T = T01 + Trate1*time;
     state1.X = {time,1 - time}/unitTime;
-    state2.p = 1.e5*(1 + time/2);
-    state2.T = 340 - 20*time;
+    state2.p = p02 + pRate2*time;
+    state2.T = T02 + Trate2*time;
     state2.X = {0.5*time,1 - 0.5*time}/unitTime;
     smoothState = Medium.setSmoothState(
           m_flow_ext,
