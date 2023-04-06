@@ -1,4 +1,4 @@
-<img src="https://github.com/modelica/ModelicaStandardLibrary/raw/master/Modelica/Resources/Images/Logos/Modelica_Libraries.svg?sanitize=true" width="250px">
+<img src="https://github.com/modelica/ModelicaStandardLibrary/raw/master/Modelica/Resources/Images/Logos/Modelica_Libraries.svg?sanitize=true#gh-light-mode-only" alt="Modelica Libraries Logo" width="250px"><img src="https://github.com/modelica/ModelicaStandardLibrary/raw/master/Modelica/Resources/Images/Logos/Modelica_Libraries_dark.svg?sanitize=true#gh-dark-mode-only" alt="Modelica Libraries Logo" width="250px">
 
 # Modelica Standard Library
 
