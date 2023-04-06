@@ -934,7 +934,9 @@ is given to compare the approximation.
       extends Modelica.Icons.Example;
       replaceable package Medium = Modelica.Media.R134a.R134a_ph "Medium model";
       SI.Temperature T = 273.15 + 25;
-      SI.AbsolutePressure p = 10e5 + 20e5*time;
+      parameter SI.AbsolutePressure p0 = 10e5 "p at time 0";
+      parameter Real pRate(unit = "Pa/s") = 20e5 "p's rate of change";
+      SI.AbsolutePressure p = p0 + pRate*time;
       Medium.ThermodynamicState state = Medium.setState_pTX(p, T);
       SI.SpecificEnthalpy h = Medium.specificEnthalpy(state);
       SI.Density rho = Medium.density(state);
@@ -948,7 +950,9 @@ is given to compare the approximation.
       extends Modelica.Icons.Example;
       replaceable package Medium = Modelica.Media.Water.WaterIF97_fixedregion "Medium model";
       SI.Temperature T = 273.15 + 25;
-      SI.AbsolutePressure p = 10e5 + 20e5*time;
+      parameter SI.AbsolutePressure p0 = 10e5 "p at time 0";
+      parameter Real pRate(unit = "Pa/s") = 20e5 "p's rate of change";
+      SI.AbsolutePressure p = p0 + pRate*time;
       Medium.ThermodynamicState state = Medium.setState_pTX(p, T);
       SI.SpecificEnthalpy h_dew = Medium.dewEnthalpy(Medium.SaturationProperties(Tsat=Medium.saturationTemperature(state.p), psat=Medium.pressure(state)));
       annotation (experiment(StopTime=1));
