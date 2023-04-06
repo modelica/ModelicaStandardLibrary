@@ -765,7 +765,7 @@ to compute u by an algebraic equation.
       "Control error (set point - measurement)";
     parameter .Modelica.Blocks.Types.SimpleController controllerType=
            .Modelica.Blocks.Types.SimpleController.PID "Type of controller";
-    parameter Real k(min=0) = 1 "Gain of controller";
+    parameter Real k(min=1) = 1 "Gain of controller";
     parameter SI.Time Ti(min=Modelica.Constants.small)=0.5
       "Time constant of Integrator block" annotation (Dialog(enable=
             controllerType == .Modelica.Blocks.Types.SimpleController.PI or
