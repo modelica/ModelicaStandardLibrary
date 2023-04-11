@@ -2961,8 +2961,7 @@ output window.
       "Solve h = h_T(T), s = s_T(T) for T, if h or s is given for ideal gas NASA"
       extends Modelica.Icons.Example;
 
-      replaceable package Medium = Modelica.Media.Air.DryAirNasa constrainedby
-        Modelica.Media.IdealGases.Common.SingleGasNasa
+      replaceable package Medium = Modelica.Media.Air.DryAirNasa constrainedby Modelica.Media.IdealGases.Common.SingleGasNasa
         "Medium model"
         annotation (choicesAllMatching=true);
 
@@ -4545,10 +4544,10 @@ This function computes an isentropic state transformation:
         min=-1.0e5,
         max=1.e5) "Type for mass flow rate with medium specific attributes";
 
-    replaceable partial function massFraction "returns independent mass fraction"
-    extends Modelica.Icons.Function;
-    input ThermodynamicState state "Thermodynamic state record";
-    output MassFraction Xi[nXi] "(independent) Mass Fraction";
+    replaceable partial function massFraction "Return independent mass fraction"
+      extends Modelica.Icons.Function;
+      input ThermodynamicState state "Thermodynamic state record";
+      output MassFraction Xi[nXi] "Independent mass fraction";
     end massFraction;
     annotation (Documentation(info="<html>
 <p>
@@ -4733,12 +4732,12 @@ are described in
         standardOrderComponents=true)
     end BaseProperties;
 
-    redeclare replaceable function massFraction "Return independent mass Fraction"
-    extends Modelica.Icons.Function;
-    input ThermodynamicState state "Thermodynamic state record";
-    output MassFraction Xi[nXi] "(independent) Mass Fraction";
+    redeclare replaceable function massFraction "Return independent mass fraction"
+      extends Modelica.Icons.Function;
+      input ThermodynamicState state "Thermodynamic state record";
+      output MassFraction Xi[nXi] "Independent mass fraction";
     algorithm
-    Xi := fill(0,0);
+      Xi := fill(0,0);
     end massFraction;
   end PartialPureSubstance;
 
@@ -5154,12 +5153,12 @@ to the above list of assumptions</li>
       annotation (smoothOrder=5);
     end massToMoleFractions;
 
-    redeclare replaceable function massFraction "Return independent mass Fraction"
-    extends Modelica.Icons.Function;
-    input ThermodynamicState state "Thermodynamic state record";
-    output MassFraction Xi[nXi] "(independent) Mass Fraction";
+    redeclare replaceable function massFraction "Return independent mass fraction"
+      extends Modelica.Icons.Function;
+      input ThermodynamicState state "Thermodynamic state record";
+      output MassFraction Xi[nXi] "Independent mass fraction";
     algorithm
-    Xi := state.X[1:nXi];
+      Xi := state.X[1:nXi];
     end massFraction;
   end PartialMixtureMedium;
 
@@ -8469,7 +8468,6 @@ sum(X) = c*(sum(X_a) - sum(X_b)) + (sum(X_a) + sum(X_b))/2
       </address>
 </html>"));
 end Common;
-
 annotation (preferredView="info",Documentation(info="<html>
 <p>
 This library contains <a href=\"modelica://Modelica.Media.Interfaces\">interface</a>
