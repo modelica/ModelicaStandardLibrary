@@ -244,7 +244,7 @@ The Real output y is a step signal:
   block Ramp "Generate ramp signal"
     parameter Real height=1 "Height of ramp"
       annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Ramp.png"));
-    parameter SI.Time duration(min=0.0, start=2)
+    parameter SI.Time duration(min=Constants.small, start=2)
       "Duration of ramp (= 0.0 gives a Step)";
     extends Interfaces.SignalSource;
 
