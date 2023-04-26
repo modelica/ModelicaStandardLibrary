@@ -249,7 +249,7 @@ The Real output y is a step signal:
     extends Interfaces.SignalSource;
 
   equation
-    y = offset + smooth(0, (if time < startTime then 0 else if time < (startTime +
+    y = smooth(0, offset + (if time < startTime then 0 else if time < (startTime +
       duration) then (time - startTime)*height/duration else height));
     annotation (
       Icon(coordinateSystem(
