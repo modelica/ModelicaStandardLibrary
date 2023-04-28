@@ -46,31 +46,14 @@ model DC_CompoundExcited "Compound excited linear DC machine"
     annotation (Dialog(group="Operational temperatures", enable=not useThermalPort));
   parameter Real excitationTurnsRatio(start=-0.005) "Ratio of series excitation turns over shunt excitation turns"
     annotation (Dialog(tab="Excitation"));
-  parameter Boolean considerSaturation=true "Consider saturation of excitation inductance"
-    annotation (Dialog(tab="Excitation", group="Saturation"), choices(checkBox=true));
-  parameter SI.Inductance Lzer=Le*10 "Inductance near current=0"
-    annotation (Dialog(
-      tab="Excitation",
-      group="Saturation",
-      enable=considerSaturation));
-  parameter SI.Inductance Linf=Le/10 "Inductance at large currents"
-    annotation (Dialog(
-      tab="Excitation",
-      group="Saturation",
-      enable=considerSaturation));
   output SI.Voltage vee=pin_eep.v - pin_en.v "Field shunt excitation voltage";
   output SI.Voltage ves=pin_esp.v - pin_en.v "Field series excitation voltage";
   output SI.Current iee=pin_eep.i "Field shunt excitation current";
   output SI.Current ies=pin_esp.i "Field series excitation current";
   Machines.BasicMachines.Components.AirGapDC airGapDC(
     final turnsRatio=turnsRatio,
-    considerSaturation=considerSaturation,
     final Le=Lme,
-    final quasiStatic=quasiStatic,
-    Inom=IeNominal,
-    Lnom=Lme,
-    Lzer=Lzer*(1 - sigmae),
-    Linf=Linf*(1 - sigmae))        annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270)));
+    final quasiStatic=quasiStatic) annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=270)));
   Machines.BasicMachines.Components.CompoundDCExcitation compoundDCExcitation(final excitationTurnsRatio=
         excitationTurnsRatio) annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
   Modelica.Electrical.Analog.Basic.Ground ground

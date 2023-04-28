@@ -34,17 +34,14 @@ model DCCE_Generator "Test example: DC with compound excitation generating power
     alpha20a=dcceData.alpha20a,
     alpha20e=dcceData.alpha20e,
     TeOperational=293.15,
-    excitationTurnsRatio=dcceData.excitationTurnsRatio,
-    considerSaturation=dcceData.considerSaturation,
-    Lzer=dcceData.Lzer,
-    Linf=dcceData.Linf)
-                     annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
+    excitationTurnsRatio=dcceData.excitationTurnsRatio)
+      annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
   Modelica.Blocks.Sources.Ramp ramp(
     duration=tRamp,
     startTime=tStart,
     height=-100,
     offset=101)
-              annotation (Placement(transformation(extent={{60,0},{40,20}})));
+      annotation (Placement(transformation(extent={{60,0},{40,20}})));
   Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
         transformation(
         origin={-70,40},
@@ -62,6 +59,11 @@ model DCCE_Generator "Test example: DC with compound excitation generating power
   parameter Utilities.ParameterRecords.DcCompoundExcitedData dcceData(excitationTurnsRatio=-7e-4)
     "DC machine data"
     annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+  Analog.Sources.ConstantVoltage constantVoltage(V=Ve)
+    annotation (Placement(transformation(
+        origin={-50,-30},
+        extent={{-10,-10},{10,10}},
+        rotation=90)));
 equation
   connect(dcce.pin_esp,dcce. pin_an) annotation (Line(points={{-20,-34},{-20,-30},{-16,-30}}, color={0,0,255}));
   connect(speed.flange,dcce. flange) annotation (Line(points={{40,-40},{0,-40}}, color={0,0,0}));
@@ -71,8 +73,9 @@ equation
   connect(ramp.y, variableResistor.R) annotation (Line(points={{39,10},{12,10}}, color={0,0,127}));
   connect(variableResistor.p, dcce.pin_en)
     annotation (Line(points={{0,20},{0,40},{-24,40},{-24,-40},{-20,-40}}, color={0,0,255}));
-  connect(dcce.pin_eep, dcce.pin_ap)
-    annotation (Line(points={{-20,-46},{-30,-46},{-30,-14},{0,-14},{0,-30},{-4,-30}}, color={0,0,255}));
+  connect(constantVoltage.n, dcce.pin_en)
+    annotation (Line(points={{-50,-20},{-50,-10},{-24,-10},{-24,-40},{-20,-40}}, color={0,0,255}));
+  connect(constantVoltage.p, dcce.pin_eep) annotation (Line(points={{-50,-40},{-50,-50},{-20,-50},{-20,-46}}, color={0,0,255}));
   annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6), Documentation(
         info="<html>
 <h4>Test example: Compound excited DC machine with a variable resistor as load</h4>

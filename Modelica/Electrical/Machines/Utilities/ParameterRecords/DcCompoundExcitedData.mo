@@ -28,18 +28,6 @@ record DcCompoundExcitedData "Common parameters for DC machines"
   parameter SI.Temperature TeNominal=293.15
     "Nominal series excitation temperature"
     annotation (Dialog(tab="Nominal parameters"));
-  parameter Boolean considerSaturation=true "Consider saturation of excitation inductance"
-    annotation (Dialog(tab="Excitation", group="Saturation"), choices(checkBox=true));
-  parameter SI.Inductance Lzer=Le*10 "Inductance near current=0"
-    annotation (Dialog(
-      tab="Excitation",
-      group="Saturation",
-      enable=considerSaturation));
-  parameter SI.Inductance Linf=Le/10 "Inductance at large currents"
-    annotation (Dialog(
-      tab="Excitation",
-      group="Saturation",
-      enable=considerSaturation));
   annotation (
     defaultComponentName="dcseData",
     defaultComponentPrefixes="parameter",
