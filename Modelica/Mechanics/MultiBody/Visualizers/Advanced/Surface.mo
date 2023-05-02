@@ -2,7 +2,7 @@ within Modelica.Mechanics.MultiBody.Visualizers.Advanced;
 model Surface
   "Visualizing a moveable, parameterized surface; the surface characteristic is provided by a function"
   extends Modelica.Mechanics.MultiBody.Icons.Surface;
-  extends Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialSurface;
+  extends ModelicaServices.AnimationInterface.PartialSurface;
   extends ModelicaServices.Animation.Surface;
   annotation (Icon(graphics={Polygon(
           points={{-102,40},{-98,92},{28,-8},{96,146},{104,-118},{-18,-34},{-52,
