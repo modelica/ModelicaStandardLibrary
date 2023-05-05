@@ -770,8 +770,8 @@ to compute u by an algebraic equation.
       "Time constant of Integrator block" annotation (Dialog(enable=
             controllerType == .Modelica.Blocks.Types.SimpleController.PI or
             controllerType == .Modelica.Blocks.Types.SimpleController.PID));
-    parameter SI.Time Td(min=0)=0.1
-      "Time constant of Derivative block" annotation (Dialog(enable=
+    parameter SI.Time Td(min=0)=0.1 "Time constant of Derivative block"
+                                          annotation (Dialog(enable=
             controllerType == .Modelica.Blocks.Types.SimpleController.PD or
             controllerType == .Modelica.Blocks.Types.SimpleController.PID));
     parameter Real yMax(start=1) "Upper limit of output";
@@ -881,7 +881,7 @@ to compute u by an algebraic equation.
       gainPID.y = y_start;
     end if;
   equation
-    assert(abs(k) >= Constants.small, "Controller gain must be non-zero.");
+    assert(abs(k) >= Modelica.Constants.small, "Controller gain must be non-zero.");
     if initType == Init.InitialOutput and (y_start < yMin or y_start > yMax) then
         Modelica.Utilities.Streams.error("LimPID: Start value y_start (=" + String(y_start) +
            ") is outside of the limits of yMin (=" + String(yMin) +") and yMax (=" + String(yMax) + ")");
