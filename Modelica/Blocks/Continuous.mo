@@ -765,7 +765,7 @@ to compute u by an algebraic equation.
       "Control error (set point - measurement)";
     parameter .Modelica.Blocks.Types.SimpleController controllerType=
            .Modelica.Blocks.Types.SimpleController.PID "Type of controller";
-    parameter Real k = 1 "Gain of controller";
+    parameter Real k = 1 "Gain of controller, must be non-zero";
     parameter SI.Time Ti(min=Modelica.Constants.small)=0.5
       "Time constant of Integrator block" annotation (Dialog(enable=
             controllerType == .Modelica.Blocks.Types.SimpleController.PI or
@@ -881,6 +881,7 @@ to compute u by an algebraic equation.
       gainPID.y = y_start;
     end if;
   equation
+    assert(abs(k) >= Constants.small, "Controller gain must be non-zero.");
     if initType == Init.InitialOutput and (y_start < yMin or y_start > yMax) then
         Modelica.Utilities.Streams.error("LimPID: Start value y_start (=" + String(y_start) +
            ") is outside of the limits of yMin (=" + String(yMin) +") and yMax (=" + String(yMax) + ")");
