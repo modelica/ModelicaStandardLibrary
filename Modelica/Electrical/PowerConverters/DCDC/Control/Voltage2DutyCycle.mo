@@ -43,8 +43,8 @@ equation
   else
     dutyCycle =1 - vLimInt/max(v, vLimInt);
   end if;
-  connect(vLim, vLimInt) annotation (Line(points={{0,120},{0,80},{0,
-          80}}, color={0,0,127}));
+  connect(vLim, vLimInt) annotation (Line(points={
+          {0,120},{0,80}}, color={0,0,127}));
   connect(vLimInt, vLimConst.y) annotation (Line(points={{0,80},
           {19,80}}, color={0,0,127}));
   annotation (defaultComponentName="adaptor", Icon(graphics={
