@@ -770,8 +770,8 @@ to compute u by an algebraic equation.
       "Time constant of Integrator block" annotation (Dialog(enable=
             controllerType == .Modelica.Blocks.Types.SimpleController.PI or
             controllerType == .Modelica.Blocks.Types.SimpleController.PID));
-    parameter SI.Time Td(min=0)=0.1 "Time constant of Derivative block"
-                                          annotation (Dialog(enable=
+    parameter SI.Time Td(min=0)=0.1
+      "Time constant of Derivative block" annotation (Dialog(enable=
             controllerType == .Modelica.Blocks.Types.SimpleController.PD or
             controllerType == .Modelica.Blocks.Types.SimpleController.PID));
     parameter Real yMax(start=1) "Upper limit of output";
