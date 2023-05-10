@@ -1957,39 +1957,38 @@ Otherwise the input angle <code>u</code> is wrapped to the interval [0,2*pi[.
             thickness=0.5)}),
         Documentation(info="<html>
 <p>
-This block &quot;unwrap&quot; the input angle having a&nbsp;time discontinuity.
-Such a&nbsp;discontinuity is typical for angles exceeding a&nbsp;limit interval,
+This block &quot;unwraps&quot; the input angle <code>u</code> having time discontinuities.
+Such discontinuities are typical for angles exceeding interval limits,
 e.g. ]-&pi;, &pi;], cf.
 <a href=\"modelica://Modelica.Blocks.Math.WrapAngle\">Modelica.Blocks.Math.WrapAngle</a>.
-The output&nbsp;<code>y</code> approximates the input in continuous matter.
+The output angle&nbsp;<code>y</code> approximates the input angle&nbsp;<code>u</code> in continuous matter.
 </p>
 <p>
 The used calculation method is based on an angle tracking observer as common in electrical
-engineering and is very robust.
-It determines the angle of a&nbsp;space phasor calculating cos(<var>&phi;</var>) and
-sin(<var>&phi;</var>) of a&nbsp;wrapped angle <var>&phi;</var> &ndash; no matter of
+engineering. This implementation is very robust.
+It determines the angle of a space phasor calculating <code>cos(u)</code> and
+<code>sin(u)</code> of a wrapped angle <code>u</code> &ndash; independent of the 
 angle interval. Note: the angles are often wrapped within the interval ]-&pi;, +&pi;] or
 [0, 2&pi;[.
 </p>
 <p>
-Rotating the space phasor by an angle that is determined by the controller &ndash; whose
-goal is to bring the imaginary part to zero &ndash; the result is the desired continuos angle. 
-The output&nbsp;<code>y</code> approximates the desired angle by a&nbsp;first order system
-whose time constant is the integral time constant:
+The angle of a complex space phasor is controlled such way that its imaginary part is euqal to zero. 
+The controlled angle <code>y</code> is the unwrapped continuos angle. 
+The output&nbsp;<code>y</code> approximates the desired angle by a first order system
+whose time constant is the integral time constant of the controller:
 </p>
 <blockquote><pre>
-Im(e<sup>j(<var>&phi;</var>-<var>&phi;</var>&apos;)</sup>) = sin(<var>&phi;</var> - <var>&phi;</var>&apos;)
+Im(e<sup>j(<code>u</code>-<code>y</code>)</sup>) = sin(<code>u</code> - <code>y</code>)
 </pre></blockquote>
 <p>
-which can be approximated for small differences by
-<code>(<var>&phi;</var>&nbsp;- <var>&phi;</var>&apos;)</code>.
+This expression can be approximated for small differences by
+<code>(<code>u</code>&nbsp;- <code>y</code>)</code>.
 Using an integral controller, the transfer function of the closed loop can, thus, be
 determined as:
-<code><var>&phi;</var>&apos;&nbsp;= <var>&phi;</var>/(1&nbsp;+ s*T<sub>i</sub>)</code>.
+<code><code>y</code>&nbsp;= <code>u</code>/(1&nbsp;+ s*T<sub>i</sub>)</code>.
 </p>
 <p>
-The output&nbsp;<code>y</code> can be differentiated to obtain the angular velocity, but
-this quantity can be also accessed directly with output&nbsp;<code>w</code>.
+The derivative of the output&nbsp;<code>y</code> is the angular velocity&nbsp;<code>w</code>, provided as signal output.
 </p>
 </html>"));
   end UnwrapAngle;
