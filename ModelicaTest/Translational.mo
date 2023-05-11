@@ -314,7 +314,7 @@ extends Modelica.Icons.ExamplesPackage;
       experiment(StopTime=2));
   end Vehicles;
 
-  model Friction
+  model TestFrictionPosition
     extends Modelica.Icons.Example;
 
     parameter Real fric=155.9218;
@@ -382,5 +382,5 @@ extends Modelica.Icons.ExamplesPackage;
     connect(sine2.y, position1.s_ref) annotation (Line(points={{-49,0},{-12,0}}, color={0,0,127}));
     connect(position1.flange, supportFriction2.flange_a) annotation (Line(points={{10,0},{46,0}}, color={0,127,0}));
     annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
-  end Friction;
+  end TestFrictionPosition;
 end Translational;
