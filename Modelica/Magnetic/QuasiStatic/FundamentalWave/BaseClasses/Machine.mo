@@ -196,6 +196,8 @@ partial model Machine "Base model of machines"
     annotation (Placement(transformation(extent={{-44,-94},{-36,-86}})));
   Modelica.Mechanics.Rotational.Interfaces.Support internalSupport
     annotation (Placement(transformation(extent={{56,-104},{64,-96}})));
+protected
+  final parameter SI.Impedance ZsRef = 1 "Reference phase impedance based on nominal voltage 100 V and nominal current 100 A; per phase";
 initial algorithm
   assert(not Modelica.Math.isPowerOf2(m), String(m) +
     " phases are currently not supported in this version of FundametalWave");
