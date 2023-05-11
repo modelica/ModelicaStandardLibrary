@@ -1967,25 +1967,25 @@ The output angle&nbsp;<code>y</code> approximates the input angle&nbsp;<code>u</
 The used calculation method is based on an angle tracking observer as common in electrical
 engineering. This implementation is very robust.
 It determines the angle of a space phasor calculating <code>cos(u)</code> and
-<code>sin(u)</code> of a wrapped angle <code>u</code> &ndash; independent of the 
+<code>sin(u)</code> of a wrapped angle&nbsp;<code>u</code> &ndash; independent of the 
 angle interval. Note: the angles are often wrapped within the interval ]-&pi;, +&pi;] or
 [0, 2&pi;[.
 </p>
 <p>
 The angle of a complex space phasor is controlled such way that its imaginary part is euqal to zero. 
-The controlled angle <code>y</code> is the unwrapped continuos angle. 
+The controlled angle&nbsp;<code>y</code> is the unwrapped continuos angle. 
 The output&nbsp;<code>y</code> approximates the desired angle by a first order system
 whose time constant is the integral time constant of the controller:
 </p>
 <blockquote><pre>
-Im(e<sup>j(<code>u</code>-<code>y</code>)</sup>) = sin(<code>u</code> - <code>y</code>)
+Im(e<sup><code>j*(u-y)</code></sup>) = sin(u - y)
 </pre></blockquote>
 <p>
 This expression can be approximated for small differences by
-<code>(<code>u</code>&nbsp;- <code>y</code>)</code>.
+<code>(u - y)</code>.
 Using an integral controller, the transfer function of the closed loop can, thus, be
 determined as:
-<code><code>y</code>&nbsp;= <code>u</code>/(1&nbsp;+ s*T<sub>i</sub>)</code>.
+<code>y&nbsp;=&nbsp;u&nbsp;/&nbsp;(1&nbsp;+&nbsp;s*Ti)</code>.
 </p>
 <p>
 The derivative of the output&nbsp;<code>y</code> is the angular velocity&nbsp;<code>w</code>, provided as signal output.
