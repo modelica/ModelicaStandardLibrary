@@ -60,7 +60,8 @@ equation
   connect(load.f, constFrequency.y) annotation (Line(points={{92,-36},{100,-36},{100,-80},{81,-80}}, color={0,0,127}));
   connect(sensorL.currentP, v2.pin_p) annotation (Line(points={{50,-10},{40,-10},{40,-22}}, color={85,170,255}));
   connect(i2.pin_n, sensorL.currentP) annotation (Line(points={{40,-10},{40,-10},{50,-10}}, color={85,170,255}));
-  connect(sensor0.currentN, i1.pin_p) annotation (Line(points={{-60,-10},{-60,-10}}, color={85,170,255}));85,170,255}));
+  connect(sensor0.currentN, i1.pin_p) annotation (Line(points={{-60,-10},{-60,-10}}, color={85,170,255}));
+  connect(i1.pin_n, zk.pin_p) annotation (Line(points={{-40,-10},{-35,-10},{-30,-10}}, color={85,170,255}));
   connect(idealTransformer.pin_p2, i2.pin_p) annotation (Line(points={{10,-20},{12,-20},{12,-10},{20,-10}}, color={85,170,255}));
   annotation (experiment(StopTime=1),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={Rectangle(
           extent={{50,10},{96,-60}},
