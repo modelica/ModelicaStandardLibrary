@@ -26,11 +26,11 @@ model SignalPWM
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={60,110})));
-  Modelica.Blocks.Sources.Constant const(final k=constantDutyCycle) if
-    useConstantDutyCycle
+  Modelica.Blocks.Sources.Constant const(final k=constantDutyCycle)
+ if useConstantDutyCycle
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=90,
-        origin={-90,-30})));
+        origin={-90,-20})));
   Modelica.Blocks.Nonlinear.Limiter limiter(uMax=1, uMin=0)
     annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
 
@@ -67,15 +67,6 @@ model SignalPWM
         extent={{-10,10},{10,-10}},
         rotation=0,
         origin={0,90})));
-  Blocks.Math.Add add(final k1=-1, final k2=+1) if
-                         not commonComparison
-    annotation (Placement(transformation(extent={{0,-10},{20,10}})));
-  Blocks.Sources.Constant constOne(final k=1) if not commonComparison
-    annotation (Placement(
-        transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={-10,-30})));
   Blocks.Logical.Greater greaterEqual_n if not commonComparison
     annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
@@ -83,19 +74,13 @@ model SignalPWM
         rotation=90)));
 equation
   connect(const.y, limiter.u) annotation (Line(
-      points={{-90,-19},{-90,0},{-72,0}},           color={0,0,127}));
+      points={{-90,-9},{-90,0},{-72,0}},            color={0,0,127}));
   connect(dutyCycle, limiter.u) annotation (Line(
       points={{-120,0},{-72,0}}, color={0,0,127}));
   connect(limiter.y, zeroOrderHold.u) annotation (Line(
       points={{-49,0},{-42,0}}, color={0,0,127}));
-  connect(zeroOrderHold.y, add.u1)
-    annotation (Line(points={{-19,0},{-10,0},{-10,6},{-2,6}}, color={0,0,127}));
-  connect(constOne.y, add.u2)
-    annotation (Line(points={{-10,-19},{-10,-6},{-2,-6}}, color={0,0,127}));
-  connect(zeroOrderHold.y, greaterEqual_p.u1) annotation (Line(points={{-19,0},{-10,
-          0},{-10, 18},{-60, 18},{-60,58}}, color={0,0,127}));
-  connect(add.y, greaterEqual_n.u1)
-    annotation (Line(points={{21,0},{60,0},{60,58}}, color={0,0,127}));
+  connect(zeroOrderHold.y, greaterEqual_p.u1) annotation (Line(points={{-19,0},{-10,0},{-10,16},{-60,16},{-60,58}},
+                                            color={0,0,127}));
   connect(greaterEqual_p.y, fire)
     annotation (Line(points={{-60,81},{-60,110}}, color={255,0,255}));
   connect(greaterEqual_n.y, notFire)
@@ -104,15 +89,14 @@ equation
     annotation (Line(points={{-60,81},{-60,90},{-12,90}}, color={255,0,255}));
   connect(inverse.y, notFire)
     annotation (Line(points={{11,90},{60,90},{60,110}}, color={255,0,255}));
-  connect(triangle.y, greaterEqual_p.u2) annotation (Line(points={{-20,41},{-20,52},
-          {-52,52},{-52,58}}, color={0,0,127}));
-  connect(triangle.y, greaterEqual_n.u2) annotation (Line(points={{-20,41},{-20,48},
-          {52,48},{52,58}}, color={0,0,127}));
-  connect(greaterEqual_n.u2, sawtooth.y) annotation (Line(points={{52,58},{52,48},
-          {20,48},{20,41}}, color={0,0,127}));
+  connect(triangle.y, greaterEqual_p.u2) annotation (Line(points={{-20,41},{-20,52},{-52,52},{-52,58}},
+                              color={0,0,127}));
   connect(greaterEqual_p.u2, sawtooth.y) annotation (Line(points={{-52,58},{-52,
           52},{20,52},{20,41}},
                             color={0,0,127}));
+  connect(sawtooth.y, greaterEqual_n.u1) annotation (Line(points={{20,41},{20,48},{60,48},{60,58}}, color={0,0,127}));
+  connect(zeroOrderHold.y, greaterEqual_n.u2) annotation (Line(points={{-19,0},{52,0},{52,58}}, color={0,0,127}));
+  connect(triangle.y, greaterEqual_n.u1) annotation (Line(points={{-20,41},{-20,48},{60,48},{60,58}}, color={0,0,127}));
   annotation (defaultComponentName="pwm",
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
             {100,100}}),graphics={Line(
