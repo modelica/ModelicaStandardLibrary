@@ -64,7 +64,7 @@ equation
   connect(inductor.n, chopperStepUp.dc_p1) annotation (Line(points={{-50,
           10},{-50,6},{-40,6}}, color={0,0,255}));
   connect(voltageSensor.p, capacitor.p)
-    annotation (Line(points={{60,20},{60,60},{1.77636e-15,60},{0,10}}, color={0,0,255}));
+    annotation (Line(points={{60,20},{60,60},{0,60},{0,10}}, color={0,0,255}));
   connect(capacitor.p, chopperStepUp.dc_p2) annotation (Line(points={{
           0,10},{-10,10},{-10,6},{-20,6}}, color={0,0,255}));
   connect(chopperStepUp.dc_n2, capacitor.n) annotation (Line(points={{-20,-6},
