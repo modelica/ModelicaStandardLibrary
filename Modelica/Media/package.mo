@@ -3611,7 +3611,7 @@ no mass or energy is stored in the pipe.
           V=0.1) annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
         FixedMassFlowRate fixedMassFlowRate(
           redeclare package Medium = Medium,
-          T_ambient=1.2*T_start,
+          T_ambient=Modelica.Constants.T_zero_K + 1.2*T_start,
           h_ambient=1.2*h_start,
           m_flow=1,
           X_ambient=0.5*X_start) annotation (Placement(transformation(extent={{
@@ -3659,7 +3659,7 @@ no mass or energy is stored in the pipe.
           V=0.1) annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
         FixedMassFlowRate fixedMassFlowRate(
           redeclare package Medium = Medium,
-          T_ambient=1.2*T_start,
+          T_ambient=Modelica.Constants.T_zero_K + 1.2*T_start,
           h_ambient=1.2*h_start,
           m_flow=1,
           X_ambient=0.5*X_start) annotation (Placement(transformation(extent={{

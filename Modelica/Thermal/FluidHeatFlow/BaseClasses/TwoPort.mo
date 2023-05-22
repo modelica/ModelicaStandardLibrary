@@ -32,8 +32,8 @@ public
 equation
   dp=flowPort_a.p - flowPort_b.p;
   V_flow=flowPort_a.m_flow/medium.rho;
-  T_a=flowPort_a.h/medium.cp;
-  T_b=flowPort_b.h/medium.cp;
+  T_a=Modelica.Constants.T_zero_K + flowPort_a.h/medium.cp;
+  T_b=Modelica.Constants.T_zero_K + flowPort_b.h/medium.cp;
   dT=if noEvent(V_flow>=0) then T-T_a else T_b-T;
   h = medium.cp*T;
   T_q = T  - noEvent(sign(V_flow))*(1 - tapT)*dT;

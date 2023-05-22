@@ -16,8 +16,8 @@ protected
     annotation(HideResult=true);
   SI.SpecificEnthalpy h "Specific enthalpy in the volume";
 equation
-  T_port=flowPort.h/medium.cp;
-  T=h/medium.cp;
+  T_port=Modelica.Constants.T_zero_K + flowPort.h/medium.cp;
+  T=Modelica.Constants.T_zero_K + h/medium.cp;
   // mass flow -> ambient: mixing rule
   // mass flow <- ambient: energy flow defined by ambient's temperature
   if Exchange then
