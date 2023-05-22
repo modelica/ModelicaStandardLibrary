@@ -117,7 +117,7 @@ Simple Current controller
 <p>
 The desired d- and q-component of the space phasor current in rotor fixed coordinate system are given by inputs <code>id</code> and <code>iq</code>.
 Using the given rotor position (input <code>phi</code>), the actual three-phase currents are measured and transformed to the d-q coordinate system.
-Two PI controllers determine the necessary d- and q- voltages, which are transformed back to three-phase (output <code>y[3]</code>).
+Two PI-controllers determine the necessary d- and q- voltages, which are transformed back to three-phase (output <code>y[3]</code>).
 They can be used to feed a voltage source which in turn feeds a permanent magnet synchronous machine.
 </p>
 <p>

@@ -249,7 +249,7 @@ as desired cooling temperature at the output of the controller)
 and the desired temperature T (which is used as desired value for
 the feedback controller). This part of the control system is the
 \"feed-forward\" part that computes the desired actuator signal.
-As feedback controller a simple P Controller with one gain is used.
+As feedback controller a simple P-Controller with one gain is used.
 </p>
 
 <p>

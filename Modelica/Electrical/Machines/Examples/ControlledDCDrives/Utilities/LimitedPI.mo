@@ -1,6 +1,6 @@
 within Modelica.Electrical.Machines.Examples.ControlledDCDrives.Utilities;
 block LimitedPI
-  "Limited PI controller with anti-windup and feed-forward"
+  "Limited PI-controller with anti-windup and feed-forward"
   extends Modelica.Blocks.Interfaces.SISO;
   import Modelica.Blocks.Types.Init;
   import Modelica.Constants.inf;
@@ -196,7 +196,7 @@ equation
 Proportional - Integral - controller with optional feed-forward and limitation at the output.
 </p>
 <p>
-The integral part can be switched off to obtain a limited P controller.
+The integral part can be switched off to obtain a limited P-controller.
 </p>
 <p>
 The feed-forward gain can either be constant or given by the optional input kFF.

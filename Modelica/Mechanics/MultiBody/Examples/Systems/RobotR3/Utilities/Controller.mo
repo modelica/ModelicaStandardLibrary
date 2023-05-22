@@ -87,8 +87,8 @@ equation
           lineColor={0,0,127})}),
     Documentation(info="<html>
 <p>
-This controller has an inner PI controller to control the motor speed,
-and an outer P controller to control the motor position of one axis.
+This controller has an inner PI-controller to control the motor speed,
+and an outer P-controller to control the motor position of one axis.
 The reference signals are with respect to the gear-output, and the
 gear ratio is used in the controller to determine the motor
 reference signals. All signals are communicated via the
