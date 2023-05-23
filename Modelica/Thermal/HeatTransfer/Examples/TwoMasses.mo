@@ -23,7 +23,7 @@ equation
   connect(mass2.port, Tsensor2.port) annotation (Line(points={{70,20},{70,
           -60},{60,-60}}, color={191,0,0}));
 initial equation
-  T_final_K = Modelica.Constants.T_zero_K + (mass1.T*mass1.C + mass2.T*mass2.C)/(mass1.C + mass2.C);
+  T_final_K - Modelica.Constants.T_zero_K =  ((mass1.T-Modelica.Constants.T_zero_K)*mass1.C + (mass2.T-Modelica.Constants.T_zero_K)*mass2.C)/(mass1.C + mass2.C);
   annotation (Documentation(info="<html>
 <p>
 This example demonstrates the thermal response of two masses connected by
