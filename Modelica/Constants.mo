@@ -53,7 +53,7 @@ package Constants
   final constant SI.Permeability mu_0 = 4*pi*1.00000000055e-7 "Magnetic constant";
   final constant Real epsilon_0(final unit="F/m") = 1/(mu_0*c*c)
     "Electric constant";
-  final constant SI.Temperature T_zero_K = -273.15
+  final constant SI.Temperature T_zero_K = 0
     "Absolute zero temperature in kelvin";
   final constant NonSI.Temperature_degC T_zero = -273.15
     "Absolute zero temperature in degree Celsius";
