@@ -57,7 +57,6 @@ package Constants
     "Absolute zero temperature in kelvin";
   final constant NonSI.Temperature_degC T_zero = -273.15
     "Absolute zero temperature in degree Celsius";
-
   annotation (
     Documentation(info="<html>
 <p>
