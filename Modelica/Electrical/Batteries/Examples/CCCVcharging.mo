@@ -8,7 +8,7 @@ public
   parameter Modelica.Electrical.Batteries.ParameterRecords.TransientData.ExampleData cellData(
     Qnom=18000,
     useLinearSOCDependency=false,
-    Ri=cellData.OCVmax/RiCurrent,
+    Ri=cellData.OCVmax/Isc,
     Idis=0.001)
     annotation (Placement(transformation(extent={{20,-20},{40,0}})));
   Modelica.Electrical.Batteries.BatteryStacks.CellRCStack battery(
