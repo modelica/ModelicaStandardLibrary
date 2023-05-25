@@ -3,7 +3,7 @@ model CCCVcharging
   "Charge a battery with constant current - constant voltage characteristic"
   extends Modelica.Icons.Example;
 protected
-  parameter Modelica.Units.SI.Current RiCurrent = 1200 "Current relating OCVmax to Ri in cellData";
+  parameter Modelica.Units.SI.Current Isc = 1200 "Short-circuit current of cell at OCVmax";
 public
   parameter Modelica.Electrical.Batteries.ParameterRecords.TransientData.ExampleData cellData(
     Qnom=18000,
