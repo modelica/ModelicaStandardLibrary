@@ -7,19 +7,19 @@ model ParallelCooling "Cooling circuit with parallel branches"
   parameter SI.Temperature TAmb(displayUnit="degC")=293.15
     "Ambient temperature";
   output SI.TemperatureDifference dTSource1=
-    prescribedHeatFlow1.port.T-TAmb "Source1 over Ambient";
+    prescribedHeatFlow1.port.T-TAmb "Temperature difference between heat source 1 and ambient condition";
   output SI.TemperatureDifference dTtoPipe1=prescribedHeatFlow1.port.T-pipe1.T_q
-    "Source1 over Coolant1";
+    "Temperature difference between heat source 1 and coolant in pipe 1";                      
   output SI.TemperatureDifference dTCoolant1=pipe1.dT
-    "Coolant1's temperature increase";
+    "Change in coolant temperature in pipe 1";
   output SI.TemperatureDifference dTSource2=
-    prescribedHeatFlow2.port.T-TAmb "Source2 over Ambient";
+    prescribedHeatFlow2.port.T-TAmb "Temperature difference between Heat source 2 and ambient condition";
   output SI.TemperatureDifference dTtoPipe2=prescribedHeatFlow2.port.T-pipe2.T_q
-    "Source2 over Coolant2";
+    "Temperature difference between heat source 2 and coolant in pipe 2;
   output SI.TemperatureDifference dTCoolant2=pipe2.dT
-    "Coolant2's temperature increase";
+    "Change in coolant temperature in pipe 2";
   output SI.TemperatureDifference dTmixedCoolant=ambient2.T_port-ambient1.T_port
-    "Mixed Coolant's temperature increase";
+    "Overall change in coolant temperature";
   FluidHeatFlow.Sources.Ambient ambient1(
     constantAmbientTemperature=TAmb,
     medium=medium,
@@ -169,43 +169,43 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
 </tr>
 <tr>
 <td>dTSource1</td>
-<td>Source1 over Ambient</td>
+<td>Temperature difference between heat source 1 and ambient condition</td>
 <td>dTCoolant1 + dTtoPipe1</td>
 <td>15 K</td>
 </tr>
 <tr>
 <td>dTtoPipe1</td>
-<td>Source1 over Coolant1</td>
+<td>Temperature difference between heat source 1 and coolant in pipe 1</td>
 <td>Losses1 / ThermalConductor1.G</td>
 <td> 5 K</td>
 </tr>
 <tr>
 <td>dTCoolant1</td>
-<td>Coolant's temperature increase</td>
+<td>Change in coolant temperature in pipe 1</td>
 <td>Losses * cp * totalMassFlow/2</td>
 <td>10 K</td>
 </tr>
 <tr>
 <td>dTSource2</td>
-<td>Source2 over Ambient</td>
+<td>Temperature difference between heat source 2 and ambient condition</td>
 <td>dTCoolant2 + dTtoPipe2</td>
 <td>30 K</td>
 </tr>
 <tr>
 <td>dTtoPipe2</td>
-<td>Source2 over Coolant2</td>
+<td>Temperature difference between heat source 2 and coolant in pipe 2</td>
 <td>Losses2 / ThermalConductor2.G</td>
 <td>10 K</td>
 </tr>
 <tr>
 <td>dTCoolant2</td>
-<td>Coolant's temperature increase</td>
+<td>Change in coolant temperature in pipe 2</td>
 <td>Losses * cp * totalMassFlow/2</td>
 <td>20 K</td>
 </tr>
 <tr>
 <td>dTmixedCoolant</td>
-<td>mixed Coolant's temperature increase</td>
+<td>Overall change in coolant temperature</td>
 <td>(dTCoolant1+dTCoolant2)/2</td>
 <td>15 K</td>
 </tr>

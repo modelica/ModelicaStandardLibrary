@@ -8,11 +8,11 @@ model OneMass "Cooling of one hot mass"
   parameter SI.Temperature TMass(displayUnit="degC")=313.15
     "Initial temperature of mass";
   output SI.TemperatureDifference dTMass=
-    heatCapacitor.port.T-TAmb "Mass over Ambient";
+    heatCapacitor.port.T-TAmb "Temperature difference between mass and ambient condition";
   output SI.TemperatureDifference dTtoPipe=heatCapacitor.port.T-pipe.T_q
-    "Mass over Coolant";
+    "Temperature difference between mass and coolant";
   output SI.TemperatureDifference dTCoolant=pipe.dT
-    "Coolant's temperature increase";
+    "Change in coolant temperature";
   FluidHeatFlow.Sources.Ambient ambient1(
     constantAmbientTemperature=TAmb,
     medium=medium,
