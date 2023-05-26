@@ -10,7 +10,7 @@ model PumpDropOut "Cooling circuit with drop out of pump"
   output SI.TemperatureDifference dTtoPipe=prescribedHeatFlow.port.T-pipe.T_q
     "Temperature difference between heat source and coolant";
   output SI.TemperatureDifference dTCoolant=pipe.dT
-    "Change in coolant temperature";
+    "Coolant's temperature increase";
   FluidHeatFlow.Sources.Ambient ambient1(
     constantAmbientTemperature=TAmb,
     medium=medium,

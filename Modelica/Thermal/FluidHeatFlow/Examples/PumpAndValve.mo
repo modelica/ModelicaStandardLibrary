@@ -10,7 +10,7 @@ model PumpAndValve "Cooling circuit with pump and valve"
   output SI.TemperatureDifference dTtoPipe=prescribedHeatFlow.port.T-pipe.T_q
     "Temperature difference between heat source and ambient condition";
   output SI.TemperatureDifference dTCoolant=pipe.dT
-    "Change in coolant temperature";
+    "Coolant's temperature increase";
   FluidHeatFlow.Sources.Ambient ambient1(
     constantAmbientTemperature=TAmb,
     medium=medium,

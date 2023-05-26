@@ -12,7 +12,7 @@ model OneMass "Cooling of one hot mass"
   output SI.TemperatureDifference dTtoPipe=heatCapacitor.port.T-pipe.T_q
     "Temperature difference between mass and coolant";
   output SI.TemperatureDifference dTCoolant=pipe.dT
-    "Change in coolant temperature";
+    "Coolant's temperature increase";
   FluidHeatFlow.Sources.Ambient ambient1(
     constantAmbientTemperature=TAmb,
     medium=medium,

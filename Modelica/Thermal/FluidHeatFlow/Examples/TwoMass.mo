@@ -20,9 +20,9 @@ model TwoMass "Cooling of two hot masses"
   output SI.TemperatureDifference dTtoPipe2=heatCapacitor2.port.T-pipe2.T_q
     "Temperature difference between mass 2 and coolant in pipe 2";
   output SI.TemperatureDifference dTCoolant2=pipe2.dT
-    "Change in coolant temperature in pipe 2";
+    "Coolant2's temperature increase";
   output SI.TemperatureDifference dTmixedCoolant=ambient2.T_port-ambient1.T_port
-    "Overall change in coolant temperature";
+    "Mixed Coolant's temperature increase";
   FluidHeatFlow.Sources.Ambient ambient1(
     constantAmbientTemperature=TAmb,
     medium=medium,

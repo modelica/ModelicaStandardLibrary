@@ -11,13 +11,13 @@ model ParallelPumpDropOut
   output SI.TemperatureDifference dTtoPipe1=prescribedHeatFlow1.port.T-pipe1.T_q
     "Temperature difference between heat source 1 and coolant in pipe 1";
   output SI.TemperatureDifference dTCoolant1=pipe1.dT
-    "Change in coolant temperature in pipe 1";
+    "Coolant1's temperature increase";
   output SI.TemperatureDifference dTSource2=
     prescribedHeatFlow2.port.T-TAmb "Temperature difference between heat source 2 and ambient condition";
   output SI.TemperatureDifference dTtoPipe2=prescribedHeatFlow2.port.T-pipe2.T_q
     "Temperature difference between heat source 2 and coolant in pipe 2";
   output SI.TemperatureDifference dTCoolant2=pipe2.dT
-    "Change in coolant temperature in pipe 2";
+    "Coolant2's temperature increase";
   output SI.TemperatureDifference dTmixedCoolant=ambient2.T_port-ambient1.T_port
     "Overall change in coolant temperature";
   FluidHeatFlow.Sources.Ambient ambient1(

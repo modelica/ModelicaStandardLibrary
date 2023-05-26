@@ -11,7 +11,7 @@ model SimpleCooling "Simple cooling circuit"
   output SI.TemperatureDifference dTtoPipe=prescribedHeatFlow.port.T-pipe.T_q
     "Temperature difference between heat source and coolant";
   output SI.TemperatureDifference dTCoolant=pipe.dT
-    "Change in coolant temperature";
+    "Coolant's temperature increase";
   FluidHeatFlow.Sources.Ambient ambient1(
     constantAmbientTemperature=TAmb,
     medium=medium,
@@ -107,7 +107,7 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
 </tr>
 <tr>
 <td>dTCoolant</td>
-<td>Change in coolant temperature</td>
+<td>Coolant's temperature increase</td>
 <td>Losses * cp * massFlow</td>
 <td>10 K</td>
 </tr>

@@ -11,15 +11,15 @@ model ParallelCooling "Cooling circuit with parallel branches"
   output SI.TemperatureDifference dTtoPipe1=prescribedHeatFlow1.port.T-pipe1.T_q
     "Temperature difference between heat source 1 and coolant in pipe 1";                      
   output SI.TemperatureDifference dTCoolant1=pipe1.dT
-    "Change in coolant temperature in pipe 1";
+    "Coolant1's temperature increase in pipe 1";
   output SI.TemperatureDifference dTSource2=
     prescribedHeatFlow2.port.T-TAmb "Temperature difference between Heat source 2 and ambient condition";
   output SI.TemperatureDifference dTtoPipe2=prescribedHeatFlow2.port.T-pipe2.T_q
     "Temperature difference between heat source 2 and coolant in pipe 2;
   output SI.TemperatureDifference dTCoolant2=pipe2.dT
-    "Change in coolant temperature in pipe 2";
+    "Coolant2's temperature increase in pipe 2";
   output SI.TemperatureDifference dTmixedCoolant=ambient2.T_port-ambient1.T_port
-    "Overall change in coolant temperature";
+    "Mixed Coolant's temperature increase";
   FluidHeatFlow.Sources.Ambient ambient1(
     constantAmbientTemperature=TAmb,
     medium=medium,
@@ -181,7 +181,7 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
 </tr>
 <tr>
 <td>dTCoolant1</td>
-<td>Change in coolant temperature in pipe 1</td>
+<td>Coolant1's temperature increase in pipe 1</td>
 <td>Losses * cp * totalMassFlow/2</td>
 <td>10 K</td>
 </tr>
@@ -199,13 +199,13 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
 </tr>
 <tr>
 <td>dTCoolant2</td>
-<td>Change in coolant temperature in pipe 2</td>
+<td>Coolant2's temperature increase in pipe 2</td>
 <td>Losses * cp * totalMassFlow/2</td>
 <td>20 K</td>
 </tr>
 <tr>
 <td>dTmixedCoolant</td>
-<td>Overall change in coolant temperature</td>
+<td>Mixed Coolant's temperature increase</td>
 <td>(dTCoolant1+dTCoolant2)/2</td>
 <td>15 K</td>
 </tr>

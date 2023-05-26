@@ -12,11 +12,11 @@ model IndirectCooling "Indirect cooling circuit"
   output SI.TemperatureDifference dTtoPipe=prescribedHeatFlow.port.T-pipe1.T_q
     "Temperature difference between heat source and coolant in pipe 1";
   output SI.TemperatureDifference dTinnerCoolant=pipe1.dT
-    "Change in coolant temperature in inner coolant cycle";
+    "Inner Coolant's temperature increase";
   output SI.TemperatureDifference dTCooler=innerPipe.T_q-outerPipe.T_q
-    "Temperature difference of coolant between inner pipe and outer pipe";
+    "Coolant temperature difference between inner pipe and outer pipe";
   output SI.TemperatureDifference dTouterCoolant=outerPipe.dT
-    "Change in coolant temperature in outer pipe";
+    "Outer coolant's temperature increase";
   FluidHeatFlow.Sources.Ambient ambient1(
     constantAmbientTemperature=TAmb,
     medium=outerMedium,
@@ -185,19 +185,19 @@ Inner coolant's temperature rise near the source is the same as temperature drop
 </tr>
 <tr>
 <td>dTinnerColant</td>
-<td>Change in coolant temperature in inner coolant cycle</td>
+<td>Inner Coolant's temperature increase</td>
 <td>Losses * cp * innerMassFlow</td>
 <td>10 K</td>
 </tr>
 <tr>
 <td>dTCooler</td>
-<td>Temperature difference of coolant between inner pipe and outer pipe</td>
+<td>Coolant temperature difference between inner pipe and outer pipe</td>
 <td>Losses * (innerGc + outerGc)</td>
 <td>10 K</td>
 </tr>
 <tr>
 <td>dTouterColant</td>
-<td>Change in coolant temperature in outer pipe</td>
+<td>Outer coolant's temperature increase</td>
 <td>Losses * cp * outerMassFlow</td>
 <td>10 K</td>
 </tr>
