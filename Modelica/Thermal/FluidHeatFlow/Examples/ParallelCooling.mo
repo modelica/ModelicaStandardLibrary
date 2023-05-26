@@ -15,7 +15,7 @@ model ParallelCooling "Cooling circuit with parallel branches"
   output SI.TemperatureDifference dTSource2=
     prescribedHeatFlow2.port.T-TAmb "Temperature difference between Heat source 2 and ambient condition";
   output SI.TemperatureDifference dTtoPipe2=prescribedHeatFlow2.port.T-pipe2.T_q
-    "Temperature difference between heat source 2 and coolant in pipe 2;
+    "Temperature difference between heat source 2 and coolant in pipe 2";
   output SI.TemperatureDifference dTCoolant2=pipe2.dT
     "Coolant2's temperature increase in pipe 2";
   output SI.TemperatureDifference dTmixedCoolant=ambient2.T_port-ambient1.T_port
