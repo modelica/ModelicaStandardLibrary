@@ -36,7 +36,7 @@ jobs:
         with:
           python-version: 3.8
       - name: Install python packages
-        run:  pip install --user codespell
+        run:  pip install --disable-pip-version-check --user codespell
       - name: Check for spelling errors
         run: |
           printf "[codespell]\nenable-colors=\n" >> .codespellrc
@@ -47,7 +47,7 @@ jobs:
           codespell -L ser ./Modelica/Electrical/Polyphase/Examples/PolyphaseRectifier.mo
           codespell -L ser ./Modelica/Electrical/Polyphase/Examples/Utilities/PolyphaseRectifierData.mo
           codespell -L pres ./Modelica/Fluid/Dissipation.mo
-          codespell -L fo,alo,als,cacl,ba,nd ./Modelica/Media/IdealGases/package.mo
+          codespell -L fo,alo,als,cacl,ba,nd,GeS,CaF,InH ./Modelica/Media/IdealGases/package.mo
           codespell -L fo,alo,als,cacl,ba,nd,alow ./Modelica/Media/IdealGases/Common/SingleGasesData.mo
           codespell -L alow ./Modelica/Media/IdealGases/Common/Functions.mo
           codespell -L alow ./Modelica/Media/IdealGases/Common/package.mo
