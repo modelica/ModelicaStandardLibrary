@@ -205,7 +205,7 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
 </tr>
 <tr>
 <td>dTmixedCoolant</td>
-<td>Mixed Coolant's temperature increase</td>
+<td>Mixed coolant's temperature increase</td>
 <td>(dTCoolant1+dTCoolant2)/2</td>
 <td>15 K</td>
 </tr>
