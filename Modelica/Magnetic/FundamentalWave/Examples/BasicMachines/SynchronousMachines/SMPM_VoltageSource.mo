@@ -162,7 +162,7 @@ equation
   connect(currentController.y, signalVoltage.v) annotation (Line(
       points={{-29,50},{-22,50}}, color={0,0,127}));
   connect(currentSensor.i,currentController. iActual) annotation (Line(
-      points={{-21,0},{-46,0},{-46,38}}, color={0,0,127}));
+      points={{-21,1.9984e-015},{-46,1.9984e-015},{-46,38}}, color={0,0,127}));
   connect(inertiaLoad.flange_a, torqueSensor.flange_b) annotation (Line(
       points={{50,-40},{50,-60}}));
   connect(torqueSensor.flange_a, smpm.flange) annotation (Line(

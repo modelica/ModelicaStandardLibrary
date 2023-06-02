@@ -154,7 +154,7 @@ equation
   connect(dqCurrentController.y, signalVoltage.v)
     annotation (Line(points={{-29,50},{-22,50}}, color={0,0,127}));
   connect(currentSensor.i, dqCurrentController.iActual) annotation (Line(
-        points={{-21,0},{-46,0},{-46,38}}, color={0,0,
+        points={{-21,1.9984e-015},{-46,1.9984e-015},{-46,38}}, color={0,0,
           127}));
   connect(inertiaLoad.flange_a, multiSensor.flange_b)
     annotation (Line(points={{60,-40},{50,-40}}));

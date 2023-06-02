@@ -70,7 +70,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(crank2.frame_a, crank1.frame_b) annotation (Line(
-      points={{0,-90},{-10,-90}},
+      points={{-4.44089e-16,-90},{-10,-90}},
       color={95,95,95},
       thickness=0.5));
   connect(bearing.frame_b, crank1.frame_a) annotation (Line(

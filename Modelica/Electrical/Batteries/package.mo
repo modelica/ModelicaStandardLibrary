@@ -11,7 +11,7 @@ package Batteries "Simple battery models"
         Rectangle(extent={{-70,50},{70,-50}}, lineColor={95,95,95},
           fillColor={215,215,215},
           fillPattern=FillPattern.HorizontalCylinder,
-          origin={0,-10},
+          origin={-7.10543e-15,-10},
           rotation=90),
         Ellipse(extent={{-10,50},{10,-50}},lineColor={95,95,95},
           fillColor={215,215,215},

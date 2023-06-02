@@ -39,7 +39,7 @@ equation
           {40,80},{40,8},{23,8}}, color={0,0,127}));
   connect(currentToVoltage1.pin_p, conductor.p) annotation (Line(points={{-18,8},
           {-10,8},{-10,10},{0,10}}, color={0,0,255}));
-  connect(conductor.p, currentToVoltage2.pin_p) annotation (Line(points={{0,
+  connect(conductor.p, currentToVoltage2.pin_p) annotation (Line(points={{1.77636e-015,
           10},{10,10},{10,8},{18,8}}, color={0,0,255}));
   connect(currentToVoltage1.pin_n, conductor.n) annotation (Line(points={{-18,-8},
           {-10,-8},{-10,-10},{0,-10}}, color={0,0,255}));

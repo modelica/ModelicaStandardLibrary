@@ -55,7 +55,7 @@ equation
   connect(powerMot.pc, powerMot.pv)
     annotation (Line(points={{20,-70},{20,-60},{30,-60}}, color={0,0,255}));
   connect(powerBat.power, feedback.u2) annotation (Line(points={{40,81},
-          {40,88},{70,88},{70,0},{58,0}},
+          {40,88},{70,88},{70,-4.44089e-16},{58,-4.44089e-16}},
                                   color={0,0,127}));
   connect(powerMot.power, feedback.u1) annotation (Line(points={{20,-81},
           {20,-88},{50,-88},{50,-8}},

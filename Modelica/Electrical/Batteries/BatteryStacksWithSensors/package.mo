@@ -14,7 +14,7 @@ package BatteryStacksWithSensors "Battery cells and stacks with sensors"
         Rectangle(extent={{-70,50},{70,-50}}, lineColor={95,95,95},
           fillColor={215,215,215},
           fillPattern=FillPattern.HorizontalCylinder,
-          origin={0,-10},
+          origin={-7.10543e-15,-10},
           rotation=90),
         Polygon(
           points={{-40,25},{40,25},{50,15},{40,-20},{30,-25},{-30,-25},{-40,-20},{-50,15}},

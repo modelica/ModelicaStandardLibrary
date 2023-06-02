@@ -32,12 +32,12 @@ partial model HollowCylinderRadialFlux "Icon for cylinder with radial flux"
           origin={0,30},
           rotation=90),
         Line(
-          points={{-2,0},{60,0}},
+          points={{-2,-1.22465e-16},{60,0}},
           color={255,128,0},
           origin={60,-30},
           rotation=90),
         Line(
-          points={{-60,0},{0,0}},
+          points={{-60,0},{-3.20085e-22,-1.95996e-38}},
           color={255,128,0},
           origin={-60,30},
           rotation=90),

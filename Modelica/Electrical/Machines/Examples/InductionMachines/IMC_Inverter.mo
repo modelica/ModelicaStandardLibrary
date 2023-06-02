@@ -88,7 +88,7 @@ equation
   connect(loadTorqueStep.flange, loadInertia.flange_b)
     annotation (Line(points={{70,-40},{60,-40}}));
   connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p)
-    annotation (Line(points={{30,20},{30,10},{-10,10},{-10,0}},
+    annotation (Line(points={{30,20},{30,10},{-10,10},{-10,-1.77636e-15}},
                                                     color={0,0,255}));
   connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n)
     annotation (Line(

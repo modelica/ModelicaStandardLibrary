@@ -223,7 +223,7 @@ equation
       color={0,0,255}));
   connect(smpm.flange, rotorAngle.flange) annotation (Line(points={{10,-80},{20,-80}}));
   connect(signalCurrent.plug_p, star.plug_p) annotation (Line(
-      points={{0,0},{50,0}},
+      points={{1.77636e-15,0},{50,0}},
       color={0,0,255}));
   connect(angleSensor.flange, rotorAngle.flange) annotation (Line(points={{30,-50},{30,-60},{20,-60},{20,-80}}));
   connect(voltageQuasiRMSSensor.plug_p, terminalBox.plugSupply)
@@ -268,14 +268,14 @@ equation
   connect(dqToThreePhaseQS.I, referenceCurrentSourceQS.I) annotation (
       Line(points={{-29,94},{-20,94},{-20,96},{-12,96}}, color={85,170,
           255}));
-  connect(referenceCurrentSourceQS.plug_p, starQS.plug_p) annotation (Line(points={{0,100},{50,100}}, color={85,170,255}));
+  connect(referenceCurrentSourceQS.plug_p, starQS.plug_p) annotation (Line(points={{4.44089e-16,100},{50,100}}, color={85,170,255}));
   connect(starQS.pin_n, groundeQS.pin) annotation (Line(
       points={{50,80},{50,80}},
       color={85,170,255}));
   connect(angleSensorQS.flange, smpmQS.flange) annotation (Line(
       points={{30,50},{30,40},{20,40},{20,20},{10,20}}));
-  connect(referenceCurrentSourceQS.plug_p, resistorQS.plug_p) annotation (Line(points={{0,100},{20,100}}, color={85,170,255}));
-  connect(resistorQS.plug_n, referenceCurrentSourceQS.plug_n) annotation (Line(points={{20,80},{0,80}}, color={85,170,255}));
+  connect(referenceCurrentSourceQS.plug_p, resistorQS.plug_p) annotation (Line(points={{4.44089e-16,100},{20,100}}, color={85,170,255}));
+  connect(resistorQS.plug_n, referenceCurrentSourceQS.plug_n) annotation (Line(points={{20,80},{-6.66134e-16,80}}, color={85,170,255}));
   connect(dqToThreePhase.y, signalCurrent.i)
     annotation (Line(points={{-29,-10},{-12,-10}}, color={0,0,127}));
   connect(dqToThreePhaseQS.gamma, referenceCurrentSourceQS.gamma)

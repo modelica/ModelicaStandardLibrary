@@ -14,6 +14,6 @@ package BatteryStacks "Battery stacks built from cells"
         Rectangle(extent={{-70,50},{70,-50}}, lineColor={95,95,95},
           fillColor={215,215,215},
           fillPattern=FillPattern.HorizontalCylinder,
-          origin={0,-10},
+          origin={-7.10543e-15,-10},
           rotation=90)}));
 end BatteryStacks;

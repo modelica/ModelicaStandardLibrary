@@ -41,9 +41,9 @@ model TestCylinder "Two cylinder system"
     annotation (Placement(transformation(extent={{80,-10},{100,10}})));
 equation
   connect(cylinder1.flowPort, cylinder2.flowPort) annotation (Line(points={
-          {-10,0},{0,0}}, color={255,0,0}));
-  connect(force.flange, cylinder1.flange) annotation (Line(points={
-          {-40,0},{-30,0}}, color={0,127,0}));
+          {-10,-1.33227e-15},{-4,-1.33227e-15},{-4,0},{0,0}}, color={255,0,0}));
+  connect(force.flange, cylinder1.flange) annotation (Line(points={{-40,0},
+          {-34,0},{-34,1.33227e-15},{-30,1.33227e-15}}, color={0,127,0}));
   connect(combiTimeTable.y[1], force.f)
     annotation (Line(points={{-69,0},{-62,0}}, color={0,0,127}));
   connect(cylinder2.flange, mass.flange_a)

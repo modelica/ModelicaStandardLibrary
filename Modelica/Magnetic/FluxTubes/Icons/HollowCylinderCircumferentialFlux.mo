@@ -36,7 +36,8 @@ partial model HollowCylinderCircumferentialFlux
           startAngle=52,
           endAngle=180,
           closure=EllipseClosure.None),
-        Line(points={{40,-40},{0,0}}, color={255,128,0},
+        Line(points={{40,-40},{2.22045e-16,1.35963e-32}},
+                                        color={255,128,0},
           origin={36,-32},
           rotation=90),
         Line(points={{76,8},{78,12},{80,20}},  color={255,128,0})}));

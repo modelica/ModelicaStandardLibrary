@@ -29,7 +29,7 @@ model ChopperStepDown_RL "Step down chopper with R-L load"
     annotation (Placement(transformation(extent={{100,-90},{80,-70}})));
 equation
   connect(loadResistor.p, capacitor.p) annotation (Line(points={{40,50},{40,60},
-          {0,60},{0,10}}, color={0,0,255}));
+          {1.77636e-15,60},{1.77636e-15,10}}, color={0,0,255}));
   connect(loadInductor.n, currentSensor.p)
     annotation (Line(points={{40,0},{40,-10},{30,-10}}, color={0,0,255}));
   connect(loadResistor.n, loadInductor.p)

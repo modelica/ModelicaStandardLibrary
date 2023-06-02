@@ -141,7 +141,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(mid.frame_b, jointRRP.frame_a) annotation (Line(
-      points={{-40,-30},{0,-30},{0,-20}},
+      points={{-40,-30},{-1.33227e-015,-30},{-1.33227e-015,-20}},
       color={95,95,95},
       thickness=0.5));
   connect(jointRRP.frame_ib, piston.frame_b) annotation (Line(
@@ -149,7 +149,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(jointRRP.frame_b, cylinderInclination.frame_b) annotation (Line(
-      points={{0,20},{0,30},{-40,30}},
+      points={{1.22125e-015,20},{0,20},{0,30},{-40,30}},
       color={95,95,95},
       thickness=0.5));
   connect(crankAngle.frame_b, mid.frame_a) annotation (Line(

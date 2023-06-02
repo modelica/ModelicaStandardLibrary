@@ -164,7 +164,8 @@ equation
   connect(sineVoltage.plug_p, idealCloser.plug_p)
     annotation (Line(points={{-20,90},{0,90},{0,80}}, color={0,0,255}));
   connect(idealCloser.plug_n, electricalPowerSensor.plug_p) annotation (Line(
-        points={{0,60},{0,50}}, color={0,0,255}));
+        points={{-1.77636e-015,60},{0,60},{0,50},{1.77636e-015,50}}, color={0,0,
+          255}));
   connect(booleanReplicator.y, idealCloser.control)
     annotation (Line(points={{-29,70},{-12,70}}, color={255,0,255}));
   connect(booleanStep.y, booleanReplicator.u)

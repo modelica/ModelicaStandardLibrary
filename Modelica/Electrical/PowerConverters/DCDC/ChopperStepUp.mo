@@ -52,8 +52,9 @@ equation
     annotation (Line(points={{10,60},{100,60}}, color={0,0,255}));
   connect(dc_n1, dc_n2)
     annotation (Line(points={{-100,-60},{100,-60}}, color={0,0,255}));
-  connect(transistor.heatPort, heatPort) annotation (Line(points={
-          {-30,0},{0,0},{0,-100}}, color={191,0,0}));
+  connect(transistor.heatPort, heatPort) annotation (Line(points={{-30,
+          -4.44089e-16},{-16,-4.44089e-16},{-16,0},{0,0},{0,-100}}, color={
+          191,0,0}));
   connect(heatPort, diode.heatPort)
     annotation (Line(points={{0,-100},{0,50}}, color={191,0,0}));
   annotation (defaultComponentName="dcdc",

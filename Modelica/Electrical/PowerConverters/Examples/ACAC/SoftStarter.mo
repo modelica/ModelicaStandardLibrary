@@ -151,7 +151,7 @@ equation
   connect(multiSensor.pc, multiSensor.pv)
     annotation (Line(points={{-10,40},{-10,50},{0,50}}, color={0,0,255}));
   connect(multiSensor.nv,star2. plug_p)
-    annotation (Line(points={{0,30},{0,10}},
+    annotation (Line(points={{0,30},{0,10},{1.77636e-15,10}},
                                              color={0,0,255}));
   connect(terminalBox.plug_sn, imc.plug_sn)
     annotation (Line(points={{14,10},{14,10}}, color={0,0,255}));
@@ -162,7 +162,8 @@ equation
   connect(triac.fire2, adaptor.fire_n)
     annotation (Line(points={{-24,28},{-24,11}}, color={255,0,255}));
   connect(voltageSensor.v, adaptor.v)
-    annotation (Line(points={{-49,0},{-42,0}}, color={0,0,127}));
+    annotation (Line(points={{-49,-8.88178e-16},{-46,-8.88178e-16},{-46,0},{-42,
+          0}},                                 color={0,0,127}));
   connect(currentQuasiRMSSensor.plug_p, sineVoltage.plug_p)
     annotation (Line(points={{-80,20},{-80,10}}, color={0,0,255}));
   connect(currentQuasiRMSSensor.plug_n, triac.plug_p)

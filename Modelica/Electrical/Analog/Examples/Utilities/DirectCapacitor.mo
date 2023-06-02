@@ -37,18 +37,18 @@ equation
   connect(iDrive, currentSource.i)
     annotation (Line(points={{-120,0},{-52,0}}, color={0,0,127}));
   connect(capacitor.p, currentToVoltage.pin_p) annotation (Line(points={{
-          0,10},{10,10},{10,8},{18.4,8}},
+          1.77636e-015,10},{10,10},{10,8},{18.4,8}},
                                   color={0,0,255}));
   connect(capacitor.n, currentToVoltage.pin_n) annotation (Line(points={{
-          0,-10},{10,-10},{10,-8},{18.4,-8}},
+          -1.77636e-015,-10},{10,-10},{10,-8},{18.4,-8}},
                                      color={0,0,255}));
   connect(currentSource.p, ground.p)
     annotation (Line(points={{-40,-10},{-20,-10}}, color={0,0,255}));
   connect(ground.p, capacitor.n)
-    annotation (Line(points={{-20,-10},{0,-10}},
+    annotation (Line(points={{-20,-10},{-1.77636e-015,-10}},
                                                    color={0,0,255}));
   connect(currentSource.n, capacitor.p)
-    annotation (Line(points={{-40,10},{0,10}},
+    annotation (Line(points={{-40,10},{1.77636e-015,10}},
                                                  color={0,0,255}));
   annotation (Icon(coordinateSystem(
           preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
