@@ -19,7 +19,7 @@ model Rectangle "Visualizing a planar rectangular surface"
     "= true: 3D model will be displayed without faces"
     annotation (Dialog(enable=animation, group="Material properties"),choices(checkBox=true));
   input Modelica.Mechanics.MultiBody.Types.RealColor color={0,128,255}
-    "Color of surface" annotation(Dialog(enable=animation and not multiColoredSurface,colorSelector=true,group="Material properties"));
+    "Color of surface" annotation(Dialog(enable=animation,colorSelector=true,group="Material properties"));
   input Types.SpecularCoefficient specularCoefficient = 0.7
     "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(enable=animation,group="Material properties"));
   input Real transparency=0
@@ -38,7 +38,8 @@ protected
     final r_0=frame_a.r_0,
     final nu=nu,
     final nv=nv,
-    redeclare function surfaceCharacteristic = Advanced.SurfaceCharacteristics.rectangle (
+    redeclare function surfaceCharacteristic =
+        Advanced.SurfaceCharacteristics.rectangle (
       lu=length_u, lv=length_v)) if world.enableAnimation and animation
     annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
   Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque zeroForceAndTorque annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
