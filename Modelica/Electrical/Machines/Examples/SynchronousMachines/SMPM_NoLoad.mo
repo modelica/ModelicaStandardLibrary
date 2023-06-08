@@ -76,8 +76,7 @@ equation
     annotation (Line(points={{0,20},{0,12}}, color={0,0,255}));
   connect(potentialSensor.phi, toSpacePhasor.u) annotation (Line(points={{0,
           41},{0,50},{8,50}}, color={0,0,127}));
-  connect(constantSpeed.flange, smpm.flange)
-    annotation (Line(points={{32,0},{10,0}}));
+  connect(speed.flange, smpm.flange) annotation (Line(points={{30,0},{10,0}}));
   connect(smpm.flange, hallSensor.flange)
     annotation (Line(points={{10,0},{20,0},{20,-30},{30,-30}}));
   connect(toSpacePhasor.y, toPolar.u)
