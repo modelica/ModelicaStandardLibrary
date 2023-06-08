@@ -970,7 +970,7 @@ This record is used as <strong>input record</strong> for the heat transfer funct
           Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties;
         SI.DynamicViscosity eta_wall
           "Dynamic viscosity of fluid at wall temperature" annotation (Dialog(group=
-                "Fluid properties", enable= target == 2));
+                "Fluid properties"));
 
         //input variable (mass flow rate)
         SI.MassFlowRate m_flow annotation (Dialog(group="Input"));
@@ -5701,7 +5701,8 @@ This record is used as <strong>input record</strong> for the pressure loss funct
         output SI.Pressure DP "Two phase pressure loss";
 
       protected
-        type TYP = Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseFrictionalPressureLoss;
+        type TYP =
+            Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseFrictionalPressureLoss;
 
         Real MIN=Modelica.Constants.eps;
 
@@ -10782,8 +10783,8 @@ The heterogeneous approaches are analytically derived by minimising the momentum
           input Real Delta "Relative roughness";
           input Real lambda2 "Modified friction coefficient (= independent variable)";
           output SI.ReynoldsNumber Re "Interpolated Reynolds number in transition region";
-        protected
           // Point x1=lg(lambda2(Re1)) with derivative yd1=1 at y1=lg(Re1)
+        protected
           Real x1=Math.log10(64*Re1) "Lower abscissa value";
           Real y1=Math.log10(Re1) "Lower ordinate value";
           Real yd1=1 "Left boundary slope";
@@ -10839,8 +10840,8 @@ for a detailed explanation.
           input SI.ReynoldsNumber Re2 "Boundary Reynolds number for turbulent regime";
           input Real Delta "Relative roughness";
           output Real lambda2 "Interpolated modified friction coefficient in transition regime";
-        protected
           // Point x1=lg(Re1) with derivative yd1=1 at y1=lg(lambda2(Re1))
+        protected
           Real x1=Math.log10(Re1) "Lower abscissa value";
           Real y1=Math.log10(64*Re1) "Lower ordinate value";
           Real yd1=1 "Left boundary slope";
