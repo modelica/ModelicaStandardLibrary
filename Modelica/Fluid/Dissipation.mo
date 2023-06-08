@@ -12666,17 +12666,17 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           SI.Density rho_l "Density of liquid"
             annotation (Dialog(group="Fluid properties"));
           SI.Density rho_g "Density of gas" annotation (Dialog(group=
-                  "Fluid properties", enable= (KC == 1 or KC == 2)));
+                  "Fluid properties"));
           SI.DynamicViscosity eta_l "Dynamic viscosity of liquid"
             annotation (Dialog(group="Fluid properties"));
           SI.DynamicViscosity eta_g "Dynamic viscosity of gas" annotation (
-              Dialog(group="Fluid properties", enable= (KC == 1 or KC == 2)));
+              Dialog(group="Fluid properties"));
           SI.MassFraction x=0.5 "Vapour fraction"
             annotation (Dialog(group="Fluid properties"));
           SI.SurfaceTension sigma "Surface Tension" annotation (Dialog(group=
-                  "Fluid properties", enable= DP_fric == 1));
+                  "Fluid properties"));
           Real n=0.25 "Exponent in Blasius equation (0.2-0.25)" annotation (Dialog(
-                group="others", enable= DP_fric == 2));
+                group="others"));
         end TwoPhaseFlow;
       end General;
 
