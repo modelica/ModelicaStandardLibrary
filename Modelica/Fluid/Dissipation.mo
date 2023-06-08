@@ -12467,11 +12467,11 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           extends Modelica.Icons.Record;
 
           SI.Density rho_m "Mean density of ideal gas"
-            annotation (Dialog(group="Fluid properties", enable=useMeanDensity));
+            annotation (Dialog(group="Fluid properties"));
           SI.Temperature T_m "Mean temperature of ideal gas"
-            annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
+            annotation (Dialog(group="Fluid properties"));
           SI.Pressure p_m "Mean pressure of ideal gas"
-            annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
+            annotation (Dialog(group="Fluid properties"));
 
         end IdealGas_var;
 
@@ -12608,11 +12608,11 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             "Coefficient for pressure loss law [(Pa)^2/{(kg/s)^exp*K}]"
             annotation (Dialog(group="Generic variables"));
           SI.Density rho_m=p_m/(R_s*T_m) "Mean density of ideal gas"
-            annotation (Dialog(group="Fluid properties", enable=useMeanDensity));
+            annotation (Dialog(group="Fluid properties"));
           SI.Temperature T_m "Mean temperature of ideal gas"
-            annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
+            annotation (Dialog(group="Fluid properties"));
           SI.Pressure p_m "Mean pressure of ideal gas"
-            annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
+            annotation (Dialog(group="Fluid properties"));
 
         end IdealGas;
 
