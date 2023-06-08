@@ -1022,7 +1022,7 @@ together) and using the following strategy:
      occur in the previous step, start with Ti=0.01 s.</li>
 <li> If you want to make the reaction of the control loop faster
      (but probably less robust against disturbances and measurement noise)
-     select a <strong>PID</strong> Controller and manually adjust parameters
+     select a <strong>PID</strong> controller and manually adjust parameters
      <strong>k</strong>, <strong>Ti</strong>, <strong>Td</strong> (time constant of derivative block).</li>
 <li> Set the limits yMax and yMin according to your specification.</li>
 <li> Perform simulations such that the output of the PID controller
