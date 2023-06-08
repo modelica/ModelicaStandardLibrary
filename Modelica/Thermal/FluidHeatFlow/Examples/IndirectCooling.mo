@@ -184,7 +184,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
 <td>10 K</td>
 </tr>
 <tr>
-<td>dTinnerColant</td>
+<td>dTinnerCoolant</td>
 <td>Inner Coolant's temperature increase</td>
 <td>Losses * cp * innerMassFlow</td>
 <td>10 K</td>
@@ -196,7 +196,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
 <td>10 K</td>
 </tr>
 <tr>
-<td>dTouterColant</td>
+<td>dTouterCoolant</td>
 <td>Outer coolant's temperature increase</td>
 <td>Losses * cp * outerMassFlow</td>
 <td>10 K</td>
