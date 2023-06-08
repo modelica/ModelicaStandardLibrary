@@ -10382,7 +10382,9 @@ documentation available in this package.
               annotation (Dialog);
             input Real epsilon_A(min=0,max=1)
               "Void fraction (cross sectional averaged)"
-              annotation (Dialog(enable=not (twoPhaseDensityApproach == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseDensityApproach.Homogeneous)));
+              annotation (Dialog(enable=true));
+            // It should be enable=not (voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous)
+            // But then there is no value for epsilon_A
             input Real x_flow(min=0,max=1) "Mass flow rate quality" annotation (Dialog);
 
             output SI.Density rho_2ph "Mean density of two phase flow";
