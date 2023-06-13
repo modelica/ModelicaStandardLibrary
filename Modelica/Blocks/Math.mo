@@ -2343,15 +2343,16 @@ Note: The output is updated after each period defined by 1/f.
     Modelica.Blocks.Interfaces.RealOutput y
       "Expectation (mean) value of the input signal"
       annotation (Placement(transformation(extent={{100,-10},{120,10}})));
-
+    parameter Real startTime=-Modelica.Constants.inf "Starting point for mean if after simulation start-point";
   protected
     Real mu(start=0, fixed=true) "Internal integrator variable";
     parameter Real t_0(fixed=false) "Start time";
+    parameter Real actualStartTime=max(t_0, startTime);
   initial equation
     t_0 = time;
   equation
-    der(mu) = if time >= t_0 then u else 0;
-    y       = noEvent(if time > t_0 then mu/(time-t_0) else u);
+    der(mu) = if time >= actualStartTime then u else 0;
+    y       = noEvent(if time > actualStartTime then mu/(time-actualStartTime) else u);
 
     annotation (Documentation(revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
