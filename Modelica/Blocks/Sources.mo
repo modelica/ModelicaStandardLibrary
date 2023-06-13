@@ -294,7 +294,7 @@ If parameter duration is set to 0.0, the limiting case of a Step signal is achie
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Sine.png"));
     parameter SI.Frequency f(start=1) "Frequency of sine wave";
     parameter SI.Angle phase=0 "Phase of sine wave";
-    parameter Boolean continuous = false "If we want a smooth signal, the output will start at offset + amplitude*sin(phase)";
+    parameter Boolean continuous = false "Make output continuous by starting at offset + amplitude*sin(phase)";
     extends Interfaces.SignalSource;
   equation
     if continuous then
