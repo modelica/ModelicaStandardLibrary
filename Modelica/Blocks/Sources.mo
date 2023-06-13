@@ -294,10 +294,16 @@ If parameter duration is set to 0.0, the limiting case of a Step signal is achie
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Sine.png"));
     parameter SI.Frequency f(start=1) "Frequency of sine wave";
     parameter SI.Angle phase=0 "Phase of sine wave";
+    parameter Boolean continuous = false "If we want a smooth signal, the output will start at offset + amplitude*sin(phase)";
     extends Interfaces.SignalSource;
   equation
-    y = offset + smooth(1, (if time < startTime then 0 else amplitude*Modelica.Math.sin(2
-      *pi*f*(time - startTime) + phase)));
+    if continuous then
+      y = offset + amplitude*smooth(1, (if time < startTime then Modelica.Math.sin(phase)
+        else Modelica.Math.sin(2*pi*f*(time - startTime) + phase));
+    else 
+      y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.sin(2
+       *pi*f*(time - startTime) + phase));
+    end if;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -340,12 +346,12 @@ The Real output y is a sine signal:
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Cosine.png"));
     parameter SI.Frequency f(start=1) "Frequency of cosine wave";
     parameter SI.Angle phase=0 "Phase of cosine wave";
-    parameter Boolean continuous = false "If we want a smooth signal, the output will start at offset + amplitude";
+    parameter Boolean continuous = false "If we want a smooth signal, the output will start at offset + amplitude*cos(phase)";
     extends Interfaces.SignalSource;
   equation
     if continuous then
-      y = offset + smooth(1, amplitude*(if time < startTime then 1 else Modelica.Math.cos(2
-        *pi*f*(time - startTime) + phase)));
+      y = offset + smooth(1, amplitude*(if time < startTime then Modelica.Math.cos(phase)
+       else Modelica.Math.cos(2*pi*f*(time - startTime) + phase)));
     else
       y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.cos(2
         *pi*f*(time - startTime) + phase));
