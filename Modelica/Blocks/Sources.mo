@@ -605,7 +605,7 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
     parameter Real amplitude=1 "Amplitude of sine wave"
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Sinc.png"));
     parameter SI.Frequency f(start=1) "Frequency of sine wave";
-    parameter Boolean continuous = false "If we want a smooth signal, the output will start at offset + amplitude";
+    parameter Boolean continuous = false "Make output smooth by starting at offset + amplitude rather than just offset";
     extends Interfaces.SignalSource;
   protected
     SI.Angle x=2*pi*f*(time - startTime);
