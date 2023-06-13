@@ -340,10 +340,16 @@ The Real output y is a sine signal:
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Cosine.png"));
     parameter SI.Frequency f(start=1) "Frequency of cosine wave";
     parameter SI.Angle phase=0 "Phase of cosine wave";
+    parameter Boolean continuous = false "If we want a smooth signal, the output will start at offset + amplitude";
     extends Interfaces.SignalSource;
   equation
-    y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.cos(2
-      *pi*f*(time - startTime) + phase));
+    if continuous then
+      y = offset + smooth(1, amplitude*(if time < startTime then 1 else Modelica.Math.cos(2
+        *pi*f*(time - startTime) + phase)));
+    else
+      y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.cos(2
+        *pi*f*(time - startTime) + phase));
+    end if;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -593,12 +599,18 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
     parameter Real amplitude=1 "Amplitude of sine wave"
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Sinc.png"));
     parameter SI.Frequency f(start=1) "Frequency of sine wave";
+    parameter Boolean continuous = false "If we want a smooth signal, the output will start at offset + amplitude";
     extends Interfaces.SignalSource;
   protected
     SI.Angle x=2*pi*f*(time - startTime);
   equation
-    y = offset + (if time < startTime then 0 else amplitude*
-      (if noEvent(time - startTime < eps) then 1 else (sin(x))/x));
+    if continuous then
+     y = offset + amplitude*smooth(1, (if time < startTime then 1 else 
+        (if noEvent(time - startTime < eps) then 1 else (sin(x))/x)));
+    else
+      y = offset + (if time < startTime then 0 else amplitude*
+        (if noEvent(time - startTime < eps) then 1 else (sin(x))/x));
+    end if;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -648,11 +660,18 @@ The Real output y is a sinc signal: <code> amplitude*(sin(2*&pi;*f*t))/((2*&pi;*
     parameter SI.Angle phase=0 "Phase of sine wave";
     parameter SI.Damping damping(start=1)
       "Damping coefficient of sine wave";
+   parameter Boolean continuous = false "If we want a smooth signal, the output will start at offset + amplitude";
     extends Interfaces.SignalSource;
   equation
-    y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.exp(-
-      (time - startTime)*damping)*Modelica.Math.sin(2*pi*f*(time -
-      startTime) + phase));
+    if continuous then
+      y = offset + amplitude*smooth(1, (if time < startTime then 1 else Modelica.Math.exp(-
+        (time - startTime)*damping)*Modelica.Math.sin(2*pi*f*(time -
+        startTime) + phase)));
+    else
+      y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.exp(-
+        (time - startTime)*damping)*Modelica.Math.sin(2*pi*f*(time -
+        startTime) + phase));
+    end if;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
