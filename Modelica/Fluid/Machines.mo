@@ -292,6 +292,116 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
 </html>"));
   end PrescribedPump;
 
+  model SimplePump
+    "Centrifugal pump with ideally controlled mass flow rate; without N"
+    import Modelica.Units.NonSI.AngularVelocity_rpm;
+    extends Modelica.Fluid.Machines.BaseClasses.PartialPump(
+      final ignoreN=true,
+      final checkValve=false,
+      redeclare function efficiencyCharacteristic =
+          Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.constantEfficiency
+          (eta_nominal=0.8),
+      final use_powerCharacteristic=false,
+      N_nominal=1500,
+      redeclare function flowCharacteristic =
+          Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow
+          ( V_flow_nominal={0, V_flow_op, 1.5*V_flow_op},
+            head_nominal={2*head_op, head_op, 0}));
+
+    // nominal values
+    parameter Medium.AbsolutePressure p_a_nominal
+      "Nominal inlet pressure for predefined pump characteristics";
+    parameter Medium.AbsolutePressure p_b_nominal
+      "Nominal outlet pressure, fixed if not control_m_flow and not use_p_set";
+    parameter Medium.MassFlowRate m_flow_nominal
+      "Nominal mass flow rate, fixed if control_m_flow and not use_m_flow_set";
+
+    // what to control
+    parameter Boolean control_m_flow = true
+      "= false to control outlet pressure port_b.p instead of m_flow"
+      annotation(Evaluate = true);
+    parameter Boolean use_m_flow_set = false
+      "= true to use input signal m_flow_set instead of m_flow_nominal"
+      annotation (Dialog(enable = control_m_flow));
+    parameter Boolean use_p_set = false
+      "= true to use input signal p_set instead of p_b_nominal"
+      annotation (Dialog(enable = not control_m_flow));
+
+    // exemplary characteristics
+    final parameter SI.VolumeFlowRate V_flow_op = m_flow_nominal/rho_nominal
+      "Operational volume flow rate according to nominal values";
+    final parameter SI.Position head_op = (p_b_nominal-p_a_nominal)/(rho_nominal*g)
+      "Operational pump head according to nominal values";
+
+    Modelica.Blocks.Interfaces.RealInput m_flow_set(unit="kg/s") if use_m_flow_set
+      "Prescribed mass flow rate"
+      annotation (Placement(transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=-90,
+          origin={-50,82})));
+    Modelica.Blocks.Interfaces.RealInput p_set(unit="Pa") if use_p_set
+      "Prescribed outlet pressure"
+      annotation (Placement(transformation(
+          extent={{-20,-20},{20,20}},
+          rotation=-90,
+          origin={50,82})));
+
+  protected
+    Modelica.Blocks.Interfaces.RealInput m_flow_set_internal(unit="kg/s")
+      "Needed to connect to conditional connector";
+    Modelica.Blocks.Interfaces.RealInput p_set_internal(unit="Pa")
+      "Needed to connect to conditional connector";
+  equation
+    // Ideal control
+    if control_m_flow then
+      m_flow = m_flow_set_internal;
+    else
+      dp_pump = p_set_internal - port_a.p;
+    end if;
+
+    // Internal connector value when use_m_flow_set = false
+    if not use_m_flow_set then
+      m_flow_set_internal = m_flow_nominal;
+    end if;
+    if not use_p_set then
+      p_set_internal = p_b_nominal;
+    end if;
+    connect(m_flow_set, m_flow_set_internal);
+    connect(p_set, p_set_internal);
+
+    annotation (defaultComponentName="pump",
+      Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
+              100}}), graphics={Text(
+            visible=use_p_set,
+            extent={{82,108},{176,92}},
+            textString="p_set"), Text(
+            visible=use_m_flow_set,
+            extent={{-20,108},{170,92}},
+            textString="m_flow_set")}),
+      Documentation(info="<html>
+<p>
+This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps)
+with ideally controlled mass flow rate or pressure.
+</p>
+<p>
+Nominal values are used to predefine an exemplary pump characteristics and to define the operation of the pump.
+The input connectors <code>m_flow_set</code> or <code>p_set</code> can optionally be enabled to provide time varying set points.
+</p>
+<p>
+Use this model if the pump characteristics is of <em>no</em> interest.
+The actual characteristics can be configured later on for the appropriate rotational speed N.
+Then the model can be replaced with a Pump with rotational shaft or with a PrescribedPump.
+</p>
+</html>",
+        revisions="<html>
+<ul>
+<li><em>13 June 2023</em>
+    by Hans Olsson<br />
+       Model added to the Fluid library based on <a href=\"modelica://Modelica.Fluid.Machines.ControlledPump\">ControlledPump</a></li>
+</ul>
+</html>"));
+  end SimplePump;
+
   package BaseClasses
     "Base classes used in the Machines package (only of interest to build new component models)"
     extends Modelica.Icons.BasesPackage;
@@ -428,8 +538,9 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
     protected
     constant SI.Position unitHead = 1;
     constant SI.MassFlowRate unitMassFlowRate = 1;
-
+    parameter Boolean ignoreN = false "Only use if checkValve=false and use_powerCharacteristic=false";
   equation
+    assert(not ignoreN or (not checkValve and not use_powerCharacteristic), "Can only ignore N in simple configuration");
     // Flow equations
      V_flow = homotopy(m_flow/rho,
                        m_flow/rho_nominal);
@@ -437,8 +548,12 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
     if not checkValve then
       // Regular flow characteristics without check valve
       // The simplified model uses an approximation of the tangent to the head curve in the initialization point
+      if ignoreN then
+        N=N_nominal;
+      else
       head = homotopy((N/N_nominal)^2*flowCharacteristic(V_flow_single*N_nominal/N),
                        N/N_nominal*(flowCharacteristic(V_flow_single_init)+(V_flow_single-V_flow_single_init)*noEvent(if abs(V_flow_single_init)>0 then delta_head_init/(0.1*V_flow_single_init) else 0)));
+      end if;
       s = 0;
     else
       // Flow characteristics when check valve is open
