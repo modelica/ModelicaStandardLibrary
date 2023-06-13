@@ -1,0 +1,5 @@
+convertModifiers("Modelica.Electrical.QuasiStatic.Polyphase.Sources.CurrentSource", {"gamma.fixed"}, fill("",0));
+convertModifiers("Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource", {"gamma.fixed"}, fill("",0));
+convertModifiers("Modelica.Electrical.QuasiStatic.SinglePhase.Sources.CurrentSource", {"gamma.fixed"}, fill("",0));
+convertModifiers("Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource", {"gamma.fixed"}, fill("",0));
+
