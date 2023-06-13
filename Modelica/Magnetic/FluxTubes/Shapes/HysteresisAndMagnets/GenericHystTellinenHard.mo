@@ -7,7 +7,7 @@ model GenericHystTellinenHard
   //Hysteresis parameter
   parameter SI.MagneticFluxDensity Br=1.2 "Remanence" annotation (Dialog(group="Hysteresis", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenHard/HardMagneticHysteresis.png"));
   parameter SI.MagneticFieldStrength Hc=5e5 "Coercitivity" annotation (Dialog(group="Hysteresis"));
-  parameter Real M = 10/Hc "Slope of tanh()-function" annotation (Dialog(group="Hysteresis"));
+  parameter Real M(final unit="m/A") = 10/Hc "Slope of tanh()-function" annotation (Dialog(group="Hysteresis"));
   parameter Real K=1 "Slope of hysteresis in the saturation region (K*mu_0)" annotation (Dialog(group="Hysteresis"));
 
 protected
