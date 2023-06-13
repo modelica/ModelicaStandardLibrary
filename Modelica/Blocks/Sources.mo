@@ -122,7 +122,7 @@ variable <strong>y</strong> is both a variable and a connector.
     extends Interfaces.SignalSource;
 
   equation
-    y = offset + smooth(1, (if time < startTime then 0 else time - startTime));
+    y = offset + smooth(0, (if time < startTime then 0 else time - startTime));
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -207,7 +207,7 @@ The Real output y is a constant signal:
     extends Interfaces.SignalSource;
 
   equation
-    y = offset + smooth(1, (if time < startTime then 0 else height));
+    y = offset + (if time < startTime then 0 else height);
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -298,7 +298,7 @@ If parameter duration is set to 0.0, the limiting case of a Step signal is achie
     extends Interfaces.SignalSource;
   equation
     if continuous then
-      y = offset + amplitude*smooth(1, (if time < startTime then Modelica.Math.sin(phase)
+      y = offset + amplitude*smooth(0, (if time < startTime then Modelica.Math.sin(phase)
         else Modelica.Math.sin(2*pi*f*(time - startTime) + phase)));
     else 
       y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.sin(2
@@ -350,7 +350,7 @@ The Real output y is a sine signal:
     extends Interfaces.SignalSource;
   equation
     if continuous then
-      y = offset + smooth(1, amplitude*(if time < startTime then Modelica.Math.cos(phase)
+      y = offset + smooth(0, amplitude*(if time < startTime then Modelica.Math.cos(phase)
        else Modelica.Math.cos(2*pi*f*(time - startTime) + phase)));
     else
       y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.cos(2
