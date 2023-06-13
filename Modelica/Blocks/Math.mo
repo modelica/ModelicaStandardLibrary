@@ -2336,7 +2336,7 @@ Note: The output is updated after each period defined by 1/f.
     "Calculates the empirical expectation (mean) value of its input signal"
     extends Modelica.Blocks.Icons.Block;
     parameter SI.Time t_eps(min= 100*Modelica.Constants.eps)=1e-7
-      "Mean value calculation starts at startTime + t_eps"
+      "Not used"
       annotation(Dialog(group="Advanced"));
 
     Modelica.Blocks.Interfaces.RealInput u "Noisy input signal" annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
@@ -2345,19 +2345,20 @@ Note: The output is updated after each period defined by 1/f.
       annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
   protected
-    Real mu "Internal integrator variable";
+    Real mu(start=0, fixed=true) "Internal integrator variable";
     parameter Real t_0(fixed=false) "Start time";
   initial equation
     t_0 = time;
-    mu  = u;
   equation
-    der(mu) = noEvent(if time >= t_0 + t_eps then (u-mu)/(time-t_0) else 0);
-    y       = noEvent(if time >= t_0 + t_eps then mu                else u);
+    der(mu) = if time >= t_0 then u else 0;
+    y       = noEvent(if time > t_0 then mu/(time-t_0) else u);
 
     annotation (Documentation(revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
-
+<tr><td> June 13, 2023</td>
+<td>Hans Olsson. Avoid almost singularity for integrators.</td>
+</tr>
 <tr><td> June 22, 2015 </td>
     <td>
 
