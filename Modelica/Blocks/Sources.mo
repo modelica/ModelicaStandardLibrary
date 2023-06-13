@@ -346,7 +346,7 @@ The Real output y is a sine signal:
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Cosine.png"));
     parameter SI.Frequency f(start=1) "Frequency of cosine wave";
     parameter SI.Angle phase=0 "Phase of cosine wave";
-    parameter Boolean continuous = false "If we want a smooth signal, the output will start at offset + amplitude*cos(phase)";
+    parameter Boolean continuous = false "Make output continuous by starting at offset + amplitude*cos(phase)";
     extends Interfaces.SignalSource;
   equation
     if continuous then
