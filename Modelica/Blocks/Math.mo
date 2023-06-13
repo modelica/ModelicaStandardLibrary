@@ -2335,8 +2335,8 @@ Note: The output is updated after each period defined by 1/f.
   block ContinuousMean
     "Calculates the empirical expectation (mean) value of its input signal"
     extends Modelica.Blocks.Icons.Block;
-    parameter SI.Time t_eps(min= 100*Modelica.Constants.eps)=1e-7
-      "Not used"
+    parameter SI.Time t_eps(min= 0)=1e-7
+      "Mean value calculation starts at startTime + t_eps"
       annotation(Dialog(group="Advanced"));
 
     Modelica.Blocks.Interfaces.RealInput u "Noisy input signal" annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
@@ -2347,7 +2347,7 @@ Note: The output is updated after each period defined by 1/f.
   protected
     Real mu(start=0, fixed=true) "Internal integrator variable";
     parameter Real t_0(fixed=false) "Start time";
-    parameter Real actualStartTime=max(t_0, startTime);
+    parameter Real actualStartTime=max(t_0, startTime)+t_eps;
   initial equation
     t_0 = time;
   equation
