@@ -7,11 +7,11 @@ package Constants
   import Modelica.Units.NonSI;
 
   // Mathematical constants
-  final constant Real e=Modelica.Math.exp(1.0);
-  final constant Real pi=2*Modelica.Math.asin(1.0); // 3.14159265358979;
-  final constant Real D2R=pi/180 "Degree to Radian";
-  final constant Real R2D=180/pi "Radian to Degree";
-  final constant Real gamma=0.57721566490153286061
+  final constant Real e(final unit="1") = Modelica.Math.exp(1.0);
+  final constant Real pi(final unit="1") = 2*Modelica.Math.asin(1.0); // 3.14159265358979;
+  final constant Real D2R(final unit="rad/deg") = pi/180 "Degree to Radian";
+  final constant Real R2D(final unit="deg/rad") = 180/pi "Radian to Degree";
+  final constant Real gamma(final unit="1") = 0.57721566490153286061
     "See http://en.wikipedia.org/wiki/Euler_constant";
 
   // Machine dependent constants
