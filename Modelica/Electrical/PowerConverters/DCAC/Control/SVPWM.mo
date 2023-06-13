@@ -26,7 +26,7 @@ protected
   discrete SI.Angle phiPos(start=0, fixed=true) "Angle of reference vector within [0, 2*pi)";
   Integer ka(start=0, fixed=true), kb(start=0, fixed=true) "Switching patterns limiting the sector";
   discrete SI.Angle phiSec(start=0, fixed=true) "Angle of reference vector within sector within [0, pi/m)";
-  discrete Real ta(start=0, fixed=true), tb(start=0, fixed=true), t0(start=samplePeriod, fixed=true) "Relative time spans of vectors a, b, and 0";
+  discrete Real ta(start=0, fixed=true), tb(start=0, fixed=true), t0(start=1, fixed=true) "Relative time spans of vectors a, b, and 0";
   discrete SI.Time T0(start=startTime, fixed=true) "Start time of switching interval";
 algorithm
   when sampleTrigger then
