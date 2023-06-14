@@ -8845,7 +8845,6 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
       extends Modelica.Icons.Example;
       parameter Real tol=1e-3;
       inner MultiBody.World world(
-        enableAnimation=false,
         gravityType=MultiBody.Types.GravityTypes.UniformGravity)
         annotation (Placement(transformation(extent={{-100,-10},{-80,10}})));
       MultiBody.Joints.Revolute rev(
