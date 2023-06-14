@@ -8906,7 +8906,7 @@ This test model was proposed in ticket <a href=\"https://github.com/modelica/Mod
     equation
       for i in 1:18 loop
         assert(err1[i].y < tol and err2[i].y < tol,
-          "Errors must be less then tolerance");
+          "Errors must be less than tolerance");
       end for;
       connect(world.frame_b, rev.frame_a) annotation (Line(
           points={{-80,0},{-60,0}},
