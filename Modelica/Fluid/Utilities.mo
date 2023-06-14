@@ -700,17 +700,22 @@ for a smooth transition from y1 to y2.
         eta_tilde := rho*eta;
         xi1 := x0 + mu_tilde;
         xi2 := x1 - eta_tilde;
-        a1 := (y0d - c)/max(mu_tilde^2, 100*Modelica.Constants.eps);
-        a2 := (y1d - c)/max(eta_tilde^2, 100*Modelica.Constants.eps);
-        const12 := y0 - a1/3*(x0 - xi1)^3 - c*x0;
-        const3 := y1 - a2/3*(x1 - xi2)^3 - c*x1;
-        // Do actual interpolation
-        if (x < xi1) then
-          y := a1/3*(x - xi1)^3 + c*x + const12;
-        elseif (x < xi2) then
-          y := c*x + const12;
+        if  xi1 < x0 or xi2>x1 then
+          // The limits don't make sense, just use linear interpolation
+          y := (y1-y0)*(x-x0)/(x1-x0) + y0;
         else
-          y := a2/3*(x - xi2)^3 + c*x + const3;
+          a1 := (y0d - c)/max(mu_tilde^2, 100*Modelica.Constants.eps);
+          a2 := (y1d - c)/max(eta_tilde^2, 100*Modelica.Constants.eps);
+          const12 := y0 - a1/3*(x0 - xi1)^3 - c*x0;
+          const3 := y1 - a2/3*(x1 - xi2)^3 - c*x1;
+          // Do actual interpolation
+          if (x < xi1) then
+            y := a1/3*(x - xi1)^3 + c*x + const12;
+          elseif (x < xi2) then
+            y := c*x + const12;
+          else
+            y := a2/3*(x - xi2)^3 + c*x + const3;
+          end if;
         end if;
       else
         // Cubic S0 is monotonic, use it as is
