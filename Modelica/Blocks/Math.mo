@@ -2347,12 +2347,12 @@ Note: The output is updated after each period defined by 1/f.
   protected
     Real mu(start=0, fixed=true) "Internal integrator variable";
     parameter Real t_0(fixed=false) "Start time";
-    parameter Real actualStartTime=max(t_0, startTime)+t_eps;
+    parameter Real actualStartTime=max(t_0, startTime);
   initial equation
     t_0 = time;
   equation
     der(mu) = if time >= actualStartTime then u else 0;
-    y       = noEvent(if time > actualStartTime then mu/(time-actualStartTime) else u);
+    y       = noEvent(if time > actualStartTime+t_eps then mu/(time-actualStartTime) else u);
 
     annotation (Documentation(revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
