@@ -598,7 +598,7 @@ This is discussed in the description of package
             textString="T=%T")}));
   end PI;
 
-  block PID "PID-controller in additive description form"
+  block PID "PID controller in additive description form"
     import Modelica.Blocks.Types.Init;
     extends Interfaces.SISO;
 
@@ -689,8 +689,8 @@ This is discussed in the description of package
             textString="Ti=%Ti")}),
       Documentation(info="<html>
 <p>
-This is the text-book version of a PID-controller.
-For a more practically useful PID-controller, use
+This is the text-book version of a PID controller.
+For a more practically useful PID controller, use
 block LimPID.
 </p>
 
@@ -1012,18 +1012,18 @@ together) and using the following strategy:
 
 <ol>
 <li> Set very large limits, e.g., yMax = Modelica.Constants.inf</li>
-<li> Select a <strong>P</strong>-controller and manually enlarge parameter <strong>k</strong>
+<li> Select a <strong>P</strong> controller and manually enlarge parameter <strong>k</strong>
      (the total gain of the controller) until the closed-loop response
      cannot be improved any more.</li>
-<li> Select a <strong>PI</strong>-controller and manually adjust parameters
+<li> Select a <strong>PI</strong> controller and manually adjust parameters
      <strong>k</strong> and <strong>Ti</strong> (the time constant of the integrator).
      The first value of Ti can be selected, such that it is in the
      order of the time constant of the oscillations occurring with
-     the P-controller. If, e.g., vibrations in the order of T=10 ms
+     the P controller. If, e.g., vibrations in the order of T=10 ms
      occur in the previous step, start with Ti=0.01 s.</li>
 <li> If you want to make the reaction of the control loop faster
      (but probably less robust against disturbances and measurement noise)
-     select a <strong>PID</strong>-Controller and manually adjust parameters
+     select a <strong>PID</strong> controller and manually adjust parameters
      <strong>k</strong>, <strong>Ti</strong>, <strong>Td</strong> (time constant of derivative block).</li>
 <li> Set the limits yMax and yMin according to your specification.</li>
 <li> Perform simulations such that the output of the PID controller
