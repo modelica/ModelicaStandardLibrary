@@ -294,7 +294,8 @@ If parameter duration is set to 0.0, the limiting case of a Step signal is achie
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Sine.png"));
     parameter SI.Frequency f(start=1) "Frequency of sine wave";
     parameter SI.Angle phase=0 "Phase of sine wave";
-    parameter Boolean continuous = false "Make output continuous by starting at offset + amplitude*sin(phase)";
+    parameter Boolean continuous = false "Make output continuous by starting at offset + amplitude*sin(phase)"
+    annotation(Evaluate=true);
     extends Interfaces.SignalSource;
   equation
     if continuous then
@@ -346,7 +347,8 @@ The Real output y is a sine signal:
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Cosine.png"));
     parameter SI.Frequency f(start=1) "Frequency of cosine wave";
     parameter SI.Angle phase=0 "Phase of cosine wave";
-    parameter Boolean continuous = false "Make output continuous by starting at offset + amplitude*cos(phase)";
+    parameter Boolean continuous = false "Make output continuous by starting at offset + amplitude*cos(phase)"
+    annotation(Evaluate=true);
     extends Interfaces.SignalSource;
   equation
     if continuous then
@@ -605,7 +607,8 @@ and that the parameter <code>startTime</code> is omitted since the voltage can b
     parameter Real amplitude=1 "Amplitude of sine wave"
     annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Sinc.png"));
     parameter SI.Frequency f(start=1) "Frequency of sine wave";
-    parameter Boolean continuous = false "Make output (continuously) differentiable by starting at offset + amplitude rather than just offset";
+    parameter Boolean continuous = false "Make output (continuously) differentiable by starting at offset + amplitude rather than just offset"
+    annotation(Evaluate=true);
     extends Interfaces.SignalSource;
   protected
     SI.Angle x=2*pi*f*(time - startTime);
