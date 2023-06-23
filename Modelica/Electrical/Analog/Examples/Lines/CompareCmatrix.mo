@@ -173,12 +173,12 @@ end MTL_Cmatrix;
         extent={{-8,-8},{8,8}},
         rotation=0)));
 initial algorithm
-  (Ccomp,C) :=LineCmatrix(
+  (Ccomp,C) :=Modelica.Electrical.Analog.Lines.Functions.LineCmatrix(
      n = g.n,
      x = g.x,
      y = g.y,
      r = g.r);
-  (Rcomp,Xcomp,Lcomp) :=LineZmatrix(
+  (Rcomp,Xcomp,Lcomp) :=Modelica.Electrical.Analog.Lines.Functions.LineZmatrix(
     n=g.n,
     x=g.x,
     y=g.y,
