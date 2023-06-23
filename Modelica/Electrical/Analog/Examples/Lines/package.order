@@ -3,3 +3,5 @@ SmoothStep
 CompareLineTrunks
 LightningLosslessTransmissionLine
 LightningSegmentedTransmissionLine
+CompareCmatrix
+PowerLineWithFence
