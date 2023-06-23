@@ -121,11 +121,8 @@ equation
 <p>Simulate the original model reducing the line length to 3 km. The body current has fallen slightly below 30 mA (RMS), which is considered the maximum safe current a body can resist over 5s.</p>
 <p>Note that the fence voltage before the human contact is roughtly the same for all lengths while the current flowing when contact occurs is very dependent on the line length. </p>
 </body></html>",          revisions="<html>
-<ul>
-<li><em>May, 2021</em> 
-      Massimo Ceraolo of the University of Pisa <br> 
-      originally created</li> 
-</ul>                
+<p>June, 2023 Massimo Ceraolo of the University of Pisa </p>
+<p>originally created </p>
 </html>"),
     experiment(
       StopTime=0.04,

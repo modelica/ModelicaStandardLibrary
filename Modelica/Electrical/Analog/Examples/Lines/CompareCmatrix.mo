@@ -251,9 +251,22 @@ equation
     annotation (Line(points={{-36,-12},{-36,-2},{-18,-2}}, color={0,0,255}));
   annotation (
     Diagram(coordinateSystem(extent={{-140,-60},{120,60}})),
-    Documentation(info= "<html><head></head><body><p>MSL uses, inside M_OLine, a network of physical capacitors to model capacitive effects across conductors.</p><p>Insstead, in typical PowerSystems approach, a capacitance matrix is used, corresponding th the vectore equation:</p><p><b>i</b>=<b><i>C&nbsp;</i></b>d<b>v</b>/dt&nbsp;</p><p>where</p><p>- <i><b>i</b></i> is the vector of currents entering a multiple-conductor lines (n conductors with a return wire gives rise to n currents)</p><p>- <b><i>v</i></b> is the vector of voltages at a port of a multiple-conductor lines (n conductors with a return wire gives rise to n voltages)</p><div>The <b><i>C</i></b> matrix is symmetrical, and therefore it has n(n+1) independent terms. the diacgonal terms of this matrix are negative.</div><div>the capacitive coupling across conductors can be modelled equivalently through a network of n(n+1) capacitors, and simple conversion formulas exist, which an for instance found in [Theory book, pag- 3-11).</div><div><br></div><div>This model uses those conversion formulas, and compares the modelling of capacitor coupling through C matrix or equivalent physical capacitors.</div><div>It also uses function LineCmatrix to compute C matrix from the inputted line geometry, which is the same of example Electrical.Analog.Examples.Lines.PowerLineWithfence</div><div><br></div><div>To see that the formulas give the same result, compare current though r1n (\"n stands for network) and r1.</div><div><br></div>
-</body></html>",          revisions= "<html><head></head><body><div><i><br></i></div>                
-</body></html>"),
+    Documentation(info="<html>
+<p>MSL uses, inside M_OLine, a network of physical capacitors to model capacitive effects across conductors.</p>
+<p>Insstead, in typical PowerSystems approach, a capacitance matrix is used, corresponding to the vector equation:</p>
+<p><b>i</b>=<i><b>C&nbsp;</b></i>d<b>v</b>/dt&nbsp;</p>
+<p>where</p>
+<p>- <i><b>i</b></i> is the vector of currents entering a multiple-conductor lines (n conductors with a return wire gives rise to n currents)</p>
+<p>- <i><b>v</b></i> is the vector of voltages at a port of a multiple-conductor lines (n conductors with a return wire gives rise to n voltages)</p>
+<p>The <i><b>C</b></i> matrix is symmetrical, and therefore it has n(n+1) independent terms. the diacgonal terms of this matrix are negative.</p>
+<p>The capacitive coupling across conductors can be modelled equivalently through a network of n(n+1) capacitors, and simple conversion formulas exist, which an for instance found in <a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>).</p>
+<p>This model uses those conversion formulas, and compares the modelling of capacitor coupling through C matrix or equivalent physical capacitors.</p>
+<p>It also uses function LineCmatrix to compute C matrix from the inputted line geometry, which is the same of example Electrical.Analog.Examples.Lines.PowerLineWithfence</p>
+<p>To see that the formulas give the same result, compare current through r1n (&quot;n&quot; stands for network) and r1.</p>
+</html>",                 revisions="<html>
+<p><i>June, 2023 Massimo Ceraolo of the University of Pisa </i></p>
+<p><i>originally created </i></p>
+</html>"),
     experiment(
       StopTime=0.04,
       Interval=1e-05,
