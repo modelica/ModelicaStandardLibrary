@@ -1,5 +1,4 @@
-within TestMultifile;
-
+﻿within Modelica.Electrical.Analog.Lines.Functions;
 function LineCmatrix
   "Compute matrix of transverse capacitances per metre of a multi-conductor line"
   import Modelica.Constants.epsilon_0;
