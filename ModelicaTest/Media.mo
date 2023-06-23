@@ -1011,7 +1011,7 @@ is given to compare the approximation.
           length=1,
           redeclare model FlowModel =
               Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalLaminarFlow (
-                dp_nominal=1000000000, m_flow_nominal=1.0),
+                dp_nominal=1000000, m_flow_nominal=1.0),
           diameter=0.05) annotation (Placement(transformation(extent={{0,0},{20,
                   20}})));
         inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)

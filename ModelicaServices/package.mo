@@ -178,11 +178,11 @@ The interface of this model is documented at
 
   package Machine "Machine dependent constants"
     extends Modelica.Icons.Package;
-    final constant Real eps=1e-15 "Biggest number such that 1.0 + eps = 1.0";
-    final constant Real small=1e-60
-      "Smallest number such that small and -small are representable on the machine";
-    final constant Real inf=1e60
-      "Biggest Real number such that inf and -inf are representable on the machine";
+    final constant Real eps=2.2204460492503131e-016 "The difference between 1 and the least value greater than 1 that is representable in the given floating point type";
+    final constant Real small=2.2250738585072014e-308
+      "Minimum normalized positive floating-point number";
+    final constant Real inf=1.7976931348623157E+308
+      "Maximum representable finite floating-point number";
     final constant Integer Integer_inf=2147483647
       "Biggest Integer number such that Integer_inf and -Integer_inf are representable on the machine";
     annotation (Documentation(info="<html>

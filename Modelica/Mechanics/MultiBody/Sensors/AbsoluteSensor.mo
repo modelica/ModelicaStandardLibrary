@@ -33,14 +33,16 @@ model AbsoluteSensor
         origin={20,-110},
         extent={{10,-10},{-10,10}},
         rotation=90)));
-  Blocks.Interfaces.RealOutput w[3](each final quantity="AngularVelocity",
-      each final unit="1/s") if get_w "Absolute angular velocity vector"
+  Blocks.Interfaces.RealOutput w[3](
+    each final quantity="AngularVelocity",
+    each final unit="rad/s") if get_w "Absolute angular velocity vector"
     annotation (Placement(transformation(
         origin={60,-110},
         extent={{10,-10},{-10,10}},
         rotation=90)));
-  Blocks.Interfaces.RealOutput z[3](each final quantity="AngularAcceleration",
-      each final unit="1/s2") if get_z "Absolute angular acceleration vector"
+  Blocks.Interfaces.RealOutput z[3](
+    each final quantity="AngularAcceleration",
+    each final unit="rad/s2") if get_z "Absolute angular acceleration vector"
     annotation (Placement(transformation(
         origin={100,-110},
         extent={{10,-10},{-10,10}},

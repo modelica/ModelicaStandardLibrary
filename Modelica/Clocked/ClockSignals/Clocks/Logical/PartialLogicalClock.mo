@@ -18,7 +18,7 @@ partial block PartialLogicalClock
      infinite many ticks for an infinitesimal short time period."
     annotation (Placement(transformation(extent = {{20,-10},{40,10}})));
 
-  EventClock clock
+  EventClock clock(useSolver=useSolver, solverMethod=solverMethod)
     annotation (Placement(transformation(extent = {{60,-10},{80,10}})));
 
   // Array of input trackers:

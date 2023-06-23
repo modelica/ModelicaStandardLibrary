@@ -1,5 +1,5 @@
 within Modelica.Mechanics.Rotational.Sensors;
-model AngleSensor "Ideal sensor to measure the absolute flange angle"
+model AngleSensor "Ideal sensor to measure the absolute angle of flange"
 
   extends Rotational.Interfaces.PartialAbsoluteSensor;
   Modelica.Blocks.Interfaces.RealOutput phi(unit="rad", displayUnit="deg")
@@ -10,9 +10,11 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Measures the <strong>absolute angle phi</strong> of a flange in an ideal
-way and provides the result as output signal <strong>phi</strong>
-(to be further processed with blocks of the Modelica.Blocks library).
+Measures the <em>absolute angle</em>
+of a&nbsp;flange in an ideal way and provides the result as
+output signal&nbsp;<code>phi</code>
+(to be further processed with blocks of the
+<a href=\"modelica://Modelica.Blocks\">Modelica.Blocks</a> library).
 </p>
 </html>"),
        Icon(coordinateSystem(

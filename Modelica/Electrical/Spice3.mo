@@ -4351,7 +4351,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
       SI.CurrentSlope di "di/dt";
       flow SI.Voltage v;
       annotation (Icon(graphics={Polygon(
-              points={{0,0},{0,100},{100,0},{0,-100},{0,-100},{0,0}},
+              points={{0,100},{100,0},{0,-100},{0,100}},
               lineColor={170,85,255},
               fillColor={170,85,255},
               fillPattern=FillPattern.Solid)}));
@@ -4363,7 +4363,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
       SI.CurrentSlope di "di/dt";
       flow SI.Voltage v;
       annotation (Icon(graphics={Polygon(
-              points={{-100,0},{0,100},{0,0},{0,-100},{-2,-98},{-100,0}},
+              points={{-100,0},{0,100},{0,-100},{-100,0}},
               lineColor={170,85,255},
               fillColor={170,85,255},
               fillPattern=FillPattern.Solid)}));

@@ -83,7 +83,7 @@ equation
 <br>the <strong>totally ideal diode</strong> (Ideal) with all parameters to be zero,
 the <strong>nearly ideal diode</strong> with <em>Ron=0.1</em> and <em>Goff=0.1</em>
  and the nearly ideal but <strong>displaced diode</strong> with <em>Vknee=5</em> and <em>Ron=0.1</em> and <em>Goff=0.1</em>.
-The resistance and conductance are chosen untypically high since the slopes should be seen in the graphics.
+The resistance and conductance are chosen atypically high since the slopes should be seen in the graphics.
 </p><p>Simulate until T=1 s.
 Plot in separate windows:
 Ideal.i versus Ideal.v, With_Ron_Goff.i versus With_Ron_Goff.v, With_Ron_Goff_Vknee.i versus With_Ron_Goff_Vknee.v

@@ -7,7 +7,7 @@ package Continuous "Library of continuous control blocks with internal states"
 
   block Integrator "Output the integral of the input signal with optional reset"
     import Modelica.Blocks.Types.Init;
-    parameter Real k(unit="1")=1 "Integrator gain";
+    parameter Real k=1 "Integrator gain";
     parameter Boolean use_reset = false "= true, if reset port enabled"
       annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Boolean use_set = false "= true, if set port enabled and used as reinitialization value when reset"
@@ -126,7 +126,7 @@ port has a rising edge.
 
   block LimIntegrator "Integrator with limited value of the output and optional reset"
     import Modelica.Blocks.Types.Init;
-    parameter Real k(unit="1")=1 "Integrator gain";
+    parameter Real k=1 "Integrator gain";
     parameter Real outMax(start=1) "Upper limit of output";
     parameter Real outMin=-outMax "Lower limit of output";
     parameter Boolean use_reset = false "= true, if reset port enabled"
@@ -265,7 +265,7 @@ port has a rising edge.
 
   block Derivative "Approximated derivative block"
     import Modelica.Blocks.Types.Init;
-    parameter Real k(unit="1")=1 "Gains";
+    parameter Real k=1 "Gains";
     parameter SI.Time T(min=Modelica.Constants.small) = 0.01
       "Time constants (T>0 required; T=0 is ideal derivative block)";
     parameter Init initType=Init.NoInit
@@ -350,7 +350,7 @@ If k=0, the block reduces to y=0.
 
   block FirstOrder "First order transfer function block (= 1 pole)"
     import Modelica.Blocks.Types.Init;
-    parameter Real k(unit="1")=1 "Gain";
+    parameter Real k=1 "Gain";
     parameter SI.Time T(start=1) "Time Constant";
     parameter Init initType=Init.NoInit
       "Type of initialization (1: no init, 2: steady state, 3/4: initial output)" annotation(Evaluate=true,
@@ -424,7 +424,7 @@ Example:
 
   block SecondOrder "Second order transfer function block (= 2 poles)"
     import Modelica.Blocks.Types.Init;
-    parameter Real k(unit="1")=1 "Gain";
+    parameter Real k=1 "Gain";
     parameter Real w(start=1) "Angular frequency";
     parameter Real D(start=1) "Damping";
     parameter Init initType=Init.NoInit
@@ -507,7 +507,7 @@ Example:
 
   block PI "Proportional-Integral controller"
     import Modelica.Blocks.Types.Init;
-    parameter Real k(unit="1")=1 "Gain";
+    parameter Real k=1 "Gain";
     parameter SI.Time T(start=1,min=Modelica.Constants.small)
       "Time Constant (T>0 required)";
     parameter Init initType=Init.NoInit
@@ -598,11 +598,11 @@ This is discussed in the description of package
             textString="T=%T")}));
   end PI;
 
-  block PID "PID-controller in additive description form"
+  block PID "PID controller in additive description form"
     import Modelica.Blocks.Types.Init;
     extends Interfaces.SISO;
 
-    parameter Real k(unit="1")=1 "Gain";
+    parameter Real k=1 "Gain";
     parameter SI.Time Ti(min=Modelica.Constants.small, start=0.5)
       "Time Constant of Integrator";
     parameter SI.Time Td(min=0, start=0.1)
@@ -689,8 +689,8 @@ This is discussed in the description of package
             textString="Ti=%Ti")}),
       Documentation(info="<html>
 <p>
-This is the text-book version of a PID-controller.
-For a more practically useful PID-controller, use
+This is the text-book version of a PID controller.
+For a more practically useful PID controller, use
 block LimPID.
 </p>
 
@@ -765,7 +765,7 @@ to compute u by an algebraic equation.
       "Control error (set point - measurement)";
     parameter .Modelica.Blocks.Types.SimpleController controllerType=
            .Modelica.Blocks.Types.SimpleController.PID "Type of controller";
-    parameter Real k(min=0, unit="1") = 1 "Gain of controller";
+    parameter Real k = 1 "Gain of controller, must be non-zero";
     parameter SI.Time Ti(min=Modelica.Constants.small)=0.5
       "Time constant of Integrator block" annotation (Dialog(enable=
             controllerType == .Modelica.Blocks.Types.SimpleController.PI or
@@ -881,6 +881,7 @@ to compute u by an algebraic equation.
       gainPID.y = y_start;
     end if;
   equation
+    assert(abs(k) >= Modelica.Constants.small, "Controller gain must be non-zero.");
     if initType == Init.InitialOutput and (y_start < yMin or y_start > yMax) then
         Modelica.Utilities.Streams.error("LimPID: Start value y_start (=" + String(y_start) +
            ") is outside of the limits of yMin (=" + String(yMin) +") and yMax (=" + String(yMax) + ")");
@@ -1011,18 +1012,18 @@ together) and using the following strategy:
 
 <ol>
 <li> Set very large limits, e.g., yMax = Modelica.Constants.inf</li>
-<li> Select a <strong>P</strong>-controller and manually enlarge parameter <strong>k</strong>
+<li> Select a <strong>P</strong> controller and manually enlarge parameter <strong>k</strong>
      (the total gain of the controller) until the closed-loop response
      cannot be improved any more.</li>
-<li> Select a <strong>PI</strong>-controller and manually adjust parameters
+<li> Select a <strong>PI</strong> controller and manually adjust parameters
      <strong>k</strong> and <strong>Ti</strong> (the time constant of the integrator).
      The first value of Ti can be selected, such that it is in the
      order of the time constant of the oscillations occurring with
-     the P-controller. If, e.g., vibrations in the order of T=10 ms
+     the P controller. If, e.g., vibrations in the order of T=10 ms
      occur in the previous step, start with Ti=0.01 s.</li>
 <li> If you want to make the reaction of the control loop faster
      (but probably less robust against disturbances and measurement noise)
-     select a <strong>PID</strong>-Controller and manually adjust parameters
+     select a <strong>PID</strong> controller and manually adjust parameters
      <strong>k</strong>, <strong>Ti</strong>, <strong>Td</strong> (time constant of derivative block).</li>
 <li> Set the limits yMax and yMin according to your specification.</li>
 <li> Perform simulations such that the output of the PID controller

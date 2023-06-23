@@ -2,446 +2,446 @@
 
 // Change references to classes that are removed from Modelica Standard Library
 convertClass("Modelica.UsersGuide.ParameterDefaults",
-              "Modelica.UsersGuide.Conventions.ModelicaCode.ParameterDefaults")
+              "Modelica.UsersGuide.Conventions.ModelicaCode.ParameterDefaults");
 convertClass("Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_DP",
-              "Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_Re")
+              "Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_Re");
 convertClass("Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_MFLOW",
-              "Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_lambda")
+              "Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_lambda");
 convertClass("Modelica.Fluid.Icons.VariantLibrary",
-              "Modelica.Icons.VariantsPackage")
+              "Modelica.Icons.VariantsPackage");
 convertClass("Modelica.Fluid.Icons.BaseClassLibrary",
-              "Modelica.Icons.BasesPackage")
+              "Modelica.Icons.BasesPackage");
 convertClass("Modelica.Icons.TypeComplex",
-              "Complex")
+              "Complex");
 convertClass("Modelica.Mechanics.MultiBody.Sensors.Internal.ZeroForceAndTorque",
-              "Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque")
+              "Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque");
 convertClass("Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport",
-              "ObsoleteModelica4.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport")
+              "ObsoleteModelica4.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport");
 convertClass("Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport",
-              "ObsoleteModelica4.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport")
+              "ObsoleteModelica4.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport");
 convertClass("Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport",
-              "ObsoleteModelica4.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport")
+              "ObsoleteModelica4.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport");
 convertClass("Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport",
-              "ObsoleteModelica4.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport")
+              "ObsoleteModelica4.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport");
 convertClass("Modelica.Media.IdealGases.MixtureGases.simpleMoistAir",
-              "Modelica.Media.IdealGases.MixtureGases.SimpleMoistAir")
+              "Modelica.Media.IdealGases.MixtureGases.SimpleMoistAir");
 convertClass("Modelica.Media.Interfaces.PartialMedium.Choices",
-              "Modelica.Media.Interfaces.Choices")
+              "Modelica.Media.Interfaces.Choices");
 convertClass("Modelica.Blocks.Tables.CombiTable1D",
-              "Modelica.Blocks.Tables.CombiTable1Dv")
+              "Modelica.Blocks.Tables.CombiTable1Dv");
 convertClass("Modelica.Blocks.Tables.CombiTable2D",
-              "Modelica.Blocks.Tables.CombiTable2Ds")
+              "Modelica.Blocks.Tables.CombiTable2Ds");
 convertClass("Modelica.Electrical.Analog.Basic.EMF",
-              "Modelica.Electrical.Analog.Basic.RotationalEMF")
+              "Modelica.Electrical.Analog.Basic.RotationalEMF");
 convertClass("Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted",
-              "Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited")
+              "Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited");
 convertClass("Modelica.Electrical.Digital.Converters.LogicToXO1",
-              "Modelica.Electrical.Digital.Converters.LogicToX01")
+              "Modelica.Electrical.Digital.Converters.LogicToX01");
 convertClass("Modelica.Electrical.Digital.Converters.LogicToXO1Z",
-              "Modelica.Electrical.Digital.Converters.LogicToX01Z")
+              "Modelica.Electrical.Digital.Converters.LogicToX01Z");
 convertClass("Modelica.Media.Incompressible.TableBased.Polynomials_Temp",
-              "Modelica.Math.Polynomials")
+              "Modelica.Math.Polynomials");
 convertClass("Modelica.Math.Vectors.Utilities.roots",
-              "Modelica.Math.Polynomials.roots")
+              "Modelica.Math.Polynomials.roots");
 convertClass("Modelica.Electrical.QuasiStationary",
-              "Modelica.Electrical.QuasiStatic")
+              "Modelica.Electrical.QuasiStatic");
 convertClass("Modelica.Electrical.Machines.Icons.QuasiStationaryMachine",
-              "Modelica.Electrical.Machines.Icons.QuasiStaticMachine")
+              "Modelica.Electrical.Machines.Icons.QuasiStaticMachine");
 convertClass("Modelica.Electrical.Machines.Icons.QuasiStationaryTransformer",
-              "Modelica.Electrical.Machines.Icons.QuasiStaticTransformer")
+              "Modelica.Electrical.Machines.Icons.QuasiStaticTransformer");
 convertClass("Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines",
-              "Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines")
+              "Modelica.Electrical.Machines.BasicMachines.QuasiStaticDCMachines");
 convertClass("Modelica.Electrical.Machines.BasicMachines.Components.BasicTransformer",
-              "Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer")
+              "Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer");
 convertClass("Modelica.Blocks.Sources.Clock",
-              "Modelica.Blocks.Sources.ContinuousClock")
+              "Modelica.Blocks.Sources.ContinuousClock");
 convertClass("Modelica.Electrical.Digital.Sources.Clock",
-              "Modelica.Electrical.Digital.Sources.DigitalClock")
+              "Modelica.Electrical.Digital.Sources.DigitalClock");
 convertClass("Modelica.Math.Matrices.LAPACK.dgegv",
-              "ObsoleteModelica4.Math.Matrices.LAPACK.dgegv")
+              "ObsoleteModelica4.Math.Matrices.LAPACK.dgegv");
 convertClass("Modelica.Math.Matrices.LAPACK.dgelsx",
-              "ObsoleteModelica4.Math.Matrices.LAPACK.dgelsx")
+              "ObsoleteModelica4.Math.Matrices.LAPACK.dgelsx");
 convertClass("Modelica.Math.Matrices.LAPACK.dgelsx_vec",
-              "ObsoleteModelica4.Math.Matrices.LAPACK.dgelsx_vec")
+              "ObsoleteModelica4.Math.Matrices.LAPACK.dgelsx_vec");
 convertClass("Modelica.Math.Matrices.LAPACK.dgeqpf",
-              "ObsoleteModelica4.Math.Matrices.LAPACK.dgeqpf")
+              "ObsoleteModelica4.Math.Matrices.LAPACK.dgeqpf");
 convertClass("Modelica.Math.tempInterpol1",
-              "ObsoleteModelica4.Math.tempInterpol1")
+              "ObsoleteModelica4.Math.tempInterpol1");
 convertClass("Modelica.Math.tempInterpol2",
-              "ObsoleteModelica4.Math.tempInterpol2")
+              "ObsoleteModelica4.Math.tempInterpol2");
 convertClass("Modelica.Math.baseIcon1",
-              "Modelica.Math.Icons.AxisLeft")
+              "Modelica.Math.Icons.AxisLeft");
 convertClass("Modelica.Math.baseIcon2",
-              "Modelica.Math.Icons.AxisCenter")
+              "Modelica.Math.Icons.AxisCenter");
 convertClass("Modelica.Math.Matrices.Utilities.householderReflection",
-              "ObsoleteModelica4.Math.Matrices.Utilities.householderReflection")
+              "ObsoleteModelica4.Math.Matrices.Utilities.householderReflection");
 convertClass("Modelica.Math.Matrices.Utilities.householderSimilarityTransformation",
-              "ObsoleteModelica4.Math.Matrices.Utilities.householderSimilarityTransformation")
+              "ObsoleteModelica4.Math.Matrices.Utilities.householderSimilarityTransformation");
 convertClass("Modelica.Math.Vectors.Utilities.householderReflection",
-              "ObsoleteModelica4.Math.Vectors.Utilities.householderReflection")
+              "ObsoleteModelica4.Math.Vectors.Utilities.householderReflection");
 convertClass("Modelica.Math.Vectors.Utilities.householderVector",
-              "ObsoleteModelica4.Math.Vectors.Utilities.householderVector")
+              "ObsoleteModelica4.Math.Vectors.Utilities.householderVector");
 convertClass("Modelica.ComplexMath.'abs'",
-              "Modelica.ComplexMath.abs")
+              "Modelica.ComplexMath.abs");
 convertClass("Modelica.ComplexMath.'sqrt'",
-              "Modelica.ComplexMath.sqrt")
+              "Modelica.ComplexMath.sqrt");
 convertClass("Modelica.ComplexMath.'max'",
-              "Modelica.ComplexMath.max")
+              "Modelica.ComplexMath.max");
 convertClass("Modelica.ComplexMath.'min'",
-              "Modelica.ComplexMath.min")
+              "Modelica.ComplexMath.min");
 convertClass("Modelica.ComplexMath.'sum'",
-              "Modelica.ComplexMath.sum")
+              "Modelica.ComplexMath.sum");
 convertClass("Modelica.ComplexMath.'product'",
-              "Modelica.ComplexMath.product")
+              "Modelica.ComplexMath.product");
 convertClass("Modelica.Electrical.Analog.Basic.HeatingResistor",
-              "Modelica.Electrical.Analog.Basic.Resistor")
+              "Modelica.Electrical.Analog.Basic.Resistor");
 convertClass("Modelica.Electrical.Analog.Semiconductors.HeatingDiode",
-              "Modelica.Electrical.Analog.Semiconductors.Diode")
+              "Modelica.Electrical.Analog.Semiconductors.Diode");
 convertClass("Modelica.Electrical.Analog.Semiconductors.HeatingNMOS",
-              "Modelica.Electrical.Analog.Semiconductors.NMOS")
+              "Modelica.Electrical.Analog.Semiconductors.NMOS");
 convertClass("Modelica.Electrical.Analog.Semiconductors.HeatingPMOS",
-              "Modelica.Electrical.Analog.Semiconductors.PMOS")
+              "Modelica.Electrical.Analog.Semiconductors.PMOS");
 convertClass("Modelica.Electrical.Analog.Semiconductors.HeatingNPN",
-              "Modelica.Electrical.Analog.Semiconductors.NPN")
+              "Modelica.Electrical.Analog.Semiconductors.NPN");
 convertClass("Modelica.Electrical.Analog.Semiconductors.HeatingPNP",
-              "Modelica.Electrical.Analog.Semiconductors.PNP")
+              "Modelica.Electrical.Analog.Semiconductors.PNP");
 convertClass("Modelica.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle",
-              "ObsoleteModelica4.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle")
+              "ObsoleteModelica4.Electrical.PowerConverters.DCDC.Control.VoltageToDutyCycle");
 convertClass("Modelica.Blocks.Interfaces.BlockIcon",
-              "Modelica.Blocks.Icons.Block")
+              "Modelica.Blocks.Icons.Block");
 convertClass("Modelica.Blocks.Interfaces.BooleanBlockIcon",
-              "Modelica.Blocks.Icons.BooleanBlock")
+              "Modelica.Blocks.Icons.BooleanBlock");
 convertClass("Modelica.Blocks.Interfaces.DiscreteBlockIcon",
-              "Modelica.Blocks.Icons.DiscreteBlock")
+              "Modelica.Blocks.Icons.DiscreteBlock");
 convertClass("Modelica.Blocks.Interfaces.IntegerBlockIcon",
-              "Modelica.Blocks.Icons.IntegerBlock")
+              "Modelica.Blocks.Icons.IntegerBlock");
 convertClass("Modelica.Blocks.Interfaces.partialBooleanBlockIcon",
-              "Modelica.Blocks.Icons.PartialBooleanBlock")
+              "Modelica.Blocks.Icons.PartialBooleanBlock");
 convertClass("Modelica.Blocks.Interfaces.Adaptors.SendReal",
-              "ObsoleteModelica4.Blocks.Interfaces.Adaptors.SendReal")
+              "ObsoleteModelica4.Blocks.Interfaces.Adaptors.SendReal");
 convertClass("Modelica.Blocks.Interfaces.Adaptors.SendBoolean",
-              "ObsoleteModelica4.Blocks.Interfaces.Adaptors.SendBoolean")
+              "ObsoleteModelica4.Blocks.Interfaces.Adaptors.SendBoolean");
 convertClass("Modelica.Blocks.Interfaces.Adaptors.SendInteger",
-              "ObsoleteModelica4.Blocks.Interfaces.Adaptors.SendInteger")
+              "ObsoleteModelica4.Blocks.Interfaces.Adaptors.SendInteger");
 convertClass("Modelica.Blocks.Interfaces.Adaptors.ReceiveReal",
-              "ObsoleteModelica4.Blocks.Interfaces.Adaptors.ReceiveReal")
+              "ObsoleteModelica4.Blocks.Interfaces.Adaptors.ReceiveReal");
 convertClass("Modelica.Blocks.Interfaces.Adaptors.ReceiveBoolean",
-              "ObsoleteModelica4.Blocks.Interfaces.Adaptors.ReceiveBoolean")
+              "ObsoleteModelica4.Blocks.Interfaces.Adaptors.ReceiveBoolean");
 convertClass("Modelica.Blocks.Interfaces.Adaptors.ReceiveInteger",
-              "ObsoleteModelica4.Blocks.Interfaces.Adaptors.ReceiveInteger")
+              "ObsoleteModelica4.Blocks.Interfaces.Adaptors.ReceiveInteger");
 convertClass("Modelica.Blocks.Types.Init.DoNotUse_InitialIntegratorState",
-              "Modelica.Blocks.Types.Init.InitialState")
+              "Modelica.Blocks.Types.Init.InitialState");
 convertClass("Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState",
-              "Modelica.Blocks.Types.Init.InitialState")
+              "Modelica.Blocks.Types.Init.InitialState");
 convertClass("Modelica.Blocks.Types.InitPID",
-              "Modelica.Blocks.Types.Init")
+              "Modelica.Blocks.Types.Init");
 convertClass("Modelica.Icons.RotationalSensor",
-              "Modelica.Icons.RoundSensor")
+              "Modelica.Icons.RoundSensor");
 convertClass("Modelica.Icons.TranslationalSensor",
-              "Modelica.Icons.RectangularSensor")
+              "Modelica.Icons.RectangularSensor");
 convertClass("Modelica.Icons.Library",
-              "Modelica.Icons.Package")
+              "Modelica.Icons.Package");
 convertClass("Modelica.Icons.Library2",
-              "Modelica.Icons.Package")
+              "Modelica.Icons.Package");
 convertClass("Modelica.Icons.GearIcon",
-              "Modelica.Mechanics.Rotational.Icons.Gearbox")
+              "Modelica.Mechanics.Rotational.Icons.Gearbox");
 convertClass("Modelica.Icons.MotorIcon",
-              "Modelica.Electrical.Machines.Icons.Drive")
+              "Modelica.Electrical.Machines.Icons.Drive");
 convertClass("Modelica.Mechanics.MultiBody.Icons.MotorIcon",
-              "Modelica.Electrical.Machines.Icons.Drive")
+              "Modelica.Electrical.Machines.Icons.Drive");
 convertClass("Modelica.Electrical.Analog.Basic.OpAmpDetailed.Pi",
-              "Modelica.Constants.pi")
+              "Modelica.Constants.pi");
 convertClass("Modelica.Icons.Info",
-              "Modelica.Icons.Information")
+              "Modelica.Icons.Information");
 convertClass("Modelica.Mechanics.MultiBody.Sensors.TansformAbsoluteVector",
-              "Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector")
+              "Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector");
 convertClass("Modelica.Mechanics.MultiBody.Sensors.TansformRelativeVector",
-              "Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector")
+              "Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector");
 convertClass("Modelica.Mechanics.MultiBody.Visualizers.Ground",
-              "ObsoleteModelica4.Mechanics.MultiBody.Visualizers.Ground")
+              "ObsoleteModelica4.Mechanics.MultiBody.Visualizers.Ground");
 convertClass("Modelica.Mechanics.MultiBody.Types.Init",
-              "ObsoleteModelica4.Mechanics.MultiBody.Types.Init")
+              "ObsoleteModelica4.Mechanics.MultiBody.Types.Init");
 convertClass("Modelica.ComplexBlocks.Sources.LogFrequencySweep",
-              "Modelica.Blocks.Sources.LogFrequencySweep")
+              "Modelica.Blocks.Sources.LogFrequencySweep");
 convertClass("Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage",
-              "Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage")
+              "Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SquirrelCage");
 convertClass("Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
-              "Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SlipRing")
+              "Modelica.Electrical.Machines.BasicMachines.InductionMachines.IM_SlipRing");
 convertClass("Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines",
-              "Modelica.Electrical.Machines.BasicMachines.SynchronousMachines")
+              "Modelica.Electrical.Machines.BasicMachines.SynchronousMachines");
 convertClass("Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines.ThermalAmbientAIMC",
-              "Modelica.Electrical.Machines.Thermal.InductionMachines.ThermalAmbientIMC")
+              "Modelica.Electrical.Machines.Thermal.InductionMachines.ThermalAmbientIMC");
 convertClass("Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines.ThermalAmbientAIMS",
-              "Modelica.Electrical.Machines.Thermal.InductionMachines.ThermalAmbientIMS")
+              "Modelica.Electrical.Machines.Thermal.InductionMachines.ThermalAmbientIMS");
 convertClass("Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines",
-              "Modelica.Electrical.Machines.Thermal.SynchronousMachines")
+              "Modelica.Electrical.Machines.Thermal.SynchronousMachines");
 convertClass("Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortAIMC",
-              "Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortIMC")
+              "Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortIMC");
 convertClass("Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceAIMC",
-              "Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceIMC")
+              "Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceIMC");
 convertClass("Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortAIMS",
-              "Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortIMS")
+              "Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortIMS");
 convertClass("Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceAIMS",
-              "Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceIMS")
+              "Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceIMS");
 convertClass("Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData",
-              "Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData")
+              "Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData");
 convertClass("Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SlipRingData",
-              "Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SlipRingData")
+              "Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SlipRingData");
 convertClass("Modelica.Electrical.PowerConverters.DCAC.MultiPhase2Level",
-              "Modelica.Electrical.PowerConverters.DCAC.Polyphase2Level")
+              "Modelica.Electrical.PowerConverters.DCAC.Polyphase2Level");
 convertClass("Modelica.Electrical.QuasiStationary.MultiPhase",
-              "Modelica.Electrical.QuasiStatic.Polyphase")
+              "Modelica.Electrical.QuasiStatic.Polyphase");
 convertClass("Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.SingleToMultiPhase",
-              "Modelica.Electrical.QuasiStatic.Polyphase.Blocks.SingleToPolyphase")
+              "Modelica.Electrical.QuasiStatic.Polyphase.Blocks.SingleToPolyphase");
 convertClass("Modelica.Electrical.MultiPhase",
-              "Modelica.Electrical.Polyphase")
+              "Modelica.Electrical.Polyphase");
 convertClass("Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase",
-              "Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase")
+              "Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase");
 convertClass("Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter",
-              "Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter")
+              "Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter");
 convertClass("Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding",
-              "Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding")
+              "Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding");
 convertClass("Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding",
-              "Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding")
+              "Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding");
 convertClass("Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage",
-              "Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage")
+              "Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage");
 convertClass("Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
-              "Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing")
+              "Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing");
 convertClass("Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines",
-              "Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines")
+              "Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines");
 convertClass("Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter",
-              "Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter")
+              "Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.PolyphaseElectroMagneticConverter");
 convertClass("Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding",
-              "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding")
+              "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding");
 convertClass("Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding",
-              "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding")
+              "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding");
 convertClass("Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding_obsolete",
-              "ObsoleteModelica4.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding")
+              "ObsoleteModelica4.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding");
 convertClass("Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_obsolete",
-              "ObsoleteModelica4.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding")
+              "ObsoleteModelica4.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding");
 convertClass("Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort",
-              "Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortElementary")
+              "Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortElementary");
 convertClass("Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended",
-              "Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortExtended")
+              "Modelica.Magnetic.FundamentalWave.Interfaces.TwoPortExtended");
 convertClass("Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary",
-              "Modelica.Magnetic.FundamentalWave.Interfaces.TwoPort")
+              "Modelica.Magnetic.FundamentalWave.Interfaces.TwoPort");
 convertClass("Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine",
-              "Modelica.Magnetic.FundamentalWave.BaseClasses.Machine")
+              "Modelica.Magnetic.FundamentalWave.BaseClasses.Machine");
 convertClass("Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPort",
-              "Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.TwoPortElementary")
+              "Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.TwoPortElementary");
 convertClass("Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPortExtended",
-              "Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.TwoPortExtended")
+              "Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.TwoPortExtended");
 convertClass("Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPortElementary",
-              "Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.TwoPort")
+              "Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.TwoPort");
 convertClass("Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.BaseClasses.PartialBasicMachine",
-              "Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses.Machine")
+              "Modelica.Magnetic.QuasiStatic.FundamentalWave.BaseClasses.Machine");
 convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPortsElementary",
-              "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.TwoPortElementary")
+              "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.TwoPortElementary");
 convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialTwoPorts",
-              "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.TwoPort")
+              "Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.TwoPort");
 convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialFixedShape",
-              "Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.FixedShape")
+              "Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.FixedShape");
 convertClass("Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PartialLeakage",
-              "Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.Leakage")
+              "Modelica.Magnetic.QuasiStatic.FluxTubes.BaseClasses.Leakage");
 convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary",
-              "Modelica.Magnetic.FluxTubes.Interfaces.TwoPortElementary")
+              "Modelica.Magnetic.FluxTubes.Interfaces.TwoPortElementary");
 convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts",
-              "Modelica.Magnetic.FluxTubes.Interfaces.TwoPort")
+              "Modelica.Magnetic.FluxTubes.Interfaces.TwoPort");
 convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape",
-              "Modelica.Magnetic.FluxTubes.BaseClasses.FixedShape")
+              "Modelica.Magnetic.FluxTubes.BaseClasses.FixedShape");
 convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialForce",
-              "Modelica.Magnetic.FluxTubes.BaseClasses.Force")
+              "Modelica.Magnetic.FluxTubes.BaseClasses.Force");
 convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage",
-              "Modelica.Magnetic.FluxTubes.BaseClasses.Leakage")
+              "Modelica.Magnetic.FluxTubes.BaseClasses.Leakage");
 convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialGeneric",
-              "Modelica.Magnetic.FluxTubes.BaseClasses.Generic")
+              "Modelica.Magnetic.FluxTubes.BaseClasses.Generic");
 convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresis",
-              "Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresis")
+              "Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresis");
 convertClass("Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresisTellinen",
-              "Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresisTellinen")
+              "Modelica.Magnetic.FluxTubes.BaseClasses.GenericHysteresisTellinen");
 // Issues #3300, #3424
 convertModifiers({"Modelica.Magnetic.FluxTubes.Basic.LeakageWithCoefficient",
                   "Modelica.Magnetic.QuasiStatic.FluxTubes.Basic.LeakageWithCoefficient"},
-                  fill("",0), {"c_usefulFlux=0.7"})
+                  fill("",0), {"c_usefulFlux=0.7"});
 convertClass("Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe",
-              "Modelica.Thermal.FluidHeatFlow.Components.Pipe")
+              "Modelica.Thermal.FluidHeatFlow.Components.Pipe");
 convertClass("Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe",
-              "Modelica.Thermal.FluidHeatFlow.Components.Pipe")
+              "Modelica.Thermal.FluidHeatFlow.Components.Pipe");
 convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.Ambient",
-              "Modelica.Thermal.FluidHeatFlow.BaseClasses.SinglePortLeft")
+              "Modelica.Thermal.FluidHeatFlow.BaseClasses.SinglePortLeft");
 convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort",
-              "Modelica.Thermal.FluidHeatFlow.BaseClasses.TwoPort")
+              "Modelica.Thermal.FluidHeatFlow.BaseClasses.TwoPort");
 convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortLeft",
-              "Modelica.Thermal.FluidHeatFlow.BaseClasses.SinglePortLeft")
+              "Modelica.Thermal.FluidHeatFlow.BaseClasses.SinglePortLeft");
 convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SinglePortBottom",
-              "Modelica.Thermal.FluidHeatFlow.BaseClasses.SinglePortBottom")
+              "Modelica.Thermal.FluidHeatFlow.BaseClasses.SinglePortBottom");
 convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SimpleFriction",
-              "Modelica.Thermal.FluidHeatFlow.BaseClasses.SimpleFriction")
+              "Modelica.Thermal.FluidHeatFlow.BaseClasses.SimpleFriction");
 convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.AbsoluteSensor",
-              "Modelica.Thermal.FluidHeatFlow.Interfaces.AbsoluteSensor")
+              "Modelica.Thermal.FluidHeatFlow.Interfaces.AbsoluteSensor");
 convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.RelativeSensor",
-              "Modelica.Thermal.FluidHeatFlow.Interfaces.RelativeSensor")
+              "Modelica.Thermal.FluidHeatFlow.Interfaces.RelativeSensor");
 convertClass("Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.FlowSensor",
-              "Modelica.Thermal.FluidHeatFlow.Interfaces.FlowSensor")
+              "Modelica.Thermal.FluidHeatFlow.Interfaces.FlowSensor");
 convertClass("Modelica.Electrical.Machines.Utilities.CurrentController",
-              "Modelica.Electrical.Machines.Utilities.DQToThreePhase")
+              "Modelica.Electrical.Machines.Utilities.DQToThreePhase");
 convertClass("Modelica.Electrical.Machines.Utilities.VoltageController",
-              "Modelica.Electrical.Machines.Utilities.DQCurrentController")
+              "Modelica.Electrical.Machines.Utilities.DQCurrentController");
 convertClass("Modelica.Media.Common.OneNonLinearEquation",
-              "ObsoleteModelica4.Media.Common.OneNonLinearEquation")
+              "ObsoleteModelica4.Media.Common.OneNonLinearEquation");
 convertClass("Modelica.Blocks.Tables.Internal.readTimeTableData",
-              "ObsoleteModelica4.Blocks.Tables.Internal.readTimeTableData")
+              "ObsoleteModelica4.Blocks.Tables.Internal.readTimeTableData");
 convertClass("Modelica.Blocks.Tables.Internal.readTable1DData",
-              "ObsoleteModelica4.Blocks.Tables.Internal.readTable1DData")
+              "ObsoleteModelica4.Blocks.Tables.Internal.readTable1DData");
 convertClass("Modelica.Blocks.Tables.Internal.readTable2DData",
-              "ObsoleteModelica4.Blocks.Tables.Internal.readTable2DData")
+              "ObsoleteModelica4.Blocks.Tables.Internal.readTable2DData");
 
 // The Modelica_Synchronous library was integrated into the MSL as Modelica.Clocked
 convertElement({"Modelica_Synchronous.RealSignals.TimeBasedSources.Sine"},
-                           "freqHz", "f")
-convertClass("Modelica_Synchronous", "Modelica.Clocked")
+                           "freqHz", "f");
+convertClass("Modelica_Synchronous", "Modelica.Clocked");
 
 // Change renamed elements of classes
 // mue -> mu
-convertClass("Modelica.Constants.mue_0", "Modelica.Constants.mu_0")
+convertClass("Modelica.Constants.mue_0", "Modelica.Constants.mu_0");
 convertElement({"Modelica.Mechanics.MultiBody.World",
                 "Modelica.Mechanics.MultiBody.World.gravityAcceleration",
                 "Modelica.Mechanics.MultiBody.Forces.Internal.standardGravityAcceleration"},
-                "mue", "mu")
+                "mue", "mu");
 convertElement({"Modelica.Mechanics.Rotational.Components.Brake",
                 "Modelica.Mechanics.Rotational.Components.Clutch",
                 "Modelica.Mechanics.Rotational.Components.OneWayClutch",
                 "Modelica.Mechanics.Translational.Components.Brake"},
-                "mue_pos", "mu_pos")
+                "mue_pos", "mu_pos");
 convertElement({"Modelica.Mechanics.Rotational.Components.Brake",
                 "Modelica.Mechanics.Rotational.Components.Clutch",
                 "Modelica.Mechanics.Rotational.Components.OneWayClutch",
                 "Modelica.Mechanics.Translational.Components.Brake"},
-                "mue0", "mu0")
+                "mue0", "mu0");
 convertElement({"Modelica.Electrical.Machines.Utilities.CurrentController"},
-                "id_rms", "d")
+                "id_rms", "d");
 convertElement({"Modelica.Electrical.Machines.Utilities.CurrentController"},
-                "iq_rms", "q")
+                "iq_rms", "q");
 convertElement({"Modelica.Electrical.Machines.Utilities.VoltageController"},
-                "id_rms", "id")
+                "id_rms", "id");
 convertElement({"Modelica.Electrical.Machines.Utilities.VoltageController"},
-                "iq_rms", "iq")
+                "iq_rms", "iq");
 
 convertElement("Modelica.Mechanics.MultiBody.Sensors.AbsoluteVelocity",
-                "tansformAbsoluteVector", "transformAbsoluteVector")
+                "tansformAbsoluteVector", "transformAbsoluteVector");
 convertElement("Modelica.Mechanics.MultiBody.Sensors.RelativeVelocity",
-                "tansformRelativeVector", "transformRelativeVector")
+                "tansformRelativeVector", "transformRelativeVector");
 convertElement("Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus",
-                {"ri", "ro"}, {"R", "r"})
+                {"ri", "ro"}, {"R", "r"});
 convertElement("Modelica.Mechanics.MultiBody.Visualizers.Torus",
-                {"ri", "ro", "n_ri", "n_ro"}, {"R", "r", "n_R", "n_r"})
+                {"ri", "ro", "n_ri", "n_ro"}, {"R", "r", "n_R", "n_r"});
 convertElement("Modelica.Thermal.FluidHeatFlow.Media.Medium",
-                {"lamda", "nue"}, {"lambda", "nu"})
+                {"lamda", "nue"}, {"lambda", "nu"});
 convertElement("Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Tjunction",
-                "united_converging_crossection", "united_converging_cross_section")
+                "united_converging_crossection", "united_converging_cross_section");
 convertElement("Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3",
-                "jucntioncap", "junctioncap")
+                "jucntioncap", "junctioncap");
 convertMessage("Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet",
-                "No support of automatic conversion for internal classes.")
+                "No support of automatic conversion for internal classes.");
 convertMessage("Modelica.Electrical.Spice3.Internal.Bjt3",
-                "No support of automatic conversion for internal classes.")
+                "No support of automatic conversion for internal classes.");
 convertMessage("Modelica.Electrical.Spice3.Internal.Bjt.BjtModelLineVariables",
-                "No support of automatic conversion for internal classes.")
+                "No support of automatic conversion for internal classes.");
 convertMessage("Modelica.Electrical.Spice3.Internal.Bjt.BjtVariables",
-                "No support of automatic conversion for internal classes.")
+                "No support of automatic conversion for internal classes.");
 convertMessage("Modelica.Electrical.Spice3.Internal.Bjt.Bjt3Variables",
-                "No support of automatic conversion for internal classes.")
+                "No support of automatic conversion for internal classes.");
 convertMessage("Modelica.Electrical.Spice3.Internal.BJT",
-                "No support of automatic conversion for internal classes.")
+                "No support of automatic conversion for internal classes.");
 convertMessage("Modelica.Electrical.Spice3.Internal.ModelcardBJT",
-                "No support of automatic conversion for internal classes.")
+                "No support of automatic conversion for internal classes.");
 convertMessage("Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3MOSFET",
-                "No support of automatic conversion for internal classes.")
+                "No support of automatic conversion for internal classes.");
 convertMessage("Modelica.Electrical.Spice3.Internal.Functions.junctionCap",
-                "No support of automatic conversion for internal classes.")
+                "No support of automatic conversion for internal classes.");
 convertMessage("Modelica.Electrical.Spice3.Internal.SpiceRoot.initJunctionVoltages",
-                "No support of automatic conversion for internal classes.")
+                "No support of automatic conversion for internal classes.");
 convertMessage("Modelica.Electrical.Spice3.Internal.SpiceRoot.limitJunctionVoltage",
-                "No support of automatic conversion for internal classes.")
+                "No support of automatic conversion for internal classes.");
 convertMessage("Modelica.Electrical.Spice3.Internal.Mos.mos2CalcInitEquations",
-                "No support of automatic conversion for internal classes.")
+                "No support of automatic conversion for internal classes.");
 convertMessage("Modelica.Electrical.Spice3.Internal.Mos.mos2CalcCalcTempDependencies",
-                "No support of automatic conversion for internal classes.")
+                "No support of automatic conversion for internal classes.");
 convertMessage("Modelica.Electrical.Spice3.Internal.Mos.mos2CalcNoBypassCode",
-                "No support of automatic conversion for internal classes.")
+                "No support of automatic conversion for internal classes.");
 convertMessage("Modelica.Electrical.Spice3.Internal.Mos2.mos2ModelLineParamsInitEquations",
-                "No support of automatic conversion for internal classes.")
+                "No support of automatic conversion for internal classes.");
 convertMessage("Modelica.Electrical.Spice3.Internal.Mos2.drainCur",
-                "No support of automatic conversion for internal classes.")
+                "No support of automatic conversion for internal classes.");
 convertMessage("Modelica.Electrical.Spice3.Internal.Mos2.mos2RenameParameters",
-                "No support of automatic conversion for internal classes.")
+                "No support of automatic conversion for internal classes.");
 
 convertMessage("Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.MyComplex",
-                "No support of automatic conversion for makeshift record MyComplex.")
+                "No support of automatic conversion for makeshift record MyComplex.");
 convertMessage("Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.MyComplexF",
-                "No support of automatic conversion for makeshift package MyComplexF.")
+                "No support of automatic conversion for makeshift package MyComplexF.");
 convertMessage("Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.TestWallFriction",
-                "No support of automatic conversion for test model.")
+                "No support of automatic conversion for test model.");
 convertMessage("Modelica.Fluid.Pipes.BaseClasses.WallFriction.TestWallFrictionAndGravity",
-                "No support of automatic conversion for test model.")
+                "No support of automatic conversion for test model.");
 
 convertModifiers({"Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe"},
-                 fill("",0), {"useHeatPort=false"})
+                 fill("",0), {"useHeatPort=false"});
 convertModifiers("Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe",
-                 fill("",0), {"useHeatPort=true"})
+                 fill("",0), {"useHeatPort=true"});
 
 // StateGraph.Temporary
 convertClass("Modelica.StateGraph.Temporary.anyTrue",
-              "Modelica.Math.BooleanVectors.anyTrue")
+              "Modelica.Math.BooleanVectors.anyTrue");
 convertClass("Modelica.StateGraph.Temporary.allTrue",
-              "Modelica.Math.BooleanVectors.andTrue")
+              "Modelica.Math.BooleanVectors.andTrue");
 convertClass("Modelica.StateGraph.Temporary.NumericValue",
-              "Modelica.Blocks.Interaction.Show.RealValue")
+              "Modelica.Blocks.Interaction.Show.RealValue");
 convertClass("Modelica.StateGraph.Temporary.IndicatorLamp",
-              "Modelica.Blocks.Interaction.Show.BooleanValue")
+              "Modelica.Blocks.Interaction.Show.BooleanValue");
 convertClass("Modelica.StateGraph.Temporary.RadioButton",
-              "Modelica.Blocks.Sources.RadioButtonSource")
+              "Modelica.Blocks.Sources.RadioButtonSource");
 convertClass("Modelica.StateGraph.Temporary.SetRealParameter",
-              "Real")
+              "Real");
 convertElement("Modelica.StateGraph.Temporary.NumericValue",
-                "Value", "numberPort")
+                "Value", "numberPort");
 convertElement("Modelica.StateGraph.Temporary.IndicatorLamp",
-                "u", "activePort")
+                "u", "activePort");
 convertModifiers("Modelica.StateGraph.Temporary.NumericValue",
-                  {"precision"}, {"significantDigits=%precision%"})
+                  {"precision"}, {"significantDigits=%precision%"});
 convertModifiers("Modelica.StateGraph.Temporary.NumericValue",
-                  {"Value"}, {"number=%Value%"})
+                  {"Value"}, {"number=%Value%"});
 convertModifiers("Modelica.StateGraph.Temporary.NumericValue",
-                  {"hideConnector"}, {"use_numberPort=not %hideConnector%"})
+                  {"hideConnector"}, {"use_numberPort=not %hideConnector%"});
 
 convertModifiers({"Modelica.StateGraph.Interfaces.PartialStep",
                   "Modelica.StateGraph.InitialStep",
                   "Modelica.StateGraph.InitialStepWithSignal",
                   "Modelica.StateGraph.Step",
                   "Modelica.StateGraph.StepWithSignal"},
-                  fill("",0), {"nIn=1", "nOut=1"})
+                  fill("",0), {"nIn=1", "nOut=1"});
 
 convertElement("Modelica.Mechanics.MultiBody.Joints.RollingWheel",
                {"wheelRadius"},
-               {"radius"})
+               {"radius"});
 convertElement("Modelica.Mechanics.MultiBody.Joints.RollingWheelSet",
                {"wheelRadius", "wheelDistance"},
-               {"radius", "track"})
+               {"radius", "track"});
 convertElement("Modelica.Mechanics.MultiBody.Parts.RollingWheel",
                {"wheelRadius", "wheelMass", "wheel_I_axis", "wheel_I_long", "wheelColor"},
-               {"radius", "m", "I_axis", "I_long", "color"})
+               {"radius", "m", "I_axis", "I_long", "color"});
 convertElement("Modelica.Mechanics.MultiBody.Parts.RollingWheelSet",
                {"wheelRadius", "wheelMass", "wheel_I_axis", "wheel_I_long", "wheelDistance", "wheelWidth", "wheelColor"},
-               {"R_wheel", "m_wheel", "I_wheelAxis", "I_wheelLong", "track", "width_wheel", "color"})
+               {"R_wheel", "m_wheel", "I_wheelAxis", "I_wheelLong", "track", "width_wheel", "color"});
 
 convertElement({"Modelica.Mechanics.Rotational.Sources.SignTorque"},
-                "tau_constant", "tau_nominal")
+                "tau_constant", "tau_nominal");
 convertElement({"Modelica.Electrical.Machines.BasicMachines.Components.InductorDC",
                 "Modelica.Electrical.Machines.BasicMachines.Components.PartialAirGapDC",
                 "Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine"},
-                "quasiStationary", "quasiStatic")
+                "quasiStationary", "quasiStatic");
 convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor",
-                "variableResistor", "variableConductor")
+                "variableResistor", "variableConductor");
 
 convertElement({"Modelica.Media.Interfaces.PartialMedium.BaseProperties",
                 "Modelica.Media.Interfaces.PartialMixtureMedium.BaseProperties",
@@ -1707,39 +1707,39 @@ convertElement({"Modelica.Media.Interfaces.PartialMedium.BaseProperties",
                 "Modelica.Media.IdealGases.Common.SingleGasesData.ZrO",
                 "Modelica.Media.IdealGases.Common.SingleGasesData.ZrOplus",
                 "Modelica.Media.IdealGases.Common.SingleGasesData.ZrO2"},
-                "R", "R_s")
+                "R", "R_s");
 convertElement({"Modelica.Media.Air.ReferenceAir.Air_Utilities.Basic",
                 "Modelica.Media.Air.ReferenceMoistAir.Utilities.Water95_Utilities",
                 "Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic"},
-                "Constants.R","Constants.R_s")
+                "Constants.R","Constants.R_s");
 convertModifiers("Modelica.Blocks.Math.LinearDependency",
-                 {"y0=0", "k1=0", "k2=0"}, {"y0=%y0%", "k1=%y0%*%k1%", "k2=%y0%*%k2%"}, true)
+                 {"y0=0", "k1=0", "k2=0"}, {"y0=%y0%", "k1=%y0%*%k1%", "k2=%y0%*%k2%"}, true);
 convertModifiers({"Modelica.Mechanics.MultiBody.Joints.Prismatic"},
-                  {"s_offset"}, fill("", 0), true)
+                  {"s_offset"}, fill("", 0), true);
 convertModifiers({"Modelica.Mechanics.MultiBody.Joints.Revolute"},
-                  {"phi_offset"}, fill("", 0), true)
+                  {"phi_offset"}, fill("", 0), true);
 convertModifiers({"Modelica.Thermal.HeatTransfer.Rankine.ToKelvin",
                   "Modelica.Thermal.HeatTransfer.Rankine.FromKelvin",
                   "Modelica.Thermal.HeatTransfer.Fahrenheit.FromKelvin"},
-                  {"n"}, fill("", 0), true)
+                  {"n"}, fill("", 0), true);
 convertModifiers({"Modelica.Blocks.Nonlinear.Limiter",
                   "Modelica.Blocks.Nonlinear.VariableLimiter",
                   "Modelica.Blocks.Continuous.LimPID"},
-                  {"limitsAtInit"}, fill("", 0), true)
+                  {"limitsAtInit"}, fill("", 0), true);
 convertModifiers({"Modelica.Blocks.Nonlinear.DeadZone"},
-                  {"deadZoneAtInit"}, fill("", 0), true)
+                  {"deadZoneAtInit"}, fill("", 0), true);
 convertElement("Modelica.Electrical.Analog.Basic.HeatingResistor",
                {"R_ref"},
-               {"R"})
+               {"R"});
 convertModifiers({"Modelica.Electrical.Analog.Semiconductors.HeatingDiode",
                   "Modelica.Electrical.Analog.Semiconductors.HeatingNMOS",
                   "Modelica.Electrical.Analog.Semiconductors.HeatingPMOS",
                   "Modelica.Electrical.Analog.Semiconductors.HeatingNPN",
                   "Modelica.Electrical.Analog.Semiconductors.HeatingPNP"},
-                  fill("",0), {"useTemperatureDependency=true"})
+                  fill("",0), {"useTemperatureDependency=true"});
 convertElement("Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse",
                {"negativeEqual"},
-               {"greaterNegative"})
+               {"greaterNegative"});
 convertElement({"Modelica.Blocks.Sources.Sine",
                 "Modelica.Blocks.Sources.Cosine",
                 "Modelica.Blocks.Sources.ExpSine",
@@ -1753,85 +1753,85 @@ convertElement({"Modelica.Blocks.Sources.Sine",
                 "Modelica.Electrical.MultiPhase.Sources.CosineVoltage",
                 "Modelica.Electrical.MultiPhase.Sources.SineCurrent",
                 "Modelica.Electrical.MultiPhase.Sources.CosineCurrent"},
-                "freqHz", "f")
+                "freqHz", "f");
 convertElement({"Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage",
                 "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing"},
-                "airGapS", "airGap")
+                "airGapS", "airGap");
 convertElement({"Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet",
                 "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited",
                 "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor"},
-                "airGapR", "airGap")
+                "airGapR", "airGap");
 convertModifiers({"Modelica.Electrical.Spice3.Internal.MOS2"},
-                  {"vp"}, fill("", 0))
+                  {"vp"}, fill("", 0));
 convertModifiers({"Modelica.Fluid.Machines.BaseClasses.PartialPump"},
-                  {"show_NPSHa"}, fill("", 0))
+                  {"show_NPSHa"}, fill("", 0));
 convertModifiers({"Modelica.Mechanics.MultiBody.Parts.Body"},
-                  {"z_a_start"}, fill("", 0))
+                  {"z_a_start"}, fill("", 0));
 convertModifiers({"Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.SwitchYD",
                   "Modelica.Electrical.Machines.Utilities.SwitchYD"},
-                  {"idealCommutingSwitch"}, fill("", 0))
+                  {"idealCommutingSwitch"}, fill("", 0));
 
 // New element Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector
 convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor",
                   "Modelica.Mechanics.MultiBody.Sensors.RelativeSensor",
                   "Modelica.Mechanics.MultiBody.Sensors.Distance"},
-                 {"arrowDiameter"}, fill("", 0), true)
+                 {"arrowDiameter"}, fill("", 0), true);
 convertModifiers({"Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow",
                   "Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow",
                   "Modelica.Mechanics.MultiBody.Visualizers.FixedArrow",
                   "Modelica.Mechanics.MultiBody.Visualizers.SignalArrow"},
-                 {"diameter"}, fill("", 0), true)
+                 {"diameter"}, fill("", 0), true);
 convertModifiers({"Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit",
                   "Modelica.Mechanics.MultiBody.Joints.FreeMotion"},
-                 {"arrowDiameter"}, fill("", 0), true)
+                 {"arrowDiameter"}, fill("", 0), true);
 
 convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutForce",
                   "Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque",
                   "Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque"},
-                 {"forceDiameter"}, fill("", 0), true)
+                 {"forceDiameter"}, fill("", 0), true);
 convertModifiers({"Modelica.Mechanics.MultiBody.Forces.WorldForce",
                   "Modelica.Mechanics.MultiBody.Forces.WorldTorque"},
-                 {"diameter"}, fill("", 0), true)
+                 {"diameter"}, fill("", 0), true);
 convertModifiers({"Modelica.Mechanics.MultiBody.Forces.Force","Modelica.Mechanics.MultiBody.Forces.ForceAndTorque"},
-                 {"forceDiameter"}, {"connectionLineDiameter=%forceDiameter%"}, false)
+                 {"forceDiameter"}, {"connectionLineDiameter=%forceDiameter%"}, false);
 convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutTorque",
                   "Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque",
                   "Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque",
                   "Modelica.Mechanics.MultiBody.Forces.ForceAndTorque"},
-                 {"torqueDiameter"}, fill("", 0), true)
+                 {"torqueDiameter"}, fill("", 0), true);
 convertModifiers({"Modelica.Mechanics.MultiBody.Forces.Torque"},
-                 {"torqueDiameter"}, {"connectionLineDiameter=%torqueDiameter%"}, false)
+                 {"torqueDiameter"}, {"connectionLineDiameter=%torqueDiameter%"}, false);
 convertModifiers({"Modelica.Mechanics.MultiBody.Forces.WorldForce",
                   "Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque",
                   "Modelica.Mechanics.MultiBody.Forces.Force",
                   "Modelica.Mechanics.MultiBody.Forces.ForceAndTorque",
                   "Modelica.Mechanics.MultiBody.Sensors.CutForce",
                   "Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque"},
-                 {"N_to_m"}, fill("", 0), true)
+                 {"N_to_m"}, fill("", 0), true);
 convertModifiers({"Modelica.Mechanics.MultiBody.Forces.WorldTorque",
                   "Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque",
                   "Modelica.Mechanics.MultiBody.Forces.Torque",
                   "Modelica.Mechanics.MultiBody.Forces.ForceAndTorque",
                   "Modelica.Mechanics.MultiBody.Sensors.CutTorque",
                   "Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque"},
-                 {"Nm_to_m"}, fill("", 0), true)
+                 {"Nm_to_m"}, fill("", 0), true);
 
 convertClass("Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch",
-             "Modelica.Electrical.Analog.Ideal.IdealTwoWaySwitch")
+             "Modelica.Electrical.Analog.Ideal.IdealTwoWaySwitch");
 convertClass("Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch",
-             "Modelica.Electrical.Analog.Ideal.ControlledIdealTwoWaySwitch")
+             "Modelica.Electrical.Analog.Ideal.ControlledIdealTwoWaySwitch");
 
 convertElement("Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding",
-                {"reluctance"}, {"stray"})
+                {"reluctance"}, {"stray"});
 convertElement({"Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited",
                 "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited"},
-                "excitation.reluctance", "excitation.stray")
+                "excitation.reluctance", "excitation.stray");
 convertElement({"Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding",
                 "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding"},
-                "strayReluctance", "stray")
+                "strayReluctance", "stray");
 convertElement({"Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
                 "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing"},
-                "rotor.strayReluctance", "rotor.stray")
+                "rotor.strayReluctance", "rotor.stray");
 convertElement({"Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine",
                 "Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
                 "Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage",
@@ -1844,107 +1844,111 @@ convertElement({"Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInduct
                 "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ElectricalExcited",
                 "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet",
                 "Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_ReluctanceRotor"},
-                "stator.strayReluctance", "stator.stray")
+                "stator.strayReluctance", "stator.stray");
 
 // Rename output connectors of quasi-static electric sensors, see #3022
-convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.ReferenceSensor", "y", "gamma")
-convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.FrequencySensor", "y", "f")
-convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PotentialSensor", "y", "v")
-convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PotentialSensor", "abs_y", "abs_v")
-convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PotentialSensor", "arg_y", "arg_v")
-convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.VoltageSensor","y","v")
-convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.VoltageSensor","abs_y","abs_v")
-convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.VoltageSensor","arg_y","arg_v")
-convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor", "y", "i")
-convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor", "abs_y", "abs_i")
-convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor", "arg_y", "arg_i")
-convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor", "y", "apparentPower")
-convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor", "abs_y", "abs_apparentPower")
-convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor", "arg_y", "arg_apparentPower")
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.ReferenceSensor", "y", "gamma");
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.FrequencySensor", "y", "f");
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PotentialSensor", "y", "v");
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PotentialSensor", "abs_y", "abs_v");
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PotentialSensor", "arg_y", "arg_v");
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.VoltageSensor","y","v");
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.VoltageSensor","abs_y","abs_v");
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.VoltageSensor","arg_y","arg_v");
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor", "y", "i");
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor", "abs_y", "abs_i");
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor", "arg_y", "arg_i");
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor", "y", "apparentPower");
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor", "abs_y", "abs_apparentPower");
+convertElement("Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor", "arg_y", "arg_apparentPower");
 convertClass("Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.RelativeSensor",
-              "ObsoleteModelica4.Electrical.QuasiStationary.SinglePhase.Interfaces.RelativeSensor")
+              "ObsoleteModelica4.Electrical.QuasiStationary.SinglePhase.Interfaces.RelativeSensor");
 convertClass("Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor",
-              "ObsoleteModelica4.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor")
-convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.ReferenceSensor", "y", "gamma")
-convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.FrequencySensor", "y", "f")
-convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PotentialSensor", "y", "v")
-convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PotentialSensor", "abs_y", "abs_v")
-convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PotentialSensor", "arg_y", "arg_v")
-convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageSensor", "y", "v")
-convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageSensor", "abs_y", "abs_v")
-convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageSensor", "arg_y", "arg_v")
-convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor", "y", "i")
-convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor", "abs_y", "abs_i")
-convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor", "arg_y", "arg_i")
-convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor", "y", "apparentPower")
-convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor", "abs_y", "abs_apparentPower")
-convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor", "arg_y", "arg_apparentPower")
-convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.AronSensor", "power", "activePower")
+              "ObsoleteModelica4.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor");
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.ReferenceSensor", "y", "gamma");
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.FrequencySensor", "y", "f");
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PotentialSensor", "y", "v");
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PotentialSensor", "abs_y", "abs_v");
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PotentialSensor", "arg_y", "arg_v");
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageSensor", "y", "v");
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageSensor", "abs_y", "abs_v");
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageSensor", "arg_y", "arg_v");
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor", "y", "i");
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor", "abs_y", "abs_i");
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor", "arg_y", "arg_i");
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor", "y", "apparentPower");
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor", "abs_y", "abs_apparentPower");
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor", "arg_y", "arg_apparentPower");
+convertElement("Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.AronSensor", "power", "activePower");
 
 // Removal of Modelica.Electrical.Analog.Ideal.IdealGyrator, see #2786
-convertClass("Modelica.Electrical.Analog.Ideal.IdealGyrator", "Modelica.Electrical.Analog.Basic.Gyrator")
-convertElement({"Modelica.Electrical.Analog.Ideal.IdealGyrator"}, "G", "G1")
-convertModifiers("Modelica.Electrical.Analog.Ideal.IdealGyrator", {"G"}, {"G1(start=%G%)", "G2(start=%G%)"})
+convertClass("Modelica.Electrical.Analog.Ideal.IdealGyrator", "Modelica.Electrical.Analog.Basic.Gyrator");
+convertElement({"Modelica.Electrical.Analog.Ideal.IdealGyrator"}, "G", "G1");
+convertModifiers("Modelica.Electrical.Analog.Ideal.IdealGyrator", {"G"}, {"G1(start=%G%)", "G2(start=%G%)"});
 
 // SIunits --> Units, see #712
-convertClass("Modelica.SIunits", "Modelica.Units.SI")
-convertClass("Modelica.SIunits.Icons", "Modelica.Units.Icons")
-convertClass("Modelica.SIunits.Conversions", "Modelica.Units.Conversions")
-convertClass("Modelica.SIunits.Conversions.NonSIunits", "Modelica.Units.NonSI")
-convertClass("Modelica.SIunits.Temp_C", "Modelica.Units.NonSI.Temperature_degC")
-convertClass("Modelica.SIunits.Temp_K", "Modelica.Units.SI.Temperature")
+convertClass("Modelica.SIunits", "Modelica.Units.SI");
+convertClass("Modelica.SIunits.Icons", "Modelica.Units.Icons");
+convertClass("Modelica.SIunits.Conversions", "Modelica.Units.Conversions");
+convertClass("Modelica.SIunits.Conversions.NonSIunits", "Modelica.Units.NonSI");
+convertClass("Modelica.SIunits.Temp_C", "Modelica.Units.NonSI.Temperature_degC");
+convertClass("Modelica.SIunits.Temp_K", "Modelica.Units.SI.Temperature");
 convertClass("Modelica.SIunits.Conversions.ConversionIcon",
-              "Modelica.Units.Icons.Conversion")
+              "Modelica.Units.Icons.Conversion");
 convertClass("Modelica.SIunits.FluxiodQuantum",
-              "Modelica.Units.SI.FluxoidQuantum")
+              "Modelica.Units.SI.FluxoidQuantum");
 convertClass("Modelica.SIunits.RadiantExtiance",
-              "Modelica.Units.SI.RadiantExitance")
+              "Modelica.Units.SI.RadiantExitance");
 convertClass("Modelica.SIunits.LoundnessLevel",
-              "Modelica.Units.SI.LoudnessLevel")
+              "Modelica.Units.SI.LoudnessLevel");
 convertClass("Modelica.SIunits.Loundness",
-              "Modelica.Units.SI.Loudness")
+              "Modelica.Units.SI.Loudness");
 convertClass("Modelica.SIunits.Wavelenght",
-              "Modelica.Units.SI.Wavelength")
+              "Modelica.Units.SI.Wavelength");
 convertClass("Modelica.SIunits.Conversions.NonSIunits.FirstOrderTemperaturCoefficient",
-              "Modelica.Units.SI.LinearTemperatureCoefficientResistance")
+              "Modelica.Units.SI.LinearTemperatureCoefficientResistance");
 convertClass("Modelica.SIunits.Conversions.NonSIunits.SecondOrderTemperaturCoefficient",
-             "Modelica.Units.SI.QuadraticTemperatureCoefficientResistance")
+             "Modelica.Units.SI.QuadraticTemperatureCoefficientResistance");
 
-// Rename of NoiseExamples -> Noise (see #3440)
+// Rename of NoiseExamples -> Noise (see #3440);
 convertClass("Modelica.Blocks.Examples.NoiseExamples",
-             "Modelica.Blocks.Examples.Noise")
+             "Modelica.Blocks.Examples.Noise");
 
 // Automatically extended to handle derived classes
-convertElement("Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet", "quasiStationary", "quasiStatic")
-convertElement("Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited", "quasiStationary", "quasiStatic")
-convertElement("Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited", "quasiStationary", "quasiStatic")
-convertElement("Modelica.Electrical.Machines.BasicMachines.Components.AirGapDC", "quasiStationary", "quasiStatic")
-convertElement("Modelica.Media.Interfaces.TemplateMedium.BaseProperties", "R", "R_s")
-convertElement("Modelica.Media.Interfaces.PartialPureSubstance.BaseProperties", "R", "R_s")
-convertElement("Modelica.Media.Air.MoistAir.BaseProperties", "R", "R_s")
-convertElement("Modelica.Media.Air.MoistAir.gasConstant", "R", "R_s")
-convertElement("Modelica.Media.Air.ReferenceMoistAir.BaseProperties", "R", "R_s")
-convertElement("Modelica.Media.Air.ReferenceMoistAir.gasConstant", "R", "R_s")
-convertElement("Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.IceConstants", "R", "R_s")
-convertElement("Modelica.Media.IdealGases.Common.MixtureGasNasa.BaseProperties", "R", "R_s")
-convertElement("Modelica.Media.IdealGases.Common.MixtureGasNasa.gasConstant", "R", "R_s")
-convertElement("Modelica.Media.Incompressible.TableBased.BaseProperties", "R", "R_s")
-convertElement("Modelica.Thermal.FluidHeatFlow.Media.Air_30degC", {"lamda", "nue"}, {"lambda", "nu"})
-convertElement("Modelica.Thermal.FluidHeatFlow.Media.Air_70degC", {"lamda", "nue"}, {"lambda", "nu"})
-convertElement("Modelica.Thermal.FluidHeatFlow.Media.Water_10degC", {"lamda", "nue"}, {"lambda", "nu"})
-convertElement("Modelica.Thermal.FluidHeatFlow.Media.Water", {"lamda", "nue"}, {"lambda", "nu"})
-convertElement("Modelica.Thermal.FluidHeatFlow.Media.Water_90degC", {"lamda", "nue"}, {"lambda", "nu"})
-convertElement("Modelica.Thermal.FluidHeatFlow.Media.Gylcol20_20degC", {"lamda", "nue"}, {"lambda", "nu"})
-convertElement("Modelica.Thermal.FluidHeatFlow.Media.Gylcol50_20degC", {"lamda", "nue"}, {"lambda", "nu"})
-convertElement("Modelica.Thermal.FluidHeatFlow.Media.MineralOil", {"lamda", "nue"}, {"lambda", "nu"})
-convertElement("Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_ElectricalExcited", "quasiStationary", "quasiStatic")
-convertElement("Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_PermanentMagnet", "quasiStationary", "quasiStatic")
-convertElement("Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_SeriesExcited", "quasiStationary", "quasiStatic")
-convertElement("Modelica.Media.Air.ReferenceAir.Air_Base.BaseProperties", "R", "R_s")
-convertElement("Modelica.Media.IdealGases.Common.SingleGasNasa.BaseProperties", "R", "R_s")
-convertElement("Modelica.Media.Interfaces.PartialLinearFluid.BaseProperties", "R", "R_s")
-convertElement("Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.BaseProperties", "R", "R_s")
-convertElement("Modelica.Media.Interfaces.PartialSimpleMedium.BaseProperties", "R", "R_s")
-convertElement("Modelica.Media.Interfaces.PartialTwoPhaseMedium.BaseProperties", "R", "R_s")
-convertElement("Modelica.Media.R134a.R134a_ph.BaseProperties", "R", "R_s")
-convertElement("Modelica.Media.Water.WaterIF97_base.BaseProperties", "R", "R_s")
+convertElement("Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet", "quasiStationary", "quasiStatic");
+convertElement("Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited", "quasiStationary", "quasiStatic");
+convertElement("Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited", "quasiStationary", "quasiStatic");
+convertElement("Modelica.Electrical.Machines.BasicMachines.Components.AirGapDC", "quasiStationary", "quasiStatic");
+convertElement("Modelica.Media.Interfaces.TemplateMedium.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.Interfaces.PartialPureSubstance.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.Air.MoistAir.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.Air.MoistAir.gasConstant", "R", "R_s");
+convertElement("Modelica.Media.Air.ReferenceMoistAir.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.Air.ReferenceMoistAir.gasConstant", "R", "R_s");
+convertElement("Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.IceConstants", "R", "R_s");
+convertElement("Modelica.Media.IdealGases.Common.MixtureGasNasa.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.IdealGases.Common.MixtureGasNasa.gasConstant", "R", "R_s");
+convertElement("Modelica.Media.Incompressible.TableBased.BaseProperties", "R", "R_s");
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.Air_30degC", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.Air_70degC", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.Water_10degC", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.Water", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.Water_90degC", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.Gylcol20_20degC", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.Gylcol50_20degC", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Thermal.FluidHeatFlow.Media.MineralOil", {"lamda", "nue"}, {"lambda", "nu"});
+convertElement("Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_ElectricalExcited", "quasiStationary", "quasiStatic");
+convertElement("Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_PermanentMagnet", "quasiStationary", "quasiStatic");
+convertElement("Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_SeriesExcited", "quasiStationary", "quasiStatic");
+convertElement("Modelica.Media.Air.ReferenceAir.Air_Base.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.IdealGases.Common.SingleGasNasa.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.Interfaces.PartialLinearFluid.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.Interfaces.PartialSimpleMedium.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.Interfaces.PartialTwoPhaseMedium.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.R134a.R134a_ph.BaseProperties", "R", "R_s");
+convertElement("Modelica.Media.Water.WaterIF97_base.BaseProperties", "R", "R_s");
+
+// Reported by https://trac.openmodelica.org/OpenModelica/ticket/5297#comment:13
+convertElement("Modelica.Media.Interfaces.PartialCondensingGases.gasConstant", "R", "R_s");
+convertElement("Modelica.Media.Interfaces.PartialRealCondensingGases.gasConstant", "R", "R_s");

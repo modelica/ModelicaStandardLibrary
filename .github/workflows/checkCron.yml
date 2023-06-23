@@ -11,11 +11,11 @@ jobs:
     if: github.repository_owner == 'modelica'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 5
       - name: Setup python environment
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: 3.8
       - name: Install python packages
@@ -23,3 +23,42 @@ jobs:
       - name: Check links
         timeout-minutes: 3
         run: python ./.CI/check_html.py checkLinks ./
+  spelling_checks:
+    timeout-minutes: 5
+    if: github.repository_owner == 'modelica'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 5
+      - name: Setup python environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.8
+      - name: Install python packages
+        run:  pip install --disable-pip-version-check --user codespell
+      - name: Check for spelling errors
+        run: |
+          printf "[codespell]\nenable-colors=\n" >> .codespellrc
+          codespell -L mesures ./Modelica/Constants.mo
+          codespell -L nin,inport,fo ./Modelica/StateGraph.mo
+          codespell -L addd,nd,nin ./Modelica/Blocks/Continuous.mo
+          codespell -L utput ./Modelica/Electrical/Digital.mo
+          codespell -L ser ./Modelica/Electrical/Polyphase/Examples/PolyphaseRectifier.mo
+          codespell -L ser ./Modelica/Electrical/Polyphase/Examples/Utilities/PolyphaseRectifierData.mo
+          codespell -L pres ./Modelica/Fluid/Dissipation.mo
+          codespell -L fo,alo,als,cacl,ba,nd,GeS,CaF,InH ./Modelica/Media/IdealGases/package.mo
+          codespell -L fo,alo,als,cacl,ba,nd,alow ./Modelica/Media/IdealGases/Common/SingleGasesData.mo
+          codespell -L alow ./Modelica/Media/IdealGases/Common/Functions.mo
+          codespell -L alow ./Modelica/Media/IdealGases/Common/package.mo
+          codespell -L dout ./Modelica/Media/Water/IF97_Utilities.mo
+          codespell -L archiv ./Modelica/Electrical/Polyphase/UsersGuide/References.mo
+          codespell -L mot ./Modelica/Electrical/Machines/Examples/ControlledDCDrives
+          codespell -L singal ./Modelica/Electrical/Analog/UsersGuide/References.mo
+          codespell -L numer ./Modelica/Math/package.mo
+          codespell -L inport,nd,wit ./Modelica/Mechanics/Rotational
+          codespell -L wit ./Modelica/Mechanics/Translational
+          codespell -L ist ./Modelica/Mechanics/MultiBody
+          codespell -L klick ./Modelica/Magnetic/FluxTubes/UsersGuide/Contact.mo
+          codespell -L technik ./Modelica/Magnetic/FundamentalWave/UsersGuide/References.mo
+          codespell --skip ./ObsoleteModelica4.mo,./Modelica/Constants.mo,./Modelica/Blocks/Continuous.mo,./Modelica/StateGraph.mo,./Modelica/Electrical/Digital.mo,./Modelica/Electrical/Polyphase/Examples/PolyphaseRectifier.mo,./Modelica/Electrical/Polyphase/Examples/Utilities/PolyphaseRectifierData.mo,./Modelica/Fluid/Dissipation.mo,./Modelica/Resources,./Modelica/Media/IdealGases/package.mo,./Modelica/Media/IdealGases/Common/SingleGasesData.mo,./Modelica/Media/IdealGases/Common/Functions.mo,./Modelica/Media/IdealGases/Common/package.mo,./Modelica/Media/Water/IF97_Utilities.mo,./Modelica/Electrical/Polyphase/UsersGuide/References.mo,./Modelica/Electrical/Machines/Examples/ControlledDCDrives,./Modelica/Electrical/Analog/UsersGuide/References.mo,./Modelica/Math/package.mo,./Modelica/Mechanics/Rotational,./Modelica/Mechanics/Translational,./Modelica/Mechanics/MultiBody,./Modelica/Magnetic/FluxTubes/UsersGuide/Contact.mo,./Modelica/Magnetic/FundamentalWave/UsersGuide/References.mo,./.CI,./.github,./.git,*.png -L nin,inport,te,sinc,vie,commutating

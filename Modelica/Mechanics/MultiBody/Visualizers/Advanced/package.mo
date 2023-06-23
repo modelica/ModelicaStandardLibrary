@@ -27,6 +27,11 @@ since they all have frame connectors).
       <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Advanced/DoubleArrow.png\" alt=\"model Visualizers.Advanced.DoubleArrow\">
       </td>
   </tr>
+  <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Vector</a></td>
+      <td>Visualizing a vector quantity. The following vector quantity types are supported:<br>
+      force, torque, velocity, acceleration, angular velocity, angular acceleration and relative position
+      </td>
+  </tr>
   <tr><td><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Shape</a></td>
       <td>Visualizing an elementary object with variable size.
       The following shape types are supported:<br>&nbsp;<br>

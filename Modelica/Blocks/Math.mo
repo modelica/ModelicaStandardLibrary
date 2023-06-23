@@ -540,7 +540,7 @@ InverseBlockConstraint invert[3];  // Block to be inverted has 3 input signals
 
   block Gain "Output the product of a gain value with the input signal"
 
-    parameter Real k(start=1, unit="1")
+    parameter Real k(start=1)
       "Gain value multiplied with input signal";
   public
     Interfaces.RealInput u "Input signal connector" annotation (Placement(
@@ -1759,6 +1759,42 @@ y = base <strong>^</strong> u;
 </html>"));
   end Power;
 
+  block Exponentiation "Output the input raised to an exponent"
+    extends Interfaces.SISO;
+    parameter Real exponent=2 "Exponent of power" annotation (Evaluate=true);
+  equation
+    y = u^exponent;
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+              {100,100}}), graphics={
+          Line(points={{0,-80},{0,68}}, color={192,192,192}),
+          Polygon(
+            points={{0,90},{-8,68},{8,68},{0,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-86,50},{-14,2}},
+            textColor={192,192,192},
+            textString="^"),
+          Line(points={{-80,60},{-70,27.2},{-60,-1.3},{-50,-25.3},{-40,-45},{-30,-60.3},
+                {-20,-71.3},{-10,-77.8},{0,-80},{10,-77.8},{20,-71.3},{30,-60.3},{
+                40,-45},{50,-25.3},{60,-1.3},{70,27.2},{80,60}}, smooth=Smooth.Bezier),
+          Line(
+            points={{-90,-80.3976},{68,-80.3976}},
+            color={192,192,192},
+            smooth=Smooth.Bezier),
+          Polygon(
+            points={{90,-80.3976},{68,-72.3976},{68,-88.3976},{90,-80.3976}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+<p>This blocks computes the output <strong>y</strong> as the input <strong>u</strong> raised to <em>exponent</em>:</p>
+<blockquote><pre>
+y = u <strong>^</strong> exponent;
+</pre></blockquote>
+</html>"));
+  end Exponentiation;
+
   block Log
     "Output the logarithm (default base e) of the input (input > 0 required)"
 
@@ -1886,10 +1922,10 @@ zero or negative.
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
-      Documentation(info="<html>
+      Documentation(info= "<html>
 <p>
-This blocks wraps the input angle into the interval ]-pi,pi], if <code>positiveRange == false</code>.
-Otherwise the input angle <code>u</code> is wrapped to the interval [0,2*pi[.
+This blocks wraps the input angle into the <a href=\"https://en.wikipedia.org/wiki/Interval_(mathematics)#Including_or_excluding_endpoints\">interval</a> ]-pi,pi], if <code>positiveRange == false</code>.
+Otherwise the input angle <code>u</code> is wrapped to the <a href=\"https://en.wikipedia.org/wiki/Interval_(mathematics)#Including_or_excluding_endpoints\">interval</a> [0,2*pi[.
 </p>
 
 </html>"));
@@ -2529,6 +2565,93 @@ This means that:</p>
 </table>
 </html>"));
   end SignalExtrema;
+
+  block ContinuousSignalExtrema "Store the minimum and maximum values of the input signal"
+    extends Modelica.Blocks.Icons.Block;
+    parameter Modelica.Units.SI.Time T(min=Modelica.Constants.small)=1e-6 "Derivative time constant";
+    Modelica.Blocks.Interfaces.RealInput u
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+    Modelica.Blocks.Interfaces.RealOutput y_min
+      annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
+    Modelica.Blocks.Interfaces.RealOutput y_max
+      annotation (Placement(transformation(extent={{100,50},{120,70}})));
+    output Modelica.Units.SI.Time t_min "Time instant of last found minimum";
+    output Modelica.Units.SI.Time t_max "Time instant of last found maximum";
+  protected
+    Real x "Aux.state";
+  initial equation
+    x = u;
+    y_min = u;
+    y_max = u;
+    t_min = time;
+    t_max = time;
+  equation
+    //first order approximation of input
+    der(x) = (u - x)/T;
+    //first order approximation of derivative of input
+    when {u<=x, u>=x, terminal()} then
+    //detect local extrema at zero derivative, just before and after a step, and at the end of the simulation
+      y_min = min({pre(y_min), u, pre(u)});
+      y_max = max({pre(y_max), u, pre(u)});
+      t_min = if y_min<pre(y_min) then time else pre(t_min);
+      t_max = if y_max>pre(y_max) then time else pre(t_max);
+    end when;
+    annotation (defaultComponentName="signalExtrema",
+    Documentation(info="<html>
+<p>
+This block detects positive and negative peaks of differentiable and non-differentiable input signals without sampling.
+</p>
+<p>
+For differentiable input signals, an extremum is detected if the derivative of the input signal is zero.
+</p>
+<p>
+To handle non-differentiable input signals, the input signal <code>u</code> is conditioned by a first order with time constant <code>T</code>. 
+Like in the <a href=\"modelica://Modelica.Blocks.Continuous.Derivative\">derivative block</a>, 
+the derivative of the input signal is approximated by <code>(u - x)/T</code>. 
+This way even steps with local extrema just before and after the step are taken into account.
+</p>
+<p>
+Additionally, when the simulation terminates, <code>y_min</code> and <code>y_max</code> are updated.
+</p>
+</html>"),
+      Icon(graphics={
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(
+            points={{-80,0},{-75.2,32.3},{-72,50.3},{-68.7,64.5},{-65.5,74.2},{
+                -62.3,79.3},{-59.1,79.6},{-55.9,75.3},{-52.7,67.1},{-48.6,52.2},
+                {-43,25.8},{-35,-13.9},{-30.2,-33.7},{-26.1,-45.9},{-22.1,-53.2},
+                {-18,-56},{-14.1,-52.5},{-10.1,-45.3},{-5.23,-32.1},{8.44,13.7},
+                {13.3,26.4},{18.1,34.8},{22.1,38},{26.9,37.2},{31.8,31.8},{38.2,
+                19.4},{51.1,-10.5},{57.5,-21.2},{63.1,-25.9},{68.7,-25.9},{75.2,
+                -20.5},{80,-13.8}},
+            smooth=Smooth.Bezier,
+            color={192,192,192}),
+          Line(points={{-90,0},{68,0}}, color={192,192,192}),
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
+          Polygon(
+            points={{90,0},{68,8},{68,-8},{90,0}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(
+            points={{-60,80},{52,80}},
+            color={0,0,0},
+            pattern=LinePattern.Dash),
+          Line(
+            points={{-18,-56},{50,-56}},
+            color={0,0,0},
+            pattern=LinePattern.Dash),
+          Text(extent={{60,-50},{92,-70}},
+                                 textColor={0,0,0},
+            textString="min"),
+          Text(extent={{60,70},{92,50}},
+                                 textColor={0,0,0},
+            textString="max")}));
+  end ContinuousSignalExtrema;
 
   block Variance "Calculates the empirical variance of its input signal"
     extends Modelica.Blocks.Icons.Block;

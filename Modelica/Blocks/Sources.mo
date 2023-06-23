@@ -242,7 +242,7 @@ The Real output y is a step signal:
   end Step;
 
   block Ramp "Generate ramp signal"
-    parameter Real height=1 "Height of ramps"
+    parameter Real height=1 "Height of ramp"
       annotation(Dialog(groupImage="modelica://Modelica/Resources/Images/Blocks/Sources/Ramp.png"));
     parameter SI.Time duration(min=0.0, start=2)
       "Duration of ramp (= 0.0 gives a Step)";
@@ -768,7 +768,10 @@ by a falling exponential signal:
     count := integer((time - startTime)/period);
     T_start := startTime + count*period;
   equation
-    when integer((time - startTime)/period) > pre(count) then
+    //The following formulation causes a state event
+    //when integer((time - startTime)/period) > pre(count) then
+    //A formulation causing a time event is more efficient:
+    when time >= (pre(count) + 1)*period + startTime then
       count = pre(count) + 1;
       T_start = time;
     end when;
@@ -823,7 +826,10 @@ The Real output y is a pulse signal:
     count := integer((time - startTime)/period);
     T_start := startTime + count*period;
   equation
-    when integer((time - startTime)/period) > pre(count) then
+    //The following formulation causes a state event
+    //when integer((time - startTime)/period) > pre(count) then
+    //A formulation causing a time event is more efficient:
+    when time >= (pre(count) + 1)*period + startTime then
       count = pre(count) + 1;
       T_start = time;
     end when;
@@ -888,7 +894,10 @@ The Real output y is a saw tooth signal:
     count := integer((time - startTime)/period);
     T_start := startTime + count*period;
   equation
-    when integer((time - startTime)/period) > pre(count) then
+    //The following formulation causes a state event
+    //when integer((time - startTime)/period) > pre(count) then
+    //A formulation causing a time event is more efficient:
+    when time >= (pre(count) + 1)*period + startTime then
       count = pre(count) + 1;
       T_start = time;
     end when;
@@ -941,13 +950,14 @@ The Real output y is a trapezoid signal:
   equation
     y = if time < startTime then wMin else
       if time < (startTime + max(duration,eps)) then
-        10^(log10(wMin) + (log10(wMax) - log10(wMin))*min(1, (time-startTime)/max(duration,eps)))
+        wMin * (wMax/wMin)^min(1, (time-startTime)/max(duration,eps))
       else
         wMax;
      annotation (defaultComponentName="logSweep",
        Documentation(info="<html>
 <p>The output <code>y</code> performs a logarithmic frequency sweep.
 The logarithm of frequency <code>w</code> performs a linear ramp from <code>log10(wMin)</code> to <code>log10(wMax)</code>.
+It uses <code>wMin*(wMax/wMin)^x</code> instead of the equivalent <code>10^(log10(wMin)+log10(wMax)-log10(wMin)*x)</code> to help with unit-checking.
 The output is the decimal power of this logarithmic ramp.
 </p>
 <p>For <code>time &lt; startTime</code> the output is equal to <code>wMin</code>.</p>

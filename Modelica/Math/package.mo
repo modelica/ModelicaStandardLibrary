@@ -2949,9 +2949,9 @@ r = 3.162;
     (sigma,,V) := Modelica.Math.Matrices.singularValues(A);
     V := transpose(V);
     // rank computation
-    eps := max(size(A, 1), size(A, 2))*max(sigma)*Modelica.Constants.eps;
     rank := 0;
     if n > 0 then
+      eps := max(size(A, 1), size(A, 2)) * max(sigma) * Modelica.Constants.eps;
       while i > 0 loop
         if sigma[i] > eps then
           rank := i;
@@ -5238,10 +5238,10 @@ For details of the arguments, see documentation of dgbsv.
     protected
       Real dummy[1,1];
       Integer n=size(A, 1);
-      Integer lwork=12*n;
+      Integer lwork=max(1, 12*n);
       Integer ldvl=1;
       Real Awork[size(A, 1), size(A, 1)]=A;
-      Real work[12*size(A, 1)];
+      Real work[max(1, 12*size(A, 1))];
 
     external"FORTRAN 77" dgeev(
               "N",
@@ -5375,9 +5375,9 @@ Lapack documentation
       output Integer info;
     protected
       Integer n=size(A, 1);
-      Integer lwork=8*n;
+      Integer lwork=max(1, 8*n);
       Real Awork[size(A, 1), size(A, 1)]=A;
-      Real work[8*size(A, 1)];
+      Real work[max(1, 8*size(A, 1))];
       Real EigenvectorsL[size(A, 1), size(A, 1)]=zeros(size(A, 1), size(A, 1));
 
       /*
@@ -5524,8 +5524,8 @@ Lapack documentation
       Real abnrm;
       Real rconde[size(A, 1)];
       Real rcondv[size(A, 1)];
-      Integer lwork=n*(n + 6);
-      Real work[size(A, 1)*(size(A, 1) + 6)];
+      Integer lwork=max(1, n*(n + 6));
+      Real work[max(1, size(A, 1)*(size(A, 1) + 6))];
       Integer iwork[1];
 
     external"FORTRAN 77" dgeevx(
@@ -5867,8 +5867,8 @@ Lapack documentation
       Integer ncol=size(A, 2);
       Integer nrhs=1;
       Integer nx=max(nrow, ncol);
-      Integer lwork=min(nrow, ncol) + nx;
-      Real work[size(A, 1) + size(A, 2)];
+      Integer lwork=max(1, min(nrow, ncol) + nx);
+      Real work[max(1, size(A, 1) + size(A, 2))];
       Real Awork[size(A, 1), size(A, 2)]=A;
 
     external"FORTRAN 77" dgels(
@@ -6006,9 +6006,9 @@ Lapack documentation
       Integer ncol=size(A, 2);
       Integer nx=max(nrow, ncol);
       Integer nrhs=size(B, 2);
-      Integer lwork=max(min(nrow, ncol) + 3*ncol + 1, 2*min(nrow, ncol) + nrhs);
-      Real work[max(min(size(A, 1), size(A, 2)) + 3*size(A, 2) + 1, 2*min(size(A, 1),
-        size(A, 2)) + size(B, 2))];
+      Integer lwork=max(1, max(min(nrow, ncol) + 3*ncol + 1, 2*min(nrow, ncol) + nrhs));
+      Real work[max(1, max(min(size(A, 1), size(A, 2)) + 3*size(A, 2) + 1, 2*min(size(A, 1),
+        size(A, 2)) + size(B, 2)))];
       Real Awork[size(A, 1), size(A, 2)]=A;
       Integer jpvt[size(A, 2)]=zeros(ncol);
 
@@ -6764,8 +6764,8 @@ For details of the arguments, see documentation of dgesv.
       Integer m=size(A, 1);
       Integer n=size(A, 2);
       Real Awork[size(A, 1), size(A, 2)]=A;
-      Integer lwork=5*size(A, 1) + 5*size(A, 2);
-      Real work[5*size(A, 1) + 5*size(A, 2)];
+      Integer lwork=max(1, 5*size(A, 1) + 5*size(A, 2));
+      Real work[max(1, 5*size(A, 1) + 5*size(A, 2))];
 
     external"FORTRAN 77" dgesvd(
               "A",
@@ -6912,8 +6912,8 @@ For details of the arguments, see documentation of dgesv.
       Real Awork[size(A, 1), size(A, 2)]=A;
       Real U[size(A, 1), size(A, 1)];
       Real VT[size(A, 2), size(A, 2)];
-      Integer lwork=5*size(A, 1) + 5*size(A, 2);
-      Real work[5*size(A, 1) + 5*size(A, 2)];
+      Integer lwork=max(1, 5*size(A, 1) + 5*size(A, 2));
+      Real work[max(1, 5*size(A, 1) + 5*size(A, 2))];
 
     external"FORTRAN 77" dgesvd(
               "N",
@@ -8109,9 +8109,9 @@ For details of the arguments, see documentation of dgesv.
       Real Bwork[size(B, 1), size(A, 2)]=B;
       Real cwork[size(A, 1)]=c;
       Real dwork[size(B, 1)]=d;
-      Integer lwork=ncol_A + nrow_B + max(nrow_A, max(ncol_A, nrow_B))*5;
-      Real work[size(A, 2) + size(B, 1) + max(size(A, 1), max(size(A, 2), size(
-        B, 1)))*5];
+      Integer lwork=max(1, ncol_A + nrow_B + max(nrow_A, max(ncol_A, nrow_B))*5);
+      Real work[max(1, size(A, 2) + size(B, 1) + max(size(A, 1), max(size(A, 2), size(
+        B, 1)))*5)];
 
     external"FORTRAN 77" dgglse(
               nrow_A,
@@ -9516,10 +9516,10 @@ For details of the arguments, see documentation of dgtsv.
       Integer n=size(T, 2);
       Integer ldt=max(1, n);
       Integer ldq=if compq == "V" then max(n, 1) else 1;
-      Integer lwork=if job == "N" then max(1, n) else if job == "E" then n*n
-           else 2*n*n;
-      Real work[if job == "N" then max(1, size(T, 2)) else if job == "E" then
-        size(T, 2)*size(T, 2) else 2*size(T, 2)*size(T, 2)];
+      Integer lwork=max(1, if job == "N" then n else if job == "E" then n*n
+           else 2*n*n);
+      Real work[max(1, if job == "N" then size(T, 2) else if job == "E" then
+        size(T, 2)*size(T, 2) else 2*size(T, 2)*size(T, 2))];
       Integer liwork=if job == "N" or job == "E" then 1 else n*n;
       Integer iwork[if job == "N" or job == "E" then 1 else size(T, 2)*size(T,
         2)];

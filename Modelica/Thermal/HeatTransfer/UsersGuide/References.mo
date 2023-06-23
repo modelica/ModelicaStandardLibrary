@@ -11,7 +11,7 @@ class References "References"
   </tr>
 
   <tr>
-    <td>[<a href=\"https://www.academia.edu/38166004/Heat_Transfer_10thEdition_by_JP_Holman.pdf\">Holman2010</a>]</td>
+    <td>[<a href=\"https://www.academia.edu/6340170/Heat_Transfer_J_P_Holman_Ed_10\">Holman2010</a>]</td>
     <td>J. P. Holman, <em>Heat Transfer</em>, 10th edition, McGraw-Hill, 2010</td>
   </tr>
   <tr>

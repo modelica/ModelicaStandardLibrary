@@ -1,7 +1,8 @@
 /* ModelicaMatIO.h - MAT file I/O functions header
 
-   Copyright (C) 2013-2021, Modelica Association and contributors
-   Copyright (C) 2005-2013, Christopher C. Hulbert
+   Copyright (C) 2013-2022, Modelica Association and contributors
+   Copyright (C) 2015-2022, The matio contributors
+   Copyright (C) 2005-2014, Christopher C. Hulbert
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -54,13 +55,13 @@
 #define MATIO_MINOR_VERSION 5
 
 /* Matio release level number */
-#define MATIO_RELEASE_LEVEL 21
+#define MATIO_RELEASE_LEVEL 23
 
 /* Matio version number */
-#define MATIO_VERSION 1521
+#define MATIO_VERSION 1523
 
 /* Matio version string */
-#define MATIO_VERSION_STR "1.5.21"
+#define MATIO_VERSION_STR "1.5.23"
 
 /* Default file format */
 #define MAT_FT_DEFAULT MAT_FT_MAT5

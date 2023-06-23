@@ -4,8 +4,4 @@ mass1.v
 mass2.s
 mass2.v
 brake.mode
-brake.startBackward
-brake.startForward
 brake1.mode
-brake1.startBackward
-brake1.startForward

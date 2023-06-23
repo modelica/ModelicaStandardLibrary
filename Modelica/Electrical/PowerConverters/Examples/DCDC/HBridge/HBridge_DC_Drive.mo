@@ -1,7 +1,10 @@
 within Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge;
 model HBridge_DC_Drive "H bridge DC/DC converter with DC drive"
-  extends ExampleTemplates.HBridge(signalPWM(useConstantDutyCycle=false),
+  extends ExampleTemplates.HBridge(signalPWM(useConstantDutyCycle=false,
+      refType=Modelica.Electrical.PowerConverters.Types.SingleReferenceType.Triangle,
+      commonComparison=false),
       constantVoltage(V=120));
+
   extends Modelica.Icons.Example;
   parameter SI.Inductance Ld=3*dcpmData.La
     "Smoothing inductance";

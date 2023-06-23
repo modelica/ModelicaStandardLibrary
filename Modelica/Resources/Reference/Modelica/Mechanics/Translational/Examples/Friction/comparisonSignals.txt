@@ -6,11 +6,5 @@ stop1.v
 stop2.s
 stop2.v
 stop1.mode
-stop1.startBackward
-stop1.startForward
 stop2.mode
-stop2.startBackward
-stop2.startForward
 supportFriction.mode
-supportFriction.startBackward
-supportFriction.startForward

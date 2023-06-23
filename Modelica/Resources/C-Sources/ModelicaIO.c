@@ -37,6 +37,10 @@
       Modelica.Utilities.Streams.writeRealMatrix
 
    Changelog:
+      Nov. 27, 2021: by Thomas Beutlich
+                     Fixed error handling for invalid format specifier in
+                     text file (ticket #3903)
+
       Dec. 22, 2020: by Thomas Beutlich
                      Added reading of CSV files (ticket #1153)
 
@@ -510,7 +514,7 @@ static void readMatIO(_In_z_ const char* fileName,
         if (NULL == token) {
             free(matrixNameCopy);
             ModelicaFormatError(
-                "Variable \"%s\" not found on file \"%s\".\n",
+                "Variable \"%s\" not found in file \"%s\".\n",
                 matrixName, fileName);
         }
         else {
@@ -527,7 +531,7 @@ static void readMatIO(_In_z_ const char* fileName,
             }
             free(matrixNameCopy);
             ModelicaFormatError(
-                "Variable \"%s%s\" not found on file \"%s\".\n",
+                "Variable \"%s%s\" not found in file \"%s\".\n",
                 matrixNameBuf, dots, fileName);
         }
         return;
@@ -595,7 +599,7 @@ static void readMatIO(_In_z_ const char* fileName,
         else {
             free(matrixNameCopy);
             ModelicaFormatError(
-                "Variable \"%s\" not found on file \"%s\".\n", matrixName, fileName);
+                "Variable \"%s\" not found in file \"%s\".\n", matrixName, fileName);
         }
         return;
     }
@@ -909,6 +913,7 @@ static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tabl
     int bufLen = LINE_BUFFER_LENGTH;
     FILE* fp;
     int foundTable = 0;
+    int foundDims = 0;
     int readError;
     unsigned long nRow = 0;
     unsigned long nCol = 0;
@@ -1053,6 +1058,7 @@ static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tabl
             continue;
         }
 
+        foundDims = 1;
         { /* foundTable == 1 */
             size_t i = 0;
             size_t j = 0;
@@ -1219,7 +1225,13 @@ static double* readTxtTable(_In_z_ const char* fileName, _In_z_ const char* tabl
 #endif
     if (foundTable == 0) {
         ModelicaFormatError(
-            "Table matrix \"%s\" not found on file \"%s\".\n",
+            "Table matrix \"%s\" not found in file \"%s\".\n",
+            tableName, fileName);
+        return table;
+    }
+    if (foundDims == 0) {
+        ModelicaFormatError(
+            "Invalid table dimensions of matrix \"%s\" found in file \"%s\".\n",
             tableName, fileName);
         return table;
     }

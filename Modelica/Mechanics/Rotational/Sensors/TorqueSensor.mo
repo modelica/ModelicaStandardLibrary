@@ -1,6 +1,6 @@
 within Modelica.Mechanics.Rotational.Sensors;
 model TorqueSensor
-  "Ideal sensor to measure the torque between two flanges (= flange_a.tau)"
+  "Ideal sensor to measure the torque between two flanges"
 
   extends Rotational.Interfaces.PartialRelativeSensor;
   Modelica.Blocks.Interfaces.RealOutput tau(unit="N.m")
@@ -16,9 +16,10 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Measures the <strong>cut-torque between two flanges</strong> in an ideal way
-and provides the result as output signal <strong>tau</strong>
-(to be further processed with blocks of the Modelica.Blocks library).
+Measures the <em>cut-torque</em> between two flanges
+in an ideal way and provides the result as output signal <code>tau</code>
+(to be further processed with blocks of the
+<a href=\"modelica://Modelica.Blocks\">Modelica.Blocks</a> library).
 </p>
 </html>"),
        Icon(

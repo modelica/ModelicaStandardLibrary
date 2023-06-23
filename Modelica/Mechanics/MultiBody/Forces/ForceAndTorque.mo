@@ -48,6 +48,7 @@ model ForceAndTorque
 
 protected
   Visualizers.Advanced.Arrow forceArrow(
+    color=forceColor,
     specularCoefficient=specularCoefficient,
     quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
     R=frame_b.R,

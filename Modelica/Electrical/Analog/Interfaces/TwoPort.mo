@@ -36,8 +36,8 @@ equation
         Polygon(
           points={{124,103},{114,100},{124,97},{124,103}},
           lineColor={160,160,164},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={160,160,164}),
+          fillColor={160,160,164},
+          fillPattern=FillPattern.Solid),
         Line(points={{115,100},{140,100}}, color={160,160,164}),
         Line(points={{-140,-100},{-115,-100}},
                                              color={160,160,164}),

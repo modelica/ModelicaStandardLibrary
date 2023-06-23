@@ -197,14 +197,14 @@ def allAutotools() {
 def autotools(CC, CPPFLAGS, config, nostatic, dotest) {
   sh label: "Build $CC $CPPFLAGS", script: """
   export CC=$CC
-  export CPPFLAGS=$CPPFLAGS
+  export CPPFLAGS="$CPPFLAGS -I${WORKSPACE}/.CI/Test"
   export CFLAGS="-Os -fPIC"
   rm -rf Modelica/Resources/Library/*
   mkdir -p Modelica/Resources/Library/\$LIBDIR
   cd Modelica/Resources/BuildProjects/autotools
   git clean -fdx .
   ./autogen.sh
-  ./configure --libdir="\$PWD/../../Library/\$LIBDIR" $config
+  ./configure --libdir="${WORKSPACE}/Modelica/Resources/Library/\$LIBDIR" $config
   make --output-sync -j${numPhysicalCPU()}
   make install
   """
@@ -223,7 +223,7 @@ def makefile(CC, dotest) {
   rm -rf Modelica/Resources/Library/*
   mkdir -p "Modelica/Resources/Library/$LIBDIR"
   cd Modelica/Resources/BuildProjects/gcc
-  make --output-sync -j${numPhysicalCPU()} TARGETDIR="$LIBDIR"
+  make --output-sync -j${numPhysicalCPU()} TARGETDIR="$LIBDIR" CPPFLAGS="-I${WORKSPACE}/.CI/Test"
   """
   sh label: "Test $CC", script: """
   export CC=$CC

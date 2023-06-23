@@ -43,7 +43,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories=""
+				AdditionalIncludeDirectories="&quot;$(MODELICA_UTILITIES_INCLUDE)&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;MODELICASTANDARDTABLES_EXPORTS;DEBUG_TIME_EVENTS;TABLE_SHARE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -106,7 +106,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories=""
+				AdditionalIncludeDirectories="&quot;$(MODELICA_UTILITIES_INCLUDE)&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;MODELICASTANDARDTABLES_EXPORTS;DEBUG_TIME_EVENTS;TABLE_SHARE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -168,7 +168,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories=""
+				AdditionalIncludeDirectories="&quot;$(MODELICA_UTILITIES_INCLUDE)&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;MODELICASTANDARDTABLES_EXPORTS;_CRT_SECURE_NO_WARNINGS;TABLE_SHARE"
 				RuntimeLibrary="0"
 				ProgramDataBaseFileName="$(IntDir)\$(ProjectName).pdb"
@@ -228,7 +228,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories=""
+				AdditionalIncludeDirectories="&quot;$(MODELICA_UTILITIES_INCLUDE)&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;MODELICASTANDARDTABLES_EXPORTS;_CRT_SECURE_NO_WARNINGS;TABLE_SHARE"
 				RuntimeLibrary="0"
 				ProgramDataBaseFileName="$(IntDir)\$(ProjectName).pdb"
@@ -291,10 +291,6 @@
 			</File>
 			<File
 				RelativePath="..\..\C-Sources\ModelicaStandardTables.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\C-Sources\ModelicaUtilities.h"
 				>
 			</File>
 		</Filter>

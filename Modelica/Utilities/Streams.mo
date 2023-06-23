@@ -120,7 +120,7 @@ separated by LF or CR-LF.
   pure function error "Print error message and cancel all actions - in case of an unrecoverable error"
     extends Modelica.Icons.Function;
     input String string "String to be printed to error message window";
-    external "C" ModelicaError(string) annotation(IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaUtilities.h\"", Library="ModelicaExternalC");
+    external "C" ModelicaError(string) annotation(Include="#include \"ModelicaUtilities.h\"", Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
