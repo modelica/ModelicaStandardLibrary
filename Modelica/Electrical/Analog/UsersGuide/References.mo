@@ -35,6 +35,15 @@ class References "References"
     <td>H. Spiro, H, <em>Simulation integrierter Schaltungen</em>, R. Oldenbourg Verlag M&uuml;nchen Wien, 1990</td>
   </tr>
 
+
+  <tr>
+    <td>[<a href=\"https://www.academia.edu/38437649/EMTP_Theory_Book\">Theory Book</a>]</td>
+    <td>Various authors, &quot;Emtp theory book&quot;, <em>Proceedings of the IEEE</em>,
+        vol. 55, pp. 2012-2013, 1967</td>
+  </tr>
+
+
+
   <tr>
     <td>[Vlach1983]</td>
     <td>J. Vlach, K. Singal, <em>Computer methods for circuit analysis and design</em>, Van Nostrand Reinhold, New York 1983</td>
