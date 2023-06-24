@@ -107,20 +107,21 @@ equation
           22,2},{18,2}},    color={0,0,255}));
   annotation (
     Diagram(coordinateSystem(extent={{-100,-60},{80,60}})),
-    Documentation(info= "<html><head></head><body><p>This example shows the usage of M_OLine in a overhead PowerLine. The line geometry is the one shown in figure 4.1 of [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>].</p>
+    Documentation(info="<html>
+<p>This example shows the usage of M_OLine in a overhead PowerLine. The line geometry is the one shown in figure 4.1 of [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>].</p>
 <p>A common rule-of-thumb states that for steady-state analysis at industrial frequency each segment (PI model) should be not longer than one tenth of the wave length. For 50 Hz, the wavelength is 6000 km, therefore each pi should not overcome 60 km. This is why for our 100 km line we have chosen just two trunks. </p>
 <p>This example has some limitations:</p>
-<p>- the results are valid only for their steady-state trend. If we want to simulate transients effectively, the number of trunks must be enlarged consistently. See example \"CompareLineTrunks\". </p>
+<p>- the results are valid only for their steady-state trend. If we want to simulate transients effectively, the number of trunks must be enlarged consistently. See example &quot;CompareLineTrunks&quot;. </p>
 <p>- since it is based on M_OLine, which requires zero-valued resistances on the off-diagonal elements of Z impedance matrix, it does not take into account the influence of the soil resistance into Z matrix; however, for simulations like this one in which the current through the soil is negligible and we analyse the results at power frequency where soil resistance is very low, this implies negligible errors</p>
 <p><br>The considered line is a three-phase line with a fence all along the line (conductor #4). An interesting result of this example is the fence steady-state voltage due to the capacitive coupling with the other wires.</p>
 <p><u>Test 1:</u></p>
-<p>Simulate the model as it is: a person (body) is supposed to be touching the fence, and absorbs the current body.i, around 1A, by large lethal</p>
+<p>Simulate the model as it is: a person (body) is supposed to be touching the fence, and absorbs the current body.i, around 1A, by large lethal.</p>
 <p><u>Test 2:</u></p>
 <p>Simulate the model changing the body resistance to 1e6 or removing body: the steady-state fence voltage line.n[4] has changed from 1390V to 5930 (peak). So there exists a marked difference between the open-circuit voltage and body voltage which, although being much lower, is still very dangerous.</p>
 <p><u>Test 3:</u></p>
 <p>Simulate the original model reducing the line length to 3 km. The body current has fallen slightly below 30 mA (RMS), which is considered the maximum safe current a body can resist over 5s.</p>
 <p>Note that the fence voltage before the human contact is roughtly the same for all lengths while the current flowing when contact occurs is very dependent on the line length. </p>
-</body></html>",          revisions="<html>
+</html>",                 revisions="<html>
 <p>June, 2023 Massimo Ceraolo of the University of Pisa </p>
 <p>originally created </p>
 </html>"),
