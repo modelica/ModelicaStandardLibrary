@@ -71,7 +71,7 @@ algorithm
     end for;
   end for;
   annotation (Documentation(info="<html>
-<p>This function computes resistances, reactances, inductances of multi-conductor transmission lines, taking into account ground characteristics according to John Carson&apos;s formulas as reported in [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Ceraolo2018</a>, Appendix], but upgraded in accuracy (more digits in constants and more added terms in the evaluation of Q).</p>
+<p>This function computes resistances, reactances, inductances of multi-conductor transmission lines, taking into account ground characteristics according to John Carson&apos;s formulas as reported in [<a href=\"https://ieeexplore.ieee.org/document/8076707\">Ceraolo2018</a>, Appendix], but upgraded in accuracy (more digits in constants and more added terms in the evaluation of Q).</p>
 <p>When used in conjunction with M_OLine from its output just the inductances are used; the resistances could instead be used when ground resistance is to be taken into account.</p>
 <p>The results obtained with this function have been checked with Fig. 4.1 of [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>], in model Examples.TestM_OLineZ, with good agreement.</p>
 <p>The output arrays contain the elements of the Z matrix ordered as described in the M_OLine model and are used in example Examples.Lines.PowerLineWithFence in conjunction with M_OLine.</p>

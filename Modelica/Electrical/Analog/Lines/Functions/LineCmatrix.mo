@@ -59,7 +59,12 @@ algorithm
   end for;
   annotation (
     Documentation(info="<html>
-<p>This function computes Capacitances of multi-conductor transmission lines, according to the formulas as reported in [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Ceraolo2018</a>, Appendix].</p>
+<p>This function computes Capacitances of multi-conductor transmission lines, according to the formulas as reported in 
+[<a href=\"https://ieeexplore.ieee.org/document/8076707\">Ceraolo2018</a>, Appendix].</p>
+<td><p>M. Ceraolo, <i>Modelling and Simulation of AC Railway Electric Supply Lines Including Ground Return</i>, 
+ IEEE Transactions on Transportation Electrification  Vol. 4, issue N. 1, pp. 202-210, March 2018</p></td>
+
+
 <p>The results obtained with this function have been checked with Fig. 4.1 of [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>], with good compliance.</p>
 <p>Internally, it computes the <b>C</b> matrix, which corresponds to the formulas <b>V=YI</b>,&nbsp;<b>Y=<span style=\"font-family: Symbol;\">w</span>C&nbsp;</b>where</p>
 <p>- <b>V</b> is the vector of voltages between conductors and the reference (the return conductor, usually ground)</p>
