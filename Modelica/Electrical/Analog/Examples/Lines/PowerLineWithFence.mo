@@ -117,9 +117,9 @@ equation
 <p><u>Test 1:</u></p>
 <p>Simulate the model as it is: a person (body) is supposed to be touching the fence, and absorbs the current body.i, around 1A, by large lethal.</p>
 <p><u>Test 2:</u></p>
-<p>Simulate the model changing the body resistance to 1e6 or removing body: the steady-state fence voltage line.n[4] has changed from 1390V to 5930 (peak). So there exists a marked difference between the open-circuit voltage and body voltage which, although being much lower, is still very dangerous.</p>
+<p>Simulate the model changing the body resistance to 1e6 or removing body: the steady-state fence voltage line.n[4].v has changed from 1429V to 5594 (peak). So there exists a marked difference between the open-circuit voltage and actual body voltage which, although being much lower, is still very dangerous.</p>
 <p><u>Test 3:</u></p>
-<p>Simulate the original model reducing the line length to 3 km. The body current has fallen slightly below 30 mA (RMS), which is considered the maximum safe current a body can resist over 5s.</p>
+<p>Simulate the original model reducing the line length to 3 km. The body current has fallen to around 30 mA (RMS), which is considered the maximum safe current a body can resist over 5s.</p>
 <p>Note that the fence voltage before the human contact is roughtly the same for all lengths while the current flowing when contact occurs is very dependent on the line length. </p>
 </html>",                 revisions="<html>
 <p>June, 2023 Massimo Ceraolo of the University of Pisa </p>
