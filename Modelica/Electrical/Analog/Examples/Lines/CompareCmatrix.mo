@@ -258,12 +258,10 @@ equation
 <p>where</p>
 <p>- <i><b>i</b></i> is the vector of currents entering a multiple-conductor lines (n conductors with a return wire gives rise to n currents)</p>
 <p>- <i><b>v</b></i> is the vector of voltages at a port of a multiple-conductor lines (n conductors with a return wire gives rise to n voltages)</p>
-<p>The <i><b>C</b></i> matrix is symmetrical, and therefore it has n(n+1) independent terms. the diacgonal terms of this matrix are negative.</p>
-<p>The capacitive coupling across conductors can be modelled equivalently through a network of n(n+1) capacitors, and simple conversion formulas exist, 
-which can for instance be found in <a   href=\"https://www.academia.edu/38437649/EMTP_Theory_Book\"\">EmtpTheoryBook</a>).</p>
-<p>This model uses those conversion formulas, and compares the modelling of capacitor coupling through C matrix or equivalent physical capacitors.</p>
-<p>It also uses function LineCmatrix to compute C matrix from the inputted line geometry, which is the same of example Electrical.Analog.Examples.Lines.PowerLineWithfence</p>
-<p>To see that the formulas give the same result, compare current through r1n (&quot;n&quot; stands for network) and r1.</p>
+<p>The <i><b>C</b></i> matrix is symmetrical, and therefore it has n(n+1) independent terms. the diagonal terms of this matrix are negative.</p>
+<p>The capacitive coupling across conductors can be modelled equivalently through a network of n(n+1) capacitors, and simple conversion formulas exist, which can for instance be found in [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>], page 3-12. </p>
+<p>The support function LineCmatrix already contains these formulas and puts these capacitance values in an array called <b>Ccompact</b>.</p>
+<p>This example is to show the perfect equivalence of capacitor matrix and Ccompact values (here stored in an array named <b>Ccomp</b>). Just check for equality r1n.i and r1.i.</p>
 </html>",                 revisions="<html>
 <p><i>June, 2023 Massimo Ceraolo of the University of Pisa </i></p>
 <p><i>originally created </i></p>

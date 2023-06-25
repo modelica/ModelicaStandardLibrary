@@ -9,9 +9,9 @@ function LineCmatrix
   input Modelica.Units.SI.Length x[n] "Horizontal abscissas of conductors";
   input Modelica.Units.SI.Length y[n] "Vertical abscissas of conductors";
   input Modelica.Units.SI.Radius r[n] "Conductors radii (m)";
-  output Real Ccompact[div(n*(n + 1), 2)](each final unit="F/m") "Vector of capacitances";
   output Real C[n, n](each final unit="F/m") "Capacitance matrix with negative off-diagonal conductances";
 //  output Real Cflat[n, n](each final unit="F/m") "Matrix with capacitances of a network reproducing the behaviour of C";
+  output Real Ccompact[div(n*(n + 1), 2)](each final unit="F/m") "Vector of capacitances of network of capacitors equivalent to C";
 protected
   constant Complex j = Complex(0, 1) "Imaginary unit";
   constant Real K(final unit="F/m") = 1 / (2 * pi * epsilon_0);
@@ -59,22 +59,11 @@ algorithm
   end for;
   annotation (
     Documentation(info="<html>
-<p>This function computes Capacitances of multi-conductor transmission lines, according to the formulas as reported in 
-[<a href=\"https://ieeexplore.ieee.org/document/8076707\">Ceraolo2018</a>, Appendix].</p>
-<td><p>M. Ceraolo, <i>Modelling and Simulation of AC Railway Electric Supply Lines Including Ground Return</i>, 
- IEEE Transactions on Transportation Electrification  Vol. 4, issue N. 1, pp. 202-210, March 2018</p></td>
-
-
-<p>The results obtained with this function have been checked with Fig. 4.1 of [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>], with good compliance.</p>
-<p>Internally, it computes the <b>C</b> matrix, which corresponds to the formulas <b>V=YI</b>,&nbsp;<b>Y=<span style=\"font-family: Symbol;\">w</span>C&nbsp;</b>where</p>
-<p>- <b>V</b> is the vector of voltages between conductors and the reference (the return conductor, usually ground)</p>
-<p>-&nbsp;<b>I</b>&nbsp;is the vector of transverse currents (between conductors and the return conductor, usually ground) due to the capacitive coupling between the conductors</p>
-<p>- <b>Y</b> is the matrix of transverse admittances of the multiconductor line (S/m)</p>
-<p>-&nbsp;<span style=\"font-family: Symbol;\">w</span>&nbsp;is the angular frequency when constant-frequency steady-state operation of the line is considered</p>
-<p>This matrix&nbsp;<b>C</b>&nbsp;, has always negative off-diagonal values, and positive diagonal values.</p>
-<p>From <b>C</b> matrix, the internal <b>Cflat</b> matrix &nbsp;is computed, containing physical capacitors that can be imagined between conductors to model capacitive effects. For instance C12 is the capacitance (per unit length) to be put between conducturors 1 and 2. This&nbsp;<b>Cflat</b>&nbsp;matrix &nbsp;contains the elements needed by M_OLine for its simulations.&nbsp; </p>
-<p>The output array <b>Ccomp </b>contains the elements of the <b>Cflat</b> matrix ordered as described in the M_OLine model, and is used in example Examples.Lines.PowerLineWithFence in conjunction with M_OLine.</p>
-<p>For an example on how to use this function, consider model Electrical.Analog.Examples.Lines.TestCmatrix.</p>
+<p>This function computes Capacitances of multi-conductor transmission lines, according to the formulas as reported in [<a href=\"https://ieeexplore.ieee.org/document/8076707\">Ceraolo2018</a>, Appendix].</p>
+<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
+<td><p>M. Ceraolo, <i>Modelling and Simulation of AC Railway Electric Supply Lines Including Ground Return</i>, IEEE Transactions on Transportation Electrification Vol. 4, issue N. 1, pp. 202-210, March 2018</p><p>The results obtained with this function have been checked with Fig. 4.1 of [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>], with good compliance.</p><p>Internally, it computes the <b>C</b> matrix, which corresponds to the formulas <b>V=YI</b>,&nbsp;<b>Y=<span style=\"font-family: Symbol;\">w</span>C&nbsp;</b>where</p><p>- <b>V</b> is the vector of voltages between conductors and the reference (the return conductor, usually ground)</p><p>-&nbsp;<b>I</b>&nbsp;is the vector of transverse currents (between conductors and the return conductor, usually ground) due to the capacitive coupling between the conductors</p><p>- <b>Y</b> is the matrix of transverse admittances of the multiconductor line (S/m)</p><p>-&nbsp;<span style=\"font-family: Symbol;\">w</span>&nbsp;is the angular frequency when constant-frequency steady-state operation of the line is considered</p><p>This matrix&nbsp;<b>C</b>&nbsp;, has always negative off-diagonal values, and positive diagonal values.</p><p>From <b>C</b> matrix, the internal <b>Cflat</b> matrix &nbsp;is computed, containing physical capacitors that can be imagined between conductors to model capacitive effects. For instance C12 is the capacitance (per unit length) to be put between conducturors 1 and 2. The output array <b>Ccompact </b>contains the elements of the Cflat matrix ordered as described in the M_OLine model, and is used in example Examples.Lines.PowerLineWithFence in conjunction with M_OLine.</p><p>For an example on how to use this function, consider model Electrical.Analog.Examples.Lines.TestCmatrix.</p></td>
+</tr>
+</table>
 </html>",          revisions="<html>
 <ul>
 <li><em>May, 2021</em> 
