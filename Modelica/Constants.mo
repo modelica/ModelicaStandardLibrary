@@ -32,6 +32,7 @@ package Constants
   // The value for mu_0 can now be expressed as 2*alpha*h/(q^2*c),
   // where alpha is the experimental fine-structure constant,
   // and the value is from https://physics.nist.gov/cuu/pdf/wall_2018.pdf
+  // Note that mu_0 used to be exactly 4*pi*1e-7 H/m but is now 4*pi*1.00000000055(15)*1e-7 H/m
   final constant SI.Velocity c=299792458 "Speed of light in vacuum";
   final constant SI.Acceleration g_n=9.80665
     "Standard acceleration of gravity on earth";
@@ -50,7 +51,7 @@ package Constants
     "Stefan-Boltzmann constant ";
   final constant Real N_A(final unit="1/mol") = 6.02214076e23
     "Avogadro constant";
-  final constant SI.Permeability mu_0 = 4*pi*1.00000000055e-7 "Magnetic constant";
+  final constant SI.Permeability mu_0 = 1.25663706212e-6 "Magnetic constant";
   final constant Real epsilon_0(final unit="F/m") = 1/(mu_0*c*c)
     "Electric constant";
   final constant NonSI.Temperature_degC T_zero=-273.15
