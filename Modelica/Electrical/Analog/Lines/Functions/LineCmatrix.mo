@@ -65,7 +65,7 @@ algorithm
 </tr>
 </table>
 </html>",          revisions="<html>
-<p><i>July, 2023</i> </p>
+<p><i>July, 2023 </i> </p>
 <p>Original implementation by Massimo Ceraolo of the University of Pisa </p>
 </html>"));
 end LineCmatrix;

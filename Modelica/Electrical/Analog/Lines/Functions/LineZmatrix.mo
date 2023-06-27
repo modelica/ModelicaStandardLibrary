@@ -78,7 +78,7 @@ algorithm
 <p>Parameter k_s is 0.778 for a solid non-magnetic conductor; can be between 0.35 and 0.8 for real-life power line conductors (they are stranded and often have an iron core).</p>
 <p>Note that according to Carson&apos;s theory the line impedances depend on the frequency of signal, and therefore this function is run for a given frequency. The formulas inside have adequate precision only for a limited range of frequency (up to several hundred hertz); if a larger than acceptable frequency is requested, given the line geometry, a warning is issued.</p>
 </html>", revisions="<html>
-<p><i>July, 2023</i> </p>
+<p><i>July, 2023 </i> </p>
 <p>Original implementation by Massimo Ceraolo of the University of Pisa </p>
 </html>"));
 end LineZmatrix;

@@ -57,7 +57,7 @@ algorithm
 <p><span style=\"font-family: Courier New; font-size: 9pt;\">... &quot;TestLineZmatrix.mat&quot; creating (simulation result file)</span> </p>
 <p>&nbsp; </p>
 </html>", revisions="<html>
-<p><i>July, 2023</i> </p>
+<p><i>July, 2023 </i> </p>
 <p>Original implementation by Massimo Ceraolo of the University of Pisa </p>
 </html>"),
     experiment(StopTime=0));

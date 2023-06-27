@@ -54,7 +54,7 @@ algorithm
 <p><span style=\"font-family: Courier New; font-size: 9pt;\">6.97273&nbsp; </span></p>
 <p><span style=\"font-family: Courier New; font-size: 9pt;\">... &quot;TestLineCmatrix.mat&quot; creating (simulation result file)</span> </p>
 </html>", revisions="<html>
-<p><i>July, 2023</i> </p>
+<p><i>July, 2023 </i> </p>
 <p>Original implementation by Massimo Ceraolo of the University of Pisa </p>
 </html>"),
     experiment(StopTime=0));

@@ -14,7 +14,7 @@ record LineGeometry
 <p>It will be used by functions LineZmatrix and LineCmatrix that compute longitudinal (flow) and transverse (cross) line matrices.</p>
 <p>Even though frequency is not part of the line geometry, it is a parameter needed by LineZmatrix and therefore it is included here.</p>
 </html>", revisions="<html>
-<p><i>July, 2023</i> </p>
+<p><i>July, 2023 </i> </p>
 <p>Original implementation by Massimo Ceraolo of the University of Pisa </p>
 </html>"));
 end LineGeometry;
