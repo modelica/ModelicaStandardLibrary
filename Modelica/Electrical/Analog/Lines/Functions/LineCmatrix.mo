@@ -9,9 +9,9 @@ function LineCmatrix
   input Modelica.Units.SI.Length x[n] "Horizontal abscissas of conductors";
   input Modelica.Units.SI.Length y[n] "Vertical abscissas of conductors";
   input Modelica.Units.SI.Radius r[n] "Conductors radii (m)";
-  output Real C[n, n](each final unit="F/m") "Capacitance matrix with negative off-diagonal conductances";
 //  output Real Cflat[n, n](each final unit="F/m") "Matrix with capacitances of a network reproducing the behaviour of C";
   output Real Ccompact[div(n*(n + 1), 2)](each final unit="F/m") "Vector of capacitances of network of capacitors equivalent to C";
+  output Real C[n, n](each final unit="F/m") "Capacitance matrix with negative off-diagonal conductances";
 protected
   constant Complex j = Complex(0, 1) "Imaginary unit";
   constant Real K(final unit="F/m") = 1 / (2 * pi * epsilon_0);
@@ -65,7 +65,7 @@ algorithm
 </tr>
 </table>
 </html>",          revisions="<html>
-<p><i>July, 2023 </i> </p>
+<p><i>July, 2023</i> </p>
 <p>Original implementation by Massimo Ceraolo of the University of Pisa </p>
 </html>"));
 end LineCmatrix;
