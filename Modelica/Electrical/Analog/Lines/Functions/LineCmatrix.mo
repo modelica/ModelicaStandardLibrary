@@ -65,10 +65,7 @@ algorithm
 </tr>
 </table>
 </html>",          revisions="<html>
-<ul>
-<li><em>May, 2021</em> 
-      Massimo Ceraolo of the University of Pisa <br> 
-      originally created</li> 
-</ul>                
+<p><i>July, 2023</i> </p>
+<p>Original implementation by Massimo Ceraolo of the University of Pisa </p>
 </html>"));
 end LineCmatrix;

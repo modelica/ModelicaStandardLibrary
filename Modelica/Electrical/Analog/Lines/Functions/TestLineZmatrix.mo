@@ -57,9 +57,8 @@ algorithm
 <p><span style=\"font-family: Courier New; font-size: 9pt;\">... &quot;TestLineZmatrix.mat&quot; creating (simulation result file)</span> </p>
 <p>&nbsp; </p>
 </html>", revisions="<html>
-<li><em>May, 2021</em> 
-        Massimo Ceraolo of the University of Pisa <br> 
-        originally created</li> 
+<p><i>July, 2023</i> </p>
+<p>Original implementation by Massimo Ceraolo of the University of Pisa </p>
 </html>"),
     experiment(StopTime=0));
 end TestLineZmatrix;
