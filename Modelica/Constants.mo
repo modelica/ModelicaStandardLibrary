@@ -32,7 +32,8 @@ package Constants
   // The value for mu_0 can now be expressed as 2*alpha*h/(q^2*c),
   // where alpha is the experimental fine-structure constant,
   // and the value is from https://physics.nist.gov/cuu/pdf/wall_2018.pdf
-  // Note that mu_0 used to be exactly 4*pi*1e-7 H/m but is now 4*pi*1.00000000055(15)*1e-7 H/m
+  // The current value of mu_0 is experimentally determined.
+  // Before 2019 mu_0 was defined to be exactly 4*pi*1e-7 H/m.
   final constant SI.Velocity c=299792458 "Speed of light in vacuum";
   final constant SI.Acceleration g_n=9.80665
     "Standard acceleration of gravity on earth";
