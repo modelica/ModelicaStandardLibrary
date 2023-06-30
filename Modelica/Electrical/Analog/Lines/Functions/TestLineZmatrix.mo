@@ -45,7 +45,7 @@ algorithm
   annotation (Diagram(coordinateSystem(preserveAspectRatio=
            false, extent={{-60,-40},{60,40}})),
     Documentation(info="<html>
-<p>This model tests the Z matrix as computed with function LineZmatrix, with the geometry of fig. 4.11 of [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>]. </p>
+<p>This model tests the Z matrix as computed with function <a href="modelica://Modelica.Electrical.Analog.Lines.Functions.LineZmatrix">LineZmatrix</a>, with the geometry of fig. 4.11 of [<a href="modelica://Modelica.Electrical.Analog.UsersGuide.References">EmtpTheoryBook</a>]. </p>
 <p>The results are given textually in the log and show a good agreement with the reference.</p>
 <p>This simulation runs correctly with both Dymola and OpenModelica. Computation result using Dymola 2020:</p>
 <blockquote><pre>
