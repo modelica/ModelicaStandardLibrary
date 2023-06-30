@@ -71,12 +71,39 @@ algorithm
     end for;
   end for;
   annotation (Documentation(info="<html>
-<p>This function computes resistances, reactances, inductances of multi-conductor transmission lines, taking into account ground characteristics according to John Carson&apos;s formulas as reported in [<a href=\"https://ieeexplore.ieee.org/document/8076707\">Ceraolo2018</a>, Appendix], but upgraded in accuracy (more digits in constants and more added terms in the evaluation of Q).</p>
-<p>When used in conjunction with M_OLine from its output just the inductances are used; the resistances could instead be used when ground resistance is to be taken into account.</p>
-<p>The results obtained with this function have been checked with Fig. 4.1 of [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>], in model Examples.TestM_OLineZ, with good agreement.</p>
-<p>The output arrays contain the elements of the Z matrix ordered as described in the M_OLine model and are used in example Examples.Lines.PowerLineWithFence in conjunction with M_OLine.</p>
-<p>Parameter k_s is 0.778 for a solid non-magnetic conductor; can be between 0.35 and 0.8 for real-life power line conductors (they are stranded and often have an iron core).</p>
-<p>Note that according to Carson&apos;s theory the line impedances depend on the frequency of signal, and therefore this function is run for a given frequency. The formulas inside have adequate precision only for a limited range of frequency (up to several hundred hertz); if a larger than acceptable frequency is requested, given the line geometry, a warning is issued.</p>
+<p>
+This function computes resistances, reactances, inductances of multi-conductor transmission
+lines, taking into account ground characteristics according to John Carson&apos;s formulas
+as reported in
+[<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Cerolo2018</a>, Appendix],
+but upgraded in accuracy (more digits in constants and more added terms in the evaluation of Q).
+</p>
+<p>
+When used in conjunction with <a href=\"modelica://Modelica.Electrical.Analog.Lines.M_OLine\">M_OLine</a>
+from its output just the inductances are used;
+the resistances could instead be used when ground resistance is to be taken into account.
+</p>
+<p>
+The results obtained with this function have been checked with Fig. 4.1 of
+[<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>],
+in model Examples.TestM_OLineZ, with good agreement.
+</p>
+<p>
+The output arrays contain the elements of the Z matrix ordered as described in the
+<a href=\"modelica://Modelica.Electrical.Analog.Lines.M_OLine\">M_OLine</a> model and are
+used in example Examples.Lines.PowerLineWithFence in conjunction with M_OLine.
+</p>
+<p>
+Parameter k_s is 0.778 for a solid non-magnetic conductor; can be between 0.35 and 0.8
+for real-life power line conductors (they are stranded and often have an iron core).
+</p>
+<p>
+Note that according to Carson&apos;s theory the line impedances depend on the frequency
+of signal, and therefore this function is run for a given frequency. The formulas inside
+have adequate precision only for a limited range of frequency (up to several hundred Hertz);
+if a larger than acceptable frequency is requested, given the line geometry, a warning is
+issued.
+</p>
 </html>", revisions="<html>
 <p><i>July, 2023 </i> </p>
 <p>Original implementation by Massimo Ceraolo of the University of Pisa </p>

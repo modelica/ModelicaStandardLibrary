@@ -59,11 +59,56 @@ algorithm
   end for;
   annotation (
     Documentation(info="<html>
-<p>This function computes Capacitances of multi-conductor transmission lines, according to the formulas as reported in [<a href=\"https://ieeexplore.ieee.org/document/8076707\">Ceraolo2018</a>, Appendix].</p>
-<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
-<td><p>M. Ceraolo, <i>Modelling and Simulation of AC Railway Electric Supply Lines Including Ground Return</i>, IEEE Transactions on Transportation Electrification Vol. 4, issue N. 1, pp. 202-210, March 2018</p><p>The results obtained with this function have been checked with Fig. 4.1 of [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>], with good compliance.</p><p>Internally, it computes the <b>C</b> matrix, which corresponds to the formulas <b>V=YI</b>,&nbsp;<b>Y=<span style=\"font-family: Symbol;\">w</span>C&nbsp;</b>where</p><p>- <b>V</b> is the vector of voltages between conductors and the reference (the return conductor, usually ground)</p><p>-&nbsp;<b>I</b>&nbsp;is the vector of transverse currents (between conductors and the return conductor, usually ground) due to the capacitive coupling between the conductors</p><p>- <b>Y</b> is the matrix of transverse admittances of the multiconductor line (S/m)</p><p>-&nbsp;<span style=\"font-family: Symbol;\">w</span>&nbsp;is the angular frequency when constant-frequency steady-state operation of the line is considered</p><p>This matrix&nbsp;<b>C</b>&nbsp;, has always negative off-diagonal values, and positive diagonal values.</p><p>From <b>C</b> matrix, the internal <b>Cflat</b> matrix &nbsp;is computed, containing physical capacitors that can be imagined between conductors to model capacitive effects. For instance C12 is the capacitance (per unit length) to be put between conducturors 1 and 2. The output array <b>Ccompact </b>contains the elements of the Cflat matrix ordered as described in the M_OLine model, and is used in example Examples.Lines.PowerLineWithFence in conjunction with M_OLine.</p><p>For an example on how to use this function, consider model Electrical.Analog.Examples.Lines.TestCmatrix.</p></td>
-</tr>
-</table>
+<p>
+This function computes Capacitances of multi-conductor transmission lines, according to
+the formulas as reported in
+[<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Cerolo2018</a>, Appendix].
+The results obtained with this function have been checked with Fig. 4.1 of
+[<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>],
+with good compliance.
+</p>
+<p>
+Internally, it computes the <strong>C</strong> matrix, which corresponds to the formulas
+<strong>V</strong>&nbsp;=&nbsp;<strong>Y</strong><strong>I</strong>,
+<strong>Y</strong>&nbsp;=&nbsp;&omega;<strong>C</strong>
+where
+</p>
+<ul>
+  <li>
+    <strong>V</strong> is the vector of voltages between conductors and the reference
+    (the return conductor, usually ground),
+  </li>
+  <li>
+    <strong>I</strong>&nbsp;is the vector of transverse currents (between conductors and the
+    return conductor, usually ground) due to the capacitive coupling between the conductors,
+  </li>
+  <li>
+    <strong>Y</strong> is the matrix of transverse admittances of the multiconductor line (S/m),
+  </li>
+  <li>
+    &omega; is the angular frequency when constant-frequency steady-state operation of the
+    line is considered
+  </li>
+</ul>
+<p>
+This matrix&nbsp;<strong>C</strong>, has always negative off-diagonal values, and positive
+diagonal values.
+</p>
+<p>
+From <strong>C</strong> matrix, the internal <strong>Cflat</strong> matrix is computed,
+containing physical capacitors that can be imagined between conductors to model capacitive
+effects. For instance C12 is the capacitance (per unit length) to be put between
+conducturors 1 and 2. The output array <strong>Ccompact</strong> contains the elements of
+the <strong>Cflat</strong> matrix ordered as described in the
+<a href=\"modelica://Modelica.Electrical.Analog.Lines.M_OLine\">M_OLine</a> model, and is
+used in example
+<a href=\"modelica://Modelica.Electrical.Analog.Examples.Lines.PowerLineWithFence\">Examples.Lines.PowerLineWithFence</a>
+in conjunction with M_OLine.
+</p>
+<p>
+For an example on how to use this function, consider model
+Electrical.Analog.Examples.Lines.TestCmatrix.
+</p>
 </html>",          revisions="<html>
 <p><i>July, 2023</i> </p>
 <p>Original implementation by Massimo Ceraolo of the University of Pisa </p>
