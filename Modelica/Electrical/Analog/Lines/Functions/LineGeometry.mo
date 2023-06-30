@@ -1,6 +1,6 @@
 within Modelica.Electrical.Analog.Lines.Functions;
 record LineGeometry
- extends Modelica.Icons.Record;
+  extends Modelica.Icons.Record;
   parameter Integer n=3 "Number of wires" annotation (Evaluate=true);
   parameter Modelica.Units.SI.Length x[n] "Horizontal abscissas of conductors";
   parameter Modelica.Units.SI.Length y[n] "Vertical abscissas of conductors";
