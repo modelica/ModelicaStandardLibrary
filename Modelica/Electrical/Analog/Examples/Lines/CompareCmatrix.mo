@@ -252,17 +252,53 @@ equation
   annotation (
     Diagram(coordinateSystem(extent={{-140,-60},{120,60}})),
     Documentation(info="<html>
-<p>MSL uses, inside M_OLine, a network of physical capacitors to model capacitive effects across conductors.</p>
-<p>Insstead, in typical PowerSystems approach, a capacitance matrix is used, corresponding to the vector equation:</p>
-<p><strong>i</strong>=<em><strong>C&nbsp;</strong></em>d<strong>v</strong>/dt&nbsp;</p>
-<p>where</p>
-<p>- <em><strong>i</strong></em> is the vector of currents entering a multiple-conductor lines (n conductors with a return wire gives rise to n currents)</p>
-<p>- <em><strong>v</strong></em> is the vector of voltages at a port of a multiple-conductor lines (n conductors with a return wire gives rise to n voltages)</p>
-<p>The <em><strong>C</strong></em> matrix is symmetrical, and therefore it has n(n+1) independent terms. the diagonal terms of this matrix are negative.</p>
-<p>The capacitive coupling across conductors can be modelled equivalently through a network of n(n+1) capacitors, and simple conversion formulas exist, which can for instance be found in [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>], page 3-12. </p>
-<p>The support function LineCmatrix already contains these formulas and puts these capacitance values in an array called <strong>Ccompact</strong>.</p>
-<p>This example is to show the perfect equivalence of capacitor matrix and Ccompact values (here stored in an array named <strong>Ccomp</strong>). Just check for equality r1n.i and r1.i.</p>
-</html>",                 revisions="<html>
+<p>
+MSL uses, inside <a href=\"modelica://Modelica.Electrical.Analog.Lines.M_OLine\">M_OLine</a>,
+a network of physical capacitors to model capacitive effects across conductors.
+</p>
+<p>
+Instead, in typical PowerSystems approach, a capacitance matrix is used, corresponding to
+the vector equation:
+</p>
+<p>
+<strong>i</strong>=<em><strong>C&nbsp;</strong></em>d<strong>v</strong>/dt&nbsp;
+</p>
+<p>
+where
+</p>
+<ul>
+  <li>
+    <em><strong>i</strong></em> is the vector of currents entering a multiple-conductor lines
+    (n conductors with a return wire gives rise to n currents),
+  </li>
+  <li>
+    <em><strong>v</strong></em> is the vector of voltages at a port of a multiple-conductor
+    lines (n conductors with a return wire gives rise to n voltages).
+  </li>
+</ul>
+<p>
+The <em><strong>C</strong></em> matrix is symmetrical, and therefore it has n(n+1) independent
+terms. the diagonal terms of this matrix are negative.
+</p>
+<p>
+The capacitive coupling across conductors can be modelled equivalently through a network of
+n(n+1) capacitors, and simple conversion formulas exist, which can for instance be found in
+[<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>],
+page 3-12.
+</p>
+<p>
+The support function
+<a href=\"modelica://Modelica.Electrical.Analog.Lines.Functions.LineCmatrix\">LineCmatrix</a>
+already contains these formulas and puts these capacitance values in an array called
+<strong>Ccompact</strong>.
+</p>
+<p>
+This example is to show the perfect equivalence of capacitor matrix and Ccompact values
+(here stored in an array named <strong>Ccomp</strong>). Just check for equality
+<code>r1n.i</code> and <code>r1.i</code>.
+</p>
+</html>",
+      revisions="<html>
 <p><i>June, 2023 Massimo Ceraolo of the University of Pisa </i></p>
 <p><i>originally created </i></p>
 </html>"),
