@@ -28,7 +28,7 @@ package Constants
   // (name, value, description from https://www.bipm.org/en/CGPM/db/26/1/, effective from May 20, 2019)
   // The values for c, q, h, k, N_A are exact and part of the basis of the SI-system
   // Note that the elementary charge uses the common alternate name q since e was taken.
-  // The values for F, R, sigma, T_zero, epsilon_0 are also exact.
+  // The values for F, R, sigma, T_zero are also exact.
   // The value for mu_0 can now be expressed as 2*alpha*h/(q^2*c),
   // where alpha is the experimental fine-structure constant,
   // and the value is from https://physics.nist.gov/cuu/pdf/wall_2018.pdf
