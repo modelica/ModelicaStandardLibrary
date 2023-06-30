@@ -5,15 +5,15 @@ function LineZmatrix
   import Modelica.Constants.*;
   import Modelica.ComplexMath;
   import Modelica.Utilities.Streams;
-  input Integer n "number of conductors in line";
-  input Real x[n] "horizontal abscissas of conductors (m)";
-  input Real y[n] "vertical abscissas of conductors (m)";
-  input Real r[n] "conductors radii (m)";
-  input Real R1[n] "conductors lineic resistance (ohm/m)";
-  input Real k_s[n]=fill(0.7,n) "ratio of equivalent shell radius to actual radius";
+  input Integer n "Number of conductors in line";
+  input Real x[n] "Horizontal abscissas of conductors (m)";
+  input Real y[n] "Vertical abscissas of conductors (m)";
+  input Real r[n] "Conductors radii (m)";
+  input Real R1[n] "Conductors lineic resistance (ohm/m)";
+  input Real k_s[n]=fill(0.7,n) "Ratio of equivalent shell radius to actual radius";
   //  in case of cylindric conductor this is equal to exp(-mu_r/4)=exp(-0.25)
-  input Real rho=100 "ground resistivity";
-  input Real f=50 "frequency";
+  input Real rho=100 "Ground resistivity";
+  input Real f=50 "Frequency";
   output Real Rcomp[div(n * (n + 1), 2)] "Compact resistance matrix (ohm/m)";
   output Real Xcomp[div(n * (n + 1), 2)] "Compact reactance matrix (ohm/m)";
   output Real Lcomp[div(n * (n + 1), 2)] "Compact inductance (H/m)";
