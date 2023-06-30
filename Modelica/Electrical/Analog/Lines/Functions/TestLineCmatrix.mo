@@ -67,7 +67,7 @@ algorithm
 4.57148 0.834876 0.275822
 4.71569 0.118934
 6.40915
-</pre></blockquote>```
+</pre></blockquote>
 </html>", revisions="<html>
 <p><i>July, 2023 </i> </p>
 <p>Original implementation by Massimo Ceraolo of the University of Pisa </p>
