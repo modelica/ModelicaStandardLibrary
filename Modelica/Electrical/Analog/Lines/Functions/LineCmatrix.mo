@@ -12,7 +12,6 @@ function lineCmatrix
   output Real Ccompact[div(n*(n + 1), 2)](each final unit="F/m") "Vector of capacitances of network of capacitors equivalent to C";
   output Real C[n, n](each final unit="F/m") "Capacitance matrix with negative off-diagonal conductances";
 protected
-  constant Complex j = Complex(0, 1) "Imaginary unit";
   constant Real K(final unit="F/m") = 1 / (2 * pi * epsilon_0);
   Real p[n, n](each final unit="m/F") "Maxwell's potential matrix";
   Real Cflat[n, n](each final unit="F/m") "Matrix with capacitances of a network reproducing the behaviour of C";

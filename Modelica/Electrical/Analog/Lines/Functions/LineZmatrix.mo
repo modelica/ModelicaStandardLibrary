@@ -17,8 +17,8 @@ function lineZmatrix
   output Real Rcomp[div(n * (n + 1), 2)] "Compact resistance matrix (ohm/m)";
   output Real Xcomp[div(n * (n + 1), 2)] "Compact reactance matrix (ohm/m)";
   output Real Lcomp[div(n * (n + 1), 2)] "Compact inductance (H/m)";
+  import Modelica.ComplexMath.j;
 protected
-  constant Complex j=Complex(0, 1) "Imaginary unit";
   Modelica.Units.SI.Distance D "Generic larger distance";
   Modelica.Units.SI.Distance d "Generic smaller distance";
   Real Theta "Theta angle for Carson's formulas";
