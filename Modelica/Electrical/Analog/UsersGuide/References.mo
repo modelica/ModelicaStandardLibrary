@@ -7,7 +7,7 @@ class References "References"
 <td><p>F. H. Branin Jr., &quot;Transient analysis of lossless transmission lines&quot;, <i>Proceedings of the IEEE</i>, vol. 55, pp. 2012-2013, 1967</p></td>
 </tr>
 <tr>
-<td><p>[<a href=\"https://ieeexplore.ieee.org/document/8076707\">Cerolo2018</a>]</p></td>
+<td><p>[<a href=\"https://ieeexplore.ieee.org/document/8076707\">Ceraolo2018</a>]</p></td>
 <td><p>M. Ceraolo, <i>Modelling and Simulation of AC Railway Electric Supply Lines Including Ground Return</i>, 
  IEEE Transactions on Transportation Electrification  Vol. 4, issue N. 1, pp. 202-210, March 2018</p></td>
 </tr>
