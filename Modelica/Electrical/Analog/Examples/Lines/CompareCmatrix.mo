@@ -173,12 +173,12 @@ end MTL_Cmatrix;
         extent={{-8,-8},{8,8}},
         rotation=0)));
 initial algorithm
-  (Ccomp,C) :=Modelica.Electrical.Analog.Lines.Functions.LineCmatrix(
+  (Ccomp,C) :=Modelica.Electrical.Analog.Lines.Functions.lineCmatrix(
      n = g.n,
      x = g.x,
      y = g.y,
      r = g.r);
-  (Rcomp,Xcomp,Lcomp) :=Modelica.Electrical.Analog.Lines.Functions.LineZmatrix(
+  (Rcomp,Xcomp,Lcomp) :=Modelica.Electrical.Analog.Lines.Functions.lineZmatrix(
     n=g.n,
     x=g.x,
     y=g.y,
@@ -288,7 +288,7 @@ page 3-12.
 </p>
 <p>
 The support function
-<a href=\"modelica://Modelica.Electrical.Analog.Lines.Functions.LineCmatrix\">LineCmatrix</a>
+<a href=\"modelica://Modelica.Electrical.Analog.Lines.Functions.lineCmatrix\">LineCmatrix</a>
 already contains these formulas and puts these capacitance values in an array called
 <strong>Ccompact</strong>.
 </p>

@@ -1,5 +1,5 @@
 within Modelica.Electrical.Analog.Lines.Functions;
-function LineCmatrix
+function lineCmatrix
   "Compute matrix of transverse capacitances per metre of a multi-conductor line"
   extends Modelica.Icons.Function;
   import Modelica.Constants.epsilon_0;
@@ -114,4 +114,4 @@ Electrical.Analog.Examples.Lines.TestCmatrix.
 <p><i>July, 2023</i> </p>
 <p>Original implementation by Massimo Ceraolo of the University of Pisa </p>
 </html>"));
-end LineCmatrix;
+end lineCmatrix;

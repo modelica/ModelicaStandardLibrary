@@ -1,6 +1,6 @@
 within Modelica.Electrical.Analog.Lines.Functions;
-function LineZmatrix
- "Compute matrix of longitudinal impedances per metre of a multi-conductor line"
+function lineZmatrix
+  "Compute matrix of longitudinal impedances per metre of a multi-conductor line"
   extends Modelica.Icons.Function;
   import Modelica.Constants.*;
   import Modelica.ComplexMath;
@@ -109,4 +109,4 @@ issued.
 <p><i>July, 2023 </i> </p>
 <p>Original implementation by Massimo Ceraolo of the University of Pisa </p>
 </html>"));
-end LineZmatrix;
+end lineZmatrix;
