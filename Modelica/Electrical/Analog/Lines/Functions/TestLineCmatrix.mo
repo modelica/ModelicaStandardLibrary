@@ -1,7 +1,7 @@
 within Modelica.Electrical.Analog.Lines.Functions;
 model TestLineCmatrix
   extends Modelica.Icons.Example;
-  import Modelica.Utilities.*;
+  import Modelica.Utilities.Streams.print;
 
   parameter LineGeometry g(
     n=4,
@@ -23,17 +23,17 @@ algorithm
       x=g.x,
       y=g.y,
       r=g.r);
-    Streams.print("\n ***** Full C matrix from  LineCmatrix in nF/km *****");
-    Streams.print(  " ***       (only half: matrix is symmetric)       ***");
+    print("\n ***** Full C matrix from  LineCmatrix in nF/km *****");
+    print(  " ***       (only half: matrix is symmetric)       ***");
     for i in 1:g.n loop  //matrix row
       sC := "";
       for j in 1:i loop  // matrix column
         sC := sC + String(1e12*C[i,j]) + "  ";
       end for;
-      Streams.print(sC);
+      print(sC);
     end for;
-    Streams.print("\n *****        matrix of capacitor capacitances from LineCmatrix in nF/km         *****");
-    Streams.print(  " ***   (Cij is capacitance of capacitor between i and j to mime C-matrix behaviour  ***");
+    print("\n *****        matrix of capacitor capacitances from LineCmatrix in nF/km         *****");
+    print(  " ***   (Cij is capacitance of capacitor between i and j to mime C-matrix behaviour  ***");
     k:=0;
     for i in 1:g.n loop  //matrix row
       sC := "";
@@ -41,7 +41,7 @@ algorithm
         k:=k+1;
         sC := sC + String(1e12*Ccomp[k]) + "  ";
       end for;
-      Streams.print(sC);
+      print(sC);
     end for;
 
     end when;

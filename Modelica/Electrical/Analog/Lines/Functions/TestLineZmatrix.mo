@@ -1,7 +1,7 @@
 within Modelica.Electrical.Analog.Lines.Functions;
 model TestLineZmatrix
   extends Modelica.Icons.Example;
-  import Modelica.Utilities.*;
+  import Modelica.Utilities.Streams.print;
   parameter LineGeometry g(
     n=4,
     x={0,-3.048,3.048,-9.144},
@@ -29,8 +29,8 @@ algorithm
       rho=g.rho,
       f=g.f);
 
-    Streams.print("\n *****              Using LineZmatrix, RESULTS in ohm/km              *****");
-    Streams.print(  " *** (one row per matrix row; numbers should be intended right-aligned) ***");
+    print("\n *****              Using LineZmatrix, RESULTS in ohm/km              *****");
+    print(  " *** (one row per matrix row; numbers should be intended right-aligned) ***");
     k:=0;
     for i in 1:g.n loop  //matrix row
       sC := "";
@@ -38,7 +38,7 @@ algorithm
         k:=k+1;
         sC := sC + String(1000*Rcomp[k]) +"+j"+String(1000*Xcomp[k])+ "   ";
       end for;
-      Streams.print(sC);
+      print(sC);
       end for;
   end when;
 
