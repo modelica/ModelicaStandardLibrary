@@ -11,8 +11,8 @@ record LineGeometry
   parameter Modelica.Units.SI.Frequency f=50 "line frequency";
   annotation (Documentation(info="<html>
 <p>This record contains the line geometry and resistances of a multi-conductor line.</p>
-<p>It will be used by functions LineZmatrix and LineCmatrix that compute longitudinal (flow) and transverse (cross) line matrices.</p>
-<p>Even though frequency is not part of the line geometry, it is a parameter needed by LineZmatrix and therefore it is included here.</p>
+<p>It will be used by functions lineZmatrix and lineCmatrix that compute longitudinal (flow) and transverse (cross) line matrices.</p>
+<p>Even though frequency is not part of the line geometry, it is a parameter needed by lineZmatrix and therefore it is included here.</p>
 </html>", revisions="<html>
 <p><i>July, 2023 </i> </p>
 <p>Original implementation by Massimo Ceraolo of the University of Pisa </p>
