@@ -23,7 +23,7 @@ algorithm
       x=g.x,
       y=g.y,
       r=g.r);
-    print("\n ***** Full C matrix from  LineCmatrix in nF/km *****");
+    print("\n ***** Full C matrix from  lineCmatrix in nF/km *****");
     print(  " ***       (only half: matrix is symmetric)       ***");
     for i in 1:g.n loop  //matrix row
       sC := "";
@@ -32,8 +32,8 @@ algorithm
       end for;
       print(sC);
     end for;
-    print("\n *****        matrix of capacitor capacitances from LineCmatrix in nF/km         *****");
-    print(  " ***   (Cij is capacitance of capacitor between i and j to mime C-matrix behaviour  ***");
+    print("\n *****        matrix of capacitor capacitances from lineCmatrix in nF/km         *****");
+    print(  " ***  (Cij is capacitance of capacitor between i and j to mime C-matrix behaviour  ***");
     k:=0;
     for i in 1:g.n loop  //matrix row
       sC := "";
@@ -48,24 +48,26 @@ algorithm
   annotation (Diagram(coordinateSystem(preserveAspectRatio=
            false, extent={{-60,-40},{60,40}})),
     Documentation(info="<html>
-<p>This model tests the C matrix as computed with function LineCmatrix, with the geometry of fig. 4.11 of [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>]. </p>
-<p>The results are given textually in the log and show a good agreement with the reference.</p>
-<p>This simulation runs correctly with both Dymola and OpenModelica. Computation result using Dymola 2023:<span style=\"font-family: Courier New;\"> </span></p>
-<blockquote><pre>
-***** Full C matrix from LineCmatrix in nF/km *****
-*** (only half: matrix is symmetric) ***
+<p>This model tests the C matrix as computed with function lineCmatrix, with the geometry of fig. 4.11 of [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>]. </p>
+<p>The results are given textually in the log and show a good agreement with the results shown in EmtpTheoryBook.</p>
+<p>This simulation runs correctly with both Dymola and OpenModelica. 
+The function computes both the C-matrix and the array of physical capacitances miming C-matrix behaviour (see documentation of lineCmatrix for details)</p>
+<p>Computation result using Dymola 2023:</p>
+<pre>
+***** Full C matrix from lineCmatrix in nF/km *****
+***     (only half: matrix is symmetric)        ***
 7.57087
 -1.62658 7.30876
 -1.63038 -0.834876 7.29987
 -0.168826 -0.275822 -0.118934 6.97273
 
-***** matrix of capacitor capacitances from LineCmatrix in nF/km *****
-*** (Cij is capacitance of capacitor betwen i and j to mime C-matrix behaviour ***
+*****       matrix of capacitor capacitances from lineCmatrix in nF/km        *****
+*** (Cij is capacitance of capacitor between i and j to mime C-matrix behaviour ***
 4.14508 1.62658 1.63038 0.168826
 4.57148 0.834876 0.275822
 4.71569 0.118934
 6.40915
-</pre></blockquote>
+</pre>
 </html>", revisions="<html>
 <li><em>May, 2021</em> 
         Massimo Ceraolo of the University of Pisa <br> 
