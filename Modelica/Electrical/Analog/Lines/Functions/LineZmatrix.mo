@@ -2,21 +2,22 @@ within Modelica.Electrical.Analog.Lines.Functions;
 function lineZmatrix
   "Compute matrix of longitudinal impedances per metre of a multi-conductor line"
   extends Modelica.Icons.Function;
-  import Modelica.Constants.*;
+  import Modelica.Constants.pi;
+  import Modelica.Constants.mu_0;
   import Modelica.ComplexMath;
   import Modelica.Utilities.Streams;
   input Integer n "Number of conductors in line";
-  input Real x[n] "Horizontal abscissas of conductors (m)";
-  input Real y[n] "Vertical abscissas of conductors (m)";
-  input Real r[n] "Conductors radii (m)";
-  input Real R1[n] "Conductors lineic resistance (ohm/m)";
+  input Modelica.Units.SI.Length x[n] "Horizontal abscissas of conductors";
+  input Modelica.Units.SI.Length y[n] "Vertical abscissas of conductors";
+  input Modelica.Units.SI.Length r[n] "Conductors radii";
+  input Modelica.Units.SI.ResistancePerUnitLength R1[n] "Conductors lineic resistance";
   input Real k_s[n]=fill(0.7,n) "Ratio of equivalent shell radius to actual radius";
   //  in case of cylindric conductor this is equal to exp(-mu_r/4)=exp(-0.25)
-  input Real rho=100 "Ground resistivity";
-  input Real f=50 "Frequency";
-  output Real Rcomp[div(n * (n + 1), 2)] "Compact resistance matrix (ohm/m)";
-  output Real Xcomp[div(n * (n + 1), 2)] "Compact reactance matrix (ohm/m)";
-  output Real Lcomp[div(n * (n + 1), 2)] "Compact inductance (H/m)";
+  input Modelica.Units.SI.Resistivity rho=100 "Ground resistivity";
+  input Modelica.Units.SI.Frequency f=50 "Frequency";
+  output Modelica.Units.SI.ResistancePerUnitLength Rcomp[div(n * (n + 1), 2)] "Compact resistance matrix";
+  output Modelica.Units.SI.ReactancePerUnitLength Xcomp[div(n * (n + 1), 2)] "Compact reactance matrix";
+  output Modelica.Units.SI.InductancePerUnitLength Lcomp[div(n * (n + 1), 2)] "Compact inductance)";
   import Modelica.ComplexMath.j;
 protected
   Modelica.Units.SI.Distance D "Generic larger distance";

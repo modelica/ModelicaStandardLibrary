@@ -9,12 +9,12 @@ function lineCmatrix
   input Modelica.Units.SI.Length y[n] "Vertical abscissas of conductors";
   input Modelica.Units.SI.Radius r[n] "Conductors radii (m)";
 //  output Real Cflat[n, n](each final unit="F/m") "Matrix with capacitances of a network reproducing the behaviour of C";
-  output Real Ccompact[div(n*(n + 1), 2)](each final unit="F/m") "Vector of capacitances of network of capacitors equivalent to C";
-  output Real C[n, n](each final unit="F/m") "Capacitance matrix with negative off-diagonal conductances";
+  output Modelica.Units.SI.CapacitancePerUnitLength Ccompact[div(n*(n + 1), 2)] "Vector of capacitances of network of capacitors equivalent to C";
+  output Modelica.Units.SI.CapacitancePerUnitLength C[n, n] "Capacitance matrix with negative off-diagonal conductances";
 protected
-  constant Real K(final unit="F/m") = 1 / (2 * pi * epsilon_0);
+  constant Real K(final unit="m/F") = 1 / (2 * pi * epsilon_0);
   Real p[n, n](each final unit="m/F") "Maxwell's potential matrix";
-  Real Cflat[n, n](each final unit="F/m") "Matrix with capacitances of a network reproducing the behaviour of C";
+  Modelica.Units.SI.CapacitancePerUnitLength Cflat[n, n] "Matrix with capacitances of a network reproducing the behaviour of C";
   Modelica.Units.SI.Distance D "Generic larger distance";
   Modelica.Units.SI.Distance d "Generic smaller distance";
   Integer k;

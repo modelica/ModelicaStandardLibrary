@@ -12,8 +12,8 @@ model TestLineZmatrix
     f=60)    annotation (Placement(transformation(extent={{-10,-6},{10,14}})));
 
   String sC;
-  Real Rcomp[div(g.n*(g.n + 1), 2)] "Compacted matrix";
-  Real Xcomp[div(g.n*(g.n + 1), 2)] "Compacted matrix";
+  Modelica.Units.SI.ResistancePerUnitLength Rcomp[div(g.n*(g.n + 1), 2)] "Compacted matrix";
+  Modelica.Units.SI.InductancePerUnitLength Xcomp[div(g.n*(g.n + 1), 2)] "Compacted matrix";
 
 protected
   Integer k;

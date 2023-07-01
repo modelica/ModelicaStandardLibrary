@@ -12,8 +12,8 @@ model TestLineCmatrix
     annotation (Placement(transformation(extent={{-10,-6},{10,14}})));
 
   String sC;
-  Real Ccomp[div(g.n*(g.n + 1), 2)] "Compacted matrix";
-  Real C[g.n,g.n] "Full C matrix";
+  Modelica.Units.SI.CapacitancePerUnitLength Ccomp[div(g.n*(g.n + 1), 2)] "Compacted matrix";
+  Modelica.Units.SI.CapacitancePerUnitLength C[g.n,g.n] "Full C matrix";
 protected
   Integer k;
 algorithm
