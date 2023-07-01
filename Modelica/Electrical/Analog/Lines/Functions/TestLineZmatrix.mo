@@ -19,7 +19,7 @@ protected
   Integer k;
 algorithm
   when initial() then
-    (Rcomp,Xcomp) :=LineZmatrix(
+    (Rcomp,Xcomp) :=lineZmatrix(
       n=g.n,
       x=g.x,
       y=g.y,
@@ -47,15 +47,16 @@ algorithm
     Documentation(info="<html>
 <p>This model tests the Z matrix as computed with function LineZmatrix, with the geometry of fig. 4.11 of [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>]. </p>
 <p>The results are given textually in the log and show a good agreement with the reference.</p>
-<p>This simulation runs correctly with both Dymola and OpenModelica. Computation result using Dymola 2020:<span style=\"font-family: Courier New;\"> </span></p>
-<p><span style=\"font-family: Courier New; font-size: 9pt;\"><pre>*****              Using LineZmatrix, RESULTS in ohm/km              *****</pre></span></p>
-<p><span style=\"font-family: Courier New; font-size: 9pt;\">     *** (one row per matrix row; numbers should be intended right-aligned) ***</span> </p>
-<p><span style=\"font-family: Courier New; font-size: 9pt;\">0.405445+j0.986077 0.0574443+j0.426468 0.0574443+j0.426468 0.058076+j0.316811 </span></p>
-<p><span style=\"font-family: Courier New; font-size: 9pt;\">0.405445+j0.986077 0.0574408+j0.374207 0.0580827+j0.329078 </span></p>
-<p><span style=\"font-family: Courier New; font-size: 9pt;\">0.405445+j0.986077 0.0580667+j0.304429 </span></p>
-<p><span style=\"font-family: Courier New; font-size: 9pt;\">1.86076+j0.995306 </span></p>
-<p><span style=\"font-family: Courier New; font-size: 9pt;\">... &quot;TestLineZmatrix.mat&quot; creating (simulation result file)</span> </p>
-<p>&nbsp; </p>
+<p>This simulation runs correctly with both Dymola and OpenModelica. Computation result using Dymola 2023:</p>
+<blockquote><pre>
+*****              Using LineZmatrix, RESULTS in ohm/km              *****
+*** (one row per matrix row; numbers should be intended right-aligned) ***
+0.405445+j0.986077 0.0574443+j0.426468 0.0574443+j0.426468 0.058076+j0.316811 
+0.405445+j0.986077 0.0574408+j0.374207 0.0580827+j0.329078 
+0.405445+j0.986077 0.0580667+j0.304429 
+1.86076+j0.995306 
+... &quot;TestLineZmatrix.mat&quot; creating (simulation result file)
+</pre></blockquote>
 </html>", revisions="<html>
 <li><em>May, 2021</em> 
         Massimo Ceraolo of the University of Pisa <br> 
