@@ -19,8 +19,8 @@ function lineZmatrix
   output Real Lcomp[div(n * (n + 1), 2)] "Compact inductance (H/m)";
 protected
   constant Complex j=Complex(0, 1) "Imaginary unit";
-  Real D "generic larger distance";
-  Real d "generic smaller distance";
+  Modelica.Units.SI.Distance D "Generic larger distance";
+  Modelica.Units.SI.Distance d "Generic smaller distance";
   Real Theta "Theta angle for Carson's formulas";
   Real L "generic inductance";
   Real P "P coefficient from Carson's original paper";
