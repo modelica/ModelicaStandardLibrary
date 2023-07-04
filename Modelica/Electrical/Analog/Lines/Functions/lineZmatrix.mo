@@ -98,7 +98,7 @@ The output arrays contain the elements of the Z matrix ordered as described in t
 used in example Examples.Lines.PowerLineWithFence in conjunction with M_OLine.
 </p>
 <p>
-Parameter k_s is 0.778 for a solid non-magnetic conductor; can be between 0.35 and 0.8
+Parameter <code>k_s</code> is 0.778 for a solid non-magnetic conductor; can be between 0.35 and 0.8
 for real-life power line conductors (they are stranded and often have an iron core).
 </p>
 <p>
