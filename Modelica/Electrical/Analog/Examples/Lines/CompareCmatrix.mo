@@ -45,11 +45,11 @@ end MTL_Cmatrix;
 
   Modelica.Electrical.Analog.Basic.Ground ground annotation (
     Placement(visible = true, transformation(extent={{76,-52},{96,-32}},        rotation = 0)));
-  parameter Real Rcomp[div(g.n * (g.n + 1), 2)](each final unit="Ohm/m", each fixed=false) "Compact resistance matrix";
-  parameter Real Xcomp[div(g.n * (g.n + 1), 2)](each final unit="Ohm/m", each fixed=false) "Compact reactance matrix";
-  parameter Real Lcomp[div(g.n * (g.n + 1), 2)](each final unit="H/m",  each fixed=false) "Compact inductance";
-  parameter Real C[g.n,g.n](                   each final unit="F/m",  each fixed=false);
-  parameter Real Ccomp[div(g.n * (g.n + 1), 2)](each final unit="F/m",  each fixed=false);
+  parameter Modelica.Units.SI.ResistancePerUnitLength Rcomp[div(g.n * (g.n + 1), 2)](each fixed=false) "Compact resistance matrix";
+  parameter Modelica.Units.SI.ReactancePerUnitLength Xcomp[div(g.n * (g.n + 1), 2)](each fixed=false) "Compact reactance matrix";
+  parameter Modelica.Units.SI.InductancePerUnitLength Lcomp[div(g.n * (g.n + 1), 2)](each fixed=false) "Compact inductance";
+  parameter Modelica.Units.SI.CapacitancePerUnitLength C[g.n,g.n](each fixed=false);
+  parameter Modelica.Units.SI.CapacitancePerUnitLength Ccomp[div(g.n * (g.n + 1), 2)](each fixed=false);
   parameter Modelica.Units.SI.Length len=100e3;
   parameter Real CL[div(g.n * (g.n + 1), 2)]=Ccomp*len;
   MTL_Cmatrix MTL_C(
