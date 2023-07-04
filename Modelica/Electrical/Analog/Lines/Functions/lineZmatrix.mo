@@ -29,12 +29,13 @@ protected
 
   Complex Z[n, n] "Computed matrix (ohm/m)";
 
-  parameter Real a0=4*pi*sqrt(5)*1e-4*sqrt(f/rho)
-    "multiplies D in a-pameter from EMTPs Theory Book";
+  final parameter Real w=2*pi*f;
+  parameter Real a0=sqrt(w*mu_0/rho) "multiplies D in a-parameter from EMTPs Theory Book";
+  // a0 is written, equivalently, as 4*pi*sqrt(5)*1e-4*sqrt(f/rho) in EMTP Theory book
+  //(reference available in Electrical.Analog.References)
+  //
   //  a0*D=a; a is the same as "r" in Carson's paper
-  // where D=2h for self impedanze, D=Dik for mutual impedance
-  Real R_g=pi^2*f*1e-7;
-  Real w=2*pi*f;
+  // where D=2h for self impedance, D=Dik for mutual impedance
   Real a;
   Integer k;
 algorithm
