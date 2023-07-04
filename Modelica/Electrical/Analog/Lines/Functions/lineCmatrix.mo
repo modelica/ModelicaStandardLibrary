@@ -69,7 +69,7 @@ algorithm
 <p>From <b>C</b> matrix, the internal <b>Cflat</b> matrix is computed, containing physical capacitors that can be imagined between conductors to model capacitive effects. For instance C12 is the capacitance (per unit length) to be put between conducturors 1 and 2. The output array <b>Ccompact</b> contains the elements of the <b>Cflat</b> matrix ordered as described in the <a href=\"modelica://Modelica.Electrical.Analog.Lines.M_OLine\">M_OLine</a> model, and is used in example <a href=\"modelica://Modelica.Electrical.Analog.Examples.Lines.PowerLineWithFence\">Examples.Lines.PowerLineWithFence</a> in conjunction with M_OLine. </p>
 <p>For an example on how to use this function, consider model Electrical.Analog.Examples.Lines.CompareCmatrix. </p>
 </html>",          revisions="<html>
-<p><i>July, 2023</i> </p>
+<p><em>July, 2023</em> </p>
 <p>Original implementation by Massimo Ceraolo of the University of Pisa </p>
 </html>"));
 end lineCmatrix;

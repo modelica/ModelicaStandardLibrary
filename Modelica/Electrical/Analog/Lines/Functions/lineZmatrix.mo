@@ -108,7 +108,7 @@ if a larger than acceptable frequency is requested, given the line geometry, a w
 issued.
 </p>
 </html>", revisions="<html>
-<p><i>July, 2023 </i> </p>
+<p><em>July, 2023</em> </p>
 <p>Original implementation by Massimo Ceraolo of the University of Pisa </p>
 </html>"));
 end lineZmatrix;

@@ -68,9 +68,8 @@ algorithm
 6.40915
 </pre>
 </html>", revisions="<html>
-<li><em>May, 2021</em> 
-        Massimo Ceraolo of the University of Pisa <br> 
-        originally created</li> 
+<p><em>July, 2023</em> </p>
+<p>Original implementation by Massimo Ceraolo of the University of Pisa </p>
 </html>"),
     experiment(StopTime=0, __Dymola_Algorithm="Dassl"));
 end TestLineCmatrix;
