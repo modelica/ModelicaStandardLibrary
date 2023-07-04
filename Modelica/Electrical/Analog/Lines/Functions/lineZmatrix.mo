@@ -87,9 +87,10 @@ from its output just the inductances are used;
 the resistances could instead be used when ground resistance is to be taken into account.
 </p>
 <p>
-The results obtained with this function have been checked with Fig. 4.1 of
+The results obtained with this function have been checked with Fig. 4.11 of
 [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>],
-in model Examples.TestM_OLineZ, with good agreement.
+in model  <a href=\"modelica://Modelica.Electrical.Analog.Examples.Lines.PowerLineWithFence\">
+PowerLineWithFence</a>, with good agreement.
 </p>
 <p>
 The output arrays contain the elements of the Z matrix ordered as described in the
