@@ -243,8 +243,6 @@ equation
   connect(r3n.n, c23.n)
     annotation (Line(points={{-70,-20},{-10,-20}},
                                                  color={0,0,255}));
-  connect(c10.n, c20.n) annotation (Line(points={{-60,-50},{-60,-58},{-40,-58},{-40,-50}},
-                      color={0,0,255}));
   connect(ground1.p, v3a.p) annotation (Line(points={{-20,-70},{-20,-60},{-120,-60},{-120,-20}},
                                color={0,0,255}));
   connect(ground.p, v3.p) annotation (Line(points={{100,-60},{100,-40},{30,-40},{30,-20},{40,-20}},
