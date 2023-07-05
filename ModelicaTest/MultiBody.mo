@@ -8867,18 +8867,25 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
     model AbsoluteSensor "Simple pendulum with one revolute joint and one body"
       extends Modelica.Icons.Example;
       parameter Real tol=1e-3;
-      inner Modelica.Mechanics.MultiBody.World world(gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity)
-        annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
+      inner Modelica.Mechanics.MultiBody.World world(
+        gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity)
+        annotation (Placement(transformation(extent={{-100,-10},{-80,10}})));
       Modelica.Mechanics.MultiBody.Joints.Revolute rev(
         n={0,0,1},
         useAxisFlange=true,
         phi(fixed=true),
-        w(fixed=true)) annotation (Placement(transformation(extent={{-40,0},{-20,
-                20}})));
+        w(fixed=true)) annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+      Modelica.Mechanics.MultiBody.Joints.Revolute rev1(
+        n={1,0,0},
+        useAxisFlange=true,
+        phi(fixed=true),
+        w(fixed=true)) annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
       Modelica.Mechanics.Rotational.Components.Damper damper(d=0.1) annotation (
-         Placement(transformation(extent={{-40,40},{-20,60}})));
-      Modelica.Mechanics.MultiBody.Parts.BodyBox box(r={1,0,0}, animation=false)
-        annotation (Placement(transformation(extent={{0,0},{20,20}})));
+         Placement(transformation(extent={{-60,20},{-40,40}})));
+      Modelica.Mechanics.Rotational.Components.Damper damper1(d=0.1) annotation (
+         Placement(transformation(extent={{-30,20},{-10,40}})));
+      Modelica.Mechanics.MultiBody.Parts.BodyBox box(r={1,0,1})
+        annotation (Placement(transformation(extent={{10,-10},{30,10}})));
       Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor sensor_frame_a1(
         get_angles=true,
         resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a,
@@ -8886,17 +8893,8 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
         get_v=true,
         get_a=true,
         get_w=true,
-        get_z=true) annotation (Placement(transformation(extent={{40,40},{60,20}})));
-
-      Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor sensor_world1(
-        get_angles=true,
-        resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world,
-        get_r=true,
-        get_v=true,
-        get_a=true,
-        get_w=true,
-        get_z=true) annotation (Placement(transformation(extent={{40,-20},{60,0}})));
-
+        get_z=true) annotation (Placement(transformation(extent={{50,30},{70,10}})));
+    
       Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor sensor_frame_a2(
         get_angles=true,
         resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve,
@@ -8904,8 +8902,16 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
         get_v=true,
         get_a=true,
         get_w=true,
-        get_z=true) annotation (Placement(transformation(extent={{40,60},{60,80}})));
-
+        get_z=true) annotation (Placement(transformation(extent={{50,50},{70,70}})));
+      Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor sensor_world1(
+        get_angles=true,
+        resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world,
+        get_r=true,
+        get_v=true,
+        get_a=true,
+        get_w=true,
+        get_z=true) annotation (Placement(transformation(extent={{50,-30},{70,-10}})));
+    
       Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor sensor_world2(
         get_angles=true,
         resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve,
@@ -8913,95 +8919,105 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
         get_v=true,
         get_a=true,
         get_w=true,
-        get_z=true) annotation (Placement(transformation(extent={{40,-40},{60,-60}})));
-
+        get_z=true) annotation (Placement(transformation(extent={{50,-50},{70,-70}})));
+    
       Modelica.Blocks.Math.Add err1[18](each k2=-1) annotation (Placement(
-            transformation(extent={{80,40},{100,60}})));
+            transformation(extent={{80,30},{100,50}})));
       Modelica.Blocks.Math.Add err2[18](each k2=-1) annotation (Placement(
-            transformation(extent={{80,-40},{100,-20}})));
-    equation
+            transformation(extent={{80,-50},{100,-30}})));
+    equation 
       for i in 1:18 loop
         assert(err1[i].y < tol and err2[i].y < tol,
-          "Errors must be less then tolerance");
+          "Errors must be less than tolerance");
       end for;
       connect(world.frame_b, rev.frame_a) annotation (Line(
-          points={{-60,10},{-40,10}},
+          points={{-80,0},{-60,0}},
+          thickness=0.5,
+          color={95,95,95}));
+      connect(damper.flange_b, rev.axis) annotation (Line(points={{-40,30},{-40,10},{-50,10}}));
+      connect(rev.support, damper.flange_a) annotation (Line(points={{-56,10},{-60,10},{-60,30}}));
+      connect(rev.frame_b, rev1.frame_a) annotation (Line(
+          points={{-40,0},{-30,0}},
+          color={95,95,95},
           thickness=0.5));
-      connect(damper.flange_b, rev.axis) annotation (Line(points={{-20,50},{-20,
-              50},{-20,30},{-30,30},{-30,20}}));
-      connect(rev.support, damper.flange_a) annotation (Line(points={{-36,20},{
-              -36,30},{-40,30},{-40,50}}));
-      connect(rev.frame_b, box.frame_a) annotation (Line(
-          points={{-20,10},{0,10}},
+      connect(damper1.flange_b, rev1.axis) annotation (Line(points={{-10,30},{-10,10},{-20,10}}));
+      connect(rev1.support, damper1.flange_a) annotation (Line(points={{-26,10},{-30,10},{-30,30}}));
+      connect(rev1.frame_b, box.frame_a) annotation (Line(
+          points={{-10,0},{10,0}},
+          color={95,95,95},
           thickness=0.5));
       connect(box.frame_b, sensor_frame_a1.frame_a) annotation (Line(
-          points={{20,10},{30,10},{30,30},{40,30}},
-          thickness=0.5));
+          points={{30,0},{40,0},{40,20},{50,20}},
+          thickness=0.5,
+          color={95,95,95}));
       connect(box.frame_b, sensor_world1.frame_a) annotation (Line(
-          points={{20,10},{30,10},{30,-10},{40,-10}},
-          thickness=0.5));
+          points={{30,0},{40,0},{40,-20},{50,-20}},
+          thickness=0.5,
+          color={95,95,95}));
       connect(box.frame_b, sensor_frame_a2.frame_a) annotation (Line(
-          points={{20,10},{30,10},{30,70},{40,70}},
-          thickness=0.5));
+          points={{30,0},{40,0},{40,60},{50,60}},
+          thickness=0.5,
+          color={95,95,95}));
       connect(box.frame_b, sensor_world2.frame_a) annotation (Line(
-          points={{20,10},{30,10},{30,-50},{40,-50}},
-          thickness=0.5));
+          points={{30,0},{40,0},{40,-60},{50,-60}},
+          thickness=0.5,
+          color={95,95,95}));
       connect(sensor_world2.frame_resolve, world.frame_b) annotation (Line(
-          points={{60,-50},{60,-50},{70,-50},{70,-76},{-50,-76},{-50,10},{-60,
-              10}},
-          pattern=LinePattern.Dot));
-
-      connect(sensor_frame_a2.frame_resolve, rev.frame_b) annotation (Line(
-          points={{60,70},{60,70},{70,70},{70,90},{-10,90},{-10,10},{-20,10}},
-          pattern=LinePattern.Dot));
+          points={{70,-60},{70,-80},{-70,-80},{-70,0},{-80,0}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(sensor_frame_a2.frame_resolve, rev1.frame_b) annotation (Line(
+          points={{70,60},{70,80},{0,80},{0,0},{-10,0}},
+          color={95,95,95},
+          thickness=0.5));
       connect(sensor_frame_a2.r[1:3], err1[1:3].u1) annotation (Line(
-          points={{40,58.3333},{40,56},{78,56}}, color={0,0,127}));
+          points={{50,49.3333},{50,46},{78,46}}, color={0,0,127}));
       connect(sensor_frame_a2.v[1:3], err1[4:6].u1) annotation (Line(
-          points={{44,58.3333},{44,56},{78,56}}, color={0,0,127}));
+          points={{54,49.3333},{54,46},{78,46}}, color={0,0,127}));
       connect(sensor_frame_a2.a[1:3], err1[7:9].u1) annotation (Line(
-          points={{48,58.3333},{48,56},{78,56}}, color={0,0,127}));
+          points={{58,49.3333},{58,46},{78,46}}, color={0,0,127}));
       connect(sensor_frame_a2.angles[1:3], err1[10:12].u1) annotation (Line(
-          points={{52,58.3333},{52,56},{78,56}}, color={0,0,127}));
+          points={{62,49.3333},{62,46},{78,46}}, color={0,0,127}));
       connect(sensor_frame_a2.w[1:3], err1[13:15].u1) annotation (Line(
-          points={{56,58.3333},{56,56},{78,56}}, color={0,0,127}));
+          points={{66,49.3333},{66,46},{78,46}}, color={0,0,127}));
       connect(sensor_frame_a2.z[1:3], err1[16:18].u1) annotation (Line(
-          points={{60,58.3333},{60,56},{78,56}}, color={0,0,127}));
+          points={{70,49.3333},{70,46},{78,46}}, color={0,0,127}));
       connect(sensor_frame_a1.r[1:3], err1[1:3].u2) annotation (Line(
-          points={{40,41.6667},{40,44},{78,44}}, color={0,0,127}));
+          points={{50,30.6667},{50,34},{78,34}}, color={0,0,127}));
       connect(sensor_frame_a1.v[1:3], err1[4:6].u2) annotation (Line(
-          points={{44,41.6667},{44,44},{78,44}}, color={0,0,127}));
+          points={{54,30.6667},{54,34},{78,34}}, color={0,0,127}));
       connect(sensor_frame_a1.a[1:3], err1[7:9].u2) annotation (Line(
-          points={{48,41.6667},{48,44},{78,44}}, color={0,0,127}));
+          points={{58,30.6667},{58,34},{78,34}}, color={0,0,127}));
       connect(sensor_frame_a1.angles[1:3], err1[10:12].u2) annotation (Line(
-          points={{52,41.6667},{52,44},{78,44}}, color={0,0,127}));
+          points={{62,30.6667},{62,34},{78,34}}, color={0,0,127}));
       connect(sensor_frame_a1.w[1:3], err1[13:15].u2) annotation (Line(
-          points={{56,41.6667},{56,44},{78,44}}, color={0,0,127}));
+          points={{66,30.6667},{66,34},{78,34}}, color={0,0,127}));
       connect(sensor_frame_a1.z[1:3], err1[16:18].u2) annotation (Line(
-          points={{60,41.6667},{60,44},{78,44}}, color={0,0,127}));
+          points={{70,30.6667},{70,34},{78,34}}, color={0,0,127}));
       connect(sensor_world1.r[1:3], err2[1:3].u1) annotation (Line(
-          points={{40,-21.6667},{40,-24},{78,-24}}, color={0,0,127}));
+          points={{50,-30.6667},{50,-34},{78,-34}}, color={0,0,127}));
       connect(sensor_world1.v[1:3], err2[4:6].u1) annotation (Line(
-          points={{44,-21.6667},{44,-24},{78,-24}}, color={0,0,127}));
+          points={{54,-30.6667},{54,-34},{78,-34}}, color={0,0,127}));
       connect(sensor_world1.a[1:3], err2[7:9].u1) annotation (Line(
-          points={{48,-21.6667},{48,-24},{78,-24}}, color={0,0,127}));
+          points={{58,-30.6667},{58,-34},{78,-34}}, color={0,0,127}));
       connect(sensor_world1.angles[1:3], err2[10:12].u1) annotation (Line(
-          points={{52,-21.6667},{52,-24},{78,-24}}, color={0,0,127}));
+          points={{62,-30.6667},{62,-34},{78,-34}}, color={0,0,127}));
       connect(sensor_world1.w[1:3], err2[13:15].u1) annotation (Line(
-          points={{56,-21.6667},{56,-24},{78,-24}}, color={0,0,127}));
+          points={{66,-30.6667},{66,-34},{78,-34}}, color={0,0,127}));
       connect(sensor_world1.z[1:3], err2[16:18].u1) annotation (Line(
-          points={{60,-21.6667},{60,-24},{78,-24}}, color={0,0,127}));
+          points={{70,-30.6667},{70,-34},{78,-34}}, color={0,0,127}));
       connect(sensor_world2.r[1:3], err2[1:3].u2) annotation (Line(
-          points={{40,-38.3333},{40,-36},{78,-36}}, color={0,0,127}));
+          points={{50,-49.3333},{50,-46},{78,-46}}, color={0,0,127}));
       connect(sensor_world2.v[1:3], err2[4:6].u2) annotation (Line(
-          points={{44,-38.3333},{44,-36},{78,-36}}, color={0,0,127}));
+          points={{54,-49.3333},{54,-46},{78,-46}}, color={0,0,127}));
       connect(sensor_world2.a[1:3], err2[7:9].u2) annotation (Line(
-          points={{48,-38.3333},{48,-36},{78,-36}}, color={0,0,127}));
+          points={{58,-49.3333},{58,-46},{78,-46}}, color={0,0,127}));
       connect(sensor_world2.angles[1:3], err2[10:12].u2) annotation (Line(
-          points={{52,-38.3333},{52,-36},{78,-36}}, color={0,0,127}));
+          points={{62,-49.3333},{62,-46},{78,-46}}, color={0,0,127}));
       connect(sensor_world2.w[1:3], err2[13:15].u2) annotation (Line(
-          points={{56,-38.3333},{56,-36},{78,-36}}, color={0,0,127}));
+          points={{66,-49.3333},{66,-46},{78,-46}}, color={0,0,127}));
       connect(sensor_world2.z[1:3], err2[16:18].u2) annotation (Line(
-          points={{60,-38.3333},{60,-36},{78,-36}}, color={0,0,127}));
+          points={{70,-49.3333},{70,-46},{78,-46}}, color={0,0,127}));
       annotation (experiment(StopTime=5), Documentation(info=""));
     end AbsoluteSensor;
 
