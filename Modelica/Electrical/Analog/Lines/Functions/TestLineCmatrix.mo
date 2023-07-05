@@ -45,8 +45,7 @@ algorithm
     end for;
 
     end when;
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=
-           false, extent={{-60,-40},{60,40}})),
+  annotation (
     Documentation(info="<html>
 <p>This model tests the C matrix as computed with function lineCmatrix, with the geometry of fig. 4.11 of [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>]. </p>
 <p>The results are given textually in the log and show a good agreement with the results shown in EmtpTheoryBook.</p>
@@ -71,5 +70,7 @@ algorithm
 <p><em>July, 2023</em> </p>
 <p>Original implementation by Massimo Ceraolo of the University of Pisa </p>
 </html>"),
-    experiment(StopTime=0, __Dymola_Algorithm="Dassl"));
+    experiment(
+      StopTime=0,
+      __Dymola_Algorithm="Dassl"));
 end TestLineCmatrix;
