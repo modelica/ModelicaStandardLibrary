@@ -2,41 +2,45 @@ within Modelica.Electrical.Analog.Examples.Lines;
 model PowerLineWithFence
   extends Modelica.Icons.Example;
   Modelica.Electrical.Analog.Lines.M_OLine line(
-    N=2,  c = Ccomp, g = fill(1e-12, div(g.n * (g.n + 1), 2)), l = Lcomp,
-    length=100e3,  lines = g.n, r = g.R1) annotation (
-    Placement(visible = true, transformation(origin={-28,22},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    N=2,
+    c = Ccomp,
+    g = fill(1e-12, div(g.n * (g.n + 1), 2)),
+    l = Lcomp,
+    length(displayUnit="km") = 100000,
+    lines = g.n, r = g.R1) annotation (
+    Placement(visible = true, transformation(origin={-10,10},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Sources.SineVoltage v2(
     V=v1.V,
     phase=-2.0943951023932,
     f=v1.f) annotation (Placement(visible=true, transformation(
-        origin={-62,22},
+        origin={-50,10},
         extent={{10,10},{-10,-10}},
         rotation=180)));
   Modelica.Electrical.Analog.Basic.Resistor rgUL(R = 1) annotation (
-    Placement(visible = true, transformation(origin={-86,-28},    extent = {{-8, 8}, {8, -8}}, rotation = 270)));
+    Placement(visible = true, transformation(origin={-70,-30},    extent={{-10,10},{10,-10}},  rotation = 270)));
   Modelica.Electrical.Analog.Basic.Ground ground annotation (
-    Placement(visible = true, transformation(extent={{-96,-60},{-76,-40}},      rotation = 0)));
+    Placement(visible = true, transformation(extent={{-80,-70},{-60,-50}},      rotation = 0)));
   Modelica.Electrical.Analog.Sources.SineVoltage v3(
     V=v1.V,
     phase=2.0943951023932,
     f=v1.f) annotation (Placement(visible=true, transformation(
-        origin={-62,2},
+        origin={-50,-10},
         extent={{10,10},{-10,-10}},
         rotation=180)));
   Modelica.Electrical.Analog.Basic.Resistor r1(R=500) annotation (Placement(
         visible=true, transformation(
-        origin={10,38},
-        extent={{-8,-8},{8,8}},
+        origin={30,30},
+        extent={{-10,-10},{10,10}},
         rotation=0)));
   Modelica.Electrical.Analog.Basic.Resistor r2(R=r1.R) annotation (Placement(
         visible=true, transformation(
-        origin={10,22},
-        extent={{-8,-8},{8,8}},
+        origin={30,10},
+        extent={{-10,-10},{10,10}},
         rotation=0)));
   Modelica.Electrical.Analog.Basic.Resistor r3(R=r1.R) annotation (Placement(
         visible=true, transformation(
-        origin={10,2},
-        extent={{-8,-8},{8,8}},
+        origin={30,-10},
+        extent={{-10,-10},{10,10}},
         rotation=0)));
   parameter Modelica.Electrical.Analog.Lines.Functions.LineGeometry g(
     n=4,
@@ -46,16 +50,18 @@ model PowerLineWithFence
     R1=1e-3*{0.348,0.348,0.348,1.802},
     k_s={0.287,0.287,0.287,0.779},
     f=60)
-    annotation (Placement(transformation(extent={{42,10},{62,30}})));
-  Modelica.Electrical.Analog.Sources.SineVoltage v1(V=345e3*sqrt(2/3), f=60)
+    annotation (Placement(transformation(extent={{40,60},{60,80}})));
+  Modelica.Electrical.Analog.Sources.SineVoltage v1(
+    V=345e3*sqrt(2/3),
+    f=60)
     annotation (Placement(visible=true, transformation(
-        origin={-62,40},
+        origin={-50,30},
         extent={{10,10},{-10,-10}},
         rotation=180)));
   Modelica.Electrical.Analog.Basic.Resistor body(R=1000) annotation (
       Placement(visible=true, transformation(
-        origin={-18,-18},
-        extent={{-8,8},{8,-8}},
+        origin={0,-30},
+        extent={{-10,10},{10,-10}},
         rotation=270)));
   parameter Real Rcomp[div(g.n * (g.n + 1), 2)](each final unit="Ohm/m", each fixed=false) "Compact resistance matrix";
   parameter Real Xcomp[div(g.n * (g.n + 1), 2)](each final unit="Ohm/m", each fixed=false) "Compact reactance matrix";
@@ -75,38 +81,39 @@ initial algorithm
     f=g.f);
 equation
   connect(ground.p, rgUL.n) annotation (
-    Line(points={{-86,-40},{-86,-36}},      color = {0, 0, 255}));
+    Line(points={{-70,-50},{-70,-40}},      color = {0, 0, 255}));
   connect(r1.p, line.n[1])
-    annotation (Line(points={{2,38},{-18,38},{-18,22}}, color={0,0,255}));
+    annotation (Line(points={{20,30},{0,30},{0,10}},    color={0,0,255}));
   connect(r2.p, line.n[2])
-    annotation (Line(points={{2,22},{-18,22}}, color={0,0,255}));
-  connect(r1.n, r2.n) annotation (Line(points={{18,38},{22,38},{22,22},{18,22}},
+    annotation (Line(points={{20,10},{0,10}},  color={0,0,255}));
+  connect(r1.n, r2.n) annotation (Line(points={{40,30},{50,30},{50,10},{40,10}},
         color={0,0,255}));
-  connect(r2.n, r3.n) annotation (Line(points={{18,22},{22,22},{22,2},{18,2}},
+  connect(r2.n, r3.n) annotation (Line(points={{40,10},{50,10},{50,-10},{40,-10}},
         color={0,0,255}));
   connect(r3.p, line.n[3])
-    annotation (Line(points={{2,2},{-14,2},{-14,18},{-18,18},{-18,22}},
-                                                        color={0,0,255}));
+    annotation (Line(points={{20,-10},{0,-10},{0,10}},  color={0,0,255}));
   connect(v1.n, line.p[1])
-    annotation (Line(points={{-52,40},{-38,40},{-38,22}}, color={0,0,255}));
+    annotation (Line(points={{-40,30},{-20,30},{-20,10}}, color={0,0,255}));
   connect(v2.n, line.p[2])
-    annotation (Line(points={{-52,22},{-38,22}}, color={0,0,255}));
+    annotation (Line(points={{-40,10},{-20,10}}, color={0,0,255}));
   connect(v3.n, line.p[3])
-    annotation (Line(points={{-52,2},{-38,2},{-38,22}},   color={0,0,255}));
+    annotation (Line(points={{-40,-10},{-20,-10},{-20,10}},
+                                                          color={0,0,255}));
   connect(v1.p, rgUL.p)
-    annotation (Line(points={{-72,40},{-86,40},{-86,-20}}, color={0,0,255}));
+    annotation (Line(points={{-60,30},{-70,30},{-70,-20}}, color={0,0,255}));
   connect(v2.p, rgUL.p)
-    annotation (Line(points={{-72,22},{-86,22},{-86,-20}}, color={0,0,255}));
+    annotation (Line(points={{-60,10},{-70,10},{-70,-20}}, color={0,0,255}));
   connect(v3.p, rgUL.p)
-    annotation (Line(points={{-72,2},{-86,2},{-86,-20}},   color={0,0,255}));
+    annotation (Line(points={{-60,-10},{-70,-10},{-70,-20}},
+                                                           color={0,0,255}));
   connect(body.p, line.n[4])
-    annotation (Line(points={{-18,-10},{-18,22}}, color={0,0,255}));
-  connect(body.n, ground.p) annotation (Line(points={{-18,-26},{-18,-40},{-86,
-          -40}}, color={0,0,255}));
-  connect(body.n, r3.n) annotation (Line(points={{-18,-26},{-18,-40},{22,-40},{
-          22,2},{18,2}},    color={0,0,255}));
+    annotation (Line(points={{0,-20},{0,10}},     color={0,0,255}));
+  connect(body.n, ground.p) annotation (Line(points={{0,-40},{0,-50},{-70,-50}},
+                 color={0,0,255}));
+  connect(body.n, r3.n) annotation (Line(points={{0,-40},{0,-50},{50,-50},{50,-10},{40,-10}},
+                            color={0,0,255}));
   annotation (
-    Diagram(coordinateSystem(extent={{-100,-60},{80,60}})),
+    Diagram(coordinateSystem(extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This example shows the usage of <a href=\"modelica://Modelica.Electrical.Analog.Lines.M_OLine\">M_OLine</a>
@@ -175,5 +182,6 @@ the current flowing when contact occurs is very dependent on the line length.
     experiment(
       StopTime=0.04,
       Interval=1e-05,
-      Tolerance=1e-06));
+      Tolerance=1e-06),
+    Icon(coordinateSystem(extent={{-100,-100},{100,80}})));
 end PowerLineWithFence;

@@ -44,7 +44,7 @@ end MTL_Cmatrix;
 
 
   Modelica.Electrical.Analog.Basic.Ground ground annotation (
-    Placement(visible = true, transformation(extent={{76,-52},{96,-32}},        rotation = 0)));
+    Placement(visible = true, transformation(extent={{90,-80},{110,-60}},       rotation = 0)));
   parameter Modelica.Units.SI.ResistancePerUnitLength Rcomp[div(g.n * (g.n + 1), 2)](each fixed=false) "Compact resistance matrix";
   parameter Modelica.Units.SI.ReactancePerUnitLength Xcomp[div(g.n * (g.n + 1), 2)](each fixed=false) "Compact reactance matrix";
   parameter Modelica.Units.SI.InductancePerUnitLength Lcomp[div(g.n * (g.n + 1), 2)](each fixed=false) "Compact inductance";
@@ -55,97 +55,97 @@ end MTL_Cmatrix;
   MTL_Cmatrix MTL_C(
     n=g.n,
     C=C,
-    len=len) annotation (Placement(transformation(extent={{92,0},{112,20}})));
+    len=len) annotation (Placement(transformation(extent={{100,0},{120,20}})));
   Modelica.Electrical.Analog.Sources.SineVoltage v2(
     V=v1.V,
     phase=-2.0943951023932,
     f=v1.f) annotation (Placement(visible=true, transformation(
-        origin={38,6},
+        origin={50,10},
         extent={{10,10},{-10,-10}},
         rotation=180)));
   Modelica.Electrical.Analog.Sources.SineVoltage v3(
     V=v1.V,
     phase=2.0943951023932,
     f=v1.f) annotation (Placement(visible=true, transformation(
-        origin={38,-12},
+        origin={50,-20},
         extent={{10,10},{-10,-10}},
         rotation=180)));
   Modelica.Electrical.Analog.Sources.SineVoltage v1(V=345e3*sqrt(2/3), f=60)
     annotation (Placement(visible=true, transformation(
-        origin={38,26},
+        origin={50,40},
         extent={{10,10},{-10,-10}},
         rotation=180)));
   Modelica.Electrical.Analog.Basic.Resistor r1(R=r1n.R) annotation (Placement(
         visible=true, transformation(
-        origin={64,26},
-        extent={{-8,-8},{8,8}},
+        origin={80,40},
+        extent={{-10,-10},{10,10}},
         rotation=0)));
   Modelica.Electrical.Analog.Basic.Resistor r2(R=r1.R) annotation (Placement(
         visible=true, transformation(
-        origin={64,6},
-        extent={{-8,-8},{8,8}},
+        origin={80,10},
+        extent={{-10,-10},{10,10}},
         rotation=0)));
   Modelica.Electrical.Analog.Basic.Resistor r3(R=r1.R) annotation (Placement(
         visible=true, transformation(
-        origin={64,-12},
-        extent={{-8,-8},{8,8}},
+        origin={80,-20},
+        extent={{-10,-10},{10,10}},
         rotation=0)));
   Modelica.Electrical.Analog.Basic.Capacitor c12(C=CL[2])
                                                  annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,
-        origin={-18,42})));
+        origin={-10,30})));
   Modelica.Electrical.Analog.Basic.Capacitor c23(C=CL[5])
                                                  annotation (Placement(
         transformation(
         extent={{10,10},{-10,-10}},
         rotation=90,
-        origin={-18,8})));
+        origin={-10,-10})));
   Modelica.Electrical.Analog.Basic.Capacitor c10(C=CL[1])
                                                  annotation (Placement(
         transformation(
         extent={{10,10},{-10,-10}},
         rotation=90,
-        origin={-66,32})));
+        origin={-60,-40})));
   Modelica.Electrical.Analog.Basic.Capacitor c13(C=CL[3])
                                                  annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,
-        origin={0,22})));
+        origin={10,10})));
   Modelica.Electrical.Analog.Basic.Capacitor c30(C=CL[6])
                                                  annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,
-        origin={-36,-22})));
+        origin={-20,-40})));
   Modelica.Electrical.Analog.Basic.Capacitor c20(C=CL[4])
                                                  annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,
-        origin={-54,-22})));
+        origin={-40,-40})));
   Modelica.Electrical.Analog.Basic.Ground ground1
                                                  annotation (
-    Placement(visible = true, transformation(extent={{-28,-56},{-8,-36}},       rotation = 0)));
+    Placement(visible = true, transformation(extent={{-30,-90},{-10,-70}},      rotation = 0)));
   Modelica.Electrical.Analog.Sources.SineVoltage v2a(
     V=v1.V,
     phase=-2.0943951023932,
     f=v1.f) annotation (Placement(visible=true, transformation(
-        origin={-114,18},
+        origin={-110,10},
         extent={{10,10},{-10,-10}},
         rotation=180)));
   Modelica.Electrical.Analog.Sources.SineVoltage v3a(
     V=v1.V,
     phase=2.0943951023932,
     f=v1.f) annotation (Placement(visible=true, transformation(
-        origin={-114,-2},
+        origin={-110,-20},
         extent={{10,10},{-10,-10}},
         rotation=180)));
   Modelica.Electrical.Analog.Sources.SineVoltage v1a(V=345e3*sqrt(2/3), f=60)
     annotation (Placement(visible=true, transformation(
-        origin={-114,48},
+        origin={-110,40},
         extent={{10,10},{-10,-10}},
         rotation=180)));
   parameter Modelica.Electrical.Analog.Lines.Functions.LineGeometry g(
@@ -156,21 +156,21 @@ end MTL_Cmatrix;
     R1=1e-3*{0.348,0.348,0.348},
     k_s={0.287,0.287,0.287},
     f=60)
-    annotation (Placement(transformation(extent={{82,38},{102,58}})));
+    annotation (Placement(transformation(extent={{80,60},{100,80}})));
   Modelica.Electrical.Analog.Basic.Resistor r1n(R= 1000.0) annotation (
       Placement(visible=true, transformation(
-        origin={-88,48},
-        extent={{-8,-8},{8,8}},
+        origin={-80,40},
+        extent={{-10,-10},{10,10}},
         rotation=0)));
   Modelica.Electrical.Analog.Basic.Resistor r2n(R=r1n.R) annotation (Placement(
         visible=true, transformation(
-        origin={-88,18},
-        extent={{-8,-8},{8,8}},
+        origin={-80,10},
+        extent={{-10,-10},{10,10}},
         rotation=0)));
   Modelica.Electrical.Analog.Basic.Resistor r3n(R=r1n.R) annotation (Placement(
         visible=true, transformation(
-        origin={-88,-2},
-        extent={{-8,-8},{8,8}},
+        origin={-80,-20},
+        extent={{-10,-10},{10,10}},
         rotation=0)));
 initial algorithm
   (Ccomp,C) :=Modelica.Electrical.Analog.Lines.Functions.lineCmatrix(
@@ -189,68 +189,73 @@ initial algorithm
     f=g.f);
 equation
   connect(v1.n,r1. p)
-    annotation (Line(points={{48,26},{56,26}}, color={0,0,255}));
+    annotation (Line(points={{60,40},{70,40}}, color={0,0,255}));
   connect(v2.n, r2.p)
-    annotation (Line(points={{48,6},{56,6}}, color={0,0,255}));
+    annotation (Line(points={{60,10},{70,10}},
+                                             color={0,0,255}));
   connect(v3.n, r3.p)
-    annotation (Line(points={{48,-12},{56,-12}},          color={0,0,255}));
-  connect(r1.n, MTL_C.p[1]) annotation (Line(points={{72,26},{78,26},{78,20},
-          {92,20},{92,14}}, color={0,0,255}));
-  connect(r2.n, MTL_C.p[2]) annotation (Line(points={{72,6},{78,6},{78,16},{
-          92,16},{92,14}}, color={0,0,255}));
-  connect(r3.n, MTL_C.p[3]) annotation (Line(points={{72,-12},{80,-12},{80,12},
-          {92,12},{92,14}}, color={0,0,255}));
+    annotation (Line(points={{60,-20},{70,-20}},          color={0,0,255}));
+  connect(r1.n, MTL_C.p[1]) annotation (Line(points={{90,40},{96,40},{96,18},{100,18},{100,14}},
+                            color={0,0,255}));
+  connect(r2.n, MTL_C.p[2]) annotation (Line(points={{90,10},{90,14},{100,14}},
+                           color={0,0,255}));
+  connect(r3.n, MTL_C.p[3]) annotation (Line(points={{90,-20},{96,-20},{96,10},{100,10},{100,14}},
+                            color={0,0,255}));
   connect(v1.p, v2.p)
-    annotation (Line(points={{28,26},{20,26},{20,6},{28,6}},
+    annotation (Line(points={{40,40},{30,40},{30,10},{40,10}},
                                                            color={0,0,255}));
   connect(v2.p, v3.p)
-    annotation (Line(points={{28,6},{20,6},{20,-12},{28,-12}},
+    annotation (Line(points={{40,10},{30,10},{30,-20},{40,-20}},
                                                              color={0,0,255}));
-  connect(MTL_C.pn, ground.p) annotation (Line(points={{91.9,2.7},{86,2.7},{
-          86,-32}}, color={0,0,255}));
+  connect(MTL_C.pn, ground.p) annotation (Line(points={{99.9,2.7},{100,2.7},{100,-60}},
+                    color={0,0,255}));
   connect(c30.n, ground1.p)
-    annotation (Line(points={{-36,-32},{-36,-36},{-18,-36}}, color={0,0,255}));
+    annotation (Line(points={{-20,-50},{-20,-70}},           color={0,0,255}));
   connect(c20.n, ground1.p)
-    annotation (Line(points={{-54,-32},{-54,-36},{-18,-36}}, color={0,0,255}));
+    annotation (Line(points={{-40,-50},{-40,-60},{-20,-60},{-20,-70}},
+                                                             color={0,0,255}));
   connect(c10.n, ground1.p)
-    annotation (Line(points={{-66,22},{-66,-36},{-18,-36}}, color={0,0,255}));
+    annotation (Line(points={{-60,-50},{-60,-60},{-20,-60},{-20,-70}},
+                                                            color={0,0,255}));
   connect(c10.p, c12.p)
-    annotation (Line(points={{-66,42},{-66,52},{-18,52}}, color={0,0,255}));
+    annotation (Line(points={{-60,-30},{-60,40},{-10,40}},color={0,0,255}));
   connect(c12.n, c23.p)
-    annotation (Line(points={{-18,32},{-18,18}}, color={0,0,255}));
-  connect(v1a.p, v2a.p) annotation (Line(points={{-124,48},{-132,48},{-132,18},{
-          -124,18}}, color={0,0,255}));
-  connect(v2a.p, v3a.p) annotation (Line(points={{-124,18},{-132,18},{-132,-2},
-          {-124,-2}},color={0,0,255}));
+    annotation (Line(points={{-10,20},{-10,0}},  color={0,0,255}));
+  connect(v1a.p, v2a.p) annotation (Line(points={{-120,40},{-120,10}},
+                     color={0,0,255}));
+  connect(v2a.p, v3a.p) annotation (Line(points={{-120,10},{-120,-20}},
+                     color={0,0,255}));
   connect(c12.p, c13.p)
-    annotation (Line(points={{-18,52},{0,52},{0,32}},     color={0,0,255}));
+    annotation (Line(points={{-10,40},{10,40},{10,20}},   color={0,0,255}));
   connect(c13.n, c23.n)
-    annotation (Line(points={{0,12},{0,-2},{-18,-2}},     color={0,0,255}));
+    annotation (Line(points={{10,0},{10,-20},{-10,-20}},  color={0,0,255}));
   connect(v1a.n, r1n.p)
-    annotation (Line(points={{-104,48},{-96,48}}, color={0,0,255}));
-  connect(r1n.n, c12.p) annotation (Line(points={{-80,48},{-66,48},{-66,52},{
-          -18,52}}, color={0,0,255}));
+    annotation (Line(points={{-100,40},{-90,40}}, color={0,0,255}));
+  connect(r1n.n, c12.p) annotation (Line(points={{-70,40},{-10,40}},
+                    color={0,0,255}));
   connect(v3a.n, r3n.p)
-    annotation (Line(points={{-104,-2},{-96,-2}}, color={0,0,255}));
+    annotation (Line(points={{-100,-20},{-90,-20}},
+                                                  color={0,0,255}));
   connect(v2a.n, r2n.p)
-    annotation (Line(points={{-104,18},{-96,18}}, color={0,0,255}));
-  connect(r2n.n, c23.p) annotation (Line(points={{-80,18},{-40,18},{-40,24},{
-          -18,24},{-18,18}},
+    annotation (Line(points={{-100,10},{-90,10}}, color={0,0,255}));
+  connect(r2n.n, c23.p) annotation (Line(points={{-70,10},{-10,10},{-10,0}},
                          color={0,0,255}));
   connect(r3n.n, c23.n)
-    annotation (Line(points={{-80,-2},{-18,-2}}, color={0,0,255}));
-  connect(c10.n, c20.n) annotation (Line(points={{-66,22},{-66,-36},{-54,-36},
-          {-54,-32}}, color={0,0,255}));
-  connect(ground1.p, v3a.p) annotation (Line(points={{-18,-36},{-132,-36},{
-          -132,-2},{-124,-2}}, color={0,0,255}));
-  connect(ground.p, v3.p) annotation (Line(points={{86,-32},{20,-32},{20,-12},
-          {28,-12}}, color={0,0,255}));
-  connect(c20.p, c23.p) annotation (Line(points={{-54,-12},{-54,18},{-40,18},
-          {-40,24},{-18,24},{-18,18}}, color={0,0,255}));
+    annotation (Line(points={{-70,-20},{-10,-20}},
+                                                 color={0,0,255}));
+  connect(c10.n, c20.n) annotation (Line(points={{-60,-50},{-60,-58},{-40,-58},{-40,-50}},
+                      color={0,0,255}));
+  connect(ground1.p, v3a.p) annotation (Line(points={{-20,-70},{-20,-60},{-120,-60},{-120,-20}},
+                               color={0,0,255}));
+  connect(ground.p, v3.p) annotation (Line(points={{100,-60},{100,-40},{30,-40},{30,-20},{40,-20}},
+                     color={0,0,255}));
+  connect(c20.p, c23.p) annotation (Line(points={{-40,-30},{-40,10},{-10,10},{-10,0}},
+                                       color={0,0,255}));
   connect(c30.p, c23.n)
-    annotation (Line(points={{-36,-12},{-36,-2},{-18,-2}}, color={0,0,255}));
+    annotation (Line(points={{-20,-30},{-20,-20},{-10,-20}},
+                                                           color={0,0,255}));
   annotation (
-    Diagram(coordinateSystem(extent={{-140,-60},{120,60}})),
+    Diagram(coordinateSystem(extent={{-120,-100},{120,100}})),
     Documentation(info="<html>
 <p>
 MSL uses, inside <a href=\"modelica://Modelica.Electrical.Analog.Lines.M_OLine\">M_OLine</a>,
@@ -305,5 +310,6 @@ This example is to show the perfect equivalence of capacitor matrix and Ccompact
     experiment(
       StopTime=0.04,
       Interval=1e-05,
-      Tolerance=1e-06));
+      Tolerance=1e-06),
+    Icon(coordinateSystem(extent={{-100,-100},{100,100}})));
 end CompareCmatrix;
