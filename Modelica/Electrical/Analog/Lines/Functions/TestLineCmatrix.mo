@@ -47,8 +47,8 @@ algorithm
     end when;
   annotation (
     Documentation(info="<html>
-<p>This model tests the C matrix as computed with function lineCmatrix, with the geometry of fig. 4.11 of [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>]. </p>
-<p>The results are given textually in the log and show a good agreement with the results shown in EmtpTheoryBook.</p>
+<p>This model tests the C matrix as computed with function lineCmatrix, with the geometry of fig. 4.11 of [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Theory Book</a>]. </p>
+<p>The results are given textually in the log and show a good agreement with the results shown in [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Theory Book</a>].</p>
 <p>The function computes both the C-matrix and the array of physical capacitances miming C-matrix behaviour (see documentation of lineCmatrix for details)</p>
 <p>Expected output:</p>
 <pre>

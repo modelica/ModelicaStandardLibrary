@@ -57,7 +57,7 @@ algorithm
   end for;
   annotation (
     Documentation(info="<html>
-<p>This function computes Capacitances of multi-conductor transmission lines, according to the formulas as reported in [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Cerolo2018</a>, Appendix]. The results obtained with this function have been checked with Fig. 4.1 of [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>], with good compliance. </p>
+<p>This function computes Capacitances of multi-conductor transmission lines, according to the formulas as reported in [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Cerolo2018</a>, Appendix]. The results obtained with this function have been checked with Fig. 4.1 of [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Theory Book</a>], with good compliance. </p>
 <p>Internally, it computes the <b>C</b> matrix, which corresponds to the formulas <b>V</b>&nbsp;=&nbsp;<b>YI</b>, <b>Y</b>&nbsp;=&nbsp;&omega;<b>C</b> where </p>
 <ul>
 <li><b>V</b> is the vector of voltages between conductors and the reference (the return conductor, usually ground), </li>
@@ -68,7 +68,8 @@ algorithm
 <p>This matrix&nbsp;<b>C</b>, has always negative off-diagonal values, and positive diagonal values. </p>
 <p>From <b>C</b> matrix, the internal <b>Cflat</b> matrix is computed, containing physical capacitors that can be imagined between conductors to model capacitive effects. For instance C12 is the capacitance (per unit length) to be put between conducturors 1 and 2. The output array <b>Ccompact</b> contains the elements of the <b>Cflat</b> matrix ordered as described in the <a href=\"modelica://Modelica.Electrical.Analog.Lines.M_OLine\">M_OLine</a> model, and is used in example <a href=\"modelica://Modelica.Electrical.Analog.Examples.Lines.PowerLineWithFence\">Examples.Lines.PowerLineWithFence</a> in conjunction with M_OLine. </p>
 <p>For an example on how to use this function, consider model Electrical.Analog.Examples.Lines.CompareCmatrix. </p>
-</html>",          revisions="<html>
+</html>",
+      revisions="<html>
 <p><em>July, 2023</em> </p>
 <p>Original implementation by Massimo Ceraolo of the University of Pisa </p>
 </html>"));

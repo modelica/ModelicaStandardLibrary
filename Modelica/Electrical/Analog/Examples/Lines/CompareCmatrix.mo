@@ -286,7 +286,7 @@ terms. the diagonal terms of this matrix are negative.
 <p>
 The capacitive coupling across conductors can be modelled equivalently through a network of
 n(n+1) capacitors, and simple conversion formulas exist, which can for instance be found in
-[<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>],
+[<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Theory Book</a>],
 page 3-12.
 </p>
 <p>

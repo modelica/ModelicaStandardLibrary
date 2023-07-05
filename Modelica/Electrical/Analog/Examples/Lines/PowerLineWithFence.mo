@@ -118,7 +118,7 @@ equation
 <p>
 This example shows the usage of <a href=\"modelica://Modelica.Electrical.Analog.Lines.M_OLine\">M_OLine</a>
 in a overhead PowerLine. The line geometry is the one shown in figure 4.11 of
-[<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>].
+[<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Theory Book</a>].
 </p>
 <p>
 A common rule-of-thumb states that for steady-state analysis at industrial frequency each

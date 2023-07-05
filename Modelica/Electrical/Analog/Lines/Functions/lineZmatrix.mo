@@ -89,7 +89,7 @@ the resistances could instead be used when ground resistance is to be taken into
 </p>
 <p>
 The results obtained with this function have been checked with Fig. 4.11 of
-[<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">EmtpTheoryBook</a>],
+[<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Theory Book</a>],
 in model  <a href=\"modelica://Modelica.Electrical.Analog.Examples.Lines.PowerLineWithFence\">
 PowerLineWithFence</a>, with good agreement.
 </p>
