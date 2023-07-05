@@ -8,24 +8,22 @@ model M_OLine "Multiple OLine"
 protected
   parameter Integer dim_vector_lgc=div(lines*(lines + 1), 2);
 public
-  parameter Real r[lines](
-    each final min=Modelica.Constants.small,
-    each unit="Ohm/m") = {4.76e5,1.72e5,1.72e5,1.72e5} "Resistance per meter";
+  parameter SI.ResistancePerUnitLength r[lines](
+    each final min=Modelica.Constants.small) = {4.76e5,1.72e5,1.72e5,1.72e5}
+    "Resistance per unit length of line";
+  parameter SI.InductancePerUnitLength l[dim_vector_lgc](
+    each final min=Modelica.Constants.small) = {5.98e-7,4.44e-7,4.39e-7,3.99e-7,5.81e-7,4.09e-7,
+    4.23e-7,5.96e-7,4.71e-7,6.06e-7}
+    "Inductance per unit length of line";
+  parameter SI.ConductancePerUnitLength g[dim_vector_lgc](
+    each final min=Modelica.Constants.small) = {8.05e-6,3.42e-5,2.91e-5,1.76e-6,9.16e-6,7.12e-6,
+    2.43e-5,5.93e-6,4.19e-5,6.64e-6}
+    "Conductance per unit length of line";
+  parameter SI.CapacitancePerUnitLength c[dim_vector_lgc](
+    each final min=Modelica.Constants.small) = {2.38e-11,1.01e-10,8.56e-11,5.09e-12,2.71e-11,2.09e-11,
+    7.16e-11,1.83e-11,1.23e-10,2.07e-11}
+    "Capacitance per unit length of line";
 
-  parameter Real l[dim_vector_lgc](
-    each final min=Modelica.Constants.small,
-    each unit="H/m") = {5.98e-7,4.44e-7,4.39e-7,3.99e-7,5.81e-7,4.09e-7,
-    4.23e-7,5.96e-7,4.71e-7,6.06e-7} "Inductance per meter";
-
-  parameter Real g[dim_vector_lgc](
-    each final min=Modelica.Constants.small,
-    each unit="S/m") = {8.05e-6,3.42e-5,2.91e-5,1.76e-6,9.16e-6,7.12e-6,
-    2.43e-5,5.93e-6,4.19e-5,6.64e-6} "Conductance per meter";
-
-  parameter Real c[dim_vector_lgc](
-    each final min=Modelica.Constants.small,
-    each unit="F/m") = {2.38e-11,1.01e-10,8.56e-11,5.09e-12,2.71e-11,2.09e-11,
-    7.16e-11,1.83e-11,1.23e-10,2.07e-11} "Capacitance per meter";
   parameter Boolean useInternalGround=true "= true if internal ground is used, otherwise use reference pin"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
   parameter SI.LinearTemperatureCoefficient alpha_R=0
@@ -355,7 +353,8 @@ For modelling the inductances and their mutual couplings the model
 <a href=\"modelica://Modelica.Electrical.Analog.Basic.M_Transformer\">M_Transformer</a> is used. 
 To fill the resistance vector, resistance values as many as lines are needed, e.g., 
 if there are four lines, four resistances are needed. For example for a microelectronic line 
-of 0.1m length, a sensible resistance-vector would be R=[4.76e5, 1.72e5, 1.72e5, 1.72e5].</p>
+of 0.1&nbsp;m length, a sensible resistance vector would be
+R&nbsp;= [4.76e5, 1.72e5, 1.72e5, 1.72e5]&nbsp;&ohm;/m.</p>
 
 <p>Filling the matrices of the inductances, capacitances and conductances is a bit more complicated,
 because those components occur also between two lines and not only (like the resistor) in one line.
