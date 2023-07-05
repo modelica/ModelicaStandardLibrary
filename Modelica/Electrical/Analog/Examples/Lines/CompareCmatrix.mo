@@ -303,8 +303,8 @@ This example is to show the perfect equivalence of capacitor matrix and Ccompact
 </p>
 </html>",
       revisions="<html>
-<p><i>June, 2023 Massimo Ceraolo of the University of Pisa </i></p>
-<p><i>originally created </i></p>
+<p><em>June, 2023 Massimo Ceraolo of the University of Pisa</em></p>
+<p><em>originally created</em></p>
 </html>"),
     experiment(
       StopTime=0.04,
