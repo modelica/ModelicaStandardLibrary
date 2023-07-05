@@ -2,45 +2,46 @@ within Modelica.Electrical.Analog.Examples.Lines;
 model CompareCmatrix
   extends Modelica.Icons.Example;
 
-//********************************************
-model MTL_Cmatrix
-  "Y-matrix with capacitive coupling for a multi-conductor line"
-  parameter Integer n(final min=1) = 3 "Number of conductors";
-  parameter Real C[n,n]( each final unit="F/m")  "Capacitance matrix; off-diagonal elements are negative";
-  parameter Modelica.Units.SI.Length len=100e3 "line length";
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[n] "Vector pin"
-    annotation (Placement(transformation(extent={{-110,0},{-90,80}}),
-        iconTransformation(extent={{-110,0},{-90,80}})));
-  Modelica.Electrical.Analog.Interfaces.NegativePin pn "Reference pin"
-    annotation (Placement(transformation(extent={{-112,-84},{-90,-62}}),
-        iconTransformation(extent={{-112,-84},{-90,-62}})));
-  Modelica.Units.SI.Voltage v[n] "Conductor Voltages with respect to reference";
-  Modelica.Units.SI.Current i[n] "Current through conductors";
-equation
-  for j in 1:n loop
-    v[j] = p[j].v - pn.v;
-    i[j] = p[j].i;
-  end for;
-  0=sum(p[j].i for j in 1:n) + pn.i;
-  i = len*C*der(v);
+  //********************************************
+  model MTL_Cmatrix
+    "Y-matrix with capacitive coupling for a multi-conductor line"
+    parameter Integer n(final min=1) = 3 "Number of conductors";
+    parameter Real C[n,n]( each final unit="F/m")  "Capacitance matrix; off-diagonal elements are negative";
+    parameter Modelica.Units.SI.Length len=100e3 "line length";
 
-  annotation (Icon(graphics={
-        Rectangle(
-          extent={{-100,100},{100,-100}},
-          lineColor={0,0,0},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Text(
-          extent={{-96,8},{98,-14}},
-          textColor={0,0,0},
-          textStyle={TextStyle.Bold},
-          textString="i=C*der(v)"),
-        Text(
-          extent={{-94,136},{96,118}},
-          textColor={0,0,255},
-          textString="%name")}));
-end MTL_Cmatrix;
-//********************************************
+    Modelica.Electrical.Analog.Interfaces.PositivePin p[n] "Vector pin"
+      annotation (Placement(transformation(extent={{-110,0},{-90,80}}),
+          iconTransformation(extent={{-110,0},{-90,80}})));
+    Modelica.Electrical.Analog.Interfaces.NegativePin pn "Reference pin"
+      annotation (Placement(transformation(extent={{-112,-84},{-90,-62}}),
+          iconTransformation(extent={{-112,-84},{-90,-62}})));
+    Modelica.Units.SI.Voltage v[n] "Conductor Voltages with respect to reference";
+    Modelica.Units.SI.Current i[n] "Current through conductors";
+  equation
+    for j in 1:n loop
+      v[j] = p[j].v - pn.v;
+      i[j] = p[j].i;
+    end for;
+    0=sum(p[j].i for j in 1:n) + pn.i;
+    i = len*C*der(v);
+
+    annotation (Icon(graphics={
+          Rectangle(
+            extent={{-100,100},{100,-100}},
+            lineColor={0,0,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-96,8},{98,-14}},
+            textColor={0,0,0},
+            textStyle={TextStyle.Bold},
+            textString="i=C*der(v)"),
+          Text(
+            extent={{-94,136},{96,118}},
+            textColor={0,0,255},
+            textString="%name")}));
+  end MTL_Cmatrix;
+  //********************************************
 
 
   Modelica.Electrical.Analog.Basic.Ground ground annotation (
