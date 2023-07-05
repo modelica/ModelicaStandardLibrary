@@ -2,10 +2,12 @@ within Modelica.Electrical.Analog.Lines.Functions;
 function lineZmatrix
   "Compute matrix of longitudinal impedances per metre of a multi-conductor line"
   extends Modelica.Icons.Function;
-  import Modelica.Constants.pi;
-  import Modelica.Constants.mu_0;
   import Modelica.ComplexMath;
   import Modelica.Utilities.Streams;
+  import Modelica.Constants.pi;
+  import Modelica.Constants.mu_0;
+  import Modelica.ComplexMath.j;
+
   input Integer n "Number of conductors in line";
   input Modelica.Units.SI.Length x[n] "Horizontal abscissas of conductors";
   input Modelica.Units.SI.Length y[n] "Vertical abscissas of conductors";
@@ -18,7 +20,6 @@ function lineZmatrix
   output Modelica.Units.SI.ResistancePerUnitLength Rcomp[div(n * (n + 1), 2)] "Compact resistance matrix";
   output Modelica.Units.SI.ReactancePerUnitLength Xcomp[div(n * (n + 1), 2)] "Compact reactance matrix";
   output Modelica.Units.SI.InductancePerUnitLength Lcomp[div(n * (n + 1), 2)] "Compact inductance)";
-  import Modelica.ComplexMath.j;
 protected
   Modelica.Units.SI.Distance D "Generic larger distance";
   Modelica.Units.SI.Distance d "Generic smaller distance";
