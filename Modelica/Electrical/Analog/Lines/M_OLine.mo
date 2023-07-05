@@ -316,10 +316,10 @@ between the lines and to the ground. The inductors are coupled to each other lik
 <a href=\"modelica://Modelica.Electrical.Analog.Basic.M_Transformer\">M_Transformer</a> model. 
 The following picture shows the schematic of a segment with four single lines (lines=4):</p>
 
-<blockquote>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/segment.png\"
-     alt=\"segment.png\">
-</blockquote>
+     alt=\"Diagram of a segment with four single lines\">
+</div>
 
 <p>Note that the user can choose whether the optional &quot;refPin&quot; 
 is active (so that it can be connected to any other pin), 
@@ -341,10 +341,10 @@ The remaining resistors and inductors are at the other end of the line within
 the auxiliary <code>segment_last</code>. For the example with 4 lines the schematic of 
 <code>segment_last</code> is like this:</p>
 
-<blockquote>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/segment_last.png\"
-     alt=\"segment_last.png\">
-</blockquote>
+     alt=\"Diagram of the last segment\">
+</div>
 
 <p>The number of the capacitors and conductors depends on the number of single lines that are used,
 because each line is coupled to every other line by both a capacitor and a conductor. 
@@ -377,9 +377,9 @@ will be shown in the the example below.</p>
 values from the main diagonal and from the positions that are below the main diagonal. 
 To get the following matrix</p>
 
-<blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqMatrix.png\" alt=\"Matrix\"/>
-</blockquote>
+<div>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqMatrix.png\" alt=\"Matrix\">
+</div>
 
 <p>the vector with dim_vector_lgc=4*5/2=10 has to appear in the following way: 
 vector = [<strong>1</strong>, 0.1, 0.2, 0.4, <strong>2</strong>, 0.3 0.5, <strong>3</strong>, 0.6, <strong>4</strong>]</p>
@@ -388,23 +388,23 @@ vector = [<strong>1</strong>, 0.1, 0.2, 0.4, <strong>2</strong>, 0.3 0.5, <stron
 which is used as default example for the <code>M_OLine</code> model, 
 a sensible inductance-matrix would be:</p>
 
-<blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqL.png\" alt=\"L\"/>
-</blockquote>
+<div>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqL.png\" alt=\"Matrix L\">
+</div>
 
 <p>For the example of a microelectronic line of 0.1m length, which is used as default example 
 for the <code>M_OLine</code> model, a sensible capacitance-matrix would be:</p>
 
-<blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqC.png\" alt=\"C\"/>
-</blockquote>
+<div>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqC.png\" alt=\"Matrix C\">
+</div>
 
 <p>For the example of a microelectronic line of 0.1m length, which is used as default example 
 for the <code>M_OLine</code> model, a sensible conductance-matrix would be:</p>
 
-<blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqG.png\" alt=\"G\"/>
-</blockquote>
+<div>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqG.png\" alt=\"Matrix G\">
+</div>
 
 <p>The user has the possibility to enable a conditional heatport. If so, the <code>M_OLine</code> 
 can be connected to a thermal network. If the parameter <code>alpha</code> is set to a value different than zero,
