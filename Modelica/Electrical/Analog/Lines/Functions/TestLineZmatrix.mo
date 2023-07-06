@@ -13,7 +13,7 @@ model TestLineZmatrix
 
   String sC;
   Modelica.Units.SI.ResistancePerUnitLength Rcomp[div(g.n*(g.n + 1), 2)] "Compacted matrix";
-  Modelica.Units.SI.InductancePerUnitLength Xcomp[div(g.n*(g.n + 1), 2)] "Compacted matrix";
+  Modelica.Units.SI.ReactancePerUnitLength Xcomp[div(g.n*(g.n + 1), 2)] "Compacted matrix";
 
 protected
   Integer k;
