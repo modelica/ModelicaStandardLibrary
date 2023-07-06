@@ -55,8 +55,8 @@ algorithm
   for i in 1:n loop
     for jj in 1:i - 1 loop
       Theta := atan(abs((x[i] - x[jj])/(y[i] + y[jj])));
-      d := sqrt((x[i] - x[jj])^2 + (y[i] - y[jj])^2); //distanza fra conduttore i e jj
-      D := sqrt((x[i] - x[jj])^2 + (y[i] + y[jj])^2);  //distanza fra conduttore i e immagine di jj
+      d := sqrt((x[i] - x[jj])^2 + (y[i] - y[jj])^2); //distance between conductors i and jj
+      D := sqrt((x[i] - x[jj])^2 + (y[i] + y[jj])^2);  //distance between conductor i and the image of conductor jj
       a:=a0*D;
       P := pi/8 - sqrt(2)/6*a*cos(Theta) + a^2/16*(0.672784
          + log(2/a))*cos(2*Theta)+a^2/16*Theta*sin(2*Theta);
