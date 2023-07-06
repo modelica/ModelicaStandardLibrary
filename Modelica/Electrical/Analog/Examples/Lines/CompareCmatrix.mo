@@ -6,7 +6,7 @@ model CompareCmatrix
   model MTL_Cmatrix
     "Y-matrix with capacitive coupling for a multi-conductor line"
     parameter Integer n(final min=1) = 3 "Number of conductors";
-    parameter Real C[n,n]( each final unit="F/m")  "Capacitance matrix; off-diagonal elements are negative";
+    parameter Modelica.Units.SI.CapacitancePerUnitLength C[n,n]  "Capacitance matrix; off-diagonal elements are negative";
     parameter Modelica.Units.SI.Length len=100e3 "line length";
 
     Modelica.Electrical.Analog.Interfaces.PositivePin p[n] "Vector pin"
@@ -15,7 +15,7 @@ model CompareCmatrix
     Modelica.Electrical.Analog.Interfaces.NegativePin pn "Reference pin"
       annotation (Placement(transformation(extent={{-112,-84},{-90,-62}}),
           iconTransformation(extent={{-112,-84},{-90,-62}})));
-    Modelica.Units.SI.Voltage v[n] "Conductor Voltages with respect to reference";
+    Modelica.Units.SI.Voltage v[n]( each start=0, fixed=true) "Conductor Voltages with respect to reference";
     Modelica.Units.SI.Current i[n] "Current through conductors";
   equation
     for j in 1:n loop
@@ -97,31 +97,36 @@ model CompareCmatrix
         extent={{-10,-10},{10,10}},
         rotation=-90,
         origin={-10,30})));
-  Modelica.Electrical.Analog.Basic.Capacitor c23(C=CL[5])
+  Modelica.Electrical.Analog.Basic.Capacitor c23(v(fixed=false),
+                                                 C=CL[5])
                                                  annotation (Placement(
         transformation(
         extent={{10,10},{-10,-10}},
         rotation=90,
         origin={-10,-10})));
-  Modelica.Electrical.Analog.Basic.Capacitor c10(C=CL[1])
+  Modelica.Electrical.Analog.Basic.Capacitor c10(v(fixed=true),
+                                                 C=CL[1])
                                                  annotation (Placement(
         transformation(
         extent={{10,10},{-10,-10}},
         rotation=90,
         origin={-60,-40})));
-  Modelica.Electrical.Analog.Basic.Capacitor c13(C=CL[3])
+  Modelica.Electrical.Analog.Basic.Capacitor c13(v(fixed=false),
+                                                 C=CL[3])
                                                  annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,
         origin={10,10})));
-  Modelica.Electrical.Analog.Basic.Capacitor c30(C=CL[6])
+  Modelica.Electrical.Analog.Basic.Capacitor c30(v(fixed=true),
+                                                 C=CL[6])
                                                  annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,
         origin={-20,-40})));
-  Modelica.Electrical.Analog.Basic.Capacitor c20(C=CL[4])
+  Modelica.Electrical.Analog.Basic.Capacitor c20(v(fixed=true),
+                                                 C=CL[4])
                                                  annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
