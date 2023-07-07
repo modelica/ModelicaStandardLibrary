@@ -67,10 +67,10 @@ algorithm
   end for;
   k := 0;
   for i in 1:n loop
-    for j in i:n loop
+    for jj in i:n loop
       k := k + 1;
-      Rcomp[k] := Z[j, i].re;
-      Xcomp[k] := Z[j, i].im;
+      Rcomp[k] := Z[jj, i].re;
+      Xcomp[k] := Z[jj, i].im;
       Lcomp[k] := Xcomp[k]/w;
     end for;
   end for;
