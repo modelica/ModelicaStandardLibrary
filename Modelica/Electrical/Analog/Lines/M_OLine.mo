@@ -421,41 +421,42 @@ are calculated by</p>
 </blockquote>
 </html>",
         revisions="<html>
-<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
-<td><p align=\"center\"><h4>Version</h4></p></td>
-<td><p align=\"center\"><h4>Revision</h4></p></td>
-<td><p align=\"center\"><h4>Date</h4></p></td>
-<td><p align=\"center\"><h4>Author</h4></p></td>
-<td><p align=\"center\"><h4>Comment</h4></p></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><p><br><br>2023-07-07</p></td>
-<td><p>Massimo Ceraolo	</p></td>
-<td><p>Added fixed=true or capacitor voltage start value</p></td>
-</tr>
-<tr>
-<td></td>
-<td><p><br>4163</p></td>
-<td><p>2010-09-11</p></td>
-<td><p>Dietmar Winkler</p></td>
-<td><p>Documentation corrected according to documentation guidelines.</p></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><p><br><br>2008-11-24</p></td>
-<td><p>Kristin Majetta</p></td>
-<td><p>Documentation added.</p></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><p><br><br>2007-02-26</p></td>
-<td><p>Kristin Majetta</p></td>
-<td><p>Initially implemented</p></td>
-</tr>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+  <tr>
+    <th>Version</th>
+    <th>Revision</th>
+    <th>Date</th>
+    <th>Author</th>
+    <th>Comment</th>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>2023-07-07</td>
+    <td>Massimo Ceraolo</td>
+    <td>Added fixed=true or capacitor voltage start value</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>4163</td>
+    <td>2010-09-11</td>
+    <td>Dietmar Winkler</td>
+    <td>Documentation corrected according to documentation guidelines.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>2008-11-24</td>
+    <td>Kristin Majetta</td>
+    <td>Documentation added.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>2007-02-26</td>
+    <td>Kristin Majetta</td>
+    <td>Initially implemented</td>
+  </tr>
 </table>
 </html>"));
 end M_OLine;
