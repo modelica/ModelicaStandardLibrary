@@ -24,17 +24,17 @@ model IM_SlipRing "Induction machine with slipring rotor"
     final Lm=Lm,
     final m=m) annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=270)));
-  parameter SI.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi
+  parameter SI.Inductance Lm(start=3*ZsRef*sqrt(1 - 0.0667)/(2*pi
         *fsNominal)) "Stator main field inductance per phase"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter SI.Inductance Lrsigma(start=3*(1 - sqrt(1 -
+  parameter SI.Inductance Lrsigma(start=3*ZsRef*(1 - sqrt(1 -
         0.0667))/(2*pi*fsNominal))
     "Rotor stray inductance per phase w.r.t. rotor side"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter SI.Inductance Lrzero=Lrsigma
     "Rotor zero sequence inductance w.r.t. rotor side"
     annotation (Dialog(tab="Nominal resistances and inductances"));
-  parameter SI.Resistance Rr(start=0.04)
+  parameter SI.Resistance Rr(start=0.04*ZsRef)
     "Rotor resistance per phase at TRef w.r.t. rotor side"
     annotation (Dialog(tab="Nominal resistances and inductances"));
   parameter SI.Temperature TrRef(start=293.15)
