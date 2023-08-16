@@ -38,8 +38,7 @@ protected
     final r_0=frame_a.r_0,
     final nu=nu,
     final nv=nv,
-    redeclare function surfaceCharacteristic =
-        Advanced.SurfaceCharacteristics.rectangle (
+    redeclare function surfaceCharacteristic = Advanced.SurfaceCharacteristics.rectangle (
       lu=length_u, lv=length_v)) if world.enableAnimation and animation
     annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
   Modelica.Mechanics.MultiBody.Forces.Internal.ZeroForceAndTorque zeroForceAndTorque annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
