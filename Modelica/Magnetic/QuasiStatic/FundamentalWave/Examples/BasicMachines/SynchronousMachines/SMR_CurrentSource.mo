@@ -205,8 +205,8 @@ model SMR_CurrentSource
         origin={0,60})));
   Modelica.Electrical.QuasiStatic.Polyphase.Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensorQS(m=m)
     annotation (Placement(transformation(extent={{-40,60},{-20,40}})));
-  Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star starMQS(m=m) annotation (
-     Placement(transformation(
+  Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star starMQS(m=m) annotation
+    (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={-50,40})));
