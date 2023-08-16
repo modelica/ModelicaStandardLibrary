@@ -130,8 +130,6 @@ equation
             {60,-44}}, lineColor={255,0,0}), Text(
         extent={{12,42},{58,34}},
         textColor={255,0,0},
-        fillColor={0,0,255},
-        fillPattern=FillPattern.Solid,
         textString="controller")}),
     experiment(StopTime=300),
     Documentation(info="<html>

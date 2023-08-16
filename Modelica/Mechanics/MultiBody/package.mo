@@ -145,8 +145,8 @@ model World
     annotation (Dialog(tab="Defaults"));
 
   replaceable function gravityAcceleration =
-       Modelica.Mechanics.MultiBody.Forces.Internal.standardGravityAcceleration (
-           gravityType=gravityType, g=g*Modelica.Math.Vectors.normalizeWithAssert(n), mu=mu)
+       Modelica.Mechanics.MultiBody.Forces.Internal.standardGravityAcceleration
+        (  gravityType=gravityType, g=g*Modelica.Math.Vectors.normalizeWithAssert(n), mu=mu)
        constrainedby Modelica.Mechanics.MultiBody.Interfaces.partialGravityAcceleration
     "Function to compute the gravity acceleration, resolved in world frame"
        annotation(choicesAllMatching=true,Dialog(enable=gravityType==
@@ -335,7 +335,8 @@ protected
     final nu=2,
     final nv=2,
     redeclare function surfaceCharacteristic =
-      Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.rectangle(
+      Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.rectangle
+          (
       lu=groundLength_u, lv=groundLength_v)) if
       enableAnimation and animateGround and gravityType == GravityTypes.UniformGravity;
 equation

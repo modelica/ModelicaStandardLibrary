@@ -205,8 +205,8 @@ model SMR_CurrentSource
         origin={0,60})));
   Modelica.Electrical.QuasiStatic.Polyphase.Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensorQS(m=m)
     annotation (Placement(transformation(extent={{-40,60},{-20,40}})));
-  Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star starMQS(m=m) annotation
-    (Placement(transformation(
+  Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star starMQS(m=m) annotation (
+     Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={-50,40})));
@@ -346,8 +346,6 @@ Simulate for 2 seconds and plot (versus time):
                   textStyle={TextStyle.Bold},
           textString="%m phase quasi-static"),               Text(
                   extent={{30,-52},{110,-60}},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
                   textStyle={TextStyle.Bold},
                   textString="%m phase transient")}));
 end SMR_CurrentSource;

@@ -11,8 +11,7 @@ package FluxTubes "Library for modelling of quasi-static electromagnetic devices
 This library is intended to provide models for the investigation of
 quasi-static electromagnetic devices with lumped magnetic networks.
 </p>
-</html>"),
-           Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false), graphics={
     Polygon(
         origin={-3.75,0.0},
         fillColor={255,170,85},
