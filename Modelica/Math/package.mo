@@ -4876,7 +4876,11 @@ A_fud  = [-1, 2, -3;
               X,
               n,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -4958,7 +4962,8 @@ A_fud  = [-1, 2, -3;
     Array elements marked * are not used by the routine; elements marked
     + need not be set on entry, but are required by the routine to store
     elements of U because of fill-in resulting from the row interchanges.
-"));
+</pre>
+</html>"));
     end dgbsv;
 
     pure function dgbsv_vec
@@ -4988,10 +4993,13 @@ A_fud  = [-1, 2, -3;
               x,
               n,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="
-Same as function LAPACK.dgbsv, but right hand side is a vector and not a matrix.
+      annotation (Documentation(info="<html>
+<p>
+Same as function <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgbsv\">LAPACK.dgbsv</a>,
+but right hand side is a vector and not a matrix.
 For details of the arguments, see documentation of dgbsv.
-"));
+</p>
+</html>"));
     end dgbsv_vec;
 
     pure function dgecon
@@ -5021,7 +5029,11 @@ For details of the arguments, see documentation of dgbsv.
               work,
               iwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -5067,7 +5079,8 @@ For details of the arguments, see documentation of dgbsv.
     INFO    (output) INTEGER
             = 0:  successful exit
             < 0:  if INFO = -i, the i-th argument had an illegal value
-"));
+</pre>
+</html>"));
     end dgecon;
 
     pure function dgees
@@ -5108,7 +5121,11 @@ For details of the arguments, see documentation of dgbsv.
               lwork,
               bwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -5223,7 +5240,8 @@ For details of the arguments, see documentation of dgbsv.
                      complex eigenvalues so that leading eigenvalues in
                      the Schur form no longer satisfy SELECT=.TRUE.  This
                      could also be caused by underflow due to scaling.
-"));
+</pre>
+</html>"));
     end dgees;
 
     pure function dgeev
@@ -5258,11 +5276,17 @@ For details of the arguments, see documentation of dgbsv.
               work,
               lwork,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="This function is not a full interface to the LAPACK function DGEEV,
+      annotation (Documentation(info="<html>
+<p>
+This function is not a full interface to the LAPACK function DGEEV,
 but calls it in such a way that only eigenvalues and right eigenvectors
 are computed.
+</p>
 
+<p>
 Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -5358,7 +5382,8 @@ Lapack documentation
                   eigenvalues, and no eigenvectors have been computed;
                   elements i+1:N of WR and WI contain eigenvalues which
                   have converged.
-"));
+</pre>
+</html>"));
     end dgeev;
 
     pure function dgeev_eigenValues
@@ -5401,7 +5426,11 @@ Lapack documentation
               lwork,
               info) annotation (Library="lapack");
 
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -5497,7 +5526,8 @@ Lapack documentation
                   eigenvalues, and no eigenvectors have been computed;
                   elements i+1:N of WR and WI contain eigenvalues which
                   have converged.
-"));
+</pre>
+</html>"));
     end dgeev_eigenValues;
 
     pure function dgeevx
@@ -5552,7 +5582,11 @@ Lapack documentation
               lwork,
               iwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -5729,7 +5763,8 @@ Lapack documentation
                   eigenvalues, and no eigenvectors or condition numbers
                   have been computed; elements 1:ILO-1 and i+1:N of WR
                   and WI contain eigenvalues which have converged.
-"));
+</pre>
+</html>"));
     end dgeevx;
 
     pure function dgehrd
@@ -5762,7 +5797,11 @@ Lapack documentation
               work,
               lwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -5848,7 +5887,8 @@ Lapack documentation
     where a denotes an element of the original matrix A, h denotes a
     modified element of the upper Hessenberg matrix H, and vi denotes an
     element of the vector defining H(i).
-"));
+</pre>
+</html>"));
     end dgehrd;
 
     pure function dgels_vec
@@ -5883,7 +5923,11 @@ Lapack documentation
               work,
               lwork,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -5984,7 +6028,8 @@ Lapack documentation
                   triangular factor of A is zero, so that A does not have
                   full rank; the least squares solution could not be
                   computed.
-"));
+</pre>
+</html>"));
     end dgels_vec;
 
     pure function dgelsy
@@ -6026,7 +6071,11 @@ Lapack documentation
               work,
               lwork,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -6134,7 +6183,8 @@ Lapack documentation
     INFO    (output) INTEGER
             = 0: successful exit
             < 0: If INFO = -i, the i-th argument had an illegal value.
-"));
+</pre>
+</html>"));
     end dgelsy;
 
     pure function dgelsy_vec
@@ -6176,7 +6226,11 @@ Lapack documentation
               work,
               lwork,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -6284,7 +6338,8 @@ Lapack documentation
     INFO    (output) INTEGER
             = 0: successful exit
             < 0: If INFO = -i, the i-th argument had an illegal value.
-"));
+</pre>
+</html>"));
     end dgelsy_vec;
 
     pure function dgeqp3 "Compute QR factorization with column pivoting of square or rectangular matrix A"
@@ -6314,7 +6369,11 @@ Lapack documentation
               work,
               lwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -6386,7 +6445,8 @@ Lapack documentation
     Based on contributions by
       G. Quintana-Orti, Depto. de Informatica, Universidad Jaime I, Spain
       X. Sun, Computer Science Dept., Duke University, USA
-"));
+</pre>
+</html>"));
     end dgeqp3;
 
     pure function dgeqrf "Compute a QR factorization without pivoting"
@@ -6414,7 +6474,11 @@ Lapack documentation
               work,
               lwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -6477,7 +6541,8 @@ Lapack documentation
     where tau is a real scalar, and v is a real vector with
     v(1:i-1) = 0 and v(i) = 1; v(i+1:m) is stored on exit in A(i+1:m,i),
     and tau in TAU(i).
-"));
+</pre>
+</html>"));
     end dgeqrf;
 
     pure function dgesdd "Determine singular value decomposition"
@@ -6517,7 +6582,11 @@ Lapack documentation
               lwork,
               iwork,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -6642,7 +6711,8 @@ Lapack documentation
     Based on contributions by
        Ming Gu and Huan Ren, Computer Science Division, University of
        California at Berkeley, USA
-"));
+</pre>
+</html>"));
     end dgesdd;
 
     pure function dgesv
@@ -6669,7 +6739,11 @@ Lapack documentation
               X,
               ldb,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -6720,7 +6794,8 @@ Lapack documentation
             > 0:  if INFO = i, U(i,i) is exactly zero.  The factorization
                   has been completed, but the factor U is exactly
                   singular, so the solution could not be computed.
-"));
+</pre>
+</html>"));
     end dgesv;
 
     pure function dgesv_vec
@@ -6747,10 +6822,13 @@ Lapack documentation
               x,
               ldb,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="
-Same as function LAPACK.dgesv, but right hand side is a vector and not a matrix.
+      annotation (Documentation(info="<html>
+<p>
+Same as function <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgesv\">LAPACK.dgesv</a>,
+but right hand side is a vector and not a matrix.
 For details of the arguments, see documentation of dgesv.
-"));
+</p>
+</html>"));
     end dgesv_vec;
 
     pure function dgesvd "Determine singular value decomposition"
@@ -6782,7 +6860,11 @@ For details of the arguments, see documentation of dgesv.
               work,
               lwork,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -6898,7 +6980,8 @@ For details of the arguments, see documentation of dgesv.
                   superdiagonals of an intermediate bidiagonal form B
                   did not converge to zero. See the description of WORK
                   above for details.
-"));
+</pre>
+</html>"));
     end dgesvd;
 
     pure function dgesvd_sigma "Determine singular values"
@@ -6930,7 +7013,11 @@ For details of the arguments, see documentation of dgesv.
               work,
               lwork,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -7046,7 +7133,8 @@ For details of the arguments, see documentation of dgesv.
                   superdiagonals of an intermediate bidiagonal form B
                   did not converge to zero. See the description of WORK
                   above for details.
-"));
+</pre>
+</html>"));
     end dgesvd_sigma;
 
     pure function dgesvx
@@ -7100,7 +7188,11 @@ For details of the arguments, see documentation of dgesv.
               work,
               iwork,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -7325,7 +7417,8 @@ For details of the arguments, see documentation of dgesv.
                          there are a number of situations where the
                          computed solution can be more accurate than the
                          value of RCOND would suggest.
-"));
+</pre>
+</html>"));
     end dgesvx;
 
     pure function dgetrf
@@ -7348,7 +7441,11 @@ For details of the arguments, see documentation of dgesv.
               lda,
               pivots,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -7391,7 +7488,8 @@ For details of the arguments, see documentation of dgesv.
                   has been completed, but the factor U is exactly
                   singular, and division by zero will occur if it is used
                   to solve a system of equations.
-"));
+</pre>
+</html>"));
     end dgetrf;
 
     pure function dgetri
@@ -7419,7 +7517,11 @@ For details of the arguments, see documentation of dgesv.
               work,
               lwork,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -7465,7 +7567,8 @@ For details of the arguments, see documentation of dgesv.
             < 0:  if INFO = -i, the i-th argument had an illegal value
             > 0:  if INFO = i, U(i,i) is exactly zero; the matrix is
                   singular and its inverse could not be computed.
-"));
+</pre>
+</html>"));
     end dgetri;
 
     pure function dgetrs
@@ -7495,7 +7598,11 @@ For details of the arguments, see documentation of dgesv.
               X,
               ldb,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -7541,7 +7648,8 @@ For details of the arguments, see documentation of dgesv.
     INFO    (output) INTEGER
             = 0:  successful exit
             < 0:  if INFO = -i, the i-th argument had an illegal value
-"));
+</pre>
+</html>"));
     end dgetrs;
 
     pure function dgetrs_vec
@@ -7572,7 +7680,11 @@ For details of the arguments, see documentation of dgesv.
               x,
               ldb,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -7618,7 +7730,8 @@ For details of the arguments, see documentation of dgesv.
     INFO    (output) INTEGER
             = 0:  successful exit
             < 0:  if INFO = -i, the i-th argument had an illegal value
-"));
+</pre>
+</html>"));
     end dgetrs_vec;
 
     pure function dggev
@@ -7665,7 +7778,11 @@ For details of the arguments, see documentation of dgesv.
               work,
               lwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -7786,7 +7903,8 @@ For details of the arguments, see documentation of dgesv.
                   should be correct for j=INFO+1,...,N.
             > N:  =N+1: other than QZ iteration failed in DHGEQZ.
                   =N+2: error return from DTGEVC.
-"));
+</pre>
+</html>"));
     end dggev;
 
     pure function dggevx
@@ -7851,7 +7969,11 @@ For details of the arguments, see documentation of dgesv.
               iwork,
               bwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -8089,7 +8211,8 @@ For details of the arguments, see documentation of dgesv.
 
     For further explanation of the reciprocal condition numbers RCONDE
     and RCONDV, see section 4.11 of LAPACK User's Guide.
-"));
+</pre>
+</html>"));
     end dggevx;
 
     pure function dgglse_vec
@@ -8128,7 +8251,11 @@ For details of the arguments, see documentation of dgesv.
               lwork,
               info) annotation (Library="lapack");
 
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -8220,7 +8347,8 @@ For details of the arguments, see documentation of dgesv.
                   rank( (A) ) < N; the least squares solution could not
                       ( (B) )
                   be computed.
-"));
+</pre>
+</html>"));
     end dgglse_vec;
 
     pure function dgtsv
@@ -8250,7 +8378,11 @@ For details of the arguments, see documentation of dgesv.
               X,
               ldb,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -8307,7 +8439,8 @@ For details of the arguments, see documentation of dgesv.
             > 0: if INFO = i, U(i,i) is exactly zero, and the solution
                  has not been computed.  The factorization has not been
                  completed unless i = N.
-"));
+</pre>
+</html>"));
     end dgtsv;
 
     pure function dgtsv_vec
@@ -8337,10 +8470,13 @@ For details of the arguments, see documentation of dgesv.
               x,
               ldb,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="
-Same as function LAPACK.dgtsv, but right hand side is a vector and not a matrix.
+      annotation (Documentation(info="<html>
+<p>
+Same as function <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgtsv\">LAPACK.dgtsv</a>,
+but right hand side is a vector and not a matrix.
 For details of the arguments, see documentation of dgtsv.
-"));
+</p>
+</html>"));
     end dgtsv_vec;
 
     pure function dhgeqz "Compute generalized eigenvalues for a (A,B) system"
@@ -8389,7 +8525,11 @@ For details of the arguments, see documentation of dgtsv.
               work,
               lwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -8579,7 +8719,8 @@ For details of the arguments, see documentation of dgtsv.
     IITER  -- counts iterations run since ILAST was last
               changed.  This is therefore reset only when a 1-by-1 or
               2-by-2 block deflates off the bottom.
-"));
+</pre>
+</html>"));
     end dhgeqz;
 
     pure function dhseqr
@@ -8625,7 +8766,11 @@ For details of the arguments, see documentation of dgtsv.
               work,
               lwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -8770,7 +8915,8 @@ For details of the arguments, see documentation of dgtsv.
 
                If INFO > 0 and COMPZ = 'N', then Z is not
                accessed.
-"));
+</pre>
+</html>"));
     end dhseqr;
 
     pure function dlange "Norm of a matrix"
@@ -8792,7 +8938,11 @@ For details of the arguments, see documentation of dgtsv.
               A,
               lda,
               work) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -8842,7 +8992,8 @@ For details of the arguments, see documentation of dgtsv.
     WORK    (workspace) DOUBLE PRECISION array, dimension (MAX(1,LWORK)),
             where LWORK >= M when NORM = 'I'; otherwise, WORK is not
             referenced.
-"));
+</pre>
+</html>"));
 
     end dlange;
 
@@ -8877,7 +9028,11 @@ For details of the arguments, see documentation of dgtsv.
               work,
               lwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -8928,7 +9083,8 @@ For details of the arguments, see documentation of dgtsv.
     INFO    (output) INTEGER
             = 0:  successful exit
             < 0:  if INFO = -i, the i-th argument had an illegal value
-"));
+</pre>
+</html>"));
     end dorghr;
 
     pure function dorgqr
@@ -8960,7 +9116,11 @@ For details of the arguments, see documentation of dgtsv.
               work,
               lwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -9015,7 +9175,8 @@ For details of the arguments, see documentation of dgtsv.
     INFO    (output) INTEGER
             = 0:  successful exit
             < 0:  if INFO = -i, the i-th argument has an illegal value
-"));
+</pre>
+</html>"));
     end dorgqr;
 
     pure function dormhr
@@ -9058,7 +9219,11 @@ For details of the arguments, see documentation of dgtsv.
               work,
               lwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -9143,7 +9308,8 @@ For details of the arguments, see documentation of dgtsv.
     INFO    (output) INTEGER
             = 0:  successful exit
             < 0:  if INFO = -i, the i-th argument had an illegal value
-"));
+</pre>
+</html>"));
     end dormhr;
 
     pure function dormqr
@@ -9183,7 +9349,11 @@ For details of the arguments, see documentation of dgtsv.
               work,
               lwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -9265,7 +9435,8 @@ For details of the arguments, see documentation of dgtsv.
     INFO    (output) INTEGER
             = 0:  successful exit
             < 0:  if INFO = -i, the i-th argument had an illegal value
-"));
+</pre>
+</html>"));
     end dormqr;
 
     pure function dpotrf
@@ -9287,7 +9458,11 @@ For details of the arguments, see documentation of dgtsv.
               Acholesky,
               lda,
               info) annotation (Library="lapack");
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -9332,7 +9507,8 @@ For details of the arguments, see documentation of dgtsv.
             > 0:  if INFO = i, the leading minor of order i is not
                   positive definite, and the factorization could not be
                   completed.
-"));
+</pre>
+</html>"));
     end dpotrf;
 
     pure function dtrevc
@@ -9374,7 +9550,11 @@ For details of the arguments, see documentation of dgtsv.
               n,
               work,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -9500,7 +9680,8 @@ For details of the arguments, see documentation of dgtsv.
     Each eigenvector is normalized so that the element of largest
     magnitude has magnitude 1; here the magnitude of a complex number
     (x,y) is taken to be |x| + |y|.
-"));
+</pre>
+</html>"));
     end dtrevc;
 
     pure function dtrsen "Reorder the real Schur factorization of a real matrix"
@@ -9556,7 +9737,11 @@ For details of the arguments, see documentation of dgtsv.
               iwork,
               liwork,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -9758,7 +9943,8 @@ For details of the arguments, see documentation of dgtsv.
     error in the computed right invariant subspace is
 
                         EPS * norm(T) / SEP
-"));
+</pre>
+</html>"));
     end dtrsen;
 
     pure function dtrsm
@@ -9798,7 +9984,11 @@ For details of the arguments, see documentation of dgtsv.
               lda,
               X,
               ldb) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -9908,7 +10098,8 @@ For details of the arguments, see documentation of dgtsv.
              Unchanged on exit.
 
     Level 3 Blas routine.
-"));
+</pre>
+</html>"));
     end dtrsm;
 
     pure function dtrsyl
@@ -9949,7 +10140,11 @@ For details of the arguments, see documentation of dgtsv.
               lda,
               scale,
               info) annotation (Library={"lapack"});
-      annotation (Documentation(info="Lapack documentation
+      annotation (Documentation(info="<html>
+<p>
+Lapack documentation
+</p>
+<pre>
     Purpose
     =======
 
@@ -10024,7 +10219,8 @@ For details of the arguments, see documentation of dgtsv.
             = 1: A and B have common or very close eigenvalues; perturbed
                  values were used to solve the equation (but the matrices
                  A and B are unchanged).
-"));
+</pre>
+</html>"));
     end dtrsyl;
 
     annotation (Documentation(info="<html>
