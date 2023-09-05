@@ -288,13 +288,9 @@ Simulate for 1.5 seconds and plot (versus time):
             -100},{100,100}}),
                          graphics={       Text(
                 extent={{40,68},{100,60}},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textString="%m-phase machine",
                 textStyle={TextStyle.Bold}),Text(
                 extent={{40,-32},{100,-40}},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textString="Three-phase machine",
                 textStyle={TextStyle.Bold})}));
 end IMS_Start_Polyphase;

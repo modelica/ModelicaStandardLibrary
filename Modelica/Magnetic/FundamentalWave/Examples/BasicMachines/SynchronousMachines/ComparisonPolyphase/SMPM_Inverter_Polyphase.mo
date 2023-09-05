@@ -300,14 +300,10 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
                 fillPattern=FillPattern.Solid,
                 pattern=LinePattern.Dash),Text(
                 extent={{40,-54},{100,-62}},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textStyle={TextStyle.Bold},
                 textString="Three-phase machine
 "),     Text(
           extent={{40,-44},{100,-52}},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textStyle={TextStyle.Bold},
                 textString="%m-phase machine
 ")}));

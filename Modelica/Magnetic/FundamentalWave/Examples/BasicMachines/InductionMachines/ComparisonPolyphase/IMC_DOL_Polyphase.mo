@@ -256,13 +256,9 @@ Simulate for 1.5 seconds and plot (versus time):
             -100},{100,100}}),
                          graphics={       Text(
                 extent={{20,88},{100,80}},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textString="%m-phase machine",
                 textStyle={TextStyle.Bold}),Text(
                 extent={{20,-22},{100,-30}},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textString="Three-phase machine",
                 textStyle={TextStyle.Bold})}));
 end IMC_DOL_Polyphase;
