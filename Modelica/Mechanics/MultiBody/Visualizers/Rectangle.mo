@@ -67,9 +67,6 @@ equation
         Line(points={{-100,0},{0,0},{0,-20}}, color={95,95,95}),
         Text(
           extent={{-140,-60},{140,-90}},
-          lineThickness=0.5,
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid,
           textString="%length_u x %length_v")}),
     Documentation(info="<html>
 <p>
