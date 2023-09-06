@@ -107,11 +107,11 @@ package Types
       input String tableName "Table name";
       input String fileName "File name";
       input Real table[:, :];
-      input Real startTimeScaled(unit = "1");
+      input Real startTime;
       input Integer columns[:];
       input Modelica.Blocks.Types.Smoothness smoothness;
       input Modelica.Blocks.Types.Extrapolation extrapolation;
-      input Real shiftTimeScaled(unit = "1")=0.0;
+      input Real shiftTime=0.0;
       input Modelica.Blocks.Types.TimeEvents timeEvents=Modelica.Blocks.Types.TimeEvents.Always;
       input Boolean verboseRead=true "= true: Print info message; = false: No info message";
       input String delimiter="," "Column delimiter character for CSV file";
@@ -123,12 +123,12 @@ package Types
             table,
             size(table, 1),
             size(table, 2),
-            startTimeScaled,
+            startTime,
             columns,
             size(columns, 1),
             smoothness,
             extrapolation,
-            shiftTimeScaled,
+            shiftTime,
             timeEvents,
             verboseRead,
             delimiter,
