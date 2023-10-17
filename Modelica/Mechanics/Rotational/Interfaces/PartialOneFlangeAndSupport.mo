@@ -11,7 +11,7 @@ partial model PartialOneFlangeAndSupport
           extent={{90,-10},{110,10}})));
   Support support if useSupport "Support/housing of component"
     annotation (Placement(transformation(extent={{-10,-110},{10,-90}})),
-      mustBeConnected="An enabled support connector should be enabled");
+      mustBeConnected="An enabled support connector should be connected");
 protected
   Support internalSupport
     "Internal support/housing of component (either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
