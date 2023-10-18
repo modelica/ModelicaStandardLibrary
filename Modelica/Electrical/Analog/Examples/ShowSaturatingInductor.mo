@@ -52,11 +52,7 @@ equation
   connect(Inductance1.n, SineVoltage1.n) annotation (Line(
       points={{20,-10},{20,-16},{-60,-16}}, color={0,0,255}));
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}}), graphics={Text(
-          extent={{-80,84},{70,38}},
-          textColor={0,0,255},
-          textString="Show Saturating Inductor")}),
+    Diagram(coordinateSystem(preserveAspectRatio = true, extent = {{-100, -100}, {100, 100}})),
     experiment(StopTime=6.2832, Interval=0.01),
     Documentation(info="<html>
 <p>This simple circuit uses the saturating inductor which has a changing inductance.</p>

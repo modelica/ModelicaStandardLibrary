@@ -162,13 +162,9 @@ equation
     annotation (Line(points={{-40,-20},{20,-20},{20,30}}, color={0,0,255}));
 annotation (
   Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics={
-        Text(
-          extent={{-80,90},{80,70}},
-          textString="Rectifier"),
-        Line(points={{-16,18},{-16,2},{-18,6},{-14,6},{-16,2}}),
-        Line(points={{-30,22},{-26,20},{-30,18},{-30,22}}),
-        Line(points={{32,30},{32,-30},{30,-26},{34,-26},{32,-30}}),
+            100}}), graphics={Line(points = {{-16, 18}, {-16, 2}, {-18, 6}, {-14, 6}, {-16, 2}}, thickness = 0.5),
+        Line(points = {{-30, 22}, {-26, 20}, {-30, 18}, {-30, 22}}, thickness = 0.5),
+        Line(points = {{32, 30}, {32, -30}, {30, -26}, {34, -26}, {32, -30}}, thickness = 0.5),
         Text(
           extent={{-38,16},{-22,8}},
           textString="iAC"),

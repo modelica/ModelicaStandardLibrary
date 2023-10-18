@@ -69,9 +69,5 @@ Christoph Clau&szlig;
 </dl>
 </html>"),
     experiment(StopTime=1e-007),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}}), graphics={Text(
-          extent={{-90,98},{-12,66}},
-          textColor={0,0,255},
-          textString="NAND Gate")}));
+    Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-100, -100}, {100, 100}})));
 end NandGate;

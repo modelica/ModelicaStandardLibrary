@@ -252,11 +252,7 @@ equation
           -190}}, color={0,0,255}));
   connect(V.n, R1.p) annotation (Line(points={{-240,-160},{-250,-160},
           {-250,-40},{-240,-40}}, color={0,0,255}));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-250,
-            -200},{250,200}}), graphics={Text(
-          extent={{-130,172},{80,120}},
-          textString="CauerLowPassOPV",
-          textColor={0,0,255})}),
+  annotation (Diagram(coordinateSystem(preserveAspectRatio = true, extent = {{-250, -200}, {250, 200}})),
     experiment(StopTime=60),
     Documentation(revisions="<html>
 <ul>

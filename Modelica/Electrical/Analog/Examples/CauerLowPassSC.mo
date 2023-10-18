@@ -263,11 +263,7 @@ equation
       points={{228,60},{234,60},{234,60},{239,60}},     color={0,0,255}));
   connect(R11.p, p4) annotation (Line(
       points={{207.8,60},{190,60},{190,20}}, color={0,0,255}));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-250,
-            -200},{250,200}}), graphics={Text(
-          extent={{-100,180},{94,140}},
-          textString="CauerLowPassSC",
-          textColor={0,0,255})}),
+  annotation (Diagram(coordinateSystem(preserveAspectRatio = true, extent = {{-250, -200}, {250, 200}})),
     experiment(StopTime=60, Interval=0.04),
     Documentation(revisions="<html>
 <ul>

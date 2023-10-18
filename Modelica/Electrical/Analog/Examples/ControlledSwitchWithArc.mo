@@ -75,11 +75,7 @@ equation
       points={{-70,0},{-40,0},{-40,-30},{10,-30}}, color={0,0,255}));
   connect(sineVoltage.n, ground.p) annotation (Line(
       points={{-70,-20},{-70,-40}}, color={0,0,255}));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-            -100},{100,100}}), graphics={Text(
-          extent={{-100,80},{100,60}},
-          textColor={0,0,255},
-          textString="Compare voltage and current of inductor1 and inductor2")}),
+  annotation (Diagram(coordinateSystem(preserveAspectRatio = true, extent = {{-100, -100}, {100, 100}})),
     experiment(
       StopTime=6,
       Interval=0.00025,
