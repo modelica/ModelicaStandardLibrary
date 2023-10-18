@@ -6,13 +6,13 @@ model CCCV_StackRC
   parameter Modelica.Electrical.Batteries.ParameterRecords.TransientData.ExampleData cellDataOriginal(
     Qnom=18000,
     useLinearSOCDependency=false,
-    Ri=cellData.OCVmax/Isc,
+    Ri=cellDataOriginal.OCVmax/Isc,
     Idis=0.001) "Original cell data"
     annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
   parameter Modelica.Electrical.Batteries.ParameterRecords.TransientData.ExampleData cellDataDegraded(
     Qnom=18000,
     useLinearSOCDependency=false,
-    Ri=cellData.OCVmax/Isc,
+    Ri=cellDataDegraded.OCVmax/Isc,
     Idis=0.001) "Degraded cell data"
     annotation (Placement(transformation(extent={{20,-60},{40,-40}})));
   parameter Modelica.Electrical.Batteries.ParameterRecords.TransientData.StackData
