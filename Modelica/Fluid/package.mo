@@ -170,7 +170,7 @@ and a Modelica translator will check that the quantity and unit attributes
 of connected interfaces are identical. Therefore, an error occurs,
 if connected FluidPorts do not have a medium with the same medium name.<br>
 Automatic propagation of fluid models through the ports is not directly possible with the
-Modelica 3.4 specification, but might be supported by the Modelica tool. For example,
+Modelica&nbsp;3.6 specification, but might be supported by the Modelica tool. For example,
 in Dymola the option <code>Advanced.MediaPropagation</code>=<code>1</code> can be set
 to apply automatic propagation of media models in a circuit.
 </p>
@@ -190,7 +190,7 @@ flowing out of the connector, regardless of the actual direction of the flow. Th
 avoiding singularities when the mass flow goes through zero. The stream properties for the
 other flow direction can be inquired with the built-in operator inStream(..), while the
 value of the stream variable corresponding to the actual flow direction can be inquired
-through the built-in operator <a href=\"https://specification.modelica.org/v3.4/Ch15.html#stream-operator-actualstream\">actualStream(..)</a>.
+through the built-in operator <a href=\"https://specification.modelica.org/maint/3.6/operators-and-expressions.html#modelica:actualStream\">actualStream(…)</a>.
 </p>
 <p>
 The actual equations corresponding to these operators are introduced and solved automatically

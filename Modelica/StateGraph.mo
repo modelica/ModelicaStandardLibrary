@@ -256,7 +256,7 @@ Then, simulation continuous until a new event is triggered,
 With the Modelica \"sample(..)\" operator, a StateGraph might also
 be executed within a discrete controller that is called
 at regular time instants. Furthermore, clocked state machines
-are directly supported by the Modelica language itself, see <a href=\"https://specification.modelica.org/v3.4/Ch17.html\">Section 17 (State Machines) of the Modelica 3.4 specification</a>.
+are directly supported by the Modelica language itself, see <a href=\"https://specification.modelica.org/maint/3.6/state-machines.html\">Chapter&nbsp;17 (State Machines) of the Modelica&nbsp;3.6 specification</a>.
 </p>
 <h4>Parallel and Alternative Execution</h4>
 <p>
@@ -480,7 +480,7 @@ step \"emptyTanks\" is active. Otherwise, valve2 is closed.
 An evolved, but non-standard conforming Modelica library, called \"Modelica_StateGraph2\", is available from <a href=\"https://github.com/HansOlsson/Modelica_StateGraph2\">https://github.com/HansOlsson/Modelica_StateGraph2</a>.
 Find below a comparison with respect to Modelica.StateGraph.
 A third option, especially for modeling of discrete controllers, are the clocked state machines, which
-are available as built-in Modelica language elements, see <a href=\"https://specification.modelica.org/v3.4/Ch17.html\">Section 17 (State Machines) of the Modelica 3.4 specification</a>.
+are available as built-in Modelica language elements, see <a href=\"https://specification.modelica.org/maint/3.6/state-machines.html\">Chapter&nbsp;17 <em>State Machines</em> of the Modelica&nbsp;3.6 specification</a>.
 </p>
 
 <p>
