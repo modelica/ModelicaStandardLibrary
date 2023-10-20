@@ -122,30 +122,24 @@ equation
     annotation (Line(points={{80,-60},{80,-70}}, color={0,0,255}));
   connect(resistor22.n, load2.p)
     annotation (Line(points={{80,-30},{80,-40}}, color={0,0,255}));
-  connect(ground11.p, basicTransformer.n1) annotation (Line(points={{-80,20},
-          {-10,20},{-10,45}}, color={0,0,255}));
-  connect(basicTransformer.n2, ground12.p) annotation (Line(points={{10,45},{10,
+  connect(ground11.p, basicTransformer.n1) annotation (Line(points={{-80,20},{
+          -10,20},{-10,40}},  color={0,0,255}));
+  connect(basicTransformer.n2, ground12.p) annotation (Line(points={{10,40},{10,
           20},{80,20}}, color={0,0,255}));
-  connect(basicTransformer.p1, resistor11.n) annotation (Line(points={{-10,55},
+  connect(basicTransformer.p1, resistor11.n) annotation (Line(points={{-10,60},
           {-10,60},{-60,60}}, color={0,0,255}));
-  connect(basicTransformer.p2, resistor12.p) annotation (Line(points={{10,55},{
+  connect(basicTransformer.p2, resistor12.p) annotation (Line(points={{10,60},{
           10,60},{60,60}}, color={0,0,255}));
-  connect(ground21.p, idealTransformer.n1) annotation (Line(points={{-80,-70},
-          {-10,-70},{-10,-45}}, color={0,0,255}));
+  connect(ground21.p, idealTransformer.n1) annotation (Line(points={{-80,-70},{
+          -10,-70},{-10,-50}},  color={0,0,255}));
   connect(ground22.p, idealTransformer.n2) annotation (Line(points={{80,-70},{
-          10,-70},{10,-45}}, color={0,0,255}));
-  connect(idealTransformer.p1, inductor21.n) annotation (Line(points={{-10,
-          -35},{-10,-30},{-30,-30}}, color={0,0,255}));
-  connect(idealTransformer.p2, inductor22.p) annotation (Line(points={{10,-35},
+          10,-70},{10,-50}}, color={0,0,255}));
+  connect(idealTransformer.p1, inductor21.n) annotation (Line(points={{-10,-30},
+          {-10,-30},{-30,-30}},      color={0,0,255}));
+  connect(idealTransformer.p2, inductor22.p) annotation (Line(points={{10,-30},
           {10,-30},{30,-30}}, color={0,0,255}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}), graphics={Text(
-          extent={{-60,-80},{60,-100}},
-          textColor={0,0,255},
-          textString="try considerMagnetization=false/true"), Text(
-          extent={{-60,20},{60,0}},
-          textColor={0,0,255},
-          textString="Basic.Transformer (mutual inductance)")}),
+            -100},{100,100}})),
     experiment(StopTime=50, Interval=0.001),
     Documentation(revisions="<html>
 <dl>

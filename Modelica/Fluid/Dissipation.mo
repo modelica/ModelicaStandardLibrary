@@ -13133,8 +13133,9 @@ Wischhusen.
 </p>
 
 <p>
-The development of the Fluid.Dissipation library was founded within the ITEA research
-project EuroSysLib-D by German Federal Ministry of Education and Research (promotional
+The development of this library was founded within the
+ITEA <a href=\"https://itea4.org/project/eurosyslib.html\">EUROSYSLIB</a> research project
+by German Federal Ministry of Education and Research (promotional
 reference 01IS07022B). The project was started in October 2007 and ended in June 2010.
 </p>
 

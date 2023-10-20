@@ -1969,8 +1969,7 @@ The filters are implemented in the following, reliable way:
 
 <p>
 The development of this block was partially funded by BMBF within the
-     <a href=\"http://www.eurosyslib.com/\">ITEA2 EUROSYSLIB</a>
-      project.
+ITEA <a href=\"https://itea4.org/project/eurosyslib.html\">EUROSYSLIB</a> research project.
 </p>
 
 </html>"));

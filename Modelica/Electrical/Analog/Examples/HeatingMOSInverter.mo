@@ -86,10 +86,7 @@ equation
   connect(H_PMOS.G, Sin.p) annotation (Line(
       points={{-40,44},{-48,44},{-48,44},{-54,44},{-54,10},{-70,10}}, color={0,0,255}));
 annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-            -100},{100,100}}), graphics={Text(
-          extent={{-100,100},{-6,72}},
-          textString="Heating MOS Inverter",
-          textColor={0,0,255})}), Documentation(info="<html>
+            -100},{100,100}})),   Documentation(info="<html>
 <p>The heating MOS inverter shows a heat flow always if a transistor is leading.</p>
 <p>Simulate until T=5 s. Plot in separate windows:<br> Sin.p.v and Capacitor1.p.v<br>HeatCapacitor1.port.T and H_PMOS.heatPort.T and H_NMOS.heatPort.T<br>H_PMOS.heatPort.Q_flow and H_NMOS.heatPort.Q_flow</p>
 </html>",
