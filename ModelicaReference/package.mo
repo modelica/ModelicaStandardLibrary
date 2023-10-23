@@ -6928,7 +6928,7 @@ In this example <strong>dc.xd</strong> and <strong>dc.ud</strong> are Clocked va
 At time instants where the associated clock is not active, the value of a clocked variable can be inquired by using an explicit cast operator, e.g., <strong>hold</strong>.
 
 <h4>Description</h4>
-A detailed description of the Synchronous Language Elements is given in <a href=\"https://specification.modelica.org/maint/3.6/synchronous-language-elements.html\">Chapter&nbsp>16 <em>Synchronous Language Elements</em> of the Modelica&nbsp;3.6 specification</a>.
+A detailed description of the Synchronous Language Elements is given in <a href=\"https://specification.modelica.org/maint/3.6/synchronous-language-elements.html\">Chapter&nbsp;16 <em>Synchronous Language Elements</em> of the Modelica&nbsp;3.6 specification</a>.
 </html>"));
 end Synchronous;
 
