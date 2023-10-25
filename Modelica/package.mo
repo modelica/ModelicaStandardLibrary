@@ -1225,6 +1225,48 @@ Comments and annotations should start with a capital letter, for example:<br>
 For Boolean parameters, the description string should start with &quot;= true, &hellip;&quot;, for example:<br>
 <code><strong>parameter</strong> Boolean useHeatPort = false &quot;= true, if heatPort is enabled&quot;;</code>.
 </p>
+
+<h4>Tabs and Groups</h4>
+<p>
+The annotations &quot;tab&quot; and &quot;group&quot; define the placement of
+component or of variables in a dialog.
+</p>
+<p>
+Using the <strong>tab</strong> annotation, the following rules shall be followed:
+</p>
+<ul>
+  <li>
+    Label tabs based on their pattern. The label shall clearly reflect
+    the content of the collected variables.
+  </li>
+  <li>
+    Avoid long tab labels. One or two words are mostly sufficient.
+  </li>
+  <li>
+    Use nouns rather than verbs, without ending punctuation.
+  </li>
+  <li>
+    Use sentence-style capitalization.
+  </li>
+  <li>
+    Visibility of parameters collected in one tab shall not be dependent
+    on parameters shown in another tab.
+  </li>
+</ul>
+<p>
+Using the <strong>group</strong> annotation, the following rules shall be followed:
+</p>
+<ul>
+  <li>
+    Avoid excessively long group labels.
+  </li>
+  <li>
+    Use nouns rather than verbs, without ending punctuation.
+  </li>
+  <li>
+    Use sentence-style capitalization.
+  </li>
+</ul>
 </html>"));
        end Format;
 
