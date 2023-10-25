@@ -26,9 +26,9 @@ is not utilized.
 <blockquote><pre>
 <strong>function</strong> mySurface
   <strong>extends</strong> partialSurfaceCharacteristic(
-    <strong>final</strong> multiColoredSurface=false,
-    C=zeros(0,0,3));
-...
+    <strong>final</strong> multiColoredSurface = false,
+    <strong>final</strong> C = zeros(0,0,3));
+  ...
 <strong>end</strong> mySurface;
 </pre></blockquote>
 </html>"));
