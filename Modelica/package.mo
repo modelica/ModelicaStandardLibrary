@@ -1232,9 +1232,27 @@ The annotations &quot;tab&quot; and &quot;group&quot; define the placement of
 component or of variables in a dialog.
 </p>
 <p>
+Using the <strong>group</strong> annotation, the following rules shall be followed:
+</p>
+<ol>
+  <li>
+    Avoid excessively long group labels.
+  </li>
+  <li>
+    Use nouns rather than verbs, without ending punctuation.
+  </li>
+  <li>
+    Use sentence-style capitalization.
+  </li>
+</ol>
+<p>
 Using the <strong>tab</strong> annotation, the following rules shall be followed:
 </p>
-<ul>
+<ol>
+  <li>
+    Try to group components or variables in the default \"general\" tab first.
+    But feel free to define a&nbsp;new tab it they are so many.
+  </li>
   <li>
     Label tabs based on their pattern. The label shall clearly reflect
     the content of the collected variables.
@@ -1252,21 +1270,7 @@ Using the <strong>tab</strong> annotation, the following rules shall be followed
     Visibility of parameters collected in one tab shall not be dependent
     on parameters shown in another tab.
   </li>
-</ul>
-<p>
-Using the <strong>group</strong> annotation, the following rules shall be followed:
-</p>
-<ul>
-  <li>
-    Avoid excessively long group labels.
-  </li>
-  <li>
-    Use nouns rather than verbs, without ending punctuation.
-  </li>
-  <li>
-    Use sentence-style capitalization.
-  </li>
-</ul>
+</ol>
 </html>"));
        end Format;
 
