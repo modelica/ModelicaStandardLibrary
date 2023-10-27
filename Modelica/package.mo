@@ -1271,6 +1271,19 @@ Using the <strong>tab</strong> annotation, the following rules shall be followed
     on parameters shown in another tab.
   </li>
 </ol>
+
+<h5>Example</h5>
+<p>
+A&nbsp;parameter utilizing both the tab and the group annotation:
+</p>
+
+<blockquote><pre>
+<strong>parameter</strong> Modelica.Units.SI.Voltage V_max(start=230) \"Maximum voltage\"
+  <strong>annotation</strong>(
+    Dialog(
+      tab=\"Speed controller\",
+      group=\"Operating limits\"));
+</pre></blockquote>
 </html>"));
        end Format;
 
