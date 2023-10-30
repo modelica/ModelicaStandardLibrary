@@ -1274,15 +1274,31 @@ Using the <strong>tab</strong> annotation, the following rules shall be followed
 
 <h5>Example</h5>
 <p>
-A&nbsp;parameter utilizing both the tab and the group annotation:
+Imagine you define a&nbsp;controlled electric drive being composed of
+a&nbsp;controller and an electrical machine. The latter
+has parameters number of pole pairs&nbsp;<var>p</var>, nominal frequency
+<var>f</var><sub>nom</sub>, rotor's moment of inertia <var>J</var><sub>rotor</sub>
+and others.
+The&nbsp;controller itself is divided into several sub-controllers
+&ndash; such as the one for speed control with parameters like gain&nbsp;<var>k</var>
+or time constant&nbsp;<var>T</var>.
+Then, the above parameters of your electrical drive model could be sorted using tabs
+and groups as follows:&nbsp;<var>p</var>, <var>f</var><sub>nom</sub> and
+<var>J</var><sub>rotor</sub> grouped in the \"Electrical machine\" group in
+the \"general\" tab; <var>k</var> and&nbsp;<var>T</var> in the group
+\"Speed control\" under tab \"Controller\".
+</p>
+<p>
+In the Modelica code, for example the parameter&nbsp;<var>k</var> will then
+be defined like:
 </p>
 
 <blockquote><pre>
-<strong>parameter</strong> Modelica.Units.SI.Voltage V_max(start=230) \"Maximum voltage\"
+<strong>parameter</strong> Real k=1 \"Gain\"
   <strong>annotation</strong>(
     Dialog(
-      tab=\"Speed controller\",
-      group=\"Operating limits\"));
+      tab=\"Controller\",
+      group=\"Speed control\"));
 </pre></blockquote>
 </html>"));
        end Format;
