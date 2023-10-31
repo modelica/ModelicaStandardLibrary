@@ -1443,8 +1443,8 @@ a flange according to a given acceleration.
       b := b - a*shiftTimeScaled;
     end getInterpolationCoefficients;
   algorithm
-    if noEvent(size(table, 1) > 1) then
-      assert(not (table[1, 1] > 0.0 or table[1, 1] < 0.0), "The first point in time has to be set to 0, but is table[1,1] = " + String(table[1, 1]));
+    if size(table, 1) > 1 then
+      assert(noEvent(not (table[1, 1] > 0.0 or table[1, 1] < 0.0)), "The first point in time has to be set to 0, but is table[1,1] = " + String(table[1, 1]));
     end if;
     when {time >= pre(nextEvent),initial()} then
       (a,b,nextEventScaled,last) := getInterpolationCoefficients(
