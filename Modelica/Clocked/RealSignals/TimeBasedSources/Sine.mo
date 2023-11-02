@@ -10,8 +10,7 @@ block Sine "Generate sine signal"
 "Output = offset for time < startTime";
 protected
   constant Real pi=Modelica.Constants.pi;
-protected
-          SI.Time simTime;
+  SI.Time simTime;
 equation
   simTime = sample(time);
   y = offset + (if simTime < startTime then 0 else amplitude*
