@@ -4,7 +4,7 @@ model OneAxis
 
   extends Modelica.Icons.Example;
   parameter SI.Mass mLoad(min=0)=15 "Mass of load";
-  parameter SI.Radius rg = sqrt(1.3) "Radius of gyration of load";
+  parameter SI.Radius rg = 1.14 "Radius of gyration of load";
   parameter Real kp=5 "Gain of position controller of axis";
   parameter Real ks=0.5 "Gain of speed controller of axis";
   parameter SI.Time Ts=0.05
