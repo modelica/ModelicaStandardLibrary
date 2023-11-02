@@ -1308,6 +1308,7 @@ The tab-character shall not be used, since the tab-stops are not standardized.</
 except that the headings <code>public</code>, <code>protected</code>, <code>equation</code>, <code>algorithm</code>, and <code>end</code> of class marker shall not be indented.
 The keywords <code>public</code> and <code>protected</code> are headings for a group of declarations.
 </p>
+<p>Full class definitions shall be separated by an empty line.</p>
 </html>"));
        end Format;
 
