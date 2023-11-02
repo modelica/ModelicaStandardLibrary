@@ -6112,9 +6112,9 @@ NC = no change
         annotation (Placement(transformation(extent={{80,-20},{100,0}}),
             iconTransformation(extent={{80,-20},{100,0}})));
     protected
-              D.Interfaces.Logic nextstate(start=L.'U');
-              D.Interfaces.DigitalOutput yy(start=L.'U');
-              D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL,y(start=L.'U', fixed=true));
+      D.Interfaces.Logic nextstate(start=L.'U');
+      D.Interfaces.DigitalOutput yy(start=L.'U');
+      D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL,y(start=L.'U', fixed=true));
     algorithm
       nextstate := T.NXferTable[enable, x];
       yy := nextstate;
@@ -6194,9 +6194,9 @@ UX: if dataIn == U then U else X
         annotation (Placement(transformation(extent={{80,-20},{100,0}}),
             iconTransformation(extent={{80,-20},{100,0}})));
     protected
-              D.Interfaces.Logic nextstate(start=L.'U');
-              D.Interfaces.DigitalOutput yy(start=L.'U');
-              D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL, y(start=L.'U', fixed=true));
+      D.Interfaces.Logic nextstate(start=L.'U');
+      D.Interfaces.DigitalOutput yy(start=L.'U');
+      D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL, y(start=L.'U', fixed=true));
     algorithm
       nextstate := T.NRXferTable[enable, x];
       yy := nextstate;
@@ -6276,9 +6276,9 @@ Strength Reduced: 0 -> L, 1 -> H, X -> W
         annotation (Placement(transformation(extent={{80,-20},{100,0}}),
             iconTransformation(extent={{80,-20},{100,0}})));
     protected
-              D.Interfaces.Logic nextstate(start=L.'U');
-              D.Interfaces.DigitalOutput yy(start=L.'U');
-              D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL);
+      D.Interfaces.Logic nextstate(start=L.'U');
+      D.Interfaces.DigitalOutput yy(start=L.'U');
+      D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL);
     algorithm
       nextstate := T.PXferTable[enable, x];
       yy := nextstate;
@@ -6357,8 +6357,7 @@ UX: if dataIn == U then U else X
       D.Interfaces.DigitalOutput y
         annotation (Placement(transformation(extent={{80,-20},{100,0}}),
             iconTransformation(extent={{80,-20},{100,0}})));
-    protected
-              D.Interfaces.Logic nextstate(start=L.'U');
+    protected D.Interfaces.Logic nextstate(start=L.'U');
               D.Interfaces.DigitalOutput yy(start=L.'U');
               D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL);
     algorithm
@@ -6439,8 +6438,7 @@ UX: if dataIn == U then U else X
       D.Interfaces.DigitalOutput y
         annotation (Placement(transformation(extent={{80,-20},{100,0}}),
             iconTransformation(extent={{80,-20},{100,0}})));
-    protected
-              D.Interfaces.Logic nextstate(start=L.'U');
+    protected D.Interfaces.Logic nextstate(start=L.'U');
               D.Interfaces.DigitalOutput yy(start=L.'U');
               D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL, y(start=L.'U', fixed=true));
     algorithm
@@ -6518,8 +6516,7 @@ DataOut*: Strength map for DataOut according to tristate table Buf3sTable
       D.Interfaces.DigitalOutput y
         annotation (Placement(transformation(extent={{80,-20},{100,0}}),
             iconTransformation(extent={{80,-20},{100,0}})));
-    protected
-              D.Interfaces.Logic nextstate(start=L.'U');
+    protected D.Interfaces.Logic nextstate(start=L.'U');
               D.Interfaces.DigitalOutput yy(start=L.'U');
               D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL);
     algorithm
@@ -6597,8 +6594,7 @@ DataOut*: Strength map for DataOut according to tristate table Buf3slTable
       D.Interfaces.DigitalOutput y
         annotation (Placement(transformation(extent={{80,-20},{100,0}}),
             iconTransformation(extent={{80,-20},{100,0}})));
-    protected
-              D.Interfaces.Logic nextstate(start=L.'U');
+    protected D.Interfaces.Logic nextstate(start=L.'U');
               D.Interfaces.DigitalOutput yy(start=L.'U');
               D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL, y(start=L.'U',fixed=true));
     algorithm
@@ -6682,9 +6678,9 @@ DataOut*: Strength map for DataOut according to tristate table Buf3sTable
         annotation (Placement(transformation(extent={{80,-20},{100,0}}),
             iconTransformation(extent={{80,-20},{100,0}})));
     protected
-              D.Interfaces.Logic nextstate(start=L.'U');
-              D.Interfaces.DigitalOutput yy(start=L.'U');
-              D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL);
+     D.Interfaces.Logic nextstate(start=L.'U');
+     D.Interfaces.DigitalOutput yy(start=L.'U');
+     D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL);
     algorithm
       nextstate := T.Buf3sTable[strength, T.UX01Conv[T.NotTable[enable]], T.UX01Conv[T.NotTable[x]]];
       yy := nextstate;
@@ -7004,9 +7000,9 @@ Z  = L.'Z'
             iconTransformation(extent={{80,-10},{100,10}})));
 
     protected
-              D.Interfaces.Logic nextstate(start=L.'U');
-              D.Interfaces.DigitalOutput yy(start=L.'U');
-              D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL, y(start=L.'U',fixed=true));
+      D.Interfaces.Logic nextstate(start=L.'U');
+      D.Interfaces.DigitalOutput yy(start=L.'U');
+      D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL, y(start=L.'U',fixed=true));
 
     algorithm
       nextstate := T.MUX2x1Table[T.UX01Conv[in1], T.UX01Conv[sel], T.UX01Conv[in0]];
