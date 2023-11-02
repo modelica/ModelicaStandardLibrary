@@ -182,6 +182,7 @@ operator record Complex "Complex number with overloaded operators"
 <p>This function returns the given Complex number c1 to the power of the Complex number c2.</p>
 </html>"));
     end complexPower;
+
     function integerPower "Integer power of complex number"
       import Complex;
       input Complex c1 "Complex number";
