@@ -927,7 +927,7 @@ double mydummyfunc(double* dummy_in) {
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
     Modelica.Blocks.Continuous.Der d_t_new_2 annotation(Placement(transformation(extent={{0,-30},{20,-10}})));
     Modelica.Blocks.Continuous.Der d2_t_new_2 annotation(Placement(transformation(extent={{40,-30},{60,-10}})));
-    equation
+  equation
       connect(t_new_2.y[1], d_t_new_2.u) annotation(Line(points={{-19,-20},{-2,-20}}, color={0,0,127}));
       connect(d_t_new_2.y, d2_t_new_2.u) annotation(Line(points={{21,-20},{26,-20},{33,-20},{38,-20}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=4));
@@ -943,7 +943,7 @@ double mydummyfunc(double* dummy_in) {
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
     Modelica.Blocks.Continuous.Der d_t_new_2 annotation(Placement(transformation(extent={{0,-30},{20,-10}})));
     Modelica.Blocks.Continuous.Der d2_t_new_2 annotation(Placement(transformation(extent={{40,-30},{60,-10}})));
-    equation
+  equation
       connect(t_new_2.y[1], d_t_new_2.u) annotation(Line(points={{-19,-20},{-2,-20}}, color={0,0,127}));
       connect(d_t_new_2.y, d2_t_new_2.u) annotation(Line(points={{21,-20},{26,-20},{33,-20},{38,-20}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=15));
@@ -959,7 +959,7 @@ double mydummyfunc(double* dummy_in) {
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
     Modelica.Blocks.Continuous.Der d_t_new_2 annotation(Placement(transformation(extent={{0,-30},{20,-10}})));
     Modelica.Blocks.Continuous.Der d2_t_new_2 annotation(Placement(transformation(extent={{40,-30},{60,-10}})));
-    equation
+  equation
       connect(t_new_2.y[1], d_t_new_2.u) annotation(Line(points={{-19,-20},{-2,-20}}, color={0,0,127}));
       connect(d_t_new_2.y, d2_t_new_2.u) annotation(Line(points={{21,-20},{26,-20},{33,-20},{38,-20}}, color={0,0,127}));
     annotation (experiment(StartTime=7.99, StopTime=20));
@@ -983,7 +983,7 @@ double mydummyfunc(double* dummy_in) {
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
     Modelica.Blocks.Continuous.Der d_t_new_2 annotation(Placement(transformation(extent={{0,-30},{20,-10}})));
     Modelica.Blocks.Continuous.Der d2_t_new_2 annotation(Placement(transformation(extent={{40,-30},{60,-10}})));
-    equation
+  equation
       connect(t_new_2.y[1], d_t_new_2.u) annotation(Line(points={{-19,-20},{-2,-20}}, color={0,0,127}));
       connect(d_t_new_2.y, d2_t_new_2.u) annotation(Line(points={{21,-20},{26,-20},{33,-20},{38,-20}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=4));
@@ -999,7 +999,7 @@ double mydummyfunc(double* dummy_in) {
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
     Modelica.Blocks.Continuous.Der d_t_new_2 annotation(Placement(transformation(extent={{0,-30},{20,-10}})));
     Modelica.Blocks.Continuous.Der d2_t_new_2 annotation(Placement(transformation(extent={{40,-30},{60,-10}})));
-    equation
+  equation
       connect(t_new_2.y[1], d_t_new_2.u) annotation(Line(points={{-19,-20},{-2,-20}}, color={0,0,127}));
       connect(d_t_new_2.y, d2_t_new_2.u) annotation(Line(points={{21,-20},{26,-20},{33,-20},{38,-20}}, color={0,0,127}));
     annotation (experiment(StartTime=0, StopTime=15));
@@ -1015,7 +1015,7 @@ double mydummyfunc(double* dummy_in) {
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
     Modelica.Blocks.Continuous.Der d_t_new_2 annotation(Placement(transformation(extent={{0,-30},{20,-10}})));
     Modelica.Blocks.Continuous.Der d2_t_new_2 annotation(Placement(transformation(extent={{40,-30},{60,-10}})));
-    equation
+  equation
       connect(t_new_2.y[1], d_t_new_2.u) annotation(Line(points={{-19,-20},{-2,-20}}, color={0,0,127}));
       connect(d_t_new_2.y, d2_t_new_2.u) annotation(Line(points={{21,-20},{26,-20},{33,-20},{38,-20}}, color={0,0,127}));
     annotation (experiment(StartTime=7.99, StopTime=20));
@@ -1118,7 +1118,7 @@ double mydummyfunc(double* dummy_in) {
     Modelica.Blocks.Continuous.Der d2_t_new_3 annotation(Placement(transformation(extent={{40,-60},{60,-40}})));
     Modelica.Blocks.Continuous.Der d_t_new_4 annotation(Placement(transformation(extent={{0,-90},{20,-70}})));
     Modelica.Blocks.Continuous.Der d2_t_new_4 annotation(Placement(transformation(extent={{40,-90},{60,-70}})));
-    equation
+  equation
       connect(t_new_2.y[1], d_t_new_2.u) annotation(Line(points={{-19,-20},{-2,-20}}, color={0,0,127}));
       connect(d_t_new_2.y, d2_t_new_2.u) annotation(Line(points={{21,-20},{26,-20},{33,-20},{38,-20}}, color={0,0,127}));
       connect(d_t_new_3.y,d2_t_new_3.u) annotation(Line(points={{21,-50},{26,-50},{33,-50},{38,-50}},   color={0,0,127}));
@@ -1149,7 +1149,7 @@ double mydummyfunc(double* dummy_in) {
     Modelica.Blocks.Continuous.Der d2_t_new_3 annotation(Placement(transformation(extent={{40,-60},{60,-40}})));
     Modelica.Blocks.Continuous.Der d_t_new_4 annotation(Placement(transformation(extent={{0,-90},{20,-70}})));
     Modelica.Blocks.Continuous.Der d2_t_new_4 annotation(Placement(transformation(extent={{40,-90},{60,-70}})));
-    equation
+  equation
       connect(t_new_2.y[1], d_t_new_2.u) annotation(Line(points={{-19,-20},{-2,-20}}, color={0,0,127}));
       connect(d_t_new_2.y, d2_t_new_2.u) annotation(Line(points={{21,-20},{26,-20},{33,-20},{38,-20}}, color={0,0,127}));
       connect(d_t_new_3.y,d2_t_new_3.u) annotation(Line(points={{21,-50},{26,-50},{33,-50},{38,-50}},   color={0,0,127}));
