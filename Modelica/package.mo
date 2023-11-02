@@ -1300,6 +1300,14 @@ be defined like:
       tab=\"Controller\",
       group=\"Speed control\"));
 </pre></blockquote>
+<h4>Whitespace and Indentation</h4>
+<p>
+Trailing white-space (i.e., white-space at the end of the lines) shall not be used.
+The tab-character shall not be used, since the tab-stops are not standardized.</p>
+<p>The code in a class shall be indented relative to the class in steps of two spaces;
+except that the headings <code>public</code>, <code>protected</code>, <code>equation</code>, <code>algorithm</code>, and <code>end</code> of class marker shall not be indented.
+The keywords <code>public</code> and <code>protected</code> are headings for a group of declarations.
+</p>
 </html>"));
        end Format;
 
