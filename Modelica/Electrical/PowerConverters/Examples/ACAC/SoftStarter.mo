@@ -151,8 +151,7 @@ equation
   connect(multiSensor.pc, multiSensor.pv)
     annotation (Line(points={{-10,40},{-10,50},{0,50}}, color={0,0,255}));
   connect(multiSensor.nv,star2. plug_p)
-    annotation (Line(points={{0,30},{0,10}},
-                                             color={0,0,255}));
+    annotation (Line(points={{0,30},{0,10}}, color={0,0,255}));
   connect(terminalBox.plug_sn, imc.plug_sn)
     annotation (Line(points={{14,10},{14,10}}, color={0,0,255}));
   connect(terminalBox.plug_sp, imc.plug_sp)
