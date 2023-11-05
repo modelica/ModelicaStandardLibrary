@@ -12,7 +12,7 @@ class Literature "Literature"
       <td>[B&ouml;08]</td>
       <td>B&ouml;drich, T.:
         <em>Electromagnetic Actuator Modelling with the Extended Modelica Magnetic Library</em>,
-        Modelica 2008 Conference, Bielefeld, Germany,pp. 221-227, March 3-4, 2008. Download from: <a href=\"https://www.modelica.org/events/modelica2008/Proceedings/sessions/session2d2.pdf\">https://www.modelica.org/events/modelica2008/&shy;Proceedings/sessions/session2d2.pdf</a></td>
+        Modelica 2008 Conference, Bielefeld, Germany,pp. 221-227, March 3-4, 2008. Download from: <a href=\"https://www.modelica.org/events/conference2008/sessions/session2d2.pdf\">https://www.modelica.org/events/conference2008/sessions/session2d2.pdf</a></td>
     </tr>
 </table><br>
 
