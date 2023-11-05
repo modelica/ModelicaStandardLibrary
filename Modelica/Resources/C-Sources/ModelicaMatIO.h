@@ -1,7 +1,7 @@
 /* ModelicaMatIO.h - MAT file I/O functions header
 
-   Copyright (C) 2013-2022, Modelica Association and contributors
-   Copyright (C) 2015-2022, The matio contributors
+   Copyright (C) 2013-2023, Modelica Association and contributors
+   Copyright (C) 2015-2023, The matio contributors
    Copyright (C) 2005-2014, Christopher C. Hulbert
    All rights reserved.
 
@@ -55,13 +55,13 @@
 #define MATIO_MINOR_VERSION 5
 
 /* Matio release level number */
-#define MATIO_RELEASE_LEVEL 23
+#define MATIO_RELEASE_LEVEL 24
 
 /* Matio version number */
-#define MATIO_VERSION 1523
+#define MATIO_VERSION 1524
 
 /* Matio version string */
-#define MATIO_VERSION_STR "1.5.23"
+#define MATIO_VERSION_STR "1.5.24"
 
 /* Default file format */
 #define MAT_FT_DEFAULT MAT_FT_MAT5
@@ -384,6 +384,12 @@ typedef struct mat_sparse_t
 #define MATIO_E_FILESYSTEM_ERROR_ON_CLOSE 24
 /** @endcond */
 
+/**
+ * User callback for iteration functions.
+ * returns 1 to read, 0 to skip
+ */
+typedef int (*mat_iter_pred_t)(const char *name, const void *user_data);
+
 /* Library function */
 MATIO_EXTERN void Mat_GetLibraryVersion(int *major, int *minor, int *release);
 
@@ -399,6 +405,7 @@ MATIO_EXTERN mat_t *Mat_CreateVer(const char *matname, const char *hdr_str,
                                   enum mat_ft mat_file_ver);
 MATIO_EXTERN int Mat_Close(mat_t *mat);
 MATIO_EXTERN mat_t *Mat_Open(const char *matname, int mode);
+MATIO_EXTERN enum mat_acc Mat_GetFileAccessMode(mat_t *mat);
 MATIO_EXTERN const char *Mat_GetFilename(mat_t *mat);
 MATIO_EXTERN const char *Mat_GetHeader(mat_t *mat);
 MATIO_EXTERN enum mat_ft Mat_GetVersion(mat_t *mat);
@@ -441,7 +448,11 @@ MATIO_EXTERN int Mat_VarReadDataLinear(mat_t *mat, matvar_t *matvar, void *data,
                                        int stride, int edge);
 MATIO_EXTERN matvar_t *Mat_VarReadInfo(mat_t *mat, const char *name);
 MATIO_EXTERN matvar_t *Mat_VarReadNext(mat_t *mat);
+MATIO_EXTERN matvar_t *Mat_VarReadNextPredicate(mat_t *mat, mat_iter_pred_t pred,
+                                                const void *user_data);
 MATIO_EXTERN matvar_t *Mat_VarReadNextInfo(mat_t *mat);
+MATIO_EXTERN matvar_t *Mat_VarReadNextInfoPredicate(mat_t *mat, mat_iter_pred_t pred,
+                                                    const void *user_data);
 MATIO_EXTERN matvar_t *Mat_VarSetCell(matvar_t *matvar, int index, matvar_t *cell);
 MATIO_EXTERN matvar_t *Mat_VarSetStructFieldByIndex(matvar_t *matvar, size_t field_index,
                                                     size_t index, matvar_t *field);
