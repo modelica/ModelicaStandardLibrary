@@ -2748,7 +2748,7 @@ r = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0);
        elseif resolveInFrame == ResolveInFrameA.frame_a then
           w = Frames.angularVelocity2(frame_a.R);
        elseif resolveInFrame == ResolveInFrameA.frame_resolve then
-          w = Frames.resolveRelative(Frames.angularVelocity1(frame_a.R), frame_a.R, frame_resolve.R);
+          w = Frames.resolve2(frame_resolve.R, Frames.angularVelocity1(frame_a.R));
        else
           assert(false, "Wrong value for parameter resolveInFrame");
           w = zeros(3);
