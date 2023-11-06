@@ -1187,8 +1187,6 @@ which is only valid in the rotor-fixed coordinate system.
     annotation (Icon(graphics={Text(
             extent={{-80,80},{80,-78}},
             textColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.None,
             fontName="serif",
             textString="SI",
             textStyle={TextStyle.Italic})}),
