@@ -8,8 +8,9 @@ model RelativeSensor
         resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve or
         resolveInFrameAfterDifferentiation == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
     "If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the output signals are resolved in this frame"
-     annotation (Placement(transformation(
-          extent={{84,64},{116,96}})));
+    annotation (
+      Placement(transformation(extent={{84,64},{116,96}})),
+      mustBeConnected="An enabled frame_resolve connector should be connected");
 
   parameter Boolean animation=true
     "= true, if animation shall be enabled (show arrow)";
@@ -211,7 +212,7 @@ equation
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(frame_resolve, relativePosition.frame_resolve) annotation (Line(
-      points={{100,80},{50,80},{50,20},{-30,20},{-30,8.1},{-60,8.1}},
+      points={{100,80},{50,80},{50,20},{-30,20},{-30,8},{-60,8}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(frame_resolve, zeroForce3.frame_a) annotation (Line(
@@ -220,7 +221,7 @@ equation
       pattern=LinePattern.Dot));
   connect(relativeAngularVelocity.frame_resolve, frame_resolve) annotation (
       Line(
-      points={{70,-21.9},{70,-21.9},{70,20},{50,20},{50,80},{100,80}},
+      points={{70,-22},{70,-22},{70,20},{50,20},{50,80},{100,80}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(der2.y, transformVector_a_rel.r_in) annotation (Line(
