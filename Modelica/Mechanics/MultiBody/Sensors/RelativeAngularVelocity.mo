@@ -89,10 +89,10 @@ the angular velocity is resolved:
 </table>
 
 <p>
-In this basic sensor model, <strong>the connector frame_resolve
-is always enabled</strong>.
-If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the vector&nbsp;w_rel is
-resolved in the frame to which frame_resolve is connected.
+If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
+\"frame_resolve\" is enabled and w_rel is resolved in the frame, to
+which frame_resolve is connected. Note, if this connector is enabled, it must
+be connected.
 </p>
 
 <h4>Example</h4>
