@@ -93,7 +93,7 @@ package Polyphase "Polyphase quasi-static package"
     Modelica.Electrical.QuasiStatic.Polyphase.Ideal.Short short(m=m) annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealCommutingSwitch idealCommutingSwitch(m=m,
       Ron=fill(1E-5, m),
-      Goff=fill(1E-5, m))                                                                          annotation (Placement(transformation(extent={{30,20},{50,40}})));
+      Goff=fill(1E-5, m)) annotation (Placement(transformation(extent={{30,20},{50,40}})));
     Modelica.Electrical.QuasiStatic.Polyphase.Ideal.IdealIntermediateSwitch idealIntermediateSwitch(m=m,
       Ron=fill(1E-5, m),
       Goff=fill(1E-5, m))                                                                             annotation (Placement(transformation(extent={{60,20},{80,40}})));
