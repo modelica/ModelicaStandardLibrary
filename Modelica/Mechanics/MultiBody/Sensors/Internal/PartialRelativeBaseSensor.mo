@@ -5,19 +5,20 @@ model PartialRelativeBaseSensor
 
   Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
     "Coordinate system a (measurement is between frame_a and frame_b)" annotation (Placement(
-        transformation(extent={{-116,-16},{-84,16}})));
+        transformation(extent={{-116,-16},{-84,16}})),
+      mustBeConnected="Connector frame_a should be connected");
   Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b
     "Coordinate system b (measurement is between frame_a and frame_b)" annotation (Placement(
-        transformation(extent={{84,-16},{116,16}})));
+        transformation(extent={{84,-16},{116,16}})),
+      mustBeConnected="Connector frame_b should be connected");
 
   Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve
     "Coordinate system in which vector is optionally resolved"
-    annotation (Placement(transformation(extent={{84,64},{116,96}})));
+    annotation (Placement(transformation(extent={{84,64},{116,96}})),
+      mustBeConnected="Connector frame_resolve should be connected",
+      mayOnlyConnectOnce="Connector frame_resolve must be connected exactly once");
 
 equation
-  assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
-  assert(cardinality(frame_b) > 0, "Connector frame_b must be connected at least once");
-  assert(cardinality(frame_resolve) == 1, "Connector frame_resolve must be connected exactly once");
   frame_a.f = zeros(3);
   frame_a.t = zeros(3);
   frame_b.f = zeros(3);
