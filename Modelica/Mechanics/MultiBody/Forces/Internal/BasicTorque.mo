@@ -1,15 +1,15 @@
 within Modelica.Mechanics.MultiBody.Forces.Internal;
 model BasicTorque
   "Torque acting between two frames, defined by 3 input signals"
+  extends Interfaces.PartialForce;
   import Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
-  extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
+
   Interfaces.Frame_resolve frame_resolve
     "The input signals are optionally resolved in this frame"
     annotation (Placement(transformation(
         origin={40,100},
         extent={{-16,-16},{16,16}},
         rotation=90)));
-
   Modelica.Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each final unit="N.m")
     "x-, y-, z-coordinates of torque resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
@@ -23,7 +23,7 @@ model BasicTorque
 
   SI.Position r_0[3]
     "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
-  SI.Torque t_b_0[3] "frame_b.t resolved in world frame";
+  SI.Torque t_b_0[3] "Torque frame_b.t resolved in world frame";
 
 equation
   assert(cardinality(frame_resolve) > 0, "Connector frame_resolve must be connected at least once and frame_resolve.r_0/.R must be set");
@@ -31,29 +31,26 @@ equation
   frame_resolve.t = zeros(3);
 
   r_0 = frame_b.r_0 - frame_a.r_0;
-  frame_a.f = zeros(3);
   frame_b.f = zeros(3);
 
-   if resolveInFrame == ResolveInFrameAB.frame_a then
-      t_b_0     = -Frames.resolve1(frame_a.R, torque);
-      frame_b.t =  Frames.resolve2(frame_b.R, t_b_0);
-   elseif resolveInFrame == ResolveInFrameAB.frame_b then
-      t_b_0     = -Frames.resolve1(frame_b.R, torque);
-      frame_b.t = -torque;
-   elseif resolveInFrame == ResolveInFrameAB.world then
-      t_b_0     = -torque;
-      frame_b.t =  Frames.resolve2(frame_b.R, t_b_0);
-   elseif resolveInFrame == ResolveInFrameAB.frame_resolve then
-      t_b_0     = -Frames.resolve1(frame_resolve.R, torque);
-      frame_b.t =  Frames.resolve2(frame_b.R, t_b_0);
-   else
-      assert(false, "Wrong value for parameter resolveInFrame");
-      t_b_0     = zeros(3);
-      frame_b.t = zeros(3);
-   end if;
+  if resolveInFrame == ResolveInFrameAB.frame_a then
+    t_b_0     = -Frames.resolve1(frame_a.R, torque);
+    frame_b.t =  Frames.resolve2(frame_b.R, t_b_0);
+  elseif resolveInFrame == ResolveInFrameAB.frame_b then
+    t_b_0     = -Frames.resolve1(frame_b.R, torque);
+    frame_b.t = -torque;
+  elseif resolveInFrame == ResolveInFrameAB.world then
+    t_b_0     = -torque;
+    frame_b.t =  Frames.resolve2(frame_b.R, t_b_0);
+  elseif resolveInFrame == ResolveInFrameAB.frame_resolve then
+    t_b_0     = -Frames.resolve1(frame_resolve.R, torque);
+    frame_b.t =  Frames.resolve2(frame_b.R, t_b_0);
+  else
+    assert(false, "Wrong value for parameter resolveInFrame");
+    t_b_0     = zeros(3);
+    frame_b.t = zeros(3);
+  end if;
 
-   // torque balance
-   zeros(3) = frame_a.t + Frames.resolve2(frame_a.R, t_b_0);
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={
