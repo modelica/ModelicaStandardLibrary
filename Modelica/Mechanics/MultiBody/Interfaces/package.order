@@ -6,6 +6,7 @@ FlangeWithBearing
 FlangeWithBearingAdaptor
 PartialTwoFrames
 PartialTwoFramesDoubleSize
+PartialTwoFramesResolve
 PartialOneFrame_a
 PartialOneFrame_b
 PartialElementaryJoint
