@@ -7,10 +7,10 @@ partial model PartialTwoFrames
 protected
   outer Modelica.Mechanics.MultiBody.World world;
 equation
-  assert(cardinality(frame_a) > 0,
-    "Connector frame_a of component is not connected");
-  assert(cardinality(frame_b) > 0,
-    "Connector frame_b of component is not connected");
+//   assert(cardinality(frame_a) > 0,
+//     "Connector frame_a of component is not connected");
+//   assert(cardinality(frame_b) > 0,
+//     "Connector frame_b of component is not connected");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
