@@ -29,10 +29,6 @@ equation
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
       graphics={
         Text(
-          extent={{-130,76},{131,124}},
-          textString="%name",
-          textColor={0,0,255}),
-        Text(
           extent={{-50,-14},{50,-54}},
           textColor={64,64,64},
           textString="rad/s")}),
