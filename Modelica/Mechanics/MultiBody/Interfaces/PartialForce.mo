@@ -7,6 +7,15 @@ partial model PartialForce
     "Position vector from origin of frame_a to origin of frame_b, resolved in frame_b";
   Frames.Orientation R_rel
     "Relative orientation object from frame_a to frame_b";
+
+  Frame_resolve frame_resolve
+    "Coordinate system in which input signal is optionally resolved"
+    annotation (Placement(transformation(extent={{-16,-16},{16,16}},
+        rotation=-90,
+        origin={0,-100}), iconTransformation(
+        extent={{-16,-16},{16,16}},
+        rotation=-90,
+        origin={0,-100})));
 equation
   // Determine relative position and orientation
   r_rel_b = Frames.resolve2(frame_b.R, frame_b.r_0 - frame_a.r_0);

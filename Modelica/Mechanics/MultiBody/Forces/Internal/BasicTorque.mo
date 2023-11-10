@@ -1,20 +1,15 @@
 within Modelica.Mechanics.MultiBody.Forces.Internal;
 model BasicTorque
   "Torque acting between two frames, defined by 3 input signals"
-  extends Interfaces.PartialForce;
+  extends Interfaces.PartialForce(
+    break world);
   import Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
 
-  Interfaces.Frame_resolve frame_resolve
-    "The input signals are optionally resolved in this frame"
-    annotation (Placement(transformation(
-        origin={40,100},
-        extent={{-16,-16},{16,16}},
-        rotation=90)));
   Modelica.Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each final unit="N.m")
     "x-, y-, z-coordinates of torque resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
-        origin={-60,120},
-        extent={{-20,-20},{20,20}},
+        origin={-60,-120},
+        extent={{20,-20},{-20,20}},
         rotation=270)));
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
     resolveInFrame=
@@ -66,28 +61,24 @@ equation
           startAngle=40,
           endAngle=80,
           closure=EllipseClosure.None),
-        Text(
-          extent={{-80,90},{100,60}},
-          textColor={192,192,192},
-          textString="resolve"),
-        Text(
-          extent={{-150,-30},{150,-70}},
-          textString="%name",
-          textColor={0,0,255}),
         Polygon(
           points={{92,0},{82,36},{60,22},{92,0}},
           fillPattern=FillPattern.Solid),
-        Line(
-          points={{40,100},{80,20}},
-          color={95,95,95},
-          pattern=LinePattern.Dot),
         Polygon(
           points={{-92,0},{-82,36},{-60,22},{-92,0}},
           fillPattern=FillPattern.Solid),
         Line(
-          points={{-60,100},{40,100}},
+          points={{-60,-100},{80,-100},{80,20}},
           color={95,95,95},
-          pattern=LinePattern.Dot)}),
+          pattern=LinePattern.Dot),
+        Text(
+          extent={{-100,-40},{80,-70}},
+          textColor={192,192,192},
+          textString="resolve"),
+        Text(
+          extent={{-150,100},{150,60}},
+          textString="%name",
+          textColor={0,0,255})}),
     Documentation(info="<html>
 <p>
 The <strong>3</strong> signals of the <strong>torque</strong> connector are interpreted
