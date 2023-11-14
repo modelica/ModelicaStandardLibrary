@@ -1,9 +1,9 @@
 within Modelica.Mechanics.MultiBody.Frames;
 function from_nxy "Return fixed orientation object from n_x and n_y vectors"
   extends Modelica.Icons.Function;
-  input Real n_x[3](each final unit="1")
+  input Real n_x[3]
     "Vector in direction of x-axis of frame 2, resolved in frame 1";
-  input Real n_y[3](each final unit="1")
+  input Real n_y[3]
     "Vector in direction of y-axis of frame 2, resolved in frame 1";
   output Orientation R "Orientation object to rotate frame 1 into frame 2";
 algorithm
