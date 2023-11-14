@@ -2150,7 +2150,6 @@ package Examples
     extends Modelica.Icons.Example;
 
     constant SI.PressureRate pressureRate = 1e5/10;
-
     parameter SI.Volume V=1 "Volume";
     parameter SI.EnthalpyFlowRate H_flow_ext=1.e6
       "Constant enthalpy flow rate into the volume";
