@@ -1168,7 +1168,7 @@ end thermalConductivity;
   algorithm
     a := sqrt(isentropicExponent(state)*gasConstant(state)*temperature(state));
     annotation (Documentation(revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end velocityOfSound;
 
@@ -1177,7 +1177,7 @@ end thermalConductivity;
   algorithm
     beta := 1/temperature(state);
     annotation (Documentation(revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end isobaricExpansionCoefficient;
 
@@ -1186,7 +1186,7 @@ end thermalConductivity;
   algorithm
     kappa := 1/pressure(state);
     annotation (Documentation(revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end isothermalCompressibility;
 
@@ -1196,7 +1196,7 @@ end thermalConductivity;
     ddph := 1/(gasConstant(state)*temperature(state));
 
     annotation (Documentation(revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end density_derp_h;
 
@@ -1205,7 +1205,7 @@ end thermalConductivity;
   algorithm
     ddhp := -density(state)/(specificHeatCapacityCp(state)*temperature(state));
     annotation (Documentation(revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end density_derh_p;
 
@@ -1215,7 +1215,7 @@ end thermalConductivity;
     ddpT := 1/(gasConstant(state)*temperature(state));
 
     annotation (Documentation(revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end density_derp_T;
 
@@ -1224,7 +1224,7 @@ end thermalConductivity;
   algorithm
     ddTp := -density(state)/temperature(state);
     annotation (Documentation(revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end density_derT_p;
 
@@ -1237,8 +1237,8 @@ end thermalConductivity;
       state.X[Air])^2*temperature(state));
 
     annotation (Documentation(revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
-<p>2019-05-14        Stefan Wischhusen: Corrected derivatives.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
+<p>2019-05-14 Stefan Wischhusen: Corrected derivatives.</p>
 </html>"));
   end density_derX;
 
@@ -1246,7 +1246,7 @@ end thermalConductivity;
   algorithm
     MM := Modelica.Constants.R/Modelica.Media.Air.MoistAir.gasConstant(state);
     annotation (Documentation(revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end molarMass;
 
@@ -1275,7 +1275,7 @@ end thermalConductivity;
 Temperature is computed from pressure, specific entropy and composition via numerical inversion of function <a href=\"modelica://Modelica.Media.Air.MoistAir.s_pTX\">s_pTX</a>.
 </html>",
         revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end T_psX;
 
@@ -1301,7 +1301,7 @@ Temperature is computed from pressure, specific entropy and composition via nume
 The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermodynamic state record</a> is computed from pressure p, specific enthalpy h and composition X.
 </html>",
         revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end setState_psX;
 
@@ -1328,9 +1328,9 @@ The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermo
 Specific entropy of moist air is computed from pressure, temperature and composition with X[1] as the total water mass fraction.
 </html>",
         revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
-<p>2019-05-14        Stefan Wischhusen: Corrected calculation.</p>
-<p>2019-09-10        Stefan Wischhusen: Corrected pressure influence (p &lt; p_ref).</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
+<p>2019-05-14 Stefan Wischhusen: Corrected calculation.</p>
+<p>2019-09-10 Stefan Wischhusen: Corrected pressure influence (p &lt; p_ref).</p>
 </html>"),
       Icon(graphics={Text(
             extent={{-100,100},{100,-100}},
@@ -1389,9 +1389,9 @@ Specific entropy of moist air is computed from pressure, temperature and composi
 Specific entropy of moist air is computed from pressure, temperature and composition with X[1] as the total water mass fraction.
 </html>",
         revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
-<p>2019-05-14        Stefan Wischhusen: Corrected calculation.</p>
-<p>2019-09-10        Stefan Wischhusen: Corrected pressure influence (p &lt; p_ref).</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
+<p>2019-05-14 Stefan Wischhusen: Corrected calculation.</p>
+<p>2019-09-10 Stefan Wischhusen: Corrected pressure influence (p &lt; p_ref).</p>
 </html>"),
       Icon(graphics={Text(
             extent={{-100,100},{100,-100}},
@@ -1415,7 +1415,7 @@ Specific entropy of moist air is computed from pressure, temperature and composi
             extent={{-100,100},{100,-100}},
             textColor={255,127,0},
             textString="f")}), Documentation(revisions="<html>
-<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12 Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end isentropicEnthalpy;
 
@@ -1429,15 +1429,16 @@ Specific entropy of moist air is computed from pressure, temperature and composi
       input Real deltax=1 "Region around x with spline interpolation";
       output Real out;
     protected
+      constant Real lim = 0.9999999999 "Limit in criterion for smoothing range";
       Real scaledX1 "x scaled to -1 ... 1 interval";
       Real scaledXp "x scaled to -pi/2 ... pi/2 interval";
       Real scaledXt "x scaled to -inf ... inf interval";
       Real y;
     algorithm
       scaledX1 := x/deltax;
-      if scaledX1 <= -0.999999999 then
+      if scaledX1 <= -lim then
         y := 0.0;
-      elseif scaledX1 >= 0.999999999 then
+      elseif scaledX1 >= lim then
         y := 1.0;
       else
         scaledXp := scaledX1*0.5*Modelica.Constants.pi;
@@ -1461,6 +1462,7 @@ Specific entropy of moist air is computed from pressure, temperature and composi
       input Real ddeltax=0;
       output Real out;
     protected
+      constant Real lim = 0.9999999999 "Limit in criterion for smoothing range";
       Real scaledX1 "x scaled to -1 ... 1 interval";
       Real scaledXp "x scaled to -pi/2 ... pi/2 interval";
       Real scaledXt "x scaled to -inf ... inf interval";
@@ -1468,9 +1470,9 @@ Specific entropy of moist air is computed from pressure, temperature and composi
       Real y;
     algorithm
       scaledX1 := x/deltax;
-      if scaledX1 <= -0.9999999999 then
+      if scaledX1 <= -lim then
         y := 0.0;
-      elseif scaledX1 >= 0.9999999999 then
+      elseif scaledX1 >= lim then
         y := 1.0;
       else
         scaledXp := scaledX1*0.5*Modelica.Constants.pi;
@@ -1479,7 +1481,7 @@ Specific entropy of moist air is computed from pressure, temperature and composi
       end if;
       out := dpos*y + (1 - y)*dneg;
 
-      if (abs(scaledX1) < 1) then
+      if (abs(scaledX1) < lim) then
         dscaledX1 := (dx - scaledX1*ddeltax)/deltax;
         out := out + (pos - neg)*dscaledX1*0.25*Modelica.Constants.pi*(1 - Modelica.Math.tanh(scaledXt)^2)*(scaledXt^2 + 1);
       end if;

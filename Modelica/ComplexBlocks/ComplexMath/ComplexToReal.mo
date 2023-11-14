@@ -28,8 +28,6 @@ equation
               fillPattern=FillPattern.Solid),Text(
               extent={{-100,60},{-20,-60}},
               textColor={85,170,255},
-          fillColor={85,170,255},
-          fillPattern=FillPattern.Solid,
           textString="C")}),     Documentation(info="<html>
 <p>Converts the Complex input <em>u</em> to the Real outputs <em>re</em> (real part) and <em>im</em> (imaginary part).</p>
 </html>"));

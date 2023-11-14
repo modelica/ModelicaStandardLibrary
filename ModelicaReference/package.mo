@@ -4802,7 +4802,7 @@ useful (this follows from the definition):</em>
 <strong>semiLinear</strong>(m_flow, port_h, h);
 </pre></blockquote>
 <p>
-is identical to
+<em>is identical to</em>
 </p>
 <blockquote><pre>
 -<strong>semiLinear</strong>(-m_flow, h, port_h);
@@ -4815,7 +4815,7 @@ flow in fluid systems, such as</em>
 H_flow = <strong>semiLinear</strong>(m_flow, port.h, h);
 </pre></blockquote>
 <p>
-<em> i.e., the enthalpy flow rate H _flow is computed from the mass flow
+<em> i.e., the enthalpy flow rate H_flow is computed from the mass flow
 rate m_flow and the upstream specific enthalpy depending on the
 flow direction.]</em>
 </p>
@@ -5013,7 +5013,7 @@ The operator <strong>spatialDistribution</strong> allows the infinite-dimensiona
 <blockquote>
 <img src=\"modelica://ModelicaReference/Resources/Images/spatialdistribution.png\"
      alt=\"spatialdistribution.png\">
-</blockquote> 
+</blockquote>
 where <code>z(x, t)</code> is the transported quantity, <code>x</code> is the
 normalized spatial coordinate (0.0 &le; <code>x</code> &le; 1.0), <code>t</code> is the
 time, <code>v(t)</code> = <code>der(x)</code> is the normalized
@@ -5024,22 +5024,22 @@ transport velocity and the boundary conditions are set at either
 <blockquote><pre>
 (out0, out1) = <strong>spatialDistribution</strong>(in0, in1, x, positiveVelocity,
                                initialPoints = {0.0, 1.0},
-                               initialValues = {0.0, 0.0}); 
+                               initialValues = {0.0, 0.0});
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Many applications involve the modelling of variable-speed transport of properties. 
-One option to model this infinite-dimensional system is to approximate it by an ODE, 
-but this requires a large number of state variables and might introduce either 
-numerical diffusion or numerical oscillations. Another option is to use a built-in 
+Many applications involve the modelling of variable-speed transport of properties.
+One option to model this infinite-dimensional system is to approximate it by an ODE,
+but this requires a large number of state variables and might introduce either
+numerical diffusion or numerical oscillations. Another option is to use a built-in
 operator that keeps track of the spatial distribution of <code>z⁢(x,t)</code>,
-by suitable sampling, interpolation, and shifting of the stored distribution. 
+by suitable sampling, interpolation, and shifting of the stored distribution.
 In this case, the internal state of the operator is hidden from the ODE solver.
 </p>
 
 <p>
 See <a href=\"https://specification.modelica.org/maint/3.4/Ch3.html#spatialdistribution\">
-Section 3.7.2.2 of the Modelica Language Specification 3.4</a> for a more in-depth description 
+Section 3.7.2.2 of the Modelica Language Specification 3.4</a> for a more in-depth description
 and elaborate example.
 </p>
 </html>"));

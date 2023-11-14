@@ -17,14 +17,11 @@ model GasForce2 "Rough approximation of gas force in a combustion engine's cylin
   parameter Real k=1;
 */
   Real x "Normalized position of cylinder (= 1 - s_rel/L)";
-  SI.Density dens;
   SI.AbsolutePressure press "Cylinder pressure";
   SI.Volume V;
   SI.Temperature T;
   SI.Velocity v_rel "Relative piston velocity (<0: compression;  >0: expansion)";
 
-protected
-  constant SI.SpecificHeatCapacity R_air = Modelica.Constants.R/0.0289651159;
 equation
   x = 1 - s_rel/L;
   v_rel = der(s_rel);
@@ -40,7 +37,6 @@ equation
   f = -press*pi*d^2/4;
 
   V = k0 + k1*(1 - x);
-  dens = press/(R_air*T);
   press*V = k*T;
 
   assert(s_rel >= -1e-12, "flange_b.s - flange_a.s (= " + String(s_rel,
