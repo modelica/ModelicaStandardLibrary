@@ -1,3 +1,9 @@
 time
 mean.x
-mean.y
+yMean
+yRectifiedMean
+yRootMeanSquare
+yHarmonicCos
+yHarmonicSin
+yHarmonicAbs
+yHarmonicArg

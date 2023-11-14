@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-Copyright (C) 2021, Modelica Association and contributors
+Copyright (C) 2021-2023, Modelica Association and contributors
 All rights reserved.
 
 Check for deprecated Text.lineColor annotation
@@ -13,7 +13,7 @@ import os
 import re
 import sys
 
-PATTERN = re.compile(r'(Text\s*\([^\).]*)lineColor')
+PATTERN = re.compile(r'(?:Text\s*\([^\)]*?(?:\"(?:\\.|[^\"])*\")?[^\)]*?)(lineColor)')
 
 def _checkDeprecatedFileLineColor(file_name):
     errors = 0

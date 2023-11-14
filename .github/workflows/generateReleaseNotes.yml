@@ -17,11 +17,11 @@ jobs:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 5
       - name: Setup python environment
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: 3.8
       - name: Install python packages
@@ -29,7 +29,7 @@ jobs:
       - name: Generate MSL release notes from closed GitHub issues
         timeout-minutes: 3
         run: python ./Modelica/Resources/Documentation/Generate-ReleaseNotes.py ${{ github.event.inputs.milestone }} ${{ github.event.inputs.version }}
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: ResolvedGitHubIssues-Version-${{ github.event.inputs.version }}
           path: ./Modelica/Resources/Documentation/Version-${{ github.event.inputs.version }}/

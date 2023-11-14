@@ -407,7 +407,7 @@ the initial value defined via parameter <strong>y0</strong>.
         Line(points={{-35.0,0.0},{28.0,-48.0}},
           color={0,0,127}),
         Text(extent={{-86.0,24.0},{82.0,82.0}},
-          color={0,0,127},
+          textColor={0,0,127},
           textString="max"),
         Ellipse(lineColor={0,0,127},
           fillColor={255,255,255},
