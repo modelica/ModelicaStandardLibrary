@@ -80,7 +80,7 @@ jobs:
       - name: Check syntax
         run: |
           echo "::add-matcher::./.github/moparser.json"
-          ModelicaSyntaxChecker/Linux64/moparser -v 3.4 -r Complex.mo Modelica ModelicaReference ModelicaServices ModelicaTest ModelicaTestConversion4.mo ModelicaTestOverdetermined.mo ObsoleteModelica4.mo
+          ModelicaSyntaxChecker/Linux64/moparser -v 3.6 -r Complex.mo Modelica ModelicaReference ModelicaServices ModelicaTest ModelicaTestConversion4.mo ModelicaTestOverdetermined.mo ObsoleteModelica4.mo
           echo "::remove-matcher owner=moparser::"
   deprecation_checks:
     timeout-minutes: 5
