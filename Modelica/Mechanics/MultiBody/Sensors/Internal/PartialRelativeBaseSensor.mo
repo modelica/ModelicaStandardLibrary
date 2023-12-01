@@ -15,8 +15,7 @@ model PartialRelativeBaseSensor
   Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve
     "Coordinate system in which vector is optionally resolved"
     annotation (Placement(transformation(extent={{84,64},{116,96}})),
-      mustBeConnected="Connector frame_resolve should be connected",
-      mayOnlyConnectOnce="Connector frame_resolve must be connected exactly once");
+      mustBeConnected="Connector frame_resolve should be connected");
 
 equation
   frame_a.f = zeros(3);
