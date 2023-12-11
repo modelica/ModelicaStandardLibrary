@@ -7,11 +7,11 @@ package Constants
   import Modelica.Units.NonSI;
 
   // Mathematical constants
-  final constant Real e=Modelica.Math.exp(1.0);
-  final constant Real pi=2*Modelica.Math.asin(1.0); // 3.14159265358979;
-  final constant Real D2R=pi/180 "Degree to Radian";
-  final constant Real R2D=180/pi "Radian to Degree";
-  final constant Real gamma=0.57721566490153286061
+  final constant Real e(final unit="1") = Modelica.Math.exp(1.0);
+  final constant Real pi = 2*Modelica.Math.asin(1.0); // 3.14159265358979;
+  final constant Real D2R(final unit="rad/deg") = pi/180 "Degree to Radian";
+  final constant Real R2D(final unit="deg/rad") = 180/pi "Radian to Degree";
+  final constant Real gamma(final unit="1") = 0.57721566490153286061
     "See http://en.wikipedia.org/wiki/Euler_constant";
 
   // Machine dependent constants
@@ -28,10 +28,12 @@ package Constants
   // (name, value, description from https://www.bipm.org/en/CGPM/db/26/1/, effective from May 20, 2019)
   // The values for c, q, h, k, N_A are exact and part of the basis of the SI-system
   // Note that the elementary charge uses the common alternate name q since e was taken.
-  // The values for F, R, sigma, T_zero, epsilon_0 are also exact.
+  // The values for F, R, sigma, T_zero are also exact.
   // The value for mu_0 can now be expressed as 2*alpha*h/(q^2*c),
   // where alpha is the experimental fine-structure constant,
   // and the value is from https://physics.nist.gov/cuu/pdf/wall_2018.pdf
+  // The current value of mu_0 is experimentally determined.
+  // Before 2019 mu_0 was defined to be exactly 4*pi*1e-7 H/m.
   final constant SI.Velocity c=299792458 "Speed of light in vacuum";
   final constant SI.Acceleration g_n=9.80665
     "Standard acceleration of gravity on earth";
@@ -50,7 +52,7 @@ package Constants
     "Stefan-Boltzmann constant ";
   final constant Real N_A(final unit="1/mol") = 6.02214076e23
     "Avogadro constant";
-  final constant SI.Permeability mu_0 = 4*pi*1.00000000055e-7 "Magnetic constant";
+  final constant SI.Permeability mu_0 = 1.25663706212e-6 "Magnetic constant";
   final constant Real epsilon_0(final unit="F/m") = 1/(mu_0*c*c)
     "Electric constant";
   final constant NonSI.Temperature_degC T_zero=-273.15

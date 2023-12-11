@@ -214,8 +214,6 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
           textString="%m phase quasi-static"),
                                             Text(
                   extent={{20,-40},{100,-48}},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
                   textStyle={TextStyle.Bold},
           textString="%m phase transient")}));
 end IMC_Conveyor;
