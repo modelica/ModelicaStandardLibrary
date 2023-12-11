@@ -76,7 +76,7 @@ model SMPM_Braking
         origin={-10,30})));
   Modelica.Electrical.Analog.Basic.VariableResistor variableResistor
     annotation (Placement(transformation(extent={{0,50},{-20,70}})));
-  Modelica.Blocks.Math.Gain gain(k=unitK*R/wNominal) annotation (Placement(
+  Modelica.Blocks.Math.Gain gain(k=R/wNominal) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
