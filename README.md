@@ -1,4 +1,4 @@
-<img src="https://github.com/modelica/ModelicaStandardLibrary/raw/master/Modelica/Resources/Images/Logos/Modelica_Libraries.svg?sanitize=true" width="250px">
+<img src="https://github.com/modelica/ModelicaStandardLibrary/raw/master/Modelica/Resources/Images/Logos/Modelica_Libraries.svg?sanitize=true#gh-light-mode-only" alt="Modelica Libraries Logo" width="250px"><img src="https://github.com/modelica/ModelicaStandardLibrary/raw/master/Modelica/Resources/Images/Logos/Modelica_Libraries_dark.svg?sanitize=true#gh-dark-mode-only" alt="Modelica Libraries Logo" width="250px">
 
 # Modelica Standard Library
 
@@ -8,7 +8,7 @@ Free library from the Modelica Association to model mechanical (1D/3D), electric
 
 Package `Modelica` is a free library that is developed together with the Modelica language from the Modelica Association. It is also called *Modelica Standard Library*. It provides model components and standard component interfaces from many engineering domains. Each model comes with [documentation](https://doc.modelica.org/) included. The generous [license conditions](LICENSE) allow usage in commercial products.
 
-Note, the usage of a Modelica library requires a Modelica simulation environment, [see the tools page](https://www.modelica.org/tools/), and that such an environment usually already includes the Modelica standard library. It is possible that the demo version of the commercial tools will not allow to simulate non-trivial examples from the library.
+Note, the usage of a Modelica library requires a Modelica simulation environment, [see the tools page](https://modelica.org/tools), and that such an environment usually already includes the Modelica standard library. It is possible that the demo version of the commercial tools will not allow to simulate non-trivial examples from the library.
 
 ![ModelicaLibraries](Modelica/Resources/Images/UsersGuide/ModelicaLibraries.png)
 
@@ -31,7 +31,7 @@ it can be redistributed and/or modified under the terms of the [3-Clause BSD Lic
 
 ## Development and contribution
 
-The development is organised by the [Modelica Association Project - Libraries (MAP-LIB)](https://www.modelica.org/projects).
+The development is organised by the [Modelica Association Project - Libraries (MAP-LIB)](https://modelica.org/projects).
 See also the [contribution guide](CONTRIBUTING.md) and the [MAP-LIB Project Rules](https://github.com/modelica/MAP-LIB_ProjectRules) for more information.
 
 You may report any issues by using the [Issue Tracker](https://github.com/modelica/ModelicaStandardLibrary/issues).

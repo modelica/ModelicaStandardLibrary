@@ -45,30 +45,32 @@ equation
   der(H) = flowPort.H_flow + Q_flow;
   //pressure at bottom
   flowPort.p = pAmbient + m*g/ATank;
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
+  annotation (Icon(graphics={
         Ellipse(
           extent={{-80,-60},{80,-100}},
           fillColor={170,170,255},
           fillPattern=FillPattern.Sphere),
         Rectangle(
-          extent={{-80,0},{80,-80}},
-          fillPattern=FillPattern.VerticalCylinder,
-          fillColor={170,170,255}),
-        Rectangle(
-          extent={{-80,80},{80,0}},
+          extent={{-80,80},{80,-80}},
           fillPattern=FillPattern.VerticalCylinder,
           fillColor={255,255,255}),
+        Rectangle(
+          extent=DynamicSelect({{-80,0},{80,-80}},
+          {{-80,(-80+160*level/hTank)},{80,-80}}),
+          fillPattern=FillPattern.VerticalCylinder,
+          fillColor={170,170,255}),
+        Ellipse(
+          extent=DynamicSelect({{-80,20},{80,-20}},
+          {{-80,(-60+160*level/hTank)},{80,(-100+160*level/hTank)}}),
+          fillColor={170,170,255},
+          fillPattern=FillPattern.Sphere),
         Ellipse(
           extent={{-80,100},{80,60}},
           fillColor={255,255,255},
           fillPattern=FillPattern.Sphere),
-        Ellipse(
-          extent={{-80,20},{80,-20}},
-          fillColor={170,170,255},
-          fillPattern=FillPattern.Sphere),
         Line(points={{100,0},{80,0}}, thickness=0.5),
         Line(points={{100,-60},{80,-60}},
-                                        color={238,46,47},
+          color={238,46,47},
           thickness=0.5),
         Ellipse(
           extent={{72,-56},{80,-64}},
@@ -103,7 +105,17 @@ equation
         Line(visible=useHeatPort,
           points={{-90,-100},{-56,-100},{-56,-88}},
           color={238,46,47},
-          thickness=0.5)}),    Documentation(info="<html>
+          thickness=0.5),
+          Text(
+            extent={{-95,50},{95,30}},
+            textString="level ="),
+          Text(
+            extent={{-95,-30},{95,-50}},
+            textString=DynamicSelect("%level.start", String(
+                level,
+                minimumLength=1,
+                significantDigits=2)))}),
+        Documentation(info="<html>
 <p>This is a simple model of an open tank with volume A*h. The level and the temperature of the medium are measured and provided as output.</p>
 <p>Note: If the level of the medium reaches 0 (minimum) or h (maximum), an assertion is triggered.</p>
 <p>Note: The flowPort is assumed to be at the bottom. Therefore the pressure at the flowPort is ambient pressure + level*rho*g.</p>

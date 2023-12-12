@@ -22,7 +22,6 @@ package IF97_Utilities
 
     //===================================================================
     //                      Constant declarations
-
     //===================================================================
     record data "Constant IF97 data and region limits"
       extends Modelica.Icons.Record;
@@ -73,25 +72,27 @@ package IF97_Utilities
               0.13918839778870e2)
         "Polynomial coefficients for boundary between regions 2 and 3";
       annotation (Documentation(info="<html>
- <h4>Record description</h4>
-                           <p>Constants needed in the international steam properties IF97.
-                           SCRIT and HCRIT are calculated from Helmholtz function for region 3.</p>
-<h4>Version Info and Revision history
-</h4>
+<h4>Record description</h4>
+<p>Constants needed in the international steam properties IF97.
+SCRIT and HCRIT are calculated from Helmholtz function for region 3.</p>
+
+<h4>Version Info and Revision history</h4>
 <ul>
-<li>First implemented: <em>July, 2000</em>
-       by Hubertus Tummescheit
-       </li>
+  <li>
+    First implemented: <em>July, 2000</em>
+    by Hubertus Tummescheit
+  </li>
 </ul>
- <address>Author: Hubertus Tummescheit,<br>
-      Modelon AB<br>
-      Ideon Science Park<br>
-      SE-22370 Lund, Sweden<br>
-      email: hubertus@modelon.se
- </address>
+<address>
+Author: Hubertus Tummescheit,<br>
+Modelon AB<br>
+Ideon Science Park<br>
+SE-22370 Lund, Sweden<br>
+email: hubertus@modelon.se
+</address>
 <ul>
- <li>Initial version: July 2000</li>
- <li>Documentation added: December 2002</li>
+  <li>Initial version: July 2000</li>
+  <li>Documentation added: December 2002</li>
 </ul>
 </html>"));
     end data;
@@ -134,24 +135,28 @@ package IF97_Utilities
       constant SI.SpecificEntropy SCRIT=4412.02148223476
         "The calculated specific entropy at the critical point";
       annotation (Documentation(info="<html>
- <h4>Record description</h4>
- <p>Critical point data for IF97 steam properties. SCRIT and HCRIT are calculated from Helmholtz function for region 3</p>
-<h4>Version Info and Revision history
-</h4>
+<h4>Record description</h4>
+<p>
+Critical point data for IF97 steam properties. SCRIT and HCRIT are calculated from Helmholtz function for region 3.
+</p>
+
+<h4>Version Info and Revision history</h4>
 <ul>
-<li>First implemented: <em>July, 2000</em>
-       by Hubertus Tummescheit
-       </li>
+  <li>
+    First implemented: <em>July, 2000</em>
+    by Hubertus Tummescheit
+  </li>
 </ul>
- <address>Author: Hubertus Tummescheit,<br>
-      Modelon AB<br>
-      Ideon Science Park<br>
-      SE-22370 Lund, Sweden<br>
-      email: hubertus@modelon.se
- </address>
+<address>
+Author: Hubertus Tummescheit,<br>
+Modelon AB<br>
+Ideon Science Park<br>
+SE-22370 Lund, Sweden<br>
+email: hubertus@modelon.se
+</address>
 <ul>
- <li>Initial version: July 2000</li>
- <li>Documentation added: December 2002</li>
+  <li>Initial version: July 2000</li>
+  <li>Documentation added: December 2002</li>
 </ul>
 </html>"));
     end critical;
@@ -165,24 +170,26 @@ package IF97_Utilities
       constant SI.Density dvtriple=0.485457572477861372e-2
         "The triple point vapour density";
       annotation (Documentation(info="<html>
- <h4>Record description</h4>
- <p>Vapour/liquid/ice triple point data for IF97 steam properties.</p>
-<h4>Version Info and Revision history
-</h4>
+<h4>Record description</h4>
+<p>Vapour/liquid/ice triple point data for IF97 steam properties.</p>
+
+<h4>Version Info and Revision history</h4>
 <ul>
-<li>First implemented: <em>July, 2000</em>
-       by Hubertus Tummescheit
-       </li>
+  <li>
+    First implemented: <em>July, 2000</em>
+    by Hubertus Tummescheit
+  </li>
 </ul>
- <address>Author: Hubertus Tummescheit,<br>
-      Modelon AB<br>
-      Ideon Science Park<br>
-      SE-22370 Lund, Sweden<br>
-      email: hubertus@modelon.se
- </address>
+<address>
+Author: Hubertus Tummescheit,<br>
+Modelon AB<br>
+Ideon Science Park<br>
+SE-22370 Lund, Sweden<br>
+email: hubertus@modelon.se
+</address>
 <ul>
- <li>Initial version: July 2000</li>
- <li>Documentation added: December 2002</li>
+  <li>Initial version: July 2000</li>
+  <li>Documentation added: December 2002</li>
 </ul>
 </html>"));
     end triple;
@@ -194,7 +201,6 @@ package IF97_Utilities
 
       //===================================================================
       //                      "Public" functions
-
       //===================================================================
 
       function boundary23ofT
@@ -1531,91 +1537,197 @@ package IF97_Utilities
         dd_dp := drhovl_dp(p, dewcurve_p(p));
         annotation (Inline=true);
       end drhov_dp;
-      annotation (Documentation(info="<html><h4>Package description</h4>
- <p>Package <strong>Regions</strong> contains a large number of auxiliary functions which are needed to compute the current region
- of the IAPWS/IF97 for a given pair of input variables as quickly as possible. The focus of this implementation was on
- computational efficiency, not on compact code. Many of the function values calculated in these functions could be obtained
- using the fundamental functions of IAPWS/IF97, but with considerable overhead. If the region of IAPWS/IF97 is known in advance,
- the input variable mode can be set to the region, then the somewhat costly region checks are omitted.
- The checking for the phase has to be done outside the region functions because many properties are not
- differentiable at the region boundary. If the input phase is 2, the output region will be set to 4 immediately.</p>
- <h4>Package contents</h4>
- <p> The main 4 functions in this package are the functions returning the appropriate region for two input variables.</p>
- <ul>
- <li>Function <strong>region_ph</strong> compute the region of IAPWS/IF97 for input pair pressure and specific enthalpy.</li>
- <li>Function <strong>region_ps</strong> compute the region of IAPWS/IF97 for input pair pressure and specific entropy</li>
- <li>Function <strong>region_dT</strong> compute the region of IAPWS/IF97 for input pair density and temperature.</li>
- <li>Function <strong>region_pT</strong> compute the region of IAPWS/IF97 for input pair pressure and temperature (only in phase region).</li>
- </ul>
- <p>In addition, functions of the boiling and condensation curves compute the specific enthalpy, specific entropy, or density on these
- curves. The functions for the saturation pressure and temperature are included in the package <strong>Basic</strong> because they are part of
- the original <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IAPWS/IF97 standards document</a>. These functions are also aliased to
- be used directly from package <strong>Water</strong>.
+      annotation (Documentation(info="<html>
+<h4>Package description</h4>
+<p>
+Package <strong>Regions</strong> contains a large number of auxiliary functions which are needed to compute the current region
+of the IAPWS/IF97 for a given pair of input variables as quickly as possible. The focus of this implementation was on
+computational efficiency, not on compact code. Many of the function values calculated in these functions could be obtained
+using the fundamental functions of IAPWS/IF97, but with considerable overhead. If the region of IAPWS/IF97 is known in advance,
+the input variable mode can be set to the region, then the somewhat costly region checks are omitted.
+The checking for the phase has to be done outside the region functions because many properties are not
+differentiable at the region boundary. If the input phase is 2, the output region will be set to 4 immediately.
 </p>
- <ul>
- <li>Function <strong>hl_p</strong> computes the liquid specific enthalpy as a function of pressure. For overcritical pressures,
- the critical specific enthalpy is returned. An approximation is used for temperatures > 623.15 K.</li>
- <li>Function <strong>hv_p</strong> computes the vapour specific enthalpy as a function of pressure. For overcritical pressures,
- the critical specific enthalpy is returned. An approximation is used for temperatures > 623.15 K.</li>
- <li>Function <strong>sl_p</strong> computes the liquid specific entropy as a function of pressure. For overcritical pressures,
- the critical  specific entropy is returned. An approximation is used for temperatures > 623.15 K.</li>
- <li>Function <strong>sv_p</strong> computes the vapour  specific entropy as a function of pressure. For overcritical pressures,
- the critical  specific entropy is returned. An approximation is used for temperatures > 623.15 K.</li>
- <li>Function <strong>rhol_T</strong> computes the liquid density as a function of temperature. For overcritical temperatures,
- the critical density is returned. An approximation is used for temperatures > 623.15 K.</li>
- <li>Function <strong>rhol_T</strong> computes the vapour density as a function of temperature. For overcritical temperatures,
- the critical density is returned. An approximation is used for temperatures > 623.15 K.</li>
- </ul>
- <p>All other functions are auxiliary functions called from the region functions to check a specific boundary.</p>
- <ul>
- <li>Function <strong>boundary23ofT</strong> computes the boundary pressure between regions 2 and 3 (input temperature)</li>
- <li>Function <strong>boundary23ofp</strong> computes the boundary temperature between regions 2 and 3 (input pressure)</li>
- <li>Function <strong>hlowerofp5</strong> computes the lower specific enthalpy limit of region 5 (input p, T=1073.15 K)</li>
- <li>Function <strong>hupperofp5</strong> computes the upper specific enthalpy limit of region 5 (input p, T=2273.15 K)</li>
- <li>Function <strong>slowerofp5</strong> computes the lower specific entropy limit of region 5 (input p, T=1073.15 K)</li>
- <li>Function <strong>supperofp5</strong> computes the upper specific entropy limit of region 5 (input p, T=2273.15 K)</li>
- <li>Function <strong>hlowerofp1</strong> computes the lower specific enthalpy limit of region 1 (input p, T=273.15 K)</li>
- <li>Function <strong>hupperofp1</strong> computes the upper specific enthalpy limit of region 1 (input p, T=623.15 K)</li>
- <li>Function <strong>slowerofp1</strong> computes the lower specific entropy limit of region 1 (input p, T=273.15 K)</li>
- <li>Function <strong>supperofp1</strong> computes the upper specific entropy limit of region 1 (input p, T=623.15 K)</li>
- <li>Function <strong>hlowerofp2</strong> computes the lower specific enthalpy limit of region 2 (input p, T=623.15 K)</li>
- <li>Function <strong>hupperofp2</strong> computes the upper specific enthalpy limit of region 2 (input p, T=1073.15 K)</li>
- <li>Function <strong>slowerofp2</strong> computes the lower specific entropy limit of region 2 (input p, T=623.15 K)</li>
- <li>Function <strong>supperofp2</strong> computes the upper specific entropy limit of region 2 (input p, T=1073.15 K)</li>
- <li>Function <strong>d1n</strong> computes the density in region 1 as function of pressure and temperature</li>
- <li>Function <strong>d2n</strong> computes the density in region 2 as function of pressure and temperature</li>
- <li>Function <strong>dhot1ofp</strong> computes the hot density limit of region 1 (input p, T=623.15 K)</li>
- <li>Function <strong>dupper1ofT</strong>computes the high pressure density limit of region 1 (input T, p=100MPa)</li>
- <li>Function <strong>hl_p_R4b</strong> computes a high accuracy approximation to the liquid enthalpy for temperatures > 623.15 K (input p)</li>
- <li>Function <strong>hv_p_R4b</strong> computes a high accuracy approximation to the vapour enthalpy for temperatures > 623.15 K (input p)</li>
- <li>Function <strong>sl_p_R4b</strong> computes a high accuracy approximation to the liquid entropy for temperatures > 623.15 K (input p)</li>
- <li>Function <strong>sv_p_R4b</strong> computes a high accuracy approximation to the vapour entropy for temperatures > 623.15 K (input p)</li>
- <li>Function <strong>rhol_p_R4b</strong> computes a high accuracy approximation to the liquid density for temperatures > 623.15 K (input p)</li>
- <li>Function <strong>rhov_p_R4b</strong> computes a high accuracy approximation to the vapour density for temperatures > 623.15 K (input p)</li>
- </ul>
+
+<h4>Package contents</h4>
+<p>
+The main 4 functions in this package are the functions returning the appropriate region for two input variables.
+</p>
+<ul>
+  <li>
+    Function <strong>region_ph</strong> compute the region of IAPWS/IF97 for
+    input pair pressure and specific enthalpy.
+  </li>
+  <li>
+    Function <strong>region_ps</strong> compute the region of IAPWS/IF97 for
+    input pair pressure and specific entropy.
+  </li>
+  <li>
+    Function <strong>region_dT</strong> compute the region of IAPWS/IF97 for
+    input pair density and temperature.
+  </li>
+  <li>
+    Function <strong>region_pT</strong> compute the region of IAPWS/IF97 for
+    input pair pressure and temperature (only in phase region).
+  </li>
+</ul>
+<p>
+In addition, functions of the boiling and condensation curves compute the specific enthalpy, specific entropy, or density on these
+curves. The functions for the saturation pressure and temperature are included in the package <strong>Basic</strong> because they are part of
+the original <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IAPWS/IF97 standards document</a>.
+These functions are also aliased to be used directly from package <strong>Water</strong>.
+</p>
+<ul>
+  <li>
+    Function <strong>hl_p</strong> computes the liquid specific enthalpy as a function of pressure. For overcritical pressures,
+    the critical specific enthalpy is returned. An approximation is used for temperatures > 623.15 K.
+  </li>
+  <li>
+    Function <strong>hv_p</strong> computes the vapour specific enthalpy as a function of pressure. For overcritical pressures,
+    the critical specific enthalpy is returned. An approximation is used for temperatures > 623.15 K.
+  </li>
+  <li>
+    Function <strong>sl_p</strong> computes the liquid specific entropy as a function of pressure. For overcritical pressures,
+    the critical specific entropy is returned. An approximation is used for temperatures > 623.15 K.
+  </li>
+  <li>
+    Function <strong>sv_p</strong> computes the vapour  specific entropy as a function of pressure. For overcritical pressures,
+    the critical specific entropy is returned. An approximation is used for temperatures > 623.15 K.
+  </li>
+  <li>
+    Function <strong>rhol_T</strong> computes the liquid density as a function of temperature. For overcritical temperatures,
+    the critical density is returned. An approximation is used for temperatures > 623.15 K.
+  </li>
+  <li>
+    Function <strong>rhol_T</strong> computes the vapour density as a function of temperature. For overcritical temperatures,
+    the critical density is returned. An approximation is used for temperatures > 623.15 K.
+  </li>
+</ul>
+<p>
+All other functions are auxiliary functions called from the region functions to check a specific boundary.
+</p>
+<ul>
+  <li>
+    Function <strong>boundary23ofT</strong> computes the boundary pressure between
+    regions 2 and 3 (input temperature).
+  </li>
+  <li>
+    Function <strong>boundary23ofp</strong> computes the boundary temperature between
+    regions 2 and 3 (input pressure).
+  </li>
+  <li>
+    Function <strong>hlowerofp5</strong> computes the lower specific enthalpy limit
+    of region 5 (input p, T=1073.15 K).
+  </li>
+  <li>
+    Function <strong>hupperofp5</strong> computes the upper specific enthalpy limit
+    of region 5 (input p, T=2273.15 K).
+  </li>
+  <li>
+    Function <strong>slowerofp5</strong> computes the lower specific entropy limit
+    of region 5 (input p, T=1073.15 K).
+  </li>
+  <li>
+    Function <strong>supperofp5</strong> computes the upper specific entropy limit
+    of region 5 (input p, T=2273.15 K).
+  </li>
+  <li>
+    Function <strong>hlowerofp1</strong> computes the lower specific enthalpy limit
+    of region 1 (input p, T=273.15 K).
+  </li>
+  <li>
+    Function <strong>hupperofp1</strong> computes the upper specific enthalpy limit
+    of region 1 (input p, T=623.15 K).
+  </li>
+  <li>
+    Function <strong>slowerofp1</strong> computes the lower specific entropy limit
+    of region 1 (input p, T=273.15 K).
+  </li>
+  <li>
+    Function <strong>supperofp1</strong> computes the upper specific entropy limit
+    of region 1 (input p, T=623.15 K).
+  </li>
+  <li>
+    Function <strong>hlowerofp2</strong> computes the lower specific enthalpy limit
+    of region 2 (input p, T=623.15 K).
+  </li>
+  <li>
+    Function <strong>hupperofp2</strong> computes the upper specific enthalpy limit
+    of region 2 (input p, T=1073.15 K).
+  </li>
+  <li>
+    Function <strong>slowerofp2</strong> computes the lower specific entropy limit
+    of region 2 (input p, T=623.15 K).
+  </li>
+  <li>
+    Function <strong>supperofp2</strong> computes the upper specific entropy limit
+    of region 2 (input p, T=1073.15 K).
+  </li>
+  <li>
+    Function <strong>d1n</strong> computes the density in region 1 as function
+    of pressure and temperature.
+  </li>
+  <li>
+    Function <strong>d2n</strong> computes the density in region 2 as function
+    of pressure and temperature.
+  </li>
+  <li>
+    Function <strong>dhot1ofp</strong> computes the hot density limit of
+    region 1 (input p, T=623.15 K).
+  </li>
+  <li>
+    Function <strong>dupper1ofT</strong>computes the high pressure density limit
+    of region 1 (input T, p=100MPa).
+  </li>
+  <li>
+    Function <strong>hl_p_R4b</strong> computes a high accuracy approximation to
+    the liquid enthalpy for temperatures > 623.15 K (input p).
+  </li>
+  <li>
+    Function <strong>hv_p_R4b</strong> computes a high accuracy approximation to
+    the vapour enthalpy for temperatures > 623.15 K (input p).
+  </li>
+  <li>
+    Function <strong>sl_p_R4b</strong> computes a high accuracy approximation to
+    the liquid entropy for temperatures > 623.15 K (input p).
+  </li>
+  <li>
+    Function <strong>sv_p_R4b</strong> computes a high accuracy approximation to
+    the vapour entropy for temperatures > 623.15 K (input p).
+  </li>
+  <li>
+    Function <strong>rhol_p_R4b</strong> computes a high accuracy approximation
+    to the liquid density for temperatures > 623.15 K (input p).
+  </li>
+  <li>
+    Function <strong>rhov_p_R4b</strong> computes a high accuracy approximation
+    to the vapour density for temperatures > 623.15 K (input p).
+  </li>
+</ul>
 
 <h4>Version Info and Revision history</h4>
 <ul>
-<li>First implemented: <em>July, 2000</em>
-       by Hubertus Tummescheit
-       </li>
+  <li>
+    First implemented: <em>July, 2000</em>
+    by Hubertus Tummescheit
+  </li>
 </ul>
-<address>Authors: Hubertus Tummescheit, Jonas Eborn and Falko Jens Wagner<br>
-      Modelon AB<br>
-      Ideon Science Park<br>
-      SE-22370 Lund, Sweden<br>
-      email: hubertus@modelon.se
- </address>
- <ul>
- <li>Initial version: July 2000</li>
- <li>Revised and extended for inclusion in Modelica.Thermal: December 2002</li>
+<address>
+Authors: Hubertus Tummescheit, Jonas Eborn and Falko Jens Wagner<br>
+Modelon AB<br>
+Ideon Science Park<br>
+SE-22370 Lund, Sweden<br>
+email: hubertus@modelon.se
+</address>
+<ul>
+  <li>Initial version: July 2000</li>
+  <li>Revised and extended for inclusion in Modelica.Thermal: December 2002</li>
 </ul>
 </html>"));
     end Regions;
 
     //===================================================================
     //                      Base functions
-
     //===================================================================
 
     package Basic "Base functions as described in IAWPS/IF97"
@@ -3124,15 +3236,15 @@ package IF97_Utilities
           pstar;
         annotation (Documentation(info="<html>
 <p>
-  Equation number 1 from:<br>
-  The International Association for the Properties of Water and Steam<br>
-  Gaithersburg, Maryland, USA<br>
-  September 2001<br>
-  Supplementary Release on&nbsp; Backward Equations for Pressure as a
-  Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
-  Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
+Equation number 1 from:<br>
+The International Association for the Properties of Water and Steam<br>
+Gaithersburg, Maryland, USA<br>
+September 2001<br>
+Supplementary Release on&nbsp; Backward Equations for Pressure as a
+Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
+Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
 </p>
-  </html>"));
+</html>"));
       end p1_hs;
 
       function h2ab_s "Boundary between regions 2a and 2b"
@@ -3148,16 +3260,16 @@ package IF97_Utilities
       algorithm
         h := (n[1] + n[2]*sigma + n[3]*sigma^2 + n[4]*sigma^3)*hstar;
         annotation (Documentation(info="<html>
-  <p>
-  Equation number 2 from:<br>
-  The International Association for the Properties of Water and Steam<br>
-  Gaithersburg, Maryland, USA<br>
-  September 2001<br>
-  Supplementary Release on&nbsp; Backward Equations for Pressure as a
-  Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
-  Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
+<p>
+Equation number 2 from:<br>
+The International Association for the Properties of Water and Steam<br>
+Gaithersburg, Maryland, USA<br>
+September 2001<br>
+Supplementary Release on&nbsp; Backward Equations for Pressure as a
+Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
+Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
 </p>
-  </html>"));
+</html>"));
       end h2ab_s;
 
       function p2a_hs
@@ -3189,16 +3301,16 @@ package IF97_Utilities
         p := sum(n[i]*(eta - 0.5)^I[i]*(sigma - 1.2)^J[i] for i in 1:29)^4*
           pstar;
         annotation (Documentation(info="<html>
-  <p>
-  Equation number 3 from:<br>
-  The International Association for the Properties of Water and Steam<br>
-  Gaithersburg, Maryland, USA<br>
-  September 2001<br>
-  Supplementary Release on&nbsp; Backward Equations for Pressure as a
-  Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
-  Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
+<p>
+Equation number 3 from:<br>
+The International Association for the Properties of Water and Steam<br>
+Gaithersburg, Maryland, USA<br>
+September 2001<br>
+Supplementary Release on&nbsp; Backward Equations for Pressure as a
+Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
+Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
 </p>
-  </html>"));
+</html>"));
       end p2a_hs;
 
       function p2b_hs
@@ -3240,7 +3352,7 @@ Supplementary Release on&nbsp; Backward Equations for Pressure as a
 Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
 Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
 </p>
-      </html>"));
+</html>"));
       end p2b_hs;
 
       function p2c_hs
@@ -3273,16 +3385,16 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
         p := sum(n[i]*(eta - 0.7)^I[i]*(sigma - 1.1)^J[i] for i in 1:31)^4*
           pstar;
         annotation (Documentation(info="<html>
-      <p>
-      Equation number 5 from:<br>
-      The International Association for the Properties of Water and Steam<br>
-      Gaithersburg, Maryland, USA<br>
-      September 2001<br>
-      Supplementary Release on&nbsp; Backward Equations for Pressure as a
-      Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
-      Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
-   </p>
-      </html>"));
+<p>
+Equation number 5 from:<br>
+The International Association for the Properties of Water and Steam<br>
+Gaithersburg, Maryland, USA<br>
+September 2001<br>
+Supplementary Release on&nbsp; Backward Equations for Pressure as a
+Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
+Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
+</p>
+</html>"));
       end p2c_hs;
 
       // Inverses from the 2003 additions to IF97
@@ -3300,19 +3412,19 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       algorithm
         h := (n[1] + n[2]*pi + n[3]*pi^2 + n[4]*pi^3)*hstar;
         annotation (Documentation(info="<html>
-      <p>
-      &nbsp;Equation number 1 from:
-      </p>
-      <div style=\"text-align: center;\">&nbsp;[1] The international Association
-      for the Properties of Water and Steam<br>
-      &nbsp;Vejle, Denmark<br>
-      &nbsp;August 2003<br>
-      &nbsp;Supplementary Release on Backward Equations for the Functions
-      T(p,h), v(p,h) and T(p,s),<br>
-      &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
-      the Thermodynamic Properties of<br>
-      &nbsp;Water and Steam</div>
-      </html>"));
+<p>
+Equation number 1 from:
+</p>
+<div style=\"text-align: center;\">&nbsp;[1] The international Association
+for the Properties of Water and Steam<br>
+&nbsp;Vejle, Denmark<br>
+&nbsp;August 2003<br>
+&nbsp;Supplementary Release on Backward Equations for the Functions
+T(p,h), v(p,h) and T(p,s),<br>
+&nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
+the Thermodynamic Properties of<br>
+&nbsp;Water and Steam</div>
+</html>"));
       end h3ab_p;
 
       function T3a_ph "Region 3 a: inverse function T(p,h)"
@@ -3343,18 +3455,18 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
         T := sum(n[i]*(pi + 0.240)^I[i]*(eta - 0.615)^J[i] for i in 1:31)*Tstar;
         annotation (Documentation(info="<html>
 <p>
- &nbsp;Equation number 2 from:
+Equation number 2 from:
 </p>
- <div style=\"text-align: center;\">&nbsp;[1] The international Association
- for the Properties of Water and Steam<br>
- &nbsp;Vejle, Denmark<br>
- &nbsp;August 2003<br>
- &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s),<br>
- &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
- the Thermodynamic Properties of<br>
- &nbsp;Water and Steam</div>
- </html>"));
+<div style=\"text-align: center;\">&nbsp;[1] The international Association
+for the Properties of Water and Steam<br>
+&nbsp;Vejle, Denmark<br>
+&nbsp;August 2003<br>
+&nbsp;Supplementary Release on Backward Equations for the Functions
+T(p,h), v(p,h) and T(p,s),<br>
+&nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
+the Thermodynamic Properties of<br>
+&nbsp;Water and Steam</div>
+</html>"));
       end T3a_ph;
 
       function T3b_ph "Region 3 b: inverse function T(p,h)"
@@ -3385,19 +3497,19 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       algorithm
         T := sum(n[i]*(pi + 0.298)^I[i]*(eta - 0.720)^J[i] for i in 1:33)*Tstar;
         annotation (Documentation(info="<html>
- <p>
- &nbsp;Equation number 3 from:
+<p>
+Equation number 3 from:
 </p>
- <div style=\"text-align: center;\">&nbsp;[1] The international Association
- for the Properties of Water and Steam<br>
- &nbsp;Vejle, Denmark<br>
- &nbsp;August 2003<br>
- &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s),<br>
- &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
- the Thermodynamic Properties of<br>
- &nbsp;Water and Steam</div>
- </html>"));
+<div style=\"text-align: center;\">&nbsp;[1] The international Association
+for the Properties of Water and Steam<br>
+&nbsp;Vejle, Denmark<br>
+&nbsp;August 2003<br>
+&nbsp;Supplementary Release on Backward Equations for the Functions
+T(p,h), v(p,h) and T(p,s),<br>
+&nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
+the Thermodynamic Properties of<br>
+&nbsp;Water and Steam</div>
+</html>"));
       end T3b_ph;
 
       function v3a_ph "Region 3 a: inverse function v(p,h)"
@@ -3429,18 +3541,18 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
         v := sum(n[i]*(pi + 0.128)^I[i]*(eta - 0.727)^J[i] for i in 1:32)*vstar;
         annotation (Documentation(info="<html>
 <p>
-&nbsp;Equation number 4 from:
+Equation number 4 from:
 </p>
- <div style=\"text-align: center;\">&nbsp;[1] The international Association
- for the Properties of Water and Steam<br>
- &nbsp;Vejle, Denmark<br>
- &nbsp;August 2003<br>
- &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s),<br>
- &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
- the Thermodynamic Properties of<br>
- &nbsp;Water and Steam</div>
- </html>"));
+<div style=\"text-align: center;\">&nbsp;[1] The international Association
+for the Properties of Water and Steam<br>
+&nbsp;Vejle, Denmark<br>
+&nbsp;August 2003<br>
+&nbsp;Supplementary Release on Backward Equations for the Functions
+T(p,h), v(p,h) and T(p,s),<br>
+&nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
+the Thermodynamic Properties of<br>
+&nbsp;Water and Steam</div>
+</html>"));
       end v3a_ph;
 
       function v3b_ph "Region 3 b: inverse function v(p,h)"
@@ -3473,18 +3585,18 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           vstar;
         annotation (Documentation(info="<html>
 <p>
- &nbsp;Equation number 5 from:
+Equation number 5 from:
 </p>
- <div style=\"text-align: center;\">&nbsp;[1] The international Association
- for the Properties of Water and Steam<br>
- &nbsp;Vejle, Denmark<br>
- &nbsp;August 2003<br>
- &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s),<br>
- &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
- the Thermodynamic Properties of<br>
- &nbsp;Water and Steam</div>
- </html>"));
+<div style=\"text-align: center;\">&nbsp;[1] The international Association
+for the Properties of Water and Steam<br>
+&nbsp;Vejle, Denmark<br>
+&nbsp;August 2003<br>
+&nbsp;Supplementary Release on Backward Equations for the Functions
+T(p,h), v(p,h) and T(p,s),<br>
+&nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
+the Thermodynamic Properties of<br>
+&nbsp;Water and Steam</div>
+</html>"));
       end v3b_ph;
 
       function T3a_ps "Region 3 a: inverse function T(p,s)"
@@ -3518,18 +3630,18 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           Tstar;
         annotation (Documentation(info="<html>
 <p>
- &nbsp;Equation number 6 from:
+Equation number 6 from:
 </p>
- <div style=\"text-align: center;\">&nbsp;[1] The international Association
- for the Properties of Water and Steam<br>
- &nbsp;Vejle, Denmark<br>
- &nbsp;August 2003<br>
- &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s),<br>
- &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
- the Thermodynamic Properties of<br>
- &nbsp;Water and Steam</div>
- </html>"));
+<div style=\"text-align: center;\">&nbsp;[1] The international Association
+for the Properties of Water and Steam<br>
+&nbsp;Vejle, Denmark<br>
+&nbsp;August 2003<br>
+&nbsp;Supplementary Release on Backward Equations for the Functions
+T(p,h), v(p,h) and T(p,s),<br>
+&nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
+the Thermodynamic Properties of<br>
+&nbsp;Water and Steam</div>
+</html>"));
       end T3a_ps;
 
       function T3b_ps "Region 3 b: inverse function T(p,s)"
@@ -3560,17 +3672,17 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           Tstar;
         annotation (Documentation(info="<html>
 <p>
- &nbsp;Equation number 7 from:
+Equation number 7 from:
 </p>
- <div style=\"text-align: center;\">&nbsp;[1] The international Association
- for the Properties of Water and Steam<br>
- &nbsp;Vejle, Denmark<br>
- &nbsp;August 2003<br>
- &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s),<br>
- &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
- the Thermodynamic Properties of<br>
- &nbsp;Water and Steam</div>
+<div style=\"text-align: center;\">&nbsp;[1] The international Association
+for the Properties of Water and Steam<br>
+&nbsp;Vejle, Denmark<br>
+&nbsp;August 2003<br>
+&nbsp;Supplementary Release on Backward Equations for the Functions
+T(p,h), v(p,h) and T(p,s),<br>
+&nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
+the Thermodynamic Properties of<br>
+&nbsp;Water and Steam</div>
 </html>"));
       end T3b_ps;
 
@@ -3603,17 +3715,17 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           vstar;
         annotation (Documentation(info="<html>
 <p>
- &nbsp;Equation number 8 from:
+Equation number 8 from:
 </p>
- <div style=\"text-align: center;\">&nbsp;[1] The international Association
- for the Properties of Water and Steam<br>
- &nbsp;Vejle, Denmark<br>
- &nbsp;August 2003<br>
- &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s),<br>
- &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
- the Thermodynamic Properties of<br>
- &nbsp;Water and Steam</div>
+<div style=\"text-align: center;\">&nbsp;[1] The international Association
+for the Properties of Water and Steam<br>
+&nbsp;Vejle, Denmark<br>
+&nbsp;August 2003<br>
+&nbsp;Supplementary Release on Backward Equations for the Functions
+T(p,h), v(p,h) and T(p,s),<br>
+&nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
+the Thermodynamic Properties of<br>
+&nbsp;Water and Steam</div>
 </html>"));
       end v3a_ps;
 
@@ -3647,85 +3759,125 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           vstar;
         annotation (Documentation(info="<html>
 <p>
- &nbsp;Equation number 9 from:
+Equation number 9 from:
 </p>
 <div style=\"text-align: center;\">&nbsp;[1] The international Association
- for the Properties of Water and Steam<br>
- &nbsp;Vejle, Denmark<br>
- &nbsp;August 2003<br>
- &nbsp;Supplementary Release on Backward Equations for the Functions
- T(p,h), v(p,h) and T(p,s),<br>
- &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
- the Thermodynamic Properties of<br>
- &nbsp;Water and Steam</div>
+for the Properties of Water and Steam<br>
+&nbsp;Vejle, Denmark<br>
+&nbsp;August 2003<br>
+&nbsp;Supplementary Release on Backward Equations for the Functions
+T(p,h), v(p,h) and T(p,s),<br>
+&nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
+the Thermodynamic Properties of<br>
+&nbsp;Water and Steam</div>
 </html>"));
       end v3b_ps;
 
-      annotation (Documentation(info="<html><h4>Package description</h4>
-          <p>Package BaseIF97/Basic computes the fundamental functions for the 5 regions of the steam tables
-          as described in the standards document <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a>. The code of these
-          functions has been generated using <strong><em>Mathematica</em></strong> and the add-on packages \"Format\" and \"Optimize\"
-          to generate highly efficient, expression-optimized C-code from a symbolic representation of the thermodynamic
-          functions. The C-code has than been transformed into Modelica code. An important feature of this optimization was to
-          simultaneously optimize the functions and the directional derivatives because they share many common subexpressions.</p>
-          <h4>Package contents</h4>
-          <ul>
-          <li>Function <strong>g1</strong> computes the dimensionless Gibbs function for region 1 and all derivatives up
-          to order 2 w.r.t. pi and tau. Inputs: p and T.</li>
-          <li>Function <strong>g2</strong> computes the dimensionless Gibbs function  for region 2 and all derivatives up
-          to order 2 w.r.t. pi and tau. Inputs: p and T.</li>
-          <li>Function <strong>g2metastable</strong> computes the dimensionless Gibbs function for metastable vapour
-          (adjacent to region 2 but 2-phase at equilibrium) and all derivatives up
-          to order 2 w.r.t. pi and tau. Inputs: p and T.</li>
-          <li>Function <strong>f3</strong> computes the dimensionless Helmholtz function  for region 3 and all derivatives up
-          to order 2 w.r.t. delta and tau. Inputs: d and T.</li>
-          <li>Function <strong>g5</strong>computes the dimensionless Gibbs function for region 5 and all derivatives up
-          to order 2 w.r.t. pi and tau. Inputs: p and T.</li>
-          <li>Function <strong>tph1</strong> computes the inverse function T(p,h) in region 1.</li>
-          <li>Function <strong>tph2</strong> computes the inverse function T(p,h) in region 2.</li>
-          <li>Function <strong>tps2a</strong> computes the inverse function T(p,s) in region 2a.</li>
-          <li>Function <strong>tps2b</strong> computes the inverse function T(p,s) in region 2b.</li>
-          <li>Function <strong>tps2c</strong> computes the inverse function T(p,s) in region 2c.</li>
-          <li>Function <strong>tps2</strong> computes the inverse function T(p,s) in region 2.</li>
-          <li>Function <strong>tsat</strong> computes the saturation temperature as a function of pressure.</li>
-          <li>Function <strong>dtsatofp</strong> computes the derivative of the saturation temperature w.r.t. pressure as
-          a function of pressure.</li>
-          <li>Function <strong>tsat_der</strong> computes the Modelica derivative function of tsat.</li>
-          <li>Function <strong>psat</strong> computes the saturation pressure as a function of temperature.</li>
-          <li>Function <strong>dptofT</strong>  computes the derivative of the saturation pressure w.r.t. temperature as
-          a function of temperature.</li>
-          <li>Function <strong>psat_der</strong> computes the Modelica derivative function of psat.</li>
-          </ul>
-          <h4>Version Info and Revision history
-          </h4>
-          <ul>
-          <li>First implemented: <em>July, 2000</em>
-          by Hubertus Tummescheit
-          </li>
-          </ul>
-          <address>Author: Hubertus Tummescheit,<br>
-      Modelon AB<br>
-      Ideon Science Park<br>
-      SE-22370 Lund, Sweden<br>
-      email: hubertus@modelon.se
-          </address>
-          <ul>
-          <li>Initial version: July 2000</li>
-          <li>Documentation added: December 2002</li>
-          </ul>
-       <p>
-       Equation from:
-       </p>
-       <div style=\"text-align: center;\">&nbsp;[1] The international Association
-       for the Properties of Water and Steam<br>
-       &nbsp;Vejle, Denmark<br>
-       &nbsp;August 2003<br>
-       &nbsp;Supplementary Release on Backward Equations for the Functions
-       T(p,h), v(p,h) and T(p,s),<br>
-       &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
-       the Thermodynamic Properties of<br>
-       &nbsp;Water and Steam</div>
-       </html>"));
+      annotation (Documentation(info="<html>
+<h4>Package description</h4>
+<p>
+Package BaseIF97/Basic computes the fundamental functions for the 5 regions of the steam tables
+as described in the standards document <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a>. The code of these
+functions has been generated using <strong><em>Mathematica</em></strong> and the add-on packages \"Format\" and \"Optimize\"
+to generate highly efficient, expression-optimized C-code from a symbolic representation of the thermodynamic
+functions. The C-code has than been transformed into Modelica code. An important feature of this optimization was to
+simultaneously optimize the functions and the directional derivatives because they share many common subexpressions.
+</p>
+
+<h4>Package contents</h4>
+<ul>
+  <li>
+    Function <strong>g1</strong> computes the dimensionless Gibbs function for region 1 and all derivatives up
+    to order 2 w.r.t. pi and tau. Inputs: p and T.
+  </li>
+  <li>
+    Function <strong>g2</strong> computes the dimensionless Gibbs function for region 2 and all derivatives up
+    to order 2 w.r.t. pi and tau. Inputs: p and T.
+  </li>
+  <li>
+    Function <strong>g2metastable</strong> computes the dimensionless Gibbs function for metastable vapour
+    (adjacent to region 2 but 2-phase at equilibrium) and all derivatives up
+    to order 2 w.r.t. pi and tau. Inputs: p and T.
+  </li>
+  <li>
+    Function <strong>f3</strong> computes the dimensionless Helmholtz function for region 3 and all derivatives up
+    to order 2 w.r.t. delta and tau. Inputs: d and T.
+  </li>
+  <li>
+    Function <strong>g5</strong>computes the dimensionless Gibbs function for region 5 and all derivatives up
+    to order 2 w.r.t. pi and tau. Inputs: p and T.
+  </li>
+  <li>
+    Function <strong>tph1</strong> computes the inverse function T(p,h) in region 1.
+  </li>
+  <li>
+    Function <strong>tph2</strong> computes the inverse function T(p,h) in region 2.
+  </li>
+  <li>
+    Function <strong>tps2a</strong> computes the inverse function T(p,s) in region 2a.
+  </li>
+  <li>
+    Function <strong>tps2b</strong> computes the inverse function T(p,s) in region 2b.
+  </li>
+  <li>
+    Function <strong>tps2c</strong> computes the inverse function T(p,s) in region 2c.
+  </li>
+  <li>
+    Function <strong>tps2</strong> computes the inverse function T(p,s) in region 2.
+  </li>
+  <li>
+    Function <strong>tsat</strong> computes the saturation temperature as a function of pressure.
+  </li>
+  <li>
+    Function <strong>dtsatofp</strong> computes the derivative of the saturation temperature w.r.t. pressure as
+    a function of pressure.
+  </li>
+  <li>
+    Function <strong>tsat_der</strong> computes the Modelica derivative function of tsat.
+  </li>
+  <li>
+    Function <strong>psat</strong> computes the saturation pressure as a function of temperature.
+  </li>
+  <li>
+    Function <strong>dptofT</strong> computes the derivative of the saturation pressure w.r.t. temperature as
+    a function of temperature.
+  </li>
+  <li>
+    Function <strong>psat_der</strong> computes the Modelica derivative function of psat.
+  </li>
+</ul>
+
+<h4>Version Info and Revision history</h4>
+<ul>
+  <li>
+    First implemented: <em>July, 2000</em>
+    by Hubertus Tummescheit
+  </li>
+</ul>
+<address>
+Author: Hubertus Tummescheit,<br>
+Modelon AB<br>
+Ideon Science Park<br>
+SE-22370 Lund, Sweden<br>
+email: hubertus@modelon.se
+</address>
+<ul>
+  <li>Initial version: July 2000</li>
+  <li>Documentation added: December 2002</li>
+</ul>
+<p>
+Equation from:
+</p>
+<div style=\"text-align: center;\">&nbsp;[1] The international Association
+for the Properties of Water and Steam<br>
+&nbsp;Vejle, Denmark<br>
+&nbsp;August 2003<br>
+&nbsp;Supplementary Release on Backward Equations for the Functions
+T(p,h), v(p,h) and T(p,s),<br>
+&nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
+the Thermodynamic Properties of<br>
+&nbsp;Water and Steam</div>
+</html>"));
     end Basic;
 
     package IceBoundaries
@@ -3745,15 +3897,15 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
         pm := (1 - 0.626000e6*(1 - sigma^(-3)) + 0.197135e6*(1 - sigma^(21.2)))
           *pn;
         annotation (Documentation(info="<html>
-  <p>
-  Equation 1 from:<br>
-  The International Association for the Properties of Water and Steam<br>
-  Milan, Italy<br>
-  September 1993<br>
-  Release on the Pressure along the Melting and the Sublimation Curves of
-  Ordinary Water Substance<br>
+<p>
+Equation 1 from:<br>
+The International Association for the Properties of Water and Steam<br>
+Milan, Italy<br>
+September 1993<br>
+Release on the Pressure along the Melting and the Sublimation Curves of
+Ordinary Water Substance<br>
 </p>
-  </html>"));
+</html>"));
       end pmIceI_T;
 
       function pmIceIII_T
@@ -3769,15 +3921,15 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       algorithm
         pm := (1 - 0.295252*(1 - sigma^60))*pn;
         annotation (Documentation(info="<html>
-  <p>
-  Equation 2 from:<br>
-  The International Association for the Properties of Water and Steam<br>
-  Milan, Italy<br>
-  September 1993<br>
-  Release on the Pressure along the Melting and the Sublimation Curves of
-  Ordinary Water Substance<br>
+<p>
+Equation 2 from:<br>
+The International Association for the Properties of Water and Steam<br>
+Milan, Italy<br>
+September 1993<br>
+Release on the Pressure along the Melting and the Sublimation Curves of
+Ordinary Water Substance<br>
 </p>
-  </html>"));
+</html>"));
       end pmIceIII_T;
 
       function pmIceV_T
@@ -3794,15 +3946,15 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       algorithm
         pm := (1 - 1.18721*(1 - sigma^8))*pn;
         annotation (Documentation(info="<html>
-  <p>
-  Equation 3 from:<br>
-  The International Association for the Properties of Water and Steam<br>
-  Milan, Italy<br>
-  September 1993<br>
-  Release on the Pressure along the Melting and the Sublimation Curves of
-  Ordinary Water Substance<br>
+<p>
+Equation 3 from:<br>
+The International Association for the Properties of Water and Steam<br>
+Milan, Italy<br>
+September 1993<br>
+Release on the Pressure along the Melting and the Sublimation Curves of
+Ordinary Water Substance<br>
 </p>
-  </html>"));
+</html>"));
       end pmIceV_T;
 
       function sublimationPressure_T
@@ -3820,15 +3972,15 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
         psubl := Modelica.Math.exp(a[1]*(1 - sigma^(-1.5)) + a[2]*(1 - sigma^(-1.25)))
           *pn;
         annotation (Documentation(info="<html>
-  <p>
-  Equation 6 from:<br>
-  The International Association for the Properties of Water and Steam<br>
-  Milan, Italy<br>
-  September 1993<br>
-  Release on the Pressure along the Melting and the Sublimation Curves of
-  Ordinary Water Substance<br>
+<p>
+Equation 6 from:<br>
+The International Association for the Properties of Water and Steam<br>
+Milan, Italy<br>
+September 1993<br>
+Release on the Pressure along the Melting and the Sublimation Curves of
+Ordinary Water Substance<br>
 </p>
-  </html>"));
+</html>"));
       end sublimationPressure_T;
 
       annotation (Documentation(info="<html>
@@ -4167,38 +4319,47 @@ Ordinary Water Substance<br>
         sigma := 235.8e-3*(1 - Theta)^1.256*(1 - 0.625*(1 - Theta));
       end surfaceTension;
 
-      annotation (Documentation(info="<html><h4>Package description</h4>
-          <h4>Package contents</h4>
-          <ul>
-          <li>Function <strong>visc_dTp</strong> implements a function to compute the industrial formulation of the
-          dynamic viscosity of water as a function of density and temperature.
-          The details are described in the document <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/visc.pdf\">visc.pdf</a>.</li>
-          <li>Function <strong>cond_dTp</strong> implements a function to compute  the industrial formulation of the thermal conductivity of water as
-          a function of density, temperature and pressure. <strong>Important note</strong>: Obviously only two of the three
-          inputs are really needed, but using three inputs speeds up the computation and the three variables are known in most models anyways.
-          The inputs d,T and p have to be consistent.
-          The details are described in the document <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/surf.pdf\">surf.pdf</a>.</li>
-          <li>Function <strong>surfaceTension</strong> implements a function to compute the surface tension between vapour
-          and liquid water as a function of temperature.
-          The details are described in the document <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/thcond.pdf\">thcond.pdf</a>.</li>
-          </ul>
-          <h4>Version Info and Revision history
-          </h4>
-          <ul>
-          <li>First implemented: <em>October, 2002</em>
-          by Hubertus Tummescheit
-          </li>
-          </ul>
-          <address>Authors: Hubertus Tummescheit and Jonas Eborn<br>
-      Modelon AB<br>
-      Ideon Science Park<br>
-      SE-22370 Lund, Sweden<br>
-      email: hubertus@modelon.se
-          </address>
-          <ul>
-          <li>Initial version: October 2002</li>
-          </ul>
-          </html>"));
+      annotation (Documentation(info="<html>
+<h4>Package description</h4>
+<h4>Package contents</h4>
+<ul>
+  <li>
+    Function <strong>visc_dTp</strong> implements a function to compute the industrial formulation of the
+    dynamic viscosity of water as a function of density and temperature.
+    The details are described in the document <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/visc.pdf\">visc.pdf</a>.
+  </li>
+  <li>
+    Function <strong>cond_dTp</strong> implements a function to compute  the industrial formulation of the thermal conductivity of water as
+    a function of density, temperature and pressure. <strong>Important note</strong>: Obviously only two of the three
+    inputs are really needed, but using three inputs speeds up the computation and the three variables are known in most models anyways.
+    The inputs d,T and p have to be consistent.
+    The details are described in the document <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/surf.pdf\">surf.pdf</a>.
+  </li>
+  <li>
+    Function <strong>surfaceTension</strong> implements a function to compute the surface tension between vapour
+    and liquid water as a function of temperature.
+    The details are described in the document <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/thcond.pdf\">thcond.pdf</a>.
+  </li>
+</ul>
+
+<h4>Version Info and Revision history</h4>
+<ul>
+  <li>
+    First implemented: <em>October, 2002</em>
+    by Hubertus Tummescheit
+  </li>
+</ul>
+<address>
+Authors: Hubertus Tummescheit and Jonas Eborn<br>
+Modelon AB<br>
+Ideon Science Park<br>
+SE-22370 Lund, Sweden<br>
+email: hubertus@modelon.se
+</address>
+<ul>
+  <li>Initial version: October 2002</li>
+</ul>
+</html>"));
     end Transport;
 
     package Isentropic
@@ -4798,45 +4959,72 @@ Ordinary Water Substance<br>
         end if;
       end water_hisentropic_dyn;
 
-      annotation (Documentation(info="<html><h4>Package description</h4>
-          <h4>Package contents</h4>
-          <ul>
-          <li>Function <strong>hofpT1</strong> computes h(p,T) in region 1.</li>
-          <li>Function <strong>handsofpT1</strong> computes (s,h)=f(p,T) in region 1, needed for two-phase properties.</li>
-          <li>Function <strong>hofps1</strong> computes h(p,s) in region 1.</li>
-          <li>Function <strong>hofpT2</strong> computes h(p,T) in region 2.</li>
-          <li>Function <strong>handsofpT2</strong> computes (s,h)=f(p,T) in region 2, needed for two-phase properties.</li>
-          <li>Function <strong>hofps2</strong> computes h(p,s) in region 2.</li>
-          <li>Function <strong>hofdT3</strong> computes h(d,T) in region 3.</li>
-          <li>Function <strong>hofpsdt3</strong> computes h(p,s,dguess,Tguess) in region 3, where dguess and Tguess are initial guess
-          values for the density and temperature consistent with p and s.</li>
-          <li>Function <strong>hofps4</strong> computes h(p,s) in region 4.</li>
-          <li>Function <strong>hofpT5</strong> computes h(p,T) in region 5.</li>
-          <li>Function <strong>water_hisentropic</strong> computes h(p,s,phase) in all regions.
-          The phase input is needed due to discontinuous derivatives at the phase boundary.</li>
-          <li>Function <strong>water_hisentropic_dyn</strong> computes h(p,s,dguess,Tguess,phase) in all regions.
-          The phase input is needed due to discontinuous derivatives at the phase boundary. Tguess and dguess are initial guess
-          values for the density and temperature consistent with p and s. This function should be preferred in
-          dynamic simulations where good guesses are often available.</li>
-          </ul>
-          <h4>Version Info and Revision history
-          </h4>
-          <ul>
-          <li>First implemented: <em>July, 2000</em>
-          by Hubertus Tummescheit
-          </li>
-          </ul>
-          <address>Author: Hubertus Tummescheit,<br>
-      Modelon AB<br>
-      Ideon Science Park<br>
-      SE-22370 Lund, Sweden<br>
-      email: hubertus@modelon.se
-          </address>
-          <ul>
-          <li>Initial version: July 2000</li>
-          <li>Documentation added: December 2002</li>
-          </ul>
-          </html>"));
+      annotation (Documentation(info="<html>
+<h4>Package description</h4>
+<h4>Package contents</h4>
+<ul>
+  <li>
+    Function <strong>hofpT1</strong> computes h(p,T) in region 1.
+  </li>
+  <li>
+    Function <strong>handsofpT1</strong> computes (s,h)=f(p,T) in region 1, needed for two-phase properties.
+  </li>
+  <li>
+    Function <strong>hofps1</strong> computes h(p,s) in region 1.
+  </li>
+  <li>
+    Function <strong>hofpT2</strong> computes h(p,T) in region 2.
+  </li>
+  <li>
+    Function <strong>handsofpT2</strong> computes (s,h)=f(p,T) in region 2, needed for two-phase properties.
+  </li>
+  <li>
+    Function <strong>hofps2</strong> computes h(p,s) in region 2.
+  </li>
+  <li>
+    Function <strong>hofdT3</strong> computes h(d,T) in region 3.
+  </li>
+  <li>
+    Function <strong>hofpsdt3</strong> computes h(p,s,dguess,Tguess) in region 3, where dguess and Tguess are initial guess
+    values for the density and temperature consistent with p and s.
+  </li>
+  <li>
+    Function <strong>hofps4</strong> computes h(p,s) in region 4.
+  </li>
+  <li>
+    Function <strong>hofpT5</strong> computes h(p,T) in region 5.
+  </li>
+  <li>
+    Function <strong>water_hisentropic</strong> computes h(p,s,phase) in all regions.
+    The phase input is needed due to discontinuous derivatives at the phase boundary.
+  </li>
+  <li>
+    Function <strong>water_hisentropic_dyn</strong> computes h(p,s,dguess,Tguess,phase) in all regions.
+    The phase input is needed due to discontinuous derivatives at the phase boundary. Tguess and dguess are initial guess
+    values for the density and temperature consistent with p and s. This function should be preferred in
+    dynamic simulations where good guesses are often available.
+  </li>
+</ul>
+
+<h4>Version Info and Revision history</h4>
+<ul>
+  <li>
+    First implemented: <em>July, 2000</em>
+    by Hubertus Tummescheit
+  </li>
+</ul>
+<address>
+Author: Hubertus Tummescheit,<br>
+Modelon AB<br>
+Ideon Science Park<br>
+SE-22370 Lund, Sweden<br>
+email: hubertus@modelon.se
+</address>
+<ul>
+  <li>Initial version: July 2000</li>
+  <li>Documentation added: December 2002</li>
+</ul>
+</html>"));
     end Isentropic;
     //work needed: (Pr,lam,eta) = f(d,T,p, region?)
     package Inverses "Efficient inverses for selected pairs of variables"
@@ -4845,7 +5033,6 @@ Ordinary Water Substance<br>
 
       //===================================================================
       //            Iterative version for some pairs/regions
-
       //===================================================================
       function fixdT "Region limits for inverse iteration in region 3"
 
@@ -5434,40 +5621,65 @@ Ordinary Water Substance<br>
           "Error in inverse function tofpst5: iteration failed");
       end tofpst5;
 
-      annotation (Documentation(info="<html><h4>Package description</h4>
-          <h4>Package contents</h4>
-          <ul>
-          <li>Function <strong>fixdT</strong> constrains density and temperature to allowed region</li>
-          <li>Function <strong>dofp13</strong> computes d as a function of p at boundary between regions 1 and 3</li>
-          <li>Function <strong>dofp23</strong> computes d as a function of p at boundary between regions 2 and 3</li>
-          <li>Function <strong>dofpt3</strong> iteration to compute d as a function of p and T in region 3</li>
-          <li>Function <strong>dtofph3</strong> iteration to compute d and T as a function of p and h in region 3</li>
-          <li>Function <strong>dtofps3</strong> iteration to compute d and T as a function of p and s in region 3</li>
-          <li>Function <strong>dtofpsdt3</strong> iteration to compute d and T as a function of p and s in region 3,
-          with initial guesses</li>
-          <li>Function <strong>pofdt125</strong> iteration to compute p as a function of p and T in regions 1, 2 and 5</li>
-          <li>Function <strong>tofph5</strong> iteration to compute T as a function of p and h in region 5</li>
-          <li>Function <strong>tofps5</strong> iteration to compute T as a function of p and s in region 5</li>
-          <li>Function <strong>tofpst5</strong> iteration to compute T as a function of p and s in region 5, with initial guess in T</li>
-          </ul>
-          <h4>Version Info and Revision history
-          </h4>
-          <ul>
-          <li>First implemented: <em>July, 2000</em>
-          by Hubertus Tummescheit
-          </li>
-          </ul>
-          <address>Author: Hubertus Tummescheit,<br>
-      Modelon AB<br>
-      Ideon Science Park<br>
-      SE-22370 Lund, Sweden<br>
-      email: hubertus@modelon.se
-          </address>
-          <ul>
-          <li>Initial version: July 2000</li>
-          <li>Documentation added: December 2002</li>
-          </ul>
-          </html>"));
+      annotation (Documentation(info="<html>
+<h4>Package description</h4>
+<h4>Package contents</h4>
+<ul>
+  <li>
+    Function <strong>fixdT</strong> constrains density and temperature to allowed region
+  </li>
+  <li>
+    Function <strong>dofp13</strong> computes d as a function of p at boundary between regions 1 and 3
+  </li>
+  <li>
+    Function <strong>dofp23</strong> computes d as a function of p at boundary between regions 2 and 3
+  </li>
+  <li>
+    Function <strong>dofpt3</strong> iteration to compute d as a function of p and T in region 3
+  </li>
+  <li>
+    Function <strong>dtofph3</strong> iteration to compute d and T as a function of p and h in region 3
+  </li>
+  <li>
+    Function <strong>dtofps3</strong> iteration to compute d and T as a function of p and s in region 3
+  </li>
+  <li>
+    Function <strong>dtofpsdt3</strong> iteration to compute d and T as a function of p and s in region 3,
+    with initial guesses
+  </li>
+  <li>
+    Function <strong>pofdt125</strong> iteration to compute p as a function of p and T in regions 1, 2 and 5
+  </li>
+  <li>
+    Function <strong>tofph5</strong> iteration to compute T as a function of p and h in region 5
+  </li>
+  <li>
+    Function <strong>tofps5</strong> iteration to compute T as a function of p and s in region 5
+  </li>
+  <li>
+    Function <strong>tofpst5</strong> iteration to compute T as a function of p and s in region 5, with initial guess in T
+  </li>
+</ul>
+
+<h4>Version Info and Revision history</h4>
+<ul>
+  <li>
+    First implemented: <em>July, 2000</em>
+    by Hubertus Tummescheit
+  </li>
+</ul>
+<address>
+Author: Hubertus Tummescheit,<br>
+Modelon AB<br>
+Ideon Science Park<br>
+SE-22370 Lund, Sweden<br>
+email: hubertus@modelon.se
+</address>
+<ul>
+  <li>Initial version: July 2000</li>
+  <li>Documentation added: December 2002</li>
+</ul>
+</html>"));
     end Inverses;
 
     package ByRegion "Simple explicit functions for one region only"
@@ -5533,35 +5745,48 @@ Ordinary Water Substance<br>
         g := Basic.g5(p, T);
         pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT(g);
       end waterR5_pT;
-      annotation (Documentation(info="<html><h4>Package description</h4>
-          <p>Package ByRegion provides fast forward calls for dynamic property calculation records for all
-          one phase regions of IAPWS/IF97
-          </p>
-          <h4>Package contents</h4>
-          <ul>
-          <li>Function <strong>waterR1_pT</strong> computes dynamic properties for region 1 using  (p,T) as inputs</li>
-          <li>Function <strong>waterR2_pT</strong> computes dynamic properties for region 2 using  (p,T) as inputs</li>
-          <li>Function <strong>waterR3_dT</strong> computes dynamic properties for region 3 using  (d,T) as inputs</li>
-          <li>Function <strong>waterR5_pT</strong> computes dynamic properties for region 5 using  (p,T) as inputs</li>
-          </ul>
-          <h4>Version Info and Revision history
-          </h4>
-          <ul>
-          <li>First implemented: <em>July, 2000</em>
-          by Hubertus Tummescheit
-          </li>
-          </ul>
-          <address>Author: Hubertus Tummescheit,<br>
-      Modelon AB<br>
-      Ideon Science Park<br>
-      SE-22370 Lund, Sweden<br>
-      email: hubertus@modelon.se
-          </address>
-          <ul>
-          <li>Initial version: July 2000</li>
-          <li>Documented and re-organized: January 2003</li>
-          </ul>
-          </html>"));
+      annotation (Documentation(info="<html>
+<h4>Package description</h4>
+<p>
+Package ByRegion provides fast forward calls for dynamic property calculation records for all
+one phase regions of IAPWS/IF97
+</p>
+
+<h4>Package contents</h4>
+<ul>
+  <li>
+    Function <strong>waterR1_pT</strong> computes dynamic properties for region 1 using  (p,T) as inputs
+  </li>
+  <li>
+    Function <strong>waterR2_pT</strong> computes dynamic properties for region 2 using  (p,T) as inputs
+  </li>
+  <li>
+    Function <strong>waterR3_dT</strong> computes dynamic properties for region 3 using  (d,T) as inputs
+  </li>
+  <li>
+    Function <strong>waterR5_pT</strong> computes dynamic properties for region 5 using  (p,T) as inputs
+  </li>
+</ul>
+
+<h4>Version Info and Revision history</h4>
+<ul>
+  <li>
+    First implemented: <em>July, 2000</em>
+    by Hubertus Tummescheit
+  </li>
+</ul>
+<address>
+Author: Hubertus Tummescheit,<br>
+Modelon AB<br>
+Ideon Science Park<br>
+SE-22370 Lund, Sweden<br>
+email: hubertus@modelon.se
+</address>
+<ul>
+  <li>Initial version: July 2000</li>
+  <li>Documented and re-organized: January 2003</li>
+</ul>
+</html>"));
     end ByRegion;
 
     package TwoPhase
@@ -5791,36 +6016,52 @@ Ordinary Water Substance<br>
         pro.R_s := data.RH2O;
         pro.dudT := (pro.p - T*dpT)/(d*d);
       end waterR4_dT;
-      annotation (Documentation(info="<html><h4>Package description</h4>
-          <p>Package TwoPhase provides functions to compute the steam properties
-          in the two-phase region and on the phase boundaries</p>
-          <h4>Package contents</h4>
-          <ul>
-          <li>Function <strong>WaterLiq_p</strong> computes properties on the boiling boundary as a function of p</li>
-          <li>Function <strong>WaterVap_p</strong> computes properties on the dew line boundary as a function of p</li>
-          <li>Function <strong>WaterSat_ph</strong> computes properties on both phase boundaries and in the two
-          phase region as a function of p</li>
-          <li>Function <strong>WaterR4_ph</strong> computes dynamic simulation properties in region 4 with (p,h) as inputs</li>
-          <li>Function <strong>WaterR4_dT</strong> computes dynamic simulation properties in region 4 with (d,T) as inputs</li>
-          </ul>
-          <h4>Version Info and Revision history
-          </h4>
-          <ul>
-          <li>First implemented: <em>July, 2000</em>
-          by Hubertus Tummescheit
-          </li>
-          </ul>
-          <address>Author: Hubertus Tummescheit,<br>
-      Modelon AB<br>
-      Ideon Science Park<br>
-      SE-22370 Lund, Sweden<br>
-      email: hubertus@modelon.se
-          </address>
-          <ul>
-          <li>Initial version: July 2000</li>
-          <li>Documented and re-organized: January 2003</li>
-          </ul>
-          </html>"));
+      annotation (Documentation(info="<html>
+<h4>Package description</h4>
+<p>
+Package TwoPhase provides functions to compute the steam properties
+in the two-phase region and on the phase boundaries.
+</p>
+
+<h4>Package contents</h4>
+<ul>
+  <li>
+    Function <strong>WaterLiq_p</strong> computes properties on the boiling boundary as a function of p
+  </li>
+  <li>
+    Function <strong>WaterVap_p</strong> computes properties on the dew line boundary as a function of p
+  </li>
+  <li>
+    Function <strong>WaterSat_ph</strong> computes properties on both phase boundaries and in the two
+    phase region as a function of p
+  </li>
+  <li>
+    Function <strong>WaterR4_ph</strong> computes dynamic simulation properties in region 4 with (p,h) as inputs
+  </li>
+  <li>
+    Function <strong>WaterR4_dT</strong> computes dynamic simulation properties in region 4 with (d,T) as inputs
+  </li>
+</ul>
+
+<h4>Version Info and Revision history</h4>
+<ul>
+  <li>
+    First implemented: <em>July, 2000</em>
+    by Hubertus Tummescheit
+  </li>
+</ul>
+<address>
+Author: Hubertus Tummescheit,<br>
+Modelon AB<br>
+Ideon Science Park<br>
+SE-22370 Lund, Sweden<br>
+email: hubertus@modelon.se
+</address>
+<ul>
+  <li>Initial version: July 2000</li>
+  <li>Documented and re-organized: January 2003</li>
+</ul>
+</html>"));
     end TwoPhase;
 
     function extraDerivs_ph
@@ -5921,49 +6162,58 @@ Ordinary Water Substance<br>
 white-space:nowrap;
 }
 </style>
-    <h4>Version Info and Revision history</h4>
-        <ul>
-        <li>First implemented: <em>July, 2000</em>
-        by Hubertus Tummescheit
-        for the ThermoFluid Library with help from Jonas Eborn and Falko Jens Wagner
-        </li>
-      <li>Code reorganization, enhanced documentation, additional functions:   <em>December, 2002</em>
-      by <a href=\"mailto:Hubertus.Tummescheit@modelon.se\">Hubertus Tummescheit</a> and moved to Modelica
-      properties library.</li>
-        </ul>
-      <address>Author: Hubertus Tummescheit,<br>
-      Modelon AB<br>
-      Ideon Science Park<br>
-      SE-22370 Lund, Sweden<br>
-      email: hubertus@modelon.se
-      </address>
-        <p>In September 1997, the International Association for the Properties
-        of Water and Steam (<a href=\"http://www.iapws.org\">IAPWS</a>) adopted a
-        new formulation for the thermodynamic properties of water and steam for
-        industrial use. This new industrial standard is called \"IAPWS Industrial
-        Formulation for the Thermodynamic Properties of Water and Steam\" (IAPWS-IF97).
-        The formulation IAPWS-IF97 replaces the previous industrial standard IFC-67.</p>
-        <p>Based on this new formulation, a new steam table, titled \"<a href=\"https://doi.org/10.1007/978-3-662-03529-0\">Properties of Water and Steam</a>\" by W. Wagner and A. Kruse, was published by
-        the Springer-Verlag, Berlin - New-York - Tokyo in April 1998. This
-        steam table, ref. <a href=\"#steamprop\">[1]</a> is bilingual (English /
-        German) and contains a complete description of the equations of
-        IAPWS-IF97. This reference is the authoritative source of information
-        for this implementation. A mostly identical version has been published by the International
-        Association for the Properties
-        of Water and Steam (<a href=\"http://www.iapws.org\">IAPWS</a>) with permission granted to re-publish the
-        information if credit is given to IAPWS. This document is distributed with this library as
-        <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a>.
-        In addition, the equations published by <a href=\"http://www.iapws.org\">IAPWS</a> for
-        the transport properties dynamic viscosity (standards document: <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/visc.pdf\">visc.pdf</a>)
-        and thermal conductivity (standards document: <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/thcond.pdf\">thcond.pdf</a>)
-        and equations for the surface tension (standards document: <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/surf.pdf\">surf.pdf</a>)
-        are also implemented in this library and included for reference.</p>
-        <p>
-        The functions in BaseIF97.mo are low level functions which should
-        only be used in those exceptions when the standard user level
-        functions in Water.mo do not contain the wanted properties.
-     </p>
-<p>Based on IAPWS-IF97, Modelica functions are available for calculating
+<h4>Version Info and Revision history</h4>
+<ul>
+  <li>
+    First implemented: <em>July, 2000</em>
+    by Hubertus Tummescheit
+    for the ThermoFluid Library with help from Jonas Eborn and Falko Jens Wagner
+  </li>
+  <li>
+    Code reorganization, enhanced documentation, additional functions:   <em>December, 2002</em>
+    by <a href=\"mailto:Hubertus.Tummescheit@modelon.se\">Hubertus Tummescheit</a> and moved to Modelica
+    properties library.
+  </li>
+</ul>
+<address>
+Author: Hubertus Tummescheit,<br>
+Modelon AB<br>
+Ideon Science Park<br>
+SE-22370 Lund, Sweden<br>
+email: hubertus@modelon.se
+</address>
+<p>
+In September 1997, the International Association for the Properties
+of Water and Steam (<a href=\"http://www.iapws.org\">IAPWS</a>) adopted a
+new formulation for the thermodynamic properties of water and steam for
+industrial use. This new industrial standard is called \"IAPWS Industrial
+Formulation for the Thermodynamic Properties of Water and Steam\" (IAPWS-IF97).
+The formulation IAPWS-IF97 replaces the previous industrial standard IFC-67.
+</p>
+<p>
+Based on this new formulation, a new steam table, titled \"<a href=\"https://doi.org/10.1007/978-3-662-03529-0\">Properties of Water and Steam</a>\" by W. Wagner and A. Kruse, was published by
+the Springer-Verlag, Berlin - New-York - Tokyo in April 1998. This
+steam table, ref. <a href=\"#steamprop\">[1]</a> is bilingual (English /
+German) and contains a complete description of the equations of
+IAPWS-IF97. This reference is the authoritative source of information
+for this implementation. A mostly identical version has been published by the International
+Association for the Properties
+of Water and Steam (<a href=\"http://www.iapws.org\">IAPWS</a>) with permission granted to re-publish the
+information if credit is given to IAPWS. This document is distributed with this library as
+<a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a>.
+In addition, the equations published by <a href=\"http://www.iapws.org\">IAPWS</a> for
+the transport properties dynamic viscosity (standards document: <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/visc.pdf\">visc.pdf</a>)
+and thermal conductivity (standards document: <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/thcond.pdf\">thcond.pdf</a>)
+and equations for the surface tension (standards document: <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/surf.pdf\">surf.pdf</a>)
+are also implemented in this library and included for reference.
+</p>
+<p>
+The functions in BaseIF97.mo are low level functions which should
+only be used in those exceptions when the standard user level
+functions in Water.mo do not contain the wanted properties.
+</p>
+<p>
+Based on IAPWS-IF97, Modelica functions are available for calculating
 the most common thermophysical properties (thermodynamic and transport
 properties). The implementation requires part of the common medium
 property infrastructure of the Modelica.Thermal.Properties library in the file
@@ -5972,20 +6222,24 @@ documented in <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/
 dynamic simulations. Input variables for calculating the properties are
 only implemented for a limited number of variable pairs which make sense as dynamic states: (p,h), (p,T), (p,s) and (d,T).
 </p>
+
 <hr size=\"3\" width=\"70%\">
+
 <h4><a name=\"regions\">1. Structure and Regions of IAPWS-IF97</a></h4>
-<p>The IAPWS Industrial Formulation 1997 consists of
+<p>
+The IAPWS Industrial Formulation 1997 consists of
 a set of equations for different regions which cover the following range
-of validity:</p>
+of validity:
+</p>
 <table border=\"0\" cellpadding=\"4\">
-<tr>
-<td>273,15 K &lt; <em>T</em> &lt; 1073,15 K</td>
-<td><em>p</em> &lt; 100 MPa</td>
-</tr>
-<tr>
-<td>1073,15 K &lt; <em>T</em> &lt; 2273,15 K</td>
-<td><em>p</em> &lt; 10 MPa</td>
-</tr>
+  <tr>
+    <td>273,15 K &lt; <em>T</em> &lt; 1073,15 K</td>
+    <td><em>p</em> &lt; 100 MPa</td>
+  </tr>
+  <tr>
+    <td>1073,15 K &lt; <em>T</em> &lt; 2273,15 K</td>
+    <td><em>p</em> &lt; 10 MPa</td>
+  </tr>
 </table>
 <p>
 Figure 1 shows the 5 regions into which the entire range of validity of
@@ -6006,7 +6260,7 @@ equations</em>.
   <caption>Figure 1: Regions and equations of IAPWS-IF97</caption>
   <tr>
     <td>
-    <img src=\"modelica://Modelica/Resources/Images/Media/Water/if97.png\" alt=\"Regions and equations of IAPWS-IF97\">
+      <img src=\"modelica://Modelica/Resources/Images/Media/Water/if97.png\" alt=\"Regions and equations of IAPWS-IF97\">
     </td>
   </tr>
 </table>
@@ -6044,246 +6298,262 @@ I., &#352;ifner, O., Takaishi, Y., Tanishita, I., Tr&uuml;benbach, J., and Willk
 Th.</em> The IAPWS Industrial Formulation 1997 for the Thermodynamic Properties
 of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (2000), 150 - 182.
 </p>
+
 <hr size=\"3\" width=\"90%\">
-<h4>2. Calculable Properties      </h4>
+
+<h4>2. Calculable Properties</h4>
 <table border=\"1\" cellpadding=\"2\" cellspacing=\"0\">
-       <tbody>
-       <tr>
-       <td bgcolor=\"#cccccc\"><br>
-      </td>
-      <td bgcolor=\"#cccccc\"><strong>Common name</strong><br>
-       </td>
-       <td bgcolor=\"#cccccc\"><strong>Abbreviation</strong><br>
-       </td>
-       <td bgcolor=\"#cccccc\"><strong>Unit</strong><br>
-       </td>
-       </tr>
-       <tr>
-       <td>&nbsp;1<br>
-      </td>
-      <td>Pressure</td>
-       <td>p<br>
-        </td>
-       <td>Pa<br>
-       </td>
-       </tr>
-       <tr>
-       <td>&nbsp;2<br>
-      </td>
-      <td>Temperature</td>
-       <td>T<br>
-       </td>
-       <td>K<br>
-       </td>
-       </tr>
-       <tr>
-       <td>&nbsp;3<br>
-      </td>
-      <td>Density</td>
-        <td>d<br>
-        </td>
-       <td>kg/m<sup>3</sup><br>
-       </td>
-       </tr>
-       <tr>
-       <td>&nbsp;4<br>
-      </td>
-      <td>Specific volume</td>
-        <td>v<br>
-        </td>
-       <td>m<sup>3</sup>/kg<br>
-       </td>
-       </tr>
-       <tr>
-       <td>&nbsp;5<br>
-      </td>
-      <td>Specific enthalpy</td>
-       <td>h<br>
-       </td>
-       <td>J/kg<br>
-       </td>
-       </tr>
-       <tr>
-       <td>&nbsp;6<br>
-      </td>
-      <td>Specific entropy</td>
-       <td>s<br>
-       </td>
-       <td>J/(kg K)<br>
-       </td>
-       </tr>
-       <tr>
-       <td>&nbsp;7<br>
-      </td>
-      <td>Specific internal energy<br>
-       </td>
-       <td>u<br>
-       </td>
-       <td>J/kg<br>
-       </td>
-       </tr>
-       <tr>
-       <td>&nbsp;8<br>
-      </td>
-      <td>Specific isobaric heat capacity</td>
-       <td>c<sub>p</sub><br>
-       </td>
-       <td>J/(kg K)<br>
-       </td>
-       </tr>
-       <tr>
-       <td>&nbsp;9<br>
-      </td>
-      <td>Specific isochoric heat capacity</td>
-       <td>c<sub>v</sub><br>
-       </td>
-       <td>J/(kg K)<br>
-       </td>
-       </tr>
-       <tr>
-       <td>10<br>
-      </td>
-      <td>Isentropic exponent, kappa = -(v/p) (dp/dv)<sub>s</sub></td>
-     <td>kappa (&kappa;)<br>
-     </td>
-     <td>1<br>
-     </td>
-     </tr>
-     <tr>
-     <td>11<br>
-      </td>
-      <td>Speed of sound<br>
-     </td>
-     <td>a<br>
-     </td>
-     <td>m/s<br>
-     </td>
-     </tr>
-     <tr>
-     <td>12<br>
-      </td>
-      <td>Dryness fraction<br>
-     </td>
-     <td>x<br>
-     </td>
-     <td>kg/kg<br>
-     </td>
-     </tr>
-     <tr>
-     <td>13<br>
-      </td>
-      <td>Specific Helmholtz free energy, f = u - Ts</td>
-     <td>f<br>
-     </td>
-     <td>J/kg<br>
-     </td>
-     </tr>
-     <tr>
-     <td>14<br>
-      </td>
-      <td>Specific Gibbs free energy, g = h - Ts</td>
-     <td>g<br>
-     </td>
-     <td>J/kg<br>
-     </td>
-     </tr>
-     <tr>
-     <td>15<br>
-      </td>
-      <td>Isenthalpic exponent, theta = -(v/p) (dp/dv)<sub>h</sub></td>
-     <td>theta (&theta;)<br>
-     </td>
-     <td>1<br>
-     </td>
-     </tr>
-     <tr>
-     <td>16<br>
-      </td>
-      <td>Isobaric volume expansion coefficient, alpha = v<sup>-1</sup> (dv/dT)<sub>p</sub></td>
-     <td>alpha (&alpha;)<br>
-     </td>
-       <td>1/K<br>
-     </td>
-     </tr>
-     <tr>
-     <td>17<br>
-      </td>
-      <td>Isochoric pressure coefficient, beta = p<sup>-1</sup>(dp/dT)<sub>v</sub></td>
-     <td>beta (&beta;)<br>
-     </td>
-     <td>1/K<br>
-     </td>
-     </tr>
-     <tr>
-     <td>18<br>
-     </td>
-     <td>Isothermal compressibility, gamma = -v<sup>-1</sup>(dv/dp)<sub>T</sub></td>
-     <td>gamma (&gamma;)<br>
-     </td>
-     <td>1/Pa<br>
-     </td>
-     </tr>
-     <!-- <tr><td>f</td><td>Fugacity</td></tr> --> <tr>
-     <td>19<br>
-      </td>
-      <td>Dynamic viscosity</td>
-     <td>eta (&eta;)<br>
-     </td>
-     <td>Pa s<br>
-     </td>
-     </tr>
-     <tr>
-     <td>20<br>
-      </td>
-      <td>Kinematic viscosity</td>
-     <td>nu (&nu;)<br>
-     </td>
-     <td>m<sup>2</sup>/s<br>
-     </td>
-     </tr>
-     <!-- <tr><td>Pr</td><td>Prandtl number</td></tr> --> <tr>
-     <td>21<br>
-      </td>
-      <td>Thermal conductivity</td>
-     <td>lambda (&lambda;)<br>
-     </td>
-     <td>W/(m K)<br>
-     </td>
-     </tr>
-     <tr>
-     <td>22<br>
-      </td>
-      <td>Surface tension</td>
-     <td>sigma (&sigma;)<br>
-     </td>
-     <td>N/m<br>
-     </td>
-     </tr>
-  </tbody>
+  <tr>
+    <td bgcolor=\"#cccccc\"><br>
+    </td>
+    <td bgcolor=\"#cccccc\">
+      <strong>Common name</strong><br>
+    </td>
+    <td bgcolor=\"#cccccc\">
+      <strong>Abbreviation</strong><br>
+    </td>
+    <td bgcolor=\"#cccccc\">
+      <strong>Unit</strong><br>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;1<br>
+    </td>
+    <td>Pressure</td>
+    <td>p<br>
+    </td>
+    <td>Pa<br>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;2<br>
+    </td>
+    <td>Temperature</td>
+    <td>T<br>
+    </td>
+    <td>K<br>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;3<br>
+    </td>
+    <td>Density</td>
+    <td>d<br>
+    </td>
+    <td>kg/m<sup>3</sup><br>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;4<br>
+    </td>
+    <td>Specific volume</td>
+    <td>v<br>
+    </td>
+    <td>m<sup>3</sup>/kg<br>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;5<br>
+    </td>
+    <td>Specific enthalpy</td>
+    <td>h<br>
+    </td>
+    <td>J/kg<br>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;6<br>
+    </td>
+    <td>Specific entropy</td>
+    <td>s<br>
+    </td>
+    <td>J/(kg K)<br>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;7<br>
+    </td>
+    <td>Specific internal energy<br>
+    </td>
+    <td>u<br>
+    </td>
+    <td>J/kg<br>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;8<br>
+    </td>
+    <td>Specific isobaric heat capacity</td>
+    <td>c<sub>p</sub><br>
+    </td>
+    <td>J/(kg K)<br>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;9<br>
+    </td>
+    <td>Specific isochoric heat capacity</td>
+    <td>c<sub>v</sub><br>
+    </td>
+    <td>J/(kg K)<br>
+    </td>
+  </tr>
+  <tr>
+    <td>10<br>
+    </td>
+    <td>Isentropic exponent, kappa = -(v/p) (dp/dv)<sub>s</sub></td>
+    <td>kappa (&kappa;)<br>
+    </td>
+    <td>1<br>
+    </td>
+  </tr>
+  <tr>
+    <td>11<br>
+    </td>
+    <td>Speed of sound<br>
+    </td>
+    <td>a<br>
+    </td>
+    <td>m/s<br>
+    </td>
+  </tr>
+  <tr>
+    <td>12<br>
+    </td>
+    <td>Dryness fraction<br>
+    </td>
+    <td>x<br>
+    </td>
+    <td>kg/kg<br>
+    </td>
+  </tr>
+  <tr>
+    <td>13<br>
+    </td>
+    <td>Specific Helmholtz free energy, f = u - Ts</td>
+    <td>f<br>
+    </td>
+    <td>J/kg<br>
+    </td>
+  </tr>
+  <tr>
+    <td>14<br>
+    </td>
+    <td>Specific Gibbs free energy, g = h - Ts</td>
+    <td>g<br>
+    </td>
+    <td>J/kg<br>
+    </td>
+  </tr>
+  <tr>
+    <td>15<br>
+    </td>
+    <td>Isenthalpic exponent, theta = -(v/p) (dp/dv)<sub>h</sub></td>
+    <td>theta (&theta;)<br>
+    </td>
+    <td>1<br>
+    </td>
+  </tr>
+  <tr>
+    <td>16<br>
+    </td>
+    <td>Isobaric volume expansion coefficient, alpha = v<sup>-1</sup> (dv/dT)<sub>p</sub></td>
+    <td>alpha (&alpha;)<br>
+    </td>
+    <td>1/K<br>
+    </td>
+  </tr>
+  <tr>
+    <td>17<br>
+    </td>
+    <td>Isochoric pressure coefficient, beta = p<sup>-1</sup>(dp/dT)<sub>v</sub></td>
+    <td>beta (&beta;)<br>
+    </td>
+    <td>1/K<br>
+    </td>
+  </tr>
+  <tr>
+    <td>18<br>
+    </td>
+    <td>Isothermal compressibility, gamma = -v<sup>-1</sup>(dv/dp)<sub>T</sub></td>
+    <td>gamma (&gamma;)<br>
+    </td>
+    <td>1/Pa<br>
+    </td>
+  </tr>
+  <!-- <tr><td>f</td><td>Fugacity</td></tr> -->
+  <tr>
+    <td>19<br>
+    </td>
+    <td>Dynamic viscosity</td>
+    <td>eta (&eta;)<br>
+    </td>
+    <td>Pa s<br>
+    </td>
+  </tr>
+  <tr>
+    <td>20<br>
+    </td>
+    <td>Kinematic viscosity</td>
+    <td>nu (&nu;)<br>
+    </td>
+    <td>m<sup>2</sup>/s<br>
+    </td>
+  </tr>
+  <!-- <tr><td>Pr</td><td>Prandtl number</td></tr> -->
+  <tr>
+    <td>21<br>
+    </td>
+    <td>Thermal conductivity</td>
+    <td>lambda (&lambda;)<br>
+    </td>
+    <td>W/(m K)<br>
+    </td>
+  </tr>
+  <tr>
+    <td>22<br>
+    </td>
+    <td>Surface tension</td>
+    <td>sigma (&sigma;)<br>
+    </td>
+    <td>N/m<br>
+    </td>
+  </tr>
 </table>
-        <p>The properties 1-11 are calculated by default with the functions for dynamic
-        simulation, 2 of these variables are the dynamic states and are the inputs
-        to calculate all other properties. In addition to these properties
-        of general interest, the entries to the thermodynamic Jacobian matrix which render
-        the mass- and energy balances explicit in the input variables to the property calculation are also calculated.
-        For an explanatory example using pressure and specific enthalpy as states, see the Examples sub-package.</p>
-        <p>The high-level calls to steam properties are grouped into records comprising both the properties of general interest
-        and the entries to the thermodynamic Jacobian. If additional properties are
-        needed the low level functions in BaseIF97 provide more choice.</p>
-        <hr size=\"3\" width=\"90%\">
-        <h4>Additional functions</h4>
-        <ul>
-        <li>Function <strong>boundaryvals_p</strong> computes the temperature and the specific enthalpy and
-        entropy on both phase boundaries as a function of p</li>
-        <li>Function <strong>boundaryderivs_p</strong> is the Modelica derivative function of <strong>boundaryvals_p</strong></li>
-        <li>Function <strong>extraDerivs_ph</strong> computes all entries to Bridgmans tables for all
-        one-phase regions of IF97 using inputs (p,h). All 336 directional derivatives of the
-        thermodynamic surface can be computed as a ratio of two entries in the return data, see package Common
-        for details.</li>
-        <li>Function <strong>extraDerivs_pT</strong> computes all entries to Bridgmans tables for all
-        one-phase regions of IF97 using inputs (p,T).</li>
-        </ul>
-        </html>"));
+<p>
+The properties 1-11 are calculated by default with the functions for dynamic
+simulation, 2 of these variables are the dynamic states and are the inputs
+to calculate all other properties. In addition to these properties
+of general interest, the entries to the thermodynamic Jacobian matrix which render
+the mass- and energy balances explicit in the input variables to the property calculation are also calculated.
+For an explanatory example using pressure and specific enthalpy as states, see the Examples sub-package.</p>
+<p>The high-level calls to steam properties are grouped into records comprising both the properties of general interest
+and the entries to the thermodynamic Jacobian. If additional properties are
+needed the low level functions in BaseIF97 provide more choice.</p>
+
+<hr size=\"3\" width=\"90%\">
+
+<h4>Additional functions</h4>
+<ul>
+  <li>
+    Function <strong>boundaryvals_p</strong> computes the temperature and the specific enthalpy and
+    entropy on both phase boundaries as a function of p
+  </li>
+  <li>
+    Function <strong>boundaryderivs_p</strong> is the Modelica derivative function of <strong>boundaryvals_p</strong>
+  </li>
+  <li>
+    Function <strong>extraDerivs_ph</strong> computes all entries to Bridgmans tables for all
+    one-phase regions of IF97 using inputs (p,h). All 336 directional derivatives of the
+    thermodynamic surface can be computed as a ratio of two entries in the return data, see package Common
+    for details.
+  </li>
+  <li>
+    Function <strong>extraDerivs_pT</strong> computes all entries to Bridgmans tables for all
+    one-phase regions of IF97 using inputs (p,T).
+  </li>
+</ul>
+</html>"));
   end BaseIF97;
 
   replaceable record iter = BaseIF97.IterationData;
@@ -8324,91 +8594,148 @@ public
   end dynamicIsentropicEnthalpy;
 
   annotation (Documentation(info="<html>
-      <h4>Package description</h4>
-      <p>This package provides high accuracy physical properties for water according
-      to the IAPWS/IF97 standard. It has been part of the ThermoFluid Modelica library and been extended,
-      reorganized and documented to become part of the Modelica Standard library.</p>
-      <p>An important feature that distinguishes this implementation of the IF97 steam property standard
-      is that this implementation has been explicitly designed to work well in dynamic simulations. Computational
-      performance has been of high importance. This means that there often exist several ways to get the same result
-      from different functions if one of the functions is called often but can be optimized for that purpose.
-      </p>
-      <p>
-      The original documentation of the IAPWS/IF97 steam properties can freely be distributed with computer
-      implementations, so for curious minds the complete standard documentation is provided with the Modelica
-      properties library. The following documents are included
-      (in directory Modelica/Resources/Documentation/Media/Water/IF97documentation):
-      </p>
-      <ul>
-      <li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a> The standards document for the main part of the IF97.</li>
-      <li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/Back3.pdf\">Back3.pdf</a> The backwards equations for region 3.</li>
-      <li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/crits.pdf\">crits.pdf</a> The critical point data.</li>
-      <li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/meltsub.pdf\">meltsub.pdf</a> The melting- and sublimation line formulation (in IF97_Utilities.BaseIF97.IceBoundaries)</li>
-      <li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/surf.pdf\">surf.pdf</a> The surface tension standard definition</li>
-      <li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/thcond.pdf\">thcond.pdf</a> The thermal conductivity standard definition</li>
-      <li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/visc.pdf\">visc.pdf</a> The viscosity standard definition</li>
-      </ul>
-      <h4>Package contents
-      </h4>
-      <ul>
-      <li>Package <strong>BaseIF97</strong> contains the implementation of the IAPWS-IF97 as described in
-      <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a>. The explicit backwards equations for region 3 from
-      <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/Back3.pdf\">Back3.pdf</a> are implemented as initial values for an inverse iteration of the exact
-      function in IF97 for the input pairs (p,h) and (p,s).
-      The low-level functions in BaseIF97 are not needed for standard simulation usage,
-      but can be useful for experts and some special purposes.</li>
-      <li>Function <strong>water_ph</strong> returns all properties needed for a dynamic control volume model and properties of general
-      interest using pressure p and specific entropy enthalpy h as dynamic states in the record ThermoProperties_ph.</li>
-      <li>Function <strong>water_ps</strong> returns all properties needed for a dynamic control volume model and properties of general
-      interest using pressure p and specific entropy s as dynamic states in the record ThermoProperties_ps.</li>
-      <li>Function <strong>water_dT</strong> returns all properties needed for a dynamic control volume model and properties of general
-      interest using density d and temperature T as dynamic states in the record ThermoProperties_dT.</li>
-      <li>Function <strong>water_pT</strong> returns all properties needed for a dynamic control volume model and properties of general
-      interest using pressure p and temperature T as dynamic states in the record ThermoProperties_pT. Due to the coupling of
-      pressure and temperature in the two-phase region, this model can obviously
-      only be used for one-phase models or models treating both phases independently.</li>
-      <li>Function <strong>hl_p</strong> computes the liquid specific enthalpy as a function of pressure. For overcritical pressures,
-      the critical specific enthalpy is returned</li>
-      <li>Function <strong>hv_p</strong> computes the vapour specific enthalpy as a function of pressure. For overcritical pressures,
-      the critical specific enthalpy is returned</li>
-      <li>Function <strong>sl_p</strong> computes the liquid specific entropy as a function of pressure. For overcritical pressures,
-      the critical  specific entropy is returned</li>
-      <li>Function <strong>sv_p</strong> computes the vapour  specific entropy as a function of pressure. For overcritical pressures,
-      the critical  specific entropy is returned</li>
-      <li>Function <strong>rhol_T</strong> computes the liquid density as a function of temperature. For overcritical temperatures,
-      the critical density is returned</li>
-      <li>Function <strong>rhol_T</strong> computes the vapour density as a function of temperature. For overcritical temperatures,
-      the critical density is returned</li>
-      <li>Function <strong>dynamicViscosity</strong> computes the dynamic viscosity as a function of density and temperature.</li>
-      <li>Function <strong>thermalConductivity</strong> computes the thermal conductivity as a function of density, temperature and pressure.
-      <strong>Important note</strong>: Obviously only two of the three
-      inputs are really needed, but using three inputs speeds up the computation and the three variables
-      are known in most models anyways. The inputs d,T and p have to be consistent.</li>
-      <li>Function <strong>surfaceTension</strong> computes the surface tension between vapour
-          and liquid water as a function of temperature.</li>
-      <li>Function <strong>isentropicEnthalpy</strong> computes the specific enthalpy h(p,s,phase) in all regions.
-          The phase input is needed due to discontinuous derivatives at the phase boundary.</li>
-      <li>Function <strong>dynamicIsentropicEnthalpy</strong> computes the specific enthalpy h(p,s,,dguess,Tguess,phase) in all regions.
-          The phase input is needed due to discontinuous derivatives at the phase boundary. Tguess and dguess are initial guess
-          values for the density and temperature consistent with p and s. This function should be preferred in
-          dynamic simulations where good guesses are often available.</li>
-      </ul>
-      <h4>Version Info and Revision history
-      </h4>
-      <ul>
-      <li>First implemented: <em>July, 2000</em>
-      by Hubertus Tummescheit for the ThermoFluid Library with help from Jonas Eborn and Falko Jens Wagner
-      </li>
-      <li>Code reorganization, enhanced documentation, additional functions:   <em>December, 2002</em>
-      by <a href=\"mailto:Hubertus.Tummescheit@modelon.se\">Hubertus Tummescheit</a> and moved to Modelica
-      properties library.</li>
-      </ul>
-      <address>Author: Hubertus Tummescheit,<br>
-      Modelon AB<br>
-      Ideon Science Park<br>
-      SE-22370 Lund, Sweden<br>
-      email: hubertus@modelon.se
-      </address>
-      </html>", revisions="<html><h4>Intermediate release notes during development</h4>
-<p>Currently the Events/noEvents switch is only implemented for p-h states. Only after testing that implementation, it will be extended to dT.</p></html>"));
+<h4>Package description</h4>
+<p>
+This package provides high accuracy physical properties for water according
+to the IAPWS/IF97 standard. It has been part of the ThermoFluid Modelica library and been extended,
+reorganized and documented to become part of the Modelica Standard library.
+</p>
+<p>
+An important feature that distinguishes this implementation of the IF97 steam property standard
+is that this implementation has been explicitly designed to work well in dynamic simulations. Computational
+performance has been of high importance. This means that there often exist several ways to get the same result
+from different functions if one of the functions is called often but can be optimized for that purpose.
+</p>
+<p>
+The original documentation of the IAPWS/IF97 steam properties can freely be distributed with computer
+implementations, so for curious minds the complete standard documentation is provided with the Modelica
+properties library. The following documents are included
+(in directory Modelica/Resources/Documentation/Media/Water/IF97documentation):
+</p>
+<ul>
+  <li>
+    <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a> The standards document for the main part of the IF97.
+  </li>
+  <li>
+    <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/Back3.pdf\">Back3.pdf</a> The backwards equations for region 3.
+  </li>
+  <li>
+    <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/crits.pdf\">crits.pdf</a> The critical point data.
+  </li>
+  <li>
+    <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/meltsub.pdf\">meltsub.pdf</a> The melting- and sublimation line formulation (in IF97_Utilities.BaseIF97.IceBoundaries)
+  </li>
+  <li>
+    <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/surf.pdf\">surf.pdf</a> The surface tension standard definition
+  </li>
+  <li>
+    <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/thcond.pdf\">thcond.pdf</a> The thermal conductivity standard definition
+  </li>
+  <li>
+    <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/visc.pdf\">visc.pdf</a> The viscosity standard definition
+  </li>
+</ul>
+
+<h4>Package contents</h4>
+<ul>
+  <li>
+    Package <strong>BaseIF97</strong> contains the implementation of the IAPWS-IF97 as described in
+    <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a>. The explicit backwards equations for region 3 from
+    <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/Back3.pdf\">Back3.pdf</a> are implemented as initial values for an inverse iteration of the exact
+    function in IF97 for the input pairs (p,h) and (p,s).
+    The low-level functions in BaseIF97 are not needed for standard simulation usage,
+    but can be useful for experts and some special purposes.
+  </li>
+  <li>
+    Function <strong>water_ph</strong> returns all properties needed for a dynamic control volume model and properties of general
+    interest using pressure p and specific entropy enthalpy h as dynamic states in the record ThermoProperties_ph.
+  </li>
+  <li>
+    Function <strong>water_ps</strong> returns all properties needed for a dynamic control volume model and properties of general
+    interest using pressure p and specific entropy s as dynamic states in the record ThermoProperties_ps.
+  </li>
+  <li>
+    Function <strong>water_dT</strong> returns all properties needed for a dynamic control volume model and properties of general
+    interest using density d and temperature T as dynamic states in the record ThermoProperties_dT.
+  </li>
+  <li>
+    Function <strong>water_pT</strong> returns all properties needed for a dynamic control volume model and properties of general
+    interest using pressure p and temperature T as dynamic states in the record ThermoProperties_pT. Due to the coupling of
+    pressure and temperature in the two-phase region, this model can obviously
+    only be used for one-phase models or models treating both phases independently.
+  </li>
+  <li>
+    Function <strong>hl_p</strong> computes the liquid specific enthalpy as a function of pressure. For overcritical pressures,
+    the critical specific enthalpy is returned
+  </li>
+  <li>
+    Function <strong>hv_p</strong> computes the vapour specific enthalpy as a function of pressure. For overcritical pressures,
+    the critical specific enthalpy is returned
+  </li>
+  <li>
+    Function <strong>sl_p</strong> computes the liquid specific entropy as a function of pressure. For overcritical pressures,
+    the critical  specific entropy is returned
+  </li>
+  <li>
+    Function <strong>sv_p</strong> computes the vapour  specific entropy as a function of pressure. For overcritical pressures,
+    the critical  specific entropy is returned
+  </li>
+  <li>
+    Function <strong>rhol_T</strong> computes the liquid density as a function of temperature. For overcritical temperatures,
+    the critical density is returned
+  </li>
+  <li>
+    Function <strong>rhol_T</strong> computes the vapour density as a function of temperature. For overcritical temperatures,
+    the critical density is returned
+  </li>
+  <li>
+    Function <strong>dynamicViscosity</strong> computes the dynamic viscosity as a function of density and temperature.
+  </li>
+  <li>
+    Function <strong>thermalConductivity</strong> computes the thermal conductivity as a function of density, temperature and pressure.
+    <strong>Important note</strong>: Obviously only two of the three
+    inputs are really needed, but using three inputs speeds up the computation and the three variables
+    are known in most models anyways. The inputs d,T and p have to be consistent.
+  </li>
+  <li>
+    Function <strong>surfaceTension</strong> computes the surface tension between vapour
+    and liquid water as a function of temperature.
+  </li>
+  <li>
+    Function <strong>isentropicEnthalpy</strong> computes the specific enthalpy h(p,s,phase) in all regions.
+    The phase input is needed due to discontinuous derivatives at the phase boundary.
+  </li>
+  <li>
+    Function <strong>dynamicIsentropicEnthalpy</strong> computes the specific enthalpy h(p,s,,dguess,Tguess,phase) in all regions.
+    The phase input is needed due to discontinuous derivatives at the phase boundary. Tguess and dguess are initial guess
+    values for the density and temperature consistent with p and s. This function should be preferred in
+    dynamic simulations where good guesses are often available.
+  </li>
+</ul>
+
+<h4>Version Info and Revision history</h4>
+<ul>
+  <li>
+    First implemented: <em>July, 2000</em>
+    by Hubertus Tummescheit for the ThermoFluid Library with help from Jonas Eborn and Falko Jens Wagner
+  </li>
+  <li>
+    Code reorganization, enhanced documentation, additional functions:   <em>December, 2002</em>
+    by <a href=\"mailto:Hubertus.Tummescheit@modelon.se\">Hubertus Tummescheit</a> and moved to Modelica
+    properties library.
+  </li>
+</ul>
+<address>
+Author: Hubertus Tummescheit,<br>
+Modelon AB<br>
+Ideon Science Park<br>
+SE-22370 Lund, Sweden<br>
+email: hubertus@modelon.se
+</address>
+</html>", revisions="<html>
+<h4>Intermediate release notes during development</h4>
+<p>
+Currently the Events/noEvents switch is only implemented for p-h states. Only after testing that implementation, it will be extended to dT.
+</p>
+</html>"));
 end IF97_Utilities;

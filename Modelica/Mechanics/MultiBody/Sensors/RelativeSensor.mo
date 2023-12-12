@@ -85,13 +85,13 @@ model RelativeSensor
         extent={{10,-10},{-10,10}},
         rotation=90)));
   Blocks.Interfaces.RealOutput w_rel[3](each final quantity="AngularVelocity",
-      each final unit="1/s") if get_w_rel "Relative angular velocity vector"
+      each final unit="rad/s") if get_w_rel "Relative angular velocity vector"
     annotation (Placement(transformation(
         origin={60,-110},
         extent={{10,-10},{-10,10}},
         rotation=90)));
   Blocks.Interfaces.RealOutput z_rel[3](each final quantity="AngularAcceleration",
-      each final unit="1/s2") if get_z_rel
+      each final unit="rad/s2") if get_z_rel
     "Relative angular acceleration vector"
     annotation (Placement(transformation(
         origin={100,-110},
@@ -99,8 +99,8 @@ model RelativeSensor
         rotation=90)));
 
 protected
-  RelativePosition relativePosition(resolveInFrame=resolveInFrame) if
-                                                get_r_rel or get_v_rel or get_a_rel
+  RelativePosition relativePosition(resolveInFrame=resolveInFrame)
+    if get_r_rel or get_v_rel or get_a_rel
     annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
 
 protected

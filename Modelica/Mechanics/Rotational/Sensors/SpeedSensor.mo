@@ -1,6 +1,6 @@
 within Modelica.Mechanics.Rotational.Sensors;
 model SpeedSensor
-  "Ideal sensor to measure the absolute flange angular velocity"
+  "Ideal sensor to measure the absolute angular velocity of flange"
 
   extends Rotational.Interfaces.PartialAbsoluteSensor;
   Modelica.Blocks.Interfaces.RealOutput w(unit="rad/s")
@@ -12,9 +12,11 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Measures the <strong>absolute angular velocity w</strong> of a flange in an ideal
-way and provides the result as output signal <strong>w</strong>
-(to be further processed with blocks of the Modelica.Blocks library).
+Measures the <em>absolute angular velocity</em>
+of a&nbsp;flange in an ideal way and provides the result as
+output signal&nbsp;<code>w</code>
+(to be further processed with blocks of the
+<a href=\"modelica://Modelica.Blocks\">Modelica.Blocks</a> library).
 </p>
 </html>"),
        Icon(coordinateSystem(

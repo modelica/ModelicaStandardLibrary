@@ -4,6 +4,7 @@ model OneAxis
 
   extends Modelica.Icons.Example;
   parameter SI.Mass mLoad(min=0)=15 "Mass of load";
+  parameter SI.Radius rg = 1.14 "Radius of gyration of load";
   parameter Real kp=5 "Gain of position controller of axis";
   parameter Real ks=0.5 "Gain of speed controller of axis";
   parameter SI.Time Ts=0.05
@@ -27,7 +28,7 @@ model OneAxis
     kp=kp,
     ks=ks,
     Ts=Ts) annotation (Placement(transformation(extent={{20,0},{40,20}})));
-  Modelica.Mechanics.Rotational.Components.Inertia load(J=1.3*mLoad)
+  Modelica.Mechanics.Rotational.Components.Inertia load(J=rg^2*mLoad)
     annotation (Placement(transformation(extent={{60,0},{80,20}})));
   Utilities.PathPlanning1 pathPlanning(
     swingTime=swingTime,

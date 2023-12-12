@@ -15,7 +15,7 @@ model Cuboid
 
 equation
   A = a*b;
-  G_m = (mu_0*mu_r*A)/l;
+  G_m = mu_0*mu_r*A/l;
 
   annotation (Documentation(info="<html>
 <p>

@@ -1,8 +1,8 @@
 within Modelica.Mechanics.Translational.Sensors;
-model RelPositionSensor "Ideal sensor to measure the relative position"
+model RelPositionSensor "Ideal sensor to measure the relative position between two flanges"
   extends Translational.Interfaces.PartialRelativeSensor;
   Modelica.Blocks.Interfaces.RealOutput s_rel(unit="m")
-    "Distance between two flanges (= flange_b.s - flange_a.s) as output signal"
+    "Relative distance between two flanges (= flange_b.s - flange_a.s) as output signal"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -14,11 +14,11 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Measures the <em>relative position s</em> of a flange in an ideal way and provides the result as
-output signals (to be further processed with blocks of the
-Modelica.Blocks library).
+Measures the <em>relative position</em> between two flanges
+in an ideal way and provides the result as output signal <code>s_rel</code>
+(to be further processed with blocks of the
+<a href=\"modelica://Modelica.Blocks\">Modelica.Blocks</a> library).
 </p>
-
 </html>"),
        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
             {100,100}}), graphics={

@@ -1,6 +1,6 @@
 within Modelica.Mechanics.Rotational.Sensors;
 model AccSensor
-  "Ideal sensor to measure the absolute flange angular acceleration"
+  "Ideal sensor to measure the absolute angular acceleration of flange"
 
   extends Rotational.Interfaces.PartialAbsoluteSensor;
   SI.AngularVelocity w "Absolute angular velocity of flange";
@@ -14,9 +14,11 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Measures the <strong>absolute angular acceleration a</strong> of a flange in an ideal
-way and provides the result as output signal <strong>a</strong> (to be further processed with
-blocks of the Modelica.Blocks library).
+Measures the <em>absolute angular acceleration</em>
+of a&nbsp;flange in an ideal way and provides the result as
+output signal&nbsp;<code>a</code>
+(to be further processed with blocks of the
+<a href=\"modelica://Modelica.Blocks\">Modelica.Blocks</a> library).
 </p>
 </html>"),
        Icon(coordinateSystem(

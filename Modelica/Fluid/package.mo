@@ -1048,7 +1048,7 @@ all named Medium).
 <p>
 Once a system model has been built, it is possible to obtain different approximations by
 appropriately setting the defaults in the System component (and/or the settings of specific
-components.
+components).
 </p>
 <p>
 The Assumptions | allowFlowReversal parameter determines whether reversing flow conditions
@@ -1682,9 +1682,9 @@ and many have contributed.
 </ul>
 
 <p>
-  Partial financial support of ABB and DLR by BMBF (BMBF F&ouml;rderkennzeichen: 01IS07022F) for the further development
-     of this library within the <a href=\"http://www.itea2.org\">ITEA</a> project EUROSYSLIB
-     is highly appreciated.</p>
+Partial financial support of ABB and DLR by BMBF (BMBF F&ouml;rderkennzeichen: 01IS07022F) for the further development
+of this library within the ITEA <a href=\"https://itea4.org/project/eurosyslib.html\">EUROSYSLIB</a> research project
+is highly appreciated.</p>
 
 </html>"));
 end Contact;

@@ -15,7 +15,7 @@ model MultiSensor
         rotation=90,
         origin={0,-110})));
   Modelica.Blocks.Interfaces.RealOutput v(unit="m/s")
-    "Absolute velocity of flange as output signal as output signal"
+    "Absolute velocity of flange as output signal"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,
@@ -29,8 +29,11 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Measures the <strong>absolute velocity</strong> of a flange_a, the <strong>cut-force</strong> and <strong>power</strong> between two flanges in an
-ideal way and provides the results as output signals <strong>v</strong>, <strong>f</strong> and <strong>power</strong>, respectively.</p>
+Measures the <em>absolute velocity</em> of the <code>flange_a</code> and
+the <em>cut-force</em> and <em>power</em> between two flanges
+in an ideal way and provides the results as output signals&nbsp;<code>v</code>,
+<code>f</code> and <code>power</code>, respectively.
+</p>
 </html>"),
        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
             {100,100}}), graphics={    Line(points={{-60,

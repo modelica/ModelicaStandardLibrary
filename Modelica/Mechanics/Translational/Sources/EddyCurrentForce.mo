@@ -1,24 +1,32 @@
 within Modelica.Mechanics.Translational.Sources;
 model EddyCurrentForce "Simple model of a translational eddy current brake"
   import Modelica.Electrical.Machines.Thermal.linearTemperatureDependency;
-  parameter SI.Force f_nominal
-    "Maximum force (always braking)";
+  parameter Boolean useExcitationInput=false "Enable signal input for excitation";
+  parameter Real constantExcitation=1 "Excitation=1 to reach maximum force"
+    annotation(Dialog(enable=not useExcitationInput));
+  parameter SI.Force f_nominal "Constant maximum force (always braking)";
   parameter SI.Velocity v_nominal(min=Modelica.Constants.eps)
     "Nominal speed (leads to maximum force) at reference temperature";
   parameter SI.Temperature TRef(start=293.15)
     "Reference temperature";
-  parameter
-    Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+  parameter Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
     alpha20(start=0) "Temperature coefficient of material";
   extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
   extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort;
-  SI.Velocity v
-    "Velocity of flange with respect to support (= der(s))";
+  SI.Velocity v "Velocity of flange with respect to support (= der(s))";
   Real v_normalized "Relative speed v/v_nominal";
+  Blocks.Interfaces.RealInput excitation = excitationInternal if useExcitationInput
+    "Excitation"
+    annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+protected
+  Real excitationInternal "Excitation";
 equation
+  if not useExcitationInput then
+    excitationInternal = constantExcitation;
+  end if;
   v = der(s);
   v_normalized = v/(v_nominal*linearTemperatureDependency(1, TRef, alpha20, TheatPort));
-  f = 2*f_nominal*v_normalized/(1 + v_normalized*v_normalized);
+  f = 2*f_nominal*excitationInternal^2*v_normalized/(1 + v_normalized*v_normalized);
   lossPower = f*v;
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -29,6 +37,8 @@ equation
         Line(points={{0,0},{-4,-25},{-8,-41},{-12,-48},{-16,-50},{-20,-49},{-24,-46},{-28,-42},{-32,-38},{-36,-34},{-46,-25},{-56,-18},{-66,-12},{-76,-8}}, color={0,0,127}, smooth=Smooth.Bezier)}),
     Documentation(info="<html>
 <p>This is a simple model of a translational <strong>eddy current brake</strong>. The force versus speed characteristic is defined by Kloss' equation.</p>
+<p>The influence of excitation is either constant (<code>useExcitationInput=false</code>) or given by the optional input <code>excitation</code> (<code>useExcitationInput=true</code>). 
+Note that maximum force depends on square of excitation (magnetic field).</p>
 <p><strong>Thermal behaviour:</strong><br>
 The resistance of the braking fin is influenced by the actual temperature Theatport, which in turn shifts the speed v_nominal at which the (unchanged) maximum torque occurs.<br>
 If the heatPort is not used (useHeatPort = false), the operational temperature remains at the given temperature T.<br>

@@ -18,7 +18,7 @@ partial block PartialLogicalClock
      infinite many ticks for an infinitesimal short time period."
     annotation (Placement(transformation(extent = {{20,-10},{40,10}})));
 
-  EventClock clock
+  EventClock clock(useSolver=useSolver, solverMethod=solverMethod)
     annotation (Placement(transformation(extent = {{60,-10},{80,10}})));
 
   // Array of input trackers:
@@ -114,8 +114,6 @@ equation
       Text(
         extent={{-90,100},{-20,90}},
         textColor={238,46,47},
-        pattern=LinePattern.Dash,
-        lineThickness=1,
         textStyle={TextStyle.Bold},
           textString="array of input trackers"),
       Rectangle(
@@ -126,8 +124,6 @@ equation
       Text(
         extent = {{14,-26},{50,-40}},
         textColor = {28,108,200},
-        pattern = LinePattern.Dash,
-        lineThickness = 1,
         textString = "resetter",
         textStyle = {TextStyle.Bold})}));
 end PartialLogicalClock;

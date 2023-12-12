@@ -1,8 +1,8 @@
 within Modelica.Mechanics.Translational.Sensors;
-model RelAccSensor "Ideal sensor to measure the relative acceleration"
+model RelAccSensor "Ideal sensor to measure the relative acceleration between two flanges"
   extends Translational.Interfaces.PartialRelativeSensor;
-  SI.Position s_rel "Distance between the two flanges (flange_b.s - flange_a.s)";
-  SI.Velocity v_rel "Relative velocity between the two flanges (der(flange_b.s) - der(flange_a.s))";
+  SI.Position s_rel "Relative distance between two flanges (flange_b.s - flange_a.s)";
+  SI.Velocity v_rel "Relative velocity between two flanges (der(flange_b.s) - der(flange_a.s))";
   Modelica.Blocks.Interfaces.RealOutput a_rel(unit="m/s2")
     "Relative acceleration between two flanges (= der(v_rel)) as output signal"
     annotation (Placement(transformation(
@@ -18,11 +18,11 @@ equation
   annotation (
     Documentation(info="<html>
 <p>
-Measures the <em>relative acceleration a</em> of a flange in an ideal way and provides the result as
-output signals (to be further processed with blocks of the
-Modelica.Blocks library).
+Measures the <em>relative acceleration</em> between two flanges
+in an ideal way and provides the result as output signal <code>a_rel</code>
+(to be further processed with blocks of the
+<a href=\"modelica://Modelica.Blocks\">Modelica.Blocks</a> library).
 </p>
-
 </html>"),
        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
             {100,100}}), graphics={

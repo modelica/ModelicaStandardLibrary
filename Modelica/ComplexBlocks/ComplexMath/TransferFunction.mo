@@ -3,9 +3,9 @@ block TransferFunction "Complex Transfer Function"
   extends Modelica.ComplexBlocks.Interfaces.ComplexSISO;
   import Modelica.ComplexMath.j;
   parameter Real b[:]={1}
-    "Numerator coefficients of transfer function (e.g., 2*s+3 is specified as {2,3})";
+    "Numerator coefficients of transfer function (e.g., 2*(jw)+3 is specified as {2,3})";
   parameter Real a[:]={1}
-    "Denominator coefficients of transfer function (e.g., 5*s+6 is specified as {5,6})";
+    "Denominator coefficients of transfer function (e.g., 5*(jw)+6 is specified as {5,6})";
   Modelica.Blocks.Interfaces.RealInput w(unit="rad/s") "Angular frequency input" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=90,
@@ -19,15 +19,15 @@ protected
     input Integer k;
     output Complex x;
   protected
-     Integer m=mod(k,4);
+    Integer m=mod(k,4);
   algorithm
    x:=if m==0 then Complex(1) elseif m==1 then j elseif m==2 then Complex(-1) else -j;
    annotation(Inline=true);
   end powerOfJ;
 equation
   // Avoid computing power of Complex numbers - since it fails for w==0
-  bw = {b[i]*(w)^(i-1)*powerOfJ(i-1) for i in 1:size(b,1)};
-  aw = {a[i]*(w)^(i-1)*powerOfJ(i-1) for i in 1:size(a,1)};
+  bw = {b[i]*(w)^(size(b,1)-i)*powerOfJ(size(b,1)-i) for i in 1:size(b,1)};
+  aw = {a[i]*(w)^(size(a,1)-i)*powerOfJ(size(a,1)-i) for i in 1:size(a,1)};
   bSum = Complex(sum(bw.re), sum(bw.im));
   aSum = Complex(sum(aw.re), sum(aw.im));
   y = u*bSum/aSum;
@@ -50,5 +50,9 @@ The complex input u is multiplied by the complex transfer function (depending on
 y(jw) = ------------------------------------------------- * u(jw)
         a[1]*(jw)^[na-1] + a[2]*(jw)^[na-2] + ... + a[na]
 </pre></blockquote>
+</html>", revisions="<html>
+<ul>
+<li>2021: <em>Important bug fix</em> of the order of coefficients which has been interpreted wrongly, see <a href=\"https://github.com/modelica/ModelicaStandardLibrary/issues/3651\">#3651</a></li>
+</ul>
 </html>"));
 end TransferFunction;
