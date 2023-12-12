@@ -126,23 +126,20 @@ or other flow models without storage, are directly connected.
     if n == 1 or useLumpedPressure then
       Wb_flows = dxs * ((vs*dxs)*(crossAreas*dxs)*((port_b.p - port_a.p) + sum(flowModel.dps_fg) - system.g*(dheights*mediums.d)))*nParallel;
     else
-      if modelStructure == ModelStructure.av_vb or modelStructure == ModelStructure.av_b then
-        Wb_flows[2:n-1] = {vs[i]*crossAreas[i]*((mediums[i+1].p - mediums[i-1].p)/2 + (flowModel.dps_fg[i-1]+flowModel.dps_fg[i])/2 - system.g*dheights[i]*mediums[i].d) for i in 2:n-1}*nParallel;
-      else
-        Wb_flows[2:n-1] = {vs[i]*crossAreas[i]*((mediums[i+1].p - mediums[i-1].p)/2 + (flowModel.dps_fg[i]+flowModel.dps_fg[i+1])/2 - system.g*dheights[i]*mediums[i].d) for i in 2:n-1}*nParallel;
-      end if;
       if modelStructure == ModelStructure.av_vb then
-        Wb_flows[1] = vs[1]*crossAreas[1]*((mediums[2].p - mediums[1].p)/2 + flowModel.dps_fg[1]/2 - system.g*dheights[1]*mediums[1].d)*nParallel;
-        Wb_flows[n] = vs[n]*crossAreas[n]*((mediums[n].p - mediums[n-1].p)/2 + flowModel.dps_fg[n-1]/2 - system.g*dheights[n]*mediums[n].d)*nParallel;
+        Wb_flows[1] = vs[1]*crossAreas[1]*((mediums[2].p - mediums[1].p)/(if n==2 then 2 else 1.5) + flowModel.dps_fg[1]/(if n==2 then 2 else 1.5) - system.g*dheights[1]*mediums[1].d)*nParallel;
+        Wb_flows[2:n-1] = {vs[i]*crossAreas[i]*((mediums[i].p - mediums[i-1].p)/(if i==2 then 3 else 2) + (mediums[i+1].p - mediums[i].p)/(if i==n-1 then 3 else 2) + flowModel.dps_fg[i-1]/(if i==2 then 3 else 2) + flowModel.dps_fg[i]/(if i==n-1 then 3 else 2) - system.g*dheights[i]*mediums[i].d) for i in 2:n-1}*nParallel;
+        Wb_flows[n] = vs[n]*crossAreas[n]*((mediums[n].p - mediums[n-1].p)/(if n==2 then 2 else 1.5) + flowModel.dps_fg[n-1]/(if n==2 then 2 else 1.5) - system.g*dheights[n]*mediums[n].d)*nParallel;
       elseif modelStructure == ModelStructure.av_b then
-        Wb_flows[1] = vs[1]*crossAreas[1]*((mediums[2].p - mediums[1].p)/2 + flowModel.dps_fg[1]/2 - system.g*dheights[1]*mediums[1].d)*nParallel;
-        Wb_flows[n] = vs[n]*crossAreas[n]*((port_b.p - mediums[n-1].p)/1.5 + flowModel.dps_fg[n-1]/2+flowModel.dps_fg[n] - system.g*dheights[n]*mediums[n].d)*nParallel;
+        Wb_flows[1:n-1] = {vs[i]*crossAreas[i]*((mediums[i+1].p - mediums[i].p) + flowModel.dps_fg[i] - system.g*dheights[i]*mediums[i].d) for i in 1:n-1}*nParallel;
+        Wb_flows[n] = vs[n]*crossAreas[n]*((port_b.p - mediums[n].p) + flowModel.dps_fg[n] - system.g*dheights[n]*mediums[n].d)*nParallel;
       elseif modelStructure == ModelStructure.a_vb then
-        Wb_flows[1] = vs[1]*crossAreas[1]*((mediums[2].p - port_a.p)/1.5 + flowModel.dps_fg[1]+flowModel.dps_fg[2]/2 - system.g*dheights[1]*mediums[1].d)*nParallel;
-        Wb_flows[n] = vs[n]*crossAreas[n]*((mediums[n].p - mediums[n-1].p)/2 + flowModel.dps_fg[n]/2 - system.g*dheights[n]*mediums[n].d)*nParallel;
+        Wb_flows[1] = vs[1]*crossAreas[1]*((mediums[1].p - port_a.p) + flowModel.dps_fg[1] - system.g*dheights[1]*mediums[1].d)*nParallel;
+        Wb_flows[2:n] = {vs[i]*crossAreas[i]*((mediums[i].p - mediums[i-1].p) + flowModel.dps_fg[i] - system.g*dheights[i]*mediums[i].d) for i in 2:n}*nParallel;
       elseif modelStructure == ModelStructure.a_v_b then
-        Wb_flows[1] = vs[1]*crossAreas[1]*((mediums[2].p - port_a.p)/1.5 + flowModel.dps_fg[1]+flowModel.dps_fg[2]/2 - system.g*dheights[1]*mediums[1].d)*nParallel;
-        Wb_flows[n] = vs[n]*crossAreas[n]*((port_b.p - mediums[n-1].p)/1.5 + flowModel.dps_fg[n]/2+flowModel.dps_fg[n+1] - system.g*dheights[n]*mediums[n].d)*nParallel;
+        Wb_flows[1] = vs[1]*crossAreas[1]*(((mediums[1].p + mediums[2].p)/2 - port_a.p) + flowModel.dps_fg[1] + flowModel.dps_fg[2]/2 - system.g*dheights[1]*mediums[1].d)*nParallel;
+        Wb_flows[2:n-1] = {vs[i]*crossAreas[i]*((mediums[i+1].p - mediums[i-1].p)/2 + (flowModel.dps_fg[i] + flowModel.dps_fg[i+1])/2 - system.g*dheights[i]*mediums[i].d) for i in 2:n-1}*nParallel;
+        Wb_flows[n] = vs[n]*crossAreas[n]*((port_b.p - (mediums[n-1].p + mediums[n].p)/2) + flowModel.dps_fg[n]/2 + flowModel.dps_fg[n+1] - system.g*dheights[n]*mediums[n].d)*nParallel;
       else
         assert(false, "Unknown model structure");
       end if;
