@@ -159,20 +159,20 @@ equation
                                  Documentation(info="<html>
 <p>
 The symmetrical polyphase winding consists of a symmetrical winding
-<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.Resistor\">resistor</a>, a
-<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.ZeroInductor\">zero inductor</a> as well as a symmetrical
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter\">polyphase electromagnetic coupling</a> and a
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Reluctance\">stray reluctance</a> and a
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">core loss</a> model including
-heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">port</a>.
+<a href=\"modelica:/Modelica.Electrical.Polyphase.Basic.Resistor\">resistor</a>, a
+<a href=\"modelica:/Modelica.Electrical.Polyphase.Basic.ZeroInductor\">zero inductor</a> as well as a symmetrical
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Components.PolyphaseElectroMagneticConverter\">polyphase electromagnetic coupling</a> and a
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Components.Reluctance\">stray reluctance</a> and a
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">core loss</a> model including
+heat <a href=\"modelica:/Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">port</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding\">SymmetricPolyphaseCageWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseCageWinding\">SymmetricPolyphaseCageWinding</a>,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"));
 end SymmetricPolyphaseWinding;

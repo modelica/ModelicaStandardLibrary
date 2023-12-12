@@ -7,7 +7,7 @@ record Sm2Co17 "Sm2Co17 sintered, exemplary values"
     alpha_Br=-0.0003);
   annotation (Documentation(info="<html>
 <p>
-Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HardMagnetic\">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
+Please refer to the description of  the enclosing package <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Material.HardMagnetic\">HardMagnetic</a> for a description of all permanent magnetic material characteristics of this package.
 </p>
 </html>"));
 end Sm2Co17;

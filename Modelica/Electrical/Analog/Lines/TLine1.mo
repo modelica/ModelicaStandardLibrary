@@ -17,13 +17,13 @@ equation
   er = 2*delay(v1, TD) - delay(es, TD);
   annotation (defaultComponentName="line",
     Documentation(info="<html>
-<p>Lossless transmission line with characteristic impedance Z0 and transmission delay TD The lossless transmission line TLine1 is a two Port. Both port branches consist of a resistor with characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay TD. For further details see [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>]. The model parameters can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;) and TD = sqrt(L&#39;*C&#39;)*length_of_line. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero.</p>
+<p>Lossless transmission line with characteristic impedance Z0 and transmission delay TD The lossless transmission line TLine1 is a two Port. Both port branches consist of a resistor with characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay TD. For further details see [<a href=\"modelica:/Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>]. The model parameters can be derived from inductance and capacitance per length (L&#39; resp. C&#39;), i. e. Z0 = sqrt(L&#39;/C&#39;) and TD = sqrt(L&#39;*C&#39;)*length_of_line. Resistance R&#39; and conductance C&#39; per meter are assumed to be zero.</p>
 
 <p><strong>References:</strong>
-   [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>],
-   [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Hoefer1985</a>]</p>
+   [<a href=\"modelica:/Modelica.Electrical.Analog.UsersGuide.References\">Branin1967</a>],
+   [<a href=\"modelica:/Modelica.Electrical.Analog.UsersGuide.References\">Hoefer1985</a>]</p>
 <h4>Note:</h4>
-<p>This model is replaced by <a href=\"modelica://Modelica.Electrical.Analog.Lines.TLine\">TLine</a> with appropriate parameterization.</p>
+<p>This model is replaced by <a href=\"modelica:/Modelica.Electrical.Analog.Lines.TLine\">TLine</a> with appropriate parameterization.</p>
 </html>",    revisions="<html>
 <ul>
 <li><em> 1998   </em>

@@ -100,21 +100,21 @@ equation
     Documentation(info="<html>
 <p>
 This example demonstrates the use of the
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Surface</a>
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Surface</a>
 visualizer that visualizes a moving, parameterized surface.
 The \"sine-wave\" surface is a direct application of the surface model.
 Furthermore, the \"torus\" surface is an instance of
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Torus\">Torus</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Torus\">Torus</a>,
 the \"wheel\" surface is an instance of
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel\">VoluminousWheel</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel\">VoluminousWheel</a>,
 and the \"pipeWithScalarField surface is an instance of
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField\">PipeWithScalarField</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField\">PipeWithScalarField</a>.
 All latter visual shapes are constructed with the surface model.
 The following image shows a screen-shot of this example model:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/Surfaces.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/Surfaces.png\">
 </blockquote>
 
 </html>"));

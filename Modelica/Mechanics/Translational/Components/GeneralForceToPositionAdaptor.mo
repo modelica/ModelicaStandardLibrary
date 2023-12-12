@@ -30,7 +30,7 @@ This component is used to provide a pure signal interface around a Translational
 and export this model in form of an input/output block,
 especially as FMU (<a href=\"https://fmi-standard.org\">Functional Mock-up Unit</a>).
 Examples of the usage of this adaptor are provided in
-<a href=\"modelica://Modelica.Mechanics.Translational.Examples.GenerationOfFMUs\">Translational.Examples.GenerationOfFMUs</a>.
+<a href=\"modelica:/Modelica.Mechanics.Translational.Examples.GenerationOfFMUs\">Translational.Examples.GenerationOfFMUs</a>.
 This adaptor has force as input and position, velocity and acceleration as output signals.
 </p>
 </html>"), Icon(graphics={

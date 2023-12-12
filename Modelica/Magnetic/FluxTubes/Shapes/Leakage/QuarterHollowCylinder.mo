@@ -7,7 +7,7 @@ model QuarterHollowCylinder
   parameter SI.Length l=0.1
     "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>r_i)"
     annotation (Dialog(group="Parameters", groupImage=
-          "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/QuarterHollowCylinder.png"));
+          "modelica:/Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/QuarterHollowCylinder.png"));
   parameter Real ratio(start=1) "Constant ratio t/r_i";
 
 equation
@@ -15,7 +15,7 @@ equation
 
   annotation (defaultComponentName="leakage", Documentation(info="<html>
 <p>
-Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+Please refer to the enclosing sub-package <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Shapes.Leakage\">Leakage</a> for a description of all elements of this package and to <a href=\"modelica:/Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
 </html>"));
 end QuarterHollowCylinder;

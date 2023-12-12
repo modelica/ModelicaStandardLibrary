@@ -140,7 +140,7 @@ equation
           textColor={0,0,255},
           textString="%name"),
         Bitmap(extent={{-97,-39},{99,75}}, fileName=
-              "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6_CAD.png")}),
+              "modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6_CAD.png")}),
       Documentation(info="<html>
 <p>
 Model of an engine with 6 cylinders where the algebraic loops of the slider crank mechanisms are

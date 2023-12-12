@@ -145,12 +145,12 @@ way. This package contains the <strong>User's Guide</strong> for
 the library and has the following content:
 </p>
 <ol>
-<li><a href=\"modelica://Modelica.Electrical.Digital.UsersGuide.ReleaseNotes\">Release Notes</a>
+<li><a href=\"modelica:/Modelica.Electrical.Digital.UsersGuide.ReleaseNotes\">Release Notes</a>
     summarizes the differences between different versions of this library.</li>
-<li><a href=\"modelica://Modelica.Electrical.Digital.UsersGuide.Literature\">Literature</a>
+<li><a href=\"modelica:/Modelica.Electrical.Digital.UsersGuide.Literature\">Literature</a>
     provides references that have been used to design and implement this
     library.</li>
-<li><a href=\"modelica://Modelica.Electrical.Digital.UsersGuide.Contact\">Contact</a>
+<li><a href=\"modelica:/Modelica.Electrical.Digital.UsersGuide.Contact\">Contact</a>
     provides information about the authors of the library as well as
     acknowledgments.</li>
 </ol>
@@ -1405,7 +1405,7 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
                 points={{70,-28},{80,-28},{80,-70},{100,-70}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>Basing on the <a href=\"modelica://Modelica.Electrical.Digital.Examples.Utilities.RS\">RS</a> component RSFF is a RS (set-reset) flipflop composed according to the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
+<p>Basing on the <a href=\"modelica:/Modelica.Electrical.Digital.Examples.Utilities.RS\">RS</a> component RSFF is a RS (set-reset) flipflop composed according to the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
@@ -1477,7 +1477,7 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
             points={{-100,0},{-10,0}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>Basing on the <a href=\"modelica://Modelica.Electrical.Digital.Examples.Utilities.RS\">RS</a> component DFF is a D flipflop composed according to the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
+<p>Basing on the <a href=\"modelica:/Modelica.Electrical.Digital.Examples.Utilities.RS\">RS</a> component DFF is a D flipflop composed according to the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
@@ -1573,7 +1573,7 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
                     -70}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>Based on the <a href=\"modelica://Modelica.Electrical.Digital.Examples.Utilities.RS\">RS</a> component JKFF is a J-K-flipflop composed according to the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
+<p>Based on the <a href=\"modelica:/Modelica.Electrical.Digital.Examples.Utilities.RS\">RS</a> component JKFF is a J-K-flipflop composed according to the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
@@ -2317,7 +2317,7 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
               parameter S strength = S.'S_X01' "Output strength";
               parameter Integer n_addr(min=1) = 2 "Addr width";
               parameter Integer n_data(min=1) = 2 "Data width";
-              parameter String fileName = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Electrical/Digital/Memory_Matrix.txt")
+              parameter String fileName = Modelica.Utilities.Files.loadResource("modelica:/Modelica/Resources/Data/Electrical/Digital/Memory_Matrix.txt")
                 "File where matrix for memory is stored"
                 annotation(Dialog(group="Table data definition", loadSelector(filter="Text files (*.txt)", caption="Open file in which table is present")));
 

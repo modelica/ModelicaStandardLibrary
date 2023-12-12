@@ -66,7 +66,7 @@ output signal connector <strong>distance</strong>. This
 distance is always positive. <strong>Derivatives</strong> of this
 signal can be easily obtained by connecting the
 block
-<a href=\"modelica://Modelica.Blocks.Continuous.Der\">Modelica.Blocks.Continuous.Der</a>
+<a href=\"modelica:/Modelica.Blocks.Continuous.Der\">Modelica.Blocks.Continuous.Der</a>
 to \"distance\" (this block performs analytic differentiation
 of the input signal using the der(&hellip;) operator).
 </p>
@@ -78,7 +78,7 @@ the yellow arrow is the animated sensor.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/Distance.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Sensors/Distance.png\">
 </div>
 
 <p>

@@ -58,7 +58,7 @@ equation
           textString="v1"),        Text(
                 extent={{-150,-114},{150,-144}},
           textString="G=%G"),      Bitmap(extent={{-88,-36},{92,56}},
-            fileName="modelica://Modelica/Resources/Images/Electrical/Analog/Conductor.png"),
+            fileName="modelica:/Modelica/Resources/Images/Electrical/Analog/Conductor.png"),
           Text( extent={{12,96},{96,66}},
                 horizontalAlignment=TextAlignment.Right,
           textString="v2"),        Text(

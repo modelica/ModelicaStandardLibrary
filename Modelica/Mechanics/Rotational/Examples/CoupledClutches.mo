@@ -104,7 +104,7 @@ locked, forward sliding.</p>
 
 </html>"),
     __Dymola_Commands(file=
-          "modelica://Modelica/Resources/Scripts/Dymola/Mechanics/Rotational/CoupledClutches.mos"
+          "modelica:/Modelica/Resources/Scripts/Dymola/Mechanics/Rotational/CoupledClutches.mos"
         "Simulate and Plot"),
     experiment(StopTime=1.5, Interval=0.001),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-140,-100},

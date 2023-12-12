@@ -11,7 +11,7 @@ type ShapeType = Modelica.Icons.TypeString
     choice="beam" "\"beam\"",
     choice="gearwheel" "\"gearwheel\"",
     choice="spring" "\"spring\"",
-    choice="modelica://PackageName/PathName.dxf"),
+    choice="modelica:/PackageName/PathName.dxf"),
   Documentation(info="<html>
 <p>
 Type <strong>ShapeType</strong> is used to define the shape of the
@@ -21,7 +21,7 @@ values for shapeType are possible, e.g., shapeType=\"box\":
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Shape.png\" alt=\"model Visualizers.FixedShape\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Shape.png\" alt=\"model Visualizers.FixedShape\">
 </div>
 
 <p>
@@ -46,7 +46,7 @@ Additionally, external shapes can be specified as (not all options might be supp
 <li> \"<strong>modelica:</strong>//&lt;Modelica-name&gt;/&lt;relative-path-file-name&gt;\"<br>
      characterizes the file that is stored under the location of the
      &lt;Modelica-name&gt; library path with the given relative file name.
-     Example:<br> shapeType = \"modelica://Modelica/Resources/Data/Shapes/Engine/piston.dxf\".<br></li>
+     Example:<br> shapeType = \"modelica:/Modelica/Resources/Data/Shapes/Engine/piston.dxf\".<br></li>
 
 <li> \"<strong>file:</strong>///&lt;absolute-file-name&gt;\"<br>
      characterizes an absolute file name in the file system. Example:<br>

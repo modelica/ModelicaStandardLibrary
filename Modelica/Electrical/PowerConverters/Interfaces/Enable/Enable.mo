@@ -25,10 +25,10 @@ equation
 <p>
 This partial model provides parameters and the conditional input signal for the enabling models:</p>
 <ul>
-<li><a href=\"modelica://Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable1\">Enable1</a></li>
-<li><a href=\"modelica://Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable2\">Enable2</a></li>
-<li><a href=\"modelica://Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable1m\">Enable1m</a></li>
-<li><a href=\"modelica://Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable2m\">Enable2m</a></li>
+<li><a href=\"modelica:/Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable1\">Enable1</a></li>
+<li><a href=\"modelica:/Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable2\">Enable2</a></li>
+<li><a href=\"modelica:/Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable1m\">Enable1m</a></li>
+<li><a href=\"modelica:/Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable2m\">Enable2m</a></li>
 </ul>
 </html>"));
 end Enable;

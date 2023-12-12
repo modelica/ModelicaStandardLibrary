@@ -158,7 +158,7 @@ package CombiTable1Dv "Test models for Modelica.Blocks.Tables.CombiTable1Dv"
     extends TestDer(t_new(
         tableOnFile=true,
         tableName="longLine",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test.txt"),
+        fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test.txt"),
         columns={2,2500}));
     Modelica.Blocks.Continuous.Der d_t_new2 annotation(Placement(transformation(extent={{0,-30},{20,-10}})));
   equation
@@ -172,7 +172,7 @@ package CombiTable1Dv "Test models for Modelica.Blocks.Tables.CombiTable1Dv"
     extends TestDer(t_new(
         tableOnFile=true,
         tableName="a",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v4.mat")));
+        fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test_v4.mat")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test19;
 
@@ -181,7 +181,7 @@ package CombiTable1Dv "Test models for Modelica.Blocks.Tables.CombiTable1Dv"
     extends TestDer(t_new(
         tableOnFile=true,
         tableName="a",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v6.mat")));
+        fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test_v6.mat")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test20;
 
@@ -190,7 +190,7 @@ package CombiTable1Dv "Test models for Modelica.Blocks.Tables.CombiTable1Dv"
     extends TestDer(t_new(
         tableOnFile=true,
         tableName="a",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.mat")));
+        fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test_v7.mat")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test21;
 
@@ -200,7 +200,7 @@ package CombiTable1Dv "Test models for Modelica.Blocks.Tables.CombiTable1Dv"
     extends TestDer(t_new(
         tableOnFile=true,
         tableName="a",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.3.mat")));
+        fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test_v7.3.mat")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test22;
 */
@@ -209,7 +209,7 @@ package CombiTable1Dv "Test models for Modelica.Blocks.Tables.CombiTable1Dv"
     extends TestDer(t_new(
         tableOnFile=true,
         tableName="a",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test.txt")));
+        fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test.txt")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test23;
 
@@ -218,7 +218,7 @@ package CombiTable1Dv "Test models for Modelica.Blocks.Tables.CombiTable1Dv"
     extends TestDer(t_new(
         tableOnFile=true,
         tableName="a_tab",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test.txt")));
+        fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test.txt")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test24;
 
@@ -233,7 +233,7 @@ package CombiTable1Dv "Test models for Modelica.Blocks.Tables.CombiTable1Dv"
       input Real dummy_u[:];
       output Real dummy_y;
       external "C" dummy_y = mydummyfunc(dummy_u)
-      annotation(IncludeDirectory="modelica://Modelica/Resources/Data/Tables",
+      annotation(IncludeDirectory="modelica:/Modelica/Resources/Data/Tables",
              Include = "#include \"usertab.c\"
 double mydummyfunc(double* dummy_in) {
     return 0.;
@@ -312,7 +312,7 @@ double mydummyfunc(double* dummy_in) {
     extends TestDer(t_new(
       tableOnFile=true,
       tableName="a",
-      fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_utf8.txt")));
+      fileName=loadResource("modelica:/ModelicaTest/Resources/Data/Tables/test_utf8.txt")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test33;
 
@@ -330,7 +330,7 @@ double mydummyfunc(double* dummy_in) {
       tableOnFile=true,
       delimiter=",",
       nHeaderLines=1,
-      fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test1D.csv")));
+      fileName=loadResource("modelica:/ModelicaTest/Resources/Data/Tables/test1D.csv")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test35;
 end CombiTable1Dv;

@@ -20,7 +20,7 @@ It is assumed that the two input vectors n_x and n_z are
 resolved in frame&nbsp;1 and are directed along the&nbsp;x and z&nbsp;axis
 of frame&nbsp;2 (i.e., n_x and n_z are orthogonal to each other).
 The function returns the
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R
 to rotate from frame&nbsp;1 to frame&nbsp;2.
 </p>
 <p>
@@ -37,7 +37,7 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxz\">TransformationMatrices.from_nxz</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_nxz\">TransformationMatrices.from_nxz</a>.
 </p>
 </html>"));
 end from_nxz;

@@ -21,7 +21,7 @@ This model is a simple idle branch considering the complex current <em><u>i</u><
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Short\">Short</a>
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Ideal.Short\">Short</a>
 </p>
 </html>"));
 end Idle;

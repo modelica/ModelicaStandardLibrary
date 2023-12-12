@@ -33,7 +33,7 @@ y = <strong>sinh</strong>(uInternal);
 </pre></blockquote>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/sinh.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/sinh.png\"
      alt=\"sinh.png\">
 </div>
 

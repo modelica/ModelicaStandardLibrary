@@ -99,17 +99,17 @@ equation
     Documentation(info="<html>
 <p>
 The single-phase winding consists of a
-<a href=\"modelica://Modelica.Electrical.Analog.Basic.Resistor\">resistor</a>,  and a
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">single-phase electromagnetic coupling</a>.
+<a href=\"modelica:/Modelica.Electrical.Analog.Basic.Resistor\">resistor</a>,  and a
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">single-phase electromagnetic coupling</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding\">
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding\">
 SymmetricPolyphaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">
 Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding\">
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding\">
 Magnetic.FundamentalWave.BasicMachines.Components.SymmetricPolyphaseWinding</a>
 </p>
 </html>"));

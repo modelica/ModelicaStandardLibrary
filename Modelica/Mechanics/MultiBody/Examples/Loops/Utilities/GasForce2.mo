@@ -127,7 +127,7 @@ the relative velocity v_rel&nbsp;=&nbsp;der(s_rel).
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Utilities/gasForceCycle.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Utilities/gasForceCycle.png\"
 alt=\"model Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2\">
 </blockquote>
 </html>"));

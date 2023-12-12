@@ -30,7 +30,7 @@ This component is used to provide a pure signal interface around a HeatTransfer 
 and export this model in form of an input/output block,
 especially as FMU (<a href=\"https://fmi-standard.org\">Functional Mock-up Unit</a>).
 Examples of the usage of this adaptor are provided in
-<a href=\"modelica://Modelica.Thermal.HeatTransfer.Examples.GenerationOfFMUs\">HeatTransfer.Examples.GenerationOfFMUs</a>.
+<a href=\"modelica:/Modelica.Thermal.HeatTransfer.Examples.GenerationOfFMUs\">HeatTransfer.Examples.GenerationOfFMUs</a>.
 This adaptor has heatflow as input and temperature and derivative of temperature as output signals.
 </p>
 </html>"),

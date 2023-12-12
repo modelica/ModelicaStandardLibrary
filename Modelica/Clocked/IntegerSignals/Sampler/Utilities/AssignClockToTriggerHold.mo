@@ -50,7 +50,7 @@ equation
     Documentation(info="<html>
 <p>
 This block for Integer signals works similar as the corresponding block for Real signals (see
-<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToTriggerHold\">RealSignals.Sampler.Utilities.AssignClockToTriggerHold</a>).
+<a href=\"modelica:/Modelica.Clocked.RealSignals.Sampler.Utilities.AssignClockToTriggerHold\">RealSignals.Sampler.Utilities.AssignClockToTriggerHold</a>).
 </p>
 </html>"));
 end AssignClockToTriggerHold;

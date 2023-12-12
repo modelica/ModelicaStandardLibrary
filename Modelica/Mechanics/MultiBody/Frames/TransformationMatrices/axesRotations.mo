@@ -23,14 +23,14 @@ T = TransformationMatrices.<strong>axesRotations</strong>(sequence, angles);
 <h4>Description</h4>
 <p>
 This function returns
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation\">transformation matrix</a>&nbsp;T
 that describes the orientation defined by three elementary rotations in
 a given <strong>sequence</strong>, each rotated by <strong>angles</strong>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.axesRotations\">Frames.axesRotations</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.axesRotations\">Frames.axesRotations</a>.
 </p>
 </html>"));
 end axesRotations;

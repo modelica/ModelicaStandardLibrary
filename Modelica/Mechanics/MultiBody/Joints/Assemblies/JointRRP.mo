@@ -204,7 +204,7 @@ default animation):
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointRRP.png\" alt=\"model Joints.Assemblies.JointRRP\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointRRP.png\" alt=\"model Joints.Assemblies.JointRRP\">
 </div>
 
 <p>

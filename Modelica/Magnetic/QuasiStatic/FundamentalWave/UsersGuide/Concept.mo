@@ -11,28 +11,28 @@ Let us assume that the air gap model contains stator and rotor magnetic ports wh
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_relationship.png\"/>,
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_relationship.png\"/>,
 </div>
 
 <p>where
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_s.png\"/>
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_s.png\"/>
 is the connector reference angle of the stator ports,
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_r.png\"/>
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_r.png\"/>
 is the connector reference angle of the rotor ports, and
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_mechanical.png\"/>
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_mechanical.png\"/>
 is the difference of the mechanical angles of the flange and the support, respectively,
 multiplied by the number of pole pairs,
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/p.png\"/>.
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/p.png\"/>.
 The stator and rotor reference angles are directly related with the electrical frequencies of the
 electric circuits of the stator,
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/f_s.png\"/>,
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/f_s.png\"/>,
 and rotor,
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/f_r.png\"/>,
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/f_r.png\"/>,
 respectively, by means of:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_f.png\"/>
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_f.png\"/>
 </div>
 
 <p>
@@ -42,7 +42,7 @@ This is a strict consequence of the electromagnetic coupling between the quasi-s
   <caption><strong>Fig. 1:</strong> Reference frames of the quasi-static fundamental wave library</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/ReferenceFrames.png\"/>
+      <img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/ReferenceFrames.png\"/>
     </td>
   </tr>
 </table>
@@ -52,28 +52,28 @@ The complex magnetic flux with respect a stator and rotor magnetic port are equa
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Phi(ref)=Phi,re+jPhi,im.png\"/>,
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Phi(ref)=Phi,re+jPhi,im.png\"/>,
 </div>
 
 <p>
 but the reference phase angles are different according to the relationship explained above. The stator and rotor reference angles refer to quasi-static magnetic connectors. The complex magnetic flux of the (stator) port with respect to the <strong>stator fixed</strong> reference frame is then calculated by</p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Phi_s_ref.png\"/>.
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Phi_s_ref.png\"/>.
 </div>
 
 <p>
 The complex magnetic flux of the (rotor) magnetic port with respect to the <strong>rotor fixed</strong> reference frame is then calculated by</p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Phi_r_ref.png\"/>.
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Phi_r_ref.png\"/>.
 </div>
 
 <p>
 The two stator and rotor fixed complex fluxes are related by</p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Phi_r_s.png\"/>.
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/Phi_r_s.png\"/>.
 </div>
 
 </html>"));

@@ -28,7 +28,7 @@ The Complex output y is a step signal (of real and imaginary part):
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Step.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Blocks/Sources/Step.png\"
      alt=\"Step.png\">
 </div>
 

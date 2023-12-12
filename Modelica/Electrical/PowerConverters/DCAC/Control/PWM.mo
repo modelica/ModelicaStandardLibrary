@@ -51,8 +51,8 @@ equation
 Let the user choose the PWM type from:
 </p>
 <ul>
-<li><a href=\"modelica://Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM\">Space vector pulse width modulation</a></li>
-<li><a href=\"modelica://Modelica.Electrical.PowerConverters.DCAC.Control.IntersectivePWM\">Intersective pulse width modulation</a></li>
+<li><a href=\"modelica:/Modelica.Electrical.PowerConverters.DCAC.Control.SVPWM\">Space vector pulse width modulation</a></li>
+<li><a href=\"modelica:/Modelica.Electrical.PowerConverters.DCAC.Control.IntersectivePWM\">Intersective pulse width modulation</a></li>
 </ul>
 </html>"));
 end PWM;

@@ -77,7 +77,7 @@ In case the current exceeds the specified maximum current <code>iMax</code> duri
 When the current falls below the lower threshold of current control <code>iMin &lt; iMax</code>, the ramp is continued.
 </p>
 <p>
-Note: It is recommended to filter the measured current, e.g. using <a href=\"modelica://Modelica.Blocks.Continuous.Filter\">Modelica.Blocks.Continuous.Filter</a>
+Note: It is recommended to filter the measured current, e.g. using <a href=\"modelica:/Modelica.Blocks.Continuous.Filter\">Modelica.Blocks.Continuous.Filter</a>
 </p>
 <p>
 Boolean input <code>start = false</code> causes the output <code>vRef</code> to be lowered according to a ramp: <code>vRef = -(time - t0)/tRampDown</code>.

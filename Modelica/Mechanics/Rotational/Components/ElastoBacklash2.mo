@@ -171,7 +171,7 @@ is explicitly set to zero.
 
 <p>
 This model of backlash is slightly different to the
-<a href=\"modelica://Modelica.Mechanics.Rotational.Components.ElastoBacklash\">ElastoBacklash</a>
+<a href=\"modelica:/Modelica.Mechanics.Rotational.Components.ElastoBacklash\">ElastoBacklash</a>
 component:
 </p>
 
@@ -186,7 +186,7 @@ component:
 
 <p>
 See also the discussion
-<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
+<a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
 in the User's Guide of the Rotational library.
 </p>
 </html>"),

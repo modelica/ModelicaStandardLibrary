@@ -36,9 +36,9 @@ Connects the single-phase (positive) pin <code>k</code> of the polyphase (positi
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin_n\">PlugToPin_n</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_p\">PlutToPins_p</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_n\">PlugToPins_n</a>
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPin_n\">PlugToPin_n</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_p\">PlutToPins_p</a>,
+<a href=\"modelica:/Modelica.Electrical.QuasiStatic.Polyphase.Basic.PlugToPins_n\">PlugToPins_n</a>
 </p>
 </html>"));
 end PlugToPin_p;

@@ -41,7 +41,7 @@ equation
   connect(opAmp.out, p2) annotation (Line(points={{10,0},{80,0},{80,100},{100,100}},
         color={0,0,255}));
   annotation (Documentation(info="<html>
-<p>Inverting adder, based on the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
+<p>Inverting adder, based on the <a href=\"modelica:/Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
 <p><code>-vOut = k1*vIn1 + k2*vIn2</code></p>
 </html>"), Icon(graphics={Text(
           extent={{-40,40},{40,-40}},

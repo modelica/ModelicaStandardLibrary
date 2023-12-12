@@ -45,9 +45,9 @@ Source of constant magnetomotive force.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalMagneticPotentialDifference\">SignalMagneticPotentialDifference</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantFlux\">ConstantFlux</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalFlux\">SignalFlux</a>
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Sources.SignalMagneticPotentialDifference\">SignalMagneticPotentialDifference</a>,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Sources.ConstantFlux\">ConstantFlux</a>,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Sources.SignalFlux\">SignalFlux</a>
 </p>
 </html>"));
 end ConstantMagneticPotentialDifference;

@@ -269,7 +269,7 @@ equation
     Documentation(info="<html>
 <p>
 At start time <code>tOn</code> voltages are supplied to the
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing\">induction machines with sliprings</a>.
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SlipRing\">induction machines with sliprings</a>.
 The two machine start from standstill, accelerating inertias against load torque quadratic dependent on speed,
 using a starting resistance. At time tRheostat external rotor resistance is shortened, finally reaching nominal speed. Two equivalent machines with different numbers of phases are compared and their equal behavior is demonstrated.</p>
 

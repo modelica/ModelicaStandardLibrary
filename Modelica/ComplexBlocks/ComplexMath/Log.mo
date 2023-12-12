@@ -37,7 +37,7 @@ An error occurs if the elements of the input <code>u</code> is zero.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/log.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Math/log.png\"
      alt=\"log.png\">
 </div>
 

@@ -70,7 +70,7 @@ v = {2.12, -4.34, -2.56, -1.67};
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.toString\">Matrices.toString</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.toString\">Matrices.toString</a>,
 </p>
 </html>", revisions="<html>
 
@@ -130,9 +130,9 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Vectors.find\">Vectors.find</a>,
-<a href=\"modelica://Modelica.Math.Matrices.isEqual\">Matrices.isEqual</a>,
-<a href=\"modelica://Modelica.Utilities.Strings.isEqual\">Strings.isEqual</a>
+<a href=\"modelica:/Modelica.Math.Vectors.find\">Vectors.find</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.isEqual\">Matrices.isEqual</a>,
+<a href=\"modelica:/Modelica.Utilities.Strings.isEqual\">Strings.isEqual</a>
 </p>
 </html>"));
   end isEqual;
@@ -173,7 +173,7 @@ With the optional
 second argument \"p\", any other p-norm can be computed:
 </p>
 <center>
-<img src=\"modelica://Modelica/Resources/Images/Math/Vectors/vectorNorm.png\" alt=\"function Vectors.norm\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Vectors/vectorNorm.png\" alt=\"function Vectors.norm\">
 </center>
 <p>
 Besides the Euclidean norm (p=2), also the 1-norm and the
@@ -210,7 +210,7 @@ v = {2, -4, -2, -1};
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.norm\">Matrices.norm</a>
+<a href=\"modelica:/Modelica.Math.Matrices.norm\">Matrices.norm</a>
 </p>
 </html>"));
   end norm;
@@ -244,7 +244,7 @@ v = {2, -4, -2, -1};
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Vectors.norm\">Vectors.norm</a>
+<a href=\"modelica:/Modelica.Math.Vectors.norm\">Vectors.norm</a>
 </p>
 </html>"));
   end length;
@@ -292,8 +292,8 @@ is usually inlined and symbolic processing is applied.
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Vectors.length\">Vectors.length</a>,
-<a href=\"modelica://Modelica.Math.Vectors.normalize\">Vectors.normalizeWithAssert</a>
+<a href=\"modelica:/Modelica.Math.Vectors.length\">Vectors.length</a>,
+<a href=\"modelica:/Modelica.Math.Vectors.normalize\">Vectors.normalizeWithAssert</a>
 </p>
 </html>"));
   end normalize;
@@ -332,8 +332,8 @@ is usually inlined and symbolic processing is applied.
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Vectors.length\">Vectors.length</a>,
-<a href=\"modelica://Modelica.Math.Vectors.normalize\">Vectors.normalize</a>
+<a href=\"modelica:/Modelica.Math.Vectors.length\">Vectors.length</a>,
+<a href=\"modelica:/Modelica.Math.Vectors.normalize\">Vectors.normalize</a>
 </p>
 </html>"));
 end normalizeWithAssert;
@@ -489,7 +489,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Vectors.isEqual\">Vectors.isEqual</a>
+<a href=\"modelica:/Modelica.Math.Vectors.isEqual\">Vectors.isEqual</a>
 </p>
 </html>"));
   end find;
@@ -619,7 +619,7 @@ at the left and at the right side of the pipe), see next figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/Vectors/relNodePositions.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Vectors/relNodePositions.png\">
 </div>
 
 <h4>Example</h4>
@@ -632,7 +632,7 @@ at the left and at the right side of the pipe), see next figure:
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField\">MultiBody.Visualizers.PipeWithScalarField</a>
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField\">MultiBody.Visualizers.PipeWithScalarField</a>
 </p>
 </html>"));
   end relNodePositions;
@@ -643,41 +643,41 @@ This library provides functions operating on vectors:
 </p>
 
 <ul>
-<li> <a href=\"modelica://Modelica.Math.Vectors.toString\">toString</a>(v)
+<li> <a href=\"modelica:/Modelica.Math.Vectors.toString\">toString</a>(v)
      - returns the string representation of vector v.</li>
 
-<li> <a href=\"modelica://Modelica.Math.Vectors.isEqual\">isEqual</a>(v1, v2)
+<li> <a href=\"modelica:/Modelica.Math.Vectors.isEqual\">isEqual</a>(v1, v2)
      - returns true if vectors v1 and v2 have the same size and the same elements.</li>
 
-<li> <a href=\"modelica://Modelica.Math.Vectors.norm\">norm</a>(v,p)
+<li> <a href=\"modelica:/Modelica.Math.Vectors.norm\">norm</a>(v,p)
      - returns the p-norm of vector v.</li>
 
-<li> <a href=\"modelica://Modelica.Math.Vectors.length\">length</a>(v)
+<li> <a href=\"modelica:/Modelica.Math.Vectors.length\">length</a>(v)
      - returns the length of vector v (= norm(v,2), but inlined and therefore usable in
        symbolic manipulations)</li>
 
-<li> <a href=\"modelica://Modelica.Math.Vectors.normalize\">normalize</a>(v)
+<li> <a href=\"modelica:/Modelica.Math.Vectors.normalize\">normalize</a>(v)
      - returns vector in direction of v with length = 1 and prevents
        zero-division for zero vector.</li>
 
-<li> <a href=\"modelica://Modelica.Math.Vectors.reverse\">reverse</a>(v)
+<li> <a href=\"modelica:/Modelica.Math.Vectors.reverse\">reverse</a>(v)
      - reverses the vector elements of v.</li>
 
-<li> <a href=\"modelica://Modelica.Math.Vectors.sort\">sort</a>(v)
+<li> <a href=\"modelica:/Modelica.Math.Vectors.sort\">sort</a>(v)
      - sorts the elements of vector v in ascending or descending order.</li>
 
-<li> <a href=\"modelica://Modelica.Math.Vectors.find\">find</a>(e, v)
+<li> <a href=\"modelica:/Modelica.Math.Vectors.find\">find</a>(e, v)
      - returns the index of the first occurrence of scalar e in vector v.</li>
 
-<li> <a href=\"modelica://Modelica.Math.Vectors.interpolate\">interpolate</a>(x, y, xi)
+<li> <a href=\"modelica:/Modelica.Math.Vectors.interpolate\">interpolate</a>(x, y, xi)
      - returns the interpolated value in (x,y) that corresponds to xi.</li>
 
-<li> <a href=\"modelica://Modelica.Math.Vectors.relNodePositions\">relNodePositions</a>(nNodes)
+<li> <a href=\"modelica:/Modelica.Math.Vectors.relNodePositions\">relNodePositions</a>(nNodes)
      - returns a vector of relative node positions (0..1).</li>
 </ul>
 
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices\">Matrices</a>
+<a href=\"modelica:/Modelica.Math.Matrices\">Matrices</a>
 </html>"),
     Icon(graphics={Rectangle(
           extent={{-16,66},{14,18}},
@@ -817,7 +817,7 @@ toString(A,\"A\",1);
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Vectors.toString\">Vectors.toString</a>
+<a href=\"modelica:/Modelica.Math.Vectors.toString\">Vectors.toString</a>
 </p>
 
 </html>", revisions="<html>
@@ -886,8 +886,8 @@ can be provided as third argument of the function. Default is \"eps = 0\".
   result := Matrices.isEqual(M1,M3,0.1); // = <strong>true</strong>
 </pre></blockquote>
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Vectors.isEqual\">Vectors.isEqual</a>,
-<a href=\"modelica://Modelica.Utilities.Strings.isEqual\">Strings.isEqual</a>
+<a href=\"modelica:/Modelica.Math.Vectors.isEqual\">Vectors.isEqual</a>,
+<a href=\"modelica:/Modelica.Utilities.Strings.isEqual\">Strings.isEqual</a>
 </html>"));
   end isEqual;
 
@@ -924,7 +924,7 @@ solution <strong>x</strong> of the linear system of equations
 <p>
 If a unique solution <strong>x</strong> does not exist (since <strong>A</strong> is singular),
 an assertion is triggered. If this is not desired, use instead
-<a href=\"modelica://Modelica.Math.Matrices.leastSquares\">Matrices.leastSquares</a>
+<a href=\"modelica:/Modelica.Math.Matrices.leastSquares\">Matrices.leastSquares</a>
 and inquire the singularity of the solution with the return argument rank
 (a unique solution is computed if rank = size(A,1)).
 </p>
@@ -944,9 +944,9 @@ i.e., by Gaussian elimination with partial pivoting.
   x := Matrices.solve(A,b);  // x = {3,2,1}
 </pre></blockquote>
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a>,
-<a href=\"modelica://Modelica.Math.Matrices.LU_solve\">Matrices.LU_solve</a>,
-<a href=\"modelica://Modelica.Math.Matrices.leastSquares\">Matrices.leastSquares</a>.
+<a href=\"modelica:/Modelica.Math.Matrices.LU\">Matrices.LU</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.LU_solve\">Matrices.LU_solve</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.leastSquares\">Matrices.leastSquares</a>.
 </html>"));
   end solve;
 
@@ -983,7 +983,7 @@ solution <strong>X</strong> of the linear system of equations
 <p>
 If a unique solution <strong>X</strong> does not exist (since <strong>A</strong> is singular),
 an assertion is triggered. If this is not desired, use instead
-<a href=\"modelica://Modelica.Math.Matrices.leastSquares2\">Matrices.leastSquares2</a>
+<a href=\"modelica:/Modelica.Math.Matrices.leastSquares2\">Matrices.leastSquares2</a>
 and inquire the singularity of the solution with the return argument rank
 (a unique solution is computed if rank = size(A,1)).
 
@@ -1009,9 +1009,9 @@ i.e., by Gaussian elimination with partial pivoting.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a>,
-<a href=\"modelica://Modelica.Math.Matrices.LU_solve2\">Matrices.LU_solve2</a>,
-<a href=\"modelica://Modelica.Math.Matrices.leastSquares2\">Matrices.leastSquares2</a>.
+<a href=\"modelica:/Modelica.Math.Matrices.LU\">Matrices.LU</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.LU_solve2\">Matrices.LU_solve2</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.leastSquares2\">Matrices.leastSquares2</a>.
 </p>
 </html>"));
   end solve2;
@@ -1162,9 +1162,9 @@ where Q1 consists of the first \"rank\" columns of Q.
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.leastSquares2\">Matrices.leastSquares2</a>
+<a href=\"modelica:/Modelica.Math.Matrices.leastSquares2\">Matrices.leastSquares2</a>
 (same as leastSquares, but with a right hand side matrix),<br>
-<a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>
+<a href=\"modelica:/Modelica.Math.Matrices.solve\">Matrices.solve</a>
 (for square, regular matrices A)
 </p>
 
@@ -1312,9 +1312,9 @@ where Q1 consists of the first \"rank\" columns of Q.
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.leastSquares\">Matrices.leastSquares</a>
+<a href=\"modelica:/Modelica.Math.Matrices.leastSquares\">Matrices.leastSquares</a>
 (same as leastSquares2, but with a right hand side vector),<br>
-<a href=\"modelica://Modelica.Math.Matrices.solve2\">Matrices.solve2</a>
+<a href=\"modelica:/Modelica.Math.Matrices.solve2\">Matrices.solve2</a>
 (for square, regular matrices A)
 </p>
 
@@ -1428,13 +1428,13 @@ diagonal elements (lower trapezoidal if m &gt; n), and
 Matrices <strong>L</strong> and <strong>U</strong> are stored in the returned
 matrix <code>LU</code> (the diagonal of <strong>L</strong> is not stored).
 With the companion function
-<a href=\"modelica://Modelica.Math.Matrices.LU_solve\">Matrices.LU_solve</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.LU_solve\">Matrices.LU_solve</a>,
 this decomposition can be used to solve
 linear systems (<strong>P</strong>*<strong>L</strong>*<strong>U</strong>)*<strong>x</strong> = <strong>b</strong> with different right
 hand side vectors <strong>b</strong>. If a linear system of equations with
 just one right hand side vector <strong>b</strong> shall be solved, it is
 more convenient to just use the function
-<a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>.
+<a href=\"modelica:/Modelica.Math.Matrices.solve\">Matrices.solve</a>.
 </p>
 <p>
 The optional third (Integer) output argument has the following meaning:</p>
@@ -1474,8 +1474,8 @@ matrix A was interchanged with row pivots[i].
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.LU_solve\">Matrices.LU_solve</a>,
-<a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.LU_solve\">Matrices.LU_solve</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.solve\">Matrices.solve</a>,
 </p>
 </html>"));
   end LU;
@@ -1522,7 +1522,7 @@ defined by vector <code>pivots</code>),
 diagonal elements (lower trapezoidal if m &gt; n), and
 <strong>U</strong> is an upper triangular matrix (upper trapezoidal if m &lt; n).
 The matrices of this decomposition are computed with function
-<a href=\"modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a> that
+<a href=\"modelica:/Modelica.Math.Matrices.LU\">Matrices.LU</a> that
 returns arguments <code>LU</code> and <code>pivots</code>
 used as input arguments of <code>Matrices.LU_solve</code>.
 With <code>Matrices.LU</code> and <code>Matrices.LU_solve</code>
@@ -1530,7 +1530,7 @@ it is possible to efficiently solve linear systems
 with different right hand side vectors. If a linear system of equations with
 just one right hand side vector shall be solved, it is
 more convenient to just use the function
-<a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>.
+<a href=\"modelica:/Modelica.Math.Matrices.solve\">Matrices.solve</a>.
 </p>
 <p>
 If a unique solution <strong>x</strong> does not exist (since the
@@ -1561,8 +1561,8 @@ matrix A was interchanged with row pivots[i].
   x2 := Matrices.LU_solve(LU, pivots, b2);  // x2 = {1,0,2}
 </pre></blockquote>
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a>,
-<a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.LU\">Matrices.LU</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.solve\">Matrices.solve</a>,
 </html>"));
   end LU_solve;
 
@@ -1609,7 +1609,7 @@ defined by vector <code>pivots</code>),
 diagonal elements (lower trapezoidal if m &gt; n), and
 <strong>U</strong> is an upper triangular matrix (upper trapezoidal if m &lt; n).
 The matrices of this decomposition are computed with function
-<a href=\"modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a> that
+<a href=\"modelica:/Modelica.Math.Matrices.LU\">Matrices.LU</a> that
 returns arguments <code>LU</code> and <code>pivots</code>
 used as input arguments of <code>Matrices.LU_solve2</code>.
 With <code>Matrices.LU</code> and <code>Matrices.LU_solve2</code>
@@ -1617,7 +1617,7 @@ it is possible to efficiently solve linear systems
 with different right hand side <strong>matrices</strong>. If a linear system of equations with
 just one right hand side matrix shall be solved, it is
 more convenient to just use the function
-<a href=\"modelica://Modelica.Math.Matrices.solve2\">Matrices.solve2</a>.
+<a href=\"modelica:/Modelica.Math.Matrices.solve2\">Matrices.solve2</a>.
 </p>
 <p>
 If a unique solution <strong>X</strong> does not exist (since the
@@ -1656,8 +1656,8 @@ matrix A was interchanged with row pivots[i].
                                                       2, 4] */
 </pre></blockquote>
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a>,
-<a href=\"modelica://Modelica.Math.Matrices.solve2\">Matrices.solve2</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.LU\">Matrices.LU</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.solve2\">Matrices.solve2</a>,
 </html>"));
   end LU_solve2;
 
@@ -1704,7 +1704,7 @@ has an imaginary part, then eigenvalues[i+1,:] is the conjugate complex
 eigenvalue and eigenvectors[:,i] is the real and eigenvectors[:,i+1] is the
 imaginary part of the eigenvector of the i-th eigenvalue.
 With function
-<a href=\"modelica://Modelica.Math.Matrices.eigenValueMatrix\">Matrices.eigenValueMatrix</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.eigenValueMatrix\">Matrices.eigenValueMatrix</a>,
 a real block diagonal matrix is constructed from the eigenvalues
 such that
 </p>
@@ -1733,8 +1733,8 @@ i.e., matrix A has the 3 real eigenvalues -0.618, 8, 1.618.
 </p>
 
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices.eigenValueMatrix\">Matrices.eigenValueMatrix</a>,
-<a href=\"modelica://Modelica.Math.Matrices.singularValues\">Matrices.singularValues</a>
+<a href=\"modelica:/Modelica.Math.Matrices.eigenValueMatrix\">Matrices.eigenValueMatrix</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.singularValues\">Matrices.singularValues</a>
 </html>"));
   end eigenValues;
 
@@ -1775,7 +1775,7 @@ Matrices.<strong>eigenValueMatrix</strong>(eigenvalues);
 The function call returns a block diagonal matrix <strong>J</strong>
 from the two-column matrix <code>eigenvalues</code>
 (computed by function
-<a href=\"modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>).
+<a href=\"modelica:/Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>).
 Matrix <code>eigenvalues</code> must have the real part of the
 eigenvalues in the first column and the imaginary part in the
 second column. If an eigenvalue i has a vanishing imaginary
@@ -1791,7 +1791,7 @@ J[i+1, i]   := eigenvalues[i+1,2];
 J[i+1, i+1] := eigenvalues[i+1,1];
 </pre></blockquote>
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>
+<a href=\"modelica:/Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>
 </html>"));
   end eigenValueMatrix;
 
@@ -1856,7 +1856,7 @@ i.e.
                0,    0, 2.31, 0]
 </pre></blockquote>
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>
+<a href=\"modelica:/Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>
 </html>"));
   end singularValues;
 
@@ -1999,7 +1999,7 @@ called as: <code>(,R,p) = QR(A)</code>.
 Function <strong>hessenberg</strong> computes the Hessenberg matrix <strong>H</strong> of matrix <strong>A</strong> as well as the orthogonal transformation matrix <strong>U</strong> that holds <strong>H</strong> = <strong>U</strong>'*<strong>A</strong>*<strong>U</strong>.
 The Hessenberg form of a matrix is computed by repeated Householder similarity transformation. The elementary reflectors and the corresponding scalar factors are provided
 by function \"Utilities.toUpperHessenberg()\". The transformation matrix <strong>U</strong> is then computed by
-<a href=\"modelica://Modelica.Math.Matrices.LAPACK.dorghr\">LAPACK.dorghr</a>.
+<a href=\"modelica:/Modelica.Math.Matrices.LAPACK.dorghr\">LAPACK.dorghr</a>.
 </p>
 
 <h4>Example</h4>
@@ -2030,7 +2030,7 @@ U*H*transpose(U) = [1.0, 2.0, 3.0;
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.Utilities.toUpperHessenberg\">Matrices.Utilities.toUpperHessenberg</a>
+<a href=\"modelica:/Modelica.Math.Matrices.Utilities.toUpperHessenberg\">Matrices.Utilities.toUpperHessenberg</a>
 </p>
 
 </html>", revisions="<html>
@@ -2126,7 +2126,7 @@ The calculation in lapack.dgees is performed stepwise, i.e., using the internal 
 </pre></blockquote>
 
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices.Utilities.reorderRSF\">Math.Matrices.Utilities.reorderRSF</a>
+<a href=\"modelica:/Modelica.Math.Matrices.Utilities.reorderRSF\">Math.Matrices.Utilities.reorderRSF</a>
 
 </html>", revisions="<html>
 <ul>
@@ -2203,7 +2203,7 @@ A = H*H'   if upper is false (H is lower triangular)
 </pre></blockquote>
 
 <p>
-The computation is performed by <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dpotrf\">LAPACK.dpotrf</a>.
+The computation is performed by <a href=\"modelica:/Modelica.Math.Matrices.LAPACK.dpotrf\">LAPACK.dpotrf</a>.
 </p>
 
 <h4>Example</h4>
@@ -2575,17 +2575,17 @@ as by computing the determinant. Examples:
 </p>
 
 <ul>
-<li> Use <a href=\"modelica://Modelica.Math.Matrices.rank\">Matrices.rank</a>
+<li> Use <a href=\"modelica:/Modelica.Math.Matrices.rank\">Matrices.rank</a>
      to compute whether det(A) = 0 (i.e., Matrices.rank(A) &lt; size(A,1)).</li>
 
-<li> Use <a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>
+<li> Use <a href=\"modelica:/Modelica.Math.Matrices.solve\">Matrices.solve</a>
      to solve the linear equation A*x = b, instead of using determinants to
      compute the solution.</li>
 </ul>
 
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices.rank\">Matrices.rank</a>,
-<a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>
+<a href=\"modelica:/Modelica.Math.Matrices.rank\">Matrices.rank</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.solve\">Matrices.solve</a>
 </html>"));
   end det;
 
@@ -2621,14 +2621,14 @@ as by computing directly the inverse. Example:
 </p>
 
 <blockquote>
-Use x = <a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>(A,b)
+Use x = <a href=\"modelica:/Modelica.Math.Matrices.solve\">Matrices.solve</a>(A,b)
 to solve the linear equation A*x = b, instead of computing the solution by
 x = inv(A)*b, because this is much more efficient and much more reliable.
 </blockquote>
 
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>
-<a href=\"modelica://Modelica.Math.Matrices.solve2\">Matrices.solve2</a>
+<a href=\"modelica:/Modelica.Math.Matrices.solve\">Matrices.solve</a>
+<a href=\"modelica:/Modelica.Math.Matrices.solve2\">Matrices.solve2</a>
 </html>"));
   end inv;
 
@@ -2680,7 +2680,7 @@ To be more precise:
 </ul>
 
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices.rcond\">Matrices.rcond</a>.
+<a href=\"modelica:/Modelica.Math.Matrices.rcond\">Matrices.rcond</a>.
 </html>"));
   end rank;
 
@@ -2739,7 +2739,7 @@ r = 3.0
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.rcond\">Matrices.rcond</a>
+<a href=\"modelica:/Modelica.Math.Matrices.rcond\">Matrices.rcond</a>
 </p>
 
 </html>", revisions="<html>
@@ -2785,7 +2785,7 @@ r = Matrices.<strong>rcond</strong>(A);
 <h4>Description</h4>
 <p>
 This function estimates the reciprocal of the condition number (norm(A) * norm(inv(A))) of a general real matrix <strong>A</strong>, in either the 1-norm or
-the infinity-norm, using the LAPACK function <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgecon\">DGECON</a>.
+the infinity-norm, using the LAPACK function <a href=\"modelica:/Modelica.Math.Matrices.LAPACK.dgecon\">DGECON</a>.
 If rcond(A) is near 1.0, <strong>A</strong> is well conditioned and <strong>A</strong> is ill conditioned if rcond(A) is near zero.
 </p>
 
@@ -2802,7 +2802,7 @@ r = 0.3333
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.conditionNumber\">Matrices.conditionNumber</a>
+<a href=\"modelica:/Modelica.Math.Matrices.conditionNumber\">Matrices.conditionNumber</a>
 </p>
 
 </html>", revisions="<html>
@@ -2880,7 +2880,7 @@ Vectors.<strong>norm</strong>(A*v,p) &le; Matrices.<strong>norm</strong>(A,p)*Ve
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.frobeniusNorm\">Matrices.frobeniusNorm</a>
+<a href=\"modelica:/Modelica.Math.Matrices.frobeniusNorm\">Matrices.frobeniusNorm</a>
 </p>
 
 </html>"));
@@ -2919,7 +2919,7 @@ r = 3.162;
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.norm\">Matrices.norm</a>
+<a href=\"modelica:/Modelica.Math.Matrices.norm\">Matrices.norm</a>
 </p>
 
 </html>", revisions="<html>
@@ -3039,7 +3039,7 @@ nullity = 1
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.singularValues\">Matrices.singularValues</a>
+<a href=\"modelica:/Modelica.Math.Matrices.singularValues\">Matrices.singularValues</a>
 </p>
 </html>", revisions="<html>
 <ul>
@@ -3656,8 +3656,8 @@ X = [1.633, -0.761,  0.575, -0.656;
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.continuousSylvester\">Matrices.continuousSylvester</a>,
-<a href=\"modelica://Modelica.Math.Matrices.discreteLyapunov\">Matrices.discreteLyapunov</a>
+<a href=\"modelica:/Modelica.Math.Matrices.continuousSylvester\">Matrices.continuousSylvester</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.discreteLyapunov\">Matrices.discreteLyapunov</a>
 </p>
 
 </html>", revisions="<html>
@@ -3763,7 +3763,7 @@ The Boolean inputs \"AisSchur\" and \"BisSchur\" indicate to omit one or both of
 </p>
 
 <p>
-The function applies LAPACK-routine DTRSYL. See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dtrsyl\">LAPACK.dtrsyl</a>
+The function applies LAPACK-routine DTRSYL. See <a href=\"modelica:/Modelica.Math.Matrices.LAPACK.dtrsyl\">LAPACK.dtrsyl</a>
 for more information.
 </p>
 
@@ -3805,8 +3805,8 @@ X = [0.0,  0.0,  1.0;
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.discreteSylvester\">Matrices.discreteSylvester</a>,
-<a href=\"modelica://Modelica.Math.Matrices.continuousLyapunov\">Matrices.continuousLyapunov</a>
+<a href=\"modelica:/Modelica.Math.Matrices.discreteSylvester\">Matrices.discreteSylvester</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.continuousLyapunov\">Matrices.continuousLyapunov</a>
 </p>
 
 </html>", revisions="<html>
@@ -3964,7 +3964,7 @@ with dimensions according to <strong>S</strong>, the solution <strong>X</strong>
 
 <p>
 With optional input <code>refinement=true</code> a subsequent iterative refinement based on Newton's method with exact line search is applied.
-See <a href=\"modelica://Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">continuousRiccatiIterative</a>
+See <a href=\"modelica:/Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">continuousRiccatiIterative</a>
 for more information.
 </p>
 
@@ -3998,8 +3998,8 @@ X = [2.0, 1.0;
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">Matrices.Utilities.continuousRiccatiIterative</a>,
-<a href=\"modelica://Modelica.Math.Matrices.discreteRiccati\">Matrices.discreteRiccati</a>
+<a href=\"modelica:/Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">Matrices.Utilities.continuousRiccatiIterative</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.discreteRiccati\">Matrices.discreteRiccati</a>
 </p>
 
 </html>", revisions="<html><ul>
@@ -4174,8 +4174,8 @@ X  = [7.5735,   -3.1426,  2.7205, -2.5958;
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.discreteSylvester\">Matrices.discreteSylvester</a>,
-<a href=\"modelica://Modelica.Math.Matrices.continuousLyapunov\">Matrices.continuousLyapunov</a>
+<a href=\"modelica:/Modelica.Math.Matrices.discreteSylvester\">Matrices.discreteSylvester</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.continuousLyapunov\">Matrices.continuousLyapunov</a>
 </p>
 
 </html>", revisions="<html>
@@ -4378,8 +4378,8 @@ X = [2.0,   3.0,   6.0;
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.continuousSylvester\">Matrices.continuousSylvester</a>,
-<a href=\"modelica://Modelica.Math.Matrices.discreteLyapunov\">Matrices.discreteLyapunov</a>
+<a href=\"modelica:/Modelica.Math.Matrices.continuousSylvester\">Matrices.continuousSylvester</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.discreteLyapunov\">Matrices.discreteLyapunov</a>
 </p>
 
 </html>", revisions="<html>
@@ -4598,7 +4598,7 @@ X = [14.5623, 9.7082;
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.continuousRiccati\">Matrices.continuousRiccati</a>
+<a href=\"modelica:/Modelica.Math.Matrices.continuousRiccati\">Matrices.continuousRiccati</a>
 </p>
 </html>", revisions="<html>
 <ul>
@@ -4788,7 +4788,7 @@ A_flr = [3, 2,  1;
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.flipUpDown\">Matrices.flipUpDown</a>
+<a href=\"modelica:/Modelica.Math.Matrices.flipUpDown\">Matrices.flipUpDown</a>
 </p>
 
 </html>", revisions="<html>
@@ -4834,7 +4834,7 @@ A_fud  = [-1, 2, -3;
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.flipLeftRight\">Matrices.flipLeftRight</a>
+<a href=\"modelica:/Modelica.Math.Matrices.flipLeftRight\">Matrices.flipLeftRight</a>
 </p>
 
 </html>", revisions="<html>
@@ -10035,7 +10035,7 @@ LAPACK library
 that provides FORTRAN subroutines to solve linear algebra
 tasks. Usually, these functions are not directly called, but only via
 the much more convenient interface of
-<a href=\"modelica://Modelica.Math.Matrices\">Modelica.Math.Matrices</a>.
+<a href=\"modelica:/Modelica.Math.Matrices\">Modelica.Math.Matrices</a>.
 The documentation of the LAPACK functions is a copy of the original
 FORTRAN code. The details of LAPACK are described in:
 </p>
@@ -10167,7 +10167,7 @@ maxSteps iteration steps have been performed or the relative change <strong>delt
 <p>
 With an appropriate initial value <strong>X</strong>0 a sufficiently accurate solution might be reach within a few iteration steps. Although a Lyapunov equation
 of order <code>n</code> (n is the order of the Riccati equation) is to be solved at each iteration step, the algorithm might be faster
-than a direct method like <a href=\"modelica://Modelica.Math.Matrices.continuousRiccati\">Matrices.continuousRiccati</a>, since direct methods have to solve the 2*n-order Hamiltonian
+than a direct method like <a href=\"modelica:/Modelica.Math.Matrices.continuousRiccati\">Matrices.continuousRiccati</a>, since direct methods have to solve the 2*n-order Hamiltonian
 system equation.<br>
 
 The algorithm is taken from [1] and [2].
@@ -10217,8 +10217,8 @@ X0=identity(4);
 </pre></blockquote>
 
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices.Utilities.discreteRiccatiIterative\">Matrices.Utilities.discreteRiccatiIterative</a><br>
-<a href=\"modelica://Modelica.Math.Matrices.continuousRiccati\">Matrices.continuousRiccati</a>
+<a href=\"modelica:/Modelica.Math.Matrices.Utilities.discreteRiccatiIterative\">Matrices.Utilities.discreteRiccatiIterative</a><br>
+<a href=\"modelica:/Modelica.Math.Matrices.continuousRiccati\">Matrices.continuousRiccati</a>
 </html>", revisions="<html>
 <ul>
 <li><em>2010/04/30 </em>
@@ -10331,7 +10331,7 @@ maxSteps iteration steps have been performed or the relative change <strong>delt
 <p>
 With an appropriate initial value <strong>X</strong>0 a sufficiently accurate solution might be reach with a few iteration steps. Although a Lyapunov equation of
 order <code>n</code> (n is the order of the Riccati equation) is to be solved at each iteration step, the algorithm might be faster
-than a direct method like <a href=\"modelica://Modelica.Math.Matrices.discreteRiccati\">Matrices.discreteRiccati</a>, since direct methods have to solve the 2*n-order Hamiltonian
+than a direct method like <a href=\"modelica:/Modelica.Math.Matrices.discreteRiccati\">Matrices.discreteRiccati</a>, since direct methods have to solve the 2*n-order Hamiltonian
 system equation.
 
 The algorithm is taken from [1] and [2].
@@ -10378,8 +10378,8 @@ X0=identity(4);
 </pre></blockquote>
 
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">Matrices.Utilities.continuousRiccatiIterative</a><br>
-<a href=\"modelica://Modelica.Math.Matrices.discreteRiccati\">Matrices.discreteRiccati</a>
+<a href=\"modelica:/Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">Matrices.Utilities.continuousRiccatiIterative</a><br>
+<a href=\"modelica:/Modelica.Math.Matrices.discreteRiccati\">Matrices.discreteRiccati</a>
 </html>", revisions="<html>
 <ul>
 <li><em>2010/04/30 </em>
@@ -10446,8 +10446,8 @@ X0=identity(4);
 Function <strong>toUpperHessenberg</strong> computes a upper Hessenberg form <strong>H</strong> of a matrix <strong>A</strong> by orthogonal similarity transformation:  <strong>Q</strong>' * <strong>A</strong> * <strong>Q</strong> = <strong>H</strong>.
 The optional inputs <strong>ilo</strong> and <strong>ihi</strong> improve efficiency if the matrix is already partially converted to Hessenberg form; it is assumed
 that matrix <strong>A</strong> is already upper Hessenberg for rows and columns <strong>1:(ilo-1)</strong> and <strong>(ihi+1):size(A, 1)</strong>.
-The function calls <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">LAPACK.dgehrd</a>.
-See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.LAPACK.dgehrd</a> for more information about the additional outputs V, tau, info and inputs ilo, ihi.
+The function calls <a href=\"modelica:/Modelica.Math.Matrices.LAPACK.dgehrd\">LAPACK.dgehrd</a>.
+See <a href=\"modelica:/Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.LAPACK.dgehrd</a> for more information about the additional outputs V, tau, info and inputs ilo, ihi.
 </p>
 
 <h4>Example</h4>
@@ -10466,7 +10466,7 @@ H = [1.0,  -2.466,  2.630;
 </pre></blockquote>
 
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices.hessenberg\">Matrices.hessenberg</a>
+<a href=\"modelica:/Modelica.Math.Matrices.hessenberg\">Matrices.hessenberg</a>
 </html>", revisions="<html><ul>
 <li><em>2010/04/30 </em>
        by Marcus Baur, DLR-RM</li>
@@ -10512,7 +10512,7 @@ This step can be skipped if the matrix has already Hessenberg form.
 <p>
 The function uses the LAPACK-routine dhseqr. Output <code>info</code> is 0 for a successful call of this
 function.<br>
-See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">Matrices.LAPACK.dhseqr</a> for details
+See <a href=\"modelica:/Modelica.Math.Matrices.LAPACK.dhseqr\">Matrices.LAPACK.dhseqr</a> for details
 </p>
 
 <h4>Example</h4>
@@ -10534,8 +10534,8 @@ ev := Matrices.Utilities.eigenvaluesHessenberg(A);
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>,
-<a href=\"modelica://Modelica.Math.Matrices.hessenberg\">Matrices.hessenberg</a>
+<a href=\"modelica:/Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.hessenberg\">Matrices.hessenberg</a>
 </p>
 </html>", revisions="<html>
 <ul>
@@ -10604,8 +10604,8 @@ the system are in the 1-by-1 and 2-by-2 diagonal blocks of the block <strong>upp
 If the Schur form is referenced to a continuous system the staple eigenvalues are in the left complex half plane.
 The stable eigenvalues of a discrete system are inside the complex unit circle.<br>
 This function is used for example to solve algebraic Riccati equations
-(<a href=\"modelica://Modelica.Math.Matrices.continuousRiccati\">continuousRiccati</a>,
-<a href=\"modelica://Modelica.Math.Matrices.discreteRiccati\">discreteRiccati</a>). In this context the Schur form
+(<a href=\"modelica:/Modelica.Math.Matrices.continuousRiccati\">continuousRiccati</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.discreteRiccati\">discreteRiccati</a>). In this context the Schur form
 as well as the corresponding eigenvalues and the transformation matrix <strong>Q</strong> are known, why the eigenvalues and the transformation matrix are inputs to <strong>reorderRSF()</strong>.<br>
 
 The Schur vector matrix <strong>Qo</strong> is also reordered according to <strong>To</strong>. The vectors <strong>wr</strong> and <strong>wi</strong> contains the real and imaginary parts of the
@@ -10626,7 +10626,7 @@ To := Matrices.Utilities.reorderRSF(T,identity(4),{-1, 2, -3, 6},{0, 0, 0, 0}, t
 //        0.0,  0.0,   0.0,   6.0]
 </pre></blockquote>
 <p>
-See also <a href=\"modelica://Modelica.Math.Matrices.realSchur\">Matrices.realSchur</a>
+See also <a href=\"modelica:/Modelica.Math.Matrices.realSchur\">Matrices.realSchur</a>
 </p>
 </html>", revisions="<html>
 <ul>
@@ -10688,8 +10688,8 @@ tk = Matrices.Utilities.<strong>findLocal_tk</strong>(Rk, Vk);
 <h4>Description</h4>
 <p>
 Function <code>findLocal_tk()</code> is an auxiliary function called in iterative solver for algebraic Riccati equation based on Newton's method with
-exact line search like <a href=\"modelica://Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">continuousRiccatiIterative</a><br>
-and <a href=\"modelica://Modelica.Math.Matrices.Utilities.discreteRiccatiIterative\">discreteRiccatiIterative</a>.<br>
+exact line search like <a href=\"modelica:/Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">continuousRiccatiIterative</a><br>
+and <a href=\"modelica:/Modelica.Math.Matrices.Utilities.discreteRiccatiIterative\">discreteRiccatiIterative</a>.<br>
 The function computes the local minimum of the function f_k(t_k)
 </p>
 <blockquote><pre>
@@ -10708,8 +10708,8 @@ See [1] for more information
 </pre></blockquote>
 
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">Matrices.Utilities.continuousRiccatiIterative</a><br>
-<a href=\"modelica://Modelica.Math.Matrices.Utilities.discreteRiccatiIterative\">Matrices.Utilities.discreteRiccatiIterative</a><br>
+<a href=\"modelica:/Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">Matrices.Utilities.continuousRiccatiIterative</a><br>
+<a href=\"modelica:/Modelica.Math.Matrices.Utilities.discreteRiccatiIterative\">Matrices.Utilities.discreteRiccatiIterative</a><br>
 </html>", revisions="<html>
 <ul>
 <li><em>2010/04/30 </em>
@@ -10731,7 +10731,7 @@ This library provides functions operating on matrices. Below, the
 functions are ordered according to categories and a typical
 call of the respective function is shown.
 Most functions are solely an interface to the external
-<a href=\"modelica://Modelica.Math.Matrices.LAPACK\">LAPACK</a> library.
+<a href=\"modelica:/Modelica.Math.Matrices.LAPACK\">LAPACK</a> library.
 </p>
 
 <p>
@@ -10740,120 +10740,120 @@ Note: A' is a short hand notation of transpose(A):
 
 <p><strong>Basic Information</strong></p>
 <ul>
-<li> <a href=\"modelica://Modelica.Math.Matrices.toString\">toString</a>(A)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.toString\">toString</a>(A)
      - returns the string representation of matrix A.</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.isEqual\">isEqual</a>(M1, M2)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.isEqual\">isEqual</a>(M1, M2)
      - returns true if matrices M1 and M2 have the same size and the same elements.</li>
 </ul>
 
 <p><strong>Linear Equations</strong></p>
 <ul>
-<li> <a href=\"modelica://Modelica.Math.Matrices.solve\">solve</a>(A,b)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.solve\">solve</a>(A,b)
      - returns solution x of the linear equation A*x=b (where b is a vector,
        and A is a square matrix that must be regular).</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.solve2\">solve2</a>(A,B)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.solve2\">solve2</a>(A,B)
      - returns solution X of the linear equation A*X=B (where B is a matrix,
        and A is a square matrix that must be regular)</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.leastSquares\">leastSquares</a>(A,b)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.leastSquares\">leastSquares</a>(A,b)
      - returns solution x of the linear equation A*x=b in a least squares sense
        (where b is a vector and A may be non-square and may be rank deficient)</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.leastSquares2\">leastSquares2</a>(A,B)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.leastSquares2\">leastSquares2</a>(A,B)
      - returns solution X of the linear equation A*X=B in a least squares sense
        (where B is a matrix and A may be non-square and may be rank deficient)</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.equalityLeastSquares\">equalityLeastSquares</a>(A,a,B,b)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.equalityLeastSquares\">equalityLeastSquares</a>(A,a,B,b)
      - returns solution x of a linear equality constrained least squares problem:
        min|A*x-a|^2 subject to B*x=b</li>
 
-<li> (LU,p,info) = <a href=\"modelica://Modelica.Math.Matrices.LU\">LU</a>(A)
+<li> (LU,p,info) = <a href=\"modelica:/Modelica.Math.Matrices.LU\">LU</a>(A)
      - returns the LU decomposition with row pivoting of a rectangular matrix A.</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.LU_solve\">LU_solve</a>(LU,p,b)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.LU_solve\">LU_solve</a>(LU,p,b)
      - returns solution x of the linear equation L*U*x[p]=b with a b
        vector and an LU decomposition from \"LU(..)\".</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.LU_solve2\">LU_solve2</a>(LU,p,B)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.LU_solve2\">LU_solve2</a>(LU,p,B)
      - returns solution X of the linear equation L*U*X[p,:]=B with a B
        matrix and an LU decomposition from \"LU(..)\".</li>
 </ul>
 
 <p><strong>Matrix Factorizations</strong></p>
 <ul>
-<li> (eval,evec) = <a href=\"modelica://Modelica.Math.Matrices.eigenValues\">eigenValues</a>(A)
+<li> (eval,evec) = <a href=\"modelica:/Modelica.Math.Matrices.eigenValues\">eigenValues</a>(A)
      - returns eigen values \"eval\" and eigen vectors \"evec\" for a real,
        nonsymmetric matrix A in a Real representation.</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.eigenValueMatrix\">eigenValueMatrix</a>(eval)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.eigenValueMatrix\">eigenValueMatrix</a>(eval)
      - returns real valued block diagonal matrix of the eigenvalues \"eval\" of matrix A.</li>
 
-<li> (sigma,U,VT) = <a href=\"modelica://Modelica.Math.Matrices.singularValues\">singularValues</a>(A)
+<li> (sigma,U,VT) = <a href=\"modelica:/Modelica.Math.Matrices.singularValues\">singularValues</a>(A)
      - returns singular values \"sigma\" and left and right singular vectors U and VT
        of a rectangular matrix A.</li>
 
-<li> (Q,R,p) = <a href=\"modelica://Modelica.Math.Matrices.QR\">QR</a>(A)
+<li> (Q,R,p) = <a href=\"modelica:/Modelica.Math.Matrices.QR\">QR</a>(A)
      - returns the QR decomposition with column pivoting of a rectangular matrix A
        such that Q*R = A[:,p].</li>
 
-<li> (H,U) = <a href=\"modelica://Modelica.Math.Matrices.hessenberg\">hessenberg</a>(A)
+<li> (H,U) = <a href=\"modelica:/Modelica.Math.Matrices.hessenberg\">hessenberg</a>(A)
      - returns the upper Hessenberg form H and the orthogonal transformation matrix U
        of a square matrix A such that H = U'*A*U.</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.realSchur\">realSchur</a>(A)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.realSchur\">realSchur</a>(A)
      - returns the real Schur form of a square matrix A.</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.cholesky\">cholesky</a>(A)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.cholesky\">cholesky</a>(A)
      - returns the cholesky factor H of a real symmetric positive definite matrix A so that A = H'*H.</li>
 
-<li> (D,Aimproved) = <a href=\"modelica://Modelica.Math.Matrices.balance\">balance</a>(A)
+<li> (D,Aimproved) = <a href=\"modelica:/Modelica.Math.Matrices.balance\">balance</a>(A)
      - returns an improved form Aimproved of a square matrix A that has a smaller condition as A,
        with Aimproved = inv(diagonal(D))*A*diagonal(D).</li>
 </ul>
 
 <p><strong>Matrix Properties</strong></p>
 <ul>
-<li> <a href=\"modelica://Modelica.Math.Matrices.trace\">trace</a>(A)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.trace\">trace</a>(A)
      - returns the trace of square matrix A, i.e., the sum of the diagonal elements.</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.det\">det</a>(A)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.det\">det</a>(A)
      - returns the determinant of square matrix A (using LU decomposition; try to avoid det(..))</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.inv\">inv</a>(A)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.inv\">inv</a>(A)
      - returns the inverse of square matrix A (try to avoid, use instead \"solve2(..) with B=identity(..))</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.rank\">rank</a>(A)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.rank\">rank</a>(A)
      - returns the rank of square matrix A (computed with singular value decomposition)</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.conditionNumber\">conditionNumber</a>(A)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.conditionNumber\">conditionNumber</a>(A)
      - returns the condition number norm(A)*norm(inv(A)) of a square matrix A in the range 1..&infin;.</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.rcond\">rcond</a>(A)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.rcond\">rcond</a>(A)
      - returns the reciprocal condition number 1/conditionNumber(A) of a square matrix A in the range 0..1.</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.norm\">norm</a>(A)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.norm\">norm</a>(A)
      - returns the 1-, 2-, or infinity-norm of matrix A.</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.frobeniusNorm\">frobeniusNorm</a>(A)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.frobeniusNorm\">frobeniusNorm</a>(A)
      - returns the Frobenius norm of matrix A.</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.nullSpace\">nullSpace</a>(A)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.nullSpace\">nullSpace</a>(A)
      - returns the null space of matrix A.</li>
 </ul>
 
 <p><strong>Matrix Exponentials</strong></p>
 <ul>
-<li> <a href=\"modelica://Modelica.Math.Matrices.exp\">exp</a>(A)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.exp\">exp</a>(A)
      - returns the exponential e^A of a matrix A by adaptive Taylor series
        expansion with scaling and balancing</li>
 
-<li> (phi, gamma) = <a href=\"modelica://Modelica.Math.Matrices.integralExp\">integralExp</a>(A,B)
+<li> (phi, gamma) = <a href=\"modelica:/Modelica.Math.Matrices.integralExp\">integralExp</a>(A,B)
      - returns the exponential phi=e^A and the integral gamma=integral(exp(A*t)*dt)*B as needed
        for a discretized system with zero order hold.</li>
 
-<li> (phi, gamma, gamma1) = <a href=\"modelica://Modelica.Math.Matrices.integralExpT\">integralExpT</a>(A,B)
+<li> (phi, gamma, gamma1) = <a href=\"modelica:/Modelica.Math.Matrices.integralExpT\">integralExpT</a>(A,B)
      - returns the exponential phi=e^A, the integral gamma=integral(exp(A*t)*dt)*B,
        and the time-weighted integral gamma1 = integral((T-t)*exp(A*t)*dt)*B as needed
        for a discretized system with first order hold.</li>
@@ -10861,41 +10861,41 @@ Note: A' is a short hand notation of transpose(A):
 
 <p><strong>Matrix Equations</strong></p>
 <ul>
-<li> <a href=\"modelica://Modelica.Math.Matrices.continuousLyapunov\">continuousLyapunov</a>(A,C)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.continuousLyapunov\">continuousLyapunov</a>(A,C)
      - returns solution X of the continuous-time Lyapunov equation X*A + A'*X = C</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.continuousSylvester\">continuousSylvester</a>(A,B,C)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.continuousSylvester\">continuousSylvester</a>(A,B,C)
      - returns solution X of the continuous-time Sylvester equation A*X + X*B = C</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.continuousRiccati\">continuousRiccati</a>(A,B,R,Q)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.continuousRiccati\">continuousRiccati</a>(A,B,R,Q)
      - returns solution X of the continuous-time algebraic Riccati equation
        A'*X + X*A - X*B*inv(R)*B'*X + Q = 0</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.discreteLyapunov\">discreteLyapunov</a>(A,C)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.discreteLyapunov\">discreteLyapunov</a>(A,C)
      - returns solution X of the discrete-time Lyapunov equation A'*X*A + sgn*X = C</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.discreteSylvester\">discreteSylvester</a>(A,B,C)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.discreteSylvester\">discreteSylvester</a>(A,B,C)
      - returns solution X of the discrete-time Sylvester equation A*X*B + sgn*X = C</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.discreteRiccati\">discreteRiccati</a>(A,B,R,Q)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.discreteRiccati\">discreteRiccati</a>(A,B,R,Q)
      - returns solution X of the discrete-time algebraic Riccati equation
        A'*X*A - X - A'*X*B*inv(R + B'*X*B)*B'*X*A + Q = 0</li>
 </ul>
 
 <p><strong>Matrix Manipulation</strong></p>
 <ul>
-<li> <a href=\"modelica://Modelica.Math.Matrices.sort\">sort</a>(M)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.sort\">sort</a>(M)
      - returns the sorted rows or columns of matrix M in ascending or descending order.</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.flipLeftRight\">flipLeftRight</a>(M)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.flipLeftRight\">flipLeftRight</a>(M)
      - returns matrix M so that the columns of M are flipped in left/right direction.</li>
 
-<li> <a href=\"modelica://Modelica.Math.Matrices.flipUpDown\">flipUpDown</a>(M)
+<li> <a href=\"modelica:/Modelica.Math.Matrices.flipUpDown\">flipUpDown</a>(M)
      - returns matrix M so that the rows of M are flipped in up/down direction.</li>
 </ul>
 
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Vectors\">Vectors</a>
+<a href=\"modelica:/Modelica.Math.Vectors\">Vectors</a>
 
 </html>"), Icon(graphics={
         Rectangle(
@@ -11017,9 +11017,9 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Vectors.isEqual\">Vectors.isEqual</a>,
-<a href=\"modelica://Modelica.Math.Matrices.isEqual\">Matrices.isEqual</a>,
-<a href=\"modelica://Modelica.Utilities.Strings.isEqual\">Strings.isEqual</a>
+<a href=\"modelica:/Modelica.Math.Vectors.isEqual\">Vectors.isEqual</a>,
+<a href=\"modelica:/Modelica.Math.Matrices.isEqual\">Matrices.isEqual</a>,
+<a href=\"modelica:/Modelica.Utilities.Strings.isEqual\">Strings.isEqual</a>
 </p>
 </html>"));
 end isEqual;
@@ -11055,7 +11055,7 @@ This function returns y = sin(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/sin.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/sin.png\">
 </div>
 </html>"));
 end sin;
@@ -11091,7 +11091,7 @@ This function returns y = cos(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/cos.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/cos.png\">
 </div>
 </html>"));
 end cos;
@@ -11127,7 +11127,7 @@ This function returns y = tan(u), with -&infin; &lt; u &lt; &infin;
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/tan.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/tan.png\">
 </div>
 </html>"));
 end tan;
@@ -11161,7 +11161,7 @@ This function returns y = asin(u), with -1 &le; u &le; +1:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/asin.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/asin.png\">
 </div>
 </html>"));
 end asin;
@@ -11195,7 +11195,7 @@ This function returns y = acos(u), with -1 &le; u &le; +1:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/acos.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/acos.png\">
 </div>
 </html>"));
 end acos;
@@ -11230,7 +11230,7 @@ This function returns y = atan(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/atan.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/atan.png\">
 </div>
 </html>"));
 end atan;
@@ -11272,7 +11272,7 @@ u1 = sin(y) and u2 = cos(y):
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/atan2.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/atan2.png\">
 </div>
 
 </html>"));
@@ -11336,7 +11336,7 @@ shall be returned:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/atan3.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/atan3.png\">
 </div>
 
 <p>
@@ -11376,7 +11376,7 @@ This function returns y = sinh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/sinh.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/sinh.png\">
 </div>
 </html>"));
 end sinh;
@@ -11413,7 +11413,7 @@ This function returns y = cosh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/cosh.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/cosh.png\">
 </div>
 </html>"));
 end cosh;
@@ -11448,7 +11448,7 @@ This function returns y = tanh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/tanh.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/tanh.png\">
 </div>
 </html>"));
 end tanh;
@@ -11486,7 +11486,7 @@ asinh(u) (-&infin; &lt; u &lt; &infin;):
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/asinh.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/asinh.png\">
 </div>
 </html>"));
 end asinh;
@@ -11535,7 +11535,7 @@ can become close to 1:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/acosh.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/acosh.png\">
 </div>
 </html>"));
 end acosh;
@@ -11569,7 +11569,7 @@ This function returns y = exp(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/exp.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/exp.png\">
 </div>
 </html>"));
 end exp;
@@ -11604,7 +11604,7 @@ with u &gt; 0:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/log.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/log.png\">
 </div>
 </html>"));
 end log;
@@ -11639,7 +11639,7 @@ with u &gt; 0:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Math/log10.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/log10.png\">
 </div>
 </html>"));
 end log10;
@@ -11654,10 +11654,10 @@ annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
 <p>
 This package contains <strong>basic mathematical functions</strong> (such as sin(..)),
 as well as functions operating on
-<a href=\"modelica://Modelica.Math.Vectors\">vectors</a>,
-<a href=\"modelica://Modelica.Math.Matrices\">matrices</a>,
-<a href=\"modelica://Modelica.Math.Nonlinear\">nonlinear functions</a>, and
-<a href=\"modelica://Modelica.Math.BooleanVectors\">Boolean vectors</a>.
+<a href=\"modelica:/Modelica.Math.Vectors\">vectors</a>,
+<a href=\"modelica:/Modelica.Math.Matrices\">matrices</a>,
+<a href=\"modelica:/Modelica.Math.Nonlinear\">nonlinear functions</a>, and
+<a href=\"modelica:/Modelica.Math.BooleanVectors\">Boolean vectors</a>.
 </p>
 
 <h4>Main Authors</h4>

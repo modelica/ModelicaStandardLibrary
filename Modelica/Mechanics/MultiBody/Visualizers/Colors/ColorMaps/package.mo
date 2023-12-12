@@ -11,7 +11,7 @@ respective function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/ColorMaps/ColorMaps.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/ColorMaps/ColorMaps.png\">
 </blockquote>
 </html>"));
 end ColorMaps;

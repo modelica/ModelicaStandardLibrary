@@ -4,7 +4,7 @@ model PermeanceActuator
 
   parameter Real N=140 "Number of turns" annotation (Dialog(group=
           "Parameters", groupImage=
-          "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/MovingCoilActuator/MovingCoilActuator_dimensions.png"));
+          "modelica:/Modelica/Resources/Images/Magnetic/FluxTubes/Examples/MovingCoilActuator/MovingCoilActuator_dimensions.png"));
   parameter SI.Resistance R=2.86 "Coil resistance";
 
   parameter SI.Radius r_core=12.5e-3
@@ -160,7 +160,7 @@ equation
       points={{40,-18},{40,-10},{30,-10}}, color={255,127,0}));
   annotation (Documentation(info="<html>
 <p>
-In the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a> model the force F is strictly proportional to the current i as indicated by the converter constant c. However, there is an additional non-linear force component in such an actuator that is due to the dependency of the coil inductance L on the armature position x. The inductance increases as the armature moves into the stator. The total force is
+In the <a href=\"modelica:/Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a> model the force F is strictly proportional to the current i as indicated by the converter constant c. However, there is an additional non-linear force component in such an actuator that is due to the dependency of the coil inductance L on the armature position x. The inductance increases as the armature moves into the stator. The total force is
 </p>
 
 <blockquote><pre>
@@ -174,7 +174,7 @@ Both force components are properly considered with a simple permeance model as s
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/MovingCoilActuator/MovingCoilActuator_PermeanceModel.png\" alt=\"Structure, assigned flux tubes and field plots of the moving coil actuator\">
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/FluxTubes/Examples/MovingCoilActuator/MovingCoilActuator_PermeanceModel.png\" alt=\"Structure, assigned flux tubes and field plots of the moving coil actuator\">
 </div>
 </html>"),
    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},

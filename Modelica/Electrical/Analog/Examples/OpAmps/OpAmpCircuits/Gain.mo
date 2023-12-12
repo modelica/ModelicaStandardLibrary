@@ -26,7 +26,7 @@ equation
   connect(n1, n2)
     annotation (Line(points={{-100,-100},{100,-100}}, color={0,0,255}));
   annotation (Documentation(info="<html>
-<p>Inverting amplifier = gain, based on the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
+<p>Inverting amplifier = gain, based on the <a href=\"modelica:/Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
 <p><code>vOut = -k*vIn</code></p>
 </html>"),
        Icon(graphics={

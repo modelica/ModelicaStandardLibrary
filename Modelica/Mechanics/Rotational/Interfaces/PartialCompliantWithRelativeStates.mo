@@ -63,7 +63,7 @@ and c are more meaningful for the user.
 
 <p>
 See also the discussion
-<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
+<a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
 in the User's Guide of the Rotational library.
 </p>
 </html>"));

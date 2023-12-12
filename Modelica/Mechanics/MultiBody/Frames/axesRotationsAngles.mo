@@ -154,7 +154,7 @@ sequence = <strong>{1,2,3}</strong>  // Cardan angle sequence
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axesRotationsAngles\">TransformationMatrices.axesRotationsAngles</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.axesRotationsAngles\">TransformationMatrices.axesRotationsAngles</a>.
 </p>
 </html>"));
 end axesRotationsAngles;

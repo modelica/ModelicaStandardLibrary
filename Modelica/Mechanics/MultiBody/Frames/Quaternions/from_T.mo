@@ -55,20 +55,20 @@ Q = Quaternions.<strong>from_T</strong>(T, Q_guess);
 <h4>Description</h4>
 <p>
 This function returns a
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternions orientation</a>&nbsp;Q.
 computed from a transformation matrix&nbsp;T
 and depending on the initial guess Q_guess.
 Generally, the transformation matrix&nbsp;T can be gained using a function from the
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices\">TransformationMatrices</a>
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices\">TransformationMatrices</a>
 package.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T\">to_T</a>.
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T_inv\">from_T_inv</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.from_T\">Frames.from_T</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_T\">TransformationMatrices.from_T</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.to_T\">to_T</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T_inv\">from_T_inv</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.from_T\">Frames.from_T</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_T\">TransformationMatrices.from_T</a>.
 </p>
 </html>", revisions="<html>
 <ul>

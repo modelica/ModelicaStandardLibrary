@@ -37,7 +37,7 @@ equation
 <p>
 This component models a spring damper combination that can lift off.
 It can be connected between a sliding mass and the housing (model
-<a href=\"modelica://Modelica.Mechanics.Translational.Components.Fixed\">Fixed</a>),
+<a href=\"modelica:/Modelica.Mechanics.Translational.Components.Fixed\">Fixed</a>),
 to describe the contact of a sliding mass with the housing.
 </p>
 
@@ -118,7 +118,7 @@ is always continuous, especially around the start of the penetration at s_rel = 
 
 <p>
 In the next figure, a typical simulation with the ElastoGap model is shown
-(<a href=\"modelica://Modelica.Mechanics.Translational.Examples.ElastoGap\">Examples.ElastoGap</a>)
+(<a href=\"modelica:/Modelica.Mechanics.Translational.Examples.ElastoGap\">Examples.ElastoGap</a>)
 where the different effects are visualized:
 </p>
 
@@ -132,7 +132,7 @@ where the different effects are visualized:
 </ol>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Components/ElastoGap.png\" alt=\"Elasto gap\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/Translational/Components/ElastoGap.png\" alt=\"Elasto gap\">
 </div>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{

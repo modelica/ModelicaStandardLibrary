@@ -386,7 +386,7 @@ the yellow arrow is the animated sensor.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/RelativeSensor.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Sensors/RelativeSensor.png\">
 </div>
 
 <p>

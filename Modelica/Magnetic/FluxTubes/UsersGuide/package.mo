@@ -10,6 +10,6 @@ This library contains components for modelling of electromagnetic devices with l
 This user's guide gives a short introduction to the underlying concept of <strong>magnetic flux tubes</strong>, summarizes the calculation of magnetic <strong>reluctance forces</strong> from lumped magnetic network models and lists <strong>reference literature</strong>.
 </p>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples\">Examples</a> illustrates the usage of magnetic network models with simple models from different fields of application.</p>
+<a href=\"modelica:/Modelica.Magnetic.FluxTubes.Examples\">Examples</a> illustrates the usage of magnetic network models with simple models from different fields of application.</p>
 </html>"));
 end UsersGuide;

@@ -203,7 +203,7 @@ The rms values of d- and q-current in rotor fixed coordinate system are controll
 and the output voltages fed to the machine. The result shows that the torque is influenced by the q-current,
 whereas the stator voltage is influenced by the d-current.</p>
 <p>
-Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
+Default machine parameters of model <a href=\"modelica:/Modelica.Electrical.Machines.BasicMachines.SynchronousMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
 </p>
 </html>"));
   end SMPM_VoltageSourceWithLosses;

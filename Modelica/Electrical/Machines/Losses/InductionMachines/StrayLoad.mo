@@ -54,7 +54,7 @@ The dependency of the stray load torque on the angular velocity is modeled by th
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.Machines.Losses.StrayLoadParameters\">StrayLoad parameters</a>
+<a href=\"modelica:/Modelica.Electrical.Machines.Losses.StrayLoadParameters\">StrayLoad parameters</a>
 </p>
 <p>
 If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRef = 0</code> (this is the default).

@@ -23,7 +23,7 @@ equation
 <p>
 Compute relative position vector r_rel_a from a position vector r_a_0 to
 a position vector r_b_0, resolved in frame given by an
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a> R_a.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a> R_a.
 </p>
 </html>"));
 end InitPosition;

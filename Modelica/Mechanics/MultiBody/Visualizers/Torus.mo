@@ -75,7 +75,7 @@ stopAngle  =  135 degree
 </pre></blockquote>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Torus.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Torus.png\">
 </blockquote>
 
 <p>

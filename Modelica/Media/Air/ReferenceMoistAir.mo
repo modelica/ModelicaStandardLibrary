@@ -1862,9 +1862,9 @@ package ReferenceMoistAir
   annotation (Documentation(info="<html>
 <p>
 This is a makeshift package avoiding the region validity checks of the IF97 utility functions
-<a href=\"modelica://Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2\">BaseIF97.Basic.g2</a>,
-<a href=\"modelica://Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.cond_dTp\">BaseIF97.Transport.cond_dTp</a> and
-<a href=\"modelica://Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.visc_dTp\">BaseIF97.Transport.visc_dTp</a>
+<a href=\"modelica:/Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2\">BaseIF97.Basic.g2</a>,
+<a href=\"modelica:/Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.cond_dTp\">BaseIF97.Transport.cond_dTp</a> and
+<a href=\"modelica:/Modelica.Media.Water.IF97_Utilities.BaseIF97.Transport.visc_dTp\">BaseIF97.Transport.visc_dTp</a>
 for region 2.
 </p>
 </html>", revisions="<html>
@@ -3967,7 +3967,7 @@ The functions provided by this package shall be used inside of the restricted li
 
 <h4>Usage</h4>
 <p>
-The package MoistAir can be used as any other medium model (see <a href=\"modelica://Modelica.Media.UsersGuide\">User's Guide of Media Library</a> for further information). The package defines two boolean constants <strong>useEnhancementFactor</strong> and <strong>useDissociation</strong>, which give the user fine grained control of the calculations.
+The package MoistAir can be used as any other medium model (see <a href=\"modelica:/Modelica.Media.UsersGuide\">User's Guide of Media Library</a> for further information). The package defines two boolean constants <strong>useEnhancementFactor</strong> and <strong>useDissociation</strong>, which give the user fine grained control of the calculations.
 </p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
 <tr>
@@ -4139,7 +4139,7 @@ Nitrogen, Oxygen, Argon, and Air</strong>. International Journal of Thermophysic
 <h4>Verification</h4>
 <p>
 The verification report for the development of this library is provided
-<a href=\"modelica://Modelica/Resources/Documentation/Media/MoMoLib_VerificationResults_XRG.pdf\">here</a>.
+<a href=\"modelica:/Modelica/Resources/Documentation/Media/MoMoLib_VerificationResults_XRG.pdf\">here</a>.
 </p>
 
 <h4>Acknowledgment</h4>

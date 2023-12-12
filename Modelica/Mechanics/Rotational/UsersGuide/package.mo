@@ -11,14 +11,14 @@ sub-sections:
 </p>
 
 <ul>
-<li> <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.Overview\">Overview</a></li>
-<li> <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.FlangeConnectors\">Flange Connectors</a></li>
-<li> <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.SupportTorques\">Support Torques</a></li>
-<li> <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.SignConventions\">Sign Conventions</a></li>
-<li> <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.UserDefinedComponents\">User Defined Components</a></li>
-<li> <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.RequirementsForSimulationTool\">Requirements for Simulation Tools</a></li>
-<li> <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a></li>
-<li> <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">Modeling of Friction</a></li>
+<li> <a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide.Overview\">Overview</a></li>
+<li> <a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide.FlangeConnectors\">Flange Connectors</a></li>
+<li> <a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide.SupportTorques\">Support Torques</a></li>
+<li> <a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide.SignConventions\">Sign Conventions</a></li>
+<li> <a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide.UserDefinedComponents\">User Defined Components</a></li>
+<li> <a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide.RequirementsForSimulationTool\">Requirements for Simulation Tools</a></li>
+<li> <a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a></li>
+<li> <a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">Modeling of Friction</a></li>
 </ul>
 
 </html>"));

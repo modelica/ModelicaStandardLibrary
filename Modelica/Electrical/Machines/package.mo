@@ -5,7 +5,7 @@ package Machines "Library for electric machines"
   annotation (
     preferredView="info",
     Documentation(info="<html>
-<p><strong>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></strong>.</p>
+<p><strong>For a discrimination of various machine models, see <a href=\"modelica:/Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></strong>.</p>
 <p>
 Copyright &copy; 1998-2020, Modelica Association and contributors
 </p>

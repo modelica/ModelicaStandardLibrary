@@ -178,7 +178,7 @@ The Real output y is a sine signal. The signal is defined in terms of clock tick
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/TickBasedSources_Sine.png\" alt=\"TickBasedSources_Sine.png\"/>
+<img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/TickBasedSources_Sine.png\" alt=\"TickBasedSources_Sine.png\"/>
 </div>
 </html>"));
 end Sine;

@@ -105,7 +105,7 @@ record BaseData "Hysteresis table data"
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
   <tr>
     <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_BaseData.png\">
+      <img src=\"modelica:/Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_BaseData.png\">
    </td>
   </tr>
 </table>

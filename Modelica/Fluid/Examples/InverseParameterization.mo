@@ -97,7 +97,7 @@ equation
   connect(pump.port_b, pipe2.port_a) annotation (Line(
       points={{-20,20},{0,20},{0,-60},{20,-60}}, color={0,127,255}));
   annotation (
-    __Dymola_Commands(file(ensureSimulated=true)="modelica://Modelica/Resources/Scripts/Dymola/Fluid/InverseParameterization/plotResults.mos"
+    __Dymola_Commands(file(ensureSimulated=true)="modelica:/Modelica/Resources/Scripts/Dymola/Fluid/InverseParameterization/plotResults.mos"
         "plotResults"),
     experiment(StopTime=10, Interval=0.001),
     Documentation(info="<html>
@@ -130,7 +130,7 @@ can be used to change the flow through pipe1 from fully turbulent (eps_m_flow_tu
 Invoke plotResults and see pipe1.port_a.m_flow. Relating the actual flow to pipe1.flowModel.m_flows_turbulent[1],
 it can be seen that eps_m_flow_turbulent=0.1 is an appropriate choice for the given pipe diameter.
 </p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/InverseParametrization.png\" border=\"1\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Examples/InverseParametrization.png\" border=\"1\"
      alt=\"InverseParametrization.png\">
 </html>"));
 end InverseParameterization;

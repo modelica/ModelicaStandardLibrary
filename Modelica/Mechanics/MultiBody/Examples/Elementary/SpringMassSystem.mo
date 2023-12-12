@@ -121,7 +121,7 @@ can be utilized:
     This has the advantage to get a nice animation of the force component.</li>
 </ul>
 
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/SpringMassSystem.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/SpringMassSystem.png\"
 alt=\"model Examples.Elementary.SpringMassSystem\">
 </html>"));
 end SpringMassSystem;

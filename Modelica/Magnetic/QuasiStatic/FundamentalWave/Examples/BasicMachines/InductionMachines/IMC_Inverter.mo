@@ -133,8 +133,8 @@ and accelerate inertias. At time <code>tStep</code> a load step is applied.</p>
 
 <p>
 Compare with transient models 
-<a href=\"modelica://Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Inverter\">IMC_Inverter (Electrical.Machines)</a> and
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Inverter\">IMC_Inverter (FundamentalWave)</a>. 
+<a href=\"modelica:/Modelica.Electrical.Machines.Examples.InductionMachines.IMC_Inverter\">IMC_Inverter (Electrical.Machines)</a> and
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.InductionMachines.IMC_Inverter\">IMC_Inverter (FundamentalWave)</a>. 
 Note that electrical transients are neglected, but mechanical transients are taken into account. 
 </p>
 

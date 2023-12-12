@@ -107,7 +107,7 @@ then the super-sampling factor is defined by Integer parameter <strong>factor</s
 <p>
 For control applications this block introduces unnecessary \"vibrations\".
 In such a case it is better to use block
-<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SuperSampleInterpolated\">SuperSampleInterpolated</a>
+<a href=\"modelica:/Modelica.Clocked.RealSignals.Sampler.SuperSampleInterpolated\">SuperSampleInterpolated</a>
 instead.
 </p>
 
@@ -115,16 +115,16 @@ instead.
 
 <p>
 The following
-<a href=\"modelica://Modelica.Clocked.Examples.Elementary.RealSignals.SuperSample\">example</a>
+<a href=\"modelica:/Modelica.Clocked.Examples.Elementary.RealSignals.SuperSample\">example</a>
 samples a sine signal with a periodic clock of 20 ms period, and
 then super-samples the resulting clocked signal with a factor of 3:<br>
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td width=\"50\"></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/SuperSample_Model.png\" alt=\"SuperSample_Model.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/SuperSample_Model.png\" alt=\"SuperSample_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
-                        <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/SuperSample_Result.png\" alt=\"SuperSample_Result.png\"></td>
+                        <img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/SuperSample_Result.png\" alt=\"SuperSample_Result.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">model</td>

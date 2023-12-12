@@ -23,9 +23,9 @@ orientation object R12 that describes the orientation  to rotate frame&nbsp;1 in
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.resolve1\">resolve1</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolve2\">TransformationMatrices.resolve2</a>,
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve2\">Quaternions.resolve2</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.resolve1\">resolve1</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.resolve2\">TransformationMatrices.resolve2</a>,
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.resolve2\">Quaternions.resolve2</a>.
 </p>
 </html>"));
 end resolve2;

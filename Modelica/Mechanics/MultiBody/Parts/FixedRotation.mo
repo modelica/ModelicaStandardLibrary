@@ -205,7 +205,7 @@ the animation may be switched off via parameter animation = <strong>false</stron
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/FixedRotation.png\" alt=\"Parts.FixedRotation\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Parts/FixedRotation.png\" alt=\"Parts.FixedRotation\">
 </div>
 </html>",
         revisions="<html><p><strong>Release Notes:</strong></p>

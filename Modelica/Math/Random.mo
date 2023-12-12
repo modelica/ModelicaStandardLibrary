@@ -61,13 +61,13 @@ package Random "Library of functions for generating random numbers"
       annotation (experiment(StopTime=2), Documentation(info="<html>
 <p>
 This example demonstrates how to utilize the random number generators
-of package <a href=\"modelica://Modelica.Math.Random.Generators\">Math.Random.Generators</a> in a Modelica model.
+of package <a href=\"modelica:/Modelica.Math.Random.Generators\">Math.Random.Generators</a> in a Modelica model.
 The example calculates random numbers in the range 0 .. 1 of the available random number generators periodically
 with a sample period of 0.05 s. Simulations results are shown in the figure below:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Math/Random/Examples/GenerateRandomNumbers.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Math/Random/Examples/GenerateRandomNumbers.png\">
 </blockquote>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -78,7 +78,7 @@ with a sample period of 0.05 s. Simulations results are shown in the figure belo
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -103,7 +103,7 @@ This package contains examples demonstrating the usage of the functions in packa
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -189,7 +189,7 @@ and the returned state is the one from the last iteration.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Random.Generators.Xorshift64star.random\">Random.Generators.Xorshift64star.random</a>.
+<a href=\"modelica:/Modelica.Math.Random.Generators.Xorshift64star.random\">Random.Generators.Xorshift64star.random</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -200,7 +200,7 @@ and the returned state is the one from the last iteration.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -222,7 +222,7 @@ and the returned state is the one from the last iteration.
         output Integer stateOut[nState]
           "The new internal states of the random number generator";
         external "C" ModelicaRandom_xorshift64star(stateIn, stateOut, result)
-          annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC");
+          annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC");
         annotation(Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -254,7 +254,7 @@ same random number r is returned.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Random.Generators.Xorshift64star.initialState\">Random.Generators.Xorshift64star.initialState</a>.
+<a href=\"modelica:/Modelica.Math.Random.Generators.Xorshift64star.initialState\">Random.Generators.Xorshift64star.initialState</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -265,7 +265,7 @@ same random number r is returned.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -281,7 +281,7 @@ same random number r is returned.
 Random number generator <strong>xorshift64*</strong>. This generator has a period of 2^64
 (the period defines the number of random numbers generated before the sequence begins to repeat itself).
 For an overview, comparison with other random number generators, and links to articles, see
-<a href=\"modelica://Modelica.Math.Random.Generators\">Math.Random.Generators</a>.
+<a href=\"modelica:/Modelica.Math.Random.Generators\">Math.Random.Generators</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -292,7 +292,7 @@ For an overview, comparison with other random number generators, and links to ar
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -347,7 +347,7 @@ a reasonable initial state vector with the following strategy:
 </p>
 
 <p>
-The <a href=\"modelica://Modelica.Math.Random.Generators.Xorshift64star\">Xorshift64star</a>
+The <a href=\"modelica:/Modelica.Math.Random.Generators.Xorshift64star\">Xorshift64star</a>
 random number generator is used to fill the internal state vector with 64 bit random numbers.
 </p>
 
@@ -362,7 +362,7 @@ random number generator is used to fill the internal state vector with 64 bit ra
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Random.Generators.Xorshift128plus.random\">Random.Generators.Xorshift128plus.random</a>.
+<a href=\"modelica:/Modelica.Math.Random.Generators.Xorshift128plus.random\">Random.Generators.Xorshift128plus.random</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -373,7 +373,7 @@ random number generator is used to fill the internal state vector with 64 bit ra
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -395,7 +395,7 @@ random number generator is used to fill the internal state vector with 64 bit ra
         output Integer stateOut[nState]
           "The new internal states of the random number generator";
         external "C" ModelicaRandom_xorshift128plus(stateIn, stateOut, result)
-          annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC");
+          annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC");
         annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -427,7 +427,7 @@ same random number r is returned.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Random.Generators.Xorshift128plus.initialState\">Random.Generators.Xorshift128plus.initialState</a>.
+<a href=\"modelica:/Modelica.Math.Random.Generators.Xorshift128plus.initialState\">Random.Generators.Xorshift128plus.initialState</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -438,7 +438,7 @@ same random number r is returned.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -455,7 +455,7 @@ Random number generator <strong>xorshift128+</strong>. This generator has a peri
 (the period defines the number of random numbers generated before the sequence begins to repeat itself).
 For an overview, comparison with
 other random number generators, and links to articles, see
-<a href=\"modelica://Modelica.Math.Random.Generators\">Math.Random.Generators</a>.
+<a href=\"modelica:/Modelica.Math.Random.Generators\">Math.Random.Generators</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -466,7 +466,7 @@ other random number generators, and links to articles, see
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -524,7 +524,7 @@ a reasonable initial state vector with the following strategy:
 </p>
 
 <p>
-The <a href=\"modelica://Modelica.Math.Random.Generators.Xorshift64star\">Xorshift64star</a>
+The <a href=\"modelica:/Modelica.Math.Random.Generators.Xorshift64star\">Xorshift64star</a>
 random number generator is used to fill the internal state vector with 64 bit random numbers.
 </p>
 
@@ -539,7 +539,7 @@ random number generator is used to fill the internal state vector with 64 bit ra
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Random.Generators.Xorshift1024star.random\">Random.Generators.Xorshift1024star.random</a>.
+<a href=\"modelica:/Modelica.Math.Random.Generators.Xorshift1024star.random\">Random.Generators.Xorshift1024star.random</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -550,7 +550,7 @@ random number generator is used to fill the internal state vector with 64 bit ra
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -572,7 +572,7 @@ random number generator is used to fill the internal state vector with 64 bit ra
         output Integer stateOut[nState]
           "The new internal states of the random number generator";
         external "C" ModelicaRandom_xorshift1024star(stateIn, stateOut, result)
-          annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC");
+          annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC");
         annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -604,7 +604,7 @@ same random number r is returned.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Random.Generators.Xorshift1024star.initialState\">Random.Generators.Xorshift1024star.initialState</a>.
+<a href=\"modelica:/Modelica.Math.Random.Generators.Xorshift1024star.initialState\">Random.Generators.Xorshift1024star.initialState</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -615,7 +615,7 @@ same random number r is returned.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -631,7 +631,7 @@ same random number r is returned.
 Random number generator <strong>xorshift1024*</strong>. This generator has a period of 2^1024
 (the period defines the number of random numbers generated before the sequence begins to repeat itself).
 For an overview, comparison with other random number generators, and links to articles, see
-<a href=\"modelica://Modelica.Math.Random.Generators\">Math.Random.Generators</a>.
+<a href=\"modelica:/Modelica.Math.Random.Generators\">Math.Random.Generators</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -642,7 +642,7 @@ For an overview, comparison with other random number generators, and links to ar
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -796,7 +796,7 @@ Further explanations of the properties above:
 
 <p>
 The xorshift random number generators are used in the following way in the
-<a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a> package:
+<a href=\"modelica:/Modelica.Blocks.Noise\">Blocks.Noise</a> package:
 </p>
 <ol>
 <li> Xorshift64star (xorshift64*) is used to generate the initial internal state vectors of the
@@ -804,16 +804,16 @@ The xorshift random number generators are used in the following way in the
      to the very good startup properties.</li>
 
 <li> Xorshift128plus (xorshift128+) is the random number generator
-     used by the blocks in <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>.
+     used by the blocks in <a href=\"modelica:/Modelica.Blocks.Noise\">Blocks.Noise</a>.
      Since these blocks hold the internal state vector for every block instance, and the
      internal state vector is copied whenever a new random number is drawn, it is important
      that the internal state vector is short (and still has good statistical properties
      as shown in the table above).</li>
 
 <li> Xorshift1024star (xorshift1024*) is the basis of the impure function
-     <a href=\"modelica://Modelica.Math.Random.Utilities.impureRandom\">Math.Random.Utilities.impureRandom</a>
+     <a href=\"modelica:/Modelica.Math.Random.Utilities.impureRandom\">Math.Random.Utilities.impureRandom</a>
      which in turn is used with
-     <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.GlobalSeed</a>.
+     <a href=\"modelica:/Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.GlobalSeed</a>.
      The internal state vector is not exposed. It is updated internally, whenever a new random number
      is drawn.</li>
 </ol>
@@ -831,7 +831,7 @@ These numbers are mapped to the 52 bit mantissa of double numbers in the range 0
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -894,7 +894,7 @@ These numbers are mapped to the 52 bit mantissa of double numbers in the range 0
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -912,7 +912,7 @@ state = Utilities.<strong>initialStateWithXorshift6star</strong>(localSeed, glob
 <h4>Description</h4>
 
 <p>
-The <a href=\"modelica://Modelica.Math.Random.Generators.Xorshift64star\">Xorshift64star</a>
+The <a href=\"modelica:/Modelica.Math.Random.Generators.Xorshift64star\">Xorshift64star</a>
 random number generator is used to fill a state vector of length nState (nState &ge; 1) with random numbers and return
 this vector. Arguments localSeed and globalSeed are any Integer numbers (including zero or negative number)
 that characterize the initial state.
@@ -935,7 +935,7 @@ If the same localSeed, globalSeed, nState is given, the same state vector is ret
       extends Modelica.Icons.Function;
       output Integer seed "Automatically generated seed";
 
-      external "C" seed = ModelicaRandom_automaticGlobalSeed(0.0) annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC");
+      external "C" seed = ModelicaRandom_automaticGlobalSeed(0.0) annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC");
      annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -968,7 +968,7 @@ This function should be only called once during initialization.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Random.Utilities.automaticLocalSeed\">automaticLocalSeed</a>.
+<a href=\"modelica:/Modelica.Math.Random.Utilities.automaticLocalSeed\">automaticLocalSeed</a>.
 </p>
 <h4>Note</h4>
 <p>This function is impure!</p>
@@ -981,7 +981,7 @@ This function should be only called once during initialization.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1014,7 +1014,7 @@ seed = Utilities.<strong>automaticLocalSeed</strong>(path);
 Returns an automatically computed seed (Integer) from the hash value of
 the full path name of an instance (has to be inquired in the model or block
 where this function is called by the Modelica built-in operator <a href=\"https://specification.modelica.org/v3.4/Ch3.html#getinstancename\">getInstanceName()</a>).
-Contrary to <a href=\"modelica://Modelica.Math.Random.Utilities.automaticGlobalSeed\">automaticGlobalSeed()</a>,
+Contrary to <a href=\"modelica:/Modelica.Math.Random.Utilities.automaticGlobalSeed\">automaticGlobalSeed()</a>,
 this is a pure function, that is, the same seed is returned, if an identical
 path is provided.
 </p>
@@ -1031,7 +1031,7 @@ path is provided.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Random.Utilities.automaticGlobalSeed\">automaticGlobalSeed</a>, <a href=\"modelica://Modelica.Utilities.Strings.hashString\">hashString</a> and <a href=\"https://specification.modelica.org/v3.4/Ch3.html#getinstancename\">getInstanceName</a>.
+<a href=\"modelica:/Modelica.Math.Random.Utilities.automaticGlobalSeed\">automaticGlobalSeed</a>, <a href=\"modelica:/Modelica.Utilities.Strings.hashString\">hashString</a> and <a href=\"https://specification.modelica.org/v3.4/Ch3.html#getinstancename\">getInstanceName</a>.
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -1042,7 +1042,7 @@ path is provided.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1073,7 +1073,7 @@ path is provided.
         input Integer[33] rngState "The initial state";
         input Integer id;
         external "C" ModelicaRandom_setInternalState_xorshift1024star(rngState, size(rngState,1), id)
-          annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC");
+          annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC");
       end setInternalState;
 
     algorithm
@@ -1093,15 +1093,15 @@ id = <strong>initializeImpureRandom</strong>(seed;
 
 <p>
 Generates a hidden initial state vector for the
-<a href=\"modelica://Modelica.Math.Random.Generators.Xorshift1024star\">Xorshift1024star</a>
+<a href=\"modelica:/Modelica.Math.Random.Generators.Xorshift1024star\">Xorshift1024star</a>
 random number generator (= xorshift1024* algorithm), from Integer input argument seed. Argument seed
 can be given any value (including zero or negative number). The function returns the
 dummy Integer number id. This number needs to be passed as input to function
-<a href=\"modelica://Modelica.Math.Random.Utilities.impureRandom\">impureRandom</a>,
+<a href=\"modelica:/Modelica.Math.Random.Utilities.impureRandom\">impureRandom</a>,
 in order that the sorting order is correct (so that impureRandom is always called
 after initializeImpureRandom). The function stores a reasonable initial state vector
 in a C-static memory by using the
-<a href=\"modelica://Modelica.Math.Random.Generators.Xorshift64star\">Xorshift64star</a>
+<a href=\"modelica:/Modelica.Math.Random.Generators.Xorshift64star\">Xorshift64star</a>
 random number generator to fill the internal state vector with 64 bit random numbers.
 </p>
 
@@ -1121,8 +1121,8 @@ random number generator to fill the internal state vector with 64 bit random num
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Random.Utilities.impureRandom\">Utilities.impureRandom</a>,
-<a href=\"modelica://Modelica.Math.Random.Generators\">Random.Generators</a>
+<a href=\"modelica:/Modelica.Math.Random.Utilities.impureRandom\">Utilities.impureRandom</a>,
+<a href=\"modelica:/Modelica.Math.Random.Generators\">Random.Generators</a>
 </p>
 </html>",     revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -1133,7 +1133,7 @@ random number generator to fill the internal state vector with 64 bit random num
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1153,7 +1153,7 @@ random number generator to fill the internal state vector with 64 bit random num
       output Real y
         "A random number with a uniform distribution on the interval (0,1]";
       external "C" y = ModelicaRandom_impureRandom_xorshift1024star(id)
-        annotation (IncludeDirectory="modelica://Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC");
+        annotation (IncludeDirectory="modelica:/Modelica/Resources/C-Sources", Include="#include \"ModelicaRandom.h\"", Library="ModelicaExternalC");
       annotation(Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -1164,7 +1164,7 @@ r = <strong>impureRandom</strong>(id);
 <p>
 Returns a uniform random number in the range 0 &lt; random &le; 1 with the xorshift1024* algorithm.
 The dummy input Integer argument id must be the output argument of a call to function
-<a href=\"modelica://Modelica.Math.Random.Utilities.initializeImpureRandom\">initializeImpureRandom</a>,
+<a href=\"modelica:/Modelica.Math.Random.Utilities.initializeImpureRandom\">initializeImpureRandom</a>,
 in order that the sorting order is correct (so that impureRandom is always called
 after initializeImpureRandom). For every call of impureRandom(id), a different random number
 is returned, so the function is impure.
@@ -1191,8 +1191,8 @@ is returned, so the function is impure.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Random.Utilities.initializeImpureRandom\">initializeImpureRandom</a>,
-<a href=\"modelica://Modelica.Math.Random.Generators\">Random.Generators</a>
+<a href=\"modelica:/Modelica.Math.Random.Utilities.initializeImpureRandom\">initializeImpureRandom</a>,
+<a href=\"modelica:/Modelica.Math.Random.Generators\">Random.Generators</a>
 </p>
 <h4>Note</h4>
 <p>This function is impure!</p>
@@ -1205,7 +1205,7 @@ is returned, so the function is impure.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1243,7 +1243,7 @@ Returns an Integer random number in the range imin &le; random &le; imax with th
 (the random number in the range 0 ... 1 returned by the xorshift1024* algorithm is mapped to
 an Integer number in the range imin ... imax).
 The dummy input Integer argument id must be the output argument of a call to function
-<a href=\"modelica://Modelica.Math.Random.Utilities.initializeImpureRandom\">initializeImpureRandom</a>,
+<a href=\"modelica:/Modelica.Math.Random.Utilities.initializeImpureRandom\">initializeImpureRandom</a>,
 in order that the sorting order is correct (so that impureRandomInteger is always called
 after initializeImpureRandom). For every call of impureRandomInteger(id), a different random number
 is returned, so the function is impure.
@@ -1251,8 +1251,8 @@ is returned, so the function is impure.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Random.Utilities.initializeImpureRandom\">initializeImpureRandom</a>,
-<a href=\"modelica://Modelica.Math.Random.Generators\">Random.Generators</a>
+<a href=\"modelica:/Modelica.Math.Random.Utilities.initializeImpureRandom\">initializeImpureRandom</a>,
+<a href=\"modelica:/Modelica.Math.Random.Generators\">Random.Generators</a>
 </p>
 <h4>Note</h4>
 <p>This function is impure!</p>
@@ -1265,7 +1265,7 @@ is returned, so the function is impure.
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1280,7 +1280,7 @@ is returned, so the function is impure.
 <p>
 This package contains utility functions for the random number generators,
 that are usually of no interest for the user
-(they are, for example, used in package <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>).
+(they are, for example, used in package <a href=\"modelica:/Modelica.Blocks.Noise\">Blocks.Noise</a>).
 </p>
 </html>",   revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -1291,7 +1291,7 @@ that are usually of no interest for the user
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1327,15 +1327,15 @@ as building blocks of higher level functionality.
 </p>
 
 <p>
-Package <a href=\"modelica://Modelica.Math.Random.Generators\">Math.Random.Generators</a>
+Package <a href=\"modelica:/Modelica.Math.Random.Generators\">Math.Random.Generators</a>
 contains various pseudo random number generators. These generators are used in the blocks
-of package <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a> to generate
+of package <a href=\"modelica:/Modelica.Blocks.Noise\">Blocks.Noise</a> to generate
 reproducible noise signals.
-Package <a href=\"modelica://Modelica.Math.Random.Utilities\">Math.Random.Utilities</a>
+Package <a href=\"modelica:/Modelica.Math.Random.Utilities\">Math.Random.Utilities</a>
 contains utility functions for the random number generators,
 that are usually of no interest for the user
 (they are, for example, used to implement the blocks in
-package <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>).
+package <a href=\"modelica:/Modelica.Blocks.Noise\">Blocks.Noise</a>).
 </p>
 </html>", revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -1346,7 +1346,7 @@ package <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>).
 
 <table border=\"0\">
 <tr><td>
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
+         <img src=\"modelica:/Modelica/Resources/Images/Logos/dlr_logo.png\" alt=\"DLR logo\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>

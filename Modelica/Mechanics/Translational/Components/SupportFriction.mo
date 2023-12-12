@@ -121,7 +121,7 @@ This procedure is implemented in a \"clean\" way by state events and
 leads to continuous/discrete systems of equations if friction elements
 are dynamically coupled which have to be solved by appropriate
 numerical methods. The method is described in
-(see also a short sketch in <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
+(see also a short sketch in <a href=\"modelica:/Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
 </p>
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>

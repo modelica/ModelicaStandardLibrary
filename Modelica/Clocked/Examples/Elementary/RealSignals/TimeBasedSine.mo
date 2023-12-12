@@ -23,7 +23,7 @@ connect(sine.y, assignClock1.u) annotation (Line(
 annotation (experiment(StopTime=1.0), Documentation(info="<html>
 <p>
 Example for block
-<a href=\"modelica://Modelica.Clocked.RealSignals.TimeBasedSources.Sine\">Modelica.Clocked.RealSignals.TimeBasedSources.Sine</a>.
+<a href=\"modelica:/Modelica.Clocked.RealSignals.TimeBasedSources.Sine\">Modelica.Clocked.RealSignals.TimeBasedSources.Sine</a>.
 </p>
 </html>"));
 end TimeBasedSine;

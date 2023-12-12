@@ -155,13 +155,13 @@ equation
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid)}),
 Documentation(info="<html>
-<p>The block is similar to the block in <a href=\"modelica://Modelica.Blocks.Sources.Sine\">Modelica.Blocks.Sources.Sine</a>, but adapted to work in clocked partitions (by internal sampling of the continuous <strong>time</strong> variable).</p>
+<p>The block is similar to the block in <a href=\"modelica:/Modelica.Blocks.Sources.Sine\">Modelica.Blocks.Sources.Sine</a>, but adapted to work in clocked partitions (by internal sampling of the continuous <strong>time</strong> variable).</p>
 <p>The Real output y is a sine signal:</p>
-<div><img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Sine.png\" alt=\"Sine.png\"></div>
+<div><img src=\"modelica:/Modelica/Resources/Images/Blocks/Sources/Sine.png\" alt=\"Sine.png\"></div>
 
 <h4>Example</h4>
 <p>
-See model <a href=\"modelica://Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedSine\">Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedSine</a>.
+See model <a href=\"modelica:/Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedSine\">Modelica.Clocked.Examples.Elementary.RealSignals.TimeBasedSine</a>.
 <br>
 </p>
 </html>"));

@@ -183,7 +183,7 @@ equation
       Tolerance=1e-06), Documentation(info="<html>
 <p>
 At start time tStart three-phase voltage is supplied to the
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage\">induction machine with squirrel cage</a>.
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.InductionMachines.IM_SquirrelCage\">induction machine with squirrel cage</a>.
 The machine starts from standstill, accelerating
 inertias against load torque quadratic dependent on speed, finally reaching nominal speed.</p>
 

@@ -43,7 +43,7 @@ equation
                               Documentation(info="<html>
 <p>
 Delta (polygon) connection of a polyphase circuit consisting of multiple base systems (see
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase\">polyphase guidelines</a>).
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.UsersGuide.Polyphase\">polyphase guidelines</a>).
 </p>
 <h4>Note</h4>
 <p>
@@ -52,9 +52,9 @@ In case of m=2, kPolygon=1 is the only valid choice.
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.Star\">Star</a>,
-<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.Delta\">Delta</a>,
-<a href=\"modelica://Modelica.Electrical.Polyphase.Basic.MultiStar\">MultiStar</a>
+<a href=\"modelica:/Modelica.Electrical.Polyphase.Basic.Star\">Star</a>,
+<a href=\"modelica:/Modelica.Electrical.Polyphase.Basic.Delta\">Delta</a>,
+<a href=\"modelica:/Modelica.Electrical.Polyphase.Basic.MultiStar\">MultiStar</a>
 </p>
 </html>"));
 end MultiDelta;

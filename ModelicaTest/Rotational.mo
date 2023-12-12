@@ -1907,7 +1907,7 @@ force law in a target system between two inertias.
                     textString="a"),Text(
                     extent={{-150,-110},{150,-140}},
                     textString="J=%J"),Bitmap(extent={{-96,-42},{64,54}},
-                fileName="modelica://Modelica/Resources/Images/Mechanics/Rotational/DirectInertia.png"),
+                fileName="modelica:/Modelica/Resources/Images/Mechanics/Rotational/DirectInertia.png"),
               Text( extent={{10,-60},{94,-90}},
                     horizontalAlignment=TextAlignment.Right,
               textString="tau")}), Documentation(info="<html>
@@ -1922,7 +1922,7 @@ on the other side of it.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia\">InverseInertia</a>.
+<a href=\"modelica:/Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia\">InverseInertia</a>.
 </p>
 </html>"));
     end DirectInertia;
@@ -1979,7 +1979,7 @@ on the other side of it.
                     textString="a"),Text(
                     extent={{-150,-110},{150,-140}},
                     textString="J=%J"),Bitmap(extent={{-58,-42},{98,48}},
-                fileName="modelica://Modelica/Resources/Images/Mechanics/Rotational/InverseInertia.png"),
+                fileName="modelica:/Modelica/Resources/Images/Mechanics/Rotational/InverseInertia.png"),
               Text( extent={{-90,-64},{-6,-94}},
                     horizontalAlignment=TextAlignment.Left,
               textString="tau")}), Documentation(info="<html>
@@ -1993,7 +1993,7 @@ the output torque <code>tau</code> is returned.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia\">DirectInertia</a>.
+<a href=\"modelica:/Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia\">DirectInertia</a>.
 </p>
 </html>"));
     end InverseInertia;
@@ -2067,7 +2067,7 @@ the output torque <code>tau</code> is returned.
                     extent={{-150,-118},{150,-148}},
                     textString="c=%c
 d=%d"),       Bitmap(extent={{-72,-44},{84,46}},
-                 fileName="modelica://Modelica/Resources/Images/Mechanics/Rotational/SpringDamper.png"),
+                 fileName="modelica:/Modelica/Resources/Images/Mechanics/Rotational/SpringDamper.png"),
               Text( extent={{12,96},{96,66}},
                     horizontalAlignment=TextAlignment.Right,
               textString="phi2"),      Text(
@@ -2145,7 +2145,7 @@ exchange.
               textString="phi1"),      Text(
                     extent={{-150,-114},{150,-144}},
                     textString="c=%c"),Bitmap(extent={{-88,-36},{92,56}},
-                fileName="modelica://Modelica/Resources/Images/Mechanics/Rotational/Spring.png"),
+                fileName="modelica:/Modelica/Resources/Images/Mechanics/Rotational/Spring.png"),
               Text( extent={{12,96},{96,66}},
                     horizontalAlignment=TextAlignment.Right,
               textString="phi2"),      Text(

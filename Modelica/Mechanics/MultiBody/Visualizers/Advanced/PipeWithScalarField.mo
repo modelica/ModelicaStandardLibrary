@@ -107,11 +107,11 @@ at the perimeter associated with the corresponding axis location.
 Typically the scalar field value is a temperature, but might
 be also another quantity.
 Predefined color maps are available from
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps\">MultiBody.Visualizers.Colors.ColorMaps</a>
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps\">MultiBody.Visualizers.Colors.ColorMaps</a>
 and can be selected via parameter \"colorMap\".
 A color map with the corresponding scalar field values can be exported
 as vector-graphics in svg-format with function
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">MultiBody.Visualizers.Colors.colorMapToSvg</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">MultiBody.Visualizers.Colors.colorMapToSvg</a>.
 The position and orientation of the center of the
 circle at the left end of the pipe is defined via parameters
 \"r_0\" and \"R\", respectively. The pipe axis is oriented along
@@ -120,12 +120,12 @@ see figure below:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarField.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarField.png\">
 </blockquote>
 
 <p>
 The color coding is shown in the next figure. It was generated with
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">MultiBody.Visualizers.Colors.colorMapToSvg</a>
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">MultiBody.Visualizers.Colors.colorMapToSvg</a>
 using the following call:
 </p>
 
@@ -135,7 +135,7 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
 </pre></blockquote>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarField-ColorMap.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarField-ColorMap.png\">
 </blockquote>
 </html>"));
 end PipeWithScalarField;

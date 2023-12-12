@@ -42,7 +42,7 @@ equation
     Documentation(info="<html>
 <p>
 This block is similar to the
-<a href=\"modelica://Modelica.Clocked.RealSignals.Sampler.SampleClocked\">SampleClocked</a>
+<a href=\"modelica:/Modelica.Clocked.RealSignals.Sampler.SampleClocked\">SampleClocked</a>
 block. The only difference is that the continuous-time input signal is a vector: All input
 signals are sampled and are associated with the
 scalar clock signal provided via the second input.
@@ -52,16 +52,16 @@ scalar clock signal provided via the second input.
 
 <p>
 The following
-<a href=\"modelica://Modelica.Clocked.Examples.Elementary.RealSignals.SampleVectorizedAndClocked\">example</a>
+<a href=\"modelica:/Modelica.Clocked.Examples.Elementary.RealSignals.SampleVectorizedAndClocked\">example</a>
 has a vector as input, consisting of two different sine signals. These
 signals are sampled with a periodic clock of 20 ms period:<br>
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
 <tr><td width=\"50\"></td>
-    <td valign=\"bottom\"><img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/SampleVectorizedAndClocked_Model.png\" alt=\"SampleVectorizedAndClocked_Model.png\"></td>
+    <td valign=\"bottom\"><img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/SampleVectorizedAndClocked_Model.png\" alt=\"SampleVectorizedAndClocked_Model.png\"></td>
     <td valign=\"bottom\">&nbsp;&nbsp;&nbsp;
-                        <img src=\"modelica://Modelica/Resources/Images/Clocked/RealSignals/SampleVectorizedAndClocked_Result.png\" alt=\"SampleVectorizedAndClocked_Result.png\"></td>
+                        <img src=\"modelica:/Modelica/Resources/Images/Clocked/RealSignals/SampleVectorizedAndClocked_Result.png\" alt=\"SampleVectorizedAndClocked_Result.png\"></td>
     </tr>
 <tr><td></td>
     <td align=\"center\">model</td>

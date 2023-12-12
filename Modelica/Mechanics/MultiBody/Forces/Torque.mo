@@ -165,7 +165,7 @@ following figure:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Torque1.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Forces/Torque1.png\">
 </div>
 
 <p>
@@ -177,7 +177,7 @@ clarity this is not shown in the animation):
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Torque2.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Forces/Torque2.png\">
 </div>
 
 </html>"));

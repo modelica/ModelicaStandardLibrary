@@ -30,7 +30,7 @@ equation
   Documentation(info="<html>
 <p>
 Example used to generate a figure for the documentation of block
-<a href=\"modelica://Modelica.Clocked.ClockSignals.Sampler.SuperSample\">Modelica.Clocked.ClockSignals.Sampler.SuperSample</a>.
+<a href=\"modelica:/Modelica.Clocked.ClockSignals.Sampler.SuperSample\">Modelica.Clocked.ClockSignals.Sampler.SuperSample</a>.
 </p>
 </html>"));
 end SuperSample;

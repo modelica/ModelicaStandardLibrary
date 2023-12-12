@@ -71,12 +71,12 @@ This scales the residual equations that are used by the solver to the right orde
 of magnitude.
 </p>
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/TraceSubstances/RoomCO2.png\" border=\"1\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Examples/TraceSubstances/RoomCO2.png\" border=\"1\"
      alt=\"RoomCO2.png\">
 </div>
 </html>"),
       __Dymola_Commands(file(ensureSimulated=true)=
-          "modelica://Modelica/Resources/Scripts/Dymola/Fluid/RoomCO2/plotConcentrations.mos"
+          "modelica:/Modelica/Resources/Scripts/Dymola/Fluid/RoomCO2/plotConcentrations.mos"
           "plot concentrations"));
   end RoomCO2;
 
@@ -207,7 +207,7 @@ of magnitude.
         points={{-10,0},{-10,-30},{-18,-30}}, color={0,127,255}));
     annotation (
       experiment(StopTime=86400, Tolerance=1e-006),
-      __Dymola_Commands(file(ensureSimulated=true)="modelica://Modelica/Resources/Scripts/Dymola/Fluid/RoomCO2WithControls/plotStatesWithControl.mos"
+      __Dymola_Commands(file(ensureSimulated=true)="modelica:/Modelica/Resources/Scripts/Dymola/Fluid/RoomCO2WithControls/plotStatesWithControl.mos"
           "plot states and controls"),
       Documentation(info="<html>
 <p>
@@ -244,7 +244,7 @@ This scales the residual equations that are used by the solver to the right orde
 of magnitude.
 </p>
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/TraceSubstances/RoomCO2WithControls.png\" border=\"1\"
+<img src=\"modelica:/Modelica/Resources/Images/Fluid/Examples/TraceSubstances/RoomCO2WithControls.png\" border=\"1\"
      alt=\"RoomCO2WithControls.png\">
 </div>
 </html>"));

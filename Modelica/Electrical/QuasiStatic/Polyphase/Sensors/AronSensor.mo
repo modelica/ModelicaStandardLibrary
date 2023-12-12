@@ -79,7 +79,7 @@ equation
           textString="W"),
         Line(points={{-100,0},{100,0}}, color={85,170,255})}),
                                   Documentation(info="<html>
-<p>Contains two <a href=\"modelica://Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor\">power meters</a> to measure total active power in a three-phase system.</p>
+<p>Contains two <a href=\"modelica:/Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor\">power meters</a> to measure total active power in a three-phase system.</p>
 <p>This device works only in three-phase systems without neutral.</p>
 <p>The rationale behind this sensor is that power exchanged between two parts of a circuit is the sum of the products of currents in the <em>m</em> wires connecting the two parts times wires&apos; potentials evaluated with reference to an arbitrary potential <em>v</em><sub>ref</sub>:</p>
 <p><em>P</em>=(<em>v</em><sub>1</sub>-<em>v</em><sub>ref</sub>)*<em>i</em><sub>1</sub>+(<em>v</em><sub>2</sub>-<em>v</em><sub>ref</sub>)*<em>i</em><sub>2</sub>+&hellip;+(<em>v</em><sub>m</sub>-<em>v</em><sub>ref</sub>)*<em>i</em><sub>m</sub></p>
@@ -91,6 +91,6 @@ and therefore all currents between these two parts are <em>i</em><sub>1</sub>, <
 <p>In this way, we can just sum up the power from two wattmeters to get the three-phase power.</p>
 <p>Note, that this formula does not work if there are additional current paths between the left and right parts of our circuits, e.g., if both have grounds (and current flows through it).</p>
 <p>For more information on why power flowing in a circuit between two subcircuits is the sum of products of voltages times currents, the voltages being measured to an arbitrary reference potential, see
-[<a href=\"modelica://Modelica.Electrical.Polyphase.UsersGuide.References\">Ceraolo2014</a>, par. 3.8.1].</p>
+[<a href=\"modelica:/Modelica.Electrical.Polyphase.UsersGuide.References\">Ceraolo2014</a>, par. 3.8.1].</p>
 </html>"));
 end AronSensor;

@@ -22,7 +22,7 @@ partial model PartialOpAmp
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid)}),    Documentation(info="<html>
 <p>
-Partial model for operational amplifier circuits, based on the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.
+Partial model for operational amplifier circuits, based on the <a href=\"modelica:/Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.
 Different functionality is achieved by different circuits.
 </p>
 </html>"));

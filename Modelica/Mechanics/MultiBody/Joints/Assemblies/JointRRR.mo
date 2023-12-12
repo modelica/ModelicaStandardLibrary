@@ -192,7 +192,7 @@ default animation):
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointRRR.png\" alt=\"model Joints.Assemblies.JointRRR\">
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Joints/Assemblies/JointRRR.png\" alt=\"model Joints.Assemblies.JointRRR\">
 </div>
 
 <p>

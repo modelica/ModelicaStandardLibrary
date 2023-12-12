@@ -8,10 +8,10 @@ This package shows the same example in different variants.
 </p>
 
 <p>
-Model <a href=\"modelica://Modelica.Clocked.Examples.CascadeControlledDrive.Continuous\">CascadeControlledDrive.Continuous</a>
+Model <a href=\"modelica:/Modelica.Clocked.Examples.CascadeControlledDrive.Continuous\">CascadeControlledDrive.Continuous</a>
 is the <strong>continuous-time</strong> model from which the sampled-data versions are derived.
 The \"CascadeControlledDrive\" example adds another position control cascade to the
-<a href=\"modelica://Modelica.Clocked.Examples.SimpleControlledDrive\">SimpleControlledDrive</a>
+<a href=\"modelica:/Modelica.Clocked.Examples.SimpleControlledDrive\">SimpleControlledDrive</a>
 example. This model demonstrates a control system with two cascaded control loops.
 The goal is to control the angle of the load inertia.
 </p>

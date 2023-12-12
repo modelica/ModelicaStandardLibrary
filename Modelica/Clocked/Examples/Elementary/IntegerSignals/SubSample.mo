@@ -27,7 +27,7 @@ equation
   Documentation(info="<html>
 <p>
 Elementary example for the documentation of block
-<a href=\"modelica://Modelica.Clocked.IntegerSignals.Sampler.SubSample\">Modelica.Clocked.IntegerSignals.Sampler.SubSample</a>.
+<a href=\"modelica:/Modelica.Clocked.IntegerSignals.Sampler.SubSample\">Modelica.Clocked.IntegerSignals.Sampler.SubSample</a>.
 </p>
 </html>"));
 end SubSample;

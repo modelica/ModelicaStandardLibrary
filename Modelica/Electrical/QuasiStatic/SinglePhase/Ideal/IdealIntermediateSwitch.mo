@@ -65,7 +65,7 @@ p2 is connected to n2.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/SinglePhase/Ideal/IdealIntermediateSwitch1.png\" alt=\"IdealIntermediateSwitch1\">
+<img src=\"modelica:/Modelica/Resources/Images/Electrical/QuasiStatic/SinglePhase/Ideal/IdealIntermediateSwitch1.png\" alt=\"IdealIntermediateSwitch1\">
 </div>
 
 <p>
@@ -75,7 +75,7 @@ and the closed switch has a (very low) resistance Ron.
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStatic/SinglePhase/Ideal/IdealIntermediateSwitch2.png\" alt=\"IdealIntermediateSwitch2\">
+<img src=\"modelica:/Modelica/Resources/Images/Electrical/QuasiStatic/SinglePhase/Ideal/IdealIntermediateSwitch2.png\" alt=\"IdealIntermediateSwitch2\">
 </div>
 
 <p>

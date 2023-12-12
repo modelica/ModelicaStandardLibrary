@@ -131,7 +131,7 @@ equation
   annotation (experiment(StopTime=2.0, Interval=1E-4, Tolerance=1E-6), Documentation(
         info="<html>
 <p>
-This example demonstrates how to use a <a href=\"modelica://Modelica.Mechanics.Rotational.Components.Coupling\">coupling</a> 
+This example demonstrates how to use a <a href=\"modelica:/Modelica.Mechanics.Rotational.Components.Coupling\">coupling</a> 
 to implement a drive consisting if two permanent magnet DC machines. 
 Note that <code>dcpm1</code> is turning in positive direction, whereas <code>dcpm2</code> is turning in the opposite direction. 
 Therefore, the armature of <code>dcpm2</code> is connected reversed to the source.

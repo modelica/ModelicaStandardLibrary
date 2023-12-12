@@ -13,7 +13,7 @@ Furthermore, it is shown how CAD data can be used
 for animation.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/RobotR3/robot_kr15.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/RobotR3/robot_kr15.png\"
 alt=\"model Examples.Systems.RobotR3\">
 
 <p>

@@ -8,7 +8,7 @@ package InductionMachines "Induction machines"
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines\">SynchronousMachines</a>
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousMachines\">SynchronousMachines</a>
 </p>
 </html>"));
 end InductionMachines;

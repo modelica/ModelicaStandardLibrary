@@ -148,12 +148,12 @@ The Integer output y is a step signal. The signal is defined in terms of clock t
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Clocked/IntegerSignals/TickBasedSources_Step.png\" alt=\"TickBasedSources_Step.png\">
+<img src=\"modelica:/Modelica/Resources/Images/Clocked/IntegerSignals/TickBasedSources_Step.png\" alt=\"TickBasedSources_Step.png\">
 </div>
 
 <h4>Example</h4>
 <p>
-See model <a href=\"modelica://Modelica.Clocked.Examples.Elementary.IntegerSignals.TickBasedStep\">Modelica.Clocked.Examples.Elementary.IntgerSignals.TickBasedStep</a>.
+See model <a href=\"modelica:/Modelica.Clocked.Examples.Elementary.IntegerSignals.TickBasedStep\">Modelica.Clocked.Examples.Elementary.IntgerSignals.TickBasedStep</a>.
 <br>
 </p>
 </html>"));

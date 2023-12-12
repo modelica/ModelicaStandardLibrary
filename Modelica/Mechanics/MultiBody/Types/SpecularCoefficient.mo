@@ -17,6 +17,6 @@ are shown for a cylinder:
 </p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Types/SpecularCoefficient.png\"/>
+<img src=\"modelica:/Modelica/Resources/Images/Mechanics/MultiBody/Types/SpecularCoefficient.png\"/>
 </div>
 </html>"));

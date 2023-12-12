@@ -14,7 +14,7 @@ equation
   annotation (defaultComponentName="gto",
     Documentation(info="<html>
 <p>
-This is an ideal GTO thyristor or switching transistor, for details see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSemiconductor\">IdealSemiconductor</a><br>
+This is an ideal GTO thyristor or switching transistor, for details see partial model <a href=\"modelica:/Modelica.Electrical.Analog.Interfaces.IdealSemiconductor\">IdealSemiconductor</a><br>
 The GTO thyristor is conducting if voltage &gt; Vknee AND fire = true.<br>
 Otherwise, the GTO thyristor is locking.
 </p>

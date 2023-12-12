@@ -27,7 +27,7 @@ equation
   connect(opAmp.out, c.p)
     annotation (Line(points={{10,0},{30,0},{30,30}}, color={0,0,255}));
   annotation (Documentation(info="<html>
-<p>Inverting integrator, based on the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
+<p>Inverting integrator, based on the <a href=\"modelica:/Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
 <p><code>k*vin = -der(dvOut)</code></p>
 </html>"),
        Icon(graphics={

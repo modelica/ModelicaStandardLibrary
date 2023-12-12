@@ -50,11 +50,11 @@ Source of magnetic flux with complex signal input.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">
    ConstantMagneticPotentialDifference</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalMagneticPotentialDifference\">
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Sources.SignalMagneticPotentialDifference\">
    SignalMagneticPotentialDifference</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantFlux\">ConstantFlux</a>,
+<a href=\"modelica:/Modelica.Magnetic.FundamentalWave.Sources.ConstantFlux\">ConstantFlux</a>,
 </p>
 
 </html>"));

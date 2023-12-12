@@ -21,7 +21,7 @@ algorithm
 <p>
 Returns <strong>true</strong> if all elements of the Boolean input vector b are <strong>true</strong>.
 Otherwise the function returns <strong>false</strong>. If b is an empty vector,
-i.e., size(b,1)=0, the function returns <strong>false</strong> (as opposed to <a href=\"modelica://Modelica.Math.BooleanVectors.andTrue\">andTrue</a> returning <strong>true</strong>).
+i.e., size(b,1)=0, the function returns <strong>false</strong> (as opposed to <a href=\"modelica:/Modelica.Math.BooleanVectors.andTrue\">andTrue</a> returning <strong>true</strong>).
 </p>
 
 <h4>Example</h4>
@@ -36,13 +36,13 @@ i.e., size(b,1)=0, the function returns <strong>false</strong> (as opposed to <a
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.BooleanVectors.andTrue\">andTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.countTrue\">countTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.enumerate\">enumerate</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.index\">index</a>, and
-<a href=\"modelica://Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>.
+<a href=\"modelica:/Modelica.Math.BooleanVectors.andTrue\">andTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.countTrue\">countTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.enumerate\">enumerate</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.index\">index</a>, and
+<a href=\"modelica:/Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>.
 </p>
 
 </html>"));
@@ -68,7 +68,7 @@ algorithm
 <p>
 Returns <strong>true</strong> if all elements of the Boolean input vector b are <strong>true</strong>.
 Otherwise the function returns <strong>false</strong>. If b is an empty vector,
-i.e., size(b,1)=0, the function returns <strong>true</strong> (as opposed to <a href=\"modelica://Modelica.Math.BooleanVectors.allTrue\">allTrue</a> returning <strong>false</strong>).
+i.e., size(b,1)=0, the function returns <strong>true</strong> (as opposed to <a href=\"modelica:/Modelica.Math.BooleanVectors.allTrue\">allTrue</a> returning <strong>false</strong>).
 </p>
 
 <h4>Example</h4>
@@ -83,13 +83,13 @@ i.e., size(b,1)=0, the function returns <strong>true</strong> (as opposed to <a 
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.countTrue\">countTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.enumerate\">enumerate</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.index\">index</a>, and
-<a href=\"modelica://Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>.
+<a href=\"modelica:/Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.countTrue\">countTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.enumerate\">enumerate</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.index\">index</a>, and
+<a href=\"modelica:/Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>.
 </p>
 
 </html>"));
@@ -131,13 +131,13 @@ i.e., size(b,1)=0, the function returns <strong>false</strong>.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.andTrue\">andTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.countTrue\">countTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.enumerate\">enumerate</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.index\">index</a>, and
-<a href=\"modelica://Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>.
+<a href=\"modelica:/Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.andTrue\">andTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.countTrue\">countTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.enumerate\">enumerate</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.index\">index</a>, and
+<a href=\"modelica:/Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>.
 </p>
 </html>"));
 end anyTrue;
@@ -166,13 +166,13 @@ This function returns the number of <strong>true</strong> elements in a Boolean 
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.andTrue\">andTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.enumerate\">enumerate</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.index\">index</a>, and
-<a href=\"modelica://Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>.
+<a href=\"modelica:/Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.andTrue\">andTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.enumerate\">enumerate</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.index\">index</a>, and
+<a href=\"modelica:/Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>.
 </p>
 </html>"));
 end countTrue;
@@ -217,13 +217,13 @@ indicated by 0.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.andTrue\">andTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.countTrue\">countTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.index\">index</a>, and
-<a href=\"modelica://Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>.
+<a href=\"modelica:/Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.andTrue\">andTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.countTrue\">countTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.index\">index</a>, and
+<a href=\"modelica:/Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>.
 </p>
 </html>"));
 end enumerate;
@@ -268,13 +268,13 @@ function returns 0.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.andTrue\">andTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.countTrue\">countTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.enumerate\">enumerate</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.index\">index</a>, and
-<a href=\"modelica://Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>.
+<a href=\"modelica:/Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.andTrue\">andTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.countTrue\">countTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.enumerate\">enumerate</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.index\">index</a>, and
+<a href=\"modelica:/Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>.
 </p>
 </html>"));
 end firstTrueIndex;
@@ -315,13 +315,13 @@ the integer vector is the number of <strong>true</strong> elements in b.
 
   <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.andTrue\">andTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.countTrue\">countTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.enumerate\">enumerate</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>, and
-<a href=\"modelica://Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>.
+<a href=\"modelica:/Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.andTrue\">andTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.countTrue\">countTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.enumerate\">enumerate</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>, and
+<a href=\"modelica:/Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>.
 </p>
 </html>"));
 end index;
@@ -363,13 +363,13 @@ i.e., size(b,1)=0, the function returns <strong>false</strong>.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.andTrue\">andTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.countTrue\">countTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.enumerate\">enumerate</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>, and
-<a href=\"modelica://Modelica.Math.BooleanVectors.index\">index</a>.
+<a href=\"modelica:/Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.andTrue\">andTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.countTrue\">countTrue</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.enumerate\">enumerate</a>,
+<a href=\"modelica:/Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>, and
+<a href=\"modelica:/Modelica.Math.BooleanVectors.index\">index</a>.
 </p>
 </html>"));
 end oneTrue;

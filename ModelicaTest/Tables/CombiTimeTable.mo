@@ -594,7 +594,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
     extends TestDer(t_new(
         tableOnFile=true,
         tableName="longLine",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test.txt"),
+        fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test.txt"),
         columns={2,2500}));
     annotation (experiment(StartTime=0, StopTime=1));
   end Test50;
@@ -638,7 +638,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
     extends TestDer(t_new(
         tableOnFile=true,
         tableName="a",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v4.mat")));
+        fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test_v4.mat")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test55;
 
@@ -647,7 +647,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
     extends TestDer(t_new(
         tableOnFile=true,
         tableName="a",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v6.mat")));
+        fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test_v6.mat")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test56;
 
@@ -656,7 +656,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
     extends TestDer(t_new(
         tableOnFile=true,
         tableName="a",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.mat")));
+        fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test_v7.mat")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test57;
 
@@ -666,7 +666,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
     extends TestDer(t_new(
         tableOnFile=true,
         tableName="a",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.3.mat")));
+        fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test_v7.3.mat")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test58;
 */
@@ -676,7 +676,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
     extends TestDer(t_new(
         tableOnFile=true,
         tableName="a",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test.txt")));
+        fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test.txt")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test59;
 
@@ -685,7 +685,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
     extends TestDer(t_new(
         tableOnFile=true,
         tableName="a_tab",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test.txt")));
+        fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test.txt")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test60;
 
@@ -750,7 +750,7 @@ package CombiTimeTable "Test models for Modelica.Blocks.Sources.CombiTimeTable"
       input Real dummy_u[:];
       output Real dummy_y;
       external "C" dummy_y = mydummyfunc(dummy_u)
-      annotation(IncludeDirectory="modelica://Modelica/Resources/Data/Tables",
+      annotation(IncludeDirectory="modelica:/Modelica/Resources/Data/Tables",
              Include = "#include \"usertab.c\"
 double mydummyfunc(double* dummy_in) {
     return 0.;
@@ -1026,11 +1026,11 @@ double mydummyfunc(double* dummy_in) {
     Modelica.Blocks.Sources.CombiTimeTable t_new(
       tableOnFile=true,
       tableName="s.tab1",
-      fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v6.mat")) annotation(Placement(transformation(extent={{-40,0},{-20,20}})));
+      fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test_v6.mat")) annotation(Placement(transformation(extent={{-40,0},{-20,20}})));
     Modelica.Blocks.Sources.CombiTimeTable t_new_2(
       tableOnFile=true,
       tableName="s.s.tab1",
-      fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v6.mat")) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
+      fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test_v6.mat")) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
     annotation (experiment(StartTime=0, StopTime=4));
   end Test80;
 
@@ -1039,11 +1039,11 @@ double mydummyfunc(double* dummy_in) {
     Modelica.Blocks.Sources.CombiTimeTable t_new(
       tableOnFile=true,
       tableName="s.tab1",
-      fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.mat")) annotation(Placement(transformation(extent={{-40,0},{-20,20}})));
+      fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test_v7.mat")) annotation(Placement(transformation(extent={{-40,0},{-20,20}})));
     Modelica.Blocks.Sources.CombiTimeTable t_new_2(
       tableOnFile=true,
       tableName="s.s.tab1",
-      fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.mat")) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
+      fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test_v7.mat")) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
     annotation (experiment(StartTime=0, StopTime=4));
   end Test81;
 
@@ -1053,11 +1053,11 @@ double mydummyfunc(double* dummy_in) {
     Modelica.Blocks.Sources.CombiTimeTable t_new(
       tableOnFile=true,
       tableName="s.tab1",
-      fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.3.mat")) annotation(Placement(transformation(extent={{-40,0},{-20,20}})));
+      fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test_v7.3.mat")) annotation(Placement(transformation(extent={{-40,0},{-20,20}})));
     Modelica.Blocks.Sources.CombiTimeTable t_new_2(
       tableOnFile=true,
       tableName="s.s.tab1",
-      fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.3.mat")) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
+      fileName=loadResource("modelica:/Modelica/Resources/Data/Tables/test_v7.3.mat")) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
     annotation (experiment(StartTime=0, StopTime=4));
   end Test82;
 */
@@ -1077,7 +1077,7 @@ double mydummyfunc(double* dummy_in) {
     extends TestDer(t_new(
         tableOnFile=true,
         tableName="a",
-        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_utf8.txt")));
+        fileName=loadResource("modelica:/ModelicaTest/Resources/Data/Tables/test_utf8.txt")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test84;
 
@@ -1165,7 +1165,7 @@ double mydummyfunc(double* dummy_in) {
         tableOnFile=true,
         delimiter=",",
         nHeaderLines=1,
-        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test1D.csv")));
+        fileName=loadResource("modelica:/ModelicaTest/Resources/Data/Tables/test1D.csv")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test89;
 end CombiTimeTable;

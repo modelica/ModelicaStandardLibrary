@@ -14,7 +14,7 @@ Measures the <em>absolute velocity</em>
 of a&nbsp;flange in an ideal way and provides the result as
 output signal&nbsp;<code>v</code>
 (to be further processed with blocks of the
-<a href=\"modelica://Modelica.Blocks\">Modelica.Blocks</a> library).
+<a href=\"modelica:/Modelica.Blocks\">Modelica.Blocks</a> library).
 </p>
 </html>"),
        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},

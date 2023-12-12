@@ -45,7 +45,7 @@ equation
   connect(n1, r4.n) annotation (Line(points={{-100,-100},{30,-100},{30,-70}},
         color={0,0,255}));
   annotation (Documentation(info="<html>
-<p>Inverting subtracter = feedback, based on the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
+<p>Inverting subtracter = feedback, based on the <a href=\"modelica:/Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
 <p><code>vOut = -k*(vIn1 - vIn2)</code></p>
 </html>"), Icon(graphics={Text(
           extent={{-40,40},{40,-40}},

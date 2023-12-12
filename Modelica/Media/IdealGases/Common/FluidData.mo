@@ -693,7 +693,7 @@ package FluidData "Critical data, dipole moments and related data"
 <p>
 This package contains FluidConstants data records for the following 38 gases
 (see also the description in
-<a href=\"modelica://Modelica.Media.IdealGases\">Modelica.Media.IdealGases</a>):
+<a href=\"modelica:/Modelica.Media.IdealGases\">Modelica.Media.IdealGases</a>):
 </p>
 <blockquote><pre>
 Argon         Methane           Methanol         Carbon Monoxide  Carbon Dioxide

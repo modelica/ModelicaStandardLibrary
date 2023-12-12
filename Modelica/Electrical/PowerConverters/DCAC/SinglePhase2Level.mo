@@ -136,7 +136,7 @@ This is a single-phase two level inverter. The boolean signals <code>fire_p</cod
 
 <p>
 An example of a single-phase inverter with PWM voltage control is included in
-<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.SinglePhaseTwoLevel\">Examples.DCAC.SinglePhaseTwoLevel</a>.
+<a href=\"modelica:/Modelica.Electrical.PowerConverters.Examples.DCAC.SinglePhaseTwoLevel\">Examples.DCAC.SinglePhaseTwoLevel</a>.
 </p>
 </html>"));
 end SinglePhase2Level;

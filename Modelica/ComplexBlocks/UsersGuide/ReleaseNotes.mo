@@ -13,7 +13,7 @@ class ReleaseNotes "Release Notes"
 
 <ul>
 <li>Added block
-    <a href=\"modelica://Modelica.ComplexBlocks.ComplexMath.Conj\">Conj</a> for conjugate complex signal processing
+    <a href=\"modelica:/Modelica.ComplexBlocks.ComplexMath.Conj\">Conj</a> for conjugate complex signal processing
     </li>
 <li>Added optional conjugate complex input processing to all partial interfaces and complex blocks</li>
 </ul>

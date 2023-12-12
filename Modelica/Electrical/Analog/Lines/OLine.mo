@@ -95,7 +95,7 @@ equation
 <p>To get a symmetric line model, the first resistor and inductor are cut into two parts (R1 and R_Nplus1, L1 and L_Nplus1). These two new resistors and inductors have the half of the resistance respectively inductance the original resistor respectively inductor.</p>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/OLine.png\"
+<img src=\"modelica:/Modelica/Resources/Images/Electrical/Analog/OLine.png\"
      alt=\"OLine.png\">
 </div>
 
@@ -107,7 +107,7 @@ equation
 <p>The user has the possibility to enable a conditional heatport. If so, the OLine can be connected to a thermal network. When the parameter alpha is set to a value greater than zero, the OLine becomes temperature sensitive due to their resistors which resistances are calculated by <code>R_actual = R*(1 + alpha*(heatPort.T - T_ref))</code> and conductors calculated by <code> (G_actual = G/(1 + alpha*(heatPort.T - T_ref)).</code></p>
 <p>Note, this is different to the lumped line model of SPICE.</p>
 
-<p><strong>References:</strong> [<a href=\"modelica://Modelica.Electrical.Analog.UsersGuide.References\">Johnson1991</a>]</p>
+<p><strong>References:</strong> [<a href=\"modelica:/Modelica.Electrical.Analog.UsersGuide.References\">Johnson1991</a>]</p>
 </html>",    revisions="<html>
 <ul>
 <li><em> 2016   </em>

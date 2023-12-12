@@ -15,7 +15,7 @@ algorithm
   annotation (Documentation(info="<html>
 <p>
 Calculates the voltage drop of carbon brushes, according to
-<a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Brush\">Brush</a> losses,
+<a href=\"modelica:/Modelica.Electrical.Machines.Losses.DCMachines.Brush\">Brush</a> losses,
 e.g., used for initial equations.
 </p>
 </html>"));

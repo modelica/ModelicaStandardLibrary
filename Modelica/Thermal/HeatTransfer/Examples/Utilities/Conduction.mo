@@ -46,7 +46,7 @@ equation
           textString="T1"),        Text(
                 extent={{-150,-114},{150,-144}},
           textString="G=%G"),      Bitmap(extent={{-88,-36},{92,56}},
-            fileName="modelica://Modelica/Resources/Images/Thermal/HeatTransfer/Conductor.png"),
+            fileName="modelica:/Modelica/Resources/Images/Thermal/HeatTransfer/Conductor.png"),
           Text( extent={{12,96},{96,66}},
                 horizontalAlignment=TextAlignment.Right,
           textString="T2"),        Text(

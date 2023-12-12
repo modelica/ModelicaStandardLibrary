@@ -25,15 +25,15 @@ R = Frames.<strong>from_Q</strong>(Q, w);
 
 <h4>Description</h4>
 <p>
-This function returns an <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R
-computed from a <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternion object</a>&nbsp;Q
+This function returns an <a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Orientation\">orientation object</a>&nbsp;R
+computed from a <a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Quaternions.Orientation\">quaternion object</a>&nbsp;Q
 and an angular velocity vector&nbsp;w.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.to_Q\">to_Q</a>.
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_Q\">TransformationMatrices.from_Q</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.to_Q\">to_Q</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.from_Q\">TransformationMatrices.from_Q</a>.
 </p>
 
 </html>"));

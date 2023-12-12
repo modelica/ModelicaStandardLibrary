@@ -56,7 +56,7 @@ within Modelica.Media.Air;
       annotation (Documentation(info="<html>
 <h4>Usage</h4>
 <p>
-The package Air_ph can be used as any other medium model (see <a href=\"modelica://Modelica.Media.UsersGuide\">User's Guide of Media Library</a> for further information).
+The package Air_ph can be used as any other medium model (see <a href=\"modelica:/Modelica.Media.UsersGuide\">User's Guide of Media Library</a> for further information).
 </p>
 </html>"));
     end Air_ph;
@@ -74,7 +74,7 @@ The package Air_ph can be used as any other medium model (see <a href=\"modelica
       annotation (Documentation(info="<html>
 <h4>Usage</h4>
 <p>
-The package Air_pT can be used as any other medium model (see <a href=\"modelica://Modelica.Media.UsersGuide\">User's Guide of Media Library</a> for further information).
+The package Air_pT can be used as any other medium model (see <a href=\"modelica:/Modelica.Media.UsersGuide\">User's Guide of Media Library</a> for further information).
 </p>
 </html>"));
     end Air_pT;
@@ -93,7 +93,7 @@ The package Air_pT can be used as any other medium model (see <a href=\"modelica
       annotation (Documentation(info="<html>
 <h4>Usage</h4>
 <p>
-The package Air_dT can be used as any other medium model (see <a href=\"modelica://Modelica.Media.UsersGuide\">User's Guide of Media Library</a> for further information).
+The package Air_dT can be used as any other medium model (see <a href=\"modelica:/Modelica.Media.UsersGuide\">User's Guide of Media Library</a> for further information).
 </p>
 </html>"));
     end Air_dT;
@@ -565,9 +565,9 @@ The following quantities are always computed:
 In some cases additional medium properties are needed.
 A component that needs these optional properties has to call
 one of the functions listed in
-<a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
+<a href=\"modelica:/Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
 Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
-<a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
+<a href=\"modelica:/Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
 Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
 <p>Many further properties can be computed. Using the well-known Bridgman's Tables, all first partial derivatives of the standard thermodynamic variables can be computed easily.</p>
@@ -2099,9 +2099,9 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     end Air_Utilities;
     annotation (Documentation(info="<html>
 <p>
-Calculation of fluid properties of air in the fluid region of 130 Kelvin to 2000 Kelvin at pressures up to 2000 MPa. To use this package in your model, select <a href=\"modelica://Modelica.Media.Air.ReferenceAir.Air_dT\">
-Air_dT</a>, <a href=\"modelica://Modelica.Media.Air.ReferenceAir.Air_pT\">
-Air_pT</a> or <a href=\"modelica://Modelica.Media.Air.ReferenceAir.Air_ph\">Air_ph</a> according to which variables you choose to determine your state.
+Calculation of fluid properties of air in the fluid region of 130 Kelvin to 2000 Kelvin at pressures up to 2000 MPa. To use this package in your model, select <a href=\"modelica:/Modelica.Media.Air.ReferenceAir.Air_dT\">
+Air_dT</a>, <a href=\"modelica:/Modelica.Media.Air.ReferenceAir.Air_pT\">
+Air_pT</a> or <a href=\"modelica:/Modelica.Media.Air.ReferenceAir.Air_ph\">Air_ph</a> according to which variables you choose to determine your state.
 </p>
 
 <h4>Restriction</h4>
@@ -2133,7 +2133,7 @@ Nitrogen, Oxygen, Argon, and Air</strong>. International Journal of Thermophysic
 <h4>Verification</h4>
 <p>
 The verification report for the development of this library is provided
-<a href=\"modelica://Modelica/Resources/Documentation/Media/MoMoLib_VerificationResults_XRG.pdf\">here</a>.
+<a href=\"modelica:/Modelica/Resources/Documentation/Media/MoMoLib_VerificationResults_XRG.pdf\">here</a>.
 </p>
 
 <h4>Acknowledgment</h4>

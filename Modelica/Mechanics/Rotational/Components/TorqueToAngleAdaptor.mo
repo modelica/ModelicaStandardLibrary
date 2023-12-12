@@ -91,7 +91,7 @@ This component is used to provide a pure signal interface around a Rotational mo
 and export this model in form of an input/output block,
 especially as FMU (<a href=\"https://fmi-standard.org\">Functional Mock-up Unit</a>).
 Examples of the usage of this adaptor are provided in
-<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs\">Rotational.Examples.GenerationOfFMUs</a>.
+<a href=\"modelica:/Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs\">Rotational.Examples.GenerationOfFMUs</a>.
 This adaptor has torque as input and angle, angular velocity and angular acceleration as output signals.
 </p>
 </html>"));

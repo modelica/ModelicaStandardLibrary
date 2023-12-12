@@ -136,7 +136,7 @@ N * d&Phi;/dt = -v
 </pre></blockquote>
 
 <div>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Basic/converter_signs.png\" alt=\"converter signs\">
+<img src=\"modelica:/Modelica/Resources/Images/Magnetic/FluxTubes/Basic/converter_signs.png\" alt=\"converter signs\">
 </div>
 
 <p>

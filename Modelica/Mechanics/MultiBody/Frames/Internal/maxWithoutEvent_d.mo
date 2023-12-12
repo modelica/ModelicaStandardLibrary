@@ -16,7 +16,7 @@ algorithm
     Documentation(info="<html>
 <p>
 This is a derivative of function
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Frames.Internal.maxWithoutEvent\">maxWithoutEvent</a>.
+<a href=\"modelica:/Modelica.Mechanics.MultiBody.Frames.Internal.maxWithoutEvent\">maxWithoutEvent</a>.
 </p>
 </html>"));
 end maxWithoutEvent_d;

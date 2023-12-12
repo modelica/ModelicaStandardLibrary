@@ -14,7 +14,7 @@ equation
           textString="%name")}), Documentation(info="<html>
 <p>
 The absolute sensor partial model provides a single
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>
+<a href=\"modelica:/Modelica.Magnetic.QuasiStatic.FluxTubes.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>
 to measure the complex magnetic potential. Additionally this model contains a base icon and a definition
 of the angular frequency.
 </p></html>"));

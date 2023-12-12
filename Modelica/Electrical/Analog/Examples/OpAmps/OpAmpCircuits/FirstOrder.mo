@@ -34,7 +34,7 @@ equation
   connect(opAmp.out, c.p)
     annotation (Line(points={{10,0},{30,0},{30,50}}, color={0,0,255}));
   annotation (Documentation(info="<html>
-<p>Inverting lowpass filter = first order, based on the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
+<p>Inverting lowpass filter = first order, based on the <a href=\"modelica:/Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimited\">IdealizedOpAmpLimited</a> model.</p>
 <p>Transfer function: <code>vOut/vIn = -k/(1 + s*T)</code></p>
 </html>"),
        Icon(graphics={
