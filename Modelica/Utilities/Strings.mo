@@ -46,6 +46,7 @@ The substring computation has the following properties:
 <li>If the <code>endIndex</code> is negative, it is set to the <code>startIndex</code> and a warning is raised. The returned substring is the single character at position <code>startIndex</code> of <code>string</code>.</li>
 <li>If the <code>endIndex</code> is non-negative and less than the <code>startIndex</code>, the returned substring is empty.</li>
 <li>If the <code>endIndex</code> exceeds the string length, it is set to the string length.</li>
+<li>It is only intended for ASCII encoded strings. For UTF-8 encoded strings the index is seen as bytes, and some index values may break the string inside glyphs or even inside code points.</li>
 </ul>
 <h4>Example</h4>
 <blockquote><pre>
@@ -112,6 +113,9 @@ result = Modelica.Utilities.Types.Compare.Less     // string1 &lt; string2
 Comparison is with regards to lexicographical order,
 e.g., \"a\" &lt; \"b\";
 </p>
+<p>
+It is intended for ASCII, the case-insensitive comparison is not guaranteed to work for UTF-8.
+</p>
 </html>"));
   end compare;
 
@@ -135,6 +139,9 @@ Strings.<strong>isEqual</strong>(string1, string2, caseSensitive=true);
 <p>
 Compare whether two strings are identical,
 optionally ignoring case.
+</p>
+<p>
+It is intended for ASCII, the case-insensitive comparison is not guaranteed to work for UTF-8.
 </p>
 </html>"));
   end isEqual;
@@ -165,6 +172,7 @@ Strings.<strong>isEmpty</strong>(string);
 <p>
 Returns true if the string has no characters or if the string consists
 only of white space characters. Otherwise, false is returned.
+It is intended for ASCII, white space in UTF-8 is more complicated.
 </p>
 
 <h4>Example</h4>
@@ -213,6 +221,9 @@ If the optional argument \"caseSensitive\" is false,
 for the counting it does not matter whether a letter is upper
 or lower case.
 </p>
+<p>
+It is intended for ASCII, the case-insensitive count is not guaranteed to work for UTF-8.
+</p>
 </html>"));
   end count;
 
@@ -257,6 +268,9 @@ Start search at index \"startIndex\" (default = 1).
 If the optional argument \"caseSensitive\" is false, lower
 and upper case are ignored for the search.
 If \"searchString\" is not found, a value of \"0\" is returned.
+</p>
+<p>
+It is intended for ASCII, the case-insensitive count is not guaranteed to work for UTF-8.
 </p>
 </html>"));
   end find;
@@ -306,6 +320,9 @@ if startIndex = 0, search starts at length(string)).
 If the optional argument \"caseSensitive\" is false, lower
 and upper case are ignored for the search.
 If \"searchString\" is not found, a value of \"0\" is returned.
+</p>
+<p>
+It is intended for ASCII, the case-insensitive count is not guaranteed to work for UTF-8.
 </p>
 </html>"));
   end findLast;
@@ -377,6 +394,7 @@ substring by \"replaceString\".
      <strong>false</strong>,
      the search ignores whether letters are upper
      or lower case.</li>
+<li> It is intended for ASCII. The case-insensitive search is not guaranteed to work for UTF-8.</li>
 </ul>
 <p>
 The function returns the \"string\" with the
@@ -451,6 +469,7 @@ s1 = {\"force\", \"angle\", \"pressure\"};
 s2 = Strings.sort(s1);
      -> s2 = {\"angle\", \"force\", \"pressure\"};
 </pre></blockquote>
+<p>It is intended for ASCII, the case-insensitive sort is not guaranteed to work for UTF-8.</p>
 </html>"));
   end sort;
 
@@ -1408,6 +1427,7 @@ have the optional
 input argument <strong>caseSensitive</strong> with default <strong>true</strong>.
 If <strong>false</strong>, the operation is carried out without taking
 into account whether a character is upper or lower case.
+These functions are intended for ASCII strings, case-insensitive comparisons are not guaranteed to work for UTF-8.
 </p>
 </html>"));
 end Strings;

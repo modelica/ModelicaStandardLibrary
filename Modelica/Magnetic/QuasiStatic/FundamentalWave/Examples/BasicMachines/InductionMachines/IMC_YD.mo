@@ -196,8 +196,6 @@ Default machine parameters are used.</p>
                   textStyle={TextStyle.Bold},
           textString="%m phase quasi-static"), Text(
                   extent={{-60,-80},{20,-88}},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
                   textStyle={TextStyle.Bold},
                   textString="%m phase transient")}));
 end IMC_YD;

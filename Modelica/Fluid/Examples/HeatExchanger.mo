@@ -419,7 +419,7 @@ The design flow direction with positive m_flow variables is counterflow.</p>
         "Formulation of energy balance"
         annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
       parameter SI.Temperature T_start "Wall temperature start value";
-      parameter SI.Temperature dT "Start value for port_b.T - port_a.T";
+      parameter SI.TemperatureDifference dT "Start value for port_b.T - port_a.T";
     //Temperatures
       SI.Temperature[n] Tb(each start=T_start+0.5*dT);
       SI.Temperature[n] Ta(each start=T_start-0.5*dT);

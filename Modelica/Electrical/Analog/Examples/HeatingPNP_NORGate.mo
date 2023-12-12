@@ -176,11 +176,7 @@ equation
   connect(C2.n, Gnd6.p)
     annotation (Line(points={{60,32},{60,26}}, color={0,0,255}));
 annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-            -100},{100,100}}), graphics={Text(
-          extent={{-98,100},{-4,72}},
-          textColor={0,0,255},
-          textString="Heating \"PNP NOR\" Gate")}),
-                                  Documentation(info="<html>
+            -100},{100,100}})),   Documentation(info="<html>
 <p>The heating &quot;PNP NOR&quot; gate shows a heat flow always if a transistor is conducting.</p>
 <p>Simulate until T=200 s. Plot V1.v and V2.v and C2.v to see the NOR-functionality. High potential is -6V which means logic &quot;true&quot;. Low potential is 0V which means logic &quot;false&quot;.</p>
 <p>To see which transistor is conducting one can have a look at the temperatures T1.heatPort.T and T2.heatPort.T and the heat flows T1.heatPort.Q_flow and T2.heatPort.Q_flow of the heatports of the transistors T1 and T2.</p>

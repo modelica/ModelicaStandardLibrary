@@ -61,7 +61,7 @@ model IMC_Conveyor "Induction machine with squirrel cage and inverter driving a 
     Modelica.Electrical.Machines.Utilities.ParameterRecords.IM_SquirrelCageData
     imcData "Induction machine data"
     annotation (Placement(transformation(extent={{70,72},{90,92}})));
-  Modelica.Blocks.Math.Gain gainQS(k=fNominal/unitFrequency)
+  Modelica.Blocks.Math.Gain gainQS(k=fNominal)
     annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
   Modelica.Mechanics.Translational.Components.IdealGearR2T idealGearR2TQS(ratio=1/r)
     annotation (Placement(transformation(extent={{32,10},{12,30}})));
@@ -125,7 +125,7 @@ model IMC_Conveyor "Induction machine with squirrel cage and inverter driving a 
       terminalConnection="Y", m=m)
     annotation (Placement(transformation(extent={{60,-74},{40,-54}})));
   Modelica.Blocks.Math.Gain
-                   gain(k=fNominal/unitFrequency)
+                   gain(k=fNominal)
     annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
   Modelica.Mechanics.Translational.Components.IdealGearR2T
                                                   idealGearR2T(ratio=1/r)
@@ -214,8 +214,6 @@ The mechanical load is a constant torque like a conveyor (with regularization ar
           textString="%m phase quasi-static"),
                                             Text(
                   extent={{20,-40},{100,-48}},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
                   textStyle={TextStyle.Bold},
           textString="%m phase transient")}));
 end IMC_Conveyor;
