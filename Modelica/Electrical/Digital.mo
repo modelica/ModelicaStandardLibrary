@@ -1165,7 +1165,7 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
               points={{-58,2},{-34,2},{-34,24.55},{-5.3,24.55}}, color={127,0,127}));
           annotation (experiment(StopTime=400),
             Documentation(info="<html>
-<p>This example is a simple and incomplete test of a single DLATRAM component . After simulation until 400 s plot dLATRAM.addr[1], dLATRAM.addr[2], and dLATRAM.dataOUT[1], dLATRAM.dataOut[2]. The address inputs are  prescribed with all possible combinations of logic values. It can be checked in which cases of address values the output is 'X' or '0'.</p>
+<p>This example is a simple and incomplete test of a single DLATRAM component. After simulation until 400 s plot dLATRAM.addr[1], dLATRAM.addr[2], and dLATRAM.dataOUT[1], dLATRAM.dataOut[2]. The address inputs are  prescribed with all possible combinations of logic values. It can be checked in which cases of address values the output is 'X' or '0'.</p>
 </html>"));
         end RAM;
 
@@ -1312,7 +1312,7 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
                     extent={{90,60},{110,80}})));
           D.Interfaces.DigitalOutput qn annotation (Placement(transformation(
                     extent={{90,-80},{110,-60}})));
-          D.Delay.TransportDelay TD1(delayTime=delayTime,y0=q0)
+          D.Delay.TransportDelay TD1(final delayTime=delayTime, final y0=q0)
               annotation (Placement(transformation(extent={{-60,-64},{-40,-44}})));
         equation
           connect(s, Nor1.x[2]) annotation (Line(points={{-100,70},{-32,70}}, color={127,0,127}));
@@ -1379,7 +1379,7 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
             annotation (Placement(transformation(extent={{90,-80},{110,-60}})));
           D.Interfaces.DigitalInput clk annotation (Placement(transformation(
                     extent={{-110,-10},{-90,10}})));
-          D.Examples.Utilities.RS RS1(delayTime=delayTime,q0=q0)
+          D.Examples.Utilities.RS RS1(final delayTime=delayTime, final q0=q0)
                                             annotation (Placement(transformation(
                     extent={{-10,-40},{70,40}})));
           D.Basic.And And1 annotation (Placement(transformation(extent={{-70,
@@ -1387,11 +1387,9 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
           D.Basic.And And2 annotation (Placement(transformation(extent={{-70,
                       -48},{-30,-8}})));
         equation
-          connect(And2.y, RS1.r)
-                                annotation (Line(
+          connect(And2.y, RS1.r) annotation (Line(
                 points={{-30,-28},{-10,-28}}, color={127,0,127}));
-          connect(And1.y, RS1.s)
-                                annotation (Line(
+          connect(And1.y, RS1.s) annotation (Line(
                 points={{-30,28},{-10,28}}, color={127,0,127}));
           connect(s, And1.x[2]) annotation (Line(
                 points={{-100,70},{-70,70},{-70,36},{-62,36}}, color={127,0,127}));
@@ -1407,7 +1405,7 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
                 points={{70,-28},{80,-28},{80,-70},{100,-70}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>Basing on the RS component RSFF is a RS (set-reset) flipflop composed according the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
+<p>Basing on the <a href=\"modelica://Modelica.Electrical.Digital.Examples.Utilities.RS\">RS</a> component RSFF is a RS (set-reset) flipflop composed according to the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
@@ -1447,8 +1445,8 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
-          parameter SI.Time Tdel=0.01 "Delay time";
-          parameter L QInit=L.'U' "Initial value";
+          parameter SI.Time delayTime=0.01 "Delay time";
+          parameter L q0=L.'U' "Initial value";
           D.Interfaces.DigitalInput d annotation (Placement(transformation(extent=
                      {{-110,60},{-90,80}})));
           D.Interfaces.DigitalOutput q annotation (Placement(transformation(extent=
@@ -1457,7 +1455,7 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
             annotation (Placement(transformation(extent={{90,-80},{110,-60}})));
           D.Interfaces.DigitalInput clk annotation (Placement(transformation(
                     extent={{-110,-10},{-90,10}})));
-          D.Examples.Utilities.RSFF RSFF1 annotation (Placement(transformation(
+          D.Examples.Utilities.RSFF RSFF1(final delayTime=delayTime, final q0=q0) annotation (Placement(transformation(
                     extent={{-10,-40},{70,40}})));
           D.Basic.Not Not1 annotation (Placement(transformation(extent={{-70,
                       -48},{-30,-8}})));
@@ -1479,7 +1477,7 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
             points={{-100,0},{-10,0}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>Basing on the RS component DFF is a D  flipflop composed according the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
+<p>Basing on the <a href=\"modelica://Modelica.Electrical.Digital.Examples.Utilities.RS\">RS</a> component DFF is a D flipflop composed according to the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
@@ -1528,10 +1526,10 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
                     extent={{-110,-10},{-90,10}})));
           D.Interfaces.DigitalInput k annotation (Placement(transformation(extent=
                      {{-110,-80},{-90,-60}})));
-          D.Examples.Utilities.RS RS1(delayTime=delayTime,q0=q0)
+          D.Examples.Utilities.RS RS1(final delayTime=delayTime, final q0=q0)
                                        annotation (Placement(transformation(
                   extent={{30,-24},{70,16}})));
-          D.Examples.Utilities.RS RS2(delayTime=delayTime,q0=q0)
+          D.Examples.Utilities.RS RS2(final delayTime=delayTime, final q0=q0)
                                        annotation (Placement(transformation(
                   extent={{-44,-20},{-4,20}})));
           D.Basic.And And1(n=3) annotation (Placement(transformation(extent={{-70,
@@ -1575,7 +1573,7 @@ sum   <strong>Adder4</strong>.c_out  <strong>Adder4.s</strong>  <strong>Adder3.s
                     -70}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>Basing on the RS component JKFF is a J-K-flipflop composed according the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
+<p>Based on the <a href=\"modelica://Modelica.Electrical.Digital.Examples.Utilities.RS\">RS</a> component JKFF is a J-K-flipflop composed according to the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
