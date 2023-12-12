@@ -245,7 +245,10 @@ Zeunerstra&szlig;e 38<br />
 <h4>Acknowledgements</h4>
 
 <ul>
-<li>The development of this library was done within the European ITEA2 projects EUROSYSLIB and MODELISAR.</li>
+<li>The development of this library was done within the ITEA research projects
+<a href=\"https://itea4.org/project/eurosyslib.html\">EUROSYSLIB</a> and
+<a href=\"https://itea4.org/project/modelisar.html\">MODELISAR</a>.
+</li>
 <li>For his contribution we thank Mr. Jonathan Gerbet.</li>
 </ul>
 </html>"));

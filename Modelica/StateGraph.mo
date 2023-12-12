@@ -590,7 +590,7 @@ based on the following references:
      </dd>
 
 <dt>Malmheden M., Elmqvist H., Mattsson S.E., Henrisson D., Otter M. (2008):</dt>
-<dd> <a href=\"https://www.modelica.org/events/modelica2008/Proceedings/sessions/session3a3.pdf\">
+<dd> <a href=\"https://www.modelica.org/events/conference2008/sessions/session3a3.pdf\">
       ModeGraph - A Modelica Library for Embedded Control based on Mode-Automata</a>.
       Modelica'2008 Conference, March 3-4, 2008.<br>&nbsp;
      </dd>
@@ -601,7 +601,7 @@ based on the following references:
      </dd>
 
 <dt>Mosterman P., Otter M., Elmqvist H. (1998):</dt>
-<dd><a href=\"https://www.modelica.org/publications/papers/scsc98fp.pdf\">
+<dd><a href=\"https://www.modelica.org/papers/scsc98fp.pdf\">
      Modeling Petri Nets as Local Constraint Equations for
      Hybrid Systems using Modelica</a>.
      SCSC'98, Reno, Nevada, USA,
@@ -609,7 +609,7 @@ based on the following references:
      </dd>
 
 <dt>Otter M., Malmheden M., Elmqvist H., Mattsson S.E., Johnsson C. (2009):</dt>
-<dd> <a href=\"https://www.modelica.org/events/modelica2009\">
+<dd> <a href=\"https://ep.liu.se/ecp/043/041/ecp09430108.pdf\">
      A New Formalism for Modeling of Reactive and Hybrid Systems</a>.
       Modelica'2009 Conference, Como, Italy, Sept. 20-22, 2009.
      </dd>

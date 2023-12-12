@@ -63,15 +63,12 @@ equation
     annotation (Line(points={{20,-40},{40,-40}}, color={0,0,255}));
   connect(constantVoltage2.p,switch2. p) annotation (Line(points={{-20,-50},{
           -20,-40},{0,-40}}, color={0,0,255}));
-  connect(booleanPulse.y, switch1.control) annotation (Line(points={{-59,-20},
-          {-40,-20},{-40,60},{10,60},{10,47}}, color={255,0,255}));
-  connect(booleanPulse.y, switch2.control) annotation (Line(points={{-59,-20},
-          {10,-20},{10,-30}}, color={255,0,255}));
+  connect(booleanPulse.y, switch1.control) annotation (Line(points={{-59,-20},{
+          -40,-20},{-40,60},{10,60},{10,52}},  color={255,0,255}));
+  connect(booleanPulse.y, switch2.control) annotation (Line(points={{-59,-20},{
+          10,-20},{10,-29}},  color={255,0,255}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}), graphics={Text(
-          extent={{-100,80},{100,60}},
-          textColor={0,0,255},
-          textString="Compare voltage and current of inductor1 and inductor2")}),
+            -100},{100,100}})),
     experiment(
       StopTime=2,
       Interval=0.00025,
