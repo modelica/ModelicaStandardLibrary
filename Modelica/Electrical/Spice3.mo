@@ -245,7 +245,10 @@ Zeunerstra&szlig;e 38<br />
 <h4>Acknowledgements</h4>
 
 <ul>
-<li>The development of this library was done within the European ITEA2 projects EUROSYSLIB and MODELISAR.</li>
+<li>The development of this library was done within the ITEA research projects
+<a href=\"https://itea4.org/project/eurosyslib.html\">EUROSYSLIB</a> and
+<a href=\"https://itea4.org/project/modelisar.html\">MODELISAR</a>.
+</li>
 <li>For his contribution we thank Mr. Jonathan Gerbet.</li>
 </ul>
 </html>"));
@@ -4351,7 +4354,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
       SI.CurrentSlope di "di/dt";
       flow SI.Voltage v;
       annotation (Icon(graphics={Polygon(
-              points={{0,0},{0,100},{100,0},{0,-100},{0,-100},{0,0}},
+              points={{0,100},{100,0},{0,-100},{0,100}},
               lineColor={170,85,255},
               fillColor={170,85,255},
               fillPattern=FillPattern.Solid)}));
@@ -4363,7 +4366,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
       SI.CurrentSlope di "di/dt";
       flow SI.Voltage v;
       annotation (Icon(graphics={Polygon(
-              points={{-100,0},{0,100},{0,0},{0,-100},{-2,-98},{-100,0}},
+              points={{-100,0},{0,100},{0,-100},{-100,0}},
               lineColor={170,85,255},
               fillColor={170,85,255},
               fillPattern=FillPattern.Solid)}));

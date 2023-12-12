@@ -2316,7 +2316,7 @@ is given to compare the approximation.
         fixed=true,
         stateSelect=StateSelect.prefer),
       X(start={0.8,0.2}));
-    Real m1(quantity=Medium1.mediumName, start=1.0);
+    SI.Mass m1(start=1.0) "Mass of volume 1";
     SI.InternalEnergy U1;
     Medium1.SpecificHeatCapacity cp1=Medium1.specificHeatCapacityCp(medium1.state);
     Medium1.DynamicViscosity eta1=Medium1.dynamicViscosity(medium1.state);
@@ -2332,7 +2332,7 @@ is given to compare the approximation.
         fixed=true,
         stateSelect=StateSelect.prefer),
       X(start={0.1,0.1,0.1,0.2,0.2,0.3}));
-    Real m2(quantity=Medium2.mediumName, start=1.0);
+    SI.Mass m2(start=1.0) "Mass of volume 2";
     SI.InternalEnergy U2;
     Medium2.SpecificHeatCapacity cp2=Medium2.specificHeatCapacityCp(medium2.state);
     Medium2.DynamicViscosity eta2=Medium2.dynamicViscosity(medium2.state);

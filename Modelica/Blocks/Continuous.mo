@@ -598,7 +598,7 @@ This is discussed in the description of package
             textString="T=%T")}));
   end PI;
 
-  block PID "PID-controller in additive description form"
+  block PID "PID controller in additive description form"
     import Modelica.Blocks.Types.Init;
     extends Interfaces.SISO;
 
@@ -689,8 +689,8 @@ This is discussed in the description of package
             textString="Ti=%Ti")}),
       Documentation(info="<html>
 <p>
-This is the text-book version of a PID-controller.
-For a more practically useful PID-controller, use
+This is the text-book version of a PID controller.
+For a more practically useful PID controller, use
 block LimPID.
 </p>
 
@@ -765,7 +765,7 @@ to compute u by an algebraic equation.
       "Control error (set point - measurement)";
     parameter .Modelica.Blocks.Types.SimpleController controllerType=
            .Modelica.Blocks.Types.SimpleController.PID "Type of controller";
-    parameter Real k(min=0) = 1 "Gain of controller";
+    parameter Real k = 1 "Gain of controller, must be non-zero";
     parameter SI.Time Ti(min=Modelica.Constants.small)=0.5
       "Time constant of Integrator block" annotation (Dialog(enable=
             controllerType == .Modelica.Blocks.Types.SimpleController.PI or
@@ -881,6 +881,7 @@ to compute u by an algebraic equation.
       gainPID.y = y_start;
     end if;
   equation
+    assert(abs(k) >= Modelica.Constants.small, "Controller gain must be non-zero.");
     if initType == Init.InitialOutput and (y_start < yMin or y_start > yMax) then
         Modelica.Utilities.Streams.error("LimPID: Start value y_start (=" + String(y_start) +
            ") is outside of the limits of yMin (=" + String(yMin) +") and yMax (=" + String(yMax) + ")");
@@ -1011,18 +1012,18 @@ together) and using the following strategy:
 
 <ol>
 <li> Set very large limits, e.g., yMax = Modelica.Constants.inf</li>
-<li> Select a <strong>P</strong>-controller and manually enlarge parameter <strong>k</strong>
+<li> Select a <strong>P</strong> controller and manually enlarge parameter <strong>k</strong>
      (the total gain of the controller) until the closed-loop response
      cannot be improved any more.</li>
-<li> Select a <strong>PI</strong>-controller and manually adjust parameters
+<li> Select a <strong>PI</strong> controller and manually adjust parameters
      <strong>k</strong> and <strong>Ti</strong> (the time constant of the integrator).
      The first value of Ti can be selected, such that it is in the
      order of the time constant of the oscillations occurring with
-     the P-controller. If, e.g., vibrations in the order of T=10 ms
+     the P controller. If, e.g., vibrations in the order of T=10 ms
      occur in the previous step, start with Ti=0.01 s.</li>
 <li> If you want to make the reaction of the control loop faster
      (but probably less robust against disturbances and measurement noise)
-     select a <strong>PID</strong>-Controller and manually adjust parameters
+     select a <strong>PID</strong> controller and manually adjust parameters
      <strong>k</strong>, <strong>Ti</strong>, <strong>Td</strong> (time constant of derivative block).</li>
 <li> Set the limits yMax and yMin according to your specification.</li>
 <li> Perform simulations such that the output of the PID controller
@@ -1968,8 +1969,7 @@ The filters are implemented in the following, reliable way:
 
 <p>
 The development of this block was partially funded by BMBF within the
-     <a href=\"http://www.eurosyslib.com/\">ITEA2 EUROSYSLIB</a>
-      project.
+ITEA <a href=\"https://itea4.org/project/eurosyslib.html\">EUROSYSLIB</a> research project.
 </p>
 
 </html>"));

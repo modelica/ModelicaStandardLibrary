@@ -71,7 +71,7 @@ model SMPM_Braking
         origin={-10,30})));
   Analog.Basic.VariableResistor variableResistor
     annotation (Placement(transformation(extent={{0,50},{-20,70}})));
-  Blocks.Math.Gain          gain(k=unitK*R/wNominal)
+  Blocks.Math.Gain          gain(k=R/wNominal)
                                  annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,

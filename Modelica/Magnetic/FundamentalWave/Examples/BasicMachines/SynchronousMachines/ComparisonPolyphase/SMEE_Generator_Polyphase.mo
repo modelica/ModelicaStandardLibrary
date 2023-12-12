@@ -356,14 +356,10 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
                 fillPattern=FillPattern.Solid,
                 pattern=LinePattern.Dash),Text(
                 extent={{10,16},{70,8}},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textStyle={TextStyle.Bold},
                 textString="%m-phase machine
 "),     Text(
           extent={{10,-52},{70,-60}},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textStyle={TextStyle.Bold},
                 textString="Three-phase machine
 "),     Rectangle(

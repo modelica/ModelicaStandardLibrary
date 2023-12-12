@@ -3,11 +3,11 @@ model ArmatureStroke
   "Armature stroke of both moving coil actuator models after a voltage step at time t=0"
 
   extends Modelica.Icons.Example;
-
+  constant Modelica.Units.SI.Current steadyStateCurrent = 1.5;
   Modelica.Electrical.Analog.Basic.Ground pmGround annotation (Placement(
         transformation(extent={{-80,-70},{-60,-50}})));
   Modelica.Electrical.Analog.Sources.StepVoltage pmSource(startTime=0, V=
-        pmActuator.R*1.5) "Steady state current 1.5A" annotation (
+        pmActuator.R*steadyStateCurrent) annotation (
       Placement(transformation(
         origin={-70,-30},
         extent={{-10,10},{10,-10}},
@@ -26,7 +26,7 @@ model ArmatureStroke
   Modelica.Electrical.Analog.Basic.Ground cGround annotation (Placement(
         transformation(extent={{-80,0},{-60,20}})));
   Modelica.Electrical.Analog.Sources.StepVoltage cSource(startTime=0, V=
-        cActuator.R*1.5) "Steady state current 1.5A" annotation (
+        cActuator.R*steadyStateCurrent) annotation (
       Placement(transformation(
         origin={-70,40},
         extent={{-10,10},{10,-10}},
