@@ -24,7 +24,7 @@ model Thyristor "Simple Thyristor Model"
   SI.Voltage vControl(start=0);
   SI.Voltage vContot;
   SI.Voltage vConmain;
-  SI.Voltage vRef = 0.65;
+  parameter SI.Voltage vRef = 0.65;
 
 public
   Modelica.Electrical.Analog.Interfaces.PositivePin Anode annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
