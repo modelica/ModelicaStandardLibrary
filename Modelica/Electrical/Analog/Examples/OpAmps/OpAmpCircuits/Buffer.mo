@@ -48,7 +48,5 @@ equation
         Text(
           extent={{-100,10},{100,-10}},
           textColor={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.None,
           textString="non-inverting")}));
 end Buffer;
