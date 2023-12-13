@@ -32,8 +32,8 @@ equation
   P2 = (mat.M*mat.r*(2/pi*atan(mat.q*H2)+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*H2)+exp(-mat.p2*H2))));
   P3 = (mat.M*mat.r*(2/pi*atan(mat.q*H3)+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*H3)+exp(-mat.p2*H3))));
 
-  hystR = -Js + unitT*(P1*P2-P3*P4) + mu0*Hstat - eps/2;
-  hystF =  Js + unitT*(P4*P2-P3*P1) + mu0*Hstat + eps/2;
+  hystR = -Js + (P1*P2-P3*P4) + mu0*Hstat - eps/2;
+  hystF =  Js + (P4*P2-P3*P1) + mu0*Hstat + eps/2;
 
   annotation (defaultComponentName="core", Icon(graphics={Text(
           extent={{40,0},{40,-30}},
