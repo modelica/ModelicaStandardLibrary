@@ -5,7 +5,7 @@ record BaseData "Base Data Record"
     "Hysteresis region between -Hsat .. Hsat";
   parameter Real M(final unit="T")=0.95
     "Related to saturation value of magnetization";
-  parameter Real r(unit="T-(1/2)")=0.55
+  parameter Real r(final unit="T-(1/2)")=0.55
     "Proportion of the straight region in the vicinity of Hc";
   parameter Real q(final unit="m/A")=2.4e-1
     "Slope of the straight region in the vicinity of Hc";
