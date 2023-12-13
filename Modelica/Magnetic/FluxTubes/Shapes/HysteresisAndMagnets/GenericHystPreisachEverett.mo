@@ -170,11 +170,10 @@ equation
   H3= -alpha-mat.Hc;
   H4= beta-mat.Hc;
 
-  E = unitT*
-      ((mat.M*mat.r*(2/pi*atan(mat.q*H1)+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*H1)+exp(-mat.p2*H1))))*
-      (mat.M*mat.r*(2/pi*atan(mat.q*H2)+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*H2)+exp(-mat.p2*H2))))-
-      (mat.M*mat.r*(2/pi*atan(mat.q*H3)+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*H3)+exp(-mat.p2*H3))))*
-      (mat.M*mat.r*(2/pi*atan(mat.q*H4)+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*H4)+exp(-mat.p2*H4)))));
+  E = ((mat.M*mat.r*(2/pi*atan(mat.q*H1)+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*H1)+exp(-mat.p2*H1))))*
+       (mat.M*mat.r*(2/pi*atan(mat.q*H2)+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*H2)+exp(-mat.p2*H2))))-
+       (mat.M*mat.r*(2/pi*atan(mat.q*H3)+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*H3)+exp(-mat.p2*H3))))*
+       (mat.M*mat.r*(2/pi*atan(mat.q*H4)+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*H4)+exp(-mat.p2*H4)))));
 
   der(J) = (if init then 0.5 else 1) * der(E);
   B = J + mu0 * Hstat;
