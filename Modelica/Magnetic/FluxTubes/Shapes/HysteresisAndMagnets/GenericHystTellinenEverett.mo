@@ -14,13 +14,13 @@ protected
     "Saturation polarization";
   //final parameter Real mu0 = mat.K * mu_0;
   parameter SI.MagneticFluxDensity eps=mat.M/1000;
-  parameter Real P1 = (mat.M*mat.r*(2/pi*atan(mat.q*(mat.Hsat-mat.Hc))+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*(mat.Hsat-mat.Hc))+exp(-mat.p2*(mat.Hsat-mat.Hc)))));
-  parameter Real P4 = (mat.M*mat.r*(2/pi*atan(mat.q*(-mat.Hsat-mat.Hc))+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*(-mat.Hsat-mat.Hc))+exp(-mat.p2*(-mat.Hsat-mat.Hc)))));
+  parameter Real P1(unit="T(1/2)") = (mat.M*mat.r*(2/pi*atan(mat.q*(mat.Hsat-mat.Hc))+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*(mat.Hsat-mat.Hc))+exp(-mat.p2*(mat.Hsat-mat.Hc)))));
+  parameter Real P4(unit="T(1/2)") = (mat.M*mat.r*(2/pi*atan(mat.q*(-mat.Hsat-mat.Hc))+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*(-mat.Hsat-mat.Hc))+exp(-mat.p2*(-mat.Hsat-mat.Hc)))));
 
   SI.MagneticFieldStrength H2;
   SI.MagneticFieldStrength H3;
-  Real P2;
-  Real P3;
+  Real P2(unit="T(1/2)");
+  Real P3(unit="T(1/2)");
   Real H_lim;
   constant SI.MagneticFluxDensity unitT = 1;
 
