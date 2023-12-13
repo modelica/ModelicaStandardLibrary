@@ -4,7 +4,6 @@ abscissa[1]
 abscissa[2]
 abscissa[3]
 length
-dimlesslength
 Pr[1]
 Pr[2]
 Pr[3]

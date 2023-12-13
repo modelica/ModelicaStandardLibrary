@@ -346,8 +346,6 @@ Simulate for 2 seconds and plot (versus time):
                   textStyle={TextStyle.Bold},
           textString="%m phase quasi-static"),               Text(
                   extent={{30,-52},{110,-60}},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
                   textStyle={TextStyle.Bold},
                   textString="%m phase transient")}));
 end SMR_CurrentSource;

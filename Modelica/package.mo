@@ -3925,11 +3925,10 @@ the following new language elements (compared to Modelica Specification 3.1):
 </ul>
 
 <p>
-A large part of the new classes have been developed with
+A large part of the new classes has been developed with
 partial financial support by
 BMBF (BMBF F&ouml;rderkennzeichen: 01IS07022F)
-within the <a href=\"http://www.itea2.org\">ITEA2</a> project
-EUROSYSLIB.
+within the ITEA <a href=\"https://itea4.org/project/eurosyslib.html\">EUROSYSLIB</a> research project.
 We highly appreciate this funding.
 </p>
 
