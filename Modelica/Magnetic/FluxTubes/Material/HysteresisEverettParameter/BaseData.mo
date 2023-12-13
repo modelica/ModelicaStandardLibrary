@@ -3,7 +3,7 @@ record BaseData "Base Data Record"
   extends Modelica.Icons.Record;
   parameter SI.MagneticFieldStrength Hsat=100
     "Hysteresis region between -Hsat .. Hsat";
-  parameter Real M(unit="T")=0.95
+  parameter Real M(final unit="T")=0.95
     "Related to saturation value of magnetization";
   parameter Real r(unit="T-(1/2)")=0.55
     "Proportion of the straight region in the vicinity of Hc";
