@@ -31,7 +31,7 @@ utilized.
   <strong>import</strong> Modelica.Mechanics.MultiBody.Types.ResolveInFrameB;
   ...
   <strong>extends</strong> Interfaces.PartialFrameResolveConditional(
-    final enableFrameResolve = resolveInFrame==ResolveInFrameB.frame_resolve);
+    <strong>final</strong> enableFrameResolve = resolveInFrame==ResolveInFrameB.frame_resolve);
   <strong>parameter</strong> ResolveInFrameB resolveInFrame = ResolveInFrameB.world
     \"Frame in which input u is resolved\";
   Modelica.Blocks.Interfaces.RealInput u[3]
